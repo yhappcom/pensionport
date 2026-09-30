@@ -3,7 +3,7 @@
 - Video ID: `siC58JGNWh0`
 - 길이: 10:01
 - 유형: 롱폼 / 상품지식 / ELS
-- 게시일: **미확정**
+- 게시일: **2020-05-28** (YouTube 원본 메타데이터 확인)
 - canonical sequence: **미부여**
 - 상태: `source_limited_pending_chronology`
 
@@ -31,4 +31,4 @@ ETF·펀드·채권과 마찬가지로 복잡한 상품은 한 줄 추천이 아
 - 금융감독원 DART ELS 투자설명서
 
 ## chronology note
-게시일 확정 전 canonical count에 포함하지 않는다.
+게시일은 2020-05-28로 확정했다. 다만 2020-02~05 사이 다른 미처리 영상의 전체 순서를 확정한 뒤 canonical count에 편입한다.
