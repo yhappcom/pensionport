@@ -23,15 +23,15 @@
     "newly_canonical_processed_videos": 0,
     "content_analyzed_videos": 3,
     "candidate_keys": [
-      "tdf_old",
-      "isa_old",
-      "national_pension_old"
+      "els_1_old",
+      "els_2_old",
+      "promissory_note_old"
     ],
     "canonical_count_unchanged": true,
     "completed_at": "2026-10-01"
   },
   "updated_at": "2026-10-01",
-  "pending_chronology_analyses": 3,
+  "pending_chronology_analyses": 6,
   "pending_candidates": [
     {
       "key": "tdf_old",
@@ -47,6 +47,21 @@
       "key": "national_pension_old",
       "video_id": null,
       "status": "content_analyzed_pending_identity_and_chronology"
+    },
+    {
+      "key": "els_1_old",
+      "video_id": "SGTzm6JgQgU",
+      "status": "source_limited_pending_chronology"
+    },
+    {
+      "key": "els_2_old",
+      "video_id": "siC58JGNWh0",
+      "status": "source_limited_pending_chronology"
+    },
+    {
+      "key": "promissory_note_old",
+      "video_id": "5iUZ1ywf3s8",
+      "status": "content_analyzed_pending_chronology"
     }
   ]
 }
