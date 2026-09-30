@@ -3,7 +3,7 @@
 - Video ID: `SGTzm6JgQgU`
 - 길이: 10:33
 - 유형: 롱폼 / 상품지식 / ELS
-- 게시일: **미확정**
+- 게시일: **2020-05-23** (YouTube 원본 메타데이터 확인)
 - canonical sequence: **미부여**
 - 상태: `source_limited_pending_chronology`
 
@@ -31,4 +31,4 @@ DoLearn에 보존된 박곰희TV 원본 연결 정보로 제목·Video ID·길�
 - 금융감독원 DART ELS 투자설명서
 
 ## chronology note
-정확한 게시일 확보 전 canonical sequence를 부여하지 않는다.
+게시일은 2020-05-23으로 확정했다. 다만 2020-02~05 사이 다른 미처리 영상의 전체 순서를 확정한 뒤 canonical sequence를 부여한다.
