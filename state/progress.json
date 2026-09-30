@@ -1,6 +1,9 @@
 {
   "source_channel": "https://youtube.com/@gomhee",
+  "queue_basis": "currently_visible_youtube_long_form_list",
   "processing_order": "oldest_to_newest",
+  "require_absolute_first_video_proof": false,
+  "missing_or_unavailable_video_policy": "mark_gap_do_not_guess",
   "primary_queue": "long_form",
   "shorts_queue": "separate",
   "max_videos_per_hour": 3,
