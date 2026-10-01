@@ -9,29 +9,39 @@
   "shorts_queue": "separate",
   "max_videos_per_hour": 20,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 32,
+  "processed_videos": 40,
   "fully_sourced_videos": 3,
-  "partial_source_videos": 29,
-  "last_processed_video_id": "aPLbUNghGNc",
+  "partial_source_videos": 37,
+  "last_processed_video_id": "kvK9gjP0Fto",
   "last_processed_published_at": null,
-  "next_synthesis_at": 40,
-  "synthesis_version": 3,
+  "next_synthesis_at": 50,
+  "synthesis_version": 4,
   "synthesis_revision": 0,
-  "chronology_repairs": 4,
+  "chronology_repairs": 6,
   "last_chronology_repair": "Inserted verified 2020-02-13 RQUQTKZjgBE as sequence 14; shifted former 14-19 to 15-20",
   "last_batch": {
-    "batch_type": "forward_progress_with_older_video_discovery",
-    "newly_processed_videos": 2,
+    "batch_type": "high_throughput_pension_batch",
+    "newly_processed_videos": 7,
     "video_ids": [
-      "qFz35bAm3s0",
-      "aPLbUNghGNc"
+      "vEiYdLFc5R8",
+      "INKy5GA3mY8",
+      "IYKSSmrhlp8",
+      "LlyFPeXrwPU",
+      "tGrIBDWBExM",
+      "iy8m_M3aaz4",
+      "kvK9gjP0Fto"
     ],
     "sequences": [
-      31,
-      32
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
     ],
-    "synthesis_triggered": false,
-    "chronology_note": "qFz35bAm3s0 has verified 2020-03-01 date and requires later chronology repair",
+    "synthesis_triggered": true,
+    "synthesis_file": "synthesis/batch_004_031-040.md",
     "completed_at": "2026-10-01"
   },
   "updated_at": "2026-10-01",
@@ -43,7 +53,7 @@
       "status": "content_analyzed_pending_identity_and_date"
     }
   ],
-  "last_processed_published_at_note": "unverified; public by 2021-01-21",
+  "last_processed_published_at_note": "exact date unverified; provisional chronology",
   "processing_mode": "high_throughput_batch",
   "max_videos_per_batch": 20,
   "quality_gate": "mandatory_full_extraction_selective_deep_verification",
