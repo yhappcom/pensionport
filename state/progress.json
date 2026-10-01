@@ -1,67 +1,58 @@
 {
   "source_channel": "https://youtube.com/@gomhee",
   "queue_basis": "currently_visible_youtube_long_form_list",
-  "processing_order": "oldest_to_newest",
+  "processing_order": "oldest_to_newest_currently_verifiable_queue",
   "require_absolute_first_video_proof": false,
-  "missing_or_unavailable_video_policy": "mark_gap_do_not_guess",
+  "block_on_possible_missing_older_video": false,
+  "missing_or_unavailable_video_policy": "mark_gap_do_not_guess_and_continue",
   "primary_queue": "long_form",
   "shorts_queue": "separate",
   "max_videos_per_hour": 3,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 13,
+  "processed_videos": 16,
   "fully_sourced_videos": 3,
-  "partial_source_videos": 10,
-  "last_processed_video_id": "_gsX0d_f9ew",
-  "last_processed_published_at": "2020-02-03",
+  "partial_source_videos": 13,
+  "last_processed_video_id": "siC58JGNWh0",
+  "last_processed_published_at": "2020-05-28",
   "next_synthesis_at": 20,
   "synthesis_version": 1,
   "synthesis_revision": 1,
   "chronology_repairs": 2,
   "last_chronology_repair": "Inserted 2019-10-20 REIT and 2020-01-14/19 bond series; rebuilt canonical sequences 1-13 and corrected Batch 001",
   "last_batch": {
-    "batch_type": "manual_chronology_verification",
-    "newly_canonical_processed_videos": 0,
-    "dates_verified": 3,
-    "candidate_keys": [
-      "isa_old",
-      "els_1_old",
-      "els_2_old"
+    "batch_type": "forward_progress_canonical",
+    "newly_canonical_processed_videos": 3,
+    "sequences": [
+      14,
+      15,
+      16
     ],
-    "canonical_count_unchanged": true,
+    "video_ids": [
+      "X_k682dMXoM",
+      "SGTzm6JgQgU",
+      "siC58JGNWh0"
+    ],
+    "possible_gap_before_or_between": true,
+    "gap_policy": "record_and_repair_if_discovered_do_not_block",
     "completed_at": "2026-10-01"
   },
   "updated_at": "2026-10-01",
-  "pending_chronology_analyses": 6,
+  "pending_chronology_analyses": 3,
   "pending_candidates": [
     {
       "key": "tdf_old",
       "video_id": "DZhUylpuGIg",
-      "status": "content_analyzed_pending_chronology"
-    },
-    {
-      "key": "isa_old",
-      "video_id": "X_k682dMXoM",
-      "status": "date_verified_2020-02-23_pending_sequence"
+      "status": "content_analyzed_pending_date"
     },
     {
       "key": "national_pension_old",
       "video_id": null,
-      "status": "content_analyzed_pending_identity_and_chronology"
-    },
-    {
-      "key": "els_1_old",
-      "video_id": "SGTzm6JgQgU",
-      "status": "date_verified_2020-05-23_pending_sequence"
-    },
-    {
-      "key": "els_2_old",
-      "video_id": "siC58JGNWh0",
-      "status": "date_verified_2020-05-28_pending_sequence"
+      "status": "content_analyzed_pending_identity_and_date"
     },
     {
       "key": "promissory_note_old",
       "video_id": "5iUZ1ywf3s8",
-      "status": "content_analyzed_pending_chronology"
+      "status": "content_analyzed_pending_date"
     }
   ]
 }
