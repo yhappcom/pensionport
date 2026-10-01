@@ -9,42 +9,27 @@
   "shorts_queue": "separate",
   "max_videos_per_hour": 3,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 19,
+  "processed_videos": 20,
   "fully_sourced_videos": 3,
-  "partial_source_videos": 16,
+  "partial_source_videos": 17,
   "last_processed_video_id": "QBTq_bu56WU",
   "last_processed_published_at": "2020-06-22",
-  "next_synthesis_at": 20,
-  "synthesis_version": 1,
-  "synthesis_revision": 1,
-  "chronology_repairs": 3,
-  "last_chronology_repair": "Inserted 2020-04-19 domestic-vs-US ETF and 2020-05-13 futures ETF before ELS series; ELS moved to 17/18; added 2020-06-22 TR ETF as 19",
+  "next_synthesis_at": 30,
+  "synthesis_version": 2,
+  "synthesis_revision": 0,
+  "chronology_repairs": 4,
+  "last_chronology_repair": "Inserted verified 2020-02-13 RQUQTKZjgBE as sequence 14; shifted former 14-19 to 15-20",
   "last_batch": {
-    "batch_type": "manual_chronology_repair_and_forward_progress",
-    "newly_processed_videos": 3,
+    "batch_type": "chronology_repair_and_20_video_synthesis",
+    "newly_canonical_processed_videos": 1,
     "video_ids": [
-      "XlH7yEh3Ym8",
-      "E3tZ6QIpSlg",
-      "QBTq_bu56WU"
+      "RQUQTKZjgBE"
     ],
-    "sequences": [
-      15,
-      16,
-      19
-    ],
-    "resequenced_existing_videos": [
-      {
-        "video_id": "SGTzm6JgQgU",
-        "from": 15,
-        "to": 17
-      },
-      {
-        "video_id": "siC58JGNWh0",
-        "from": 16,
-        "to": 18
-      }
-    ],
-    "synthesis_triggered": false,
+    "inserted_sequence": 14,
+    "resequenced_existing_range": "14-19 -> 15-20",
+    "canonical_processed_videos": 20,
+    "synthesis_triggered": true,
+    "synthesis_file": "synthesis/batch_002_011-020.md",
     "completed_at": "2026-10-01"
   },
   "updated_at": "2026-10-01",
