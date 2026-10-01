@@ -20,28 +20,30 @@
   "chronology_repairs": 2,
   "last_chronology_repair": "Inserted 2019-10-20 REIT and 2020-01-14/19 bond series; rebuilt canonical sequences 1-13 and corrected Batch 001",
   "last_batch": {
-    "batch_type": "forward_progress_canonical",
-    "newly_canonical_processed_videos": 3,
-    "sequences": [
-      14,
-      15,
-      16
+    "batch_type": "manual_pending_chronology_and_identity_repair",
+    "newly_canonical_processed_videos": 0,
+    "content_analyzed_videos": 3,
+    "candidate_keys": [
+      "tax_2020",
+      "silver_old",
+      "cma_diary_1"
     ],
-    "video_ids": [
-      "X_k682dMXoM",
-      "SGTzm6JgQgU",
-      "siC58JGNWh0"
-    ],
-    "possible_gap_before_or_between": true,
-    "gap_policy": "record_and_repair_if_discovered_do_not_block",
+    "identity_corrections": 1,
+    "corrected_candidate": "national_pension_old",
+    "canonical_count_unchanged": true,
     "completed_at": "2026-10-01"
   },
   "updated_at": "2026-10-01",
-  "pending_chronology_analyses": 3,
+  "pending_chronology_analyses": 6,
   "pending_candidates": [
     {
       "key": "tdf_old",
       "video_id": "DZhUylpuGIg",
+      "status": "content_analyzed_pending_date"
+    },
+    {
+      "key": "promissory_note_old",
+      "video_id": "5iUZ1ywf3s8",
       "status": "content_analyzed_pending_date"
     },
     {
@@ -50,9 +52,19 @@
       "status": "content_analyzed_pending_identity_and_date"
     },
     {
-      "key": "promissory_note_old",
-      "video_id": "5iUZ1ywf3s8",
-      "status": "content_analyzed_pending_date"
+      "key": "tax_2020",
+      "video_id": "fkBKf67l3uo",
+      "status": "content_analyzed_pending_date_current_law_verified"
+    },
+    {
+      "key": "silver_old",
+      "video_id": "clf1y4BwGkU",
+      "status": "source_limited_pending_date"
+    },
+    {
+      "key": "cma_diary_1",
+      "video_id": "elOgUetuk-8",
+      "status": "primary_outline_pending_date"
     }
   ]
 }
