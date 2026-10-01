@@ -9,42 +9,37 @@
   "shorts_queue": "separate",
   "max_videos_per_hour": 3,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 20,
+  "processed_videos": 23,
   "fully_sourced_videos": 3,
-  "partial_source_videos": 17,
-  "last_processed_video_id": "QBTq_bu56WU",
-  "last_processed_published_at": "2020-06-22",
+  "partial_source_videos": 20,
+  "last_processed_video_id": "elOgUetuk-8",
+  "last_processed_published_at": null,
   "next_synthesis_at": 30,
   "synthesis_version": 2,
   "synthesis_revision": 0,
   "chronology_repairs": 4,
   "last_chronology_repair": "Inserted verified 2020-02-13 RQUQTKZjgBE as sequence 14; shifted former 14-19 to 15-20",
   "last_batch": {
-    "batch_type": "chronology_repair_and_20_video_synthesis",
-    "newly_canonical_processed_videos": 1,
+    "batch_type": "forward_progress_provisional_chronology",
+    "newly_processed_videos": 3,
     "video_ids": [
-      "RQUQTKZjgBE"
+      "DZhUylpuGIg",
+      "5iUZ1ywf3s8",
+      "elOgUetuk-8"
     ],
-    "inserted_sequence": 14,
-    "resequenced_existing_range": "14-19 -> 15-20",
-    "canonical_processed_videos": 20,
-    "synthesis_triggered": true,
-    "synthesis_file": "synthesis/batch_002_011-020.md",
+    "sequences": [
+      21,
+      22,
+      23
+    ],
+    "publication_dates_verified": false,
+    "policy": "process source-backed long-form now; chronology repair later",
+    "synthesis_triggered": false,
     "completed_at": "2026-10-01"
   },
   "updated_at": "2026-10-01",
-  "pending_chronology_analyses": 6,
+  "pending_chronology_analyses": 3,
   "pending_candidates": [
-    {
-      "key": "tdf_old",
-      "video_id": "DZhUylpuGIg",
-      "status": "content_analyzed_pending_date"
-    },
-    {
-      "key": "promissory_note_old",
-      "video_id": "5iUZ1ywf3s8",
-      "status": "content_analyzed_pending_date"
-    },
     {
       "key": "national_pension_old",
       "video_id": null,
@@ -59,11 +54,7 @@
       "key": "silver_old",
       "video_id": "clf1y4BwGkU",
       "status": "source_limited_pending_date"
-    },
-    {
-      "key": "cma_diary_1",
-      "video_id": "elOgUetuk-8",
-      "status": "primary_outline_pending_date"
     }
-  ]
+  ],
+  "last_processed_published_at_note": "unverified; provisional processing order"
 }
