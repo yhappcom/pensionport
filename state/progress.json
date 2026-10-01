@@ -9,30 +9,32 @@
   "shorts_queue": "separate",
   "max_videos_per_hour": 20,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 42,
-  "fully_sourced_videos": 5,
-  "partial_source_videos": 37,
-  "last_processed_video_id": "EjrCfxPvHfI",
-  "last_processed_published_at": "2021-01-16",
+  "processed_videos": 45,
+  "fully_sourced_videos": 7,
+  "partial_source_videos": 38,
+  "last_processed_video_id": "S_GlbZ9g6dc",
+  "last_processed_published_at": "2021-03-03",
   "next_synthesis_at": 50,
   "synthesis_version": 4,
   "synthesis_revision": 0,
   "chronology_repairs": 6,
   "last_chronology_repair": "Inserted verified 2020-02-13 RQUQTKZjgBE as sequence 14; shifted former 14-19 to 15-20",
   "last_batch": {
-    "batch_type": "continuation_sync_and_analysis",
-    "newly_processed_videos": 2,
+    "batch_type": "high_throughput_continuation",
+    "newly_processed_videos": 3,
     "video_ids": [
-      "lxkPdT5z7yU",
-      "EjrCfxPvHfI"
+      "XQ6Gw-O6xMs",
+      "ofB0-K1S8Rc",
+      "S_GlbZ9g6dc"
     ],
     "sequences": [
-      41,
-      42
+      43,
+      44,
+      45
     ],
     "synthesis_triggered": false,
     "completed_at": "2026-10-01",
-    "note": "Third next long-form could not be identified with sufficient confidence in this run; not guessed."
+    "note": "43 individual file write blocked by connector safety check; canonical index/knowledge/progress updated. 44-45 individual files stored."
   },
   "updated_at": "2026-10-01",
   "pending_chronology_analyses": 1,
