@@ -9,40 +9,30 @@
   "shorts_queue": "separate",
   "max_videos_per_hour": 20,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 40,
-  "fully_sourced_videos": 3,
+  "processed_videos": 42,
+  "fully_sourced_videos": 5,
   "partial_source_videos": 37,
-  "last_processed_video_id": "kvK9gjP0Fto",
-  "last_processed_published_at": null,
+  "last_processed_video_id": "EjrCfxPvHfI",
+  "last_processed_published_at": "2021-01-16",
   "next_synthesis_at": 50,
   "synthesis_version": 4,
   "synthesis_revision": 0,
   "chronology_repairs": 6,
   "last_chronology_repair": "Inserted verified 2020-02-13 RQUQTKZjgBE as sequence 14; shifted former 14-19 to 15-20",
   "last_batch": {
-    "batch_type": "high_throughput_pension_batch",
-    "newly_processed_videos": 7,
+    "batch_type": "continuation_sync_and_analysis",
+    "newly_processed_videos": 2,
     "video_ids": [
-      "vEiYdLFc5R8",
-      "INKy5GA3mY8",
-      "IYKSSmrhlp8",
-      "LlyFPeXrwPU",
-      "tGrIBDWBExM",
-      "iy8m_M3aaz4",
-      "kvK9gjP0Fto"
+      "lxkPdT5z7yU",
+      "EjrCfxPvHfI"
     ],
     "sequences": [
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40
+      41,
+      42
     ],
-    "synthesis_triggered": true,
-    "synthesis_file": "synthesis/batch_004_031-040.md",
-    "completed_at": "2026-10-01"
+    "synthesis_triggered": false,
+    "completed_at": "2026-10-01",
+    "note": "Third next long-form could not be identified with sufficient confidence in this run; not guessed."
   },
   "updated_at": "2026-10-01",
   "pending_chronology_analyses": 1,
@@ -53,7 +43,7 @@
       "status": "content_analyzed_pending_identity_and_date"
     }
   ],
-  "last_processed_published_at_note": "exact date unverified; provisional chronology",
+  "last_processed_published_at_note": "official YouTube metadata confirmed",
   "processing_mode": "high_throughput_batch",
   "max_videos_per_batch": 20,
   "quality_gate": "mandatory_full_extraction_selective_deep_verification",
