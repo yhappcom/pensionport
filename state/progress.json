@@ -7,7 +7,7 @@
   "missing_or_unavailable_video_policy": "mark_gap_do_not_guess_and_continue",
   "primary_queue": "long_form",
   "shorts_queue": "separate",
-  "max_videos_per_hour": 3,
+  "max_videos_per_hour": 20,
   "synthesis_every_n_videos": 10,
   "processed_videos": 32,
   "fully_sourced_videos": 3,
@@ -43,5 +43,21 @@
       "status": "content_analyzed_pending_identity_and_date"
     }
   ],
-  "last_processed_published_at_note": "unverified; public by 2021-01-21"
+  "last_processed_published_at_note": "unverified; public by 2021-01-21",
+  "processing_mode": "high_throughput_batch",
+  "max_videos_per_batch": 20,
+  "quality_gate": "mandatory_full_extraction_selective_deep_verification",
+  "deep_verification_triggers": [
+    "pension",
+    "irp",
+    "isa",
+    "national_pension",
+    "tax",
+    "law_or_regulation",
+    "time_sensitive_numbers",
+    "conflict",
+    "framework_change"
+  ],
+  "batch_write_policy": "aggregate_then_sync_github",
+  "deduplication_policy": "reinforce_existing_claim_but_preserve_new_numbers_conditions_exceptions_changes"
 }
