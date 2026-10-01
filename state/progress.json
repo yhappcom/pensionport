@@ -20,19 +20,12 @@
   "chronology_repairs": 6,
   "last_chronology_repair": "Inserted verified 2020-02-13 RQUQTKZjgBE as sequence 14; shifted former 14-19 to 15-20",
   "last_batch": {
-    "batch_type": "high_throughput_queue_reconstruction",
-    "newly_processed_videos": 1,
-    "video_ids": [
-      "oE-D0YT0Pho"
-    ],
-    "sequences": [
-      46
-    ],
-    "synthesis_triggered": false,
-    "completed_at": "2026-10-01",
-    "note": "Extensive search of 2021-03-04 through 2021-03-28 did not yield another reliably identifiable 박곰희TV long-form. Did not skip forward across an unverified chronology gap."
+    "batch_type": "inventory_build",
+    "newly_processed_videos": 0,
+    "inventory_only": true,
+    "completed_at": "2026-10-02"
   },
-  "updated_at": "2026-10-01",
+  "updated_at": "2026-10-02",
   "pending_chronology_analyses": 1,
   "pending_candidates": [
     {
@@ -57,5 +50,16 @@
     "framework_change"
   ],
   "batch_write_policy": "aggregate_then_sync_github",
-  "deduplication_policy": "reinforce_existing_claim_but_preserve_new_numbers_conditions_exceptions_changes"
+  "deduplication_policy": "reinforce_existing_claim_but_preserve_new_numbers_conditions_exceptions_changes",
+  "inventory_first": true,
+  "learning_inventory": {
+    "version": 1,
+    "identified_long_form": 68,
+    "processed_mapped": 46,
+    "identified_unprocessed": 22,
+    "shorts_excluded": true,
+    "completeness": "in_progress",
+    "source_file": "data/learning_queue.jsonl",
+    "updated_at": "2026-10-02"
+  }
 }
