@@ -20,9 +20,11 @@
   "chronology_repairs": 6,
   "last_chronology_repair": "Inserted verified 2020-02-13 RQUQTKZjgBE as sequence 14; shifted former 14-19 to 15-20",
   "last_batch": {
-    "batch_type": "inventory_build",
+    "batch_type": "inventory_completion_v2",
     "newly_processed_videos": 0,
     "inventory_only": true,
+    "added_identified_long_form": 46,
+    "unresolved_long_form_candidates": 19,
     "completed_at": "2026-10-02"
   },
   "updated_at": "2026-10-02",
@@ -53,13 +55,18 @@
   "deduplication_policy": "reinforce_existing_claim_but_preserve_new_numbers_conditions_exceptions_changes",
   "inventory_first": true,
   "learning_inventory": {
-    "version": 1,
-    "identified_long_form": 68,
+    "version": 2,
+    "channel_total_uploads_observed": 793,
+    "total_uploads_include_shorts": true,
+    "identified_long_form_with_video_id": 114,
     "processed_mapped": 46,
-    "identified_unprocessed": 22,
-    "shorts_excluded": true,
-    "completeness": "in_progress",
+    "identified_unprocessed": 68,
+    "published_date_known": 40,
+    "unresolved_long_form_candidates": 19,
+    "shorts_excluded_from_primary": true,
+    "completeness": "operational_master_complete_full_channel_id_audit_pending",
     "source_file": "data/learning_queue.jsonl",
+    "unresolved_file": "data/learning_queue_unresolved.jsonl",
     "updated_at": "2026-10-02"
   }
 }
