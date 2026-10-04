@@ -121,5 +121,18 @@
   "heartbeat_fallback_file": "state/run-heartbeat.json",
   "heartbeat_failure_policy": "try_primary_then_fallback_do_not_block_analysis",
   "last_manual_cleanup_at": "2026-10-04T17:14:00+09:00",
-  "last_heartbeat_location": "primary:state/progress.json"
+  "last_heartbeat_location": "primary:state/progress.json",
+  "git_write_safety": {
+    "protocol": "fresh_sha_before_every_existing_file_write",
+    "workflow_commit": "d0f14665f8e15e189e69c52fb03ca73431cbc612",
+    "validated_at": "2026-10-04T18:34:00+09:00",
+    "fresh_fetch_update_test": "passed",
+    "sequential_returned_content_sha_test": "passed",
+    "stale_sha_reproduction": {
+      "result": "409_CONFLICT_reproduced",
+      "path": "state/run-heartbeat.json",
+      "message": "file does not match stale SHA"
+    },
+    "retry_policy": "on SHA/409/422/stale precondition: refetch exact target, merge intended change, retry once before pending_sync/write_failure"
+  }
 }
