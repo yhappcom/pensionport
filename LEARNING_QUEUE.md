@@ -4,9 +4,9 @@
 - 기준 채널: `@gomhee`
 - 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **794개** — Shorts 포함
 - Video ID까지 식별된 롱폼 후보: **141편**
-- canonical processed: **62편**
-- identified_unprocessed: **79편**
-- 이 중 콘텐츠 분석 완료·canonical sync 대기: **70편**
+- canonical processed: **63편**
+- identified_unprocessed: **78편**
+- 이 중 콘텐츠 분석 완료·canonical sync 대기: **69편**
 - source 미확보 verification_needed: **9편**
 - 게시일 값 확보: **67편** (strict `date_verified` 36편)
 - 제목/게시일은 확인됐지만 Video ID 미해결: **2편**
@@ -57,8 +57,8 @@
 신규 discovery 1패스에서도 source-backed 후보가 없고 tool/time 한도에 도달한 경우에만 0편 종료가 허용된다.
 
 ## 현재 backlog 해석
-현재 identified_unprocessed 80편은 '80편을 처음부터 다시 분석해야 한다'는 뜻이 아니다.
-- **70편:** 기존 분석문이 존재하며 canonical sync만 필요
+현재 identified_unprocessed 78편은 '80편을 처음부터 다시 분석해야 한다'는 뜻이 아니다.
+- **69편:** 기존 분석문이 존재하며 canonical sync만 필요
 - **9편:** source 미확보로 verification_needed
 
 따라서 다음 콘텐츠 분석은 위 backlog의 반복 재검색이 아니라 **신규 discovery에서 확보한 source-backed 롱폼**부터 이어간다.
@@ -81,3 +81,5 @@
 ## 최근 canonical sync
 - 2026-10-04 재개 실행에서 `YNOSY15ppf8` — 「엔화가 쌀 땐 무엇을 하면 좋을까? | 엔화투자방법 1편」의 기존 source-backed 분석을 재분석 없이 canonical 62번으로 승격했다.
 - fresh-SHA 직렬 저장 규칙을 적용했고 stale SHA를 재사용하지 않았다.
+
+- 2026-10-05 write 진단에서 `0xMspE3Y2OQ` queue sync가 fresh-SHA 단일 트랜잭션으로 정상 성공하여 canonical 63번으로 정합화했다.
