@@ -66,13 +66,13 @@
   "deduplication_policy": "reinforce_existing_claim_but_preserve_new_numbers_conditions_exceptions_changes",
   "inventory_first": true,
   "learning_inventory": {
-    "version": 3,
+    "version": 4,
     "channel_total_uploads_observed": 793,
     "total_uploads_include_shorts": true,
-    "identified_long_form_with_video_id": 138,
+    "identified_long_form_with_video_id": 140,
     "processed_mapped": 60,
-    "identified_unprocessed": 78,
-    "published_date_known": 33,
+    "identified_unprocessed": 80,
+    "published_date_known": 66,
     "unresolved_long_form_candidates": 19,
     "shorts_excluded_from_primary": true,
     "completeness": "operational_master_expand_by_discovery_when_ready_queue_empty",
@@ -84,14 +84,14 @@
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
     "ready_existing_queue_count": 0,
-    "verification_needed_count": 8,
+    "verification_needed_count": 9,
     "blocked_retry_default_days": 30,
     "blocked_retry_rule": "retry_only_when_next_source_retry_at_due_or_new_source_signal",
     "discovery_required_when_ready_count_zero": true,
     "stop_on_github_write_failure": false
   },
   "canonical_sync_lane": {
-    "pending_sync_videos": 70,
+    "pending_sync_videos": 71,
     "sync_only_not_counted_as_new_analysis": true,
     "write_policy": "latest_sha_serial",
     "failure_policy": "leave_pending_sync_and_continue_content_analysis"
@@ -109,5 +109,19 @@
     "reason": "existing identified_unprocessed queue currently contains only pending_sync or verification_needed items",
     "last_discovery_completed_at": null,
     "next_action": "discover missing/new long-form IDs, register, then analyze source-backed candidates"
-  }
+  },
+  "source_identity_corrections": {
+    "updated_at": "2026-10-04",
+    "invalid_video_id_removed_from_queue": "O8YUK1OugHs",
+    "replacement_exact_video_id": "6VEfKF7BzZU",
+    "replacement_status": "verification_needed",
+    "additional_verified_pending_sync": "YNOSY15ppf8",
+    "note": "O8YUK1OugHs analysis was matched to a different 2026-02-11 transcript and must never be canonicalized."
+  },
+  "last_scheduled_run_at": null,
+  "last_run_result": "heartbeat_schema_initialized_after_manual_cleanup",
+  "discovery_checked_at": null,
+  "newly_analyzed_count": 0,
+  "write_failure": false,
+  "heartbeat_required": true
 }
