@@ -180,3 +180,18 @@ synthesis/framework/state의 GitHub 저장이 실패하면 산출물은 `pending
 - `state/run-heartbeat.json`은 실행 추적용 fallback이며 canonical processed count의 기준으로 사용하지 않는다.
 - 두 heartbeat 경로가 모두 실패한 경우에만 user-visible 종료보고에 heartbeat 저장 실패를 명시한다.
 - heartbeat 실패 때문에 콘텐츠 분석 또는 discovery를 중단하지 않는다.
+
+
+## GitHub write 안전 프로토콜
+이 절은 모든 canonical write와 heartbeat write에 강제 적용한다.
+
+- 실행 시작 시 읽은 canonical 파일의 SHA는 **충돌 확인용 snapshot**일 뿐, 실행 말미 write의 SHA로 재사용하지 않는다.
+- 기존 파일을 수정하기 직전에 반드시 그 **정확한 target path를 다시 fetch**하고, 그 fetch가 반환한 최신 blob SHA로 `update_file`을 수행한다.
+- 같은 파일을 한 실행에서 두 번 이상 수정할 때는 직전 성공 write가 반환한 새 content SHA를 다음 write에 사용하거나 다시 fetch한다. 오래된 SHA를 재사용하지 않는다.
+- 같은 path에 대한 write/delete는 절대 병렬 실행하지 않는다. canonical write는 path 단위로 직렬화한다.
+- SHA mismatch, 409/422 conflict, stale-file/safety precondition 계열 오류가 발생하면 실패로 확정하기 전에 target file을 즉시 다시 fetch하고, 최신 내용에 의도한 변경을 재적용하여 **1회 자동 재시도**한다.
+- 위 재시도도 실패한 경우에만 해당 항목을 `pending_sync` 또는 write failure로 기록하고 다음 콘텐츠/다른 파일로 진행한다.
+- `state/progress.json` heartbeat도 종료 직전에 반드시 fresh fetch → merge → update 순서로 쓴다. 실행 시작 시 읽은 progress SHA를 사용하지 않는다.
+- primary heartbeat가 실패해 `state/run-heartbeat.json`으로 fallback할 때도 fallback 파일을 먼저 fresh fetch하고 최신 SHA로 쓴다.
+- 오류 보고에는 막연히 “안전검사 실패”라고 쓰지 말고, **target path / 오류 클래스(SHA conflict, permission, connector precondition 등) / fresh-refetch retry 결과**를 기록한다.
+- 다른 파일의 성공 commit 때문에 기존 파일의 blob SHA가 자동으로 바뀌는 것은 아니지만, 수동 실행·예약 실행·동일 파일의 선행 write가 겹칠 수 있으므로 write 시점 fresh fetch를 항상 기준으로 삼는다.
