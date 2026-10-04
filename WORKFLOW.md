@@ -171,3 +171,12 @@ synthesis/framework/state의 GitHub 저장이 실패하면 산출물은 `pending
 - `status: invalid_source_identity` 또는 `canonical_use: prohibited` 문서는 분석 완료, pending_sync, processed 수에 포함하지 않는다.
 - 이런 tombstone 파일은 삭제 여부와 관계없이 실행 큐에서 항상 제외한다.
 - replacement Video ID가 확인되면 replacement만 master queue에 등록하고, source-matched 상세자료가 없으면 `verification_needed`로 둔다.
+
+
+## 예약 실행 heartbeat
+- 매 예약 실행 종료 시 `state/progress.json`에 실행 heartbeat를 기록한다.
+- 최소 필드: `last_scheduled_run_at`, `last_run_result`, `discovery_checked_at`, `newly_analyzed_count`, `write_failure`.
+- `state/progress.json` heartbeat write가 안전검사 또는 다른 write 오류로 막히면 즉시 `state/run-heartbeat.json`에 동일 정보를 기록한다.
+- `state/run-heartbeat.json`은 실행 추적용 fallback이며 canonical processed count의 기준으로 사용하지 않는다.
+- 두 heartbeat 경로가 모두 실패한 경우에만 user-visible 종료보고에 heartbeat 저장 실패를 명시한다.
+- heartbeat 실패 때문에 콘텐츠 분석 또는 discovery를 중단하지 않는다.
