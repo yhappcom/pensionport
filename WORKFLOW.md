@@ -164,3 +164,10 @@ synthesis/framework/state의 GitHub 저장이 실패하면 산출물은 `pending
 - 원문이 없으면 세부 발언과 숫자를 재구성하지 않는다.
 - 과거의 세율·한도·상품조건·시장규칙은 현재값으로 간주하지 않는다.
 - 중요 정보 누락 방지가 처리량보다 우선이다.
+
+
+## source identity 안전 규칙
+- Video ID와 transcript/보존자료의 identity가 일치하지 않으면 canonical 승격을 금지한다.
+- `status: invalid_source_identity` 또는 `canonical_use: prohibited` 문서는 분석 완료, pending_sync, processed 수에 포함하지 않는다.
+- 이런 tombstone 파일은 삭제 여부와 관계없이 실행 큐에서 항상 제외한다.
+- replacement Video ID가 확인되면 replacement만 master queue에 등록하고, source-matched 상세자료가 없으면 `verification_needed`로 둔다.
