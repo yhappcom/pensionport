@@ -2,9 +2,9 @@
   "purpose": "scheduled_run_heartbeat_fallback",
   "updated_at": "2026-10-04T17:14:00+09:00",
   "run_type": "manual_cleanup_initialization",
-  "last_scheduled_run_at": "2026-10-04T21:07:17+09:00",
-  "last_run_result": "scheduled_discovery_no_new_source_backed",
-  "discovery_checked_at": "2026-10-04T21:07:17+09:00",
+  "last_scheduled_run_at": "2026-10-04T22:13:38+09:00",
+  "last_run_result": "scheduled_discovery_no_new_analysis_sync_blocked_connector_precondition",
+  "discovery_checked_at": "2026-10-04T22:13:38+09:00",
   "newly_analyzed_count": 0,
   "write_failure": true,
   "note": "Primary heartbeat and canonical sync writes were blocked by connector safety precondition before mutation; fresh-refetch retry also blocked.",
@@ -15,5 +15,17 @@
     "step": "returned_content_sha_reuse",
     "result": "success"
   },
-  "heartbeat_location": "fallback"
+  "heartbeat_location": "fallback:state/run-heartbeat.json",
+  "canonical_processed_count": 62,
+  "discovery_result": "No new exact-ID source-backed long-form found; latest indexed long-form remains 2026-10-02 6VEfKF7BzZU; verification retry not due.",
+  "sync_failure": {
+    "targets": [
+      "data/videos.jsonl",
+      "data/learning_queue.jsonl",
+      "knowledge/cash-management.md",
+      "data/claims.jsonl"
+    ],
+    "error_class": "connector safety precondition",
+    "fresh_refetch_retry": "failed twice per target"
+  }
 }
