@@ -119,9 +119,13 @@
     "note": "O8YUK1OugHs analysis was matched to a different 2026-02-11 transcript and must never be canonicalized."
   },
   "last_scheduled_run_at": null,
-  "last_run_result": "heartbeat_schema_initialized_after_manual_cleanup",
+  "last_run_result": "manual_cleanup_complete_heartbeat_fallback_initialized",
   "discovery_checked_at": null,
   "newly_analyzed_count": 0,
   "write_failure": false,
-  "heartbeat_required": true
+  "heartbeat_required": true,
+  "heartbeat_primary_file": "state/progress.json",
+  "heartbeat_fallback_file": "state/run-heartbeat.json",
+  "heartbeat_failure_policy": "try_primary_then_fallback_do_not_block_analysis",
+  "last_manual_cleanup_at": "2026-10-04T17:14:00+09:00"
 }
