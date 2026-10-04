@@ -1,0 +1,11 @@
+{
+  "purpose": "scheduled_run_heartbeat_fallback",
+  "updated_at": "2026-10-04T17:14:00+09:00",
+  "run_type": "manual_cleanup_initialization",
+  "last_scheduled_run_at": null,
+  "last_run_result": "initialized",
+  "discovery_checked_at": null,
+  "newly_analyzed_count": 0,
+  "write_failure": false,
+  "note": "Use only as fallback when state/progress.json heartbeat update is blocked. This file is not a canonical processed-count source."
+}
