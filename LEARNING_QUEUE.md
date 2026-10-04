@@ -3,13 +3,13 @@
 - 갱신일: 2026-10-04
 - 기준 채널: `@gomhee`
 - 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **793개** — Shorts 포함
-- Video ID까지 식별된 롱폼 후보: **140편**
-- canonical processed: **60편**
+- Video ID까지 식별된 롱폼 후보: **141편**
+- canonical processed: **61편**
 - identified_unprocessed: **80편**
 - 이 중 콘텐츠 분석 완료·canonical sync 대기: **71편**
 - source 미확보 verification_needed: **9편**
-- 게시일 값 확보: **66편** (strict `date_verified` 35편)
-- 제목/게시일은 확인됐지만 Video ID 미해결: **19편**
+- 게시일 값 확보: **67편** (strict `date_verified` 36편)
+- 제목/게시일은 확인됐지만 Video ID 미해결: **2편**
 - Shorts: 학습 본체에서 제외
 - 중복 기준: Video ID
 
@@ -72,3 +72,8 @@
 - `videos/pending/O8YUK1OugHs.md`는 오연결 방지 tombstone이며 분석 완료 문서로 계산하지 않는다.
 - 정확한 2026-10-02 Video ID는 `6VEfKF7BzZU`이고, 현재 `verification_needed`다.
 - `YNOSY15ppf8`는 source-backed 분석 완료 후 `pending_sync` 상태다.
+
+
+## 최근 신규 discovery
+- 2026-10-04 수동 예약 실행 검증에서 `a-890uldXeo` — 「연금저축 사용설명서 | 연말정산 세액공제 가능한 연금저축펀드 | ver.2026」를 신규 식별·분석·canonical 61번으로 반영했다.
+- 기존 unresolved 2026-07-24 항목을 해당 Video ID로 해소했다.
