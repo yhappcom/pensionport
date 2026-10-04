@@ -2,9 +2,9 @@
   "purpose": "scheduled_run_heartbeat_fallback",
   "updated_at": "2026-10-04T17:14:00+09:00",
   "run_type": "manual_cleanup_initialization",
-  "last_scheduled_run_at": "2026-10-04T20:12:12+09:00",
-  "last_run_result": "discovery_completed_no_new_source_backed_canonical_sync_write_blocked",
-  "discovery_checked_at": "2026-10-04T20:12:12+09:00",
+  "last_scheduled_run_at": "2026-10-04T21:07:17+09:00",
+  "last_run_result": "scheduled_discovery_no_new_source_backed",
+  "discovery_checked_at": "2026-10-04T21:07:17+09:00",
   "newly_analyzed_count": 0,
   "write_failure": true,
   "note": "Primary heartbeat and canonical sync writes were blocked by connector safety precondition before mutation; fresh-refetch retry also blocked.",
@@ -14,5 +14,6 @@
     "tested_at": "2026-10-04T18:34:00+09:00",
     "step": "returned_content_sha_reuse",
     "result": "success"
-  }
+  },
+  "heartbeat_location": "fallback"
 }
