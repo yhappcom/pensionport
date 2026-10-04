@@ -1,13 +1,13 @@
 {
   "purpose": "scheduled_run_heartbeat_fallback",
-  "updated_at": "2026-10-04T17:14:00+09:00",
-  "run_type": "manual_cleanup_initialization",
-  "last_scheduled_run_at": "2026-10-04T22:13:38+09:00",
+  "updated_at": "2026-10-05T05:06:02+09:00",
+  "run_type": "scheduled_learning",
+  "last_scheduled_run_at": "2026-10-05T05:06:02+09:00",
   "last_run_result": "scheduled_discovery_no_new_analysis_sync_blocked_connector_precondition",
-  "discovery_checked_at": "2026-10-04T22:13:38+09:00",
+  "discovery_checked_at": "2026-10-05T05:06:02+09:00",
   "newly_analyzed_count": 0,
   "write_failure": true,
-  "note": "Primary heartbeat and canonical sync writes were blocked by connector safety precondition before mutation; fresh-refetch retry also blocked.",
+  "note": "Canonical queue sync and primary heartbeat were blocked by connector safety precondition; fresh-refetch retries also blocked.",
   "last_write_test_at": "2026-10-04T17:14:00+09:00",
   "write_test_result": "success",
   "write_protocol_test": {
@@ -17,7 +17,7 @@
   },
   "heartbeat_location": "fallback:state/run-heartbeat.json",
   "canonical_processed_count": 62,
-  "discovery_result": "No new exact-ID source-backed long-form found; latest indexed long-form remains 2026-10-02 6VEfKF7BzZU; verification retry not due.",
+  "discovery_result": "Discovery pass found no new exact-ID source-backed long-form candidate.",
   "sync_failure": {
     "targets": [
       "data/videos.jsonl",
