@@ -9,34 +9,26 @@
   "shorts_queue": "separate",
   "max_videos_per_hour": 40,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 60,
+  "processed_videos": 61,
   "fully_sourced_videos": 8,
   "partial_source_videos": 38,
-  "last_processed_video_id": "o08Qio9nL0E",
-  "last_processed_published_at": null,
+  "last_processed_video_id": "a-890uldXeo",
+  "last_processed_published_at": "2026-07-24",
   "next_synthesis_at": 70,
   "synthesis_version": 6,
   "synthesis_revision": 0,
   "chronology_repairs": 6,
   "last_chronology_repair": "Inserted verified 2020-02-13 RQUQTKZjgBE as sequence 14; shifted former 14-19 to 15-20",
   "last_batch": {
-    "batch_type": "pipeline_delay_repair_and_checkpoint_sync",
-    "newly_analyzed_videos": 0,
-    "canonical_processed_count": 60,
-    "repaired_sequence": [
-      47
+    "batch_type": "manual_scheduled_run_validation_discovery_and_analysis",
+    "newly_analyzed_videos": 1,
+    "new_video_ids": [
+      "a-890uldXeo"
     ],
-    "blocked_verification_needed": [
-      "r41a0PHJogs",
-      "NCRamuET8Zo",
-      "g1vZ3EOxzag",
-      "oehFfPSJQU8",
-      "n4QH07USUro",
-      "j8k5UZM3158",
-      "XV4waJ2qKh4",
-      "fLMsGUwMfBQ"
-    ],
-    "completed_at": "2026-10-04"
+    "canonical_processed_count": 61,
+    "discovery_performed": true,
+    "heartbeat_target": "primary",
+    "completed_at": "2026-10-04T17:30:31+09:00"
   },
   "updated_at": "2026-10-04",
   "pending_chronology_analyses": 1,
@@ -47,7 +39,7 @@
       "status": "content_analyzed_pending_identity_and_date"
     }
   ],
-  "last_processed_published_at_note": "exact date unverified; source-backed canonical analysis",
+  "last_processed_published_at_note": "date verified",
   "processing_mode": "video_analysis_first_dual_lane_high_throughput",
   "max_videos_per_batch": 40,
   "quality_gate": "mandatory_full_extraction_selective_deep_verification",
@@ -66,14 +58,14 @@
   "deduplication_policy": "reinforce_existing_claim_but_preserve_new_numbers_conditions_exceptions_changes",
   "inventory_first": true,
   "learning_inventory": {
-    "version": 4,
+    "version": 5,
     "channel_total_uploads_observed": 793,
     "total_uploads_include_shorts": true,
-    "identified_long_form_with_video_id": 140,
-    "processed_mapped": 60,
+    "identified_long_form_with_video_id": 141,
+    "processed_mapped": 61,
     "identified_unprocessed": 80,
-    "published_date_known": 66,
-    "unresolved_long_form_candidates": 19,
+    "published_date_known": 67,
+    "unresolved_long_form_candidates": 2,
     "shorts_excluded_from_primary": true,
     "completeness": "operational_master_expand_by_discovery_when_ready_queue_empty",
     "source_file": "data/learning_queue.jsonl",
@@ -97,9 +89,9 @@
     "failure_policy": "leave_pending_sync_and_continue_content_analysis"
   },
   "canonical_consistency": {
-    "queue_processed": 60,
-    "data_videos_records": 60,
-    "data_videos_max_sequence": 60,
+    "queue_processed": 61,
+    "data_videos_records": 61,
+    "data_videos_max_sequence": 61,
     "sequence_gaps": [],
     "checkpoint_synthesis": "synthesis/batch_006_051-060.md",
     "consistent_processed_count": true
@@ -107,8 +99,9 @@
   "discovery_state": {
     "required": true,
     "reason": "existing identified_unprocessed queue currently contains only pending_sync or verification_needed items",
-    "last_discovery_completed_at": null,
-    "next_action": "discover missing/new long-form IDs, register, then analyze source-backed candidates"
+    "last_discovery_completed_at": "2026-10-04T17:30:31+09:00",
+    "next_action": "continue new/missing long-form discovery; analyze source-backed candidates; do not retry verification_needed before due date",
+    "last_discovery_result": "1 new source-backed long-form discovered, registered, analyzed and canonicalized; 2 unresolved IDs remain"
   },
   "source_identity_corrections": {
     "updated_at": "2026-10-04",
@@ -118,14 +111,15 @@
     "additional_verified_pending_sync": "YNOSY15ppf8",
     "note": "O8YUK1OugHs analysis was matched to a different 2026-02-11 transcript and must never be canonicalized."
   },
-  "last_scheduled_run_at": null,
-  "last_run_result": "manual_cleanup_complete_heartbeat_fallback_initialized",
-  "discovery_checked_at": null,
-  "newly_analyzed_count": 0,
+  "last_scheduled_run_at": "2026-10-04T17:30:31+09:00",
+  "last_run_result": "manual_scheduled_run_test_success_new_analysis_1_canonical_61",
+  "discovery_checked_at": "2026-10-04T17:30:31+09:00",
+  "newly_analyzed_count": 1,
   "write_failure": false,
   "heartbeat_required": true,
   "heartbeat_primary_file": "state/progress.json",
   "heartbeat_fallback_file": "state/run-heartbeat.json",
   "heartbeat_failure_policy": "try_primary_then_fallback_do_not_block_analysis",
-  "last_manual_cleanup_at": "2026-10-04T17:14:00+09:00"
+  "last_manual_cleanup_at": "2026-10-04T17:14:00+09:00",
+  "last_heartbeat_location": "primary:state/progress.json"
 }
