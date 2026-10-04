@@ -9,5 +9,10 @@
   "write_failure": false,
   "note": "Use only as fallback when state/progress.json heartbeat update is blocked. This file is not a canonical processed-count source.",
   "last_write_test_at": "2026-10-04T17:14:00+09:00",
-  "write_test_result": "success"
+  "write_test_result": "success",
+  "write_protocol_test": {
+    "tested_at": "2026-10-04T18:34:00+09:00",
+    "step": "fresh_fetch_update",
+    "result": "success_expected"
+  }
 }
