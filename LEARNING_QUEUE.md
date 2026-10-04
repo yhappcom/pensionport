@@ -3,12 +3,12 @@
 - 갱신일: 2026-10-04
 - 기준 채널: `@gomhee`
 - 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **793개** — Shorts 포함
-- Video ID까지 식별된 롱폼 후보: **138편**
+- Video ID까지 식별된 롱폼 후보: **140편**
 - canonical processed: **60편**
-- identified_unprocessed: **78편**
-- 이 중 콘텐츠 분석 완료·canonical sync 대기: **70편**
-- source 미확보 verification_needed: **8편**
-- 게시일 검증 완료: **33편**
+- identified_unprocessed: **80편**
+- 이 중 콘텐츠 분석 완료·canonical sync 대기: **71편**
+- source 미확보 verification_needed: **9편**
+- 게시일 값 확보: **66편** (strict `date_verified` 35편)
 - 제목/게시일은 확인됐지만 Video ID 미해결: **19편**
 - Shorts: 학습 본체에서 제외
 - 중복 기준: Video ID
@@ -57,12 +57,18 @@
 신규 discovery 1패스에서도 source-backed 후보가 없고 tool/time 한도에 도달한 경우에만 0편 종료가 허용된다.
 
 ## 현재 backlog 해석
-현재 identified_unprocessed 78편은 '78편을 처음부터 다시 분석해야 한다'는 뜻이 아니다.
-- **70편:** 기존 분석문이 존재하며 canonical sync만 필요
-- **8편:** source 미확보로 verification_needed
+현재 identified_unprocessed 80편은 '80편을 처음부터 다시 분석해야 한다'는 뜻이 아니다.
+- **71편:** 기존 분석문이 존재하며 canonical sync만 필요
+- **9편:** source 미확보로 verification_needed
 
 따라서 다음 콘텐츠 분석은 위 backlog의 반복 재검색이 아니라 **신규 discovery에서 확보한 source-backed 롱폼**부터 이어간다.
 
 ## 완전성
 현재 master queue는 운영 기준 목록이며 YouTube 전체 롱폼 ID 전수확정 목록이라고 주장하지 않는다.
 새 ID가 발견되면 Video ID 중복을 확인해 계속 누적한다. 전수 inventory 대조는 콘텐츠 분석 처리량을 막지 않는다.
+
+
+## source identity correction
+- `videos/pending/O8YUK1OugHs.md`는 오연결 방지 tombstone이며 분석 완료 문서로 계산하지 않는다.
+- 정확한 2026-10-02 Video ID는 `6VEfKF7BzZU`이고, 현재 `verification_needed`다.
+- `YNOSY15ppf8`는 source-backed 분석 완료 후 `pending_sync` 상태다.
