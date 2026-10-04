@@ -29,7 +29,7 @@
     "discovery_performed": true,
     "discovery_new_source_backed_count": 0,
     "heartbeat_target": "primary",
-    "completed_at": "2026-10-04T18:39:48+09:00"
+    "completed_at": "2026-10-04T18:42:20+09:00"
   },
   "updated_at": "2026-10-04",
   "pending_chronology_analyses": 1,
@@ -100,9 +100,9 @@
   "discovery_state": {
     "required": true,
     "reason": "existing identified_unprocessed queue currently contains only pending_sync or verification_needed items",
-    "last_discovery_completed_at": "2026-10-04T18:39:48+09:00",
+    "last_discovery_completed_at": "2026-10-04T18:42:20+09:00",
     "next_action": "continue new/missing long-form discovery; analyze source-backed candidates; do not retry verification_needed before due date",
-    "last_discovery_result": "Discovery pass completed; 2 unresolved exact IDs remain; no newly identity-confirmed source-backed long-form promoted in this pass; external total uploads observed 794."
+    "last_discovery_result": "Discovery pass completed after canonical sync; unresolved 2026-07-22 ISA and 2026-07-27 EP.16 retain detailed preserved sources but exact Video IDs remain unresolved; no new source-backed exact-ID long-form promoted."
   },
   "source_identity_corrections": {
     "updated_at": "2026-10-04",
@@ -112,9 +112,9 @@
     "additional_verified_pending_sync": "YNOSY15ppf8",
     "note": "O8YUK1OugHs analysis was matched to a different 2026-02-11 transcript and must never be canonicalized."
   },
-  "last_scheduled_run_at": "2026-10-04T18:39:48+09:00",
-  "last_run_result": "manual_resume_sync_1_canonical_62_discovery_completed_no_new_analysis",
-  "discovery_checked_at": "2026-10-04T18:39:48+09:00",
+  "last_scheduled_run_at": "2026-10-04T18:42:20+09:00",
+  "last_run_result": "manual_resume_completed_sync_1_canonical_62_discovery_no_new_source_backed",
+  "discovery_checked_at": "2026-10-04T18:42:20+09:00",
   "newly_analyzed_count": 0,
   "write_failure": false,
   "heartbeat_required": true,
