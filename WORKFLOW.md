@@ -209,3 +209,23 @@ fresh-SHA 규칙에 더해 다음을 적용한다.
 - raw tool 결과에 실제로 `safety precondition`이 없으면 단순히 “connector safety precondition”이라고 보고하지 않는다.
 - stale SHA와 connector/orchestration precondition은 별도 장애군으로 취급한다. stale SHA는 GitHub Contents API의 409로 재현 가능하며 fresh-refetch 후 정상 복구되는 것이 기준이다.
 - write 장애 진단 시 임시 진단 파일을 사용할 수 있으나 테스트 후 삭제하고, 실제 canonical target 한 곳에서도 동일 프로토콜이 통과하는지 확인한다.
+
+
+## 낮은 추론 수준 대응 — 결정론적 예약 실행
+
+예약 실행은 모델 추론 수준에 의존하지 않도록 다음 상태머신을 고정한다.
+
+1. **START SNAPSHOT** — canonical 6개 파일을 읽고 실제 data 파일에서 queue total / processed / pending_sync / verification_needed / ready source-backed / data-videos count·max sequence / unresolved를 재계산한다. 요약 문서의 숫자와 다르면 data 파일을 우선한다.
+2. **CONTENT LANE** — source-backed 미분석 → 최대 40편 분석. pending_sync 재분석 금지. verification_needed는 due date 전 재검색 금지. ready=0이면 신규/누락 롱폼 discovery 1패스 필수.
+3. **SYNC LANE** — pending_sync는 desired state를 먼저 정의하고, 각 target을 `fresh fetch(ref=main) → idempotent merge → already-applied check → update(branch=main, fresh SHA) → optional post-fetch verify` 순서로 한 path씩 직렬 처리한다.
+4. **ERROR LANE** — raw tool 오류의 class/status/message를 보존한다. raw 오류에 없는 이름을 붙이지 않는다. 특히 실제 오류에 safety precondition 문구가 없으면 그렇게 보고하지 않는다. stale SHA는 GitHub `409 CONFLICT` 장애군으로만 분류한다.
+5. **RETRY LANE** — 오류 직후 fresh fetch하여 desired state가 이미 반영됐는지 먼저 확인한다. 반영됐으면 성공 처리한다. 미반영이면 최신 content에 재merge 후 1회만 retry한다.
+6. **CONSISTENCY LANE** — 종료 전 queue와 data/videos를 다시 읽어 processed / pending_sync / verification_needed / max sequence를 재계산하고, 이미 존재하는 Video ID·sequence·claim·knowledge section은 절대 중복 append하지 않는다.
+7. **HEARTBEAT LANE** — 종료 직전 progress를 fresh fetch → merge → update한다. 실패하면 동일 검증·1회 retry 후 fallback heartbeat를 fresh fetch하여 기록한다.
+
+### 결정 규칙
+- 기존 summary 숫자를 기반으로 +1/-1 계산하지 않는다. 종료 전 actual data 파일에서 다시 계산한다.
+- partial sync 복구는 각 target의 현재 desired state를 검사해 idempotent하게 이어서 처리한다.
+- 한 target write 실패 때문에 다른 target이나 content lane을 중단하지 않는다.
+- 원인이 증명되지 않은 오류는 `원인 미확정`으로 기록하고 추정명을 붙이지 않는다.
+- 실행 보고의 write 오류는 `path / raw class / HTTP status(있으면) / message 요약 / desired-state check / retry 결과` 형식을 사용한다.
