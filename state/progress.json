@@ -144,5 +144,20 @@
       "actual_target_write": "passed",
       "conclusion": "GitHub permission/ruleset/path/payload/fresh-SHA are not current root cause; prior connector-precondition reports are execution/orchestration-layer and must preserve raw error evidence"
     }
+  },
+  "execution_protocol": {
+    "scheduled_run_mode": "deterministic_state_machine",
+    "reasoning_independence": "designed_to_minimize_dependence_on_model_reasoning_effort",
+    "phases": [
+      "start_snapshot_recount_from_data",
+      "content_analysis_lane",
+      "canonical_sync_lane",
+      "consistency_recount",
+      "fresh_sha_heartbeat"
+    ],
+    "write_transaction": "fresh_fetch_main -> idempotent_merge -> already_applied_check -> update_main_with_fresh_sha -> optional_post_fetch_verify",
+    "error_policy": "preserve_raw_tool_error_class_status_message; do_not_invent_connector_safety_precondition",
+    "workflow_commit": "bb6cb9ad6457f42f32bb40c4ad8aed551c1922d1",
+    "automation_updated_at": "2026-10-05"
   }
 }
