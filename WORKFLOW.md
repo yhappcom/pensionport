@@ -195,3 +195,17 @@ synthesis/framework/state의 GitHub 저장이 실패하면 산출물은 `pending
 - primary heartbeat가 실패해 `state/run-heartbeat.json`으로 fallback할 때도 fallback 파일을 먼저 fresh fetch하고 최신 SHA로 쓴다.
 - 오류 보고에는 막연히 “안전검사 실패”라고 쓰지 말고, **target path / 오류 클래스(SHA conflict, permission, connector precondition 등) / fresh-refetch retry 결과**를 기록한다.
 - 다른 파일의 성공 commit 때문에 기존 파일의 blob SHA가 자동으로 바뀌는 것은 아니지만, 수동 실행·예약 실행·동일 파일의 선행 write가 겹칠 수 있으므로 write 시점 fresh fetch를 항상 기준으로 삼는다.
+
+
+## GitHub connector 실행 트랜잭션 규칙
+
+fresh-SHA 규칙에 더해 다음을 적용한다.
+
+- 기존 파일 write는 가능하면 한 실행 트랜잭션 안에서 `fetch_file(target, ref=main) → 최신 content에 의도 변경 merge → update_file(target, sha=fetched_sha, branch=main)` 순서로 직렬 실행한다.
+- 여러 target을 수정할 때도 각 path마다 위 read-modify-write를 독립적으로 완료한 뒤 다음 path로 이동한다.
+- 실패 직후 재시도하기 전에 target을 fresh fetch하고 **의도한 desired state가 이미 반영됐는지 먼저 확인**한다. 이미 반영됐다면 추가 write 없이 성공으로 판정한다.
+- partial sync 복구 시 `data/videos.jsonl`, queue, claims, knowledge, framework, progress 각각을 실제 현재 내용으로 idempotency 검사한다. 이미 존재하는 video/claim/section을 중복 append하지 않는다.
+- 오류는 connector 요약문으로 재명명하지 않는다. 가능한 경우 raw tool 오류의 클래스와 HTTP 상태(예: `CONFLICT / 409`, `UNPROCESSABLE_ENTITY / 422`, `FORBIDDEN / 403`) 및 원문 메시지를 기록한다.
+- raw tool 결과에 실제로 `safety precondition`이 없으면 단순히 “connector safety precondition”이라고 보고하지 않는다.
+- stale SHA와 connector/orchestration precondition은 별도 장애군으로 취급한다. stale SHA는 GitHub Contents API의 409로 재현 가능하며 fresh-refetch 후 정상 복구되는 것이 기준이다.
+- write 장애 진단 시 임시 진단 파일을 사용할 수 있으나 테스트 후 삭제하고, 실제 canonical target 한 곳에서도 동일 프로토콜이 통과하는지 확인한다.
