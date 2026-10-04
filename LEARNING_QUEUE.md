@@ -2,11 +2,11 @@
 
 - 갱신일: 2026-10-04
 - 기준 채널: `@gomhee`
-- 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **793개** — Shorts 포함
+- 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **794개** — Shorts 포함
 - Video ID까지 식별된 롱폼 후보: **141편**
-- canonical processed: **61편**
-- identified_unprocessed: **80편**
-- 이 중 콘텐츠 분석 완료·canonical sync 대기: **71편**
+- canonical processed: **62편**
+- identified_unprocessed: **79편**
+- 이 중 콘텐츠 분석 완료·canonical sync 대기: **70편**
 - source 미확보 verification_needed: **9편**
 - 게시일 값 확보: **67편** (strict `date_verified` 36편)
 - 제목/게시일은 확인됐지만 Video ID 미해결: **2편**
@@ -58,7 +58,7 @@
 
 ## 현재 backlog 해석
 현재 identified_unprocessed 80편은 '80편을 처음부터 다시 분석해야 한다'는 뜻이 아니다.
-- **71편:** 기존 분석문이 존재하며 canonical sync만 필요
+- **70편:** 기존 분석문이 존재하며 canonical sync만 필요
 - **9편:** source 미확보로 verification_needed
 
 따라서 다음 콘텐츠 분석은 위 backlog의 반복 재검색이 아니라 **신규 discovery에서 확보한 source-backed 롱폼**부터 이어간다.
@@ -77,3 +77,7 @@
 ## 최근 신규 discovery
 - 2026-10-04 수동 예약 실행 검증에서 `a-890uldXeo` — 「연금저축 사용설명서 | 연말정산 세액공제 가능한 연금저축펀드 | ver.2026」를 신규 식별·분석·canonical 61번으로 반영했다.
 - 기존 unresolved 2026-07-24 항목을 해당 Video ID로 해소했다.
+
+## 최근 canonical sync
+- 2026-10-04 재개 실행에서 `YNOSY15ppf8` — 「엔화가 쌀 땐 무엇을 하면 좋을까? | 엔화투자방법 1편」의 기존 source-backed 분석을 재분석 없이 canonical 62번으로 승격했다.
+- fresh-SHA 직렬 저장 규칙을 적용했고 stale SHA를 재사용하지 않았다.
