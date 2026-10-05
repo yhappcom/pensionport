@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 65,
+  "video_id": "Q3OrWpOVS2E",
+  "published_at": "2026-01-23",
+  "title": "📊 60세 정년퇴직 후, 퇴직금 1.2억 굴리기ㅣ퇴직금 정산 | 퇴직연금 운용",
+  "source_doc": "videos/2026/Q3OrWpOVS2E.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 65
+  },
+  "topics": [
+    "retirement",
+    "retirement_income",
+    "irp",
+    "withdrawal",
+    "asset_allocation"
+  ],
+  "knowledge_change": [
+    "EXTEND",
+    "TIME_SENSITIVE"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C31",
+    "topic": "retirement_cashflow",
+    "claim": "은퇴 직전·직후의 퇴직금은 일시금 투자자금이 아니라 생활비 유동성·세제·계좌이전·인출기간을 함께 설계해야 하는 은퇴 현금흐름 자산으로 본다",
+    "supporting_videos": [
+      "Q3OrWpOVS2E"
+    ],
+    "status": "supported",
+    "confidence": "medium_high"
+  },
+  "framework_delta": "퇴직자산 총액 → 단기 생활비 버킷 → 퇴직급여 세제/이전 → 연금계좌별 역할 → 인출기간 → 자산배분",
+  "compaction_hint": {
+    "data_videos": "append sequence 65 if video_id absent",
+    "learning_queue": "mark Q3OrWpOVS2E processed/synced sequence 65",
+    "claims": "add GOMHEE-C31 if absent",
+    "framework": "retain retirement cash-flow sequencing"
+  },
+  "created_at": "2026-10-05T13:09:00+09:00"
+}
