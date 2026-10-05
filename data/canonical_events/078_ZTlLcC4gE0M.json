@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 78,
+  "video_id": "ZTlLcC4gE0M",
+  "published_at": "2026-07-19",
+  "title": "🧐 연금저축 600만원 넘게 넣으면 뭐가 좋나요? 왜 1,800만원이나 되는 한도가 있나요? | ver.2026",
+  "source_doc": "videos/2026/ZTlLcC4gE0M.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 78
+  },
+  "topics": [
+    "pension_savings",
+    "tax_basis",
+    "tax_deferral",
+    "withdrawal"
+  ],
+  "knowledge_change": [
+    "EXTEND",
+    "REINFORCE",
+    "TIME_SENSITIVE"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C37",
+    "topic": "pension_tax_basis",
+    "claim": "연금계좌의 납입한도와 세액공제 한도는 다른 개념이며, 공제한도를 초과한 납입액도 비공제 원금·과세이연·향후 인출설계 관점에서 별도 관리한다.",
+    "supporting_videos": [
+      "ZTlLcC4gE0M"
+    ],
+    "status": "supported",
+    "confidence": "high"
+  },
+  "framework_delta": "납입 capacity → tax basis(공제/비공제 원금) → 과세이연 → 인출설계",
+  "created_at": "2026-10-06T08:00:00+09:00"
+}
