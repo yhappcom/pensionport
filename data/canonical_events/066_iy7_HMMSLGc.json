@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 66,
+  "video_id": "iy7_HMMSLGc",
+  "published_at": "2025-10-28",
+  "title": "🥳 ISA 만기해지하고, 연금전환 하려고 합니다~!ㅣISA | 연금저축",
+  "source_doc": "videos/2025/iy7_HMMSLGc.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 66
+  },
+  "topics": [
+    "isa",
+    "pension_savings",
+    "account_lifecycle",
+    "tax_location",
+    "rollover"
+  ],
+  "knowledge_change": [
+    "EXTEND",
+    "TIME_SENSITIVE"
+  ],
+  "verification_status": "current_NTS_and_income_tax_law_verified",
+  "claim_delta": {
+    "claim_id": "GOMHEE-C32",
+    "topic": "isa_lifecycle",
+    "claim": "ISA 만기는 단순 계좌 종료가 아니라 손익·세제혜택을 확정하고 필요시 연금계좌 전환과 신규 ISA 재개설로 이어지는 계좌 lifecycle event로 본다",
+    "supporting_videos": [
+      "iy7_HMMSLGc"
+    ],
+    "status": "supported",
+    "confidence": "high"
+  },
+  "framework_delta": "ISA 개설/운용 → 소득원별 tax location → 만기 현금화 → 세금정산 → 연금전환/재가입 → 다음 자산배분 주기",
+  "official_verification": {
+    "nts": "ISA 만기잔액의 전부 또는 일부를 연금계좌에 납입한 경우 전환금액의 10%, 최대 300만원까지 해당 과세기간 연금계좌 세액공제 한도 추가",
+    "law": "소득세법상 ISA 계약기간 만료 후 연금계좌 납입 전환금액을 해당 과세기간 연금계좌 납입액에 포함"
+  },
+  "created_at": "2026-10-05T13:09:00+09:00"
+}
