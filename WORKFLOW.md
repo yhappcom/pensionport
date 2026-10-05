@@ -286,3 +286,26 @@ event 저장 후 기존 aggregate를 순서대로 idempotent compaction한다.
 - `create_file` canonical event까지 raw error로 실패한 경우에만 해당 영상 canonicalization을 미완료로 본다.
 - aggregate `update_file`만 실패한 경우에는 `compaction_pending`이지 canonicalization failure가 아니다.
 - 예약 실행 종료보고는 `canonical event 성공/실패`와 `aggregate compaction 성공/대기`를 분리해 보고한다.
+
+
+## 순서 불명확 시 전체 미확인 영상 스캔 fallback
+
+chronology가 불완전하거나 게시일만으로 다음 영상을 안정적으로 정렬할 수 없는 경우에도 content lane을 정지하지 않는다.
+
+### 후보 집합 계산
+1. master queue와 신규 discovery에서 exact Video ID가 확인된 롱폼 전체 집합을 만든다.
+2. effective canonical(base `data/videos.jsonl` + base에 없는 canonical event overlay)에 이미 존재하는 Video ID는 제외한다.
+3. `content_analyzed_pending_sync` 등 분석 완료 상태는 content 후보에서 제외하고 sync lane으로만 보낸다.
+4. `verification_needed`이면서 `next_source_retry_at` 전인 항목은 제외한다.
+5. 남은 source-backed 분석 미완료 영상을 게시일 유무와 관계없이 실제 분석 후보로 사용한다.
+
+### 선택 규칙
+- 게시일이 신뢰 가능하면 오래된 순서를 선호한다.
+- 게시일이 없거나 chronology가 충돌하면 `inventory_no`, 그 다음 `video_id`를 결정론적 tie-breaker로 사용한다.
+- chronology 보강은 콘텐츠 분석의 선행조건이 아니다.
+- 기존 queue가 비면 공개 채널의 롱폼 exact-ID 집합과 `queue ∪ effective canonical`을 대조하여 inventory 누락 영상을 찾고, source-backed 후보는 즉시 queue 등록 후 분석한다.
+
+### stale-state 방지
+- queue에 `source_backed_ready`가 남아 있어도 같은 Video ID가 effective canonical에 존재하면 ready로 세지 않는다.
+- 이 경우 재분석하지 않고 aggregate compaction 대상으로만 처리한다.
+- `ready_existing_queue_count`는 raw status count가 아니라 위 필터를 적용한 effective candidate count로 계산한다.
