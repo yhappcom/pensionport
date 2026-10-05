@@ -3,12 +3,12 @@
 - 갱신일: 2026-10-06
 - 기준 채널: `@gomhee`
 - 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **794개** — Shorts 포함
-- Video ID까지 식별된 롱폼 후보: **147편**
-- canonical processed: **76편**
+- Video ID까지 식별된 롱폼 후보: **152편**
+- canonical processed: **77편**
 - identified_unprocessed: **71편**
 - 이 중 콘텐츠 분석 완료·canonical sync 대기: **62편**
-- source 미확보 verification_needed: **9편**
-- 게시일 값 확보: **67편** (strict `date_verified` 36편)
+- source 미확보 verification_needed: **13편**
+- 게시일 값 확보: **70편** (strict `date_verified` 38편)
 - 제목/게시일은 확인됐지만 Video ID 미해결: **2편**
 - Shorts: 학습 본체에서 제외
 - 중복 기준: Video ID
@@ -104,17 +104,18 @@
 
 이번 수동 진단에서 queue의 `n1hVZlHq-RA`가 `source_backed_ready`로 남아 있었지만 canonical event 071이 이미 존재하는 stale-state를 발견했다. 이를 재분석하지 않고 base index와 queue에 compact해 정합화했다.
 
-전체 inventory discovery에서 기존 queue에 없던 source-backed 롱폼 5편을 신규 분석·canonicalize했다.
+전체 inventory discovery에서 기존 queue에 없던 source-backed 롱폼 6편을 신규 분석·canonicalize했다.
 - 072 `-3iNxrjeQak` — 곰희책방#2 | 부에 이르는 가장 단순한 길
 - 073 `GmwmPKFY4PY` — 월급300만원으로 1억 만드는 계획 | ASK곰희 ver.2026
 - 074 `yl0UyfkvaHs` — 추석특집 투자초보편 몰아보기
 - 075 `_vo1uqkk1yo` — 절세계좌 3개 나눠서 투자하는 방법 | 1편
 - 076 `H04y8gmBtqk` — 절세계좌 3개 나눠서 투자하는 방법 | 2편
+- 077 `-71DQQIcTlc` — 연금저축을 통한 장기 현금흐름 만들기 (상세 보존자료 제목; YouTube 정확 제목 미확정)
 
 현재 actual data 기준:
-- master queue: **147편**
-- canonical/effective processed: **76편**
-- remaining effective-unprocessed: **71편**
+- master queue: **152편**
+- canonical/effective processed: **77편**
+- remaining effective-unprocessed: **75편**
 - 기존 분석 완료·sync 대기: **62편**
 - verification_needed: **9편**
 - effective source-backed unanalyzed ready: **0편**
@@ -122,3 +123,13 @@
 - 다음 synthesis checkpoint: **80편**
 
 신규 discovery는 기존 master queue가 YouTube 전체 롱폼 전수목록이 아님을 전제로 계속 수행한다.
+
+
+### 추가 exact-ID discovery — source 확인 대기
+공식 채널 Shorts가 연결한 원본 롱폼 exact ID 4개를 추가 식별했다. 원본 전체 설명·자막·상세자료가 아직 부족하므로 제목을 추측하지 않고 `verification_needed`로 등록했다.
+- `GFTYwKkZgoQ`
+- `mZnhZM3Wc88`
+- `2q6MwCgIRnY`
+- `iCApyfb2CzI`
+
+기본 source retry date는 2026-11-05이며 새로운 source 신호가 생기면 그 전에 분석할 수 있다.
