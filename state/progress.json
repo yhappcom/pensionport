@@ -9,27 +9,27 @@
   "shorts_queue": "separate",
   "max_videos_per_hour": 40,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 63,
+  "processed_videos": 64,
   "fully_sourced_videos": 8,
   "partial_source_videos": 38,
-  "last_processed_video_id": "0xMspE3Y2OQ",
-  "last_processed_published_at": "2026-09-20",
+  "last_processed_video_id": "JwoiWyec7ks",
+  "last_processed_published_at": "2025-11-06",
   "next_synthesis_at": 70,
   "synthesis_version": 6,
   "synthesis_revision": 0,
   "chronology_repairs": 6,
   "last_chronology_repair": "Inserted verified 2020-02-13 RQUQTKZjgBE as sequence 14; shifted former 14-19 to 15-20",
   "last_batch": {
-    "batch_type": "manual_github_write_root_cause_diagnostic_and_sync_repair",
+    "batch_type": "manual_sync_repair_and_safety_false_positive_diagnostic",
     "newly_analyzed_videos": 0,
     "canonical_sync_completed": [
-      "0xMspE3Y2OQ"
+      "JwoiWyec7ks"
     ],
-    "canonical_processed_count": 63,
+    "canonical_processed_count": 64,
     "discovery_performed": false,
-    "diagnostic_result": "fresh-SHA create/update/sequential-content-sha/stale-409/fresh-retry and prior-failing queue target all verified",
+    "diagnostic_result": "same data/videos full-file update and queue update succeeded interactively; no repository/path/payload blocker reproduced",
     "heartbeat_target": "primary",
-    "completed_at": "2026-10-05T05:52:00+09:00"
+    "completed_at": "2026-10-05T08:57:00+09:00"
   },
   "updated_at": "2026-10-05",
   "pending_chronology_analyses": 1,
@@ -63,8 +63,8 @@
     "channel_total_uploads_observed": 794,
     "total_uploads_include_shorts": true,
     "identified_long_form_with_video_id": 141,
-    "processed_mapped": 63,
-    "identified_unprocessed": 78,
+    "processed_mapped": 64,
+    "identified_unprocessed": 77,
     "published_date_known": 67,
     "unresolved_long_form_candidates": 2,
     "shorts_excluded_from_primary": true,
@@ -84,15 +84,15 @@
     "stop_on_github_write_failure": false
   },
   "canonical_sync_lane": {
-    "pending_sync_videos": 69,
+    "pending_sync_videos": 68,
     "sync_only_not_counted_as_new_analysis": true,
     "write_policy": "latest_sha_serial",
     "failure_policy": "leave_pending_sync_and_continue_content_analysis"
   },
   "canonical_consistency": {
-    "queue_processed": 63,
-    "data_videos_records": 63,
-    "data_videos_max_sequence": 63,
+    "queue_processed": 64,
+    "data_videos_records": 64,
+    "data_videos_max_sequence": 64,
     "sequence_gaps": [],
     "checkpoint_synthesis": "synthesis/batch_006_051-060.md",
     "consistent_processed_count": true
@@ -112,8 +112,8 @@
     "additional_verified_pending_sync": "YNOSY15ppf8",
     "note": "O8YUK1OugHs analysis was matched to a different 2026-02-11 transcript and must never be canonicalized."
   },
-  "last_scheduled_run_at": "2026-10-05T05:52:00+09:00",
-  "last_run_result": "manual_write_diagnostic_passed_and_canonical_63_reconciled",
+  "last_scheduled_run_at": "2026-10-05T08:57:00+09:00",
+  "last_run_result": "manual_canonical_64_reconciled_and_write_path_verified",
   "discovery_checked_at": "2026-10-04T18:42:20+09:00",
   "newly_analyzed_count": 0,
   "write_failure": false,
@@ -136,13 +136,15 @@
     },
     "retry_policy": "on SHA/409/422/stale precondition: refetch exact target, merge intended change, retry once before pending_sync/write_failure",
     "latest_diagnostic": {
-      "tested_at": "2026-10-05T05:52:00+09:00",
-      "branch": "main",
+      "tested_at": "2026-10-05T08:57:00+09:00",
       "result": "passed",
-      "temp_create_update_returned_sha_stale_409_fresh_retry_cleanup": "passed",
-      "actual_prior_failing_target": "data/learning_queue.jsonl",
-      "actual_target_write": "passed",
-      "conclusion": "GitHub permission/ruleset/path/payload/fresh-SHA are not current root cause; prior connector-precondition reports are execution/orchestration-layer and must preserve raw error evidence"
+      "actual_targets": [
+        "data/videos.jsonl",
+        "data/learning_queue.jsonl",
+        "data/claims.jsonl"
+      ],
+      "actual_target_writes": "passed",
+      "conclusion": "No GitHub repository, path, payload-size, content, permission, ruleset, or fresh-SHA blocker reproduced. Prior scheduled safety-block reports require raw connector evidence before being accepted as write failures."
     }
   },
   "execution_protocol": {
@@ -158,6 +160,7 @@
     "write_transaction": "fresh_fetch_main -> idempotent_merge -> already_applied_check -> update_main_with_fresh_sha -> optional_post_fetch_verify",
     "error_policy": "preserve_raw_tool_error_class_status_message; do_not_invent_connector_safety_precondition",
     "workflow_commit": "bb6cb9ad6457f42f32bb40c4ad8aed551c1922d1",
-    "automation_updated_at": "2026-10-05"
+    "automation_updated_at": "2026-10-05",
+    "failure_evidence_rule": "A write failure is valid only after the GitHub write connector was actually invoked and returned a raw error. No raw connector error => status unknown, never infer safety failure."
   }
 }
