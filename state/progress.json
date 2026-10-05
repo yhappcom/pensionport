@@ -5,22 +5,22 @@
   "primary_queue": "long_form",
   "max_videos_per_hour": 40,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 70,
-  "canonical_processed_count": 70,
-  "last_processed_video_id": "FPA12oQeQbc",
-  "last_processed_published_at": "2026-07-16",
-  "next_synthesis_at": 80,
-  "synthesis_version": 7,
-  "last_synthesis_file": "synthesis/batch_007_061-070.md",
-  "updated_at": "2026-10-05",
+  "processed_videos": 139,
+  "canonical_processed_count": 139,
+  "last_processed_video_id": "Z5br9TkMASw",
+  "last_processed_published_at": null,
+  "next_synthesis_at": 140,
+  "synthesis_version": 13,
+  "last_synthesis_file": "synthesis/batch_013_121-130.md",
+  "updated_at": "2026-10-06",
   "learning_inventory": {
-    "version": 6,
+    "version": 7,
     "channel_total_uploads_observed": 794,
     "total_uploads_include_shorts": true,
-    "identified_long_form_with_video_id": 141,
-    "processed_mapped": 70,
-    "identified_unprocessed": 71,
-    "published_date_known": 67,
+    "identified_long_form_with_video_id": 152,
+    "processed_mapped": 139,
+    "identified_unprocessed": 13,
+    "published_date_known": 70,
     "unresolved_long_form_candidates": 2,
     "shorts_excluded_from_primary": true,
     "source_file": "data/learning_queue.jsonl",
@@ -29,26 +29,26 @@
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
     "ready_existing_queue_count": 0,
-    "verification_needed_count": 9,
+    "verification_needed_count": 13,
     "blocked_retry_default_days": 30,
     "blocked_retry_rule": "retry_only_when_next_source_retry_at_due_or_new_source_signal",
     "discovery_required_when_ready_count_zero": true,
     "stop_on_github_write_failure": false
   },
   "canonical_sync_lane": {
-    "pending_sync_videos": 62,
+    "pending_sync_videos": 0,
     "sync_only_not_counted_as_new_analysis": true,
-    "write_policy": "event_first_then_idempotent_compaction",
+    "write_policy": "event_first_atomic_tree_compaction",
     "failure_policy": "retain_event_and_continue"
   },
   "canonical_consistency": {
-    "queue_processed": 70,
-    "data_videos_records": 70,
-    "data_videos_max_sequence": 70,
-    "canonical_event_records": 7,
-    "effective_processed_count": 71,
+    "queue_processed": 139,
+    "data_videos_records": 139,
+    "data_videos_max_sequence": 139,
+    "canonical_event_records": 75,
+    "effective_processed_count": 139,
     "sequence_gaps": [],
-    "consistent_processed_count": false
+    "consistent_processed_count": true
   },
   "event_ledger": {
     "canonical_events_dir": "data/canonical_events",
@@ -56,43 +56,40 @@
     "state_formula": "base_plus_nonduplicated_event_overlay"
   },
   "last_batch": {
-    "batch_type": "manual_event_first_continuation_to_checkpoint_70",
+    "batch_type": "manual_full_sync_debt_elimination",
     "newly_analyzed_videos": 0,
-    "canonical_sync_completed": [
-      "Gk3-ZC9W3vw",
-      "0Qt8rm01SOg",
-      "sqh-919UMVk",
-      "FPA12oQeQbc"
-    ],
-    "canonical_event_created": [
-      "data/canonical_events/068_0Qt8rm01SOg.json",
-      "data/canonical_events/069_sqh-919UMVk.json",
-      "data/canonical_events/070_FPA12oQeQbc.json"
-    ],
-    "canonical_event_preexisting_concurrent": [
-      "data/canonical_events/067_Gk3-ZC9W3vw.json"
-    ],
-    "aggregate_compaction": "complete",
-    "checkpoint_synthesis": "synthesis/batch_007_061-070.md",
-    "checkpoint_pdf": {
-      "filename": "pensionport_batch_007_061-070_ko.pdf",
-      "sha256": "20c384fe5260fed8f4a2eee2dc626c5985d5a470a6124be39861471150cb7011",
-      "pages": 3,
-      "visual_verification": "passed",
-      "manifest": "synthesis/batch_007_061-070_pdf.json"
+    "sync_only_compacted": 62,
+    "sequence_range": "78-139",
+    "start_state": {
+      "processed": 77,
+      "pending_sync": 62,
+      "verification_needed": 13
     },
-    "canonical_processed_count": 70,
-    "discovery_performed": true,
-    "discovery_result": "Fresh discovery pass found no new exact-ID + source-backed long-form beyond the current identified inventory.",
-    "completed_at": "2026-10-05T15:27:41+09:00"
+    "end_state": {
+      "processed": 139,
+      "pending_sync": 0,
+      "verification_needed": 13
+    },
+    "aggregate_compaction": "complete",
+    "knowledge_consolidation": "complete",
+    "checkpoint_synthesis_created": [
+      "synthesis/batch_008_071-080.md",
+      "synthesis/batch_009_081-090.md",
+      "synthesis/batch_010_091-100.md",
+      "synthesis/batch_011_101-110.md",
+      "synthesis/batch_012_111-120.md",
+      "synthesis/batch_013_121-130.md"
+    ],
+    "checkpoint_pdf_status": "pending_generation_in_same_manual_run",
+    "completed_at": "2026-10-06T08:40:00+09:00"
   },
-  "last_scheduled_run_at": "2026-10-06T05:08:20+09:00",
-  "last_run_result": "no_new_source_backed_long_form_discovered_compaction_pending",
+  "last_scheduled_run_at": "2026-10-06T08:40:00+09:00",
+  "last_run_result": "synchronization_debt_removed_backlog_62_fully_compacted_to_139",
   "discovery_checked_at": "2026-10-06T05:08:20+09:00",
   "newly_analyzed_count": 0,
-  "write_failure": true,
-  "pending_sync_count": 62,
-  "verification_needed_count": 9,
+  "write_failure": false,
+  "pending_sync_count": 0,
+  "verification_needed_count": 13,
   "heartbeat_location": "primary",
   "heartbeat_primary_file": "state/progress.json",
   "heartbeat_event_dir": "state/run_events"

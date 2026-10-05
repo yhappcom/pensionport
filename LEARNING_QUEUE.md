@@ -4,9 +4,9 @@
 - 기준 채널: `@gomhee`
 - 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **794개** — Shorts 포함
 - Video ID까지 식별된 롱폼 후보: **152편**
-- canonical processed: **77편**
-- identified_unprocessed: **71편**
-- 이 중 콘텐츠 분석 완료·canonical sync 대기: **62편**
+- canonical processed: **139편**
+- identified_unprocessed: **13편**
+- 이 중 콘텐츠 분석 완료·canonical sync 대기: **0편**
 - source 미확보 verification_needed: **13편**
 - 게시일 값 확보: **70편** (strict `date_verified` 38편)
 - 제목/게시일은 확인됐지만 Video ID 미해결: **2편**
@@ -58,8 +58,8 @@
 
 ## 현재 backlog 해석
 현재 identified_unprocessed 71편은 '80편을 처음부터 다시 분석해야 한다'는 뜻이 아니다.
-- **62편:** 기존 분석문이 존재하며 canonical sync만 필요
-- **9편:** source 미확보로 verification_needed
+- **0편:** 기존 분석문 sync backlog 없음
+- **13편:** source 미확보로 verification_needed
 
 따라서 다음 콘텐츠 분석은 위 backlog의 반복 재검색이 아니라 **신규 discovery에서 확보한 source-backed 롱폼**부터 이어간다.
 
@@ -114,13 +114,13 @@
 
 현재 actual data 기준:
 - master queue: **152편**
-- canonical/effective processed: **77편**
-- remaining effective-unprocessed: **75편**
-- 기존 분석 완료·sync 대기: **62편**
-- verification_needed: **9편**
+- canonical/effective processed: **139편**
+- remaining effective-unprocessed: **13편**
+- 기존 분석 완료·sync 대기: **0편**
+- verification_needed: **13편**
 - effective source-backed unanalyzed ready: **0편**
 - Video ID unresolved: **2편**
-- 다음 synthesis checkpoint: **80편**
+- 다음 synthesis checkpoint: **140편**
 
 신규 discovery는 기존 master queue가 YouTube 전체 롱폼 전수목록이 아님을 전제로 계속 수행한다.
 
@@ -133,3 +133,11 @@
 - `iCApyfb2CzI`
 
 기본 source retry date는 2026-11-05이며 새로운 source 신호가 생기면 그 전에 분석할 수 있다.
+
+## 2026-10-06 synchronization debt 제거 및 backlog 완전 compaction
+- 시작 상태: master 152 / processed 77 / pending_sync 62 / verification_needed 13.
+- 62편을 재분석하지 않고 canonical sequence 78~139로 승격했다.
+- 각 영상에 canonical document, immutable canonical event, data/videos index, queue 상태, unique claim, knowledge ledger를 동기화했다.
+- claim ID collision을 점검해 중복 0건으로 정리했다.
+- 최종 actual data: master 152 / processed 139 / pending_sync 0 / verification_needed 13 / data/videos 139 / max sequence 139.
+- 다음 synthesis checkpoint는 140편이다.
