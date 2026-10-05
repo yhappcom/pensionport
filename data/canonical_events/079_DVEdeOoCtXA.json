@@ -25,7 +25,7 @@
     "TIME_SENSITIVE"
   ],
   "claim_delta": {
-    "claim_id": "GOMHEE-C38",
+    "claim_id": "GOMHEE-C43",
     "topic": "pension_wrapper_selection",
     "claim": "연금저축과 IRP는 어느 하나가 절대 우월한 계좌가 아니라 유동성·투자가능자산·위험자산 한도·퇴직급여 수용 등 기능 차이를 기준으로 조합한다.",
     "supporting_videos": [
@@ -35,5 +35,7 @@
     "confidence": "high"
   },
   "framework_delta": "노후목표 → 유동성 수요 → 세액공제 → 투자자산 범위/risk budget → 연금저축·IRP 배치 → 과세이연 → 인출",
-  "created_at": "2026-10-06T08:00:00+09:00"
+  "created_at": "2026-10-06T08:00:00+09:00",
+  "corrected_at": "2026-10-06T08:09:00+09:00",
+  "correction_reason": "claim_id collision with pre-existing canonical claims 37-39"
 }
