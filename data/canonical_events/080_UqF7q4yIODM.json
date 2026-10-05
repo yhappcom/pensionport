@@ -25,7 +25,7 @@
     "TIME_SENSITIVE"
   ],
   "claim_delta": {
-    "claim_id": "GOMHEE-C39",
+    "claim_id": "GOMHEE-C44",
     "topic": "pension_product_mix",
     "claim": "연금저축은 세액공제 계좌라는 wrapper만 볼 것이 아니라 그 안의 보험·신탁·펀드·ETF 등 상품형태와 자산배분·시장위험을 분리해 평가해야 한다.",
     "supporting_videos": [
@@ -35,5 +35,7 @@
     "confidence": "high"
   },
   "framework_delta": "은퇴지출 → 공적/퇴직연금 → 부족자금 → 연금저축 wrapper → 상품유형/자산배분 → 비용/위험 → 장기유지",
-  "created_at": "2026-10-06T08:00:00+09:00"
+  "created_at": "2026-10-06T08:00:00+09:00",
+  "corrected_at": "2026-10-06T08:09:00+09:00",
+  "correction_reason": "claim_id collision with pre-existing canonical claims 37-39"
 }
