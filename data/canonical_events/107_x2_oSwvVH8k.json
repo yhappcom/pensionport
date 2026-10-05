@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 107,
+  "video_id": "x2_oSwvVH8k",
+  "published_at": null,
+  "title": "☂️ 연금저축 600만원 넣은 첫해 연말정산의 결과는?ㅣ연금시리즈 18편ㅣ연말정산결과",
+  "source_doc": "videos/undated/x2_oSwvVH8k.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 107
+  },
+  "topics": [
+    "pension_savings",
+    "retirement"
+  ],
+  "knowledge_change": [
+    "BACKLOG_COMPACTION"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C71",
+    "topic": "pension_savings",
+    "claim": "연금저축 납입액이 있다고 해서 세액공제를 기계적으로 최대 적용하는 것이 항상 최적은 아니라는 실제 사례다. 월세 등 다른 세액공제로 이미 납부세액을 충분히 환급받을 수 있는 경우 연금저축 납입액을 세액공제 받지 않은 원금으로 남기는 선택을 보여준다.",
+    "supporting_videos": [
+      "x2_oSwvVH8k"
+    ],
+    "status": "supported",
+    "confidence": "source_backed"
+  },
+  "framework_delta": "'연금저축=무조건 세액공제'에서 '개인의 결정세액과 다른 공제 → 공제 적용 여부 → 납입원금의 세무속성 → 운용 → 인출'로 확장한다.",
+  "created_at": "2026-10-06T08:26:00+09:00"
+}
