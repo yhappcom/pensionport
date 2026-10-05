@@ -80,11 +80,67 @@
       "synthesis/batch_012_111-120.md",
       "synthesis/batch_013_121-130.md"
     ],
-    "checkpoint_pdf_status": "pending_generation_in_same_manual_run",
-    "completed_at": "2026-10-06T08:40:00+09:00"
+    "checkpoint_pdf_status": "complete",
+    "completed_at": "2026-10-06T08:40:00+09:00",
+    "checkpoint_pdfs": [
+      {
+        "batch": 8,
+        "range": "071-080",
+        "filename": "pensionport_batch_008_71-80_ko.pdf",
+        "sha256": "b7f452d63016881bd8d4eb8518a37fbba3d848d069392641d53572891c14166a",
+        "pages": 1,
+        "visual_verification": "passed",
+        "manifest": "synthesis/batch_008_071-080_pdf.json"
+      },
+      {
+        "batch": 9,
+        "range": "081-090",
+        "filename": "pensionport_batch_009_81-90_ko.pdf",
+        "sha256": "fcbc158c7c161da065b4f8d95518b001a3a7cf5aaeb51ffea700f91619352d25",
+        "pages": 1,
+        "visual_verification": "passed",
+        "manifest": "synthesis/batch_009_081-090_pdf.json"
+      },
+      {
+        "batch": 10,
+        "range": "091-100",
+        "filename": "pensionport_batch_010_91-100_ko.pdf",
+        "sha256": "5b654525fd7a90eefb749b7459f88a6b08250e56f60e4e08def2a72ea1f617f8",
+        "pages": 1,
+        "visual_verification": "passed",
+        "manifest": "synthesis/batch_010_091-100_pdf.json"
+      },
+      {
+        "batch": 11,
+        "range": "101-110",
+        "filename": "pensionport_batch_011_101-110_ko.pdf",
+        "sha256": "1c64b6f79191ebc5bfefb0569969dc392719fee69469d05c19f91996d4c73075",
+        "pages": 1,
+        "visual_verification": "passed",
+        "manifest": "synthesis/batch_011_101-110_pdf.json"
+      },
+      {
+        "batch": 12,
+        "range": "111-120",
+        "filename": "pensionport_batch_012_111-120_ko.pdf",
+        "sha256": "c919e0b38d05e54866bd30eb8d82525b3a8a4f78b7f31a05dafbbe6f1665e4fe",
+        "pages": 1,
+        "visual_verification": "passed",
+        "manifest": "synthesis/batch_012_111-120_pdf.json"
+      },
+      {
+        "batch": 13,
+        "range": "121-130",
+        "filename": "pensionport_batch_013_121-130_ko.pdf",
+        "sha256": "fe7c758d3a3beb87384519aece90cea03bebbf9451888acbde220b652734b5de",
+        "pages": 1,
+        "visual_verification": "passed",
+        "manifest": "synthesis/batch_013_121-130_pdf.json"
+      }
+    ]
   },
   "last_scheduled_run_at": "2026-10-06T08:40:00+09:00",
-  "last_run_result": "synchronization_debt_removed_backlog_62_fully_compacted_to_139",
+  "last_run_result": "synchronization_debt_zero_backlog_62_compacted_checkpoints_80_to_130_complete",
   "discovery_checked_at": "2026-10-06T05:08:20+09:00",
   "newly_analyzed_count": 0,
   "write_failure": false,

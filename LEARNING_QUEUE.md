@@ -141,3 +141,4 @@
 - claim ID collision을 점검해 중복 0건으로 정리했다.
 - 최종 actual data: master 152 / processed 139 / pending_sync 0 / verification_needed 13 / data/videos 139 / max sequence 139.
 - 다음 synthesis checkpoint는 140편이다.
+- 80/90/100/110/120/130 checkpoint 한국어 PDF 6개를 생성하고 170 DPI 렌더 검증에서 글자 깨짐·clipping·overlap 없음으로 통과했다.
