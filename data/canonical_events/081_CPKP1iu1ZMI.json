@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 81,
+  "video_id": "CPKP1iu1ZMI",
+  "published_at": "2026-08-09",
+  "title": "📚 모은 연금은 어떻게 수령하나요? | 박곰희 연금부자수업 EP.17",
+  "source_doc": "videos/2026/CPKP1iu1ZMI.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 81
+  },
+  "topics": [
+    "retirement"
+  ],
+  "knowledge_change": [
+    "BACKLOG_COMPACTION"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C45",
+    "topic": "retirement",
+    "claim": "적립을 끝낸 뒤에는 '얼마를 모았는가'만큼 '어떻게 인출할 것인가'가 중요하다. 영상은 연금자산에 인출률을 적용해 월 현금흐름을 역산하고, 국민연금 등 공적연금과 개인연금을 합쳐 은퇴소득을 설계하는 decumulation 관점을 제시한다.",
+    "supporting_videos": [
+      "CPKP1iu1ZMI"
+    ],
+    "status": "supported",
+    "confidence": "source_backed"
+  },
+  "framework_delta": "적립 중심 연금프레임에 **withdrawal-rate assumption → sequence risk → public-pension buffer → dynamic spending → remaining-portfolio management**를 추가한다. 영상의 4%/8% 숫자를 그대로 규칙화하지 않고 근거수준별로 구분한다.",
+  "created_at": "2026-10-06T08:12:00+09:00"
+}
