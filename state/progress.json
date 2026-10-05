@@ -5,10 +5,10 @@
   "primary_queue": "long_form",
   "max_videos_per_hour": 40,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 65,
-  "canonical_processed_count": 65,
-  "last_processed_video_id": "Q3OrWpOVS2E",
-  "last_processed_published_at": "2026-01-23",
+  "processed_videos": 66,
+  "canonical_processed_count": 66,
+  "last_processed_video_id": "iy7_HMMSLGc",
+  "last_processed_published_at": "2025-10-28",
   "next_synthesis_at": 70,
   "synthesis_version": 6,
   "last_synthesis_file": "synthesis/batch_006_051-060.md",
@@ -18,8 +18,8 @@
     "channel_total_uploads_observed": 794,
     "total_uploads_include_shorts": true,
     "identified_long_form_with_video_id": 141,
-    "processed_mapped": 65,
-    "identified_unprocessed": 76,
+    "processed_mapped": 66,
+    "identified_unprocessed": 75,
     "published_date_known": 67,
     "unresolved_long_form_candidates": 2,
     "shorts_excluded_from_primary": true,
@@ -36,17 +36,17 @@
     "stop_on_github_write_failure": false
   },
   "canonical_sync_lane": {
-    "pending_sync_videos": 67,
+    "pending_sync_videos": 66,
     "sync_only_not_counted_as_new_analysis": true,
     "write_policy": "event_first_then_idempotent_compaction",
     "failure_policy": "retain_event_and_continue"
   },
   "canonical_consistency": {
-    "queue_processed": 65,
-    "data_videos_records": 65,
-    "data_videos_max_sequence": 65,
-    "canonical_event_records": 1,
-    "effective_processed_count": 65,
+    "queue_processed": 66,
+    "data_videos_records": 66,
+    "data_videos_max_sequence": 66,
+    "canonical_event_records": 2,
+    "effective_processed_count": 66,
     "sequence_gaps": [],
     "consistent_processed_count": true
   },
@@ -56,21 +56,26 @@
     "state_formula": "base_plus_nonduplicated_event_overlay"
   },
   "last_batch": {
-    "batch_type": "manual_write_reliability_repair",
+    "batch_type": "manual_event_first_validation_run",
     "newly_analyzed_videos": 0,
     "canonical_sync_completed": [
-      "Q3OrWpOVS2E"
+      "iy7_HMMSLGc"
     ],
-    "canonical_processed_count": 65,
-    "discovery_performed": false,
-    "completed_at": "2026-10-05T13:09:00+09:00"
+    "canonical_event_created": [
+      "data/canonical_events/066_iy7_HMMSLGc.json"
+    ],
+    "aggregate_compaction": "complete",
+    "canonical_processed_count": 66,
+    "discovery_performed": true,
+    "discovery_result": "No new exact-ID + source-backed long-form candidate found in the fresh discovery pass.",
+    "completed_at": "2026-10-05T13:26:27+09:00"
   },
-  "last_scheduled_run_at": "2026-10-05T13:09:00+09:00",
-  "last_run_result": "canonical_65_compacted_event_ledger_enabled",
-  "discovery_checked_at": "2026-10-04T18:42:20+09:00",
+  "last_scheduled_run_at": "2026-10-05T13:26:27+09:00",
+  "last_run_result": "event_first_validation_passed_canonical_66_compacted",
+  "discovery_checked_at": "2026-10-05T13:26:27+09:00",
   "newly_analyzed_count": 0,
   "write_failure": false,
-  "pending_sync_count": 67,
+  "pending_sync_count": 66,
   "verification_needed_count": 9,
   "heartbeat_location": "primary",
   "heartbeat_primary_file": "state/progress.json",
