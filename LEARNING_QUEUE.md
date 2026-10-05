@@ -1,10 +1,10 @@
 # 박곰희TV 학습 목록 — Master Inventory v3
 
-- 갱신일: 2026-10-05
+- 갱신일: 2026-10-06
 - 기준 채널: `@gomhee`
 - 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **794개** — Shorts 포함
-- Video ID까지 식별된 롱폼 후보: **141편**
-- canonical processed: **70편**
+- Video ID까지 식별된 롱폼 후보: **147편**
+- canonical processed: **76편**
 - identified_unprocessed: **71편**
 - 이 중 콘텐츠 분석 완료·canonical sync 대기: **62편**
 - source 미확보 verification_needed: **9편**
@@ -97,3 +97,28 @@
 - 2026-10-05 `sqh-919UMVk`는 canonical sequence 69로 승격하고 KRX 현행 서킷브레이커 규칙을 공식 검증했다.
 
 - 2026-10-05 `FPA12oQeQbc`는 canonical sequence 70으로 승격하고 Batch 007 (61~70) synthesis/PDF 체크포인트를 완료했다.
+
+
+## 2026-10-06 inventory-wide fallback 전환
+순차 chronology가 불완전할 때 더 이상 분석을 멈추지 않는다. effective canonical과 전체 exact-ID inventory를 대조해 미확인 source-backed 롱폼을 직접 선택한다.
+
+이번 수동 진단에서 queue의 `n1hVZlHq-RA`가 `source_backed_ready`로 남아 있었지만 canonical event 071이 이미 존재하는 stale-state를 발견했다. 이를 재분석하지 않고 base index와 queue에 compact해 정합화했다.
+
+전체 inventory discovery에서 기존 queue에 없던 source-backed 롱폼 5편을 신규 분석·canonicalize했다.
+- 072 `-3iNxrjeQak` — 곰희책방#2 | 부에 이르는 가장 단순한 길
+- 073 `GmwmPKFY4PY` — 월급300만원으로 1억 만드는 계획 | ASK곰희 ver.2026
+- 074 `yl0UyfkvaHs` — 추석특집 투자초보편 몰아보기
+- 075 `_vo1uqkk1yo` — 절세계좌 3개 나눠서 투자하는 방법 | 1편
+- 076 `H04y8gmBtqk` — 절세계좌 3개 나눠서 투자하는 방법 | 2편
+
+현재 actual data 기준:
+- master queue: **147편**
+- canonical/effective processed: **76편**
+- remaining effective-unprocessed: **71편**
+- 기존 분석 완료·sync 대기: **62편**
+- verification_needed: **9편**
+- effective source-backed unanalyzed ready: **0편**
+- Video ID unresolved: **2편**
+- 다음 synthesis checkpoint: **80편**
+
+신규 discovery는 기존 master queue가 YouTube 전체 롱폼 전수목록이 아님을 전제로 계속 수행한다.
