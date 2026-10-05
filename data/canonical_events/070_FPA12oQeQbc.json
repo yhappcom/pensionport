@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 70,
+  "video_id": "FPA12oQeQbc",
+  "published_at": "2026-07-16",
+  "title": "💵 달러투자 방법 총정리 | 달러예금/달러ETF/달러RP/달러발행어음 | ver.2026",
+  "source_doc": "videos/2026/FPA12oQeQbc.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 70
+  },
+  "topics": [
+    "currency",
+    "usd",
+    "fx",
+    "etf",
+    "rp",
+    "promissory_note",
+    "cash_management"
+  ],
+  "knowledge_change": [
+    "CHANGE",
+    "EXTEND",
+    "REINFORCE",
+    "TIME_SENSITIVE"
+  ],
+  "verification_status": "structure_verified_current_rates_terms_not_reused",
+  "claim_delta": {
+    "claim_id": "GOMHEE-C36",
+    "topic": "currency_implementation",
+    "claim": "달러 보유는 환율 방향 베팅보다 목적을 먼저 정하고 예금·통화 ETF·RP·발행어음 등 구현수단의 수익원·유동성·비용·신용위험·계좌/세금을 분리해 선택한다",
+    "supporting_videos": [
+      "FPA12oQeQbc",
+      "Mcjhjgh50Is",
+      "YNOSY15ppf8"
+    ],
+    "status": "supported",
+    "confidence": "high"
+  },
+  "framework_delta": "통화분산 목적 → 경제적 달러노출 → 구현상품 → 이자/비용 → 유동성 → 신용위험 → 계좌/세금",
+  "created_at": "2026-10-05T15:15:00+09:00"
+}
