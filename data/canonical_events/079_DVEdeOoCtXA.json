@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 79,
+  "video_id": "DVEdeOoCtXA",
+  "published_at": "2026-07-29",
+  "title": "👴👵 연금저축과 IRP의 결정적인 차이 | 어떤 게 더 좋아요? | 2026년 리뉴얼",
+  "source_doc": "videos/2026/DVEdeOoCtXA.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 79
+  },
+  "topics": [
+    "pension_savings",
+    "irp",
+    "liquidity",
+    "tax_credit",
+    "asset_rules"
+  ],
+  "knowledge_change": [
+    "EXTEND",
+    "REINFORCE",
+    "TIME_SENSITIVE"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C38",
+    "topic": "pension_wrapper_selection",
+    "claim": "연금저축과 IRP는 어느 하나가 절대 우월한 계좌가 아니라 유동성·투자가능자산·위험자산 한도·퇴직급여 수용 등 기능 차이를 기준으로 조합한다.",
+    "supporting_videos": [
+      "DVEdeOoCtXA"
+    ],
+    "status": "supported",
+    "confidence": "high"
+  },
+  "framework_delta": "노후목표 → 유동성 수요 → 세액공제 → 투자자산 범위/risk budget → 연금저축·IRP 배치 → 과세이연 → 인출",
+  "created_at": "2026-10-06T08:00:00+09:00"
+}
