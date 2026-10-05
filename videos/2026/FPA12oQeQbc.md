@@ -1,0 +1,32 @@
+# FPA12oQeQbc — 달러투자 방법 총정리 | 달러예금/달러ETF/달러RP/달러발행어음 | ver.2026
+
+- published_at: 2026-07-16
+- type: long_form
+- source_status: exact original YouTube ID preserved in contemporaneous article + 2026 derived detailed notes + earlier exact-series comparison
+- knowledge_change: CHANGE, EXTEND, REINFORCE, TIME_SENSITIVE
+
+## 핵심 분석
+달러투자를 단순 환율방향 베팅으로 보지 않고 '왜 달러를 보유하려는지'부터 정한 뒤 구현수단을 고르는 접근을 재강화한다. 달러현금/예금, 원화로 거래하는 달러 ETF, 달러 RP, 달러 발행어음은 모두 달러와 관련되어 있지만 수익원·유동성·신용위험·비용이 다르다.
+
+## 구현수단
+- 달러 예금: 은행 예금 구조와 환전비용을 함께 본다.
+- 달러 ETF: 원화로 거래할 수 있지만 선물/지수구조, 보수, 롤오버·추적오차 등 상품구조를 확인한다.
+- 달러 RP: 증권사가 보유한 채권을 기초로 한 환매조건부 거래로 수시형/약정형 등 만기·금리조건이 다르다.
+- 달러 발행어음: 증권사의 신용을 직접 부담하는 구조이므로 담보구조가 있는 RP와 동일시하면 안 된다.
+
+## 전략
+달러는 위기대응·통화분산·향후 달러지출·해외자산 투자대기자금 등 목적이 다를 수 있다. 목적 → 필요한 달러 노출 → 보유기간 → 이자 필요성 → 유동성 → 신용위험 → 환전/상품비용 순으로 구현수단을 선택한다.
+
+## 위험
+환율 상승이 확정되지 않으며 달러 자체도 고평가/저평가 판단오류가 가능하다. RP·발행어음 금리, 최소금액, 취급 증권사, ISA 매수 가능여부와 세금은 TIME_SENSITIVE다. 2021년 영상의 구체 증권사·금리 조건은 현재값으로 재사용하지 않는다.
+
+## 변화
+2021년판에서 제시된 구조적 비교는 유지되지만 2026년판은 환율수준과 상품금리·취급조건이 바뀐 환경을 반영한 업데이트로 본다. 핵심 프레임은 '달러 자체의 역할'과 '달러를 담는 상품'을 분리하는 것이다.
+
+## 프레임워크
+통화분산 목적 → 경제적 달러노출 → 구현상품 → 이자/비용 → 유동성 → 신용위험 → 계좌/세금으로 currency implementation layer를 강화한다.
+
+## Canonicalization
+- canonical_sequence: 70
+- canonicalized_at: 2026-10-05
+- product rates, eligibility, tax treatment and brokerage terms remain TIME_SENSITIVE; no historical rate is reused as current.
