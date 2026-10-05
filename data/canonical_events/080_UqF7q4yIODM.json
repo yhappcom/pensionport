@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 80,
+  "video_id": "UqF7q4yIODM",
+  "published_at": "2026-08-07",
+  "title": "📊 드디어 연금저축의 시대가 왔다!ㅣ연금저축통계 | ver.2026",
+  "source_doc": "videos/2026/UqF7q4yIODM.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 80
+  },
+  "topics": [
+    "pension_savings",
+    "statistics",
+    "fund",
+    "etf",
+    "asset_allocation"
+  ],
+  "knowledge_change": [
+    "EXTEND",
+    "REINFORCE",
+    "TIME_SENSITIVE"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C39",
+    "topic": "pension_product_mix",
+    "claim": "연금저축은 세액공제 계좌라는 wrapper만 볼 것이 아니라 그 안의 보험·신탁·펀드·ETF 등 상품형태와 자산배분·시장위험을 분리해 평가해야 한다.",
+    "supporting_videos": [
+      "UqF7q4yIODM"
+    ],
+    "status": "supported",
+    "confidence": "high"
+  },
+  "framework_delta": "은퇴지출 → 공적/퇴직연금 → 부족자금 → 연금저축 wrapper → 상품유형/자산배분 → 비용/위험 → 장기유지",
+  "created_at": "2026-10-06T08:00:00+09:00"
+}
