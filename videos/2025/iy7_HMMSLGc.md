@@ -13,3 +13,8 @@ ISA를 가입/운용에서 끝내지 않고 현금화→해지·세금정산→�
 
 ## 프레임워크
 ISA의 출구가 연금계좌의 입구가 될 수 있다는 연결을 추가한다. 계좌 lifecycle과 인출/이전 설계를 강화한다.
+
+## Canonicalization
+- canonical_sequence: 66
+- canonicalized_at: 2026-10-05
+- current official verification: NTS + Income Tax Act; ISA maturity transfer adds 10% of transferred amount, capped at KRW 3,000,000, to the pension-account tax-credit limit for that tax year.
