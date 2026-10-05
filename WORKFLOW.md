@@ -229,3 +229,16 @@ fresh-SHA 규칙에 더해 다음을 적용한다.
 - 한 target write 실패 때문에 다른 target이나 content lane을 중단하지 않는다.
 - 원인이 증명되지 않은 오류는 `원인 미확정`으로 기록하고 추정명을 붙이지 않는다.
 - 실행 보고의 write 오류는 `path / raw class / HTTP status(있으면) / message 요약 / desired-state check / retry 결과` 형식을 사용한다.
+
+
+## Write 실패 증거 규칙
+
+예약 실행에서 GitHub write 실패를 판정할 때 다음을 강제한다.
+
+- **실제 GitHub write connector가 호출되고 raw error를 반환한 경우에만 write 실패로 기록한다.**
+- raw connector error가 없으면 `safety check`, `connector precondition`, `permission`, `SHA conflict` 같은 원인을 추정하지 않는다. 이 경우 상태는 `write_status_unknown`으로 기록하고 실패로 단정하지 않는다.
+- 사용자 보고에 오류를 쓰려면 최소한 `target path / invoked write action / raw error class 또는 raw message / fresh-refetch 결과 / retry 결과`가 있어야 한다.
+- 단순히 모델이 “도구가 막혔다”고 판단한 문장, 계획 단계의 중단, tool-call 미발행은 write 실패 증거가 아니다.
+- 예약 실행에서 한 write가 의심스러우면 같은 실행 안에서 exact target을 다시 fetch하고 desired state를 확인한다. desired state가 반영되어 있으면 성공이다.
+- desired state가 없고 raw connector error도 없다면 해당 target을 한 번 더 **직접 GitHub update action으로 호출**한다. 이 두 번째 직접 호출의 raw 결과로만 성공/실패를 결정한다.
+- 반복 실패를 보고하기 전에 최소 한 개의 작은 known-safe target 또는 heartbeat target에서 동일한 direct write transaction이 동작하는지 확인한다. 이것은 repository-wide 장애와 target-specific 장애를 구분하기 위한 진단이다.
