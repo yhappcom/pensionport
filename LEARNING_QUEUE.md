@@ -4,9 +4,9 @@
 - 기준 채널: `@gomhee`
 - 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **794개** — Shorts 포함
 - Video ID까지 식별된 롱폼 후보: **141편**
-- canonical processed: **65편**
-- identified_unprocessed: **76편**
-- 이 중 콘텐츠 분석 완료·canonical sync 대기: **67편**
+- canonical processed: **66편**
+- identified_unprocessed: **75편**
+- 이 중 콘텐츠 분석 완료·canonical sync 대기: **66편**
 - source 미확보 verification_needed: **9편**
 - 게시일 값 확보: **67편** (strict `date_verified` 36편)
 - 제목/게시일은 확인됐지만 Video ID 미해결: **2편**
@@ -57,8 +57,8 @@
 신규 discovery 1패스에서도 source-backed 후보가 없고 tool/time 한도에 도달한 경우에만 0편 종료가 허용된다.
 
 ## 현재 backlog 해석
-현재 identified_unprocessed 76편은 '80편을 처음부터 다시 분석해야 한다'는 뜻이 아니다.
-- **67편:** 기존 분석문이 존재하며 canonical sync만 필요
+현재 identified_unprocessed 75편은 '80편을 처음부터 다시 분석해야 한다'는 뜻이 아니다.
+- **66편:** 기존 분석문이 존재하며 canonical sync만 필요
 - **9편:** source 미확보로 verification_needed
 
 따라서 다음 콘텐츠 분석은 위 backlog의 반복 재검색이 아니라 **신규 discovery에서 확보한 source-backed 롱폼**부터 이어간다.
@@ -87,3 +87,5 @@
 - 2026-10-05 `JwoiWyec7ks`는 canonical sequence 64로 index/queue/claim/framework 정합화를 완료했다.
 
 - 2026-10-05 `Q3OrWpOVS2E`는 event-first canonical sequence 65로 승격 후 base index/queue/claim/IRP/framework까지 compaction 완료했다.
+
+- 2026-10-05 `iy7_HMMSLGc`는 event-first canonical sequence 66으로 승격 후 base index/queue/claim/ISA·연금저축/framework compaction을 완료했다.
