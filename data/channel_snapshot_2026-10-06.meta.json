@@ -22,10 +22,10 @@
       "observed_date": "2026-10-03"
     }
   ],
-  "identified_snapshot_rows": 161,
-  "remaining_to_identify": 633,
+  "identified_snapshot_rows": 193,
+  "remaining_to_identify": 601,
   "snapshot_complete": false,
-  "completeness_pct": 20.3,
+  "completeness_pct": 24.3,
   "purpose": "Freeze all public uploads as of 2026-10-06, classify each as long-form/Short/live/other, and derive the learning queue from long-form rows.",
   "required_fields": [
     "video_id",
@@ -37,5 +37,20 @@
     "source"
   ],
   "derivation_rule": "data/learning_queue.jsonl must be a derived learning inventory from long-form/include rows in this snapshot plus post-snapshot incremental uploads.",
-  "post_snapshot_rule": "Uploads after 2026-10-06 are appended to an incremental ledger and then merged into the next snapshot; do not rewrite the 2026-10-06 baseline."
+  "post_snapshot_rule": "Uploads after 2026-10-06 are appended to an incremental ledger and then merged into the next snapshot; do not rewrite the 2026-10-06 baseline.",
+  "classification_counts": {
+    "long_form": 173,
+    "long_form_compilation": 1,
+    "short": 19,
+    "live": 0,
+    "other": 0,
+    "unknown": 0
+  },
+  "last_inventory_run_at": "2026-10-06T15:20:09+09:00",
+  "last_inventory_run_new_ids": 32,
+  "last_inventory_sources": [
+    "allsnsrank channel/video index",
+    "DoLearn channel/index",
+    "official YouTube search result"
+  ]
 }
