@@ -172,5 +172,16 @@
     "discovery_batch_target": 40,
     "source_acquisition_batch_target": 20,
     "mode": "bootstrap_priority"
+  },
+  "channel_snapshot": {
+    "baseline_date": "2026-10-06",
+    "target_public_uploads": 794,
+    "identified_rows": 161,
+    "remaining_to_identify": 633,
+    "completeness_pct": 20.3,
+    "snapshot_complete": false,
+    "snapshot_file": "data/channel_snapshot_2026-10-06.jsonl",
+    "snapshot_meta": "data/channel_snapshot_2026-10-06.meta.json",
+    "priority": "complete_fixed_full_channel_snapshot"
   }
 }
