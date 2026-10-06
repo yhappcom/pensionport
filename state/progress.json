@@ -14,17 +14,21 @@
   "last_synthesis_file": "synthesis/batch_013_121-130.md",
   "updated_at": "2026-10-06",
   "learning_inventory": {
-    "version": 7,
+    "version": 8,
     "channel_total_uploads_observed": 794,
     "total_uploads_include_shorts": true,
-    "identified_long_form_with_video_id": 152,
+    "identified_long_form_with_video_id": 161,
     "processed_mapped": 139,
-    "identified_unprocessed": 13,
+    "identified_unprocessed": 22,
     "published_date_known": 70,
     "unresolved_long_form_candidates": 2,
     "shorts_excluded_from_primary": true,
     "source_file": "data/learning_queue.jsonl",
-    "unresolved_file": "data/learning_queue_unresolved.jsonl"
+    "unresolved_file": "data/learning_queue_unresolved.jsonl",
+    "source_acquisition_needed": 9,
+    "verification_needed": 13,
+    "inventory_control_file": "data/inventory_control.json",
+    "inventory_plan_file": "INVENTORY_PLAN.md"
   },
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
@@ -33,7 +37,8 @@
     "blocked_retry_default_days": 30,
     "blocked_retry_rule": "retry_only_when_next_source_retry_at_due_or_new_source_signal",
     "discovery_required_when_ready_count_zero": true,
-    "stop_on_github_write_failure": false
+    "stop_on_github_write_failure": false,
+    "source_acquisition_needed_count": 9
   },
   "canonical_sync_lane": {
     "pending_sync_videos": 0,
@@ -140,8 +145,8 @@
     ]
   },
   "last_scheduled_run_at": "2026-10-06T12:08:45+09:00",
-  "last_run_result": "no_new_source_backed_candidate_discovery_pass_complete",
-  "discovery_checked_at": "2026-10-06T12:08:45+09:00",
+  "last_run_result": "inventory_bootstrap_policy_added_9_exact_ids_registered",
+  "discovery_checked_at": "2026-10-06T15:06:58+09:00",
   "newly_analyzed_count": 0,
   "write_failure": false,
   "pending_sync_count": 0,
@@ -159,5 +164,13 @@
     "run_event_required_for_every_writer_run": true,
     "legacy_heartbeat": "state/run-heartbeat.json",
     "legacy_heartbeat_role": "legacy_fallback_only"
+  },
+  "inventory_reservoir": {
+    "target_exact_id_unprocessed_buffer": 100,
+    "minimum_exact_id_unprocessed_buffer": 60,
+    "current_exact_id_unprocessed_buffer": 22,
+    "discovery_batch_target": 40,
+    "source_acquisition_batch_target": 20,
+    "mode": "bootstrap_priority"
   }
 }
