@@ -10,6 +10,8 @@
 - `data/learning_queue_unresolved.jsonl`
 - `data/videos.jsonl`
 - `data/inventory_control.json`
+- `data/channel_snapshot_2026-10-06.jsonl`
+- `data/channel_snapshot_2026-10-06.meta.json`
 - `data/canonical_events/`
 - `state/progress.json`
 - `state/execution_lock.json`
@@ -411,3 +413,24 @@ chronology가 불완전하거나 게시일만으로 다음 영상을 안정적�
 - queue에 `source_backed_ready`가 남아 있어도 같은 Video ID가 effective canonical에 존재하면 ready로 세지 않는다.
 - 이 경우 재분석하지 않고 aggregate compaction 대상으로만 처리한다.
 - `ready_existing_queue_count`는 raw status count가 아니라 위 필터를 적용한 effective candidate count로 계산한다.
+
+
+## 2026-10-06 고정 채널 snapshot
+2026-10-06을 기준일로 박곰희TV 공개 업로드 전체를 고정 snapshot으로 먼저 완성한다.
+
+- channel_id: `UCr7XsrSrvAn_WcU4kF99bbQ`
+- 기준일 공개 업로드 총수 target: **794개**
+- snapshot: `data/channel_snapshot_2026-10-06.jsonl`
+- metadata: `data/channel_snapshot_2026-10-06.meta.json`
+- 총수 794에는 Shorts 및 기타 공개 업로드 유형이 포함될 수 있으므로 각 행을 `long_form / short / live / other / unknown`으로 분류한다.
+- 학습 대상 `data/learning_queue.jsonl`은 snapshot의 long-form/include 행에서 파생한다.
+- snapshot 기준일 이후 업로드는 2026-10-06 baseline을 수정하지 않고 증분으로 추가한다.
+
+### snapshot bootstrap 우선순위
+1. 기준일 snapshot이 794/794로 완성되기 전에는 just-in-time 단건 discovery보다 **전체목록 수집을 우선**한다.
+2. 한 pass에서 가능한 많은 exact Video ID / title / published_at / duration / type을 수집한다.
+3. 동일 Video ID는 하나의 snapshot row만 가진다.
+4. Shorts/라이브/광고 등도 전체 snapshot에는 남기되 학습 포함 여부를 별도 필드로 구분한다.
+5. long-form으로 분류된 미처리 영상은 master learning queue에 idempotent하게 파생·등록한다.
+6. snapshot 완성 후 예약작업은 기본적으로 미분석 long-form 목록을 소비하며, 별도 discovery는 **기준일 이후 신규 업로드 탐지**에만 사용한다.
+7. 외부 색인 총수와 snapshot row 수가 다르면 snapshot 미완성으로 간주한다. 총수만 맞추기 위해 ID 없는 placeholder를 만들지 않는다.
