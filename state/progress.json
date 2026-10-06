@@ -38,7 +38,7 @@
   "canonical_sync_lane": {
     "pending_sync_videos": 0,
     "sync_only_not_counted_as_new_analysis": true,
-    "write_policy": "event_first_atomic_tree_compaction",
+    "write_policy": "event_first_then_serial_fresh_sha_idempotent_compaction",
     "failure_policy": "retain_event_and_continue"
   },
   "canonical_consistency": {
@@ -148,5 +148,16 @@
   "verification_needed_count": 13,
   "heartbeat_location": "primary",
   "heartbeat_primary_file": "state/progress.json",
-  "heartbeat_event_dir": "state/run_events"
+  "heartbeat_event_dir": "state/run_events",
+  "state_resolution_policy": "actual_data_plus_event_overlay_over_progress_or_chat_summary",
+  "execution_control": {
+    "single_writer_lock": "state/execution_lock.json",
+    "lease_minutes": 45,
+    "lock_required_before_canonical_write": true,
+    "concurrent_non_holder_mode": "read_only",
+    "run_ledger": "state/run_events",
+    "run_event_required_for_every_writer_run": true,
+    "legacy_heartbeat": "state/run-heartbeat.json",
+    "legacy_heartbeat_role": "legacy_fallback_only"
+  }
 }
