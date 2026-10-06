@@ -1,0 +1,32 @@
+{
+  "run_id": "scheduled-snapshot-20261007T051030+0900",
+  "source": "scheduled",
+  "started_at": "2026-10-07T05:10:30+09:00",
+  "finished_at": "2026-10-07T05:28:00+09:00",
+  "start_effective_canonical": 141,
+  "end_effective_canonical": 142,
+  "newly_analyzed_count": 1,
+  "sync_only_count": 0,
+  "pending_sync_count": 1,
+  "verification_needed_count": 13,
+  "discovery_checked_at": "2026-10-07T05:24:00+09:00",
+  "snapshot_identified": 227,
+  "snapshot_target": 794,
+  "discovered_exact_ids_not_persisted": [
+    "zg_CgpmpwhQ",
+    "CP7BuvbnKIY",
+    "su0ZGYZ1IXQ",
+    "ULshIQNe3xo",
+    "-XmgN4aT2R4",
+    "iEl0Gw2mxNM"
+  ],
+  "last_run_result": "canonical_event_142_created_snapshot_write_blocked",
+  "write_failure": true,
+  "write_failures": [
+    "data/channel_snapshot_2026-10-06.jsonl update blocked; fresh-refetch retry blocked",
+    "data/videos.jsonl compaction blocked; fresh-refetch retry blocked",
+    "data/learning_queue.jsonl derivation append blocked; fresh-refetch retry blocked",
+    "state/progress.json update blocked; fresh-refetch retry blocked"
+  ],
+  "heartbeat_location": "run_event"
+}
