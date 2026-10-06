@@ -1,0 +1,34 @@
+{
+  "run_id": "scheduled-snapshot-20261007T010715+0900",
+  "source": "scheduled",
+  "started_at": "2026-10-07T01:07:15+09:00",
+  "finished_at": "2026-10-07T01:16:00+09:00",
+  "start_effective_canonical": 141,
+  "end_effective_canonical": 141,
+  "newly_analyzed_count": 1,
+  "sync_only_count": 0,
+  "pending_sync_count": 0,
+  "verification_needed_count": 13,
+  "discovery_checked_at": "2026-10-07T01:10:00+09:00",
+  "last_run_result": "snapshot_discovery_and_content_analysis_write_blocked",
+  "write_failure": true,
+  "heartbeat_location": "run_event",
+  "snapshot_identified": 222,
+  "snapshot_target": 794,
+  "learning_queue_total": 200,
+  "source_acquisition_needed_count": 44,
+  "source_backed_ready_count": 2,
+  "unresolved_count": 19,
+  "write_errors": [
+    {
+      "path": "data/channel_snapshot_2026-10-06.jsonl",
+      "class": "raw safety-check block",
+      "retry": "fresh-refetch retry failed"
+    },
+    {
+      "path": "videos/undated/LHy5UbdIAcs.md",
+      "class": "raw safety-check block",
+      "retry": "existence refetch then retry failed"
+    }
+  ]
+}
