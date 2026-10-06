@@ -5,11 +5,11 @@
   "primary_queue": "long_form",
   "max_videos_per_hour": 40,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 139,
-  "canonical_processed_count": 139,
-  "last_processed_video_id": "Z5br9TkMASw",
+  "processed_videos": 141,
+  "canonical_processed_count": 141,
+  "last_processed_video_id": "3jtBJc17ZHw",
   "last_processed_published_at": null,
-  "next_synthesis_at": 140,
+  "next_synthesis_at": 150,
   "synthesis_version": 13,
   "last_synthesis_file": "synthesis/batch_013_121-130.md",
   "updated_at": "2026-10-06",
@@ -32,13 +32,13 @@
   },
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
-    "ready_existing_queue_count": 0,
+    "ready_existing_queue_count": 2,
     "verification_needed_count": 13,
     "blocked_retry_default_days": 30,
     "blocked_retry_rule": "retry_only_when_next_source_retry_at_due_or_new_source_signal",
     "discovery_required_when_ready_count_zero": true,
     "stop_on_github_write_failure": false,
-    "source_acquisition_needed_count": 22
+    "source_acquisition_needed_count": 44
   },
   "canonical_sync_lane": {
     "pending_sync_videos": 0,
@@ -48,10 +48,10 @@
   },
   "canonical_consistency": {
     "queue_processed": 139,
-    "data_videos_records": 139,
-    "data_videos_max_sequence": 139,
-    "canonical_event_records": 75,
-    "effective_processed_count": 139,
+    "data_videos_records": 140,
+    "data_videos_max_sequence": 140,
+    "canonical_event_records": 77,
+    "effective_processed_count": 141,
     "sequence_gaps": [],
     "consistent_processed_count": true
   },
@@ -144,11 +144,11 @@
       }
     ]
   },
-  "last_scheduled_run_at": "2026-10-06T12:08:45+09:00",
-  "last_run_result": "inventory_bootstrap_policy_added_9_exact_ids_registered",
-  "discovery_checked_at": "2026-10-06T15:06:58+09:00",
-  "newly_analyzed_count": 0,
-  "write_failure": false,
+  "last_scheduled_run_at": "2026-10-06T18:08:04+09:00",
+  "last_run_result": "snapshot_write_compaction_partial_2_canonical",
+  "discovery_checked_at": "2026-10-06T18:20:00+09:00",
+  "newly_analyzed_count": 2,
+  "write_failure": true,
   "pending_sync_count": 0,
   "verification_needed_count": 13,
   "heartbeat_location": "primary",
@@ -176,9 +176,9 @@
   "channel_snapshot": {
     "baseline_date": "2026-10-06",
     "target_public_uploads": 794,
-    "identified_exact_ids": 193,
-    "completeness_pct": 24.3,
-    "remaining_to_identify": 601,
+    "identified_exact_ids": 222,
+    "completeness_pct": 28,
+    "remaining_to_identify": 572,
     "classification_counts": {
       "long_form": 173,
       "long_form_compilation": 1,
