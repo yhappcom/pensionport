@@ -58,8 +58,9 @@
 신규 discovery 1패스에서도 source-backed 후보가 없고 tool/time 한도에 도달한 경우에만 0편 종료가 허용된다.
 
 ## 현재 backlog 해석
-현재 identified_unprocessed 71편은 '80편을 처음부터 다시 분석해야 한다'는 뜻이 아니다.
+현재 identified_unprocessed 35편은 재분석 backlog가 아니다.
 - **0편:** 기존 분석문 sync backlog 없음
+- **22편:** exact ID 선확보 후 source_acquisition_needed
 - **13편:** source 미확보로 verification_needed
 
 따라서 다음 콘텐츠 분석은 위 backlog의 반복 재검색이 아니라 **신규 discovery에서 확보한 source-backed 롱폼**부터 이어간다.
@@ -121,7 +122,7 @@
 - 076 `H04y8gmBtqk` — 절세계좌 3개 나눠서 투자하는 방법 | 2편
 - 077 `-71DQQIcTlc` — 연금저축을 통한 장기 현금흐름 만들기 (상세 보존자료 제목; YouTube 정확 제목 미확정)
 
-현재 actual data 기준:
+당시 sync-debt 정리 직후 actual data 기준:
 - master queue: **152편**
 - canonical/effective processed: **139편**
 - remaining effective-unprocessed: **13편**
@@ -171,7 +172,7 @@
 - exact-ID master inventory: **161편**
 - canonical processed: **139편**
 - exact-ID 미처리 buffer: **22편**
-- source acquisition 필요: **9편**
+- source acquisition 필요: **22편**
 - verification_needed: **13편**
 - source-backed ready: **0편**
 - Video ID unresolved: **2편**
