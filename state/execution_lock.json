@@ -5,7 +5,7 @@
   "run_id": "manual-full-snapshot-20261006T165700+0900",
   "source": "manual",
   "started_at": "2026-10-06T16:57:00+09:00",
-  "lease_until": "2026-10-06T17:42:00+09:00",
+  "lease_until": "2026-10-06T18:01:15+09:00",
   "released_at": null,
   "rule": "Before any canonical write, fresh-fetch this file. If an unexpired active lease exists, do not write. Otherwise acquire by update_file with the fresh SHA; on conflict, refetch and yield to the holder.",
   "lease_minutes": 45
