@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "snapshot_as_of": "2026-10-06",
+  "channel_handle": "@gomhee",
+  "channel_id": "UCr7XsrSrvAn_WcU4kF99bbQ",
+  "expected_public_uploads": 794,
+  "expected_uploads_include_shorts_and_other_public_upload_types": true,
+  "evidence": [
+    {
+      "source": "HypeAuditor",
+      "observed_total": 794,
+      "observed_date": "2026-10-03"
+    },
+    {
+      "source": "Vling",
+      "observed_total": 794,
+      "crawled_near": "2026-10-04"
+    },
+    {
+      "source": "allsnsrank",
+      "observed_total": 794,
+      "observed_date": "2026-10-03"
+    }
+  ],
+  "identified_snapshot_rows": 161,
+  "remaining_to_identify": 633,
+  "snapshot_complete": false,
+  "completeness_pct": 20.3,
+  "purpose": "Freeze all public uploads as of 2026-10-06, classify each as long-form/Short/live/other, and derive the learning queue from long-form rows.",
+  "required_fields": [
+    "video_id",
+    "title",
+    "published_at",
+    "duration",
+    "content_type",
+    "learning_scope",
+    "source"
+  ],
+  "derivation_rule": "data/learning_queue.jsonl must be a derived learning inventory from long-form/include rows in this snapshot plus post-snapshot incremental uploads.",
+  "post_snapshot_rule": "Uploads after 2026-10-06 are appended to an incremental ledger and then merged into the next snapshot; do not rewrite the 2026-10-06 baseline."
+}
