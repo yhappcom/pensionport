@@ -2,11 +2,10 @@
   "schema_version": 1,
   "purpose": "single_writer_execution_lease",
   "status": "active",
-  "run_id": "scheduled-snapshot-20261006T180804+0900",
+  "run_id": "scheduled-snapshot-20261006T221257+0900",
   "source": "scheduled",
-  "started_at": "2026-10-06T18:08:04+09:00",
-  "lease_until": "2026-10-06T18:53:04+09:00",
+  "started_at": "2026-10-06T22:12:57+09:00",
+  "lease_until": "2026-10-06T22:57:57+09:00",
   "released_at": null,
-  "rule": "Before any canonical write, fresh-fetch this file. If an unexpired active lease exists, do not write. Otherwise acquire by update_file with the fresh SHA; on conflict, refetch and yield to the holder.",
   "lease_minutes": 45
 }
