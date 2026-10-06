@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-06T15:06:58+09:00",
+  "purpose": "Maintain a prebuilt long-form learning reservoir so content analysis does not depend on just-in-time discovery.",
+  "canonical_inventory_file": "data/learning_queue.jsonl",
+  "target_exact_id_unprocessed_buffer": 100,
+  "minimum_exact_id_unprocessed_buffer": 60,
+  "discovery_batch_target": 40,
+  "source_acquisition_batch_target": 20,
+  "current_snapshot": {
+    "exact_id_inventory": 161,
+    "canonical_processed": 139,
+    "exact_id_unprocessed": 22,
+    "source_acquisition_needed": 9,
+    "verification_needed": 13,
+    "unresolved_video_id": 2
+  },
+  "priority_order": [
+    "source-backed unanalyzed",
+    "source_acquisition_needed with strongest exact-ID evidence",
+    "new exact-ID discovery until buffer target is restored",
+    "verification_needed only when retry due or new source signal"
+  ],
+  "coverage_sources": [
+    "official YouTube channel long-form surfaces when accessible",
+    "official Shorts linking full-video exact IDs",
+    "public pages embedding or linking exact YouTube watch IDs",
+    "public curriculum/index pages such as DoLearn or other channel-linked indexes",
+    "public contemporaneous summaries with exact source identity"
+  ],
+  "stop_rule": "Inventory bootstrap is complete only when exact-ID unprocessed buffer reaches target or two independent focused discovery passes produce no additional exact IDs."
+}
