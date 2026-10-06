@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-06T15:06:58+09:00",
+  "updated_at": "2026-10-06T15:13:58+09:00",
   "purpose": "Maintain a prebuilt long-form learning reservoir so content analysis does not depend on just-in-time discovery.",
   "canonical_inventory_file": "data/learning_queue.jsonl",
   "target_exact_id_unprocessed_buffer": 100,
@@ -28,5 +28,25 @@
     "public curriculum/index pages such as DoLearn or other channel-linked indexes",
     "public contemporaneous summaries with exact source identity"
   ],
-  "stop_rule": "Inventory bootstrap is complete only when exact-ID unprocessed buffer reaches target or two independent focused discovery passes produce no additional exact IDs."
+  "stop_rule": "Inventory bootstrap is complete only when exact-ID unprocessed buffer reaches target or two independent focused discovery passes produce no additional exact IDs.",
+  "snapshot_policy": {
+    "baseline_date": "2026-10-06",
+    "channel_id": "UCr7XsrSrvAn_WcU4kF99bbQ",
+    "expected_public_uploads": 794,
+    "snapshot_file": "data/channel_snapshot_2026-10-06.jsonl",
+    "snapshot_meta": "data/channel_snapshot_2026-10-06.meta.json",
+    "current_identified_rows": 161,
+    "remaining_to_identify": 633,
+    "completeness_pct": 20.3,
+    "snapshot_complete": false,
+    "priority": "complete_fixed_snapshot_before_relying_on_just_in_time_discovery",
+    "classification": [
+      "long_form",
+      "short",
+      "live",
+      "other",
+      "unknown"
+    ],
+    "post_snapshot_rule": "Only uploads after 2026-10-06 are handled incrementally."
+  }
 }
