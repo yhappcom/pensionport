@@ -3,10 +3,11 @@
 - 갱신일: 2026-10-06
 - 기준 채널: `@gomhee`
 - 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **794개** — Shorts 포함
-- Video ID까지 식별된 롱폼 후보: **152편**
+- Video ID까지 식별된 롱폼 후보: **161편**
 - canonical processed: **139편**
-- identified_unprocessed: **13편**
+- identified_unprocessed: **22편**
 - 이 중 콘텐츠 분석 완료·canonical sync 대기: **0편**
+- source acquisition 대기: **9편**
 - source 미확보 verification_needed: **13편**
 - 게시일 값 확보: **70편** (strict `date_verified` 38편)
 - 제목/게시일은 확인됐지만 Video ID 미해결: **2편**
@@ -65,7 +66,15 @@
 
 ## 완전성
 현재 master queue는 운영 기준 목록이며 YouTube 전체 롱폼 ID 전수확정 목록이라고 주장하지 않는다.
-새 ID가 발견되면 Video ID 중복을 확인해 계속 누적한다. 전수 inventory 대조는 콘텐츠 분석 처리량을 막지 않는다.
+새 ID가 발견되면 Video ID 중복을 확인해 계속 누적한다.
+
+앞으로는 just-in-time discovery 대신 **선행 inventory reservoir**를 유지한다.
+- exact-ID 미처리 buffer 목표: 100편
+- 최소 안전 buffer: 60편
+- buffer가 60 미만이면 inventory bootstrap을 우선해 최대 40개 exact ID를 먼저 등록
+- full source가 아직 없으면 `source_acquisition_needed`로 등록하고 제목만으로 분석하지 않음
+- source acquisition은 최대 20편씩 별도 배치
+- 상세 규칙: `data/inventory_control.json`, `WORKFLOW.md`
 
 
 ## source identity correction
@@ -142,3 +151,29 @@
 - 최종 actual data: master 152 / processed 139 / pending_sync 0 / verification_needed 13 / data/videos 139 / max sequence 139.
 - 다음 synthesis checkpoint는 140편이다.
 - 80/90/100/110/120/130 checkpoint 한국어 PDF 6개를 생성하고 170 DPI 렌더 검증에서 글자 깨짐·clipping·overlap 없음으로 통과했다.
+
+
+## 2026-10-06 선행 inventory bootstrap
+분석 때마다 영상을 즉석에서 찾는 구조를 중단하고, exact Video ID를 먼저 대량 목록화하는 방식으로 전환했다.
+
+1차 공개 색인 대조에서 기존 152편 master inventory에 없던 exact ID 9개를 추가 등록했다.
+- 153 `Sk1JarcNNNs` — 남은 현금은 모두 CMA에 넣어둬야 하는 이유 ver.2025
+- 154 `PW1EuMtw18o` — ISA 관련 원본 영상 exact ID, 정확 제목 확인 대기
+- 155 `UzoZbeqcctg` — ISA 사용 설명서
+- 156 `fnLgP_KCv8A` — ISA Q&A 원본 영상 exact ID, 정확 제목 확인 대기
+- 157 `a6ET79jF7Xk` — 38강 - 주식 차트 보는 법
+- 158 `Dmq6Tw3Gy7Q` — IRP 안전자산 30% 관련 영상
+- 159 `giJLCf3ed_s` — ISA를 할까? 연금저축을 할까?
+- 160 `l5PUUXweyGs` — 주부도 연금저축 하는 게 좋을까? | ASK곰희
+- 161 `wI6Kd-BJqqk` — 연금저축과 IRP의 결정적인 차이
+
+현재:
+- exact-ID master inventory: **161편**
+- canonical processed: **139편**
+- exact-ID 미처리 buffer: **22편**
+- source acquisition 필요: **9편**
+- verification_needed: **13편**
+- source-backed ready: **0편**
+- Video ID unresolved: **2편**
+
+목표 buffer 100편에 도달할 때까지 다음 실행들은 신규 분석과 병행해 inventory bootstrap을 우선한다.
