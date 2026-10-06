@@ -1,13 +1,57 @@
 # pensionport 운영 규칙
 
-## Canonical source
-실행 시작 시 아래 파일만 빠르게 읽어 충돌을 확인한다.
-- `WORKFLOW.md`
-- `LEARNING_QUEUE.md`
+## Canonical source / 실행 시작 규칙
+모든 예약·수동 실행은 **이전 채팅의 보고나 `state/progress.json` 요약만 믿고 이어서 작업하지 않는다.**
+실행 시작 시 최신 `main`에서 아래를 fresh-fetch하고 실제 상태를 다시 계산한다.
+
+- `WORKFLOW.md` — 유일한 운영규칙
+- `LEARNING_QUEUE.md` — 사람이 읽는 요약
 - `data/learning_queue.jsonl`
 - `data/learning_queue_unresolved.jsonl`
 - `data/videos.jsonl`
+- `data/canonical_events/`
 - `state/progress.json`
+- `state/execution_lock.json`
+- 필요 시 최신 `state/run_events/`
+
+### 현재 상태 재계산
+실행 시작 후 반드시 actual data에서 다음을 다시 계산한다.
+- queue total
+- base canonical count / base max sequence
+- canonical event overlay
+- effective canonical count / effective max sequence
+- pending_sync
+- verification_needed
+- source-backed unanalyzed ready
+- unresolved
+- next checkpoint
+
+우선순위는 항상 **actual data + canonical-event overlay > progress summary > chat/report memory**다.
+`state/progress.json`이 뒤처져 있어도 actual data를 덮어쓰거나 되돌리지 않는다.
+
+## 단일 writer 실행 lease
+여러 채팅과 예약작업이 같은 `main`을 동시에 수정하지 않도록 모든 canonical write 전에 `state/execution_lock.json` lease를 획득한다.
+
+### 획득
+1. `state/execution_lock.json`을 fresh-fetch한다.
+2. `status=active`이고 `lease_until`이 현재시각 이후면 다른 실행이 writer다. 이 실행은 **canonical write를 하지 않는다**.
+3. lock이 released/expired이면 fresh SHA를 사용해 다음 값으로 update한다.
+   - `status=active`
+   - 고유 `run_id`
+   - `source=scheduled|manual`
+   - `started_at`
+   - `lease_until=started_at+45분`
+4. update가 SHA conflict 등으로 실패하면 즉시 refetch한다. 다른 run이 active lease를 획득했다면 그 run에 양보한다.
+
+### 보유 중 규칙
+- lease 보유 run만 canonical event, aggregate, knowledge, progress write를 수행한다.
+- read-only 상태 확인과 discovery 검색은 다른 채팅도 가능하지만 write는 금지한다.
+- 30분 이상 실행이 계속되면 필요 시 fresh-SHA로 lease를 갱신한다.
+
+### 해제
+- 정상 종료 시 fresh-fetch 후 자신의 `run_id`가 holder인지 확인하고 `status=released`로 갱신한다.
+- 비정상 종료로 lock이 남아도 45분 후 자동 expired로 간주한다.
+- 다른 run의 active lease를 강제로 해제하지 않는다.
 
 ## 최우선 목표
 최우선 목표는 **실제 영상 콘텐츠 분석 처리량**이다.
@@ -173,13 +217,25 @@ synthesis/framework/state의 GitHub 저장이 실패하면 산출물은 `pending
 - replacement Video ID가 확인되면 replacement만 master queue에 등록하고, source-matched 상세자료가 없으면 `verification_needed`로 둔다.
 
 
-## 예약 실행 heartbeat
-- 매 예약 실행 종료 시 `state/progress.json`에 실행 heartbeat를 기록한다.
-- 최소 필드: `last_scheduled_run_at`, `last_run_result`, `discovery_checked_at`, `newly_analyzed_count`, `write_failure`.
-- `state/progress.json` heartbeat write가 안전검사 또는 다른 write 오류로 막히면 즉시 `state/run-heartbeat.json`에 동일 정보를 기록한다.
-- `state/run-heartbeat.json`은 실행 추적용 fallback이며 canonical processed count의 기준으로 사용하지 않는다.
-- 두 heartbeat 경로가 모두 실패한 경우에만 user-visible 종료보고에 heartbeat 저장 실패를 명시한다.
-- heartbeat 실패 때문에 콘텐츠 분석 또는 discovery를 중단하지 않는다.
+## 실행이력 / heartbeat
+- **모든 예약·수동 writer 실행은 종료 시 unique `state/run_events/<timestamp>_<run_id>.json`을 append-only로 남긴다.** 성공 실행도 예외가 아니다.
+- run event 최소 필드:
+  - `run_id`
+  - `source=scheduled|manual`
+  - `started_at`, `finished_at`
+  - `start_effective_canonical`, `end_effective_canonical`
+  - `newly_analyzed_count`
+  - `sync_only_count`
+  - `pending_sync_count`
+  - `verification_needed_count`
+  - `discovery_checked_at`
+  - `last_run_result`
+  - `write_failure`
+  - `heartbeat_location`
+- `state/progress.json`은 최신 canonical snapshot/summary이며 실행이력 원장이 아니다.
+- `state/run_events/`가 실제 실행이력 원장이다.
+- `state/run-heartbeat.json`은 **legacy fallback**이다. 신규 실행의 최신상태 판정에는 사용하지 않는다.
+- progress heartbeat write가 실패해도 run event를 남기고 콘텐츠/discovery를 중단하지 않는다.
 
 
 ## GitHub write 안전 프로토콜
@@ -215,13 +271,13 @@ fresh-SHA 규칙에 더해 다음을 적용한다.
 
 예약 실행은 모델 추론 수준에 의존하지 않도록 다음 상태머신을 고정한다.
 
-1. **START SNAPSHOT** — canonical 6개 파일을 읽고 실제 data 파일에서 queue total / processed / pending_sync / verification_needed / ready source-backed / data-videos count·max sequence / unresolved를 재계산한다. 요약 문서의 숫자와 다르면 data 파일을 우선한다.
+1. **START SNAPSHOT** — 최신 main의 canonical source 전체와 execution lock을 fresh-fetch하고, actual data + canonical-event overlay에서 queue total / effective processed / pending_sync / verification_needed / ready source-backed / base count·max sequence / effective max sequence / unresolved를 재계산한다. progress/chat summary와 다르면 actual data를 우선한다.
 2. **CONTENT LANE** — source-backed 미분석 → 최대 40편 분석. pending_sync 재분석 금지. verification_needed는 due date 전 재검색 금지. ready=0이면 신규/누락 롱폼 discovery 1패스 필수.
 3. **SYNC LANE** — pending_sync는 desired state를 먼저 정의하고, 각 target을 `fresh fetch(ref=main) → idempotent merge → already-applied check → update(branch=main, fresh SHA) → optional post-fetch verify` 순서로 한 path씩 직렬 처리한다.
 4. **ERROR LANE** — raw tool 오류의 class/status/message를 보존한다. raw 오류에 없는 이름을 붙이지 않는다. 특히 실제 오류에 safety precondition 문구가 없으면 그렇게 보고하지 않는다. stale SHA는 GitHub `409 CONFLICT` 장애군으로만 분류한다.
 5. **RETRY LANE** — 오류 직후 fresh fetch하여 desired state가 이미 반영됐는지 먼저 확인한다. 반영됐으면 성공 처리한다. 미반영이면 최신 content에 재merge 후 1회만 retry한다.
 6. **CONSISTENCY LANE** — 종료 전 queue와 data/videos를 다시 읽어 processed / pending_sync / verification_needed / max sequence를 재계산하고, 이미 존재하는 Video ID·sequence·claim·knowledge section은 절대 중복 append하지 않는다.
-7. **HEARTBEAT LANE** — 종료 직전 progress를 fresh fetch → merge → update한다. 실패하면 동일 검증·1회 retry 후 fallback heartbeat를 fresh fetch하여 기록한다.
+7. **HEARTBEAT LANE** — 종료 직전 progress를 fresh fetch → merge → update하고, 성공/실패와 무관하게 unique run event를 append-only로 남긴다. legacy run-heartbeat는 신규 실행의 최신상태 판정에 사용하지 않는다.
 
 ### 결정 규칙
 - 기존 summary 숫자를 기반으로 +1/-1 계산하지 않는다. 종료 전 actual data 파일에서 다시 계산한다.
