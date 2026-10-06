@@ -17,9 +17,9 @@
     "version": 8,
     "channel_total_uploads_observed": 794,
     "total_uploads_include_shorts": true,
-    "identified_long_form_with_video_id": 161,
+    "identified_long_form_with_video_id": 174,
     "processed_mapped": 139,
-    "identified_unprocessed": 22,
+    "identified_unprocessed": 35,
     "published_date_known": 70,
     "unresolved_long_form_candidates": 2,
     "shorts_excluded_from_primary": true,
@@ -38,7 +38,7 @@
     "blocked_retry_rule": "retry_only_when_next_source_retry_at_due_or_new_source_signal",
     "discovery_required_when_ready_count_zero": true,
     "stop_on_github_write_failure": false,
-    "source_acquisition_needed_count": 9
+    "source_acquisition_needed_count": 22
   },
   "canonical_sync_lane": {
     "pending_sync_videos": 0,
@@ -176,12 +176,30 @@
   "channel_snapshot": {
     "baseline_date": "2026-10-06",
     "target_public_uploads": 794,
-    "identified_rows": 161,
-    "remaining_to_identify": 633,
-    "completeness_pct": 20.3,
-    "snapshot_complete": false,
+    "identified_exact_ids": 193,
+    "completeness_pct": 24.3,
+    "remaining_to_identify": 601,
+    "classification_counts": {
+      "long_form": 173,
+      "long_form_compilation": 1,
+      "short": 19,
+      "live": 0,
+      "other": 0,
+      "unknown": 0
+    },
     "snapshot_file": "data/channel_snapshot_2026-10-06.jsonl",
-    "snapshot_meta": "data/channel_snapshot_2026-10-06.meta.json",
-    "priority": "complete_fixed_full_channel_snapshot"
+    "meta_file": "data/channel_snapshot_2026-10-06.meta.json",
+    "snapshot_complete": false,
+    "priority": "complete_baseline_inventory_before_just_in_time_discovery"
+  },
+  "last_inventory_run": {
+    "run_id": "manual-snapshot-bootstrap-20261006T152009+0900",
+    "new_exact_ids": 32,
+    "new_long_form": 13,
+    "new_shorts": 19,
+    "start_snapshot_count": 161,
+    "end_snapshot_count": 193,
+    "target": 794,
+    "result": "snapshot_bootstrap_progress"
   }
 }
