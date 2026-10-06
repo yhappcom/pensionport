@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 144,
+  "video_id": "n77kZtvLISY",
+  "published_at": "2023-12-25",
+  "title": "배당주를 계속 사모으기만 하면 될까?ㅣ배당주의 세금과 건보료ㅣ국내주식",
+  "source_doc": "videos/2023/n77kZtvLISY.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 144
+  },
+  "topics": [
+    "dividend_investing",
+    "tax",
+    "health_insurance",
+    "cash_flow",
+    "account_location"
+  ],
+  "knowledge_change": [
+    "REINFORCE",
+    "EXTEND",
+    "TIME_SENSITIVE"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C108",
+    "topic": "dividend_investing",
+    "claim": "배당투자는 세전 배당률이 아니라 금융소득 과세·건강보험·계좌배치를 반영한 세후 현금흐름으로 평가해야 한다.",
+    "supporting_videos": [
+      "n77kZtvLISY"
+    ],
+    "status": "supported",
+    "confidence": "source_backed_officially_verified"
+  },
+  "framework_delta": "배당투자 프레임을 배당률 중심에서 세금·건강보험·계좌배치까지 포함한 세후 현금흐름 최적화로 확장한다.",
+  "created_at": "2026-10-07T05:17:00+09:00"
+}
