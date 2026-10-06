@@ -1,0 +1,25 @@
+{
+  "run_id": "manual-governance-cleanup-20261006T144500+0900",
+  "source": "manual",
+  "started_at": "2026-10-06T14:45:00+09:00",
+  "finished_at": "2026-10-06T14:56:00+09:00",
+  "run_type": "governance_cleanup",
+  "start_effective_canonical": 139,
+  "end_effective_canonical": 139,
+  "newly_analyzed_count": 0,
+  "sync_only_count": 0,
+  "pending_sync_count": 0,
+  "verification_needed_count": 13,
+  "discovery_checked_at": null,
+  "last_run_result": "state_first_single_writer_governance_applied",
+  "write_failure": false,
+  "heartbeat_location": "run_event",
+  "changes": [
+    "created state/execution_lock.json 45-minute lease",
+    "updated WORKFLOW.md to fresh-read actual current state before work",
+    "made run_events append-only execution ledger for every writer run",
+    "marked run-heartbeat as legacy fallback only",
+    "updated state/progress.json execution policy",
+    "updated scheduled task prompt to read current main state and acquire lock before writes"
+  ]
+}
