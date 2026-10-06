@@ -9,6 +9,7 @@
 - `data/learning_queue.jsonl`
 - `data/learning_queue_unresolved.jsonl`
 - `data/videos.jsonl`
+- `data/inventory_control.json`
 - `data/canonical_events/`
 - `state/progress.json`
 - `state/execution_lock.json`
@@ -116,6 +117,51 @@ Video ID가 확인된 `identified_unprocessed` 롱폼 중 신뢰 가능한 원�
 - source-backed 신규 영상이 확보되면 즉시 분석한다.
 
 신규 discovery가 한 번의 실행 패스에서도 source-backed 후보를 만들지 못한 경우에만, tool/time 한도와 함께 0편 종료가 허용된다.
+
+
+
+## 선행 inventory reservoir — 분석 대상을 미리 목록화
+분석 실행 때마다 영상을 새로 찾는 just-in-time discovery를 기본 운영으로 사용하지 않는다.
+`data/learning_queue.jsonl`을 **미리 구축된 전체 학습 inventory**로 유지하고, `data/inventory_control.json`의 reservoir 기준을 따른다.
+
+### 목표
+- exact Video ID가 확인된 미처리 롱폼 버퍼 목표: **100편**
+- 최소 안전 버퍼: **60편**
+- 한 inventory discovery pass에서 신규 exact ID 목표: 최대 **40편**
+- source acquisition pass 목표: 최대 **20편**
+
+### 실행 시작 시 buffer 계산
+`exact_id_unprocessed_buffer = learning_queue의 exact video_id 보유 항목 중 effective canonical에 없는 수`
+
+상태를 다음으로 분리한다.
+- `source_backed_ready`: 원문/자막/상세 보존자료가 있어 즉시 실제 분석 가능
+- `source_acquisition_needed`: exact Video ID는 확보했지만 분석 가능한 source를 아직 수집하지 못함
+- `verification_needed`: 충분한 source 탐색을 이미 수행했으나 확보 실패; retry 조건 전 반복검색 금지
+- `processed`: effective canonical에 포함
+- `video_id_unresolved`: 제목 등 후보만 있고 exact ID 미확정
+
+### reservoir 유지 규칙
+1. buffer가 **60편 미만**이면 content 분석과 별개로 inventory bootstrap을 최우선 선행 작업으로 수행해 exact ID를 대량 확보한다.
+2. 한 번에 1개를 찾고 분석하는 방식이 아니라, 가능한 공개 색인/공식 링크/시리즈 목록에서 **최대 40개 exact ID를 먼저 묶어서 등록**한다.
+3. 새 exact ID는 full source가 없어도 `source_acquisition_needed`로 master inventory에 먼저 등록할 수 있다. 제목은 검증되지 않았으면 null 또는 unverified로 둔다.
+4. source acquisition은 inventory에 등록된 후보를 대상으로 별도 배치 수행한다. source 확보가 되면 `source_backed_ready`로 승격한다.
+5. buffer가 **60~99편**이면 source-backed 분석을 진행하면서 실행 말미에 inventory를 보충한다.
+6. buffer가 **100편 이상**이면 일반 content lane을 우선하고 신규 inventory discovery는 정기 보충 수준으로 낮춘다.
+7. inventory bootstrap은 두 개의 독립된 focused discovery pass에서 신규 exact ID가 더 나오지 않거나 목표 buffer를 달성할 때까지 이어간다.
+
+### discovery source 우선순위
+- 공식 YouTube 채널의 롱폼/playlist/연결 가능한 공개 surface
+- 공식 Shorts가 연결하는 원본 full-video exact ID
+- exact YouTube 링크를 포함한 공개 강의·커리큘럼·색인 페이지
+- 영상 게시 당시의 공개 요약/리뷰/임베드 페이지
+- 검색엔진에서 확인되는 exact watch/youtu.be 링크
+
+### 분석과 inventory의 분리
+- inventory 등록은 **학습 완료가 아니다**.
+- exact ID만 확보한 항목은 제목이나 검색 snippet만으로 분석하지 않는다.
+- 예약작업은 매번 “무슨 영상을 찾을까”부터 시작하지 않고, 먼저 구축된 `source_backed_ready` 목록에서 분석한다.
+- ready가 줄어들면 `source_acquisition_needed`를 배치 source 확보하고, 그와 별도로 exact-ID reservoir를 보충한다.
+
 
 ## 고속 배치 학습
 - 기본 작업 단위는 **최대 40편**이다.
@@ -271,8 +317,8 @@ fresh-SHA 규칙에 더해 다음을 적용한다.
 
 예약 실행은 모델 추론 수준에 의존하지 않도록 다음 상태머신을 고정한다.
 
-1. **START SNAPSHOT** — 최신 main의 canonical source 전체와 execution lock을 fresh-fetch하고, actual data + canonical-event overlay에서 queue total / effective processed / pending_sync / verification_needed / ready source-backed / base count·max sequence / effective max sequence / unresolved를 재계산한다. progress/chat summary와 다르면 actual data를 우선한다.
-2. **CONTENT LANE** — source-backed 미분석 → 최대 40편 분석. pending_sync 재분석 금지. verification_needed는 due date 전 재검색 금지. ready=0이면 신규/누락 롱폼 discovery 1패스 필수.
+1. **START SNAPSHOT** — 최신 main의 canonical source 전체, `data/inventory_control.json`, execution lock을 fresh-fetch하고, actual data + canonical-event overlay에서 queue total / effective processed / pending_sync / verification_needed / source_acquisition_needed / ready source-backed / exact-ID unprocessed buffer / base count·max sequence / effective max sequence / unresolved를 재계산한다. progress/chat summary와 다르면 actual data를 우선한다.
+2. **INVENTORY/CONTENT LANE** — exact-ID unprocessed buffer가 60 미만이면 먼저 inventory bootstrap으로 최대 40개 exact ID를 선등록한다. 그 다음 source-backed 미분석을 최대 40편 분석한다. pending_sync 재분석 금지. verification_needed는 due date 전 재검색 금지. source_acquisition_needed는 최대 20편씩 source 확보를 배치 시도한다.
 3. **SYNC LANE** — pending_sync는 desired state를 먼저 정의하고, 각 target을 `fresh fetch(ref=main) → idempotent merge → already-applied check → update(branch=main, fresh SHA) → optional post-fetch verify` 순서로 한 path씩 직렬 처리한다.
 4. **ERROR LANE** — raw tool 오류의 class/status/message를 보존한다. raw 오류에 없는 이름을 붙이지 않는다. 특히 실제 오류에 safety precondition 문구가 없으면 그렇게 보고하지 않는다. stale SHA는 GitHub `409 CONFLICT` 장애군으로만 분류한다.
 5. **RETRY LANE** — 오류 직후 fresh fetch하여 desired state가 이미 반영됐는지 먼저 확인한다. 반영됐으면 성공 처리한다. 미반영이면 최신 content에 재merge 후 1회만 retry한다.
