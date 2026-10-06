@@ -32,8 +32,55 @@
 우선순위는 항상 **actual data + canonical-event overlay > progress summary > chat/report memory**다.
 `state/progress.json`이 뒤처져 있어도 actual data를 덮어쓰거나 되돌리지 않는다.
 
+## Baseline inventory event-first mode
+
+2026-10-06 고정 채널 snapshot이 **effective 794/794**에 도달할 때까지 이 절이 일반 VIDEO-ANALYSIS-FIRST 규칙보다 우선한다.
+
+### Baseline 완료 전 실행 모드
+- 신규 콘텐츠 분석/canonicalization/source-acquisition 심층분석은 하지 않는다. 목표 분석 편수는 0이다.
+- chronology repair는 목록화의 선행조건이 아니다. exact Video ID가 확실하면 title/date/duration 일부가 미확정이어도 inventory에 먼저 보존한다.
+- 가능한 많은 unique exact Video ID를 배치로 수집한다.
+- effective baseline inventory는 다음으로 계산한다.
+  - compacted base: `data/channel_snapshot_2026-10-06.jsonl`
+  - overlay: `data/inventory_events/<video_id>.json` 중 base에 같은 Video ID가 없는 event
+- snapshot meta/progress의 저장된 숫자보다 위 effective 계산을 우선한다.
+
+### Append-only inventory event
+- 디렉터리: `data/inventory_events/`
+- 파일명: `<video_id>.json`
+- exact Video ID 하나당 immutable event 하나만 허용한다.
+- event 최소 필드:
+  - `schema_version`
+  - `event_type=baseline_inventory_discovery`
+  - `snapshot_as_of=2026-10-06`
+  - `video_id`
+  - `title`
+  - `published_at`
+  - `duration`
+  - `content_type`
+  - `learning_scope`
+  - `source`
+  - `discovered_at`
+- create 전 compacted snapshot과 inventory event directory에서 같은 Video ID 존재 여부를 확인한다.
+- 같은 path가 이미 존재하면 desired state가 already-applied된 것으로 처리하고 중복 생성하지 않는다.
+
+### Lock 예외와 compaction
+- `data/inventory_events/<video_id>.json`의 deterministic append-only `create_file`은 shared mutable file을 수정하지 않으므로 **single-writer lease 없이 허용**한다.
+- `state/run_events/<unique_run_id>.json` append-only create도 동일하게 lease 없이 허용한다.
+- 반면 `data/channel_snapshot_2026-10-06.jsonl`, meta, learning queue, inventory_control, progress 등 **공유 mutable aggregate 수정은 기존 single-writer lease가 필수**다.
+- execution lock 획득/갱신이 상위 safety check로 차단되어도 inventory discovery와 inventory-event create를 중단하지 않는다.
+- lock write는 fresh-refetch 후 1회만 재시도하고, 다시 차단되면 그 실행에서는 aggregate compaction을 건너뛴다. 같은 lock write를 반복 호출하지 않는다.
+- event create 성공은 inventory progress 성공이다. aggregate compaction 실패/보류는 `compaction_pending`일 뿐 discovery failure가 아니다.
+- 이후 lease를 정상 획득한 실행이 inventory events를 snapshot/queue/meta/progress에 idempotent하게 compact한다.
+
+### 완료 전환
+- effective baseline inventory가 794/794에 도달하면 모든 event overlay를 포함해 중복/분류를 검증한다.
+- 가능한 경우 lease를 획득해 aggregate를 compact하고 `baseline_complete=true`를 기록한다.
+- aggregate write가 일시적으로 막혀도 effective 794/794가 검증되면 추가 discovery는 중단하고 compaction만 남긴다.
+- baseline 완료 후 다음 실행부터 일반 content-analysis lane을 재개한다.
+
 ## 단일 writer 실행 lease
-여러 채팅과 예약작업이 같은 `main`을 동시에 수정하지 않도록 모든 canonical write 전에 `state/execution_lock.json` lease를 획득한다.
+여러 채팅과 예약작업이 같은 `main`의 공유 mutable aggregate를 동시에 수정하지 않도록 해당 write 전에 `state/execution_lock.json` lease를 획득한다. 단, 위 Baseline inventory event-first mode의 deterministic append-only inventory event와 unique run event create는 명시적 예외다.
 
 ### 획득
 1. `state/execution_lock.json`을 fresh-fetch한다.
