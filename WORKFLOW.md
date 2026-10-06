@@ -67,11 +67,13 @@
 ### Lock 예외와 compaction
 - `data/inventory_events/<video_id>.json`의 deterministic append-only `create_file`은 shared mutable file을 수정하지 않으므로 **single-writer lease 없이 허용**한다.
 - `state/run_events/<unique_run_id>.json` append-only create도 동일하게 lease 없이 허용한다.
+- baseline 미완성의 **일반 discovery 실행은 execution lock을 획득하거나 갱신하지 않는다.** inventory event만 append하고 종료한다. 따라서 routine hourly discovery에서 `state/execution_lock.json` update를 호출하지 않는다.
 - 반면 `data/channel_snapshot_2026-10-06.jsonl`, meta, learning queue, inventory_control, progress 등 **공유 mutable aggregate 수정은 기존 single-writer lease가 필수**다.
-- execution lock 획득/갱신이 상위 safety check로 차단되어도 inventory discovery와 inventory-event create를 중단하지 않는다.
-- lock write는 fresh-refetch 후 1회만 재시도하고, 다시 차단되면 그 실행에서는 aggregate compaction을 건너뛴다. 같은 lock write를 반복 호출하지 않는다.
+- aggregate compaction은 매 실행마다 하지 않고 다음 checkpoint에서만 시도한다: (a) compact되지 않은 inventory event가 50개 이상, (b) effective inventory가 794/794 도달, (c) 사용자가 명시적으로 compaction/정합성 정리를 요청.
+- checkpoint compaction에서만 execution lock을 fresh-fetch하고 필요 시 획득한다. lock write가 상위 safety check로 차단되면 fresh-refetch 후 정확히 1회만 재시도하고, 다시 차단되면 compaction을 보류한다. 같은 실행에서 lock write를 더 반복하지 않는다.
+- lock/compaction이 차단되어도 inventory discovery와 inventory-event create를 중단하지 않는다.
 - event create 성공은 inventory progress 성공이다. aggregate compaction 실패/보류는 `compaction_pending`일 뿐 discovery failure가 아니다.
-- 이후 lease를 정상 획득한 실행이 inventory events를 snapshot/queue/meta/progress에 idempotent하게 compact한다.
+- 이후 lease를 정상 획득한 checkpoint 실행이 inventory events를 snapshot/queue/meta/progress에 idempotent하게 compact한다.
 
 ### 완료 전환
 - effective baseline inventory가 794/794에 도달하면 모든 event overlay를 포함해 중복/분류를 검증한다.
