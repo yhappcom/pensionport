@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "purpose": "single_writer_execution_lease",
+  "status": "released",
+  "run_id": null,
+  "source": null,
+  "started_at": null,
+  "lease_until": null,
+  "released_at": "2026-10-06T14:45:00+09:00",
+  "rule": "Before any canonical write, fresh-fetch this file. If an unexpired active lease exists, do not write. Otherwise acquire by update_file with the fresh SHA; on conflict, refetch and yield to the holder.",
+  "lease_minutes": 45
+}
