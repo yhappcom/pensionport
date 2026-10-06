@@ -4,10 +4,10 @@
 예약 분석 실행이 매번 새 영상을 찾는 데 시간을 쓰지 않도록, 학습 대상 exact Video ID를 먼저 충분히 목록화한다.
 
 ## 현재 snapshot — 2026-10-06
-- exact-ID master inventory: **161편**
+- exact-ID master inventory: **174편**
 - canonical processed: **139편**
-- exact-ID 미처리 buffer: **22편**
-- source acquisition 필요: **9편**
+- exact-ID 미처리 buffer: **35편**
+- source acquisition 필요: **22편**
 - verification_needed: **13편**
 - source-backed ready: **0편**
 - Video ID unresolved: **2편**
@@ -51,3 +51,15 @@ buffer가 60편 미만인 동안은 inventory bootstrap을 선행한다. 분석 
 
 ## 완료 기준
 전체 채널 롱폼의 exact-ID 전수확정이 최종 목표다. 단기적으로는 미처리 buffer 100편을 먼저 확보해 분석이 discovery 때문에 멈추지 않도록 한다.
+
+
+## Full-channel snapshot progress
+- baseline: **2026-10-06**
+- public-upload target: **794**
+- exact-ID snapshot identified: **193**
+- completeness: **24.3%**
+- remaining exact IDs to identify: **601**
+- current learning-eligible long-form inventory: **174**
+- 이번 bootstrap 신규: **32 IDs = 13 long-form + 19 Shorts**
+
+전체 snapshot이 완성되기 전에는 100편 reservoir보다 **794개 baseline inventory 완성**이 상위 목표다. snapshot에서 long-form만 learning queue로 파생한다.
