@@ -3,11 +3,11 @@
 - 갱신일: 2026-10-06
 - 기준 채널: `@gomhee`
 - 현재 공개 채널 총 업로드 수(제3자 공개 통계 관측값): **794개** — Shorts 포함
-- Video ID까지 식별된 롱폼 후보: **161편**
+- Video ID까지 식별된 롱폼 후보: **174편**
 - canonical processed: **139편**
-- identified_unprocessed: **22편**
+- identified_unprocessed: **35편**
 - 이 중 콘텐츠 분석 완료·canonical sync 대기: **0편**
-- source acquisition 대기: **9편**
+- source acquisition 대기: **22편**
 - source 미확보 verification_needed: **13편**
 - 게시일 값 확보: **70편** (strict `date_verified` 38편)
 - 제목/게시일은 확인됐지만 Video ID 미해결: **2편**
@@ -177,3 +177,21 @@
 - Video ID unresolved: **2편**
 
 목표 buffer 100편에 도달할 때까지 다음 실행들은 신규 분석과 병행해 inventory bootstrap을 우선한다.
+
+
+## 2026-10-06 전체 채널 snapshot 1차 bootstrap
+- 기준 전체 공개 업로드 target: **794개**
+- 현재 exact-ID snapshot: **193개 / 794개 (24.3%)**
+- 이번 실행 신규 exact ID: **32개**
+  - 롱폼: **13편**
+  - Shorts: **19편**
+- snapshot 내 현재 분류: long_form 173 / long_form_compilation 1 / short 19
+- learning queue: **174편**
+- canonical processed: **139편**
+- learning queue 미처리: **35편**
+  - source_acquisition_needed: **22편**
+  - verification_needed: **13편**
+- Video ID unresolved: **2편**
+- 전체 snapshot 잔여 식별 목표: **601개**
+
+이번 실행은 학습보다 목록화를 우선했다. Shorts는 학습 본체에서 제외하지만 전체 채널 snapshot에는 보존한다. 다음 목록화 실행은 193개 snapshot에서 이어서 exact ID를 추가한다.
