@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "purpose": "single_writer_execution_lease",
-  "status": "active",
-  "run_id": "manual-inventory-design-20261006T150658+0900",
-  "source": "manual",
-  "started_at": "2026-10-06T15:06:58+09:00",
-  "lease_until": "2026-10-06T15:51:58+09:00",
-  "released_at": null,
+  "status": "released",
+  "run_id": null,
+  "source": null,
+  "started_at": null,
+  "lease_until": null,
+  "released_at": "2026-10-06T15:11:06+09:00",
   "rule": "Before any canonical write, fresh-fetch this file. If an unexpired active lease exists, do not write. Otherwise acquire by update_file with the fresh SHA; on conflict, refetch and yield to the holder.",
   "lease_minutes": 45
 }
