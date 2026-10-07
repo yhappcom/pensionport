@@ -1,199 +1,82 @@
 {
+  "schema_version": 3,
   "source_channel": "https://youtube.com/@gomhee",
   "queue_basis": "VIDEO_INVENTORY_2026-10-07.md canonical roster",
-  "processing_order": "roster long-form; source-backed first; skip blocked; no baseline discovery gate",
-  "primary_queue": "long_form",
-  "max_videos_per_hour": 40,
-  "synthesis_every_n_videos": 10,
-  "processed_videos": 157,
-  "canonical_processed_count": 157,
-  "last_processed_video_id": "nPh_ovlWyKQ",
-  "last_processed_published_at": "2019-07-16",
-  "next_synthesis_at": 160,
-  "synthesis_version": 15,
-  "last_synthesis_file": "synthesis/batch_015_141-150.md",
   "updated_at": "2026-10-07",
-  "learning_inventory": {
-    "version": 9,
-    "canonical_roster_file": "VIDEO_INVENTORY_2026-10-07.md",
-    "roster_total_uploads": 791,
-    "total_uploads_include_shorts": true,
-    "roster_long_form": 703,
-    "roster_shorts": 88,
-    "roster_canonical_processed": 145,
-    "roster_long_form_remaining": 558,
-    "legacy_canonical_outside_roster": 12,
-    "legacy_reconciliation_required": true,
-    "shorts_excluded_from_primary": true,
-    "legacy_queue_file": "data/learning_queue.jsonl",
-    "unresolved_file": "data/learning_queue_unresolved.jsonl"
+  "roster": {
+    "total_unique": 791,
+    "long_form": 703,
+    "shorts": 88,
+    "shorts_excluded_from_primary": true
   },
-  "content_analysis_lane": {
-    "max_new_videos_per_run": 40,
-    "candidate_basis": "roster long-form minus effective canonical minus analyzed pending_sync",
-    "source_strategy": "original YouTube metadata/description/transcript when available; skip to next candidate if unavailable",
-    "stop_on_github_write_failure": false,
-    "persistence_mode": "analyze_batch_first_then_minimal_doc_plus_event; aggregate_compaction_once_per_run",
-    "inventory_discovery_gate": false
-  },
-  "canonical_sync_lane": {
-    "pending_sync_videos": 0,
-    "sync_only_not_counted_as_new_analysis": true,
-    "write_policy": "event-first; no per-video aggregate rewrite; batch compact once per path at run end",
-    "failure_policy": "retain event and continue",
-    "pending_sync_ids": [],
-    "durable_pending_sync_policy": "only count items with durable analysis artifact in repository",
-    "reanalysis_required_ids": [
-      "SjKNXdqCXqc"
-    ],
-    "reanalysis_reason": "SjKNXdqCXqc transient analysis was not durably stored; repository is source of truth. y-SUZ-cOCNk is already base canonical sequence 5 and must not be reanalyzed by default."
-  },
-  "canonical_consistency": {
-    "data_videos_records": 156,
-    "data_videos_max_sequence": 156,
-    "canonical_event_records": 97,
-    "effective_processed_count": 157,
-    "roster_processed_count": 145,
-    "roster_remaining_long_form": 558,
-    "legacy_outside_roster": 12,
-    "sequence_gaps": [],
-    "consistent_processed_count": false,
-    "compaction_pending_sequences": [
-      159
-    ],
-    "durable_pending_sync_count": 0,
-    "duplicate_event_sequences": [
+  "canonical_state": {
+    "base_records": 157,
+    "base_unique_video_ids": 157,
+    "base_max_event_sequence": 159,
+    "base_sequence_gaps": [
       157,
       158
     ],
-    "duplicate_event_video_ids": [
-      "OlurWhrOsLs",
-      "AzY0FU-HxME"
+    "gap_explanation": "157 and 158 are historical audit-only duplicate upgrade events for video_ids already present at base sequences 2 and 1; they do not represent missing canonical videos.",
+    "historical_duplicate_events": [
+      {
+        "event_sequence": 157,
+        "video_id": "OlurWhrOsLs",
+        "base_sequence": 2
+      },
+      {
+        "event_sequence": 158,
+        "video_id": "AzY0FU-HxME",
+        "base_sequence": 1
+      }
     ],
-    "effective_state_note": "events 157/158 reference video_ids already present in base and do not increase effective canonical count; event 159 is the only non-base overlay."
+    "non_base_event_overlay_count": 0,
+    "effective_unique_canonical": 157,
+    "roster_canonical_long_form": 145,
+    "legacy_canonical_outside_roster": 12,
+    "roster_long_form_remaining": 558,
+    "max_event_sequence": 159,
+    "next_event_sequence": 160,
+    "checkpoint_basis": "effective_unique_canonical",
+    "next_checkpoint": 160,
+    "new_unique_videos_to_checkpoint": 3
   },
-  "event_ledger": {
-    "canonical_events_dir": "data/canonical_events",
-    "run_events_dir": "state/run_events",
-    "state_formula": "base_plus_nonduplicated_event_overlay"
+  "content_analysis_lane": {
+    "max_new_videos_per_run": 40,
+    "candidate_basis": "roster long-form minus effective canonical minus durable pending-sync",
+    "stop_on_github_write_failure": false,
+    "persistence_mode": "analyze batch first; minimal artifact+event; batch aggregate compaction once per path",
+    "reanalysis_required_ids": [
+      "SjKNXdqCXqc"
+    ]
   },
-  "last_batch": {
-    "batch_type": "manual_analysis_smoke_test_after_roster_import",
-    "newly_analyzed_videos": 2,
-    "sync_only_compacted": 0,
-    "sequence_range": "155-156",
-    "video_ids": [
-      "GAXeom_eF6I",
-      "SJ_0Za3YxcA"
-    ],
-    "source_result": "original YouTube transcripts acquired successfully",
-    "aggregate_compaction": "complete",
-    "knowledge_consolidation": "complete",
-    "checkpoint_synthesis_created": [],
-    "completed_at": "2026-10-07T19:48:07+09:00"
+  "canonical_sync_lane": {
+    "durable_pending_sync_count": 0,
+    "durable_pending_sync_ids": [],
+    "compaction_pending_sequences": [],
+    "sync_only_not_counted_as_new_analysis": true
   },
-  "last_scheduled_run_at": "2026-10-07T21:23:00+09:00",
-  "last_run_result": "effective_state_correction_complete",
-  "discovery_checked_at": "2026-10-07T19:45:40+09:00",
-  "newly_analyzed_count": 1,
-  "write_failure": false,
-  "pending_sync_count": 0,
-  "verification_needed_count": 13,
-  "heartbeat_location": "primary",
-  "heartbeat_primary_file": "state/progress.json",
-  "heartbeat_event_dir": "state/run_events",
-  "state_resolution_policy": "actual_data_plus_event_overlay_over_progress_or_chat_summary",
+  "learning_queue_state": {
+    "records": 211,
+    "stale_processed_not_in_canonical": 0,
+    "role": "legacy/source-status helper; roster is candidate universe"
+  },
   "execution_control": {
     "single_writer_lock": "state/execution_lock.json",
     "lease_minutes": 45,
     "lock_required_before_canonical_write": true,
-    "concurrent_non_holder_mode": "read_only",
-    "run_ledger": "state/run_events",
-    "run_event_required_for_every_writer_run": true,
-    "legacy_heartbeat": "state/run-heartbeat.json",
-    "legacy_heartbeat_role": "legacy_fallback_only"
-  },
-  "inventory_reservoir": {
-    "status": "retired",
-    "retired_at": "2026-10-07",
-    "superseded_by": "VIDEO_INVENTORY_2026-10-07.md roster fast path",
-    "operational_effect": "none"
-  },
-  "channel_snapshot": {
-    "status": "retired",
-    "retired_at": "2026-10-07",
-    "superseded_by": "VIDEO_INVENTORY_2026-10-07.md",
-    "operational_effect": "none"
-  },
-  "last_inventory_run": {
-    "run_id": "manual-snapshot-bootstrap-20261006T152009+0900",
-    "new_exact_ids": 32,
-    "new_long_form": 13,
-    "new_shorts": 19,
-    "start_snapshot_count": 161,
-    "end_snapshot_count": 193,
-    "target": 794,
-    "result": "snapshot_bootstrap_progress"
-  },
-  "roster_status": {
-    "baseline_794_retired": true,
-    "roster_file": "VIDEO_INVENTORY_2026-10-07.md",
-    "roster_total": 791,
-    "long_form": 703,
-    "shorts": 88,
-    "analyzed_long_form": 145,
-    "remaining_long_form": 558
+    "run_ledger": "state/run_events"
   },
   "fast_path": {
-    "version": 2,
     "active": true,
     "workflow_marker": "2026-10-07 ROSTER FAST PATH — ACTIVE",
     "aggregate_compaction": "once_per_run_per_path",
-    "canonical_minimum_persistence": "analysis_doc_or_compact_analysis_event + canonical_event",
     "full_transcript_storage": false
   },
-  "workflow_repair": {
-    "run_id": "manual-workflow-repair-20261007",
-    "status": "complete",
-    "changes": [
-      "retired 794 baseline/inventory reservoir execution paths",
-      "roster-only candidate selection",
-      "analyze-first then single write phase",
-      "no per-video aggregate rewrite",
-      "aggregate compaction once per run per path",
-      "compact structured fallback artifact for blocked markdown canonical doc"
-    ],
-    "diagnosis": {
-      "repository_permissions": "working",
-      "github_contents_writes": "working",
-      "dominant_bottleneck": "write amplification and conflicting legacy workflow branches",
-      "safety_block_scope": "intermittent or payload-specific; not repository-wide"
-    }
-  },
-  "repository_audit": {
-    "audited_at": "2026-10-07",
-    "roster_unique_ids": 791,
-    "roster_long_form": 703,
-    "roster_shorts": 88,
-    "base_records": 156,
-    "base_max_sequence": 156,
-    "base_roster_long_form": 144,
-    "legacy_base_records": 12,
-    "overlay_sequences": [
-      159
-    ],
-    "effective_canonical": 157,
-    "roster_canonical": 145,
-    "roster_remaining": 558,
-    "missing_durable_artifact_reclassified": [
-      "SjKNXdqCXqc"
-    ],
-    "workflow_conflicts_removed": true,
-    "lock_state_expected_after_release": "released",
-    "correction_note": "y-SUZ-cOCNk confirmed already canonical in data/videos.jsonl sequence 5 (partial_source); removed from reanalysis_required.",
-    "duplicate_non_overlay_event_sequences": [
-      157,
-      158
-    ]
+  "last_run": {
+    "run_id": "manual-preanalysis-cleanup-20261007",
+    "result": "preanalysis_cleanup_in_progress",
+    "newly_analyzed_count": 0,
+    "write_failure": false
   }
 }
