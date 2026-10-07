@@ -1,4 +1,20 @@
-# 박곰희TV 학습 목록 — Master Inventory v3
+# 박곰희TV 학습 목록 — Canonical Roster Mode
+
+## 2026-10-07 canonical roster 전환
+
+- canonical roster: `VIDEO_INVENTORY_2026-10-07.md`
+- 전체 고유 Video ID: **791**
+- 롱폼: **703**
+- Shorts: **88**
+- 현재 canonical sequence: **156**
+- roster 내 분석 완료 롱폼: **144**
+- roster 내 잔여 롱폼: **559**
+- roster 밖 legacy canonical ID: **12** — reconciliation backlog이며 분석 차단 안 함
+- 과거 794개 baseline discovery 목표: **폐기/대체**
+- 현재 우선순위: roster의 미분석 롱폼 → 원본 YouTube transcript 확보 → 실제 콘텐츠 분석 → canonical sync
+- 2026-10-07 수동 smoke test: oldest-first 2편(`GAXeom_eF6I`, `SJ_0Za3YxcA`) 분석·event·aggregate·knowledge sync 성공
+
+아래 내용은 legacy queue 운영기록이다. 충돌 시 위 canonical roster mode와 `WORKFLOW.md` 최상단 override가 우선한다.
 
 - 갱신일: 2026-10-06
 - 기준 채널: `@gomhee`
