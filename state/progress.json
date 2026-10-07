@@ -1,13 +1,13 @@
 {
   "source_channel": "https://youtube.com/@gomhee",
   "queue_basis": "VIDEO_INVENTORY_2026-10-07.md canonical roster",
-  "processing_order": "oldest_to_newest roster long-form when source-backed; skip blocked",
+  "processing_order": "roster long-form; source-backed first; skip blocked; no baseline discovery gate",
   "primary_queue": "long_form",
   "max_videos_per_hour": 40,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 156,
-  "canonical_processed_count": 156,
-  "last_processed_video_id": "SJ_0Za3YxcA",
+  "processed_videos": 159,
+  "canonical_processed_count": 159,
+  "last_processed_video_id": "nPh_ovlWyKQ",
   "last_processed_published_at": "2019-07-16",
   "next_synthesis_at": 160,
   "synthesis_version": 15,
@@ -20,8 +20,8 @@
     "total_uploads_include_shorts": true,
     "roster_long_form": 703,
     "roster_shorts": 88,
-    "roster_canonical_processed": 144,
-    "roster_long_form_remaining": 559,
+    "roster_canonical_processed": 147,
+    "roster_long_form_remaining": 556,
     "legacy_canonical_outside_roster": 12,
     "legacy_reconciliation_required": true,
     "shorts_excluded_from_primary": true,
@@ -30,26 +30,37 @@
   },
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
-    "candidate_basis": "roster long-form minus current canonical IDs",
+    "candidate_basis": "roster long-form minus effective canonical minus analyzed pending_sync",
     "source_strategy": "original YouTube metadata/description/transcript when available; skip to next candidate if unavailable",
-    "stop_on_github_write_failure": false
+    "stop_on_github_write_failure": false,
+    "persistence_mode": "analyze_batch_first_then_minimal_doc_plus_event; aggregate_compaction_once_per_run",
+    "inventory_discovery_gate": false
   },
   "canonical_sync_lane": {
-    "pending_sync_videos": 0,
+    "pending_sync_videos": 2,
     "sync_only_not_counted_as_new_analysis": true,
-    "write_policy": "event-first then serial fresh SHA idempotent compaction",
-    "failure_policy": "retain event and continue"
+    "write_policy": "event-first; no per-video aggregate rewrite; batch compact once per path at run end",
+    "failure_policy": "retain event and continue",
+    "pending_sync_ids": [
+      "SjKNXdqCXqc",
+      "y-SUZ-cOCNk"
+    ]
   },
   "canonical_consistency": {
     "data_videos_records": 156,
     "data_videos_max_sequence": 156,
-    "canonical_event_records": 94,
-    "effective_processed_count": 156,
-    "roster_processed_count": 144,
-    "roster_remaining_long_form": 559,
+    "canonical_event_records": 97,
+    "effective_processed_count": 159,
+    "roster_processed_count": 147,
+    "roster_remaining_long_form": 556,
     "legacy_outside_roster": 12,
     "sequence_gaps": [],
-    "consistent_processed_count": true
+    "consistent_processed_count": false,
+    "compaction_pending_sequences": [
+      157,
+      158,
+      159
+    ]
   },
   "event_ledger": {
     "canonical_events_dir": "data/canonical_events",
@@ -71,12 +82,12 @@
     "checkpoint_synthesis_created": [],
     "completed_at": "2026-10-07T19:48:07+09:00"
   },
-  "last_scheduled_run_at": "2026-10-06T18:08:04+09:00",
-  "last_run_result": "manual_smoke_test_success_2_canonical",
+  "last_scheduled_run_at": "2026-10-07T21:23:00+09:00",
+  "last_run_result": "scheduled_analysis_pending_sync_after_canonical_doc_block",
   "discovery_checked_at": "2026-10-07T19:45:40+09:00",
-  "newly_analyzed_count": 2,
-  "write_failure": false,
-  "pending_sync_count": 0,
+  "newly_analyzed_count": 1,
+  "write_failure": true,
+  "pending_sync_count": 2,
   "verification_needed_count": 13,
   "heartbeat_location": "primary",
   "heartbeat_primary_file": "state/progress.json",
@@ -93,31 +104,16 @@
     "legacy_heartbeat_role": "legacy_fallback_only"
   },
   "inventory_reservoir": {
-    "target_exact_id_unprocessed_buffer": 100,
-    "minimum_exact_id_unprocessed_buffer": 60,
-    "current_exact_id_unprocessed_buffer": 22,
-    "discovery_batch_target": 40,
-    "source_acquisition_batch_target": 20,
-    "mode": "bootstrap_priority"
+    "status": "retired",
+    "retired_at": "2026-10-07",
+    "superseded_by": "VIDEO_INVENTORY_2026-10-07.md roster fast path",
+    "operational_effect": "none"
   },
   "channel_snapshot": {
-    "baseline_date": "2026-10-06",
-    "target_public_uploads": 794,
-    "identified_exact_ids": 222,
-    "completeness_pct": 28,
-    "remaining_to_identify": 572,
-    "classification_counts": {
-      "long_form": 173,
-      "long_form_compilation": 1,
-      "short": 19,
-      "live": 0,
-      "other": 0,
-      "unknown": 0
-    },
-    "snapshot_file": "data/channel_snapshot_2026-10-06.jsonl",
-    "meta_file": "data/channel_snapshot_2026-10-06.meta.json",
-    "snapshot_complete": false,
-    "priority": "complete_baseline_inventory_before_just_in_time_discovery"
+    "status": "retired",
+    "retired_at": "2026-10-07",
+    "superseded_by": "VIDEO_INVENTORY_2026-10-07.md",
+    "operational_effect": "none"
   },
   "last_inventory_run": {
     "run_id": "manual-snapshot-bootstrap-20261006T152009+0900",
@@ -135,7 +131,15 @@
     "roster_total": 791,
     "long_form": 703,
     "shorts": 88,
-    "analyzed_long_form": 144,
-    "remaining_long_form": 559
+    "analyzed_long_form": 147,
+    "remaining_long_form": 556
+  },
+  "fast_path": {
+    "version": 2,
+    "active": true,
+    "workflow_marker": "2026-10-07 ROSTER FAST PATH — ACTIVE",
+    "aggregate_compaction": "once_per_run_per_path",
+    "canonical_minimum_persistence": "analysis_doc_or_compact_analysis_event + canonical_event",
+    "full_transcript_storage": false
   }
 }
