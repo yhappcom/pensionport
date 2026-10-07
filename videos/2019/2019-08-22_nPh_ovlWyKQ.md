@@ -1,7 +1,9 @@
-# 159. 금융기관의 종류와 역할
+# 157. 금융기관의 종류와 역할
 
 - 게시일: 2019-08-22
 - Video ID: nPh_ovlWyKQ
+- Canonical ordinal: 157
+- Source canonical event sequence: 159
 - URL: https://www.youtube.com/watch?v=nPh_ovlWyKQ
 - 길이: 08:05
 - 분석 상태: source_backed_analysis_canonicalized
