@@ -12,24 +12,8 @@
   "canonical_state": {
     "base_records": 157,
     "base_unique_video_ids": 157,
-    "base_max_event_sequence": 159,
-    "base_sequence_gaps": [
-      157,
-      158
-    ],
-    "gap_explanation": "157 and 158 are historical audit-only duplicate upgrade events for video_ids already present at base sequences 2 and 1; they do not represent missing canonical videos.",
-    "historical_duplicate_events": [
-      {
-        "event_sequence": 157,
-        "video_id": "OlurWhrOsLs",
-        "base_sequence": 2
-      },
-      {
-        "event_sequence": 158,
-        "video_id": "AzY0FU-HxME",
-        "base_sequence": 1
-      }
-    ],
+    "base_max_canonical_ordinal": 157,
+    "base_sequence_gaps": [],
     "non_base_event_overlay_count": 0,
     "effective_unique_canonical": 157,
     "roster_canonical_long_form": 145,
@@ -37,6 +21,7 @@
     "roster_long_form_remaining": 558,
     "max_event_sequence": 159,
     "next_event_sequence": 160,
+    "event_reconciliation_file": "data/canonical_event_reconciliation.json",
     "checkpoint_basis": "effective_unique_canonical",
     "next_checkpoint": 160,
     "new_unique_videos_to_checkpoint": 3
@@ -75,8 +60,16 @@
   },
   "last_run": {
     "run_id": "manual-preanalysis-cleanup-20261007",
-    "result": "preanalysis_cleanup_in_progress",
+    "result": "preanalysis_cleanup_complete",
     "newly_analyzed_count": 0,
-    "write_failure": false
+    "write_failure": false,
+    "cleanup": [
+      "compacted canonical event 159 into base as canonical ordinal 157",
+      "aligned queue with canonical ordinals and upgrade event metadata",
+      "separated canonical ordinal from event sequence",
+      "created canonical_event_reconciliation ledger",
+      "normalized canonical document numbering",
+      "removed durable pending-sync ambiguity"
+    ]
   }
 }
