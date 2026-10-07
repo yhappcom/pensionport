@@ -1,10 +1,29 @@
 # pensionport 운영 규칙
 
+## 2026-10-07 전수 roster 확정 — 최우선 운영 override
+
+사용자가 제공하고 검증한 `VIDEO_INVENTORY_2026-10-07.md`를 박곰희TV 영상 목록의 **현재 canonical roster**로 사용한다.
+
+- 전체 고유 Video ID: **791**
+- 롱폼: **703**
+- Shorts: **88**
+- 이 roster는 2026-10-07 기준 전수 수집 결과이며, 기존의 **794개 baseline inventory discovery 목표를 폐기·대체**한다.
+- 따라서 아래의 과거 `Baseline inventory event-first mode`가 요구하던 794/794 목록화 완료 조건은 더 이상 content analysis를 차단하지 않는다.
+- 예약·수동 실행은 더 이상 794개를 맞추기 위한 신규 inventory discovery를 선행하지 않는다.
+- 모든 실행은 시작 시 `VIDEO_INVENTORY_2026-10-07.md`와 actual canonical data를 fresh-fetch하여, roster 내 롱폼 중 아직 canonical 분석되지 않은 Video ID를 계산한 뒤 content analysis를 우선한다.
+- Shorts는 roster에는 보존하지만 기본 content-analysis lane에서는 제외한다.
+- `data/videos.jsonl` 또는 과거 canonical 자료에 roster 밖 legacy Video ID가 있더라도 분석을 중단하지 않는다. 이를 reconciliation backlog로 기록하고 roster 내 미처리 롱폼 분석을 계속한다.
+- roster의 `수집 상태=미확인`은 주로 게시일 메타데이터 미확인을 뜻한다. exact Video ID가 존재하면 분석 후보에서 제거하지 않는다.
+- source identity 규칙은 계속 적용한다. 신뢰 가능한 원문·자막·상세 보존자료가 없으면 세부 내용을 추측하지 않고 `verification_needed` 또는 source-acquisition 상태로 넘긴다.
+
+이 override는 이 문서의 과거 baseline inventory/discovery 관련 규칙과 충돌할 경우 **우선한다**. 나머지 single-writer, source identity, canonical sync, 10편 checkpoint, 품질 규칙은 그대로 유지한다.
+
 ## Canonical source / 실행 시작 규칙
 모든 예약·수동 실행은 **이전 채팅의 보고나 `state/progress.json` 요약만 믿고 이어서 작업하지 않는다.**
 실행 시작 시 최신 `main`에서 아래를 fresh-fetch하고 실제 상태를 다시 계산한다.
 
 - `WORKFLOW.md` — 유일한 운영규칙
+- `VIDEO_INVENTORY_2026-10-07.md` — 2026-10-07 확정 전수 roster (791개 / 롱폼 703 / Shorts 88)
 - `LEARNING_QUEUE.md` — 사람이 읽는 요약
 - `data/learning_queue.jsonl`
 - `data/learning_queue_unresolved.jsonl`
@@ -34,7 +53,7 @@
 
 ## Baseline inventory event-first mode
 
-2026-10-06 고정 채널 snapshot이 **effective 794/794**에 도달할 때까지 이 절이 일반 VIDEO-ANALYSIS-FIRST 규칙보다 우선한다.
+**[RETIRED 2026-10-07]** 이 절은 과거 794개 추정 baseline을 완성하기 위한 규칙이었다. `VIDEO_INVENTORY_2026-10-07.md` 791개 전수 roster 확정으로 완료·대체되었으며, 더 이상 content analysis를 차단하지 않는다. 아래 내용은 과거 실행기록/호환성 참고용이다.
 
 ### Baseline 완료 전 실행 모드
 - 신규 콘텐츠 분석/canonicalization/source-acquisition 심층분석은 하지 않는다. 목표 분석 편수는 0이다.
