@@ -1,52 +1,25 @@
 {
-  "schema_version": 1,
-  "updated_at": "2026-10-06T15:20:09+09:00",
-  "purpose": "Maintain a prebuilt long-form learning reservoir so content analysis does not depend on just-in-time discovery.",
-  "canonical_inventory_file": "data/learning_queue.jsonl",
-  "target_exact_id_unprocessed_buffer": 100,
-  "minimum_exact_id_unprocessed_buffer": 60,
-  "discovery_batch_target": 40,
-  "source_acquisition_batch_target": 20,
-  "current_snapshot": {
-    "exact_id_inventory": 174,
-    "canonical_processed": 139,
-    "exact_id_unprocessed": 35,
-    "source_acquisition_needed": 22,
-    "verification_needed": 13,
-    "unresolved_video_id": 2
+  "schema_version": 2,
+  "updated_at": "2026-10-07T19:48:07+09:00",
+  "purpose": "Use the validated 2026-10-07 roster as the fixed analysis inventory; no further 794-baseline discovery gate.",
+  "canonical_roster_file": "VIDEO_INVENTORY_2026-10-07.md",
+  "roster": {
+    "total_unique_video_ids": 791,
+    "long_form": 703,
+    "shorts": 88
   },
-  "priority_order": [
-    "source-backed unanalyzed",
-    "source_acquisition_needed with strongest exact-ID evidence",
-    "new exact-ID discovery until buffer target is restored",
-    "verification_needed only when retry due or new source signal"
-  ],
-  "coverage_sources": [
-    "official YouTube channel long-form surfaces when accessible",
-    "official Shorts linking full-video exact IDs",
-    "public pages embedding or linking exact YouTube watch IDs",
-    "public curriculum/index pages such as DoLearn or other channel-linked indexes",
-    "public contemporaneous summaries with exact source identity"
-  ],
-  "stop_rule": "Inventory bootstrap is complete only when exact-ID unprocessed buffer reaches target or two independent focused discovery passes produce no additional exact IDs.",
-  "snapshot_policy": {
-    "baseline_date": "2026-10-06",
-    "channel_id": "UCr7XsrSrvAn_WcU4kF99bbQ",
-    "expected_public_uploads": 794,
-    "snapshot_file": "data/channel_snapshot_2026-10-06.jsonl",
-    "snapshot_meta": "data/channel_snapshot_2026-10-06.meta.json",
-    "current_identified_rows": 193,
-    "remaining_to_identify": 601,
-    "completeness_pct": 24.3,
-    "snapshot_complete": false,
-    "priority": "complete_fixed_snapshot_before_relying_on_just_in_time_discovery",
-    "classification": [
-      "long_form",
-      "short",
-      "live",
-      "other",
-      "unknown"
-    ],
-    "post_snapshot_rule": "Only uploads after 2026-10-06 are handled incrementally."
-  }
+  "current_state": {
+    "canonical_sequences": 156,
+    "roster_long_form_processed": 144,
+    "roster_long_form_remaining": 559,
+    "legacy_canonical_outside_roster": 12
+  },
+  "primary_rule": "Analyze roster long-form items not present in canonical data. Shorts remain inventory-only by default.",
+  "source_rule": "Use source-backed content only. Original YouTube metadata/description/transcript is acceptable when identity matches. Skip blocked candidates instead of stopping the run.",
+  "legacy_snapshot_policy": {
+    "retired": true,
+    "previous_target": 794,
+    "reason": "Replaced by validated user-provided 791-ID roster on 2026-10-07."
+  },
+  "reconciliation_rule": "Legacy canonical IDs outside the roster are tracked separately and do not block roster analysis."
 }
