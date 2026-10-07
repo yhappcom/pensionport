@@ -44,10 +44,9 @@
     "pending_sync_ids": [],
     "durable_pending_sync_policy": "only count items with durable analysis artifact in repository",
     "reanalysis_required_ids": [
-      "SjKNXdqCXqc",
-      "y-SUZ-cOCNk"
+      "SjKNXdqCXqc"
     ],
-    "reanalysis_reason": "prior transient analyses were not durably stored; repository is source of truth"
+    "reanalysis_reason": "SjKNXdqCXqc transient analysis was not durably stored; repository is source of truth. y-SUZ-cOCNk is already base canonical sequence 5 and must not be reanalyzed by default."
   },
   "canonical_consistency": {
     "data_videos_records": 156,
@@ -87,7 +86,7 @@
     "completed_at": "2026-10-07T19:48:07+09:00"
   },
   "last_scheduled_run_at": "2026-10-07T21:23:00+09:00",
-  "last_run_result": "repository_audit_repair_complete",
+  "last_run_result": "repository_audit_correction_complete",
   "discovery_checked_at": "2026-10-07T19:45:40+09:00",
   "newly_analyzed_count": 1,
   "write_failure": false,
@@ -182,10 +181,10 @@
     "roster_canonical": 147,
     "roster_remaining": 556,
     "missing_durable_artifact_reclassified": [
-      "SjKNXdqCXqc",
-      "y-SUZ-cOCNk"
+      "SjKNXdqCXqc"
     ],
     "workflow_conflicts_removed": true,
-    "lock_state_expected_after_release": "released"
+    "lock_state_expected_after_release": "released",
+    "correction_note": "y-SUZ-cOCNk confirmed already canonical in data/videos.jsonl sequence 5 (partial_source); removed from reanalysis_required."
   }
 }
