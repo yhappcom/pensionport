@@ -37,8 +37,9 @@
    - GitHub 저장 실패 여부와 무관하게 가능한 콘텐츠 분석을 먼저 끝낸다.
 2. **WRITE PHASE — lock 1회**
    - 저장 직전에 single-writer lease를 한 번 획득한다.
-   - effective canonical과 max sequence를 fresh-fetch해 이미 다른 run이 canonicalized한 ID는 제외한다.
-   - 남은 분석 결과에 연속 sequence를 배정한다.
+   - effective canonical과 **max event sequence**를 fresh-fetch해 이미 다른 run이 canonicalized한 ID는 제외한다.
+   - 새 event sequence는 `max(base sequence, 모든 canonical event sequence)+1`부터 연속 배정한다.
+   - **event sequence와 effective canonical count는 서로 다른 값**이며, checkpoint는 effective canonical count 기준으로 계산한다.
 3. **영상별 최소 영속화**
    - 기본: concise canonical analysis 문서 1개 → immutable canonical event 1개.
    - canonical 문서는 분석 결론/근거/수치/위험/지식관계/source reference만 저장하고 **원문 transcript 전체를 저장하지 않는다**.
@@ -102,7 +103,7 @@
 과거 794개 추정 baseline inventory를 위한 모든 discovery/event/compaction/lock 예외 규칙은 `VIDEO_INVENTORY_2026-10-07.md`의 791개 확정 roster로 대체되었다. 일반 분석 실행은 이 절의 옛 숫자·조건·파일을 읽거나 분기 기준으로 사용하지 않는다.
 
 ## 단일 writer 실행 lease
-여러 채팅과 예약작업이 같은 `main`의 공유 mutable aggregate를 동시에 수정하지 않도록 해당 write 전에 `state/execution_lock.json` lease를 획득한다. 단, 위 Baseline inventory event-first mode의 deterministic append-only inventory event와 unique run event create는 명시적 예외다.
+여러 채팅과 예약작업이 같은 `main`의 공유 mutable state를 동시에 수정하지 않도록 canonical/aggregate/progress write 전에 `state/execution_lock.json` lease를 획득한다. retired baseline inventory 예외는 더 이상 실행 규칙으로 사용하지 않는다.
 
 ### 획득
 1. `state/execution_lock.json`을 fresh-fetch한다.
@@ -140,7 +141,7 @@
 - 실제 신규 콘텐츠 분석만 담당한다.
 - 예약 실행당 목표는 **최대 40편**이다.
 - GitHub 저장 실패, synthesis 저장 실패, inventory 요약 불일치 때문에 이 lane을 정지하지 않는다.
-- 저장 실패 영상은 `pending_sync`로 보내고 즉시 다음 분석 가능한 영상으로 이동한다.
+- 저장 실패 시 **durable analysis artifact가 이미 저장된 경우에만** `pending_sync`로 보낸다. durable artifact가 하나도 없으면 `reanalysis_required`로 두고 즉시 다음 분석 가능한 영상으로 이동한다.
 
 ### B. canonical_sync_lane
 - 이미 분석문이 존재하는 영상의 index/queue/claims/knowledge/framework/progress 동기화만 담당한다.
@@ -245,7 +246,7 @@ canonical analysis Markdown이 raw safety block으로 1회 retry까지 실패하
 aggregate 실패는 `compaction_pending`이며 이미 성공한 canonical event를 취소하지 않는다.
 
 ## 10편 체크포인트
-누적 canonical 처리수가 10의 배수에 도달하면 그 영상 반영 직후 누적지식을 재종합한다.
+**effective canonical unique-video count**가 10의 배수에 새로 도달하면 그 영상 반영 직후 누적지식을 재종합한다. event sequence 번호 자체가 10의 배수인지는 checkpoint 조건이 아니다.
 - 반복원칙·예외·변화·충돌
 - 연금저축·IRP·ISA·국민연금·세금·인출·자산배분
 - 전체 박곰희 프레임워크
@@ -342,7 +343,7 @@ fresh-SHA 규칙에 더해 다음을 적용한다.
 1. **START** — roster, base canonical, canonical events, pending analysis artifacts, lock을 fresh-fetch하고 effective canonical 및 roster remaining을 재계산한다.
 2. **ANALYZE** — roster long-form 미분석 후보에서 source-backed 영상을 최대 40편 분석한다. source 미확보는 skip한다. 이 단계에서는 aggregate를 쓰지 않는다.
 3. **WRITE LOCK** — 저장할 분석 결과가 있을 때만 single-writer lease를 1회 획득한다. 획득 후 effective canonical/max sequence를 다시 읽어 중복을 제거한다.
-4. **MINIMAL CANONICAL WRITE** — 영상별 concise analysis artifact와 immutable canonical event만 직렬 생성한다. 실패한 영상은 fallback structured analysis artifact를 1회 시도하고, 그래도 실패하면 pending_sync로 남기고 다음 영상을 계속한다.
+4. **MINIMAL CANONICAL WRITE** — 영상별 concise analysis artifact와 immutable canonical event만 직렬 생성한다. Markdown 저장 실패 시 fallback structured analysis artifact를 1회 시도한다. fallback까지 실패하여 durable artifact가 하나도 없으면 `reanalysis_required`로 두고 다음 영상을 계속한다. durable artifact는 있으나 event/aggregate sync만 남은 경우에만 `pending_sync`다.
 5. **BATCH COMPACTION** — 모든 영상 event 처리가 끝난 뒤 aggregate path별 최대 1회만 compact한다. canonical event가 이미 성공한 영상은 aggregate 실패로 되돌리지 않는다.
 6. **END** — checkpoint 필요 시 한 번 처리하고 progress 1회, unique run event 1회, 자신의 lease release 1회로 종료한다.
 
@@ -369,13 +370,17 @@ fresh-SHA 규칙에 더해 다음을 적용한다.
 canonical 저장은 event-first를 유지하되 **per-video aggregate compaction은 금지**한다.
 
 ### Canonical event
-- `data/canonical_events/NNN_<video_id>.json`은 immutable canonical ledger다.
-- 분석 artifact가 존재하고 event create가 성공하면 해당 영상은 canonical 완료다.
-- 동일 video_id 또는 sequence event 중복 생성은 금지한다.
+- `data/canonical_events/NNN_<video_id>.json`은 immutable event ledger다.
+- 분석 artifact가 존재하고 **base에 없는 video_id의 canonical event** create가 성공하면 해당 영상은 effective canonical에 추가된다.
+- 동일 video_id 또는 동일 event sequence의 신규 중복 생성은 금지한다.
+- 과거에 이미 생성된 중복 event(현재 157 `OlurWhrOsLs`, 158 `AzY0FU-HxME`)는 삭제·재작성하지 않고 **audit-only duplicate event**로 유지하며 effective canonical count에는 더하지 않는다.
+- 다음 event sequence는 effective canonical count가 아니라 `max(base sequence, 모든 event sequence)+1`로 계산한다.
 
 ### Effective canonical state
-- effective canonical = compacted `data/videos.jsonl` + base에 없는 canonical event overlay.
-- sequence와 processed 계산은 항상 effective state에서 한다.
+- effective canonical = compacted `data/videos.jsonl`의 unique video_id + base에 없는 canonical event video_id overlay.
+- **effective canonical count**는 unique video_id 개수다.
+- **event sequence**는 append-only ledger 순번이며 duplicate audit event 때문에 effective canonical count와 일치하지 않을 수 있다.
+- processed/checkpoint 계산은 effective canonical count를 사용하고, 다음 event 번호 계산은 max event sequence를 사용한다.
 
 ### Batch compaction
 - event 생성들을 먼저 끝낸 뒤 실행 말미에 path별 최대 한 번만 compact한다.
