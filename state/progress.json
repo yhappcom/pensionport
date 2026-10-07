@@ -14,17 +14,17 @@
     "base_unique_video_ids": 157,
     "base_max_canonical_ordinal": 157,
     "base_sequence_gaps": [],
-    "non_base_event_overlay_count": 0,
-    "effective_unique_canonical": 157,
-    "roster_canonical_long_form": 145,
+    "non_base_event_overlay_count": 2,
+    "effective_unique_canonical": 159,
+    "roster_canonical_long_form": 147,
     "legacy_canonical_outside_roster": 12,
-    "roster_long_form_remaining": 558,
-    "max_event_sequence": 159,
-    "next_event_sequence": 160,
+    "roster_long_form_remaining": 556,
+    "max_event_sequence": 161,
+    "next_event_sequence": 162,
     "event_reconciliation_file": "data/canonical_event_reconciliation.json",
     "checkpoint_basis": "effective_unique_canonical",
     "next_checkpoint": 160,
-    "new_unique_videos_to_checkpoint": 3
+    "new_unique_videos_to_checkpoint": 1
   },
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
@@ -38,7 +38,10 @@
   "canonical_sync_lane": {
     "durable_pending_sync_count": 0,
     "durable_pending_sync_ids": [],
-    "compaction_pending_sequences": [],
+    "compaction_pending_sequences": [
+      160,
+      161
+    ],
     "sync_only_not_counted_as_new_analysis": true
   },
   "learning_queue_state": {
@@ -59,17 +62,10 @@
     "full_transcript_storage": false
   },
   "last_run": {
-    "run_id": "manual-preanalysis-cleanup-20261007",
-    "result": "preanalysis_cleanup_complete",
-    "newly_analyzed_count": 0,
-    "write_failure": false,
-    "cleanup": [
-      "compacted canonical event 159 into base as canonical ordinal 157",
-      "aligned queue with canonical ordinals and upgrade event metadata",
-      "separated canonical ordinal from event sequence",
-      "created canonical_event_reconciliation ledger",
-      "normalized canonical document numbering",
-      "removed durable pending-sync ambiguity"
-    ]
+    "run_id": "scheduled-20261007-220957",
+    "result": "partial_success_event_first_compaction_pending",
+    "newly_analyzed_count": 2,
+    "write_failure": true,
+    "write_failure_detail": "data/videos.jsonl update was invoked twice and blocked by safety checks; canonical artifacts/events 160-161 succeeded"
   }
 }
