@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "run_id": "manual-preanalysis-cleanup-20261007",
+  "source": "manual",
+  "started_at": "2026-10-07T22:10:00+09:00",
+  "finished_at": "2026-10-07T22:25:00+09:00",
+  "start_effective_canonical": 157,
+  "end_effective_canonical": 157,
+  "newly_analyzed_count": 0,
+  "sync_only_count": 3,
+  "durable_pending_sync_count": 0,
+  "last_run_result": "preanalysis_cleanup_complete",
+  "write_failure": false,
+  "cleanup": {
+    "roster_unique": 791,
+    "roster_long_form": 703,
+    "roster_shorts": 88,
+    "base_unique_canonical": 157,
+    "roster_canonical": 145,
+    "roster_remaining": 558,
+    "legacy_canonical_outside_roster": 12,
+    "max_event_sequence": 159,
+    "next_event_sequence": 160,
+    "next_checkpoint_effective_count": 160,
+    "reanalysis_required": [
+      "SjKNXdqCXqc"
+    ],
+    "actions": [
+      "compacted event 159 into base canonical ordinal 157",
+      "updated Olur/AzY/nPh queue and canonical metadata",
+      "restored contiguous data/videos canonical ordinals 1-157",
+      "separated canonical ordinal from event sequence in WORKFLOW",
+      "created data/canonical_event_reconciliation.json",
+      "normalized canonical document numbering",
+      "simplified state/progress.json to active roster-fast-path fields"
+    ]
+  }
+}
