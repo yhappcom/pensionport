@@ -18,6 +18,55 @@
 
 이 override는 이 문서의 과거 baseline inventory/discovery 관련 규칙과 충돌할 경우 **우선한다**. 나머지 single-writer, source identity, canonical sync, 10편 checkpoint, 품질 규칙은 그대로 유지한다.
 
+## 2026-10-07 ROSTER FAST PATH — ACTIVE
+
+이 절은 791개 roster 확정 이후의 **현재 실행 경로**이며, 아래에 남아 있는 legacy inventory/reservoir/discovery 및 영상별 opportunistic compaction 규칙과 충돌하면 이 절이 무조건 우선한다.
+
+### 분석 대상
+- 후보 universe는 `VIDEO_INVENTORY_2026-10-07.md`의 **롱폼 703편**만 사용한다.
+- `roster long_form - effective canonical - content_analyzed_pending_sync`를 실제 미분석 후보로 계산한다.
+- 794 baseline, channel snapshot completeness, inventory reservoir, 신규 discovery는 roster 분석 실행을 차단하거나 선행하지 않는다.
+- `state/progress.json`에 남은 794-baseline/reservoir/channel_snapshot 필드는 **legacy informational only**이며 실행 분기 입력으로 사용하지 않는다.
+- Shorts 88편은 roster에는 보존하지만 기본 분석 대상에서 제외한다.
+- roster 밖 legacy canonical ID는 reconciliation backlog로만 관리한다.
+
+### 고속 배치 실행
+1. **READ/ANALYZE PHASE — lock 없이 가능**
+   - 최신 roster와 effective canonical을 읽고 최대 40편 후보를 고른다.
+   - source-backed 후보를 계속 분석한다. source 미확보 항목은 즉시 skip하고 다음 후보로 이동한다.
+   - GitHub 저장 실패 여부와 무관하게 가능한 콘텐츠 분석을 먼저 끝낸다.
+2. **WRITE PHASE — lock 1회**
+   - 저장 직전에 single-writer lease를 한 번 획득한다.
+   - effective canonical과 max sequence를 fresh-fetch해 이미 다른 run이 canonicalized한 ID는 제외한다.
+   - 남은 분석 결과에 연속 sequence를 배정한다.
+3. **영상별 최소 영속화**
+   - 기본: concise canonical analysis 문서 1개 → immutable canonical event 1개.
+   - canonical 문서는 분석 결론/근거/수치/위험/지식관계/source reference만 저장하고 **원문 transcript 전체를 저장하지 않는다**.
+   - Markdown canonical 문서 create가 raw safety block으로 실패하면 fresh existence check 후 1회 retry한다.
+   - retry도 실패하면 `data/analysis_events/<video_id>.json`에 같은 핵심 분석을 compact structured JSON으로 1회 fallback 저장할 수 있다.
+   - fallback artifact가 성공하면 canonical event의 `source_doc`는 해당 JSON을 가리킬 수 있으며, 사람용 Markdown은 후속 materialization backlog로 둔다.
+   - canonical event create 성공이 canonical 완료 기준이다.
+4. **영상 사이 aggregate write 금지**
+   - 한 영상 event가 성공할 때마다 `data/videos.jsonl`, queue, claims, knowledge, framework, progress를 갱신하지 않는다.
+   - 영상 40편을 처리하는 동안 aggregate는 건드리지 않고 event ledger를 source of truth로 사용한다.
+5. **BATCH COMPACTION — 실행 말미 최대 1회/path**
+   - 콘텐츠/event 생성이 끝난 뒤 각 aggregate path를 실행당 최대 한 번만 fresh-fetch → idempotent merge → fresh-SHA update한다.
+   - 순서: `data/videos.jsonl` → `data/learning_queue.jsonl` → `data/claims.jsonl`.
+   - 관련 knowledge는 실행당 한 번 묶어서 반영한다.
+   - `knowledge/gomhee-framework.md`와 synthesis/PDF는 effective canonical이 10의 배수를 새로 통과한 경우에만 처리한다.
+   - `state/progress.json`은 종료 직전 한 번만 갱신한다.
+   - aggregate update 실패는 `compaction_pending`이며 이미 성공한 canonical event를 되돌리지 않는다.
+6. **RUN EVENT / RELEASE**
+   - unique run event는 매 writer run 종료 시 1개만 남긴다.
+   - 자신의 lease만 release한다.
+
+### 처리량 보호 규칙
+- 한 canonical document/event 또는 aggregate write가 실패해도 다음 source-backed 영상 분석을 계속한다.
+- pending_sync는 재분석하지 않는다.
+- aggregate compaction 실패를 이유로 실행을 조기 종료하지 않는다.
+- 목표 40편은 source availability와 tool/execution 한도에 의해서만 줄어든다.
+- 40편 기준 저장 write amplification을 줄이기 위해 aggregate를 영상별로 반복 rewrite하는 방식은 금지한다.
+
 ## Canonical source / 실행 시작 규칙
 모든 예약·수동 실행은 **이전 채팅의 보고나 `state/progress.json` 요약만 믿고 이어서 작업하지 않는다.**
 실행 시작 시 최신 `main`에서 아래를 fresh-fetch하고 실제 상태를 다시 계산한다.
