@@ -1,7 +1,9 @@
-# 157. 1만원으로 투자 시작하는 5가지 방법 (for.완전초보)
+# 002. 1만원으로 투자 시작하는 5가지 방법 (for.완전초보)
 
 - 게시일: 2019-09-13
 - Video ID: `OlurWhrOsLs`
+- Canonical ordinal: 2
+- Latest analysis upgrade event sequence: 157
 - URL: https://www.youtube.com/watch?v=OlurWhrOsLs
 - 길이: 10:40
 - 유형: 롱폼 / 투자입문 / 실전연습
