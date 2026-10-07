@@ -68,86 +68,38 @@
 - 40편 기준 저장 write amplification을 줄이기 위해 aggregate를 영상별로 반복 rewrite하는 방식은 금지한다.
 
 ## Canonical source / 실행 시작 규칙
-모든 예약·수동 실행은 **이전 채팅의 보고나 `state/progress.json` 요약만 믿고 이어서 작업하지 않는다.**
-실행 시작 시 최신 `main`에서 아래를 fresh-fetch하고 실제 상태를 다시 계산한다.
+모든 예약·수동 실행은 이전 채팅이나 progress 요약을 그대로 이어서 사용하지 않는다. 최신 `main`에서 current roster 운영에 필요한 파일만 fresh-fetch하고 actual state를 다시 계산한다.
 
-- `WORKFLOW.md` — 유일한 운영규칙
-- `VIDEO_INVENTORY_2026-10-07.md` — 2026-10-07 확정 전수 roster (791개 / 롱폼 703 / Shorts 88)
-- `LEARNING_QUEUE.md` — 사람이 읽는 요약
-- `data/learning_queue.jsonl`
-- `data/learning_queue_unresolved.jsonl`
+필수:
+- `WORKFLOW.md`
+- `VIDEO_INVENTORY_2026-10-07.md`
 - `data/videos.jsonl`
-- `data/inventory_control.json`
-- `data/channel_snapshot_2026-10-06.jsonl`
-- `data/channel_snapshot_2026-10-06.meta.json`
 - `data/canonical_events/`
 - `state/progress.json`
 - `state/execution_lock.json`
-- 필요 시 최신 `state/run_events/`
+
+필요 시:
+- `data/learning_queue.jsonl` — legacy queue reconciliation / source 상태 참고
+- `data/learning_queue_unresolved.jsonl` — unresolved 참고
+- `state/run_events/` — 최근 writer 실행 감사
+
+과거 `data/inventory_control.json`, `data/channel_snapshot_2026-10-06*.json*`, 794 baseline 관련 파일은 **legacy reconciliation 전용**이며 일반 content-analysis 실행의 START 분기에는 읽지 않는다.
 
 ### 현재 상태 재계산
-실행 시작 후 반드시 actual data에서 다음을 다시 계산한다.
-- queue total
 - base canonical count / base max sequence
 - canonical event overlay
 - effective canonical count / effective max sequence
-- pending_sync
-- verification_needed
-- source-backed unanalyzed ready
-- unresolved
+- roster long-form canonical count / remaining count
+- durable pending-sync artifact count
+- verification/source-blocked 후보
 - next checkpoint
 
-우선순위는 항상 **actual data + canonical-event overlay > progress summary > chat/report memory**다.
-`state/progress.json`이 뒤처져 있어도 actual data를 덮어쓰거나 되돌리지 않는다.
+우선순위는 항상 **actual base + canonical-event overlay > progress summary > chat/report memory**다.
 
 ## Baseline inventory event-first mode
+**[RETIRED 2026-10-07 — DO NOT EXECUTE]**
 
-**[RETIRED 2026-10-07]** 이 절은 과거 794개 추정 baseline을 완성하기 위한 규칙이었다. `VIDEO_INVENTORY_2026-10-07.md` 791개 전수 roster 확정으로 완료·대체되었으며, 더 이상 content analysis를 차단하지 않는다. 아래 내용은 과거 실행기록/호환성 참고용이다.
-
-### Baseline 완료 전 실행 모드
-- 신규 콘텐츠 분석/canonicalization/source-acquisition 심층분석은 하지 않는다. 목표 분석 편수는 0이다.
-- chronology repair는 목록화의 선행조건이 아니다. exact Video ID가 확실하면 title/date/duration 일부가 미확정이어도 inventory에 먼저 보존한다.
-- 가능한 많은 unique exact Video ID를 배치로 수집한다.
-- effective baseline inventory는 다음으로 계산한다.
-  - compacted base: `data/channel_snapshot_2026-10-06.jsonl`
-  - overlay: `data/inventory_events/<video_id>.json` 중 base에 같은 Video ID가 없는 event
-- snapshot meta/progress의 저장된 숫자보다 위 effective 계산을 우선한다.
-
-### Append-only inventory event
-- 디렉터리: `data/inventory_events/`
-- 파일명: `<video_id>.json`
-- exact Video ID 하나당 immutable event 하나만 허용한다.
-- event 최소 필드:
-  - `schema_version`
-  - `event_type=baseline_inventory_discovery`
-  - `snapshot_as_of=2026-10-06`
-  - `video_id`
-  - `title`
-  - `published_at`
-  - `duration`
-  - `content_type`
-  - `learning_scope`
-  - `source`
-  - `discovered_at`
-- create 전 compacted snapshot과 inventory event directory에서 같은 Video ID 존재 여부를 확인한다.
-- 같은 path가 이미 존재하면 desired state가 already-applied된 것으로 처리하고 중복 생성하지 않는다.
-
-### Lock 예외와 compaction
-- `data/inventory_events/<video_id>.json`의 deterministic append-only `create_file`은 shared mutable file을 수정하지 않으므로 **single-writer lease 없이 허용**한다.
-- `state/run_events/<unique_run_id>.json` append-only create도 동일하게 lease 없이 허용한다.
-- baseline 미완성의 **일반 discovery 실행은 execution lock을 획득하거나 갱신하지 않는다.** inventory event만 append하고 종료한다. 따라서 routine hourly discovery에서 `state/execution_lock.json` update를 호출하지 않는다.
-- 반면 `data/channel_snapshot_2026-10-06.jsonl`, meta, learning queue, inventory_control, progress 등 **공유 mutable aggregate 수정은 기존 single-writer lease가 필수**다.
-- aggregate compaction은 매 실행마다 하지 않고 다음 checkpoint에서만 시도한다: (a) compact되지 않은 inventory event가 50개 이상, (b) effective inventory가 794/794 도달, (c) 사용자가 명시적으로 compaction/정합성 정리를 요청.
-- checkpoint compaction에서만 execution lock을 fresh-fetch하고 필요 시 획득한다. lock write가 상위 safety check로 차단되면 fresh-refetch 후 정확히 1회만 재시도하고, 다시 차단되면 compaction을 보류한다. 같은 실행에서 lock write를 더 반복하지 않는다.
-- lock/compaction이 차단되어도 inventory discovery와 inventory-event create를 중단하지 않는다.
-- event create 성공은 inventory progress 성공이다. aggregate compaction 실패/보류는 `compaction_pending`일 뿐 discovery failure가 아니다.
-- 이후 lease를 정상 획득한 checkpoint 실행이 inventory events를 snapshot/queue/meta/progress에 idempotent하게 compact한다.
-
-### 완료 전환
-- effective baseline inventory가 794/794에 도달하면 모든 event overlay를 포함해 중복/분류를 검증한다.
-- 가능한 경우 lease를 획득해 aggregate를 compact하고 `baseline_complete=true`를 기록한다.
-- aggregate write가 일시적으로 막혀도 effective 794/794가 검증되면 추가 discovery는 중단하고 compaction만 남긴다.
-- baseline 완료 후 다음 실행부터 일반 content-analysis lane을 재개한다.
+과거 794개 추정 baseline inventory를 위한 모든 discovery/event/compaction/lock 예외 규칙은 `VIDEO_INVENTORY_2026-10-07.md`의 791개 확정 roster로 대체되었다. 일반 분석 실행은 이 절의 옛 숫자·조건·파일을 읽거나 분기 기준으로 사용하지 않는다.
 
 ## 단일 writer 실행 lease
 여러 채팅과 예약작업이 같은 `main`의 공유 mutable aggregate를 동시에 수정하지 않도록 해당 write 전에 `state/execution_lock.json` lease를 획득한다. 단, 위 Baseline inventory event-first mode의 deterministic append-only inventory event와 unique run event create는 명시적 예외다.
@@ -274,17 +226,23 @@
 일반적인 영구 투자원칙과 이미 검증된 반복내용은 외부검증을 반복하지 않는다.
 
 ## 저장
-분석 결과는 순차/배치로 다음에 반영한다.
-- 개별 영상 문서
+### 영상별 최소 저장
+- concise canonical analysis artifact
+- immutable `data/canonical_events/NNN_<video_id>.json`
+
+canonical analysis Markdown이 raw safety block으로 1회 retry까지 실패하면 compact structured `data/analysis_events/<video_id>.json` fallback을 허용한다.
+**durable analysis artifact가 하나도 없는 상태는 pending_sync로 표시하지 않는다.** 저장되지 않은 transient 분석은 다음 실행에서 재분석 가능한 후보로 남긴다.
+
+### 실행 말미 batch 저장
+영상별 event 생성이 끝난 뒤에만 아래 aggregate를 path당 최대 1회 갱신한다.
 - `data/videos.jsonl`
 - `data/learning_queue.jsonl`
-- claims
-- 관련 `knowledge/*.md`
-- `knowledge/gomhee-framework.md`
+- `data/claims.jsonl`
+- 관련 knowledge 묶음
+- checkpoint일 때만 framework/synthesis/PDF
 - `state/progress.json`
 
-GitHub 저장 실패는 해당 영상의 canonical 완료 판정을 막지만 **다음 영상 콘텐츠 분석을 막아서는 안 된다**.
-실패는 `pending_sync`로 남긴다.
+aggregate 실패는 `compaction_pending`이며 이미 성공한 canonical event를 취소하지 않는다.
 
 ## 10편 체크포인트
 누적 canonical 처리수가 10의 배수에 도달하면 그 영상 반영 직후 누적지식을 재종합한다.
@@ -298,14 +256,17 @@ synthesis/framework/state의 GitHub 저장이 실패하면 산출물은 `pending
 ## 실행 종료 조건
 다음 중 하나일 때만 종료한다.
 - 실행시간/도구 한도 도달
-- 기존 큐의 source-backed 분석 후보를 소진했고 신규 discovery 1패스에서도 source-backed 후보를 확보하지 못함
+- 이번 실행에서 roster 미분석 후보를 충분히 스캔했지만 더 이상 source-backed 분석 가능 후보가 없음
+- 최대 신규 분석 목표 40편 도달
 
 다음 사유만으로는 종료하지 않는다.
-- GitHub write 실패
+- GitHub aggregate write 실패
 - 특정 영상 source 미확보
 - chronology 미정
-- inventory 요약 불일치
+- legacy queue/inventory 불일치
 - unresolved ID 존재
+
+**신규 inventory discovery 1패스는 종료조건이 아니다.** 791 roster가 이미 확정되어 있으므로 기본 분석 실행에서 신규 discovery를 요구하지 않는다.
 
 ## 종료보고
 첫 항목은 반드시 실제 신규 분석 영상 수와 Video ID/제목 범위다.
@@ -332,25 +293,19 @@ synthesis/framework/state의 GitHub 저장이 실패하면 산출물은 `pending
 
 
 ## 실행이력 / heartbeat
-- **모든 예약·수동 writer 실행은 종료 시 unique `state/run_events/<timestamp>_<run_id>.json`을 append-only로 남긴다.** 성공 실행도 예외가 아니다.
-- run event 최소 필드:
-  - `run_id`
-  - `source=scheduled|manual`
+- 모든 writer 실행은 종료 시 unique `state/run_events/<timestamp>_<run_id>.json` 1개를 append-only로 남긴다.
+- 최소 필드:
+  - `run_id`, `source`
   - `started_at`, `finished_at`
   - `start_effective_canonical`, `end_effective_canonical`
   - `newly_analyzed_count`
   - `sync_only_count`
-  - `pending_sync_count`
-  - `verification_needed_count`
-  - `discovery_checked_at`
+  - `durable_pending_sync_count`
   - `last_run_result`
   - `write_failure`
-  - `heartbeat_location`
-- `state/progress.json`은 최신 canonical snapshot/summary이며 실행이력 원장이 아니다.
-- `state/run_events/`가 실제 실행이력 원장이다.
-- `state/run-heartbeat.json`은 **legacy fallback**이다. 신규 실행의 최신상태 판정에는 사용하지 않는다.
-- progress heartbeat write가 실패해도 run event를 남기고 콘텐츠/discovery를 중단하지 않는다.
-
+- `discovery_checked_at`은 roster-only mode에서 더 이상 필수 필드가 아니다.
+- `state/progress.json`은 최신 summary이고 실행이력 원장이 아니다.
+- `state/run_events/`가 writer 실행이력 원장이다.
 
 ## GitHub write 안전 프로토콜
 이 절은 모든 canonical write와 heartbeat write에 강제 적용한다.
