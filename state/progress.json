@@ -83,10 +83,10 @@
     "completed_at": "2026-10-07T19:48:07+09:00"
   },
   "last_scheduled_run_at": "2026-10-07T21:23:00+09:00",
-  "last_run_result": "scheduled_analysis_pending_sync_after_canonical_doc_block",
+  "last_run_result": "manual_workflow_repair_success",
   "discovery_checked_at": "2026-10-07T19:45:40+09:00",
   "newly_analyzed_count": 1,
-  "write_failure": true,
+  "write_failure": false,
   "pending_sync_count": 2,
   "verification_needed_count": 13,
   "heartbeat_location": "primary",
@@ -141,5 +141,23 @@
     "aggregate_compaction": "once_per_run_per_path",
     "canonical_minimum_persistence": "analysis_doc_or_compact_analysis_event + canonical_event",
     "full_transcript_storage": false
+  },
+  "workflow_repair": {
+    "run_id": "manual-workflow-repair-20261007",
+    "status": "complete",
+    "changes": [
+      "retired 794 baseline/inventory reservoir execution paths",
+      "roster-only candidate selection",
+      "analyze-first then single write phase",
+      "no per-video aggregate rewrite",
+      "aggregate compaction once per run per path",
+      "compact structured fallback artifact for blocked markdown canonical doc"
+    ],
+    "diagnosis": {
+      "repository_permissions": "working",
+      "github_contents_writes": "working",
+      "dominant_bottleneck": "write amplification and conflicting legacy workflow branches",
+      "safety_block_scope": "intermittent or payload-specific; not repository-wide"
+    }
   }
 }
