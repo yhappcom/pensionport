@@ -1,0 +1,23 @@
+{
+  "run_id": "scheduled-20261007-230816",
+  "source": "scheduled",
+  "started_at": "2026-10-07T23:08:16+09:00",
+  "finished_at": "2026-10-07T23:18:00+09:00",
+  "start_effective_canonical": 159,
+  "end_effective_canonical": 160,
+  "newly_analyzed_count": 1,
+  "sync_only_count": 0,
+  "durable_pending_sync_count": 0,
+  "last_run_result": "partial_success",
+  "write_failure": true,
+  "canonicalized": [
+    "IdI2j6kVo7E"
+  ],
+  "compaction_pending_sequences": [
+    160,
+    161,
+    162
+  ],
+  "checkpoint_created": 160,
+  "source_scan_note": "Used exact roster YouTube URLs; direct YouTube fetch failed in this environment. Canonicalized only exact-ID detailed transcript-backed source; other candidates without sufficiently attributable detailed source were skipped."
+}
