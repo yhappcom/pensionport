@@ -5,8 +5,8 @@
   "primary_queue": "long_form",
   "max_videos_per_hour": 40,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 159,
-  "canonical_processed_count": 159,
+  "processed_videos": 157,
+  "canonical_processed_count": 157,
   "last_processed_video_id": "nPh_ovlWyKQ",
   "last_processed_published_at": "2019-07-16",
   "next_synthesis_at": 160,
@@ -20,8 +20,8 @@
     "total_uploads_include_shorts": true,
     "roster_long_form": 703,
     "roster_shorts": 88,
-    "roster_canonical_processed": 147,
-    "roster_long_form_remaining": 556,
+    "roster_canonical_processed": 145,
+    "roster_long_form_remaining": 558,
     "legacy_canonical_outside_roster": 12,
     "legacy_reconciliation_required": true,
     "shorts_excluded_from_primary": true,
@@ -52,18 +52,25 @@
     "data_videos_records": 156,
     "data_videos_max_sequence": 156,
     "canonical_event_records": 97,
-    "effective_processed_count": 159,
-    "roster_processed_count": 147,
-    "roster_remaining_long_form": 556,
+    "effective_processed_count": 157,
+    "roster_processed_count": 145,
+    "roster_remaining_long_form": 558,
     "legacy_outside_roster": 12,
     "sequence_gaps": [],
     "consistent_processed_count": false,
     "compaction_pending_sequences": [
-      157,
-      158,
       159
     ],
-    "durable_pending_sync_count": 0
+    "durable_pending_sync_count": 0,
+    "duplicate_event_sequences": [
+      157,
+      158
+    ],
+    "duplicate_event_video_ids": [
+      "OlurWhrOsLs",
+      "AzY0FU-HxME"
+    ],
+    "effective_state_note": "events 157/158 reference video_ids already present in base and do not increase effective canonical count; event 159 is the only non-base overlay."
   },
   "event_ledger": {
     "canonical_events_dir": "data/canonical_events",
@@ -86,7 +93,7 @@
     "completed_at": "2026-10-07T19:48:07+09:00"
   },
   "last_scheduled_run_at": "2026-10-07T21:23:00+09:00",
-  "last_run_result": "repository_audit_correction_complete",
+  "last_run_result": "effective_state_correction_complete",
   "discovery_checked_at": "2026-10-07T19:45:40+09:00",
   "newly_analyzed_count": 1,
   "write_failure": false,
@@ -134,8 +141,8 @@
     "roster_total": 791,
     "long_form": 703,
     "shorts": 88,
-    "analyzed_long_form": 147,
-    "remaining_long_form": 556
+    "analyzed_long_form": 145,
+    "remaining_long_form": 558
   },
   "fast_path": {
     "version": 2,
@@ -173,18 +180,20 @@
     "base_roster_long_form": 144,
     "legacy_base_records": 12,
     "overlay_sequences": [
-      157,
-      158,
       159
     ],
-    "effective_canonical": 159,
-    "roster_canonical": 147,
-    "roster_remaining": 556,
+    "effective_canonical": 157,
+    "roster_canonical": 145,
+    "roster_remaining": 558,
     "missing_durable_artifact_reclassified": [
       "SjKNXdqCXqc"
     ],
     "workflow_conflicts_removed": true,
     "lock_state_expected_after_release": "released",
-    "correction_note": "y-SUZ-cOCNk confirmed already canonical in data/videos.jsonl sequence 5 (partial_source); removed from reanalysis_required."
+    "correction_note": "y-SUZ-cOCNk confirmed already canonical in data/videos.jsonl sequence 5 (partial_source); removed from reanalysis_required.",
+    "duplicate_non_overlay_event_sequences": [
+      157,
+      158
+    ]
   }
 }
