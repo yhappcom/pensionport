@@ -37,14 +37,17 @@
     "inventory_discovery_gate": false
   },
   "canonical_sync_lane": {
-    "pending_sync_videos": 2,
+    "pending_sync_videos": 0,
     "sync_only_not_counted_as_new_analysis": true,
     "write_policy": "event-first; no per-video aggregate rewrite; batch compact once per path at run end",
     "failure_policy": "retain event and continue",
-    "pending_sync_ids": [
+    "pending_sync_ids": [],
+    "durable_pending_sync_policy": "only count items with durable analysis artifact in repository",
+    "reanalysis_required_ids": [
       "SjKNXdqCXqc",
       "y-SUZ-cOCNk"
-    ]
+    ],
+    "reanalysis_reason": "prior transient analyses were not durably stored; repository is source of truth"
   },
   "canonical_consistency": {
     "data_videos_records": 156,
@@ -60,7 +63,8 @@
       157,
       158,
       159
-    ]
+    ],
+    "durable_pending_sync_count": 0
   },
   "event_ledger": {
     "canonical_events_dir": "data/canonical_events",
@@ -83,11 +87,11 @@
     "completed_at": "2026-10-07T19:48:07+09:00"
   },
   "last_scheduled_run_at": "2026-10-07T21:23:00+09:00",
-  "last_run_result": "manual_workflow_repair_success",
+  "last_run_result": "repository_audit_repair_complete",
   "discovery_checked_at": "2026-10-07T19:45:40+09:00",
   "newly_analyzed_count": 1,
   "write_failure": false,
-  "pending_sync_count": 2,
+  "pending_sync_count": 0,
   "verification_needed_count": 13,
   "heartbeat_location": "primary",
   "heartbeat_primary_file": "state/progress.json",
@@ -159,5 +163,29 @@
       "dominant_bottleneck": "write amplification and conflicting legacy workflow branches",
       "safety_block_scope": "intermittent or payload-specific; not repository-wide"
     }
+  },
+  "repository_audit": {
+    "audited_at": "2026-10-07",
+    "roster_unique_ids": 791,
+    "roster_long_form": 703,
+    "roster_shorts": 88,
+    "base_records": 156,
+    "base_max_sequence": 156,
+    "base_roster_long_form": 144,
+    "legacy_base_records": 12,
+    "overlay_sequences": [
+      157,
+      158,
+      159
+    ],
+    "effective_canonical": 159,
+    "roster_canonical": 147,
+    "roster_remaining": 556,
+    "missing_durable_artifact_reclassified": [
+      "SjKNXdqCXqc",
+      "y-SUZ-cOCNk"
+    ],
+    "workflow_conflicts_removed": true,
+    "lock_state_expected_after_release": "released"
   }
 }
