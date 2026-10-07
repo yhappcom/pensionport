@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "run_id": "manual-repo-audit-correction-20261007",
+  "source": "manual",
+  "started_at": "2026-10-07T21:55:00+09:00",
+  "finished_at": "2026-10-07T21:58:00+09:00",
+  "start_effective_canonical": 159,
+  "end_effective_canonical": 159,
+  "newly_analyzed_count": 0,
+  "sync_only_count": 0,
+  "durable_pending_sync_count": 0,
+  "last_run_result": "repository_audit_correction_complete",
+  "write_failure": false,
+  "correction": {
+    "prior_audit_event": "20261007T215200+0900_manual-repo-audit-repair-20261007.json",
+    "video_id": "y-SUZ-cOCNk",
+    "finding": "already base canonical sequence 5 with analysis_status partial_source",
+    "action": "remove from reanalysis_required; retain canonical status",
+    "remaining_reanalysis_required": [
+      "SjKNXdqCXqc"
+    ]
+  }
+}
