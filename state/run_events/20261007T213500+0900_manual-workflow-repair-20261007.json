@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "run_id": "manual-workflow-repair-20261007",
+  "source": "manual",
+  "result": "success",
+  "canonical_effective_count": 159,
+  "roster_long_form_total": 703,
+  "roster_canonical_count": 147,
+  "roster_remaining": 556,
+  "pending_sync": [
+    "SjKNXdqCXqc",
+    "y-SUZ-cOCNk"
+  ],
+  "diagnosis": {
+    "github_repository_wide_write_failure": false,
+    "stale_sha_root_cause": false,
+    "permission_root_cause": false,
+    "workflow_conflict_fixed": true,
+    "write_amplification_fixed": true,
+    "safety_gate": "intermittent_or_payload_specific"
+  },
+  "commits": [
+    "146f974e6a6564122f1fda6baa83eaf15e33d216",
+    "190fa52a4b1b7a44c25bf24fc4e37e6f23d647b7",
+    "b47eb1a11c369725ab17ec54648ad26f2391cd69",
+    "c7c46899c9781fa1b95acd5357ce745062058947"
+  ]
+}
