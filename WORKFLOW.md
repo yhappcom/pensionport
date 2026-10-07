@@ -76,6 +76,7 @@
 - `VIDEO_INVENTORY_2026-10-07.md`
 - `data/videos.jsonl`
 - `data/canonical_events/`
+- `data/canonical_event_reconciliation.json` — historical event sequence ↔ canonical ordinal mapping
 - `state/progress.json`
 - `state/execution_lock.json`
 
@@ -96,6 +97,7 @@
 - next checkpoint
 
 우선순위는 항상 **actual base + canonical-event overlay > progress summary > chat/report memory**다.
+과거 duplicate/upgrade event 해석은 `data/canonical_event_reconciliation.json`을 따른다. reconciliation ledger가 있으면 immutable historical event payload의 오래된 필드명보다 이 매핑을 우선한다.
 
 ## Baseline inventory event-first mode
 **[RETIRED 2026-10-07 — DO NOT EXECUTE]**
