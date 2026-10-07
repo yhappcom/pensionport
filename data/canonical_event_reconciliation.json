@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-07",
+  "purpose": "Resolve historical canonical-event numbering semantics after roster fast-path migration.",
+  "rules": {
+    "canonical_ordinal": "data/videos.jsonl.sequence; contiguous unique-video ordinal",
+    "event_sequence": "data/canonical_events/*.json.sequence; append-only ledger sequence",
+    "effective_canonical_count": "unique video_id count from base plus non-base event overlay",
+    "next_event_sequence": "max event_sequence + 1",
+    "checkpoint_basis": "effective_canonical_count"
+  },
+  "historical_reconciliation": [
+    {
+      "event_sequence": 157,
+      "video_id": "OlurWhrOsLs",
+      "disposition": "audit_only_duplicate_upgrade",
+      "base_canonical_ordinal": 2,
+      "effective_count_delta": 0
+    },
+    {
+      "event_sequence": 158,
+      "video_id": "AzY0FU-HxME",
+      "disposition": "audit_only_duplicate_sync",
+      "base_canonical_ordinal": 1,
+      "effective_count_delta": 0
+    },
+    {
+      "event_sequence": 159,
+      "video_id": "nPh_ovlWyKQ",
+      "disposition": "unique_canonical_compacted",
+      "canonical_ordinal": 157,
+      "effective_count_delta": 1,
+      "note": "Legacy event queue_effect.canonical_sequence=159 refers to the historical event number; current canonical ordinal is 157."
+    }
+  ],
+  "current_state": {
+    "base_unique_canonical": 157,
+    "effective_unique_canonical": 157,
+    "max_event_sequence": 159,
+    "next_event_sequence": 160,
+    "next_checkpoint_effective_count": 160
+  }
+}
