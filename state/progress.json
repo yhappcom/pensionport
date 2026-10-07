@@ -2,7 +2,7 @@
   "schema_version": 3,
   "source_channel": "https://youtube.com/@gomhee",
   "queue_basis": "VIDEO_INVENTORY_2026-10-07.md canonical roster",
-  "updated_at": "2026-10-07",
+  "updated_at": "2026-10-08",
   "roster": {
     "total_unique": 791,
     "long_form": 703,
@@ -14,35 +14,32 @@
     "base_unique_video_ids": 157,
     "base_max_canonical_ordinal": 157,
     "base_sequence_gaps": [],
-    "non_base_event_overlay_count": 3,
-    "effective_unique_canonical": 160,
-    "roster_canonical_long_form": 148,
+    "non_base_event_overlay_count": 5,
+    "effective_unique_canonical": 162,
+    "roster_canonical_long_form": 150,
     "legacy_canonical_outside_roster": 12,
-    "roster_long_form_remaining": 555,
-    "max_event_sequence": 162,
-    "next_event_sequence": 163,
+    "roster_long_form_remaining": 553,
+    "max_event_sequence": 164,
+    "next_event_sequence": 165,
     "event_reconciliation_file": "data/canonical_event_reconciliation.json",
     "checkpoint_basis": "effective_unique_canonical",
     "next_checkpoint": 170,
-    "new_unique_videos_to_checkpoint": 10
+    "new_unique_videos_to_checkpoint": 8
   },
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
     "candidate_basis": "roster long-form minus effective canonical minus durable pending-sync",
     "stop_on_github_write_failure": false,
-    "persistence_mode": "analyze batch first; minimal artifact+event; batch aggregate compaction once per path",
+    "persistence_mode": "immutable artifact+event; aggregate caches frozen during scheduled runs",
     "reanalysis_required_ids": [
-      "SjKNXdqCXqc"
+      "SjKNXdqCXqc",
+      "ms6565_taJ0"
     ]
   },
   "canonical_sync_lane": {
     "durable_pending_sync_count": 0,
     "durable_pending_sync_ids": [],
-    "compaction_pending_sequences": [
-      160,
-      161,
-      162
-    ],
+    "compaction_pending_sequences": [],
     "sync_only_not_counted_as_new_analysis": true
   },
   "learning_queue_state": {
@@ -59,14 +56,15 @@
   "fast_path": {
     "active": true,
     "workflow_marker": "2026-10-07 ROSTER FAST PATH — ACTIVE",
-    "aggregate_compaction": "once_per_run_per_path",
-    "full_transcript_storage": false
+    "aggregate_compaction": "disabled_for_scheduled_runs",
+    "full_transcript_storage": false,
+    "aggregate_cache_mode": "frozen_base_plus_event_overlay"
   },
   "last_run": {
-    "run_id": "scheduled-20261007-230816",
-    "result": "partial_success_event_first_compaction_pending",
+    "run_id": "scheduled-20261008-051326",
+    "result": "success_with_one_artifact_safety_block",
     "newly_analyzed_count": 1,
     "write_failure": true,
-    "write_failure_detail": "data/videos.jsonl batch compaction was blocked by connector safety checks; canonical artifact/event 162 and checkpoint 160 succeeded"
+    "write_failure_detail": "ms6565_taJ0 artifact create blocked by connector safety checks; YkTG0WX6Azs artifact and canonical event 164 succeeded; aggregate caches intentionally not updated"
   }
 }
