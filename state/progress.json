@@ -1,57 +1,53 @@
 {
   "source_channel": "https://youtube.com/@gomhee",
-  "queue_basis": "currently_visible_youtube_long_form_list",
-  "processing_order": "oldest_to_newest_currently_verifiable_queue",
+  "queue_basis": "VIDEO_INVENTORY_2026-10-07.md canonical roster",
+  "processing_order": "oldest_to_newest roster long-form when source-backed; skip blocked",
   "primary_queue": "long_form",
   "max_videos_per_hour": 40,
   "synthesis_every_n_videos": 10,
-  "processed_videos": 141,
-  "canonical_processed_count": 141,
-  "last_processed_video_id": "3jtBJc17ZHw",
-  "last_processed_published_at": null,
-  "next_synthesis_at": 150,
-  "synthesis_version": 13,
-  "last_synthesis_file": "synthesis/batch_013_121-130.md",
-  "updated_at": "2026-10-06",
+  "processed_videos": 156,
+  "canonical_processed_count": 156,
+  "last_processed_video_id": "SJ_0Za3YxcA",
+  "last_processed_published_at": "2019-07-16",
+  "next_synthesis_at": 160,
+  "synthesis_version": 15,
+  "last_synthesis_file": "synthesis/batch_015_141-150.md",
+  "updated_at": "2026-10-07",
   "learning_inventory": {
-    "version": 8,
-    "channel_total_uploads_observed": 794,
+    "version": 9,
+    "canonical_roster_file": "VIDEO_INVENTORY_2026-10-07.md",
+    "roster_total_uploads": 791,
     "total_uploads_include_shorts": true,
-    "identified_long_form_with_video_id": 174,
-    "processed_mapped": 139,
-    "identified_unprocessed": 35,
-    "published_date_known": 70,
-    "unresolved_long_form_candidates": 2,
+    "roster_long_form": 703,
+    "roster_shorts": 88,
+    "roster_canonical_processed": 144,
+    "roster_long_form_remaining": 559,
+    "legacy_canonical_outside_roster": 12,
+    "legacy_reconciliation_required": true,
     "shorts_excluded_from_primary": true,
-    "source_file": "data/learning_queue.jsonl",
-    "unresolved_file": "data/learning_queue_unresolved.jsonl",
-    "source_acquisition_needed": 9,
-    "verification_needed": 13,
-    "inventory_control_file": "data/inventory_control.json",
-    "inventory_plan_file": "INVENTORY_PLAN.md"
+    "legacy_queue_file": "data/learning_queue.jsonl",
+    "unresolved_file": "data/learning_queue_unresolved.jsonl"
   },
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
-    "ready_existing_queue_count": 2,
-    "verification_needed_count": 13,
-    "blocked_retry_default_days": 30,
-    "blocked_retry_rule": "retry_only_when_next_source_retry_at_due_or_new_source_signal",
-    "discovery_required_when_ready_count_zero": true,
-    "stop_on_github_write_failure": false,
-    "source_acquisition_needed_count": 44
+    "candidate_basis": "roster long-form minus current canonical IDs",
+    "source_strategy": "original YouTube metadata/description/transcript when available; skip to next candidate if unavailable",
+    "stop_on_github_write_failure": false
   },
   "canonical_sync_lane": {
     "pending_sync_videos": 0,
     "sync_only_not_counted_as_new_analysis": true,
-    "write_policy": "event_first_then_serial_fresh_sha_idempotent_compaction",
-    "failure_policy": "retain_event_and_continue"
+    "write_policy": "event-first then serial fresh SHA idempotent compaction",
+    "failure_policy": "retain event and continue"
   },
   "canonical_consistency": {
-    "queue_processed": 139,
-    "data_videos_records": 140,
-    "data_videos_max_sequence": 140,
-    "canonical_event_records": 77,
-    "effective_processed_count": 141,
+    "data_videos_records": 156,
+    "data_videos_max_sequence": 156,
+    "canonical_event_records": 94,
+    "effective_processed_count": 156,
+    "roster_processed_count": 144,
+    "roster_remaining_long_form": 559,
+    "legacy_outside_roster": 12,
     "sequence_gaps": [],
     "consistent_processed_count": true
   },
@@ -61,94 +57,25 @@
     "state_formula": "base_plus_nonduplicated_event_overlay"
   },
   "last_batch": {
-    "batch_type": "manual_full_sync_debt_elimination",
-    "newly_analyzed_videos": 0,
-    "sync_only_compacted": 62,
-    "sequence_range": "78-139",
-    "start_state": {
-      "processed": 77,
-      "pending_sync": 62,
-      "verification_needed": 13
-    },
-    "end_state": {
-      "processed": 139,
-      "pending_sync": 0,
-      "verification_needed": 13
-    },
+    "batch_type": "manual_analysis_smoke_test_after_roster_import",
+    "newly_analyzed_videos": 2,
+    "sync_only_compacted": 0,
+    "sequence_range": "155-156",
+    "video_ids": [
+      "GAXeom_eF6I",
+      "SJ_0Za3YxcA"
+    ],
+    "source_result": "original YouTube transcripts acquired successfully",
     "aggregate_compaction": "complete",
     "knowledge_consolidation": "complete",
-    "checkpoint_synthesis_created": [
-      "synthesis/batch_008_071-080.md",
-      "synthesis/batch_009_081-090.md",
-      "synthesis/batch_010_091-100.md",
-      "synthesis/batch_011_101-110.md",
-      "synthesis/batch_012_111-120.md",
-      "synthesis/batch_013_121-130.md"
-    ],
-    "checkpoint_pdf_status": "complete",
-    "completed_at": "2026-10-06T08:40:00+09:00",
-    "checkpoint_pdfs": [
-      {
-        "batch": 8,
-        "range": "071-080",
-        "filename": "pensionport_batch_008_71-80_ko.pdf",
-        "sha256": "b7f452d63016881bd8d4eb8518a37fbba3d848d069392641d53572891c14166a",
-        "pages": 1,
-        "visual_verification": "passed",
-        "manifest": "synthesis/batch_008_071-080_pdf.json"
-      },
-      {
-        "batch": 9,
-        "range": "081-090",
-        "filename": "pensionport_batch_009_81-90_ko.pdf",
-        "sha256": "fcbc158c7c161da065b4f8d95518b001a3a7cf5aaeb51ffea700f91619352d25",
-        "pages": 1,
-        "visual_verification": "passed",
-        "manifest": "synthesis/batch_009_081-090_pdf.json"
-      },
-      {
-        "batch": 10,
-        "range": "091-100",
-        "filename": "pensionport_batch_010_91-100_ko.pdf",
-        "sha256": "5b654525fd7a90eefb749b7459f88a6b08250e56f60e4e08def2a72ea1f617f8",
-        "pages": 1,
-        "visual_verification": "passed",
-        "manifest": "synthesis/batch_010_091-100_pdf.json"
-      },
-      {
-        "batch": 11,
-        "range": "101-110",
-        "filename": "pensionport_batch_011_101-110_ko.pdf",
-        "sha256": "1c64b6f79191ebc5bfefb0569969dc392719fee69469d05c19f91996d4c73075",
-        "pages": 1,
-        "visual_verification": "passed",
-        "manifest": "synthesis/batch_011_101-110_pdf.json"
-      },
-      {
-        "batch": 12,
-        "range": "111-120",
-        "filename": "pensionport_batch_012_111-120_ko.pdf",
-        "sha256": "c919e0b38d05e54866bd30eb8d82525b3a8a4f78b7f31a05dafbbe6f1665e4fe",
-        "pages": 1,
-        "visual_verification": "passed",
-        "manifest": "synthesis/batch_012_111-120_pdf.json"
-      },
-      {
-        "batch": 13,
-        "range": "121-130",
-        "filename": "pensionport_batch_013_121-130_ko.pdf",
-        "sha256": "fe7c758d3a3beb87384519aece90cea03bebbf9451888acbde220b652734b5de",
-        "pages": 1,
-        "visual_verification": "passed",
-        "manifest": "synthesis/batch_013_121-130_pdf.json"
-      }
-    ]
+    "checkpoint_synthesis_created": [],
+    "completed_at": "2026-10-07T19:48:07+09:00"
   },
   "last_scheduled_run_at": "2026-10-06T18:08:04+09:00",
-  "last_run_result": "snapshot_write_compaction_partial_2_canonical",
-  "discovery_checked_at": "2026-10-06T18:20:00+09:00",
+  "last_run_result": "manual_smoke_test_success_2_canonical",
+  "discovery_checked_at": "2026-10-07T19:45:40+09:00",
   "newly_analyzed_count": 2,
-  "write_failure": true,
+  "write_failure": false,
   "pending_sync_count": 0,
   "verification_needed_count": 13,
   "heartbeat_location": "primary",
@@ -201,5 +128,14 @@
     "end_snapshot_count": 193,
     "target": 794,
     "result": "snapshot_bootstrap_progress"
+  },
+  "roster_status": {
+    "baseline_794_retired": true,
+    "roster_file": "VIDEO_INVENTORY_2026-10-07.md",
+    "roster_total": 791,
+    "long_form": 703,
+    "shorts": 88,
+    "analyzed_long_form": 144,
+    "remaining_long_form": 559
   }
 }
