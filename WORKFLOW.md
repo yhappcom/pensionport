@@ -87,9 +87,9 @@
 과거 `data/inventory_control.json`, `data/channel_snapshot_2026-10-06*.json*`, 794 baseline 관련 파일은 **legacy reconciliation 전용**이며 일반 content-analysis 실행의 START 분기에는 읽지 않는다.
 
 ### 현재 상태 재계산
-- base canonical count / base max sequence
-- canonical event overlay
-- effective canonical count / effective max sequence
+- base canonical count / base max **canonical ordinal**
+- canonical event overlay / max **event sequence**
+- effective canonical unique count
 - roster long-form canonical count / remaining count
 - durable pending-sync artifact count
 - verification/source-blocked 후보
@@ -316,7 +316,7 @@ synthesis/framework/state의 GitHub 저장이 실패하면 산출물은 `pending
 - 같은 파일을 한 실행에서 두 번 이상 수정할 때는 직전 성공 write가 반환한 새 content SHA를 다음 write에 사용하거나 다시 fetch한다. 오래된 SHA를 재사용하지 않는다.
 - 같은 path에 대한 write/delete는 절대 병렬 실행하지 않는다. canonical write는 path 단위로 직렬화한다.
 - SHA mismatch, 409/422 conflict, stale-file/safety precondition 계열 오류가 발생하면 실패로 확정하기 전에 target file을 즉시 다시 fetch하고, 최신 내용에 의도한 변경을 재적용하여 **1회 자동 재시도**한다.
-- 위 재시도도 실패한 경우에만 해당 항목을 `pending_sync` 또는 write failure로 기록하고 다음 콘텐츠/다른 파일로 진행한다.
+- 위 재시도도 실패한 경우, durable analysis artifact가 이미 있으면 `pending_sync`/write failure로 기록한다. durable artifact가 하나도 없으면 `reanalysis_required`로 기록하고 다음 콘텐츠/다른 파일로 진행한다.
 - `state/progress.json` heartbeat도 종료 직전에 반드시 fresh fetch → merge → update 순서로 쓴다. 실행 시작 시 읽은 progress SHA를 사용하지 않는다.
 - primary heartbeat가 실패해 `state/run-heartbeat.json`으로 fallback할 때도 fallback 파일을 먼저 fresh fetch하고 최신 SHA로 쓴다.
 - 오류 보고에는 막연히 “안전검사 실패”라고 쓰지 말고, **target path / 오류 클래스(SHA conflict, permission, connector precondition 등) / fresh-refetch retry 결과**를 기록한다.
@@ -342,7 +342,7 @@ fresh-SHA 규칙에 더해 다음을 적용한다.
 
 1. **START** — roster, base canonical, canonical events, pending analysis artifacts, lock을 fresh-fetch하고 effective canonical 및 roster remaining을 재계산한다.
 2. **ANALYZE** — roster long-form 미분석 후보에서 source-backed 영상을 최대 40편 분석한다. source 미확보는 skip한다. 이 단계에서는 aggregate를 쓰지 않는다.
-3. **WRITE LOCK** — 저장할 분석 결과가 있을 때만 single-writer lease를 1회 획득한다. 획득 후 effective canonical/max sequence를 다시 읽어 중복을 제거한다.
+3. **WRITE LOCK** — 저장할 분석 결과가 있을 때만 single-writer lease를 1회 획득한다. 획득 후 effective canonical unique IDs, base max canonical ordinal, max event sequence를 다시 읽어 중복을 제거한다.
 4. **MINIMAL CANONICAL WRITE** — 영상별 concise analysis artifact와 immutable canonical event만 직렬 생성한다. Markdown 저장 실패 시 fallback structured analysis artifact를 1회 시도한다. fallback까지 실패하여 durable artifact가 하나도 없으면 `reanalysis_required`로 두고 다음 영상을 계속한다. durable artifact는 있으나 event/aggregate sync만 남은 경우에만 `pending_sync`다.
 5. **BATCH COMPACTION** — 모든 영상 event 처리가 끝난 뒤 aggregate path별 최대 1회만 compact한다. canonical event가 이미 성공한 영상은 aggregate 실패로 되돌리지 않는다.
 6. **END** — checkpoint 필요 시 한 번 처리하고 progress 1회, unique run event 1회, 자신의 lease release 1회로 종료한다.
@@ -370,17 +370,26 @@ fresh-SHA 규칙에 더해 다음을 적용한다.
 canonical 저장은 event-first를 유지하되 **per-video aggregate compaction은 금지**한다.
 
 ### Canonical event
-- `data/canonical_events/NNN_<video_id>.json`은 immutable event ledger다.
+- `data/canonical_events/NNN_<video_id>.json`은 immutable event ledger다. 파일명의 `NNN`과 event의 `sequence`는 **event sequence**다.
 - 분석 artifact가 존재하고 **base에 없는 video_id의 canonical event** create가 성공하면 해당 영상은 effective canonical에 추가된다.
 - 동일 video_id 또는 동일 event sequence의 신규 중복 생성은 금지한다.
 - 과거에 이미 생성된 중복 event(현재 157 `OlurWhrOsLs`, 158 `AzY0FU-HxME`)는 삭제·재작성하지 않고 **audit-only duplicate event**로 유지하며 effective canonical count에는 더하지 않는다.
-- 다음 event sequence는 effective canonical count가 아니라 `max(base sequence, 모든 event sequence)+1`로 계산한다.
+- 다음 event sequence는 effective canonical count가 아니라 `max(모든 canonical event sequence, 기존 source_event_sequence)+1`로 계산한다.
 
 ### Effective canonical state
 - effective canonical = compacted `data/videos.jsonl`의 unique video_id + base에 없는 canonical event video_id overlay.
 - **effective canonical count**는 unique video_id 개수다.
 - **event sequence**는 append-only ledger 순번이며 duplicate audit event 때문에 effective canonical count와 일치하지 않을 수 있다.
-- processed/checkpoint 계산은 effective canonical count를 사용하고, 다음 event 번호 계산은 max event sequence를 사용한다.
+- `data/videos.jsonl`의 `sequence`는 **unique canonical ordinal**이며 1부터 연속으로 유지한다.
+- event를 base에 compact할 때 신규 unique video는 `data/videos.sequence = 이전 unique canonical count + 1`, `source_event_sequence = event.sequence`로 저장한다.
+- processed/checkpoint 계산은 effective canonical unique count를 사용하고, 다음 event 번호 계산은 max event sequence를 사용한다.
+
+### 두 종류의 sequence — 혼동 금지
+- **canonical ordinal**: `data/videos.jsonl.sequence`. unique canonical video의 순번이며 1부터 연속 유지한다.
+- **event sequence**: `data/canonical_events/*.json.sequence`. append-only event ledger 순번이다.
+- 역사적 duplicate upgrade event 157·158 때문에 현재 event sequence가 canonical ordinal보다 2 앞서 있다.
+- 신규 unique canonical video event에는 앞으로 가능하면 `canonical_ordinal`도 함께 기록한다.
+- canonical 문서의 표시 번호는 canonical ordinal을 사용하고, upgrade/sync event 번호는 별도 metadata로 표기한다.
 
 ### Batch compaction
 - event 생성들을 먼저 끝낸 뒤 실행 말미에 path별 최대 한 번만 compact한다.
