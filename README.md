@@ -1,17 +1,21 @@
 # pensionport
 
-박곰희TV의 투자·연금·자산관리 영상을 **검증 가능한 원문에 기반해 개별 분석하고, 투자 원칙과 전략을 누적 통합**하는 저장소입니다.
+박곰희TV 영상의 **실제 발언과 공식자료를 바탕으로 투자 지식을 축적**하는 프로젝트.
 
-## 현재 운영 기준 (2026-10-08)
+## 핵심 자료
+- [확정 영상 목록](VIDEO_INVENTORY_2026-10-07.md): 전체 791편, 기본 학습 대상 롱폼 703편
+- [단일 학습 워크플로](WORKFLOW.md): 과거 복잡한 자동화 규칙을 대체한 **영상 분석 우선** 실행 지침
+- `data/videos.jsonl` + `data/canonical_events/`: 과거부터 축적된 유니크 영상 분석 원장
+- `data/analysis_events/<video_id>.json`: 영상별 출처와 핵심 투자 지식·위험·공식 검증
+- `knowledge/`, `synthesis/`: 주제별 통합 지식
 
-- 고정 영상 roster: [VIDEO_INVENTORY_2026-10-07.md](VIDEO_INVENTORY_2026-10-07.md) — 791편(롱폼 **703편**, Shorts 88편). 기본 영상 분석 대상은 롱폼만입니다.
-- 유일한 활성 실행 계약: [WORKFLOW.md](WORKFLOW.md). 오래된 794-baseline 목록화, 매 실행 aggregate compaction, 시간당 3편 고정 제한은 폐기했습니다.
-- 원본: exact YouTube ID의 한국어 전사(가능한 경우) → 해당 영상 제작자 설명/챕터 → 신뢰할 만한 상세 보존자료. 출처 범위를 기록하고 자동 전사의 숫자/고유명사 오류는 공식자료로 검증합니다.
-- 저장: **1편 분석 → `data/analysis_events/<video_id>.json` → `data/canonical_events/<event_sequence>_<video_id>.json` → 실제 재조회 검증**, 각 쓰기는 단일 writer lease 내에서만 진행합니다.
-- 회차당 초기 목표 3~5편(1편 end-to-end 선검증), 연속 정상 동작 후 점진 확대; **최대 40편은 상한**입니다. 지식 종합은 유니크 canonical 수 **10편 증가 구간의 checkpoint**에서 실시합니다.
-- `data/videos.jsonl`, `data/learning_queue.jsonl`, `data/claims.jsonl`은 일반 회차에서 **읽기 전용 캐시**입니다.
-- 진행률은 base와 immutable event의 **중복 제거한 고유 Video ID 합집합**으로 계산합니다. `state/progress.json`은 요약일 뿐입니다. canonical 등록과 심층 학습 품질은 별도로 평가합니다.
-- 2026-10-08 원본 확보 실험은 [data/source_acquisition/youtube_read_pilot_20261008.json](data/source_acquisition/youtube_read_pilot_20261008.json)에 기록했습니다. 실험 7편 성공은 전체 영상 성공 보장이 아닙니다.
-- 공용 GitHub에는 보호되는 전사 전문을 대량으로 복제하지 않고, 출처·근거·핵심 분석과 검증 여부를 보존합니다.
+## 운영
+매 실행에서 **미분석 영상 선택 → YouTube 전사 확인 → 내용 분석 → 영상별 파일 저장 → canonical 이벤트 등록**으로 진행한다.
 
-**주의:** `WORKFLOW.md`와 실제 event ledger가 다른 파일의 오래된 진행 요약보다 우선합니다.
+- 이전 버전의 **GitHub writer lock 획득, 794건 목록 수집, 매회 aggregate 파일 갱신은 필수가 아니다.**
+- 영상별 신규 기록을 실제 GitHub에서 재조회한 경우에만 분석 완료로 센다.
+- 고정 목록을 다시 수집하지 않고, 기존 데이터·로스터 ID를 보존한다.
+- 단순 등록 완료율과 심층 분석 품질은 구분한다. 오래된 연금·ISA·세제 안내는 현재 제도로 재검증한다.
+- 오류가 나면 우회하지 않고 해당 회차 실패를 기록한다. **설정 변경보다 영상 분석을 우선**한다.
+
+현재 건수는 참고하지 말고 실제 base+event의 **중복 없는 video_id**로 다시 계산한다.
