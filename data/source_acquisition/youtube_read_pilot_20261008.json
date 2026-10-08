@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "purpose": "YouTube source-acquisition pilot; metadata and source status only, no copyrighted transcript body",
+  "run_id": "manual-20261008-133533-source-pilot",
+  "date_kst": "2026-10-08",
+  "canonical_roster_file": "VIDEO_INVENTORY_2026-10-07.md",
+  "source_provider": "Firecrawl Alexandria youtube/read",
+  "provider_input": {
+    "formats": [
+      "markdown"
+    ],
+    "language": "ko",
+    "direct_exact_youtube_watch_url": true
+  },
+  "transcript_method": "YouTube provider postprocessed Markdown ## Transcript section",
+  "remarks": "Sample of seven selected pre-existing uncanonicalized long-form videos; not representative of full 703. Automated Korean captions include serious word, name, technical term and numeric recognition errors. This method reads speech transcript but does NOT inspect video frames or verify completeness against runtime audio.",
+  "selection_bias": "several videos were chosen because previously difficult or subject-matter relevant, not random",
+  "result": {
+    "tested": 7,
+    "full_transcript_text_returned": 7,
+    "nonempty_transcript_rate_tested": "7/7",
+    "video_frame_acquisition_success": 0,
+    "source_rights_note": "Source URLs only; do not reproduce the full copyrighted transcripts in this public repository."
+  },
+  "videos": [
+    {
+      "video_id": "axkP0idg-kA",
+      "published_at": "2019-11-26",
+      "title": "삼성증권 연금저축펀드 추가개설 따라하기",
+      "transcript_status": "available",
+      "chars": null,
+      "notes": "original spoken steps recovered; historical app UI/certificate procedure and 2019 tax figures are time sensitive",
+      "source_url": "https://www.youtube.com/watch?v=axkP0idg-kA",
+      "source_basis": "exact-ID YouTube public page via youtube/read; Korean transcript present; source content not stored"
+    },
+    {
+      "video_id": "09R29vsv6to",
+      "published_at": "2021-04-07",
+      "title": "리츠 전문가 인터뷰 2부",
+      "transcript_status": "available",
+      "chars": 15782,
+      "notes": "multi-speaker interview; severe Korean automatic speech recognition noise, names and numeric claims uncertain",
+      "source_url": "https://www.youtube.com/watch?v=09R29vsv6to",
+      "source_basis": "exact-ID YouTube public page via youtube/read; Korean transcript present; source content not stored"
+    },
+    {
+      "video_id": "2GjGjwkHrMA",
+      "published_at": "2021-05-14",
+      "title": "자녀 투자계좌",
+      "transcript_status": "available",
+      "chars": 8843,
+      "notes": "underage account and gifting claims must be checked against current official guidance",
+      "source_url": "https://www.youtube.com/watch?v=2GjGjwkHrMA",
+      "source_basis": "exact-ID YouTube public page via youtube/read; Korean transcript present; source content not stored"
+    },
+    {
+      "video_id": "eTOOtll0VPc",
+      "published_at": "2021-07-01",
+      "title": "VI, 사이드카, 서킷브레이커",
+      "transcript_status": "available",
+      "chars": 3800,
+      "notes": "trading interruption mechanism and threshold numeric claims require primary KRX cross-check",
+      "source_url": "https://www.youtube.com/watch?v=eTOOtll0VPc",
+      "source_basis": "exact-ID YouTube public page via youtube/read; Korean transcript present; source content not stored"
+    },
+    {
+      "video_id": "PW1EuMtw18o",
+      "published_at": "2021-08-11",
+      "title": "ISA 수익과 건강보험료",
+      "transcript_status": "available",
+      "chars": 6028,
+      "notes": "2021 law and subscribers' categories changed over time; do not use as current rule without NHIS/official verification",
+      "source_url": "https://www.youtube.com/watch?v=PW1EuMtw18o",
+      "source_basis": "exact-ID YouTube public page via youtube/read; Korean transcript present; source content not stored"
+    },
+    {
+      "video_id": "BUWE1hTr8K0",
+      "published_at": "2021-05-26",
+      "title": "액면가/액면분할",
+      "transcript_status": "available",
+      "chars": 5051,
+      "notes": "Samsung 2018 split numerical misrecognition; verified 50:1 and 5,000 KRW to 100 KRW from Samsung newsroom/IR",
+      "source_url": "https://www.youtube.com/watch?v=BUWE1hTr8K0",
+      "source_basis": "exact-ID YouTube public page via youtube/read; Korean transcript present; source content not stored"
+    },
+    {
+      "video_id": "fnLgP_KCv8A",
+      "published_at": "2021-09-14",
+      "title": "ISA 100 questions Q&A",
+      "transcript_status": "available",
+      "chars": 59471,
+      "notes": "length 1h57m28s; transcript returned without per-word timecode; must segment for reliable analysis",
+      "source_url": "https://www.youtube.com/watch?v=fnLgP_KCv8A",
+      "source_basis": "exact-ID YouTube public page via youtube/read; Korean transcript present; source content not stored"
+    }
+  ],
+  "recommended_ingestion": {
+    "before_canonical": [
+      "check roster exact-ID unprocessed",
+      "fetch transcript using provider",
+      "validate sections and key numeric terms against official evidence",
+      "write compact source-backed video artifact",
+      "write immutable canonical event"
+    ],
+    "after_canonical": [
+      "update progress at end",
+      "do not modify large aggregate caches",
+      "release writer lock"
+    ],
+    "tracking_fields": [
+      "source_status",
+      "source_kind",
+      "transcript_language",
+      "transcript_chars",
+      "asr_quality",
+      "primary_numeric_validation",
+      "full_video_visual_coverage",
+      "video_id"
+    ]
+  }
+}
