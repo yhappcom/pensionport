@@ -14,17 +14,17 @@
     "base_unique_video_ids": 157,
     "base_max_canonical_ordinal": 157,
     "base_sequence_gaps": [],
-    "non_base_event_overlay_count": 69,
-    "effective_unique_canonical": 226,
-    "roster_canonical_long_form": 214,
+    "non_base_event_overlay_count": 70,
+    "effective_unique_canonical": 227,
+    "roster_canonical_long_form": 215,
     "legacy_canonical_outside_roster": 12,
-    "roster_long_form_remaining": 489,
-    "max_event_sequence": 228,
-    "next_event_sequence": 229,
+    "roster_long_form_remaining": 488,
+    "max_event_sequence": 229,
+    "next_event_sequence": 230,
     "event_reconciliation_file": "data/canonical_event_reconciliation.json",
     "checkpoint_basis": "effective_unique_canonical",
     "next_checkpoint": 230,
-    "new_unique_videos_to_checkpoint": 4
+    "new_unique_videos_to_checkpoint": 3
   },
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
@@ -59,10 +59,10 @@
     "aggregate_cache_mode": "frozen_base_plus_event_overlay"
   },
   "last_run": {
-    "run_id": "manual-20261008-125649-content-smoketest",
-    "result": "source_availability_checked_workflow_repaired_progress_reconciled",
-    "newly_analyzed_count": 0,
-    "write_failure": false,
-    "notes": "5 exact YouTube pages reached but no full transcript extracted; do not claim source-backed canonical analysis from titles/chapters."
+    "run_id": "manual-20261008-133533-source-pilot",
+    "result": "source_pipeline_end_to_end_success",
+    "newly_analyzed_count": 1,
+    "source_transcript_confirmed_video_count": 7,
+    "write_failure": false
   }
 }
