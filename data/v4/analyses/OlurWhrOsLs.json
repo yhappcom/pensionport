@@ -8,8 +8,8 @@
     "content_type": "Long-form",
     "duration_seconds": 640
   },
-  "status": "DRAFT",
-  "stage": "VERIFIED",
+  "status": "APPROVED",
+  "stage": "SYNTHESIZED",
   "sources": [
     {
       "source_id": "speech",
@@ -520,7 +520,8 @@
       "영상 전사 전체 및 긴 직접 인용은 저장하지 않음",
       "2026-10-09 YouTube 영상의 실제 재생 화면과 5초 간격 스토리보드(전체 지속시간 범위) 직접 접근 성공. 표시 시각 04:31, 05:38, 07:26, 08:54 고해상도 재생 프레임 검토.",
       "전사 문장별 타임코드는 제공되지 않아 과거 speech 증거 타임코드 null 유지; 추가된 시간은 독립적으로 확인한 화면의 실제 시점(동일 발언 구간을 뜻하지 않음).",
-      "공식자료로 ETF 및 공모펀드 구조, 현행 상품명·코드와 채권 일반 리스크 검증; 역사적 특정 대한항공 채권 발행번호/만기 및 매매여부는 미확인으로 보존."
+      "공식자료로 ETF 및 공모펀드 구조, 현행 상품명·코드와 채권 일반 리스크 검증; 역사적 특정 대한항공 채권 발행번호/만기 및 매매여부는 미확인으로 보존.",
+      "S4 승인 범위는 개념·역사적 사실에 대한 교육용 지식베이스. 모든 영상 프레임과 현행 거래조건을 승인한 것이 아님."
     ]
   },
   "relationships": [
@@ -538,6 +539,11 @@
       "relation": "REINFORCE",
       "target": "knowledge/investment-principles.md",
       "notes": "수익률 경쟁보다 투자 절차와 위험 이해"
+    },
+    {
+      "relation": "CHANGE",
+      "target": "knowledge/beginner-investing.md",
+      "notes": "레거시의 2019 원본 전사 미확보·다섯 상품 미확정 메모는 V4 원본 전사·화면 검증으로 갱신해야 함. 레거시는 감사용으로 보존."
     }
   ],
   "decision_use": {
