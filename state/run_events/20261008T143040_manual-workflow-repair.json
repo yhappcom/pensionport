@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "run_id": "manual-20261008-142540-reliability-repair",
+  "source": "manual",
+  "started_at": "2026-10-08T14:25:40+09:00",
+  "finished_at": "2026-10-08T14:30:40+09:00",
+  "start_effective_canonical": 227,
+  "end_effective_canonical": 228,
+  "start_roster_canonical_long_form": 215,
+  "end_roster_canonical_long_form": 216,
+  "newly_analyzed_count": 1,
+  "newly_analyzed_video_ids": [
+    "axkP0idg-kA"
+  ],
+  "sync_only_count": 0,
+  "durable_pending_sync_count": 0,
+  "transcript_source_attempts": 1,
+  "transcript_source_successes": 1,
+  "artifact_write_success_count": 1,
+  "event_write_success_count": 1,
+  "write_failure": false,
+  "last_run_result": "WORKFLOW_SINGLE_ACTIVE_REPAIR_AND_END_TO_END_PERSISTENCE_TEST_PASSED",
+  "repository_changes": [
+    "WORKFLOW.md",
+    "README.md",
+    "state/progress.json",
+    "data/canonical_event_reconciliation.json",
+    "data/analysis_events/axkP0idg-kA.json",
+    "data/canonical_events/230_axkP0idg-kA.json"
+  ],
+  "automation_updated": true,
+  "automation_schedule_kept": "HOURLY at :20 Asia/Seoul",
+  "manual_qa": [
+    "Lock acquired and holder verified before writes",
+    "Old conflicting compaction directions removed",
+    "README stale 3-video limit corrected",
+    "Transcription from exact official video ID confirmed 3611 chars",
+    "Actual new analysis artifact created and refetched",
+    "Immutable canonical event seq 230 created and refetched",
+    "Progress actual distinct canonical 228; roster 216/703, 487 remaining; sequence and count separated",
+    "Reconciliation snapshot refreshed as explicitly non-authoritative",
+    "No aggregate cache rewritten"
+  ],
+  "remaining_uncertainty": [
+    "GitHub safety-check trigger may be intermittent; not proven eliminated",
+    "Next hourly scheduled execution not yet proven end-to-end",
+    "2019 broker menu and tax figures are historical; not verified current UI"
+  ],
+  "notes": "Writer release follows this event. Quality classification: transcript-based, not audio-visual."
+}
