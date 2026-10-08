@@ -29,9 +29,12 @@
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
     "candidate_basis": "roster long-form minus effective canonical minus durable pending-sync",
-    "stop_on_github_write_failure": false,
-    "persistence_mode": "lease-first → source-backed artifact → immutable event; aggregate caches read-only",
-    "reanalysis_required_ids": []
+    "stop_on_github_write_failure": true,
+    "persistence_mode": "one-video source→analysis→artifact→verify→immutable event→verify; frozen aggregates",
+    "reanalysis_required_ids": [],
+    "initial_target_per_run": "3-5_after_1_successful_end_to_end",
+    "scale_up_rule": "2_consecutive_clean_runs_before_10_then_max_40",
+    "write_failure_behavior": "stop_new_analysis_if_artifact_or_event_write_blocked; preserve only verified durable artifact as pending_sync; release own lease"
   },
   "canonical_sync_lane": {
     "durable_pending_sync_count": 0,
@@ -49,14 +52,20 @@
     "lease_minutes": 45,
     "lock_required_before_canonical_write": true,
     "run_ledger": "state/run_events",
-    "lock_required_before_source_acquisition": true
+    "lock_required_before_source_acquisition": true,
+    "stop_source_on_other_active_lock": true,
+    "lease_verification_required": true,
+    "release_before_optional_run_metadata": true,
+    "quality_metrics_separate_from_canonical_count": true
   },
   "fast_path": {
     "active": true,
-    "workflow_marker": "2026-10-07 ROSTER FAST PATH — ACTIVE",
-    "aggregate_compaction": "disabled_for_scheduled_and_manual_content_runs",
+    "workflow_marker": "2026-10-08 ACTIVE SINGLE WORKFLOW",
+    "aggregate_compaction": "disabled_for_all_regular_analysis_runs",
     "full_transcript_storage": false,
-    "aggregate_cache_mode": "frozen_base_plus_event_overlay"
+    "aggregate_cache_mode": "frozen_base_plus_event_overlay",
+    "per_video_transactional_write": true,
+    "safety_block_retry": "none; classify separately from confirmed 409/422 SHA conflict"
   },
   "last_run": {
     "run_id": "manual-20261008-133533-source-pilot",
