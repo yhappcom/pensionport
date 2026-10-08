@@ -1,0 +1,447 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yhappcom/pensionport/blob/main/schemas/v4_video_analysis.schema.json",
+  "title": "Evidence-grounded video learning artifact v4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "video",
+    "status",
+    "stage",
+    "sources",
+    "claims",
+    "quality",
+    "relationships",
+    "decision_use"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 4
+    },
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "video_id",
+        "title",
+        "watch_url",
+        "published_at",
+        "content_type"
+      ],
+      "properties": {
+        "video_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{11}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3
+        },
+        "watch_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://www\\.youtube\\.com/watch\\?v="
+        },
+        "published_at": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "content_type": {
+          "const": "Long-form"
+        },
+        "duration_seconds": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      }
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "BLOCKED",
+        "APPROVED"
+      ]
+    },
+    "stage": {
+      "enum": [
+        "INVENTORIED",
+        "SOURCE_READY",
+        "GROUNDED",
+        "VERIFIED",
+        "SYNTHESIZED",
+        "DECISION_READY"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "kind",
+          "url",
+          "retrieved_at",
+          "coverage",
+          "language",
+          "limitations"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "VIDEO_METADATA",
+              "YOUTUBE_TRANSCRIPT",
+              "VIDEO_FRAME",
+              "OFFICIAL_DOCUMENT",
+              "SECONDARY_SUMMARY"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "retrieved_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "coverage": {
+            "enum": [
+              "FULL",
+              "PARTIAL",
+              "UNKNOWN"
+            ]
+          },
+          "language": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim_id",
+          "statement",
+          "claim_type",
+          "evidence",
+          "conditions",
+          "risks",
+          "time_scope",
+          "verification"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 15
+          },
+          "claim_type": {
+            "enum": [
+              "EDUCATIONAL_PRINCIPLE",
+              "HISTORICAL_FACT",
+              "CURRENT_RULE",
+              "PRODUCT_FEATURE",
+              "CASE_SPECIFIC",
+              "FORECAST"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "source_id",
+                "start_seconds",
+                "end_seconds",
+                "excerpt",
+                "limitations"
+              ],
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "start_seconds": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "end_seconds": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "excerpt": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 240
+                },
+                "limitations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "risks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "time_scope": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "sensitivity",
+              "as_of",
+              "valid_from",
+              "valid_until"
+            ],
+            "properties": {
+              "sensitivity": {
+                "enum": [
+                  "EVERGREEN",
+                  "HISTORICAL",
+                  "TIME_SENSITIVE",
+                  "FORECAST"
+                ]
+              },
+              "as_of": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "valid_from": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "valid_until": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          },
+          "verification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "checked_at",
+              "official_source_ids",
+              "notes"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "OPEN",
+                  "CONTEXT_CHECKED",
+                  "PRIMARY_CONFIRMED",
+                  "CONTRADICTED",
+                  "SUPERSEDED",
+                  "NOT_APPLICABLE"
+                ]
+              },
+              "checked_at": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "official_source_ids": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notes": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transcript_coverage",
+        "visual_review",
+        "requires_visual_review",
+        "known_asr_issues",
+        "reviewer_notes"
+      ],
+      "properties": {
+        "transcript_coverage": {
+          "enum": [
+            "NONE",
+            "PARTIAL",
+            "FULL",
+            "UNKNOWN"
+          ]
+        },
+        "visual_review": {
+          "enum": [
+            "NOT_REVIEWED",
+            "PARTIAL",
+            "REVIEWED"
+          ]
+        },
+        "requires_visual_review": {
+          "type": "boolean"
+        },
+        "known_asr_issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reviewer_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relation",
+          "target",
+          "notes"
+        ],
+        "properties": {
+          "relation": {
+            "enum": [
+              "NEW",
+              "REINFORCE",
+              "EXTEND",
+              "CHANGE",
+              "CONFLICT",
+              "TIME_SENSITIVE"
+            ]
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "decision_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ready",
+        "scope",
+        "constraints",
+        "requires_current_recheck",
+        "risks"
+      ],
+      "properties": {
+        "ready": {
+          "type": "boolean"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requires_current_recheck": {
+          "type": "boolean"
+        },
+        "risks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
