@@ -1,388 +1,47 @@
-# pensionport 운영 규칙
-
-## 2026-10-07 전수 roster 확정 — 최우선 운영 override
-
-사용자가 제공하고 검증한 `VIDEO_INVENTORY_2026-10-07.md`를 박곰희TV 영상 목록의 **현재 canonical roster**로 사용한다.
-
-- 전체 고유 Video ID: **791**
-- 롱폼: **703**
-- Shorts: **88**
-- 이 roster는 2026-10-07 기준 전수 수집 결과이며, 기존의 **794개 baseline inventory discovery 목표를 폐기·대체**한다.
-- 따라서 아래의 과거 `Baseline inventory event-first mode`가 요구하던 794/794 목록화 완료 조건은 더 이상 content analysis를 차단하지 않는다.
-- 예약·수동 실행은 더 이상 794개를 맞추기 위한 신규 inventory discovery를 선행하지 않는다.
-- 모든 실행은 시작 시 `VIDEO_INVENTORY_2026-10-07.md`와 actual canonical data를 fresh-fetch하여, roster 내 롱폼 중 아직 canonical 분석되지 않은 Video ID를 계산한 뒤 content analysis를 우선한다.
-- Shorts는 roster에는 보존하지만 기본 content-analysis lane에서는 제외한다.
-- `data/videos.jsonl` 또는 과거 canonical 자료에 roster 밖 legacy Video ID가 있더라도 분석을 중단하지 않는다. 이를 reconciliation backlog로 기록하고 roster 내 미처리 롱폼 분석을 계속한다.
-- roster의 `수집 상태=미확인`은 주로 게시일 메타데이터 미확인을 뜻한다. exact Video ID가 존재하면 분석 후보에서 제거하지 않는다.
-- source identity 규칙은 계속 적용한다. 신뢰 가능한 원문·자막·상세 보존자료가 없으면 세부 내용을 추측하지 않고 `verification_needed` 또는 source-acquisition 상태로 넘긴다.
-
-이 override는 이 문서의 과거 baseline inventory/discovery 관련 규칙과 충돌할 경우 **우선한다**. 나머지 single-writer, source identity, canonical sync, 10편 checkpoint, 품질 규칙은 그대로 유지한다.
-
-## 2026-10-07 ROSTER FAST PATH — ACTIVE
-
-이 절은 791개 roster 확정 이후의 **현재 실행 경로**이며, 아래에 남아 있는 legacy inventory/reservoir/discovery 및 영상별 opportunistic compaction 규칙과 충돌하면 이 절이 무조건 우선한다.
-
-### 분석 대상
-- 후보 universe는 `VIDEO_INVENTORY_2026-10-07.md`의 **롱폼 703편**만 사용한다.
-- `roster long_form - effective canonical - content_analyzed_pending_sync`를 실제 미분석 후보로 계산한다.
-- 794 baseline, channel snapshot completeness, inventory reservoir, 신규 discovery는 roster 분석 실행을 차단하거나 선행하지 않는다.
-- `state/progress.json`에 남은 794-baseline/reservoir/channel_snapshot 필드는 **legacy informational only**이며 실행 분기 입력으로 사용하지 않는다.
-- Shorts 88편은 roster에는 보존하지만 기본 분석 대상에서 제외한다.
-- roster 밖 legacy canonical ID는 reconciliation backlog로만 관리한다.
-
-### 고속 배치 실행 — LOCK-FIRST / FROZEN AGGREGATE (2026-10-08)
-이 절은 같은 문서에 남은 오래된 READ/ANALYZE-BEFORE-LOCK, WRITE-AT-END, BATCH COMPACTION 규칙보다 우선한다.
-
-1. **LOCK-FIRST, BEFORE SOURCE ACQUISITION** — 회차 시작 시 최신 `main` HEAD와 `state/execution_lock.json`부터 fresh-fetch한다. 다른 run의 유효한 active lease가 있으면 자막 수집/콘텐츠 분석/쓰기 없이 즉시 종료한다. 만료된 active lease는 최근 해당 writer의 커밋/실제 작업 여부를 확인한 후 안전하게 인수 가능할 때에만 fresh-SHA로 새 45분 lease를 획득한다. 다시 읽어 자기 run_id가 holder인지 확인한다. 획득 실패 시 콘텐츠 수집·분석 없이 종료하며 read-only actual-count 집계는 가능하다. connector safety/policy 오류는 우회하지 않는다.
-2. **ACTUAL STATE AFTER LEASE** — lease 획득 후 roster, base, `data/canonical_events/` 전체를 fresh-fetch한다. effective canonical = unique base IDs ∪ unique event IDs. event sequence와 canonical unique count를 구분하고, progress 요약보다 actual ledger를 우선한다. 이미 canonical인 roster ID는 재분석하지 않는다. legacy roster-outside IDs는 reconciliation backlog일 뿐 실행 blocker가 아니다.
-3. **SOURCE-BACKED BATCH** — roster 롱폼 exact YouTube watch URL을 사용한다. 영상 위치 discovery를 반복하지 않는다. 원본 자막/상세 원문/신뢰할 만한 exact-ID 보존자료가 확보된 영상만 분석하며 제목 또는 챕터 목록/짧은 설명만으로 미발언 세부 주장·수치·전략을 추정하지 않는다. source 부족 후보는 기록 가능한 검증 대기 상태로 넘기고 다음 후보로 이동한다. 최대 40편은 상한이다.
-4. **DURABLE EVENT-FIRST WRITE** — 영상별 분석 핵심·원문 provenance·시점/위험·정량정보·NEW/REINFORCE/EXTEND/CHANGE/CONFLICT/TIME_SENSITIVE를 작은 `videos/...` 또는 `data/analysis_events/<video_id>.json`로 먼저 저장한다. 그다음 **base 및 event에서 unique Video ID가 아님을 재확인**하고 next max event sequence의 immutable `data/canonical_events/NNN_<video_id>.json`을 생성한다. artifact만 있고 event가 없는 경우에만 sync-only. 분석이 메모리에서 끝났고 durable artifact가 없다면 canonical 또는 pending_sync로 세지 않는다.
-5. **FROZEN AGGREGATE** — scheduled/manual fast-path 분석 회차 중 `data/videos.jsonl`, `data/learning_queue.jsonl`, `data/claims.jsonl`은 READ-ONLY compacted base/cache다. connector safety block을 반복하는 이들 파일의 전체 rewrite/compaction을 하지 않는다. event overlay 자체가 영구 canonical 데이터이므로 이들 cache의 미반영은 `compaction_pending` 오류가 아니다. 별도의 명시적 maintenance 작업에서만 compaction을 다룬다.
-6. **CHECKPOINT / SUMMARY / RELEASE** — effective canonical unique count가 새로 10의 배수에 도달했을 때에만 knowledge checkpoint를 만든다. 새 영상 수집·분석은 lease 획득 후 20분 시점에 중단하고 25분 안에 종료를 우선한다. 종료 때 actual base+event를 재계산해 작은 `state/progress.json`을 fresh-SHA로 1회 갱신하고 가능하면 unique run event 1개를 남긴다. **다른 write보다 자신의 lease release를 최우선으로 보장**하며, 소유자 재확인 후 release 결과를 재확인한다. 절대 다른 run의 lease를 해제하지 않는다.
-7. **ERROR CLASSIFICATION** — `active_writer`, `expired_lease_reclaim_safety_failed`, `source_unavailable`, `artifact_write_failed`, `event_write_failed`, `progress_stale`, `release_failed`를 구별한다. 실제 raw connector error와 시각·파일만 보고한다. 임의로 `OpenAI safety checks`를 우회하거나 모든 GitHub 쓰기가 불가능하다고 일반화하지 않는다.
-
-## Canonical source / 실행 시작 규칙
-모든 예약·수동 실행은 이전 채팅이나 progress 요약을 그대로 이어서 사용하지 않는다. 최신 `main`에서 current roster 운영에 필요한 파일만 fresh-fetch하고 actual state를 다시 계산한다.
-
-필수:
-- `WORKFLOW.md`
-- `VIDEO_INVENTORY_2026-10-07.md`
-- `data/videos.jsonl`
-- `data/canonical_events/`
-- `data/canonical_event_reconciliation.json` — historical event sequence ↔ canonical ordinal mapping
-- `state/progress.json`
-- `state/execution_lock.json`
-
-필요 시:
-- `data/learning_queue.jsonl` — legacy queue reconciliation / source 상태 참고
-- `data/learning_queue_unresolved.jsonl` — unresolved 참고
-- `state/run_events/` — 최근 writer 실행 감사
-
-과거 `data/inventory_control.json`, `data/channel_snapshot_2026-10-06*.json*`, 794 baseline 관련 파일은 **legacy reconciliation 전용**이며 일반 content-analysis 실행의 START 분기에는 읽지 않는다.
-
-### 현재 상태 재계산
-- base canonical count / base max **canonical ordinal**
-- canonical event overlay / max **event sequence**
-- effective canonical unique count
-- roster long-form canonical count / remaining count
-- durable pending-sync artifact count
-- verification/source-blocked 후보
-- next checkpoint
-
-우선순위는 항상 **actual base + canonical-event overlay > progress summary > chat/report memory**다.
-과거 duplicate/upgrade event 해석은 `data/canonical_event_reconciliation.json`을 따른다. reconciliation ledger가 있으면 immutable historical event payload의 오래된 필드명보다 이 매핑을 우선한다.
-
-## Baseline inventory event-first mode
-**[RETIRED 2026-10-07 — DO NOT EXECUTE]**
-
-과거 794개 추정 baseline inventory를 위한 모든 discovery/event/compaction/lock 예외 규칙은 `VIDEO_INVENTORY_2026-10-07.md`의 791개 확정 roster로 대체되었다. 일반 분석 실행은 이 절의 옛 숫자·조건·파일을 읽거나 분기 기준으로 사용하지 않는다.
-
-## 단일 writer 실행 lease
-여러 채팅과 예약작업이 같은 `main`의 공유 mutable state를 동시에 수정하지 않도록 canonical/aggregate/progress write 전에 `state/execution_lock.json` lease를 획득한다. retired baseline inventory 예외는 더 이상 실행 규칙으로 사용하지 않는다.
-
-### 획득
-1. `state/execution_lock.json`을 fresh-fetch한다.
-2. `status=active`이고 `lease_until`이 현재시각 이후면 다른 실행이 writer다. 이 실행은 **canonical write를 하지 않는다**.
-3. lock이 released/expired이면 fresh SHA를 사용해 다음 값으로 update한다.
-   - `status=active`
-   - 고유 `run_id`
-   - `source=scheduled|manual`
-   - `started_at`
-   - `lease_until=started_at+45분`
-4. update가 SHA conflict 등으로 실패하면 즉시 refetch한다. 다른 run이 active lease를 획득했다면 그 run에 양보한다.
-
-### 보유 중 규칙
-- lease 보유 run만 canonical event, aggregate, knowledge, progress write를 수행한다.
-- read-only 상태 확인과 discovery 검색은 다른 채팅도 가능하지만 write는 금지한다.
-- 30분 이상 실행이 계속되면 필요 시 fresh-SHA로 lease를 갱신한다.
-
-### 해제
-- 정상 종료 시 fresh-fetch 후 자신의 `run_id`가 holder인지 확인하고 `status=released`로 갱신한다.
-- 비정상 종료로 lock이 남아도 45분 후 자동 expired로 간주한다.
-- 다른 run의 active lease를 강제로 해제하지 않는다.
-
-## 최우선 목표
-최우선 목표는 **791 roster 내 미분석 롱폼의 실제 콘텐츠 분석 처리량**이다.
-
-- roster long-form 703편을 유일한 분석 universe로 사용한다.
-- 794 baseline, inventory reservoir, 신규 inventory discovery는 운영 목표에서 제외한다.
-- source-backed 후보가 있으면 최대 40편까지 분석하고, source 미확보 후보는 즉시 skip한다.
-- 날짜 보강·legacy reconciliation·aggregate compaction은 콘텐츠 분석의 선행조건이 아니다.
-
-## 독립 상태머신 — 분석과 동기화를 분리
-콘텐츠 분석과 GitHub canonical 동기화를 서로 독립적인 작업 lane으로 운영한다.
-
-### A. content_analysis_lane
-- 실제 신규 콘텐츠 분석만 담당한다.
-- 예약 실행당 목표는 **최대 40편**이다.
-- GitHub 저장 실패, synthesis 저장 실패, inventory 요약 불일치 때문에 이 lane을 정지하지 않는다.
-- 저장 실패 시 **durable analysis artifact가 이미 저장된 경우에만** `pending_sync`로 보낸다. durable artifact가 하나도 없으면 `reanalysis_required`로 두고 즉시 다음 분석 가능한 영상으로 이동한다.
-
-### B. canonical_sync_lane
-- 이미 분석문이 존재하는 영상의 index/queue/claims/knowledge/framework/progress 동기화만 담당한다.
-- `videos/pending/<video_id>.md`가 있고 내용분석이 완료된 영상은 **재분석하지 않는다**.
-- 이 영상은 신규 분석 처리량에 포함하지 않고 sync backlog로만 관리한다.
-- 동일 파일 쓰기는 반드시 최신 SHA를 다시 읽은 뒤 직렬로 수행한다.
-- 한 파일의 write가 실패하면 `pending_sync`로 남기고 다른 파일 또는 content lane으로 진행한다.
-
-## 영상 선택 우선순위
-매 실행에서 roster 롱폼 기준으로 다음 순서를 사용한다.
-
-1. `roster long_form` 중 effective canonical에 없고 content analysis가 없는 source-backed 후보
-2. 이미 분석문이 존재하는 `pending_sync`는 재분석하지 않고 write phase에서 sync-only 처리
-3. source 미확보 후보는 source-acquisition/verification 상태로 넘기고 즉시 다음 roster 후보로 이동
-4. 게시일 미확인 후보도 exact Video ID가 있으면 제외하지 않는다.
-5. roster 밖 신규 discovery는 이 프로젝트의 기본 분석 실행에서 수행하지 않는다.
-
-## source 미확보 / verification_needed 재시도 규칙
-신뢰 가능한 원문·자막·상세 보존자료가 없는 영상은 제목만으로 세부 내용을 만들지 않는다.
-
-한 번 충분히 검색했는데 source를 확보하지 못한 영상은:
-- `analysis_status=verification_needed`
-- `blocked_reason=source_unavailable`
-- `last_source_check_at`
-- `next_source_retry_at`
-을 기록한다.
-
-동일 영상은 매 실행마다 재검색하지 않는다.
-재검색은 아래 중 하나일 때만 수행한다.
-- `next_source_retry_at` 도달
-- 새로운 source 신호가 발견됨
-- 사용자가 직접 원문/링크/자료를 제공
-- 기존 source 접근성이 달라졌다는 명시적 근거가 있음
-
-기본 재시도 간격은 **30일**이다. 재시도 전에는 즉시 skip하고 다음 영상으로 간다.
-
-## 신규 discovery 규칙
-**[RETIRED 2026-10-07]** 791개 전수 roster 확정으로 신규 inventory discovery는 기본 분석 실행에서 사용하지 않는다. 향후 실제 2026-10-07 이후 신규 업로드를 별도 증분 roster에 추가할 때만 별도 작업으로 수행한다.
-
-## 선행 inventory reservoir — 분석 대상을 미리 목록화
-**[RETIRED 2026-10-07]** 과거 exact-ID reservoir 60/100 기준, inventory bootstrap, source inventory 보충 규칙은 791개 roster 확정으로 폐기되었다. 분석 후보 수 계산과 실행 분기에 사용하지 않는다.
-
-## 고속 배치 학습
-- 기본 작업 단위는 **최대 40편**이다.
-- 신뢰 가능한 원문/자막/보존자료가 계속 확보되는 한 1~5편에서 임의 종료하지 않는다.
-- 같은 유형의 검색·검증·GitHub 저장은 가능한 범위에서 배치화한다.
-- 속도 향상은 필수 분석항목 생략으로 얻지 않는다.
-- blocked item은 즉시 skip한다.
-- sync-only 작업은 신규 분석 편수에 포함하지 않는다.
-
-## 영상별 필수 추출 — 생략 금지
-각 영상마다 다음을 확인한다.
-- 핵심 주장과 결론
-- 주장의 논리, 전제, 적용 조건
-- 숫자·한도·세율·기간·수익률·비용 등 정량 정보
-- 투자·연금 전략과 실행 절차
-- 중요한 예외·위험·주의사항
-- 기존 영상과의 중복·확장·변경·충돌
-- 과거 주장 대비 관점 변화
-- 시간의존 정보
-- 공식자료 검증 필요성
-- 전체 박곰희 프레임워크에 새로 추가되거나 강화되는 지식
-- 출처 수준과 미확인 사항
-
-## 지식 분류
-영상별 결과를 하나 이상으로 분류한다.
-- `NEW`
-- `REINFORCE`
-- `EXTEND`
-- `CHANGE`
-- `CONFLICT`
-- `TIME_SENSITIVE`
-
-## 선택적 심층검증
-다음 항목만 최신 권위 있는 공식자료로 심층검증한다.
-- 연금저축·IRP·ISA·국민연금
-- 세금·세액공제·과세·신고
-- 법령·금융규제·거래소 제도
-- 현재 한도·세율·수수료·거래시간 등 변경 가능 수치
-- 기존 지식과 충돌
-- 전체 프레임워크 변경
-
-일반적인 영구 투자원칙과 이미 검증된 반복내용은 외부검증을 반복하지 않는다.
-
-## 저장
-### 영상별 최소 저장
-- concise canonical analysis artifact
-- immutable `data/canonical_events/NNN_<video_id>.json`
-
-canonical analysis Markdown이 raw safety block으로 1회 retry까지 실패하면 compact structured `data/analysis_events/<video_id>.json` fallback을 허용한다.
-**durable analysis artifact가 하나도 없는 상태는 pending_sync로 표시하지 않는다.** 저장되지 않은 transient 분석은 다음 실행에서 재분석 가능한 후보로 남긴다.
-
-### 실행 말미 batch 저장
-영상별 event 생성이 끝난 뒤에만 아래 aggregate를 path당 최대 1회 갱신한다.
-- `data/videos.jsonl`
-- `data/learning_queue.jsonl`
-- `data/claims.jsonl`
-- 관련 knowledge 묶음
-- checkpoint일 때만 framework/synthesis/PDF
-- `state/progress.json`
-
-aggregate 실패는 `compaction_pending`이며 이미 성공한 canonical event를 취소하지 않는다.
-
-## 10편 체크포인트
-**effective canonical unique-video count**가 10의 배수에 새로 도달하면 그 영상 반영 직후 누적지식을 재종합한다. event sequence 번호 자체가 10의 배수인지는 checkpoint 조건이 아니다.
-- 반복원칙·예외·변화·충돌
-- 연금저축·IRP·ISA·국민연금·세금·인출·자산배분
-- 전체 박곰희 프레임워크
-- 해당 10편 구간 변화와 누적결론 한국어 PDF
-
-synthesis/framework/state의 GitHub 저장이 실패하면 산출물은 `pending_sync`로 기록하되 콘텐츠 분석 lane 전체를 중단하지 않는다.
-
-## 실행 종료 조건
-다음 중 하나일 때만 종료한다.
-- 실행시간/도구 한도 도달
-- 이번 실행에서 roster 미분석 후보를 충분히 스캔했지만 더 이상 source-backed 분석 가능 후보가 없음
-- 최대 신규 분석 목표 40편 도달
-
-다음 사유만으로는 종료하지 않는다.
-- GitHub aggregate write 실패
-- 특정 영상 source 미확보
-- chronology 미정
-- legacy queue/inventory 불일치
-- unresolved ID 존재
-
-**신규 inventory discovery 1패스는 종료조건이 아니다.** 791 roster가 이미 확정되어 있으므로 기본 분석 실행에서 신규 discovery를 요구하지 않는다.
-
-## 종료보고
-첫 항목은 반드시 실제 신규 분석 영상 수와 Video ID/제목 범위다.
-그 다음:
-1. 중요 새 지식/변경/충돌
-2. 공식검증
-3. 저장/동기화 상태
-4. canonical 누적 처리수
-5. 다음 체크포인트
-6. 마스터 큐 잔여 미처리수
-
-## 품질 원칙
-- 속도를 위해 내용을 추측하거나 근거 없는 세부사항을 채우지 않는다.
-- 원문이 없으면 세부 발언과 숫자를 재구성하지 않는다.
-- 과거의 세율·한도·상품조건·시장규칙은 현재값으로 간주하지 않는다.
-- 중요 정보 누락 방지가 처리량보다 우선이다.
-
-
-## source identity 안전 규칙
-- Video ID와 transcript/보존자료의 identity가 일치하지 않으면 canonical 승격을 금지한다.
-- `status: invalid_source_identity` 또는 `canonical_use: prohibited` 문서는 분석 완료, pending_sync, processed 수에 포함하지 않는다.
-- 이런 tombstone 파일은 삭제 여부와 관계없이 실행 큐에서 항상 제외한다.
-- replacement Video ID가 확인되면 replacement만 master queue에 등록하고, source-matched 상세자료가 없으면 `verification_needed`로 둔다.
-
-
-## 실행이력 / heartbeat
-- 모든 writer 실행은 종료 시 unique `state/run_events/<timestamp>_<run_id>.json` 1개를 append-only로 남긴다.
-- 최소 필드:
-  - `run_id`, `source`
-  - `started_at`, `finished_at`
-  - `start_effective_canonical`, `end_effective_canonical`
-  - `newly_analyzed_count`
-  - `sync_only_count`
-  - `durable_pending_sync_count`
-  - `last_run_result`
-  - `write_failure`
-- `discovery_checked_at`은 roster-only mode에서 더 이상 필수 필드가 아니다.
-- `state/progress.json`은 최신 summary이고 실행이력 원장이 아니다.
-- `state/run_events/`가 writer 실행이력 원장이다.
-
-## GitHub write 안전 프로토콜
-이 절은 모든 canonical write와 heartbeat write에 강제 적용한다.
-
-- 실행 시작 시 읽은 canonical 파일의 SHA는 **충돌 확인용 snapshot**일 뿐, 실행 말미 write의 SHA로 재사용하지 않는다.
-- 기존 파일을 수정하기 직전에 반드시 그 **정확한 target path를 다시 fetch**하고, 그 fetch가 반환한 최신 blob SHA로 `update_file`을 수행한다.
-- 같은 파일을 한 실행에서 두 번 이상 수정할 때는 직전 성공 write가 반환한 새 content SHA를 다음 write에 사용하거나 다시 fetch한다. 오래된 SHA를 재사용하지 않는다.
-- 같은 path에 대한 write/delete는 절대 병렬 실행하지 않는다. canonical write는 path 단위로 직렬화한다.
-- SHA mismatch, 409/422 conflict, stale-file/safety precondition 계열 오류가 발생하면 실패로 확정하기 전에 target file을 즉시 다시 fetch하고, 최신 내용에 의도한 변경을 재적용하여 **1회 자동 재시도**한다.
-- 위 재시도도 실패한 경우, durable analysis artifact가 이미 있으면 `pending_sync`/write failure로 기록한다. durable artifact가 하나도 없으면 `reanalysis_required`로 기록하고 다음 콘텐츠/다른 파일로 진행한다.
-- `state/progress.json` heartbeat도 종료 직전에 반드시 fresh fetch → merge → update 순서로 쓴다. 실행 시작 시 읽은 progress SHA를 사용하지 않는다.
-- primary heartbeat가 실패해 `state/run-heartbeat.json`으로 fallback할 때도 fallback 파일을 먼저 fresh fetch하고 최신 SHA로 쓴다.
-- 오류 보고에는 막연히 “안전검사 실패”라고 쓰지 말고, **target path / 오류 클래스(SHA conflict, permission, connector precondition 등) / fresh-refetch retry 결과**를 기록한다.
-- 다른 파일의 성공 commit 때문에 기존 파일의 blob SHA가 자동으로 바뀌는 것은 아니지만, 수동 실행·예약 실행·동일 파일의 선행 write가 겹칠 수 있으므로 write 시점 fresh fetch를 항상 기준으로 삼는다.
-
-
-## GitHub connector 실행 트랜잭션 규칙
-
-fresh-SHA 규칙에 더해 다음을 적용한다.
-
-- 기존 파일 write는 가능하면 한 실행 트랜잭션 안에서 `fetch_file(target, ref=main) → 최신 content에 의도 변경 merge → update_file(target, sha=fetched_sha, branch=main)` 순서로 직렬 실행한다.
-- 여러 target을 수정할 때도 각 path마다 위 read-modify-write를 독립적으로 완료한 뒤 다음 path로 이동한다.
-- 실패 직후 재시도하기 전에 target을 fresh fetch하고 **의도한 desired state가 이미 반영됐는지 먼저 확인**한다. 이미 반영됐다면 추가 write 없이 성공으로 판정한다.
-- partial sync 복구 시 `data/videos.jsonl`, queue, claims, knowledge, framework, progress 각각을 실제 현재 내용으로 idempotency 검사한다. 이미 존재하는 video/claim/section을 중복 append하지 않는다.
-- 오류는 connector 요약문으로 재명명하지 않는다. 가능한 경우 raw tool 오류의 클래스와 HTTP 상태(예: `CONFLICT / 409`, `UNPROCESSABLE_ENTITY / 422`, `FORBIDDEN / 403`) 및 원문 메시지를 기록한다.
-- raw tool 결과에 실제로 `safety precondition`이 없으면 단순히 “connector safety precondition”이라고 보고하지 않는다.
-- stale SHA와 connector/orchestration precondition은 별도 장애군으로 취급한다. stale SHA는 GitHub Contents API의 409로 재현 가능하며 fresh-refetch 후 정상 복구되는 것이 기준이다.
-- write 장애 진단 시 임시 진단 파일을 사용할 수 있으나 테스트 후 삭제하고, 실제 canonical target 한 곳에서도 동일 프로토콜이 통과하는지 확인한다.
-
-
-## 낮은 추론 수준 대응 — 결정론적 예약 실행
-예약 실행은 아래 6단계만 따른다.
-
-1. **START** — roster, base canonical, canonical events, pending analysis artifacts, lock을 fresh-fetch하고 effective canonical 및 roster remaining을 재계산한다.
-2. **ANALYZE** — roster long-form 미분석 후보에서 source-backed 영상을 최대 40편 분석한다. source 미확보는 skip한다. 이 단계에서는 aggregate를 쓰지 않는다.
-3. **WRITE LOCK** — 영상 source 확보·분석에 앞서 위 LOCK-FIRST 규칙에 따라 single-writer lease를 획득한다. acquired 후 effective canonical IDs와 max event sequence를 fresh-fetch해 중복을 제거한다.
-4. **MINIMAL CANONICAL WRITE** — 영상별 concise analysis artifact와 immutable canonical event만 직렬 생성한다. Markdown 저장 실패 시 fallback structured analysis artifact를 1회 시도한다. fallback까지 실패하여 durable artifact가 하나도 없으면 `reanalysis_required`로 두고 다음 영상을 계속한다. durable artifact는 있으나 event/aggregate sync만 남은 경우에만 `pending_sync`다.
-5. **BATCH COMPACTION** — 모든 영상 event 처리가 끝난 뒤 aggregate path별 최대 1회만 compact한다. canonical event가 이미 성공한 영상은 aggregate 실패로 되돌리지 않는다.
-6. **END** — checkpoint 필요 시 한 번 처리하고 progress 1회, unique run event 1회, 자신의 lease release 1회로 종료한다.
-
-결정 규칙:
-- 794 baseline/inventory reservoir/discovery 상태로 분기하지 않는다.
-- 영상 사이 aggregate update를 하지 않는다.
-- write 실패는 다음 영상 content analysis의 stop condition이 아니다.
-- actual canonical + event overlay가 progress보다 우선한다.
-
-## Write 실패 증거 규칙
-
-예약 실행에서 GitHub write 실패를 판정할 때 다음을 강제한다.
-
-- **실제 GitHub write connector가 호출되고 raw error를 반환한 경우에만 write 실패로 기록한다.**
-- raw connector error가 없으면 `safety check`, `connector precondition`, `permission`, `SHA conflict` 같은 원인을 추정하지 않는다. 이 경우 상태는 `write_status_unknown`으로 기록하고 실패로 단정하지 않는다.
-- 사용자 보고에 오류를 쓰려면 최소한 `target path / invoked write action / raw error class 또는 raw message / fresh-refetch 결과 / retry 결과`가 있어야 한다.
-- 단순히 모델이 “도구가 막혔다”고 판단한 문장, 계획 단계의 중단, tool-call 미발행은 write 실패 증거가 아니다.
-- 예약 실행에서 한 write가 의심스러우면 같은 실행 안에서 exact target을 다시 fetch하고 desired state를 확인한다. desired state가 반영되어 있으면 성공이다.
-- desired state가 없고 raw connector error도 없다면 해당 target을 한 번 더 **직접 GitHub update action으로 호출**한다. 이 두 번째 직접 호출의 raw 결과로만 성공/실패를 결정한다.
-- 반복 실패를 보고하기 전에 최소 한 개의 작은 known-safe target 또는 heartbeat target에서 동일한 direct write transaction이 동작하는지 확인한다. 이것은 repository-wide 장애와 target-specific 장애를 구분하기 위한 진단이다.
-
-
-## 예약 실행 write blocker 우회 — event-first canonical ledger
-canonical 저장은 event-first를 유지하되 **per-video aggregate compaction은 금지**한다.
-
-### Canonical event
-- `data/canonical_events/NNN_<video_id>.json`은 immutable event ledger다. 파일명의 `NNN`과 event의 `sequence`는 **event sequence**다.
-- 분석 artifact가 존재하고 **base에 없는 video_id의 canonical event** create가 성공하면 해당 영상은 effective canonical에 추가된다.
-- 동일 video_id 또는 동일 event sequence의 신규 중복 생성은 금지한다.
-- 과거에 이미 생성된 중복 event(현재 157 `OlurWhrOsLs`, 158 `AzY0FU-HxME`)는 삭제·재작성하지 않고 **audit-only duplicate event**로 유지하며 effective canonical count에는 더하지 않는다.
-- 다음 event sequence는 effective canonical count가 아니라 `max(모든 canonical event sequence, 기존 source_event_sequence)+1`로 계산한다.
-
-### Effective canonical state
-- effective canonical = compacted `data/videos.jsonl`의 unique video_id + base에 없는 canonical event video_id overlay.
-- **effective canonical count**는 unique video_id 개수다.
-- **event sequence**는 append-only ledger 순번이며 duplicate audit event 때문에 effective canonical count와 일치하지 않을 수 있다.
-- `data/videos.jsonl`의 `sequence`는 **unique canonical ordinal**이며 1부터 연속으로 유지한다.
-- event를 base에 compact할 때 신규 unique video는 `data/videos.sequence = 이전 unique canonical count + 1`, `source_event_sequence = event.sequence`로 저장한다.
-- processed/checkpoint 계산은 effective canonical unique count를 사용하고, 다음 event 번호 계산은 max event sequence를 사용한다.
-
-### 두 종류의 sequence — 혼동 금지
-- **canonical ordinal**: `data/videos.jsonl.sequence`. unique canonical video의 순번이며 1부터 연속 유지한다.
-- **event sequence**: `data/canonical_events/*.json.sequence`. append-only event ledger 순번이다.
-- 역사적 duplicate upgrade event 157·158 때문에 현재 event sequence가 canonical ordinal보다 2 앞서 있다.
-- 신규 unique canonical video event에는 앞으로 가능하면 `canonical_ordinal`도 함께 기록한다.
-- canonical 문서의 표시 번호는 canonical ordinal을 사용하고, upgrade/sync event 번호는 별도 metadata로 표기한다.
-
-### Batch compaction
-- event 생성들을 먼저 끝낸 뒤 실행 말미에 path별 최대 한 번만 compact한다.
-- 기본 순서: `data/videos.jsonl` → `data/learning_queue.jsonl` → `data/claims.jsonl`.
-- knowledge는 실행당 한 번 묶어서 반영하고 framework/synthesis/PDF는 10편 checkpoint에서만 갱신한다.
-- aggregate update 실패는 `compaction_pending`이며 canonical event 성공을 취소하지 않는다.
-
-### Run event
-- writer run 종료 시 unique `state/run_events/<timestamp>_<run_id>.json` 1개를 append-only로 남긴다.
-- progress update가 실패해도 run event를 남기고 canonical count는 event overlay에서 복원한다.
-
-## 순서 불명확 시 전체 미확인 영상 스캔 fallback
-roster에 exact Video ID가 이미 확정되어 있으므로 별도 전체 미확인 discovery scan을 하지 않는다.
-
-- 게시일이 있으면 오래된 순서를 선호한다.
-- 게시일이 없으면 roster 번호, 그 다음 video_id를 결정론적 tie-breaker로 사용한다.
-- chronology 보강은 분석 선행조건이 아니다.
-- effective canonical에 이미 있는 ID와 content-analyzed pending_sync ID는 후보에서 제외한다.
-
-## 2026-10-06 고정 채널 snapshot
-**[RETIRED 2026-10-07]** 과거 794개 추정 baseline snapshot 규칙은 `VIDEO_INVENTORY_2026-10-07.md`의 791개 확정 roster로 대체되었다. 이 절의 옛 target·bootstrap·completeness 값은 실행 제어에 사용하지 않는다.
+# pensionport 운영 규칙 — 단일 활성 워크플로 (2026-10-08)
+
+이 문서는 수동 및 예약 박곰희TV 영상 연구의 **유일한 실행 계약**이다. 과거 794-baseline discovery, READ/ANALYZE-BEFORE-LOCK, WRITE-AT-END, 매 실행 aggregate compaction, 3편 상한 등의 규칙은 **폐기**한다. 오류 복구보다 콘텐츠 분석을 우선하되, 검증되지 않은 분석을 완료로 세지 않는다.
+
+## 1. 확정 대상과 진실의 원장
+
+- 확정 roster: `VIDEO_INVENTORY_2026-10-07.md`의 791개 고유 Video ID, 그중 **롱폼 703편**을 분석 대상으로 한다. Shorts 88편은 별도 요청이 없으면 분석하지 않는다.
+- 분석 후보는 **로스터의 미분석 롱폼 Video ID**만 사용한다. 게시일/순서는 선호 조건이지 blocker가 아니다. 옛 794-baseline, reservoir, channel snapshot, 추가 목록 발견은 시작 조건이 아니다.
+- canonical의 근거 데이터: `data/videos.jsonl`의 unique `video_id` 합집합 `data/canonical_events/*.json`의 unique `video_id`. `state/progress.json`은 캐시된 요약이며, 실제 합집합과 다르면 **항상 원장이 우선**한다.
+- canonical event filename 및 event 내부 `sequence`는 **event sequence**로서 distinct canonical 수와 다르다. 다음 번호 = 실제 event sequence 최댓값 + 1. base의 `sequence`는 historical canonical ordinal이다. `data/canonical_event_reconciliation.json`은 역사적 매핑 참고자료이며 내부 snapshot 숫자를 현재치로 가정하지 않는다.
+- base에 있던 ID와 canonical event에 있는 ID는 중복 분석하지 않는다. roster 밖 기존 분석은 보존하되 **703편 완료율에서 제외**한다. 품질 등급이 낮은 기존 canonical은 정기 재학습 lane에서 따로 검토한다.
+- 과거 생성된 aggregate `data/videos.jsonl`, `data/learning_queue.jsonl`, `data/claims.jsonl`은 일반 예약/수동 학습 회차에서 **READ-ONLY / FROZEN CACHE**다. compaction은 사용자의 별도 유지보수 요청에서만 수행하며, cache와 event의 일시적인 불일치를 오류로 세지 않는다.
+
+## 2. 정확한 실행 순서 — LOCK → SOURCE → ANALYZE → SAVE → VERIFY → RELEASE
+
+1. **LOCK-FIRST:** 최신 `main`과 `state/execution_lock.json`을 읽는다. 다른 실행의 유효한 active lease가 있으면 **자막 수집·분석·쓰기 없이 종료**한다. active가 만료되었더라도 최근 owner 활동을 확인하고 안전한 경우에만 인수한다. released 상태에서는 fresh blob SHA로 자신의 고유 `run_id`, started_at, lease_until(45분)을 갱신한 뒤 반드시 재조회해 자신의 active 소유권을 확인한다. 실패하면 읽기 전용 집계만 가능하다.
+2. **FRESH LEDGER:** lease 획득 후 roster, `WORKFLOW.md`, base, canonical event 목록, 분석 artifact 목록, progress, source 원장을 조회하고 유니크 ID 및 event 최대 번호를 **실제 파일**로 재계산한다. 중복 ID는 분석 후보에서 뺀다. 기존 durable artifact만 있고 event가 없는 것은 분석보다 먼저 sync-only로 복구한다.
+3. **SOURCE:** 후보의 정확한 YouTube watch URL로 `Firecrawl Alexandria youtube/read`를 우선 시도한다. `language=ko`, `formats=['markdown']`이고 응답의 `## Transcript`를 실제 검사한다. 검증 표본 7편에서 작동한 경로지만 703편 전체 성공을 보장하지 않는다. 도구가 지원되지 않는 실행 환경이면 가능한 정상 접근 경로(원래 영상·공개 제작자 설명·챕터·exact-ID 상세 보존자료)를 확인한다. 실패한 영상은 출처 대기 대상으로 넘긴다. 동일한 정책 차단을 우회하거나 반복하지 않는다.
+4. **ANALYZE:** 원문을 실제로 읽고 투자 철학, 핵심 주장, 적용 전제·조건, 상품/계좌 사용법, 위험·예외, 숫자·세율·기간, 이전 영상과의 NEW/REINFORCE/EXTEND/CHANGE/CONFLICT/TIME_SENSITIVE 관계를 추출한다. 자동 음성인식(ASR)은 수치·고유명사에 오류가 있으므로 불명확한 숫자는 미확정으로 보류한다. 연금/IRP/ISA/세금/건보료/거래소·법령 등 시간의존 주장만 필요한 범위에서 최신 공식 1차자료로 검증한다. **당시 설명과 현재 적용법을 구분**하고, 외부자료의 내용을 화자의 실제 발언으로 귀속하지 않는다. 자막을 읽은 것만으로 영상 프레임까지 분석했다고 기록하지 않는다.
+5. **PER-VIDEO SAVE, NO LOSS:** 영상 **1편을 분석한 즉시** 검증 가능한 소형 `data/analysis_events/<video_id>.json`을 생성/업데이트해 실제 재조회한다. 이미 존재하면 SHA 및 내용으로 재사용한다. 생성 성공 후 fresh ledger를 확인하여 base/event에 없는 ID일 때만 유일한 `data/canonical_events/<next_sequence>_<video_id>.json`을 생성한다. event와 artifact 둘 다 재조회 성공한 경우에만 `newly_analyzed_count += 1`. artifact가 있고 event만 실패한 경우 **durable_pending_sync**(다음 회차 event만 작성)로 기록한다. artifact 생성 자체가 실패한 경우 **reanalysis_required**, 신규 분석 완료 0편으로 취급한다. 메모리의 전사·추론 결과를 완료로 세지 않는다.
+6. **CONTROLLED THROUGHPUT:** 새 저장 경로 검증 단계에서는 1편 먼저 end-to-end 성공시키고, 안정화 기간에는 회차당 **3~5편 목표**로 운영한다. 연속 2회 이상 정상 저장·해제 성공을 확인한 뒤 10편, 그다음 최대 40편으로 확장할 수 있다. 최대 40은 *상한*일 뿐 강제 할당이 아니다. 20분이 지나면 신규 원본 확보를 중단하고 약 25분 내 종료 절차를 우선한다. 저장 장애가 발생한 경우에는 같은 회차에서 추가 영상 분석을 쌓아 놓지 않는다.
+7. **SUMMARY/RELEASE:** 저장된 artifact + canonical event의 실제 합집합으로 `state/progress.json`의 작은 수치만 fresh-SHA 재조회·merge 갱신한다. 가능하면 고유 `state/run_events/<timestamp>_<run_id>.json`에 신규 canonical 수, 출처 시도·성공, 저장 실패 상태, 종료 결과를 남긴다. 진행 요약이나 run-event 쓰기가 실패하더라도 **자신의 lock 해제 및 해제 확인이 최우선**이다. 절대 다른 실행의 active lease를 해제하지 않는다.
+
+## 3. 쓰기 실패와 재시도 원칙
+
+- **GitHub create/update 요청이 실제 실패했을 때만** `artifact_write_failed`, `event_write_failed`, `lock_update_failed` 등으로 보고한다. 오류 자료는 대상 경로, 호출 action, 실제 오류 문자열/클래스, fresh-refetch 결과, 최종 상태를 포함한다.
+- GitHub 409/422 등 **충돌·stale SHA로 확인되는 복구 가능한 오류에 한해서** 대상 파일을 fresh-fetch하고 원하는 상태가 이미 반영됐는지 먼저 확인한 뒤 최대 1회만 정상 재시도한다.
+- **`OpenAI safety checks` 등 안전/정책 검사 차단**은 SHA 충돌과 **다른 분류**다. 동일·변형 payload로 재호출하거나 대상/문구를 바꿔 우회하지 않는다. 정확한 실패 target을 기록하고 신규 콘텐츠 분석·일반 write를 중단하며, 자신의 lock 해제만 우선한다. 정책 차단 이유를 증거 없이 단정하지 않는다.
+- artifact 실패 시 다음 후보 4편을 계속 분석해서 결과를 메모리에 쌓지 않는다. 실패 artifact를 canonical이나 `pending_sync`로 세지 않는다. event 실패 후 durable artifact가 존재할 때에만 `pending_sync`로 센다.
+- 도구 호출 전 차단/미호출 등 raw error가 없다면 성공 또는 실패를 추정하지 않고 `write_status_unknown`이라고 보고한다. 필요하면 read-only 상태확인을 통해 정확한 판정을 한다.
+- 같은 파일 write는 직렬, `fetch_file(target) → merge → update_file(fresh sha)` 순서를 사용한다. 다른 실행이 실제 쓰고 있으면 중단한다. 내용이 이미 반영됐으면 재쓰기하지 않는다.
+- 경과시간이 과도하거나 lock release에서 오류가 나더라도 다른 owner에게 강제 변경하지 않는다. lease 만료는 자동으로 파일을 `released`로 바꾸는 기능이 아니다. 불확실하면 상태와 owner를 보고한다.
+
+## 4. 영상별 보존 품질과 완료율
+
+- 결과의 최소 기록: Video ID/정확한 원본 URL/업로드일/원본 종류 및 범위/언어/ASR 품질·화면 확인 여부/핵심 주장/적용 전제/실행 방법/정량정보와 공식 교차검증/위험과 예외/관련 주제·기존 지식/미확인 사항.
+- 음성·전사 전체 확보 `TRANSCRIPT_BASED`, 음성/영상 화면까지 확인 `AUDIO_VISUAL_REVIEWED`, 상세 설명 등 부분자료 `PARTIAL`, 출처 미확보 `SOURCE_PENDING`를 구분한다. 전사 섹션만 존재해서 영상 **전체/화면 분석 완료**로 단정하지 않는다.
+- **canonical 등록 완료율**과 **품질 심사 통과 심층 학습률**은 별개의 지표다. 옛 canonical에 필수 항목이 빠졌다고 영구 원장에서 삭제하지 않으며, 별도 `REVIEW_REQUIRED`로 품질 개선 대상으로 남긴다. 과거 기록을 재검토하는 작업을 신규 unique 영상으로 세지 않는다.
+- 저작권/이용조건을 준수하고 공개 저장소에 저작권 보호되는 전사 전문을 대량으로 복제하지 않는다. 영상 식별자와 출처, 검증 가능한 독자적 분석만 저장한다.
+
+## 5. 체크포인트, 보고, 회복
+
+- **effective unique canonical**이 새로 10의 배수에 도달할 때만 지식 종합(checkpoint)을 갱신한다. event sequence 번호가 10의 배수인지와 혼동하지 않는다. checkpoint 오류가 있어도 이미 저장된 영상 분석을 무효화하지 않는다.
+- 매 실행 보고: 실제 신규 unique 영상 수와 ID, 원문 전사 성공/실패, 분석 핵심, 검증된 역사적/현행 주장, 저장 artifact/event 각각의 성공 여부, 현재 로스터 내 `완료/703` 및 잔여, lock 해제 확인, 다음 영상과 blocker를 기록한다. 성공하지 않은 저장은 completed라고 하지 않는다.
+- 기본 다음 후보(이미 분석/이벤트 존재 시 건너뜀): `axkP0idg-kA`, `09R29vsv6to`, `eTOOtll0VPc`, `PW1EuMtw18o`, `2GjGjwkHrMA`, `fnLgP_KCv8A`. 2026-10-08 전사 접근 실험은 `data/source_acquisition/youtube_read_pilot_20261008.json`을 참고한다.
+- 신규 분석보다 infrastructure 문서 점검만 무한 반복하지 않는다. 정상 실행에서는 **소형 영상 1편의 실제 저장·재조회**부터 시작한다.
+- 이 문서는 기존 `data/canonical_event_reconciliation.json`의 역사적 중복 event 157·158, 기존 저장 영상, 로스터를 삭제하거나 바꾸지 않는다.
