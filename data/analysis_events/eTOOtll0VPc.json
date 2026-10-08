@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "video_id": "eTOOtll0VPc",
+  "title": "[주식] 투자자를 보호하는 변동성완화장치 3종을 배워봅시다 (ft.vi/서킷브레이커/사이드카)",
+  "source_url": "https://www.youtube.com/watch?v=eTOOtll0VPc",
+  "published_at": "2021-07-01",
+  "duration": "08:02",
+  "source_level": "youtube_Korean_automatic_speech_transcript",
+  "source_provider": "Firecrawl Alexandria youtube/read",
+  "source_reviewed_at": "2026-10-08",
+  "scope": "entire returned 08:02 speech transcript read; no visual frame examination; ASR numeric artifacts present",
+  "chapters": [
+    "00:44 VI",
+    "03:10 Circuit Breaker",
+    "05:15 Sidecar",
+    "06:01 historical activations",
+    "06:59 conclusion"
+  ],
+  "core_claims": [
+    "동적·정적 VI는 개별 종목의 순간적 또는 누적 가격 변동을 완화하기 위해 일정 시간 연속매매를 단일가 매매로 전환한다. 상승·하락 양방향에 적용될 수 있다.",
+    "VI 종료 직후 가격이 반드시 같은 방향으로 움직이는 것은 아니다. 단일가 매매 중 누적된 주문으로 급변하거나 방향이 반전될 수 있어 VI 자체를 매수·매도 신호로 이용해서는 안 된다.",
+    "서킷브레이커는 개별 주식 VI보다 범위가 커 지수가 급락할 때 시장 전체의 거래를 단계별로 중단한다. 영상은 투자자가 공포 속에서 충동적으로 결정하지 않도록 판단 시간을 확보하는 취지로 설명한다.",
+    "사이드카는 선물가격 급변에 따른 현물시장 충격을 완화하는 프로그램매매 주문 효력의 일시 정지 장치다. 시장 전체 거래 중단인 서킷브레이커와 구별해야 한다.",
+    "변동성 완화 장치의 발동 자체가 초과수익을 만들어주는 매매 기술은 아니며, 투자자는 시장 급변이 반복될 수 있다는 점을 인식하고 원칙 중심으로 행동해야 한다."
+  ],
+  "actionable_guidance": [
+    "VI는 상승·하락 모두 발생할 수 있으므로 발동 뉴스만으로 상승 지속이나 저점 반등을 예단하지 않는다.",
+    "급락 시 시장 전체 거래 중단과 개별 종목의 단일가 전환을 구별하고, 주문 제출·취소 가능 여부와 재개 시 가격 급변 위험을 확인한다.",
+    "장기 투자자는 거래 중단 장치에 의존한 단기 매매 전략보다 사전 자산배분·유동성·손실 감내 범위를 점검한다."
+  ],
+  "assumptions": [
+    "교육용 2021년 영상으로 일반 투자자를 대상으로 함",
+    "대상 시장과 종목에 따라 VI 발동 비율이 다를 수 있음"
+  ],
+  "quantitative_claims": [
+    {
+      "claim": "VI 발동 시 2분 동안 단일가 매매로 전환",
+      "speaker_claim": "전사 확인",
+      "official_check": "KRX dynamic/static VI official; confirmed mechanism",
+      "status": "verified",
+      "source": "https://global.krx.co.kr/contents/GLB/06/0602/0602020204/GLB0602020204T7.jsp"
+    },
+    {
+      "claim": "동적 VI 발동 비율",
+      "speaker_claim": "ASR은 코스피/코스닥 3%/6%로 단순화",
+      "official_check": "KRX는 KOSPI200 구성종목과 일반 종목·매매시간대에 따라 3%/6% 등으로 구분",
+      "status": "asr_or_explanation_oversimplified",
+      "source": "https://global.krx.co.kr/contents/GLB/06/0602/0602020204/GLB0602020204T7.jsp"
+    },
+    {
+      "claim": "서킷브레이커 단계별 하락 기준",
+      "speaker_claim": "1단계 8%, 2단계 자막 '25%', 3단계 20%라고 인식",
+      "official_check": "KRX 1단계 8%, 2단계 15%, 3단계 20% 및 추가 조건; '25%'는 인식 오류로 보임",
+      "status": "official_source_overrides_noisy_asr",
+      "source": "https://global.krx.co.kr/contents/GLB/06/0602/0602010204/GLB0602010204T2.jsp"
+    },
+    {
+      "claim": "사이드카가 선물시장 거래를 멈춘다",
+      "speaker_claim": "전사 일부가 선물 가격 자체를 정지시키는 것으로 오해될 수 있음",
+      "official_check": "KRX 제도는 주가 급변 시 프로그램매매 주문 호가 효력을 일시 중단",
+      "status": "interpretation_corrected_by_exchange",
+      "source": "https://global.krx.co.kr/contents/GLB/06/0602/0602010204/GLB0602010204T2.jsp"
+    }
+  ],
+  "risks_and_exceptions": [
+    "자동 음성인식은 '서킷브레이커' 및 일부 수치가 오인식되어 공식 거래소 자료로 교정이 필요하다.",
+    "2021년 교육 영상이므로 2026년 세부 적용 조건·장중/시간외 제도는 현행 KRX 규정을 별도로 확인한다.",
+    "영상 화면의 과거 차트 및 발동일자 표는 확인하지 않았으므로 시각자료의 개별 사례를 검증했다고 주장하지 않는다.",
+    "거래정지나 단일가 전환은 손실 방지 또는 상승·하락의 방향 보장을 의미하지 않는다."
+  ],
+  "relations": [
+    "NEW",
+    "REINFORCE",
+    "TIME_SENSITIVE"
+  ],
+  "verification_status": "source_backed_official_KRX_cross_checked",
+  "limitations": [
+    "no_visual_frame_review",
+    "ASR_has_misrecognized_technical_terms_and_numeric_phrases",
+    "exact_current_regulatory_coverage_may_vary"
+  ],
+  "full_transcript_stored": false
+}
