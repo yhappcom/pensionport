@@ -76,6 +76,23 @@ class V4Tests(unittest.TestCase):
         d = fixture()
         d["stage"] = "VERIFIED"
         self.assertTrue(any("primary-source" in e for e in self.errors(d)))
+    def test_verified_rejects_any_open_claim(self):
+        d = fixture()
+        d["stage"] = "VERIFIED"
+        official = {"source_id":"gov", "kind":"OFFICIAL_DOCUMENT",
+                    "url":"https://www.investor.gov/", "retrieved_at":"2026-10-09",
+                    "coverage":"PARTIAL","language":"en","limitations":[]}
+        d["sources"].append(official)
+        d["claims"][0]["verification"] = {
+            "status":"PRIMARY_CONFIRMED", "checked_at":"2026-10-09",
+            "official_source_ids":["gov"], "notes":"test only"}
+        c2 = copy.deepcopy(d["claims"][0])
+        c2["claim_id"] = "C02"
+        c2["verification"]={"status":"OPEN","checked_at":None,
+                            "official_source_ids":[],"notes":"unverified"}
+        d["claims"].append(c2)
+        self.assertTrue(any("OPEN claim" in e for e in self.errors(d)))
+
     def test_reject_visual_claim_without_evidence(self):
         d = fixture()
         d["quality"]["visual_review"] = "REVIEWED"

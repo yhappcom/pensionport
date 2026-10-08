@@ -9,7 +9,7 @@
     "duration_seconds": 640
   },
   "status": "DRAFT",
-  "stage": "GROUNDED",
+  "stage": "VERIFIED",
   "sources": [
     {
       "source_id": "speech",
@@ -35,6 +35,105 @@
       "limitations": [
         "영상 공개 메타데이터. 과거 영상 설명이 이후 수정됐을 가능성 있음"
       ]
+    },
+    {
+      "source_id": "video_frames",
+      "kind": "VIDEO_FRAME",
+      "url": "https://www.youtube.com/watch?v=OlurWhrOsLs",
+      "retrieved_at": "2026-10-09",
+      "coverage": "PARTIAL",
+      "language": "ko",
+      "limitations": [
+        "YouTube 자체 스토리보드 제공 5초 간격 129개 시점(0~약 640초)의 저해상도 장면을 검토함",
+        "실제 영상 재생 프레임으로 2019년 화면 05:38 미래에셋대우 7,520원, 04:31 삼성전자 27%, 07:26 채권 종류, 08:54 KINDEX 베트남VN30 13,505원 확인",
+        "샘플 프레임 및 스토리보드는 전체 영상 프레임 연속검토와 동등하지 않음",
+        "프레임 시점은 정확한 화면 표시 시각이고 전사 개별 문장의 정확한 발언 시각은 아님",
+        "영상 자체 장면은 외부 이미지로 공개 복제하지 않고 watch_url의 해당 시점으로 참조"
+      ]
+    },
+    {
+      "source_id": "krx_etf",
+      "kind": "OFFICIAL_DOCUMENT",
+      "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp",
+      "retrieved_at": "2026-10-09",
+      "coverage": "PARTIAL",
+      "language": "ko",
+      "limitations": [
+        "KRX NAV/ETF시장가격 괴리율 설명",
+        "2026-10-09 현재 공개 자료에서 확인한 범위로 한정; 개별 거래 조건·세후 실효수익을 확정하지 않음"
+      ]
+    },
+    {
+      "source_id": "krx_risk",
+      "kind": "OFFICIAL_DOCUMENT",
+      "url": "https://m.krx.co.kr/contents/06/0609/060901/JHPETP060901M01.jsp",
+      "retrieved_at": "2026-10-09",
+      "coverage": "PARTIAL",
+      "language": "ko",
+      "limitations": [
+        "KRX ETF 주요 투자위험",
+        "2026-10-09 현재 공개 자료에서 확인한 범위로 한정; 개별 거래 조건·세후 실효수익을 확정하지 않음"
+      ]
+    },
+    {
+      "source_id": "syfund",
+      "kind": "OFFICIAL_DOCUMENT",
+      "url": "https://www.syfund.co.kr/fund/search/view/8970",
+      "retrieved_at": "2026-10-09",
+      "coverage": "PARTIAL",
+      "language": "ko",
+      "limitations": [
+        "신영자산운용 신영밸류고배당 주식형 펀드 공식 상품정보",
+        "2026-10-09 현재 공개 자료에서 확인한 범위로 한정; 개별 거래 조건·세후 실효수익을 확정하지 않음"
+      ]
+    },
+    {
+      "source_id": "samsung",
+      "kind": "OFFICIAL_DOCUMENT",
+      "url": "https://www.samsungfund.com/etf/product/list.do",
+      "retrieved_at": "2026-10-09",
+      "coverage": "PARTIAL",
+      "language": "ko",
+      "limitations": [
+        "삼성자산운용 KODEX 삼성그룹 102780 공식 상품목록",
+        "2026-10-09 현재 공개 자료에서 확인한 범위로 한정; 개별 거래 조건·세후 실효수익을 확정하지 않음"
+      ]
+    },
+    {
+      "source_id": "ace",
+      "kind": "OFFICIAL_DOCUMENT",
+      "url": "https://kind.krx.co.kr/disclosure/etfisudetail.do?method=searchEtfIsuSummary&strIsurCd=24571",
+      "retrieved_at": "2026-10-09",
+      "coverage": "PARTIAL",
+      "language": "ko",
+      "limitations": [
+        "한국거래소 KIND ACE 베트남VN30(합성) 245710",
+        "2026-10-09 현재 공개 자료에서 확인한 범위로 한정; 개별 거래 조건·세후 실효수익을 확정하지 않음"
+      ]
+    },
+    {
+      "source_id": "mirae",
+      "kind": "OFFICIAL_DOCUMENT",
+      "url": "https://securities.miraeasset.com/newir/view/pc/kr/about/newsView.jsp?seq=329",
+      "retrieved_at": "2026-10-09",
+      "coverage": "PARTIAL",
+      "language": "ko",
+      "limitations": [
+        "미래에셋증권 2021년 사명변경 추진 공식보도자료",
+        "2026-10-09 현재 공개 자료에서 확인한 범위로 한정; 개별 거래 조건·세후 실효수익을 확정하지 않음"
+      ]
+    },
+    {
+      "source_id": "bonds",
+      "kind": "OFFICIAL_DOCUMENT",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+      "retrieved_at": "2026-10-09",
+      "coverage": "PARTIAL",
+      "language": "en",
+      "limitations": [
+        "미국 SEC 채권의 이자·만기·가격 및 신용위험 교육자료",
+        "2026-10-09 현재 공개 자료에서 확인한 범위로 한정; 개별 거래 조건·세후 실효수익을 확정하지 않음"
+      ]
     }
   ],
   "claims": [
@@ -53,6 +152,16 @@
             "도입부: 실전 경험과 수익률보다 학습을 강조",
             "화면 검토 전"
           ]
+        },
+        {
+          "source_id": "video_frames",
+          "start_seconds": 110,
+          "end_seconds": 110,
+          "excerpt": null,
+          "limitations": [
+            "화면 근거: 소액 투자 학습 강조 영상",
+            "발언 타임코드가 아니라 실제 프레임/5초 스토리보드 장면의 시점임"
+          ]
         }
       ],
       "conditions": [
@@ -68,10 +177,10 @@
         "valid_until": null
       },
       "verification": {
-        "status": "OPEN",
-        "checked_at": null,
+        "status": "CONTEXT_CHECKED",
+        "checked_at": "2026-10-09",
         "official_source_ids": [],
-        "notes": "원문 전사에 근거한 발언 분류. 공식·상품 자료 독립 검증 전"
+        "notes": "영상 전사와 스토리보드의 교육목적 발언 및 영상 공식 설명을 확인. 화자 교육원칙을 법적 효력이나 수익률 보장으로 간주하지 않음."
       }
     },
     {
@@ -89,6 +198,16 @@
             "본론 초반: 다섯 가지 투자수단을 연속으로 소개",
             "화면 검토 전"
           ]
+        },
+        {
+          "source_id": "video_frames",
+          "start_seconds": 120,
+          "end_seconds": 120,
+          "excerpt": null,
+          "limitations": [
+            "화면 근거: 다섯 투자수단 안내 자막",
+            "발언 타임코드가 아니라 실제 프레임/5초 스토리보드 장면의 시점임"
+          ]
         }
       ],
       "conditions": [
@@ -104,10 +223,15 @@
         "valid_until": null
       },
       "verification": {
-        "status": "OPEN",
-        "checked_at": null,
-        "official_source_ids": [],
-        "notes": "원문 전사에 근거한 발언 분류. 공식·상품 자료 독립 검증 전"
+        "status": "CONTEXT_CHECKED",
+        "checked_at": "2026-10-09",
+        "official_source_ids": [
+          "syfund",
+          "samsung",
+          "ace",
+          "mirae"
+        ],
+        "notes": "영상에 5종 예시(주식형 펀드·삼성그룹 ETF·미래에셋대우 주식·대한항공 회사채·베트남 ETF)가 등장함을 원문/장면으로 확인. 현재 공식 1차자료로 펀드, 삼성그룹 ETF 102780, ACE 베트남 VN30 245710 및 미래에셋대우 사명변경 사실을 확인. 2019년 특정 대한항공 채권의 채권번호·만기·현재 유통여부는 확인되지 않아 현재 매수 후보로 인정하지 않음."
       }
     },
     {
@@ -125,6 +249,26 @@
             "첫 번째 펀드 예시와 두 번째 ETF 예시 설명",
             "화면 검토 전"
           ]
+        },
+        {
+          "source_id": "video_frames",
+          "start_seconds": 200,
+          "end_seconds": 200,
+          "excerpt": null,
+          "limitations": [
+            "화면 근거: 펀드 주문 화면",
+            "발언 타임코드가 아니라 실제 프레임/5초 스토리보드 장면의 시점임"
+          ]
+        },
+        {
+          "source_id": "video_frames",
+          "start_seconds": 250,
+          "end_seconds": 250,
+          "excerpt": null,
+          "limitations": [
+            "화면 근거: ETF 개념 및 시장화면",
+            "발언 타임코드가 아니라 실제 프레임/5초 스토리보드 장면의 시점임"
+          ]
         }
       ],
       "conditions": [
@@ -141,10 +285,14 @@
         "valid_until": null
       },
       "verification": {
-        "status": "OPEN",
-        "checked_at": null,
-        "official_source_ids": [],
-        "notes": "원문 전사에 근거한 발언 분류. 공식·상품 자료 독립 검증 전"
+        "status": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-09",
+        "official_source_ids": [
+          "krx_etf",
+          "krx_risk",
+          "syfund"
+        ],
+        "notes": "KRX ETF 가격/NAV·추적오차 및 투자위험 자료로 ETF 구조를 확인. 신영자산운용 공식 페이지로 원본의 배당주 주식형 펀드가 실제 별도 운용 상품임을 확인. 특정 펀드/ETF가 무조건 분산되고 안전하다는 의미는 아님."
       }
     },
     {
@@ -162,6 +310,16 @@
             "세 번째 주식 사례에서 시가총액과 주당 가격 관계를 논의",
             "화면 검토 전"
           ]
+        },
+        {
+          "source_id": "video_frames",
+          "start_seconds": 335,
+          "end_seconds": 335,
+          "excerpt": null,
+          "limitations": [
+            "화면 근거: 미래에셋대우 1주 7,520원 (2019.09.11) 화면",
+            "발언 타임코드가 아니라 실제 프레임/5초 스토리보드 장면의 시점임"
+          ]
         }
       ],
       "conditions": [
@@ -177,10 +335,12 @@
         "valid_until": null
       },
       "verification": {
-        "status": "OPEN",
-        "checked_at": null,
-        "official_source_ids": [],
-        "notes": "원문 전사에 근거한 발언 분류. 공식·상품 자료 독립 검증 전"
+        "status": "CONTEXT_CHECKED",
+        "checked_at": "2026-10-09",
+        "official_source_ids": [
+          "mirae"
+        ],
+        "notes": "영상 05:38(당시 2019-09-11) 미래에셋대우 1주 7,520원 화면을 직접 확인. 미래에셋증권 IR은 2021-03-09 '미래에셋증권으로 사명 변경 추진'이라고 공식 발표. 2019년 1주 가격이 기업가치 또는 2026년 현재 매수가격이 아님."
       }
     },
     {
@@ -198,6 +358,16 @@
             "네 번째 회사채 사례: 주식과 채권 역할, 이자, 만기 소개",
             "화면 검토 전"
           ]
+        },
+        {
+          "source_id": "video_frames",
+          "start_seconds": 445,
+          "end_seconds": 445,
+          "excerpt": null,
+          "limitations": [
+            "화면 근거: 국채, 공사채, 은행채, 회사채 등 채권 종류 자막",
+            "발언 타임코드가 아니라 실제 프레임/5초 스토리보드 장면의 시점임"
+          ]
         }
       ],
       "conditions": [
@@ -214,10 +384,12 @@
         "valid_until": null
       },
       "verification": {
-        "status": "OPEN",
-        "checked_at": null,
-        "official_source_ids": [],
-        "notes": "원문 전사에 근거한 발언 분류. 공식·상품 자료 독립 검증 전"
+        "status": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-09",
+        "official_source_ids": [
+          "bonds"
+        ],
+        "notes": "미국 SEC 채권 교육원문으로 이자지급 약정, 만기, 발행사 신용위험, 시중금리로 인한 중도 매도가격 변동 확인. 2019년 대한항공 채권의 구체 발행번호·만기·이자주기는 검증 안 됨; 미국 일반 채권원칙을 한국 채권 매매 규정으로 자동 대체하지 않음."
       }
     },
     {
@@ -235,6 +407,16 @@
             "다섯 번째 베트남 ETF 사례와 원화로 해외시장에 투자하는 설명",
             "화면 검토 전"
           ]
+        },
+        {
+          "source_id": "video_frames",
+          "start_seconds": 533,
+          "end_seconds": 533,
+          "excerpt": null,
+          "limitations": [
+            "화면 근거: KINDEX 베트남VN30 1개 13,505원 과거 사례",
+            "발언 타임코드가 아니라 실제 프레임/5초 스토리보드 장면의 시점임"
+          ]
         }
       ],
       "conditions": [
@@ -250,10 +432,13 @@
         "valid_until": null
       },
       "verification": {
-        "status": "OPEN",
-        "checked_at": null,
-        "official_source_ids": [],
-        "notes": "원문 전사에 근거한 발언 분류. 공식·상품 자료 독립 검증 전"
+        "status": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-09",
+        "official_source_ids": [
+          "ace",
+          "krx_etf"
+        ],
+        "notes": "한국거래소 KIND는 245710을 ACE 베트남VN30(합성), VN30 Index(PR) 추종, 합성 구조로 명시. 영상의 KINDEX 베트남VN30은 과거 명칭이며 화면에는 2019년 1개 13,505원. 현대 기준 신규 매수/과세/거래 비용은 증권사 최신 상품설명 확인 필요."
       }
     },
     {
@@ -271,6 +456,26 @@
             "각 투자수단 예시의 매수 단위/당시 가격 언급",
             "화면 검토 전"
           ]
+        },
+        {
+          "source_id": "video_frames",
+          "start_seconds": 335,
+          "end_seconds": 335,
+          "excerpt": null,
+          "limitations": [
+            "화면 근거: 2019년 주식 1주 7,520원 표기",
+            "발언 타임코드가 아니라 실제 프레임/5초 스토리보드 장면의 시점임"
+          ]
+        },
+        {
+          "source_id": "video_frames",
+          "start_seconds": 533,
+          "end_seconds": 533,
+          "excerpt": null,
+          "limitations": [
+            "화면 근거: 2019년 베트남 ETF 1개 13,505원 표기",
+            "발언 타임코드가 아니라 실제 프레임/5초 스토리보드 장면의 시점임"
+          ]
         }
       ],
       "conditions": [
@@ -287,16 +492,21 @@
         "valid_until": null
       },
       "verification": {
-        "status": "OPEN",
-        "checked_at": null,
-        "official_source_ids": [],
-        "notes": "원문 전사에 근거한 발언 분류. 공식·상품 자료 독립 검증 전"
+        "status": "CONTEXT_CHECKED",
+        "checked_at": "2026-10-09",
+        "official_source_ids": [
+          "syfund",
+          "samsung",
+          "ace",
+          "mirae"
+        ],
+        "notes": "2019년 가격 7,520원(미래에셋대우, 05:38), 13,505원(KINDEX 베트남VN30, 08:54)을 실제 영상 화면으로 검증. KODEX 삼성그룹 종목코드 102780 및 신영밸류고배당 주식형 펀드의 공식 상품 존재와 ACE 베트남VN30 245710의 2026 현재 공식 상품명 확인. 2019 가격을 2026 가격/매수한도로 옮기지 않음."
       }
     }
   ],
   "quality": {
     "transcript_coverage": "FULL",
-    "visual_review": "NOT_REVIEWED",
+    "visual_review": "PARTIAL",
     "requires_visual_review": true,
     "known_asr_issues": [
       "원본 제목의 만원과 자동전사 일부의 이만원 혼동",
@@ -307,7 +517,10 @@
       "원문 자동전사의 도입·펀드·ETF·주식·채권·해외 ETF·종결 구간을 모두 읽고 검토함",
       "전사 텍스트의 원문 발언과 일반적 교육원칙을 분리하였으며 2019년 가격을 현재 투자 지표로 사용하지 않음",
       "기존 V1~V3 기록과의 증거 비교는 후속 단계. 실제 모바일 매매화면과 상품 표는 보지 않았음",
-      "영상 전사 전체 및 긴 직접 인용은 저장하지 않음"
+      "영상 전사 전체 및 긴 직접 인용은 저장하지 않음",
+      "2026-10-09 YouTube 영상의 실제 재생 화면과 5초 간격 스토리보드(전체 지속시간 범위) 직접 접근 성공. 표시 시각 04:31, 05:38, 07:26, 08:54 고해상도 재생 프레임 검토.",
+      "전사 문장별 타임코드는 제공되지 않아 과거 speech 증거 타임코드 null 유지; 추가된 시간은 독립적으로 확인한 화면의 실제 시점(동일 발언 구간을 뜻하지 않음).",
+      "공식자료로 ETF 및 공모펀드 구조, 현행 상품명·코드와 채권 일반 리스크 검증; 역사적 특정 대한항공 채권 발행번호/만기 및 매매여부는 미확인으로 보존."
     ]
   },
   "relationships": [
@@ -329,10 +542,14 @@
   ],
   "decision_use": {
     "ready": false,
-    "scope": "2019년 초보자 대상 교육 콘텐츠의 투자수단 구분",
+    "scope": "2019년 초보자 투자교육 원칙의 검증된 개념만 적용; 당시 상품·가격을 2026 매수 지침으로 사용하지 않음",
     "constraints": [
       "현행 상장 여부·매수가격·세제·위험/비용은 다시 검증",
-      "실제 주문 화면을 검토하지 않았으므로 증권사 앱 조작 지침으로 사용 금지"
+      "실제 주문 화면을 검토하지 않았으므로 증권사 앱 조작 지침으로 사용 금지",
+      "실제 재생 영상 4시점 및 5초 스토리보드 전범위 샘플링으로 장면을 확인했지만 모든 프레임/발언 정밀 검토를 완료한 것은 아님",
+      "2019년 대한항공 회사채 발행번호·만기·현재 매매여부는 불명; 현재 해당 채권 매수 권고 금지",
+      "삼성그룹 ETF의 2019 당시 삼성전자 27% 화면은 현재 구성비를 의미하지 않음",
+      "베트남 ETF는 현재 ACE 베트남VN30(합성) 245710. 합성 스왑 구조와 추가 위험을 반영해야 함"
     ],
     "requires_current_recheck": true,
     "risks": [

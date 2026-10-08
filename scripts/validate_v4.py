@@ -113,6 +113,14 @@ def audit_analysis(doc, roster, schema, filename=None):
             err.append("decision-ready current rule remains unverified")
     if level >= 3 and checked == 0:
         err.append("VERIFIED requires at least one dated primary-source check")
+    if level >= 3:
+        for c in claims:
+            state = c.get("verification", {}).get("status")
+            if state == "OPEN":
+                err.append("VERIFIED cannot contain an OPEN claim: " + str(c.get("claim_id")))
+            if state == "CONTEXT_CHECKED" and (not c.get("verification", {}).get("notes") or
+                    c.get("claim_type") in ("CURRENT_RULE", "PRODUCT_FEATURE")):
+                err.append("CONTEXT_CHECKED cannot approve current rule/product")
     if level >= 4 and not doc.get("relationships"):
         err.append("SYNTHESIZED requires prior-knowledge relationship")
     use = doc.get("decision_use", {})
