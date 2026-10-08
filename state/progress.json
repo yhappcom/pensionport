@@ -14,26 +14,24 @@
     "base_unique_video_ids": 157,
     "base_max_canonical_ordinal": 157,
     "base_sequence_gaps": [],
-    "non_base_event_overlay_count": 6,
-    "effective_unique_canonical": 163,
-    "roster_canonical_long_form": 151,
+    "non_base_event_overlay_count": 69,
+    "effective_unique_canonical": 226,
+    "roster_canonical_long_form": 214,
     "legacy_canonical_outside_roster": 12,
-    "roster_long_form_remaining": 552,
-    "max_event_sequence": 165,
-    "next_event_sequence": 166,
+    "roster_long_form_remaining": 489,
+    "max_event_sequence": 228,
+    "next_event_sequence": 229,
     "event_reconciliation_file": "data/canonical_event_reconciliation.json",
     "checkpoint_basis": "effective_unique_canonical",
-    "next_checkpoint": 170,
-    "new_unique_videos_to_checkpoint": 7
+    "next_checkpoint": 230,
+    "new_unique_videos_to_checkpoint": 4
   },
   "content_analysis_lane": {
     "max_new_videos_per_run": 40,
     "candidate_basis": "roster long-form minus effective canonical minus durable pending-sync",
     "stop_on_github_write_failure": false,
-    "persistence_mode": "immutable artifact+event; aggregate caches frozen during scheduled runs",
-    "reanalysis_required_ids": [
-      "SjKNXdqCXqc"
-    ]
+    "persistence_mode": "lease-first → source-backed artifact → immutable event; aggregate caches read-only",
+    "reanalysis_required_ids": []
   },
   "canonical_sync_lane": {
     "durable_pending_sync_count": 0,
@@ -50,20 +48,21 @@
     "single_writer_lock": "state/execution_lock.json",
     "lease_minutes": 45,
     "lock_required_before_canonical_write": true,
-    "run_ledger": "state/run_events"
+    "run_ledger": "state/run_events",
+    "lock_required_before_source_acquisition": true
   },
   "fast_path": {
     "active": true,
     "workflow_marker": "2026-10-07 ROSTER FAST PATH — ACTIVE",
-    "aggregate_compaction": "disabled_for_scheduled_runs",
+    "aggregate_compaction": "disabled_for_scheduled_and_manual_content_runs",
     "full_transcript_storage": false,
     "aggregate_cache_mode": "frozen_base_plus_event_overlay"
   },
   "last_run": {
-    "run_id": "scheduled-20261008-060550",
-    "result": "success",
-    "newly_analyzed_count": 1,
+    "run_id": "manual-20261008-125649-content-smoketest",
+    "result": "source_availability_checked_workflow_repaired_progress_reconciled",
+    "newly_analyzed_count": 0,
     "write_failure": false,
-    "write_failure_detail": null
+    "notes": "5 exact YouTube pages reached but no full transcript extracted; do not claim source-backed canonical analysis from titles/chapters."
   }
 }
