@@ -29,7 +29,7 @@
 
 - [02:39](https://www.youtube.com/watch?v=oxMpNgnbISw&t=159s): 주식·채권·금·달러 등 자산을 목표 비중으로 나누는 자산배분의 정의. 미국 SEC 투자자교육과 기본 방향 일치.
 - [03:46](https://www.youtube.com/watch?v=oxMpNgnbISw&t=226s): 자산배분이 성과의 90% 이상을 결정한다는 식의 연구 인용은 **원 연구의 지표·해석 추가 검증 필요**.
-- [06:02](https://www.youtube.com/watch?v=oxMpNgnbISw&t=362s): 국민연금 2026년 5월말 비중·자산 규모는 출처와 기준일 검증 전까지 현재 수치로 사용 금지.
+- [06:02](https://www.youtube.com/watch?v=oxMpNgnbISw&t=362s): 국민연금 2026년 5월말 적립금 1,848.7조원, 해외주식 35.2%, 국내주식 29.4%, 국내채권 15.7%, 해외채권 5.8%는 국민연금기금운용본부 자료와 대조 확인. **2026년 5월 당시 스냅샷**이며 현재 수치로 사용 금지.
 - [15:19](https://www.youtube.com/watch?v=oxMpNgnbISw&t=919s): 주식60/채권40 예시.
 - [16:52](https://www.youtube.com/watch?v=oxMpNgnbISw&t=1012s): 주식·채권·금·달러 각25%의 강의상 '영구 포트폴리오' 예시.
 - [22:05](https://www.youtube.com/watch?v=oxMpNgnbISw&t=1325s): 채권30·달러20·금10·배당주10·리츠10·국내주식10·해외주식10%의 강사 포트폴리오 사례.
@@ -59,6 +59,7 @@
 - 국세청, 연금계좌 세액공제: https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439
 - 한국은행, 2026년 9월 통화신용정책보고서: https://www.bok.or.kr/portal/bbs/B0000156/view.do?nttId=11064613&menuNo=200754
 - KB증권, CMA·RP·발행어음 및 예금자보호 안내: https://blog.kbsec.com/cma/발행어음-rp-cma-예금자보호/
+- 국민연금기금운용본부, 2026년 5월 말 기금적립금·포트폴리오: https://fund.nps.or.kr/main.do
 - 미국 SEC Investor.gov, Asset Allocation and Diversification: https://www.investor.gov/introduction-investing/getting-started/asset-allocation
 - SEC Investor.gov, Beginners’ Guide to Asset Allocation and Rebalancing: https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset
 
