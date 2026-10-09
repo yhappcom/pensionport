@@ -1,0 +1,372 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-10-09",
+  "roster_snapshot": "2026-10-07",
+  "dataset_status": "PILOT_SOURCE_REVIEW_DRAFT",
+  "reviewed_video_count": 3,
+  "claim_review_count": 28,
+  "disclaimer": "User-provided SRT auto-caption paraphrases are not verbatim audio verification. Selected official facts were crosschecked, not a complete financial legal audit. These records do not upgrade V3 canonical completion or educational approval.",
+  "videos": [
+    {
+      "roster_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "title": "투자 시작하려면, 뭐부터 해야 하나요? | 투자전략 끝판왕 실전편",
+      "subtitle_sha256": "a59b2fd424011c3f572aa52404411ff4ea435f6dd1e7e27e4f5c9e11f7218b72",
+      "evidence_base": "2026-10-09 user-uploaded timecoded SRT; direct original audio and all video frames not independently reviewed",
+      "review_stage": "SOURCE_GROUNDED_DRAFT",
+      "verification_stage": "PARTIAL_OFFICIAL_CROSSCHECK",
+      "educational_approval": "PENDING",
+      "not_canonical_analysis_complete": true,
+      "claims": [
+        {
+          "claim_id": "6VEfKF7BzZU-R01",
+          "timecode": "00:04:55",
+          "watch_url": "https://www.youtube.com/watch?v=6VEfKF7BzZU&t=295s",
+          "source_paraphrase": "초년생에게 CMA·ISA·연금저축을 개설해 현금·목돈·노후 목적을 나누는 구성을 제안한다.",
+          "assessment": "유용한 설계 사례이나 모두에게 필수인 계좌 조합은 아니다. ISA 중도인출·투자기간·연금저축 세제 적용은 개인 조건에 따라 다르다.",
+          "assessment_status": "OPINION_WITH_CONDITIONS",
+          "official_refs": [],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-R02",
+          "timecode": "00:06:41",
+          "watch_url": "https://www.youtube.com/watch?v=6VEfKF7BzZU&t=401s",
+          "source_paraphrase": "패시브·연금계좌는 기본, 위탁계좌의 개별주식 액티브는 선택으로 설명한다.",
+          "assessment": "강사의 전략적 의견이다. 특정 투자 접근의 법적 의무 또는 모든 투자자에게 적합한 권고로 일반화하지 않는다.",
+          "assessment_status": "OPINION_WITH_CONDITIONS",
+          "official_refs": [],
+          "priority": "LOW"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-R03",
+          "timecode": "00:10:46",
+          "watch_url": "https://www.youtube.com/watch?v=6VEfKF7BzZU&t=646s",
+          "source_paraphrase": "영상에서 2026년 9월 기준 한국은행 기준금리를 연 3%로 소개한다.",
+          "assessment": "한국은행 2026년 9월 보고서의 3.00%와 일치한다. 특정 시점 수치로만 유지한다.",
+          "assessment_status": "TIME_BOUNDED_VERIFIED",
+          "official_refs": [
+            "https://www.bok.or.kr/portal/bbs/B0000156/view.do?depth=200754&menuNo=200754&nttId=11064613&oldMenuNo=201150&programType=newsData&relate=YBank"
+          ],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-R04",
+          "timecode": "00:12:11",
+          "watch_url": "https://www.youtube.com/watch?v=6VEfKF7BzZU&t=731s",
+          "source_paraphrase": "은행 보통예금 저금리와 CMA 수익률을 비교하고 CMA 활용을 권한다.",
+          "assessment": "비교 당시 금리는 조건과 상품에 종속된다. CMA와 은행 예금의 법적 보호, 신용위험 및 수익률 구조를 혼동하지 않는다.",
+          "assessment_status": "QUALIFIED_BY_OFFICIAL_INFO",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "HIGH"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-R05",
+          "timecode": "00:20:17",
+          "watch_url": "https://www.youtube.com/watch?v=6VEfKF7BzZU&t=1217s",
+          "source_paraphrase": "S&P500·나스닥100·KOSPI200 ETF를 적립식 투자 예시로 든다.",
+          "assessment": "예시이며 기대수익·원금 보장이나 투자 적합성을 뒷받침하지 않는다.",
+          "assessment_status": "EXAMPLE_NOT_RECOMMENDATION",
+          "official_refs": [],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-R06",
+          "timecode": "00:24:11",
+          "watch_url": "https://www.youtube.com/watch?v=6VEfKF7BzZU&t=1451s",
+          "source_paraphrase": "ISA 연간 2,000만원, 연금계좌 납입 계획을 언급하며 정기적으로 납입하는 방법을 설명한다.",
+          "assessment": "세액공제 한도와 계좌 납입가능액은 별도. 2026년 국세청 연금저축 600만원·IRP 포함 900만원 세액공제 기본한도와 구분해야 한다.",
+          "assessment_status": "PARTLY_VERIFIED_LEGAL_DISTINCTION",
+          "official_refs": [
+            "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+          ],
+          "priority": "HIGH"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-R07",
+          "timecode": "00:25:48",
+          "watch_url": "https://www.youtube.com/watch?v=6VEfKF7BzZU&t=1548s",
+          "source_paraphrase": "배당금을 같은 종목에 재투자하며 장기 보유의 복리효과를 설명한다.",
+          "assessment": "재투자의 개념은 타당하지만 배당은 확정 수익이 아니며 재투자 매수시점·종목 집중위험이 남는다.",
+          "assessment_status": "FOUNDATIONAL_WITH_QUALIFIER",
+          "official_refs": [],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-R08",
+          "timecode": "00:28:00",
+          "watch_url": "https://www.youtube.com/watch?v=6VEfKF7BzZU&t=1680s",
+          "source_paraphrase": "연금저축 같은 계좌 선택과 반도체 같은 투자대상 선택은 층위가 다른 결정임을 설명한다.",
+          "assessment": "이 구별은 타당하다. 계좌별 매매 가능 자산과 과세 조건은 별도로 검토한다.",
+          "assessment_status": "FOUNDATIONAL",
+          "official_refs": [],
+          "priority": "LOW"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-R09",
+          "timecode": "00:36:19",
+          "watch_url": "https://www.youtube.com/watch?v=6VEfKF7BzZU&t=2179s",
+          "source_paraphrase": "패시브와 액티브, 주도주와 가치주 간 비중을 예시적으로 반씩 나누는 접근을 제안한다.",
+          "assessment": "강사 제안일 뿐 일반적인 최적 비중을 뒷받침하는 검증 자료는 없음. 개인 위험성향에 맞춘 자산배분과 혼동 금지.",
+          "assessment_status": "PERSONAL_VIEW_UNVERIFIED",
+          "official_refs": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ],
+          "priority": "HIGH"
+        }
+      ],
+      "summary": "투자계좌의 역할 분리 및 현금흐름 관리가 중심. 고정 비중·개인화하지 않은 투자 권고와 법정 한도는 승인하지 않음."
+    },
+    {
+      "roster_no": 28,
+      "video_id": "oxMpNgnbISw",
+      "title": "자산배분 사용설명서 ver2026",
+      "subtitle_sha256": "2b4d97cb9f3de56ad1807aec695d271dff08f2ebd405e6a2f725a1cb55de2ac9",
+      "evidence_base": "2026-10-09 user-uploaded timecoded SRT; direct original audio and all video frames not independently reviewed",
+      "review_stage": "SOURCE_GROUNDED_DRAFT",
+      "verification_stage": "PARTIAL_OFFICIAL_CROSSCHECK",
+      "educational_approval": "PENDING",
+      "not_canonical_analysis_complete": true,
+      "claims": [
+        {
+          "claim_id": "oxMpNgnbISw-R01",
+          "timecode": "00:02:39",
+          "watch_url": "https://www.youtube.com/watch?v=oxMpNgnbISw&t=159s",
+          "source_paraphrase": "주식·채권·금·달러 등 성격이 다른 자산에 목표 비중을 정해 투자하는 것을 자산배분이라 설명한다.",
+          "assessment": "금융 기초 개념은 외부 투자자 교육자료와 일치. 분산으로 손실이나 변동성이 사라지는 것은 아니다.",
+          "assessment_status": "FOUNDATIONAL_VERIFIED",
+          "official_refs": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ],
+          "priority": "LOW"
+        },
+        {
+          "claim_id": "oxMpNgnbISw-R02",
+          "timecode": "00:03:46",
+          "watch_url": "https://www.youtube.com/watch?v=oxMpNgnbISw&t=226s",
+          "source_paraphrase": "자산 배분이 수익률에 90% 이상 영향을 미친다고 특정 연구를 인용한다.",
+          "assessment": "원연구의 평가 지표·해석을 독립 확인하지 않았다. 개별 투자 수익률의 90%를 자산배분이 결정한다고 저장하지 않는다.",
+          "assessment_status": "HISTORICAL_STUDY_UNVERIFIED",
+          "official_refs": [],
+          "priority": "HIGH"
+        },
+        {
+          "claim_id": "oxMpNgnbISw-R03",
+          "timecode": "00:06:02",
+          "watch_url": "https://www.youtube.com/watch?v=oxMpNgnbISw&t=362s",
+          "source_paraphrase": "2026년 5월 말 국민연금 자산 규모·국내외 주식과 채권 비중을 제시한다.",
+          "assessment": "국민연금기금운용본부 공개자료에서 2026-05 말 적립금 1,848.7조원과 자산별 비중(해외주식 35.2%, 국내주식 29.4%, 국내채권 15.7%, 해외채권 5.8%)을 확인했다. 강의의 반올림 비중과 부합한다. 이 수치는 2026-05 기준이지 최신 비중이 아니다.",
+          "assessment_status": "HISTORICAL_SNAPSHOT_VERIFIED",
+          "official_refs": [
+            "https://fund.nps.or.kr/main.do"
+          ],
+          "priority": "HIGH"
+        },
+        {
+          "claim_id": "oxMpNgnbISw-R04",
+          "timecode": "00:08:06",
+          "watch_url": "https://www.youtube.com/watch?v=oxMpNgnbISw&t=486s",
+          "source_paraphrase": "경기·물가 국면에 따라 주식·채권·금·원자재의 상대적 움직임이 달라질 수 있다고 설명한다.",
+          "assessment": "시장 환경에 따른 분산 논리 설명이나 어느 국면에서 항상 같은 자산이 오른다는 보장은 없다.",
+          "assessment_status": "FOUNDATIONAL_WITH_QUALIFIER",
+          "official_refs": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "oxMpNgnbISw-R05",
+          "timecode": "00:12:16",
+          "watch_url": "https://www.youtube.com/watch?v=oxMpNgnbISw&t=736s",
+          "source_paraphrase": "주식 단일자산보다 기대수익률이 낮을 수 있고, 자산배분도 불리한 미래가 있다고 인정한다.",
+          "assessment": "자산의 비중·기간·위험에 따라 차이가 있으며 모든 시기에 특정 포트폴리오가 열위라고 일반화하지 않는다.",
+          "assessment_status": "OPINION_WITH_CONDITIONS",
+          "official_refs": [
+            "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+          ],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "oxMpNgnbISw-R06",
+          "timecode": "00:15:19",
+          "watch_url": "https://www.youtube.com/watch?v=oxMpNgnbISw&t=919s",
+          "source_paraphrase": "주식 60% 채권 40% 포트폴리오 예시를 제시한다.",
+          "assessment": "널리 알려진 모델 사례로 보존. 위험·적합성은 투자기간, 통화, 채권 듀레이션 등 조건 검토 필요.",
+          "assessment_status": "EXAMPLE_NOT_RECOMMENDATION",
+          "official_refs": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "oxMpNgnbISw-R07",
+          "timecode": "00:16:52",
+          "watch_url": "https://www.youtube.com/watch?v=oxMpNgnbISw&t=1012s",
+          "source_paraphrase": "주식·채권·금·달러를 각각 25%씩 배분하는 예시를 소개한다.",
+          "assessment": "영상에서는 달러로 소개함; 일반화된 모든 Permanent Portfolio 정의나 최적 비중으로 단정하지 않는다.",
+          "assessment_status": "SOURCE_SPECIFIC_EXAMPLE",
+          "official_refs": [],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "oxMpNgnbISw-R08",
+          "timecode": "00:22:05",
+          "watch_url": "https://www.youtube.com/watch?v=oxMpNgnbISw&t=1325s",
+          "source_paraphrase": "채권30%, 달러20%, 금10%, 배당주10%, 리츠10%, 국내주식10%, 해외주식10%의 구성 예시를 설명한다.",
+          "assessment": "영상 속 설계 사례로 보존. 원금보장이나 장기 수익률 우월성을 검증한 것은 아니다.",
+          "assessment_status": "SOURCE_SPECIFIC_EXAMPLE",
+          "official_refs": [],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "oxMpNgnbISw-R09",
+          "timecode": "00:24:25",
+          "watch_url": "https://www.youtube.com/watch?v=oxMpNgnbISw&t=1465s",
+          "source_paraphrase": "목표 비중에서 벗어난 자산 비중을 조정하며 연 1회 리밸런싱을 권한다.",
+          "assessment": "리밸런싱 정의는 공식 투자자 교육자료와 일치. 다만 연 1회는 가능한 규칙 중 하나이며 거래비용·세금·현금 유입을 고려해야 한다.",
+          "assessment_status": "FOUNDATIONAL_VERIFIED_WITH_CONDITIONS",
+          "official_refs": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+            "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+          ],
+          "priority": "MEDIUM"
+        }
+      ],
+      "summary": "다수의 자산배분 예시와 리밸런싱 설명을 확보. 국민연금·브린슨 연구의 정량적 해석과 포트폴리오의 우월성은 미검증."
+    },
+    {
+      "roster_no": 36,
+      "video_id": "cSNjKKdtp6M",
+      "title": "CMA 사용설명서 ver2026",
+      "subtitle_sha256": "b3911d8b1d2abf286bd0cbf7f08b359e1fa2152c2bc74da54f089480c7d75e3a",
+      "evidence_base": "2026-10-09 user-uploaded timecoded SRT; direct original audio and all video frames not independently reviewed",
+      "review_stage": "SOURCE_GROUNDED_DRAFT",
+      "verification_stage": "PARTIAL_OFFICIAL_CROSSCHECK",
+      "educational_approval": "PENDING",
+      "not_canonical_analysis_complete": true,
+      "claims": [
+        {
+          "claim_id": "cSNjKKdtp6M-R01",
+          "timecode": "00:01:18",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=78s",
+          "source_paraphrase": "일복리 또는 일별 이자 지급 형태의 CMA 유형을 예시로 설명한다.",
+          "assessment": "모든 CMA가 동일한 일복리·지급주기를 제공하지 않는다. 상품 약관과 실제 이자 지급 시점 확인 필요.",
+          "assessment_status": "PRODUCT_DEPENDENT",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "MEDIUM"
+        },
+        {
+          "claim_id": "cSNjKKdtp6M-R02",
+          "timecode": "00:03:44",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=224s",
+          "source_paraphrase": "은행 예금자보호 한도와 증권사 CMA의 별도 재산관리 구조를 비교한다.",
+          "assessment": "예금자보호 한도 1억원은 보호대상 예금에 적용. 증권사 CMA 일반형과 종금형은 보호 여부가 다르다.",
+          "assessment_status": "QUALIFIED_BY_OFFICIAL_INFO",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "HIGH"
+        },
+        {
+          "claim_id": "cSNjKKdtp6M-R03",
+          "timecode": "00:04:21",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=261s",
+          "source_paraphrase": "증권사 자산의 분리보관 구조 때문에 예금자보호가 사실상 필요 없다는 취지의 안심 설명이 나온다.",
+          "assessment": "별도 예탁·수탁과 투자상품의 원리금·발행사 신용위험은 서로 다른 문제. 일반 증권사 CMA의 예금자보호 불가를 무시하면 안 된다.",
+          "assessment_status": "OVERGENERALIZED_SAFETY_CLAIM",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "CRITICAL"
+        },
+        {
+          "claim_id": "cSNjKKdtp6M-R04",
+          "timecode": "00:05:45",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=345s",
+          "source_paraphrase": "RP형 CMA에 우량채권 담보가 있으므로 증권사·채권이 모두 망해야만 손실이 난다는 취지의 설명을 한다.",
+          "assessment": "담보는 위험을 줄일 수 있지만 가격·유동성·법률/상대방 위험을 모두 제거한다는 증거는 없음. 보장 문구로 사용 금지.",
+          "assessment_status": "OVERGENERALIZED_SAFETY_CLAIM",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "CRITICAL"
+        },
+        {
+          "claim_id": "cSNjKKdtp6M-R05",
+          "timecode": "00:06:07",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=367s",
+          "source_paraphrase": "MMF형 CMA는 단기금융시장에 투자하는 펀드이고 단기시장에 큰 문제가 생기지 않을 것이라고 설명한다.",
+          "assessment": "MMF는 예금보험 대상이 아니며 펀드 손실·유동성 위험이 존재할 수 있다. '망가지지 않는다'는 단정 배제.",
+          "assessment_status": "OVERGENERALIZED_SAFETY_CLAIM",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "HIGH"
+        },
+        {
+          "claim_id": "cSNjKKdtp6M-R06",
+          "timecode": "00:07:04",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=424s",
+          "source_paraphrase": "증권사의 발행어음을 이용하며 RP형과 달리 담보 없이 증권사 신용에 의존하는 방식을 설명한다.",
+          "assessment": "발행사 신용위험·예금보험 미대상이라는 점은 공식 상품 안내와 부합한다. 반드시 높은 수익률을 제공한다는 보장은 없다.",
+          "assessment_status": "FOUNDATIONAL_WITH_QUALIFIER",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "HIGH"
+        },
+        {
+          "claim_id": "cSNjKKdtp6M-R07",
+          "timecode": "00:08:06",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=486s",
+          "source_paraphrase": "MMW가 다른 유형보다 더 안전하면서 금리가 높고 대면 전환이 필요하다고 설명한다.",
+          "assessment": "모든 증권사/시점에 성립하는 사실로 확인되지 않았다. MMW·랩형의 운용/보호/계좌 전환 조건은 상품별 확인 필요.",
+          "assessment_status": "TIME_SENSITIVE_UNVERIFIED",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "HIGH"
+        },
+        {
+          "claim_id": "cSNjKKdtp6M-R08",
+          "timecode": "00:09:36",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=576s",
+          "source_paraphrase": "2026년 7월 22일 기준 증권사 유형별 금리 비교표가 제시된다고 설명한다.",
+          "assessment": "화면 표 자체는 검토하지 않았으며 2026-07-22의 역사적 비교치로만 취급. 현재 금리로 옮기지 않는다.",
+          "assessment_status": "SCREEN_NOT_VERIFIED",
+          "official_refs": [],
+          "priority": "HIGH"
+        },
+        {
+          "claim_id": "cSNjKKdtp6M-R09",
+          "timecode": "00:10:27",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=627s",
+          "source_paraphrase": "일반 투자자에게 RP형 대신 발행어음형으로 전환하는 것을 권한다.",
+          "assessment": "발행어음형은 신용위험과 예금보호 미대상을 수반하므로 자동 최적 선택/무위험 개선으로 승인할 수 없다.",
+          "assessment_status": "ACTIONABLE_GUIDANCE_NOT_APPROVED",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "CRITICAL"
+        },
+        {
+          "claim_id": "cSNjKKdtp6M-R10",
+          "timecode": "00:11:03",
+          "watch_url": "https://www.youtube.com/watch?v=cSNjKKdtp6M&t=663s",
+          "source_paraphrase": "증권사 지점을 방문해 MMW형으로 변경하면 유리하다는 제안을 한다.",
+          "assessment": "개설/전환 가능 여부, 우대금리, 지급방식, 현금화 조건이 회사별로 다름. 확인 전 권고 보류.",
+          "assessment_status": "ACTIONABLE_GUIDANCE_NOT_APPROVED",
+          "official_refs": [
+            "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+          ],
+          "priority": "HIGH"
+        }
+      ],
+      "summary": "계좌 유형 비교를 학습할 수 있지만 안전성 단정과 일괄 전환 권고는 별도로 경고해야 함. CMA를 원리금보장형 은행 예금과 동일시하면 안 됨."
+    }
+  ]
+}

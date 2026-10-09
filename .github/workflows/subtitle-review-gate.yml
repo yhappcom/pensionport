@@ -1,0 +1,68 @@
+name: Subtitle evidence review gate
+
+on:
+  push:
+    branches:
+      - feat/subtitles-incremental-registry-20261009
+    paths:
+      - "data/subtitles/**"
+      - "data/analysis_events/**"
+      - "scripts/audit_subtitle_review_gate.py"
+      - ".github/workflows/subtitle-review-gate.yml"
+      - "WORKFLOW.md"
+  pull_request:
+    paths:
+      - "data/subtitles/**"
+      - "data/analysis_events/**"
+      - "scripts/audit_subtitle_review_gate.py"
+      - ".github/workflows/subtitle-review-gate.yml"
+      - "WORKFLOW.md"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Audit evidence/provenance without approval inflation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Compile and test read-only audit tool
+        run: |
+          python -m py_compile scripts/audit_subtitle_review_gate.py
+          python scripts/audit_subtitle_review_gate.py --self-test
+      - name: Recalculate draft statistics and blockers
+        run: |
+          python scripts/audit_subtitle_review_gate.py --root . --full-queue > "${RUNNER_TEMP}/subtitle-review-audit.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          x = json.loads((Path(os.environ["RUNNER_TEMP"]) / "subtitle-review-audit.json").read_text())
+          s = x["summary"]
+          assert s["roster_count"] == 791, s
+          assert not s["errors"], s["errors"]
+          assert all(item["status"] == "BLOCKED_REVIEW_DRAFT" or item["status"] == "PROMOTION_ELIGIBLE" for item in x["priority_review_queue"])
+          print("Draft videos:", s["draft_video_count"])
+          print("Draft claims:", s["draft_claim_count"])
+          print("Promotion eligible:", s["pilot_promotion_eligible"])
+          print("Historical manually maintained progress is stale:", s["historical_snapshot_is_stale"])
+          PY
+      - name: Reject promotion of new incomplete canonical analyses
+        shell: bash
+        run: |
+          git diff --name-only --diff-filter=A origin/main...HEAD -- 'data/analysis_events/*.json' > "${RUNNER_TEMP}/new-canonical.txt"
+          while IFS= read -r candidate; do
+            [ -z "$candidate" ] && continue
+            python scripts/audit_subtitle_review_gate.py --root . --check-candidate "$candidate" > "${RUNNER_TEMP}/candidate.json"
+            python -c 'import json,sys; d=json.load(open(sys.argv[1])); v=d["canonical_candidate_decision"]; print(sys.argv[2],v); sys.exit(0 if v["eligible"] else 1)' "${RUNNER_TEMP}/candidate.json" "$candidate"
+          done < "${RUNNER_TEMP}/new-canonical.txt"
+      - name: Preserve audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: subtitle-review-audit
+          path: ${{ runner.temp }}/subtitle-review-audit.json
+          if-no-files-found: ignore
+          retention-days: 14
