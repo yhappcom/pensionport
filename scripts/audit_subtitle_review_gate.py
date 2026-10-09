@@ -18,7 +18,7 @@ import tempfile
 from pathlib import Path
 
 YT_ID = re.compile(r"^[A-Za-z0-9_-]{11}$")
-DATE = re.compile(r"^\\d{4}-\\d{2}-\\d{2}$")
+DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 URL = re.compile(r"^https://(www\\.)?(youtube\\.com/watch\\?v=|youtu\\.be/)")
 DYNAMIC = re.compile(
     r"세금|세율|세액|비과세|분리과세|연금|증여|ISA|IRP|과세|원금|보장|"
