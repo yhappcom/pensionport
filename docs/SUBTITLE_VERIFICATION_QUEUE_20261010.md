@@ -6,10 +6,10 @@
 
 - `data/subtitles/pilots/<video_id>.json` 실제 존재: **25개**, 중복 없이 주장 **257개**.
 - 사용자 SRT 기반 초안 **15편**(`S`), 별도 공개 한국어 자동전사 기반 초안 **10편**(`A`). `S` 표시는 **해시로 식별된 원본이 과거 수집되었다**는 뜻이며, 현재 검증 실행에서 **그 원문 바이트를 읽어 타 전사와 대조했다는 뜻이 아님**.
-- 2026-10-10 현재 신규 최종 V3 분석 `data/analysis_events/aWBZ3tBuODs.json` **1편**; 관련 초안은 기존 상태 `NOT_APPROVED`로 보존.
-- 초안 단계에서 **승격 조건을 충족해 독립 검증을 거친 영상은 68번 1편**, 나머지 **24편 보류**. 기존 24편에는 주장별 `verification_evidence` 필드가 없고, `source_audit`도 없음.
+- 2026-10-10 현재 신규 최종 V3 분석 **2편**: `data/analysis_events/aWBZ3tBuODs.json` 및 `data/analysis_events/Yb_5prWaqhk.json`. 관련 초안은 기존 상태 `NOT_APPROVED`로 보존.
+- 초안 단계에서 **승격 조건을 충족해 독립 검증을 거친 영상은 68·58번 2편**, 나머지 **23편 보류**. 기존 23편에는 주장별 `verification_evidence` 필드가 없고, `source_audit`도 없음.
 - 70편의 키워드 색인/형식 검증은 다른 상태임. `data/subtitles/review_progress_001_070.json`에 기록된 **13편·113개**는 오래된 스냅샷으로, 현재 수치로 **사용 금지**.
-- `data/analysis_events` 레거시 파일 **74편 + 신규 1편**은 전체 저장 파일 수이며, 이 수를 별도 V3 신규 검증·승인 수로 사용하지 않는다.
+- `data/analysis_events` 레거시 파일 **74편 + 신규 2편**은 전체 저장 파일 수이며, 이 수를 별도 V3 신규 검증·승인 수로 사용하지 않는다.
 - **단일 현재 계수기:** `python scripts/audit_subtitle_review_gate.py --root . --full-queue`. 아래 표는 그 실행에서 확인한 25개 파일에 대한 **시점 고정 작업 대기열**이며, 신규 커밋 시 스크립트의 실시간 산출을 우선한다.
 
 ## 파일별 대기열 및 공식 검증 대상
@@ -17,7 +17,7 @@
 | 로스터 | 영상 ID | 주제 | 주장 수 | 출처 | 결과 | 남은 독립 검증 대상 |
 |---:|---|---|---:|:---:|---|---|
 | 68 | `aWBZ3tBuODs` | ETF 베이직 #1: 개념·거래·위험 | 9 | S | 최종 기록 생성 | 완료: 전사 전체·KRX/SEC 대조, 50억원 상폐 문구 수정 |
-| 58 | `Yb_5prWaqhk` | ETF 베이직 #5: 상장폐지 | 8 | S | 검증 보류 | KRX 상장폐지 단계 및 청산대금 |
+| 58 | `Yb_5prWaqhk` | ETF 베이직 #5: 상장폐지 | 8 | S | 최종 기록 생성 | 완료: 전체 자동전사·KRX 상폐 및 자본시장법 수탁/격리 검증, 무위험 단정 정정 |
 | 63 | `LVE7XN_esTc` | ETF 베이직 #3: ETF 선정 기준 | 9 | S | 검증 보류 | KRX ETF 추적오차·NAV·총보수·괴리 |
 | 66 | `k9O79HeMOp0` | ETF 베이직 #2: ETF 종류 | 9 | S | 검증 보류 | 레버리지·합성·지수 및 위험별 KRX/금융위 |
 | 61 | `7RRWNL0V6As` | ETF 베이직 #4: 분배금 | 8 | S | 검증 보류 | 분배금과 NAV/총수익의 관계·운용사 |
@@ -44,7 +44,7 @@
 
 `S`: 당시 수집된 사용자 제공 자동 SRT 기반 초안. `A`: 제3자 공개 자동전사와 대략적 타임코드 기반 초안.
 
-표 순서: 현재 조사 효율과 위험도 기준. 68번을 완료 처리한 다음, ETF 기초의 **58→63→66→61**을 우선 검토하고 법률·세제 설명은 공식 조문 시행일을 별도 대조한다. 이 순서는 실제 분석 승인 순서를 강제하지 않는다.
+표 순서: 현재 조사 효율과 위험도 기준. 68·58번을 완료 처리한 다음, ETF 기초의 **63→66→61**을 우선 검토하고 법률·세제 설명은 공식 조문 시행일을 별도 대조한다. 이 순서는 실제 분석 승인 순서를 강제하지 않는다.
 
 ## 승격 문턱
 
@@ -62,3 +62,10 @@
 - SEC [ETF 원리·괴리·비용·위험](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24).
 - 교정: 원본 발언의 '50억원 하회 = 즉시 상장폐지' 암시는 부정확. 공식 요건에는 관리종목 지정 및 **다음 반기말 미달 지속 여부** 등의 단계가 있다.
 - 잔여 한계: 사용자 SRT 원본 바이트 vs 공개 전사 불일치 여부 미검증, 영상 프레임 미열람, 브랜드/ETF 시장 규모 최신 통계 미검증.
+
+## 58번 공식 검증 추가 완료 (2026-10-10)
+
+- [검증된 분석](../data/analysis_events/Yb_5prWaqhk.json)과 [원본 근거/검증 필드](../data/subtitles/pilots/Yb_5prWaqhk.json)를 분리 저장함.
+- KRX [ETF 상장폐지](https://listing.krx.co.kr/contents/LST/06/06010600/LST06010600.jsp), [ETF 투자위험/청산](https://www.krx.co.kr/contents/OPN/01/01030205/OPN01030205T4.jsp), [자본시장법 제184조](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1030478773) 및 [제246조](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1033691871) 대조.
+- 영상의 'ETF 시스템 파탄위험 없음'이라는 절대적 단정은 **부정확**하므로 정정함. 수탁·자산격리와 시장손실·합성ETF 위험은 구분한다.
+- 초안 25편과 주장 257개 계수는 그대로 유지한다. 최종 분석은 별도 신규 파일로 두 편 존재한다.
