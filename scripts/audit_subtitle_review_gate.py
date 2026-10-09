@@ -162,6 +162,36 @@ def candidate_decision(candidate):
     return {"eligible": not problems, "blockers": sorted(set(problems))}
 
 
+
+def linked_candidate_decision(candidate, pilot, registry, roster):
+    """Require new canonical claims to match a genuinely triaged pilot."""
+    result = candidate_decision(candidate)
+    errors = list(result["blockers"])
+    video_id = candidate.get("video_id", "")
+    if not video_id or candidate.get("pilot_video_id") != video_id:
+        errors.append("PILOT_REFERENCE_REQUIRED")
+    if not isinstance(pilot, dict) or pilot.get("video_id") != video_id:
+        errors.append("LINKED_PILOT_NOT_FOUND_OR_WRONG_VIDEO")
+        return {"eligible": False, "blockers": sorted(set(errors))}
+    pilot_check = promotion_decision(pilot, video_id, registry, roster)
+    if not pilot_check["eligible"]:
+        errors.append("LINKED_PILOT_EVIDENCE_GATE_BLOCKED")
+    expected = {c.get("claim_id") for c in pilot.get("claims", [])}
+    core = candidate.get("core_claims", [])
+    received = [c.get("claim_id") for c in core if isinstance(c, dict)]
+    if len(received) != len(core) or set(received) != expected or len(set(received)) != len(received):
+        errors.append("CANONICAL_CLAIM_SET_DIFFERS_FROM_REVIEWED_PILOT")
+    p = "data/subtitles/pilots/" + video_id + ".json"
+    g = candidate.get("evidence_gate", {})
+    if not str(g.get("source_audit_reference", "")).startswith(p + "#source_audit"):
+        errors.append("SOURCE_AUDIT_REFERENCE_NOT_LINKED")
+    if not str(g.get("claim_evidence_reference", "")).startswith(p + "#claims"):
+        errors.append("CLAIM_EVIDENCE_REFERENCE_NOT_LINKED")
+    if candidate.get("source_url") != pilot.get("source_url"):
+        errors.append("CANONICAL_SOURCE_DIFFERS_FROM_PILOT")
+    return {"eligible": not errors, "blockers": sorted(set(errors))}
+
+
 def audit(root):
     roster = actual_roster(root)
     registry_doc = load(root / "data/subtitles/registry.json")
@@ -249,10 +279,41 @@ def self_test():
     d = promotion_decision(example, "abcdefghijk",
         {"abcdefghijk": {"sha256": "abc"}}, {"abcdefghijk": 1})
     assert d["eligible"], d
+    draft_candidate = {
+        "video_id": "abcdefghijk",
+        "pilot_video_id": "abcdefghijk",
+        "source_url": example["source_url"],
+        "analysis_status": "COMPLETE",
+        "approval": "APPROVED",
+        "source_level": "full_asr",
+        "title": "test",
+        "core_claims": [{"claim_id": "abcdefghijk-01", "claim": "test"}],
+        "actionable_guidance": ["review"],
+        "assumptions": ["assumed"],
+        "risks_and_exceptions": ["risk"],
+        "quantitative_claims": ["test"],
+        "relations": ["independent"],
+        "verification_status": "reviewed",
+        "limitations": ["auto transcript"],
+        "evidence_gate": {
+            "version": 1,
+            "source_checked": True,
+            "all_material_claims_triaged": True,
+            "source_audit_reference": "data/subtitles/pilots/abcdefghijk.json#source_audit",
+            "claim_evidence_reference": "data/subtitles/pilots/abcdefghijk.json#claims[*].verification_evidence",
+        },
+    }
+    assert linked_candidate_decision(draft_candidate, example,
+        {"abcdefghijk": {"sha256": "abc"}}, {"abcdefghijk": 1})["eligible"]
+    draft_candidate["core_claims"][0]["claim_id"] = "different-id"
+    assert "CANONICAL_CLAIM_SET_DIFFERS_FROM_REVIEWED_PILOT" in linked_candidate_decision(
+        draft_candidate, example, {"abcdefghijk": {"sha256": "abc"}},
+        {"abcdefghijk": 1}
+    )["blockers"]
     example["claims"][0]["verification_evidence"].pop("source_finding")
     assert "CLAIM_EVIDENCE_MISSING" in promotion_decision(example, "abcdefghijk",
         {"abcdefghijk": {"sha256": "abc"}}, {"abcdefghijk": 1})["blockers"]
-    return 4
+    return 6
 
 
 def main():
@@ -269,7 +330,14 @@ def main():
     if not args.full_queue:
         data["priority_review_queue"] = data["priority_review_queue"][:8]
     if args.check_candidate:
-        data["canonical_candidate_decision"] = candidate_decision(load(args.check_candidate))
+        candidate = load(args.check_candidate)
+        video_id = candidate.get("video_id", "")
+        pilot_path = args.root / "data/subtitles/pilots" / (video_id + ".json")
+        linked_pilot = load(pilot_path) if pilot_path.is_file() else None
+        registry = load(args.root / "data/subtitles/registry.json")["items"]
+        data["canonical_candidate_decision"] = linked_candidate_decision(
+            candidate, linked_pilot, registry, actual_roster(args.root)
+        )
     print(json.dumps(data, ensure_ascii=False, indent=2))
     return 1 if data["summary"]["errors"] else 0
 
