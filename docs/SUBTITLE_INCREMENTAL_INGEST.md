@@ -6,6 +6,7 @@
 - 2026-10-09 최초 ZIP에서 실제 SRT 70개, 고유 영상 **69편** 확인(같은 영상 `5NvtBlmt93Y`의 동일 파일 사본 1개 중복). 이후 #60 단독 SRT 추가로 **총 고유 70편** 확보.
 - 최초 1~70번 중 누락한 60번 `oMs4-3ZOevE`은 추가 등록 완료; 현재 **1~70번 누락 0편**.
 - `data/subtitles/registry.json`은 **원본 전체 텍스트가 아닌** SHA-256/구간 수/시간/검수 상태 메타데이터만 보존.
+- 71번 `4vNF2fui5jc`: 2026-10-09 사용자 확인 기준 무료 자막 페이지에 자막 없음. `data/subtitles/acquisition_issues.json`에서 `NO_TRANSCRIPT_ON_SITE_REPORTED_BY_USER`로 관리하며 70편 수집 완료 통계에 포함하지 않는다. YouTube 원본 자막 부재까지 확인된 것은 아니다.
 - 현재 70편은 `SRT_STRUCTURE_CHECKED` 및 `CONTENT_INDEXED`(기계적 주제/시간코드 색인), `NOT_VERIFIED` 상태다. 심층 금융 분석 및 사실 검증 완료와 혼동하지 않는다.
 - 2019년 영상 2편의 기존 V4/V3 분석 상태는 이 수집 관리대장과 별도; 데이터베이스 이전 분석을 임의로 완료 처리하지 않는다.
 
