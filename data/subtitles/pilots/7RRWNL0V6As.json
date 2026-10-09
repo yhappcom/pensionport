@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-09",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "audio_checked": false,
+  "frames_checked": false,
+  "raw_transcript_publicly_stored": false,
+  "roster_no": 61,
+  "video_id": "7RRWNL0V6As",
+  "title": "ETF 베이직 #4 | ETF 분배금 ver.2026",
+  "source_url": "https://www.youtube.com/watch?v=7RRWNL0V6As",
+  "subtitle_sha256": "4515d3446c4874d3a376d86b1dd46ab89446e992911b0d42b52aa0df5ffb3c83",
+  "cue_count": 152,
+  "core_message": "주식배당과 ETF 분배금, 분배락, 분배금 지급과 재투자의 차이, 상품별 지급 정책을 설명한다.",
+  "claims": [
+    {
+      "claim_id": "7RRWNL0V6As-01",
+      "timecode": "00:00:53",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=53s",
+      "source_paraphrase": "기업의 배당금이 ETF에 유입되고, ETF가 분배금을 지급할 수 있다는 구조를 설명한다.",
+      "independent_check": "배당 이외 이자·옵션 프리미엄 등도 ETF 분배재원에 관련될 수 있으므로 주식배당만으로 한정하지 않는다.",
+      "assessment": "QUALIFIED",
+      "official_sources": []
+    },
+    {
+      "claim_id": "7RRWNL0V6As-02",
+      "timecode": "00:01:42",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=102s",
+      "source_paraphrase": "기업배당과 ETF 분배금 지급은 정하는 방식이 다르다고 설명한다.",
+      "independent_check": "ETF 분배정책과 관련 법규·투자설명서 확인이 중요하다.",
+      "assessment": "FOUNDATIONAL",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ]
+    },
+    {
+      "claim_id": "7RRWNL0V6As-03",
+      "timecode": "00:02:01",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=121s",
+      "source_paraphrase": "PR 지수는 분배금을 지급하고 TR 지수는 전액 재투자한다는 연결로 설명한다.",
+      "independent_check": "정확하지 않은 일반화. PR은 배당을 제외한 가격지수, TR은 배당 재투자 가정 총수익지수의 정의다. ETF 실제 분배 지급은 지수 형태만으로 자동 결정되지 않는다.",
+      "assessment": "OVERGENERALIZED_NEEDS_CORRECTION",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ]
+    },
+    {
+      "claim_id": "7RRWNL0V6As-04",
+      "timecode": "00:02:44",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=164s",
+      "source_paraphrase": "분배하지 않고 내부 재투자하면 NAV에 반영될 수 있다고 설명한다.",
+      "independent_check": "이자·배당 재투자 구조 자체는 이해 가능하지만 2025-07부터 많은 TR ETF가 연 1회 이상 분배하도록 변경됐으며 국내주식형 예외가 있다.",
+      "assessment": "HISTORICALLY_CONDITIONED",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ]
+    },
+    {
+      "claim_id": "7RRWNL0V6As-05",
+      "timecode": "00:03:28",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=208s",
+      "source_paraphrase": "ETF의 분배금 지급 주기를 연·반기·분기·월 등으로 구분한다.",
+      "independent_check": "상품별 기준일 및 지급 규칙이 다르고 예고 주기라도 지급 금액이 확정돼 있지 않다.",
+      "assessment": "FOUNDATIONAL_WITH_CONDITIONS",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp"
+      ]
+    },
+    {
+      "claim_id": "7RRWNL0V6As-06",
+      "timecode": "00:03:49",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=229s",
+      "source_paraphrase": "분배금은 매번 같은 금액이 아니라고 말한다.",
+      "independent_check": "분배금은 수익 상황 및 정책에 따라 변동. 월분배 구조라도 지급액·원금이 보장되지 않음.",
+      "assessment": "FOUNDATIONAL_WITH_RISK",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ]
+    },
+    {
+      "claim_id": "7RRWNL0V6As-07",
+      "timecode": "00:04:09",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=249s",
+      "source_paraphrase": "ETF 분배금 지급 시 그에 상응하는 NAV·시장가격의 분배락을 설명한다.",
+      "independent_check": "기계적 NAV 감소를 운용사 공식자료에서 확인. 분배락 자체를 추가 투자손실로 계산하면 중복계상 오류.",
+      "assessment": "OFFICIAL_VERIFIED",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ]
+    },
+    {
+      "claim_id": "7RRWNL0V6As-08",
+      "timecode": "00:04:57",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=297s",
+      "source_paraphrase": "동일 지수 ETF라도 가격이 높다는 이유만으로 규모나 수익률이 좋다고 볼 수 없다고 설명한다.",
+      "independent_check": "ETF 단위당 가격과 ETF 순자산총액·총수익률은 서로 다르다.",
+      "assessment": "FOUNDATIONAL",
+      "official_sources": []
+    }
+  ],
+  "limitations": [
+    "자동 음성인식 SRT 기반 핵심 구간 검토이며 원음 및 모든 영상 화면과 직접 일치 대조하지 않음",
+    "교육 원칙, 투자 권고, 법/정책·시간에 좌우되는 상품조건을 구분. 공식자료 일부분만 대조함",
+    "특정 ETF의 현행 가격·수익률·보수·분배방식은 개별 현행 투자설명서로 재확인 전에는 현재 사실로 이용 금지",
+    "이번 결과는 정식 canonical 분석이나 투자 지식 승인으로 집계하지 않음"
+  ]
+}
