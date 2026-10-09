@@ -27,6 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Compile and test read-only audit tool
         run: |
           python -m py_compile scripts/audit_subtitle_review_gate.py
@@ -50,7 +52,6 @@ jobs:
       - name: Reject promotion of new incomplete canonical analyses
         shell: bash
         run: |
-          git fetch --no-tags --depth=1 origin main || true
           git diff --name-only --diff-filter=A origin/main...HEAD -- 'data/analysis_events/*.json' > "${RUNNER_TEMP}/new-canonical.txt"
           while IFS= read -r candidate; do
             [ -z "$candidate" ] && continue
