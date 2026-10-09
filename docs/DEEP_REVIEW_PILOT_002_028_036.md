@@ -56,7 +56,7 @@
 - 한국은행 기준금리: https://www.bok.or.kr/portal/singl/baseRate/list.do?menuNo=200761
 - 국민연금 기금운용: https://fund.nps.or.kr/
 - CMA 유형/위험: https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/
-- CMA 공식 설명서: https://file.koreainvestment.com/Storage/customer/guide/regards/%EC%84%A4%EB%AA%85%EC%84%9C70%ED%98%B5MMF%ED%98%95CMA%EC%84%A4%EB%AA%85%EC%84%9C.pdf
+- CMA 공식 설명서: https://file.koreainvestment.com/Storage/customer/guide/regards/%EC%84%A4%EB%AA%85%EC%84%9C70%ED%98%B8.MMF%ED%98%95CMA%EC%84%A4%EB%AA%85%EC%84%9C.pdf
 - 자산배분과 리밸런싱: https://www.investor.gov/introduction-investing/getting-started/asset-allocation
 - 자산배분 연구 해석: https://corporate.vanguard.com/content/dam/corp/research/pdf/time_varying_asset_allocation_vanguards_approach_to_dynamic_portfolios.pdf
 
