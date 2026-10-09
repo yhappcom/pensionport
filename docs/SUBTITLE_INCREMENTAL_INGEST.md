@@ -3,15 +3,15 @@
 ## 현재 확정 사실
 
 - 기준 목록: `VIDEO_INVENTORY_2026-10-07.md`, 영상 791편 (롱폼 703, Shorts 88).
-- 2026-10-09 최초 ZIP에서 실제 SRT 70개, 고유 영상 **69편** 확인. 같은 영상 `5NvtBlmt93Y`의 동일 파일 사본 1개는 중복.
-- 1~70번 중 누락: **60번 `oMs4-3ZOevE`**.
+- 2026-10-09 최초 ZIP에서 실제 SRT 70개, 고유 영상 **69편** 확인(같은 영상 `5NvtBlmt93Y`의 동일 파일 사본 1개 중복). 이후 #60 단독 SRT 추가로 **총 고유 70편** 확보.
+- 최초 1~70번 중 누락한 60번 `oMs4-3ZOevE`은 추가 등록 완료; 현재 **1~70번 누락 0편**.
 - `data/subtitles/registry.json`은 **원본 전체 텍스트가 아닌** SHA-256/구간 수/시간/검수 상태 메타데이터만 보존.
-- 이 69편은 `SRT_STRUCTURE_CHECKED`이지만 `NOT_INDEXED`, `NOT_VERIFIED`. 투자 지식 학습 완료와 혼동하지 않는다.
+- 현재 70편은 `SRT_STRUCTURE_CHECKED` 및 `CONTENT_INDEXED`(기계적 주제/시간코드 색인), `NOT_VERIFIED` 상태다. 심층 금융 분석 및 사실 검증 완료와 혼동하지 않는다.
 - 2019년 영상 2편의 기존 V4/V3 분석 상태는 이 수집 관리대장과 별도; 데이터베이스 이전 분석을 임의로 완료 처리하지 않는다.
 
 ## 다음 ZIP 처리
 
-사용자는 새로운 SRT들을 기존 파일과 중복돼도 그대로 ZIP으로 올릴 수 있다. 다운로드 이름에 YouTube 영상 ID가 있어야 한다. 프로그램은 ZIP의 SRT를 읽고, ID와 SHA-256을 기존 69편 상태에 비교한다.
+사용자는 새로운 SRT들을 기존 파일과 중복돼도 그대로 ZIP으로 올릴 수 있다. 다운로드 이름에 YouTube 영상 ID가 있어야 한다. 프로그램은 ZIP의 SRT를 읽고, ID와 SHA-256을 기존 70편 상태에 비교한다.
 
 ```bash
 python scripts/ingest_subtitle_zip.py \
@@ -57,4 +57,4 @@ python scripts/ingest_subtitle_zip.py \
 
 ## 다음 검증 단계
 
-69편 전체의 **내용 색인(주제·핵심 주장·시간코드)**부터 시범 제작하고, 실제 상품·세법 검증이 필요한 영상을 분류한다. 영상 2번·28번·36번에 대한 심층 학습을 한 후 나머지로 넓힌다. `CONTENT_INDEXED`/분석/검증 상태는 실제 증거 기반 처리 이전까지 NOT_INDEXED/NOT_VERIFIED로 유지한다.
+1~70번의 **자동 주제·시간코드 색인**은 `data/subtitles/content_index_001_070.json`과 `docs/SUBTITLE_CONTENT_INDEX_001_070.md`에 기록했다. 다음에는 2번·28번·36번의 주장을 원문 전체·공식자료와 교차 검증한다. **내용 색인과 심층 분석/공식 검증 상태를 분리**하고, 학습 승인은 증거가 있을 때만 한다.
