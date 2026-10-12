@@ -68,12 +68,12 @@ jobs:
           m=json.loads((root/'data/subtitles/research_expansion_progress_20261012.json').read_text())
           v=json.loads((root/'data/subtitles/optional_verification_register_20261012.json').read_text())
           assert m['roster_count']==791 and m['source_srt_registered_unique_count']==70
-          ids=m['all_20_educational_review_ids']
+          ids=m['all_25_educational_review_ids']
           assert len(ids)==m['verified_v3_educational_analysis_count']==len(set(ids))
-          assert len(m['new_in_this_extension'])==3 and len(m['new_in_next_five'])==5
+          assert len(m['new_in_this_extension'])==3 and len(m['new_in_next_five'])==5 and len(m['new_in_third_five'])==5
           assert m['srt_source_not_yet_deep_reviewed_count']==70-len(ids)
-          assert m['existing_pilot_drafts_pending_full_claim_evidence_count']==5
-          for e in m['new_in_this_extension']+m['new_in_next_five']:
+          assert m['existing_pilot_drafts_pending_full_claim_evidence_count']==0
+          for e in m['new_in_this_extension']+m['new_in_next_five']+m['new_in_third_five']:
               x=e['video_id']
               p=json.loads((root/'data/subtitles/pilots'/f'{x}.json').read_text())
               a=json.loads((root/'data/analysis_events'/f'{x}.json').read_text())
@@ -84,7 +84,7 @@ jobs:
               assert {c['claim_id'] for c in a['core_claims']}=={c['claim_id'] for c in p['claims']}
               assert p['source_audit'].get('audio_checked',p['source_audit'].get('actual_audio_checked')) is False and p['source_audit']['frames_checked'] is False
           assert len({i['item_id'] for i in v['items']})==len(v['items'])
-          assert all(i['video_id'] in m['all_20_educational_review_ids'] for i in v['items'])
+          assert all(i['video_id'] in m['all_25_educational_review_ids'] for i in v['items'])
           for name in ['docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md','docs/VIDEO_REVIEW_RECORD_TEMPLATE.md','knowledge/ETF_BASIC_VERIFIED_PRINCIPLES_20261012.md']:
               assert (root/name).is_file(),name
           print('EXTENSION_POLICY_PASS',len(ids),'audited analyses,',len(v['items']),'optional followups')
