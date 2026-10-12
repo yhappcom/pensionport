@@ -153,7 +153,22 @@
     "연금저축/IRP 중도인출 법적 제한과 이자비용 위험.",
     "자산배분·장기보유도 원금보장/시간 단축 보장 아님."
   ],
-  "quantitative_claims": [],
+  "quantitative_claims": [
+    {
+      "claim": "인터뷰의 대략적 자산배분 비중",
+      "equity_pct": 65,
+      "bond_pct": 20,
+      "gold_pct": 12,
+      "total_named_pct": 97,
+      "unclassified_pct": 3,
+      "status": "USER_REPORTED_HISTORICAL_ALLOCATION_NOT_INDEPENDENT_ACCOUNT_AUDIT"
+    },
+    {
+      "claim": "인터뷰 대출 약4000만원",
+      "speaker_reported_krw_approx": 40000000,
+      "status": "ANECTODAL_AMOUNT_NOT_ACCOUNT_STATEMENT_VERIFIED"
+    }
+  ],
   "relations": [
     {
       "type": "REINFORCE",
