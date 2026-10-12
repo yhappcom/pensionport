@@ -112,9 +112,11 @@
       "claim_id": "YNOSY15ppf8-10",
       "timecode": "00:30:02",
       "claim": "직접 엔화를 보유하는 동안 이자수익이 낮으면 기회비용이 발생하고 일반 개인의 단순 환전차익은 금융상품 수익과 과세가 다를 수 있다고 설명함.",
-      "verification": "HYPOTHETICAL",
-      "sources": [],
-      "disposition": "환전차익의 비과세 언급은 거래성격·납세자 지위·원천·상품구조 확인 전까지 보편적 절세 규칙으로 승인하지 않음. 마이너스 환차손과 무수익 보유기간 고려.",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143"
+      ],
+      "disposition": "2025-01-09 registered NTS 서면-2024-소득-0865 confirms conditional nonbusiness temporary FX exchange profit excluded from taxable income; repeated business-purpose exchanges can be business income. Applies neither to ETFs nor futures.",
       "source_precision": "LEGACY_APPROXIMATE_30SEC_ANCHOR_NOT_AUDIO_VERIFIED"
     },
     {
@@ -185,7 +187,7 @@
       "theme": "현금성 자산과 시장성 금융상품의 목적을 분리하는 원칙"
     }
   ],
-  "verification_status": "12_CLAIMS_FINANCE_TRIAGE_PUBLIC_SRT_EXACT_KOREAN_CASH_SPOT_FX_GAIN_TAX_PRIMARY_OPEN_AUDIO_OPEN",
+  "verification_status": "12_CLAIMS_FINANCE_TRIAGE_NTS_TEMPORARY_NONBUSINESS_FX_TAX_CONFIRMED_PERSONAL_FEES_AND_AUDIO_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -194,6 +196,7 @@
     "claim_evidence_reference": "data/subtitles/pilots/YNOSY15ppf8.json#claims[*].verification_evidence",
     "source_fingerprint": "b48c51ac62ddf27a0d667e018ad1fbf3717e2bb447a66d9c48ed114eeeb6c2ce",
     "official_primary_urls": [
+      "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143",
       "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
       "https://prod.investments.miraeasset.com/tigeretf/ko/main/index.do"
     ],
@@ -203,13 +206,15 @@
       "spread_1_75_percent_claim_time": "00:36:29.520",
       "audio_checked": false,
       "bank_fee_schedule_verified": false,
-      "Korean_NTS_specific_ruling_on_personal_cash_exchange_verified": false
+      "Korean_NTS_specific_ruling_on_personal_cash_exchange_verified": true,
+      "primary_reply": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143"
     }
   },
   "limitations": [
     "Approval is an educational evidence review, NOT a complete certified Korean income-tax opinion on JPY spot gains.",
     "1.75% spread historical video example is not current institution-specific transaction cost.",
     "Original and publicly returned transcription match, but actual recorded audio, illustrated chart and market-rate timestamps not inspected.",
-    "30:44.720 원본 SRT에서 환차익 비과세 표현 확인; 음성 및 거래유형별 2026 국세청 유권해석이 없어 개별 환차익 세법 적용은 아직 미확정이다."
+    "30:44.720 원본 SRT에서 환차익 비과세 표현 확인; 음성 및 거래유형별 2026 국세청 유권해석이 없어 개별 환차익 세법 적용은 아직 미확정이다.",
+    "국세청 공식 서면-2024-소득-0865: 비사업자 일시적 외화 취득 후 원화환전차익 비과세 해석 확보. 사업목적·규모·횟수·동기 등 개별 적용조건과 실제 은행 수수료 미확정."
   ]
 }
