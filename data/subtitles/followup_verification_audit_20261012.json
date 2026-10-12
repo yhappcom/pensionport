@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-12",
+  "target_videos": [
+    "3MyhYE2jmuE",
+    "OfkY343OaNs",
+    "YNOSY15ppf8",
+    "uiauof6tOFk"
+  ],
+  "original_srt_historic_sha_confirmed_all_four": true,
+  "original_mp4_or_audio_in_accessible_connected_drive": false,
+  "audio_checked": false,
+  "frames_checked": false,
+  "original_audio_video_status": "BLOCKED_SOURCE_MEDIA_NOT_ACCESSIBLE",
+  "transcript_audit": {
+    "OfkY343OaNs": {
+      "source_cues": 1039,
+      "independent_public_lines": 1037,
+      "exact_matching_ordered_lines": 1037,
+      "original_only": [
+        {
+          "cue": 182,
+          "start": "00:05:59.400",
+          "end": "00:06:00.360",
+          "short": ">> 코스닥."
+        },
+        {
+          "cue": 802,
+          "start": "00:26:11.520",
+          "end": "00:26:13.039",
+          "short": ">> 텔"
+        }
+      ],
+      "public_only": [],
+      "status": "FULL_PUBLIC_TEXT_RECONCILIATION_COMPLETE_TWO_OMITTED_ORIGINAL_CUES_SOUND_PENDING"
+    },
+    "uiauof6tOFk": {
+      "source_cues": 650,
+      "independent_public_lines": 649,
+      "exact_matching_ordered_lines": 649,
+      "original_only": [
+        {
+          "cue": 649,
+          "start": "00:24:44.902",
+          "end": "00:24:48.232",
+          "short": "[음악]"
+        }
+      ],
+      "public_only": [],
+      "status": "FULL_PUBLIC_TEXT_RECONCILIATION_COMPLETE_MUSIC_LABEL_OMITTED_SOUND_PENDING"
+    },
+    "3MyhYE2jmuE": {
+      "source_cues": 807,
+      "independent_public_lines": 807,
+      "exact_matching_ordered_lines": 807,
+      "status": "TEXT_EXACT_AUDIO_PENDING"
+    },
+    "YNOSY15ppf8": {
+      "source_cues": 1277,
+      "independent_public_lines": 1277,
+      "exact_matching_ordered_lines": 1277,
+      "status": "TEXT_EXACT_AUDIO_PENDING"
+    }
+  },
+  "law_audit": {
+    "gift_annuity": {
+      "legal_annual_discount_rate": 0.03,
+      "decree_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+      "rule_url": "https://www.law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=113998",
+      "illustrative_189000_monthly_120_months_nominal": 22680000,
+      "illustrative_year_end_annuity_pv": 19346500,
+      "illustrative_year_start_annuity_pv": 19926895,
+      "monthly_finance_annuity_pv": 19611095,
+      "conditioned_tax_return_status": "OPEN_CONTRACT_DATES_REVOCATION_OTHER_GIFTS"
+    },
+    "jp_etf_withholding": {
+      "baseline_japan_nonresident_income_tax_percent": 15.315,
+      "japan_NTA_source": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2884.htm",
+      "korea_overseas_exchange_etf_general_scheme_url": "https://kbam.co.kr/insights/guide/domestic-vs-overseas-etf-tax-comparison",
+      "actual_fund_treaty_tax_credit_status": "OPEN_EXACT_JAPAN_LISTED_FUND_CODE_AND_DOMICILE_MISSING"
+    },
+    "kr_spot_jpy_gain_tax": {
+      "status": "OPEN_NO_TRANSACTION_SPECIFIC_PRIMARY_NTS_RULING",
+      "source_srt_utterance_sec": 1844.72,
+      "not_equal_to_foreign_etf_tax": true
+    }
+  },
+  "all_weather": {
+    "portfolio_weights": {
+      "us_equity": 0.26,
+      "long_treasury": 0.34,
+      "gold": 0.2,
+      "commodities": 0.2
+    },
+    "video_claimed_range": "1972–2022",
+    "range_inclusive_ambiguity": "Jan 1972 through Dec 2022 = 612 months = 51 full calendar years, requires exact video start/end month",
+    "source_series_status": "MISSING_EXACT_UNDERLYING_4_MONTHLY_TOTAL_RETURN_DATASETS_AND_ORIGINAL_BOOK_BACKTEST_TABLE",
+    "data_source_methodology_reference": "https://www.gold.org/goldhub/tools/portfolio-simulator/faqs",
+    "replication_script": "scripts/reproduce_all_weather_1972_2022.py",
+    "self_test_checks": 7,
+    "self_test_status": "PASS",
+    "no_data_execution_status": "BLOCKED_MISSING_SOURCE_RETURNS",
+    "video_backtest_replication_complete": false
+  },
+  "report": "docs/SUBTITLE_FOUR_VIDEO_UNCERTAINTY_AUDIT_20261012.md",
+  "meanings": {
+    "review_approved": "Sourced educational review, NOT audio/slides/source backtest independent approval",
+    "no_caption_text_published": true
+  }
+}
