@@ -272,6 +272,132 @@
       ],
       "actual_audio_checked": false,
       "actual_frames_checked": false
+    },
+    {
+      "item_id": "4CQ4FjGT2gA-HISTORICAL_COMPILATION_ACCOUNT_RETURNS",
+      "video_id": "4CQ4FjGT2gA",
+      "claim_ids": [
+        "4CQ4FjGT2gA-03"
+      ],
+      "title": "HISTORICAL COMPILATION ACCOUNT RETURNS",
+      "verification_kind": "HISTORICAL_COMPILATION_ACCOUNT_RETURNS",
+      "status": "OPEN",
+      "importance": "MEDIUM",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "Six older interview scenes are combined in a 5h44m recap; no bank/broker statements and audited external flows for reported 7eok KRW are available.",
+      "review_again_when": "Original case date/statement/financing ledger or original full interview visuals can verify the wealth and attributable returns.",
+      "evidence_references": [
+        "data/subtitles/pilots/4CQ4FjGT2gA.json",
+        "data/analysis_events/4CQ4FjGT2gA.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "4CQ4FjGT2gA-ASR_PUBLIC_2_CUES_OMITTED",
+      "video_id": "4CQ4FjGT2gA",
+      "claim_ids": [
+        "4CQ4FjGT2gA-10"
+      ],
+      "title": "ASR PUBLIC 2 CUES OMITTED",
+      "verification_kind": "ASR_PUBLIC_2_CUES_OMITTED",
+      "status": "OPEN",
+      "importance": "LOW",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "Public Korean ASR has 10,726 lines vs 10,728 original cues; precise omissions not aligned. Actual speech and slide values not inspected.",
+      "review_again_when": "Public text diffs can be aligned or original media examined where source inconsistency alters material investing claims.",
+      "evidence_references": [
+        "data/subtitles/pilots/4CQ4FjGT2gA.json",
+        "data/analysis_events/4CQ4FjGT2gA.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "Nueoi-_PH6o-NASDAQ100_SCHD_HOLDINGS_OVERLAP_DATE",
+      "video_id": "Nueoi-_PH6o",
+      "claim_ids": [
+        "Nueoi-_PH6o-06"
+      ],
+      "title": "NASDAQ100 SCHD HOLDINGS OVERLAP DATE",
+      "verification_kind": "NASDAQ100_SCHD_HOLDINGS_OVERLAP_DATE",
+      "status": "OPEN",
+      "importance": "MEDIUM",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "Video's almost no overlapping stocks between Nasdaq-100 and US Dividend Dow Jones is a dated quantitative statement lacking verified both index constituent files.",
+      "review_again_when": "Issuer holdings at the same date become available with common security IDs and weights.",
+      "evidence_references": [
+        "data/subtitles/pilots/Nueoi-_PH6o.json",
+        "data/analysis_events/Nueoi-_PH6o.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "nCXWFko0TaA-ANNUAL_VS_MONTHLY_6PCT_AUDIO",
+      "video_id": "nCXWFko0TaA",
+      "claim_ids": [
+        "nCXWFko0TaA-05"
+      ],
+      "title": "ANNUAL VS MONTHLY 6PCT AUDIO",
+      "verification_kind": "ANNUAL_VS_MONTHLY_6PCT_AUDIO",
+      "status": "OPEN",
+      "importance": "HIGH",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "SRT at 00:50–00:55 writes '월 6%'; math for monthly KRW2.2m on KRW440m requires annual 6%, not monthly. Original audio not checked.",
+      "review_again_when": "Watch/have accurate original audio 00:47–01:01 and any onscreen annual distribution chart.",
+      "evidence_references": [
+        "data/subtitles/pilots/nCXWFko0TaA.json",
+        "data/analysis_events/nCXWFko0TaA.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "CvM8Os4ltfE-EXACT_10K_MINIMUM_BROKERAGE_PRODUCT",
+      "video_id": "CvM8Os4ltfE",
+      "claim_ids": [
+        "CvM8Os4ltfE-03"
+      ],
+      "title": "EXACT 10K MINIMUM BROKERAGE PRODUCT",
+      "verification_kind": "EXACT_10K_MINIMUM_BROKERAGE_PRODUCT",
+      "status": "OPEN",
+      "importance": "LOW",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "KOSPI200 funds, US fractional ETF brokerage, target-maturity bond ETF and dividends ETF vary in per-unit price and brokerage fractional service; blanket guaranteed KRW10000 execution unverified.",
+      "review_again_when": "Named 2026 traded ticker, exchange, broker account, fractional trading rules and minimal quoted order value are collected.",
+      "evidence_references": [
+        "data/subtitles/pilots/CvM8Os4ltfE.json",
+        "data/analysis_events/CvM8Os4ltfE.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "HfrBi5mzm8w-MINOR_PENSION_SAVINGS_ELIGIBILITY",
+      "video_id": "HfrBi5mzm8w",
+      "claim_ids": [
+        "HfrBi5mzm8w-06"
+      ],
+      "title": "MINOR PENSION SAVINGS ELIGIBILITY",
+      "verification_kind": "MINOR_PENSION_SAVINGS_ELIGIBILITY",
+      "status": "OPEN",
+      "importance": "MEDIUM",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "Minors' pension savings account legal account opening, guardian signature and gift-tax documentation vary by intermediary; current source confirms gift deduction only.",
+      "review_again_when": "Provider 2026 guardian minor pension account opening manual and actual gift/registration scenario become available.",
+      "evidence_references": [
+        "data/subtitles/pilots/HfrBi5mzm8w.json",
+        "data/analysis_events/HfrBi5mzm8w.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
     }
   ],
   "resolved_items": [
