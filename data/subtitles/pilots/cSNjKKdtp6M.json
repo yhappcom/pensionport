@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "review_date": "2026-10-09",
+  "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
   "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
@@ -21,9 +21,22 @@
       "assessment": "TYPE_DEPENDENT",
       "independent_check": "이자 정산과 재투자 주기는 상품·증권사별로 다르며 모든 CMA가 매일 현금이자를 지급하는 것은 아님.",
       "official_sources": [
+        "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
         "https://file.koreainvestment.com/Storage/customer/guide/regards/%EC%84%A4%EB%AA%85%EC%84%9C70%ED%98%B8.MMF%ED%98%95CMA%EC%84%A4%EB%AA%85%EC%84%9C.pdf"
       ],
-      "claim_id": "cSNjKKdtp6M-01"
+      "claim_id": "cSNjKKdtp6M-01",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "이자 정산과 재투자 주기는 상품·증권사별로 다르며 모든 CMA가 매일 현금이자를 지급하는 것은 아님.",
+        "checked_at": "2026-10-12",
+        "basis": "RP·발행어음형 약정수익률형과 MMF·MMW 실적배당형의 정산·복리 방식은 실제 약정과 운용사/랩의 이자 반영 방식에 따름.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "RP·발행어음형 약정수익률형과 MMF·MMW 실적배당형의 정산·복리 방식은 실제 약정과 운용사/랩의 이자 반영 방식에 따름.",
+        "effective_date_or_scope": "2026-10-12 education scope; actual instrument provider, account context and history may differ."
+      },
+      "original_srt_anchor_start_sec": 93.84,
+      "timecode_precision": "ORIGINAL_SRT_CONTEXTUAL_CUE_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
     },
     {
       "timecode": "00:02:12",
@@ -33,7 +46,19 @@
       "official_sources": [
         "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
       ],
-      "claim_id": "cSNjKKdtp6M-02"
+      "claim_id": "cSNjKKdtp6M-02",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "은행 파킹통장 등 금리·우대조건이 다양하여 항상 우월하다는 법칙은 성립하지 않음.",
+        "checked_at": "2026-10-12",
+        "basis": "원문은 은행 입출금통장보다 CMA 이자가 보통 높다는 취지지만 일부 은행 파킹통장·우대조건에서 역전 가능. 기존 초안의 '항상'은 원문 대비 과도한 표현이다.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "원문은 은행 입출금통장보다 CMA 이자가 보통 높다는 취지지만 일부 은행 파킹통장·우대조건에서 역전 가능. 기존 초안의 '항상'은 원문 대비 과도한 표현이다.",
+        "effective_date_or_scope": "2026-10-12 education scope; actual instrument provider, account context and history may differ."
+      },
+      "original_srt_anchor_start_sec": 132.36,
+      "timecode_precision": "ORIGINAL_SRT_CONTEXTUAL_CUE_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
     },
     {
       "timecode": "00:03:44",
@@ -44,7 +69,20 @@
         "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
         "https://file.koreainvestment.com/Storage/customer/guide/regards/%EC%84%A4%EB%AA%85%EC%84%9C70%ED%98%B8.MMF%ED%98%95CMA%EC%84%A4%EB%AA%85%EC%84%9C.pdf"
       ],
-      "claim_id": "cSNjKKdtp6M-03"
+      "claim_id": "cSNjKKdtp6M-03",
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "disposition": "일반 증권사 CMA는 예금자보호 대상이 아니고 투자대상과 발행사에 따라 원금 손실 가능. 자산 분리 보관을 원금 보장과 동일시하면 안 됨.",
+        "checked_at": "2026-10-12",
+        "basis": "KB증권 2026 CMA 상품별 가이드: 일반 증권사 RP·MMF·MMW·발행어음형은 예금보호되지 않으며 분리 보관·투자자산 사용만으로 무손실 확정 불가.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "KB증권 2026 CMA 상품별 가이드: 일반 증권사 RP·MMF·MMW·발행어음형은 예금보호되지 않으며 분리 보관·투자자산 사용만으로 무손실 확정 불가.",
+        "effective_date_or_scope": "2026-10-12 education scope; actual instrument provider, account context and history may differ.",
+        "correction": "분리 관리 또는 RP·MMW 투자 구조는 예금자보호에 준하는 동일 원금 안전을 제공하지 않는다. 해당 CMA의 예금자보호와 원금손실 여부를 금융사 약관으로 구분한다."
+      },
+      "original_srt_anchor_start_sec": 224.4,
+      "timecode_precision": "ORIGINAL_SRT_CONTEXTUAL_CUE_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
     },
     {
       "timecode": "00:05:13",
@@ -54,7 +92,20 @@
       "official_sources": [
         "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
       ],
-      "claim_id": "cSNjKKdtp6M-04"
+      "claim_id": "cSNjKKdtp6M-04",
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "disposition": "RP는 환매조건부 증권거래이고 담보가 존재하나 발행사·시장·유동성 등 잔여 위험이 있어 무위험으로 일반화할 수 없음.",
+        "checked_at": "2026-10-12",
+        "basis": "RP는 약정 및 담보자산 위험·채권가격/환매/증권사 부도와 거래약관에 따라 손실 가능. 담보가 있어도 원금이 '무조건 안전'은 부정확.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "RP는 약정 및 담보자산 위험·채권가격/환매/증권사 부도와 거래약관에 따라 손실 가능. 담보가 있어도 원금이 '무조건 안전'은 부정확.",
+        "effective_date_or_scope": "2026-10-12 education scope; actual instrument provider, account context and history may differ.",
+        "correction": "증권사 RP형 CMA에도 담보/상대방/시장/환매 관련 위험이 있으므로 '발행사와 담보가 둘 다 망해야만 손실'이라는 보편 법칙은 부정확하다."
+      },
+      "original_srt_anchor_start_sec": 313.88,
+      "timecode_precision": "ORIGINAL_SRT_CONTEXTUAL_CUE_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
     },
     {
       "timecode": "00:06:20",
@@ -62,9 +113,22 @@
       "assessment": "BASIC_STRUCTURE_SUPPORTED",
       "independent_check": "MMF형은 실적배당형이며 원금 손실 가능성과 상품별 환매 조건을 확인해야 함.",
       "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-5",
         "https://file.koreainvestment.com/Storage/customer/guide/regards/%EC%84%A4%EB%AA%85%EC%84%9C70%ED%98%B8.MMF%ED%98%95CMA%EC%84%A4%EB%AA%85%EC%84%9C.pdf"
       ],
-      "claim_id": "cSNjKKdtp6M-05"
+      "claim_id": "cSNjKKdtp6M-05",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "MMF형은 실적배당형이며 원금 손실 가능성과 상품별 환매 조건을 확인해야 함.",
+        "checked_at": "2026-10-12",
+        "basis": "MMF는 단기금융상품에 투자하는 실적배당형 펀드로 금리 및 운용성과 변동과 손실 가능.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-5",
+        "source_finding": "MMF는 단기금융상품에 투자하는 실적배당형 펀드로 금리 및 운용성과 변동과 손실 가능.",
+        "effective_date_or_scope": "2026-10-12 education scope; actual instrument provider, account context and history may differ."
+      },
+      "original_srt_anchor_start_sec": 379.4,
+      "timecode_precision": "ORIGINAL_SRT_CONTEXTUAL_CUE_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
     },
     {
       "timecode": "00:07:13",
@@ -74,7 +138,19 @@
       "official_sources": [
         "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
       ],
-      "claim_id": "cSNjKKdtp6M-06"
+      "claim_id": "cSNjKKdtp6M-06",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "발행사 신용위험으로 원금 손실 가능; 높은 수익률이 손실 보장을 의미하지 않음.",
+        "checked_at": "2026-10-12",
+        "basis": "발행어음형 CMA는 증권사의 발행 채무에 노출돼 투자자에게 발행사 신용위험이 있으며 RP형의 담보거래와 다름.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "발행어음형 CMA는 증권사의 발행 채무에 노출돼 투자자에게 발행사 신용위험이 있으며 RP형의 담보거래와 다름.",
+        "effective_date_or_scope": "2026-10-12 education scope; actual instrument provider, account context and history may differ."
+      },
+      "original_srt_anchor_start_sec": 432.96,
+      "timecode_precision": "ORIGINAL_SRT_CONTEXTUAL_CUE_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
     },
     {
       "timecode": "00:08:25",
@@ -82,9 +158,22 @@
       "assessment": "BASIC_STRUCTURE_SUPPORTED_RISK_OVERSTATED",
       "independent_check": "MMW형은 투자일임형 실적배당 구조이고 예금자보호·원금보장 상품과 동일하지 않음.",
       "official_sources": [
+        "https://www.imeritz.com/meritzcma/CmaMmw.do",
         "https://file.koreainvestment.com/Storage/customer/guide/regards/%EC%84%A4%EB%AA%85%EC%84%9C70%ED%98%B8.MMF%ED%98%95CMA%EC%84%A4%EB%AA%85%EC%84%9C.pdf"
       ],
-      "claim_id": "cSNjKKdtp6M-07"
+      "claim_id": "cSNjKKdtp6M-07",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "MMW형은 투자일임형 실적배당 구조이고 예금자보호·원금보장 상품과 동일하지 않음.",
+        "checked_at": "2026-10-12",
+        "basis": "메리츠증권 2026 공식 MMW형 CMA 상품설명에는 한국증권금융 예탁형 운용, 예금보호 불가 및 랩수수료 연0.05%가 명시됨. MMW 보편적 최상위 원금보장/금리 우위 불인정.",
+        "primary_url": "https://www.imeritz.com/meritzcma/CmaMmw.do",
+        "source_finding": "메리츠증권 2026 공식 MMW형 CMA 상품설명에는 한국증권금융 예탁형 운용, 예금보호 불가 및 랩수수료 연0.05%가 명시됨. MMW 보편적 최상위 원금보장/금리 우위 불인정.",
+        "effective_date_or_scope": "2026-10-12 education scope; actual instrument provider, account context and history may differ."
+      },
+      "original_srt_anchor_start_sec": 503.96,
+      "timecode_precision": "ORIGINAL_SRT_CONTEXTUAL_CUE_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
     },
     {
       "timecode": "00:09:30",
@@ -94,7 +183,17 @@
       "official_sources": [
         "https://m.truefriend.com/main/mall/opencma/CmaInfo.jsp?cmd=TF02bc000000"
       ],
-      "claim_id": "cSNjKKdtp6M-08"
+      "claim_id": "cSNjKKdtp6M-08",
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "disposition": "제시된 비교 표를 영상 화면에서 검증하지 못했으며 증권사별 금리는 변동. 과거 수익률은 2026-10 투자 조건으로 사용 금지.",
+        "checked_at": "2026-10-12",
+        "basis": "영상이 밝힌 2026-07-22 기준 약 2~2.6% 비교 화면은 원본 프레임 및 금융사별 당시 수익률표를 취득하지 못해 현재 사실로 입증되지 않음.",
+        "supporting_context_url": null
+      },
+      "original_srt_anchor_start_sec": 570.76,
+      "timecode_precision": "ORIGINAL_SRT_CONTEXTUAL_CUE_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
     },
     {
       "timecode": "00:10:25",
@@ -104,12 +203,65 @@
       "official_sources": [
         "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
       ],
-      "claim_id": "cSNjKKdtp6M-09"
+      "claim_id": "cSNjKKdtp6M-09",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "신용·시장·유동성 위험과 이율·상품 제공 여부를 확인해야 하며 무조건 전환 권고는 승인하지 않음.",
+        "checked_at": "2026-10-12",
+        "basis": "RP→발행어음 또는 MMW 일괄 전환은 위험성향/신용/상품별 보호 여부·실현수익률과 다른 대안을 비교해야 할 주관적 권고.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "RP→발행어음 또는 MMW 일괄 전환은 위험성향/신용/상품별 보호 여부·실현수익률과 다른 대안을 비교해야 할 주관적 권고.",
+        "effective_date_or_scope": "2026-10-12 education scope; actual instrument provider, account context and history may differ."
+      },
+      "original_srt_anchor_start_sec": 625,
+      "timecode_precision": "ORIGINAL_SRT_CONTEXTUAL_CUE_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
     }
   ],
   "limitations": [
     "증권사별 금리표·상품코드의 영상 화면 확인 없음",
     "자동자막에서 발행어음·MMW·RP 용어가 반복적으로 오인식됨",
-    "안전성 단정 발언은 교육자료로 재사용하지 말고 위험 경고 사례로 보존"
+    "안전성 단정 발언은 교육자료로 재사용하지 말고 위험 경고 사례로 보존",
+    "2026-10-12: private user archive 336 cues / 26534 original bytes / hash matched registry; original soundtrack and charts not accessed.",
+    "발행어음형은 무담보 발행사 신용위험.",
+    "RP 담보도 거래 상대방 위험 및 시가 변동·유동성 위험을 자동 제거하지 못함.",
+    "MMF/MMW 실적배당형은 계좌가 한국증권금융과 거래한다는 이유로 개인 예금자보호를 부여하지 않음."
+  ],
+  "existing_registry_srt": {
+    "sha256": "b3911d8b1d2abf286bd0cbf7f08b359e1fa2152c2bc74da54f089480c7d75e3a",
+    "cue_count": 336,
+    "last_sec": 752.12,
+    "raw_srt_bytes": 26534,
+    "verified_same_bytes": true,
+    "archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd"
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "b3911d8b1d2abf286bd0cbf7f08b359e1fa2152c2bc74da54f089480c7d75e3a",
+    "evidence_reference": "2026-10-12 user private 1-70.zip/youtube-transcript-cSNjKKdtp6M.srt complete 336 cues and exact SHA256 against data/subtitles/registry.json; speaker claims localized using original SRT starts",
+    "original_srt_cue_count": 336,
+    "raw_bytes": 26534,
+    "last_seconds": 752.12,
+    "timestamps_approximate": true,
+    "precise_timing_verified": false,
+    "public_asr_reconciliation": "NOT_PERFORMED_NONBLOCKING",
+    "audio_checked": false,
+    "frames_checked": false,
+    "limitations": "Full source cue structural parsing and claim-context inspection only; original audio and screen snapshots not examined. Claim SRT anchors are approximate timepoints not independently acoustic aligned."
+  },
+  "verification_status": "ALL_9_CLAIMS_TRIAGED_USER_ORIGINAL_SRT_336_CUES_SHA_MATCHED_AUDIO_AND_FRAMES_OPEN",
+  "relations": [
+    {
+      "type": "EXTEND",
+      "related_video_id": "6VEfKF7BzZU",
+      "theme": "초보 현금계좌 선택에서 CMA 위험과 보호여부"
+    },
+    {
+      "type": "EXTEND",
+      "related_video_id": "aWBZ3tBuODs",
+      "theme": "ETF 수익구조와 CMA 현금운용구조 차이"
+    }
   ]
 }
