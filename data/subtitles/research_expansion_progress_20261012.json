@@ -4,11 +4,11 @@
   "scope": "Registered 70 user-supplied Korean SRTs inside original 791-video roster",
   "roster_count": 791,
   "source_srt_registered_unique_count": 70,
-  "existing_pilot_draft_count": 25,
-  "existing_pilot_claims_count": 257,
+  "existing_pilot_draft_count": 30,
+  "existing_pilot_claims_count": 298,
   "source_transcript_verified_sha_match_count": 70,
   "focused_first_10_analysis_complete": 10,
-  "verified_v3_educational_analysis_count": 25,
+  "verified_v3_educational_analysis_count": 30,
   "new_in_this_extension": [
     {
       "video_id": "LVE7XN_esTc",
@@ -54,46 +54,46 @@
   ],
   "existing_pilot_drafts_pending_full_claim_evidence_count": 0,
   "existing_pilot_drafts_pending_ids": [],
-  "srt_source_with_no_pilot_yet_estimate": 45,
-  "srt_source_not_yet_deep_reviewed_count": 45,
+  "srt_source_with_no_pilot_yet_estimate": 40,
+  "srt_source_not_yet_deep_reviewed_count": 40,
   "rest_of_roster_without_this_70_user_source_count": 721,
   "next_priorities": [
     {
-      "video_id": "4CQ4FjGT2gA",
-      "roster_no": 7,
-      "reason": "기존 25편 초안에는 없음; 원본 자막의 새 주장 추출",
+      "video_id": "zi9x_q2fYoc",
+      "roster_no": 19,
+      "reason": "원본 신규 주장 추출/근거검증",
       "ready_source": true
     },
     {
-      "video_id": "HfrBi5mzm8w",
-      "roster_no": 11,
-      "reason": "기존 초안 없는 영상의 원본 SRT 신규 지식 분석",
+      "video_id": "inLlZgtS7qs",
+      "roster_no": 20,
+      "reason": "원본 신규 주장 추출/근거검증",
       "ready_source": true
     },
     {
-      "video_id": "Nueoi-_PH6o",
-      "roster_no": 16,
-      "reason": "원본 SRT에서 주제·주장·규정별 근거 초기 탐색",
+      "video_id": "EYya0e4APBE",
+      "roster_no": 21,
+      "reason": "원본 신규 주장 추출/근거검증",
       "ready_source": true
     },
     {
-      "video_id": "nCXWFko0TaA",
-      "roster_no": 17,
-      "reason": "신규 원본 자막 구조 점검 및 근거 기반 분석",
+      "video_id": "WGFPHeM6-6I",
+      "roster_no": 22,
+      "reason": "원본 신규 주장 추출/근거검증",
       "ready_source": true
     },
     {
-      "video_id": "CvM8Os4ltfE",
-      "roster_no": 18,
-      "reason": "신규 원본 자막 주장 추출",
+      "video_id": "LEczVIueQAA",
+      "roster_no": 23,
+      "reason": "원본 신규 주장 추출/근거검증",
       "ready_source": true
     }
   ],
   "policy": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
   "optional_followups": "data/subtitles/optional_verification_register_20261012.json",
   "current_queue": "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md",
-  "knowledge_update": "knowledge/CMA_PENSION_INCOME_RISK_VERIFIED_20261012.md",
-  "counting_note": "25 individual original 70 user SRTs now have completed evidence-scoped educational analyses of all existing 25 pilot drafts. Remaining 45 registered SRTs have no drafts yet. Historical legacy V3 outside the user-archive evidence cohort is not counted. COMPLETE is not audio/frames verification.",
+  "knowledge_update": "knowledge/DIVIDEND_MICROINVESTMENT_PENSION_CASES_20261012.md",
+  "counting_note": "30 distinct original-SRT roster IDs have separately scoped education analyses. #7 is six already filmed interviews compiled into one long video and is COUNTED ONCE; its historical account returns not audited. 30 pilots/298 claims currently registered, 40 further SRTs need fresh pilot files; NONE of this implies original audio or every image verified.",
   "branch": "feat/subtitles-incremental-registry-20261009",
   "default_branch_touched": false,
   "new_in_next_five": [
@@ -175,6 +175,19 @@
         "oMs4-3ZOevE"
       ],
       "claims": 41
+    },
+    {
+      "as_of": "2026-10-12",
+      "ids": [
+        "4CQ4FjGT2gA",
+        "HfrBi5mzm8w",
+        "Nueoi-_PH6o",
+        "nCXWFko0TaA",
+        "CvM8Os4ltfE"
+      ],
+      "claims": 41,
+      "original_cue_total": 12144,
+      "special_scope": "#7 is 5h44 historical six-chapter compilation, individual past balances and displayed screenshots not independently authenticated."
     }
   ],
   "new_in_third_five": [
@@ -224,7 +237,60 @@
       "analysis_path": "data/analysis_events/oMs4-3ZOevE.json"
     }
   ],
-  "all_25_educational_review_ids": [
+  "previous_knowledge_update_20261012": "knowledge/CMA_PENSION_INCOME_RISK_VERIFIED_20261012.md",
+  "new_in_fourth_five": [
+    {
+      "video_id": "4CQ4FjGT2gA",
+      "source_provenance": "USER_ORIGINAL_1_70_ZIP_HASH_MATCHED",
+      "research_kind": "COMPOSITE_HISTORICAL_RECAP_SIX_CHAPTERS_SCOPED_14_CLAIMS",
+      "independent_claim_review": true,
+      "public_asr_comparison": "ORIGINAL_10728_PUBLIC_10726_OMISSIONS_OPEN",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/4CQ4FjGT2gA.json"
+    },
+    {
+      "video_id": "HfrBi5mzm8w",
+      "source_provenance": "USER_ORIGINAL_1_70_ZIP_HASH_MATCHED",
+      "research_kind": "FULL_SOURCE_FINANCIAL_EDUCATION",
+      "independent_claim_review": true,
+      "public_asr_comparison": "PUBLIC_LINES_1294_ORIGINAL_CUES_1294_EXACT_TEXT_NOT_ATTESTED",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/HfrBi5mzm8w.json"
+    },
+    {
+      "video_id": "Nueoi-_PH6o",
+      "source_provenance": "USER_ORIGINAL_1_70_ZIP_HASH_MATCHED",
+      "research_kind": "FULL_SOURCE_FINANCIAL_EDUCATION",
+      "independent_claim_review": true,
+      "public_asr_comparison": "PUBLIC_MATCH_NOT_CERTIFIED",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/Nueoi-_PH6o.json"
+    },
+    {
+      "video_id": "nCXWFko0TaA",
+      "source_provenance": "USER_ORIGINAL_1_70_ZIP_HASH_MATCHED",
+      "research_kind": "FULL_SOURCE_FINANCIAL_EDUCATION",
+      "independent_claim_review": true,
+      "public_asr_comparison": "PUBLIC_MATCH_NOT_CERTIFIED",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/nCXWFko0TaA.json"
+    },
+    {
+      "video_id": "CvM8Os4ltfE",
+      "source_provenance": "USER_ORIGINAL_1_70_ZIP_HASH_MATCHED",
+      "research_kind": "FULL_SOURCE_FINANCIAL_EDUCATION",
+      "independent_claim_review": true,
+      "public_asr_comparison": "PUBLIC_MATCH_NOT_CERTIFIED",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/CvM8Os4ltfE.json"
+    }
+  ],
+  "all_30_educational_review_ids": [
     "aWBZ3tBuODs",
     "Yb_5prWaqhk",
     "3_9IXnycZ3s",
@@ -249,7 +315,11 @@
     "cSNjKKdtp6M",
     "ZTlLcC4gE0M",
     "qtluAViPpsQ",
-    "oMs4-3ZOevE"
-  ],
-  "previous_knowledge_update_20261012": "knowledge/ASSET_ALLOCATION_ISA_PENSION_VERIFIED_20261012.md"
+    "oMs4-3ZOevE",
+    "4CQ4FjGT2gA",
+    "HfrBi5mzm8w",
+    "Nueoi-_PH6o",
+    "nCXWFko0TaA",
+    "CvM8Os4ltfE"
+  ]
 }
