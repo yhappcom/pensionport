@@ -105,7 +105,21 @@
     "자율주행 99% 사고원인 단정은 NHTSA 자료와 부합하지 않는다.",
     "혁신분야 성장과 해당 ETF 수익률·존속은 다르다."
   ],
-  "quantitative_claims": [],
+  "quantitative_claims": [
+    {
+      "claim": "자동차 사고의 인적과실 99~99.99% 발언",
+      "claim_percent_interval": [
+        99,
+        99.99
+      ],
+      "status": "UNSUPPORTED_BY_OFFICIAL_CAUSAL_STATISTICS_NOT_ACCEPTED",
+      "source": "https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/811731.pdf"
+    },
+    {
+      "claim": "양자컴퓨팅 1억년→몇 초 속도비",
+      "status": "UNVERIFIED_PROBLEM_HARDWARE_ERROR_RATE_AND_SOURCE_MISSING"
+    }
+  ],
   "relations": [
     {
       "type": "EXTEND",
