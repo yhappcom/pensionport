@@ -1,5 +1,17 @@
 # 박곰희TV 초안 25편 — 실제 파일 기반 검증 대기열
 
+## 2026-10-12 5편 추가 완료 — 20/70편, 누적 44개 신규 주장 공식 검증 (최신)
+
+- 연구 기준: [선택 정밀검증 정책](INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md). 전체 원본 한국어 SRT 70편 중 **20편/70편 교육 분석 V3 완료(28.6%)**, 원본 확보 나머지 50편(기존 주장 초안 5편, 새 초안 작성 필요 45편). 처음 파일럿 10편은 기존과 같이 포함; 이번 회차 **추가 5편 총 44개 주장**, 원본 자막 3,784개 구간/등록 SHA256 5/5 일치. 분석 승인으로 실제 영상 오디오/슬라이드 확인이나 개인 계좌 세금 판정 완료를 의미하지 않는다.
+- **#28 `oxMpNgnbISw` 자산배분:** [정식 검토](../data/analysis_events/oxMpNgnbISw.json) / [7개 주장 근거](../data/subtitles/pilots/oxMpNgnbISw.json). 등록 SRT 686큐, **3 PRIMARY_CONFIRMED, 2 QUALIFIED, 2 CONTRADICTED**. 중요 정정: 1986 Brinson 93.6%는 수익률 시계열 *변동 설명력*이며 투자 총수익의 93.6%를 자산배분이 만들었다는 뜻 아님. 미국지수 장기 보유가 **손실확률 0, 연10% 확정수익**을 보장하지 않음. 국민연금 기금 2026-05 적립금 **1,848.7조원**(시점 고정). 특정 배분 모델 성과표/그래프는 선택 검증 OPEN.
+- **#2 `6VEfKF7BzZU` 투자계좌 입문:** [정식 검토](../data/analysis_events/6VEfKF7BzZU.json) / [9개 주장 근거](../data/subtitles/pilots/6VEfKF7BzZU.json). SRT 1,347큐, **4 PRIMARY_CONFIRMED, 5 QUALIFIED**. 2026-08-27 한국은행 기준금리 3.00%; KRX 금현물 장내 매매와 실물 인출 시 부가가치세 10% 구분; ISA 3년 및 연금 세액공제 600/900만원, 일반 CMA 비예금보호형의 발행사·유동성 위험. 발행어음·RP·MMW 선호는 특정 회사/상품조건 없이는 보편 추천 금지.
+- **#47 `wLwnTSJqF7k` ISA 2026:** [정식 검토](../data/analysis_events/wLwnTSJqF7k.json) / [10개 주장 근거](../data/subtitles/pilots/wLwnTSJqF7k.json). SRT 505큐, **7 PRIMARY_CONFIRMED, 3 QUALIFIED**. 2026-09-18 시행 조특법 91조의18 및 증권사 공시 기준 일반형 200/서민형 400만원 비과세, 초과 9.9% 분리과세, 연2천/총1억원/3년. **납입원금 중도출금은 한도가 복구되지 않음**. 비과세 국내주식/국내주식형 손실은 다른 과세 이익과 '전부 통산'되지 않음.
+- **#42 `DVEdeOoCtXA` 연금저축 vs IRP:** [정식 검토](../data/analysis_events/DVEdeOoCtXA.json) / [9개 주장 근거](../data/subtitles/pilots/DVEdeOoCtXA.json). SRT 594큐, **4 PRIMARY_CONFIRMED, 5 QUALIFIED**. 연금저축 세액공제 600/IRP 합계 900만원, 자발적 연금 납입 총1,800만원과 구분. 퇴직연금 시행규칙 DC·IRP 위험자산 일반 70% 및 IRP 중도인출 법정 사유 확인. **55세 이후 IRP 일시금은 법적으로 가능**, 다만 연금 분할수령과 과세효과 다름.
+- **#45 `a-890uldXeo` 연금저축펀드:** [정식 검토](../data/analysis_events/a-890uldXeo.json) / [9개 주장 근거](../data/subtitles/pilots/a-890uldXeo.json). SRT 652큐, **3 PRIMARY_CONFIRMED, 5 QUALIFIED, 1 CONTRADICTED**. 연600만원 납입 연말정산 예상공제액 79.2만원/99만원은 개인 세액 한도 전제의 계산 예시. 과세이연은 영구 비과세 아님. **모든 연금계좌 반드시 최소 10년 지급 의무**는 법정 보편규칙이 아님. IRP 시행령은 55세 이상 연금 지급기간 5년 이상 또는 일시금 수령을 구분하며 세법상 연금수령한도는 별개.
+- [5편 합동 재사용 지식 문서](../knowledge/ASSET_ALLOCATION_ISA_PENSION_VERIFIED_20261012.md), [전체 실시간 집계](../data/subtitles/research_expansion_progress_20261012.json), [선택 검증 9개 OPEN](../data/subtitles/optional_verification_register_20261012.json)에 연계. 이번 증빙은 **핵심 법령 및 출처 기반 설명**의 승인이지 오디오/슬라이드 녹화본 검증이 아님. SRT 원본 저작권 자료는 공개 GitHub에 업로드하지 않음.
+- **다음 우선 5편:** #4 `aNfGrcO6WPI` 하락주식 매도판단, #36 `cSNjKKdtp6M` CMA, #51 `ZTlLcC4gE0M` 연금 초과납입, #5 `qtluAViPpsQ` 사회초년생 연말정산, #60 `oMs4-3ZOevE` 은퇴 현금흐름. 아래 과거 시점 섹션의 완료/OPEN 숫자는 날짜별 기록으로 보존.
+
+
 ## 2026-10-12 70편 확장 실행 및 선택적 정밀검증 공식화 — 현재 최신
 
 - **운영 기준:** [필수 주장 검증/원음·화면·백테스트 조건부 규칙](INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md) → [필요할 때만 추가 검증 목록](../data/subtitles/optional_verification_register_20261012.json) → [기계 판독 누적 진행표](../data/subtitles/research_expansion_progress_20261012.json). 원음·화면 검토 미완성 및 과거 성과표 원자료 미확보를 다른 영상 전체의 연구 정지 조건으로 사용하지 않는다.
@@ -79,15 +91,15 @@
 | 63 | `LVE7XN_esTc` | ETF 베이직 #3: ETF 선정 기준 | 9 | S | 최종 기록 생성 | SRT 250구간·9주장; 추적차이 vs 추적오차 정의/실부담비용; 가상 화면 OPEN |
 | 66 | `k9O79HeMOp0` | ETF 베이직 #2: ETF 종류 | 9 | S | 최종 기록 생성 | SRT 222구간·9주장; 파생 레버리지 일간목표/원자재·커버드콜 위험 |
 | 61 | `7RRWNL0V6As` | ETF 베이직 #4: 분배금 | 8 | S | 최종 기록 생성 | SRT 152구간·8주장; PR/TR 지수와 실제 분배 구분 및 2025 세법 예외 정정 |
-| 28 | `oxMpNgnbISw` | 자산배분 사용설명서 | 7 | S | 검증 보류 | 분산·리밸런싱 투자 원칙과 시뮬레이션 |
+| 28 | `oxMpNgnbISw` | 자산배분 사용설명서 | 7 | S | 최종 기록 생성 | 등록 SRT 686큐·자산배분 Brinson 93.6% 변동설명력 정정·미국지수 무손실 보장 금지 |
 | 14 | `IMJfPgmnFwc` | 변동성·저비용 ETF Shorts | 9 | A | 최종 기록 생성 | 완료: SEC 자산배분/ETF 대조, 위험=변동성 및 패시브 ETF 종목선정 오해 정정. 원본 SRT 미대조 |
 | 12 | `3_9IXnycZ3s` | 소액 미국주식 ETF Shorts | 8 | A | 최종 기록 생성 | 완료: S&P DJI 지수범위/선정규칙 및 SEC ETF 설명 대조, 미국시장 전체·자동 상위500 주장 정정. 원본 SRT 미대조 |
-| 2 | `6VEfKF7BzZU` | 초보 투자 계좌·상품 가이드 | 9 | S | 검증 보류 | CMA·ISA·연금저축 용도별 제약 |
+| 2 | `6VEfKF7BzZU` | 초보 투자 계좌·상품 가이드 | 9 | S | 최종 기록 생성 | 등록 SRT 1347큐·CMA/ISA/연금·기준금리 3%·금현물 실제 인출 VAT 주의 |
 | 4 | `aNfGrcO6WPI` | 하락주식 매도 판단 | 6 | S | 검증 보류 | 손실·포지션 리스크와 근거없는 일반화 |
 | 36 | `cSNjKKdtp6M` | CMA 사용설명서 | 9 | S | 검증 보류 | 예금자보호·발행어음 위험·상품별 |
-| 42 | `DVEdeOoCtXA` | 연금저축과 IRP 차이 | 9 | S | 검증 보류 | 고용노동부/국세청 상품·인출·위험자산 |
-| 45 | `a-890uldXeo` | 연금저축펀드 사용설명서 | 9 | S | 검증 보류 | 세액공제/납입·인출·소득과세 |
-| 47 | `wLwnTSJqF7k` | ISA 2026 사용설명서 | 10 | S | 검증 보류 | ISA 과세유형·의무기간·해지·재가입 |
+| 42 | `DVEdeOoCtXA` | 연금저축과 IRP 차이 | 9 | S | 최종 기록 생성 | 등록 SRT 594큐·연금 600/900/1800만원·IRP 위험자산 70%·일시금 법적 허용 |
+| 45 | `a-890uldXeo` | 연금저축펀드 사용설명서 | 9 | S | 최종 기록 생성 | 등록 SRT 652큐·공제 최대치 계산·연금지급 최소10년 보편규칙 정정 |
+| 47 | `wLwnTSJqF7k` | ISA 2026 사용설명서 | 10 | S | 최종 기록 생성 | 등록 SRT 505큐·2026 ISA 200/400만원·9.9%·중도출금 한도 미복원 |
 | 51 | `ZTlLcC4gE0M` | 연금저축 600만원 초과 납입 | 8 | S | 검증 보류 | 공제 안 받은 원금 인출순서 |
 | 5 | `qtluAViPpsQ` | 사회초년생 계좌/연말정산 | 9 | S | 검증 보류 | 현행 세제·가입조건과 개인차 |
 | 10 | `VKr060rIirM` | 미공제 연금저축 원금 Shorts | 8 | A | 최종 기록 생성 | 완료: 2026 국세청 연금·외국납부세액공제, 소득세법 시행령, IRP 인출제한 대조; 일반계좌 15.4% 일괄 비교 오류 정정. 원본 SRT 미대조 |
