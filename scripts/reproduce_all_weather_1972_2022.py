@@ -16,7 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 ASSETS = ['us_stock','long_treasury','gold','commodities']
-PORTFOLIOS = {'video_26_34_20_20':[.26,.34,.20,.20], 'classic_60_40':[.60,.40,0.,0.]}
+PORTFOLIOS = {'video_26_34_20_20':[.26,.34,.20,.20], 'stock60_same_long_treasury40':[.60,.40,0.,0.]}
 
 def months_inclusive(start,end):
     sy,sm=map(int,start.split('-'));ey,em=map(int,end.split('-'))
@@ -78,6 +78,8 @@ def measure(returns, weights, dates, rebalance='annual'):
             'maximum_drawdown':mdd,'growth_of_1_usd':end,'rebalance':rebalance}
 
 def self_test():
+    assert abs(sum(PORTFOLIOS['video_26_34_20_20'])-1)<1e-12
+    assert abs(sum(PORTFOLIOS['stock60_same_long_treasury40'])-1)<1e-12
     d=months_inclusive('2020-01','2021-12')
     assert len(d)==24 and d[0]=='2020-01' and d[-1]=='2021-12'
     r=[[.0,.0,.0,.0] for _ in d]
