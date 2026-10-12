@@ -19,6 +19,8 @@ import hashlib
 import json
 import os
 import re
+import subprocess
+import sys
 import tempfile
 import zipfile
 from pathlib import Path
@@ -217,7 +219,31 @@ def self_test():
         wrong["abcdefghijk"] = {**ref["abcdefghijk"], "sha256": "0" * 64}
         assert recover(wrong, [z], ["abcdefghijk"], p, q, False) == {"abcdefghijk": "REGISTERED_SHA_MISMATCH"}
         assert source_status("abcdefghijk", raw, {**ref["abcdefghijk"], "cue_count": 2}) == "STRUCTURE_MISMATCH"
-    return 10
+        # End-to-end ingestion gate: source bytes must already exist in both
+        # private vaults before a new public registry record may be applied.
+        reg_file = root / "registry.json"
+        reg_file.write_text(json.dumps({"schema_version": 1, "items": {}}))
+        roster = root / "roster.csv"
+        roster.write_text("video_id,roster_no\nabcdefghijk,1\n")
+        out_dir = root / "intake-out"
+        cmd = [
+            sys.executable, str(Path(__file__).with_name("ingest_subtitle_zip.py")),
+            "--archive", str(z), "--registry", str(reg_file),
+            "--roster", str(roster), "--out-dir", str(out_dir), "--apply"
+        ]
+        blocked = subprocess.run(cmd, capture_output=True, text=True, check=False)
+        assert blocked.returncode != 0
+        assert json.loads(reg_file.read_text())["items"] == {}
+        assert json.loads((out_dir / "intake_report.json").read_text())["applied"] is False
+        (b / "youtube-transcript-abcdefghijk.srt").write_bytes(raw)
+        passed = subprocess.run(
+            cmd + ["--vault-dir", str(a), "--backup-dir", str(b)],
+            capture_output=True, text=True, check=False
+        )
+        assert passed.returncode == 0, passed.stderr
+        assert json.loads(reg_file.read_text())["items"]["abcdefghijk"]["sha256"] == sha(raw)
+        assert json.loads((out_dir / "intake_report.json").read_text())["applied"] is True
+    return 16
 
 
 def main():
