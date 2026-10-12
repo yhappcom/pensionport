@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-12",
+  "as_of": "2026-10-13",
   "scope": "Registered 70 user-supplied Korean SRTs inside original 791-video roster",
   "roster_count": 791,
   "source_srt_registered_unique_count": 70,
-  "existing_pilot_draft_count": 35,
-  "existing_pilot_claims_count": 338,
+  "existing_pilot_draft_count": 45,
+  "existing_pilot_claims_count": 415,
   "source_transcript_verified_sha_match_count": 70,
   "focused_first_10_analysis_complete": 10,
-  "verified_v3_educational_analysis_count": 35,
+  "verified_v3_educational_analysis_count": 45,
   "new_in_this_extension": [
     {
       "video_id": "LVE7XN_esTc",
@@ -54,46 +54,76 @@
   ],
   "existing_pilot_drafts_pending_full_claim_evidence_count": 0,
   "existing_pilot_drafts_pending_ids": [],
-  "srt_source_with_no_pilot_yet_estimate": 35,
-  "srt_source_not_yet_deep_reviewed_count": 35,
+  "srt_source_with_no_pilot_yet_estimate": 25,
+  "srt_source_not_yet_deep_reviewed_count": 25,
   "rest_of_roster_without_this_70_user_source_count": 721,
   "next_priorities": [
     {
-      "video_id": "AeCOMNl11v4",
-      "roster_no": 24,
-      "reason": "기존 초안 없는 원본 2321큐; 신규 주장 추출",
+      "video_id": "lWWz4i7vIX4",
+      "roster_no": 35,
+      "reason": "원본 SRT 1279큐 신규 주장 추출",
       "ready_source": true
     },
     {
-      "video_id": "Bu36RrQMkVU",
-      "roster_no": 25,
-      "reason": "기존 초안 없는 39큐 숏폼; 금융 주장 분류",
+      "video_id": "YYZyCr7uapw",
+      "roster_no": 37,
+      "reason": "원본 1219큐",
       "ready_source": true
     },
     {
-      "video_id": "BfwtFsuxm3A",
-      "roster_no": 26,
-      "reason": "기존 초안 없는 33큐 숏폼; 금융 주장 검증",
+      "video_id": "CPKP1iu1ZMI",
+      "roster_no": 38,
+      "reason": "원본 557큐",
       "ready_source": true
     },
     {
-      "video_id": "uzZkVRGZw2k",
-      "roster_no": 27,
-      "reason": "기존 초안 없는 원본 801큐; 신규 주장 검증",
+      "video_id": "UqF7q4yIODM",
+      "roster_no": 39,
+      "reason": "원본 1473큐",
       "ready_source": true
     },
     {
-      "video_id": "33HPIrzl6xI",
-      "roster_no": 29,
-      "reason": "#28은 이미 완료, 29번의 35큐 신규 분석",
+      "video_id": "SBzSmA_vvPE",
+      "roster_no": 40,
+      "reason": "원본 505큐",
+      "ready_source": true
+    },
+    {
+      "video_id": "jdg_4nQUCVU",
+      "roster_no": 41,
+      "reason": "원본 944큐",
+      "ready_source": true
+    },
+    {
+      "video_id": "sTKJve59KGQ",
+      "roster_no": 43,
+      "reason": "원본 684큐",
+      "ready_source": true
+    },
+    {
+      "video_id": "09ojTPmKlQg",
+      "roster_no": 44,
+      "reason": "원본 35큐",
+      "ready_source": true
+    },
+    {
+      "video_id": "ZCOyHZj7yFA",
+      "roster_no": 46,
+      "reason": "원본 34큐",
+      "ready_source": true
+    },
+    {
+      "video_id": "9VLtWX1vJxg",
+      "roster_no": 48,
+      "reason": "원본 19큐",
       "ready_source": true
     }
   ],
   "policy": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
   "optional_followups": "data/subtitles/optional_verification_register_20261012.json",
   "current_queue": "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md",
-  "knowledge_update": "knowledge/CIVIL_SERVICE_ISA_MATURITY_BOND_VERIFIED_20261012.md",
-  "counting_note": "35 distinct user-original 70 source videos have conditional, source-scoped educational V3 reviews. Includes both long finance recordings reviewed through segmented content and three shorts. 35 registered SRTs have not been given first-pass new claims. Public audio/video never certified in this batch; source-level COMPLETE not equal to true return/tax certainty.",
+  "knowledge_update": "knowledge/CHILD_GIFT_THEMATIC_PENSION_RISK_VERIFIED_20261013.md",
+  "counting_note": "45 distinct original user SRT roster entries have their own educational claim-scoped V3 analyses; 415 pilot claim records; remaining 25 of 70 source videos have no first-pass claims. Long-form all-SRT structural parsing is not full oral/visual or audited source-portfolio performance. Published original captions not copied to GitHub.",
   "branch": "feat/subtitles-incremental-registry-20261009",
   "default_branch_touched": false,
   "new_in_next_five": [
@@ -200,6 +230,24 @@
       ],
       "claims": 40,
       "original_cue_total": 2302
+    },
+    {
+      "as_of": "2026-10-13",
+      "ids": [
+        "AeCOMNl11v4",
+        "Bu36RrQMkVU",
+        "BfwtFsuxm3A",
+        "uzZkVRGZw2k",
+        "33HPIrzl6xI",
+        "Dqv6t3cOlIM",
+        "yDt8Ki7d_Yk",
+        "835_phhMGM8",
+        "i32DeJPzsfE",
+        "OdR6ICkcthc"
+      ],
+      "claims": 77,
+      "original_cue_total": 8791,
+      "special_scope": "Some videos are long interviews/book discussions: structurally reviewed complete SRT and selected material investment claims, not every utterance/financial statement audited."
     }
   ],
   "new_in_third_five": [
@@ -349,7 +397,99 @@
       "analysis_path": "data/analysis_events/LEczVIueQAA.json"
     }
   ],
-  "all_35_educational_review_ids": [
+  "new_in_ten_20261013": [
+    {
+      "video_id": "AeCOMNl11v4",
+      "roster_no": 24,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/AeCOMNl11v4.json"
+    },
+    {
+      "video_id": "Bu36RrQMkVU",
+      "roster_no": 25,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/Bu36RrQMkVU.json"
+    },
+    {
+      "video_id": "BfwtFsuxm3A",
+      "roster_no": 26,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/BfwtFsuxm3A.json"
+    },
+    {
+      "video_id": "uzZkVRGZw2k",
+      "roster_no": 27,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/uzZkVRGZw2k.json"
+    },
+    {
+      "video_id": "33HPIrzl6xI",
+      "roster_no": 29,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/33HPIrzl6xI.json"
+    },
+    {
+      "video_id": "Dqv6t3cOlIM",
+      "roster_no": 30,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/Dqv6t3cOlIM.json"
+    },
+    {
+      "video_id": "yDt8Ki7d_Yk",
+      "roster_no": 31,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/yDt8Ki7d_Yk.json"
+    },
+    {
+      "video_id": "835_phhMGM8",
+      "roster_no": 32,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/835_phhMGM8.json"
+    },
+    {
+      "video_id": "i32DeJPzsfE",
+      "roster_no": 33,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/i32DeJPzsfE.json"
+    },
+    {
+      "video_id": "OdR6ICkcthc",
+      "roster_no": 34,
+      "source_provenance": "PRIVATE_USER_ORIGINAL_1_70_ZIP_SHA256_RECONCILED_WITH_REGISTRY",
+      "review_kind": "MATERIAL_EDUCATIONAL_CLAIMS_SOURCE_TRIAGE",
+      "original_audio_checked": false,
+      "video_frames_checked": false,
+      "analysis_path": "data/analysis_events/OdR6ICkcthc.json"
+    }
+  ],
+  "all_45_educational_review_ids": [
     "aWBZ3tBuODs",
     "Yb_5prWaqhk",
     "3_9IXnycZ3s",
@@ -384,6 +524,16 @@
     "inLlZgtS7qs",
     "EYya0e4APBE",
     "WGFPHeM6-6I",
-    "LEczVIueQAA"
+    "LEczVIueQAA",
+    "AeCOMNl11v4",
+    "Bu36RrQMkVU",
+    "BfwtFsuxm3A",
+    "uzZkVRGZw2k",
+    "33HPIrzl6xI",
+    "Dqv6t3cOlIM",
+    "yDt8Ki7d_Yk",
+    "835_phhMGM8",
+    "i32DeJPzsfE",
+    "OdR6ICkcthc"
   ]
 }
