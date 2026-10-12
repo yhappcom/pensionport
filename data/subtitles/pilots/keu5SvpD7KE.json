@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "review_date": "2026-10-09",
+  "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "verification_status": "PARTIAL",
+  "verification_status": "CLAIM_BY_CLAIM_PRIMARY_SOURCE_TRIAGE_COMPLETE_ORIGINAL_SRT_UNMATCHED",
   "roster_no": 13,
   "video_id": "keu5SvpD7KE",
   "title": "💰 50세 노후준비, 아직 늦지 않았어요! #50세연금시작 #노후준비 #연금저축 #ISA #박곰희TV #shorts",
@@ -13,8 +13,8 @@
   "source_kind": "PUBLIC_THIRD_PARTY_TIMESTAMPED_KOREAN_AUTOMATIC_CAPTIONS",
   "timed_transcript_source_url": "https://youtube-transcript.ai/transcript/keu5SvpD7KE.txt?lang=a-ko",
   "full_auto_transcript_source": "FIRECRAWL_ALEXANDRIA_YOUTUBE_READ",
-  "transcript_retrieval_date": "2026-10-09",
-  "transcript_evidence": "~59-second full Korean ASR transcript and publicly timestamped two approximately 30-second segments were reviewed; original SRT not matched.",
+  "transcript_retrieval_date": "2026-10-12",
+  "transcript_evidence": "Entire 00:59 Korean public ASR re-read on 2026-10-12 via Firecrawl Alexandria youtube/read; no original 27-cue SRT text/bytes or audio/frames reviewed; all legacy 30s timestamps approximate.",
   "existing_registry_srt": {
     "sha256": "0c721cfabf019d565e3d0254c08c6bacabbf6fb41542df34fedd47f5e96e7f89",
     "cue_count": 27,
@@ -38,7 +38,15 @@
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "relation_type": "REINFORCE",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-09",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "SEC 투자자교육은 투자기간과 위험감수능력에 맞춘 자산배분·분산 및 손실 위험을 설명한다. 50세 시작 가능성은 장려 메시지이나 모두가 충분한 은퇴재원을 확보한다는 근거는 없다.",
+        "effective_date_or_scope": "2026-10-12 일반 투자교육, 한국 개인연금의 적정수준을 증명하지 않음",
+        "disposition": "50세도 계획을 세울 수 있다는 동기부여만 인정. 필요 생활비·현재자산·부채·공적연금·납입여력 확인 없이 '충분한 노후'를 단정하지 않음.",
+        "checked_at": "2026-10-12"
+      }
     },
     {
       "claim_id": "keu5SvpD7KE-02",
@@ -52,7 +60,18 @@
         "https://www.shinhansec.com/siw/wealth-management/isa/isa_first/contents.do"
       ],
       "relation_type": "REINFORCE",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-09",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "primary_url": "https://trade.shinhansec.com/siw/wealth-management/isa/isa_first/contents.do",
+        "source_finding": "신한투자증권 2026년 공시 상품안내는 ISA 납입한도 연 2,000만원, 누적 최대 1억원으로 명시한다. '처음ISA' 부가 RP 서비스의 15~39세 조건은 ISA 일반 가입자격과 다르다.",
+        "effective_date_or_scope": "신한투자증권 2026-01-28~2027-01-28 준법감시 기재, 2026-10-12 확인",
+        "disposition": "연간 2천만원 수치는 유지. 가입자격, 기존 ISA 납입이력·잔여한도, 만기·계약연장·세제요건을 별도 확인.",
+        "other_official_sources": [
+          "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1027994797"
+        ],
+        "checked_at": "2026-10-12"
+      }
     },
     {
       "claim_id": "keu5SvpD7KE-03",
@@ -66,7 +85,18 @@
         "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1033240359"
       ],
       "relation_type": "REINFORCE",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-09",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "primary_url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032589347",
+        "source_finding": "2026-10-01 시행 소득세법 시행령 제40조의2 제2항 제1호 가목은 여러 연금계좌 합산 일반 납입 연 1,800만원을 규정하고 ISA 만기 전환금액 등 별도 추가항목도 정의한다. 국세청 안내는 세액공제 대상 연금저축 600만원·퇴직연금 합계 900만원을 구분한다.",
+        "effective_date_or_scope": "2026-10-01 시행 조문 및 2026-10-12 국세청 안내; 특정 재원 전환 예외 별도",
+        "disposition": "1,800만원은 납입 가능 일반한도이지 전액 세액공제 한도가 아니다. 연금저축 단독 600만원, IRP 등 합산 900만원 세액공제 기준과 구분.",
+        "other_official_sources": [
+          "https://i.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+        ],
+        "checked_at": "2026-10-12"
+      }
     },
     {
       "claim_id": "keu5SvpD7KE-04",
@@ -80,7 +110,19 @@
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47"
       ],
       "relation_type": "EXTEND",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-09",
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "primary_url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator",
+        "source_finding": "연 3,800만원(ISA 2,000만원+연금계좌 1,800만원)을 5회 납입한 원금은 1억9,000만원. 0% 수익이면 2억원 초과가 불가능하다. 연 7%를 5년 내내 가정한 각 연도말 납입의 계산값은 약 2억1,852.8만원이며 세금·비용·손실은 제외한다.",
+        "effective_date_or_scope": "가정 계산: 매년 말 3,800만원 납입×5, 0%/7% 고정, 세전 비용전, 개인 납입자격 충족 전제",
+        "disposition": "‘5년 꼬박 납입하면 2억 넘게 만들어진다’라는 무조건적 결과는 부정확. 1.9억원 원금 + 수익/손실 조건부 시나리오로 교체.",
+        "correction": "5년 납입원금은 1억9,000만원이며 2억원 초과를 위해서는 순투자수익이 필요하다. 투자수익은 보장되지 않는다.",
+        "other_official_sources": [
+          "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+        ],
+        "checked_at": "2026-10-12"
+      }
     },
     {
       "claim_id": "keu5SvpD7KE-05",
@@ -94,7 +136,18 @@
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47"
       ],
       "relation_type": "EXTEND",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-09",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "primary_url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator",
+        "source_finding": "추가납입 없이 2억 원을 10년 연 7% 복리 운용한 가정값은 약 3억9,343만원. 정확히 4억원이 되려면 약 연 7.18%가 필요하다. 반면 앞단 5년 말 연 7% 적립값 약 2억1,852.8만원이 그 뒤 10년 동안 연 7%라면 약 4억2,987.8만원이 된다.",
+        "effective_date_or_scope": "가정 계산: 10년 동안 일정 7%, 중도인출 없음, 수수료·세금·환율·물가 제외, 영상 ‘07%’ 발음 확인 불가",
+        "disposition": "55세 출발잔액·납입시점·적용수익률이 모두 고정된 조건부 복리 시나리오일 뿐 4억원 달성 예측이나 보장이 아님.",
+        "other_official_sources": [
+          "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+        ],
+        "checked_at": "2026-10-12"
+      }
     },
     {
       "claim_id": "keu5SvpD7KE-06",
@@ -108,7 +161,16 @@
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/fund-distributions-investor-bulletin"
       ],
       "relation_type": "EXTEND",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-09",
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "SEC 2026-08-19 투자자 공지는 월별 분배를 계획하는 ETF·펀드도 실제 지급이 보장되지 않고, 분배가 운용성과/총수익과 다르며 원금환급이 포함될 수 있고 기준가격이 감소할 수 있다고 명시한다. 4억원×6%÷12=월 200만원은 세전 산술식일 뿐이다.",
+        "effective_date_or_scope": "2026-08-19 SEC 펀드 분배 교육자료; 한국 ETF 세제 자체 규정이 아니라 투자위험 원리. 6%는 계산 역산 추정, 원음 미검증",
+        "disposition": "월 200만원을 안정적·확정적 연금소득처럼 받아들이지 않는다. 분배원천·기준가/NAV·분배율 변동·세후금액·상품구조를 검토.",
+        "correction": "4억원에서 연 6%를 가정하면 연 2,400만원, 월 200만원이라는 세전 계산만 성립한다. 실제 분배액, 순수익 및 원금 유지·지속 지급은 보장되지 않는다.",
+        "checked_at": "2026-10-12"
+      }
     },
     {
       "claim_id": "keu5SvpD7KE-07",
@@ -123,7 +185,18 @@
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/fund-distributions-investor-bulletin"
       ],
       "relation_type": "EXTEND",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-09",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "primary_url": "https://ma.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do",
+        "source_finding": "국민연금공단은 1969년생 이후 노령연금 기본 수급개시연령을 65세로 안내하며, 가입기간 10년 이상 등 요건과 소득활동 감액 가능성을 설명한다. 펀드 분배는 변동 가능해 확정 국민연금과 별도로 추정해야 한다.",
+        "effective_date_or_scope": "2026-10-12 국민연금공단 노령연금 수급 연령·가입기간 안내; 50세 예시는 2026년 1976년생 정도를 상정",
+        "disposition": "개인별 국민연금 예상액/실제 수급 조건과 투자자산의 가변 분배금을 각각 분리해 세후·실질구매력 현금흐름 표를 작성.",
+        "other_official_sources": [
+          "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+        ],
+        "checked_at": "2026-10-12"
+      }
     },
     {
       "claim_id": "keu5SvpD7KE-08",
@@ -139,7 +212,18 @@
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/fund-distributions-investor-bulletin"
       ],
       "relation_type": "EXTEND",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-09",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "SEC는 은퇴 목표기간, 위험선호도, 재조정 등을 반영한 자산배분과 분산투자를 설명한다. 7%는 보장수익률이 아니며 실제 한국어 ASR은 ‘07%’로 인식해 숫자 자체 원음 검증도 필요하다. 월배당 전환만으로 원금보전은 되지 않는다.",
+        "effective_date_or_scope": "2026-10-12 투자자 교육 일반원리. 연 7%·6% 수치는 독립 확인된 영상 음성이 아니라 문맥·산술상의 가정",
+        "disposition": "50~65세 자산배분 및 은퇴기 인출 전략은 재정상황·손실순서·물가·비용·과세·유동성에 따른 시나리오로만 활용.",
+        "other_official_sources": [
+          "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+        ],
+        "checked_at": "2026-10-12"
+      }
     },
     {
       "claim_id": "keu5SvpD7KE-09",
@@ -153,7 +237,13 @@
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "relation_type": "EXTEND",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-09",
+      "verification_evidence": {
+        "verdict": "SPEAKER_OPINION",
+        "basis": "영상 말미의 50세 투자 시작 촉구는 행동 제안·격려로서 보편적 투자수익률이나 은퇴자금 충족을 입증하는 사실 진술이 아니다.",
+        "disposition": "긴급자금·고금리 부채·은퇴지출·계좌 적합성을 점검하라는 교육적 출발점으로 한정하고, 곧바로 최대한도 납입/상품 매수 명령으로 해석하지 않음.",
+        "checked_at": "2026-10-12"
+      }
     }
   ],
   "relations": [
@@ -174,6 +264,34 @@
     "단순 원금 1억9000만원 대비 2억원 초과에는 양의 수익이 필요",
     "인플레이션·세후 현금흐름·세율·분배금 성격과 계좌별 매수상품 제약 미모형화",
     "30초 청크 타임코드만 확인; 원본 SRT/영상 음성·프레임 미확인",
-    "비승인 초안, V3 공식 분석 완료 아님"
-  ]
+    "비승인 초안, V3 공식 분석 완료 아님",
+    "2026-10-12 재검증: ASR 숫자 ‘07%’와 ‘연의 월배당’ 구간은 원음/화면 확인 전 7%, 6%라고 확정하지 않음. 6%는 월200만원÷4억원×12로 역산.",
+    "주장별 검증은 원본 SRT 바이트 검증과 별개. SEC 자료는 한국 세제 근거가 아닌 투자 원리·분배 위험 확인용."
+  ],
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "INDEPENDENT_FULL_KOREAN_TRANSCRIPT",
+    "evidence_reference": "2026-10-12 Firecrawl Alexandria youtube/read, video https://www.youtube.com/watch?v=keu5SvpD7KE, full 00:59 Korean ASR, title/channel/date verified; no timecoded transcript delivered by this source",
+    "original_srt_sha256": null,
+    "timestamps_approximate": true,
+    "precise_timing_verified": false,
+    "provider": "Firecrawl Alexandria youtube/read",
+    "retrieved_at": "2026-10-12",
+    "duration": "00:59",
+    "reviewed_entire_sequence": [
+      "도입: 50세 은퇴준비 시작 가능성·ISA/연금저축 권유",
+      "납입: ISA 2,000만원 및 연금저축 1,800만원의 연간 한도 언급",
+      "50~55세: 두 계좌 5년 적립 후 2억원 초과 주장",
+      "55~65세: 추가납입 없이 운용하여 4억원 이상 전망",
+      "65세 이후: 월배당 포트폴리오와 월 200만원 제시",
+      "국민연금과 월분배 합산·자산배분에서 월배당으로 전환·시작 촉구"
+    ],
+    "unclear_asr": [
+      "‘노후마지’, ‘납비 판도’, ‘자이 돈’, ‘연로 굴리기’ 등 자동 음성인식 오기.",
+      "수익률 구간 ‘07%’는 원음/화면 확인 전 ‘연 7%’로 확정할 수 없음.",
+      "4억원의 ‘연의 월배당’은 ASR 불명확; 월 200만원 역산상 연 6%라는 것은 분석상 추론이지 발언 직접 확인이 아님."
+    ],
+    "limitations": "Historical user-supplied SRT registered SHA-256 0c721cfabf019d565e3d0254c08c6bacabbf6fb41542df34fedd47f5e96e7f89 / 27 cues only; original cue text and bytes not accessible for SRT-vs-public-ASR textual/byte/timing comparison. Full public 00:59 Korean ASR inspected; original audio, frames, precision timecodes and slides not checked. Existing 00:00:01/00:00:31 group anchors are older third-party 30-second approximations and were NOT revalidated. Publication 2026-09-15, official guidance checked 2026-10-12. No investment-return guarantee or individualized tax outcome verified."
+  }
 }
