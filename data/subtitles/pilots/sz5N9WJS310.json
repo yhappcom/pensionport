@@ -3,7 +3,7 @@
   "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "verification_status": "ALL_23_OFFICIAL_EVIDENCE_TRIAGED_REGISTERED_ORIGINAL_SRT_1195_CUES_PUBLIC_ASR_TEXT_RECONCILED_AUDIO_UNVERIFIED",
+  "verification_status": "ALL_23_CLAIMS_TRIAGED_OFFICIAL_PRIMARY_AND_EXPLICIT_SUBJECTIVE_OPINION_QUALIFICATIONS",
   "roster_no": 1,
   "video_id": "sz5N9WJS310",
   "title": "📚 세공? 안세공? 연금수령 1500만원 | 구독자 댓글 읽어보기 | 곰쓸잡담🐻 | 박곰희 연금부자수업 EP.20",
@@ -115,13 +115,20 @@
       "source_paraphrase": "큰 목돈으로 국민연금 추납을 먼저 검토하고 미래 월급의 잉여자금으로 별도 연금저축을 적립하자는 제안.",
       "assessment": "PERSONAL_PLANNING_HEURISTIC",
       "independent_check": "추납 전 비상자금·고금리부채·세액공제 자격, 가입기간 조건, 투자기간을 확인. 모두에게 우선순위 동일하지 않음.",
-      "official_sources": [],
+      "official_sources": [
+        "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do?menuId=MN24001116"
+      ],
       "relation_type": "EXTEND",
       "verification_checked_on": "2026-10-12",
       "verification_evidence": {
-        "verdict": "SPEAKER_OPINION",
+        "verdict": "QUALIFIED",
         "disposition": "A conditional household-budget heuristic; not guaranteed suitable. Verify pension coverage, emergency fund and debts.",
-        "basis": "Speaker suggests making eligible past-service 추납 and separately putting future spare cash into pension savings."
+        "basis": "Speaker suggests making eligible past-service 추납 and separately putting future spare cash into pension savings.",
+        "primary_url": "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do?menuId=MN24001116",
+        "checked_at": "2026-10-12",
+        "source_finding": "NPS confirms 추납 is eligibility constrained; choosing it ahead of savings is a speaker's personal planning suggestion.",
+        "effective_date_or_scope": "NPS 추납 조건, 개인 재무계획 조언",
+        "speaker_subjective_value_judgment": true
       },
       "original_srt_anchor_start_sec": 372.48
     },
@@ -291,13 +298,20 @@
       "source_paraphrase": "연금 인출 시 납부세금의 절대액보다 세후 수익과 실제 소비 여력을 보라는 투자 철학.",
       "assessment": "SPEAKER_VALUE_JUDGMENT",
       "independent_check": "실질 세후현금흐름 판단은 유익할 수 있지만 세율·건보료·금융소득종합과세 및 유동성의 한계비용을 무시하지 않음.",
-      "official_sources": [],
+      "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6434"
+      ],
       "relation_type": "REINFORCE",
       "verification_checked_on": "2026-10-12",
       "verification_evidence": {
-        "verdict": "SPEAKER_OPINION",
+        "verdict": "QUALIFIED",
         "disposition": "A reasonable behavioral perspective, but risk-adjusted returns and taxes/insurance contributions still matter.",
-        "basis": "Focus on after-tax disposable wealth rather than nominal tax amounts."
+        "basis": "Focus on after-tax disposable wealth rather than nominal tax amounts.",
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6434",
+        "checked_at": "2026-10-12",
+        "source_finding": "NTS distinguishes taxable pension income sources and rates; the preference for after-tax wealth is not an independently provable universal optimum.",
+        "effective_date_or_scope": "2026 NTS tax brackets, investment principle not legislated",
+        "speaker_subjective_value_judgment": true
       },
       "original_srt_anchor_start_sec": 831.92
     },
@@ -309,13 +323,20 @@
       "source_paraphrase": "높은 과세를 우려해 수익률 향상 노력 자체를 포기하지 말라는 견해.",
       "assessment": "SPEAKER_PHILOSOPHY_NOT_PROMISED_RETURN",
       "independent_check": "세후 기대수익은 위험 조정값으로 비교해야 하며 고위험 자산을 세금절약 논리로 정당화하면 안 됨.",
-      "official_sources": [],
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
       "relation_type": "REINFORCE",
       "verification_checked_on": "2026-10-12",
       "verification_evidence": {
-        "verdict": "SPEAKER_OPINION",
+        "verdict": "QUALIFIED",
         "disposition": "No claim that high return is guaranteed or that taking greater risk is necessary.",
-        "basis": "Do not forego all investing solely out of tax aversion."
+        "basis": "Do not forego all investing solely out of tax aversion.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "checked_at": "2026-10-12",
+        "source_finding": "SEC cautions distributions and returns aren't guaranteed; not investing out of tax aversion is an opinion and must not become a promise of returns.",
+        "effective_date_or_scope": "2026 SEC investment-return/dividend-risk education",
+        "speaker_subjective_value_judgment": true
       },
       "original_srt_anchor_start_sec": 952.36
     },
