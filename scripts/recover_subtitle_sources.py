@@ -53,6 +53,17 @@ def validate_locations(primary, backup, repo_root):
 def parse_archive(paths):
     found = collections.defaultdict(dict)
     for archive in paths:
+        if archive.suffix.lower() == ".srt":
+            m = NAME.fullmatch(archive.name)
+            if not m:
+                raise ValueError("Direct SRT requires youtube-transcript-<11-character-ID>.srt")
+            if archive.stat().st_size > MAX_ITEM_BYTES:
+                raise ValueError("SRT exceeds safe size")
+            raw = archive.read_bytes()
+            found[m.group(1)][sha(raw)] = raw
+            continue
+        if archive.suffix.lower() != ".zip":
+            raise ValueError("Accepted source files: .zip or .srt")
         with zipfile.ZipFile(archive) as z:
             if len(z.infolist()) > MAX_MEMBERS:
                 raise ValueError("Too many ZIP members")
@@ -186,6 +197,9 @@ def self_test():
         with zipfile.ZipFile(z, "w") as f:
             f.writestr("youtube-transcript-abcdefghijk.srt", raw)
         p, q = validate_locations(a, b, repo)
+        direct = root / "youtube-transcript-abcdefghijk.srt"
+        direct.write_bytes(raw)
+        assert source_status("abcdefghijk", next(iter(parse_archive([direct])["abcdefghijk"].values())), ref["abcdefghijk"]) == "SHA_AND_STRUCTURE_VERIFIED"
         assert recover(ref, [z], ["abcdefghijk"], p, q, False) == {"abcdefghijk": "READY_TO_COPY"}
         assert recover(ref, [z], ["abcdefghijk"], p, q, True) == {"abcdefghijk": "TWO_COPIES_VERIFIED"}
         assert verify(ref, ["abcdefghijk"], p, q) == {"abcdefghijk": "TWO_COPIES_VERIFIED"}
@@ -203,7 +217,7 @@ def self_test():
         wrong["abcdefghijk"] = {**ref["abcdefghijk"], "sha256": "0" * 64}
         assert recover(wrong, [z], ["abcdefghijk"], p, q, False) == {"abcdefghijk": "REGISTERED_SHA_MISMATCH"}
         assert source_status("abcdefghijk", raw, {**ref["abcdefghijk"], "cue_count": 2}) == "STRUCTURE_MISMATCH"
-    return 9
+    return 10
 
 
 def main():
