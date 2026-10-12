@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-12",
+  "policy_reference": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
+  "intent": "Optional claim-specific verification, not a global blockade for the video research programme",
+  "counting_rule": "OPEN here does NOT revoke educational V3 complete status unless the underlying core claim cannot be safely scoped, then change affected record to PARTIAL.",
+  "items": [
+    {
+      "item_id": "sz5N9WJS310-AUDIO_OR_FRAME_NUMERIC",
+      "video_id": "sz5N9WJS310",
+      "claim_ids": [
+        "sz5N9WJS310-19"
+      ],
+      "title": "월 30만원 적립 7년/10년과 5,100만원 사례 원음/화면",
+      "verification_kind": "AUDIO_OR_FRAME_NUMERIC",
+      "status": "OPEN",
+      "importance": "HIGH",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "Original video appears to mix 7y and 10y outcomes; math audit flagged it; actual audio and displayed slide not checked",
+      "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+      "evidence_references": [
+        "data/subtitles/pilots/sz5N9WJS310.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "keu5SvpD7KE-AUDIO_NUMERIC",
+      "video_id": "keu5SvpD7KE",
+      "claim_ids": [],
+      "title": "자동자막 07%/모호한 월분배 수치의 발음 검증",
+      "verification_kind": "AUDIO_NUMERIC",
+      "status": "OPEN",
+      "importance": "MEDIUM",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "27 original SRT cues match public ASR text but may share number transcription errors",
+      "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+      "evidence_references": [
+        "data/analysis_events/keu5SvpD7KE.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "3MyhYE2jmuE-LEGAL_TRANSACTION_FACTS",
+      "video_id": "3MyhYE2jmuE",
+      "claim_ids": [
+        "3MyhYE2jmuE-07"
+      ],
+      "title": "정기금 증여 18.9만원 약정·법정 평가액 적용",
+      "verification_kind": "LEGAL_TRANSACTION_FACTS",
+      "status": "OPEN",
+      "importance": "HIGH",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "Annual statutory rate 3% verified, but actual contract date, dates of entitlement, cancellation lump sum and prior 10-year gifts not available",
+      "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+      "evidence_references": [
+        "data/subtitles/pilots/3MyhYE2jmuE.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "OfkY343OaNs-PRODUCT_TAX_EFFECTIVE_RATE",
+      "video_id": "OfkY343OaNs",
+      "claim_ids": [
+        "OfkY343OaNs-09"
+      ],
+      "title": "1557/2558 등 일본 상장 ETF의 실효세율",
+      "verification_kind": "PRODUCT_TAX_EFFECTIVE_RATE",
+      "status": "OPEN",
+      "importance": "HIGH",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "JPX distinguishes US foreign crosslisting from Japanese fund; specific withholding and crossborder tax credit need exact ticker/account/broker tax statements",
+      "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+      "evidence_references": [
+        "data/subtitles/pilots/OfkY343OaNs.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "YNOSY15ppf8-HISTORICAL_QUOTE_AND_FEE",
+      "video_id": "YNOSY15ppf8",
+      "claim_ids": [
+        "YNOSY15ppf8-12"
+      ],
+      "title": "엔화 현물 환전 1.75% 스프레드 특정 은행·시점",
+      "verification_kind": "HISTORICAL_QUOTE_AND_FEE",
+      "status": "OPEN",
+      "importance": "LOW",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "Bank-level rates, cash/remittance basis and date not confirmed; 1.75% is video example not universal",
+      "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+      "evidence_references": [
+        "data/analysis_events/YNOSY15ppf8.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "uiauof6tOFk-ORIGINAL_BACKTEST_SOURCE_DATA",
+      "video_id": "uiauof6tOFk",
+      "claim_ids": [
+        "uiauof6tOFk-13",
+        "uiauof6tOFk-16",
+        "uiauof6tOFk-18"
+      ],
+      "title": "1972~2022 올웨더 원본 4자산 백테스트",
+      "verification_kind": "ORIGINAL_BACKTEST_SOURCE_DATA",
+      "status": "OPEN",
+      "importance": "HIGH",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "Book's exact asset series, proxy methods, reinvestment, fees and annual rebalance return series unavailable; unrelated public model is not proof",
+      "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+      "evidence_references": [
+        "scripts/reproduce_all_weather_1972_2022.py",
+        "data/analysis_events/uiauof6tOFk.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    },
+    {
+      "item_id": "LVE7XN_esTc-SCREEN_EXAMPLE",
+      "video_id": "LVE7XN_esTc",
+      "claim_ids": [
+        "LVE7XN_esTc-09"
+      ],
+      "title": "7:57 나스닥100 가상 화면 NAV·가격·보수",
+      "verification_kind": "SCREEN_EXAMPLE",
+      "status": "OPEN",
+      "importance": "LOW",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-12",
+      "why_open": "User SRT provides topic but exact dated graphical values not recoverable; not needed for general ETF selection checklist",
+      "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+      "evidence_references": [
+        "data/analysis_events/LVE7XN_esTc.json"
+      ],
+      "actual_audio_checked": false,
+      "actual_frames_checked": false
+    }
+  ],
+  "resolved_items": [
+    {
+      "item_id": "YNOSY15ppf8-CASH_SPOT_FX_TAX",
+      "video_id": "YNOSY15ppf8",
+      "claim_ids": [
+        "YNOSY15ppf8-10"
+      ],
+      "status": "RESOLVED_WITH_SCOPE",
+      "result": "NTS 서면-2024-소득-0865 applies to temporary nonbusiness cash exchange gains, NOT futures/ETF/business trading.",
+      "evidence_reference": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143",
+      "resolved_at": "2026-10-12"
+    },
+    {
+      "item_id": "OfkY343OaNs-PUBLIC_ASR_OMISSION",
+      "video_id": "OfkY343OaNs",
+      "claim_ids": [],
+      "status": "TEXT_OMISSION_LOCATED_AUDIO_NOT_CHECKED",
+      "result": "Public transcript 1037 lines matches all user SRT speech lines except original cues 182 and 802; no sound verified.",
+      "resolved_at": "2026-10-12"
+    },
+    {
+      "item_id": "uiauof6tOFk-PUBLIC_MUSIC_OMISSION",
+      "video_id": "uiauof6tOFk",
+      "claim_ids": [],
+      "status": "TEXT_OMISSION_LOCATED_AUDIO_NOT_CHECKED",
+      "result": "Only original music label cue 649 missing; 649 other lines match.",
+      "resolved_at": "2026-10-12"
+    }
+  ],
+  "metadata": {
+    "user_provided_archive_source_70": true,
+    "original_audio_required_for_every_video": false,
+    "original_backtest_data_required_for_educational_principles": false,
+    "raw_srt_copyrighted_not_in_git": true
+  }
+}
