@@ -105,7 +105,16 @@
     "성장테마4종 각10%는 독립적이지 않을 수 있고 ETF 운용종료·상장폐지 가능.",
     "세후 투자수익과 자녀 증여과세는 별도."
   ],
-  "quantitative_claims": [],
+  "quantitative_claims": [
+    {
+      "claim": "코어와 성장위성 비중 검산",
+      "core_equity_percent": 60,
+      "satellite_theme_each_percent": 10,
+      "satellite_number": 4,
+      "total_equity_percent": 100,
+      "status": "ALLOCATIONS_SUM_TO_100_NOT_SAFETY_OR_OPTIMALITY"
+    }
+  ],
   "relations": [
     {
       "type": "REINFORCE",
