@@ -3,7 +3,7 @@
   "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "verification_status": "12_CLAIMS_TRIAGED_PUBLIC_SRT_1277_LINES_EQUAL_SPOT_FX_TAX_AND_FEES_OPEN",
+  "verification_status": "12_CLAIMS_EDUCATIONAL_TRIAGE_COMPLETE_PRIVATE_SPOT_JPY_GAINS_TAX_CASE_OPEN_FX_FEES_OPEN_AUDIO_UNVERIFIED",
   "roster_no": 9,
   "video_id": "YNOSY15ppf8",
   "title": "💴 엔화가 쌀 땐 무엇을 하면 좋을까?ㅣ일본여행을 갈까, 엔투자를 하까? | 엔화투자방법 1편",
@@ -234,7 +234,8 @@
         "checked_at": "2026-10-12",
         "basis": "Personal JPY spot FX profit Korean income-tax treatment is legally OPEN for residence, transaction and product form.",
         "supporting_reference": "Self-contained quote/currency arithmetic from historical original video, not official market or tax evidence.",
-        "tax_status": "OPEN_NO_KOREAN_NTS_PRIMARY_CONFIRMATION"
+        "tax_status": "OPEN_CASE_SPECIFIC_PRIMARY_NTS_INTERPRETATION_NOT_RETRIEVED",
+        "utterance_original_srt_cue_time": "00:30:44.720"
       }
     },
     {
@@ -272,7 +273,8 @@
         "disposition": "기관·현찰/전신환 방식·기준시점마다 차이가 커서 1.75%를 현행 공통 수수료로 확정할 수 없음. 매매 전 개별 기관 환율표 재확인.",
         "checked_at": "2026-10-12",
         "basis": "Quoted 1.75% cannot be generalized to every bank/JPY/cash vs remittance product.",
-        "supporting_reference": "Self-contained quote/currency arithmetic from historical original video, not official market or tax evidence."
+        "supporting_reference": "Self-contained quote/currency arithmetic from historical original video, not official market or tax evidence.",
+        "utterance_original_srt_cue_time": "00:36:29.520"
       }
     }
   ],
@@ -297,7 +299,8 @@
     "본 파일은 일부 공식 출처 비교를 포함하는 비승인 심층 검토 초안이며 공식 최종 검증·canonical 학습 완료 아님",
     "Direct JPY personal FX gain tax exemption is NOT APPROVED until Korean NTS/statute and transaction purpose/instrument are confirmed.",
     "Any 1.75% bank spread and FX 100..160/1000..870 figures are video examples; not present-day live bank quotes.",
-    "All source/public 1277 text lines matched, not independent recorded sound or on-screen FX chart verification."
+    "All source/public 1277 text lines matched, not independent recorded sound or on-screen FX chart verification.",
+    "정확한 원본 SRT 시각: 환차익 비과세 언급 30:44.720, 환전 수수료 1.75% 언급 36:29.520; 현물 환전 개인 소득세 여부를 확인할 국세청 거래유형별 유권해석 미확보. 시세·수수료 공통적용 금지."
   ],
   "source_audit": {
     "full_transcript_reviewed": true,
@@ -310,6 +313,15 @@
     "public_text_match": "ALL_1277_LINES_EXACT",
     "original_end_sec": 2391.56,
     "public_characters": 22279,
-    "limitations": "No actual audio or chart source date. Korean spot FX tax status and 1.75% broker-specific margin remain unverified."
+    "limitations": "No actual audio or chart source date. Korean spot FX tax status and 1.75% broker-specific margin remain unverified.",
+    "spot_jpy_tax_primary_analysis": {
+      "status": "CASE_SPECIFIC_KOREAN_NTS_RULING_NOT_OBTAINED",
+      "utterance_original_srt_cue_time": "00:30:44.720",
+      "utterance_short": "환차익도 비과세예요",
+      "important_distinction": "Personal exchange of ordinary banknotes/bank FX vs taxable gains and distributions from ETFs, foreign-listed securities, deposits interest and FX derivatives",
+      "not_approved": "No unconditional tax-free claim established for any business/speculative/instrument category",
+      "retail_bank_spread_example_original_srt_time": "00:36:29.520",
+      "spread_percent_example": 1.75
+    }
   }
 }
