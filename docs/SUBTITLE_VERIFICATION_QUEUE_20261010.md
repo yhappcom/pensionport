@@ -1,5 +1,12 @@
 # 박곰희TV 초안 25편 — 실제 파일 기반 검증 대기열
 
+## 2026-10-12 공개 검색으로 추가 해결한 세무 검증
+
+- **#9 엔화환전 소득세**: 국세청 공식 [질의회신 서면-2024-소득-0865](https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143), 생산 2024-04-02·등록 2025-01-09 확인. 일반 거주자의 **일시적 외화 취득 → 원화 환전의 환차익**은 소득세 과세대상에서 제외. **사업 목적의 투자·거래**는 기간·규모·횟수·동기에 따라 사업소득 가능; 해외 ETF·파생상품·외화예금 이자와 혼동 금지. [#9 주장 근거](../data/subtitles/pilots/YNOSY15ppf8.json)와 [정식 분석](../data/analysis_events/YNOSY15ppf8.json)에 반영함. 실제 은행별 1.75% 스프레드 검증·영상 원음 확인은 OPEN.
+- **#8 일본 ETF 상품별 세제 분류**: 일본거래소 JPX [공식 해외주식 ETF 목록](https://www.jpx.co.jp/english/equities/products/etfs/issues/01-08.html)에 따라 **1557 SPDR S&P500은 미국계 ETF의 도쿄 중복상장**, **2558 MAXIS 미국주식 S&P500은 일본 운용 펀드**. 일본 NTA [비거주자 배당원천징수 기본규칙](https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2884.htm)의 **15.315%**를 도쿄상장 모든 ETF에 적용할 수 없음. 미국ETF 중복상장, 일본 현지 ETF는 원천소득국·수익 분류·한/미/일 조약·증권사 배당 원천징수내역을 각각 확인해야 하므로 **개별 실효세율 OPEN**. [근거](../data/subtitles/pilots/OfkY343OaNs.json) / [분석](../data/analysis_events/OfkY343OaNs.json).
+- **#15 올웨더 원자료**: 도세 도시로의 2026-09-09 발행 [도서](https://www.yes24.com/product/goods/195618551), ISBN `9791199691469`와 포트폴리오 연구를 확인. 1971년부터의 거시경제 월별 데이터 후보 [공개 대체 연구](https://github.com/guenther-QR/All-Weather-Portfolio-Construction) 존재하나, 책 원본의 1972–2022 미국 장기국채·원자재 등 4개 자산별 동일 총수익률 시계열이 **확인된 것이 아님**. 도서 원본 수치 재현을 선언하지 않음.
+- **원음·영상**: 검색으로 원본 MP4/음성 클립·정확한 프레임을 확보하지 못함. SRT와 독립 공개 자동전사 텍스트 일치 ≠ 원음/화면 검증 완료. 소리·화면은 OPEN 유지.
+
 ## 2026-10-12 추가 감사 — 원문 차이 위치 해소 / 세법·백테스트 조건부 유지
 
 - [4편 상세 근거 및 실행 로그](SUBTITLE_FOUR_VIDEO_UNCERTAINTY_AUDIT_20261012.md) / [기계 판독 감사 상태](../data/subtitles/followup_verification_audit_20261012.json) / [올웨더 재현 프로그램](../scripts/reproduce_all_weather_1972_2022.py).
