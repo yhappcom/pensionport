@@ -291,7 +291,7 @@
       "registered_sha256": "d97852825e0b09d58eb76957e22cd7ef41f5d8a59013795bc4c949c1e651c921",
       "registered_cue_count": 1039,
       "custody_status": "TWO_PRIVATE_ARCHIVES_READBACK_VERIFIED",
-      "original_to_public_asr": "PUBLIC_ASR_1037_LINES_VS_ORIGINAL_1039_CUES_DIFF_OPEN"
+      "original_to_public_asr": "ALIGNED_1037_OF_1039_PUBLIC_OMITS_ORIGINAL_CUES_182_AND_802_AUDIO_OPEN"
     },
     "OiDTNstaSpM": {
       "registered_sha256": "e94b12a1084a8b57c3b9c2a630e27f840ae5a827b3a71c62526e15380a7c57bd",
@@ -345,7 +345,7 @@
       "registered_sha256": "577bef626ef289a67c9c50f2ef6d7d1548ac66040bbda1a451a62ff06f7d9998",
       "registered_cue_count": 650,
       "custody_status": "TWO_PRIVATE_ARCHIVES_READBACK_VERIFIED",
-      "original_to_public_asr": "PUBLIC_ASR_649_LINES_VS_ORIGINAL_650_CUES_DIFF_OPEN"
+      "original_to_public_asr": "ALIGNED_649_OF_650_PUBLIC_OMITS_ORIGINAL_CUE_649_MUSIC_AUDIO_OPEN"
     },
     "UqF7q4yIODM": {
       "registered_sha256": "a7bdd5f290aec224fa9c097719c0abb17fca2e010f38eb09b6b0911d4c831d1b",
@@ -442,12 +442,37 @@
       "3MyhYE2jmuE",
       "YNOSY15ppf8"
     ],
-    "public_transcript_difference_open_video_ids": [
-      "OfkY343OaNs",
-      "uiauof6tOFk"
-    ],
+    "public_transcript_difference_open_video_ids": [],
     "public_transcript_not_freshly_retrieved_video_ids": [
       "OiDTNstaSpM"
+    ],
+    "public_transcript_difference_locations_resolved": {
+      "OfkY343OaNs": [
+        {
+          "original_cue": 182,
+          "start": "00:05:59.400",
+          "end": "00:06:00.360",
+          "text_short": ">> 코스닥."
+        },
+        {
+          "original_cue": 802,
+          "start": "00:26:11.520",
+          "end": "00:26:13.039",
+          "text_short": ">> 텔"
+        }
+      ],
+      "uiauof6tOFk": [
+        {
+          "original_cue": 649,
+          "start": "00:24:44.902",
+          "end": "00:24:48.232",
+          "text_short": "[음악]"
+        }
+      ]
+    },
+    "public_transcript_omission_sound_validation_open_video_ids": [
+      "OfkY343OaNs",
+      "uiauof6tOFk"
     ]
   }
 }
