@@ -1,5 +1,15 @@
 # 박곰희TV 초안 25편 — 실제 파일 기반 검증 대기열
 
+## 2026-10-13 원본 70편 중 추가 10편 — 누적 45/70 (최신)
+
+- **이번 회차 10편**: 로스터 **#24·#25·#26·#27·#29·#30·#31·#32·#33·#34**. #28은 앞서 검토돼 중복 제외. 사용자 비공개 원본 SRT **8,791구간**, 10개 각 원본의 바이트 SHA256 역사적 등록부 일치. 새 주장 **77개**를 선별해 근거 검토 후 영상별 pilot + V3 분석 생성. **누적 45/70편(64.3%)**, 등록 초안 **45편·415개 주장**, 남은 **25편 원본 SRT**는 신규 주장 추출부터 필요. 실제 영상 전체 발언이나 투자결과·원음·프레임을 독립 인증한 것은 아님.
+- **1차 5편(36주장)**: [#24 한정수 대표 인터뷰](../data/analysis_events/AeCOMNl11v4.json) 9주장(정부가 지지하는 테마는 가격하방 보장/모든 자산은 우상향 → 정정), [#25 자녀 미래산업](../data/analysis_events/Bu36RrQMkVU.json) 6주장(교통사고 99% 인과/자율주행 기술 거의완성 단정 정정), [#26 코어60·위성40](../data/analysis_events/BfwtFsuxm3A.json) 6주장(주식100% 포트폴리오이고 장기 수익 미보장), [#27 투자입문시점](../data/analysis_events/uzZkVRGZw2k.json) 8주장(인덱스10%, TDF7% 고정 수익 기대 금지), [#29 증여3법](../data/analysis_events/33HPIrzl6xI.json) 7주장(주식 전후2개월평가·기한내 반환·유기정기금 법정 연3%를 별개 조문으로 확인).
+- **2차 5편(41주장)**: [#30 하락장 투자대담](../data/analysis_events/Dqv6t3cOlIM.json) 8주장(대형주가 사라지지 않는다는 무위험 가정 정정), [#31 평생 자녀증여 2.4억](../data/analysis_events/yDt8Ki7d_Yk.json) 6주장(미성년2천/성년5천/혼인출산1억 등 일자·10년 누계 조건부), [#32 코스톨라니 달걀모형](../data/analysis_events/835_phhMGM8.json) 7주장(금리인하 후 9~12개월 상승은 검증된 확정 시차 아님), [#33 공무원 출신 투자사례](../data/analysis_events/i32DeJPzsfE.json) 10주장(연금대출·계좌이전·외부납입과 순수 투자수익을 분리), [#34 퇴직연금 500조](../data/analysis_events/OdR6ICkcthc.json) 10주장(고용노동부 2025말 **501.4조원/연수익6.5%/DC·IRP54.3%/실적배당형24.6%** 공식 근거 확인).
+- **통합 재사용 지식**: [2026-10-13 자녀증여·미래산업·퇴직연금 통합 연구](../knowledge/CHILD_GIFT_THEMATIC_PENSION_RISK_VERIFIED_20261013.md). [기계 판독 누적 상태](../data/subtitles/research_expansion_progress_20261012.json). [선택적 후속검증 31 OPEN](../data/subtitles/optional_verification_register_20261012.json). 오디오/화면 자체가 없어 생기는 비중요 미검증은 전체 교육연구 중단 조건으로 사용하지 않는다.
+- **다음 10편**: **#35 lWWz4i7vIX4, #37 YYZyCr7uapw, #38 CPKP1iu1ZMI, #39 UqF7q4yIODM, #40 SBzSmA_vvPE, #41 jdg_4nQUCVU, #43 sTKJve59KGQ, #44 09ojTPmKlQg, #46 ZCOyHZj7yFA, #48 9VLtWX1vJxg**. #36, #42, #45, #47 등 기완료 영상은 건너뜀. 이전 진행률은 날짜별 역사 스냅샷으로 남긴다.
+
+
+
 ## 2026-10-12 신규 #19~#23 5편 완료 — 최신 35/70
 
 - 원본 SRT **2,302 cues**, 각 SHA-256 등록부 일치. 새로운 **40개 주장** 검토·별도 V3 분석 저장. 누적 **35/70편(50%)**·**35개 초안 338주장**, 잔여 35편 새 초안 필요.
