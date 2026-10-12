@@ -3,7 +3,7 @@
   "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "verification_status": "14_CLAIMS_SOURCE_TRIAGED_ORIGINAL_SRT_AND_INDEPENDENT_PUBLIC_TEXT_EQUAL_AUDIO_UNVERIFIED",
+  "verification_status": "14_CLAIMS_REVIEWED_STATUTORY_ANNUITY_DISCOUNT_RATE_3_PERCENT_VERIFIED_CONTRACT_TAX_OPEN_AUDIO_OPEN",
   "roster_no": 6,
   "video_id": "3MyhYE2jmuE",
   "title": "🌕 [추석특집] 애기를 낳은 친척이 있다면? | 공제 한도 내에서 자녀 증여하기 | 친척 만났을 때 해줄 이야기#1",
@@ -179,16 +179,20 @@
       "assessment": "OPEN_QUANTITATIVE_AND_TAX_RULE",
       "independent_check": "18만9천원/월, 할인율 3%, 계약 요건, 실제 이체이행, 약정 증빙이 현행 2026년 규정에 맞는지 1차 법령·국세청 해석 및 제공된 엑셀과 대조 필요. 금액을 세금 0원 보장으로 승인하지 않음.",
       "official_sources": [
-        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475"
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=113998"
       ],
       "relation_type": "NEW",
       "verification_checked_on": "2026-10-12",
       "verification_evidence": {
-        "verdict": "HYPOTHETICAL",
-        "disposition": "18만9천원/월, 할인율 3%, 계약 요건, 실제 이체이행, 약정 증빙이 현행 2026년 규정에 맞는지 1차 법령·국세청 해석 및 제공된 엑셀과 대조 필요. 금액을 세금 0원 보장으로 승인하지 않음.",
+        "verdict": "QUALIFIED",
+        "disposition": "18만9천원/월, 할인율 3%, 계약 요건, 실제 이체이행, 약정 증빙이 현행 2026년 규정에 맞는지 1차 법령·국세청 해석 및 제공된 엑셀과 대조 필요. 금액을 세금 0원 보장으로 승인하지 않음. The 3% is now verified as a lawful statutory rate, but no tax-exemption approval before actual deed/report and previous gift deduction audit.",
         "basis": "Original full SRT and specific independent legislative/regulator context.",
         "checked_at": "2026-10-12",
-        "supporting_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475"
+        "supporting_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+        "primary_url": "https://www.law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=113998",
+        "source_finding": "2026 시행규칙 제19조의2제3항 confirms 3% annual statutory discount. 시행령 제62조 directs sum of annually discounted periodic payment entitlements (20x one-year payment cap and applicable cancellation lump sum floor). Annually aggregated 226.8만원 at year-end n=1..10 yields 1934.65만원, beginning n=0..9 yields 1992.69만원; different from monthly finance annuity 1961.11만원.",
+        "effective_date_or_scope": "2026-10-12 law; example assumes binding contract, 10 annual aggregated payments, 3% discount, no higher cancellation lump-sum value."
       }
     },
     {
@@ -375,7 +379,8 @@
     "본 파일은 일부 공식 출처 비교를 포함하는 비승인 심층 검토 초안이며 공식 최종 검증·canonical 학습 완료 아님",
     "Full original 807 cues and independent public ASR text match; no independently heard audio or verified on-screen gift valuation sheet.",
     "The 189000 KRW ×120 monthly payments have nominal 22.68m KRW. A simplified effective annual 3% monthly-end annuity has present value 19.611m KRW; statutory Art.62 uses an annually computed regulatory formula with rate prescribed by ministry, not the simplified model. Zero gift tax NOT confirmed.",
-    "Existing pilot approval remains NOT_APPROVED; a separate canonical approval may certify sourced educational review only."
+    "Existing pilot approval remains NOT_APPROVED; a separate canonical approval may certify sourced educational review only.",
+    "2026 시행령 제62조/시행규칙 제19조의2(3): 유기정기금 연3% 확인. 226.8만원씩 연도말 10회 할인 예시 1,934만6,500원, 연도초 1,992만6,895원; 지급일·해지가능일시금·유효한 약정 확인 전 개별 증여과세 가액 확정 금지."
   ],
   "source_audit": {
     "full_transcript_reviewed": true,
@@ -387,6 +392,16 @@
     "precise_timing_verified": false,
     "public_text_match": "ALL_807_LINES_EXACT",
     "audio_checked": false,
-    "limitations": "Same automatic transcription may share recognition errors. Frame-spreadsheet figures and original audio unreviewed; per-claim legacy 30s timestamps remain approximate."
+    "limitations": "Same automatic transcription may share recognition errors. Frame-spreadsheet figures and original audio unreviewed; per-claim legacy 30s timestamps remain approximate.",
+    "periodic_gift_law_20261012": {
+      "decree_art62": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+      "rule_art19_2": "https://www.law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=113998",
+      "official_rate_yearly": 0.03,
+      "nominal_krw": 22680000,
+      "year_end_annual_payments_model_krw": 19346500,
+      "year_start_annual_payments_model_krw": 19926895,
+      "month_end_financial_annuity_model_krw": 19611095,
+      "statement": "Annual statutory model discounts the sum of each year's contract entitlement at 3% to evaluation date; year-end/year-start are model illustrations, NOT a certified individual tax assessment. Contract legal formation, termination lump sum, gift date, previous 10-year deductions must be checked."
+    }
   }
 }
