@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-12",
+  "scope": "Registered 70 user-supplied Korean SRTs inside original 791-video roster",
+  "roster_count": 791,
+  "source_srt_registered_unique_count": 70,
+  "existing_pilot_draft_count": 25,
+  "existing_pilot_claims_count": 257,
+  "source_transcript_verified_sha_match_count": 70,
+  "focused_first_10_analysis_complete": 10,
+  "verified_v3_educational_analysis_count": 15,
+  "new_in_this_extension": [
+    {
+      "video_id": "LVE7XN_esTc",
+      "source_provenance": "USER_ARCHIVE_PRIVATE_SRT_SHA256_MATCHED",
+      "independent_primary_claim_audit": true,
+      "public_asr_comparison": "NOT_PERFORMED_NONBLOCKING",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/LVE7XN_esTc.json"
+    },
+    {
+      "video_id": "k9O79HeMOp0",
+      "source_provenance": "USER_ARCHIVE_PRIVATE_SRT_SHA256_MATCHED",
+      "independent_primary_claim_audit": true,
+      "public_asr_comparison": "NOT_PERFORMED_NONBLOCKING",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/k9O79HeMOp0.json"
+    },
+    {
+      "video_id": "7RRWNL0V6As",
+      "source_provenance": "USER_ARCHIVE_PRIVATE_SRT_SHA256_MATCHED",
+      "independent_primary_claim_audit": true,
+      "public_asr_comparison": "NOT_PERFORMED_NONBLOCKING",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/7RRWNL0V6As.json"
+    }
+  ],
+  "previous_educational_analysis_ids": [
+    "aWBZ3tBuODs",
+    "Yb_5prWaqhk",
+    "3_9IXnycZ3s",
+    "IMJfPgmnFwc",
+    "VKr060rIirM",
+    "keu5SvpD7KE",
+    "sz5N9WJS310",
+    "OiDTNstaSpM",
+    "3MyhYE2jmuE",
+    "OfkY343OaNs",
+    "YNOSY15ppf8",
+    "uiauof6tOFk"
+  ],
+  "all_15_educational_review_ids": [
+    "aWBZ3tBuODs",
+    "Yb_5prWaqhk",
+    "3_9IXnycZ3s",
+    "IMJfPgmnFwc",
+    "VKr060rIirM",
+    "keu5SvpD7KE",
+    "sz5N9WJS310",
+    "OiDTNstaSpM",
+    "3MyhYE2jmuE",
+    "OfkY343OaNs",
+    "YNOSY15ppf8",
+    "uiauof6tOFk",
+    "LVE7XN_esTc",
+    "k9O79HeMOp0",
+    "7RRWNL0V6As"
+  ],
+  "existing_pilot_drafts_pending_full_claim_evidence_count": 10,
+  "existing_pilot_drafts_pending_ids": [
+    "oxMpNgnbISw",
+    "6VEfKF7BzZU",
+    "aNfGrcO6WPI",
+    "cSNjKKdtp6M",
+    "DVEdeOoCtXA",
+    "a-890uldXeo",
+    "wLwnTSJqF7k",
+    "ZTlLcC4gE0M",
+    "qtluAViPpsQ",
+    "oMs4-3ZOevE"
+  ],
+  "srt_source_with_no_pilot_yet_estimate": 45,
+  "srt_source_not_yet_deep_reviewed_count": 55,
+  "rest_of_roster_without_this_70_user_source_count": 721,
+  "next_priorities": [
+    {
+      "video_id": "oxMpNgnbISw",
+      "roster_no": 28,
+      "reason": "자산배분 기본 개념 검증",
+      "ready_source": true
+    },
+    {
+      "video_id": "6VEfKF7BzZU",
+      "roster_no": 2,
+      "reason": "CMA/ISA/연금 저축 상품·계좌 선택 검증",
+      "ready_source": true
+    },
+    {
+      "video_id": "wLwnTSJqF7k",
+      "roster_no": 47,
+      "reason": "ISA 2026 제도와 실제 시행일 검증",
+      "ready_source": true
+    }
+  ],
+  "policy": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
+  "optional_followups": "data/subtitles/optional_verification_register_20261012.json",
+  "current_queue": "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md",
+  "knowledge_update": "knowledge/ETF_BASIC_VERIFIED_PRINCIPLES_20261012.md",
+  "counting_note": "Deep-reviewed means verified-claims educational analysis in this research cohort, not exact audio verification or investment advice. Historical/V2 video records are not automatically this research cohort. Private archive source 70 is not permission to publish raw subtitle text.",
+  "branch": "feat/subtitles-incremental-registry-20261009",
+  "default_branch_touched": false
+}
