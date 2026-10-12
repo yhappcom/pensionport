@@ -10,6 +10,47 @@
 - 현재 70편은 `SRT_STRUCTURE_CHECKED` 및 `CONTENT_INDEXED`(기계적 주제/시간코드 색인), `NOT_VERIFIED` 상태다. 심층 금융 분석 및 사실 검증 완료와 혼동하지 않는다.
 - 2019년 영상 2편의 기존 V4/V3 분석 상태는 이 수집 관리대장과 별도; 데이터베이스 이전 분석을 임의로 완료 처리하지 않는다.
 
+## 2026-10-12 원본 SRT 지속보관 장애 대응
+
+- 2026-10-09 당시 70편 SRT 내용을 **처리**한 메타데이터는 있으나, 원본 SRT 바이트를 보관하지 않아 원문 재검증이 불가능한 상태가 확인됨.
+- GitHub 공개 저장소에는 원문을 업로드하지 않는다. 별도 **비공개 Google Drive 원본보관함**을 생성했다. 현 시점 폴더에 원본이 업로드됐다는 뜻은 아니며, 원본 ZIP/단독 SRT는 이전 채팅 또는 사용자의 저장장치에서 다시 확보해야 한다.
+- 저장소에는 검증용 `scripts/recover_subtitle_sources.py`를 추가했다. 이 도구는 기존 레지스트리 해시와 자막 구간 수·마지막 시각이 일치할 때에만 **서로 다른 저장 위치의 두 비공개 사본**을 만들고 재조회한다. 해시가 일치하지 않는 신규 공개 자동전사로 기존 SRT를 대체할 수 없다.
+- 새로 확보한 원본 ZIP은 수정하지 않은 채 비공개 Google Drive에 별도 업로드해야 한다. 두 로컬 디렉터리에 사본을 만들었다고 원격 백업 또는 독립 물리매체 보존이 보장되는 것은 **아니다**. 하나는 안정적인 개인 보관 위치, 다른 하나는 별도 백업 디스크/동기화 위치를 사용한다. 공개 GitHub, CI artifact, 공용 로그에 원문 금지.
+- 복구 전에는 13번 `keu5SvpD7KE`의 원본 SRT 대조 상태를 `OPEN`으로 유지한다. 공개 자동전사 기반 공식자료 검증 완료와 원본-공개전사 내용 대조 완료는 별개다.
+
+### 과거 13번 원본 복구·검사
+
+```bash
+# 2026-10-09 당시 등록된 27개 구간 SRT의 정확한 바이트를 찾았을 때만 실행.
+python scripts/recover_subtitle_sources.py \
+  --archive /private/original.zip \
+  --registry data/subtitles/registry.json \
+  --video-id keu5SvpD7KE \
+  --vault-dir /private/srt-primary \
+  --backup-dir /another-private-backup/srt \
+  --apply
+
+# 다시 원본을 열어 두 사본의 해시·구간·끝시각을 검증한다.
+python scripts/recover_subtitle_sources.py \
+  --registry data/subtitles/registry.json \
+  --video-id keu5SvpD7KE \
+  --vault-dir /private/srt-primary \
+  --backup-dir /another-private-backup/srt \
+  --verify-only
+```
+
+`--archive`는 반복 지정 가능하며 ZIP 또는 `youtube-transcript-<video_id>.srt`를 받는다. 전체 70편 검증 시 `--video-id` 생략, 원본 69편 ZIP 및 별도 #60 SRT 모두 제공. 상태가 `TWO_COPIES_VERIFIED`가 아니면 SHA가 다르거나 바이트가 없어 복구 완료로 처리하지 않는다. 이 검증은 **원본 확보와 저장 무결성**만 확인하며 공개 전사와의 문장별 비교는 다음 별도 단계다.
+
+### 앞으로 새 ZIP을 등록하는 안전한 순서
+
+1. 아래 `ingest_subtitle_zip.py`를 **`--apply` 없이** 실행해 `registry_preview.json` 생성.
+2. `recover_subtitle_sources.py --archive <new.zip> --registry /tmp/subtitle_audit/registry_preview.json --vault-dir <private> --backup-dir <independent_private> --apply`로 신규 해시를 포함한 미리보기 레지스트리에 대해 비공개 원본 두 사본 복구/검증.
+3. 원본 ZIP 자체를 비공개 Google Drive 보관함에 장기 보관했는지 별도 확인.
+4. `ingest_subtitle_zip.py --apply --vault-dir <private> --backup-dir <independent_private>`로 **두 사본 재검증에 성공한 신규 SRT만** 레지스트리에 반영.
+5. 전체 전사·공개 전사·원음의 타임코드·숫자를 대조한 뒤, 검증한 내용만 별도 연구 파일에 반영. 비교 불가능한 항목은 계속 OPEN.
+
+**보존 상태의 한계:** 코드와 Google Drive 폴더만으로 2026-10-09 원본이 자동 복구되지는 않는다. 원본 ZIP을 다시 확보하여 폴더에 올리고 두 사본 검증을 실행하기 전까지 원본 대조는 미완료다. 기존 공개 자막 기반 최종 분석/승인 이력은 변경하거나 자동 취소하지 않는다.
+
 ## 다음 ZIP 처리
 
 사용자는 새로운 SRT들을 기존 파일과 중복돼도 그대로 ZIP으로 올릴 수 있다. 다운로드 이름에 YouTube 영상 ID가 있어야 한다. 프로그램은 ZIP의 SRT를 읽고, ID와 SHA-256을 기존 70편 상태에 비교한다.
@@ -22,7 +63,7 @@ python scripts/ingest_subtitle_zip.py \
   --out-dir /tmp/subtitle_audit
 ```
 
-기본값은 **미반영(dry run)**이다. 결과 `batch_audit.csv`, `intake_report.json`, `registry_preview.json`을 검토한다. 확인 후에만 같은 명령에 `--apply`를 붙여 **NEW로 판정된** 영상만 등록한다.
+기본값은 **미반영(dry run)**이다. 결과 `batch_audit.csv`, `intake_report.json`, `registry_preview.json`을 검토한다. 신규 등록 시에는 위의 비공개 원본 2사본 검증 절차를 먼저 거치고, 동일 명령에 `--apply --vault-dir <private> --backup-dir <independent_private>`를 붙여 **NEW로 판정되고 원본 바이트가 두 곳에 검증된** 영상만 등록한다.
 
 | 판정 | 의미 | 처리 |
 |---|---|---|
