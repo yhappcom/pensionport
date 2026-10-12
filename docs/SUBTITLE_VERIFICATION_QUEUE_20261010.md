@@ -1,5 +1,18 @@
 # 박곰희TV 초안 25편 — 실제 파일 기반 검증 대기열
 
+## 2026-10-12 신규 #19~#23 5편 완료 — 최신 35/70
+
+- 원본 SRT **2,302 cues**, 각 SHA-256 등록부 일치. 새로운 **40개 주장** 검토·별도 V3 분석 저장. 누적 **35/70편(50%)**·**35개 초안 338주장**, 잔여 35편 새 초안 필요.
+- **#19 공무원연금**: [주장 근거](../data/subtitles/pilots/zi9x_q2fYoc.json) · [정식 분석](../data/analysis_events/zi9x_q2fYoc.json), 12주장. 2015년 공무원연금 개혁, 연금 개시시점, 25년 적립 수치 확인. 공제회 **월213만원 30년 수령**은 같은 연4%로 재현되지 않아 약정표 확인 OPEN.
+- **#20 ISA 공제**: [주장 근거](../data/subtitles/pilots/inLlZgtS7qs.json) · [정식 분석](../data/analysis_events/inLlZgtS7qs.json), 6주장. ISA 3,000만원 적격 전환 시 300만원 추가 **세액공제 대상액**, 일반 900만원 합산 1,200만원. 16.5%면 최대 198만원이라는 예시는 실제 결정세액·적격요건에 종속.
+- **#21 ISA 만기 전환**: [주장 근거](../data/subtitles/pilots/EYya0e4APBE.json) · [정식 분석](../data/analysis_events/EYya0e4APBE.json), 6주장. 해지 후 60일, 공제원금 인출 우선순서, 금융회사 경품 프로모션의 유효기간·신청조건 분리.
+- **#22 시니어 Q&A**: [주장 근거](../data/subtitles/pilots/WGFPHeM6-6I.json) · [정식 분석](../data/analysis_events/WGFPHeM6-6I.json), 9주장. 주가지수 ETF도 손실 가능. 5년 국채 5% 당시 고시 미확인. 5.5억원×6%=연3,300만원(세전)은 지속적 분배 보장이 아님.
+- **#23 채권 ETF**: [주장 근거](../data/subtitles/pilots/LEczVIueQAA.json) · [정식 분석](../data/analysis_events/LEczVIueQAA.json), 7주장. KODEX 26-12 금융채(AA-이상)액티브 **0117L0**, 2026-12-10 만기; AAA/AA급 금융채도 원금보장 아님. 만원 투자 여부는 1좌 시장가격에 따름.
+- [5편 통합 지식](../knowledge/CIVIL_SERVICE_ISA_MATURITY_BOND_VERIFIED_20261012.md) · [누적 집계](../data/subtitles/research_expansion_progress_20261012.json) · [추가 검증 24건](../data/subtitles/optional_verification_register_20261012.json). 원음·화면은 검증하지 않았으며 장문 원본의 모든 발언이 확인된 것은 아님.
+- 다음 순서: **#24 AeCOMNl11v4, #25 Bu36RrQMkVU, #26 BfwtFsuxm3A, #27 uzZkVRGZw2k, #29 33HPIrzl6xI** (#28 기완료).
+
+
+
 ## 2026-10-12 신규 원본 SRT 5편 초안 생성 + 교육 분석 — 최신 30/70
 
 - **이번 차수 신규 로스터 #7·#11·#16·#17·#18 총 5편**에서 최초 주장 기록 41개와 대응 정식 V3 분석 생성. 사용자 비공개 ZIP 등록 원본 5편 **12,144 SRT 구간** / 영상별 SHA-256 5/5 일치. 연구 누적은 **원본 70편 중 30편(42.9%)**, 미검토 40편은 새 주장 초안 생성부터 진행. 기존 초안 25편/257주장에서 **30편/298주장**으로 등록 수치 갱신. 이번 신규 5편은 교육적 핵심 주장의 *범위를 명시한 검토*이며 원음·화면·사례별 실제 수익장부를 독립 검증한 것이 아니다.
