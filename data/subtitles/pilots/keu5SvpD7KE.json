@@ -3,23 +3,30 @@
   "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "verification_status": "CLAIM_BY_CLAIM_PRIMARY_SOURCE_TRIAGE_COMPLETE_ORIGINAL_SRT_UNMATCHED",
+  "verification_status": "CLAIM_BY_CLAIM_PRIMARY_TRIAGED_ORIGINAL_SRT_SHA_AND_FULL_PUBLIC_TEXT_MATCHED_AUDIO_UNVERIFIED",
   "roster_no": 13,
   "video_id": "keu5SvpD7KE",
   "title": "💰 50세 노후준비, 아직 늦지 않았어요! #50세연금시작 #노후준비 #연금저축 #ISA #박곰희TV #shorts",
   "source_url": "https://www.youtube.com/watch?v=keu5SvpD7KE",
   "video_published_date": "2026-09-15",
   "recording_date": "UNKNOWN",
-  "source_kind": "PUBLIC_THIRD_PARTY_TIMESTAMPED_KOREAN_AUTOMATIC_CAPTIONS",
+  "source_kind": "USER_ORIGINAL_SRT_PLUS_INDEPENDENT_PUBLIC_KOREAN_ASR",
   "timed_transcript_source_url": "https://youtube-transcript.ai/transcript/keu5SvpD7KE.txt?lang=a-ko",
   "full_auto_transcript_source": "FIRECRAWL_ALEXANDRIA_YOUTUBE_READ",
   "transcript_retrieval_date": "2026-10-12",
-  "transcript_evidence": "Entire 00:59 Korean public ASR re-read on 2026-10-12 via Firecrawl Alexandria youtube/read; no original 27-cue SRT text/bytes or audio/frames reviewed; all legacy 30s timestamps approximate.",
+  "transcript_evidence": "2026-10-12 original 1-70.zip: video keu5SvpD7KE.srt 2,087 bytes / 27 cues / last end 60.879s; SHA-256 equals 2026-10-09 registry. Independently fetched complete YouTube Korean public transcript via youtube/read; 27 lines and 506 text characters, line order/text matched all original SRT cues. Original 1-70.zip retained in private Drive and personal Library, both byte-identical readback. Audio, slides and frames unreviewed.",
   "existing_registry_srt": {
     "sha256": "0c721cfabf019d565e3d0254c08c6bacabbf6fb41542df34fedd47f5e96e7f89",
     "cue_count": 27,
-    "matched_to_public_transcript": false,
-    "verified_same_bytes": false
+    "matched_to_public_transcript": true,
+    "verified_same_bytes": true,
+    "verified_same_bytes_scope": "Uploaded historical original SRT raw bytes vs registered 2026-10-09 SHA-256; NOT identical file bytes with independent public transcript (different representation).",
+    "source_file_cue_count": 27,
+    "source_last_cue_end_seconds": 60.879,
+    "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+    "custody_manifest_reference": "data/subtitles/source_custody_20261012.json",
+    "public_transcript_match": "EXACT_NORMALIZED_TEXT_27_OF_27",
+    "source_timing_compared_to_audio": false
   },
   "audio_checked": false,
   "frames_checked": false,
@@ -28,9 +35,9 @@
   "claims": [
     {
       "claim_id": "keu5SvpD7KE-01",
-      "timecode": "00:00:01",
-      "timecode_precision": "PUBLIC_TRANSCRIPT_30S_CHUNK_START_APPROXIMATE",
-      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=1s",
+      "timecode": "00:00:00",
+      "timecode_precision": "RECOVERED_USER_SRT_CUE_START_NOT_AUDIO_VALIDATED",
+      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=0s",
       "source_paraphrase": "50세에 노후준비를 시작해도 ISA와 연금저축을 활용할 수 있다는 동기부여.",
       "assessment": "OPINION_NOT_RETIREMENT_ADEQUACY",
       "independent_check": "노후 필요지출, 소득, 기존 자산, 수급 연령과 투자기간에 따라 준비 가능 규모는 달라짐.",
@@ -46,13 +53,14 @@
         "effective_date_or_scope": "2026-10-12 일반 투자교육, 한국 개인연금의 적정수준을 증명하지 않음",
         "disposition": "50세도 계획을 세울 수 있다는 동기부여만 인정. 필요 생활비·현재자산·부채·공적연금·납입여력 확인 없이 '충분한 노후'를 단정하지 않음.",
         "checked_at": "2026-10-12"
-      }
+      },
+      "original_srt_cue_start_seconds": 0.16
     },
     {
       "claim_id": "keu5SvpD7KE-02",
-      "timecode": "00:00:01",
-      "timecode_precision": "PUBLIC_TRANSCRIPT_30S_CHUNK_START_APPROXIMATE",
-      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=1s",
+      "timecode": "00:00:11",
+      "timecode_precision": "RECOVERED_USER_SRT_CUE_START_NOT_AUDIO_VALIDATED",
+      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=11s",
       "source_paraphrase": "ISA 연간 2000만원 납입한도를 사례 계산에 이용.",
       "assessment": "CORROBORATED_ACCOUNT_CAP_WITH_ELIGIBILITY",
       "independent_check": "2026년 증권사 현재 상품 안내에서 ISA 연 2,000만원 누적 1억원. 매년 2,000만원 투자 여력과 ISA 가입자격 전제.",
@@ -71,13 +79,14 @@
           "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1027994797"
         ],
         "checked_at": "2026-10-12"
-      }
+      },
+      "original_srt_cue_start_seconds": 11.64
     },
     {
       "claim_id": "keu5SvpD7KE-03",
-      "timecode": "00:00:01",
-      "timecode_precision": "PUBLIC_TRANSCRIPT_30S_CHUNK_START_APPROXIMATE",
-      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=1s",
+      "timecode": "00:00:13",
+      "timecode_precision": "RECOVERED_USER_SRT_CUE_START_NOT_AUDIO_VALIDATED",
+      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=13s",
       "source_paraphrase": "연금저축에 연간 1800만원을 납입할 수 있다는 사례를 제시.",
       "assessment": "CORROBORATED_PENSION_ACCOUNT_AGGREGATE_LIMIT",
       "independent_check": "소득세법 시행령 제40조의2에는 연금계좌 일반납입 연 1800만원 규정. 세액공제 한도와 다르며 연금저축·IRP 여러 계좌 합산 관리.",
@@ -96,13 +105,14 @@
           "https://i.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
         ],
         "checked_at": "2026-10-12"
-      }
+      },
+      "original_srt_cue_start_seconds": 13.84
     },
     {
       "claim_id": "keu5SvpD7KE-04",
-      "timecode": "00:00:01",
-      "timecode_precision": "PUBLIC_TRANSCRIPT_30S_CHUNK_START_APPROXIMATE",
-      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=1s",
+      "timecode": "00:00:17",
+      "timecode_precision": "RECOVERED_USER_SRT_CUE_START_NOT_AUDIO_VALIDATED",
+      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=17s",
       "source_paraphrase": "ISA 2000만원+연금저축 1800만원을 매년 5년간 투자하면 2억원 넘는 금액이 될 수 있다는 전망.",
       "assessment": "CONDITIONAL_RETURN_SCENARIO",
       "independent_check": "납입원금만 계산하면 (2000+1800)만원×5년=1억9000만원. 2억원 이상은 투자수익이 발생해야 가능; 원금손실 시 더 적을 수 있음.",
@@ -122,13 +132,14 @@
           "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
         ],
         "checked_at": "2026-10-12"
-      }
+      },
+      "original_srt_cue_start_seconds": 17.24
     },
     {
       "claim_id": "keu5SvpD7KE-05",
-      "timecode": "00:00:01",
-      "timecode_precision": "PUBLIC_TRANSCRIPT_30S_CHUNK_START_APPROXIMATE",
-      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=1s",
+      "timecode": "00:00:21",
+      "timecode_precision": "RECOVERED_USER_SRT_CUE_START_NOT_AUDIO_VALIDATED",
+      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=21s",
       "source_paraphrase": "55세 약 2억원의 투자자산을 추가납입 없이 65세까지 투자하여 4억원 이상 만들 수 있다는 가정.",
       "assessment": "HIGH_IMPACT_HYPOTHETICAL_7_PERCENT_COMPOUNDING",
       "independent_check": "원금 2억원이 10년 뒤 4억원이 되려면 연복리 약 7.18% 이상(세전·비용전) 필요. 수익률 변동, 비용, 환율, 세금, 인출이 있으면 목표 미달 가능.",
@@ -147,13 +158,14 @@
           "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
         ],
         "checked_at": "2026-10-12"
-      }
+      },
+      "original_srt_cue_start_seconds": 21.2
     },
     {
       "claim_id": "keu5SvpD7KE-06",
-      "timecode": "00:00:31",
-      "timecode_precision": "PUBLIC_TRANSCRIPT_30S_CHUNK_START_APPROXIMATE",
-      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=31s",
+      "timecode": "00:00:33",
+      "timecode_precision": "RECOVERED_USER_SRT_CUE_START_NOT_AUDIO_VALIDATED",
+      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=33s",
       "source_paraphrase": "65세에 4억원을 연 6% 월분배 포트폴리오로 구성해 매달 200만원을 얻는 시나리오.",
       "assessment": "HIGH_RISK_DISTRIBUTION_GENERALIZATION",
       "independent_check": "4억원×0.06÷12=월 200만원은 세전 산술. 분배율은 수익률·원금보장·소득 지속성의 척도가 아니며 분배금과 기준가 변동을 구별.",
@@ -170,13 +182,14 @@
         "disposition": "월 200만원을 안정적·확정적 연금소득처럼 받아들이지 않는다. 분배원천·기준가/NAV·분배율 변동·세후금액·상품구조를 검토.",
         "correction": "4억원에서 연 6%를 가정하면 연 2,400만원, 월 200만원이라는 세전 계산만 성립한다. 실제 분배액, 순수익 및 원금 유지·지속 지급은 보장되지 않는다.",
         "checked_at": "2026-10-12"
-      }
+      },
+      "original_srt_cue_start_seconds": 33.48
     },
     {
       "claim_id": "keu5SvpD7KE-07",
-      "timecode": "00:00:31",
-      "timecode_precision": "PUBLIC_TRANSCRIPT_30S_CHUNK_START_APPROXIMATE",
-      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=31s",
+      "timecode": "00:00:40",
+      "timecode_precision": "RECOVERED_USER_SRT_CUE_START_NOT_AUDIO_VALIDATED",
+      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=40s",
       "source_paraphrase": "공적연금 수령액과 월분배 소득을 합산하여 노후 월 현금흐름을 계산하라고 설명.",
       "assessment": "CASHFLOW_PLANNING_HEURISTIC",
       "independent_check": "공적연금 수급연령·개인별 추정액·물가·세금과 위험자산 분배의 불확실성을 분리한 세후 재원계획 필요.",
@@ -196,13 +209,14 @@
           "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
         ],
         "checked_at": "2026-10-12"
-      }
+      },
+      "original_srt_cue_start_seconds": 40.4
     },
     {
       "claim_id": "keu5SvpD7KE-08",
-      "timecode": "00:00:31",
-      "timecode_precision": "PUBLIC_TRANSCRIPT_30S_CHUNK_START_APPROXIMATE",
-      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=31s",
+      "timecode": "00:00:47",
+      "timecode_precision": "RECOVERED_USER_SRT_CUE_START_NOT_AUDIO_VALIDATED",
+      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=47s",
       "source_paraphrase": "50~65세에는 약 7% 투자수익률을 목표로 자산배분하고 이후 월배당 중심으로 옮길 수 있다고 제안.",
       "assessment": "PERSONAL_ALLOCATION_SCENARIO",
       "independent_check": "7% 고정 복리/6% 고정 배당을 보장하는 포트폴리오는 존재하지 않으며, 은퇴 시점 시장하락·인출순서위험이 큼. 월배당만으로 안전성 확보 불가.",
@@ -223,13 +237,14 @@
           "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
         ],
         "checked_at": "2026-10-12"
-      }
+      },
+      "original_srt_cue_start_seconds": 47.08
     },
     {
       "claim_id": "keu5SvpD7KE-09",
-      "timecode": "00:00:31",
-      "timecode_precision": "PUBLIC_TRANSCRIPT_30S_CHUNK_START_APPROXIMATE",
-      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=31s",
+      "timecode": "00:00:55",
+      "timecode_precision": "RECOVERED_USER_SRT_CUE_START_NOT_AUDIO_VALIDATED",
+      "watch_url": "https://www.youtube.com/watch?v=keu5SvpD7KE&t=55s",
       "source_paraphrase": "50세부터 투자 시작을 권하는 행동 촉구.",
       "assessment": "SPEAKER_ENCOURAGEMENT",
       "independent_check": "필수 생활비·긴급자금·신용부채·퇴직 시기와 유동성 확보 이후 상품과 배분을 선택하는 게 중요.",
@@ -243,7 +258,8 @@
         "basis": "영상 말미의 50세 투자 시작 촉구는 행동 제안·격려로서 보편적 투자수익률이나 은퇴자금 충족을 입증하는 사실 진술이 아니다.",
         "disposition": "긴급자금·고금리 부채·은퇴지출·계좌 적합성을 점검하라는 교육적 출발점으로 한정하고, 곧바로 최대한도 납입/상품 매수 명령으로 해석하지 않음.",
         "checked_at": "2026-10-12"
-      }
+      },
+      "original_srt_cue_start_seconds": 55.64
     }
   ],
   "relations": [
@@ -263,20 +279,21 @@
     "입금 한도와 공제 혜택 한도를 동일시하지 않음",
     "단순 원금 1억9000만원 대비 2억원 초과에는 양의 수익이 필요",
     "인플레이션·세후 현금흐름·세율·분배금 성격과 계좌별 매수상품 제약 미모형화",
-    "30초 청크 타임코드만 확인; 원본 SRT/영상 음성·프레임 미확인",
+    "2026-10-12: 등록된 원본 SRT 27구간 전체 타임코드 확인·주장 시작 구간 9곳 갱신; 원음/프레임 일치 여부는 OPEN.",
     "비승인 초안, V3 공식 분석 완료 아님",
     "2026-10-12 재검증: ASR 숫자 ‘07%’와 ‘연의 월배당’ 구간은 원음/화면 확인 전 7%, 6%라고 확정하지 않음. 6%는 월200만원÷4억원×12로 역산.",
-    "주장별 검증은 원본 SRT 바이트 검증과 별개. SEC 자료는 한국 세제 근거가 아닌 투자 원리·분배 위험 확인용."
+    "2026-10-12 원본 SRT 바이트 해시·전체 공개전사 텍스트 동등성 확인 완료. 그래도 원음/화면과의 발언 일치 검증은 미완료. SEC 자료는 한국 세제 근거가 아닌 투자 원리·분배 위험 확인용.",
+    "원본 SRT와 공개 전사는 27개 텍스트 구간이 같고, 양쪽에 공통으로 ‘07%’, ‘연의 월배당’ 등 ASR 오류가 남아 있어 실제 발화 수치는 영상 음성으로 별도 확인해야 한다."
   ],
   "source_audit": {
     "full_transcript_reviewed": true,
     "video_id_matched": true,
-    "source_kind": "INDEPENDENT_FULL_KOREAN_TRANSCRIPT",
-    "evidence_reference": "2026-10-12 Firecrawl Alexandria youtube/read, video https://www.youtube.com/watch?v=keu5SvpD7KE, full 00:59 Korean ASR, title/channel/date verified; no timecoded transcript delivered by this source",
-    "original_srt_sha256": null,
-    "timestamps_approximate": true,
-    "precise_timing_verified": false,
-    "provider": "Firecrawl Alexandria youtube/read",
+    "source_kind": "RECOVERED_REGISTERED_ORIGINAL_SRT_PLUS_INDEPENDENT_FULL_PUBLIC_TRANSCRIPT",
+    "evidence_reference": "Original user 1-70.zip member video keu5SvpD7KE (private) independently SHA-256 matched historic 2026-10-09 registry plus complete 2026-10-12 Firecrawl youtube/read Korean ASR.",
+    "original_srt_sha256": "0c721cfabf019d565e3d0254c08c6bacabbf6fb41542df34fedd47f5e96e7f89",
+    "timestamps_approximate": false,
+    "precise_timing_verified": true,
+    "provider": "Recovered user SRT with matched private custody + Firecrawl Alexandria youtube/read",
     "retrieved_at": "2026-10-12",
     "duration": "00:59",
     "reviewed_entire_sequence": [
@@ -292,6 +309,27 @@
       "수익률 구간 ‘07%’는 원음/화면 확인 전 ‘연 7%’로 확정할 수 없음.",
       "4억원의 ‘연의 월배당’은 ASR 불명확; 월 200만원 역산상 연 6%라는 것은 분석상 추론이지 발언 직접 확인이 아님."
     ],
-    "limitations": "Historical user-supplied SRT registered SHA-256 0c721cfabf019d565e3d0254c08c6bacabbf6fb41542df34fedd47f5e96e7f89 / 27 cues only; original cue text and bytes not accessible for SRT-vs-public-ASR textual/byte/timing comparison. Full public 00:59 Korean ASR inspected; original audio, frames, precision timecodes and slides not checked. Existing 00:00:01/00:00:31 group anchors are older third-party 30-second approximations and were NOT revalidated. Publication 2026-09-15, official guidance checked 2026-10-12. No investment-return guarantee or individualized tax outcome verified."
+    "limitations": "Original 27-cue SRT recovered from 2026-10-12 user ZIP; SHA-256 and cue/time structure match 2026-10-09 registry. Complete independent public YouTube ASR has exactly the same 27 lines / 506 characters. This is not independently validated against actual sound or on-screen figures. SRT 0.160–60.879s cue times are observable file timecodes, NOT sound-alignment validation. Audio numeric readings 07% and ambiguous annual monthly distribution phrase remain open. 2026 legal/tax source triangulation remains unchanged.",
+    "precise_timing_scope": "27 original SRT cue start/end timestamps individually read and used for claim anchors; time alignment to video sound not checked.",
+    "text_reconciliation": {
+      "comparison_date": "2026-10-12",
+      "original_srt_cues": 27,
+      "original_srt_end_seconds": 60.879,
+      "public_transcript_lines": 27,
+      "normalized_text_characters": 506,
+      "entire_public_transcript_matches_original_srt": true,
+      "normalized_text_fingerprint_FNV1a32": "6102dd0a",
+      "independently_fetched_public_transcript": true,
+      "public_source_youtube": "https://www.youtube.com/watch?v=keu5SvpD7KE",
+      "speech_audio_reviewed": false,
+      "remaining_ambiguous_ASR": [
+        "노후마지",
+        "납비 판도",
+        "자이 돈",
+        "연로 굴리기",
+        "07%",
+        "연의 월배당"
+      ]
+    }
   }
 }
