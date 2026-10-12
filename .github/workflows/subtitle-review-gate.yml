@@ -70,15 +70,7 @@ jobs:
         shell: bash
         run: |
           git diff --name-only --diff-filter=AM origin/main...HEAD > "${RUNNER_TEMP}/tracked-changes.txt"
-          if grep -Ei '(^|/)[^/]+\.(srt|zip)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: subtitle-review-audit
-          path: ${{ runner.temp }}/subtitle-review-audit.json
-          if-no-files-found: ignore
-          retention-days: 14
- "${RUNNER_TEMP}/tracked-changes.txt"; then
+          if grep -Ei '\.(srt|zip)$' "${RUNNER_TEMP}/tracked-changes.txt"; then
             echo "ERROR: raw SRT/ZIP must never be committed to the public repository."
             exit 1
           fi
