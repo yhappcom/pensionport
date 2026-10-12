@@ -10,10 +10,10 @@
   "published_at": "2026-09-15",
   "recording_date": "UNKNOWN",
   "duration": "00:59",
-  "source_level": "independent_public_complete_Korean_automatic_transcript_unmatched_to_user_SRT",
+  "source_level": "REGISTERED_USER_SRT_27_CUES_SHA256_MATCH_AND_INDEPENDENT_PUBLIC_ASR_EXACT_TEXT_MATCH",
   "source_provider": "Firecrawl Alexandria youtube/read",
   "source_reviewed_at": "2026-10-12",
-  "scope": "Entire 00:59 public Korean ASR independently read, video identity/date/channel matched; 9/9 inherited pilot claims fact-checked against Korean 2026 law/NTS, brokerage ISA, NPS, US SEC investor education; original user 27-cue SRT SHA only, no text/bytes/audio/frames/slides compared; all inherited 30-second segment anchors approximate.",
+  "scope": "Entire 00:59 public Korean ASR and recovered original user SRT 27 cues/0.160–60.879s reviewed. The 27 full SRT cue texts match the 27 lines of an independently fetched YouTube Korean public transcript (506 text characters). SHA-256 confirms uploaded original is historical registered SRT; original ZIP recovered to private Google Drive and personal Library and byte-identical on both readbacks. 9/9 claims fact-checked against official sources; claim start timestamps replaced with original SRT cue offsets. No independent source audio or frames/slides heard or seen; ASR '07%' and distribution phrase remain ambiguous.",
   "pilot_video_id": "keu5SvpD7KE",
   "core_message": "50세 노후준비 시작의 동기부여와 ISA·연금계좌를 통한 적립 방향은 일반적 교육자료로 유용하지만 5년 납입=2억원 초과, 10년 복리=4억원, 연 6% 월배당=월 200만원이 확정되는 것은 아니다. 납입과 세액공제 한도, 복리의 가정, 분배율과 총수익, 개인의 국민연금과 세후 인출을 별도 검토해야 한다.",
   "core_claims": [
@@ -200,14 +200,14 @@
       "topic": "은퇴 현금흐름 시뮬레이션과 월배당 원금·변동성 위험"
     }
   ],
-  "verification_status": "9_OF_9_CLAIMS_OFFICIAL_TRIAGED_2_OVERSTATEMENTS_CORRECTED_PUBLIC_00_59_ASR_ORIGINAL_SRT_UNMATCHED",
+  "verification_status": "9_OF_9_OFFICIAL_TRIAGED_REGISTERED_ORIGINAL_SRT_AND_PUBLIC_ASR_27_OF_27_TEXT_MATCHED_AUDIO_UNVERIFIED",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
     "all_material_claims_triaged": true,
     "source_audit_reference": "data/subtitles/pilots/keu5SvpD7KE.json#source_audit",
     "claim_evidence_reference": "data/subtitles/pilots/keu5SvpD7KE.json#claims[*].verification_evidence",
-    "source_fingerprint": "Historical original 27-cue SRT SHA-256 0c721cfabf019d565e3d0254c08c6bacabbf6fb41542df34fedd47f5e96e7f89; not byte/text/timing compared. Independent full 00:59 Korean ASR obtained 2026-10-12 via youtube/read.",
+    "source_fingerprint": "Recovered original user SRT (27 cues; last 60.879s) SHA-256 0c721cfabf019d565e3d0254c08c6bacabbf6fb41542df34fedd47f5e96e7f89 equals 2026-10-09 registry. Public full Korean ASR independently fetched 2026-10-12; all 27 normalized text lines / 506 chars exactly match original SRT text. No audio/visual frame verification.",
     "official_primary_urls": [
       "https://trade.shinhansec.com/siw/wealth-management/isa/isa_first/contents.do",
       "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1027994797",
@@ -219,11 +219,22 @@
       "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator",
       "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
     ],
-    "review_procedure": "Read complete 00:59 public Korean ASR; independently checked all nine time-grouped pilot claims against 2026-10-01 pension executive statute and NTS deduction guidance, ISA broker notice and law, NPS pension ages, SEC 2026 fund distribution caution and compound interest arithmetic. Explicit corrections for guaranteed >2억원 and guaranteed monthly 200만원. Original 27-cue SRT and audio/frames not reviewed."
+    "review_procedure": "Read recovered original user SRT and matched its SHA256, all 27 start/end timestamps and full text against independent 27-line public YouTube transcript; re-anchored nine pilot claims to original SRT. Reconfirmed historical primary-source review of finance/retirement tax, ISA and pension limits, NPS starting ages and ETF distribution risks. Financial audit conclusions unchanged. Source audio/screen not inspected.",
+    "transcript_reconciliation": {
+      "status": "ORIGINAL_SRT_VS_PUBLIC_KOREAN_ASR_TEXT_EXACT_MATCH",
+      "original_source_cues": 27,
+      "public_transcript_lines": 27,
+      "compared_characters": 506,
+      "original_source_last_end_sec": 60.879,
+      "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+      "source_custody_manifest": "data/subtitles/source_custody_20261012.json",
+      "audio_verification": "OPEN",
+      "screen_figures_verification": "OPEN"
+    }
   },
   "limitations": [
-    "Registered historic user 27-cue SRT SHA-256 is metadata only. No original raw SRT bytes/text or precise cue comparison, and no original audio, slide or frame review; public ASR recognized entire video but contains errors.",
-    "Original pilot approximate 00:00:01/00:00:31 anchors not independently revalidated to exact speech timing, since Firecrawl source has no timecodes.",
+    "Historical 27-cue source SRT recovered from user-uploaded 1-70.zip, historical SHA-256 matched; cue timing and entire public ASR match verified. However recorded speech, onscreen numeric text and slides were not checked.",
+    "Claim anchors in pilot source updated to exact SRT cue start offsets, but not independently aligned with source audio.",
     "‘07%’ (perhaps 7%) and ‘연의 월배당’ (6% derived from 4억원/200만원) remain AUDIO_NUMERIC_OPEN; no exact percentage speaker attribution can be approved.",
     "Actual ISA/retirement account eligibility, withdrawal tax, investor contributions, NPS record, product fund distributions and cost/inflation assumptions were not personalized or audited.",
     "APPROVED denotes completion of an educational source-analysis and evidence-review gate, not a guarantee, a trade instruction or recommendation to contribute the maximum to either account."
