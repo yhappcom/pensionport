@@ -185,6 +185,12 @@
       "public_characters": 18248,
       "status": "UNRECONCILED",
       "limitation": "실제 음성/화면 불확실"
+    },
+    {
+      "claim": "Japanese withholding nonresident baseline",
+      "rate_percent": 15.315,
+      "source": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2884.htm",
+      "status": "OFFICIAL_GENERAL_NOT_FUND_SPECIFIC_TREATY_MAY_CHANGE"
     }
   ],
   "relations": [
@@ -199,7 +205,7 @@
       "theme": "ETF 상품별 성과·현금흐름 구조 차이에 주의"
     }
   ],
-  "verification_status": "12_OF_12_TRIAGED_ETF_PRODUCT_PRIMARY_CHECKED_PUBLIC_TEXT_DIFFERENCE_AND_JAPAN_TAX_OPEN",
+  "verification_status": "12_CLAIMS_REVIEWED_PUBLIC_CAPTION_GAPS_LOCATED_JP_KR_TAX_PRODUCT_SPECIFIC_OPEN_AUDIO_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -212,13 +218,36 @@
       "https://www.plusetf.co.kr/product/annuity",
       "https://www.plusetf.co.kr/product/detail?n=006369",
       "https://prod.investments.miraeasset.com/tigeretf/ko/pension/investment/list.do",
-      "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+      "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2884.htm",
+      "https://kbam.co.kr/insights/guide/domestic-vs-overseas-etf-tax-comparison"
     ],
-    "review_procedure": "Compared original 1039 SRT cue text and independent public 1037 lines and preserved difference; reviewed claim by claim with official PLUS and TIGER product/pension notices and SEC risk guidance. Flagged Japan/Korea tax as OPEN and did not infer universal tax rate."
+    "review_procedure": "Compared original 1039 SRT cue text and independent public 1037 lines and preserved difference; reviewed claim by claim with official PLUS and TIGER product/pension notices and SEC risk guidance. Flagged Japan/Korea tax as OPEN and did not infer universal tax rate.",
+    "source_reconciliation": {
+      "status": "EXACT_PUBLIC_OMISSIONS_IDENTIFIED",
+      "original_srt_cues": 1039,
+      "public_lines": 1037,
+      "all_remaining_lines_equal": true,
+      "original_only": [
+        {
+          "cue": 182,
+          "time": "00:05:59.400",
+          "short_text": ">> 코스닥."
+        },
+        {
+          "cue": 802,
+          "time": "00:26:11.520",
+          "short_text": ">> 텔"
+        }
+      ],
+      "public_only": [],
+      "actual_audio_verified": false
+    }
   },
   "limitations": [
     "Approval means conditional educational review only. Crossborder Japan/Korea ETF taxes are NOT verified.",
-    "The normalized public ASR has two fewer lines and 13 fewer characters than recovered private SRT, and source audio/slides were not inspected.",
-    "No personalized ETF availability, tax opinion, exact FX hedge return, transaction-cost or profit guarantee."
+    "Public ASR omits original cues 182 (05:59.400 코스닥) and 802 (26:11.520 텔), all other 1037 lines exactly match; audio status remains OPEN.",
+    "No personalized ETF availability, tax opinion, exact FX hedge return, transaction-cost or profit guarantee.",
+    "한국 해외상장 ETF 매매차익의 일반 안내(공제 250만원 후 22%)와 일본 비거주자 배당 원천징수 15.315% 기본률 확인; 일본의 특정 ETF 법적형태·조세조약·한국 외국납부세액공제 실효세율은 미확정."
   ]
 }
