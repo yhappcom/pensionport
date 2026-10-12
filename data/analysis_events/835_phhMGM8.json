@@ -117,7 +117,14 @@
     "도서 본문·번역본 원문 페이지별 직접 대조 미진행.",
     "금리인하와 주가상승 사이의 시차는 통계적 보장 없음."
   ],
-  "quantitative_claims": [],
+  "quantitative_claims": [
+    {
+      "claim": "금리·유동성 전환 후 9~12개월 주식 유입 발언",
+      "speaker_historical_lag_months_min": 9,
+      "speaker_historical_lag_months_max": 12,
+      "status": "BOOK_INTERPRETATION_NOT_BACKTESTED_PREDICTIVE_LAG"
+    }
+  ],
   "relations": [
     {
       "type": "REINFORCE",
