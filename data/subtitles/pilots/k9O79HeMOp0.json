@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "review_date": "2026-10-09",
+  "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
   "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
@@ -23,8 +23,21 @@
       "independent_check": "시장 ETF가 '해당 시장 전체를 정확히 보유'한다는 뜻은 아니며 추종지수와 편입방법을 확인한다.",
       "assessment": "QUALIFIED",
       "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
         "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp"
-      ]
+      ],
+      "original_srt_anchor_start_sec": 48.92,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NOT_SOUND_VERIFIED",
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "시장 ETF가 '해당 시장 전체를 정확히 보유'한다는 뜻은 아니며 추종지수와 편입방법을 확인한다.",
+        "checked_at": "2026-10-12",
+        "basis": "ETF tracking a geographical/market index may sample index components or apply different replication, not necessarily hold every stock.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "source_finding": "ETF tracking a geographical/market index may sample index components or apply different replication, not necessarily hold every stock.",
+        "effective_date_or_scope": "SEC 2023–2026 ETF risk and diversification framework; Korean market product eligibility requires KRX/broker-specific confirmation"
+      }
     },
     {
       "claim_id": "k9O79HeMOp0-02",
@@ -33,7 +46,21 @@
       "source_paraphrase": "반도체·은행·자동차 등 업종별 ETF를 '섹터 ETF'로 분류한다.",
       "independent_check": "섹터 내 여러 기업 분산과 시장 전체 분산은 다르다. 산업 집중 위험이 남는다.",
       "assessment": "FOUNDATIONAL",
-      "official_sources": []
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "original_srt_anchor_start_sec": 144.68,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NOT_SOUND_VERIFIED",
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "섹터 내 여러 기업 분산과 시장 전체 분산은 다르다. 산업 집중 위험이 남는다.",
+        "checked_at": "2026-10-12",
+        "basis": "Sector-based ETF generally holds an industry slice, which is less diversified than an ETF spanning market sectors (SEC asset allocation guidance).",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "Sector-based ETF generally holds an industry slice, which is less diversified than an ETF spanning market sectors (SEC asset allocation guidance).",
+        "effective_date_or_scope": "SEC 2023–2026 ETF risk and diversification framework; Korean market product eligibility requires KRX/broker-specific confirmation"
+      }
     },
     {
       "claim_id": "k9O79HeMOp0-03",
@@ -42,7 +69,21 @@
       "source_paraphrase": "배당주·성장주·경기민감주·방어주를 묶는 투자스타일 ETF를 소개한다.",
       "independent_check": "상품명보다 실제 편입 기준, 배당·성장 지수 방법론을 확인해야 한다.",
       "assessment": "QUALIFIED",
-      "official_sources": []
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
+      ],
+      "original_srt_anchor_start_sec": 185.599,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NOT_SOUND_VERIFIED",
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "상품명보다 실제 편입 기준, 배당·성장 지수 방법론을 확인해야 한다.",
+        "checked_at": "2026-10-12",
+        "basis": "Style/value/growth/dividend selection refers to an index screen, not a promised growth or dividend rate.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "source_finding": "Style/value/growth/dividend selection refers to an index screen, not a promised growth or dividend rate.",
+        "effective_date_or_scope": "SEC 2023–2026 ETF risk and diversification framework; Korean market product eligibility requires KRX/broker-specific confirmation"
+      }
     },
     {
       "claim_id": "k9O79HeMOp0-04",
@@ -52,8 +93,21 @@
       "independent_check": "채권 ETF에도 듀레이션 금리위험·신용위험·환율위험이 있으며 '단기채는 매우 안전'은 원금보장 의미가 아님.",
       "assessment": "FOUNDATIONAL_WITH_RISK",
       "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
         "https://www.krx.co.kr/contents/OPN/01/01030205/OPN01030205T4.jsp"
-      ]
+      ],
+      "original_srt_anchor_start_sec": 229.72,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NOT_SOUND_VERIFIED",
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "채권 ETF에도 듀레이션 금리위험·신용위험·환율위험이 있으며 '단기채는 매우 안전'은 원금보장 의미가 아님.",
+        "checked_at": "2026-10-12",
+        "basis": "Bond ETFs share underlying duration/interest rate, credit and possibly FX risks, distinct from holding an individual bond to maturity.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "source_finding": "Bond ETFs share underlying duration/interest rate, credit and possibly FX risks, distinct from holding an individual bond to maturity.",
+        "effective_date_or_scope": "SEC 2023–2026 ETF risk and diversification framework; Korean market product eligibility requires KRX/broker-specific confirmation"
+      }
     },
     {
       "claim_id": "k9O79HeMOp0-05",
@@ -63,9 +117,22 @@
       "independent_check": "통상 목표는 일간 수익률의 배수. 여러 날 누적수익률의 단순 배수로 이해하면 안 된다.",
       "assessment": "OFFICIAL_VERIFIED_WITH_CAUTION",
       "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
         "https://www.krx.co.kr/contents/OPN/01/01030205/OPN01030205T4.jsp",
         "https://www.fsc.go.kr/no010101/86910"
-      ]
+      ],
+      "original_srt_anchor_start_sec": 268.04,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NOT_SOUND_VERIFIED",
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "통상 목표는 일간 수익률의 배수. 여러 날 누적수익률의 단순 배수로 이해하면 안 된다.",
+        "checked_at": "2026-10-12",
+        "basis": "US SEC: most leveraged and inverse ETFs reset daily; multi-day return can diverge markedly from target daily multiple of reference return.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
+        "source_finding": "US SEC: most leveraged and inverse ETFs reset daily; multi-day return can diverge markedly from target daily multiple of reference return.",
+        "effective_date_or_scope": "SEC 2023–2026 ETF risk and diversification framework; Korean market product eligibility requires KRX/broker-specific confirmation"
+      }
     },
     {
       "claim_id": "k9O79HeMOp0-06",
@@ -75,8 +142,21 @@
       "independent_check": "금융위는 단일종목 레버리지 상품의 일일변동률 추종·변동성 잠식 및 교육·기본예탁금 요건을 별도로 경고한다.",
       "assessment": "OFFICIAL_VERIFIED",
       "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
         "https://www.fsc.go.kr/no010101/86910"
-      ]
+      ],
+      "original_srt_anchor_start_sec": 330.4,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NOT_SOUND_VERIFIED",
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "금융위는 단일종목 레버리지 상품의 일일변동률 추종·변동성 잠식 및 교육·기본예탁금 요건을 별도로 경고한다.",
+        "checked_at": "2026-10-12",
+        "basis": "SEC investor bulletin explicitly warns specialized derivatives, compounding, losses and risks for buy-and-hold in leveraged/inverse funds.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
+        "source_finding": "SEC investor bulletin explicitly warns specialized derivatives, compounding, losses and risks for buy-and-hold in leveraged/inverse funds.",
+        "effective_date_or_scope": "SEC 2023–2026 ETF risk and diversification framework; Korean market product eligibility requires KRX/broker-specific confirmation"
+      }
     },
     {
       "claim_id": "k9O79HeMOp0-07",
@@ -85,7 +165,21 @@
       "source_paraphrase": "금·원유·구리·농산물 등 원자재 투자에 ETF를 활용하는 사례를 설명한다.",
       "independent_check": "실물 직접보관을 피할 수 있어도 선물·롤오버·현물/선물 구조와 추적 차이 및 원금손실 위험이 있다.",
       "assessment": "QUALIFIED",
-      "official_sources": []
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/funds-trading-bitcoin-futures-investor-bulletin"
+      ],
+      "original_srt_anchor_start_sec": 375.12,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NOT_SOUND_VERIFIED",
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "실물 직접보관을 피할 수 있어도 선물·롤오버·현물/선물 구조와 추적 차이 및 원금손실 위험이 있다.",
+        "checked_at": "2026-10-12",
+        "basis": "SEC investor bulletin: futures expire and rolling into newer contracts affects fund valuation, so commodity exposure is not identical to spot ownership.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/funds-trading-bitcoin-futures-investor-bulletin",
+        "source_finding": "SEC investor bulletin: futures expire and rolling into newer contracts affects fund valuation, so commodity exposure is not identical to spot ownership.",
+        "effective_date_or_scope": "SEC 2023–2026 ETF risk and diversification framework; Korean market product eligibility requires KRX/broker-specific confirmation"
+      }
     },
     {
       "claim_id": "k9O79HeMOp0-08",
@@ -94,7 +188,21 @@
       "source_paraphrase": "테마 ETF는 관련 기업을 묶지만 유행이 사라질 수 있는 것으로 설명한다.",
       "independent_check": "테마 투자는 업종·기업 집중과 리밸런싱 위험이 있을 수 있다.",
       "assessment": "FOUNDATIONAL_WITH_RISK",
-      "official_sources": []
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "original_srt_anchor_start_sec": 400.12,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NOT_SOUND_VERIFIED",
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "테마 투자는 업종·기업 집중과 리밸런싱 위험이 있을 수 있다.",
+        "checked_at": "2026-10-12",
+        "basis": "SEC diversification guidance: targeting a theme or sector leaves concentration and market cycle risk; product label is not fundamental exposure proof.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "SEC diversification guidance: targeting a theme or sector leaves concentration and market cycle risk; product label is not fundamental exposure proof.",
+        "effective_date_or_scope": "SEC 2023–2026 ETF risk and diversification framework; Korean market product eligibility requires KRX/broker-specific confirmation"
+      }
     },
     {
       "claim_id": "k9O79HeMOp0-09",
@@ -103,13 +211,71 @@
       "source_paraphrase": "커버드콜 ETF는 옵션을 매도해 받은 프리미엄을 분배재원으로 활용하는 구조를 소개한다.",
       "independent_check": "옵션매도는 상승이익 일부를 포기할 수 있으며 높은 분배율이 높은 총수익률을 보장하지 않는다.",
       "assessment": "QUALIFIED",
-      "official_sources": []
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63"
+      ],
+      "original_srt_anchor_start_sec": 451,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NOT_SOUND_VERIFIED",
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "옵션매도는 상승이익 일부를 포기할 수 있으며 높은 분배율이 높은 총수익률을 보장하지 않는다. Option premium can be paid while the underlying ETF NAV declines; elevated monthly distribution cannot be read as superior total return.",
+        "checked_at": "2026-10-12",
+        "basis": "SEC options overview: short covered call collects option premium in exchange for obligation limiting upside participation; distributions alone do not establish total return.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-63",
+        "source_finding": "SEC options overview: short covered call collects option premium in exchange for obligation limiting upside participation; distributions alone do not establish total return.",
+        "effective_date_or_scope": "SEC 2023–2026 ETF risk and diversification framework; Korean market product eligibility requires KRX/broker-specific confirmation",
+        "additional_primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      }
     }
   ],
   "limitations": [
     "자동 음성인식 SRT 기반 핵심 구간 검토이며 원음 및 모든 영상 화면과 직접 일치 대조하지 않음",
     "교육 원칙, 투자 권고, 법/정책·시간에 좌우되는 상품조건을 구분. 공식자료 일부분만 대조함",
     "특정 ETF의 현행 가격·수익률·보수·분배방식은 개별 현행 투자설명서로 재확인 전에는 현재 사실로 이용 금지",
-    "이번 결과는 정식 canonical 분석이나 투자 지식 승인으로 집계하지 않음"
+    "이번 결과는 정식 canonical 분석이나 투자 지식 승인으로 집계하지 않음",
+    "2026-10-12 원본 222구간 전체 검토·등록 해시 일치. 파생형·금융상품 분류는 상품 설명서/규정별 차이 있음. 원음·화면·독립 공개 전사 별도 미확인.",
+    "레버리지·인버스 '2배'는 기본적으로 일일 목표, 수일 누적 목표를 보장하지 않음. 테마·커버드콜 분배율을 총수익률로 대체 금지."
+  ],
+  "existing_registry_srt": {
+    "sha256": "2ce05daa4dd005b512ff99442de7cb2a172a62bc1a2f3daebb8def8003f623fc",
+    "cue_count": 222,
+    "last_sec": 510.8,
+    "raw_srt_bytes": 17279,
+    "verified_same_bytes": true,
+    "archived_privately": true
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "2ce05daa4dd005b512ff99442de7cb2a172a62bc1a2f3daebb8def8003f623fc",
+    "evidence_reference": "Private original 1-70.zip/youtube-transcript-k9O79HeMOp0.srt, all 222 original SRT cues SHA256 reconciled to registry, reviewed on 2026-10-12",
+    "original_cue_count": 222,
+    "original_last_sec": 510.8,
+    "timestamps_approximate": false,
+    "precise_timing_verified": false,
+    "public_transcript_comparison": "NOT_REQUIRED_NOT_FETCHED",
+    "audio_checked": false,
+    "frames_checked": false,
+    "limitations": "Actual video frames, soundtrack, ETF-specific current portfolio composition not checked. SEC generic ETF definitions are US rules, Korean actual trade eligibility may differ."
+  },
+  "verification_status": "9_CLAIMS_EDUCATIONAL_EVIDENCE_REVIEW_COMPLETE_REGISTERED_222_CUE_SRT_AUDIO_FRAMES_OPEN",
+  "relations": [
+    {
+      "type": "EXTEND",
+      "related_video_id": "LVE7XN_esTc",
+      "theme": "ETF 유형을 확인한 후 총비용·괴리·위험 프로필 비교"
+    },
+    {
+      "type": "REINFORCE",
+      "related_video_id": "aWBZ3tBuODs",
+      "theme": "ETF는 동일 구조가 아니며 상품설명서와 기본 위험 확인"
+    },
+    {
+      "type": "EXTEND",
+      "related_video_id": "uiauof6tOFk",
+      "theme": "섹터·원자재·국채 등 자산배분에서 상관관계와 실물/선물 구조 구분"
+    }
   ]
 }
