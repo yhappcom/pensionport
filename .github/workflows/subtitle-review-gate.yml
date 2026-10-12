@@ -10,6 +10,7 @@ on:
       - "scripts/audit_subtitle_review_gate.py"
       - "scripts/ingest_subtitle_zip.py"
       - "scripts/recover_subtitle_sources.py"
+      - "scripts/reproduce_all_weather_1972_2022.py"
       - ".gitignore"
       - ".github/workflows/subtitle-review-gate.yml"
       - "WORKFLOW.md"
@@ -20,6 +21,7 @@ on:
       - "scripts/audit_subtitle_review_gate.py"
       - "scripts/ingest_subtitle_zip.py"
       - "scripts/recover_subtitle_sources.py"
+      - "scripts/reproduce_all_weather_1972_2022.py"
       - ".gitignore"
       - ".github/workflows/subtitle-review-gate.yml"
       - "WORKFLOW.md"
@@ -41,6 +43,12 @@ jobs:
           python scripts/audit_subtitle_review_gate.py --self-test
           python -m py_compile scripts/ingest_subtitle_zip.py scripts/recover_subtitle_sources.py
           python scripts/recover_subtitle_sources.py --self-test
+          python -m py_compile scripts/reproduce_all_weather_1972_2022.py
+          python scripts/reproduce_all_weather_1972_2022.py --self-test
+          if python scripts/reproduce_all_weather_1972_2022.py >/tmp/all-weather-source-gate.json; then
+            echo "ERROR: backtest unexpectedly ran without source data"; exit 1
+          fi
+          python -c 'import json; d=json.load(open("/tmp/all-weather-source-gate.json")); assert d["status"]=="BLOCKED_MISSING_SOURCE_RETURNS"'
       - name: Recalculate draft statistics and blockers
         run: |
           python scripts/audit_subtitle_review_gate.py --root . --full-queue > "${RUNNER_TEMP}/subtitle-review-audit.json"
