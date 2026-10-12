@@ -39,7 +39,7 @@
       "registered_sha256": "493c52ea3e56cb9be756d70f4de90d3b069c40dff5743d69bd8a8770f32c1bcc",
       "registered_cue_count": 807,
       "custody_status": "TWO_PRIVATE_ARCHIVES_READBACK_VERIFIED",
-      "original_to_public_asr": "NOT_RECONCILED"
+      "original_to_public_asr": "FULL_TEXT_EXACT_MATCH_807_LINES_AUDIO_NOT_CHECKED"
     },
     "3pIB-2F9lnw": {
       "registered_sha256": "3167dec9fa91135d4f63342252d92c6125ef6a719a5c564e5c02222f7f4fbf06",
@@ -291,7 +291,7 @@
       "registered_sha256": "d97852825e0b09d58eb76957e22cd7ef41f5d8a59013795bc4c949c1e651c921",
       "registered_cue_count": 1039,
       "custody_status": "TWO_PRIVATE_ARCHIVES_READBACK_VERIFIED",
-      "original_to_public_asr": "NOT_RECONCILED"
+      "original_to_public_asr": "PUBLIC_ASR_1037_LINES_VS_ORIGINAL_1039_CUES_DIFF_OPEN"
     },
     "OiDTNstaSpM": {
       "registered_sha256": "e94b12a1084a8b57c3b9c2a630e27f840ae5a827b3a71c62526e15380a7c57bd",
@@ -345,7 +345,7 @@
       "registered_sha256": "577bef626ef289a67c9c50f2ef6d7d1548ac66040bbda1a451a62ff06f7d9998",
       "registered_cue_count": 650,
       "custody_status": "TWO_PRIVATE_ARCHIVES_READBACK_VERIFIED",
-      "original_to_public_asr": "NOT_RECONCILED"
+      "original_to_public_asr": "PUBLIC_ASR_649_LINES_VS_ORIGINAL_650_CUES_DIFF_OPEN"
     },
     "UqF7q4yIODM": {
       "registered_sha256": "a7bdd5f290aec224fa9c097719c0abb17fca2e010f38eb09b6b0911d4c831d1b",
@@ -399,7 +399,7 @@
       "registered_sha256": "b48c51ac62ddf27a0d667e018ad1fbf3717e2bb447a66d9c48ed114eeeb6c2ce",
       "registered_cue_count": 1277,
       "custody_status": "TWO_PRIVATE_ARCHIVES_READBACK_VERIFIED",
-      "original_to_public_asr": "NOT_RECONCILED"
+      "original_to_public_asr": "FULL_TEXT_EXACT_MATCH_1277_LINES_AUDIO_NOT_CHECKED"
     },
     "YYZyCr7uapw": {
       "registered_sha256": "fb5f49ce98d75269db71b6fb2ae07b6ca89415e7a9c3efaf1f5044cb351db03c",
@@ -434,11 +434,20 @@
     "personal_library_readback_sha256_matches_upload": true,
     "registered_original_srt_70_70_match_sha_cue_count_end_time": true,
     "duplicate_identical_video_id": "5NvtBlmt93Y",
-    "public_full_transcript_reconciled_videos": 2,
+    "public_full_transcript_reconciled_videos": 4,
     "voice_audio_verified_videos": 0,
     "reconciled_video_ids": [
       "keu5SvpD7KE",
-      "sz5N9WJS310"
+      "sz5N9WJS310",
+      "3MyhYE2jmuE",
+      "YNOSY15ppf8"
+    ],
+    "public_transcript_difference_open_video_ids": [
+      "OfkY343OaNs",
+      "uiauof6tOFk"
+    ],
+    "public_transcript_not_freshly_retrieved_video_ids": [
+      "OiDTNstaSpM"
     ]
   }
 }
