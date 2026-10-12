@@ -132,7 +132,15 @@
     "투자 의견이 실제 회복을 보장하지 않고 실적 당시 시각·상품 정보는 미확정.",
     "대형 우량기업이라도 가격·신용 위험이 있다."
   ],
-  "quantitative_claims": [],
+  "quantitative_claims": [
+    {
+      "claim": "하락장 단일 종목 집중 손실률",
+      "hypothetical_concentrated_position_pct": 100,
+      "hypothetical_position_drawdown_pct": -50,
+      "hypothetical_portfolio_loss_pct": -50,
+      "status": "ILLUSTRATIVE_NOT_SOURCE_HISTORICAL_RETURN"
+    }
+  ],
   "relations": [
     {
       "type": "REINFORCE",
