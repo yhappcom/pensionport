@@ -185,7 +185,7 @@
       "theme": "현금성 자산과 시장성 금융상품의 목적을 분리하는 원칙"
     }
   ],
-  "verification_status": "12_OF_12_TRIAGED_WITH_SPOT_CURRENCY_GAIN_TAX_AND_HISTORICAL_FEES_OPEN_1277_SRT_LINES_MATCH",
+  "verification_status": "12_CLAIMS_FINANCE_TRIAGE_PUBLIC_SRT_EXACT_KOREAN_CASH_SPOT_FX_GAIN_TAX_PRIMARY_OPEN_AUDIO_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -197,11 +197,19 @@
       "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
       "https://prod.investments.miraeasset.com/tigeretf/ko/main/index.do"
     ],
-    "review_procedure": "Read entire 1277 historical source SRT and compared independent complete 1277-line public ASR; checked self-contained currency pair arithmetic and general broker/SEC risk education. No current rate, official FX tax opinion or audio/frames inferred from unavailable evidence."
+    "review_procedure": "Read entire 1277 historical source SRT and compared independent complete 1277-line public ASR; checked self-contained currency pair arithmetic and general broker/SEC risk education. No current rate, official FX tax opinion or audio/frames inferred from unavailable evidence.",
+    "fx_tax_audio_review_checklist": {
+      "spot_fx_tax_claim_time": "00:30:44.720",
+      "spread_1_75_percent_claim_time": "00:36:29.520",
+      "audio_checked": false,
+      "bank_fee_schedule_verified": false,
+      "Korean_NTS_specific_ruling_on_personal_cash_exchange_verified": false
+    }
   },
   "limitations": [
     "Approval is an educational evidence review, NOT a complete certified Korean income-tax opinion on JPY spot gains.",
     "1.75% spread historical video example is not current institution-specific transaction cost.",
-    "Original and publicly returned transcription match, but actual recorded audio, illustrated chart and market-rate timestamps not inspected."
+    "Original and publicly returned transcription match, but actual recorded audio, illustrated chart and market-rate timestamps not inspected.",
+    "30:44.720 원본 SRT에서 환차익 비과세 표현 확인; 음성 및 거래유형별 2026 국세청 유권해석이 없어 개별 환차익 세법 적용은 아직 미확정이다."
   ]
 }
