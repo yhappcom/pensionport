@@ -80,9 +80,14 @@
       "actual_fund_treaty_tax_credit_status": "OPEN_EXACT_JAPAN_LISTED_FUND_CODE_AND_DOMICILE_MISSING"
     },
     "kr_spot_jpy_gain_tax": {
-      "status": "OPEN_NO_TRANSACTION_SPECIFIC_PRIMARY_NTS_RULING",
+      "status": "NTS_OFFICIAL_REPLY_RESOLVED_FOR_TEMPORARY_NONBUSINESS_FX_ONLY",
+      "source_url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143",
+      "case_no": "서면-2024-소득-0865",
+      "registered_date": "2025-01-09",
+      "production_date": "2024-04-02",
       "source_srt_utterance_sec": 1844.72,
-      "not_equal_to_foreign_etf_tax": true
+      "limit": "Repetitive trade for commercial purposes classified based on duration frequency magnitude motive; no general exemption for financial derivatives or ETFs.",
+      "individual_business_status": "NOT_ASSESSED"
     }
   },
   "all_weather": {
@@ -100,7 +105,9 @@
     "self_test_checks": 7,
     "self_test_status": "PASS",
     "no_data_execution_status": "BLOCKED_MISSING_SOURCE_RETURNS",
-    "video_backtest_replication_complete": false
+    "video_backtest_replication_complete": false,
+    "public_alternative_found": "https://github.com/guenther-QR/All-Weather-Portfolio-Construction",
+    "public_alternative_provenance": "Unrelated research repository with monthly_macro_data_1971.csv; exact 1972–2022 book methodology, series, benchmark and return definition remain unmatched."
   },
   "report": "docs/SUBTITLE_FOUR_VIDEO_UNCERTAINTY_AUDIT_20261012.md",
   "meanings": {
