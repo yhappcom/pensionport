@@ -4,11 +4,11 @@
   "scope": "Registered 70 user-supplied Korean SRTs inside original 791-video roster",
   "roster_count": 791,
   "source_srt_registered_unique_count": 70,
-  "existing_pilot_draft_count": 30,
-  "existing_pilot_claims_count": 298,
+  "existing_pilot_draft_count": 35,
+  "existing_pilot_claims_count": 338,
   "source_transcript_verified_sha_match_count": 70,
   "focused_first_10_analysis_complete": 10,
-  "verified_v3_educational_analysis_count": 30,
+  "verified_v3_educational_analysis_count": 35,
   "new_in_this_extension": [
     {
       "video_id": "LVE7XN_esTc",
@@ -54,46 +54,46 @@
   ],
   "existing_pilot_drafts_pending_full_claim_evidence_count": 0,
   "existing_pilot_drafts_pending_ids": [],
-  "srt_source_with_no_pilot_yet_estimate": 40,
-  "srt_source_not_yet_deep_reviewed_count": 40,
+  "srt_source_with_no_pilot_yet_estimate": 35,
+  "srt_source_not_yet_deep_reviewed_count": 35,
   "rest_of_roster_without_this_70_user_source_count": 721,
   "next_priorities": [
     {
-      "video_id": "zi9x_q2fYoc",
-      "roster_no": 19,
-      "reason": "원본 신규 주장 추출/근거검증",
+      "video_id": "AeCOMNl11v4",
+      "roster_no": 24,
+      "reason": "기존 초안 없는 원본 2321큐; 신규 주장 추출",
       "ready_source": true
     },
     {
-      "video_id": "inLlZgtS7qs",
-      "roster_no": 20,
-      "reason": "원본 신규 주장 추출/근거검증",
+      "video_id": "Bu36RrQMkVU",
+      "roster_no": 25,
+      "reason": "기존 초안 없는 39큐 숏폼; 금융 주장 분류",
       "ready_source": true
     },
     {
-      "video_id": "EYya0e4APBE",
-      "roster_no": 21,
-      "reason": "원본 신규 주장 추출/근거검증",
+      "video_id": "BfwtFsuxm3A",
+      "roster_no": 26,
+      "reason": "기존 초안 없는 33큐 숏폼; 금융 주장 검증",
       "ready_source": true
     },
     {
-      "video_id": "WGFPHeM6-6I",
-      "roster_no": 22,
-      "reason": "원본 신규 주장 추출/근거검증",
+      "video_id": "uzZkVRGZw2k",
+      "roster_no": 27,
+      "reason": "기존 초안 없는 원본 801큐; 신규 주장 검증",
       "ready_source": true
     },
     {
-      "video_id": "LEczVIueQAA",
-      "roster_no": 23,
-      "reason": "원본 신규 주장 추출/근거검증",
+      "video_id": "33HPIrzl6xI",
+      "roster_no": 29,
+      "reason": "#28은 이미 완료, 29번의 35큐 신규 분석",
       "ready_source": true
     }
   ],
   "policy": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
   "optional_followups": "data/subtitles/optional_verification_register_20261012.json",
   "current_queue": "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md",
-  "knowledge_update": "knowledge/DIVIDEND_MICROINVESTMENT_PENSION_CASES_20261012.md",
-  "counting_note": "30 distinct original-SRT roster IDs have separately scoped education analyses. #7 is six already filmed interviews compiled into one long video and is COUNTED ONCE; its historical account returns not audited. 30 pilots/298 claims currently registered, 40 further SRTs need fresh pilot files; NONE of this implies original audio or every image verified.",
+  "knowledge_update": "knowledge/CIVIL_SERVICE_ISA_MATURITY_BOND_VERIFIED_20261012.md",
+  "counting_note": "35 distinct user-original 70 source videos have conditional, source-scoped educational V3 reviews. Includes both long finance recordings reviewed through segmented content and three shorts. 35 registered SRTs have not been given first-pass new claims. Public audio/video never certified in this batch; source-level COMPLETE not equal to true return/tax certainty.",
   "branch": "feat/subtitles-incremental-registry-20261009",
   "default_branch_touched": false,
   "new_in_next_five": [
@@ -188,6 +188,18 @@
       "claims": 41,
       "original_cue_total": 12144,
       "special_scope": "#7 is 5h44 historical six-chapter compilation, individual past balances and displayed screenshots not independently authenticated."
+    },
+    {
+      "as_of": "2026-10-12",
+      "ids": [
+        "zi9x_q2fYoc",
+        "inLlZgtS7qs",
+        "EYya0e4APBE",
+        "WGFPHeM6-6I",
+        "LEczVIueQAA"
+      ],
+      "claims": 40,
+      "original_cue_total": 2302
     }
   ],
   "new_in_third_five": [
@@ -290,7 +302,54 @@
       "analysis_path": "data/analysis_events/CvM8Os4ltfE.json"
     }
   ],
-  "all_30_educational_review_ids": [
+  "new_in_fifth_five": [
+    {
+      "video_id": "zi9x_q2fYoc",
+      "source_provenance": "USER_PRIVATE_ORIGINAL_1_70_ZIP_SHA256_REGISTRY_MATCHED",
+      "independent_financial_claim_audit": true,
+      "public_asr_comparison": "NOT_EXACTLY_RECONCILED",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/zi9x_q2fYoc.json"
+    },
+    {
+      "video_id": "inLlZgtS7qs",
+      "source_provenance": "USER_PRIVATE_ORIGINAL_1_70_ZIP_SHA256_REGISTRY_MATCHED",
+      "independent_financial_claim_audit": true,
+      "public_asr_comparison": "NOT_EXACTLY_RECONCILED",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/inLlZgtS7qs.json"
+    },
+    {
+      "video_id": "EYya0e4APBE",
+      "source_provenance": "USER_PRIVATE_ORIGINAL_1_70_ZIP_SHA256_REGISTRY_MATCHED",
+      "independent_financial_claim_audit": true,
+      "public_asr_comparison": "NOT_EXACTLY_RECONCILED",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/EYya0e4APBE.json"
+    },
+    {
+      "video_id": "WGFPHeM6-6I",
+      "source_provenance": "USER_PRIVATE_ORIGINAL_1_70_ZIP_SHA256_REGISTRY_MATCHED",
+      "independent_financial_claim_audit": true,
+      "public_asr_comparison": "NOT_EXACTLY_RECONCILED",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/WGFPHeM6-6I.json"
+    },
+    {
+      "video_id": "LEczVIueQAA",
+      "source_provenance": "USER_PRIVATE_ORIGINAL_1_70_ZIP_SHA256_REGISTRY_MATCHED",
+      "independent_financial_claim_audit": true,
+      "public_asr_comparison": "NOT_EXACTLY_RECONCILED",
+      "audio_verified": false,
+      "frames_verified": false,
+      "analysis_path": "data/analysis_events/LEczVIueQAA.json"
+    }
+  ],
+  "all_35_educational_review_ids": [
     "aWBZ3tBuODs",
     "Yb_5prWaqhk",
     "3_9IXnycZ3s",
@@ -320,6 +379,11 @@
     "HfrBi5mzm8w",
     "Nueoi-_PH6o",
     "nCXWFko0TaA",
-    "CvM8Os4ltfE"
+    "CvM8Os4ltfE",
+    "zi9x_q2fYoc",
+    "inLlZgtS7qs",
+    "EYya0e4APBE",
+    "WGFPHeM6-6I",
+    "LEczVIueQAA"
   ]
 }
