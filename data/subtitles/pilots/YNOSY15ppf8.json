@@ -3,7 +3,7 @@
   "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "verification_status": "12_CLAIMS_EDUCATIONAL_TRIAGE_COMPLETE_PRIVATE_SPOT_JPY_GAINS_TAX_CASE_OPEN_FX_FEES_OPEN_AUDIO_UNVERIFIED",
+  "verification_status": "12_CLAIMS_TRIAGED_NTS_PRIMARY_SPOT_FX_GAIN_CONDITIONALLY_CONFIRMED_ACTUAL_BANK_FEES_AND_AUDIO_OPEN",
   "roster_no": 9,
   "video_id": "YNOSY15ppf8",
   "title": "💴 엔화가 쌀 땐 무엇을 하면 좋을까?ㅣ일본여행을 갈까, 엔투자를 하까? | 엔화투자방법 1편",
@@ -225,17 +225,22 @@
       "source_paraphrase": "직접 엔화를 보유하는 동안 이자수익이 낮으면 기회비용이 발생하고 일반 개인의 단순 환전차익은 금융상품 수익과 과세가 다를 수 있다고 설명함.",
       "assessment": "PARTIAL_NEEDS_OFFICIAL_TAX_INTERPRETATION",
       "independent_check": "환전차익의 비과세 언급은 거래성격·납세자 지위·원천·상품구조 확인 전까지 보편적 절세 규칙으로 승인하지 않음. 마이너스 환차손과 무수익 보유기간 고려.",
-      "official_sources": [],
+      "official_sources": [
+        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143"
+      ],
       "relation_type": "NEW",
       "verification_checked_on": "2026-10-12",
       "verification_evidence": {
-        "verdict": "HYPOTHETICAL",
-        "disposition": "환전차익의 비과세 언급은 거래성격·납세자 지위·원천·상품구조 확인 전까지 보편적 절세 규칙으로 승인하지 않음. 마이너스 환차손과 무수익 보유기간 고려.",
+        "verdict": "QUALIFIED",
+        "disposition": "비사업자인 거주자의 일시적 외화 취득→원화 환전차익은 비과세라는 공식 회신을 확인. 사업 목적 및 파생상품·해외 ETF·이자와 분리, 개인의 반복거래·규모·동기를 심사.",
         "checked_at": "2026-10-12",
         "basis": "Personal JPY spot FX profit Korean income-tax treatment is legally OPEN for residence, transaction and product form.",
         "supporting_reference": "Self-contained quote/currency arithmetic from historical original video, not official market or tax evidence.",
-        "tax_status": "OPEN_CASE_SPECIFIC_PRIMARY_NTS_INTERPRETATION_NOT_RETRIEVED",
-        "utterance_original_srt_cue_time": "00:30:44.720"
+        "tax_status": "NTS_OFFICIAL_REPLY_PRIMARY_CONFIRMED_FOR_NONBUSINESS_TEMPORARY_FX_ONLY",
+        "utterance_original_srt_cue_time": "00:30:44.720",
+        "primary_url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143",
+        "source_finding": "NTS binding interpretation 서면-2024-소득-0865 (produced 2024-04-02, registered 2025-01-09) says Korean resident temporarily acquiring foreign currency and exchanging it to KRW has no taxable income from FX gain. Business-purpose trading may be business income. Determine nature based on trade scale, duration, frequency and motivation.",
+        "effective_date_or_scope": "Official NTS reply registered 2025-01-09; scope: nonbusiness temporary physical/spot FX acquisition then KRW exchange, not foreign shares/ETF or linked forward products."
       }
     },
     {
@@ -300,7 +305,8 @@
     "Direct JPY personal FX gain tax exemption is NOT APPROVED until Korean NTS/statute and transaction purpose/instrument are confirmed.",
     "Any 1.75% bank spread and FX 100..160/1000..870 figures are video examples; not present-day live bank quotes.",
     "All source/public 1277 text lines matched, not independent recorded sound or on-screen FX chart verification.",
-    "정확한 원본 SRT 시각: 환차익 비과세 언급 30:44.720, 환전 수수료 1.75% 언급 36:29.520; 현물 환전 개인 소득세 여부를 확인할 국세청 거래유형별 유권해석 미확보. 시세·수수료 공통적용 금지."
+    "정확한 원본 SRT 시각: 환차익 비과세 언급 30:44.720, 환전 수수료 1.75% 언급 36:29.520; 현물 환전 개인 소득세 여부를 확인할 국세청 거래유형별 유권해석 미확보. 시세·수수료 공통적용 금지.",
+    "2026-10-12 국세청 공식 질의회신 서면-2024-소득-0865 확인: 비사업자 일시적 현물 환전차익 비과세, 사업목적 거래 제외; 개별 거래사실 미확인."
   ],
   "source_audit": {
     "full_transcript_reviewed": true,
@@ -315,13 +321,17 @@
     "public_characters": 22279,
     "limitations": "No actual audio or chart source date. Korean spot FX tax status and 1.75% broker-specific margin remain unverified.",
     "spot_jpy_tax_primary_analysis": {
-      "status": "CASE_SPECIFIC_KOREAN_NTS_RULING_NOT_OBTAINED",
-      "utterance_original_srt_cue_time": "00:30:44.720",
-      "utterance_short": "환차익도 비과세예요",
-      "important_distinction": "Personal exchange of ordinary banknotes/bank FX vs taxable gains and distributions from ETFs, foreign-listed securities, deposits interest and FX derivatives",
-      "not_approved": "No unconditional tax-free claim established for any business/speculative/instrument category",
-      "retail_bank_spread_example_original_srt_time": "00:36:29.520",
-      "spread_percent_example": 1.75
+      "status": "OFFICIAL_NTS_REPLY_VERIFIED_CONDITIONAL",
+      "original_case_no": "서면-2024-소득-0865",
+      "produced": "2024-04-02",
+      "registered": "2025-01-09",
+      "source_url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143",
+      "holding": "Resident temporary foreign-currency acquisition, then conversion back to KRW, FX gains not income-tax subject; business-purpose trading may be taxable depending on number, size, period and motive.",
+      "caveats": [
+        "Business classification depends on facts",
+        "Not an ETF or equity capital gain",
+        "Not an FX forward-linked deposit or interest"
+      ]
     }
   }
 }
