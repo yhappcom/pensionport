@@ -167,7 +167,7 @@ def main():
         "classification_counts": counts,
         "registered_total_after_preview": len(new_registry["items"]),
         "missing_first_70": sorted(first70_missing), "issues": problems,
-        "applied": bool(args.apply)
+        "applied": False
     }
     (args.out_dir / "intake_report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -198,6 +198,10 @@ def main():
         tmp.write_text(json.dumps(new_registry, ensure_ascii=False, indent=2,
                                   sort_keys=True) + "\n", encoding="utf-8")
         tmp.replace(args.registry)
+        report["applied"] = True
+        (args.out_dir / "intake_report.json").write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 2 if problems or any(s in counts for s in ("CONFLICT_IN_BATCH", "INVALID_SRT")) else 0
 
