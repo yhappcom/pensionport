@@ -3,7 +3,7 @@
   "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "verification_status": "19_CLAIMS_SOURCE_REVIEWED_ALL_WEATHER_PRINCIPLE_VERIFIED_BACKTEST_UNREPRODUCED_PUBLIC_SRT_DIFF_OPEN",
+  "verification_status": "19_CLAIMS_TRIAGED_PUBLIC_649_OF_650_MATCH_ONLY_MUSIC_OMITTED_BOOK_BACKTEST_DATA_OPEN_AUDIO_OPEN",
   "roster_no": 15,
   "video_id": "uiauof6tOFk",
   "title": "📚 폭락장이 두렵지 않은 올웨더 포트폴리오 전략 | 곰희책방#8 | 누구나 만드는 평생 연금 ETF 투자혁명 | 🎁 깜짝 댓글 이벤트 있어요!",
@@ -15,7 +15,7 @@
   "timed_transcript_source_url": "https://youtube-transcript.ai/transcript/uiauof6tOFk.txt?lang=a-ko",
   "full_auto_transcript_source": "FIRECRAWL_ALEXANDRIA_YOUTUBE_READ",
   "transcript_retrieval_date": "2026-10-09",
-  "transcript_evidence": "User's original SRT 650 cues/51583 bytes/1488.232 sec has historical registry SHA256 577bef626ef289a67c9c50f2ef6d7d1548ac66040bbda1a451a62ff06f7d9998. Independent public 649 lines/12332 normalized chars vs original 650 lines/12337 chars; 1-line/5-char discrepancy not reconciled. No audio, frames or book tables read directly.",
+  "transcript_evidence": "User's original SRT 650 cues/51583 bytes/1488.232 sec has historical registry SHA256 577bef626ef289a67c9c50f2ef6d7d1548ac66040bbda1a451a62ff06f7d9998. Independent public 649 lines/12332 normalized chars vs original 650 lines/12337 chars; 1-line/5-char discrepancy not reconciled. No audio, frames or book tables read directly. 2026-10-12 precise alignment: all 649 public transcript lines equal ordered 649 original cues, source cue 649 at 24:44.902 [음악] omitted.",
   "existing_registry_srt": {
     "sha256": "577bef626ef289a67c9c50f2ef6d7d1548ac66040bbda1a451a62ff06f7d9998",
     "cue_count": 650,
@@ -498,7 +498,8 @@
     "비승인 근거검토 초안: 승인된 실증 지식이나 V3 완료 분석이 아님",
     "SRT 650 segments and public ASR 649 lines have unreconciled 5-character difference; exact audio/visual alignment OPEN.",
     "2026-10-12 sponsor statement CORRECTION: publisher books for giveaway observed in original SRT; cash sponsorship label not supported.",
-    "Historical 1972-2022 backtest figures, 1929-1954 drawdown recovery, risk-return and 26/34/20/20 dominance NOT independently reconstructed."
+    "Historical 1972-2022 backtest figures, 1929-1954 drawdown recovery, risk-return and 26/34/20/20 dominance NOT independently reconstructed.",
+    "공개 전사 누락 1개는 SRT 649번 24:44.902~24:48.232 [음악]이며, 다른 649구간 모두 일치. 음성·원본 화면은 별도 미검증."
   ],
   "source_audit": {
     "full_transcript_reviewed": true,
@@ -509,9 +510,17 @@
     "timestamps_approximate": true,
     "precise_timing_verified": false,
     "original_last_sec": 1488.232,
-    "public_text_status": "OPEN_ONE_LINE_AND_FIVE_CHARACTER_DIFFERENCE",
+    "public_text_status": "ALL_649_PUBLIC_LINES_MATCH_ORDERED_SUBSEQUENCE_ORIGINAL_650_CUES_CUE_649_MUSIC_OMITTED",
     "audio_checked": false,
     "frames_checked": false,
-    "limitations": "Book example/historical 1972-2022 model data and precise index constituents unavailable; publisher supplied raffle/giveaway books, not independently demonstrated cash sponsorship."
+    "limitations": "Only discrepancy is source cue 649 [음악] omitted in public transcript; remaining 649 speech/text cues are identical. Uninspected book 1972-2022 monthly returns prevent faithful original backtest reproduction; no actual audio or frames checked.",
+    "exact_public_transcript_omissions": [
+      {
+        "cue": 649,
+        "start": "00:24:44.902",
+        "end": "00:24:48.232",
+        "text_short": "[음악]"
+      }
+    ]
   }
 }
