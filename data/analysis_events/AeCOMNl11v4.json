@@ -143,7 +143,16 @@
     "AI와 반도체·암호자산 산업의 성장은 현재 매수한 개별주식 성과와 같지 않다.",
     "시장 하락 시 상관계수와 증거금·유동성이 악화될 수 있다."
   ],
-  "quantitative_claims": [],
+  "quantitative_claims": [
+    {
+      "claim": "주식90·현금10 → 주식반토막 후 현금비중",
+      "initial_stock": 90,
+      "initial_cash": 10,
+      "stock_after_halving": 45,
+      "ending_cash_weight_pct": 18.181818181818183,
+      "status": "MATHEMATICAL_HYPOTHETICAL_NOT_FUTURE_RETURN"
+    }
+  ],
   "relations": [
     {
       "type": "REINFORCE",
