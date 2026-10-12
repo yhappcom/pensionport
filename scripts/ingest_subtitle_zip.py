@@ -133,7 +133,11 @@ def main():
     p.add_argument("--registry", required=True, type=Path)
     p.add_argument("--out-dir", required=True, type=Path)
     p.add_argument("--apply", action="store_true",
-                   help="write NEW items only; revisions always require review")
+                   help="write NEW items only; requires preverified private dual-copy SRT custody")
+    p.add_argument("--vault-dir", type=Path,
+                   help="private primary SRT directory outside this repository")
+    p.add_argument("--backup-dir", type=Path,
+                   help="independent private backup SRT directory outside this repository")
     args = p.parse_args()
     roster = parse_roster(args.roster)
     if args.registry.exists():
@@ -173,6 +177,23 @@ def main():
         encoding="utf-8"
     )
     if args.apply:
+        # Fail closed: never register a new hash when the original SRT bytes
+        # are not durably accessible in BOTH private custody locations.
+        if not args.vault_dir or not args.backup_dir:
+            raise ValueError("--apply requires --vault-dir and --backup-dir")
+        from recover_subtitle_sources import validate_locations, saved_status
+        primary, backup = validate_locations(
+            args.vault_dir, args.backup_dir, Path(__file__).resolve().parents[1]
+        )
+        not_backed_up = [
+            vid for vid, item in pending.items()
+            if saved_status(vid, item, primary, backup) != "TWO_COPIES_VERIFIED"
+        ]
+        if not_backed_up:
+            raise ValueError(
+                "Refusing registry --apply: registered-source custody missing/invalid for "
+                + ",".join(sorted(not_backed_up))
+            )
         tmp = args.registry.with_suffix(".json.tmp")
         tmp.write_text(json.dumps(new_registry, ensure_ascii=False, indent=2,
                                   sort_keys=True) + "\n", encoding="utf-8")
