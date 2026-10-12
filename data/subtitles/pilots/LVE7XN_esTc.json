@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "review_date": "2026-10-09",
+  "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
   "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
@@ -22,7 +22,21 @@
       "source_paraphrase": "패시브 ETF와 액티브 ETF를 구분하며 지수 추종 대 목표 초과성과를 설명한다.",
       "independent_check": "'사람=액티브 로봇=패시브'는 교육적 단순화. 실제 운용방식과 목표는 투자설명서에 따름.",
       "assessment": "QUALIFIED",
-      "official_sources": []
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 41.239,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_CHECKED",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "'사람=액티브 로봇=패시브'는 교육적 단순화. 실제 운용방식과 목표는 투자설명서에 따름.",
+        "checked_at": "2026-10-12",
+        "basis": "Index/passive ETFs aim to track reference index; active mandates depend on prospectus. Humans and automated implementation are not a regulatory dividing line.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "source_finding": "Index/passive ETFs aim to track reference index; active mandates depend on prospectus. Humans and automated implementation are not a regulatory dividing line.",
+        "effective_date_or_scope": "KRX/SEC/issuer source available in 2026, guidance not a currently tradeable ETF quote"
+      }
     },
     {
       "claim_id": "LVE7XN_esTc-02",
@@ -34,7 +48,19 @@
       "official_sources": [
         "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
         "https://kbam.co.kr/insights/guide/etf-total-expense-ratio-vs-actual-cost"
-      ]
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 107.799,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_CHECKED",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "투자 결정의 비교 체크리스트이며 각 지표만으로 최적 상품을 확정할 수 없다.",
+        "checked_at": "2026-10-12",
+        "basis": "KRX discloses AUM, turnover, price/NAV gap, index tracking and fees; six measures help comparison but no unique optimal ETF.",
+        "primary_url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
+        "source_finding": "KRX discloses AUM, turnover, price/NAV gap, index tracking and fees; six measures help comparison but no unique optimal ETF.",
+        "effective_date_or_scope": "KRX/SEC/issuer source available in 2026, guidance not a currently tradeable ETF quote"
+      }
     },
     {
       "claim_id": "LVE7XN_esTc-03",
@@ -44,8 +70,21 @@
       "independent_check": "큰 순자산이 우수한 수익률을 보장하지 않는다는 강사 단서를 보존한다. 존속/유동성 판단과 성과는 별도.",
       "assessment": "OPINION_WITH_CONDITIONS",
       "official_sources": [
+        "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp",
         "https://listing.krx.co.kr/contents/LST/06/06010600/LST06010600.jsp"
-      ]
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 123.039,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_CHECKED",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "큰 순자산이 우수한 수익률을 보장하지 않는다는 강사 단서를 보존한다. 존속/유동성 판단과 성과는 별도.",
+        "checked_at": "2026-10-12",
+        "basis": "KRX defines NAV and ETF listing/size; large AUM is not a guarantee of higher return or fund survival.",
+        "primary_url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp",
+        "source_finding": "KRX defines NAV and ETF listing/size; large AUM is not a guarantee of higher return or fund survival.",
+        "effective_date_or_scope": "KRX/SEC/issuer source available in 2026, guidance not a currently tradeable ETF quote"
+      }
     },
     {
       "claim_id": "LVE7XN_esTc-04",
@@ -55,19 +94,44 @@
       "independent_check": "거래량과 LP 호가·스프레드·실제 유동성은 관련 있지만 동일한 지표는 아니다.",
       "assessment": "BASIC_WITH_QUALIFIER",
       "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060103/RGL03060103.jsp",
         "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp"
-      ]
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 168.64,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_CHECKED",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "거래량과 LP 호가·스프레드·실제 유동성은 관련 있지만 동일한 지표는 아니다.",
+        "checked_at": "2026-10-12",
+        "basis": "KRX LP rules require selected two-sided quotes during specified spreads/time periods; low turnover can imply liquidity frictions but spread, order depth and LP matter.",
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060103/RGL03060103.jsp",
+        "source_finding": "KRX LP rules require selected two-sided quotes during specified spreads/time periods; low turnover can imply liquidity frictions but spread, order depth and LP matter.",
+        "effective_date_or_scope": "KRX/SEC/issuer source available in 2026, guidance not a currently tradeable ETF quote"
+      }
     },
     {
       "claim_id": "LVE7XN_esTc-05",
-      "timecode": "00:03:39",
+      "timecode": "00:03:45",
       "watch_url": "https://www.youtube.com/watch?v=LVE7XN_esTc&t=219s",
       "source_paraphrase": "같은 목표지수라면 장기 성과가 높은 ETF를 선택할 이유가 있다고 말한다.",
       "independent_check": "같은 기간·통화·환헤지·분배금 재투자·세금 포함 여부를 맞춘 총수익률로 비교해야 한다. 과거 성과는 미래 우위를 보장하지 않음.",
       "assessment": "QUALIFIED",
       "official_sources": [
         "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp"
-      ]
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 225.08,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_CHECKED",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "같은 기간·통화·환헤지·분배금 재투자·세금 포함 여부를 맞춘 총수익률로 비교해야 한다. 과거 성과는 미래 우위를 보장하지 않음.",
+        "checked_at": "2026-10-12",
+        "basis": "KRX performance tables warn prices/NAV/index and distributions can differ. Same index alone does not equate total return without matching currency, hedge and dividends.",
+        "primary_url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
+        "source_finding": "KRX performance tables warn prices/NAV/index and distributions can differ. Same index alone does not equate total return without matching currency, hedge and dividends.",
+        "effective_date_or_scope": "KRX/SEC/issuer source available in 2026, guidance not a currently tradeable ETF quote"
+      }
     },
     {
       "claim_id": "LVE7XN_esTc-06",
@@ -77,8 +141,21 @@
       "independent_check": "한국거래소가 안내하는 정의와 부합. 일시적 프리미엄·할인 발생 가능.",
       "assessment": "OFFICIAL_VERIFIED",
       "official_sources": [
+        "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp",
         "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp"
-      ]
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 273.88,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_CHECKED",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "한국거래소가 안내하는 정의와 부합. 일시적 프리미엄·할인 발생 가능.",
+        "checked_at": "2026-10-12",
+        "basis": "KRX: dislocation = secondary-market ETF price compared with per-share NAV; positive is premium and negative is discount.",
+        "primary_url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp",
+        "source_finding": "KRX: dislocation = secondary-market ETF price compared with per-share NAV; positive is premium and negative is discount.",
+        "effective_date_or_scope": "KRX/SEC/issuer source available in 2026, guidance not a currently tradeable ETF quote"
+      }
     },
     {
       "claim_id": "LVE7XN_esTc-07",
@@ -88,8 +165,22 @@
       "independent_check": "KRX 화면이 NAV와 기초지수 상대차이로 설명하나, 엄밀한 추적오차(분산·표준편차)와 단순 추적차이(tracking difference)를 구분해야 한다.",
       "assessment": "TECHNICAL_TERMINOLOGY_NEEDS_CARE",
       "official_sources": [
+        "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T2.jsp",
         "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp"
-      ]
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 345.759,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_CHECKED",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "KRX 화면이 NAV와 기초지수 상대차이로 설명하나, 엄밀한 추적오차(분산·표준편차)와 단순 추적차이(tracking difference)를 구분해야 한다.",
+        "checked_at": "2026-10-12",
+        "basis": "KRX broadly calls difference in NAV and index returns tracking error; professional use distinguishes tracking difference (cumulative return gap) from tracking error (dispersion of periodic return differences).",
+        "primary_url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T2.jsp",
+        "source_finding": "KRX broadly calls difference in NAV and index returns tracking error; professional use distinguishes tracking difference (cumulative return gap) from tracking error (dispersion of periodic return differences).",
+        "effective_date_or_scope": "KRX/SEC/issuer source available in 2026, guidance not a currently tradeable ETF quote",
+        "correction": "영상의 단일 연간 수익률 갭 예시는 엄밀히는 추적차이(tracking difference). 추적오차(tracking error)는 기간별 상대수익률 차이의 변동성 정의가 쓰일 수 있으므로 구분 필요."
+      }
     },
     {
       "claim_id": "LVE7XN_esTc-08",
@@ -100,7 +191,19 @@
       "assessment": "OFFICIAL_VERIFIED",
       "official_sources": [
         "https://kbam.co.kr/insights/guide/etf-total-expense-ratio-vs-actual-cost"
-      ]
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 408.68,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_CHECKED",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "총보수 외 기타비용·매매중개수수료가 있어 표시 총보수만으로 실제 부담액 비교 불충분.",
+        "checked_at": "2026-10-12",
+        "basis": "KB Asset Management explains advertised total management fee plus other costs and broker dealing charges contribute to actual holder cost.",
+        "primary_url": "https://kbam.co.kr/insights/guide/etf-total-expense-ratio-vs-actual-cost",
+        "source_finding": "KB Asset Management explains advertised total management fee plus other costs and broker dealing charges contribute to actual holder cost.",
+        "effective_date_or_scope": "KRX/SEC/issuer source available in 2026, guidance not a currently tradeable ETF quote"
+      }
     },
     {
       "claim_id": "LVE7XN_esTc-09",
@@ -109,13 +212,66 @@
       "source_paraphrase": "나스닥100 모의 ETF 화면으로 NAV·거래가격·순자산·거래량·보수율의 사례를 제시한다.",
       "independent_check": "영상 속 구체 NAV·가격·보수율은 촬영 당시 화면 자료로만 취급. 화면 기준일과 실제상품 식별 확인 전에는 현재 가격/보수로 사용하지 않는다.",
       "assessment": "SCREEN_NOT_VERIFIED",
-      "official_sources": []
+      "official_sources": [],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 476.24,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_CHECKED",
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "disposition": "영상 속 구체 NAV·가격·보수율은 촬영 당시 화면 자료로만 취급. 화면 기준일과 실제상품 식별 확인 전에는 현재 가격/보수로 사용하지 않는다.",
+        "checked_at": "2026-10-12",
+        "basis": "Illustrative NASDAQ100 simulated ETF screen is not observable via this original SRT; exact price and fee data cannot be certified."
+      }
     }
   ],
   "limitations": [
     "자동 음성인식 SRT 기반 핵심 구간 검토이며 원음 및 모든 영상 화면과 직접 일치 대조하지 않음",
     "교육 원칙, 투자 권고, 법/정책·시간에 좌우되는 상품조건을 구분. 공식자료 일부분만 대조함",
     "특정 ETF의 현행 가격·수익률·보수·분배방식은 개별 현행 투자설명서로 재확인 전에는 현재 사실로 이용 금지",
-    "이번 결과는 정식 canonical 분석이나 투자 지식 승인으로 집계하지 않음"
+    "이번 결과는 정식 canonical 분석이나 투자 지식 승인으로 집계하지 않음",
+    "2026-10-12: 250 원본 SRT 전 구간 직접 확인 및 등록 SHA256 일치; 새 공개 자막/원음/화면 미확인. ETF 예시의 당일 수치 인증 불가.",
+    "원본 5:45 ‘1년 지수 +20% ETF +18%’는 수익률 추적차이 -2%p 예시이지 연간 추적오차의 표준편차 산출 완료가 아님."
+  ],
+  "existing_registry_srt": {
+    "sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "cue_count": 250,
+    "last_sec": 571.876,
+    "verified_same_bytes": true,
+    "raw_srt_bytes": 19483,
+    "archived_privately": true
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "evidence_reference": "User-original 1-70.zip, file 1-70/youtube-transcript-LVE7XN_esTc.srt, all 250 cues read and SHA256 matched the committed source registry on 2026-10-12",
+    "original_srt_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "original_cue_count": 250,
+    "original_end_sec": 571.876,
+    "original_raw_bytes": 19483,
+    "timestamps_approximate": false,
+    "precise_timing_verified": false,
+    "public_transcript_comparison": "NOT_PERFORMED_NONBLOCKING",
+    "audio_checked": false,
+    "frames_checked": false,
+    "limitations": "All 250 user-uploaded original SRT cues reviewed but sound and graphical ETF example at 07:57 were not independently inspected; some ASR vocabulary may be wrong. No public counterpart checked."
+  },
+  "verification_status": "9_OF_9_EDUCATIONAL_CLAIMS_PRIMARY_SOURCE_TRIAGED_ORIGINAL_SRT_VERIFIED_PUBLIC_ASR_AUDIO_FRAMES_OPEN",
+  "relations": [
+    {
+      "type": "REINFORCE",
+      "related_video_id": "aWBZ3tBuODs",
+      "theme": "ETF 투자비용/기준가/NAV와 수수료 확인"
+    },
+    {
+      "type": "EXTEND",
+      "related_video_id": "Yb_5prWaqhk",
+      "theme": "순자산/유동성과 ETF 상장폐지 위험을 별개로 평가"
+    },
+    {
+      "type": "EXTEND",
+      "related_video_id": "7RRWNL0V6As",
+      "theme": "분배금 포함 총수익률과 NAV 비교 필요"
+    }
   ]
 }
