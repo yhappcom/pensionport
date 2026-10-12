@@ -237,6 +237,17 @@
       "formula": "2000+2000+5000+5000+10000 (만원)",
       "result_krw": 240000000,
       "scope": "적격 혼인/출산 사건 및 10년 공제 합산 조건 전제"
+    },
+    {
+      "claim": "2026 fixed-term annuity statutory rate and annual sum model",
+      "legal_annual_discount_rate_percent": 3,
+      "payment_per_year_krw": 2268000,
+      "years": 10,
+      "annual_year_end_pv_krw_approx": 19346500,
+      "annual_year_start_pv_krw_approx": 19926895,
+      "source_decree": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+      "source_regulation": "https://www.law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=113998",
+      "status": "RATE_PRIMARY_CONFIRMED_ILLUSTRATIVE_ANNUAL_PAYMENT_TIMING_NOT_INDIVIDUAL_RETURN"
     }
   ],
   "relations": [
@@ -251,7 +262,7 @@
       "theme": "가족 단위 절세 및 재무관리; 영상별 근거는 별도로 보존"
     }
   ],
-  "verification_status": "14_OF_14_SOURCE_TRIAGED_807_OF_807_SRT_PUBLIC_TEXT_MATCHED_LEGAL_ANNUITY_RATE_OPEN_AUDIO_OPEN",
+  "verification_status": "14_CLAIM_EDUCATIONAL_AUDIT_FINISHED_3_PERCENT_LAW_VERIFIED_UNCERTIFIED_CONTRACT_AND_AUDIO_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -273,13 +284,16 @@
       "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000003324",
       "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7960&mi=6538",
       "https://www.plusetf.co.kr/product/annuity",
-      "https://www.law.go.kr/LSW/lsLinkProc.do?chrClsCd=010202&datClsCd=010102&gubun=admRul&joNo=005302000&lsNm=%EC%83%81%EC%86%8D%EC%84%B8+%EB%B0%8F+%EC%A6%9D%EC%97%AC%EC%84%B8%EB%B2%95&mode=10"
+      "https://www.law.go.kr/LSW/lsLinkProc.do?chrClsCd=010202&datClsCd=010102&gubun=admRul&joNo=005302000&lsNm=%EC%83%81%EC%86%8D%EC%84%B8+%EB%B0%8F+%EC%A6%9D%EC%97%AC%EC%84%B8%EB%B2%95&mode=10",
+      "https://www.law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=113998"
     ],
-    "review_procedure": "Check historical byte-level SHA256, original SRT 807 cues, compare independent 807-line Korean public ASR; review all 14 claims against official tax statutes, Ministry enforcement decree, NTS interpretations and SEC investment risk. Mark 3% annuity discount and hypothetical market return unapproved as legal fact."
+    "review_procedure": "Check historical byte-level SHA256, original SRT 807 cues, compare independent 807-line Korean public ASR; review all 14 claims against official tax statutes, Ministry enforcement decree, NTS interpretations and SEC investment risk. Mark 3% annuity discount and hypothetical market return unapproved as legal fact.",
+    "periodic_gift_statutory_rate_verified_2026_10_12": true
   },
   "limitations": [
     "Spoken words and on-screen formula are not independently checked; source and public ASR can share errors.",
     "Statutory fixed-term annuity evaluation rates and agreement validity need current tax-law implementing-rule and case documents before filing; no universal tax-free 189000 per month approval.",
-    "This approved EDUCATIONAL ANALYSIS is not a personal gift-tax filing opinion or investor instruction."
+    "This approved EDUCATIONAL ANALYSIS is not a personal gift-tax filing opinion or investor instruction.",
+    "2026 국세법령에서 유기정기금 법정 할인율 연3% 직접 확인. 영상 월18.9만원의 개별 증여계약 날짜/해지권/기존 공제 사용 여부 확인 없으므로 비과세·신고가액 미확정."
   ]
 }
