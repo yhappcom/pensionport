@@ -6,10 +6,10 @@
 
 - `data/subtitles/pilots/<video_id>.json` 실제 존재: **25개**, 중복 없이 주장 **257개**.
 - 사용자 SRT 기반 초안 **15편**(`S`), 별도 공개 한국어 자동전사 기반 초안 **10편**(`A`). `S` 표시는 **해시로 식별된 원본이 과거 수집되었다**는 뜻이며, 현재 검증 실행에서 **그 원문 바이트를 읽어 타 전사와 대조했다는 뜻이 아님**.
-- 2026-10-10 현재 신규 최종 V3 분석 **2편**: `data/analysis_events/aWBZ3tBuODs.json` 및 `data/analysis_events/Yb_5prWaqhk.json`. 관련 초안은 기존 상태 `NOT_APPROVED`로 보존.
-- 초안 단계에서 **승격 조건을 충족해 독립 검증을 거친 영상은 68·58번 2편**, 나머지 **23편 보류**. 기존 23편에는 주장별 `verification_evidence` 필드가 없고, `source_audit`도 없음.
+- 2026-10-12 현재 본 연구 브랜치 신규 최종 V3 분석 **4편**: `aWBZ3tBuODs`, `Yb_5prWaqhk`, `3_9IXnycZ3s`, `IMJfPgmnFwc` (각각 `data/analysis_events/<ID>.json`). 관련 초안은 기존 상태 `NOT_APPROVED`로 보존.
+- 초안 단계에서 **승격 조건을 충족해 독립 검증을 거친 영상은 68·58·12·14번 4편**, 나머지 **21편 보류**. 기존 보류 21편에는 신규 검증 문턱에 필요한 주장별 `verification_evidence`와 `source_audit`가 없음.
 - 70편의 키워드 색인/형식 검증은 다른 상태임. `data/subtitles/review_progress_001_070.json`에 기록된 **13편·113개**는 오래된 스냅샷으로, 현재 수치로 **사용 금지**.
-- `data/analysis_events` 레거시 파일 **74편 + 신규 2편**은 전체 저장 파일 수이며, 이 수를 별도 V3 신규 검증·승인 수로 사용하지 않는다.
+- `data/analysis_events` 레거시 파일 **74편 + 이번 연구 브랜치 신규 4편 = 78편**은 전체 저장 파일 수이며, 이 수를 별도 V3 신규 검증·승인 수로 사용하지 않는다.
 - **단일 현재 계수기:** `python scripts/audit_subtitle_review_gate.py --root . --full-queue`. 아래 표는 그 실행에서 확인한 25개 파일에 대한 **시점 고정 작업 대기열**이며, 신규 커밋 시 스크립트의 실시간 산출을 우선한다.
 
 ## 파일별 대기열 및 공식 검증 대상
@@ -22,8 +22,8 @@
 | 66 | `k9O79HeMOp0` | ETF 베이직 #2: ETF 종류 | 9 | S | 검증 보류 | 레버리지·합성·지수 및 위험별 KRX/금융위 |
 | 61 | `7RRWNL0V6As` | ETF 베이직 #4: 분배금 | 8 | S | 검증 보류 | 분배금과 NAV/총수익의 관계·운용사 |
 | 28 | `oxMpNgnbISw` | 자산배분 사용설명서 | 7 | S | 검증 보류 | 분산·리밸런싱 투자 원칙과 시뮬레이션 |
-| 14 | `IMJfPgmnFwc` | 변동성·저비용 ETF Shorts | 9 | A | 검증 보류 | 분산효과·위험 및 비용 원칙 |
-| 12 | `3_9IXnycZ3s` | 소액 미국주식 ETF Shorts | 8 | A | 검증 보류 | S&P 500 지수범위와 ETF 세부 위험 |
+| 14 | `IMJfPgmnFwc` | 변동성·저비용 ETF Shorts | 9 | A | 최종 기록 생성 | 완료: SEC 자산배분/ETF 대조, 위험=변동성 및 패시브 ETF 종목선정 오해 정정. 원본 SRT 미대조 |
+| 12 | `3_9IXnycZ3s` | 소액 미국주식 ETF Shorts | 8 | A | 최종 기록 생성 | 완료: S&P DJI 지수범위/선정규칙 및 SEC ETF 설명 대조, 미국시장 전체·자동 상위500 주장 정정. 원본 SRT 미대조 |
 | 2 | `6VEfKF7BzZU` | 초보 투자 계좌·상품 가이드 | 9 | S | 검증 보류 | CMA·ISA·연금저축 용도별 제약 |
 | 4 | `aNfGrcO6WPI` | 하락주식 매도 판단 | 6 | S | 검증 보류 | 손실·포지션 리스크와 근거없는 일반화 |
 | 36 | `cSNjKKdtp6M` | CMA 사용설명서 | 9 | S | 검증 보류 | 예금자보호·발행어음 위험·상품별 |
@@ -68,4 +68,15 @@
 - [검증된 분석](../data/analysis_events/Yb_5prWaqhk.json)과 [원본 근거/검증 필드](../data/subtitles/pilots/Yb_5prWaqhk.json)를 분리 저장함.
 - KRX [ETF 상장폐지](https://listing.krx.co.kr/contents/LST/06/06010600/LST06010600.jsp), [ETF 투자위험/청산](https://www.krx.co.kr/contents/OPN/01/01030205/OPN01030205T4.jsp), [자본시장법 제184조](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1030478773) 및 [제246조](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1033691871) 대조.
 - 영상의 'ETF 시스템 파탄위험 없음'이라는 절대적 단정은 **부정확**하므로 정정함. 수탁·자산격리와 시장손실·합성ETF 위험은 구분한다.
-- 초안 25편과 주장 257개 계수는 그대로 유지한다. 최종 분석은 별도 신규 파일로 두 편 존재한다.
+- 초안 25편과 주장 257개 계수는 그대로 유지한다. 2026-10-10 이 시점에는 최종 분석 파일이 두 편 존재했으며, 이후 2026-10-12에 Shorts 두 편이 추가되었다.
+
+
+## 10편 집중 검증 — 2026-10-12 실행 결과
+
+기존 공개 한국어 자동전사 기반 초안 10편만 대상으로 하며 새로운 영상 수집은 하지 않는다. 이 목록은 **독립 공개 ASR 기반**이고, 사용자 원본 SRT와 바이트 및 정밀시간 대조가 끝난 것을 뜻하지 않는다.
+
+- **#12 `3_9IXnycZ3s` 완료**: 전체 01:01 자동전사 및 주장 8개 검증. S&P 500은 미국 전체 주식시장이 아니라 대형주 500개 중심(유통시총 약 80%); 구성종목은 단순 시가총액 순 500개 자동 선정이 아님. 두 가지 표현 정정. [최종분석](../data/analysis_events/3_9IXnycZ3s.json) / [근거](../data/subtitles/pilots/3_9IXnycZ3s.json).
+- **#14 `IMJfPgmnFwc` 완료**: 전체 01:50 자동전사 및 주장 9개 검증. 변동성은 투자위험의 한 요소에 불과하고, 패시브 ETF는 운용자의 자유재량 종목선정과 다름. 두 가지 개념 정정. [최종분석](../data/analysis_events/IMJfPgmnFwc.json) / [근거](../data/subtitles/pilots/IMJfPgmnFwc.json).
+- **다음 대상 8편**: #10 `VKr060rIirM`, #13 `keu5SvpD7KE`, #1 `sz5N9WJS310`, #3 `OiDTNstaSpM`, #6 `3MyhYE2jmuE`, #8 `OfkY343OaNs`, #9 `YNOSY15ppf8`, #15 `uiauof6tOFk`.
+- 10편 기준 **2편 완료 / 8편 검증 대기**. 전체 초안은 그대로 **25편·257개 주장**이며, 연구 브랜치 신규 최종 분석 **4편**(기존 2편 + 본 실행 2편)이다. [자동 집계기](../scripts/audit_subtitle_review_gate.py)는 각 실행에서 실제 파일을 기준으로 재계산한다.
+- 새 최종 분석은 브랜치 전용이며 `main`과 기존 원장·투자 계좌·주문에 반영하지 않는다. 사용자 검토 전 PR 병합하지 않는다.
