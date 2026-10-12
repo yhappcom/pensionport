@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "review_date": "2026-10-09",
+  "review_date": "2026-10-12",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "verification_status": "PARTIAL",
+  "verification_status": "14_CLAIMS_SOURCE_TRIAGED_ORIGINAL_SRT_AND_INDEPENDENT_PUBLIC_TEXT_EQUAL_AUDIO_UNVERIFIED",
   "roster_no": 6,
   "video_id": "3MyhYE2jmuE",
   "title": "🌕 [추석특집] 애기를 낳은 친척이 있다면? | 공제 한도 내에서 자녀 증여하기 | 친척 만났을 때 해줄 이야기#1",
@@ -13,12 +13,13 @@
   "source_kind": "PUBLIC_THIRD_PARTY_TIMESTAMPED_KOREAN_AUTOMATIC_CAPTIONS",
   "timed_transcript_source_url": "https://youtube-transcript.ai/transcript/3MyhYE2jmuE.txt?lang=a-ko",
   "transcript_retrieval_date": "2026-10-09",
-  "transcript_evidence": "Public 30-second timestamp chunks reviewed alongside the separate full Korean auto-transcript; not original user-uploaded SRT; timestamps approximate; automatic recognition errors.",
+  "transcript_evidence": "Original historical 807 SRT cues SHA256 493c52ea3e56cb9be756d70f4de90d3b069c40dff5743d69bd8a8770f32c1bcc from private 1-70.zip, 61555 bytes, 1590.679sec. Independently recovered 807 public ASR lines (14576 normalized characters) identical full text. No original audio or frames checked.",
   "existing_registry_srt": {
     "sha256": "493c52ea3e56cb9be756d70f4de90d3b069c40dff5743d69bd8a8770f32c1bcc",
     "cue_count": 807,
-    "matched_to_public_transcript": false,
-    "verified_same_bytes": false
+    "matched_to_public_transcript": true,
+    "verified_same_bytes": true,
+    "verified_same_bytes_scope": "User-uploaded SRT byte hash equals historical registry; independent transcript normalized text equals original (not same file bytes)."
   },
   "audio_checked": false,
   "frames_checked": false,
@@ -33,9 +34,20 @@
       "source_paraphrase": "갓 태어난 자녀를 위해 일찍부터 증여와 장기투자를 준비해 성장 가능성을 제공하자고 권함.",
       "assessment": "SPEAKER_PHILOSOPHY",
       "independent_check": "미성년자의 시간적 투자여력과 부모의 유동성·양육비·위험선호는 별개의 판단. 장기투자가 미래 성과를 보장하지 않음.",
-      "official_sources": [],
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
       "relation_type": "REINFORCE",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "미성년자의 시간적 투자여력과 부모의 유동성·양육비·위험선호는 별개의 판단. 장기투자가 미래 성과를 보장하지 않음.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "SEC: long-horizon asset allocation should reflect risk tolerance; returns not assured.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-02",
@@ -46,10 +58,20 @@
       "assessment": "CONCEPT_WITH_CONDITIONS",
       "independent_check": "현금·주식 증여와 유기정기금 증여는 평가·입증·신고 방식이 서로 다름. 약정의 법적 요건 및 유기정기금 할인율은 추가 확인.",
       "official_sources": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
         "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029615597"
       ],
       "relation_type": "NEW",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "현금·주식 증여와 유기정기금 증여는 평가·입증·신고 방식이 서로 다름. 약정의 법적 요건 및 유기정기금 할인율은 추가 확인.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+        "source_finding": "Enforcement Decree Art.62: fixed-term payments valued by statutory discount framework.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-03",
@@ -60,11 +82,21 @@
       "assessment": "OFFICIAL_RULE_SUPPORTED_WITH_CONDITIONS",
       "independent_check": "상속세 및 증여세법 제53조: 미성년자 직계존속 공제 2천만원, 과거 10년 공제 내역 합산. 부모 각각 별도 2천만원으로 자동 중복공제되지 않음.",
       "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1017635991",
         "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029615597",
         "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7728&mi=2451"
       ],
       "relation_type": "NEW",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "상속세 및 증여세법 제53조: 미성년자 직계존속 공제 2천만원, 과거 10년 공제 내역 합산. 부모 각각 별도 2천만원으로 자동 중복공제되지 않음.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1017635991",
+        "source_finding": "Gift Tax Act Art.53: minor direct-descendant deduction 20m KRW combined over previous 10 years.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-04",
@@ -75,10 +107,20 @@
       "assessment": "OFFICIAL_RULE_QUALIFIED",
       "independent_check": "상장주식 평가규정에 부합하는 범위가 있으나 비상장·해외주식·예외 사례로 일반화 금지. 수증자·증여 시점·종목에 따라 과세기준 확인.",
       "official_sources": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031705219",
         "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7723&mi=2330"
       ],
       "relation_type": "NEW",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "상장주식 평가규정에 부합하는 범위가 있으나 비상장·해외주식·예외 사례로 일반화 금지. 수증자·증여 시점·종목에 따라 과세기준 확인.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031705219",
+        "source_finding": "Listed stocks valued using surrounding two-month average under applicable stock valuation rule.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-05",
@@ -89,10 +131,20 @@
       "assessment": "OFFICIAL_RULE_SUPPORTED_WITH_CONDITIONS",
       "independent_check": "증여세 법정 세율은 누진 구조이며 과세표준과 누진공제, 신고세액공제 등에 따라 납부세액이 달라짐.",
       "official_sources": [
+        "https://b.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7728",
         "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7728&mi=2451"
       ],
       "relation_type": "NEW",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "증여세 법정 세율은 누진 구조이며 과세표준과 누진공제, 신고세액공제 등에 따라 납부세액이 달라짐.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://b.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7728",
+        "source_finding": "NTS table: gift tax progressive rates 10% to 50% by taxable base.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-06",
@@ -102,9 +154,21 @@
       "source_paraphrase": "상장주식을 준 뒤 주가가 급등하면 증여를 회수할 수도 있다고 제안함.",
       "assessment": "UNVERIFIED_HIGH_RISK_GENERALIZATION",
       "independent_check": "증여재산 반환의 과세 효과는 증여취소 시기, 신고기한 및 자산 종류에 따라 달라짐. 쉽게 '회수하면 무효'로 승인하면 안 됨; 현금 반환 등 별도 법률검토 필요.",
-      "official_sources": [],
+      "official_sources": [
+        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000003324"
+      ],
       "relation_type": "NEW",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "증여재산 반환의 과세 효과는 증여취소 시기, 신고기한 및 자산 종류에 따라 달라짐. 쉽게 '회수하면 무효'로 승인하면 안 됨; 현금 반환 등 별도 법률검토 필요.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000003324",
+        "source_finding": "NTS ruling: noncash gift returned during filing deadline can negate initial taxable gift in prescribed circumstances; cash excluded.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical.",
+        "correction": "Noncash stocks can be returned under statutory time and assessment conditions; cash gifts excluded, no blanket right to undo after appreciation."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-07",
@@ -114,9 +178,18 @@
       "source_paraphrase": "유기정기금 증여로 10년간 매월 약 18만9천원을 송금하도록 약정하고 현재가치 할인과 신고자료를 활용하자고 제안함.",
       "assessment": "OPEN_QUANTITATIVE_AND_TAX_RULE",
       "independent_check": "18만9천원/월, 할인율 3%, 계약 요건, 실제 이체이행, 약정 증빙이 현행 2026년 규정에 맞는지 1차 법령·국세청 해석 및 제공된 엑셀과 대조 필요. 금액을 세금 0원 보장으로 승인하지 않음.",
-      "official_sources": [],
+      "official_sources": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475"
+      ],
       "relation_type": "NEW",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "disposition": "18만9천원/월, 할인율 3%, 계약 요건, 실제 이체이행, 약정 증빙이 현행 2026년 규정에 맞는지 1차 법령·국세청 해석 및 제공된 엑셀과 대조 필요. 금액을 세금 0원 보장으로 승인하지 않음.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "supporting_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475"
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-08",
@@ -126,9 +199,20 @@
       "source_paraphrase": "목돈 증여와 월별 정기 증여의 투자 전략을 달리 생각하고 장기 운용하자고 설명함.",
       "assessment": "SPEAKER_OPINION_WITH_MARKET_RISK",
       "independent_check": "거치·적립 모두 원금손실 가능. 실질구매력 및 자녀의 자산 소유권·계좌운용 주체 구분.",
-      "official_sources": [],
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
       "relation_type": "REINFORCE",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "거치·적립 모두 원금손실 가능. 실질구매력 및 자녀의 자산 소유권·계좌운용 주체 구분.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "SEC: lump-sum vs periodic investments face different timing and market risk.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-09",
@@ -138,9 +222,20 @@
       "source_paraphrase": "자녀 명의 계좌 자산에 대해 성장한 자녀와 부모가 소유권·운용권한 갈등을 겪을 수 있다고 경고함.",
       "assessment": "PRACTICAL_RISK_IDENTIFIED",
       "independent_check": "증여 완료 후 부모 재산처럼 임의 통제하거나 임의 환수한다는 가정 금지. 친권자 관리와 성년 이후 소유권 문제는 법률 확인 대상.",
-      "official_sources": [],
+      "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7960&mi=6538"
+      ],
       "relation_type": "EXTEND",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "증여 완료 후 부모 재산처럼 임의 통제하거나 임의 환수한다는 가정 금지. 친권자 관리와 성년 이후 소유권 문제는 법률 확인 대상.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7960&mi=6538",
+        "source_finding": "NTS: noncash return and parental administration do not erase recipient's legal ownership.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-10",
@@ -151,10 +246,20 @@
       "assessment": "SPEAKER_ALLOCATION_EXAMPLE",
       "independent_check": "6:4는 보편적 정답이 아니며 손실 가능, 투자기간, 통화, 자녀의 실제 지출 목표에 맞춰야 함. ETF와 TDF도 보장형이 아님.",
       "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
         "https://www.plusetf.co.kr/product/annuity"
       ],
       "relation_type": "REINFORCE",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "6:4는 보편적 정답이 아니며 손실 가능, 투자기간, 통화, 자녀의 실제 지출 목표에 맞춰야 함. ETF와 TDF도 보장형이 아님.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "SEC: 60/40, target-date and index funds involve asset value risk.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-11",
@@ -165,11 +270,19 @@
       "assessment": "OFFICIAL_RULE_PARTIALLY_SUPPORTED",
       "independent_check": "제53조 10년 합산, 만 19세 성년 기준, 제53조의2 혼인 전후 2년/출생 후 2년, 혼인·출산 통합 추가공제 최대 1억원, 직계존속 합산 등 요건이 모두 충족돼야 함. 미리 보장되는 자동 공제 아님.",
       "official_sources": [
+        "https://www.law.go.kr/LSW/lsLinkProc.do?chrClsCd=010202&datClsCd=010102&gubun=admRul&joNo=005302000&lsNm=%EC%83%81%EC%86%8D%EC%84%B8+%EB%B0%8F+%EC%A6%9D%EC%97%AC%EC%84%B8%EB%B2%95&mode=10",
         "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029615597",
         "https://www.law.go.kr/LSW/lsLinkProc.do?chrClsCd=010202&datClsCd=010102&gubun=admRul&joNo=005302000&lsNm=%EC%83%81%EC%86%8D%EC%84%B8+%EB%B0%8F+%EC%A6%9D%EC%97%AC%EC%84%B8%EB%B2%95&mode=10"
       ],
       "relation_type": "EXTEND",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "disposition": "제53조 10년 합산, 만 19세 성년 기준, 제53조의2 혼인 전후 2년/출생 후 2년, 혼인·출산 통합 추가공제 최대 1억원, 직계존속 합산 등 요건이 모두 충족돼야 함. 미리 보장되는 자동 공제 아님.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "supporting_url": "https://www.law.go.kr/LSW/lsLinkProc.do?chrClsCd=010202&datClsCd=010102&gubun=admRul&joNo=005302000&lsNm=%EC%83%81%EC%86%8D%EC%84%B8+%EB%B0%8F+%EC%A6%9D%EC%97%AC%EC%84%B8%EB%B2%95&mode=10"
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-12",
@@ -179,9 +292,20 @@
       "source_paraphrase": "35년 후 원금 약 1억3천만원과 수익 약 3억원에 혼인 공제 관련 1억원을 더해 5억3천만원을 예로 듦.",
       "assessment": "SCENARIO_NOT_FORECAST",
       "independent_check": "가정 수익률·납입시점·물가·세금·수수료·손실을 감안하지 않은 영상 시뮬레이션. '35년 뒤 5억3천만원'은 보장 수익이 아님. 영상 화면 엑셀 수식 미확인.",
-      "official_sources": [],
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
       "relation_type": "NEW",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "가정 수익률·납입시점·물가·세금·수수료·손실을 감안하지 않은 영상 시뮬레이션. '35년 뒤 5억3천만원'은 보장 수익이 아님. 영상 화면 엑셀 수식 미확인.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "Future 35-year investment value is scenario only; SEC does not guarantee it.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-13",
@@ -192,10 +316,20 @@
       "assessment": "OFFICIAL_RULE_WITH_MAJOR_CAVEAT",
       "independent_check": "제53조 기타 친족 공제는 4촌 이내 혈족/3촌 이내 인척과 과거 10년 받은 공제 합산 한도 1천만원. 친족 한 사람마다 독립적으로 1천만원 공제된다는 의미가 아님.",
       "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1017635991",
         "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029615597"
       ],
       "relation_type": "EXTEND",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "제53조 기타 친족 공제는 4촌 이내 혈족/3촌 이내 인척과 과거 10년 받은 공제 합산 한도 1천만원. 친족 한 사람마다 독립적으로 1천만원 공제된다는 의미가 아님.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1017635991",
+        "source_finding": "Act Art.53: other eligible relatives total 10m KRW deducted in previous-ten-year window, not per uncle or aunt.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     },
     {
       "claim_id": "3MyhYE2jmuE-14",
@@ -205,9 +339,20 @@
       "source_paraphrase": "복리와 장기 납입이 미래 자녀 지원을 쉽게 만든다는 가치관을 강조함.",
       "assessment": "SPEAKER_PHILOSOPHY",
       "independent_check": "장기 복리는 양(+) 수익률에서만 실현. 원금 손실·수익률 시퀀스·물가·재정 여건 위험을 함께 기록.",
-      "official_sources": [],
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
       "relation_type": "REINFORCE",
-      "verification_checked_on": "2026-10-09"
+      "verification_checked_on": "2026-10-12",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "장기 복리는 양(+) 수익률에서만 실현. 원금 손실·수익률 시퀀스·물가·재정 여건 위험을 함께 기록.",
+        "basis": "Original full SRT and specific independent legislative/regulator context.",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "SEC: compounding investment returns are uncertain and can be negative.",
+        "effective_date_or_scope": "2026-10-12; legal regime applies based on gift date and relationship; investment examples hypothetical."
+      }
     }
   ],
   "relations": [
@@ -227,6 +372,21 @@
     "증여반환 효과 및 소유권 관련 사항은 전문가 세무·법률검토 필요",
     "공개 타임코드 전사에는 30초 단위 중복 텍스트·자동 인식 오류가 있으며 기존 SRT 원본과 일치검사하지 못함",
     "영상 원음과 화면의 상품명·표·수치는 확인하지 않음",
-    "본 파일은 일부 공식 출처 비교를 포함하는 비승인 심층 검토 초안이며 공식 최종 검증·canonical 학습 완료 아님"
-  ]
+    "본 파일은 일부 공식 출처 비교를 포함하는 비승인 심층 검토 초안이며 공식 최종 검증·canonical 학습 완료 아님",
+    "Full original 807 cues and independent public ASR text match; no independently heard audio or verified on-screen gift valuation sheet.",
+    "The 189000 KRW ×120 monthly payments have nominal 22.68m KRW. A simplified effective annual 3% monthly-end annuity has present value 19.611m KRW; statutory Art.62 uses an annually computed regulatory formula with rate prescribed by ministry, not the simplified model. Zero gift tax NOT confirmed.",
+    "Existing pilot approval remains NOT_APPROVED; a separate canonical approval may certify sourced educational review only."
+  ],
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "evidence_reference": "Private source 1-70.zip historical SRT SHA256 and full 807 cue sequence; 2026-10-12 independent Firecrawl public transcript 807 lines exactly matched; custody manifest data/subtitles/source_custody_20261012.json",
+    "original_srt_sha256": "493c52ea3e56cb9be756d70f4de90d3b069c40dff5743d69bd8a8770f32c1bcc",
+    "timestamps_approximate": true,
+    "precise_timing_verified": false,
+    "public_text_match": "ALL_807_LINES_EXACT",
+    "audio_checked": false,
+    "limitations": "Same automatic transcription may share recognition errors. Frame-spreadsheet figures and original audio unreviewed; per-claim legacy 30s timestamps remain approximate."
+  }
 }
