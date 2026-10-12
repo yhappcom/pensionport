@@ -60,10 +60,13 @@
       "timecode": "00:06:12",
       "source_anchor_sec": 372.48,
       "claim": "가능한 추납을 먼저 확인하고 여유 소득으로 연금저축을 추가 적립하자는 가계 예산 제안은 개인 사정에 따른 선택이다.",
-      "verification": "SPEAKER_OPINION",
-      "sources": [],
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do?menuId=MN24001116"
+      ],
       "correction": null,
-      "source_precision": "REGISTERED_USER_SRT_CUE_START_NOT_AUDIO_ALIGNED"
+      "source_precision": "REGISTERED_USER_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "subjective_preference_not_primary_law_fact": true
     },
     {
       "claim_id": "sz5N9WJS310-05",
@@ -145,20 +148,26 @@
       "timecode": "00:13:51",
       "source_anchor_sec": 831.92,
       "claim": "세금 절대액보다 세후 자산/현금흐름을 보라는 의견은 타당한 판단 틀이지만 단일 최적 전략은 아니다.",
-      "verification": "SPEAKER_OPINION",
-      "sources": [],
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6434"
+      ],
       "correction": null,
-      "source_precision": "REGISTERED_USER_SRT_CUE_START_NOT_AUDIO_ALIGNED"
+      "source_precision": "REGISTERED_USER_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "subjective_preference_not_primary_law_fact": true
     },
     {
       "claim_id": "sz5N9WJS310-12",
       "timecode": "00:15:52",
       "source_anchor_sec": 952.36,
       "claim": "세금 두려움으로 투자를 포기하지 말자는 의견은 과도한 위험추구를 정당화하지 않는다.",
-      "verification": "SPEAKER_OPINION",
-      "sources": [],
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
       "correction": null,
-      "source_precision": "REGISTERED_USER_SRT_CUE_START_NOT_AUDIO_ALIGNED"
+      "source_precision": "REGISTERED_USER_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "subjective_preference_not_primary_law_fact": true
     },
     {
       "claim_id": "sz5N9WJS310-13",
@@ -414,7 +423,7 @@
       "theme": "상품과 계좌 세제효과는 시장수익률·위험 대비 별도 판단"
     }
   ],
-  "verification_status": "23_OF_23_OFFICIALLY_TRIAGED_TWO_MATERIAL_OVERSTATEMENTS_CORRECTED_PUBLIC_AND_REGISTERED_ORIGINAL_SRT_EXACT_MATCH_AUDIO_OPEN",
+  "verification_status": "23_OF_23_OFFICIALLY_TRIAGED_2_HYPOTHETICAL_3_SUBJECTIVE_QUALIFIED_2_CORRECTED_REGISTERED_ORIGINAL_SRT_PUBLIC_ASR_EXACT_MATCH_AUDIO_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -436,7 +445,7 @@
       "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1022766161",
       "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000928715"
     ],
-    "review_procedure": "Re-read all source 1195 SRT segments; compared full public Korean transcript including all 1195 lines, reanchored 23 claims; independent 2026 official NPS/Income Tax Enforcement Decree/NTS/FSC/KRX/ISA law and SEC primary investor education sources checked, compounding cashflow scenarios recomputed. No claims of source sound or frame reading.",
+    "review_procedure": "Re-read all source 1195 SRT segments; compared full public Korean transcript including all 1195 lines, reanchored 23 claims; independent 2026 official NPS/Income Tax Enforcement Decree/NTS/FSC/KRX/ISA law and SEC primary investor education sources checked, compounding cashflow scenarios recomputed. No claims of source sound or frame reading. Three financial/tax preferences categorized QUALIFIED with explicit subjective marker because no primary evidence can prove an investor's value judgment.",
     "transcript_reconciliation": {
       "status": "REGISTERED_ORIGINAL_SRT_VS_INDEPENDENT_PUBLIC_KOREAN_ASR_EXACT_TEXT_MATCH",
       "source_cues": 1195,
