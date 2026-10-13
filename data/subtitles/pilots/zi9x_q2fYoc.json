@@ -104,7 +104,7 @@
       "timecode": "00:25:33",
       "watch_url": "https://www.youtube.com/watch?v=zi9x_q2fYoc&t=1533s",
       "source_paraphrase": "공제회에 매월 60만원을 연4% 가정 25년 넣으면 약 3억원이 된다고 설명한다.",
-      "independent_check": "총납입 1.8억, 월말 적립 명목연4%/12 계산 FV 약3억848만원; 실제 공제회 약정상품 수익과 다름",
+      "independent_check": "매월말 600,000원×300개월, 명목연4%/12 단순 복리 FV=308,477,728원, 납입 180,000,000원. 실제 공제회 계약이율/실적과 다름.",
       "assessment": "QUALIFIED",
       "official_sources": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
@@ -112,11 +112,20 @@
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "basis": "총납입 1.8억, 월말 적립 명목연4%/12 계산 FV 약3억848만원; 실제 공제회 약정상품 수익과 다름",
-        "disposition": "총납입 1.8억, 월말 적립 명목연4%/12 계산 FV 약3억848만원; 실제 공제회 약정상품 수익과 다름",
-        "checked_at": "2026-10-12",
+        "disposition": "매월말 600,000원×300개월, 명목연4%/12 단순 복리 FV=308,477,728원, 납입 180,000,000원. 실제 공제회 계약이율/실적과 다름.",
+        "checked_at": "2026-10-13",
         "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
         "source_finding": "총납입 1.8억, 월말 적립 명목연4%/12 계산 FV 약3억848만원; 실제 공제회 약정상품 수익과 다름",
-        "effective_date_or_scope": "Official 2026 Korean legislation/issuer SEC generic educational scope; real income/payments may vary."
+        "effective_date_or_scope": "Official 2026 Korean legislation/issuer SEC generic educational scope; real income/payments may vary.",
+        "supplemental_primary_issuer": "https://www.ktcu.or.kr/PPW-FIA-300101",
+        "source_findings_addendum_ref": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+        "recalculation": {
+          "nominal_annual_rate": 0.04,
+          "months": 300,
+          "monthly_contribution_krw": 600000,
+          "principal_krw": 180000000,
+          "terminal_value_krw": 308477728
+        }
       },
       "original_srt_anchor_start_sec": 1533,
       "timecode_precision": "ORIGINAL_USER_SRT_CONTEXTUAL_CUE_APPROXIMATE_NO_AUDIO"
@@ -126,7 +135,7 @@
       "timecode": "00:25:57",
       "watch_url": "https://www.youtube.com/watch?v=zi9x_q2fYoc&t=1557s",
       "source_paraphrase": "약 3억원 공제회 적립액으로 30년간 월213만원을 수령할 수 있다고 한다.",
-      "independent_check": "동일 연4%로 적립 FV 3억848만원을 30년 월 인출하면 약147.3만원; 월213만원은 별도 공제회 지급표/전환금리 없이 재현 불가",
+      "independent_check": "영상의 월213만원은 연4% 30년 360회 동일조건으로 불일치: 308,477,728원 투입 시 월1,472,720원. 동일 연4%·30년 월213만원 필요 원금446,152,442원. 전환일·해당 공제회 상품명·실제 금리·발행기관 수령표 미제출이므로 영상 실제 상품의 지급액은 OPEN.",
       "assessment": "QUALIFIED",
       "official_sources": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
@@ -134,11 +143,21 @@
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "basis": "동일 연4%로 적립 FV 3억848만원을 30년 월 인출하면 약147.3만원; 월213만원은 별도 공제회 지급표/전환금리 없이 재현 불가",
-        "disposition": "동일 연4%로 적립 FV 3억848만원을 30년 월 인출하면 약147.3만원; 월213만원은 별도 공제회 지급표/전환금리 없이 재현 불가",
-        "checked_at": "2026-10-12",
+        "disposition": "영상의 월213만원은 연4% 30년 360회 동일조건으로 불일치: 308,477,728원 투입 시 월1,472,720원. 동일 연4%·30년 월213만원 필요 원금446,152,442원. 전환일·해당 공제회 상품명·실제 금리·발행기관 수령표 미제출이므로 영상 실제 상품의 지급액은 OPEN.",
+        "checked_at": "2026-10-13",
         "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
         "source_finding": "동일 연4%로 적립 FV 3억848만원을 30년 월 인출하면 약147.3만원; 월213만원은 별도 공제회 지급표/전환금리 없이 재현 불가",
-        "effective_date_or_scope": "Official 2026 Korean legislation/issuer SEC generic educational scope; real income/payments may vary."
+        "effective_date_or_scope": "Official 2026 Korean legislation/issuer SEC generic educational scope; real income/payments may vary.",
+        "supplemental_primary_issuer": "https://www.ktcu.or.kr/PPW-FIA-300101",
+        "source_findings_addendum_ref": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+        "rate_and_issue": {
+          "model_deposit_end_krw": 308477728,
+          "monthly_payout_calculated_krw": 1472720,
+          "speaker_payout_per_month_krw": 2130000,
+          "required_principal_for_speaker_payment_krw": 446152442,
+          "model_4pct_is_inconsistent": true,
+          "actual_mutual_aid_payment_unverified": true
+        }
       },
       "original_srt_anchor_start_sec": 1557,
       "timecode_precision": "ORIGINAL_USER_SRT_CONTEXTUAL_CUE_APPROXIMATE_NO_AUDIO"
@@ -192,7 +211,7 @@
       "timecode": "00:34:10",
       "watch_url": "https://www.youtube.com/watch?v=zi9x_q2fYoc&t=2050s",
       "source_paraphrase": "공제회 인출은 금융소득종합과세·건강보험료에서 제외되고 0~4% 저율과세라 설명한다.",
-      "independent_check": "특정 공제회 상품별 계약·세법·건보료 기준 확인 필요, 모든 공제회 계좌에 동일 적용 불가",
+      "independent_check": "The-K 한국교직원공제회 '장기저축급여 분할급여금' 상품만 부가금에 0~5%대 세율·소득세법 제14조 제3항 제3호 금융소득종합과세 제외 확인. 일반적 '0~4%' 모든 공제회 공통이 아님. 건강보험료 판정도 원상품·지급액·개인 조건 분리. 2026-06-19 The-K 고시에서 분할급여금 3.8%(2026-07-01) vs 동일 회사 상품상세 급여율 5.0% 표시 불일치 확인, 계약상품 우선.",
       "assessment": "QUALIFIED",
       "official_sources": [
         "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6434"
@@ -200,11 +219,15 @@
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "basis": "특정 공제회 상품별 계약·세법·건보료 기준 확인 필요, 모든 공제회 계좌에 동일 적용 불가",
-        "disposition": "특정 공제회 상품별 계약·세법·건보료 기준 확인 필요, 모든 공제회 계좌에 동일 적용 불가",
-        "checked_at": "2026-10-12",
-        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6434",
-        "source_finding": "특정 공제회 상품별 계약·세법·건보료 기준 확인 필요, 모든 공제회 계좌에 동일 적용 불가",
-        "effective_date_or_scope": "Official 2026 Korean legislation/issuer SEC generic educational scope; real income/payments may vary."
+        "disposition": "The-K 한국교직원공제회 '장기저축급여 분할급여금' 상품만 부가금에 0~5%대 세율·소득세법 제14조 제3항 제3호 금융소득종합과세 제외 확인. 일반적 '0~4%' 모든 공제회 공통이 아님. 건강보험료 판정도 원상품·지급액·개인 조건 분리. 2026-06-19 The-K 고시에서 분할급여금 3.8%(2026-07-01) vs 동일 회사 상품상세 급여율 5.0% 표시 불일치 확인, 계약상품 우선.",
+        "checked_at": "2026-10-13",
+        "primary_url": "https://www.ktcu.or.kr/PPW-FIA-300101",
+        "source_finding": "The-K 한국교직원공제회 '장기저축급여 분할급여금' 상품만 부가금에 0~5%대 세율·소득세법 제14조 제3항 제3호 금융소득종합과세 제외 확인. 일반적 '0~4%' 모든 공제회 공통이 아님. 건강보험료 판정도 원상품·지급액·개인 조건 분리. 2026-06-19 The-K 고시에서 분할급여금 3.8%(2026-07-01) vs 동일 회사 상품상세 급여율 5.0% 표시 불일치 확인, 계약상품 우선.",
+        "effective_date_or_scope": "Official 2026 Korean legislation/issuer SEC generic educational scope; real income/payments may vary.",
+        "supplemental_primary_issuer": "https://www.ktcu.or.kr/PPW-FIA-300101",
+        "source_findings_addendum_ref": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+        "scope_restriction": "The-K issuer-specific 2026 current product; speaker's actual mutual aid society is not established",
+        "secondary_primary_issuer_notice": "https://www.ktcu.or.kr/PPW-CSB-000101/61262"
       },
       "original_srt_anchor_start_sec": 2050,
       "timecode_precision": "ORIGINAL_USER_SRT_CONTEXTUAL_CUE_APPROXIMATE_NO_AUDIO"
@@ -281,7 +304,8 @@
     "Registered original 1134-cue SRT full machine-parsed and segmented every 2 minutes, main finance topic passages/claim contexts inspected; original audio/frames not accessed.",
     "공제회 계약 만기 지급률·세율·건보료 영향별 공식자료 미확보.",
     "입출금 현금흐름에 따른 실제 수익과 25년 확정 수익률을 혼동하지 않는다.",
-    "원금 보전 분배의 장기 지속 보장 불가."
+    "원금 보전 분배의 장기 지속 보장 불가.",
+    "2026-10-13 60만원/월 25년 연4%→3억847만7,728원, 30년 동일연4% 월147만2,720원; 원본 발언 월213만원과 재현불가, 공제회 개별 명세/이율 미제출."
   ],
   "existing_registry_srt": {
     "sha256": "e7284caf3d5cee58a202ad29e88a39c57973d5f181dda018f47852a9f23200f3",
@@ -318,5 +342,12 @@
       "related_video_id": "oMs4-3ZOevE",
       "theme": "은퇴현금흐름에서 높은 분배율의 지속가능성"
     }
-  ]
+  ],
+  "review_supplement_20261013": {
+    "source_ref": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+    "source_checked_at": "2026-10-13",
+    "disposition": "MATHEMATICAL_INCONSISTENCY_WITH_4_PERCENT_ASSUMPTION_CONFIRMED; 0-5pct issuer product tax limited to The-K, actual mutual aid provider/cash benefit unverified",
+    "raw_audio_verified": false,
+    "video_frames_verified": false
+  }
 }
