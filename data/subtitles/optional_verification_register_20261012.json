@@ -25,7 +25,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "AUDIO_FRAME_REQUIRED",
+        "independent_finding": "비공개 SRT 07:43~08:05에서 10년 적립과 7년 후 5,100만원을 연이어 말함. 월말 30만원, 명목연 7%/12 월복리: 7년 32,399,694원 / 10년 51,925,442원. 5,100만원은 10년에 가깝고 7년과 불일치.",
+        "minimum_missing_proof": "07:46~08:05 실제 오디오와 7년·10년 원본 시뮬레이션 화면.",
+        "decision_use_restriction": "7년 5,100만원을 확정수치로 사용 불가. 독립 검산 두 시나리오만 설명.",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "keu5SvpD7KE-AUDIO_NUMERIC",
@@ -45,7 +55,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "AUDIO_FRAME_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "3MyhYE2jmuE-LEGAL_TRANSACTION_FACTS",
@@ -75,7 +95,17 @@
         "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0019&lsiSeq=284609&urlMode=lsScJoRltInfoR"
       ],
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "권리증여 약정·해지시 일시금·이전 10년 증여내역",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "OfkY343OaNs-PRODUCT_TAX_EFFECTIVE_RATE",
@@ -106,7 +136,17 @@
         "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2888.htm"
       ],
       "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "DATED_PRODUCT_PRICE_DISCLOSURE_REQUIRED",
+        "independent_finding": "국세청 2026-04-24 국내설정 해외투자 펀드 공제안내는 일본 상장 ETF 1557/2558의 개별 최종 실효세율 증빙이 아님.",
+        "minimum_missing_proof": "상품 법적 구조 및 배당·매매별 브로커 세금명세·한일미 조약 적용·거주자/계좌 조건.",
+        "decision_use_restriction": "일본 상장 상품에 단일 실효세율 적용 금지.",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "YNOSY15ppf8-HISTORICAL_QUOTE_AND_FEE",
@@ -135,7 +175,17 @@
         "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143&wnkey=f39c4ab9-7727-4bbb-9d2d-b1a8000e267b"
       ],
       "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "DATED_PRODUCT_PRICE_DISCLOSURE_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "uiauof6tOFk-ORIGINAL_BACKTEST_SOURCE_DATA",
@@ -168,7 +218,17 @@
         "https://www.yes24.com/product/goods/195618551"
       ],
       "blocking_evidence_class": "NEEDS_DEFINED_COMPARABLE_HISTORICAL_DATA_OR_ORIGINAL_PUBLICATION",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIMARY_SERIES_OR_PUBLICATION_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "1972~2022 월간 원시 총수익 시계열·배당/롤/리밸런싱/비용 입력과 도서 원표",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "LVE7XN_esTc-SCREEN_EXAMPLE",
@@ -190,7 +250,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "AUDIO_FRAME_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "oxMpNgnbISw-ORIGINAL_MODEL_PERFORMANCE",
@@ -214,7 +284,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "AUDIO_FRAME_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "Video screen of simulation/table or source time series becomes available and precise historical return comparison is needed.",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "6VEfKF7BzZU-CMA_PRODUCT_SPECIFIC_COSTS",
@@ -237,7 +317,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "DATED_PRODUCT_PRICE_DISCLOSURE_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "The referenced institution and exact CMA product and disclosure effective on recommendation date are identified.",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "aNfGrcO6WPI-THREE_YEAR_CYCLE_EVIDENCE",
@@ -291,7 +381,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "DATED_PRODUCT_PRICE_DISCLOSURE_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "영상 2026-07-22 원화면과 해당 금융기관 상품별 금리 공시",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "ZTlLcC4gE0M-PERSONAL_TAX_PROOF",
@@ -314,7 +414,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "세액공제 확인서 및 연금납입/출금 계좌 원장",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "oMs4-3ZOevE-ORIGINAL_RETIREMENT_COMPOUNDING_SLIDE",
@@ -337,7 +447,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "AUDIO_FRAME_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "The relevant video slide/source spreadsheet becomes accessible and materially affects investment choice",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "4CQ4FjGT2gA-HISTORICAL_COMPILATION_ACCOUNT_RETURNS",
@@ -360,7 +480,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "사연 당사자 동의하 매입/매도·입출금·대출 원장",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "4CQ4FjGT2gA-ASR_PUBLIC_2_CUES_OMITTED",
@@ -472,7 +602,17 @@
       "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
       "arithmetic_verified_at": "2026-10-13",
       "arithmetic_verified": "KRW440,000,000 × 0.06 /12 = KRW2,200,000 per month: 6% is ANNUAL assumed distribution rate. If literally 6% per MONTH then first month's nominal amount is KRW26,400,000, twelve times larger; source SRT writes '월 6%'. Original speaker audio remains unverified; financial scenario must be labeled 6% per YEAR.",
-      "why_still_open": "Speech ambiguity is audio-specific; correct mathematical interpretation does not authenticate actual pronunciation."
+      "why_still_open": "Speech ambiguity is audio-specific; correct mathematical interpretation does not authenticate actual pronunciation.",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "AUDIO_FRAME_REQUIRED",
+        "independent_finding": "비공개 SRT 00:50~00:57에 월 6% 표현이 있으나 4억4,000만원×연6%÷12=월220만원, 4억4,000만원×월6%=월2,640만원. 원음 직접 확인 없음.",
+        "minimum_missing_proof": "00:48~01:02 실제 음성 및 원래 화면의 연/월 단위.",
+        "decision_use_restriction": "연6% 세전 가정만 교육용, 월6% 발언의 원음 인증 보류.",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "CvM8Os4ltfE-EXACT_10K_MINIMUM_BROKERAGE_PRODUCT",
@@ -534,7 +674,17 @@
         "https://www.fsc.go.kr/no040000?cnId=1711&curPage=202&pastPage=202&srchKey=&srchText=",
         "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&messageCategoryId=149"
       ],
-      "reviewed_at": "2026-10-13"
+      "reviewed_at": "2026-10-13",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "금융위원회 2023-04-10 일반 미성년자 법정대리인 비대면 금융계좌 개설 허용 확인; 특정 연금저축 상품·금융사 2026 업무 지원은 별개.",
+        "minimum_missing_proof": "금융사별 2026 미성년자 연금저축계좌 개설 업무지침/약관과 대리인 서류.",
+        "decision_use_restriction": "미성년자 모든 연금저축계좌 개설·세액공제 가능을 단정하지 않음.",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "zi9x_q2fYoc-MUTUAL_AID_30YEAR_2130000_CONTRACT",
@@ -561,7 +711,17 @@
       "verified_fact": "Same nominal 4% monthly assumption gives 25y savings FV KRW308,477,728 and 30y withdrawal KRW1,472,720/mo; reported 2,130,000/mo would require KRW446,152,442 principal. Contradiction within stated same-rate model independently established; actual fund payout and society contract remain unverified.",
       "reopen_condition": "Actual recorded producer/model spreadsheet with named mutual-aid institution, split benefit product, accrual/payout rates, extra capital inputs and real dated payment table.",
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "비공개 SRT 25:33~26:55. 월말 60만원×25년 명목연4%/12: 308,477,728원. 동일 4%/12로 30년 월말 소진시 1,472,720원/월; 213만원에는 초기액 446,152,442원 필요. The-K의 2026-07-01 분할급여 3.8% 고시는 다른 공제회/상품일 수 있음.",
+        "minimum_missing_proof": "영상 사용 공제회·상품명·전환기준일·실제 30년 분할수령표와 원본 화면.",
+        "decision_use_restriction": "월213만원을 수령확정액으로 사용 불가. 동등조건 4% 산식만 독립검증.",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "zi9x_q2fYoc-MUTUAL_AID_PAYOUT_TAX_HEALTH",
@@ -593,7 +753,17 @@
       ],
       "reopen_condition": "Identity of issuer and specific original annuity/pension product, actual tax bracket, insured residence and contract/certificate.",
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "The-K 2026-06-19 공식공지상 장기저축급여 일반 5.0%와 분할급여금 3.8% 변동금리를 구별. 특정 공제회의 세후·건보료 취급과 동일시 불가.",
+        "minimum_missing_proof": "정확한 기관·상품 유형·가입시기·공식 원천징수/건보료 판정 문서.",
+        "decision_use_restriction": "모든 공제회 월지급액 0~4% 저율과세/건보료 제외를 단정하지 않음.",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "WGFPHeM6-6I-2026_FIVE_YEAR_GOVERNMENT_BOND_YTM",
@@ -623,7 +793,17 @@
         "https://www.yna.co.kr/view/AKR20260930158400008",
         "https://www.krx.co.kr/contents/OPN/01/01040502/OPN01040502.jsp"
       ],
-      "reviewed_at": "2026-10-13"
+      "reviewed_at": "2026-10-13",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "DATED_PRODUCT_PRICE_DISCLOSURE_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "영상 실제 발언일 및 동일 5년 국고채 공식 유통 YTM",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "LEczVIueQAA-ONE_SHARE_BOND_ETF_PRICE_TRADE",
@@ -774,7 +954,17 @@
         "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475"
       ],
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "월18.9만원 120회 증여계약 원본·취소권·실제 이행·기존 10년 합산",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "yDt8Ki7d_Yk-GIFT_240M_ELIGIBILITY_TIMING",
@@ -797,7 +987,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "개별 증여일/수증자 가족관계/혼인신고·출산·수증자의 이전 공제를 확인할 때",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "OdR6ICkcthc-2025_RETIREMENT_SUBGROUP_RETURN_CHART",
@@ -833,7 +1033,17 @@
         "https://moel.go.kr/news/enews/report/enewsView.do?news_seq=19829",
         "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19411"
       ],
-      "why_still_open": "These verified official 2025 subgroups are not proof of video's exact 'brokerage nearly 10% / income products 16%' screen groups with the same denominator/year definition; original slide/report breakdown needed."
+      "why_still_open": "These verified official 2025 subgroups are not proof of video's exact 'brokerage nearly 10% / income products 16%' screen groups with the same denominator/year definition; original slide/report breakdown needed.",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIMARY_CONTEXT_REQUIRED",
+        "independent_finding": "고용노동부 공식 2025 전체 6.5%, TDF 13.7%, 디폴트옵션 중립 10.8%; 제도별 DB 3.5%, DC 8.5%, IRP 9.4%. 원본 SRT 38:32~38:41 증권사 약 10%/투자전체 16%는 분모 미확인.",
+        "minimum_missing_proof": "2025 투자 백서 상세 원표에서 동일한 분모·업권·실적형 기준과 영상 38:24~38:46 원화면 확인.",
+        "decision_use_restriction": "검증된 6.5%와 미검증 10%/16%를 같은 집단 수익률처럼 사용하지 않음.",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "i32DeJPzsfE-SUBSCRIBER_LOAN_INVESTMENT_CUSTODY",
@@ -856,7 +1066,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "본인 제공의 대출약정/상환장부/월별 자산가치·순납입 자료를 명시적 승인하에 수령할 때",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "item_id": "835_phhMGM8-KOSTOLANY_BOOK_EXACT_TEXT_AND_9MONTH_LAG",
@@ -879,7 +1099,17 @@
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_DEFINED_COMPARABLE_HISTORICAL_DATA_OR_ORIGINAL_PUBLICATION",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIMARY_SERIES_OR_PUBLICATION_REQUIRED",
+        "independent_finding": "기존 판단 유지: 사용자 SRT와 일반 자료만으로 쟁점의 고유 원자료·실제 계약·원시 시세를 입증하지 못함.",
+        "minimum_missing_proof": "구체 도서판본과 인용 페이지·측정 가능한 시장 금리/주가표를 입수할 때",
+        "decision_use_restriction": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     },
     {
       "importance": "HIGH",
@@ -1058,7 +1288,17 @@
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
       "actual_audio_checked": false,
       "actual_frames_checked": false,
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_SURRENDER_DECISION_AS_VERIFIED_OR_RECOMMENDED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_SURRENDER_DECISION_AS_VERIFIED_OR_RECOMMENDED",
+      "triage_20261013_pass2": {
+        "audited_at": "2026-10-13",
+        "evidence_gate": "PRIVATE_CONTRACT_OR_ACCOUNT_REQUIRED",
+        "independent_finding": "해지환급금·보험료·보장내용의 계약서/해약표 원본이 아닌 사연 SRT만 확보. 해지로 확정 절약액 계산 불가.",
+        "minimum_missing_proof": "보험사 발급 유지·해지환급표, 약관, 보험계약대출, 대체 보장/인수 조건.",
+        "decision_use_restriction": "보험 해지 권고 또는 해당 개인의 환급액 확정 금지.",
+        "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
+        "original_audio_checked": false,
+        "original_frames_checked": false
+      }
     }
   ],
   "resolved_items": [
@@ -1105,5 +1345,17 @@
     "definition": "RESOLVED is a dated independently evidenced claim or disproof of universal statement; not certification of original speech, exact future fund constituents or specific holder's tax status."
   },
   "reassessment_20261013_report": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
-  "last_review_note": "2026-10-13 timeout recovery: 12 previously RESOLVED preserved, +2 (ETF overlap 8 shared and 5.6% as of Aug4; universally guaranteed KRW10k buy claim rejected). 2026 Sep30 YTM and minor general accounts evidence enrichment only, each remains OPEN. 2026-10-13 dated recheck: QQQ/SCHD page refreshed to Oct2 showing 8 shared, 4.8% min-weight overlap (rounded components sum 4.82%); old Aug4 5.6% cannot be reproduced from now-live page. Resolved status unchanged.\n2026-10-13 additional #35: separately registered OPEN original insurance surrender contract; prior established 37 (14 resolved / 23 open) preserved, new 38 (14 / 24). Financially sensitive specific contract not independently available."
+  "last_review_note": "2026-10-13 timeout recovery: 12 previously RESOLVED preserved, +2 (ETF overlap 8 shared and 5.6% as of Aug4; universally guaranteed KRW10k buy claim rejected). 2026 Sep30 YTM and minor general accounts evidence enrichment only, each remains OPEN. 2026-10-13 dated recheck: QQQ/SCHD page refreshed to Oct2 showing 8 shared, 4.8% min-weight overlap (rounded components sum 4.82%); old Aug4 5.6% cannot be reproduced from now-live page. Resolved status unchanged.\n2026-10-13 additional #35: separately registered OPEN original insurance surrender contract; prior established 37 (14 resolved / 23 open) preserved, new 38 (14 / 24). Financially sensitive specific contract not independently available.\n2026-10-13 evidence gate reassessment: all 24 OPEN claims individually assigned evidence gate and missing-proof trigger. Recomputed 7y/10y, annual-vs-monthly 6%, and 30y 2.13m at 4%; official MOEL, FSC, KTCU and NTS primary references checked. No unverified closure; 14 RESOLVED / 24 OPEN unchanged.",
+  "reassessment_20261013_pass2_report": "knowledge/OPEN_24_EVIDENCE_GATE_REVIEW_20261013.md",
+  "reassessment_20261013_pass2_summary": {
+    "audited_at": "2026-10-13",
+    "open_items_reviewed": 24,
+    "high": 9,
+    "medium": 9,
+    "low": 6,
+    "status_changed_count": 0,
+    "closed_new_without_primary_proof": 0,
+    "original_audio_checked": false,
+    "original_frames_checked": false
+  }
 }
