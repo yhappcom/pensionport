@@ -447,10 +447,14 @@
       "review_again_when": "해당 행정공제회 2026 상품명·25년 적립/30년 분할 지급 약관 및 원본 화면/정산표 확보",
       "evidence_references": [
         "data/subtitles/pilots/zi9x_q2fYoc.json",
-        "data/analysis_events/zi9x_q2fYoc.json"
+        "data/analysis_events/zi9x_q2fYoc.json",
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "reviewed_at": "2026-10-13",
+      "verified_fact": "Same nominal 4% monthly assumption gives 25y savings FV KRW308,477,728 and 30y withdrawal KRW1,472,720/mo; reported 2,130,000/mo would require KRW446,152,442 principal. Contradiction within stated same-rate model independently established; actual fund payout and society contract remain unverified.",
+      "reopen_condition": "Actual recorded producer/model spreadsheet with named mutual-aid institution, split benefit product, accrual/payout rates, extra capital inputs and real dated payment table."
     },
     {
       "item_id": "zi9x_q2fYoc-MUTUAL_AID_PAYOUT_TAX_HEALTH",
@@ -468,10 +472,19 @@
       "review_again_when": "정확한 공제회 상품 및 계약연도와 해당 세제·건보료 적용 법령/공식 약관 확보",
       "evidence_references": [
         "data/subtitles/pilots/zi9x_q2fYoc.json",
-        "data/analysis_events/zi9x_q2fYoc.json"
+        "data/analysis_events/zi9x_q2fYoc.json",
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "reviewed_at": "2026-10-13",
+      "verified_fact": "The-K Korean Teachers Mutual Aid Association official 2026 specific 장기저축급여 분할급여금: 0~5% supplemental benefit tax and financial income aggregation exclusion under Korean Income Tax Act Art14(3)(3). 2026-06-19 issuer notice says split payment rate 3.8% from 2026-07-01, while product page rate shows 5.0%, requiring reconciliation. Speaker's mutual-aid society/contract not independently identified; universal health insurance/tax exclusion still OPEN.",
+      "issuer_primary_sources": [
+        "https://www.ktcu.or.kr/PPW-FIA-300101",
+        "https://www.ktcu.or.kr/PPW-CSD-100101?fieldTy=&srchCtgry=2&srchStdg=",
+        "https://www.ktcu.or.kr/PPW-CSB-000101/61262"
+      ],
+      "reopen_condition": "Identity of issuer and specific original annuity/pension product, actual tax bracket, insured residence and contract/certificate."
     },
     {
       "item_id": "WGFPHeM6-6I-2026_FIVE_YEAR_GOVERNMENT_BOND_YTM",
