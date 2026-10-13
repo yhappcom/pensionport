@@ -23,7 +23,8 @@
     "원본 사적 ZIP/SRT를 공개 저장하지 않는다.",
     "55~65 1.62억원은 55~60 연7% / 60~65도 같은 연7% 월복리로 재현되지 않고 그 경우 65세 약2.059억원. 연7% 실제 보장 아님.",
     "2.3억원 55~60 합산 후 ISA 만기자금을 연금으로 옮기는 과정은 자산 이동이므로 이중계산을 막아야 한다. 영상의 원 슬라이드 장부·연금이체 세부는 미검증.",
-    "4억원의 연8% 인출 3200만원은 총수익 및 연금의 지속가능성을 보증하지 않는다."
+    "4억원의 연8% 인출 3200만원은 총수익 및 연금의 지속가능성을 보증하지 않는다.",
+    "세액공제 및 ISA 이동 관련 검토 문구는 실제 영상이 말한 범위로 축소: 전액 공제·이전 자산 이중 합산을 발표자가 명시적으로 주장했다고 단정하지 않는다."
   ],
   "existing_registry_srt": {
     "sha256": "d0e9d1a16a0289f013b41099142baf4ea2ccb62eaee31c6e445735f07d874ae1",
@@ -154,21 +155,20 @@
       "claim_id": "sTKJve59KGQ-05",
       "timecode": "00:03:11",
       "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=191s",
-      "source_paraphrase": "연1800만원 연금저축에 전부 세액공제가 들어 실질 투자비용이 줄어든다.",
-      "assessment": "CONTRADICTED",
-      "independent_check": "연간 납입한도 1800만원과 연금저축 공제 대상 600만원(퇴직연금 포함900만원)은 다름. 초과 납입액 전액에 즉시 공제가 적용되지 않음.",
+      "source_paraphrase": "연금저축 월150만원을 5년 납입하면서 세액공제 혜택으로 실질 투자비용을 낮출 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "연간 1800만원을 납입할 수 있지만 연금저축 세액공제 대상은 최대600만원, 퇴직연금까지 합산하면900만원. 소득·결정세액에 따라 공제액이 달라지며 전체 1800만원 공제는 아니다.",
       "official_sources": [
         "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-13",
         "basis": "Full 684 private original caption cues (2026-07 discussion) read, tax law / institution terms and independently recalculated deterministic illustrations. Original audio/slides not checked.",
-        "disposition": "연간 납입한도 1800만원과 연금저축 공제 대상 600만원(퇴직연금 포함900만원)은 다름. 초과 납입액 전액에 즉시 공제가 적용되지 않음.",
+        "disposition": "연간 1800만원을 납입할 수 있지만 연금저축 세액공제 대상은 최대600만원, 퇴직연금까지 합산하면900만원. 소득·결정세액에 따라 공제액이 달라지며 전체 1800만원 공제는 아니다.",
         "primary_url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
-        "source_finding": "연간 납입한도 1800만원과 연금저축 공제 대상 600만원(퇴직연금 포함900만원)은 다름. 초과 납입액 전액에 즉시 공제가 적용되지 않음.",
-        "effective_date_or_scope": "2026-07-01 law/2026-07-13 bond yields or current 2026 institutional guidance; financial returns illustrative, not guaranteed",
-        "correction": "연간 납입한도 1800만원과 연금저축 공제 대상 600만원(퇴직연금 포함900만원)은 다름. 초과 납입액 전액에 즉시 공제가 적용되지 않음."
+        "source_finding": "연간 1800만원을 납입할 수 있지만 연금저축 세액공제 대상은 최대600만원, 퇴직연금까지 합산하면900만원. 소득·결정세액에 따라 공제액이 달라지며 전체 1800만원 공제는 아니다.",
+        "effective_date_or_scope": "2026-07-01 law/2026-07-13 bond yields or current 2026 institutional guidance; financial returns illustrative, not guaranteed"
       },
       "original_srt_anchor_start_sec": 191,
       "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
@@ -508,21 +508,20 @@
       "claim_id": "sTKJve59KGQ-21",
       "timecode": "00:19:03",
       "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1143s",
-      "source_paraphrase": "ISA를 연금으로 옮긴 후 다시 더하면 추가로 새 자산 1.2억원이 생긴다.",
-      "assessment": "CONTRADICTED",
-      "independent_check": "ISA에서 연금으로 자금 이전은 자산의 위치 변화이지 총자산 창출이 아니다. 2.3억원에 이미 합산한 ISA분을 이후 연금 이전한다면 같은 1.2억원을 다시 더하면 이중계산이다. 영상의 실제 장부는 슬라이드 원본 미확인.",
+      "source_paraphrase": "기존 ISA 약1.2억원을 연금저축으로 만기전환하면 이 자금도 함께 운용할 수 있다고 설명한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "ISA 만기 전환은 위치를 바꾸는 것이며 기존 총자산을 늘리지 않는다. 영상의 2.3억원(연금+ISA)을 연금에 넣을 때 ISA 1.2억원을 다시 중복 합산하지 않아야 한다. 영상 실제 원 그림 장부는 미확인.",
       "official_sources": [
         "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-13",
         "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
-        "disposition": "ISA에서 연금으로 자금 이전은 자산의 위치 변화이지 총자산 창출이 아니다. 2.3억원에 이미 합산한 ISA분을 이후 연금 이전한다면 같은 1.2억원을 다시 더하면 이중계산이다. 영상의 실제 장부는 슬라이드 원본 미확인.",
+        "disposition": "ISA 만기 전환은 위치를 바꾸는 것이며 기존 총자산을 늘리지 않는다. 영상의 2.3억원(연금+ISA)을 연금에 넣을 때 ISA 1.2억원을 다시 중복 합산하지 않아야 한다. 영상 실제 원 그림 장부는 미확인.",
         "primary_url": "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target",
-        "source_finding": "ISA에서 연금으로 자금 이전은 자산의 위치 변화이지 총자산 창출이 아니다. 2.3억원에 이미 합산한 ISA분을 이후 연금 이전한다면 같은 1.2억원을 다시 더하면 이중계산이다. 영상의 실제 장부는 슬라이드 원본 미확인.",
-        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding",
-        "correction": "ISA에서 연금으로 자금 이전은 자산의 위치 변화이지 총자산 창출이 아니다. 2.3억원에 이미 합산한 ISA분을 이후 연금 이전한다면 같은 1.2억원을 다시 더하면 이중계산이다. 영상의 실제 장부는 슬라이드 원본 미확인."
+        "source_finding": "ISA 만기 전환은 위치를 바꾸는 것이며 기존 총자산을 늘리지 않는다. 영상의 2.3억원(연금+ISA)을 연금에 넣을 때 ISA 1.2억원을 다시 중복 합산하지 않아야 한다. 영상 실제 원 그림 장부는 미확인.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
       },
       "original_srt_anchor_start_sec": 1143,
       "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
