@@ -187,8 +187,22 @@
       "public_lines": 1037,
       "original_characters": 18261,
       "public_characters": 18248,
-      "status": "UNRECONCILED",
-      "limitation": "실제 음성/화면 불확실"
+      "status": "RESOLVED_PUBLIC_ASR_TWO_OMITTED_CUES_AUDIO_NOT_CHECKED",
+      "limitation": "실제 음성/화면 불확실",
+      "omitted_original_cues": [
+        {
+          "cue": 182,
+          "time": "00:05:59.400",
+          "caption": "코스닥"
+        },
+        {
+          "cue": 802,
+          "time": "00:26:11.520",
+          "caption": "텔"
+        }
+      ],
+      "public_other_lines_equal": true,
+      "limitations": "Public ASR alignment difference now precisely located; actual spoken audio/visual not verified."
     },
     {
       "claim": "Japanese withholding nonresident baseline",
@@ -209,7 +223,7 @@
       "theme": "ETF 상품별 성과·현금흐름 구조 차이에 주의"
     }
   ],
-  "verification_status": "12_CLAIMS_REVIEWED_1557_FOREIGN_VS_2558_JAPAN_JPX_CONFIRMED_TREATY_EFFECTIVE_RATE_AND_AUDIO_OPEN",
+  "verification_status": "12_CLAIMS_REVIEWED_ASR_DIFF_RESOLVED_TAX_CLASSES_VERIFIED_JP_SPECIFIC_WITHHOLDING_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -262,6 +276,15 @@
     "Public ASR omits original cues 182 (05:59.400 코스닥) and 802 (26:11.520 텔), all other 1037 lines exactly match; audio status remains OPEN.",
     "No personalized ETF availability, tax opinion, exact FX hedge return, transaction-cost or profit guarantee.",
     "한국 해외상장 ETF 매매차익의 일반 안내(공제 250만원 후 22%)와 일본 비거주자 배당 원천징수 15.315% 기본률 확인; 일본의 특정 ETF 법적형태·조세조약·한국 외국납부세액공제 실효세율은 미확정.",
-    "1557 미국 SPDR 외국 ETF, 2558 일본 MAXIS로 JPX 원자료에 근거하여 구별함. 거래소 소재지만으로 원천징수국·실효세율을 결정하지 않는다."
-  ]
+    "1557 미국 SPDR 외국 ETF, 2558 일본 MAXIS로 JPX 원자료에 근거하여 구별함. 거래소 소재지만으로 원천징수국·실효세율을 결정하지 않는다.",
+    "2026-10-13 한국 국세청: 국내상장 해외자산 ETF 펀드 외국납부세액 제57조의2 및 해외상장 ETF 분배 일반 외국납부세액공제 제57조 구별. 일본 거래소 1557/2558 구조 차이 및 일본 조약 경감 신청 공식 확인, 개인 실효세액 미확정."
+  ],
+  "review_supplement_20261013": {
+    "evidence_reference": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+    "media_audio_verified": false,
+    "frames_verified": false,
+    "approved_scope": "EDUCATIONAL_ONLY_PRIMARY_GENERAL_LAW_AND_PRODUCT_CLASSIFICATIONS",
+    "original_book_backtest_reproduced": false,
+    "reviewed_at": "2026-10-13"
+  }
 }
