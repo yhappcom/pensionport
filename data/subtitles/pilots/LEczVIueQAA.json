@@ -22,18 +22,20 @@
       "watch_url": "https://www.youtube.com/watch?v=LEczVIueQAA&t=0s",
       "source_paraphrase": "만기매칭형 ETF를 사용하면 1만원으로도 안전한 채권투자가 가능하다고 설명한다.",
       "assessment": "QUALIFIED",
-      "independent_check": "실제 1좌 가격은 증권거래소/시점별로 1만원을 초과할 수 있다. 2026-10-12 해당 ETF 가격은 약 1만185원으로 확인, 원금손실 위험과 최소 1좌 주문을 구분.",
+      "independent_check": "실제 1좌 가격은 증권거래소/시점별로 1만원을 초과할 수 있다. 2026-10-12 해당 ETF 가격은 약 1만185원으로 확인, 원금손실 위험과 최소 1좌 주문을 구분. 2026-10-12 종가10185원, KRX 최소 1주로 1만원 보유만으로 해당 종가 1주 장내매수 불가 (오늘 시세 아님).",
       "official_sources": [
         "https://www.samsungfund.com/etf/product/ytm.do"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-12",
+        "checked_at": "2026-10-13",
         "basis": "실제 1좌 가격은 증권거래소/시점별로 1만원을 초과할 수 있다. 2026-10-12 해당 ETF 가격은 약 1만185원으로 확인, 원금손실 위험과 최소 1좌 주문을 구분.",
         "disposition": "실제 1좌 가격은 증권거래소/시점별로 1만원을 초과할 수 있다. 2026-10-12 해당 ETF 가격은 약 1만185원으로 확인, 원금손실 위험과 최소 1좌 주문을 구분.",
-        "primary_url": "https://www.samsungfund.com/etf/product/ytm.do",
-        "source_finding": "실제 1좌 가격은 증권거래소/시점별로 1만원을 초과할 수 있다. 2026-10-12 해당 ETF 가격은 약 1만185원으로 확인, 원금손실 위험과 최소 1좌 주문을 구분.",
-        "effective_date_or_scope": "As of 2026-10-12 within stated specific issuer/law/product and investor tax scope."
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "source_finding": "KRX exchange lot 1 share; ticker 0117L0 historical closing price KRW10185 on 2026-10-12 from matched ticker historical quote.",
+        "effective_date_or_scope": "As of 2026-10-12 within stated specific issuer/law/product and investor tax scope.",
+        "date_specific_market_data": "https://kr.investing.com/etfs/0117l0-seoul-historical-data",
+        "is_exact_10000_krw_buy_possible_at_that_close": false
       },
       "original_srt_anchor_start_sec": 0,
       "timecode_precision": "SOURCE_USER_SRT_APPROXIMATE_CUE_NOT_AUDIO_VERIFIED"
@@ -213,5 +215,12 @@
       "related_video_id": "k9O79HeMOp0",
       "theme": "채권 ETF 유형과 신용·금리·원금손실 위험"
     }
-  ]
+  ],
+  "review_supplement_20261013": {
+    "closeout_source": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "source_verified_at": "2026-10-13",
+    "actual_audio_checked": false,
+    "actual_frames_checked": false,
+    "educational_record_approval_unchanged": true
+  }
 }
