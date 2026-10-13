@@ -1,5 +1,11 @@
 # 박곰희TV 투자 지식 연구 — 실제 파일 기반 검증 대기열
 
+## 2026-10-13 #64·#65 완료 — 67/70 (최신)
+
+- #64 `aUW6waebLl8` 원본 1428큐·110445바이트·SHA `2c9aa58df2bd41fe9b314d69df0fe6c1d3594acbab2cdcb3f1efa58d010d47b9` 일치. 주장27건: 확인6·조건19·가정2. [근거](../data/subtitles/pilots/aUW6waebLl8.json) / [V3](../data/analysis_events/aUW6waebLl8.json) / [보고서](../knowledge/KOSPI_9000_NOVICE_PASSIVE_ACTIVE_VIDEO64_20261013.md). 2026년 6월 강세장 미래전망은 하락방지 보장 아님; 연금계좌도 투자자산 하락가능.
+- #65 `NOl9u50dgao` 원본1338큐·103970바이트·SHA `ef073f005610eae9444c1c371aae894ebba7418d5e1f96017ba2bd359bf1aec0` 일치. 주장34건: 확인21·조건13. [근거](../data/subtitles/pilots/NOl9u50dgao.json) / [V3](../data/analysis_events/NOl9u50dgao.json) / [보고서](../knowledge/YOUTH_FUTURE_SAVINGS_FSC_JUNE_OCT_VIDEO65_20261013.md). 19.4%는 은행 약정금리 아닌 정부기여금/비과세 포함 단리 적금 환산효과. 영상 6월22일~7월3일 최초모집과 **2026년10월7~16일 2차모집·청년도약 전환기회 재개**를 구분한다. [FSC 공식 공지](https://www.fsc.go.kr/no010101/87820).
+- 누적 **67/70편·962 주장, 미검토3편**. 선택검증 **38건(해결14·OPEN24)** 불변. 원본 음성/화면/독립 공개 ASR 전체 미대조, 공개 원본SRT/ZIP 없음, `main` 불변. 다음 #67 `CS00QYw7YbI`, #69 `sqh-919UMVk`.
+
 ## 2026-10-13 #59·#62 2편 분석 완료 — 65/70편 (최신)
 
 - **정확한 사용자 비공개 원본 등록 대조**: #59 `5NvtBlmt93Y` **1,481큐/115,659바이트/49:18.068/SHA256 `638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d`**, #62 `w1ZgJwm-_KU` **1,026큐/78,781바이트/35:27.920/SHA256 `3d19d3b8d994c73272ea346f0a3eba5df099cfd4228cb87226fede4d5593b034`**. 두 원본 SRT 전체 시간순 큐 읽고 기존 `registry.json` 정확히 일치. 중요한 주장 **#59 32건(공식12·조건18·반증0·가정2), #62 28건(공식4·조건24·반증0·가정0)** 검토. 실제 음성·영상프레임·독립 공개 자막 전문 동기대조 **미수행**.
