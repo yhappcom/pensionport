@@ -410,7 +410,8 @@
       "evidence_references": [
         "data/subtitles/pilots/Nueoi-_PH6o.json",
         "data/analysis_events/Nueoi-_PH6o.json",
-        "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
+        "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+        "knowledge/QQQ_SCHD_OVERLAP_RECHECK_20261013.md"
       ],
       "actual_audio_checked": false,
       "actual_frames_checked": false,
@@ -418,13 +419,34 @@
       "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
       "resolved_at": "2026-10-13",
       "resolution": "DATED_THIRD_PARTY_AUG2026_OVERLAP_5_6_PERCENT_EIGHT_COMMON_SECURITIES_NOT_ZERO",
-      "resolution_note": "2026-08-04 independent QQQ/SCHD overlap analyzer reports eight shared and 5.6% weighted min-overlap. Nasdaq May26 official NDX and Schwab holdings confirm TXN/QCOM cross holdings. Different dates of issuer documents do NOT authenticate exact 2026-10 same-day index overlap; low overlap is date-bound, not zero.",
+      "resolution_note": "2026-08-04 third-party 5.6% / 8 shared was historically reported in the prior audit, but the linked live comparison page is updated and the exact August snapshot is not independently reproducible from its current state. At the refreshed 2026-10-02 source-date, the same page shows 8 shared and 4.8% weighted min-overlap (sum of displayed rounded common-stock minimum weights=4.82%). Therefore the general zero-overlap statement is rejected; percentages must not be applied to another date, index proxy, brokerage product, or correlation.",
       "resolution_evidence": [
         "https://etfoverlaptool.com/overlap/qqq-vs-schd",
         "https://www.nasdaq.com/docs/2026/05/04/NDX.pdf",
         "https://www.schwabassetmanagement.com/products/schd"
       ],
-      "reopen_only_for": "For a new explicitly dated holdings comparison or user-specified brokerage/security price; do not retroactively assert fixed future index overlap or ETF price."
+      "reopen_only_for": "For a new explicitly dated holdings comparison or user-specified brokerage/security price; do not retroactively assert fixed future index overlap or ETF price.",
+      "latest_independently_rechecked_comparison": {
+        "rechecked_at": "2026-10-13",
+        "source_holdings_as_of": "2026-10-02",
+        "comparison": "QQQ vs SCHD",
+        "shared_holdings_count": 8,
+        "reported_weight_overlap_percent": 4.8,
+        "displayed_holdings_min_sum_percent": 4.82,
+        "shared_tickers": [
+          "TXN",
+          "AMGN",
+          "QCOM",
+          "PEP",
+          "ADP",
+          "CMCSA",
+          "FAST",
+          "PAYX"
+        ],
+        "source_url": "https://etfoverlaptool.com/overlap/qqq-vs-schd",
+        "evidence_note": "Dated third-party computed overlap, not independent simultaneous issuer-file replication; August 4 reported 5.6% needs retained period snapshot for historical reproduction.",
+        "evidence_report": "knowledge/QQQ_SCHD_OVERLAP_RECHECK_20261013.md"
+      }
     },
     {
       "item_id": "nCXWFko0TaA-ANNUAL_VS_MONTHLY_6PCT_AUDIO",
@@ -1056,5 +1078,5 @@
     "definition": "RESOLVED is a dated independently evidenced claim or disproof of universal statement; not certification of original speech, exact future fund constituents or specific holder's tax status."
   },
   "reassessment_20261013_report": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
-  "last_review_note": "2026-10-13 timeout recovery: 12 previously RESOLVED preserved, +2 (ETF overlap 8 shared and 5.6% as of Aug4; universally guaranteed KRW10k buy claim rejected). 2026 Sep30 YTM and minor general accounts evidence enrichment only, each remains OPEN."
+  "last_review_note": "2026-10-13 timeout recovery: 12 previously RESOLVED preserved, +2 (ETF overlap 8 shared and 5.6% as of Aug4; universally guaranteed KRW10k buy claim rejected). 2026 Sep30 YTM and minor general accounts evidence enrichment only, each remains OPEN. 2026-10-13 dated recheck: QQQ/SCHD page refreshed to Oct2 showing 8 shared, 4.8% min-weight overlap (rounded components sum 4.82%); old Aug4 5.6% cannot be reproduced from now-live page. Resolved status unchanged."
 }
