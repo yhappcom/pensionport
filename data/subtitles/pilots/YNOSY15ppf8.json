@@ -232,15 +232,16 @@
       "verification_checked_on": "2026-10-12",
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "disposition": "비사업자인 거주자의 일시적 외화 취득→원화 환전차익은 비과세라는 공식 회신을 확인. 사업 목적 및 파생상품·해외 ETF·이자와 분리, 개인의 반복거래·규모·동기를 심사.",
-        "checked_at": "2026-10-12",
-        "basis": "Personal JPY spot FX profit Korean income-tax treatment is legally OPEN for residence, transaction and product form.",
+        "disposition": "비사업자 일시적 외화 보유 후 원화 환전차익은 국세청 공식 해석상 소득세 과세소득이 아님. 거래규모·기간·동기에 따른 사업성 판단과 ETF/외화예금 이자·매매차익 과세 구별. 1.75% 특정 은행비용은 입증되지 않음.",
+        "checked_at": "2026-10-13",
+        "basis": "Original full Korean SRT 30:44.720 and NTS 서면-2024-소득-0865 official reply, strictly scope temporary nonbusiness actual spot FX conversion vs business-trading and ETF.",
         "supporting_reference": "Self-contained quote/currency arithmetic from historical original video, not official market or tax evidence.",
         "tax_status": "NTS_OFFICIAL_REPLY_PRIMARY_CONFIRMED_FOR_NONBUSINESS_TEMPORARY_FX_ONLY",
         "utterance_original_srt_cue_time": "00:30:44.720",
         "primary_url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143",
         "source_finding": "NTS binding interpretation 서면-2024-소득-0865 (produced 2024-04-02, registered 2025-01-09) says Korean resident temporarily acquiring foreign currency and exchanging it to KRW has no taxable income from FX gain. Business-purpose trading may be business income. Determine nature based on trade scale, duration, frequency and motivation.",
-        "effective_date_or_scope": "Official NTS reply registered 2025-01-09; scope: nonbusiness temporary physical/spot FX acquisition then KRW exchange, not foreign shares/ETF or linked forward products."
+        "effective_date_or_scope": "Official NTS reply registered 2025-01-09; scope: nonbusiness temporary physical/spot FX acquisition then KRW exchange, not foreign shares/ETF or linked forward products.",
+        "legal_scope_verified": true
       }
     },
     {
@@ -305,7 +306,7 @@
     "Direct JPY personal FX gain tax exemption is NOT APPROVED until Korean NTS/statute and transaction purpose/instrument are confirmed.",
     "Any 1.75% bank spread and FX 100..160/1000..870 figures are video examples; not present-day live bank quotes.",
     "All source/public 1277 text lines matched, not independent recorded sound or on-screen FX chart verification.",
-    "정확한 원본 SRT 시각: 환차익 비과세 언급 30:44.720, 환전 수수료 1.75% 언급 36:29.520; 현물 환전 개인 소득세 여부를 확인할 국세청 거래유형별 유권해석 미확보. 시세·수수료 공통적용 금지.",
+    "기존 2026-10-12 원본 30:44.720 확인 이후 국세청 서면-2024-소득-0865를 재확인. 법적 원칙 확정, 개인 거래사실 및 원본 1.75% 은행 스프레드 금액 미확정.",
     "2026-10-12 국세청 공식 질의회신 서면-2024-소득-0865 확인: 비사업자 일시적 현물 환전차익 비과세, 사업목적 거래 제외; 개별 거래사실 미확인."
   ],
   "source_audit": {
@@ -333,5 +334,13 @@
         "Not an FX forward-linked deposit or interest"
       ]
     }
+  },
+  "review_supplement_20261013": {
+    "assessment_level": "PRIMARY_LEGAL_OR_PUBLISHER_SCOPE_ONLY_OR_INDEPENDENT_TRANSCRIPT_DIFF",
+    "source": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+    "video_research_approval_unchanged": true,
+    "original_media_verified": false,
+    "individual_product_tax_or_original_backtest_claim_still_open": false,
+    "reviewed_at": "2026-10-13"
   }
 }
