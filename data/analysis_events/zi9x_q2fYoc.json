@@ -78,7 +78,8 @@
       ],
       "disposition": "총납입 1.8억, 월말 적립 명목연4%/12 계산 FV 약3억848만원; 실제 공제회 약정상품 수익과 다름",
       "correction": null,
-      "source_precision": "ORIGINAL_USER_SRT_CONTEXTUAL_CUE_APPROXIMATE_NO_AUDIO"
+      "source_precision": "ORIGINAL_USER_SRT_CONTEXTUAL_CUE_APPROXIMATE_NO_AUDIO",
+      "independent_review_supplement_20261013": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
     },
     {
       "claim_id": "zi9x_q2fYoc-06",
@@ -89,9 +90,11 @@
       "sources": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
-      "disposition": "동일 연4%로 적립 FV 3억848만원을 30년 월 인출하면 약147.3만원; 월213만원은 별도 공제회 지급표/전환금리 없이 재현 불가",
+      "disposition": "월60만원×25년 연4% 월복리 적립은 308,477,728원. 동일 연4% 30년 월말정액수령은 월1,472,720원이지 월2,130,000원이 아님. 월2,130,000원 30년 수령 필요 초기자금446,152,442원. 개별 공제회 지급조건 OPEN.",
       "correction": null,
-      "source_precision": "ORIGINAL_USER_SRT_CONTEXTUAL_CUE_APPROXIMATE_NO_AUDIO"
+      "source_precision": "ORIGINAL_USER_SRT_CONTEXTUAL_CUE_APPROXIMATE_NO_AUDIO",
+      "independent_review_supplement_20261013": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+      "same_4_percent_assumption_refuted": true
     },
     {
       "claim_id": "zi9x_q2fYoc-07",
@@ -126,11 +129,13 @@
       "claim": "공제회 인출은 금융소득종합과세·건강보험료에서 제외되고 0~4% 저율과세라 설명한다.",
       "verification": "QUALIFIED",
       "sources": [
-        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6434"
+        "https://www.ktcu.or.kr/PPW-FIA-300101",
+        "https://www.ktcu.or.kr/PPW-CSB-000101/61262"
       ],
-      "disposition": "특정 공제회 상품별 계약·세법·건보료 기준 확인 필요, 모든 공제회 계좌에 동일 적용 불가",
+      "disposition": "The-K 한국교직원공제회 특정 장기저축급여 분할급여금만 0~5%대 부가금 저율세, 종합과세 분리·건보료 관계 상품별 예외 확인. 화자 공제회가 The-K인지 미확정, 일반화 불가.",
       "correction": null,
-      "source_precision": "ORIGINAL_USER_SRT_CONTEXTUAL_CUE_APPROXIMATE_NO_AUDIO"
+      "source_precision": "ORIGINAL_USER_SRT_CONTEXTUAL_CUE_APPROXIMATE_NO_AUDIO",
+      "independent_review_supplement_20261013": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
     },
     {
       "claim_id": "zi9x_q2fYoc-10",
@@ -194,7 +199,11 @@
       "future_value_krw": 308477728,
       "monthly_payout_30y_same4pct_krw_approx": 1472720,
       "video_monthly_payout_krw": 2130000,
-      "status": "PAYOUT_UNREPRODUCED_NEEDS_CONTRACT"
+      "status": "PAYOUT_UNREPRODUCED_NEEDS_CONTRACT",
+      "principal_required_for_video_2130000_monthly_30y_4pct_krw": 446152442,
+      "issuer_contract_return_open": true,
+      "conclusion": "MATHEMATICALLY_INCONSISTENT_SAME_4_PERCENT_CONVENTION",
+      "verified_at": "2026-10-13"
     },
     {
       "label": "월95만원·25년·연7%(월복리)",
@@ -221,7 +230,7 @@
       "theme": "은퇴현금흐름에서 높은 분배율의 지속가능성"
     }
   ],
-  "verification_status": "SELECTED_12_EDUCATIONAL_FINANCIAL_CLAIMS_TRIAGED_AUDIO_FRAMES_OPEN",
+  "verification_status": "12_EDUCATIONAL_CLAIMS_20261013_PAYOUT_4PCT_ARITHMETIC_CONTRADICTION_CONFIRMED_ISSUER_CONTRACT_TAX_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -248,6 +257,14 @@
     "공제회 계약 만기 지급률·세율·건보료 영향별 공식자료 미확보.",
     "입출금 현금흐름에 따른 실제 수익과 25년 확정 수익률을 혼동하지 않는다.",
     "원금 보전 분배의 장기 지속 보장 불가.",
-    "APPROVED here means conditional educational evidence review, not verification of every statement or speaker-specific financial records."
-  ]
+    "APPROVED here means conditional educational evidence review, not verification of every statement or speaker-specific financial records.",
+    "월213만원/30년 지급은 연4%·잔액3억847만원 모델에서 성립하지 않음(산식 검산); 영상의 실제 공제회 공시/연금계약은 별도.",
+    "The-K 공제회 상품 상세 페이지 금리 5.0% 표기와 2026-06-19 공지 분할급여금 3.8% 표기 불일치; 실제 대상 공제회·가입상품 미특정."
+  ],
+  "review_supplement_20261013": {
+    "evidence_reference": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+    "original_media_verified": false,
+    "individual_annuity_payout_not_verified": true,
+    "reviewed_at": "2026-10-13"
+  }
 }
