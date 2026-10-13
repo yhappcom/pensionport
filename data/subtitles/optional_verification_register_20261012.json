@@ -23,7 +23,9 @@
         "data/subtitles/pilots/sz5N9WJS310.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "keu5SvpD7KE-AUDIO_NUMERIC",
@@ -41,7 +43,9 @@
         "data/analysis_events/keu5SvpD7KE.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "3MyhYE2jmuE-LEGAL_TRANSACTION_FACTS",
@@ -69,7 +73,9 @@
       "official_evidence_urls": [
         "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
         "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0019&lsiSeq=284609&urlMode=lsScJoRltInfoR"
-      ]
+      ],
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "OfkY343OaNs-PRODUCT_TAX_EFFECTIVE_RATE",
@@ -98,7 +104,9 @@
         "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&nttSn=1350542",
         "https://www.jpx.co.jp/equities/products/etfs/issues/01.html",
         "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2888.htm"
-      ]
+      ],
+      "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "YNOSY15ppf8-HISTORICAL_QUOTE_AND_FEE",
@@ -125,7 +133,9 @@
       "new_evidence_note": "SRT 36:29.520 says 1.75% but neither bank, quote type, effective time nor pre/post discount terms verified. Separately NTS 서면-2024-소득-0865 verifies temporary nonbusiness spot FX gain non-taxable.",
       "official_evidence_urls": [
         "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143&wnkey=f39c4ab9-7727-4bbb-9d2d-b1a8000e267b"
-      ]
+      ],
+      "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "uiauof6tOFk-ORIGINAL_BACKTEST_SOURCE_DATA",
@@ -156,7 +166,9 @@
       "official_evidence_urls": [
         "https://bnk.kpipa.or.kr/home/v3/addition/adiPromoMetaDataView/seq_20260909170412374187",
         "https://www.yes24.com/product/goods/195618551"
-      ]
+      ],
+      "blocking_evidence_class": "NEEDS_DEFINED_COMPARABLE_HISTORICAL_DATA_OR_ORIGINAL_PUBLICATION",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "LVE7XN_esTc-SCREEN_EXAMPLE",
@@ -176,7 +188,9 @@
         "data/analysis_events/LVE7XN_esTc.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "oxMpNgnbISw-ORIGINAL_MODEL_PERFORMANCE",
@@ -198,7 +212,9 @@
         "data/analysis_events/oxMpNgnbISw.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "6VEfKF7BzZU-CMA_PRODUCT_SPECIFIC_COSTS",
@@ -219,7 +235,9 @@
         "data/analysis_events/6VEfKF7BzZU.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "aNfGrcO6WPI-THREE_YEAR_CYCLE_EVIDENCE",
@@ -229,7 +247,7 @@
       ],
       "title": "THREE_YEAR_CYCLE_EVIDENCE",
       "verification_kind": "THREE_YEAR_CYCLE_EVIDENCE",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "importance": "LOW",
       "blocks_whole_video_analysis": false,
       "observed_at": "2026-10-12",
@@ -240,7 +258,17 @@
         "data/analysis_events/aNfGrcO6WPI.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "resolved_at": "2026-10-13",
+      "resolution": "THREE_YEAR_EQUITY_MARKET_CYCLE_NOT_AN_ESTABLISHED_GENERAL_INVESTMENT_LAW",
+      "resolution_note": "Video's 'roughly every three years' cycle is a speaker heuristic without predeclared index, peak/trough definition, sample window and statistical rejection test. Regulator's official investment horizon/diversification guidance does not establish a fixed 3-year recovery or price cycle. Treat as unsupported market-timing opinion, not a verified predictive fact; not a proof all market cycles are non-three-year.",
+      "resolution_level": "UNTESTABLE_AS_STATED_HEURISTIC_DEMOTED_FROM_FINANCIAL_FACT",
+      "resolution_evidence": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/world-investor-week-2026-investor-bulletin"
+      ],
+      "why_open_history_preserved": "Speaker says market cycles near 3 years, but no market index or period/backtest provided; cannot promote as a general timing rule.",
+      "closeout_reference": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
     },
     {
       "item_id": "cSNjKKdtp6M-DATED_CMA_RATE_SLIDE",
@@ -261,7 +289,9 @@
         "data/analysis_events/cSNjKKdtp6M.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "ZTlLcC4gE0M-PERSONAL_TAX_PROOF",
@@ -282,7 +312,9 @@
         "data/analysis_events/ZTlLcC4gE0M.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "oMs4-3ZOevE-ORIGINAL_RETIREMENT_COMPOUNDING_SLIDE",
@@ -303,7 +335,9 @@
         "data/analysis_events/oMs4-3ZOevE.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "4CQ4FjGT2gA-HISTORICAL_COMPILATION_ACCOUNT_RETURNS",
@@ -324,7 +358,9 @@
         "data/analysis_events/4CQ4FjGT2gA.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "4CQ4FjGT2gA-ASR_PUBLIC_2_CUES_OMITTED",
@@ -334,7 +370,7 @@
       ],
       "title": "ASR PUBLIC 2 CUES OMITTED",
       "verification_kind": "ASR_PUBLIC_2_CUES_OMITTED",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "importance": "LOW",
       "blocks_whole_video_analysis": false,
       "observed_at": "2026-10-12",
@@ -345,7 +381,17 @@
         "data/analysis_events/4CQ4FjGT2gA.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "resolved_at": "2026-10-13",
+      "resolution": "ORIGINAL_10728_MINUS_TWO_IDENTICAL_ADJACENT_DUPLICATE_CUES_EQUALS_PUBLIC_10726_FULL_TEXT_EXACT_FNV64",
+      "resolution_note": "First duplicate block original cues #3398 & #3399 at 01:47:17.920 / 01:47:20.599 both '>> 한 달에 주말 한 번'; second #7536 & #7537 at 04:00:57.720 / 04:00:58.800 both '>> 맨날 들어가서 봐요.'. Removing one copy from each pair gives 10726 normalized lines and exactly 194216 characters; FNV-1a 64-bit over UTF16LE joined with LF = 5ca43f38d2a7dfa8 on BOTH privately held original and independently fetched public transcript. Cannot distinguish which of identical copies was omitted, and no recorded audio was checked.",
+      "resolution_level": "FULL_NORMALIZED_TRANSCRIPT_TEXT_EXACT_MATCH_EXCLUDING_TWO_ADJACENT_DUPLICATES",
+      "resolution_evidence": [
+        "PRIVATE_ORIGINAL_USER_1-70_ZIP_SHA256_REGISTERED",
+        "YOUTUBE_PUBLIC_KO_ASR_ALEXANDRIA_RETRIEVED_2026-10-13"
+      ],
+      "why_open_history_preserved": "Public Korean ASR has 10,726 lines vs 10,728 original cues; precise omissions not aligned. Actual speech and slide values not inspected.",
+      "closeout_reference": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
     },
     {
       "item_id": "Nueoi-_PH6o-NASDAQ100_SCHD_HOLDINGS_OVERLAP_DATE",
@@ -366,7 +412,9 @@
         "data/analysis_events/Nueoi-_PH6o.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_DEFINED_COMPARABLE_HISTORICAL_DATA_OR_ORIGINAL_PUBLICATION",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "nCXWFko0TaA-ANNUAL_VS_MONTHLY_6PCT_AUDIO",
@@ -387,7 +435,12 @@
         "data/analysis_events/nCXWFko0TaA.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ORIGINAL_AUDIO_VIDEO_OR_DISTINCT_PUBLIC_ASR",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "arithmetic_verified_at": "2026-10-13",
+      "arithmetic_verified": "KRW440,000,000 × 0.06 /12 = KRW2,200,000 per month: 6% is ANNUAL assumed distribution rate. If literally 6% per MONTH then first month's nominal amount is KRW26,400,000, twelve times larger; source SRT writes '월 6%'. Original speaker audio remains unverified; financial scenario must be labeled 6% per YEAR.",
+      "why_still_open": "Speech ambiguity is audio-specific; correct mathematical interpretation does not authenticate actual pronunciation."
     },
     {
       "item_id": "CvM8Os4ltfE-EXACT_10K_MINIMUM_BROKERAGE_PRODUCT",
@@ -408,7 +461,9 @@
         "data/analysis_events/CvM8Os4ltfE.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "SOURCE_AND_CONTEXT_NOT_SPECIFIED",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "HfrBi5mzm8w-MINOR_PENSION_SAVINGS_ELIGIBILITY",
@@ -429,7 +484,9 @@
         "data/analysis_events/HfrBi5mzm8w.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "zi9x_q2fYoc-MUTUAL_AID_30YEAR_2130000_CONTRACT",
@@ -454,7 +511,9 @@
       "actual_frames_checked": false,
       "reviewed_at": "2026-10-13",
       "verified_fact": "Same nominal 4% monthly assumption gives 25y savings FV KRW308,477,728 and 30y withdrawal KRW1,472,720/mo; reported 2,130,000/mo would require KRW446,152,442 principal. Contradiction within stated same-rate model independently established; actual fund payout and society contract remain unverified.",
-      "reopen_condition": "Actual recorded producer/model spreadsheet with named mutual-aid institution, split benefit product, accrual/payout rates, extra capital inputs and real dated payment table."
+      "reopen_condition": "Actual recorded producer/model spreadsheet with named mutual-aid institution, split benefit product, accrual/payout rates, extra capital inputs and real dated payment table.",
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "zi9x_q2fYoc-MUTUAL_AID_PAYOUT_TAX_HEALTH",
@@ -484,7 +543,9 @@
         "https://www.ktcu.or.kr/PPW-CSD-100101?fieldTy=&srchCtgry=2&srchStdg=",
         "https://www.ktcu.or.kr/PPW-CSB-000101/61262"
       ],
-      "reopen_condition": "Identity of issuer and specific original annuity/pension product, actual tax bracket, insured residence and contract/certificate."
+      "reopen_condition": "Identity of issuer and specific original annuity/pension product, actual tax bracket, insured residence and contract/certificate.",
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "WGFPHeM6-6I-2026_FIVE_YEAR_GOVERNMENT_BOND_YTM",
@@ -505,7 +566,9 @@
         "data/analysis_events/WGFPHeM6-6I.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "LEczVIueQAA-ONE_SHARE_BOND_ETF_PRICE_TRADE",
@@ -515,7 +578,7 @@
       ],
       "title": "ONE SHARE BOND ETF PRICE TRADE",
       "verification_kind": "ONE_SHARE_BOND_ETF_PRICE_TRADE",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "importance": "LOW",
       "blocks_whole_video_analysis": false,
       "observed_at": "2026-10-12",
@@ -526,7 +589,17 @@
         "data/analysis_events/LEczVIueQAA.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "resolved_at": "2026-10-13",
+      "resolution": "AS_OF_2026_10_12_ONE_SHARE_CANNOT_BE_BOUGHT_FOR_EXACT_KRW10000",
+      "resolution_note": "KRX domestic ETF exchange order lot is 1 share; code 0117L0 historical market close 2026-10-12 KRW10,185 (not KRW10,000). A direct 1-lot trade with exactly KRW10,000 could not fill at that day's market close even before other trading costs. Quoted price is historical, NOT live. Future date or different broker/fund may change eligibility.",
+      "resolution_level": "DATE_SPECIFIC_ONE_LOT_MARKET_PRICE_DISPROOF",
+      "resolution_evidence": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "https://kr.investing.com/etfs/0117l0-seoul-historical-data"
+      ],
+      "why_open_history_preserved": "만원으로 0117L0을 매수할 수 있다는 원본 숏폼 문구는 2026-10-12 약 10185원/좌에서 성립하지 않을 수 있으며 향후 가격 변동.",
+      "closeout_reference": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
     },
     {
       "item_id": "EYya0e4APBE-ISA_TO_PENSION_BROKER_PROMO_CURRENT",
@@ -536,7 +609,7 @@
       ],
       "title": "ISA TO PENSION BROKER PROMO CURRENT",
       "verification_kind": "ISA_TO_PENSION_BROKER_PROMO_CURRENT",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "importance": "LOW",
       "blocks_whole_video_analysis": false,
       "observed_at": "2026-10-12",
@@ -547,7 +620,17 @@
         "data/analysis_events/EYya0e4APBE.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "resolved_at": "2026-10-13",
+      "resolution": "IDENTIFIED_2026_SAMSUNG_ISA_PENSION_TRANSFER_CAMPAIGN_EXPIRED_ON_2026_07_31",
+      "resolution_note": "Issuer's documented 2026-05-01 through 2026-07-31 campaign required eligible maturing ISA transfers within qualifying dates, transfer >= KRW1,000,000, retained balance, event registration and marketing opt-in. Its 2026-07-31 offer cannot be treated as available on 2026-10-13. This does NOT prove that no other/new issuer promotion existed; later benefits must be checked separately.",
+      "resolution_level": "DATED_ISSUER_OFFER_END_DATE_CONFIRMED",
+      "resolution_evidence": [
+        "https://www.samsungpop.com/ux/kor/customer/guide/eventguide/eventViewContent.do?MenuSeqNo=3812&menuNo=01010900",
+        "https://www.samsungpop.com/customer/guide.do?MenuSeqNo=3811&cmd=event_view&tabIndex=0"
+      ],
+      "why_open_history_preserved": "증권사 상품권 이벤트는 2026 5-7월 등 한시적 조건부이며 2026-10-12 동일 혜택이 진행 중인지 별도 검증되지 않음.",
+      "closeout_reference": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
     },
     {
       "item_id": "Bu36RrQMkVU-QUANTUM_BENCHMARK_MISSING",
@@ -557,7 +640,7 @@
       ],
       "title": "QUANTUM BENCHMARK MISSING",
       "verification_kind": "QUANTUM_BENCHMARK_MISSING",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "importance": "MEDIUM",
       "blocks_whole_video_analysis": false,
       "observed_at": "2026-10-13",
@@ -568,7 +651,17 @@
         "data/analysis_events/Bu36RrQMkVU.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "resolved_at": "2026-10-13",
+      "resolution": "UNIVERSAL_ONE_HUNDRED_MILLION_YEARS_TO_SECONDS_QUANTUM_SPEED_RATIO_NOT_EVIDENCED_REJECT",
+      "resolution_note": "Google/Arute et al. 2019 Sycamore 53-qubit random-circuit sampling benchmark claimed ~200 seconds vs ~10,000 years classical supercomputer for that specific task. It is not 100,000,000 years to seconds and not evidence of a universal quantum advantage across arbitrary computing tasks. The video does not name a problem/algorithm/error correction/baseline that would substantiate the claim; reject as a general quantitative scientific or investing fact, not assertion that no possible special algorithm can ever have such a ratio.",
+      "resolution_level": "UNSUPPORTED_GENERALIZATION_REJECTED_WITH_PRIMARY_BENCHMARK",
+      "resolution_evidence": [
+        "https://research.google/pubs/quantum-supremacy-using-a-programmable-superconducting-processor/",
+        "https://www.nature.com/articles/s41586-019-1666-5"
+      ],
+      "why_open_history_preserved": "1억년 대비 수초라는 속도비는 문제 정의/장비/오류정정·측정 원문 미확보",
+      "closeout_reference": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
     },
     {
       "item_id": "Bu36RrQMkVU-AUTONOMOUS_CRASH_HUMAN_FAULT_RATE",
@@ -624,7 +717,9 @@
       "new_evidence_note": "Existing 3% rate does not establish actual tax-free gift; statutory decree Art62 instructs cancelable cash lump-sum ceiling/override and previous 10-year gifts need disclosure.",
       "official_evidence_urls": [
         "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475"
-      ]
+      ],
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "yDt8Ki7d_Yk-GIFT_240M_ELIGIBILITY_TIMING",
@@ -645,7 +740,9 @@
         "data/analysis_events/yDt8Ki7d_Yk.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "OdR6ICkcthc-2025_RETIREMENT_SUBGROUP_RETURN_CHART",
@@ -666,7 +763,22 @@
         "data/analysis_events/OdR6ICkcthc.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "SOURCE_AND_CONTEXT_NOT_SPECIFIED",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "official_comparable_results_verified_at": "2026-10-13",
+      "official_2025_pension_subgroup_rates_percent": {
+        "DB": 3.5,
+        "DC": 8.5,
+        "IRP": 9.4,
+        "TDF": 13.7,
+        "default_option_moderate": 10.8
+      },
+      "official_sources": [
+        "https://moel.go.kr/news/enews/report/enewsView.do?news_seq=19829",
+        "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19411"
+      ],
+      "why_still_open": "These verified official 2025 subgroups are not proof of video's exact 'brokerage nearly 10% / income products 16%' screen groups with the same denominator/year definition; original slide/report breakdown needed."
     },
     {
       "item_id": "i32DeJPzsfE-SUBSCRIBER_LOAN_INVESTMENT_CUSTODY",
@@ -687,7 +799,9 @@
         "data/analysis_events/i32DeJPzsfE.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "item_id": "835_phhMGM8-KOSTOLANY_BOOK_EXACT_TEXT_AND_9MONTH_LAG",
@@ -708,7 +822,9 @@
         "data/analysis_events/835_phhMGM8.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "blocking_evidence_class": "NEEDS_DEFINED_COMPARABLE_HISTORICAL_DATA_OR_ORIGINAL_PUBLICATION",
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
     },
     {
       "importance": "HIGH",
@@ -901,8 +1017,10 @@
   "verified_rule_followups": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
   "closure_statistics": {
     "total": 37,
-    "resolved": 7,
-    "open": 30,
-    "definition": "RESOLVED is exactly identified rule/scope, confirmed ASR omission or rejected unsupported claim, not attestation of original media or individual transaction."
-  }
+    "resolved": 12,
+    "open": 25,
+    "new_resolutions_this_pass": 5,
+    "definition": "RESOLVED may mean text difference proven, dated promotional fact settled, numerical claim disproven or unsupported advice explicitly rejected; never asserts original audio, private account, future pricing or investment returns verified."
+  },
+  "reassessment_20261013_report": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
 }
