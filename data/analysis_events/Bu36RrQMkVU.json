@@ -117,7 +117,9 @@
     },
     {
       "claim": "양자컴퓨팅 1억년→몇 초 속도비",
-      "status": "UNVERIFIED_PROBLEM_HARDWARE_ERROR_RATE_AND_SOURCE_MISSING"
+      "status": "REJECTED_UNSUPPORTED_GENERALIZATION",
+      "confirmed_benchmark": "Google Sycamore 2019 random circuit sampling: ~200 seconds vs ~10,000 years classical estimate for a SPECIFIC task",
+      "source": "https://www.nature.com/articles/s41586-019-1666-5"
     }
   ],
   "relations": [
@@ -132,7 +134,7 @@
       "theme": "자녀 코어-위성 자산배분 가정"
     }
   ],
-  "verification_status": "CLAIM_SCOPED_6_EDUCATIONAL_CLAIMS_COMPLETE_ORIGINAL_MEDIA_OPEN",
+  "verification_status": "CLAIM_SCOPED_6_EDUCATIONAL_CLAIMS_COMPLETE_ORIGINAL_MEDIA_OPEN__QUANTUM_GENERIC_SPEED_CLAIM_REJECTED_AS_UNSUPPORTED",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -155,6 +157,14 @@
     "양자컴퓨터 극단적 속도 비교는 원문 출처·실험 조건 미확보.",
     "자율주행 99% 사고원인 단정은 NHTSA 자료와 부합하지 않는다.",
     "혁신분야 성장과 해당 ETF 수익률·존속은 다르다.",
-    "APPROVED is selected-claim educational review, not verification of every speaker forecast, chart or tax return."
-  ]
+    "APPROVED is selected-claim educational review, not verification of every speaker forecast, chart or tax return.",
+    "Specific Google 2019 random-circuit benchmark 200 seconds vs 10k years does not validate video's 100 million years-to-seconds for all computational tasks."
+  ],
+  "review_supplement_20261013": {
+    "closeout_source": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "source_verified_at": "2026-10-13",
+    "actual_audio_checked": false,
+    "actual_frames_checked": false,
+    "educational_record_approval_unchanged": true
+  }
 }
