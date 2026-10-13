@@ -19,7 +19,9 @@
   "sum_received_srt_bytes": 1465028,
   "full_transcript_reviewed_video_ids": [
     "POnX-7o79cQ",
-    "HKyUsMEJvZs"
+    "HKyUsMEJvZs",
+    "Eb7kKf8wnTw",
+    "-Hn9eMUWF2Y"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -70,7 +72,7 @@
       "cue_count": 1390,
       "raw_srt_bytes": 107778,
       "sha256": "38d9f14119cc662e22bcb2635e0d54a26cae3395534f67d7ba162fbd70d2af23",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": false
@@ -81,7 +83,7 @@
       "cue_count": 1096,
       "raw_srt_bytes": 85079,
       "sha256": "fcaa683b07aedc6e7479e5ba7f2acc42c9ffac47ea0f8fc4159307b53160b562",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": false
@@ -361,5 +363,8 @@
       "frames_verified": false,
       "public_asr_full_diff_verified": false
     }
-  ]
+  ],
+  "verified_v3_reviewed_count": 4,
+  "verified_v3_claim_count": 116,
+  "full_transcript_review_complete_in_this_archive": false
 }
