@@ -246,8 +246,11 @@
       "annual_year_end_pv_krw_approx": 19346500,
       "annual_year_start_pv_krw_approx": 19926895,
       "source_decree": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
-      "source_regulation": "https://www.law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=113998",
-      "status": "RATE_PRIMARY_CONFIRMED_ILLUSTRATIVE_ANNUAL_PAYMENT_TIMING_NOT_INDIVIDUAL_RETURN"
+      "source_regulation": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0019&lsiSeq=284609&urlMode=lsScJoRltInfoR",
+      "status": "RATE_PRIMARY_CONFIRMED_ILLUSTRATIVE_ANNUAL_PAYMENT_TIMING_NOT_INDIVIDUAL_RETURN",
+      "cancellation_lump_sum_override": "ENFORCEMENT_DECREE_ART62_IF_TERMINATION_LUMP_SUM_EXCEEDS_DISCOUNTED_VALUE_THE_LARGER_LUMP_SUM_IS_USED",
+      "cash_out_and_prior_ten_year_gifts_unverified": true,
+      "proof_ref": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
     }
   ],
   "relations": [
@@ -262,7 +265,7 @@
       "theme": "가족 단위 절세 및 재무관리; 영상별 근거는 별도로 보존"
     }
   ],
-  "verification_status": "14_CLAIM_EDUCATIONAL_AUDIT_FINISHED_3_PERCENT_LAW_VERIFIED_UNCERTIFIED_CONTRACT_AND_AUDIO_OPEN",
+  "verification_status": "14_CLAIM_EDUCATIONAL_REVIEW_LAW_ART62_3PCT_AND_CASH_OUT_VERIFIED_INDIVIDUAL_CONTRACT_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -294,6 +297,15 @@
     "Spoken words and on-screen formula are not independently checked; source and public ASR can share errors.",
     "Statutory fixed-term annuity evaluation rates and agreement validity need current tax-law implementing-rule and case documents before filing; no universal tax-free 189000 per month approval.",
     "This approved EDUCATIONAL ANALYSIS is not a personal gift-tax filing opinion or investor instruction.",
-    "2026 국세법령에서 유기정기금 법정 할인율 연3% 직접 확인. 영상 월18.9만원의 개별 증여계약 날짜/해지권/기존 공제 사용 여부 확인 없으므로 비과세·신고가액 미확정."
-  ]
+    "2026 국세법령에서 유기정기금 법정 할인율 연3% 직접 확인. 영상 월18.9만원의 개별 증여계약 날짜/해지권/기존 공제 사용 여부 확인 없으므로 비과세·신고가액 미확정.",
+    "2026-10-13 재확인: 시행령 제62조 계약 해지·철회·취소 시 받을 수 있는 일시금이 할인평가보다 크면 일시금 사용; 연도별 지급시점·기존 10년 증여가 없으므로 18.9만원 정기금 세액/신고가액 확정 불가."
+  ],
+  "review_supplement_20261013": {
+    "evidence_reference": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+    "media_audio_verified": false,
+    "frames_verified": false,
+    "approved_scope": "EDUCATIONAL_ONLY_PRIMARY_GENERAL_LAW_AND_PRODUCT_CLASSIFICATIONS",
+    "original_book_backtest_reproduced": false,
+    "reviewed_at": "2026-10-13"
+  }
 }
