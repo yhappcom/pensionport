@@ -23,7 +23,8 @@
     "원본 ZIP/SRT 전체 원문 비공개 유지.",
     "UUP 펀드 운용경비는 인베스코 2026Q1 공식자료 총보수 0.78%로 제한하여 인용, 0.76% 과거 상품비용과 KODEX 0.28%는 동일 분모·시점 원표 미대조.",
     "2020년 코로나 USDKRW 고점 1400초과는 2020-03-19 장중1296.0원 동시대 연말 데이터로 반증.",
-    "달러발행어음/외화RP 계약은 예금보호가 없으며 발행사/환율/신용·만기손실 구별."
+    "달러발행어음/외화RP 계약은 예금보호가 없으며 발행사/환율/신용·만기손실 구별.",
+    "초기 초안의 절대 보장·원달러1:1 UUP 표현 등은 실제 사용자 자동 SRT 발화와 혼동을 줄이기 위해 '화자의 설명'과 '연구자가 경고하는 조건'을 별개 문장으로 수정했다."
   ],
   "existing_registry_srt": {
     "sha256": "eb82169ec95d5e8548430e5fecadcde890d648b0c6a3a5f11ab37821fd681d99",
@@ -548,21 +549,20 @@
       "claim_id": "FPA12oQeQbc-23",
       "timecode": "00:10:58",
       "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=658s",
-      "source_paraphrase": "UUP는 직접 원달러 환율을 1:1 추적한다.",
-      "assessment": "CONTRADICTED",
-      "independent_check": "UUP 바스켓에 KRW 없음. USDKRW 직접 환율과 달러지수선물·미국 ETF 거래가격·달러환산 결과는 서로 다르다.",
+      "source_paraphrase": "UUP를 글로벌 미국달러 지수에 투자하는 대표 ETF로 설명한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "UUP가 추적하는 USDX 선물의 바스켓은 유로·엔·파운드·캐나다달러·스웨덴크로나·스위스프랑 6개 통화, KRW가 아님. 원달러환율과 완전히 같은 상품이 아니므로 구별해야 하며 화자가 직접 1:1이라고 말한 것은 아니다.",
       "official_sources": [
         "https://www.invesco.com/us-rest/contentdetail?contentId=75b8e01e98630410VgnVCM10000046f1bf0aRCRD"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-13",
         "basis": "Private exact original source SRT and 2026 institutional issuer disclosures; original video/audio, historic onscreen rates, independent public ASR full diff not tested",
-        "disposition": "UUP 바스켓에 KRW 없음. USDKRW 직접 환율과 달러지수선물·미국 ETF 거래가격·달러환산 결과는 서로 다르다.",
+        "disposition": "UUP가 추적하는 USDX 선물의 바스켓은 유로·엔·파운드·캐나다달러·스웨덴크로나·스위스프랑 6개 통화, KRW가 아님. 원달러환율과 완전히 같은 상품이 아니므로 구별해야 하며 화자가 직접 1:1이라고 말한 것은 아니다.",
         "primary_url": "https://www.invesco.com/us-rest/contentdetail?contentId=75b8e01e98630410VgnVCM10000046f1bf0aRCRD",
-        "source_finding": "UUP 바스켓에 KRW 없음. USDKRW 직접 환율과 달러지수선물·미국 ETF 거래가격·달러환산 결과는 서로 다르다.",
-        "effective_date_or_scope": "2026 UUP Q1 total expense 0.78%, KB 2026 RP and issuer credit product rules, original video date not independently verified",
-        "correction": "UUP 바스켓에 KRW 없음. USDKRW 직접 환율과 달러지수선물·미국 ETF 거래가격·달러환산 결과는 서로 다르다."
+        "source_finding": "UUP가 추적하는 USDX 선물의 바스켓은 유로·엔·파운드·캐나다달러·스웨덴크로나·스위스프랑 6개 통화, KRW가 아님. 원달러환율과 완전히 같은 상품이 아니므로 구별해야 하며 화자가 직접 1:1이라고 말한 것은 아니다.",
+        "effective_date_or_scope": "2026 UUP Q1 total expense 0.78%, KB 2026 RP and issuer credit product rules, original video date not independently verified"
       },
       "original_srt_anchor_start_sec": 658,
       "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
@@ -859,21 +859,20 @@
       "claim_id": "FPA12oQeQbc-37",
       "timecode": "00:20:20",
       "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=1220s",
-      "source_paraphrase": "외화 발행어음은 원화기준 예금과 같은 무위험 안전자산이다.",
-      "assessment": "CONTRADICTED",
-      "independent_check": "증권사 신용위험·USD/KRW 변동·유동성/중도환매 위험이 존재. 안전현금과 투자금융상품 구분.",
+      "source_paraphrase": "달러 RP·발행어음을 장기간 축적하면 안전자산 비중을 높일 수 있다고 권한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "상품의 예금자보호 부재를 설명한 뒤 대형 증권사 신용사고 가능성을 낮게 평가하는 발언이 이어진다. 달러 RP·발행어음은 증권사 신용·원화환산 위험이 있어 무위험 현금으로 취급하면 안 된다. 화자가 원금 보장 계약을 선언했다고 해석하지 않는다.",
       "official_sources": [
         "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-13",
         "basis": "Private exact original source SRT and 2026 institutional issuer disclosures; original video/audio, historic onscreen rates, independent public ASR full diff not tested",
-        "disposition": "증권사 신용위험·USD/KRW 변동·유동성/중도환매 위험이 존재. 안전현금과 투자금융상품 구분.",
+        "disposition": "상품의 예금자보호 부재를 설명한 뒤 대형 증권사 신용사고 가능성을 낮게 평가하는 발언이 이어진다. 달러 RP·발행어음은 증권사 신용·원화환산 위험이 있어 무위험 현금으로 취급하면 안 된다. 화자가 원금 보장 계약을 선언했다고 해석하지 않는다.",
         "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
-        "source_finding": "증권사 신용위험·USD/KRW 변동·유동성/중도환매 위험이 존재. 안전현금과 투자금융상품 구분.",
-        "effective_date_or_scope": "2026 UUP Q1 total expense 0.78%, KB 2026 RP and issuer credit product rules, original video date not independently verified",
-        "correction": "증권사 신용위험·USD/KRW 변동·유동성/중도환매 위험이 존재. 안전현금과 투자금융상품 구분."
+        "source_finding": "상품의 예금자보호 부재를 설명한 뒤 대형 증권사 신용사고 가능성을 낮게 평가하는 발언이 이어진다. 달러 RP·발행어음은 증권사 신용·원화환산 위험이 있어 무위험 현금으로 취급하면 안 된다. 화자가 원금 보장 계약을 선언했다고 해석하지 않는다.",
+        "effective_date_or_scope": "2026 UUP Q1 total expense 0.78%, KB 2026 RP and issuer credit product rules, original video date not independently verified"
       },
       "original_srt_anchor_start_sec": 1220,
       "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
