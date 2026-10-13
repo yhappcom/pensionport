@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-13",
+  "as_of": "2026-10-14",
   "research_series": "박곰희TV 71~100 사용자 비공개 SRT 근거검증",
   "source_registry": "data/subtitles/registry_71_100_20261013.json",
   "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
@@ -12,30 +12,32 @@
   "srt_missing_video_ids": [
     "4vNF2fui5jc"
   ],
-  "verified_v3_educational_analysis_count": 4,
+  "verified_v3_educational_analysis_count": 6,
   "approved_v3_video_ids": [
     "POnX-7o79cQ",
     "HKyUsMEJvZs",
     "Eb7kKf8wnTw",
-    "-Hn9eMUWF2Y"
+    "-Hn9eMUWF2Y",
+    "aeR4g4Mmy00",
+    "IkL1X2VrPIc"
   ],
   "approved_v3_roster_numbers": [
     72,
     73,
     74,
-    75
-  ],
-  "current_material_claims_count": 116,
-  "classification_tally": {
-    "PRIMARY_CONFIRMED": 27,
-    "QUALIFIED": 66,
-    "CONTRADICTED": 2,
-    "HYPOTHETICAL": 21
-  },
-  "source_present_unreviewed_count": 25,
-  "source_present_unreviewed_roster_numbers": [
+    75,
     76,
-    77,
+    77
+  ],
+  "current_material_claims_count": 178,
+  "classification_tally": {
+    "PRIMARY_CONFIRMED": 44,
+    "QUALIFIED": 103,
+    "CONTRADICTED": 4,
+    "HYPOTHETICAL": 27
+  },
+  "source_present_unreviewed_count": 23,
+  "source_present_unreviewed_roster_numbers": [
     78,
     79,
     80,
@@ -62,15 +64,15 @@
   ],
   "next_priorities": [
     {
-      "roster_no": 76,
-      "video_id": "aeR4g4Mmy00",
-      "cue_count": 459,
+      "roster_no": 78,
+      "video_id": "98UoTYQR5nY",
+      "cue_count": 580,
       "ready_source": true
     },
     {
-      "roster_no": 77,
-      "video_id": "IkL1X2VrPIc",
-      "cue_count": 1877,
+      "roster_no": 79,
+      "video_id": "mRRev963GaA",
+      "cue_count": 2063,
       "ready_source": true
     }
   ],
@@ -150,6 +152,44 @@
       "original_audio_verified": false,
       "frames_verified": false,
       "public_full_asr_compared": false
+    },
+    {
+      "roster_no": 76,
+      "video_id": "aeR4g4Mmy00",
+      "cue_count": 459,
+      "claim_count": 26,
+      "claim_classes": {
+        "PRIMARY_CONFIRMED": 5,
+        "QUALIFIED": 15,
+        "CONTRADICTED": 2,
+        "HYPOTHETICAL": 4
+      },
+      "source_kind": "TEACHER_LONG_TERM_MUTUAL_SAVINGS_PENSION_ISA_190M_FIVE_YEARS_AND_6PCT_NONPERPETUAL_WITHDRAWAL",
+      "pilot_path": "data/subtitles/pilots/aeR4g4Mmy00.json",
+      "canonical_path": "data/analysis_events/aeR4g4Mmy00.json",
+      "knowledge_path": "knowledge/TEACHER_MUTUAL_FUND_PENSION_ISA_VIDEO76_20261014.md",
+      "original_audio_verified": false,
+      "frames_verified": false,
+      "public_full_asr_compared": false
+    },
+    {
+      "roster_no": 77,
+      "video_id": "IkL1X2VrPIc",
+      "cue_count": 1877,
+      "claim_count": 36,
+      "claim_classes": {
+        "PRIMARY_CONFIRMED": 12,
+        "QUALIFIED": 22,
+        "CONTRADICTED": 0,
+        "HYPOTHETICAL": 2
+      },
+      "source_kind": "SEMICONDUCTOR_2026_KOSPI8000_SAMSUNG_57T_SK37T_Q1_OFFICIAL_VS_FULL_YEAR_FORECAST_PER_CASH_FLOW_BUY_WAIT",
+      "pilot_path": "data/subtitles/pilots/IkL1X2VrPIc.json",
+      "canonical_path": "data/analysis_events/IkL1X2VrPIc.json",
+      "knowledge_path": "knowledge/SEMICONDUCTOR_SUPERCYCLE_KOSPI8000_BUY_WAIT_VIDEO77_20261014.md",
+      "original_audio_verified": false,
+      "frames_verified": false,
+      "public_full_asr_compared": false
     }
   ],
   "old_corpus_immutable_baseline": {
@@ -166,5 +206,5 @@
     "Historical video72 is a class recruitment announcement, independent event delivery unverified.",
     "Do not publish raw private user 71-100.zip or member SRT. Keep 1-70 earlier cumulative counts unchanged."
   ],
-  "last_review_note": "2026-10-13 #74 1390 private original SRT cues 107778 bytes 27 claims (4 confirmed/20 qualified/0 contradicted/3 hypothetical): May KOSPI original chart unverified, FOMO/annual salary risk caution, life-cycle allocation and collector-investor pedagogic classifications. #75 1096 cues 85079 bytes 30 claims (12 confirmed/14 qualified/1 contradicted/3 hypothetical): 1394 hotline and government four months decrease officially confirmed, 2024-08-14 licensed investment adviser vs 신고 유사투자자문업 paid two-way chat restriction corrected, Msafer telecom line vs bank freeze differentiated. 4/30 reviewed, 116 scoped claims, 25 of29 present sources remaining, #71 unavailable. Legacy 70/70 and1052 claims preserved."
+  "last_review_note": "2026-10-14 #76 original private source459 cues 36736 bytes, 26 claims (5 official/15 qualified/2 contradicted/4 anecdotes): official Teachers Mutual KTCU long-term savings variable 4.70% to5% 2026-07, general bond never universally outperforms, private/public teacher pension classification unverified, five-year ISA20m+annuity18m exactly KRW190m not KRW200m, 5-6 percent withdrawal not infinite. #77 original 1877 cues144775 bytes 36 claims (12 confirmed22 qualified0 contradiction2 anecdote): 2026 Q1 Samsung57.2tr/ SK hynix37.6tr firm reports, 2026 May market caps approximate date-matched, full year earnings345/250 trillion only broker forecasts, PER 6-7 vs TSMC24 original synchronized screen not rechecked, bank cash/brokerage deposits not proof of stock demand, bullish and waiting cases equally preserved. New cohort 6/30 and178 claims, 23 of 29 original SRT remaining; #71 source missing. Historic 1-70 and open24 optional untouched."
 }
