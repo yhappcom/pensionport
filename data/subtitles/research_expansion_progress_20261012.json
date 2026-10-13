@@ -4,11 +4,11 @@
   "scope": "Registered 70 user-supplied Korean SRTs inside original 791-video roster",
   "roster_count": 791,
   "source_srt_registered_unique_count": 70,
-  "existing_pilot_draft_count": 50,
-  "existing_pilot_claims_count": 483,
+  "existing_pilot_draft_count": 51,
+  "existing_pilot_claims_count": 511,
   "source_transcript_verified_sha_match_count": 70,
   "focused_first_10_analysis_complete": 10,
-  "verified_v3_educational_analysis_count": 50,
+  "verified_v3_educational_analysis_count": 51,
   "new_in_this_extension": [
     {
       "video_id": "LVE7XN_esTc",
@@ -54,16 +54,10 @@
   ],
   "existing_pilot_drafts_pending_full_claim_evidence_count": 0,
   "existing_pilot_drafts_pending_ids": [],
-  "srt_source_with_no_pilot_yet_estimate": 20,
-  "srt_source_not_yet_deep_reviewed_count": 20,
+  "srt_source_with_no_pilot_yet_estimate": 19,
+  "srt_source_not_yet_deep_reviewed_count": 19,
   "rest_of_roster_without_this_70_user_source_count": 721,
   "next_priorities": [
-    {
-      "video_id": "CPKP1iu1ZMI",
-      "roster_no": 38,
-      "reason": "원본 557큐",
-      "ready_source": true
-    },
     {
       "video_id": "UqF7q4yIODM",
       "roster_no": 39,
@@ -92,8 +86,8 @@
   "policy": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
   "optional_followups": "data/subtitles/optional_verification_register_20261012.json",
   "current_queue": "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md",
-  "knowledge_update": "knowledge/PENSION_NORWAY_TDF_SYSTEMS_VIDEO37_20261013.md",
-  "counting_note": "50 distinct registered private original SRT videos with scoped V3 educational analysis; 483 material claim records. Latest #37 YYZyCr7uapw contributed 32 dated claims; audio/frames, independent complete public-ASR textual comparison and individual contracts not verified.",
+  "knowledge_update": "knowledge/PENSION_WITHDRAWAL_4_5_8_10_COVERED_CALL_VIDEO38_20261013.md",
+  "counting_note": "51 distinct registered private original SRT videos with scoped V3 educational analysis; 511 material claim records. Latest #38 CPKP1iu1ZMI contributed 28 date-scoped claims; audio/frames, independent full public ASR diff, individual contract and return-series unavailable.",
   "branch": "feat/subtitles-incremental-registry-20261009",
   "default_branch_touched": false,
   "new_in_next_five": [
@@ -520,7 +514,8 @@
     "ZCOyHZj7yFA",
     "9VLtWX1vJxg",
     "lWWz4i7vIX4",
-    "YYZyCr7uapw"
+    "YYZyCr7uapw",
+    "CPKP1iu1ZMI"
   ],
   "new_in_oct13_short_batch": [
     {
@@ -559,7 +554,7 @@
   ],
   "optional_verification_operating_decision": "CLOSED_WITH_OPEN_EVIDENCE: optional audio/video/tax contract/backtest evidence does not block unrelated educational analysis; do not promote unsupported factual tax rate or original return statistics.",
   "optional_verification_closeout": "docs/SELECTIVE_VERIFICATION_CLOSEOUT_20261013.md",
-  "all_45_educational_review_ids_note": "Legacy key retained for workflow compatibility; now records 50 verified unique educational analyses, not 45.",
+  "all_45_educational_review_ids_note": "Historical field name retained for GitHub CI backwards compatibility; now 51 distinct original video IDs, all manually evidence-scoped.",
   "new_in_oct13_followup_batch": [
     {
       "video_id": "lWWz4i7vIX4",
@@ -592,7 +587,27 @@
       "frames_verified": false,
       "public_asr_full_diff_verified": false,
       "source_srt_hash_match": true
+    },
+    {
+      "video_id": "CPKP1iu1ZMI",
+      "roster_no": 38,
+      "source_provenance": "PRIVATE_REGISTERED_SRT_SHA256_MATCHED",
+      "original_cue_count": 557,
+      "original_raw_bytes": 42692,
+      "financial_claims_audited": 28,
+      "claim_assessments": {
+        "PRIMARY_CONFIRMED": 4,
+        "QUALIFIED": 15,
+        "CONTRADICTED": 6,
+        "HYPOTHETICAL": 3
+      },
+      "analysis_path": "data/analysis_events/CPKP1iu1ZMI.json",
+      "research_kind": "PENSION_4PCT_WITHDRAWAL_COVERED_CALL_HIGH_DISTRIBUTIONS_ACCOUNT_TRANSFER_FACT_CHECK",
+      "audio_verified": false,
+      "frames_verified": false,
+      "public_asr_full_diff_verified": false,
+      "source_srt_hash_match": true
     }
   ],
-  "last_review_note": "2026-10-13: baseline was 48/70, 432 claims and 37 optional followups (14 resolved, 23 open). #35 lWWz4i7vIX4 1,279 original SRT cues independently hash-matched; 19 case-study statements triaged; new education-only tally 49/70 and 451 claims. Supplemental optional followup count may increase if new distinct holder facts are registered. main untouched.\n2026-10-13 original #37: 1219 registered SRT cues / 95579 bytes / SHA fb5f49ce... matched; 32 material assertions independently triaged (7 confirmed, 16 qualified, 6 contradicted, 3 hypothetical). New total 50/70, 483 audited claims, 20 original sources remaining. Original audio, frames and complete public ASR not checked. No added optional followup for unsupported tangential advertising stats."
+  "last_review_note": "2026-10-13: baseline was 48/70, 432 claims and 37 optional followups (14 resolved, 23 open). #35 lWWz4i7vIX4 1,279 original SRT cues independently hash-matched; 19 case-study statements triaged; new education-only tally 49/70 and 451 claims. Supplemental optional followup count may increase if new distinct holder facts are registered. main untouched.\n2026-10-13 original #37: 1219 registered SRT cues / 95579 bytes / SHA fb5f49ce... matched; 32 material assertions independently triaged (7 confirmed, 16 qualified, 6 contradicted, 3 hypothetical). New total 50/70, 483 audited claims, 20 original sources remaining. Original audio, frames and complete public ASR not checked. No added optional followup for unsupported tangential advertising stats.\n2026-10-13 #38 pension withdrawal Q&A: 557 private registered SRT cues/42692 bytes SHA matched; 28 claims triaged (4 confirmed 15 qualified 6 contradicted 3 hypothetical), report and canonical committed. 51/70 and 511 total claims, 19 remaining. 4% forever false, 8-10% covered-call distribution is not safe total return; ASR 130/1030 and raw audio remain unverified. Prior optional followups 14 resolved/24 open unchanged."
 }
