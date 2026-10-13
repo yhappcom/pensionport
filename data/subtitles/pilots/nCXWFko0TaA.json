@@ -100,19 +100,26 @@
       "timecode": "00:00:47",
       "watch_url": "https://www.youtube.com/watch?v=nCXWFko0TaA&t=47s",
       "source_paraphrase": "10년 후 분배 포트폴리오를 연 6% 수준으로 만들면 월 220만원을 받을 수 있다고 제시한다.",
-      "independent_check": "4억4000만원 × 연6% ÷12 = 월220만원 세전. 원본 SRT에는 '월 6% 정도의 월배당'으로 전사돼 있으므로 6%는 계산상 연수익/분배율이며 실제 발음은 미확인.",
+      "independent_check": "4억4000만원×연6%÷12=월220만원(세전 가정)이고 월6%를 문자 그대로 계산하면 월2640만원으로 12배 차이. 따라서 지식으로 저장할 때 '연 6% 분배율 가정'으로만 사용, 원본 SRT의 '월6%' 발음 실제 녹음 확인은 OPEN.",
       "assessment": "QUALIFIED",
       "official_sources": [
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "disposition": "4억4000만원 × 연6% ÷12 = 월220만원 세전. 원본 SRT에는 '월 6% 정도의 월배당'으로 전사돼 있으므로 6%는 계산상 연수익/분배율이며 실제 발음은 미확인.",
+        "disposition": "4억4000만원×연6%÷12=월220만원(세전 가정)이고 월6%를 문자 그대로 계산하면 월2640만원으로 12배 차이. 따라서 지식으로 저장할 때 '연 6% 분배율 가정'으로만 사용, 원본 SRT의 '월6%' 발음 실제 녹음 확인은 OPEN.",
         "basis": "Registered private user SRT and 2026 primary education evidence: 4억4000만원 × 연6% ÷12 = 월220만원 세전. 원본 SRT에는 '월 6% 정도의 월배당'으로 전사돼 있으므로 6%는 계산상 연수익/분배율이며 실제 발음은 미확인.",
-        "checked_at": "2026-10-12",
+        "checked_at": "2026-10-13",
         "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
         "source_finding": "4억4000만원 × 연6% ÷12 = 월220만원 세전. 원본 SRT에는 '월 6% 정도의 월배당'으로 전사돼 있으므로 6%는 계산상 연수익/분배율이며 실제 발음은 미확인.",
-        "effective_date_or_scope": "2026-10-12; cited official disclosure only within described fund/tax/product and example scope."
+        "effective_date_or_scope": "2026-10-12; cited official disclosure only within described fund/tax/product and example scope.",
+        "arithmetic_verified": {
+          "assumed_principal_krw": 440000000,
+          "assumed_annual_dividend_rate_percent": 6,
+          "computed_monthly_pretax_krw": 2200000,
+          "if_literal_monthly_6percent_krw": 26400000,
+          "original_audio_verified": false
+        }
       },
       "original_srt_anchor_start_sec": 47,
       "timecode_precision": "ORIGINAL_USER_SRT_NEAREST_CUE_NOT_INDEPENDENTLY_HEARD"
@@ -204,5 +211,10 @@
       "related_video_id": "sz5N9WJS310",
       "theme": "국민연금·퇴직금 이연소득·개인연금 1500만원 과세범위 구분"
     }
-  ]
+  ],
+  "review_supplement_20261013": {
+    "new_evidence_report": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "evidence_review_at": "2026-10-13",
+    "audio_unverified": true
+  }
 }
