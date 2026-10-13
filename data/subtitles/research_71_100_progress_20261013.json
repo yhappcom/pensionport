@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-13",
+  "research_series": "박곰희TV 71~100 사용자 비공개 SRT 근거검증",
+  "source_registry": "data/subtitles/registry_71_100_20261013.json",
+  "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+  "total_expected_videos": 30,
+  "srt_present_video_count": 29,
+  "srt_missing_roster_numbers": [
+    71
+  ],
+  "srt_missing_video_ids": [
+    "4vNF2fui5jc"
+  ],
+  "verified_v3_educational_analysis_count": 2,
+  "approved_v3_video_ids": [
+    "POnX-7o79cQ",
+    "HKyUsMEJvZs"
+  ],
+  "approved_v3_roster_numbers": [
+    72,
+    73
+  ],
+  "current_material_claims_count": 59,
+  "classification_tally": {
+    "PRIMARY_CONFIRMED": 11,
+    "QUALIFIED": 32,
+    "CONTRADICTED": 1,
+    "HYPOTHETICAL": 15
+  },
+  "source_present_unreviewed_count": 27,
+  "source_present_unreviewed_roster_numbers": [
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100
+  ],
+  "next_priorities": [
+    {
+      "roster_no": 74,
+      "video_id": "Eb7kKf8wnTw",
+      "cue_count": 1390,
+      "ready_source": true
+    },
+    {
+      "roster_no": 75,
+      "video_id": "-Hn9eMUWF2Y",
+      "cue_count": 1096,
+      "ready_source": true
+    }
+  ],
+  "claim_scoped_review_events": [
+    {
+      "roster_no": 72,
+      "video_id": "POnX-7o79cQ",
+      "cue_count": 177,
+      "claim_count": 12,
+      "claim_classes": {
+        "PRIMARY_CONFIRMED": 0,
+        "QUALIFIED": 5,
+        "CONTRADICTED": 0,
+        "HYPOTHETICAL": 7
+      },
+      "source_kind": "PROMOTIONAL_COURSE_NOTICE",
+      "pilot_path": "data/subtitles/pilots/POnX-7o79cQ.json",
+      "canonical_path": "data/analysis_events/POnX-7o79cQ.json",
+      "knowledge_path": "knowledge/RETIREMENT_CLASS_RECRUITMENT_VIDEO72_20261013.md",
+      "original_audio_verified": false,
+      "frames_verified": false,
+      "public_full_asr_compared": false
+    },
+    {
+      "roster_no": 73,
+      "video_id": "HKyUsMEJvZs",
+      "cue_count": 965,
+      "claim_count": 47,
+      "claim_classes": {
+        "PRIMARY_CONFIRMED": 11,
+        "QUALIFIED": 27,
+        "CONTRADICTED": 1,
+        "HYPOTHETICAL": 8
+      },
+      "source_kind": "THREE_RETIREMENT_AND_DIVIDEND_CONSULTATION_CASES",
+      "pilot_path": "data/subtitles/pilots/HKyUsMEJvZs.json",
+      "canonical_path": "data/analysis_events/HKyUsMEJvZs.json",
+      "knowledge_path": "knowledge/RETIRED_COUPLE_ENTREPRENEUR_DIVIDEND_CONSULTING_VIDEO73_20261013.md",
+      "original_audio_verified": false,
+      "frames_verified": false,
+      "public_full_asr_compared": false
+    }
+  ],
+  "old_corpus_immutable_baseline": {
+    "reviewed": 70,
+    "total": 70,
+    "claims": 1052,
+    "progress_path": "data/subtitles/research_expansion_progress_20261012.json",
+    "optional_issues_resolved": 14,
+    "optional_issues_open": 24
+  },
+  "limitations": [
+    "Only original private SRT cue text and SHA registered: no soundtrack, screens or complete separate public auto-ASR match.",
+    "#71 4vNF2fui5jc source SRT unavailable; not counted as analyzed.",
+    "Historical video72 is a class recruitment announcement, independent event delivery unverified.",
+    "Do not publish raw private user 71-100.zip or member SRT. Keep 1-70 earlier cumulative counts unchanged."
+  ]
+}
