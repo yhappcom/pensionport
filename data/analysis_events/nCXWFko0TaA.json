@@ -139,6 +139,15 @@
       "principal_krw": 440000000,
       "annual_distribution_rate": 0.06,
       "monthly_pretax_krw": 2200000
+    },
+    {
+      "label": "Annual versus monthly 6% distribution rate",
+      "principal_krw": 440000000,
+      "annual_6_percent_pretax_monthly_krw": 2200000,
+      "literal_monthly_6_percent_krw": 26400000,
+      "arithmetic_verified": true,
+      "speech_audio_verified": false,
+      "status": "ANNUAL_6_PERCENT_INTERPRETATION_ONLY_AUDIO_OPEN"
     }
   ],
   "relations": [
@@ -177,6 +186,12 @@
     "5% 시나리오에서도 10년 2배가 된다는 말은 수학적으로 부정확하다.",
     "6%는 영상의 문맥상 연간 가정 분배율로 계산되지만 '월6%'로 전사된 음성 표현을 원음 확인하지 않았다.",
     "1500만원 판단 시 퇴직연금계좌의 이연퇴직소득 재원과 개인 세액공제 납입금·운용수익을 동일하게 보면 과세 오류.",
-    "Canonical APPROVED means complete conditional educational evidence triage, NOT audio, screen or guaranteed investment return certification."
-  ]
+    "Canonical APPROVED means complete conditional educational evidence triage, NOT audio, screen or guaranteed investment return certification.",
+    "2026-10-13 arithmetic makes 6% annual for assumed monthly KRW2.2m, original SRT '월6%' cannot be quoted as an authenticated speech error without raw audio."
+  ],
+  "review_supplement_20261013": {
+    "new_evidence_report": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "evidence_review_at": "2026-10-13",
+    "audio_unverified": true
+  }
 }
