@@ -89,6 +89,33 @@ jobs:
               assert (root/name).is_file(),name
           print('EXTENSION_POLICY_PASS',len(ids),'audited analyses,',len(v['items']),'optional followups')
           PY
+      - name: Assert dated 24-item evidence-gate review
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          register = json.loads(Path('data/subtitles/optional_verification_register_20261012.json').read_text())
+          items = register['items']
+          assert len(items) == len({x['item_id'] for x in items})
+          assert all(x['status'] in ('OPEN', 'RESOLVED') for x in items)
+          summary = register['reassessment_20261013_pass2_summary']
+          audited = [x for x in items if 'triage_20261013_pass2' in x]
+          assert summary['open_items_reviewed'] == len(audited) == 24
+          assert sum(x['importance'] == 'HIGH' for x in audited) == summary['high'] == 9
+          assert sum(x['importance'] == 'MEDIUM' for x in audited) == summary['medium'] == 9
+          assert sum(x['importance'] == 'LOW' for x in audited) == summary['low'] == 6
+          for item in audited:
+              gate = item['triage_20261013_pass2']
+              assert gate['evidence_gate'] and gate['independent_finding']
+              assert gate['minimum_missing_proof'] and gate['decision_use_restriction']
+              assert gate['original_audio_checked'] is False
+              assert gate['original_frames_checked'] is False
+              assert gate['outcome'] == 'OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION'
+          report = Path(register['reassessment_20261013_pass2_report'])
+          assert report.is_file()
+          assert report.read_text().count(' | HIGH |') + report.read_text().count(' | MEDIUM |') + report.read_text().count(' | LOW |') == 24
+          print('OPEN_24_EVIDENCE_GATE_PASS', len(audited), 'audited issues')
+          PY
       - name: Recalculate draft statistics and blockers
         run: |
           python scripts/audit_subtitle_review_gate.py --root . --full-queue > "${RUNNER_TEMP}/subtitle-review-audit.json"
