@@ -401,7 +401,7 @@
       ],
       "title": "NASDAQ100 SCHD HOLDINGS OVERLAP DATE",
       "verification_kind": "NASDAQ100_SCHD_HOLDINGS_OVERLAP_DATE",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "importance": "MEDIUM",
       "blocks_whole_video_analysis": false,
       "observed_at": "2026-10-12",
@@ -409,12 +409,22 @@
       "review_again_when": "Issuer holdings at the same date become available with common security IDs and weights.",
       "evidence_references": [
         "data/subtitles/pilots/Nueoi-_PH6o.json",
-        "data/analysis_events/Nueoi-_PH6o.json"
+        "data/analysis_events/Nueoi-_PH6o.json",
+        "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
       ],
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_DEFINED_COMPARABLE_HISTORICAL_DATA_OR_ORIGINAL_PUBLICATION",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "resolved_at": "2026-10-13",
+      "resolution": "DATED_THIRD_PARTY_AUG2026_OVERLAP_5_6_PERCENT_EIGHT_COMMON_SECURITIES_NOT_ZERO",
+      "resolution_note": "2026-08-04 independent QQQ/SCHD overlap analyzer reports eight shared and 5.6% weighted min-overlap. Nasdaq May26 official NDX and Schwab holdings confirm TXN/QCOM cross holdings. Different dates of issuer documents do NOT authenticate exact 2026-10 same-day index overlap; low overlap is date-bound, not zero.",
+      "resolution_evidence": [
+        "https://etfoverlaptool.com/overlap/qqq-vs-schd",
+        "https://www.nasdaq.com/docs/2026/05/04/NDX.pdf",
+        "https://www.schwabassetmanagement.com/products/schd"
+      ],
+      "reopen_only_for": "For a new explicitly dated holdings comparison or user-specified brokerage/security price; do not retroactively assert fixed future index overlap or ETF price."
     },
     {
       "item_id": "nCXWFko0TaA-ANNUAL_VS_MONTHLY_6PCT_AUDIO",
@@ -450,7 +460,7 @@
       ],
       "title": "EXACT 10K MINIMUM BROKERAGE PRODUCT",
       "verification_kind": "EXACT_10K_MINIMUM_BROKERAGE_PRODUCT",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "importance": "LOW",
       "blocks_whole_video_analysis": false,
       "observed_at": "2026-10-12",
@@ -458,12 +468,21 @@
       "review_again_when": "Named 2026 traded ticker, exchange, broker account, fractional trading rules and minimal quoted order value are collected.",
       "evidence_references": [
         "data/subtitles/pilots/CvM8Os4ltfE.json",
-        "data/analysis_events/CvM8Os4ltfE.json"
+        "data/analysis_events/CvM8Os4ltfE.json",
+        "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
       ],
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "SOURCE_AND_CONTEXT_NOT_SPECIFIED",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "resolved_at": "2026-10-13",
+      "resolution": "UNIVERSAL_10000_KRW_BROKER_EXECUTION_CLAIM_REJECTED_SOME_SERVICES_CONDITIONAL",
+      "resolution_note": "KRX has 1 ETF share board trading minimum; 0117L0 2026-10-12 close at KRW10,185 demonstrates some ETFs cannot be directly bought with exactly KRW10k at that date. Fractional U.S. ETF is separate brokerage service and varies by intermediary; complete per-security permanent prices not asserted.",
+      "resolution_evidence": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "https://kr.investing.com/etfs/0117l0-seoul-historical-data"
+      ],
+      "reopen_only_for": "For a new explicitly dated holdings comparison or user-specified brokerage/security price; do not retroactively assert fixed future index overlap or ETF price."
     },
     {
       "item_id": "HfrBi5mzm8w-MINOR_PENSION_SAVINGS_ELIGIBILITY",
@@ -481,12 +500,19 @@
       "review_again_when": "Provider 2026 guardian minor pension account opening manual and actual gift/registration scenario become available.",
       "evidence_references": [
         "data/subtitles/pilots/HfrBi5mzm8w.json",
-        "data/analysis_events/HfrBi5mzm8w.json"
+        "data/analysis_events/HfrBi5mzm8w.json",
+        "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
       ],
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "new_evidence_note": "FSC allows legal guardian to open general minor bank/securities accounts remotely since 2023-04-10; Mirae Asset 2026 FAQ requires guardian. Neither confirms specifically pension savings account eligibility at that broker, which remains account-product OPEN.",
+      "latest_evidence_urls": [
+        "https://www.fsc.go.kr/no040000?cnId=1711&curPage=202&pastPage=202&srchKey=&srchText=",
+        "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&messageCategoryId=149"
+      ],
+      "reviewed_at": "2026-10-13"
     },
     {
       "item_id": "zi9x_q2fYoc-MUTUAL_AID_30YEAR_2130000_CONTRACT",
@@ -563,12 +589,19 @@
       "review_again_when": "영상 실제 촬영일과 해당 일자의 동일 종목 국고채 입찰/유통 YTM 공식 시계열 확인",
       "evidence_references": [
         "data/subtitles/pilots/WGFPHeM6-6I.json",
-        "data/analysis_events/WGFPHeM6-6I.json"
+        "data/analysis_events/WGFPHeM6-6I.json",
+        "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
       ],
       "actual_audio_checked": false,
       "actual_frames_checked": false,
       "blocking_evidence_class": "NEEDS_DATED_PRODUCT_MARKET_PRICE_OR_ISSUER_DISCLOSURE",
-      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED"
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_OUTCOME_OR_UNVERIFIED_NUMERIC_AS_PRIMARY_CONFIRMED",
+      "new_evidence_note": "2026-09-30 Korean 5Y treasury YTM was 4.203% close; previous day 4.276% (Yonhap/Infomax). KRX 5-year treasury FUTURES synthetic standardized coupon 5% does not represent then-current CASH market YTM. Original recording's exact quote date/security remain unproven.",
+      "latest_evidence_urls": [
+        "https://www.yna.co.kr/view/AKR20260930158400008",
+        "https://www.krx.co.kr/contents/OPN/01/01040502/OPN01040502.jsp"
+      ],
+      "reviewed_at": "2026-10-13"
     },
     {
       "item_id": "LEczVIueQAA-ONE_SHARE_BOND_ETF_PRICE_TRADE",
@@ -1017,10 +1050,11 @@
   "verified_rule_followups": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
   "closure_statistics": {
     "total": 37,
-    "resolved": 12,
-    "open": 25,
-    "new_resolutions_this_pass": 5,
-    "definition": "RESOLVED may mean text difference proven, dated promotional fact settled, numerical claim disproven or unsupported advice explicitly rejected; never asserts original audio, private account, future pricing or investment returns verified."
+    "resolved": 14,
+    "open": 23,
+    "new_resolutions_this_retry": 2,
+    "definition": "RESOLVED is a dated independently evidenced claim or disproof of universal statement; not certification of original speech, exact future fund constituents or specific holder's tax status."
   },
-  "reassessment_20261013_report": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md"
+  "reassessment_20261013_report": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+  "last_review_note": "2026-10-13 timeout recovery: 12 previously RESOLVED preserved, +2 (ETF overlap 8 shared and 5.6% as of Aug4; universally guaranteed KRW10k buy claim rejected). 2026 Sep30 YTM and minor general accounts evidence enrichment only, each remains OPEN."
 }
