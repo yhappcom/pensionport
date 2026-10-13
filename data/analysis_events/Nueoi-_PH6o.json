@@ -89,11 +89,14 @@
       "claim": "나스닥100 ETF와 미국배당다우존스 ETF는 구성종목이 거의 겹치지 않아 성장성과 배당을 함께 누릴 수 있다고 설명한다.",
       "verification": "QUALIFIED",
       "sources": [
-        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+        "https://etfoverlaptool.com/overlap/qqq-vs-schd",
+        "https://www.nasdaq.com/docs/2026/05/04/NDX.pdf",
+        "https://www.schwabassetmanagement.com/products/schd"
       ],
-      "disposition": "성장/가치·배당 성향의 차이는 있으나 ETF 실제 종목 중복비중은 날짜별 기초지수와 편입내역 확인이 필요하다. 분산·성과 우위는 보장되지 않는다.",
+      "disposition": "QQQ·SCHD 공개 독립 비교(2026-08-04)에서 공통 8종목, 가중치 최솟값 합산 5.6%; 공식 Nasdaq NDX·Schwab ETF에서도 TXN/QCOM 공통 노출 확인. 동일시점 2026-10의 모든 편입종목 완전일치는 별도, '전혀 안 겹침'은 오류. 겹침이 낮아도 수익률/위험 분산 보장 아님.",
       "correction": null,
-      "source_precision": "ORIGINAL_USER_SRT_NEAREST_CUE_NOT_INDEPENDENTLY_HEARD"
+      "source_precision": "ORIGINAL_USER_SRT_NEAREST_CUE_NOT_INDEPENDENTLY_HEARD",
+      "reassessment_20261013": "EDUCATIONAL_DATED_SCOPE_EXTERNAL_EVIDENCE"
     }
   ],
   "actionable_guidance": [
@@ -138,7 +141,7 @@
       "theme": "배당현금흐름과 은퇴 인출세금·원금소모를 구별"
     }
   ],
-  "verification_status": "EDUCATIONAL_V3_6_CLAIMS_SOURCE_TRIAGED_AUDIO_VISUAL_OPEN",
+  "verification_status": "EDUCATIONAL_V3_6_CLAIMS_SOURCE_TRIAGED_AUDIO_VISUAL_OPEN__OCT13_8_SHARED_5_6PCT_AUG_2026_INDEPENDENT_COMPARISON_SCOPED",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -164,6 +167,14 @@
     "Some model examples and ETF holdings/rates/tax treatment require precise account/product documentation.",
     "배당재투자는 배당금 세금/수수료와 가격 변동에 노출된다.",
     "특정 ETF가 매달 분배금을 지급하거나 계속 증가시킬 의무를 갖는 것은 아니다.",
-    "Canonical APPROVED means complete conditional educational evidence triage, NOT audio, screen or guaranteed investment return certification."
-  ]
+    "Canonical APPROVED means complete conditional educational evidence triage, NOT audio, screen or guaranteed investment return certification.",
+    "Nasdaq100/SCHD 중복 5.6%·8종목은 2026-08-04 독립 비교. 2026-10 원영상 화면 동일 날짜 공식 전 편입내역 검증이 아님."
+  ],
+  "review_supplement_20261013": {
+    "source": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "modified_claim": "Nueoi-_PH6o-06",
+    "source_audio_confirmed": false,
+    "exact_current_holder_scenario_proven": false,
+    "updated_at": "2026-10-13"
+  }
 }
