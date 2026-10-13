@@ -4,11 +4,11 @@
   "scope": "Registered 70 user-supplied Korean SRTs inside original 791-video roster",
   "roster_count": 791,
   "source_srt_registered_unique_count": 70,
-  "existing_pilot_draft_count": 45,
-  "existing_pilot_claims_count": 415,
+  "existing_pilot_draft_count": 48,
+  "existing_pilot_claims_count": 432,
   "source_transcript_verified_sha_match_count": 70,
   "focused_first_10_analysis_complete": 10,
-  "verified_v3_educational_analysis_count": 45,
+  "verified_v3_educational_analysis_count": 48,
   "new_in_this_extension": [
     {
       "video_id": "LVE7XN_esTc",
@@ -54,8 +54,8 @@
   ],
   "existing_pilot_drafts_pending_full_claim_evidence_count": 0,
   "existing_pilot_drafts_pending_ids": [],
-  "srt_source_with_no_pilot_yet_estimate": 25,
-  "srt_source_not_yet_deep_reviewed_count": 25,
+  "srt_source_with_no_pilot_yet_estimate": 22,
+  "srt_source_not_yet_deep_reviewed_count": 22,
   "rest_of_roster_without_this_70_user_source_count": 721,
   "next_priorities": [
     {
@@ -99,31 +99,13 @@
       "roster_no": 43,
       "reason": "원본 684큐",
       "ready_source": true
-    },
-    {
-      "video_id": "09ojTPmKlQg",
-      "roster_no": 44,
-      "reason": "원본 35큐",
-      "ready_source": true
-    },
-    {
-      "video_id": "ZCOyHZj7yFA",
-      "roster_no": 46,
-      "reason": "원본 34큐",
-      "ready_source": true
-    },
-    {
-      "video_id": "9VLtWX1vJxg",
-      "roster_no": 48,
-      "reason": "원본 19큐",
-      "ready_source": true
     }
   ],
   "policy": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
   "optional_followups": "data/subtitles/optional_verification_register_20261012.json",
   "current_queue": "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md",
   "knowledge_update": "knowledge/CHILD_GIFT_THEMATIC_PENSION_RISK_VERIFIED_20261013.md",
-  "counting_note": "45 distinct original user SRT roster entries have their own educational claim-scoped V3 analyses; 415 pilot claim records; remaining 25 of 70 source videos have no first-pass claims. Long-form all-SRT structural parsing is not full oral/visual or audited source-portfolio performance. Published original captions not copied to GitHub.",
+  "counting_note": "48 distinct original user SRT roster entries with claim-scoped V3 educational/promotional-classification review; 432 pilot material claim records; remaining 22 source videos need first-pass analysis. #48 is promotional only and not verified course claims. Original media not independently heard or viewed; public transcript exact full check is nonblocking.",
   "branch": "feat/subtitles-incremental-registry-20261009",
   "default_branch_touched": false,
   "new_in_next_five": [
@@ -248,6 +230,17 @@
       "claims": 77,
       "original_cue_total": 8791,
       "special_scope": "Some videos are long interviews/book discussions: structurally reviewed complete SRT and selected material investment claims, not every utterance/financial statement audited."
+    },
+    {
+      "as_of": "2026-10-13",
+      "ids": [
+        "09ojTPmKlQg",
+        "ZCOyHZj7yFA",
+        "9VLtWX1vJxg"
+      ],
+      "claims": 17,
+      "original_cue_total": 88,
+      "special_scope": "#48 archival promotional notice, not an investor outcome or independent class offer verification."
     }
   ],
   "new_in_third_five": [
@@ -535,5 +528,42 @@
     "835_phhMGM8",
     "i32DeJPzsfE",
     "OdR6ICkcthc"
-  ]
+  ],
+  "new_in_oct13_short_batch": [
+    {
+      "video_id": "09ojTPmKlQg",
+      "roster_no": 44,
+      "source_provenance": "PRIVATE_REGISTERED_SRT_SHA256_MATCHED",
+      "original_cue_count": 35,
+      "financial_claims_audited": 7,
+      "analysis_path": "data/analysis_events/09ojTPmKlQg.json",
+      "research_kind": "BOOK_EDUCATIONAL_1926_SOURCE_SCOPED",
+      "audio_verified": false,
+      "frames_verified": false
+    },
+    {
+      "video_id": "ZCOyHZj7yFA",
+      "roster_no": 46,
+      "source_provenance": "PRIVATE_REGISTERED_SRT_SHA256_MATCHED",
+      "original_cue_count": 34,
+      "financial_claims_audited": 6,
+      "analysis_path": "data/analysis_events/ZCOyHZj7yFA.json",
+      "research_kind": "BUDGET_TRACKING_EDUCATIONAL",
+      "audio_verified": false,
+      "frames_verified": false
+    },
+    {
+      "video_id": "9VLtWX1vJxg",
+      "roster_no": 48,
+      "source_provenance": "PRIVATE_REGISTERED_SRT_SHA256_MATCHED",
+      "original_cue_count": 19,
+      "financial_claims_audited": 4,
+      "analysis_path": "data/analysis_events/9VLtWX1vJxg.json",
+      "research_kind": "PROMOTIONAL_NOTICE_ONLY",
+      "audio_verified": false,
+      "frames_verified": false
+    }
+  ],
+  "optional_verification_operating_decision": "CLOSED_WITH_OPEN_EVIDENCE: optional audio/video/tax contract/backtest evidence does not block unrelated educational analysis; do not promote unsupported factual tax rate or original return statistics.",
+  "optional_verification_closeout": "docs/SELECTIVE_VERIFICATION_CLOSEOUT_20261013.md"
 }
