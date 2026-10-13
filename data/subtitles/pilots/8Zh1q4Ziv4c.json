@@ -1,0 +1,360 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-13",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "roster_no": 49,
+  "video_id": "8Zh1q4Ziv4c",
+  "title": "세액공제 못 받아도 연금저축 납입? 과세이연·ETF 세금·IRP 중도인출 쇼츠",
+  "source_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c",
+  "video_published_date": "NOT_INDEPENDENTLY_VERIFIED",
+  "subtitle_sha256": "cbb57d372bc0fb5965052a776b5b945a5b82df3178d5c40dcd30cdcc8b0d8239",
+  "cue_count": 34,
+  "raw_transcript_publicly_stored": false,
+  "audio_checked": false,
+  "frames_checked": false,
+  "core_message": "연금저축 미공제원금 과세제외·적격 운용수익 과세이연은 공식 확인. 그러나 국내주식형 ETF와 기타 ETF 매매 과세를 모두 15.4%로 일반화하거나 IRP 중도인출을 절대불가라고 하는 부분은 정정. 세액공제 실익 없는 개인에게 연금저축 최우선 여부는 별도 계산.",
+  "limitations": [
+    "2026-10-13 사용자 비공개 원본 SRT 34큐 2,643바이트 전체를 파싱·읽고 등록부 SHA256·마지막 78.28초 일치 확인. 오디오·영상 프레임 미확인.",
+    "영상 내 40대 시청자 실제 세금/결정세액/연금계좌 계약정보는 자기보고이므로 독립 인증하지 못함.",
+    "한국 상장 국내주식형 ETF 매매차익 일반계좌 비과세와 기타 ETF 보유기간과세는 구별; 모든 ETF 매매이익 15.4%는 오류.",
+    "연금저축 과세제외 원금 인출 시 세액공제 받지 않은 증빙과 계좌 취급사 처리절차, 과세 순서 및 평가손실 별도 확인.",
+    "55세와 3.3~5.5%는 연금수령요건·과세소득 구성·인출한도 및 연금소득 추가 과세에 따라 제한.",
+    "IRP 중도인출 법정예외는 있으나 일반 생활비 목적으로 임의 인출은 제한되므로 전액 해지 유인과 구별.",
+    "공개 자막 독립 전사 전체 정렬, 실제 오디오 발음, 원화면 서류·상품 약관은 미검증.",
+    "사용자 원본 ZIP/SRT 전체 텍스트는 공개 GitHub에 저장하지 않음."
+  ],
+  "existing_registry_srt": {
+    "sha256": "cbb57d372bc0fb5965052a776b5b945a5b82df3178d5c40dcd30cdcc8b0d8239",
+    "cue_count": 34,
+    "last_sec": 78.28,
+    "raw_srt_bytes": 2643,
+    "verified_same_bytes": true,
+    "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd"
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "cbb57d372bc0fb5965052a776b5b945a5b82df3178d5c40dcd30cdcc8b0d8239",
+    "original_cue_count": 34,
+    "original_raw_bytes": 2643,
+    "original_srt_end_sec": 78.28,
+    "evidence_reference": "Private source 1-70.zip/1-70/youtube-transcript-8Zh1q4Ziv4c.srt; all 34 cues direct text review, 2643 bytes sha256 matched GitHub registry.",
+    "limitations": "Original recorded voice/onscreen visuals and independent third-party full public automatic captions not checked; personal taxpayer situation not available.",
+    "audio_checked": false,
+    "frames_checked": false,
+    "public_transcript_text_exact_match": "NOT_TESTED_NONBLOCKING",
+    "precise_timing_verified": false
+  },
+  "verification_status": "EDUCATIONAL_13_CLAIM_SHORT_SOURCE_34_CUES_HASH_MATCHED_OFFICIAL_TAX_RULES_AUDIO_FRAMES_UNVERIFIED",
+  "relations": [
+    {
+      "type": "REINFORCE",
+      "related_video_id": "UqF7q4yIODM",
+      "theme": "연금저축 세액공제·계좌 세금 구분"
+    },
+    {
+      "type": "CORRECT",
+      "related_video_id": "sTKJve59KGQ",
+      "theme": "IRP/연금저축 유동성과 과세이연·미공제 원금"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "8Zh1q4Ziv4c-01",
+      "timecode": "00:00:00",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=0s",
+      "source_paraphrase": "40대 구독자가 연금저축 600만원과 IRP 300만원을 납입했으나 결정세액이 거의 없어 세액공제를 못 받는다고 한다.",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "시청자 개별 신고서·실제 결정세액·계좌 원장이 없어 자기보고된 예시로만 보존한다.",
+      "official_sources": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "시청자 개별 신고서·실제 결정세액·계좌 원장이 없어 자기보고된 예시로만 보존한다."
+      },
+      "original_srt_anchor_start_sec": 0,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-02",
+      "timecode": "00:00:05",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=5s",
+      "source_paraphrase": "결정세액이 0에 가까우면 해당 연금계좌 세액공제의 실질 환급도 적을 수 있다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "국세청 총급여별 연금계좌 세액공제는 산출세액에서 차감하며 다른 공제·결정세액과 상호작용한다. 세액공제 대상 연금저축 최대600만원, IRP 합산900만원이나 실제 납부세액이 작으면 환급도 제한.",
+      "official_sources": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "국세청 총급여별 연금계좌 세액공제는 산출세액에서 차감하며 다른 공제·결정세액과 상호작용한다. 세액공제 대상 연금저축 최대600만원, IRP 합산900만원이나 실제 납부세액이 작으면 환급도 제한.",
+        "primary_url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+        "source_finding": "국세청 총급여별 연금계좌 세액공제는 산출세액에서 차감하며 다른 공제·결정세액과 상호작용한다. 세액공제 대상 연금저축 최대600만원, IRP 합산900만원이나 실제 납부세액이 작으면 환급도 제한.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown"
+      },
+      "original_srt_anchor_start_sec": 5,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-03",
+      "timecode": "00:00:13",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=13s",
+      "source_paraphrase": "세액공제를 하나도 못 받더라도 연금저축을 계속하는 것이 모든 사람에게 좋다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "투자기간·현금필요·계좌 내 대상 상품·배당과 매매차익의 실제 과세·향후 연금소득 규모 등을 비교해야 한다. 장기 과세이연이 유리할 수 있어도 모든 투자자에게 무조건 우월하지 않다.",
+      "official_sources": [
+        "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "투자기간·현금필요·계좌 내 대상 상품·배당과 매매차익의 실제 과세·향후 연금소득 규모 등을 비교해야 한다. 장기 과세이연이 유리할 수 있어도 모든 투자자에게 무조건 우월하지 않다.",
+        "primary_url": "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "source_finding": "투자기간·현금필요·계좌 내 대상 상품·배당과 매매차익의 실제 과세·향후 연금소득 규모 등을 비교해야 한다. 장기 과세이연이 유리할 수 있어도 모든 투자자에게 무조건 우월하지 않다.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown"
+      },
+      "original_srt_anchor_start_sec": 13,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-04",
+      "timecode": "00:00:19",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=19s",
+      "source_paraphrase": "일반계좌 투자 배당금과 ETF 매매이익에는 15.4% 과세된다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "국내 ETF의 현금분배금에는 배당소득과세가 일반적이나 배당재원·개인별 세율·비과세 소득 조건이 다를 수 있다. 일반계좌 모든 매매차익 15.4%는 틀리므로 종류를 구분한다.",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "국내 ETF의 현금분배금에는 배당소득과세가 일반적이나 배당재원·개인별 세율·비과세 소득 조건이 다를 수 있다. 일반계좌 모든 매매차익 15.4%는 틀리므로 종류를 구분한다.",
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+        "source_finding": "국내 ETF의 현금분배금에는 배당소득과세가 일반적이나 배당재원·개인별 세율·비과세 소득 조건이 다를 수 있다. 일반계좌 모든 매매차익 15.4%는 틀리므로 종류를 구분한다.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown"
+      },
+      "original_srt_anchor_start_sec": 19,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-05",
+      "timecode": "00:00:23",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=23s",
+      "source_paraphrase": "일반계좌에서는 모든 ETF 매매차익에 15.4% 세금을 낸다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "한국거래소: 국내주식형 ETF 국내주식 기초자산 매매차익은 원칙적으로 과세되지 않고, 해외지수·채권·원자재 등 기타ETF는 과표기준가격 상승과 실제 차익 조건에 따라 배당소득세가 원천징수된다. 모든 ETF 매매이익 15.4% 단정은 부정확.",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "한국거래소: 국내주식형 ETF 국내주식 기초자산 매매차익은 원칙적으로 과세되지 않고, 해외지수·채권·원자재 등 기타ETF는 과표기준가격 상승과 실제 차익 조건에 따라 배당소득세가 원천징수된다. 모든 ETF 매매이익 15.4% 단정은 부정확.",
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+        "source_finding": "한국거래소: 국내주식형 ETF 국내주식 기초자산 매매차익은 원칙적으로 과세되지 않고, 해외지수·채권·원자재 등 기타ETF는 과표기준가격 상승과 실제 차익 조건에 따라 배당소득세가 원천징수된다. 모든 ETF 매매이익 15.4% 단정은 부정확.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown",
+        "correction": "한국거래소: 국내주식형 ETF 국내주식 기초자산 매매차익은 원칙적으로 과세되지 않고, 해외지수·채권·원자재 등 기타ETF는 과표기준가격 상승과 실제 차익 조건에 따라 배당소득세가 원천징수된다. 모든 ETF 매매이익 15.4% 단정은 부정확."
+      },
+      "original_srt_anchor_start_sec": 23,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-06",
+      "timecode": "00:00:25",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=25s",
+      "source_paraphrase": "적격 연금계좌 내 운용이익 과세는 연금수령 단계까지 이연되는 혜택이 있다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "국세청: 공제를 받은 원금과 계좌운용수익은 연금수령 때 연금소득, 연금외수령 시 기타소득 등 다른 과세. 과세이연은 면세가 아니며 인출 요건에 종속.",
+      "official_sources": [
+        "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "국세청: 공제를 받은 원금과 계좌운용수익은 연금수령 때 연금소득, 연금외수령 시 기타소득 등 다른 과세. 과세이연은 면세가 아니며 인출 요건에 종속.",
+        "primary_url": "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "source_finding": "국세청: 공제를 받은 원금과 계좌운용수익은 연금수령 때 연금소득, 연금외수령 시 기타소득 등 다른 과세. 과세이연은 면세가 아니며 인출 요건에 종속.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown"
+      },
+      "original_srt_anchor_start_sec": 25,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-07",
+      "timecode": "00:00:32",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=32s",
+      "source_paraphrase": "55세가 되면 누구나 연금수령액 전액에 3.3~5.5%의 낮은 세율이 적용된다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "국세청: 연금수령은 만55세·가입 5년·연금수령한도 등 요건이 필요. 개인납입원금/운용수익 중 과세대상 사적연금의 기본 원천징수세율은 나이에 따라 지방세 포함 3.3~5.5%지만 비공제 원금과 이연퇴직소득, 연1500만원 초과 상황은 다르다.",
+      "official_sources": [
+        "https://kids.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "국세청: 연금수령은 만55세·가입 5년·연금수령한도 등 요건이 필요. 개인납입원금/운용수익 중 과세대상 사적연금의 기본 원천징수세율은 나이에 따라 지방세 포함 3.3~5.5%지만 비공제 원금과 이연퇴직소득, 연1500만원 초과 상황은 다르다.",
+        "primary_url": "https://kids.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "source_finding": "국세청: 연금수령은 만55세·가입 5년·연금수령한도 등 요건이 필요. 개인납입원금/운용수익 중 과세대상 사적연금의 기본 원천징수세율은 나이에 따라 지방세 포함 3.3~5.5%지만 비공제 원금과 이연퇴직소득, 연1500만원 초과 상황은 다르다.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown"
+      },
+      "original_srt_anchor_start_sec": 32,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-08",
+      "timecode": "00:00:41",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=41s",
+      "source_paraphrase": "세액공제를 받지 않은 연금계좌 납입원금은 적격 인출 시 비과세로 돌려받는다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "국세청 연금계좌 인출순서 STEP01 과세제외에 공제한도초과분 및 공제한도 내 실제 세액공제를 받지 않은 납입액 포함. 계좌 취급사 공제확인 서류와 과세대상 운용이익 구분 필요.",
+      "official_sources": [
+        "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "국세청 연금계좌 인출순서 STEP01 과세제외에 공제한도초과분 및 공제한도 내 실제 세액공제를 받지 않은 납입액 포함. 계좌 취급사 공제확인 서류와 과세대상 운용이익 구분 필요.",
+        "primary_url": "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "source_finding": "국세청 연금계좌 인출순서 STEP01 과세제외에 공제한도초과분 및 공제한도 내 실제 세액공제를 받지 않은 납입액 포함. 계좌 취급사 공제확인 서류와 과세대상 운용이익 구분 필요.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown"
+      },
+      "original_srt_anchor_start_sec": 41,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-09",
+      "timecode": "00:00:47",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=47s",
+      "source_paraphrase": "20~30년 세금의 이연·재투자로 복리효과가 달라질 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "과세이연에 따른 중간 세금의 재투자 효과는 가능하나 수익률/배당률/수수료·가입기간·미래 인출세율/유동성/다른 계좌의 원래 비과세 여부에 따라 실제 이점이 없거나 역전될 수도 있다.",
+      "official_sources": [
+        "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "과세이연에 따른 중간 세금의 재투자 효과는 가능하나 수익률/배당률/수수료·가입기간·미래 인출세율/유동성/다른 계좌의 원래 비과세 여부에 따라 실제 이점이 없거나 역전될 수도 있다.",
+        "primary_url": "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "source_finding": "과세이연에 따른 중간 세금의 재투자 효과는 가능하나 수익률/배당률/수수료·가입기간·미래 인출세율/유동성/다른 계좌의 원래 비과세 여부에 따라 실제 이점이 없거나 역전될 수도 있다.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown"
+      },
+      "original_srt_anchor_start_sec": 47,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-10",
+      "timecode": "00:00:56",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=56s",
+      "source_paraphrase": "IRP 중도인출은 법적으로 절대로 할 수 없고 전액 해지만 유일하다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "고용노동부: IRP 등 퇴직연금의 중도인출은 무주택자 주택구입, 요양 및 특정 법정사유 등의 요건을 충족하면 허용될 수 있다. 일반적 자유인출이 제한된다는 취지는 맞지만 '아예 안 돼요'는 틀린 절대명제.",
+      "official_sources": [
+        "https://moel.go.kr/info/publicdata/qnrinfo/qnrInfoView.do?qnr_uid=2022061000000001",
+        "https://1350.moel.go.kr/rtmview.do?id=1000261322"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "고용노동부: IRP 등 퇴직연금의 중도인출은 무주택자 주택구입, 요양 및 특정 법정사유 등의 요건을 충족하면 허용될 수 있다. 일반적 자유인출이 제한된다는 취지는 맞지만 '아예 안 돼요'는 틀린 절대명제.",
+        "primary_url": "https://moel.go.kr/info/publicdata/qnrinfo/qnrInfoView.do?qnr_uid=2022061000000001",
+        "source_finding": "고용노동부: IRP 등 퇴직연금의 중도인출은 무주택자 주택구입, 요양 및 특정 법정사유 등의 요건을 충족하면 허용될 수 있다. 일반적 자유인출이 제한된다는 취지는 맞지만 '아예 안 돼요'는 틀린 절대명제.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown",
+        "correction": "고용노동부: IRP 등 퇴직연금의 중도인출은 무주택자 주택구입, 요양 및 특정 법정사유 등의 요건을 충족하면 허용될 수 있다. 일반적 자유인출이 제한된다는 취지는 맞지만 '아예 안 돼요'는 틀린 절대명제."
+      },
+      "original_srt_anchor_start_sec": 56,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-11",
+      "timecode": "00:01:01",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=61s",
+      "source_paraphrase": "긴급자금 가능성이 있다면 IRP보다 연금저축을 우선하는 선택이 더 유연할 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "연금저축은 과세제외 원금의 부분 인출 등 유연성이 있을 수 있으나 금융사/상품별 매도결제·납입원금 입증 및 기타소득세·세제효과가 다르므로 개인별 조건부 판단.",
+      "official_sources": [
+        "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "https://moel.go.kr/info/publicdata/qnrinfo/qnrInfoView.do?qnr_uid=2022061000000001"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "연금저축은 과세제외 원금의 부분 인출 등 유연성이 있을 수 있으나 금융사/상품별 매도결제·납입원금 입증 및 기타소득세·세제효과가 다르므로 개인별 조건부 판단.",
+        "primary_url": "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "source_finding": "연금저축은 과세제외 원금의 부분 인출 등 유연성이 있을 수 있으나 금융사/상품별 매도결제·납입원금 입증 및 기타소득세·세제효과가 다르므로 개인별 조건부 판단.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown"
+      },
+      "original_srt_anchor_start_sec": 61,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-12",
+      "timecode": "00:01:04",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=64s",
+      "source_paraphrase": "연금저축 미공제 납입원금은 언제든 꺼낼 수 있어 모든 급전 상황에 대응할 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "세법상 과세제외 원금 인출 우선순위와 상품 유동성은 별개이며 미공제 원금 여부 증빙, 환매정산일, 투자원금 평가손실·연금저축보험의 해지환급금 조건이 중요하다. '언제든 즉시 전액'은 보장되지 않는다.",
+      "official_sources": [
+        "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "세법상 과세제외 원금 인출 우선순위와 상품 유동성은 별개이며 미공제 원금 여부 증빙, 환매정산일, 투자원금 평가손실·연금저축보험의 해지환급금 조건이 중요하다. '언제든 즉시 전액'은 보장되지 않는다.",
+        "primary_url": "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "source_finding": "세법상 과세제외 원금 인출 우선순위와 상품 유동성은 별개이며 미공제 원금 여부 증빙, 환매정산일, 투자원금 평가손실·연금저축보험의 해지환급금 조건이 중요하다. '언제든 즉시 전액'은 보장되지 않는다.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown"
+      },
+      "original_srt_anchor_start_sec": 64,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "8Zh1q4Ziv4c-13",
+      "timecode": "00:01:09",
+      "watch_url": "https://www.youtube.com/watch?v=8Zh1q4Ziv4c&t=69s",
+      "source_paraphrase": "과세이연과 저율과세만으로 비공제 연금저축 납입은 언제나 충분히 정당화된다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "국내주식형 ETF 일반계좌 매매차익 비과세, 향후 인출 방식과 세금, 비상자금/중도인출 제한, 수수료·손실 리스크 때문에 비공제 납입이 모든 경우 압도적으로 유리한 결론은 성립하지 않는다.",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+        "https://ems.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6449",
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "All 34 user private original auto-SRT cues (00:00–01:18) reviewed; official NTS KRX and MOEL source law/FAQ scoped to Korea; no audio, frames or independent ASR diff",
+        "disposition": "국내주식형 ETF 일반계좌 매매차익 비과세, 향후 인출 방식과 세금, 비상자금/중도인출 제한, 수수료·손실 리스크 때문에 비공제 납입이 모든 경우 압도적으로 유리한 결론은 성립하지 않는다.",
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+        "source_finding": "국내주식형 ETF 일반계좌 매매차익 비과세, 향후 인출 방식과 세금, 비상자금/중도인출 제한, 수수료·손실 리스크 때문에 비공제 납입이 모든 경우 압도적으로 유리한 결론은 성립하지 않는다.",
+        "effective_date_or_scope": "Korean retirement account/ETF tax rules as officially shown and reviewed 2026-10-13; individual tax declaration/contract unknown",
+        "correction": "국내주식형 ETF 일반계좌 매매차익 비과세, 향후 인출 방식과 세금, 비상자금/중도인출 제한, 수수료·손실 리스크 때문에 비공제 납입이 모든 경우 압도적으로 유리한 결론은 성립하지 않는다."
+      },
+      "original_srt_anchor_start_sec": 69,
+      "timecode_precision": "ORIGINAL_AUTO_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    }
+  ],
+  "claim_count": 13
+}
