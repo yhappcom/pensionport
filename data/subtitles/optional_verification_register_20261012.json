@@ -1032,6 +1032,33 @@
       "official_evidence_urls": [],
       "resolved_at": "2026-10-13",
       "why_open": "Historical detailed open-question split from broader video review and now independently source-scoped resolved."
+    },
+    {
+      "item_id": "lWWz4i7vIX4-INSURANCE_SURRENDER_POLICY_FACTS",
+      "video_id": "lWWz4i7vIX4",
+      "claim_ids": [
+        "lWWz4i7vIX4-16",
+        "lWWz4i7vIX4-18"
+      ],
+      "title": "51세 사례의 세 종신·보장성 보험 해지환급금/보장/장래 환급표 확인",
+      "verification_kind": "PERSONAL_POLICY_SURRENDER_SCHEDULE",
+      "status": "OPEN",
+      "importance": "HIGH",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-13",
+      "why_open": "Original SRT gives three policy dates/premiums/claimed surrender values but no policy declarations, guaranteed surrender schedule, loan balances, insured benefit details, replacement underwriting or pension transfer tax facts. Neither speaker outcome nor best policy termination can be certified.",
+      "review_again_when": "Obtain the exact contemporaneous insurance policy documents, dated company surrender illustrations, rider/death coverage, premium payment terms, loans and policyholder tax facts; confirm consent and suitability before making any personalized assessment.",
+      "evidence_references": [
+        "data/subtitles/pilots/lWWz4i7vIX4.json",
+        "data/analysis_events/lWWz4i7vIX4.json"
+      ],
+      "official_evidence_urls": [
+        "https://www.fsc.go.kr/no010101/74468?curPage=137&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=&srchText="
+      ],
+      "blocking_evidence_class": "NEEDS_ACTUAL_ACCOUNT_CONTRACT_OR_HOLDER_FACTS",
+      "actual_audio_checked": false,
+      "actual_frames_checked": false,
+      "claim_usage_constraint": "DO_NOT_PRESENT_PERSONAL_SURRENDER_DECISION_AS_VERIFIED_OR_RECOMMENDED"
     }
   ],
   "resolved_items": [
@@ -1071,12 +1098,12 @@
   },
   "verified_rule_followups": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
   "closure_statistics": {
-    "total": 37,
+    "total": 38,
     "resolved": 14,
-    "open": 23,
+    "open": 24,
     "new_resolutions_this_retry": 2,
     "definition": "RESOLVED is a dated independently evidenced claim or disproof of universal statement; not certification of original speech, exact future fund constituents or specific holder's tax status."
   },
   "reassessment_20261013_report": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
-  "last_review_note": "2026-10-13 timeout recovery: 12 previously RESOLVED preserved, +2 (ETF overlap 8 shared and 5.6% as of Aug4; universally guaranteed KRW10k buy claim rejected). 2026 Sep30 YTM and minor general accounts evidence enrichment only, each remains OPEN. 2026-10-13 dated recheck: QQQ/SCHD page refreshed to Oct2 showing 8 shared, 4.8% min-weight overlap (rounded components sum 4.82%); old Aug4 5.6% cannot be reproduced from now-live page. Resolved status unchanged."
+  "last_review_note": "2026-10-13 timeout recovery: 12 previously RESOLVED preserved, +2 (ETF overlap 8 shared and 5.6% as of Aug4; universally guaranteed KRW10k buy claim rejected). 2026 Sep30 YTM and minor general accounts evidence enrichment only, each remains OPEN. 2026-10-13 dated recheck: QQQ/SCHD page refreshed to Oct2 showing 8 shared, 4.8% min-weight overlap (rounded components sum 4.82%); old Aug4 5.6% cannot be reproduced from now-live page. Resolved status unchanged.\n2026-10-13 additional #35: separately registered OPEN original insurance surrender contract; prior established 37 (14 resolved / 23 open) preserved, new 38 (14 / 24). Financially sensitive specific contract not independently available."
 }
