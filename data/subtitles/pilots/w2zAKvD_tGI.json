@@ -77,10 +77,11 @@
       "claim_id": "w2zAKvD_tGI-03",
       "timecode": "00:11",
       "watch_url": "https://www.youtube.com/watch?v=w2zAKvD_tGI&t=11s",
-      "source_paraphrase": "16년간 환급률116%면 연평균 수익률 약1%이다",
+      "source_paraphrase": "화자는 적립식 연금보험 환급률116%를 16년으로 단순 나누어 '연1%'라고 설명",
       "assessment": "CONTRADICTED",
-      "independent_check": "16%÷16은 적립식 보험의 연환산 수익률이 아님. 매월 납입흐름의 IRR/XIRR 필요. 사연 월30만원·회차 확인 전 실제값 미결",
+      "independent_check": "단순 환급률16%÷16년은 연환산 수익률이 아니다. *가정적*으로 16년(192개월) 매월 말30만원 정확히 납입, 환급금=5760만×116%=6681.6만원이면 IRR 월0.1518%, 연환산 실효 약1.837%. 실제 월별 납입·이체/보험료 사업비·환급기준일 데이터 없어 정확 수익률 미확정.",
       "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
         "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
       ],
       "verification_evidence": {
@@ -88,10 +89,24 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
-        "disposition": "16%÷16은 적립식 보험의 연환산 수익률이 아님. 매월 납입흐름의 IRR/XIRR 필요. 사연 월30만원·회차 확인 전 실제값 미결",
+        "disposition": "단순 환급률16%÷16년은 연환산 수익률이 아니다. *가정적*으로 16년(192개월) 매월 말30만원 정확히 납입, 환급금=5760만×116%=6681.6만원이면 IRR 월0.1518%, 연환산 실효 약1.837%. 실제 월별 납입·이체/보험료 사업비·환급기준일 데이터 없어 정확 수익률 미확정.",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "recheck_original_paraphrase_20261014": "16년간 환급률116%면 연평균 수익률 약1%이다",
+      "recheck_original_classification_20261014": "CONTRADICTED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "disposition": "단순 환급률16%÷16년은 연환산 수익률이 아니다. *가정적*으로 16년(192개월) 매월 말30만원 정확히 납입, 환급금=5760만×116%=6681.6만원이면 IRR 월0.1518%, 연환산 실효 약1.837%. 실제 월별 납입·이체/보험료 사업비·환급기준일 데이터 없어 정확 수익률 미확정.",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-04",
@@ -137,9 +152,9 @@
       "claim_id": "w2zAKvD_tGI-06",
       "timecode": "00:11",
       "watch_url": "https://www.youtube.com/watch?v=w2zAKvD_tGI&t=11s",
-      "source_paraphrase": "보험 수익률이 작으면 무조건 연금저축펀드로 이전해야 한다",
+      "source_paraphrase": "화자는 예시 보험상품 환급률을 낮게 평가해 계약이전을 적극 권유",
       "assessment": "QUALIFIED",
-      "independent_check": "개별 보험 공시이율·최저보증·비용·현금흐름·약정연금수령 옵션·시장손실 위험 비교 전 강제 결론 불가",
+      "independent_check": "화자는 '이전해야 한다'는 강한 의견을 밝혔지만 약정 공시이율/최저보증/종신수령조건·전환손실·보험비용/세무를 열람하지 않아 고객별 최선인지 판단 불가.",
       "official_sources": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
@@ -148,30 +163,44 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
-        "disposition": "개별 보험 공시이율·최저보증·비용·현금흐름·약정연금수령 옵션·시장손실 위험 비교 전 강제 결론 불가",
+        "disposition": "화자는 '이전해야 한다'는 강한 의견을 밝혔지만 약정 공시이율/최저보증/종신수령조건·전환손실·보험비용/세무를 열람하지 않아 고객별 최선인지 판단 불가.",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "recheck_original_paraphrase_20261014": "보험 수익률이 작으면 무조건 연금저축펀드로 이전해야 한다",
+      "recheck_original_classification_20261014": "QUALIFIED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-07",
       "timecode": "00:11",
       "watch_url": "https://www.youtube.com/watch?v=w2zAKvD_tGI&t=11s",
-      "source_paraphrase": "채권/MMF만 담으면 매년3% 수익이 확정돼 보험보다 반드시 좋다",
-      "assessment": "CONTRADICTED",
-      "independent_check": "MMF는 운용수익률 변동·비용·시장/신용위험; 채권펀드도 원금 보장 불가, 실제 보험 계약수익도 미확정",
+      "source_paraphrase": "화자는 채권/MMF 중심으로도 연3% 내는 게 어렵지 않아 이전이 낫다고 낙관적으로 조언",
+      "assessment": "QUALIFIED",
+      "independent_check": "원문은 '3% 맞추는 거 어렵지 않다'이지 '연3% 확정 지급' 약정이 아니다. 그러나 안정형 금융상품도 보장수익률 아니므로 전망 확실시를 경계.",
       "official_sources": [
         "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
-        "disposition": "MMF는 운용수익률 변동·비용·시장/신용위험; 채권펀드도 원금 보장 불가, 실제 보험 계약수익도 미확정",
+        "disposition": "원문은 '3% 맞추는 거 어렵지 않다'이지 '연3% 확정 지급' 약정이 아니다. 그러나 안정형 금융상품도 보장수익률 아니므로 전망 확실시를 경계.",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "recheck_original_paraphrase_20261014": "채권/MMF만 담으면 매년3% 수익이 확정돼 보험보다 반드시 좋다",
+      "recheck_original_classification_20261014": "CONTRADICTED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-08",
@@ -201,6 +230,7 @@
       "assessment": "QUALIFIED",
       "independent_check": "일반 연금저축/IRP 본인부담금 합산 입금한도/ISA 만기전환 등 예외 가능. 세액공제 대상액과 다름",
       "official_sources": [
+        "https://taxlaw.nts.go.kr/pd/USEPDA002P.do?ntstDcmId=010000000000152161",
         "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
       ],
       "verification_evidence": {
@@ -211,7 +241,14 @@
         "disposition": "일반 연금저축/IRP 본인부담금 합산 입금한도/ISA 만기전환 등 예외 가능. 세액공제 대상액과 다름",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://taxlaw.nts.go.kr/pd/USEPDA002P.do?ntstDcmId=010000000000152161",
+        "disposition": "일반 연금저축/IRP 본인부담금 합산 입금한도/ISA 만기전환 등 예외 가능. 세액공제 대상액과 다름",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-10",
@@ -221,6 +258,7 @@
       "assessment": "PRIMARY_CONFIRMED",
       "independent_check": "국세청 2026 안내에서 공제한도와 적용률15/12%(지방세 추가), 개인 소득세 기준 확인",
       "official_sources": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032953453",
         "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
       ],
       "verification_evidence": {
@@ -231,7 +269,14 @@
         "disposition": "국세청 2026 안내에서 공제한도와 적용률15/12%(지방세 추가), 개인 소득세 기준 확인",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032953453",
+        "disposition": "국세청 2026 안내에서 공제한도와 적용률15/12%(지방세 추가), 개인 소득세 기준 확인",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-11",
@@ -257,9 +302,9 @@
       "claim_id": "w2zAKvD_tGI-12",
       "timecode": "00:11",
       "watch_url": "https://www.youtube.com/watch?v=w2zAKvD_tGI&t=11s",
-      "source_paraphrase": "세액공제 안 받은 원금은 어떠한 인출도 즉시 완전 비과세",
+      "source_paraphrase": "화자는 세액공제 받지 않은 연금저축 원금분이 과세제외재원이며 이후 인출 시 유리하다고 설명",
       "assessment": "QUALIFIED",
-      "independent_check": "과세제외 원금분 범위와 인출순서/정산 및 증빙 조건에 한정. 계좌 전체와 수익까지 비과세 아님",
+      "independent_check": "세액공제 미적용 원금에 한해 증명/인출순서/과세구분 중요, 해당 계좌의 수익/이연퇴직소득까지 비과세라고 확대 금지.",
       "official_sources": [
         "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
       ],
@@ -268,10 +313,17 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
-        "disposition": "과세제외 원금분 범위와 인출순서/정산 및 증빙 조건에 한정. 계좌 전체와 수익까지 비과세 아님",
+        "disposition": "세액공제 미적용 원금에 한해 증명/인출순서/과세구분 중요, 해당 계좌의 수익/이연퇴직소득까지 비과세라고 확대 금지.",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "recheck_original_paraphrase_20261014": "세액공제 안 받은 원금은 어떠한 인출도 즉시 완전 비과세",
+      "recheck_original_classification_20261014": "QUALIFIED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-13",
@@ -297,9 +349,9 @@
       "claim_id": "w2zAKvD_tGI-14",
       "timecode": "00:11",
       "watch_url": "https://www.youtube.com/watch?v=w2zAKvD_tGI&t=11s",
-      "source_paraphrase": "연금저축에 추가납입하면 과거 16년 보험성과가 무조건 더 높은 수익으로 반전",
+      "source_paraphrase": "화자는 연금저축펀드로 옮겨 더 오래 추가납입하고 투자하면 장래 자산이 더 커질 수 있다고 조언",
       "assessment": "HYPOTHETICAL",
-      "independent_check": "미래 운용기간/적립액과 연금 투자수익은 불확실; 보험->펀드 변경 결과 미실증",
+      "independent_check": "연금계좌 장기납입은 제안이지 미래 우월성과/운용수익을 보장하지 않음. '과거 보험성과를 무조건 반전'은 실제 발언이 아님.",
       "official_sources": [
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
@@ -308,10 +360,17 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
-        "disposition": "미래 운용기간/적립액과 연금 투자수익은 불확실; 보험->펀드 변경 결과 미실증",
+        "disposition": "연금계좌 장기납입은 제안이지 미래 우월성과/운용수익을 보장하지 않음. '과거 보험성과를 무조건 반전'은 실제 발언이 아님.",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "recheck_original_paraphrase_20261014": "연금저축에 추가납입하면 과거 16년 보험성과가 무조건 더 높은 수익으로 반전",
+      "recheck_original_classification_20261014": "HYPOTHETICAL",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-15",
@@ -377,10 +436,11 @@
       "claim_id": "w2zAKvD_tGI-18",
       "timecode": "14:32",
       "watch_url": "https://www.youtube.com/watch?v=w2zAKvD_tGI&t=872s",
-      "source_paraphrase": "55세 은퇴자가 약7년 뒤 국민연금 정상 노령연금 수급 시작",
+      "source_paraphrase": "화자는 55세 은퇴 예정 사연자의 국민연금 수령까지 약7년 남았다고 추정",
       "assessment": "CONTRADICTED",
-      "independent_check": "2026년 55세는 대체로 1970~71년 출생: 국민연금 정상 수급개시 65세. 조기노령연금은 60세부터 감액·신청요건",
+      "independent_check": "2026년 55세는 1970~1971년 출생; 1969년 이후 정상 노령연금 65세, 현재 나이에서 약10년 후. 조기노령연금 60세부터 감액/소득요건. 공식 노령연금과 조기 구분 안 한 날짜 오류.",
       "official_sources": [
+        "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do",
         "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do?menuId=MN24001118"
       ],
       "verification_evidence": {
@@ -388,10 +448,24 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do?menuId=MN24001118",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
-        "disposition": "2026년 55세는 대체로 1970~71년 출생: 국민연금 정상 수급개시 65세. 조기노령연금은 60세부터 감액·신청요건",
+        "disposition": "2026년 55세는 1970~1971년 출생; 1969년 이후 정상 노령연금 65세, 현재 나이에서 약10년 후. 조기노령연금 60세부터 감액/소득요건. 공식 노령연금과 조기 구분 안 한 날짜 오류.",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "recheck_original_paraphrase_20261014": "55세 은퇴자가 약7년 뒤 국민연금 정상 노령연금 수급 시작",
+      "recheck_original_classification_20261014": "CONTRADICTED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do",
+        "disposition": "2026년 55세는 1970~1971년 출생; 1969년 이후 정상 노령연금 65세, 현재 나이에서 약10년 후. 조기노령연금 60세부터 감액/소득요건. 공식 노령연금과 조기 구분 안 한 날짜 오류.",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-19",
@@ -451,7 +525,14 @@
         "disposition": "산술 세전월환산으로만 확인, 실제 분배금·금액유지·투자손익 보장 아님",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "disposition": "산술 세전월환산으로만 확인, 실제 분배금·금액유지·투자손익 보장 아님",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-22",
@@ -461,6 +542,7 @@
       "assessment": "QUALIFIED",
       "independent_check": "조건에 따른 산술 합계, 국민연금 적격/시점·개인연금 자산/성과 미독립확인. 실지급 보장 아님",
       "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
         "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do?menuId=MN24001118"
       ],
       "verification_evidence": {
@@ -471,27 +553,48 @@
         "disposition": "조건에 따른 산술 합계, 국민연금 적격/시점·개인연금 자산/성과 미독립확인. 실지급 보장 아님",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "disposition": "조건에 따른 산술 합계, 국민연금 적격/시점·개인연금 자산/성과 미독립확인. 실지급 보장 아님",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-23",
       "timecode": "14:32",
       "watch_url": "https://www.youtube.com/watch?v=w2zAKvD_tGI&t=872s",
-      "source_paraphrase": "6% 월분배금을 받으면 원금은 계속 보전되고 무한히 인출 가능",
-      "assessment": "CONTRADICTED",
-      "independent_check": "운용사 분배는 수익+원금환원 혼재 가능; 가격변동·총수익이 인출액 미달 시 원금감소, 종신연금보장 아님",
+      "source_paraphrase": "화자는 10년 뒤 6% 월분배 전략으로 월 370만~420만원을 만들 수 있어 노후 걱정이 작다고 전망",
+      "assessment": "QUALIFIED",
+      "independent_check": "화자가 '원금은 영구히 보전된다'고 명시하지는 않음. 하지만 6% 인출률·연금 합산은 수익률·자산가격·변동성·장수위험·원금환원 위험을 전제하며 지속지급 보장 불가.",
       "official_sources": [
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
         "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
-        "disposition": "운용사 분배는 수익+원금환원 혼재 가능; 가격변동·총수익이 인출액 미달 시 원금감소, 종신연금보장 아님",
+        "disposition": "화자가 '원금은 영구히 보전된다'고 명시하지는 않음. 하지만 6% 인출률·연금 합산은 수익률·자산가격·변동성·장수위험·원금환원 위험을 전제하며 지속지급 보장 불가.",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "recheck_original_paraphrase_20261014": "6% 월분배금을 받으면 원금은 계속 보전되고 무한히 인출 가능",
+      "recheck_original_classification_20261014": "CONTRADICTED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "disposition": "화자가 '원금은 영구히 보전된다'고 명시하지는 않음. 하지만 6% 인출률·연금 합산은 수익률·자산가격·변동성·장수위험·원금환원 위험을 전제하며 지속지급 보장 불가.",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-24",
@@ -576,8 +679,8 @@
   ],
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 5,
-    "QUALIFIED": 14,
-    "CONTRADICTED": 4,
+    "QUALIFIED": 16,
+    "CONTRADICTED": 2,
     "HYPOTHETICAL": 4
   },
   "verification_status": "PROVISIONAL_EVIDENCE_REVIEW_NOT_APPROVED_ORIGINAL_SRT_CUE_VALIDATION_REQUIRED",
@@ -591,7 +694,8 @@
     "Public automatic text can contain recognition errors; exact line anchors only uploader chapter starts, not cue-level timings.",
     "Claim rows are educationally material theme/paraphrase candidates, not quote-exact 1:1 sentence alignment.",
     "Only independent original publisher/issuer/authority references establish their limited effective-scope rules; undocumented fund-specific prices, personal portfolio claims, performance remain provisional.",
-    "Actual soundtrack, video frames, monthly investor/insurance statements not retrieved; user raw SRT/ZIP not published."
+    "Actual soundtrack, video frames, monthly investor/insurance statements not retrieved; user raw SRT/ZIP not published.",
+    "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT."
   ],
   "relations": [
     {
@@ -599,5 +703,17 @@
       "related_video_id": "aeR4g4Mmy00",
       "theme": "Pension account tax and income durability"
     }
-  ]
+  ],
+  "recheck_20261014": {
+    "purpose": "REVIEW_EXISTING_146_PROVISIONAL_CLAIMS_BEFORE_NEW_VIDEOS",
+    "date": "2026-10-14",
+    "claims_indexed": 27,
+    "public_asr_source_attribution_rewrites": 7,
+    "official_source_recheck_claim_count": 7,
+    "private_registered_srt_cues_reopened": false,
+    "private_registered_srt_sha_rehashed": false,
+    "public_asr_exact_private_diff": "NOT_RUN",
+    "further_source_verification_required": true,
+    "no_v3_approval": true
+  }
 }
