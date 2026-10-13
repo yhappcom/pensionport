@@ -39,7 +39,8 @@
     "Public full independently fetched Korean auto transcript is machine-recognized and contains transcription errors/omissions; all anchors are uploader CHAPTER START approximate, not exact per sentence.",
     "2026-05 speaker forecasts were not converted into realized 2027 results or 2026-10 actual achievements.",
     "Sponsors book content, book's datasets, investment brokerage trade history and claimed personal track records not independently verified.",
-    "Actual audio, slides, investment charts, sound, independent original-vs-public full diff unchecked. No SRT/ZIP published."
+    "Actual audio, slides, investment charts, sound, independent original-vs-public full diff unchecked. No SRT/ZIP published.",
+    "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT."
   ],
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 7,
@@ -172,9 +173,9 @@
       "claim_id": "mRRev963GaA-07",
       "timecode": "00:09:50",
       "watch_url": "https://www.youtube.com/watch?v=mRRev963GaA&t=590s",
-      "source_paraphrase": "ChatGPT가 2024년 무렵 처음 등장해 현재의 AI가 시작됐다",
+      "source_paraphrase": "게스트가 ChatGPT가 2024년 무렵 처음 나왔다고 설명한 연도 오류",
       "assessment": "CONTRADICTED",
-      "independent_check": "ChatGPT 공개일은 OpenAI 공식 2022-11-30. 2024년을 최초 공개 연도로 취급하면 오류",
+      "independent_check": "2024년경 AI 파급 체감 서술과 별개로 ChatGPT 첫 공개는 2022-11-30(OpenAI 공식). '2024 등장' 정확 연도 오류로 정정.",
       "official_sources": [
         "https://openai.com/ko-KR/index/chatgpt/"
       ],
@@ -183,10 +184,24 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://openai.com/ko-KR/index/chatgpt/",
         "basis": "YouTube public Korean full auto transcript and video description chapter anchor; independently checked IFR / Hyundai / Waymo / OpenAI / SEC / Goldman Sachs official materials; registered private source NOT available",
-        "disposition": "ChatGPT 공개일은 OpenAI 공식 2022-11-30. 2024년을 최초 공개 연도로 취급하면 오류",
+        "disposition": "2024년경 AI 파급 체감 서술과 별개로 ChatGPT 첫 공개는 2022-11-30(OpenAI 공식). '2024 등장' 정확 연도 오류로 정정.",
         "effective_date_or_scope": "Video recorded 2026-05-12 published 2026-05-17. 2026 official plans vs 2027 forecasts; any post-release updates explicitly labelled."
       },
-      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE"
+      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE",
+      "recheck_original_paraphrase_20261014": "ChatGPT가 2024년 무렵 처음 등장해 현재의 AI가 시작됐다",
+      "recheck_original_classification_20261014": "CONTRADICTED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://openai.com/ko-KR/index/chatgpt/",
+        "disposition": "2024년경 AI 파급 체감 서술과 별개로 ChatGPT 첫 공개는 2022-11-30(OpenAI 공식). '2024 등장' 정확 연도 오류로 정정.",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "mRRev963GaA-08",
@@ -212,10 +227,11 @@
       "claim_id": "mRRev963GaA-09",
       "timecode": "00:09:50",
       "watch_url": "https://www.youtube.com/watch?v=mRRev963GaA&t=590s",
-      "source_paraphrase": "2027년이면 휴머노이드·자율주행·드론이 대규모 보편 상용화된다",
+      "source_paraphrase": "2027년 피지컬AI 대량상용화·로봇·자율주행·드론 산업 확산은 게스트의 시장 전망",
       "assessment": "HYPOTHETICAL",
-      "independent_check": "산업별·국가별 규제·안전인증·양산성숙도 다름. 현대차는 Atlas 공장 단계적 도입 2028 계획, Waymo는 2025 이전 상업 운행",
+      "independent_check": "현대차 CES 2026 원문은 Atlas 현장 배치 2028 계획·조립 2030 계획, Waymo는 2025년 이미 매주25만건 유료 완전자율주행 서비스 제공. 2027년 '처음' 상용화 또는 전영역 동시 보편화는 확인되지 않음.",
       "official_sources": [
+        "https://www.hyundai.com/content/hyundai/worldwide/en/newsroom/detail/hyundai-motor-group-announces-ai-robotics-strategy-to-lead-human-centered-robotics-era-at-ces-2026-0000001100.html",
         "https://www.hyundai.com/worldwide/en/newsroom/detail/0000001109"
       ],
       "verification_evidence": {
@@ -223,10 +239,24 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://www.hyundai.com/worldwide/en/newsroom/detail/0000001109",
         "basis": "YouTube public Korean full auto transcript and video description chapter anchor; independently checked IFR / Hyundai / Waymo / OpenAI / SEC / Goldman Sachs official materials; registered private source NOT available",
-        "disposition": "산업별·국가별 규제·안전인증·양산성숙도 다름. 현대차는 Atlas 공장 단계적 도입 2028 계획, Waymo는 2025 이전 상업 운행",
+        "disposition": "현대차 CES 2026 원문은 Atlas 현장 배치 2028 계획·조립 2030 계획, Waymo는 2025년 이미 매주25만건 유료 완전자율주행 서비스 제공. 2027년 '처음' 상용화 또는 전영역 동시 보편화는 확인되지 않음.",
         "effective_date_or_scope": "Video recorded 2026-05-12 published 2026-05-17. 2026 official plans vs 2027 forecasts; any post-release updates explicitly labelled."
       },
-      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE"
+      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE",
+      "recheck_original_paraphrase_20261014": "2027년이면 휴머노이드·자율주행·드론이 대규모 보편 상용화된다",
+      "recheck_original_classification_20261014": "HYPOTHETICAL",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://www.hyundai.com/content/hyundai/worldwide/en/newsroom/detail/hyundai-motor-group-announces-ai-robotics-strategy-to-lead-human-centered-robotics-era-at-ces-2026-0000001100.html",
+        "disposition": "현대차 CES 2026 원문은 Atlas 현장 배치 2028 계획·조립 2030 계획, Waymo는 2025년 이미 매주25만건 유료 완전자율주행 서비스 제공. 2027년 '처음' 상용화 또는 전영역 동시 보편화는 확인되지 않음.",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "mRRev963GaA-10",
@@ -252,9 +282,9 @@
       "claim_id": "mRRev963GaA-11",
       "timecode": "00:14:25",
       "watch_url": "https://www.youtube.com/watch?v=mRRev963GaA&t=865s",
-      "source_paraphrase": "한국 제조업 로봇 밀도는 세계 최고 수준",
+      "source_paraphrase": "한국은 제조업 종사자 1만명당 산업용 로봇 설치 밀도 1,220대로 세계 최고",
       "assessment": "PRIMARY_CONFIRMED",
-      "independent_check": "IFR 세계로봇 2025: 한국 산업용로봇 밀도 2024년 근로자 1만명당 1,220대로 글로벌 최고. 신형 휴머노이드 보유대수와는 다른 지표",
+      "independent_check": "IFR 2026-04 발표: 2024년 기준 한국 제조업 산업용로봇 1만명당1,220대. 휴머노이드 설치 밀도와 혼동 금지.",
       "official_sources": [
         "https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas"
       ],
@@ -263,10 +293,24 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas",
         "basis": "YouTube public Korean full auto transcript and video description chapter anchor; independently checked IFR / Hyundai / Waymo / OpenAI / SEC / Goldman Sachs official materials; registered private source NOT available",
-        "disposition": "IFR 세계로봇 2025: 한국 산업용로봇 밀도 2024년 근로자 1만명당 1,220대로 글로벌 최고. 신형 휴머노이드 보유대수와는 다른 지표",
+        "disposition": "IFR 2026-04 발표: 2024년 기준 한국 제조업 산업용로봇 1만명당1,220대. 휴머노이드 설치 밀도와 혼동 금지.",
         "effective_date_or_scope": "Video recorded 2026-05-12 published 2026-05-17. 2026 official plans vs 2027 forecasts; any post-release updates explicitly labelled."
       },
-      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE"
+      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE",
+      "recheck_original_paraphrase_20261014": "한국 제조업 로봇 밀도는 세계 최고 수준",
+      "recheck_original_classification_20261014": "PRIMARY_CONFIRMED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas",
+        "disposition": "IFR 2026-04 발표: 2024년 기준 한국 제조업 산업용로봇 1만명당1,220대. 휴머노이드 설치 밀도와 혼동 금지.",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "mRRev963GaA-12",
@@ -296,6 +340,7 @@
       "assessment": "PRIMARY_CONFIRMED",
       "independent_check": "현대차 2026 CES 공식 사업전략 및 Atlas 프로토타입·제품모델 제시, 생산라인 확대 계획 확인",
       "official_sources": [
+        "https://www.hyundai.com/content/hyundai/worldwide/en/newsroom/detail/hyundai-motor-group-announces-ai-robotics-strategy-to-lead-human-centered-robotics-era-at-ces-2026-0000001100.html",
         "https://www.hyundai.com/worldwide/en/brand-journal/mobility-solution/ces-2026-robotics-mediaday"
       ],
       "verification_evidence": {
@@ -306,16 +351,24 @@
         "disposition": "현대차 2026 CES 공식 사업전략 및 Atlas 프로토타입·제품모델 제시, 생산라인 확대 계획 확인",
         "effective_date_or_scope": "Video recorded 2026-05-12 published 2026-05-17. 2026 official plans vs 2027 forecasts; any post-release updates explicitly labelled."
       },
-      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE"
+      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE",
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://www.hyundai.com/content/hyundai/worldwide/en/newsroom/detail/hyundai-motor-group-announces-ai-robotics-strategy-to-lead-human-centered-robotics-era-at-ces-2026-0000001100.html",
+        "disposition": "현대차 2026 CES 공식 사업전략 및 Atlas 프로토타입·제품모델 제시, 생산라인 확대 계획 확인",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "mRRev963GaA-14",
       "timecode": "00:14:25",
       "watch_url": "https://www.youtube.com/watch?v=mRRev963GaA&t=865s",
-      "source_paraphrase": "현대차 아틀라스가 2027년 피지컬AI 상용화 전망의 대표 사례로 제시된다",
+      "source_paraphrase": "게스트는 현대차 Atlas 사례로 2027년 피지컬AI 상용화 방향을 설명",
       "assessment": "QUALIFIED",
-      "independent_check": "현대차 공식은 HMGMA 2028부터 부품 시퀀싱, 2030 조립 확대 '계획'. 2027 상용배치 확정으로 해석 불가",
+      "independent_check": "2026년 현대차 공식 계획은 Atlas HMGMA 2028 sequencing 첫 투입, 2030 조립 확대. 계획값이며 실현 검증 아님.",
       "official_sources": [
+        "https://www.hyundai.com/content/hyundai/worldwide/en/newsroom/detail/hyundai-motor-group-announces-ai-robotics-strategy-to-lead-human-centered-robotics-era-at-ces-2026-0000001100.html",
         "https://www.hyundai.com/worldwide/en/newsroom/detail/0000001109"
       ],
       "verification_evidence": {
@@ -323,10 +376,24 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://www.hyundai.com/worldwide/en/newsroom/detail/0000001109",
         "basis": "YouTube public Korean full auto transcript and video description chapter anchor; independently checked IFR / Hyundai / Waymo / OpenAI / SEC / Goldman Sachs official materials; registered private source NOT available",
-        "disposition": "현대차 공식은 HMGMA 2028부터 부품 시퀀싱, 2030 조립 확대 '계획'. 2027 상용배치 확정으로 해석 불가",
+        "disposition": "2026년 현대차 공식 계획은 Atlas HMGMA 2028 sequencing 첫 투입, 2030 조립 확대. 계획값이며 실현 검증 아님.",
         "effective_date_or_scope": "Video recorded 2026-05-12 published 2026-05-17. 2026 official plans vs 2027 forecasts; any post-release updates explicitly labelled."
       },
-      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE"
+      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE",
+      "recheck_original_paraphrase_20261014": "현대차 아틀라스가 2027년 피지컬AI 상용화 전망의 대표 사례로 제시된다",
+      "recheck_original_classification_20261014": "QUALIFIED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://www.hyundai.com/content/hyundai/worldwide/en/newsroom/detail/hyundai-motor-group-announces-ai-robotics-strategy-to-lead-human-centered-robotics-era-at-ces-2026-0000001100.html",
+        "disposition": "2026년 현대차 공식 계획은 Atlas HMGMA 2028 sequencing 첫 투입, 2030 조립 확대. 계획값이며 실현 검증 아님.",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "mRRev963GaA-15",
@@ -352,10 +419,11 @@
       "claim_id": "mRRev963GaA-16",
       "timecode": "00:19:45",
       "watch_url": "https://www.youtube.com/watch?v=mRRev963GaA&t=1185s",
-      "source_paraphrase": "2027년 자율주행 서비스의 보편화가 더 확대될 것이라는 전망",
+      "source_paraphrase": "2027년 자율주행 서비스의 추가 지역 확산 전망",
       "assessment": "QUALIFIED",
-      "independent_check": "상업 운행은 이미 2025년 이전 Waymo에서 시작. 2027 전국적 확장·한국 시장 적용은 국가별 법/서비스 범위 전망으로만",
+      "independent_check": "Waymo 2025-05-05 이미 매주 유료승차25만건, 2026-02-02 40만건 이상 공식 발표. 향후 확산은 가정이지 신규 탄생은 아님.",
       "official_sources": [
+        "https://waymo.com/blog/2025/05/scaling-our-fleet-through-us-manufacturing/",
         "https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/"
       ],
       "verification_evidence": {
@@ -363,10 +431,24 @@
         "checked_at": "2026-10-14",
         "primary_url": "https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/",
         "basis": "YouTube public Korean full auto transcript and video description chapter anchor; independently checked IFR / Hyundai / Waymo / OpenAI / SEC / Goldman Sachs official materials; registered private source NOT available",
-        "disposition": "Waymo가 2025년 이미 주당25만 건 유료승차, 2026-02에 주당40만 건 제공 공시. 2027 신규 시장확대 전망과 최초 실용화 구분",
+        "disposition": "Waymo 2025-05-05 이미 매주 유료승차25만건, 2026-02-02 40만건 이상 공식 발표. 향후 확산은 가정이지 신규 탄생은 아님.",
         "effective_date_or_scope": "Video recorded 2026-05-12 published 2026-05-17. 2026 official plans vs 2027 forecasts; any post-release updates explicitly labelled."
       },
-      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE"
+      "timecode_precision": "PUBLIC_UPLOADER_CHAPTER_START_ONLY_NOT_EXACT_CUE",
+      "recheck_original_paraphrase_20261014": "2027년 자율주행 서비스의 보편화가 더 확대될 것이라는 전망",
+      "recheck_original_classification_20261014": "QUALIFIED",
+      "attribution_audit_20261014": {
+        "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
+        "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
+        "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "AUTHORITY_OR_ISSUER_DOCUMENT_CHECKED_SCOPE_LIMITED",
+        "date": "2026-10-14",
+        "official_url": "https://waymo.com/blog/2025/05/scaling-our-fleet-through-us-manufacturing/",
+        "disposition": "Waymo 2025-05-05 이미 매주 유료승차25만건, 2026-02-02 40만건 이상 공식 발표. 향후 확산은 가정이지 신규 탄생은 아님.",
+        "note": "Checked the indicated portion of the authority/issuer material or recalculated formula; does NOT assert exact user SRT attribution"
+      }
     },
     {
       "claim_id": "mRRev963GaA-17",
@@ -727,5 +809,17 @@
     }
   ],
   "verification_status": "PROVISIONAL_PUBLIC_ASR_OFFICIAL_CHECK_PRIVATE_2063_CUE_ORIGINAL_PENDING",
-  "review_method_note": "Non-literal chapter-bucket timecodes and private SRT unavailable. Five thematic descriptions intentionally paraphrase speech, not quotes. Post-May public source updates separated."
+  "review_method_note": "Non-literal chapter-bucket timecodes and private SRT unavailable. Five thematic descriptions intentionally paraphrase speech, not quotes. Post-May public source updates separated.",
+  "recheck_20261014": {
+    "purpose": "REVIEW_EXISTING_146_PROVISIONAL_CLAIMS_BEFORE_NEW_VIDEOS",
+    "date": "2026-10-14",
+    "claims_indexed": 33,
+    "public_asr_source_attribution_rewrites": 5,
+    "official_source_recheck_claim_count": 6,
+    "private_registered_srt_cues_reopened": false,
+    "private_registered_srt_sha_rehashed": false,
+    "public_asr_exact_private_diff": "NOT_RUN",
+    "further_source_verification_required": true,
+    "no_v3_approval": true
+  }
 }
