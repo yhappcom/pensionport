@@ -331,10 +331,32 @@
     "original_end_seconds": 20664.886,
     "timestamps_approximate": true,
     "precise_timing_verified": false,
-    "public_asr_reconciliation": "ORIGINAL_10728_PUBLIC_10726_OMISSIONS_NOT_LOCATED",
+    "public_asr_reconciliation": "FULL_TEXT_EXACT_MATCH_AFTER_REMOVING_TWO_REPEATED_ADJACENT_CUES_FNV64_5CA43F38D2A7DFA8",
     "audio_checked": false,
     "frames_checked": false,
-    "limitations": "5h44m compilation of six earlier subscriber interviews. All 10728 SRT cues parsed and source text indexed, chapter boundaries and key passage excerpts inspected. This is a selective 14-claim cross-chapter EDUCATIONAL audit, not complete certification of each statement/transaction in 5h44 footage. Full-source machine parse is NOT claim that every utterance of a 5h44 interview has independent primary verification."
+    "limitations": "5h44m compilation of six earlier subscriber interviews. All 10728 SRT cues parsed and source text indexed, chapter boundaries and key passage excerpts inspected. This is a selective 14-claim cross-chapter EDUCATIONAL audit, not complete certification of each statement/transaction in 5h44 footage. Full-source machine parse is NOT claim that every utterance of a 5h44 interview has independent primary verification.",
+    "public_asr_alignment_20261013": {
+      "source_original_cues": 10728,
+      "public_lines": 10726,
+      "exact_normalized_public_after_two_duplicates": true,
+      "unicode_characters": 194216,
+      "fnv1a64_utf16le": "5ca43f38d2a7dfa8",
+      "removed_second_of_duplicate_pairs": [
+        {
+          "cue": 3399,
+          "time": "01:47:20.599",
+          "text": ">> 한 달에 주말 한 번",
+          "paired_original_cue": 3398
+        },
+        {
+          "cue": 7537,
+          "time": "04:00:58.800",
+          "text": ">> 맨날 들어가서 봐요.",
+          "paired_original_cue": 7536
+        }
+      ],
+      "audio_independently_checked": false
+    }
   },
   "verification_status": "SOURCE_FULL_10728_CUES_PARSED_AND_14_MATERIAL_CLAIMS_TRIAGED_WITH_SELECTIVE_HISTORICAL_SCOPE",
   "relations": [
@@ -348,5 +370,12 @@
       "related_video_id": "aNfGrcO6WPI",
       "theme": "개별 집중주식 사연을 보편적 매도/유지 규칙으로 바꾸지 않기"
     }
-  ]
+  ],
+  "review_supplement_20261013": {
+    "closeout_source": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "source_verified_at": "2026-10-13",
+    "actual_audio_checked": false,
+    "actual_frames_checked": false,
+    "educational_record_approval_unchanged": true
+  }
 }
