@@ -135,6 +135,16 @@
       "krw_approx": 10185,
       "source": "https://kr.investing.com/etfs/0117l0-seoul-historical-data",
       "status": "INDEPENDENT_MARKET_QUOTE_NON_LIVE_PRIMARY_ISSUER_PRICE_NOT_CACHED"
+    },
+    {
+      "claim": "Historical exact single-share affordability 0117L0",
+      "as_of": "2026-10-12",
+      "close_krw": 10185,
+      "nominal_wallet_krw": 10000,
+      "one_share_exchange_lot": true,
+      "status": "DATE_SPECIFIC_EXACT_KRW10000_CANNOT_BUY_ONE_SHARE",
+      "primary_trading_rule": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+      "historical_quote": "https://kr.investing.com/etfs/0117l0-seoul-historical-data"
     }
   ],
   "relations": [
@@ -149,7 +159,7 @@
       "theme": "채권 ETF 유형과 신용·금리·원금손실 위험"
     }
   ],
-  "verification_status": "EDUCATIONAL_7_CLAIMS_TRIAGED_BUT_SOURCE_AUDIO_SCREEN_UNCHECKED",
+  "verification_status": "EDUCATIONAL_7_CLAIMS_TRIAGED_BUT_SOURCE_AUDIO_SCREEN_UNCHECKED__20261012_1SHARE_PRICE_GT_10000_VERIFIED",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -172,6 +182,14 @@
     "매수 직전 1만원만 가진 경우 주가 1만원 초과면 한 주 구매 불가.",
     "상장가와 만기 종료 정산가·채권 신용사건·운용보수·거래비용 차이.",
     "명목 YTM은 수익 보장/정확한 세후 실현수익률이 아니다.",
-    "APPROVED is an evidence-scoped educational audit, not purchase/order or guaranteed tax refund/ETF redemption proceeds."
-  ]
+    "APPROVED is an evidence-scoped educational audit, not purchase/order or guaranteed tax refund/ETF redemption proceeds.",
+    "2026-10-12 historic close 10185 KRW 0117L0 vs 10000 cash means exactly 1 lot cannot be purchased at that price. Quotes/charges on future trading days vary."
+  ],
+  "review_supplement_20261013": {
+    "closeout_source": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "source_verified_at": "2026-10-13",
+    "actual_audio_checked": false,
+    "actual_frames_checked": false,
+    "educational_record_approval_unchanged": true
+  }
 }
