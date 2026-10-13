@@ -4,11 +4,11 @@
   "scope": "Registered 70 user-supplied Korean SRTs inside original 791-video roster",
   "roster_count": 791,
   "source_srt_registered_unique_count": 70,
-  "existing_pilot_draft_count": 52,
-  "existing_pilot_claims_count": 555,
+  "existing_pilot_draft_count": 53,
+  "existing_pilot_claims_count": 590,
   "source_transcript_verified_sha_match_count": 70,
   "focused_first_10_analysis_complete": 10,
-  "verified_v3_educational_analysis_count": 52,
+  "verified_v3_educational_analysis_count": 53,
   "new_in_this_extension": [
     {
       "video_id": "LVE7XN_esTc",
@@ -54,16 +54,10 @@
   ],
   "existing_pilot_drafts_pending_full_claim_evidence_count": 0,
   "existing_pilot_drafts_pending_ids": [],
-  "srt_source_with_no_pilot_yet_estimate": 18,
-  "srt_source_not_yet_deep_reviewed_count": 18,
+  "srt_source_with_no_pilot_yet_estimate": 17,
+  "srt_source_not_yet_deep_reviewed_count": 17,
   "rest_of_roster_without_this_70_user_source_count": 721,
   "next_priorities": [
-    {
-      "video_id": "SBzSmA_vvPE",
-      "roster_no": 40,
-      "reason": "원본 505큐",
-      "ready_source": true
-    },
     {
       "video_id": "jdg_4nQUCVU",
       "roster_no": 41,
@@ -80,8 +74,8 @@
   "policy": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
   "optional_followups": "data/subtitles/optional_verification_register_20261012.json",
   "current_queue": "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md",
-  "knowledge_update": "knowledge/PENSION_SAVINGS_FSC_2025_VIDEO39_VERIFIED_20261013.md",
-  "counting_note": "52 distinct registered private original SRT videos with claim-scoped V3 educational analysis; 555 material claim records. #39 UqF7q4yIODM adds 44 claims based on 1473 registered cues and 2026-06-18 official pension savings 2025 report; original audio, frames, original 2026H1 trend and complete public ASR comparison not verified.",
+  "knowledge_update": "knowledge/FIVE_STOCK_INVESTING_PRINCIPLES_VIDEO40_VERIFIED_20261013.md",
+  "counting_note": "53 distinct registered private original SRT videos with scoped V3 educational analyses; 590 material claim records. Latest #40 SBzSmA_vvPE contributes 35 claims on 505 original SRT cues and 40685 bytes; audio, original video slides and independent public ASR comparison not verified.",
   "branch": "feat/subtitles-incremental-registry-20261009",
   "default_branch_touched": false,
   "new_in_next_five": [
@@ -510,7 +504,8 @@
     "lWWz4i7vIX4",
     "YYZyCr7uapw",
     "CPKP1iu1ZMI",
-    "UqF7q4yIODM"
+    "UqF7q4yIODM",
+    "SBzSmA_vvPE"
   ],
   "new_in_oct13_short_batch": [
     {
@@ -549,7 +544,7 @@
   ],
   "optional_verification_operating_decision": "CLOSED_WITH_OPEN_EVIDENCE: optional audio/video/tax contract/backtest evidence does not block unrelated educational analysis; do not promote unsupported factual tax rate or original return statistics.",
   "optional_verification_closeout": "docs/SELECTIVE_VERIFICATION_CLOSEOUT_20261013.md",
-  "all_45_educational_review_ids_note": "Historical field name retained for CI compatibility. Contains 52 unique fully scoped educational review video IDs, NOT only 45.",
+  "all_45_educational_review_ids_note": "Historical list key name retained for existing GitHub CI compatibility; now 53 distinct educational review IDs.",
   "new_in_oct13_followup_batch": [
     {
       "video_id": "lWWz4i7vIX4",
@@ -622,7 +617,27 @@
       "frames_verified": false,
       "public_asr_full_diff_verified": false,
       "source_srt_hash_match": true
+    },
+    {
+      "video_id": "SBzSmA_vvPE",
+      "roster_no": 40,
+      "source_provenance": "PRIVATE_REGISTERED_SRT_SHA256_MATCHED",
+      "original_cue_count": 505,
+      "original_raw_bytes": 40685,
+      "financial_claims_audited": 35,
+      "claim_assessments": {
+        "PRIMARY_CONFIRMED": 6,
+        "QUALIFIED": 18,
+        "CONTRADICTED": 7,
+        "HYPOTHETICAL": 4
+      },
+      "analysis_path": "data/analysis_events/SBzSmA_vvPE.json",
+      "research_kind": "FIVE_STOCK_INVESTING_RULES_DCA_TAX_ACCOUNT_PRIORITY_PER_PRICE_AGE25_VS_30Y_COMPOUNDING_CHECK",
+      "audio_verified": false,
+      "frames_verified": false,
+      "public_asr_full_diff_verified": false,
+      "source_srt_hash_match": true
     }
   ],
-  "last_review_note": "2026-10-13: baseline was 48/70, 432 claims and 37 optional followups (14 resolved, 23 open). #35 lWWz4i7vIX4 1,279 original SRT cues independently hash-matched; 19 case-study statements triaged; new education-only tally 49/70 and 451 claims. Supplemental optional followup count may increase if new distinct holder facts are registered. main untouched.\n2026-10-13 original #37: 1219 registered SRT cues / 95579 bytes / SHA fb5f49ce... matched; 32 material assertions independently triaged (7 confirmed, 16 qualified, 6 contradicted, 3 hypothetical). New total 50/70, 483 audited claims, 20 original sources remaining. Original audio, frames and complete public ASR not checked. No added optional followup for unsupported tangential advertising stats.\n2026-10-13 #38 pension withdrawal Q&A: 557 private registered SRT cues/42692 bytes SHA matched; 28 claims triaged (4 confirmed 15 qualified 6 contradicted 3 hypothetical), report and canonical committed. 51/70 and 511 total claims, 19 remaining. 4% forever false, 8-10% covered-call distribution is not safe total return; ASR 130/1030 and raw audio remain unverified. Prior optional followups 14 resolved/24 open unchanged.\n2026-10-13 #39: 1,473 original registered SRT cues /111,398 bytes SHA matched; 44 claims triaged 13 primary, 18 qualified, 10 contradicted, 3 hypothetical. The 5yr ~30% cumulative growth misused with 72 rule 2.4yr corrected to ~13.06yr doubling. Total now 52/70 and 555 claims with 18 source-first video reviews remaining. Optional 14 resolved /24 open unchanged."
+  "last_review_note": "2026-10-13: baseline was 48/70, 432 claims and 37 optional followups (14 resolved, 23 open). #35 lWWz4i7vIX4 1,279 original SRT cues independently hash-matched; 19 case-study statements triaged; new education-only tally 49/70 and 451 claims. Supplemental optional followup count may increase if new distinct holder facts are registered. main untouched.\n2026-10-13 original #37: 1219 registered SRT cues / 95579 bytes / SHA fb5f49ce... matched; 32 material assertions independently triaged (7 confirmed, 16 qualified, 6 contradicted, 3 hypothetical). New total 50/70, 483 audited claims, 20 original sources remaining. Original audio, frames and complete public ASR not checked. No added optional followup for unsupported tangential advertising stats.\n2026-10-13 #38 pension withdrawal Q&A: 557 private registered SRT cues/42692 bytes SHA matched; 28 claims triaged (4 confirmed 15 qualified 6 contradicted 3 hypothetical), report and canonical committed. 51/70 and 511 total claims, 19 remaining. 4% forever false, 8-10% covered-call distribution is not safe total return; ASR 130/1030 and raw audio remain unverified. Prior optional followups 14 resolved/24 open unchanged.\n2026-10-13 #39: 1,473 original registered SRT cues /111,398 bytes SHA matched; 44 claims triaged 13 primary, 18 qualified, 10 contradicted, 3 hypothetical. The 5yr ~30% cumulative growth misused with 72 rule 2.4yr corrected to ~13.06yr doubling. Total now 52/70 and 555 claims with 18 source-first video reviews remaining. Optional 14 resolved /24 open unchanged.\n2026-10-13 #40 SBzSmA_vvPE: exact SHA 607682c3fd... matched private registered 505 cues/40685 bytes. Five investing rules triaged 35 claims: 6 confirmed,18 qualified,7 contradicted,4 hypothetical. Age30-55=25yr vs 30yr illustration, nominal7% assumed due ASR omission; 25yr 50만원=405035847 vs 30yr609985498. 53/70 and 590 claims; remaining source-first videos 17. Existing 38 optional verification items unchanged (14 RESOLVED,24 OPEN)."
 }
