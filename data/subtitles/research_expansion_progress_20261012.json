@@ -4,11 +4,11 @@
   "scope": "Registered 70 user-supplied Korean SRTs inside original 791-video roster",
   "roster_count": 791,
   "source_srt_registered_unique_count": 70,
-  "existing_pilot_draft_count": 61,
-  "existing_pilot_claims_count": 772,
+  "existing_pilot_draft_count": 63,
+  "existing_pilot_claims_count": 841,
   "source_transcript_verified_sha_match_count": 70,
   "focused_first_10_analysis_complete": 10,
-  "verified_v3_educational_analysis_count": 61,
+  "verified_v3_educational_analysis_count": 63,
   "new_in_this_extension": [
     {
       "video_id": "LVE7XN_esTc",
@@ -54,46 +54,46 @@
   ],
   "existing_pilot_drafts_pending_full_claim_evidence_count": 0,
   "existing_pilot_drafts_pending_ids": [],
-  "srt_source_with_no_pilot_yet_estimate": 9,
-  "srt_source_not_yet_deep_reviewed_count": 9,
+  "srt_source_with_no_pilot_yet_estimate": 7,
+  "srt_source_not_yet_deep_reviewed_count": 7,
   "rest_of_roster_without_this_70_user_source_count": 721,
   "next_priorities": [
     {
-      "video_id": "1ZQihHS0hbI",
-      "roster_no": 56,
-      "reason": "미분석 원본 644큐",
-      "ready_source": true
-    },
-    {
-      "video_id": "50TTEtmcyw4",
-      "roster_no": 57,
-      "reason": "미분석 원본 2058큐",
-      "ready_source": true
-    },
-    {
       "video_id": "5NvtBlmt93Y",
       "roster_no": 59,
-      "reason": "미분석 원본 1481큐",
+      "reason": "미검토 원본 1481큐",
       "ready_source": true
     },
     {
       "video_id": "w1ZgJwm-_KU",
       "roster_no": 62,
-      "reason": "미분석 원본 1026큐",
+      "reason": "미검토 원본 1026큐",
       "ready_source": true
     },
     {
       "video_id": "aUW6waebLl8",
       "roster_no": 64,
-      "reason": "미분석 원본 1428큐",
+      "reason": "미검토 원본 1428큐",
+      "ready_source": true
+    },
+    {
+      "video_id": "NOl9u50dgao",
+      "roster_no": 65,
+      "reason": "미검토 원본 1338큐",
+      "ready_source": true
+    },
+    {
+      "video_id": "CS00QYw7YbI",
+      "roster_no": 67,
+      "reason": "미검토 원본 1268큐",
       "ready_source": true
     }
   ],
   "policy": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
   "optional_followups": "data/subtitles/optional_verification_register_20261012.json",
   "current_queue": "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md",
-  "knowledge_update": "knowledge/FREELANCER_NPS_IRP_PENSION_DIVIDEND_VIDEO55_20261013.md",
-  "counting_note": "61 unique registered private original SRT sources reviewed with claim-scoped canonical V3 educational analysis and 772 material claim records. Latest #54 637 cues/30 claims and #55 39 cues/13 claims. Both SHA/bytes match original private ZIP vs registry; original audio, slides and independent public ASR full transcript comparison unverified. 9 source-first videos remain.",
+  "knowledge_update": "knowledge/LONGEVITY_141_131_PENSION_BERNSTEIN_RISK_VIDEO57_VERIFIED_20261013.md",
+  "counting_note": "63 distinct user private registered SRT source videos analyzed at claim-scoped V3 level: 841 material claims. Latest #56 644 cues and 29 claims, #57 2058 cues and 40 claims. All source bytes and exact SHA256 reconcile; 7 unreviewed sources. Original audio, frames and full independent public ASR caption diff not performed.",
   "branch": "feat/subtitles-incremental-registry-20261009",
   "default_branch_touched": false,
   "new_in_next_five": [
@@ -531,7 +531,9 @@
     "_VsEUYiUc_A",
     "FPA12oQeQbc",
     "F7RH9D0CC74",
-    "HqLTZzXirkQ"
+    "HqLTZzXirkQ",
+    "1ZQihHS0hbI",
+    "50TTEtmcyw4"
   ],
   "new_in_oct13_short_batch": [
     {
@@ -570,7 +572,7 @@
   ],
   "optional_verification_operating_decision": "CLOSED_WITH_OPEN_EVIDENCE: optional audio/video/tax contract/backtest evidence does not block unrelated educational analysis; do not promote unsupported factual tax rate or original return statistics.",
   "optional_verification_closeout": "docs/SELECTIVE_VERIFICATION_CLOSEOUT_20261013.md",
-  "all_45_educational_review_ids_note": "Legacy key retained for GitHub CI compatibility; now 61 unique source-first reviewed video IDs as of 2026-10-13.",
+  "all_45_educational_review_ids_note": "Legacy key retained for pre-existing CI; now contains 63 distinct claim-evidence triaged video ids, as of 2026-10-13.",
   "new_in_oct13_followup_batch": [
     {
       "video_id": "lWWz4i7vIX4",
@@ -823,11 +825,52 @@
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": false
+    },
+    {
+      "video_id": "1ZQihHS0hbI",
+      "roster_no": 56,
+      "original_cue_count": 644,
+      "original_raw_bytes": 51668,
+      "financial_claims_audited": 29,
+      "claim_assessments": {
+        "PRIMARY_CONFIRMED": 4,
+        "QUALIFIED": 16,
+        "CONTRADICTED": 7,
+        "HYPOTHETICAL": 2
+      },
+      "research_kind": "BEGINNER_INVESTING_YOUTH_FUTURE_SAVINGS_ISA_TSLA_OPTION_DAILY_LEVERAGE_AND_MINOR_ELIGIBILITY",
+      "source_provenance": "PRIVATE_REGISTERED_SRT_SHA256_MATCHED",
+      "analysis_path": "data/analysis_events/1ZQihHS0hbI.json",
+      "source_srt_hash_match": true,
+      "audio_verified": false,
+      "frames_verified": false,
+      "public_asr_full_diff_verified": false
+    },
+    {
+      "video_id": "50TTEtmcyw4",
+      "roster_no": 57,
+      "original_cue_count": 2058,
+      "original_raw_bytes": 161505,
+      "financial_claims_audited": 40,
+      "claim_assessments": {
+        "PRIMARY_CONFIRMED": 7,
+        "QUALIFIED": 17,
+        "CONTRADICTED": 9,
+        "HYPOTHETICAL": 7
+      },
+      "research_kind": "72MIN_RETIREMENT_2023_MCCARTHY_141_131_EXTREME_LIFESPAN_10PCT_COMPOUND_PER_REVERSE_AND_ISSUER_RISK",
+      "source_provenance": "PRIVATE_REGISTERED_SRT_SHA256_MATCHED",
+      "analysis_path": "data/analysis_events/50TTEtmcyw4.json",
+      "source_srt_hash_match": true,
+      "audio_verified": false,
+      "frames_verified": false,
+      "public_asr_full_diff_verified": false
     }
   ],
-  "last_review_note": "2026-10-13: baseline was 48/70, 432 claims and 37 optional followups (14 resolved, 23 open). #35 lWWz4i7vIX4 1,279 original SRT cues independently hash-matched; 19 case-study statements triaged; new education-only tally 49/70 and 451 claims. Supplemental optional followup count may increase if new distinct holder facts are registered. main untouched.\n2026-10-13 original #37: 1219 registered SRT cues / 95579 bytes / SHA fb5f49ce... matched; 32 material assertions independently triaged (7 confirmed, 16 qualified, 6 contradicted, 3 hypothetical). New total 50/70, 483 audited claims, 20 original sources remaining. Original audio, frames and complete public ASR not checked. No added optional followup for unsupported tangential advertising stats.\n2026-10-13 #38 pension withdrawal Q&A: 557 private registered SRT cues/42692 bytes SHA matched; 28 claims triaged (4 confirmed 15 qualified 6 contradicted 3 hypothetical), report and canonical committed. 51/70 and 511 total claims, 19 remaining. 4% forever false, 8-10% covered-call distribution is not safe total return; ASR 130/1030 and raw audio remain unverified. Prior optional followups 14 resolved/24 open unchanged.\n2026-10-13 #39: 1,473 original registered SRT cues /111,398 bytes SHA matched; 44 claims triaged 13 primary, 18 qualified, 10 contradicted, 3 hypothetical. The 5yr ~30% cumulative growth misused with 72 rule 2.4yr corrected to ~13.06yr doubling. Total now 52/70 and 555 claims with 18 source-first video reviews remaining. Optional 14 resolved /24 open unchanged.\n2026-10-13 #40 SBzSmA_vvPE: exact SHA 607682c3fd... matched private registered 505 cues/40685 bytes. Five investing rules triaged 35 claims: 6 confirmed,18 qualified,7 contradicted,4 hypothetical. Age30-55=25yr vs 30yr illustration, nominal7% assumed due ASR omission; 25yr 50만원=405035847 vs 30yr609985498. 53/70 and 590 claims; remaining source-first videos 17. Existing 38 optional verification items unchanged (14 RESOLVED,24 OPEN).\n2026-10-13 two-video batch #41 jdg_4nQUCVU 944 registered SRT cues, 35 scoped claims (14 confirmed,12 qualified,7 contradicted,2 hypothetical) plus #43 sTKJve59KGQ 684 cues, 32 claims (7 confirmed,16 qualified,8 contradicted,1 hypothetical). Exact ZIP/registry hashes matched. Mathematical checks: 8.1665% vs 9.0794% geometric fair coin model, 55-65 retirement compounding model and 2026 Jul domestic government bonds <5% in dated market sample. New cumulative 55/70 and 657 claims. Existing optional 38 issues unchanged 14 resolved/24 open. Original audio/frames/public full ASR not audited.\n2026-10-13 #49/#50 two-short batch: full 34 and 24 original SRT cues reviewed and byte SHA matched. #49 13 claims (3 primary,7 qualified,2 contradicted,1 hypothetical), #50 10 claims (3 primary,5 qualified,1 contradicted,1 hypothetical). Tax credit value vs tax deduction limits, Korean KRX ETF capital gains exception, IRP statutory early withdrawal exceptions, annual rebalancing versus threshold methods. Cumulative 57/70 and 680 material claims; remaining 13. Existing optional review 38 issues 14 resolved/24 open unchanged.\n2026-10-13 #52 _VsEUYiUc_A 28 original SRT cues 2203 bytes 12 important claims (3 confirmed 8 qualified 0 contradicted 1 hypothetical); #53 FPA12oQeQbc 336 original cues 26788 bytes 37 claims (8 confirmed 21 qualified 6 contradicted 2 hypothetical). ISA two spouses across four contribution tax years 160m possible vs three distinct years 120m; 2020 USDKRW pandemic peak 1296 not 1400; Invesco UUP six currencies not directly USDKRW, USD RP/issuer note are not deposit protected. Source audio/frames/public ASR untested. Now 59/70 and 729 claims, 11 remaining. Optional evidence register unchanged 38 total 14 resolved/24 open.\n2026-10-13 two-video batch #54 F7RH9D0CC74 637 source cues 51,074 bytes 30 claims (3 confirmed/17 qualified/7 contradicted/3 hypothetical); #55 HqLTZzXirkQ 39 cues 3,080 bytes 13 claims (6 confirmed/4 qualified/3 contradicted). Corrected 2만원24개월 universal housing priority and retrospective lump funding, 300m×4.5% monthly112.5만원 plus combined 2000만원 annual taxable finance threshold, ordinary versus individual government bonds, large capital not market-volatility cure; freelance 2026 NPS9.5%, worker legal classification, ordinary pension 55+5yr/limit, monthly dividends non-guarantee. Total 61/70, 772 claims, 9 unreviewed. 38 optional followups 14 resolved/24 open unchanged.",
+  "last_review_note": "2026-10-13: baseline was 48/70, 432 claims and 37 optional followups (14 resolved, 23 open). #35 lWWz4i7vIX4 1,279 original SRT cues independently hash-matched; 19 case-study statements triaged; new education-only tally 49/70 and 451 claims. Supplemental optional followup count may increase if new distinct holder facts are registered. main untouched.\n2026-10-13 original #37: 1219 registered SRT cues / 95579 bytes / SHA fb5f49ce... matched; 32 material assertions independently triaged (7 confirmed, 16 qualified, 6 contradicted, 3 hypothetical). New total 50/70, 483 audited claims, 20 original sources remaining. Original audio, frames and complete public ASR not checked. No added optional followup for unsupported tangential advertising stats.\n2026-10-13 #38 pension withdrawal Q&A: 557 private registered SRT cues/42692 bytes SHA matched; 28 claims triaged (4 confirmed 15 qualified 6 contradicted 3 hypothetical), report and canonical committed. 51/70 and 511 total claims, 19 remaining. 4% forever false, 8-10% covered-call distribution is not safe total return; ASR 130/1030 and raw audio remain unverified. Prior optional followups 14 resolved/24 open unchanged.\n2026-10-13 #39: 1,473 original registered SRT cues /111,398 bytes SHA matched; 44 claims triaged 13 primary, 18 qualified, 10 contradicted, 3 hypothetical. The 5yr ~30% cumulative growth misused with 72 rule 2.4yr corrected to ~13.06yr doubling. Total now 52/70 and 555 claims with 18 source-first video reviews remaining. Optional 14 resolved /24 open unchanged.\n2026-10-13 #40 SBzSmA_vvPE: exact SHA 607682c3fd... matched private registered 505 cues/40685 bytes. Five investing rules triaged 35 claims: 6 confirmed,18 qualified,7 contradicted,4 hypothetical. Age30-55=25yr vs 30yr illustration, nominal7% assumed due ASR omission; 25yr 50만원=405035847 vs 30yr609985498. 53/70 and 590 claims; remaining source-first videos 17. Existing 38 optional verification items unchanged (14 RESOLVED,24 OPEN).\n2026-10-13 two-video batch #41 jdg_4nQUCVU 944 registered SRT cues, 35 scoped claims (14 confirmed,12 qualified,7 contradicted,2 hypothetical) plus #43 sTKJve59KGQ 684 cues, 32 claims (7 confirmed,16 qualified,8 contradicted,1 hypothetical). Exact ZIP/registry hashes matched. Mathematical checks: 8.1665% vs 9.0794% geometric fair coin model, 55-65 retirement compounding model and 2026 Jul domestic government bonds <5% in dated market sample. New cumulative 55/70 and 657 claims. Existing optional 38 issues unchanged 14 resolved/24 open. Original audio/frames/public full ASR not audited.\n2026-10-13 #49/#50 two-short batch: full 34 and 24 original SRT cues reviewed and byte SHA matched. #49 13 claims (3 primary,7 qualified,2 contradicted,1 hypothetical), #50 10 claims (3 primary,5 qualified,1 contradicted,1 hypothetical). Tax credit value vs tax deduction limits, Korean KRX ETF capital gains exception, IRP statutory early withdrawal exceptions, annual rebalancing versus threshold methods. Cumulative 57/70 and 680 material claims; remaining 13. Existing optional review 38 issues 14 resolved/24 open unchanged.\n2026-10-13 #52 _VsEUYiUc_A 28 original SRT cues 2203 bytes 12 important claims (3 confirmed 8 qualified 0 contradicted 1 hypothetical); #53 FPA12oQeQbc 336 original cues 26788 bytes 37 claims (8 confirmed 21 qualified 6 contradicted 2 hypothetical). ISA two spouses across four contribution tax years 160m possible vs three distinct years 120m; 2020 USDKRW pandemic peak 1296 not 1400; Invesco UUP six currencies not directly USDKRW, USD RP/issuer note are not deposit protected. Source audio/frames/public ASR untested. Now 59/70 and 729 claims, 11 remaining. Optional evidence register unchanged 38 total 14 resolved/24 open.\n2026-10-13 two-video batch #54 F7RH9D0CC74 637 source cues 51,074 bytes 30 claims (3 confirmed/17 qualified/7 contradicted/3 hypothetical); #55 HqLTZzXirkQ 39 cues 3,080 bytes 13 claims (6 confirmed/4 qualified/3 contradicted). Corrected 2만원24개월 universal housing priority and retrospective lump funding, 300m×4.5% monthly112.5만원 plus combined 2000만원 annual taxable finance threshold, ordinary versus individual government bonds, large capital not market-volatility cure; freelance 2026 NPS9.5%, worker legal classification, ordinary pension 55+5yr/limit, monthly dividends non-guarantee. Total 61/70, 772 claims, 9 unreviewed. 38 optional followups 14 resolved/24 open unchanged.\n2026-10-13 #56 1ZQihHS0hbI 644 SRT cues 51668 bytes/29 claims (4 primary,16 qualified,7 contradicted,2 hypothetical), and #57 50TTEtmcyw4 2058 cues 161505 bytes/40 claims (7 primary,17 qualified,9 contradicted,7 hypothetical) reviewed SHA-confirmed. Primary correction: McCarthy 1970 birth male141/female131 refers modeled extreme maximum not mean life expectancy, does not imply pension insurers inevitably bankrupt. 10% x10 periods compound +159.37%, 1/PER is earnings yield not forward guaranteed total return, teens usually under19 cannot apply for youth futures savings, TSLL2x daily differs from GraniteShares TSL1.25x, money market emergency liquidity and covered-call distributions are conditional. New cumulative 63/70 841 claims, remaining7, existing 38 optional with14 resolved24 open unmodified.",
   "previous_knowledge_update_20261013_pair": "knowledge/BERNSTEIN_ASSET_ALLOCATION_VIDEO41_VERIFIED_20261013.md",
   "previous_knowledge_update_video49_20261013": "knowledge/PENSION_NO_TAX_CREDIT_ETF_IRP_VIDEO49_VERIFIED_20261013.md",
   "previous_knowledge_update_video52_20261013": "knowledge/ISA_LUMP_SUM_100M_SPLIT_BUY_VIDEO52_20261013.md",
-  "previous_knowledge_update_video54_20261013": "knowledge/REBALANCING_HOUSING_BOND_DIVIDEND_TWO_CASES_VIDEO54_20261013.md"
+  "previous_knowledge_update_video54_20261013": "knowledge/REBALANCING_HOUSING_BOND_DIVIDEND_TWO_CASES_VIDEO54_20261013.md",
+  "previous_knowledge_update_video56_20261013": "knowledge/BEGINNER_TEEN_INVESTING_ISA_TSLA_ETF_VIDEO56_VERIFIED_20261013.md"
 }
