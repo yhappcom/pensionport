@@ -114,10 +114,12 @@
       "claim": "직접 엔화를 보유하는 동안 이자수익이 낮으면 기회비용이 발생하고 일반 개인의 단순 환전차익은 금융상품 수익과 과세가 다를 수 있다고 설명함.",
       "verification": "QUALIFIED",
       "sources": [
-        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143"
+        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143&wnkey=f39c4ab9-7727-4bbb-9d2d-b1a8000e267b"
       ],
-      "disposition": "2025-01-09 registered NTS 서면-2024-소득-0865 confirms conditional nonbusiness temporary FX exchange profit excluded from taxable income; repeated business-purpose exchanges can be business income. Applies neither to ETFs nor futures.",
-      "source_precision": "LEGACY_APPROXIMATE_30SEC_ANCHOR_NOT_AUDIO_VERIFIED"
+      "disposition": "국세청 공식 질의회신에 따라 비사업자 일시적 외화 취득 후 원화 환전차익은 과세소득 아님. 사업목적 투자라면 거래횟수·기간·동기·규모에 따른 사업소득 가능. 엔화 ETF 및 예금이자와 혼동 금지.",
+      "source_precision": "LEGACY_APPROXIMATE_30SEC_ANCHOR_NOT_AUDIO_VERIFIED",
+      "verified_official_general_rule": "NTS 서면-2024-소득-0865",
+      "scope": "Temporary nonbusiness FX converted to KRW; business-purpose trade dependent on specific facts"
     },
     {
       "claim_id": "YNOSY15ppf8-11",
@@ -187,7 +189,7 @@
       "theme": "현금성 자산과 시장성 금융상품의 목적을 분리하는 원칙"
     }
   ],
-  "verification_status": "12_CLAIMS_FINANCE_TRIAGE_NTS_TEMPORARY_NONBUSINESS_FX_TAX_CONFIRMED_PERSONAL_FEES_AND_AUDIO_OPEN",
+  "verification_status": "12_CLAIMS_EDUCATION_NTS_NONBUSINESS_TEMP_FX_GAIN_TAX_RULE_PRIMARY_VERIFIED_PAST_BANK_SPREAD_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -214,7 +216,15 @@
     "Approval is an educational evidence review, NOT a complete certified Korean income-tax opinion on JPY spot gains.",
     "1.75% spread historical video example is not current institution-specific transaction cost.",
     "Original and publicly returned transcription match, but actual recorded audio, illustrated chart and market-rate timestamps not inspected.",
-    "30:44.720 원본 SRT에서 환차익 비과세 표현 확인; 음성 및 거래유형별 2026 국세청 유권해석이 없어 개별 환차익 세법 적용은 아직 미확정이다.",
+    "2026-10-13 국세청 서면-2024-소득-0865 비사업자 일시적 환전차익 비과세 원칙을 직접 확인. 개별 거래의 규모·동기·사업성 여부 및 그 당시 금융회사 1.75% 수수료는 미확정.",
     "국세청 공식 서면-2024-소득-0865: 비사업자 일시적 외화 취득 후 원화환전차익 비과세 해석 확보. 사업목적·규모·횟수·동기 등 개별 적용조건과 실제 은행 수수료 미확정."
-  ]
+  ],
+  "review_supplement_20261013": {
+    "evidence_reference": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+    "media_audio_verified": false,
+    "frames_verified": false,
+    "approved_scope": "EDUCATIONAL_ONLY_PRIMARY_GENERAL_LAW_AND_PRODUCT_CLASSIFICATIONS",
+    "original_book_backtest_reproduced": false,
+    "reviewed_at": "2026-10-13"
+  }
 }
