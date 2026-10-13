@@ -39,6 +39,39 @@ def actual_roster(root):
     return {x["video_id"]: int(x["roster_no"]) for x in rows}
 
 
+
+def registered_sources(root):
+    """Merge only independently preflighted, source-reviewed later SRT IDs.
+
+    Existing 1-70 private registry remains unchanged. New 71-100 rows are
+    eligible only when marked reviewed and source fingerprint/roster match.
+    Unavailable #71 and mere CRC-validated future rows are never promoted.
+    """
+    registry = dict(load(root / "data/subtitles/registry.json")["items"])
+    later = root / "data/subtitles/registry_71_100_20261013.json"
+    if not later.is_file():
+        return registry
+    extension = load(later)
+    if (extension.get("source_archive_sha256")
+            != "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f"
+            or extension.get("received_private_srt_count") != 29
+            or extension.get("preflight_crc") != "PASS"):
+        raise ValueError("LATER_SRT_REGISTRY_PROVENANCE_INVALID")
+    roster = actual_roster(root)
+    for row in extension.get("items", []):
+        if row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3":
+            continue
+        video_id, sha = row.get("video_id"), row.get("sha256")
+        if (not isinstance(video_id, str) or not YT_ID.fullmatch(video_id)
+                or not isinstance(sha, str) or not re.fullmatch(r"[a-f0-9]{64}", sha)
+                or row.get("roster_no") != roster.get(video_id)
+                or not isinstance(row.get("cue_count"), int)
+                or row["cue_count"] <= 0 or video_id in registry):
+            raise ValueError("LATER_SRT_REVIEWED_ROW_UNTRUSTED")
+        registry[video_id] = {"sha256": sha, "cue_count": row["cue_count"]}
+    return registry
+
+
 def integrity(pilot, video_id, registry, roster):
     issues = []
     if pilot.get("video_id") != video_id:
@@ -194,8 +227,7 @@ def linked_candidate_decision(candidate, pilot, registry, roster):
 
 def audit(root):
     roster = actual_roster(root)
-    registry_doc = load(root / "data/subtitles/registry.json")
-    registry = registry_doc["items"]
+    registry = registered_sources(root)
     pilots_dir = root / "data/subtitles/pilots"
     canonical_dir = root / "data/analysis_events"
     results, errors = [], []
@@ -334,7 +366,7 @@ def main():
         video_id = candidate.get("video_id", "")
         pilot_path = args.root / "data/subtitles/pilots" / (video_id + ".json")
         linked_pilot = load(pilot_path) if pilot_path.is_file() else None
-        registry = load(args.root / "data/subtitles/registry.json")["items"]
+        registry = registered_sources(args.root)
         data["canonical_candidate_decision"] = linked_candidate_decision(
             candidate, linked_pilot, registry, actual_roster(args.root)
         )
