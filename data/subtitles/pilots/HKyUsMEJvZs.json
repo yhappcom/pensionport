@@ -22,7 +22,8 @@
     "Dependent eligibility requires combined income and property assessed base, marital/insured relationship; dividend from one account <20m alone does not certify no health-insurance burden.",
     "2026 general bond and individual-only Treasury subscription are different; new 2026 3-year individual-only issuance may not appear in the original 5/10/20 listing.",
     "Private 1-70 original completed ledger stays 70/70 at1052 claims; new 71-100 ledger separate. #71 has no SRT.",
-    "Actual audio, presentation frames, public independent complete auto captions NOT_TESTED and copyrighted private original never published."
+    "Actual audio, presentation frames, public independent complete auto captions NOT_TESTED and copyrighted private original never published.",
+    "Original subtitle says savings principal 2.7억원 and then 2.4억원 liquid plus 3천만원 annuity contract; customer account and exact annuity capital double-counting not independently reconciled."
   ],
   "existing_registry_srt": {
     "sha256": "ec86473b1d00c7b79490958decf2b7f3da12e0e5271ac9e8c15e772953e25c0d",
@@ -47,7 +48,7 @@
     "public_transcript_text_exact_match": "NOT_TESTED_NONBLOCKING",
     "precise_timing_verified": false
   },
-  "verification_status": "EVIDENCE_REVIEW_INCREMENTAL_22_OF_MATERIAL_CLAIMS_ORIGINAL_965_CUES",
+  "verification_status": "EDUCATIONAL_47_MATERIAL_CLAIM_965_PRIVATE_SOURCE_CUES_SHA_MATCHED_OFFICIAL_NPS_NHIS_TREASURY_SEC_ADDITIONAL_AUDIO_ASR_UNVERIFIED",
   "relations": [
     {
       "type": "REINFORCE",
@@ -543,7 +544,547 @@
       },
       "original_srt_anchor_start_sec": 1035,
       "timecode_precision": "PRIVATE_ORIGINAL_TIMED_AUTO_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-23",
+      "timecode": "00:17:48",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1068s",
+      "source_paraphrase": "자영업자는 연금저축과 노란우산에 최대납입하면 종소세 신고에서 똑같이 세액공제를 받는다",
+      "assessment": "CONTRADICTED",
+      "independent_check": "연금저축·IRP는 적격납입의 세액공제, 노란우산 부금은 사업소득구간별 별도 소득공제(2026 최대600만원)이다. 과세표준 공제와 세액 직접차감은 달라 '둘 다 세액공제'는 부정확.",
+      "official_sources": [
+        "https://www.8899.or.kr/cmnsCnts/view?menuId=C080301000"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "연금저축·IRP는 적격납입의 세액공제, 노란우산 부금은 사업소득구간별 별도 소득공제(2026 최대600만원)이다. 과세표준 공제와 세액 직접차감은 달라 '둘 다 세액공제'는 부정확.",
+        "primary_url": "https://www.8899.or.kr/cmnsCnts/view?menuId=C080301000",
+        "source_finding": "연금저축·IRP는 적격납입의 세액공제, 노란우산 부금은 사업소득구간별 별도 소득공제(2026 최대600만원)이다. 과세표준 공제와 세액 직접차감은 달라 '둘 다 세액공제'는 부정확.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1068,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-24",
+      "timecode": "00:18:38",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1118s",
+      "source_paraphrase": "40세 자영업자는 연금저축4700만원·ISA4000만원, 현금 약3억원과 매월 개인투자용국채500만원을 가진다",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "사연자 스스로 보고한 금액과 투자 구조; 3억원이 현금 총액인지 4700/4000 포함 자산인지 이중계산 확인되지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "사연자 스스로 보고한 금액과 투자 구조; 3억원이 현금 총액인지 4700/4000 포함 자산인지 이중계산 확인되지 않는다.",
+        "verification_scope": "SUBSCRIBER_SRT_SELF_REPORT_ONLY"
+      },
+      "original_srt_anchor_start_sec": 1118,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-25",
+      "timecode": "00:19:20",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1160s",
+      "source_paraphrase": "S&P500 40%, 미국배당다우존스20%, 나스닥5% 및 리츠·은행주/고배당/달러CD 금리 ETF 등 다양한 투자상품을 보유한다",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "개인 투자계좌의 기초 종목·ETF 가중치와 평가액 원장을 확인하지 않았다. 명칭 자동자막 일부 오기 가능성.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "개인 투자계좌의 기초 종목·ETF 가중치와 평가액 원장을 확인하지 않았다. 명칭 자동자막 일부 오기 가능성.",
+        "verification_scope": "SUBSCRIBER_SRT_SELF_REPORT_ONLY"
+      },
+      "original_srt_anchor_start_sec": 1160,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-26",
+      "timecode": "00:19:51",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1191s",
+      "source_paraphrase": "좋은 ETF 상품만 많이 모으면 포트폴리오 전체도 반드시 좋은 결과를 낸다",
+      "assessment": "QUALIFIED",
+      "independent_check": "영상은 다양한 상품을 가진 사연자에게 긍정적으로 답하는 비유. 지수/나스닥/미국배당·테마 겹침과 금리/환율 상관 위험이 있어 종목 수만으로 충분한 분산 보장 불가.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "영상은 다양한 상품을 가진 사연자에게 긍정적으로 답하는 비유. 지수/나스닥/미국배당·테마 겹침과 금리/환율 상관 위험이 있어 종목 수만으로 충분한 분산 보장 불가.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "영상은 다양한 상품을 가진 사연자에게 긍정적으로 답하는 비유. 지수/나스닥/미국배당·테마 겹침과 금리/환율 상관 위험이 있어 종목 수만으로 충분한 분산 보장 불가.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1191,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-27",
+      "timecode": "00:20:05",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1205s",
+      "source_paraphrase": "1년 안에 ISA 만기처리 계획이라면 100% 주식보다 채권/CD 단기상품에 머무르는 것이 적합할 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "현금 필요시점과 손실감내에 맞춰 낮은 변동성 상품을 선택하는 것은 타당하지만 장기채·배당주는 1년 내 시가손실 가능. 'ISA3년=자동해지'도 아님.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "현금 필요시점과 손실감내에 맞춰 낮은 변동성 상품을 선택하는 것은 타당하지만 장기채·배당주는 1년 내 시가손실 가능. 'ISA3년=자동해지'도 아님.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "현금 필요시점과 손실감내에 맞춰 낮은 변동성 상품을 선택하는 것은 타당하지만 장기채·배당주는 1년 내 시가손실 가능. 'ISA3년=자동해지'도 아님.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1205,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-28",
+      "timecode": "00:20:50",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1250s",
+      "source_paraphrase": "증권사 CD금리 액티브 ETF 또는 MMF는 주식보다 현금파킹에 쓸 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "MMF/CD ETF도 기초상품 신용·가격·수수료·수익률 변동이 있고 은행 예금보험과 같지 않음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "MMF/CD ETF도 기초상품 신용·가격·수수료·수익률 변동이 있고 은행 예금보험과 같지 않음.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+        "source_finding": "MMF/CD ETF도 기초상품 신용·가격·수수료·수익률 변동이 있고 은행 예금보험과 같지 않음.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1250,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-29",
+      "timecode": "00:21:40",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1300s",
+      "source_paraphrase": "개인투자용 국채와 일반 국고채는 중도거래 가능성·가격변동이 다르다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "국고채 정부/SEC 설명: 일반 이표국채는 시장 매매시 가격 상승/하락 가능, 개인투자용 저축성 국채는 매매 불가·1년후 중도환매 신청/만기 가산복리 등 구조 별개.",
+      "official_sources": [
+        "https://ktb.moef.go.kr/personalInvGovBonds.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "국고채 정부/SEC 설명: 일반 이표국채는 시장 매매시 가격 상승/하락 가능, 개인투자용 저축성 국채는 매매 불가·1년후 중도환매 신청/만기 가산복리 등 구조 별개.",
+        "primary_url": "https://ktb.moef.go.kr/personalInvGovBonds.do",
+        "source_finding": "국고채 정부/SEC 설명: 일반 이표국채는 시장 매매시 가격 상승/하락 가능, 개인투자용 저축성 국채는 매매 불가·1년후 중도환매 신청/만기 가산복리 등 구조 별개.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1300,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-30",
+      "timecode": "00:22:10",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1330s",
+      "source_paraphrase": "개인투자용 국채는 5·10·20년물이며 2026년에 다른 만기는 존재하지 않는다",
+      "assessment": "QUALIFIED",
+      "independent_check": "영상 사연이 보유한 5/10/20년물은 맞지만 2026년 정부는 3년 이표/복리채도 새로 발행. 본인이 산 종류와 전체 가능 만기 상품을 구분.",
+      "official_sources": [
+        "https://eiec.kdi.re.kr/policy/materialView.do?num=280260"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "영상 사연이 보유한 5/10/20년물은 맞지만 2026년 정부는 3년 이표/복리채도 새로 발행. 본인이 산 종류와 전체 가능 만기 상품을 구분.",
+        "primary_url": "https://eiec.kdi.re.kr/policy/materialView.do?num=280260",
+        "source_finding": "영상 사연이 보유한 5/10/20년물은 맞지만 2026년 정부는 3년 이표/복리채도 새로 발행. 본인이 산 종류와 전체 가능 만기 상품을 구분.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1330,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-31",
+      "timecode": "00:22:36",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1356s",
+      "source_paraphrase": "일반 국고채는 만기보유 시 액면 원리금 수령하나 중도매도시 시가차익/손실이 있을 수 있다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "채권 매수가격≠액면가일 수 있으므로 '매입원금 그대로 전액 보장'은 불가. 국가 원리금 상환 약정의 명목액면과 매수가/이표/수수료/세후 실질수익 구별.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "채권 매수가격≠액면가일 수 있으므로 '매입원금 그대로 전액 보장'은 불가. 국가 원리금 상환 약정의 명목액면과 매수가/이표/수수료/세후 실질수익 구별.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+        "source_finding": "채권 매수가격≠액면가일 수 있으므로 '매입원금 그대로 전액 보장'은 불가. 국가 원리금 상환 약정의 명목액면과 매수가/이표/수수료/세후 실질수익 구별.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1356,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-32",
+      "timecode": "00:23:14",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1394s",
+      "source_paraphrase": "개인투자용 국채는 시가변동 매매가 불가능하지만 언제든 자유롭게 조기환매할 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "유통거래 제한, 발행1년 후 정부 안내 기한/한도 내 중도환매 신청만 가능. 조기환매 가산금리·복리·분리과세혜택 미적용, 즉시 현금성 예금과 다름.",
+      "official_sources": [
+        "https://ktb.moef.go.kr/personalInvGovBonds.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "유통거래 제한, 발행1년 후 정부 안내 기한/한도 내 중도환매 신청만 가능. 조기환매 가산금리·복리·분리과세혜택 미적용, 즉시 현금성 예금과 다름.",
+        "primary_url": "https://ktb.moef.go.kr/personalInvGovBonds.do",
+        "source_finding": "유통거래 제한, 발행1년 후 정부 안내 기한/한도 내 중도환매 신청만 가능. 조기환매 가산금리·복리·분리과세혜택 미적용, 즉시 현금성 예금과 다름.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1394,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-33",
+      "timecode": "00:23:30",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1410s",
+      "source_paraphrase": "일반 국고채는 시세차익 가능하므로 모든 상황에서 개인투자용 국채보다 무조건 유리하다",
+      "assessment": "QUALIFIED",
+      "independent_check": "화자는 일반 국고채를 자신의 선호라고 구분. 실제 만기세후수익, 매수 할인/프리미엄·환금성·만기증가·조기매도 위험에 따라 우열 바뀜.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "화자는 일반 국고채를 자신의 선호라고 구분. 실제 만기세후수익, 매수 할인/프리미엄·환금성·만기증가·조기매도 위험에 따라 우열 바뀜.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+        "source_finding": "화자는 일반 국고채를 자신의 선호라고 구분. 실제 만기세후수익, 매수 할인/프리미엄·환금성·만기증가·조기매도 위험에 따라 우열 바뀜.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1410,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-34",
+      "timecode": "00:24:15",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1455s",
+      "source_paraphrase": "적립하여 연금저축2억원을 만들면 연4%로 월약66.7만원, 연8% 월약133.3만원이다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "2억×4%/12=약66만6,667원, ×8%/12=약133만3,333원 세전 산술. 두 비율은 실제 지급가능수익·인출 지속가능성 보장 아님.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "2억×4%/12=약66만6,667원, ×8%/12=약133만3,333원 세전 산술. 두 비율은 실제 지급가능수익·인출 지속가능성 보장 아님.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "2억×4%/12=약66만6,667원, ×8%/12=약133만3,333원 세전 산술. 두 비율은 실제 지급가능수익·인출 지속가능성 보장 아님.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1455,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-35",
+      "timecode": "00:24:40",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1480s",
+      "source_paraphrase": "2억원을 연금계좌에 넣으면 월100만원 현금흐름이 평생 무한히 나올 것이다",
+      "assessment": "QUALIFIED",
+      "independent_check": "월100만원은 연1200만=2억원 대비 6% 인출·분배이며 시장/상품 손실·인출기간·물가·세금에 의해 지속가능성 달라진다. 금융계약상 종신보장과 다름.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "월100만원은 연1200만=2억원 대비 6% 인출·분배이며 시장/상품 손실·인출기간·물가·세금에 의해 지속가능성 달라진다. 금융계약상 종신보장과 다름.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "월100만원은 연1200만=2억원 대비 6% 인출·분배이며 시장/상품 손실·인출기간·물가·세금에 의해 지속가능성 달라진다. 금융계약상 종신보장과 다름.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1480,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-36",
+      "timecode": "00:25:10",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1510s",
+      "source_paraphrase": "IRP에 매년1800만원, ISA에 2000만원을 채우면 2억원이 빠르게 자동 쌓인다",
+      "assessment": "QUALIFIED",
+      "independent_check": "납입한도는 수입·유동자산과 가입 적격에 종속; ISA 3년 의무기간과 일반 1억원 계좌한도·일부 잔액 연금이체 절차 별도. 이체만으로 새 자산/투자수익 창출하지 않는다.",
+      "official_sources": [
+        "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "납입한도는 수입·유동자산과 가입 적격에 종속; ISA 3년 의무기간과 일반 1억원 계좌한도·일부 잔액 연금이체 절차 별도. 이체만으로 새 자산/투자수익 창출하지 않는다.",
+        "primary_url": "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596",
+        "source_finding": "납입한도는 수입·유동자산과 가입 적격에 종속; ISA 3년 의무기간과 일반 1억원 계좌한도·일부 잔액 연금이체 절차 별도. 이체만으로 새 자산/투자수익 창출하지 않는다.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1510,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-37",
+      "timecode": "00:26:10",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1570s",
+      "source_paraphrase": "자영업자가 내년 폐업을 고려하므로 장기국채·커버드콜 보유 비율에 유동성/납세비용을 반영해야 한다",
+      "assessment": "QUALIFIED",
+      "independent_check": "건전한 위험관리 논리이나 폐업 세액/부채·건강보험 가입변경/사업운전자금 및 안전자금 크기 원자료 미확인.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "건전한 위험관리 논리이나 폐업 세액/부채·건강보험 가입변경/사업운전자금 및 안전자금 크기 원자료 미확인.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "건전한 위험관리 논리이나 폐업 세액/부채·건강보험 가입변경/사업운전자금 및 안전자금 크기 원자료 미확인.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1570,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-38",
+      "timecode": "00:27:20",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1640s",
+      "source_paraphrase": "36세 사연자는 5년 전 입문 후 나스닥 지수에서 배당·커버드콜로 전액 이동했다고 한다",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "자기보고 순서 및 매매 성과. 실제 포지션/총수익률·양도세 이력 미검증.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "자기보고 순서 및 매매 성과. 실제 포지션/총수익률·양도세 이력 미검증.",
+        "verification_scope": "SUBSCRIBER_SRT_SELF_REPORT_ONLY"
+      },
+      "original_srt_anchor_start_sec": 1640,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-39",
+      "timecode": "00:28:35",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1715s",
+      "source_paraphrase": "증권사 적립식 발행어음은 예금처럼 금리가 높고 원금손실 가능성이 없다",
+      "assessment": "QUALIFIED",
+      "independent_check": "영상은 발행어음을 적금처럼 활용 가능하다고 비유. 발행사 신용위험·예금자보호 대상 아님. 원금을 은행예금과 동일한 보호상품으로 취급 금지.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "영상은 발행어음을 적금처럼 활용 가능하다고 비유. 발행사 신용위험·예금자보호 대상 아님. 원금을 은행예금과 동일한 보호상품으로 취급 금지.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+        "source_finding": "영상은 발행어음을 적금처럼 활용 가능하다고 비유. 발행사 신용위험·예금자보호 대상 아님. 원금을 은행예금과 동일한 보호상품으로 취급 금지.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1715,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-40",
+      "timecode": "00:28:50",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1730s",
+      "source_paraphrase": "고객이 청년도약계좌 월50만원과 특판 적금 월30만원으로 이사 목적자금을 모은다",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "개인사례의 월납부액과 목표이며 개별 금융사 거래잔액/이사 예정일은 독립확인되지 않음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "개인사례의 월납부액과 목표이며 개별 금융사 거래잔액/이사 예정일은 독립확인되지 않음.",
+        "verification_scope": "SUBSCRIBER_SRT_SELF_REPORT_ONLY"
+      },
+      "original_srt_anchor_start_sec": 1730,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-41",
+      "timecode": "00:29:40",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1780s",
+      "source_paraphrase": "커버드콜 ETF는 상품마다 옵션 매도비율·전략이 달라 분배율과 투자총수익이 크게 차이날 수 있다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "KB자산운용 2026-08 커버드콜 전략과 SEC 2026-08 분배금 고지: 상방 제한·자본환급·NAV 하락/분배변동 가능.",
+      "official_sources": [
+        "https://kbam.co.kr/insights/guide/covered-call-etf-strategy-guide"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "KB자산운용 2026-08 커버드콜 전략과 SEC 2026-08 분배금 고지: 상방 제한·자본환급·NAV 하락/분배변동 가능.",
+        "primary_url": "https://kbam.co.kr/insights/guide/covered-call-etf-strategy-guide",
+        "source_finding": "KB자산운용 2026-08 커버드콜 전략과 SEC 2026-08 분배금 고지: 상방 제한·자본환급·NAV 하락/분배변동 가능.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1780,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-42",
+      "timecode": "00:30:35",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1835s",
+      "source_paraphrase": "배당주라면 종류와 무관하게 손실·감배 위험이 낮으므로 모두 좋은 투자상품이다",
+      "assessment": "QUALIFIED",
+      "independent_check": "원본의 '대체로 다 좋다' 강한 평가를 일반법칙으로 일반화하지 않는다. 기업배당 삭감/주가하락·금융/리츠 신용/산업 위험은 상품별 다름.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "원본의 '대체로 다 좋다' 강한 평가를 일반법칙으로 일반화하지 않는다. 기업배당 삭감/주가하락·금융/리츠 신용/산업 위험은 상품별 다름.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "원본의 '대체로 다 좋다' 강한 평가를 일반법칙으로 일반화하지 않는다. 기업배당 삭감/주가하락·금융/리츠 신용/산업 위험은 상품별 다름.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1835,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-43",
+      "timecode": "00:31:00",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1860s",
+      "source_paraphrase": "한 종목에서 월21만원 분배금이 나오면 총 투자금2400만원은 매년 약10.5% 확정수익이다",
+      "assessment": "QUALIFIED",
+      "independent_check": "사연 총 평가투자액2400만원에 월21만원 분배가 계속된다는 가정이면 세전 연 단순10.5%, 실제 특정월 분배만으로 연간확정 이자·총수익률/원금유지 보장 안됨.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "사연 총 평가투자액2400만원에 월21만원 분배가 계속된다는 가정이면 세전 연 단순10.5%, 실제 특정월 분배만으로 연간확정 이자·총수익률/원금유지 보장 안됨.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "사연 총 평가투자액2400만원에 월21만원 분배가 계속된다는 가정이면 세전 연 단순10.5%, 실제 특정월 분배만으로 연간확정 이자·총수익률/원금유지 보장 안됨.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1860,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-44",
+      "timecode": "00:31:35",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1895s",
+      "source_paraphrase": "배당 ETF를 여러 개 모아도 같은 테크·AI 밸류체인 커버드콜 상품이면 겹치는 위험이 크다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "화자가 직접 테크·AI 밸류체인 옵션상품 테마 중복을 지적. ETF 이름/개수보다 구성종목·옵션매도·기초업종의 공통 위험/상관을 검토해야 한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "화자가 직접 테크·AI 밸류체인 옵션상품 테마 중복을 지적. ETF 이름/개수보다 구성종목·옵션매도·기초업종의 공통 위험/상관을 검토해야 한다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "화자가 직접 테크·AI 밸류체인 옵션상품 테마 중복을 지적. ETF 이름/개수보다 구성종목·옵션매도·기초업종의 공통 위험/상관을 검토해야 한다.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 1895,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-45",
+      "timecode": "00:32:20",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=1940s",
+      "source_paraphrase": "월분배금21만원과 매도 후 예수금550만원·총 투자액2400만원은 개인사연의 실제 수치다",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "원본 자막상 당사자 진술 확인, 매도전 장부가격·실현손익·원천징수·운용자산 평가액 독립 검증 불가.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "원본 자막상 당사자 진술 확인, 매도전 장부가격·실현손익·원천징수·운용자산 평가액 독립 검증 불가.",
+        "verification_scope": "SUBSCRIBER_SRT_SELF_REPORT_ONLY"
+      },
+      "original_srt_anchor_start_sec": 1940,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-46",
+      "timecode": "00:33:40",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=2020s",
+      "source_paraphrase": "배당·채권·리츠·커버드콜을 각25%로 나누면 반드시 현금흐름이 늘고 원금손실이 없는 완전 분산이다",
+      "assessment": "QUALIFIED",
+      "independent_check": "영상은 이해가 어려운 경우 단순 4개 범주균등을 대안으로 제시하나 채권/리츠·고배당/커버드콜간 시장·금리/주식 중복 위험 있어 비중25% 자체가 안전/수익 보장 아님.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "영상은 이해가 어려운 경우 단순 4개 범주균등을 대안으로 제시하나 채권/리츠·고배당/커버드콜간 시장·금리/주식 중복 위험 있어 비중25% 자체가 안전/수익 보장 아님.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "영상은 이해가 어려운 경우 단순 4개 범주균등을 대안으로 제시하나 채권/리츠·고배당/커버드콜간 시장·금리/주식 중복 위험 있어 비중25% 자체가 안전/수익 보장 아님.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 2020,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "HKyUsMEJvZs-47",
+      "timecode": "00:34:40",
+      "watch_url": "https://www.youtube.com/watch?v=HKyUsMEJvZs&t=2080s",
+      "source_paraphrase": "배당 전략이 100%여도 구성자산 종류가 달라 전략분산이 아닌 자산군 분산만 일부 가능하다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "영상 스스로 '배당 전략100%, 자산구성은 주식·리츠·채권·콜로 나뉜다'고 구분한 개념; 자산군별 실제 종목/상관/거래위험 확인되어야 충분한 분산으로 인정.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "All 965 original timed private captions checked. Korean Treasury/NTS/노란우산 and regulator bond/distribution investment risk compared. Personal details unverified.",
+        "disposition": "영상 스스로 '배당 전략100%, 자산구성은 주식·리츠·채권·콜로 나뉜다'고 구분한 개념; 자산군별 실제 종목/상관/거래위험 확인되어야 충분한 분산으로 인정.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "영상 스스로 '배당 전략100%, 자산구성은 주식·리츠·채권·콜로 나뉜다'고 구분한 개념; 자산군별 실제 종목/상관/거래위험 확인되어야 충분한 분산으로 인정.",
+        "effective_date_or_scope": "2026 market/product/tax and private user's original automatic caption"
+      },
+      "original_srt_anchor_start_sec": 2080,
+      "timecode_precision": "PRIVATE_ORIGINAL_SRT_NEARBY_NOT_AUDIO_VERIFIED"
     }
   ],
-  "claim_count": 22
+  "claim_count": 47
 }
