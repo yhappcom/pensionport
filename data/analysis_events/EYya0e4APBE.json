@@ -122,6 +122,15 @@
       "days_after_ISA_closure": 60,
       "source": "https://www.samsungpop.com/ux/kor/customer/guide/eventguide/eventViewContent.do?MenuSeqNo=3811&menuNo=01010900",
       "status": "PRIMARY_ISSUER_GUIDANCE"
+    },
+    {
+      "claim": "Samsung ISA pension transfer gift promotion",
+      "start": "2026-05-01",
+      "end": "2026-07-31",
+      "minimum_transfer_krw": 1000000,
+      "original_offer_expires": "2026-07-31",
+      "status": "DATED_ISSUER_HISTORICAL_CAMPAIGN_CLOSED",
+      "source": "https://www.samsungpop.com/ux/kor/customer/guide/eventguide/eventViewContent.do?MenuSeqNo=3812&menuNo=01010900"
     }
   ],
   "relations": [
@@ -136,7 +145,7 @@
       "theme": "세액공제 원금 우선 인출과 인출과세"
     }
   ],
-  "verification_status": "EDUCATIONAL_6_CLAIMS_TRIAGED_BUT_SOURCE_AUDIO_SCREEN_UNCHECKED",
+  "verification_status": "EDUCATIONAL_6_CLAIMS_TRIAGED_BUT_SOURCE_AUDIO_SCREEN_UNCHECKED__2026_PAST_PROMO_END_DATE_CONFIRMED",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -161,6 +170,14 @@
     "연금계좌 내 투자상품도 시장손실 위험, 조기인출 시 재원별 세금 발생.",
     "이벤트가 전환 월에는 종료됐을 수 있으며 특정 증권사 가입유치 혜택은 계약이 아니다.",
     "ISA에 있던 상품을 연금계좌에 동일한 수량으로 직접 이전 가능한지 증권사 확인.",
-    "APPROVED is an evidence-scoped educational audit, not purchase/order or guaranteed tax refund/ETF redemption proceeds."
-  ]
+    "APPROVED is an evidence-scoped educational audit, not purchase/order or guaranteed tax refund/ETF redemption proceeds.",
+    "2026-05 to 2026-07 Samsung ISA transfer gift offer expired on 2026-07-31; no inference that all other 2026-10 promotions are absent."
+  ],
+  "review_supplement_20261013": {
+    "closeout_source": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "source_verified_at": "2026-10-13",
+    "actual_audio_checked": false,
+    "actual_frames_checked": false,
+    "educational_record_approval_unchanged": true
+  }
 }
