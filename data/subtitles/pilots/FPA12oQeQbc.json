@@ -1,0 +1,461 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-13",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "roster_no": 53,
+  "video_id": "FPA12oQeQbc",
+  "title": "달러투자 5가지 — 외화예금·달러 선물ETF·UUP·외화RP·외화 발행어음",
+  "source_url": "https://www.youtube.com/watch?v=FPA12oQeQbc",
+  "video_published_date": "NOT_INDEPENDENTLY_VERIFIED",
+  "subtitle_sha256": "eb82169ec95d5e8548430e5fecadcde890d648b0c6a3a5f11ab37821fd681d99",
+  "cue_count": 336,
+  "raw_transcript_publicly_stored": false,
+  "audio_checked": false,
+  "frames_checked": false,
+  "core_message": "달러 분산은 조건부 유용하나 금융위기 달러 무조건 두배 상승과 코로나 2020 환율1400원 초과는 오류. UUP USDX vs 원달러와 외화RP·발행어음 발행사 신용위험을 상품별로 비교한다.",
+  "limitations": [
+    "원본 SRT 336구간 26788바이트 12:41.040 끝까지 읽고 등록부 원본 SHA 일치; 실제 음성·화면·공개 독립 ASR 정렬 미실시.",
+    "2009년 금융위기 최고 환율 거래연도와 2020년 3월 실제환율1296원을 구분.",
+    "2026 증권사별 금리 및 판매기관 순위는 당시 원화면 표 원본·고시일 미확인.",
+    "예금보험 대상 은행 외화예금과 비보호 외화RP/달러발행어음은 서로 다른 위험 구조.",
+    "원본 ZIP/SRT 전체 원문 비공개 유지."
+  ],
+  "existing_registry_srt": {
+    "sha256": "eb82169ec95d5e8548430e5fecadcde890d648b0c6a3a5f11ab37821fd681d99",
+    "cue_count": 336,
+    "last_sec": 761.04,
+    "raw_srt_bytes": 26788,
+    "verified_same_bytes": true,
+    "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd"
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "eb82169ec95d5e8548430e5fecadcde890d648b0c6a3a5f11ab37821fd681d99",
+    "original_cue_count": 336,
+    "original_raw_bytes": 26788,
+    "original_srt_end_sec": 761.04,
+    "evidence_reference": "Private user 1-70.zip/1-70/youtube-transcript-FPA12oQeQbc.srt SHA256 matched 336 cues and 26788 bytes, all original text read through timestamp 12:41.040.",
+    "limitations": "Actual original audio, on-screen fund tables and complete independent public automatic captions not authenticated.",
+    "audio_checked": false,
+    "frames_checked": false,
+    "public_transcript_text_exact_match": "NOT_TESTED_NONBLOCKING",
+    "precise_timing_verified": false
+  },
+  "verification_status": "INCREMENTAL_UNAPPROVED_VIDEO53_CLAIMS_18_OF_37",
+  "relations": [
+    {
+      "type": "REINFORCE",
+      "related_video_id": "_VsEUYiUc_A",
+      "theme": "발행어음 원금·신용위험과 단기투자"
+    },
+    {
+      "type": "REINFORCE",
+      "related_video_id": "YYZyCr7uapw",
+      "theme": "환노출 자산배분의 분산효과와 조건"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "FPA12oQeQbc-01",
+      "timecode": "00:00:09",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=9s",
+      "source_paraphrase": "원화 자산에 편중된 사람은 일부 달러분산이 도움이 될 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "해외지출·원화 편중 완충은 가능하나 달러 보유가 모두에게 필수라는 근거는 없다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "해외지출·원화 편중 완충은 가능하나 달러 보유가 모두에게 필수라는 근거는 없다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "해외지출·원화 편중 완충은 가능하나 달러 보유가 모두에게 필수라는 근거는 없다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 9,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-02",
+      "timecode": "00:00:43",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=43s",
+      "source_paraphrase": "원달러환율을 한 주식의 가격에 비유한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "1달러의 원화 교환가격 비유는 가능하지만 달러는 기업지분이나 주식 현금흐름이 아니다.",
+      "official_sources": [
+        "https://www.yna.co.kr/amp/view/AKR20201230149400002"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "1달러의 원화 교환가격 비유는 가능하지만 달러는 기업지분이나 주식 현금흐름이 아니다.",
+        "primary_url": "https://www.yna.co.kr/amp/view/AKR20201230149400002",
+        "source_finding": "1달러의 원화 교환가격 비유는 가능하지만 달러는 기업지분이나 주식 현금흐름이 아니다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 43,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-03",
+      "timecode": "00:00:55",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=55s",
+      "source_paraphrase": "원달러 1000원이 항상 저점이고 1200원이 항상 고점이었다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "과거 일부 시기 투자관행일 뿐 지속적 환율상한·하한은 없으며 2026 실시간 거래밴드로 사용할 수 없다.",
+      "official_sources": [
+        "https://www.yna.co.kr/amp/view/AKR20201230149400002"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "과거 일부 시기 투자관행일 뿐 지속적 환율상한·하한은 없으며 2026 실시간 거래밴드로 사용할 수 없다.",
+        "primary_url": "https://www.yna.co.kr/amp/view/AKR20201230149400002",
+        "source_finding": "과거 일부 시기 투자관행일 뿐 지속적 환율상한·하한은 없으며 2026 실시간 거래밴드로 사용할 수 없다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 55,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-04",
+      "timecode": "00:01:15",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=75s",
+      "source_paraphrase": "2020 팬데믹 후 원달러환율은 완전히 새로운 고정 밴드에 정착했다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "시장환경 변화는 있을 수 있지만 향후 환율이 특정 높은 범위에서만 움직일 것이라는 보장은 없다.",
+      "official_sources": [
+        "https://www.yna.co.kr/amp/view/AKR20201230149400002"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "시장환경 변화는 있을 수 있지만 향후 환율이 특정 높은 범위에서만 움직일 것이라는 보장은 없다.",
+        "primary_url": "https://www.yna.co.kr/amp/view/AKR20201230149400002",
+        "source_finding": "시장환경 변화는 있을 수 있지만 향후 환율이 특정 높은 범위에서만 움직일 것이라는 보장은 없다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 75,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-05",
+      "timecode": "00:01:22",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=82s",
+      "source_paraphrase": "달러는 매도하지 않고 위기 때까지 무조건 계속 사 모아야 한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "장기 일부 FX 분산은 가능하나 원화 생활비·목표비중·환전비용·기회비용 때문에 누적이 항상 옳지는 않다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "장기 일부 FX 분산은 가능하나 원화 생활비·목표비중·환전비용·기회비용 때문에 누적이 항상 옳지는 않다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "장기 일부 FX 분산은 가능하나 원화 생활비·목표비중·환전비용·기회비용 때문에 누적이 항상 옳지는 않다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 82,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-06",
+      "timecode": "00:01:29",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=89s",
+      "source_paraphrase": "달러는 원화생활자에게 대표적 안전자산이다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "USD 현금이 위기 분산수단일 수 있지만 원화 구매력 변동과 발행어음·RP 신용위험을 구별해야 한다.",
+      "official_sources": [
+        "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "USD 현금이 위기 분산수단일 수 있지만 원화 구매력 변동과 발행어음·RP 신용위험을 구별해야 한다.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "USD 현금이 위기 분산수단일 수 있지만 원화 구매력 변동과 발행어음·RP 신용위험을 구별해야 한다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 89,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-07",
+      "timecode": "00:02:15",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=135s",
+      "source_paraphrase": "시장위기 때 다른 모든 자산은 떨어지고 달러만 반드시 오른다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "위기 유형과 상대국 통화정책에 따라 달러가 반드시 상승하지 않고 다른 자산이 모두 떨어지는 것도 아니다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "위기 유형과 상대국 통화정책에 따라 달러가 반드시 상승하지 않고 다른 자산이 모두 떨어지는 것도 아니다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "위기 유형과 상대국 통화정책에 따라 달러가 반드시 상승하지 않고 다른 자산이 모두 떨어지는 것도 아니다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown",
+        "correction": "위기 유형과 상대국 통화정책에 따라 달러가 반드시 상승하지 않고 다른 자산이 모두 떨어지는 것도 아니다."
+      },
+      "original_srt_anchor_start_sec": 135,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-08",
+      "timecode": "00:02:39",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=159s",
+      "source_paraphrase": "1997년 외환위기 원달러환율 최고치는 1995원이었다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "1997-98 위기 환율폭등은 사실이지만 1995원이라는 최고치의 고시/장중 시점 원표는 재현되지 않았다.",
+      "official_sources": [
+        "https://www.yna.co.kr/view/AKR20090302154900002"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "1997-98 위기 환율폭등은 사실이지만 1995원이라는 최고치의 고시/장중 시점 원표는 재현되지 않았다.",
+        "primary_url": "https://www.yna.co.kr/view/AKR20090302154900002",
+        "source_finding": "1997-98 위기 환율폭등은 사실이지만 1995원이라는 최고치의 고시/장중 시점 원표는 재현되지 않았다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 159,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-09",
+      "timecode": "00:02:57",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=177s",
+      "source_paraphrase": "2008 서브프라임 위기 환율 정점은 약1598원이었다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "연합뉴스가 2009-03-02 장중1596원을 보도함. 금융위기는 2008년에 시작됐지만 최고치 거래는 2009년; 연도 혼동에 주의.",
+      "official_sources": [
+        "https://www.yna.co.kr/view/AKR20090302154900002"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "연합뉴스가 2009-03-02 장중1596원을 보도함. 금융위기는 2008년에 시작됐지만 최고치 거래는 2009년; 연도 혼동에 주의.",
+        "primary_url": "https://www.yna.co.kr/view/AKR20090302154900002",
+        "source_finding": "연합뉴스가 2009-03-02 장중1596원을 보도함. 금융위기는 2008년에 시작됐지만 최고치 거래는 2009년; 연도 혼동에 주의.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 177,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-10",
+      "timecode": "00:03:22",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=202s",
+      "source_paraphrase": "2020 코로나 위기의 원달러환율 고점이 1400원을 넘었다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "2020-03-19 장중1296원, 2020년 연중 변동폭 보도 확인; 1400원 초과는 2020 팬데믹 시점 수치와 불일치.",
+      "official_sources": [
+        "https://www.yna.co.kr/amp/view/AKR20201230149400002"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "2020-03-19 장중1296원, 2020년 연중 변동폭 보도 확인; 1400원 초과는 2020 팬데믹 시점 수치와 불일치.",
+        "primary_url": "https://www.yna.co.kr/amp/view/AKR20201230149400002",
+        "source_finding": "2020-03-19 장중1296원, 2020년 연중 변동폭 보도 확인; 1400원 초과는 2020 팬데믹 시점 수치와 불일치.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown",
+        "correction": "2020-03-19 장중1296원, 2020년 연중 변동폭 보도 확인; 1400원 초과는 2020 팬데믹 시점 수치와 불일치."
+      },
+      "original_srt_anchor_start_sec": 202,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-11",
+      "timecode": "00:03:35",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=215s",
+      "source_paraphrase": "역대 모든 금융위기 때 달러 원화가치는 큰 폭으로 두 배까지 오른다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "위기별 통화정책·자산가격 변화가 달라 매 위기 달러가 두 배 이상 상승하는 일반법칙은 없다.",
+      "official_sources": [
+        "https://www.yna.co.kr/view/AKR20090302154900002"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "위기별 통화정책·자산가격 변화가 달라 매 위기 달러가 두 배 이상 상승하는 일반법칙은 없다.",
+        "primary_url": "https://www.yna.co.kr/view/AKR20090302154900002",
+        "source_finding": "위기별 통화정책·자산가격 변화가 달라 매 위기 달러가 두 배 이상 상승하는 일반법칙은 없다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 215,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-12",
+      "timecode": "00:04:27",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=267s",
+      "source_paraphrase": "위기 때 한국의 모든 자산가치가 반토막 나고 달러는 정확히 두 배가 된다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "동일시점 대칭 하락/상승을 보장하는 자산가격 공식은 없다. 영화적 극단 사례를 미래 확률로 쓰지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "동일시점 대칭 하락/상승을 보장하는 자산가격 공식은 없다. 영화적 극단 사례를 미래 확률로 쓰지 않는다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "동일시점 대칭 하락/상승을 보장하는 자산가격 공식은 없다. 영화적 극단 사례를 미래 확률로 쓰지 않는다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown",
+        "correction": "동일시점 대칭 하락/상승을 보장하는 자산가격 공식은 없다. 영화적 극단 사례를 미래 확률로 쓰지 않는다."
+      },
+      "original_srt_anchor_start_sec": 267,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-13",
+      "timecode": "00:04:37",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=277s",
+      "source_paraphrase": "위기에 최고점 달러를 팔고 저점 원화자산을 사서 많은 부자가 탄생했다.",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "영화와 일화 외 실제 매매원장·대표표본·자산별 수익률 증거 없이 일반화할 수 없다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "영화와 일화 외 실제 매매원장·대표표본·자산별 수익률 증거 없이 일반화할 수 없다."
+      },
+      "original_srt_anchor_start_sec": 277,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-14",
+      "timecode": "00:05:35",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=335s",
+      "source_paraphrase": "위기 매도만 계획하면 중간 환율은 예측하지 않아도 성공한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "분산목적 외 위기 발생·매도·재투자 타이밍의 불확실성과 원화사용 시점이 남는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "분산목적 외 위기 발생·매도·재투자 타이밍의 불확실성과 원화사용 시점이 남는다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "분산목적 외 위기 발생·매도·재투자 타이밍의 불확실성과 원화사용 시점이 남는다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 335,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-15",
+      "timecode": "00:06:45",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=405s",
+      "source_paraphrase": "실물 달러·예금·국내/미국 ETF·달러RP·발행어음 등 투자수단이 있다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "상품유형은 실제 존재하지만 환율추적, 보수, 운용자산, 예금보험·발행사 신용위험은 각기 다르다.",
+      "official_sources": [
+        "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "상품유형은 실제 존재하지만 환율추적, 보수, 운용자산, 예금보험·발행사 신용위험은 각기 다르다.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "상품유형은 실제 존재하지만 환율추적, 보수, 운용자산, 예금보험·발행사 신용위험은 각기 다르다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 405,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-16",
+      "timecode": "00:07:25",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=445s",
+      "source_paraphrase": "환전수수료와 지급이자율만 비교하면 달러투자를 결정할 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "금리·환전수수료 외 만기·세금·발행사 신용·원화환산 위험·ETF 선물구조와 유동성을 비교해야 한다.",
+      "official_sources": [
+        "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "금리·환전수수료 외 만기·세금·발행사 신용·원화환산 위험·ETF 선물구조와 유동성을 비교해야 한다.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "금리·환전수수료 외 만기·세금·발행사 신용·원화환산 위험·ETF 선물구조와 유동성을 비교해야 한다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 445,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-17",
+      "timecode": "00:08:09",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=489s",
+      "source_paraphrase": "은행 밖 달러현금과 증권사 달러예수금은 반드시 이자가 없다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "현찰 자체는 이자가 없지만 외화예수금 자동 운용서비스·증권사/계좌 지급금리 여부에 따라 다를 수 있다.",
+      "official_sources": [
+        "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "현찰 자체는 이자가 없지만 외화예수금 자동 운용서비스·증권사/계좌 지급금리 여부에 따라 다를 수 있다.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "현찰 자체는 이자가 없지만 외화예수금 자동 운용서비스·증권사/계좌 지급금리 여부에 따라 다를 수 있다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown"
+      },
+      "original_srt_anchor_start_sec": 489,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "FPA12oQeQbc-18",
+      "timecode": "00:08:25",
+      "watch_url": "https://www.youtube.com/watch?v=FPA12oQeQbc&t=505s",
+      "source_paraphrase": "은행 달러예금은 장점이 전혀 없어 언제나 비추천이다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "은행 외화예금의 예금자보호 대상 여부·안정성·상품조건·수익률/유동성을 RP와 비교해야 하며 무조건 열등하지 않다.",
+      "official_sources": [
+        "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Private full source auto SRT time anchor; date-scoped official issuer/institution and independent finance arithmetic. No original audio/frames or public ASR diff.",
+        "disposition": "은행 외화예금의 예금자보호 대상 여부·안정성·상품조건·수익률/유동성을 RP와 비교해야 하며 무조건 열등하지 않다.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "은행 외화예금의 예금자보호 대상 여부·안정성·상품조건·수익률/유동성을 RP와 비교해야 하며 무조건 열등하지 않다.",
+        "effective_date_or_scope": "2020 and 2009 dated FX records or 2026 institutional product guidance; filming date unknown",
+        "correction": "은행 외화예금의 예금자보호 대상 여부·안정성·상품조건·수익률/유동성을 RP와 비교해야 하며 무조건 열등하지 않다."
+      },
+      "original_srt_anchor_start_sec": 505,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_NOT_ACOUSTICALLY_VERIFIED"
+    }
+  ],
+  "claim_count": 18
+}
