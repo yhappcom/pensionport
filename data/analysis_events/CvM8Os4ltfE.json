@@ -24,11 +24,13 @@
       "claim": "만원으로 모든 투자 방법을 시작할 수 있다는 소액투자 교육적 제안을 한다.",
       "verification": "QUALIFIED",
       "sources": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "https://kr.investing.com/etfs/0117l0-seoul-historical-data"
       ],
-      "disposition": "낮은 금액으로 ETF를 거래할 수 있으나 모든 상장상품이 1만원 이하인 것은 아니며 최소좌수·수수료·주문 가능 여부는 상품과 중개사마다 다르다.",
+      "disposition": "정확히 1만원으로 모든 ETF를 직접 매수한다는 범용 주장은 거짓. KRX 1좌 단위이며 0117L0 2026-10-12 종가 10,185원은 반례. 해외 ETF 소수점은 별도 서비스; ETF 수익 보장도 없음.",
       "correction": null,
-      "source_precision": "ORIGINAL_USER_SRT_NEAREST_CUE_NOT_INDEPENDENTLY_HEARD"
+      "source_precision": "ORIGINAL_USER_SRT_NEAREST_CUE_NOT_INDEPENDENTLY_HEARD",
+      "reassessment_20261013": "EDUCATIONAL_DATED_SCOPE_EXTERNAL_EVIDENCE"
     },
     {
       "claim_id": "CvM8Os4ltfE-02",
@@ -143,7 +145,7 @@
       "theme": "소액 배당 ETF의 분배금이 월급이나 원금보장이 아님"
     }
   ],
-  "verification_status": "EDUCATIONAL_V3_7_CLAIMS_SOURCE_TRIAGED_AUDIO_VISUAL_OPEN",
+  "verification_status": "EDUCATIONAL_V3_7_CLAIMS_SOURCE_TRIAGED_AUDIO_VISUAL_OPEN__OCT13_BLANKET_10K_EXECUTION_REJECTED_PRICE_AND_BROKER_CONDITIONAL",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -167,6 +169,14 @@
     "Some model examples and ETF holdings/rates/tax treatment require precise account/product documentation.",
     "미국상장 ETF 소수점매매는 국내상장 ETF 1주 매수와 다른 서비스이며 이용 증권사에 따라 다르다.",
     "소액이라고 해서 상품 구조를 무시하거나 대출/레버리지 투자로 확대해서는 안 된다.",
-    "Canonical APPROVED means complete conditional educational evidence triage, NOT audio, screen or guaranteed investment return certification."
-  ]
+    "Canonical APPROVED means complete conditional educational evidence triage, NOT audio, screen or guaranteed investment return certification.",
+    "1만원 모든 장내 ETF 1좌 매수 보장은 틀림; 상품 1좌 가격과 증권사 소수점 지원은 시점별로 다름."
+  ],
+  "review_supplement_20261013": {
+    "source": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "modified_claim": "CvM8Os4ltfE-01",
+    "source_audio_confirmed": false,
+    "exact_current_holder_scenario_proven": false,
+    "updated_at": "2026-10-13"
+  }
 }
