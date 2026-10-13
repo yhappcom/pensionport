@@ -232,6 +232,16 @@
       "segments": 6,
       "source": "YouTube video description 2026-09-23",
       "status": "REPACKAGED_SOURCE_NOT_SIX_NEW_INDEPENDENT_VIDEOS"
+    },
+    {
+      "label": "Full source-public Korean ASR normalization",
+      "original_cues": 10728,
+      "public_lines": 10726,
+      "difference": "TWO_ADJACENT_DUPLICATE_CUES_ONE_PER_PAIR_PUBLIC_OMITS",
+      "identical_lines_after": 10726,
+      "normalized_character_count": 194216,
+      "fnv64_utf16le": "5ca43f38d2a7dfa8",
+      "status": "EXACT_FULL_TEXT_AFTER_REMOVING_DUPLICATES_NOT_AUDIO_AUTHENTICATED"
     }
   ],
   "relations": [
@@ -246,7 +256,7 @@
       "theme": "개별 집중주식 사연을 보편적 매도/유지 규칙으로 바꾸지 않기"
     }
   ],
-  "verification_status": "SELECTIVE_14_CLAIM_EDUCATIONAL_EVIDENCE_AUDIT_COMPLETE_FULL_10728_SOURCE_CUES_STRUCTURALLY_PARSED_NO_AUDIO",
+  "verification_status": "SELECTIVE_14_CLAIM_EDUCATIONAL_EVIDENCE_AUDIT_COMPLETE_FULL_10728_SOURCE_CUES_STRUCTURALLY_PARSED_NO_AUDIO__20261013_FULL_PUBLIC_ASR_DUPLICATE_GAP_RESOLVED",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -272,6 +282,14 @@
     "이 영상은 2026-09-23 게시된 재편집 모음이며 서로 다른 과거 촬영기간의 금리·환율·실현손익이 섞여 있다.",
     "원본 자막 10728큐는 전부 구조적으로 파싱됐지만 5시간44분 실제 화면/계좌명세/모든 발언의 원음·감사된 지표는 확인하지 않았다.",
     "부동산/부채·증여·세제·신용대출은 영상 사례에 없는 개인별 사실이 반드시 필요하다.",
-    "Canonical APPROVED is claim-scoped educational analysis, not investment performance or sound/slide certification."
-  ]
+    "Canonical APPROVED is claim-scoped educational analysis, not investment performance or sound/slide certification.",
+    "Full public transcript == original normalized subtitles after removal of two duplicate lines at 01:47:20.599 and 04:00:58.800, UTF16LE FNV64 5ca43f38d2a7dfa8. Recorded audio and historical investment accounts not independently verified."
+  ],
+  "review_supplement_20261013": {
+    "closeout_source": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "source_verified_at": "2026-10-13",
+    "actual_audio_checked": false,
+    "actual_frames_checked": false,
+    "educational_record_approval_unchanged": true
+  }
 }
