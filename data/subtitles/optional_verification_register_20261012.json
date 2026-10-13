@@ -58,10 +58,18 @@
       "why_open": "Annual statutory rate 3% verified, but actual contract date, dates of entitlement, cancellation lump sum and prior 10-year gifts not available",
       "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
       "evidence_references": [
-        "data/subtitles/pilots/3MyhYE2jmuE.json"
+        "data/subtitles/pilots/3MyhYE2jmuE.json",
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "verified_general_rule_or_known_boundary": "OFFICIAL_RATE_FORMULA_CONFIRMED_CONTRACT_PROOF_UNAVAILABLE",
+      "verified_at": "2026-10-13",
+      "new_evidence_note": "Contract/origin, cancelable lump-sum value and prior gifts are independently required even when modeled PV < 20m.",
+      "official_evidence_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+        "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0019&lsiSeq=284609&urlMode=lsScJoRltInfoR"
+      ]
     },
     {
       "item_id": "OfkY343OaNs-PRODUCT_TAX_EFFECTIVE_RATE",
@@ -78,10 +86,19 @@
       "why_open": "JPX distinguishes US foreign crosslisting from Japanese fund; specific withholding and crossborder tax credit need exact ticker/account/broker tax statements",
       "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
       "evidence_references": [
-        "data/subtitles/pilots/OfkY343OaNs.json"
+        "data/subtitles/pilots/OfkY343OaNs.json",
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "verified_general_rule_or_known_boundary": "NTS_GENERAL_FOREIGN_CREDIT_CONFIRMED_JP_ISSUER_ACCOUNT_EFFECTIVE_RATE_UNPROVEN",
+      "verified_at": "2026-10-13",
+      "new_evidence_note": "NTS 2026-04-24 distinguishes overseas listed ETF general foreign tax credit Art57 from domestic fund paid foreign tax Art57-2. JPX 1557 vs 2558 issuer categories differ. Need broker withholding detail and proper treaty claim to settle actual rate.",
+      "official_evidence_urls": [
+        "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&nttSn=1350542",
+        "https://www.jpx.co.jp/equities/products/etfs/issues/01.html",
+        "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2888.htm"
+      ]
     },
     {
       "item_id": "YNOSY15ppf8-HISTORICAL_QUOTE_AND_FEE",
@@ -98,10 +115,17 @@
       "why_open": "Bank-level rates, cash/remittance basis and date not confirmed; 1.75% is video example not universal",
       "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
       "evidence_references": [
-        "data/analysis_events/YNOSY15ppf8.json"
+        "data/analysis_events/YNOSY15ppf8.json",
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "verified_general_rule_or_known_boundary": "BANK_DATED_RATE_OPEN_BUT_NTS_NONBUSINESS_SPOT_GAIN_RULE_CONFIRMED",
+      "verified_at": "2026-10-13",
+      "new_evidence_note": "SRT 36:29.520 says 1.75% but neither bank, quote type, effective time nor pre/post discount terms verified. Separately NTS 서면-2024-소득-0865 verifies temporary nonbusiness spot FX gain non-taxable.",
+      "official_evidence_urls": [
+        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143&wnkey=f39c4ab9-7727-4bbb-9d2d-b1a8000e267b"
+      ]
     },
     {
       "item_id": "uiauof6tOFk-ORIGINAL_BACKTEST_SOURCE_DATA",
@@ -121,10 +145,18 @@
       "review_again_when": "Video actual audio/frames, official primary legal notice, or original source data is newly available and could change the affected claim.",
       "evidence_references": [
         "scripts/reproduce_all_weather_1972_2022.py",
-        "data/analysis_events/uiauof6tOFk.json"
+        "data/analysis_events/uiauof6tOFk.json",
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "verified_general_rule_or_known_boundary": "PUBLISHER_BOOK_METADATA_PREVIEW_CONFIRMED_RAW_RETURN_SERIES_UNAVAILABLE",
+      "verified_at": "2026-10-13",
+      "new_evidence_note": "Book self-describes simulated long-run results with limitations (publisher preview pp150-151). A 30/40/15/7.5/7.5 public model cannot substitute for 26/34/20/20 book series or exact 1972-2022 original.",
+      "official_evidence_urls": [
+        "https://bnk.kpipa.or.kr/home/v3/addition/adiPromoMetaDataView/seq_20260909170412374187",
+        "https://www.yes24.com/product/goods/195618551"
+      ]
     },
     {
       "item_id": "LVE7XN_esTc-SCREEN_EXAMPLE",
@@ -533,7 +565,7 @@
       ],
       "title": "AUTONOMOUS CRASH HUMAN FAULT RATE",
       "verification_kind": "AUTONOMOUS_CRASH_HUMAN_FAULT_RATE",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "importance": "HIGH",
       "blocks_whole_video_analysis": false,
       "observed_at": "2026-10-13",
@@ -544,7 +576,14 @@
         "data/analysis_events/Bu36RrQMkVU.json"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "resolution": "VIDEO_99_TO_99_99_PERCENT_HUMAN_CAUSATION_UNSUPPORTED_REJECTED_NOT_REPLACED_BY_A_NEW_CAUSAL_PERCENT",
+      "resolved_at": "2026-10-13",
+      "resolution_note": "US NHTSA 2015 NMVCCS 94%±2.2% is assignment of critical reason (last causal link), not collision blame, cause or AV safety performance. No primary evidence of video's universal 99-99.99% causal percentage; do not use as a factual risk factor or investor thesis.",
+      "resolution_evidence": [
+        "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115",
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
+      ]
     },
     {
       "item_id": "33HPIrzl6xI-PERIODIC_GIFT_ACTUAL_CONTRACT",
@@ -562,10 +601,17 @@
       "review_again_when": "유효한 계약서·계좌 입금내역·세무신고 증빙·수증자 10년 누적을 확인할 때",
       "evidence_references": [
         "data/subtitles/pilots/33HPIrzl6xI.json",
-        "data/analysis_events/33HPIrzl6xI.json"
+        "data/analysis_events/33HPIrzl6xI.json",
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
       ],
       "actual_audio_checked": false,
-      "actual_frames_checked": false
+      "actual_frames_checked": false,
+      "verified_general_rule_or_known_boundary": "UPDATED_DECREE_CANCELLABLE_LUMP_SUM_OVERRIDES_PV_IF_HIGHER",
+      "verified_at": "2026-10-13",
+      "new_evidence_note": "Existing 3% rate does not establish actual tax-free gift; statutory decree Art62 instructs cancelable cash lump-sum ceiling/override and previous 10-year gifts need disclosure.",
+      "official_evidence_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475"
+      ]
     },
     {
       "item_id": "yDt8Ki7d_Yk-GIFT_240M_ELIGIBILITY_TIMING",
@@ -650,6 +696,158 @@
       ],
       "actual_audio_checked": false,
       "actual_frames_checked": false
+    },
+    {
+      "importance": "HIGH",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-13",
+      "review_again_when": "Reopen only on a contradictory new official regulation, primary dataset, or source-audio evidence changing affected claim, not for routine public transcript availability.",
+      "actual_audio_checked": false,
+      "actual_frames_checked": false,
+      "reviewed_at": "2026-10-13",
+      "evidence_references": [
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
+      ],
+      "item_id": "3MyhYE2jmuE-PERIODIC_GIFT_STATUTORY_FORMULA",
+      "video_id": "3MyhYE2jmuE",
+      "claim_ids": [
+        "3MyhYE2jmuE-07"
+      ],
+      "title": "정기금 증여 법정 연3%·해지일시금 우선 규칙",
+      "verification_kind": "OFFICIAL_LEGAL_PRINCIPLE",
+      "status": "RESOLVED",
+      "resolution": "Decree Art62: annual entitlement PV capped at 20x one-year payments, cash-out exceeds PV => cash-out; Rule Art19-2(3) annual 3%; contract valuation remains separate OPEN.",
+      "official_evidence_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+        "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0019&lsiSeq=284609&urlMode=lsScJoRltInfoR"
+      ],
+      "resolved_at": "2026-10-13",
+      "why_open": "Historical detailed open-question split from broader video review and now independently source-scoped resolved."
+    },
+    {
+      "importance": "MEDIUM",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-13",
+      "review_again_when": "Reopen only on a contradictory new official regulation, primary dataset, or source-audio evidence changing affected claim, not for routine public transcript availability.",
+      "actual_audio_checked": false,
+      "actual_frames_checked": false,
+      "reviewed_at": "2026-10-13",
+      "evidence_references": [
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
+      ],
+      "item_id": "OfkY343OaNs-JPX_ETF_ISSUER_LEGAL_CLASS",
+      "video_id": "OfkY343OaNs",
+      "claim_ids": [
+        "OfkY343OaNs-09"
+      ],
+      "title": "일본거래소 1557·2558 법적발행구조 차이",
+      "verification_kind": "PRIMARY_EXCHANGE_PRODUCT_CLASSIFICATION",
+      "status": "RESOLVED",
+      "resolution": "JPX categorizes 1557 foreign-domiciled SPDR US fund and 2558 Japanese MAXIS fund; final investor withholding not inferred.",
+      "official_evidence_urls": [
+        "https://www.jpx.co.jp/equities/products/etfs/issues/01.html",
+        "https://www.jpx.co.jp/equities/products/etfs/investors/01.html"
+      ],
+      "resolved_at": "2026-10-13",
+      "why_open": "Historical detailed open-question split from broader video review and now independently source-scoped resolved."
+    },
+    {
+      "importance": "HIGH",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-13",
+      "review_again_when": "Reopen only on a contradictory new official regulation, primary dataset, or source-audio evidence changing affected claim, not for routine public transcript availability.",
+      "actual_audio_checked": false,
+      "actual_frames_checked": false,
+      "reviewed_at": "2026-10-13",
+      "evidence_references": [
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
+      ],
+      "item_id": "YNOSY15ppf8-NONBUSINESS_SPOT_FX_TAX_RULE",
+      "video_id": "YNOSY15ppf8",
+      "claim_ids": [
+        "YNOSY15ppf8-10"
+      ],
+      "title": "비사업자 일시 외화 환전차익 소득과세 원칙",
+      "verification_kind": "NTS_DIRECT_OFFICIAL_TAX_INTERPRETATION",
+      "status": "RESOLVED",
+      "resolution": "NTS 서면-2024-소득-0865: personal temporary foreign currency acquired and exchanged into KRW gains are non-taxable income; business purpose may be business income based on facts. Not an ETF gains exemption.",
+      "official_evidence_urls": [
+        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000009143&wnkey=f39c4ab9-7727-4bbb-9d2d-b1a8000e267b"
+      ],
+      "resolved_at": "2026-10-13",
+      "why_open": "Historical detailed open-question split from broader video review and now independently source-scoped resolved."
+    },
+    {
+      "importance": "MEDIUM",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-13",
+      "review_again_when": "Reopen only on a contradictory new official regulation, primary dataset, or source-audio evidence changing affected claim, not for routine public transcript availability.",
+      "actual_audio_checked": false,
+      "actual_frames_checked": false,
+      "reviewed_at": "2026-10-13",
+      "evidence_references": [
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
+      ],
+      "item_id": "uiauof6tOFk-PUBLISHER_BOOK_MODEL_AND_CAVEAT",
+      "video_id": "uiauof6tOFk",
+      "claim_ids": [
+        "uiauof6tOFk-12",
+        "uiauof6tOFk-16"
+      ],
+      "title": "도서 26/34/20/20 모형과 모의백테스트 주의 고지",
+      "verification_kind": "PRIMARY_BOOK_METADATA_AND_PUBLISHER_PREVIEW",
+      "status": "RESOLVED",
+      "resolution": "Official Korean book ISBN/pub date and retail preview p150-151 confirm model and caveated simulated long-run backtest; underlying original 1972-2022 returns are still OPEN.",
+      "official_evidence_urls": [
+        "https://bnk.kpipa.or.kr/home/v3/addition/adiPromoMetaDataView/seq_20260909170412374187",
+        "https://www.yes24.com/product/goods/195618551"
+      ],
+      "resolved_at": "2026-10-13",
+      "why_open": "Historical detailed open-question split from broader video review and now independently source-scoped resolved."
+    },
+    {
+      "importance": "MEDIUM",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-13",
+      "review_again_when": "Reopen only on a contradictory new official regulation, primary dataset, or source-audio evidence changing affected claim, not for routine public transcript availability.",
+      "actual_audio_checked": false,
+      "actual_frames_checked": false,
+      "reviewed_at": "2026-10-13",
+      "evidence_references": [
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
+      ],
+      "item_id": "OfkY343OaNs-PUBLIC_ASR_CUE_GAP_LOCATED",
+      "video_id": "OfkY343OaNs",
+      "claim_ids": [],
+      "title": "공개 1037행/원본 1039큐 누락위치 식별",
+      "verification_kind": "ORIGINAL_SRT_VS_PUBLIC_ASR_TEXT_ALIGNMENT",
+      "status": "RESOLVED",
+      "resolution": "Missing original cue #182 at 05:59.400 코스닥 and #802 at 26:11.520 텔. Other 1037 public lines text matched. Actual audio not inspected.",
+      "official_evidence_urls": [],
+      "resolved_at": "2026-10-13",
+      "why_open": "Historical detailed open-question split from broader video review and now independently source-scoped resolved."
+    },
+    {
+      "importance": "MEDIUM",
+      "blocks_whole_video_analysis": false,
+      "observed_at": "2026-10-13",
+      "review_again_when": "Reopen only on a contradictory new official regulation, primary dataset, or source-audio evidence changing affected claim, not for routine public transcript availability.",
+      "actual_audio_checked": false,
+      "actual_frames_checked": false,
+      "reviewed_at": "2026-10-13",
+      "evidence_references": [
+        "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md"
+      ],
+      "item_id": "uiauof6tOFk-PUBLIC_ASR_MUSIC_CUE_LOCATED",
+      "video_id": "uiauof6tOFk",
+      "claim_ids": [],
+      "title": "공개 649행/원본 650큐 비음성차이 위치",
+      "verification_kind": "ORIGINAL_SRT_VS_PUBLIC_ASR_TEXT_ALIGNMENT",
+      "status": "RESOLVED",
+      "resolution": "Original cue #649 24:44.902 [음악] omitted from public caption; other 649 exact. Actual audio not inspected.",
+      "official_evidence_urls": [],
+      "resolved_at": "2026-10-13",
+      "why_open": "Historical detailed open-question split from broader video review and now independently source-scoped resolved."
     }
   ],
   "resolved_items": [
@@ -686,5 +884,12 @@
     "original_audio_required_for_every_video": false,
     "original_backtest_data_required_for_educational_principles": false,
     "raw_srt_copyrighted_not_in_git": true
+  },
+  "verified_rule_followups": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+  "closure_statistics": {
+    "total": 37,
+    "resolved": 7,
+    "open": 30,
+    "definition": "RESOLVED is exactly identified rule/scope, confirmed ASR omission or rejected unsupported claim, not attestation of original media or individual transaction."
   }
 }
