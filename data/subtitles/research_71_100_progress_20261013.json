@@ -12,26 +12,28 @@
   "srt_missing_video_ids": [
     "4vNF2fui5jc"
   ],
-  "verified_v3_educational_analysis_count": 2,
+  "verified_v3_educational_analysis_count": 4,
   "approved_v3_video_ids": [
     "POnX-7o79cQ",
-    "HKyUsMEJvZs"
+    "HKyUsMEJvZs",
+    "Eb7kKf8wnTw",
+    "-Hn9eMUWF2Y"
   ],
   "approved_v3_roster_numbers": [
     72,
-    73
-  ],
-  "current_material_claims_count": 59,
-  "classification_tally": {
-    "PRIMARY_CONFIRMED": 11,
-    "QUALIFIED": 32,
-    "CONTRADICTED": 1,
-    "HYPOTHETICAL": 15
-  },
-  "source_present_unreviewed_count": 27,
-  "source_present_unreviewed_roster_numbers": [
+    73,
     74,
-    75,
+    75
+  ],
+  "current_material_claims_count": 116,
+  "classification_tally": {
+    "PRIMARY_CONFIRMED": 27,
+    "QUALIFIED": 66,
+    "CONTRADICTED": 2,
+    "HYPOTHETICAL": 21
+  },
+  "source_present_unreviewed_count": 25,
+  "source_present_unreviewed_roster_numbers": [
     76,
     77,
     78,
@@ -60,15 +62,15 @@
   ],
   "next_priorities": [
     {
-      "roster_no": 74,
-      "video_id": "Eb7kKf8wnTw",
-      "cue_count": 1390,
+      "roster_no": 76,
+      "video_id": "aeR4g4Mmy00",
+      "cue_count": 459,
       "ready_source": true
     },
     {
-      "roster_no": 75,
-      "video_id": "-Hn9eMUWF2Y",
-      "cue_count": 1096,
+      "roster_no": 77,
+      "video_id": "IkL1X2VrPIc",
+      "cue_count": 1877,
       "ready_source": true
     }
   ],
@@ -110,6 +112,44 @@
       "original_audio_verified": false,
       "frames_verified": false,
       "public_full_asr_compared": false
+    },
+    {
+      "roster_no": 74,
+      "video_id": "Eb7kKf8wnTw",
+      "cue_count": 1390,
+      "claim_count": 27,
+      "claim_classes": {
+        "PRIMARY_CONFIRMED": 4,
+        "QUALIFIED": 20,
+        "CONTRADICTED": 0,
+        "HYPOTHETICAL": 3
+      },
+      "source_kind": "FOMO_LIFECYCLE_PASSIVE_ACTIVE_INVESTOR_COLLECTOR",
+      "pilot_path": "data/subtitles/pilots/Eb7kKf8wnTw.json",
+      "canonical_path": "data/analysis_events/Eb7kKf8wnTw.json",
+      "knowledge_path": "knowledge/FOMO_COLLECTOR_INVESTOR_VIDEO74_20261013.md",
+      "original_audio_verified": false,
+      "frames_verified": false,
+      "public_full_asr_compared": false
+    },
+    {
+      "roster_no": 75,
+      "video_id": "-Hn9eMUWF2Y",
+      "cue_count": 1096,
+      "claim_count": 30,
+      "claim_classes": {
+        "PRIMARY_CONFIRMED": 12,
+        "QUALIFIED": 14,
+        "CONTRADICTED": 1,
+        "HYPOTHETICAL": 3
+      },
+      "source_kind": "PHISHING_POLICE_HOTLINE_1394_KOREAN_INVESTMENT_ADVICE_LAW_MSAGFER",
+      "pilot_path": "data/subtitles/pilots/-Hn9eMUWF2Y.json",
+      "canonical_path": "data/analysis_events/-Hn9eMUWF2Y.json",
+      "knowledge_path": "knowledge/PHISHING_1394_INVESTMENT_LEADING_ROOMS_VIDEO75_20261013.md",
+      "original_audio_verified": false,
+      "frames_verified": false,
+      "public_full_asr_compared": false
     }
   ],
   "old_corpus_immutable_baseline": {
@@ -125,5 +165,6 @@
     "#71 4vNF2fui5jc source SRT unavailable; not counted as analyzed.",
     "Historical video72 is a class recruitment announcement, independent event delivery unverified.",
     "Do not publish raw private user 71-100.zip or member SRT. Keep 1-70 earlier cumulative counts unchanged."
-  ]
+  ],
+  "last_review_note": "2026-10-13 #74 1390 private original SRT cues 107778 bytes 27 claims (4 confirmed/20 qualified/0 contradicted/3 hypothetical): May KOSPI original chart unverified, FOMO/annual salary risk caution, life-cycle allocation and collector-investor pedagogic classifications. #75 1096 cues 85079 bytes 30 claims (12 confirmed/14 qualified/1 contradicted/3 hypothetical): 1394 hotline and government four months decrease officially confirmed, 2024-08-14 licensed investment adviser vs 신고 유사투자자문업 paid two-way chat restriction corrected, Msafer telecom line vs bank freeze differentiated. 4/30 reviewed, 116 scoped claims, 25 of29 present sources remaining, #71 unavailable. Legacy 70/70 and1052 claims preserved."
 }
