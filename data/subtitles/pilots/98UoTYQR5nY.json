@@ -862,33 +862,21 @@
         "effective_date_or_scope": "Recorded 2026-05-19; issued 2026-05-20; FSC 2026-05-06/21 and updates 2026-09-22; separate historical/current rules"
       },
       "timecode_precision": "PUBLIC_VIDEO_DESCRIPTION_CHAPTER_START_ONLY_NOT_EXACT_SENTENCE_TIMING"
-    },
-    {
-      "claim_id": "98UoTYQR5nY-41",
-      "timecode": "00:19:20",
-      "watch_url": "https://www.youtube.com/watch?v=98UoTYQR5nY&t=1160s",
-      "source_paraphrase": "1차 투자자가 2차 펀드에 재가입하여 다시 공제받을 수 있다",
-      "assessment": "CONTRADICTED",
-      "independent_check": "영상 일반론으로부터 도출되는 기대를 2026-09 2차 정책에 적용하면 오류. 금융위가 1차 가입자의 2차 가입 제한 공식화",
-      "official_sources": [
-        "https://www.fsc.go.kr/no010101/87766"
-      ],
-      "verification_evidence": {
-        "verdict": "CONTRADICTED",
-        "checked_at": "2026-10-14",
-        "primary_url": "https://www.fsc.go.kr/no010101/87766",
-        "basis": "Public YouTube chapter-indexed full auto-ASR transcript + official FSC/issuer notices; private registered 580-cue SRT NOT AVAILABLE in this turn and NOT compared",
-        "disposition": "영상 일반론으로부터 도출되는 기대를 2026-09 2차 정책에 적용하면 오류. 금융위가 1차 가입자의 2차 가입 제한 공식화",
-        "effective_date_or_scope": "Recorded 2026-05-19; issued 2026-05-20; FSC 2026-05-06/21 and updates 2026-09-22; separate historical/current rules"
-      },
-      "timecode_precision": "PUBLIC_VIDEO_DESCRIPTION_CHAPTER_START_ONLY_NOT_EXACT_SENTENCE_TIMING"
     }
   ],
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 24,
     "QUALIFIED": 12,
-    "CONTRADICTED": 3,
+    "CONTRADICTED": 2,
     "HYPOTHETICAL": 2
   },
-  "verification_status": "PROVISIONAL_PUBLIC_ASR_OFFICIAL_EVIDENCE_PRIVATE_SRT_RECONCILIATION_PENDING"
+  "verification_status": "PROVISIONAL_PUBLIC_ASR_OFFICIAL_EVIDENCE_PRIVATE_SRT_RECONCILIATION_PENDING",
+  "external_post_publication_updates": [
+    {
+      "date": "2026-09-22",
+      "source": "https://www.fsc.go.kr/no010101/87766",
+      "detail": "2026 second public tranche explicitly prohibits applications from first-tranche subscribers; the video cannot have predicted this restriction on its May19 recording. This is a later policy update, not a spoken-video claim."
+    }
+  ],
+  "review_method_note": "41 preliminary candidate points reduced to 40 actual video-attributable topics. Later policy update explicitly separated from video statements. All times mark uploader chapter starts, not exact SRT cue timing."
 }
