@@ -21,22 +21,30 @@
       "timecode": "00:00:00",
       "watch_url": "https://www.youtube.com/watch?v=CvM8Os4ltfE&t=0s",
       "source_paraphrase": "만원으로 모든 투자 방법을 시작할 수 있다는 소액투자 교육적 제안을 한다.",
-      "independent_check": "낮은 금액으로 ETF를 거래할 수 있으나 모든 상장상품이 1만원 이하인 것은 아니며 최소좌수·수수료·주문 가능 여부는 상품과 중개사마다 다르다.",
+      "independent_check": "국내 장내 ETF는 통상 최소 1주 거래이고 상품에 따라 1주 가격이 10,000원을 초과한다. 0117L0의 2026-10-12 과거 종가 10,185원은 정확 1만원 보유로 당일 직접 1좌 매수 불가능한 반례. 미국 ETF 소수점 매매는 별도 증권사 서비스. 모든 투자방법/ETF의 1만원 거래 가능 주장은 일반적 사실 아님.",
       "assessment": "QUALIFIED",
       "official_sources": [
         "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "disposition": "낮은 금액으로 ETF를 거래할 수 있으나 모든 상장상품이 1만원 이하인 것은 아니며 최소좌수·수수료·주문 가능 여부는 상품과 중개사마다 다르다.",
+        "disposition": "국내 장내 ETF는 통상 최소 1주 거래이고 상품에 따라 1주 가격이 10,000원을 초과한다. 0117L0의 2026-10-12 과거 종가 10,185원은 정확 1만원 보유로 당일 직접 1좌 매수 불가능한 반례. 미국 ETF 소수점 매매는 별도 증권사 서비스. 모든 투자방법/ETF의 1만원 거래 가능 주장은 일반적 사실 아님.",
         "basis": "Registered private user SRT and 2026 primary education evidence: 낮은 금액으로 ETF를 거래할 수 있으나 모든 상장상품이 1만원 이하인 것은 아니며 최소좌수·수수료·주문 가능 여부는 상품과 중개사마다 다르다.",
-        "checked_at": "2026-10-12",
-        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
-        "source_finding": "낮은 금액으로 ETF를 거래할 수 있으나 모든 상장상품이 1만원 이하인 것은 아니며 최소좌수·수수료·주문 가능 여부는 상품과 중개사마다 다르다.",
-        "effective_date_or_scope": "2026-10-12; cited official disclosure only within described fund/tax/product and example scope."
+        "checked_at": "2026-10-13",
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "source_finding": "국내 장내 ETF는 통상 최소 1주 거래이고 상품에 따라 1주 가격이 10,000원을 초과한다. 0117L0의 2026-10-12 과거 종가 10,185원은 정확 1만원 보유로 당일 직접 1좌 매수 불가능한 반례. 미국 ETF 소수점 매매는 별도 증권사 서비스. 모든 투자방법/ETF의 1만원 거래 가능 주장은 일반적 사실 아님.",
+        "effective_date_or_scope": "2026-10-12; cited official disclosure only within described fund/tax/product and example scope.",
+        "additional_external_evidence": [
+          "https://kr.investing.com/etfs/0117l0-seoul-historical-data"
+        ],
+        "source_scope": "Explicitly dated comparative proof, not 2026-10 full exact historical primary constituents, exact broker eligibility, or original video utterance"
       },
       "original_srt_anchor_start_sec": 0,
-      "timecode_precision": "ORIGINAL_USER_SRT_NEAREST_CUE_NOT_INDEPENDENTLY_HEARD"
+      "timecode_precision": "ORIGINAL_USER_SRT_NEAREST_CUE_NOT_INDEPENDENTLY_HEARD",
+      "verification_supplement_20261013": {
+        "evidence_review_path": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+        "status": "UNIVERSAL_10K_CLAIM_REJECTED"
+      }
     },
     {
       "claim_id": "CvM8Os4ltfE-02",
@@ -175,7 +183,8 @@
     "User original SRT SHA-256 reconciled to registry but source audio/frame accuracy not verified; no raw caption source published.",
     "Some model examples and ETF holdings/rates/tax treatment require precise account/product documentation.",
     "미국상장 ETF 소수점매매는 국내상장 ETF 1주 매수와 다른 서비스이며 이용 증권사에 따라 다르다.",
-    "소액이라고 해서 상품 구조를 무시하거나 대출/레버리지 투자로 확대해서는 안 된다."
+    "소액이라고 해서 상품 구조를 무시하거나 대출/레버리지 투자로 확대해서는 안 된다.",
+    "1만원 모든 ETF 직접 매수 가능이라는 포괄 주장은 잘못됨; 1주 단위 가격/중개사 소수점 서비스를 확인."
   ],
   "existing_registry_srt": {
     "sha256": "fd147eb6b765e2d7de7bc86839a8be0fbb2856fe1975571c1cdaec94477d6589",
