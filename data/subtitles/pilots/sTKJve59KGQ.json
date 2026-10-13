@@ -20,7 +20,10 @@
     "2026년 7월 국고채 금리가 모든 만기 연5%가 아니어서 안전한 5% 수익 확정은 불가.",
     "월급 317만원 전체 저축을 55세 일반 가구의 보편 실현가능 계획으로 제시하지 않는다.",
     "원본 비공개 자동 SRT 전체 읽기·해시 인증만 수행. 음성/프레임·공개 자막 전문 독립 대조 미실시.",
-    "원본 사적 ZIP/SRT를 공개 저장하지 않는다."
+    "원본 사적 ZIP/SRT를 공개 저장하지 않는다.",
+    "55~65 1.62억원은 55~60 연7% / 60~65도 같은 연7% 월복리로 재현되지 않고 그 경우 65세 약2.059억원. 연7% 실제 보장 아님.",
+    "2.3억원 55~60 합산 후 ISA 만기자금을 연금으로 옮기는 과정은 자산 이동이므로 이중계산을 막아야 한다. 영상의 원 슬라이드 장부·연금이체 세부는 미검증.",
+    "4억원의 연8% 인출 3200만원은 총수익 및 연금의 지속가능성을 보증하지 않는다."
   ],
   "existing_registry_srt": {
     "sha256": "d0e9d1a16a0289f013b41099142baf4ea2ccb62eaee31c6e445735f07d874ae1",
@@ -45,7 +48,7 @@
     "public_transcript_text_exact_match": "NOT_TESTED_NONBLOCKING",
     "precise_timing_verified": false
   },
-  "verification_status": "VIDEO43_16_OF_EXPECTED_CLAIMS_DRAFT_INCOMPLETE",
+  "verification_status": "EDUCATIONAL_32_CLAIM_SCOPED_ORIGINAL_684_CUES_HASH_MATCHED_WITH_SCENARIO_ASSUMPTIONS_AUDIO_FRAMES_UNVERIFIED",
   "relations": [
     {
       "type": "CORRECT",
@@ -411,7 +414,365 @@
       },
       "original_srt_anchor_start_sec": 856,
       "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-17",
+      "timecode": "00:15:13",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=913s",
+      "source_paraphrase": "55~60세 연금 약1.1억원과 ISA 약1.2억원을 합쳐 2.3억원이라고 한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "연금 월150만원 60회×연7% 월복리 약1.074억, ISA 연2000만원×5년 1억원 원금+수익으로 약1.15~1.20억 가능하나 1.2억의 정확한 납입시점·수익률은 화면 미인증.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "연금 월150만원 60회×연7% 월복리 약1.074억, ISA 연2000만원×5년 1억원 원금+수익으로 약1.15~1.20억 가능하나 1.2억의 정확한 납입시점·수익률은 화면 미인증.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "연금 월150만원 60회×연7% 월복리 약1.074억, ISA 연2000만원×5년 1억원 원금+수익으로 약1.15~1.20억 가능하나 1.2억의 정확한 납입시점·수익률은 화면 미인증.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 913,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-18",
+      "timecode": "00:15:36",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=936s",
+      "source_paraphrase": "55~60세의 연금·ISA 합산 자산 2.3억원은 높은 확률로 누구나 만든다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "월316.67만원(연3800만원)을 5년 계속 납입하고 시장손실 없다는 강한 가정. 실제 세후소득·실직·가족부양·보유 부채별 달성가능성은 다르다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "월316.67만원(연3800만원)을 5년 계속 납입하고 시장손실 없다는 강한 가정. 실제 세후소득·실직·가족부양·보유 부채별 달성가능성은 다르다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "월316.67만원(연3800만원)을 5년 계속 납입하고 시장손실 없다는 강한 가정. 실제 세후소득·실직·가족부양·보유 부채별 달성가능성은 다르다.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding",
+        "correction": "월316.67만원(연3800만원)을 5년 계속 납입하고 시장손실 없다는 강한 가정. 실제 세후소득·실직·가족부양·보유 부채별 달성가능성은 다르다."
+      },
+      "original_srt_anchor_start_sec": 936,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-19",
+      "timecode": "00:17:27",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1047s",
+      "source_paraphrase": "연3800만원을 연금저축 1800+ISA2000에 저축하는 방식이 있다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "두 계좌 연간 기본 납입 법정 한도 1800+2000=3800만원. 입금 가능 금액과 실수령 세제혜택, ISA 만기 이후 한도는 구별.",
+      "official_sources": [
+        "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1023690305"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "두 계좌 연간 기본 납입 법정 한도 1800+2000=3800만원. 입금 가능 금액과 실수령 세제혜택, ISA 만기 이후 한도는 구별.",
+        "primary_url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1023690305",
+        "source_finding": "두 계좌 연간 기본 납입 법정 한도 1800+2000=3800만원. 입금 가능 금액과 실수령 세제혜택, ISA 만기 이후 한도는 구별.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 1047,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-20",
+      "timecode": "00:18:08",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1088s",
+      "source_paraphrase": "ISA 만기자금 1.2억원은 전액 연금저축으로 조건 없이 이체할 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "ISA 만기 해지금 일부/전부를 60일 이내에 적법한 연금계좌로 추가 납입할 수 있으나 만기·계좌유형·금융기관 지침이 있음. 세액공제는 전액이 아니라 전환금의10% 최대300만원의 '공제대상 납입액'에 대해.",
+      "official_sources": [
+        "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "ISA 만기 해지금 일부/전부를 60일 이내에 적법한 연금계좌로 추가 납입할 수 있으나 만기·계좌유형·금융기관 지침이 있음. 세액공제는 전액이 아니라 전환금의10% 최대300만원의 '공제대상 납입액'에 대해.",
+        "primary_url": "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target",
+        "source_finding": "ISA 만기 해지금 일부/전부를 60일 이내에 적법한 연금계좌로 추가 납입할 수 있으나 만기·계좌유형·금융기관 지침이 있음. 세액공제는 전액이 아니라 전환금의10% 최대300만원의 '공제대상 납입액'에 대해.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 1088,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-21",
+      "timecode": "00:19:03",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1143s",
+      "source_paraphrase": "ISA를 연금으로 옮긴 후 다시 더하면 추가로 새 자산 1.2억원이 생긴다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "ISA에서 연금으로 자금 이전은 자산의 위치 변화이지 총자산 창출이 아니다. 2.3억원에 이미 합산한 ISA분을 이후 연금 이전한다면 같은 1.2억원을 다시 더하면 이중계산이다. 영상의 실제 장부는 슬라이드 원본 미확인.",
+      "official_sources": [
+        "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "ISA에서 연금으로 자금 이전은 자산의 위치 변화이지 총자산 창출이 아니다. 2.3억원에 이미 합산한 ISA분을 이후 연금 이전한다면 같은 1.2억원을 다시 더하면 이중계산이다. 영상의 실제 장부는 슬라이드 원본 미확인.",
+        "primary_url": "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target",
+        "source_finding": "ISA에서 연금으로 자금 이전은 자산의 위치 변화이지 총자산 창출이 아니다. 2.3억원에 이미 합산한 ISA분을 이후 연금 이전한다면 같은 1.2억원을 다시 더하면 이중계산이다. 영상의 실제 장부는 슬라이드 원본 미확인.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding",
+        "correction": "ISA에서 연금으로 자금 이전은 자산의 위치 변화이지 총자산 창출이 아니다. 2.3억원에 이미 합산한 ISA분을 이후 연금 이전한다면 같은 1.2억원을 다시 더하면 이중계산이다. 영상의 실제 장부는 슬라이드 원본 미확인."
+      },
+      "original_srt_anchor_start_sec": 1143,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-22",
+      "timecode": "00:19:19",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1159s",
+      "source_paraphrase": "연 5% 일정복리 2.3억원에 월75만원 5년 추가, 이후 5년 추가 운용하면 약4억원 이상 가능하다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "55~60세 말 2.3억원 출발, 60~65세 월75만원×60회, 연5% 명목월복리 ⇒65세 약3.462억원, 이후5년 연5% 연복리 ⇒70세 약4.418억원. 정확한 납입시점과 변동성/세금/인출 미반영.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "55~60세 말 2.3억원 출발, 60~65세 월75만원×60회, 연5% 명목월복리 ⇒65세 약3.462억원, 이후5년 연5% 연복리 ⇒70세 약4.418억원. 정확한 납입시점과 변동성/세금/인출 미반영.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "55~60세 말 2.3억원 출발, 60~65세 월75만원×60회, 연5% 명목월복리 ⇒65세 약3.462억원, 이후5년 연5% 연복리 ⇒70세 약4.418억원. 정확한 납입시점과 변동성/세금/인출 미반영.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 1159,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-23",
+      "timecode": "00:19:39",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1179s",
+      "source_paraphrase": "4억원에 연8%를 적용하면 연3200만원 월266만원이다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "4억원×0.08=3200만원/년, /12=266.67만원/월 세전. 이것은 분배·인출 산술이지 연8% 수익보장 아님.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "4억원×0.08=3200만원/년, /12=266.67만원/월 세전. 이것은 분배·인출 산술이지 연8% 수익보장 아님.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "4억원×0.08=3200만원/년, /12=266.67만원/월 세전. 이것은 분배·인출 산술이지 연8% 수익보장 아님.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 1179,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-24",
+      "timecode": "00:19:56",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1196s",
+      "source_paraphrase": "4억원을 커버드콜 월배당으로 세팅하면 월266만원이 안정적으로 나온다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "SEC 원문: 높은 현금분배율과 펀드 총수익은 다르고 자본환급/NAV 하락과 분배삭감 가능. 월 지급액과 장기 원금보전/수명 영속적 보장 불가능.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "SEC 원문: 높은 현금분배율과 펀드 총수익은 다르고 자본환급/NAV 하락과 분배삭감 가능. 월 지급액과 장기 원금보전/수명 영속적 보장 불가능.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "SEC 원문: 높은 현금분배율과 펀드 총수익은 다르고 자본환급/NAV 하락과 분배삭감 가능. 월 지급액과 장기 원금보전/수명 영속적 보장 불가능.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding",
+        "correction": "SEC 원문: 높은 현금분배율과 펀드 총수익은 다르고 자본환급/NAV 하락과 분배삭감 가능. 월 지급액과 장기 원금보전/수명 영속적 보장 불가능."
+      },
+      "original_srt_anchor_start_sec": 1196,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-25",
+      "timecode": "00:20:05",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1205s",
+      "source_paraphrase": "퇴직금·국민연금·IRP를 더하면 억당 월70만원 배당 수익이 붙는다고 한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "1억원×8%/12=66.67만원/월에 해당하는 가상 인출액. IRP로 수령하는 법정급여·퇴직연금 원금을 이전 연금 합계와 중복 계상하면 안 되며 실제 국민연금은 자격·개인 급여액별.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "1억원×8%/12=66.67만원/월에 해당하는 가상 인출액. IRP로 수령하는 법정급여·퇴직연금 원금을 이전 연금 합계와 중복 계상하면 안 되며 실제 국민연금은 자격·개인 급여액별.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "1억원×8%/12=66.67만원/월에 해당하는 가상 인출액. IRP로 수령하는 법정급여·퇴직연금 원금을 이전 연금 합계와 중복 계상하면 안 되며 실제 국민연금은 자격·개인 급여액별.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 1205,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-26",
+      "timecode": "00:21:01",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1261s",
+      "source_paraphrase": "55세부터 5년 월317만원 저축하고 은퇴 이후 75만원만 저축하면 70세에 4억원 달성할 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "앞 단계 연7%, 뒤 단계 연5%, ISA 정상납입·성장·계좌 이전 가정이면 달성 가능한 수학적 사례이나 누구나 성공한다는 뜻이 아니고 초기 저축률이 매우 높음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "앞 단계 연7%, 뒤 단계 연5%, ISA 정상납입·성장·계좌 이전 가정이면 달성 가능한 수학적 사례이나 누구나 성공한다는 뜻이 아니고 초기 저축률이 매우 높음.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "앞 단계 연7%, 뒤 단계 연5%, ISA 정상납입·성장·계좌 이전 가정이면 달성 가능한 수학적 사례이나 누구나 성공한다는 뜻이 아니고 초기 저축률이 매우 높음.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 1261,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-27",
+      "timecode": "00:22:07",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1327s",
+      "source_paraphrase": "퇴직 뒤 재취업하면 건강보험료는 대체로 무조건 절약한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "직장가입자와 지역가입자 보험료 산정 기준/급여·소득·재산·피부양자 자격이 달라 가입자 지위 변경이 언제나 보험료 감소로 이어진다고 단정 불가.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "직장가입자와 지역가입자 보험료 산정 기준/급여·소득·재산·피부양자 자격이 달라 가입자 지위 변경이 언제나 보험료 감소로 이어진다고 단정 불가.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "직장가입자와 지역가입자 보험료 산정 기준/급여·소득·재산·피부양자 자격이 달라 가입자 지위 변경이 언제나 보험료 감소로 이어진다고 단정 불가.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 1327,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-28",
+      "timecode": "00:22:31",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1351s",
+      "source_paraphrase": "은퇴 전 7% 투자와 은퇴 후 5% 투자로 자동 전환하면 안전하다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "목표 수익률 숫자가 위험자산·국채 보유비율을 정의하는 것은 아니다. 목표기간에 맞춰 자산비중/변동성/채권만기/세후기대수익을 조정해야 한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "목표 수익률 숫자가 위험자산·국채 보유비율을 정의하는 것은 아니다. 목표기간에 맞춰 자산비중/변동성/채권만기/세후기대수익을 조정해야 한다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "목표 수익률 숫자가 위험자산·국채 보유비율을 정의하는 것은 아니다. 목표기간에 맞춰 자산비중/변동성/채권만기/세후기대수익을 조정해야 한다.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 1351,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-29",
+      "timecode": "00:23:11",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1391s",
+      "source_paraphrase": "커버드콜 비중10~20%를 늘리면 전체 포트 수익률이 올라간다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "커버드콜의 현금 분배율이 높다고 총수익률이 커지는 것이 아니고 상승여력을 옵션매도로 제한하고 원주식 하락위험을 부담. 비중확대만으로 안전한 추가수익 보장하지 않음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "커버드콜의 현금 분배율이 높다고 총수익률이 커지는 것이 아니고 상승여력을 옵션매도로 제한하고 원주식 하락위험을 부담. 비중확대만으로 안전한 추가수익 보장하지 않음.",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "커버드콜의 현금 분배율이 높다고 총수익률이 커지는 것이 아니고 상승여력을 옵션매도로 제한하고 원주식 하락위험을 부담. 비중확대만으로 안전한 추가수익 보장하지 않음.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding",
+        "correction": "커버드콜의 현금 분배율이 높다고 총수익률이 커지는 것이 아니고 상승여력을 옵션매도로 제한하고 원주식 하락위험을 부담. 비중확대만으로 안전한 추가수익 보장하지 않음."
+      },
+      "original_srt_anchor_start_sec": 1391,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-30",
+      "timecode": "00:23:38",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1418s",
+      "source_paraphrase": "대부분 연금보험은 엉망이므로 해지하면 상당한 현금이 생긴다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "해약환급금·보험 보장·최저보증이율·과세·가족위험을 비교하지 않은 일괄 해지는 보험금보장 상실·손실 초래 가능. 특정 영상의 부모사례가 모든 계약의 부적합 근거가 아니다.",
+      "official_sources": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "해약환급금·보험 보장·최저보증이율·과세·가족위험을 비교하지 않은 일괄 해지는 보험금보장 상실·손실 초래 가능. 특정 영상의 부모사례가 모든 계약의 부적합 근거가 아니다.",
+        "primary_url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+        "source_finding": "해약환급금·보험 보장·최저보증이율·과세·가족위험을 비교하지 않은 일괄 해지는 보험금보장 상실·손실 초래 가능. 특정 영상의 부모사례가 모든 계약의 부적합 근거가 아니다.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding",
+        "correction": "해약환급금·보험 보장·최저보증이율·과세·가족위험을 비교하지 않은 일괄 해지는 보험금보장 상실·손실 초래 가능. 특정 영상의 부모사례가 모든 계약의 부적합 근거가 아니다."
+      },
+      "original_srt_anchor_start_sec": 1418,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-31",
+      "timecode": "00:23:58",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1438s",
+      "source_paraphrase": "55세 아무 준비 없더라도 위 금액을 현실적으로 누구나 모을 수 있다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "월317만원 5년·월75만원 이후 5년, 5~7% 고정성장·소득지속을 모두 충족한 예시이지 고령 실업/재취업/의료비 지출을 고려한 모든 개인의 보장 경로가 아니다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "월317만원 5년·월75만원 이후 5년, 5~7% 고정성장·소득지속을 모두 충족한 예시이지 고령 실업/재취업/의료비 지출을 고려한 모든 개인의 보장 경로가 아니다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "월317만원 5년·월75만원 이후 5년, 5~7% 고정성장·소득지속을 모두 충족한 예시이지 고령 실업/재취업/의료비 지출을 고려한 모든 개인의 보장 경로가 아니다.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding",
+        "correction": "월317만원 5년·월75만원 이후 5년, 5~7% 고정성장·소득지속을 모두 충족한 예시이지 고령 실업/재취업/의료비 지출을 고려한 모든 개인의 보장 경로가 아니다."
+      },
+      "original_srt_anchor_start_sec": 1438,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "sTKJve59KGQ-32",
+      "timecode": "00:24:16",
+      "watch_url": "https://www.youtube.com/watch?v=sTKJve59KGQ&t=1456s",
+      "source_paraphrase": "저축의 실천 여부가 계산과 별개로 중요하다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "행동적 원칙은 타당하나 위험상품 매입·해지·무리한 노동·소비 삭감이 모두에게 적합하다는 뜻은 아니다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Entire source 684-cue original SRT with original timecode and officially dated tax/ISA/bond/SEC information plus deterministic portfolio cashflow math. Frames/audio unverified.",
+        "disposition": "행동적 원칙은 타당하나 위험상품 매입·해지·무리한 노동·소비 삭감이 모두에게 적합하다는 뜻은 아니다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "행동적 원칙은 타당하나 위험상품 매입·해지·무리한 노동·소비 삭감이 모두에게 적합하다는 뜻은 아니다.",
+        "effective_date_or_scope": "2026 applicable tax law and 2026-07 market quotation, personal financial model assumed 5% or 7% annual nominal compounding"
+      },
+      "original_srt_anchor_start_sec": 1456,
+      "timecode_precision": "ORIGINAL_SRT_CUE_NEARBY_NOT_AUDIO_VERIFIED"
     }
   ],
-  "claim_count": 16
+  "claim_count": 32
 }
