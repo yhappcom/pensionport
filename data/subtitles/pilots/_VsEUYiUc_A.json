@@ -21,7 +21,8 @@
     "Original caption says '발행업' 'IS/ISL' etc likely automatic transcription errors for 발행어음/ISA; direct audio unconfirmed.",
     "Dollar amounts not relevant; this is domestic KRW ISA securities and issuer-credit risk, not insured bank deposits.",
     "Actual household eligibility, investment horizon, financial product approval, cashflow, brokerage fees and actual investor declarations not checked.",
-    "No audio or video frame, independent public ASR full-text comparison or original private SRT published."
+    "No audio or video frame, independent public ASR full-text comparison or original private SRT published.",
+    "초기 초안의 절대 보장·원달러1:1 UUP 표현 등은 실제 사용자 자동 SRT 발화와 혼동을 줄이기 위해 '화자의 설명'과 '연구자가 경고하는 조건'을 별개 문장으로 수정했다."
   ],
   "existing_registry_srt": {
     "sha256": "32a618e29fb5f8e5b31031afb2fe602b0dfd79ebe81ea80f81a8b8e5baa8ebe1",
@@ -305,23 +306,22 @@
       "claim_id": "_VsEUYiUc_A-12",
       "timecode": "00:00:55",
       "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=55s",
-      "source_paraphrase": "오르고 내릴 때 계속 나눠 사면 1억원 목돈을 안전하게 지키면서 반드시 불릴 수 있다.",
-      "assessment": "CONTRADICTED",
-      "independent_check": "DCA와 ISA 절세가 투자원금 보전·수익의 필연성을 만들지 않는다. ETF/발행어음 가치·신용위험과 인출시점을 분리해 위험자산 비중을 설정해야 한다.",
+      "source_paraphrase": "분할매수가 목돈을 지키면서 불리는 실천 방법이 될 수 있다는 마무리 권고.",
+      "assessment": "QUALIFIED",
+      "independent_check": "분할매수는 변동성의 구매시점 분산·행동관리 수단이지만 최종 원금 및 수익을 보장하지 않는다. 화자가 투자원금 절대보장 계약을 했다는 뜻으로 판정하지 않는다.",
       "official_sources": [
         "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
         "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-13",
         "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
-        "disposition": "DCA와 ISA 절세가 투자원금 보전·수익의 필연성을 만들지 않는다. ETF/발행어음 가치·신용위험과 인출시점을 분리해 위험자산 비중을 설정해야 한다.",
+        "disposition": "분할매수는 변동성의 구매시점 분산·행동관리 수단이지만 최종 원금 및 수익을 보장하지 않는다. 화자가 투자원금 절대보장 계약을 했다는 뜻으로 판정하지 않는다.",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
-        "source_finding": "DCA와 ISA 절세가 투자원금 보전·수익의 필연성을 만들지 않는다. ETF/발행어음 가치·신용위험과 인출시점을 분리해 위험자산 비중을 설정해야 한다.",
-        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three.",
-        "correction": "DCA와 ISA 절세가 투자원금 보전·수익의 필연성을 만들지 않는다. ETF/발행어음 가치·신용위험과 인출시점을 분리해 위험자산 비중을 설정해야 한다."
+        "source_finding": "분할매수는 변동성의 구매시점 분산·행동관리 수단이지만 최종 원금 및 수익을 보장하지 않는다. 화자가 투자원금 절대보장 계약을 했다는 뜻으로 판정하지 않는다.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
       },
       "original_srt_anchor_start_sec": 55,
       "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
