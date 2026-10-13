@@ -177,7 +177,7 @@
       "watch_url": "https://www.youtube.com/watch?v=3MyhYE2jmuE&t=732s",
       "source_paraphrase": "유기정기금 증여로 10년간 매월 약 18만9천원을 송금하도록 약정하고 현재가치 할인과 신고자료를 활용하자고 제안함.",
       "assessment": "OPEN_QUANTITATIVE_AND_TAX_RULE",
-      "independent_check": "18만9천원/월, 할인율 3%, 계약 요건, 실제 이체이행, 약정 증빙이 현행 2026년 규정에 맞는지 1차 법령·국세청 해석 및 제공된 엑셀과 대조 필요. 금액을 세금 0원 보장으로 승인하지 않음.",
+      "independent_check": "시행령 제62조 각 연도 지급권 할인합계, 1년분의 20배 상한 및 해지·철회·취소 일시금이 더 크면 그 일시금 평가 예외 공식 확인. 시행규칙 제19조의2 ③ 연3% 확인. 연말/연초/월말 3가지 모델은 예시이며 계약상 지급권·일시금·종전10년 증여가 없으면 신고 평가액/세액 미확정.",
       "official_sources": [
         "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
         "https://www.law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=113998"
@@ -186,13 +186,18 @@
       "verification_checked_on": "2026-10-12",
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "disposition": "18만9천원/월, 할인율 3%, 계약 요건, 실제 이체이행, 약정 증빙이 현행 2026년 규정에 맞는지 1차 법령·국세청 해석 및 제공된 엑셀과 대조 필요. 금액을 세금 0원 보장으로 승인하지 않음. The 3% is now verified as a lawful statutory rate, but no tax-exemption approval before actual deed/report and previous gift deduction audit.",
+        "disposition": "시행령 제62조 각 연도 지급권 할인합계, 1년분의 20배 상한 및 해지·철회·취소 일시금이 더 크면 그 일시금 평가 예외 공식 확인. 시행규칙 제19조의2 ③ 연3% 확인. 연말/연초/월말 3가지 모델은 예시이며 계약상 지급권·일시금·종전10년 증여가 없으면 신고 평가액/세액 미확정.",
         "basis": "Original full SRT and specific independent legislative/regulator context.",
         "checked_at": "2026-10-12",
         "supporting_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
         "primary_url": "https://www.law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=113998",
         "source_finding": "2026 시행규칙 제19조의2제3항 confirms 3% annual statutory discount. 시행령 제62조 directs sum of annually discounted periodic payment entitlements (20x one-year payment cap and applicable cancellation lump sum floor). Annually aggregated 226.8만원 at year-end n=1..10 yields 1934.65만원, beginning n=0..9 yields 1992.69만원; different from monthly finance annuity 1961.11만원.",
-        "effective_date_or_scope": "2026-10-12 law; example assumes binding contract, 10 annual aggregated payments, 3% discount, no higher cancellation lump-sum value."
+        "effective_date_or_scope": "2026-10-12 law; example assumes binding contract, 10 annual aggregated payments, 3% discount, no higher cancellation lump-sum value.",
+        "legal_rule_reconfirmed_at": "2026-10-13",
+        "official_statute_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+        "official_discount_url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0019&lsiSeq=284609&urlMode=lsScJoRltInfoR",
+        "statutorily_higher_cash_out_overrides_pv": true,
+        "formula_and_application_separated": true
       }
     },
     {
@@ -403,5 +408,13 @@
       "month_end_financial_annuity_model_krw": 19611095,
       "statement": "Annual statutory model discounts the sum of each year's contract entitlement at 3% to evaluation date; year-end/year-start are model illustrations, NOT a certified individual tax assessment. Contract legal formation, termination lump sum, gift date, previous 10-year deductions must be checked."
     }
+  },
+  "review_supplement_20261013": {
+    "assessment_level": "PRIMARY_LEGAL_OR_PUBLISHER_SCOPE_ONLY_OR_INDEPENDENT_TRANSCRIPT_DIFF",
+    "source": "knowledge/UNRESOLVED_GIFT_FX_BACKTEST_RECHECK_20261013.md",
+    "video_research_approval_unchanged": true,
+    "original_media_verified": false,
+    "individual_product_tax_or_original_backtest_claim_still_open": true,
+    "reviewed_at": "2026-10-13"
   }
 }
