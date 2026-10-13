@@ -21,7 +21,8 @@
     "원본 비공개 SRT ZIP 공개저장 없음.",
     "책에서 인용된 8.4% vs >15% 백테스트 성과는 원본 표 없이 독립 재현되지 않았으며 미래 기대수익률로 사용 금지.",
     "리밸런싱과 낮은 상관관계가 언제나 수익률도 높인다는 절대명제는 오해; 거래비용·환율·시장환경 중요.",
-    "+30%/-10% 독립 동전의 단일 복리 약8.1665%, 두 동전 50:50 반년 독립·연도 말 리밸런싱 약9.0794%는 수학적 검증 완료."
+    "+30%/-10% 독립 동전의 단일 복리 약8.1665%, 두 동전 50:50 반년 독립·연도 말 리밸런싱 약9.0794%는 수학적 검증 완료.",
+    "원저 출판연도는 McGraw-Hill 자체 서지로 2000-09-22 확인되었으나 저서 통계·대체 자산 8.4 vs 15% 실험 전체는 독립자료/프로그램 재현 미완료."
   ],
   "existing_registry_srt": {
     "sha256": "27bfe3e93b1c4007da77d91aab367ace57f191a665ed2d4615e6293650ca5766",
@@ -81,20 +82,20 @@
       "claim_id": "jdg_4nQUCVU-02",
       "timecode": "00:02:06",
       "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=126s",
-      "source_paraphrase": "번스타인의 현명한 자산배분 투자 출간 시점을 설명한다.",
-      "assessment": "QUALIFIED",
-      "independent_check": "원서 초판 연도·수정판·원문 및 인용 출처를 별도로 검증하지 않았으므로 시대별 자료로만 보존한다.",
+      "source_paraphrase": "번스타인의 The Intelligent Asset Allocator가 2000년 9월 출간되어 닷컴버블 붕괴 직전 시기에 있었다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "출판사 McGraw-Hill 공식 서지는 초판 2000년 9월22일 출판으로 명시. 책 본문 예측 발언과 닷컴 버블 폭락의 날짜 비교는 별도 해석이며 출간 날짜 자체 확인.",
       "official_sources": [
-        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+        "https://www.mheducation.com/highered/mhp/product/intelligent-asset-allocator-hc.html"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-13",
         "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
-        "disposition": "원서 초판 연도·수정판·원문 및 인용 출처를 별도로 검증하지 않았으므로 시대별 자료로만 보존한다.",
-        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
-        "source_finding": "원서 초판 연도·수정판·원문 및 인용 출처를 별도로 검증하지 않았으므로 시대별 자료로만 보존한다.",
-        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+        "disposition": "출판사 McGraw-Hill 공식 서지는 초판 2000년 9월22일 출판으로 명시. 책 본문 예측 발언과 닷컴 버블 폭락의 날짜 비교는 별도 해석이며 출간 날짜 자체 확인.",
+        "primary_url": "https://www.mheducation.com/highered/mhp/product/intelligent-asset-allocator-hc.html",
+        "source_finding": "출판사 McGraw-Hill 공식 서지는 초판 2000년 9월22일 출판으로 명시. 책 본문 예측 발언과 닷컴 버블 폭락의 날짜 비교는 별도 해석이며 출간 날짜 자체 확인.",
+        "effective_date_or_scope": "McGraw-Hill original publisher, September 22 2000 publication date"
       },
       "original_srt_anchor_start_sec": 126,
       "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
