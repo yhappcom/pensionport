@@ -6,6 +6,8 @@
 
 ## 분석 및 공식자료 교차확인
 
+**추가 검토 2026-10-14:** [고용노동부 2026-07-22 공식 발표](https://moel.go.kr/news/enews/report/enewsView.do?news_seq=19679)에 따르면 푸른씨앗은 사업장형 외에도 2026-07 개인부담 IRP 계정을 신설해 자영업자·노무제공자 등의 개인 가입이 가능해졌다. 영상 당시 '1인 사업장 불가'라는 언급은 사업장형의 근로자/기업 관계에 대한 설명으로만 취급. 퇴직급여 사업주부담 기금 가입요건과 개인 IRP 가입자격을 구분해야 한다.
+
 푸른씨앗은 근로복지공단의 중소기업 퇴직연금기금 제도다. 녹화 2026-03-27의 30인 이하 기준은 2026-07부터 50인 미만(2027-01부터 100인 미만)으로 **가입자격만 확대**된 후행정보다 앞선 상태였다. 지원금 대상은 별도로 30인 이하 사업장과 전년도 고용보험 월평균보수 281만원 미만 적격 근로자, 근로자·사업주 각각 10%·3년간 한도다. 월280만원의 한 해 부담금 약280만원+지원28만원/한명 3년84만원, 30명 사업주 최대843만원/년·2529만원/3년은 조건부 최대치. 2023~25 역사적 6.97/6.52/8.67% 수익률은 공식 확인됐으나 과거결과다. 2026 목표 3.82%·미래 원금손실 가능·영상 화면의 채권 70%는 전수 확인하지 못했다. [운영 사이트](https://greenseedfund.funetf.co.kr/seed/public/intro/greetings), [2026-07 시행 확대 고용노동부](https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19130), [2026 지원요건 표](https://hwaseongcci.korcham.net/front/board/boardContentsView.do?boardId=11118&contId=130236).
 
 ## 주장 30건의 개별 판단
@@ -17,7 +19,7 @@
 | 01 00:14 | 푸른씨앗은 중소기업 퇴직연금기금제도 | PRIMARY_CONFIRMED | 2022년 도입된 근로복지공단 운영 공적 기금형 퇴직연금. [출처](https://greenseedfund.funetf.co.kr/seed/public/intro/greetings) |
 | 02 00:14 | 근로자 노후를 위해 중소사업장이 별도 적립·기금운용을 도입하는 제도 | PRIMARY_CONFIRMED | 퇴직급여 수급권 보호 및 전문기금관리 목적, 투자상품 원금보장과 동일 개념 아님. [출처](https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19130) |
 | 03 00:53 | 영상 녹화 시점(2026-03-27) 가입대상은 상시 30인 이하 중소기업 | QUALIFIED | 2026년 7월부터 50인 미만, 2027년 1월부터 100인 미만 확대(고용노동부 2026년 후속공고). 과거 설명을 2026-10 현재 조건으로 사용 금지. [출처](https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19130) |
-| 04 00:53 | 1인 사업장은 무조건 가입 불가라는 단정 | QUALIFIED | 상시근로자 수, 퇴직급여 대상근로자 실제 존재 여부를 구분해야 하며 1인 고용회사의 가입가능성 확인 필요. [출처](https://greenseedfund.funetf.co.kr/seed/public/intro/greetings) |
+| 04 00:53 | 1인 사업장은 무조건 가입 불가라는 단정 | QUALIFIED | 원본 영상(2026-03 녹화)의 사업장 퇴직연금 계정에 대한 1인 사업자 불가 발언을 '한 명이 일하는 근로자도 가입 불가' 또는 '자영업자 영구불가'로 확대하면 오류. 고용노동부 2026-07-22 공식발표: 2026-07부터 푸른씨앗 개인 IRP 가입자부담금계정이 신설되어 자영업자·노무제공자 등 일하는 누구나 본인 부담으로 가입 가능. 사업주가 근로자 퇴직급여로 납부하는 기업기금형과 개인부담 IRP 별개. 1인 근로자 고용 사업장 기금계정 자체 가입자격은 근로복지공단 세부약관 확인 전 단정 불가.. [근거](https://moel.go.kr/news/enews/report/enewsView.do?news_seq=19679) |
 | 05 00:53 | 근로복지공단이 기금의 제도운영을 담당 | PRIMARY_CONFIRMED | 공적 운용위원회 및 수탁 운영 구조 확인. [출처](https://greenseedfund.funetf.co.kr/seed/public/intro/greetings) |
 | 06 00:53 | 기금 운용은 삼성자산운용·미래에셋증권, 주거래 은행은 우리은행 | PRIMARY_CONFIRMED | 2026년 운영기관 배치, 2026-08 재선정 결과 확인되나 후행 사후자료라는 날짜 단서. [출처](https://greenseedfund.funetf.co.kr/seed/public/intro/greetings) |
 | 07 00:53 | 퇴직급여는 외부 적립하면 회사 자체 부도와 분리되는 재산이 된다 | QUALIFIED | 사업주 미납부·운용손실·자산보호·법적 적립규칙별 수급액 차이 존재; '회사가 망해도 그대로 금액 보존'은 너무 강함. [출처](https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19130) |
