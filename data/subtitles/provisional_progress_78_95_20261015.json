@@ -26,8 +26,8 @@
   "public_provisional_count": 17,
   "public_provisional_claim_count": 447,
   "public_provisional_classification_tally": {
-    "PRIMARY_CONFIRMED": 178,
-    "QUALIFIED": 215,
+    "PRIMARY_CONFIRMED": 191,
+    "QUALIFIED": 202,
     "CONTRADICTED": 10,
     "HYPOTHETICAL": 44
   },
@@ -36,8 +36,8 @@
   ],
   "latest_batch_claims": 36,
   "latest_batch_classification_tally": {
-    "PRIMARY_CONFIRMED": 12,
-    "QUALIFIED": 23,
+    "PRIMARY_CONFIRMED": 25,
+    "QUALIFIED": 10,
     "CONTRADICTED": 0,
     "HYPOTHETICAL": 1
   },
@@ -397,8 +397,8 @@
       "video_id": "HvXLItCOd-A",
       "claim_count": 36,
       "tally": {
-        "PRIMARY_CONFIRMED": 12,
-        "QUALIFIED": 23,
+        "PRIMARY_CONFIRMED": 25,
+        "QUALIFIED": 10,
         "CONTRADICTED": 0,
         "HYPOTHETICAL": 1
       },
@@ -411,7 +411,14 @@
       "approval": "NOT_APPROVED",
       "pilot_path": "data/subtitles/pilots/HvXLItCOd-A.json",
       "knowledge_path": "knowledge/VIDEO95_KRX_MARCH_2026_ETF_MONTHLY_PROVISIONAL_20261015.md",
-      "historical_numerical_data_gate": "2026-03 KRX ETF-ETN Monthly precise PDF not independently obtained, March2025 official archived pdf available"
+      "historical_numerical_data_gate": "2026-03 KRX ETF-ETN Monthly precise PDF not independently obtained, March2025 official archived pdf available",
+      "krx_2026_03_primary_monthly_verified": true,
+      "krx_2025_annual_return_primary_monthly_verified": true,
+      "pdf_issue_march_reference": "KRX Monthly 2026-04 #178 for 2026-03-31",
+      "pdf_issue_2025_return": "KRX Monthly 2026-01 #175 for 2025-12-31",
+      "primary_independent_checks_upgraded_from_qualified": 13,
+      "krx_primary_audit_path": "data/subtitles/video95_krx_monthly_primary_audit_20261015.json",
+      "private_srt_original_status": "MISSING_USER_REUPLOAD_NEEDED"
     }
   ],
   "source_blocked_roster_94": {
@@ -435,7 +442,21 @@
   "priority_open_gates": [
     "#94 recover original 688 cue Korean SRT, but do NOT compare broker promotional events",
     "Video95 original 868-cue Korean SRT bytes SHA rehash and accurate cue comparison",
-    "Obtain official KRX ETF ETN Monthly 2026-03 original pdf and verify AUM and March/2025 ETF returns",
+    "RESOLVED 2026-10-15: KRX 2026-04 #178 original report contents extracted, March2026 historical stats verified; PDF binary SHA not recomputed",
     "Preserve older 24 optional OPEN and not inflate V3 approved count"
-  ]
+  ],
+  "last_krx_reconciliation_20261015": {
+    "video": 95,
+    "verified_original_PDF_source": true,
+    "original_PDF_text_directly_extracted": true,
+    "pdf_bytes_sha_recomputed": false,
+    "source": "https://m.blog.naver.com/happy_krx/224247522508",
+    "reference_month_end": "2026-03-31",
+    "upgraded_claims": 13,
+    "annual_2025_crosscheck_source": "https://m.blog.naver.com/happy_krx/224151836839",
+    "user_original_srt_recovered": false,
+    "original_868_cue_diff_completed": false,
+    "canonical_v3_approval_unchanged": true,
+    "audit_path": "data/subtitles/video95_krx_monthly_primary_audit_20261015.json"
+  }
 }
