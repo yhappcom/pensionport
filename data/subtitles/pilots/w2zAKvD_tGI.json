@@ -51,7 +51,17 @@
         "disposition": "사연자 자기보고로 보험계약/원본 환급금, 납입회차, 수수료, 적립이율 확인 안 됨",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "pending_gate_review_20261014": {
+        "review_date": "2026-10-14",
+        "review_kind": "THIRD_PASS_PUBLIC_ASR_AND_CLAIM_LIMITS",
+        "disposition": "공개 전사상 2010년 삼성화재 연금저축보험 월30만원, 20년 납입·5년 거치·25년 수령, 2026년 16년차/환급률116%는 익명 사연 자기보고. 보험계약·월별 실제 납입/특별납입·환급내역 검증 전까지 개인적 사실 미확정.",
+        "gate": "OPEN_PRIVATE_INSURANCE_CONTRACT",
+        "source_type": "PUBLIC_ASR_PERSONA_NOT_PRIVATE_EVIDENCE",
+        "official_or_secondary_context_url": null,
+        "original_private_srt_compared": false,
+        "claim_satisfied": false
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-02",
@@ -423,6 +433,7 @@
       "assessment": "HYPOTHETICAL",
       "independent_check": "연금계좌 장기납입은 제안이지 미래 우월성과/운용수익을 보장하지 않음. '과거 보험성과를 무조건 반전'은 실제 발언이 아님.",
       "official_sources": [
+        "https://www.fsc.go.kr/no010101/87144",
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "verification_evidence": {
@@ -440,6 +451,22 @@
         "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
         "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
         "original_srt_confirmed": false
+      },
+      "pending_gate_review_20261014": {
+        "review_date": "2026-10-14",
+        "review_kind": "THIRD_PASS_PUBLIC_ASR_AND_CLAIM_LIMITS",
+        "disposition": "화자가 연금저축펀드 변경을 권유하지만 금감위·금융위는 기존 보험 최저이율/종신 보장 및 이전 불가 사유·취소 불가 확인 권고. 우월수익을 보장한다는 발언은 아니며 계약별 유리함 미확정.",
+        "gate": "OPEN_INDIVIDUAL_SUITABILITY",
+        "source_type": "POST_RECORDING_OFFICIAL_PENSION_TRANSFER_WARNING",
+        "official_or_secondary_context_url": "https://www.fsc.go.kr/no010101/87144",
+        "original_private_srt_compared": false,
+        "claim_satisfied": false
+      },
+      "third_pass_external_context_20261014": {
+        "date": "2026-10-14",
+        "source_url": "https://www.fsc.go.kr/no010101/87144",
+        "context_type": "POST_RECORDING_OFFICIAL_PENSION_TRANSFER_WARNING",
+        "note": "화자가 연금저축펀드 변경을 권유하지만 금감위·금융위는 기존 보험 최저이율/종신 보장 및 이전 불가 사유·취소 불가 확인 권고. 우월수익을 보장한다는 발언은 아니며 계약별 유리함 미확정."
       }
     },
     {
@@ -460,7 +487,17 @@
         "disposition": "익명 사연 원본 계좌·노동관계·실제 퇴직금 지급 사실 확인 불가",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "pending_gate_review_20261014": {
+        "review_date": "2026-10-14",
+        "review_kind": "THIRD_PASS_PUBLIC_ASR_AND_CLAIM_LIMITS",
+        "disposition": "공개 전사상 배우자55세, 퇴직IRP 8400만원, 8월퇴사시 추가 퇴직금 3000만원은 익명 사연/화자 추론. 고용계약/퇴직예상금/IRP 출처·입금내역 확인 불가.",
+        "gate": "OPEN_PRIVATE_EMPLOYMENT_IRP_AMOUNT",
+        "source_type": "PUBLIC_ASR_PERSONA_NOT_PRIVATE_EVIDENCE",
+        "official_or_secondary_context_url": null,
+        "original_private_srt_compared": false,
+        "claim_satisfied": false
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-16",
@@ -757,8 +794,9 @@
       "watch_url": "https://www.youtube.com/watch?v=w2zAKvD_tGI&t=872s",
       "source_paraphrase": "퇴직IRP 계좌에 추가 퇴직금을 합산 수령하는 구상",
       "assessment": "QUALIFIED",
-      "independent_check": "세제원천별 분리관리/제도상 수령자격·IRP 계좌별 수납가능 여부 금융사 확인 필요",
+      "independent_check": "퇴직 IRP와 추가 퇴직금 같은 계좌 수령 구상은 개인형 퇴직연금계좌 내 이연퇴직재원으로 수관하는 일반 구조. 실제 퇴직금 지급/IRP 유형/퇴직소득세 이연 및 연금수령 요건을 확인해야 함. 금융위 2026-06 백서는 보험↔연금저축 이전 특례로, 퇴직금을 IRP로 받는 실제 개인 권한 증명자료 아님.",
       "official_sources": [
+        "https://www.fsc.go.kr/no010101/87144",
         "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
       ],
       "verification_evidence": {
@@ -769,7 +807,23 @@
         "disposition": "세제원천별 분리관리/제도상 수령자격·IRP 계좌별 수납가능 여부 금융사 확인 필요",
         "effective_date_or_scope": "Video recorded 2026-04-21 and released 2026-05-10; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "pending_gate_review_20261014": {
+        "review_date": "2026-10-14",
+        "review_kind": "THIRD_PASS_PUBLIC_ASR_AND_CLAIM_LIMITS",
+        "disposition": "퇴직 IRP와 추가 퇴직금 같은 계좌 수령 구상은 개인형 퇴직연금계좌 내 이연퇴직재원으로 수관하는 일반 구조. 실제 퇴직금 지급/IRP 유형/퇴직소득세 이연 및 연금수령 요건을 확인해야 함. 금융위 2026-06 백서는 보험↔연금저축 이전 특례로, 퇴직금을 IRP로 받는 실제 개인 권한 증명자료 아님.",
+        "gate": "OPEN_IRP_ACTUAL_RCV_ELIGIBILITY",
+        "source_type": "GENERAL_PENSION_FRAMEWORK_NOT_CLIENT_DOCUMENT",
+        "official_or_secondary_context_url": "https://www.fsc.go.kr/no010101/87144",
+        "original_private_srt_compared": false,
+        "claim_satisfied": false
+      },
+      "third_pass_external_context_20261014": {
+        "date": "2026-10-14",
+        "source_url": "https://www.fsc.go.kr/no010101/87144",
+        "context_type": "GENERAL_PENSION_FRAMEWORK_NOT_CLIENT_DOCUMENT",
+        "note": "퇴직 IRP와 추가 퇴직금 같은 계좌 수령 구상은 개인형 퇴직연금계좌 내 이연퇴직재원으로 수관하는 일반 구조. 실제 퇴직금 지급/IRP 유형/퇴직소득세 이연 및 연금수령 요건을 확인해야 함. 금융위 2026-06 백서는 보험↔연금저축 이전 특례로, 퇴직금을 IRP로 받는 실제 개인 권한 증명자료 아님."
+      }
     },
     {
       "claim_id": "w2zAKvD_tGI-27",
@@ -864,5 +918,12 @@
     "full_private_vs_public_asr_diff_verified": false,
     "promoted_to_v3": false,
     "meaning": "Added source-limited official evidence checks/updated contexts; conditional and hypothetical claims remain open."
+  },
+  "pending_gate_third_pass_20261014": {
+    "date": "2026-10-14",
+    "remaining_previous_review_rows_tagged": 4,
+    "external_context_boundaries": 2,
+    "all_tagged_rows_remain_unverified_for_claim_confirmation": true,
+    "private_srt_exact_diff": "NOT_DONE"
   }
 }
