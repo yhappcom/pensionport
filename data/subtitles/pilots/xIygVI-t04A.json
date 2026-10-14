@@ -30,7 +30,8 @@
     "frames_checked": false,
     "video_specific_claims_verified": 0,
     "uploaded_srt_only_metadata": true,
-    "context_primary_official_checks": 20
+    "context_primary_official_checks": 13,
+    "brokerage_events_terms_research_disabled_by_user": true
   },
   "video_claims": [],
   "video_claim_count": 0,
@@ -144,69 +145,6 @@
       "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE"
     },
     {
-      "check_id": "RIA-EVENT-MIRAE-01",
-      "statement": "Mirae RIA promotion 2026-03-23 through 2026-05-31",
-      "assessment": "PRIMARY_CONFIRMED",
-      "official_source_url": "https://securities.miraeasset.com/mw/mki/mki7000/v01.do?cs_ecis_id=202601014&mod=S&returnURL=%2Fmw%2Fmki%2Fmki7000%2Fr01.do",
-      "qualification": "Original official promotion is archived/expired as-of Oct2026; as-of Apr15 this promotion existed",
-      "as_of": "2026-04-15",
-      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE"
-    },
-    {
-      "check_id": "RIA-EVENT-MIRAE-02",
-      "statement": "Mirae official promo awarded KRW10k to max33,000 customers subject to requirements",
-      "assessment": "PRIMARY_CONFIRMED",
-      "official_source_url": "https://securities.miraeasset.com/mw/mki/mki7000/v01.do?cs_ecis_id=202601014&mod=S&returnURL=%2Fmw%2Fmki%2Fmki7000%2Fr01.do",
-      "qualification": "RIA opening with Mirae account-specific limit at least 10m KRW, foreign stock transfer at least 1m KRW, event application. First30000 + lottery3000. Conditions maintained to campaign end; separate receiving CMA/stock account required",
-      "as_of": "2026-04-15",
-      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE"
-    },
-    {
-      "check_id": "RIA-EVENT-MIRAE-03",
-      "statement": "Mirae promotion lottery 2026 people selected among eligible customers",
-      "assessment": "PRIMARY_CONFIRMED",
-      "official_source_url": "https://securities.miraeasset.com/mw/mki/mki7000/v01.do?cs_ecis_id=202601014&mod=S&returnURL=%2Fmw%2Fmki%2Fmki7000%2Fr01.do",
-      "qualification": "Required foreign stock sale within RIA and Korean stock purchase at least KRW1m; separate awards lottery; could not treat 2026 all customers as guaranteed reward",
-      "as_of": "2026-04-15",
-      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE"
-    },
-    {
-      "check_id": "RIA-BROKER-KI-01",
-      "statement": "Korea Investment offered RIA by March20, 2026",
-      "assessment": "PRIMARY_CONFIRMED",
-      "official_source_url": "https://securities.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=46415",
-      "qualification": "Original first-party dated issuance details confirmed, NOT a historical dated April event cash reward table",
-      "as_of": "2026-03-20",
-      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE"
-    },
-    {
-      "check_id": "RIA-BROKER-SH-01",
-      "statement": "Shinhan Investment launched RIA 2026-03-23",
-      "assessment": "PRIMARY_CONFIRMED",
-      "official_source_url": "https://shinhanin.com/2026/04/%EC%97%85%EA%B3%84%EB%A5%BC-%EC%95%95%EB%8F%84%ED%95%98%EB%8A%94-%ED%81%B4%EB%9E%98%EC%8A%A4/",
-      "qualification": "Shinhan group April report notes launch; no April specific reward amount validated",
-      "as_of": "2026-03-23",
-      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE"
-    },
-    {
-      "check_id": "RIA-AFTERVIDEO-KB-01",
-      "statement": "KB RIA ETF net-buy promotional event announced Apr30 for May4-May31, AFTER video was recorded Apr15",
-      "assessment": "PRIMARY_CONFIRMED",
-      "official_source_url": "https://www.kbsec.com/go.able?gubun=1&idt=20260430&linkcd=s060902030000&seq=10009803",
-      "qualification": "Must not backdate/post-hoc attach this event to speaker's Apr15 comparison",
-      "as_of": "2026-04-30",
-      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE"
-    },
-    {
-      "check_id": "RIA-AFTERVIDEO-KIWOOM-01",
-      "statement": "Kiwoom promo Apr24-Jul23 found, but for domestic BONDS, NOT RIA",
-      "assessment": "PRIMARY_CONFIRMED",
-      "official_source_url": "https://www.kiwoom.com/e/wm/event/evtUserEC260019View",
-      "qualification": "Search keyword mismatch; do not use as primary evidence of a Kiwoom RIA event",
-      "as_of": "2026-04-24",
-      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE"
-    },
-    {
       "check_id": "RIA-SOURCE-01",
       "statement": "The YouTube video description confirms 10 brokers, chapter divisions and recording date Apr15, but full transcript was NOT accessible",
       "assessment": "SOURCE_CONFIRMED",
@@ -217,7 +155,7 @@
     }
   ],
   "official_context_tally": {
-    "PRIMARY_CONFIRMED": 18,
+    "PRIMARY_CONFIRMED": 11,
     "QUALIFIED": 1,
     "SOURCE_CONFIRMED": 1
   },
@@ -295,13 +233,12 @@
     ],
     "chapter_list_verified": true,
     "all_brokers_20260415_promotion_amounts_verified": false,
-    "official_20260415_promotion_amounts_verified_for": [
-      "미래에셋증권"
-    ],
+    "official_20260415_promotion_amounts_verified_for": [],
     "two_event_official_followups_cannot_backdate": [
       "2026-04-30 KB RIA ETF",
       "2026-04-24 Kiwoom bond non-RIA"
-    ]
+    ],
+    "promotions_removed_from_research_scope": true
   },
   "cross_video_relations": [
     {
@@ -313,8 +250,101 @@
   "limitations": [
     "Source-blocked: public YouTube page scraper returned description ONLY not Korean or English transcript, and independent transcript site reports no transcript; do not claim video speech analysis.",
     "The original 688 cue 53,780 byte SRT in user's prior ZIP is only in registry metadata, not accessible as raw file.",
-    "Brokerage firm events are historical and time-limited. Never copy now-current offers to an April15 recording or imply every broker had a verifiable gift.",
-    "Mirae benefits require subscription/transfer thresholds and some lottery, not universal payment.",
-    "No `data/analysis_events` V3 approved file should exist and no existing 16 completed provisional video count is incremented."
-  ]
+    "No `data/analysis_events` V3 approved file should exist and no existing 16 completed provisional video count is incremented.",
+    "User explicitly excluded brokerage event offers and eligibility condition comparisons from further research; historical notes archived but not open verification gates."
+  ],
+  "archived_out_of_scope_context_checks": [
+    {
+      "check_id": "RIA-EVENT-MIRAE-01",
+      "statement": "Mirae RIA promotion 2026-03-23 through 2026-05-31",
+      "assessment": "PRIMARY_CONFIRMED",
+      "official_source_url": "https://securities.miraeasset.com/mw/mki/mki7000/v01.do?cs_ecis_id=202601014&mod=S&returnURL=%2Fmw%2Fmki%2Fmki7000%2Fr01.do",
+      "qualification": "Original official promotion is archived/expired as-of Oct2026; as-of Apr15 this promotion existed",
+      "as_of": "2026-04-15",
+      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE",
+      "status": "HISTORICAL_PRESERVED_USER_EXCLUDED_DO_NOT_RESEARCH"
+    },
+    {
+      "check_id": "RIA-EVENT-MIRAE-02",
+      "statement": "Mirae official promo awarded KRW10k to max33,000 customers subject to requirements",
+      "assessment": "PRIMARY_CONFIRMED",
+      "official_source_url": "https://securities.miraeasset.com/mw/mki/mki7000/v01.do?cs_ecis_id=202601014&mod=S&returnURL=%2Fmw%2Fmki%2Fmki7000%2Fr01.do",
+      "qualification": "RIA opening with Mirae account-specific limit at least 10m KRW, foreign stock transfer at least 1m KRW, event application. First30000 + lottery3000. Conditions maintained to campaign end; separate receiving CMA/stock account required",
+      "as_of": "2026-04-15",
+      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE",
+      "status": "HISTORICAL_PRESERVED_USER_EXCLUDED_DO_NOT_RESEARCH"
+    },
+    {
+      "check_id": "RIA-EVENT-MIRAE-03",
+      "statement": "Mirae promotion lottery 2026 people selected among eligible customers",
+      "assessment": "PRIMARY_CONFIRMED",
+      "official_source_url": "https://securities.miraeasset.com/mw/mki/mki7000/v01.do?cs_ecis_id=202601014&mod=S&returnURL=%2Fmw%2Fmki%2Fmki7000%2Fr01.do",
+      "qualification": "Required foreign stock sale within RIA and Korean stock purchase at least KRW1m; separate awards lottery; could not treat 2026 all customers as guaranteed reward",
+      "as_of": "2026-04-15",
+      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE",
+      "status": "HISTORICAL_PRESERVED_USER_EXCLUDED_DO_NOT_RESEARCH"
+    },
+    {
+      "check_id": "RIA-BROKER-KI-01",
+      "statement": "Korea Investment offered RIA by March20, 2026",
+      "assessment": "PRIMARY_CONFIRMED",
+      "official_source_url": "https://securities.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=46415",
+      "qualification": "Original first-party dated issuance details confirmed, NOT a historical dated April event cash reward table",
+      "as_of": "2026-03-20",
+      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE",
+      "status": "HISTORICAL_PRESERVED_USER_EXCLUDED_DO_NOT_RESEARCH"
+    },
+    {
+      "check_id": "RIA-BROKER-SH-01",
+      "statement": "Shinhan Investment launched RIA 2026-03-23",
+      "assessment": "PRIMARY_CONFIRMED",
+      "official_source_url": "https://shinhanin.com/2026/04/%EC%97%85%EA%B3%84%EB%A5%BC-%EC%95%95%EB%8F%84%ED%95%98%EB%8A%94-%ED%81%B4%EB%9E%98%EC%8A%A4/",
+      "qualification": "Shinhan group April report notes launch; no April specific reward amount validated",
+      "as_of": "2026-03-23",
+      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE",
+      "status": "HISTORICAL_PRESERVED_USER_EXCLUDED_DO_NOT_RESEARCH"
+    },
+    {
+      "check_id": "RIA-AFTERVIDEO-KB-01",
+      "statement": "KB RIA ETF net-buy promotional event announced Apr30 for May4-May31, AFTER video was recorded Apr15",
+      "assessment": "PRIMARY_CONFIRMED",
+      "official_source_url": "https://www.kbsec.com/go.able?gubun=1&idt=20260430&linkcd=s060902030000&seq=10009803",
+      "qualification": "Must not backdate/post-hoc attach this event to speaker's Apr15 comparison",
+      "as_of": "2026-04-30",
+      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE",
+      "status": "HISTORICAL_PRESERVED_USER_EXCLUDED_DO_NOT_RESEARCH"
+    },
+    {
+      "check_id": "RIA-AFTERVIDEO-KIWOOM-01",
+      "statement": "Kiwoom promo Apr24-Jul23 found, but for domestic BONDS, NOT RIA",
+      "assessment": "PRIMARY_CONFIRMED",
+      "official_source_url": "https://www.kiwoom.com/e/wm/event/evtUserEC260019View",
+      "qualification": "Search keyword mismatch; do not use as primary evidence of a Kiwoom RIA event",
+      "as_of": "2026-04-24",
+      "source_class": "INDEPENDENT_EXTERNAL_CONTEXT_NOT_EXACT_SPEAKER_QUOTE",
+      "status": "HISTORICAL_PRESERVED_USER_EXCLUDED_DO_NOT_RESEARCH"
+    }
+  ],
+  "research_scope_20261015": {
+    "requested": "Remove all brokerage-specific RIA promotional benefits/event requirements, continue statutory RIA conditions and original transcript check",
+    "effective": "2026-10-15",
+    "in_scope": [
+      "RIA tax-eligible holdings dated 2025-12-23",
+      "50m KRW aggregate sale proceeds, multiple accounts",
+      "sale settlement cutoffs 100/80/50",
+      "one year domestic reinvestment/deposit holding and principal withdrawal exclusions",
+      "outside RIA offshore net buying penalty, ISA/IRP included",
+      "separate from ISA",
+      "individual tax scenario conditions",
+      "find private 688-cue source and exact audio/ASR if accessible"
+    ],
+    "out_of_scope": [
+      "April2026 original brokerage event participation rewards or requirements",
+      "which of ten brokers has largest reward",
+      "post-recording brokerage promotions"
+    ],
+    "excluded_context_checks_retained_for_provenance": 7,
+    "video_transcript_still_unavailable": true,
+    "v3_approval_unchanged": true
+  }
 }
