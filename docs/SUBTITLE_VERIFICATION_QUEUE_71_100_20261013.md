@@ -1,5 +1,17 @@
 # 박곰희TV 71~100편 전용 출처·검증 대기열
 
+## 2026-10-14 #93 가계부·헬스케어 주식·FSD·CMA·레버리지 전문 48:13 잠정분석 (최신)
+
+- #93 `PEQX1lWVUNU` **2026-04-02 녹화/2026-04-27 게시·48:13**. 공개 YouTube **한국어 자동전사 전체**를 검토해 금융교육 중요 주장 **40건 (공식·산술11 / 조건부25 / 반증2 / 가설2)**. [주장 원장](../data/subtitles/pilots/PEQX1lWVUNU.json) · [상세 검증보고서](../knowledge/VIDEO93_NEW_WORKER_BUDGET_HEALTHCARE_ETF_FSD_PROVISIONAL_20261014.md). 이전 등록 비공개 원본 SRT **1461큐·113456바이트, SHA256 `99b15eeb7c6253784de581e4d8827fd7f5fcc310127e2997555af7132f0b3a3c`**는 등록 메타만 확인; **실제 파일·재해시·전체 cue diff·원음/화면 접근 불가**. SRT 정확발언으로 승격 금지. 화자의 개인계좌 수치도 화면/원장 미검증.
+- **#93 시장·제도 중요 정정:** 참가자 예시의 메디컬AI10%/미국헬스케어45%/국내헬스케어45%는 **주식형 섹터100% 노출**이지 주식60/채권40 방어 포트폴리오 아님([SEC](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)). TDF2060은 목표연도/자산배분이 있을 뿐 **노후원금·지급액 보장상품 아님**([SEC TDF](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin)). **Johnson's·Tylenol·Neutrogena 브랜드는 J&J의 2023년 Kenvue 소비자사업 분사 이후 별도회사가 소유**([J&J 공식](https://www.jnj.com/consumer-products)). 바이오시밀러의 FDA 엄밀 정의와 바이오 CDMO/테크플랫폼은 별개.
+- **Tesla FSD:** 2026-04 영상의 미국산 모델S/X/Cybertruck 설명과 **2026-07 미국산 모델3/Y 일부 FSD 확대**를 혼동 금지([동일시점 보도](https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04300086645513208)). [Tesla 한국 공식 차주 안내](https://www.tesla.com/ownersmanual/model3/en_kr/GUID-101D1BF5-52D2-469A-A57D-E7230BBEE94B.html)는 운전자 상시 감독·개입을 명시. *핸들을 일시적으로 조작하지 않음*을 *안전감시 없이 자율운행*으로 위조 인용하지 않는다. EU 인허가=모든 한국 모델Y 즉시 활성화는 증명되지 않은 미래가설.
+- **CMA·금리 비교:** 영상의 **0.1% 예금→1.6% 파킹 계좌는 1.6배가 아니라 16배(차이1.5%p)**라는 수치정정. 증권사 발행어음2.25%는 2026-04 유튜브 예시이며 2026-10 현재 금리 아니다. [증권사 RP형 CMA](https://home.imeritz.com/meritzcma/CmaRp.do?evfw=sHek4NW0A6Vya9Vy) 예금자보호 미적용/원금손실 가능, 발행어음 발행사 신용 위험 구분. 930만원×연2.25%는 세전 연이자209,250원 **산술 예시**지만 참가자 실제 계좌이자 입증 없음.
+- **레버리지/차입:** [SEC 레버리지 ETF 투자자경고](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec)는 대개 **일간 수익 목표·하루 후 복리경로/비용/원금 전액손실 위험** 설명. ETF 현물매수의 일반적 투자금 한도 손실과 증거금/대출의 **원금초과채무·반대매매** 분리([SEC margin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/leveraged-investing-strategies-know-risks-using-these-advanced-investment-tools)). 20대 고위험 '수업료' 경험론을 무조건적 개인투자 권유로 쓰지 않는다.
+- 기존 #1~#70 선택검증 **OPEN24건 그대로(높음9/보통9/낮음6)**, #86 1993만원 할인모형 정정, #89 푸른씨앗 개인IRP 보완 모두 [누적 교차검증](../docs/RESEARCH_GAPS_AND_CROSS_VIDEO_RECONCILIATION_20261014.md)에 보존.
+- [#78~#93 누적 잠정 별도 진행원장](../data/subtitles/provisional_progress_78_93_20261014.json) **16편·411 주장(기초/공식/산술166·조건192·반증10·가설43)** 전부 `NOT_APPROVED`. 정식 V3 #72~#77 **6/30편·178개 승인 주장**, 기존 #1~#70 **70편·1052개 주장**, #71 SRT 미확보, 나머지 71~100 원본 접근 재검증/ASR full diff 0/16. **신규 `data/analysis_events` 생성 금지**, SRT 전문 GitHub 공개 금지, `main` 변경 금지.
+- 차기 공개 자막 잠정분석은 #94 `xIygVI-t04A`부터. 출처·촬영일/시행일·원본 확인·교차 주제부터 처리.
+
+
 ## 2026-10-14 누적 연구 부족분 우선 정리·#92 추가 잠정분석 (최신)
 
 - **부족분 품질감사:** [종합 문서](../docs/RESEARCH_GAPS_AND_CROSS_VIDEO_RECONCILIATION_20261014.md)에서 기존 #1~70 선택검증 **38건(해결14, OPEN24)**을 재확인했다. OPEN **높음9·보통9·낮음6**. 자료 미확보 유형: **원음·프레임6 / 개인계약·개별계좌10 / 당시상품·발행사·시세5 / 원본시계열·책2 / 출처조건불명1**. 실제 개인계약/영상 원음·상품원장이 확보되지 않았으므로 24건 **상태 임의 종료하지 않음**.
