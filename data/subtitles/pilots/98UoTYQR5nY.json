@@ -463,7 +463,23 @@
         "disposition": "화자의 전망. 재간접 자펀드 이익·분배·의제수익과 실제 개인 세후효과는 향후 운용자료 필요",
         "effective_date_or_scope": "Recorded 2026-05-19; issued 2026-05-20; FSC 2026-05-06/21 and updates 2026-09-22; separate historical/current rules"
       },
-      "timecode_precision": "PUBLIC_VIDEO_DESCRIPTION_CHAPTER_START_ONLY_NOT_EXACT_SENTENCE_TIMING"
+      "timecode_precision": "PUBLIC_VIDEO_DESCRIPTION_CHAPTER_START_ONLY_NOT_EXACT_SENTENCE_TIMING",
+      "pending_gate_review_20261014": {
+        "review_date": "2026-10-14",
+        "review_kind": "THIRD_PASS_PUBLIC_ASR_AND_CLAIM_LIMITS",
+        "disposition": "진행자는 9.9% 분리과세의 경제적 가치가 소득공제보다 작을 것이라고 개인 견해로 말한다. 첨단산업 기업의 실제 펀드 배당·후순위 분배·과세기준은 수익결과가 나오기 전 확인 불가.",
+        "gate": "OPEN_FORWARD_DISTRIBUTION_ESTIMATE",
+        "source_type": "ISSUER_NOTICE_LIMITS_NOT_ESTIMATED_DISTRIBUTION",
+        "official_or_secondary_context_url": "https://www.samsungfund.com/fund/lounge/notice-view.do?no=241328",
+        "original_private_srt_compared": false,
+        "claim_satisfied": false
+      },
+      "third_pass_external_context_20261014": {
+        "date": "2026-10-14",
+        "source_url": "https://www.samsungfund.com/fund/lounge/notice-view.do?no=241328",
+        "context_type": "ISSUER_NOTICE_LIMITS_NOT_ESTIMATED_DISTRIBUTION",
+        "note": "진행자는 9.9% 분리과세의 경제적 가치가 소득공제보다 작을 것이라고 개인 견해로 말한다. 첨단산업 기업의 실제 펀드 배당·후순위 분배·과세기준은 수익결과가 나오기 전 확인 불가."
+      }
     },
     {
       "claim_id": "98UoTYQR5nY-16",
@@ -1238,5 +1254,12 @@
     "full_private_vs_public_asr_diff_verified": false,
     "promoted_to_v3": false,
     "meaning": "Added source-limited official evidence checks/updated contexts; conditional and hypothetical claims remain open."
+  },
+  "pending_gate_third_pass_20261014": {
+    "date": "2026-10-14",
+    "remaining_previous_review_rows_tagged": 1,
+    "external_context_boundaries": 1,
+    "all_tagged_rows_remain_unverified_for_claim_confirmation": true,
+    "private_srt_exact_diff": "NOT_DONE"
   }
 }
