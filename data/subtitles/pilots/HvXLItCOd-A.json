@@ -33,7 +33,24 @@
     "KRX_2025_03_monthly_pdf_checked": true,
     "official_2002_kodex_listing_checked": true,
     "Sec_leverage_math_checked": true,
-    "sentence_level_timestamps_verified": false
+    "sentence_level_timestamps_verified": false,
+    "KRX_2026_03_relevant_numeric_tables_verified": true,
+    "KRX_2025_FULL_YEAR_returns_primary_pdf_checked": true,
+    "KRX_2026_03_original_publication_2026_04_10": true,
+    "KRX_2026_03_primary_monthly_issue": "KRX ETF ETN Monthly #178 (published April 2026, data as at 2026-03-31)",
+    "KRX_2026_03_pdf_binary_saved": false,
+    "KRX_2026_03_pdf_binary_hash_recomputed": false,
+    "private_srt_availability_rechecked_20261015": {
+      "date": "2026-10-15",
+      "file_name": "HvXLItCOd-A.srt",
+      "uploaded_source_archive": "71-100.zip",
+      "project_conversation_files_count": 0,
+      "library_gomhee_source_folder_has_original": false,
+      "google_drive_originals_folder_contains_only_1_70_zip": true,
+      "original_registered_hash": "89aa974c052fdde2d56ff2e1d4c353968e195fbd4ad359bc0a9c59f20995689a",
+      "recomputed": false,
+      "required_action": "User re-upload 71-100.zip or HvXLItCOd-A.srt into current conversation or place accessible file in Drive/Library"
+    }
   },
   "claims": [
     {
@@ -61,40 +78,72 @@
       "timecode": "00:27",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=27s",
       "source_paraphrase": "2026년3월말 국내 ETF 순자산 360조원이라는 영상의 근사 수치",
-      "assessment": "QUALIFIED",
-      "independent_check": "당시 KRX Monthly 원표·시가총액/순자산가치 구분·ETF와 ETN 포함 여부 직접 대조 불가. 공개전사 화자 근사로만 기록",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "2026-03-31 ETF NAV 3,607,045억원 = 360.7045조원; 2026-02 3,876,420억원 대비 -269,375억원/-7.0%. ETF+ETN total 381.3조원과 구분. 원문 II.1 ETF 시장 규모 ('26.3월) 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "당시 KRX Monthly 원표·시가총액/순자산가치 구분·ETF와 ETN 포함 여부 직접 대조 불가. 공개전사 화자 근사로만 기록",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "2026-03-31 ETF NAV 3,607,045억원 = 360.7045조원; 2026-02 3,876,420억원 대비 -269,375억원/-7.0%. ETF+ETN total 381.3조원과 구분. 원문 II.1 ETF 시장 규모 ('26.3월) 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "II.1 ETF 시장 규모 ('26.3월)",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "II.1 ETF 시장 규모 ('26.3월)",
+        "verified_fact": "2026-03-31 ETF NAV 3,607,045억원 = 360.7045조원; 2026-02 3,876,420억원 대비 -269,375억원/-7.0%. ETF+ETN total 381.3조원과 구분.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-03",
       "timecode": "00:27",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=27s",
       "source_paraphrase": "2026년3월 ETF 종목수 약 1,084개라는 수치",
-      "assessment": "QUALIFIED",
-      "independent_check": "전사상 1084, 2025년3월 KRX 공식 월보는 ETF 960개. 2026-03 해당 월보 종목수 원표는 현재 미확보",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "2026-03-31 ETF 정확히 1,084개; 3월 신규상장16, 상폐5, 2월1,073→3월1,084. 원문 I.1 ETF 상장 현황 / II.1 규모 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://t1.daumcdn.net/brunch/service/user/gNua/file/LeWaiDLUQM-CgNapLlCfPWegWZE.pdf"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://t1.daumcdn.net/brunch/service/user/gNua/file/LeWaiDLUQM-CgNapLlCfPWegWZE.pdf",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "전사상 1084, 2025년3월 KRX 공식 월보는 ETF 960개. 2026-03 해당 월보 종목수 원표는 현재 미확보",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "2026-03-31 ETF 정확히 1,084개; 3월 신규상장16, 상폐5, 2월1,073→3월1,084. 원문 I.1 ETF 상장 현황 / II.1 규모 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "I.1 ETF 상장 현황 / II.1 규모",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "I.1 ETF 상장 현황 / II.1 규모",
+        "verified_fact": "2026-03-31 ETF 정확히 1,084개; 3월 신규상장16, 상폐5, 2월1,073→3월1,084.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-04",
@@ -121,60 +170,108 @@
       "timecode": "00:27",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=27s",
       "source_paraphrase": "순자산이 큰 ETF 1위 KODEX200 약16조원이라는 2026년3월 순위",
-      "assessment": "QUALIFIED",
-      "independent_check": "전사의 2026-03-31 평가액 근사. KRX 해당 월 원표 입수 전 당시 실제 순위/금액 검증 OPEN; 현재 운용사 NAV 값 소급 사용 안 함",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "KODEX 200 161,040억원=16.1040조원 2026-03말 ETF 순자산1위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "전사의 2026-03-31 평가액 근사. KRX 해당 월 원표 입수 전 당시 실제 순위/금액 검증 OPEN; 현재 운용사 NAV 값 소급 사용 안 함",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "KODEX 200 161,040억원=16.1040조원 2026-03말 ETF 순자산1위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "I.1 순자산가치총액 상위 ETF",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "I.1 순자산가치총액 상위 ETF",
+        "verified_fact": "KODEX 200 161,040억원=16.1040조원 2026-03말 ETF 순자산1위.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-06",
       "timecode": "00:27",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=27s",
       "source_paraphrase": "TIGER 미국S&P500 약14.6조원이 2026년3월말 상위라는 주장",
-      "assessment": "QUALIFIED",
-      "independent_check": "운용사·KRX 당시 원자료 대조 미완료, 영상 공개전사 근사치일 뿐 현재잔액과 구별",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "TIGER 미국S&P500 146,553억원=14.6553조원, 2위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "운용사·KRX 당시 원자료 대조 미완료, 영상 공개전사 근사치일 뿐 현재잔액과 구별",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "TIGER 미국S&P500 146,553억원=14.6553조원, 2위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "I.1 순자산가치총액 상위 ETF",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "I.1 순자산가치총액 상위 ETF",
+        "verified_fact": "TIGER 미국S&P500 146,553억원=14.6553조원, 2위.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-07",
       "timecode": "00:27",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=27s",
       "source_paraphrase": "TIGER 반도체TOP10이 2026년3월 순자산 상위 종목이라는 소개",
-      "assessment": "QUALIFIED",
-      "independent_check": "화자 화면의 순위표/당시 KRX 원본 PDF를 읽지 못함. 반도체 ETF 투자비중·순자산원표 OPEN",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "TIGER 반도체TOP10 84,082억원=8.4082조원, 3위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "화자 화면의 순위표/당시 KRX 원본 PDF를 읽지 못함. 반도체 ETF 투자비중·순자산원표 OPEN",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "TIGER 반도체TOP10 84,082억원=8.4082조원, 3위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "I.1 순자산가치총액 상위 ETF",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "I.1 순자산가치총액 상위 ETF",
+        "verified_fact": "TIGER 반도체TOP10 84,082억원=8.4082조원, 3위.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-08",
@@ -341,40 +438,72 @@
       "timecode": "13:05",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=785s",
       "source_paraphrase": "2026년3월말 ETF 유형 국내주식형 약150조원·해외주식형 약100조원",
-      "assessment": "QUALIFIED",
-      "independent_check": "2026-03-31 KRX 종합분류 원표/혼합형 배분 기준 미확인. 영상 근사만 보존; 실구분은 KRX 유형표 검증 OPEN",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "국내주식 1,475,862억원=147.5862조원, 해외주식 997,380억원=99.7380조원. 유형은 국내/해외 기초시장별 주식 ETF, ETF 전체 NAV와 다름. 원문 II.2 가. ETF 상품유형별 순자산가치총액 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "2026-03-31 KRX 종합분류 원표/혼합형 배분 기준 미확인. 영상 근사만 보존; 실구분은 KRX 유형표 검증 OPEN",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "국내주식 1,475,862억원=147.5862조원, 해외주식 997,380억원=99.7380조원. 유형은 국내/해외 기초시장별 주식 ETF, ETF 전체 NAV와 다름. 원문 II.2 가. ETF 상품유형별 순자산가치총액 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "II.2 가. ETF 상품유형별 순자산가치총액",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "II.2 가. ETF 상품유형별 순자산가치총액",
+        "verified_fact": "국내주식 1,475,862억원=147.5862조원, 해외주식 997,380억원=99.7380조원. 유형은 국내/해외 기초시장별 주식 ETF, ETF 전체 NAV와 다름.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-17",
       "timecode": "13:05",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=785s",
       "source_paraphrase": "2026년3월말 국내채권형 ETF 약50조원·해외채권형 약10조원",
-      "assessment": "QUALIFIED",
-      "independent_check": "현재 KRX 정량조회가 날짜필터 동적이라 당시 부문별 원표 직접 미확보. 화자 숫자 가정으로 관리",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "국내채권 ETF 493,230억원=49.3230조원, 해외채권 ETF 97,558억원=9.7558조원. 원문 II.2 가. ETF 상품유형별 순자산가치총액 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "현재 KRX 정량조회가 날짜필터 동적이라 당시 부문별 원표 직접 미확보. 화자 숫자 가정으로 관리",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "국내채권 ETF 493,230억원=49.3230조원, 해외채권 ETF 97,558억원=9.7558조원. 원문 II.2 가. ETF 상품유형별 순자산가치총액 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "II.2 가. ETF 상품유형별 순자산가치총액",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "II.2 가. ETF 상품유형별 순자산가치총액",
+        "verified_fact": "국내채권 ETF 493,230억원=49.3230조원, 해외채권 ETF 97,558억원=9.7558조원.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-18",
@@ -521,60 +650,108 @@
       "timecode": "21:57",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=1317s",
       "source_paraphrase": "2026년3월 ETF 전체 월평균 수익률 약 -7%, 하락849개·상승 약200개",
-      "assessment": "QUALIFIED",
-      "independent_check": "KRX 2026-03 월보 상의 평균 정의(동일가중 평균/시장가중·상폐·분배금 포함) 미확보; 자동전사 숫자 검증 OPEN",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "3월 ETF 평균 -7.43%, 상승217/보합2/하락849개. 신규상장 및 상폐 종목 제외. 영상 '-7%·849·200개 정도'는 근사 일치. 원문 II.4 가. ETF 시장전체 월간 ('26.3월) 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "KRX 2026-03 월보 상의 평균 정의(동일가중 평균/시장가중·상폐·분배금 포함) 미확보; 자동전사 숫자 검증 OPEN",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "3월 ETF 평균 -7.43%, 상승217/보합2/하락849개. 신규상장 및 상폐 종목 제외. 영상 '-7%·849·200개 정도'는 근사 일치. 원문 II.4 가. ETF 시장전체 월간 ('26.3월) 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "II.4 가. ETF 시장전체 월간 ('26.3월) 수익률",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "II.4 가. ETF 시장전체 월간 ('26.3월) 수익률",
+        "verified_fact": "3월 ETF 평균 -7.43%, 상승217/보합2/하락849개. 신규상장 및 상폐 종목 제외. 영상 '-7%·849·200개 정도'는 근사 일치.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-26",
       "timecode": "21:57",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=1317s",
       "source_paraphrase": "2026년3월 원유선물형 ETF 월 수익률 상위 최대60% 내외·인버스 약30%",
-      "assessment": "QUALIFIED",
-      "independent_check": "상세 종목별 당시 종가/분배금·KRX 월보 월간 수익률 원본표 미입수. 영상 예시로서 사후예견 불가",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "KODEX WTI원유선물(H) +61.5%; TIGER 원유선물Enhanced(H) +57.7%; RISE 200선물인버스2X +35.4% (2026-03 월간). 원문 I.1 다. 월간 ETF상위 / II.4 월간 상위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "상세 종목별 당시 종가/분배금·KRX 월보 월간 수익률 원본표 미입수. 영상 예시로서 사후예견 불가",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "KODEX WTI원유선물(H) +61.5%; TIGER 원유선물Enhanced(H) +57.7%; RISE 200선물인버스2X +35.4% (2026-03 월간). 원문 I.1 다. 월간 ETF상위 / II.4 월간 상위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "I.1 다. 월간 ETF상위 / II.4 월간 상위10",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "I.1 다. 월간 ETF상위 / II.4 월간 상위10",
+        "verified_fact": "KODEX WTI원유선물(H) +61.5%; TIGER 원유선물Enhanced(H) +57.7%; RISE 200선물인버스2X +35.4% (2026-03 월간).",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-27",
       "timecode": "21:57",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=1317s",
       "source_paraphrase": "2026년3월 레버리지 반도체 ETF 중 -40% 내외 손실이 있었다는 예시",
-      "assessment": "QUALIFIED",
-      "independent_check": "정확 ETF 종목코드·수익률 산식·분배 포함여부를 KRX 당시 월별 순위표 대조하기 전 확정 불가",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "TIGER 200IT레버리지 -44.9%; TIGER 반도체TOP10레버리지 -41.5%; KODEX 레버리지 -40.2% (2026-03 월간). 원문 II.4 월간 하위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "정확 ETF 종목코드·수익률 산식·분배 포함여부를 KRX 당시 월별 순위표 대조하기 전 확정 불가",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "TIGER 200IT레버리지 -44.9%; TIGER 반도체TOP10레버리지 -41.5%; KODEX 레버리지 -40.2% (2026-03 월간). 원문 II.4 월간 하위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "II.4 월간 하위10",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "II.4 월간 하위10",
+        "verified_fact": "TIGER 200IT레버리지 -44.9%; TIGER 반도체TOP10레버리지 -41.5%; KODEX 레버리지 -40.2% (2026-03 월간).",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-28",
@@ -661,60 +838,108 @@
       "timecode": "21:57",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=1317s",
       "source_paraphrase": "2026년 1~3월 ETF 평균 수익률 약 +6.7%라는 영상 수치",
-      "assessment": "QUALIFIED",
-      "independent_check": "동시기 KRX 원표를 통한 ETF 평균방법/배당 포함·종목 구성을 확인하지 못해 근사치 잠정",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "2026년 1~3월 ETF 평균수익률 +6.72%, 상승654/보합6/하락392개, 신규상장·상폐 제외. 원문 II.4 나. ETF시장 전체 연간 ('26.1월~3월) 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224247522508",
         "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "동시기 KRX 원표를 통한 ETF 평균방법/배당 포함·종목 구성을 확인하지 못해 근사치 잠정",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "2026년 1~3월 ETF 평균수익률 +6.72%, 상승654/보합6/하락392개, 신규상장·상폐 제외. 원문 II.4 나. ETF시장 전체 연간 ('26.1월~3월) 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "II.4 나. ETF시장 전체 연간 ('26.1월~3월) 수익률",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2026-03-31",
+        "document_issue": "제178호 2026.04",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224247522508",
+        "source_scope": "II.4 나. ETF시장 전체 연간 ('26.1월~3월) 수익률",
+        "verified_fact": "2026년 1~3월 ETF 평균수익률 +6.72%, 상승654/보합6/하락392개, 신규상장·상폐 제외.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-33",
       "timecode": "21:57",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=1317s",
       "source_paraphrase": "2025년 전체 ETF 평균 수익률 약+34%라는 영상 수치",
-      "assessment": "QUALIFIED",
-      "independent_check": "2025 기준 KRX ETF 월보 수익률 표와 동일 비교집단/집계방식 확인 전 원화 수익률 확정 금지",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "2025년 ETF 연간 평균수익률 +34.22%, 상승727/보합1/하락157개, 신규상장·상폐 제외. 원문 II.4 ETF 시장전체 연간 2025년 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224151836839",
         "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224151836839",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "2025 기준 KRX ETF 월보 수익률 표와 동일 비교집단/집계방식 확인 전 원화 수익률 확정 금지",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "2025년 ETF 연간 평균수익률 +34.22%, 상승727/보합1/하락157개, 신규상장·상폐 제외. 원문 II.4 ETF 시장전체 연간 2025년 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "II.4 ETF 시장전체 연간 2025년 수익률",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2025-12-31",
+        "document_issue": "제175호 2026.01",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224151836839",
+        "source_scope": "II.4 ETF 시장전체 연간 2025년 수익률",
+        "verified_fact": "2025년 ETF 연간 평균수익률 +34.22%, 상승727/보합1/하락157개, 신규상장·상폐 제외.",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-34",
       "timecode": "21:57",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A&t=1317s",
       "source_paraphrase": "2025년 일부 레버리지 ETF 연간+307%·일부 인버스 ETF -76% 사례",
-      "assessment": "QUALIFIED",
-      "independent_check": "공개전사 극단 사례, 정확 상품코드·시가/분배 포함 수익률·상장폐지·기간 확인 전 동일 수치 일반화 금지",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "TIGER 반도체TOP10레버리지 +307.1% (A488080); TIGER 200선물인버스2X -76.2% (A252710); KODEX 200선물인버스2X -76.2% (A252670). 원문 II.4 ETF 연간 2025 수익률 상·하위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
       "official_sources": [
+        "https://m.blog.naver.com/happy_krx/224151836839",
         "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
-        "primary_url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
+        "primary_url": "https://m.blog.naver.com/happy_krx/224151836839",
         "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
-        "disposition": "공개전사 극단 사례, 정확 상품코드·시가/분배 포함 수익률·상장폐지·기간 확인 전 동일 수치 일반화 금지",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "disposition": "TIGER 반도체TOP10레버리지 +307.1% (A488080); TIGER 200선물인버스2X -76.2% (A252710); KODEX 200선물인버스2X -76.2% (A252670). 원문 II.4 ETF 연간 2025 수익률 상·하위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
+        "section_locator": "II.4 ETF 연간 2025 수익률 상·하위10",
+        "original_srt_cue_matched": false
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_ORIGINAL_PRIVATE_SRT_TIMESTAMP",
+      "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
+      "primary_pdf_recheck_20261015": {
+        "date": "2026-10-15",
+        "month_end_reference": "2025-12-31",
+        "document_issue": "제175호 2026.01",
+        "official_blog_source": "https://m.blog.naver.com/happy_krx/224151836839",
+        "source_scope": "II.4 ETF 연간 2025 수익률 상·하위10",
+        "verified_fact": "TIGER 반도체TOP10레버리지 +307.1% (A488080); TIGER 200선물인버스2X -76.2% (A252710); KODEX 200선물인버스2X -76.2% (A252670).",
+        "document_binary_sha_recomputed": false,
+        "original_pdf_text_directly_extracted": true,
+        "video_original_srt_verified": false
+      }
     },
     {
       "claim_id": "HvXLItCOd-A-35",
@@ -758,12 +983,12 @@
     }
   ],
   "claim_classification_tally": {
-    "PRIMARY_CONFIRMED": 12,
-    "QUALIFIED": 23,
+    "PRIMARY_CONFIRMED": 25,
+    "QUALIFIED": 10,
     "CONTRADICTED": 0,
     "HYPOTHETICAL": 1
   },
-  "verification_status": "PROVISIONAL_2026_MARCH_MONTHLY_NUMERIC_PRIMARY_PDF_OPEN_AND_PRIVATE_SRT_OPEN",
+  "verification_status": "PROVISIONAL_PUBLIC_ASR_OFFICIAL_KRX_2026_MARCH_NUMERICAL_TABLES_CONFIRMED_PRIVATE_868_CUE_SRT_GATE_OPEN",
   "chapters": [
     "00:27 ETF 최신 통계",
     "04:14 얼마나 커졌을까?",
@@ -771,7 +996,7 @@
     "21:57 얼마나 벌었을까?",
     "27:00 마무리"
   ],
-  "core_message": "ETF holdings and counts grew but precise March2026 360tn, 1084 and detailed category ETF returns must be independently checked with original KRX March2026 monthly tables, not KRX live October UI. Historical March2025 KRX confirmed 185.9tn ETF/960 ETFs. ETF NAV growth != money net inflow. Both domestic and US equity ETFs or bond ETFs can carry risk. Leveraged inverse funds target a DAILY multiplier; +10%/-10% index two-day -1% vs daily2x +20%/-20% ETF -4%, not a two-day 2x guarantee.",
+  "core_message": "KRX March2026 ETF statistics directly reconciled to KRX April 2026 issue #178: 360.7045tn KRW ETF net assets and 1084 funds, KODEX 200 16.1040tn, TIGER USA S&P500 14.6553tn, domestic shares147.5862tn, overseas equity99.7380tn, domestic bonds49.323tn, overseas bonds9.7558tn, ETF March mean -7.43% (849 falling), 2026 Jan-March +6.72%. 2025 full year mean +34.22% from KRX January2026 issue #175. Leveraged daily compounding risks stand. User private SRT 868 cues inaccessible so canonical V3 NOT_APPROVED.",
   "cross_video_relations": [
     {
       "roster_no": 93,
@@ -796,9 +1021,62 @@
   "limitations": [
     "User original 868-cue private Korean SRT not mounted or rehashed; ASR-to-private full diff not conducted.",
     "Full Korean public auto transcript read but ASR speech has misspelled issuer, index and numeric tokens. No verbatim exact audio or frames checked.",
-    "KRX full March2026 ETF·ETN Monthly tables not obtained as direct pdf; numeric March2026 statements are QUALIFIED, not primary-confirmed despite KRX dashboard link.",
+    "KRX 2026-03 relevant statistical tables were directly extracted from original issue #178 dated 2026-04-10; 13 selected previously-conditional numeric claims reclassified. Original PDF bytes SHA and all pages not independently audited.",
     "Official 2025 March KRX archived report obtained to verify 185.9tn / 960, but it does not confirm 2026 figures.",
     "Some row items are researcher risk boundaries/paraphrases not exact speaker guarantees. Do not inflate error claims.",
     "All timestamps uploader chapter starts, not cue-level timing."
-  ]
+  ],
+  "krx_monthly_primary_research_20261015": {
+    "checked_at": "2026-10-15",
+    "original_2026_march_stats_report": {
+      "title": "KRX ETF·ETN Monthly 2026년 4월호(제178호)",
+      "blog_published": "2026-04-10",
+      "as_of": "2026-03-31",
+      "url": "https://m.blog.naver.com/happy_krx/224247522508",
+      "pdf_attachment_url": "https://download.blog.naver.com/open/b227ae1960573e82a24023112ccfb1c9613336/EFsQa7dOxb_O9tI2E-QRigSVEg-Y7OV2Z008K3oo_gMvHo-5Wnov6va_CIkOwlFYzwqBbkf77v3g5QNvFJ6GDgYFR3lOajg/2026%EB%85%844%EC%9B%94%ED%98%B8%28%EC%A0%9C178%ED%98%B8%29.pdf",
+      "pdf_text_extracted_chars": 70742,
+      "binary_hash_recomputed": false,
+      "actual_pdf_report_text_checked": true
+    },
+    "previous_2025_annual_return_report": {
+      "title": "KRX ETF·ETN Monthly 2026년 1월호(제175호)",
+      "blog_published": "2026-01-19",
+      "as_of": "2025-12-31",
+      "url": "https://m.blog.naver.com/happy_krx/224151836839",
+      "pdf_attachment_url": "https://download.blog.naver.com/open/099c15a6bdeded311cf298ab94710977db83769e70/EFsQa7dLxbbO_t42E-QRigSVEg-Y7OV2Z008K3oo_gMvH4K5W3si7_--DIYO9CR9qh-pbkf77jblCvYVlyzU3qTJJ5aFzVI/KRX%2BETF%2BETN%2BMonthly%2B2026%EB%85%84%2B1%EC%9B%94%ED%98%B8%28%EC%A0%9C175%ED%98%B8%29.pdf",
+      "pdf_text_extracted_chars": 81779,
+      "binary_hash_recomputed": false
+    },
+    "primary_confirmed_claim_ids": [
+      "HvXLItCOd-A-16",
+      "HvXLItCOd-A-17",
+      "HvXLItCOd-A-25",
+      "HvXLItCOd-A-26",
+      "HvXLItCOd-A-27",
+      "HvXLItCOd-A-32",
+      "HvXLItCOd-A-33",
+      "HvXLItCOd-A-34",
+      "HvXLItCOd-A-02",
+      "HvXLItCOd-A-03",
+      "HvXLItCOd-A-05",
+      "HvXLItCOd-A-06",
+      "HvXLItCOd-A-07"
+    ],
+    "new_primary_confirmed_from_prior_qualified": 13,
+    "unresolved_original_video_srt": true,
+    "unresolved_historical_pdf_2026_03": false,
+    "still_open_claim_ids": [
+      "HvXLItCOd-A-08",
+      "HvXLItCOd-A-10",
+      "HvXLItCOd-A-12",
+      "HvXLItCOd-A-14",
+      "HvXLItCOd-A-18",
+      "HvXLItCOd-A-19",
+      "HvXLItCOd-A-20",
+      "HvXLItCOd-A-21",
+      "HvXLItCOd-A-23",
+      "HvXLItCOd-A-30"
+    ]
+  },
+  "review_phase": "KRX_PRIMARY_MARCH_STATISTICS_CONFIRMED_SRT_PROVENANCE_PENDING"
 }
