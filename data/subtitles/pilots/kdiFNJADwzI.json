@@ -31,7 +31,7 @@
     "original_audio_checked": false,
     "frames_checked": false
   },
-  "core_message": "미성년 자녀에게 10년 단위 직계존속 공제(미성년2000만·성년5000만), 혼인출산 추가공제1억원은 조건부 법정 제도. 주식 증여는 증여 전후2개월 종가 평균·비금전 반환 신고기한 등을 검토해야 하며, 금전 반환과 동일하지 않음. 월189000원×120회 2268만원을 3%로 할인한 PV 1993만원 주장은 단순 월 유효연복리산식과 불일치로 공적 세무 산식 검증 OPEN. 자녀용 원금보전/장기수익 보장 아님.",
+  "core_message": "미성년 자녀에게 10년 단위 직계존속 공제(미성년2000만·성년5000만), 혼인출산 추가공제1억원은 조건부 법정 제도. 주식 증여는 증여 전후2개월 종가 평균·비금전 반환 신고기한 등을 검토해야 하며, 금전 반환과 동일하지 않음. 월189000원×120회 2268만원의 PV 1993만원은 연도별 정기금 합계 금액을 3%로 n=0~9 할인한 산식으로 수치 재현(약1992.69만원). 개인 정기금권리 계약·취소시 일시금·이전10년 증여 합산은 OPEN. 자녀용 원금보전/장기수익 보장 아님.",
   "claims": [
     {
       "claim_id": "kdiFNJADwzI-01",
@@ -700,19 +700,39 @@
       "watch_url": "https://www.youtube.com/watch?v=kdiFNJADwzI&t=1484s",
       "source_paraphrase": "18만9천원×10년 정기증여를 연 3% 단순 할인했을 때 현재가치 1,993만원이라고 안내",
       "assessment": "QUALIFIED",
-      "independent_check": "독립 검산(매월 말 120회, 연3% 유효연복리)≈19,611,095원, 매월초면≈19,659,461원. 영상의 1,993만원은 이 계산가정과 다름; 공식 세무 정기금 평가 산식/할인율·지급일 재확인 필수",
+      "independent_check": "2026-10-14 교차 연구 #6 3MyhYE2jmuE-07과 공식 시행령 §62·시행규칙 §19조의2 재대조: 월189000원×120회=22680000원 명목, 매년 합계2268000원×Σ[n=0..9](1.03)^(-n)=19926895원(약1993만원)으로 영상 수치 재현. 연말 n=1..10은19346500원, 월말 월별 할인은19611095원으로 지급권 평가단위/기산 가정에 따라 다름. 개인 실제 계약·취소시 일시금액·과거10년 직계존속 증여 미확인으로 세액 0원 결론은 여전히 OPEN.",
       "official_sources": [
+        "https://law.go.kr/LSW/lsLinkCommonInfo.do?lspttninfSeq=75955",
+        "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0019&lsiSeq=284609&urlMode=lsScJoRltInfoR",
         "https://taxlaw.nts.go.kr/downloadPDFFile.do?fleId=300000000000991467&fleSn=896290"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
-        "primary_url": "https://taxlaw.nts.go.kr/downloadPDFFile.do?fleId=300000000000991467&fleSn=896290",
+        "primary_url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?lspttninfSeq=75955",
         "basis": "PUBLIC_FULL_KOREAN_YOUTUBE_AUTOMATED_TRANSCRIPT plus official law/NTS interpretive material where scope matches; private user original SRT registered but not accessible",
-        "disposition": "독립 검산(매월 말 120회, 연3% 유효연복리)≈19,611,095원, 매월초면≈19,659,461원. 영상의 1,993만원은 이 계산가정과 다름; 공식 세무 정기금 평가 산식/할인율·지급일 재확인 필수",
-        "effective_date_or_scope": "Video recorded 2026-05-02, published 2026-05-05; gift legal terms should be applied by date of actual gift/return"
+        "disposition": "2026-10-14 교차 연구 #6 3MyhYE2jmuE-07과 공식 시행령 §62·시행규칙 §19조의2 재대조: 월189000원×120회=22680000원 명목, 매년 합계2268000원×Σ[n=0..9](1.03)^(-n)=19926895원(약1993만원)으로 영상 수치 재현. 연말 n=1..10은19346500원, 월말 월별 할인은19611095원으로 지급권 평가단위/기산 가정에 따라 다름. 개인 실제 계약·취소시 일시금액·과거10년 직계존속 증여 미확인으로 세액 0원 결론은 여전히 OPEN.",
+        "effective_date_or_scope": "Video recorded 2026-05-02, published 2026-05-05; gift legal terms should be applied by date of actual gift/return",
+        "corrected_prior_arithmetic_comparison": true
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_PRIVATE_CUE_TIMESTAMP"
+      "timecode_precision": "UPLOADER_CHAPTER_START_NOT_PRIVATE_CUE_TIMESTAMP",
+      "recheck_20261014_cross_video": {
+        "date": "2026-10-14",
+        "related_claim_id": "3MyhYE2jmuE-07",
+        "prior_finding_retracted": "독립 검산(매월 말 120회, 연3% 유효연복리)≈19,611,095원, 매월초면≈19,659,461원. 영상의 1,993만원은 이 계산가정과 다름; 공식 세무 정기금 평가 산식/할인율·지급일 재확인 필수",
+        "independent_model": "ANNUAL_AMOUNT_DISCOUNT_N0_TO9_AT_3PCT",
+        "yearly_amount_krw": 2268000,
+        "total_nominal_krw": 22680000,
+        "pv_start_year_krw": 19926895,
+        "pv_end_year_krw": 19346500,
+        "pv_monthly_end_krw": 19611095,
+        "numeric_reproduced": true,
+        "tax_return_and_contract_validity_verified": false,
+        "source_urls": [
+          "https://law.go.kr/LSW/lsLinkCommonInfo.do?lspttninfSeq=75955",
+          "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0019&lsiSeq=284609&urlMode=lsScJoRltInfoR"
+        ]
+      }
     },
     {
       "claim_id": "kdiFNJADwzI-35",
@@ -791,7 +811,7 @@
     "Original private 1268-cue SRT / 97254 bytes not mounted; SHA historical only.",
     "Korean public auto transcript contains recognition errors, so no verbatim quoting.",
     "Child marriage and fertility patterns are speaker opinions, not empirical prediction.",
-    "For periodic-gift net present value (2,268만원 nominal vs 1,993만원 proposed), official applicable yield and special valuation mechanics not conclusively identified.",
+    "Periodic gift 1993만원 figure is reproducible with statutory annual aggregation and first-year exponent zero; real contract/cancellation/lump-sum and actual payment dates remain OPEN.",
     "Stocks re-gift/return and minors discretionary trading require individualized legal-tax advice."
   ],
   "relations": [
@@ -805,5 +825,14 @@
       "related_video_id": "BwbFnc0-yFc",
       "theme": "Separate automatic cash transfer and ETF buy"
     }
-  ]
+  ],
+  "reconciliation_review_20261014": {
+    "date": "2026-10-14",
+    "corrected_claims": [
+      "kdiFNJADwzI-34"
+    ],
+    "cross_video_prior_claim": "3MyhYE2jmuE-07",
+    "reproduced_numeric_not_private_contract": true,
+    "canonical_approval_unchanged": true
+  }
 }
