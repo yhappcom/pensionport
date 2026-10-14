@@ -1,5 +1,15 @@
 # 박곰희TV 71~100편 전용 출처·검증 대기열
 
+## 2026-10-14 #94 RIA 이벤트 비교 연구 착수 — 실제 자막 전문 미확보로 승인·잠정완료 집계 보류 (최신)
+
+- 영상 `xIygVI-t04A`, 2026-04-15 녹화 / 2026-04-24 게시 / 24:45. 업로더 공식 설명란 및 10대 증권사 챕터(한국투자 04:11, 미래에셋09:02, NH10:25, 삼성12:31, 메리츠14:14, KB16:29, 하나17:31, 키움19:02, 신한20:09, 대신20:39)를 확인. **해당 발언의 YouTube 자동자막 전문은 검색·다중 수집시도에서 반환되지 않았고 타 전사 서비스도 No Transcript Available**. 기존 등록 사용자 SRT 688큐/53780바이트 SHA256 `c2add25713c355c1dcfa84af1aeba57f14e2c7736d521ebd7aa5e378a527d1e4`는 메타데이터일 뿐 이 회차 원본 직접열람·해시재계산 0. Drive SRT 보관함 하위 목록 및 Project/Library 검색에서도 원본 미발견. 영상 내 발언을 외부자료로 채워 넣거나 정확시각을 허구로 만들지 않음.
+- **공식자료만 별도 20건 범위검증:** [#94 출처차단 상태 JSON](../data/subtitles/pilots/xIygVI-t04A.json) · [원문 검증대기/제도·당시 이벤트 상세 보고서](../knowledge/VIDEO94_RIA_BROKERAGE_EVENT_SOURCE_BLOCKED_20261014.md). **여기에 기재된 20건은 영상의 발언 20건이 아니라 외부 RIA 조문/증권사 공지의 독립적인 맥락 체크**. video_claims=0, full_youtube_transcript_reviewed=false, V3 승인=false. 단계 `SOURCE_BLOCKED_OFFICIAL_CONTEXT_RESEARCH_ONLY / NOT_APPROVED`.
+- **제도 사실:** [한국투자증권 2026-03-20 RIA 최초 도입공고](https://securities.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=46415)와 [미래에셋증권 공식 약관·설명서](https://securities.miraeasset.com/hki/hki3032/n51.do): 2025-12-23 적격 보유 해외주식의 RIA 계좌내 매도, 개인 전 증권사 합산 5000만원 원화매도대금 한도, **매도결제일** 2026년 5월까지100%·6~7월80%·8~12월50% 양도소득금액공제, 마지막 적격 매도결제일부터 1년 국내 적격주식·국내주식형 ETF/펀드·원화예탁 유지. RIA 외 ISA/IRP/연금/일반계좌의 해외주식·해외투자 ETF/펀드 순매수는 국내복귀 공제액 감소 위험. 적격원금 조기인출 시 공제취소 가능. 과세 기본공제/실제 손익통산·수수료·환전손익 개별확인 필수.
+- **2026-04-15 당시 진짜 프로모션 1건 직접 검증:** [미래에셋 RIA 이벤트 원공고](https://securities.miraeasset.com/mw/mki/mki7000/v01.do?cs_ecis_id=202601014&mod=S&returnURL=%2Fmw%2Fmki%2Fmki7000%2Fr01.do) 행사 2026-03-23~05-31. RIA 이벤트 신청·당사 설정한도1000만원 이상·해외주식100만원 이상 입고 등에 따라 선착순3만+추첨3천 총 최대3만3천명에게 **1만원**, 별도 RIA 매도 후 국내주식100만원 이상 매수고객 추첨2,026명 경품. **모든 고객 수령 보장 아님/10월 현재 종료**. 나머지 9개 증권사의 영상 녹화 당일 프로모션 금액·경품조건은 공식 날짜붙은 공고 미확정; 소급시점 위조 금지. [KB 2026-04-30 RIA ETF 행사](https://www.kbsec.com/go.able?gubun=1&idt=20260430&linkcd=s060902030000&seq=10009803)는 녹화 15일 후 발표, [키움 2026-04-24~07-23 채권 행사](https://www.kiwoom.com/e/wm/event/evtUserEC260019View)는 RIA 행사 아님.
+- **완료 수 불변:** 기존 #1~70 70편/1,052, #72~77 V3 승인 6/30편/178 주장, #78~93 공개전사 잠정 분석 16편/411검토 항목, 추가검증 OPEN24. [누적 진행원장](../data/subtitles/provisional_progress_78_93_20261014.json)의 `next_video_source_blocked`로 #94 진행 증거만 남김. **#94를 잠정 17번째 완료라고 세거나 V3에 넣지 않음**, 신규 `data/analysis_events` 없음, 원본 SRT GitHub 업로드 금지 및 `main` 미수정.
+- **#94 종료조건:** 등록된 한국어 SRT 688큐 원본재접근·SHA 독립 재계산·각 챕터 화자 주장 분석·현장 동영상 원음/표 대조·2026-04-15 당일 10개 증권사의 실제 행사 원공고 확보 및 후일변경 조건 구분. 원본 미확보 동안 #95로 잠정 진행 여부는 별도 가능하나 #94를 완료한 것으로 표시 금지.
+
+
 ## 2026-10-14 #93 단일 영상 후속 마무리 — 공개전사 QA 완료 / 원본 SRT 정식 승인 차단 (최신)
 
 - **#93 `PEQX1lWVUNU`만 재검증**, #94로 넘어가지 않았음. [#93 40개 주장 원장](../data/subtitles/pilots/PEQX1lWVUNU.json) · [수정 전체 보고서](../knowledge/VIDEO93_NEW_WORKER_BUDGET_HEALTHCARE_ETF_FSD_PROVISIONAL_20261014.md) · [독립 마무리 판정표](../data/subtitles/video93_closeout_audit_20261014.json). 기존 40개 주장 평가 수 **PRIMARY_CONFIRMED11 / QUALIFIED25 / CONTRADICTED2 / HYPOTHETICAL2** 유지. 단, **8건이 강사의 직접 발언이 아닌 연구자 위험경고**임을 별도 `claim_role`로 명시. **연구자가 만든 오해방지 시나리오를 화자의 주장/오류로 오귀속하지 않도록 교정**.
