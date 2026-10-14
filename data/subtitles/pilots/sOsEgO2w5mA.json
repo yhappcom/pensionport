@@ -356,7 +356,17 @@
         "disposition": "영상 당시 대략 호가로 2026-10 현재 가격 또는 최저주문금액 보장 안됨. 정확 시점 원본 호가 미확인",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "pending_gate_review_20261014": {
+        "review_date": "2026-10-14",
+        "review_kind": "THIRD_PASS_PUBLIC_ASR_AND_CLAIM_LIMITS",
+        "disposition": "영상 공개 전사에서 1Q 미국S&P500 ETF 대략 12,000원/1주라고 안내. 당시 화면에 표시된 정확 시세·2026-04 특정 거래소 시간대 원시 체결데이터 재검산 불가.",
+        "gate": "OPEN_HISTORICAL_PRICE_FRAME",
+        "source_type": "PUBLIC_ASR_PRICE_ONLY",
+        "official_or_secondary_context_url": null,
+        "original_private_srt_compared": false,
+        "claim_satisfied": false
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-12",
@@ -410,6 +420,22 @@
         "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
         "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
         "original_srt_confirmed": false
+      },
+      "pending_gate_review_20261014": {
+        "review_date": "2026-10-14",
+        "review_kind": "THIRD_PASS_PUBLIC_ASR_AND_CLAIM_LIMITS",
+        "disposition": "거래소 공식 ETF 결제는 일반 주식과 동일한 체결일 뒤 T+2이며 화자는 잔고 표시가 빠르다고 설명. 매수화면 표시와 최종 결제 분리, 영상 의미 부합.",
+        "gate": "SOURCE_MATCH_TRADING_SETTLEMENT",
+        "source_type": "KOREA_EXCHANGE_PRIMARY_RULE",
+        "official_or_secondary_context_url": "https://regulation.krx.co.kr/contents/RGL/03/03060102/RGL03060102.jsp",
+        "original_private_srt_compared": false,
+        "claim_satisfied": false
+      },
+      "third_pass_external_context_20261014": {
+        "date": "2026-10-14",
+        "source_url": "https://regulation.krx.co.kr/contents/RGL/03/03060102/RGL03060102.jsp",
+        "context_type": "KOREA_EXCHANGE_PRIMARY_RULE",
+        "note": "거래소 공식 ETF 결제는 일반 주식과 동일한 체결일 뒤 T+2이며 화자는 잔고 표시가 빠르다고 설명. 매수화면 표시와 최종 결제 분리, 영상 의미 부합."
       }
     },
     {
@@ -628,7 +654,17 @@
         "disposition": "2026-04 대략 방송 추정치. 실제 체결호가는 시점별 달라져 1만원 미만 1주를 뜻하지 않음",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "pending_gate_review_20261014": {
+        "review_date": "2026-10-14",
+        "review_kind": "THIRD_PASS_PUBLIC_ASR_AND_CLAIM_LIMITS",
+        "disposition": "영상 공개 전사상 당시 TIGER 미국배당다우존스 대략 14,600원/1주로 설명. KRX 해당 일자 개별 호가 및 액면분할 여부 확인 전 정확한 매수체결가 미확정.",
+        "gate": "OPEN_HISTORICAL_PRICE_FRAME",
+        "source_type": "PUBLIC_ASR_PRICE_ONLY",
+        "official_or_secondary_context_url": null,
+        "original_private_srt_compared": false,
+        "claim_satisfied": false
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-22",
@@ -791,5 +827,12 @@
     "full_private_vs_public_asr_diff_verified": false,
     "promoted_to_v3": false,
     "meaning": "Added source-limited official evidence checks/updated contexts; conditional and hypothetical claims remain open."
+  },
+  "pending_gate_third_pass_20261014": {
+    "date": "2026-10-14",
+    "remaining_previous_review_rows_tagged": 3,
+    "external_context_boundaries": 1,
+    "all_tagged_rows_remain_unverified_for_claim_confirmation": true,
+    "private_srt_exact_diff": "NOT_DONE"
   }
 }
