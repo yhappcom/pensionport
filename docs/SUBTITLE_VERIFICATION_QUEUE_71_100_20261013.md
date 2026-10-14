@@ -1,5 +1,15 @@
 # 박곰희TV 71~100편 전용 출처·검증 대기열
 
+## 2026-10-14 #93 단일 영상 후속 마무리 — 공개전사 QA 완료 / 원본 SRT 정식 승인 차단 (최신)
+
+- **#93 `PEQX1lWVUNU`만 재검증**, #94로 넘어가지 않았음. [#93 40개 주장 원장](../data/subtitles/pilots/PEQX1lWVUNU.json) · [수정 전체 보고서](../knowledge/VIDEO93_NEW_WORKER_BUDGET_HEALTHCARE_ETF_FSD_PROVISIONAL_20261014.md) · [독립 마무리 판정표](../data/subtitles/video93_closeout_audit_20261014.json). 기존 40개 주장 평가 수 **PRIMARY_CONFIRMED11 / QUALIFIED25 / CONTRADICTED2 / HYPOTHETICAL2** 유지. 단, **8건이 강사의 직접 발언이 아닌 연구자 위험경고**임을 별도 `claim_role`로 명시. **연구자가 만든 오해방지 시나리오를 화자의 주장/오류로 오귀속하지 않도록 교정**.
+- **챕터 정정:** 이전 pilot 중 14개 항목의 업로더 챕터 위치를 맞춤. 투자·의료기업·FSD 관련 #09~#20은 **15:58**, 투자자금·CMA·레버리지 관련 #21~#34는 **24:24** 챕터 기준. 정확한 문장·SRT밀리초 시각은 **검증되지 않음**.
+- **발행사 공식 ETF 제품 식별 성공:** 1Q 미국메디컬AI **`0083S0` [하나자산운용](https://www.hanaam.com/qetf/etf/detail?id=16)**, KODEX 미국S&P500헬스케어 **`453640` [삼성자산운용](https://www.samsungfund.com/etf/search.do?searchText=453640)**, TIGER 헬스케어 **`143860` [한국거래소](https://kind.krx.co.kr/disclosure/etfisudetail.do?method=searchEtfIsuSummary&strIsurCd=14386)**. 10%/45%/45% 영상분산 예시는 100% 주식형/헬스케어·메디컬AI 테마에 집중(채권 40% 없음). **2026-04 당시 Tempus 등 정확 ETF 편입비중은 계속 OPEN**, 현재 운용사 페이지의 데이터를 소급하면 오류.
+- **확인된 위험·산식:** [Tesla 한국 FSD](https://www.tesla.com/ko_kr/fsd) 반드시 운전자 감독, [2026-07-10 미국산 모델3/Y 일부 확대](https://www.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04300086645513208)는 동영상 녹화(2026-04-02) 후 발생. [J&J 소비자사업 Kenvue 2023-08 완전분리](https://www.jnj.com/consumer-products)로 현재 브랜드 귀속 구분. [금융투자협회 CMA RP형 모범규준](https://law.kofia.or.kr/service/law/lawFullScreenContent.do?historySeq=1172&seq=285) 예금자보호 미적용. [SEC 2023 레버리지 ETF 리스크](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) 일일 복리·급격손실. **연0.1%→연1.6%는 금리 수치상 16배/1.5%p 차이**가 맞지만 공개 자동전사의 '1.6배'가 실제 발음인지 **원음/SRT 미대조**. 금융사 촬영일 2026-04 발행어음 2.25% 실고시 원표도 OPEN.
+- **원본 SRT 탐색 재시도:** 프로젝트/Library 파일검색, 활성 컨테이너, Google Drive SRT 보관함 조회에서 원본 `71-100.zip`이나 #93 SRT **1461큐/113456바이트**를 확보하지 못함. 등록 SHA `99b15eeb7c6253784de581e4d8827fd7f5fcc310127e2997555af7132f0b3a3c`는 **과거 해시 메타**이며 이번에 실제 파일 SHA 재계산/1461큐 열람/공개ASR 전체 Diff **0건**. 원음·화면도 확인하지 못함. 따라서 **#93 '공개전사 내용 QA 마무리' 완료, '사용자 등록 SRT기반 정식 V3' 미완료 `NOT_APPROVED`**를 명시한다.
+- **누적 승인 상태 불변:** [#78~#93 진행원장](../data/subtitles/provisional_progress_78_93_20261014.json) 잠정 16편·411 검토항목; #72~#77 V3 정식승인 6/30편·178개 주장; #1~#70 기존 70편·1052개 주장, 별도 선택 검증 OPEN24건. 신규 `data/analysis_events/PEQX1lWVUNU.json` 작성하지 않았고 `main` 수정금지. #94 착수하지 않음.
+
+
 ## 2026-10-14 #93 가계부·헬스케어 주식·FSD·CMA·레버리지 전문 48:13 잠정분석 (최신)
 
 - #93 `PEQX1lWVUNU` **2026-04-02 녹화/2026-04-27 게시·48:13**. 공개 YouTube **한국어 자동전사 전체**를 검토해 금융교육 중요 주장 **40건 (공식·산술11 / 조건부25 / 반증2 / 가설2)**. [주장 원장](../data/subtitles/pilots/PEQX1lWVUNU.json) · [상세 검증보고서](../knowledge/VIDEO93_NEW_WORKER_BUDGET_HEALTHCARE_ETF_FSD_PROVISIONAL_20261014.md). 이전 등록 비공개 원본 SRT **1461큐·113456바이트, SHA256 `99b15eeb7c6253784de581e4d8827fd7f5fcc310127e2997555af7132f0b3a3c`**는 등록 메타만 확인; **실제 파일·재해시·전체 cue diff·원음/화면 접근 불가**. SRT 정확발언으로 승격 금지. 화자의 개인계좌 수치도 화면/원장 미검증.
