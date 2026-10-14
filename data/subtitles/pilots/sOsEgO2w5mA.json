@@ -51,7 +51,14 @@
         "disposition": "실전 금액은 감당 가능한 손실금액 이내에서; 금융상품 적합성 보편 법칙 아님",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "RISK_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "evidence_summary": "투자 기간·위험감수능력에 맞는 소액 경험은 교육방식일 뿐 누구에게나 적합한 투자권고는 아님.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-02",
@@ -78,6 +85,13 @@
         "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
         "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
         "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "SOURCE_MATCH",
+        "date": "2026-10-14",
+        "official_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "evidence_summary": "ETF는 매매단위 1주, 영상 예시 1.2만·1.46만원은 1만원 정확히 매수 불가능. 1만원은 교육적 근사표현.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
       }
     },
     {
@@ -98,7 +112,14 @@
         "disposition": "공개 원전사 및 게시자 목차에서 다섯 카테고리 확인, 그러나 일반 주식/테마/배당의 중복 노출에 유의",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "SOURCE_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "evidence_summary": "뮤추얼펀드와 상장ETF에 여러 자산·테마를 담는 상품 구분 타당; 단 5개가 완전 독립 자산군은 아님.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-04",
@@ -108,34 +129,43 @@
       "assessment": "PRIMARY_CONFIRMED",
       "independent_check": "지수추종 ETF와 다른 투자방식이며 운용/판매비용·종목교체·주가위험 발생",
       "official_sources": [
+        "https://www.syfund.co.kr/fund/search/view/8970",
         "https://syfund.co.kr/fund/search/view/8990"
       ],
       "verification_evidence": {
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-14",
-        "primary_url": "https://syfund.co.kr/fund/search/view/8990",
+        "primary_url": "https://www.syfund.co.kr/fund/search/view/8970",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
         "disposition": "지수추종 ETF와 다른 투자방식이며 운용/판매비용·종목교체·주가위험 발생",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "SOURCE_MATCH",
+        "date": "2026-10-14",
+        "official_url": "https://www.syfund.co.kr/fund/search/view/8970",
+        "evidence_summary": "신영 공식 상품 페이지 '신영밸류고배당증권자투자신탁(주식)'이 고배당 대표 국내 주식형 펀드임 확인. 액티브 운용/설명서 확인.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-05",
       "timecode": "02:41",
       "watch_url": "https://www.youtube.com/watch?v=sOsEgO2w5mA&t=161s",
-      "source_paraphrase": "공개 자동전사상 국내 대표 펀드의 이름은 '신형 밸류 고배당'으로 들리며 정확 공식상품명은 미확정",
+      "source_paraphrase": "영상은 2조원대 대표 국내 고배당 주식형 펀드를 소개하며 '신영밸류고배당증권자투자신탁(주식)'이 공식 설명상 유력하다",
       "assessment": "QUALIFIED",
-      "independent_check": "영상 화면·비공개 SRT 원본 없이 신영고배당과 신영밸류고배당 시리즈를 혼동하면 안 됨. 금융투자협회 표준펀드코드/운용사 상품설명서·영상 화면 대조 OPEN.",
+      "independent_check": "공식 운용사 상품ID8970: 신영밸류고배당증권자투자신탁(주식), 약2.3조 규모(2026-09-10). 동명 40 채권혼합형은 약595억원이므로 영상 문맥(2조/국내 주식형)에 맞는 유력 대상. 그러나 촬영시점 화면/SRT가 없어 최종 매칭은 OPEN.",
       "official_sources": [
+        "https://www.syfund.co.kr/fund/search/view/8970",
         "https://www.syfund.co.kr/fund/search/view/F260"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
-        "primary_url": "https://www.syfund.co.kr/fund/search/view/F260",
+        "primary_url": "https://www.syfund.co.kr/fund/search/view/8970",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
-        "disposition": "영상 화면·비공개 SRT 원본 없이 신영고배당과 신영밸류고배당 시리즈를 혼동하면 안 됨. 금융투자협회 표준펀드코드/운용사 상품설명서·영상 화면 대조 OPEN.",
+        "disposition": "공식 운용사 상품ID8970: 신영밸류고배당증권자투자신탁(주식), 약2.3조 규모(2026-09-10). 동명 40 채권혼합형은 약595억원이므로 영상 문맥(2조/국내 주식형)에 맞는 유력 대상. 그러나 촬영시점 화면/SRT가 없어 최종 매칭은 OPEN.",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
       "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
@@ -145,6 +175,21 @@
         "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
         "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
         "original_srt_confirmed": false
+      },
+      "inferred_issuer_product_match": {
+        "candidate": "신영밸류고배당증권자투자신탁(주식)",
+        "issuer_product_page": "https://www.syfund.co.kr/fund/search/view/8970",
+        "issuer_asof": "2026-09-10",
+        "aum_estimate_krw_100million": 22994.2,
+        "other_product_excluded": "신영밸류고배당40증권자투자신탁(채권혼합)",
+        "confidence": "HIGH_BUT_NOT_FINAL_WITHOUT_PRIVATE_SRT_AND_VIDEO_FRAME"
+      },
+      "primary_recheck_20261014": {
+        "status": "SOURCE_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://www.syfund.co.kr/fund/search/view/8970",
+        "evidence_summary": "공식 운용사 상품ID8970: 신영밸류고배당증권자투자신탁(주식), 약2.3조 규모(2026-09-10). 동명 40 채권혼합형은 약595억원이므로 영상 문맥(2조/국내 주식형)에 맞는 유력 대상. 그러나 촬영시점 화면/SRT가 없어 최종 매칭은 OPEN.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
       }
     },
     {
@@ -153,19 +198,27 @@
       "watch_url": "https://www.youtube.com/watch?v=sOsEgO2w5mA&t=161s",
       "source_paraphrase": "해당 펀드가 2조원 이상이고 70~80종목을 보유한다",
       "assessment": "QUALIFIED",
-      "independent_check": "2026-04 투자대상 운용보고서·자산별 규모 미독립 확인; 동명이펀드 혼동 가능",
+      "independent_check": "운용사 2026-09-10 기준 운용펀드 순자산 22,994.2억원으로 2조 이상 확인. 2026-04 당시 2조 또는 70~80 보유종목 수는 과거 운용보고서/비공개 화면 불확실.",
       "official_sources": [
+        "https://www.syfund.co.kr/fund/search/view/8970",
         "https://syfund.co.kr/fund/search/view/8990"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
-        "primary_url": "https://syfund.co.kr/fund/search/view/8990",
+        "primary_url": "https://www.syfund.co.kr/fund/search/view/8970",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
-        "disposition": "2026-04 투자대상 운용보고서·자산별 규모 미독립 확인; 동명이펀드 혼동 가능",
+        "disposition": "운용사 2026-09-10 기준 운용펀드 순자산 22,994.2억원으로 2조 이상 확인. 2026-04 당시 2조 또는 70~80 보유종목 수는 과거 운용보고서/비공개 화면 불확실.",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "SOURCE_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://www.syfund.co.kr/fund/search/view/8970",
+        "evidence_summary": "운용사 2026-09-10 기준 운용펀드 순자산 22,994.2억원으로 2조 이상 확인. 2026-04 당시 2조 또는 70~80 보유종목 수는 과거 운용보고서/비공개 화면 불확실.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-07",
@@ -175,17 +228,25 @@
       "assessment": "QUALIFIED",
       "independent_check": "A-E는 선취판매수수료 가능, C-E는 연간보수 구조 다름. 계좌·판매회사별 계약조건과 예상 보유기간 고려",
       "official_sources": [
+        "https://www.syfund.co.kr/fund/search/view/8970",
         "https://syfund.co.kr/fund/search/view/8990"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
-        "primary_url": "https://syfund.co.kr/fund/search/view/8990",
+        "primary_url": "https://www.syfund.co.kr/fund/search/view/8970",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
         "disposition": "A-E는 선취판매수수료 가능, C-E는 연간보수 구조 다름. 계좌·판매회사별 계약조건과 예상 보유기간 고려",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "SOURCE_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://www.syfund.co.kr/fund/search/view/8970",
+        "evidence_summary": "신영 공식 주식형 펀드에 A형/Ae형/C형/C-Pe형/C-P2e형 등 복수 클래스 있음. 선취수수료/연간보수 최적은 동일하지 않으므로 기간별 비용 비교 필요.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-08",
@@ -195,17 +256,25 @@
       "assessment": "QUALIFIED",
       "independent_check": "상품마다 P/Pe 여부 및 가입 가능 계좌·수수료 다른 만큼 특정 조합 만능으로 적용 안됨",
       "official_sources": [
+        "https://www.syfund.co.kr/fund/search/view/8970",
         "https://www.syfund.co.kr/fund/search/view/F260"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
-        "primary_url": "https://www.syfund.co.kr/fund/search/view/F260",
+        "primary_url": "https://www.syfund.co.kr/fund/search/view/8970",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
         "disposition": "상품마다 P/Pe 여부 및 가입 가능 계좌·수수료 다른 만큼 특정 조합 만능으로 적용 안됨",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "SOURCE_MATCH",
+        "date": "2026-10-14",
+        "official_url": "https://www.syfund.co.kr/fund/search/view/8970",
+        "evidence_summary": "상품 페이지에 연금용 C-Pe/C-P2e/S-P 등 클래스 존재. 가입 계좌 요건·특정 class 실제 수수료·판매사별 가능여부 별개.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-09",
@@ -225,7 +294,14 @@
         "disposition": "ETF는 지수 편입기업의 지분 및 운용구조에 경제적 노출되나 환율·수수료·추적차이·과세 별도",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "SOURCE_MATCH",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "evidence_summary": "지수·ETF 원리상 해외기업 직접 개별종목 대신 지수 투자 가능하되 국내 상장 투자자의 환율·비용·과세 차이 존재.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-10",
@@ -235,12 +311,13 @@
       "assessment": "QUALIFIED",
       "independent_check": "동일 지수 추종이라도 실제 수익률·보수·추적오차·환헤지·분배·괴리율·과세는 다름. 강사가 '수익률 완벽 동일'이라 단언한 것으로 바꾸어 적지 않음.",
       "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060102/RGL03060102.jsp",
         "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
-        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060102/RGL03060102.jsp",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
         "disposition": "동일 지수 추종이라도 실제 수익률·보수·추적오차·환헤지·분배·괴리율·과세는 다름. 강사가 '수익률 완벽 동일'이라 단언한 것으로 바꾸어 적지 않음.",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
@@ -252,6 +329,13 @@
         "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
         "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
         "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "SOURCE_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://regulation.krx.co.kr/contents/RGL/03/03060102/RGL03060102.jsp",
+        "evidence_summary": "동일 벤치마크를 추종해도 ETF별 NAV, 추적오차, 편입내역·비용·체결가격 차이 있어 완전 수익률 동일하지 않음.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
       }
     },
     {
@@ -292,7 +376,14 @@
         "disposition": "KRX 공식 정규시장 시간 확인, 시간외거래·휴장일 별도",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "SOURCE_MATCH",
+        "date": "2026-10-14",
+        "official_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "evidence_summary": "한국거래소 ETF 정규시장 09:00~15:30, 시간외시장 별도 운영. 영상의 정규시간 서술 정확.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-13",
@@ -339,7 +430,14 @@
         "disposition": "그룹계열 지분집중 및 일부 대표계열 종목 중복 투자 위험, 공식 편입사 매 분기 변동",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "RISK_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "evidence_summary": "삼성그룹 같은 특정 기업집단 주식펀드 가능하나 업종/기업집단 집중 및 개별종목 중복 노출.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-15",
@@ -359,7 +457,14 @@
         "disposition": "테마 투자상품은 산업 성장과 투자수익/분산 안정성 별개",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "SOURCE_MATCH",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "evidence_summary": "테마/섹터 ETF는 특정 산업 집중형도 가능하며 명목상 여러 종목이더라도 시장 전체보다 분산이 낮음.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-16",
@@ -485,17 +590,25 @@
       "assessment": "PRIMARY_CONFIRMED",
       "independent_check": "운용사 공식 종목코드458730 등 확인, 기초지수와 실제 편입 종목·분배정책은 설명서 참조",
       "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
         "https://investments.miraeasset.com/tigeretf/ko/pension/sector-country/list.do"
       ],
       "verification_evidence": {
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-14",
-        "primary_url": "https://investments.miraeasset.com/tigeretf/ko/pension/sector-country/list.do",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
         "disposition": "운용사 공식 종목코드458730 등 확인, 기초지수와 실제 편입 종목·분배정책은 설명서 참조",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "RISK_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "evidence_summary": "미국 배당주 중심의 ETF는 가능하나 정확 TIGER 해당 지수/상품 세부 수치는 발행사 직접 상품자료 부족으로 미확정.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-21",
@@ -525,17 +638,25 @@
       "assessment": "QUALIFIED",
       "independent_check": "월별 분배액/수익률 미보장, 분배로 NAV 감소 가능. 분배는 투자원금 환원 포함 가능",
       "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
         "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
-        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
         "basis": "Public Korean YouTube automatic transcript entire available transcript reviewed; uploader chapter times only; issuer/tax/KRX/NPS/SEC primary sources where directly relevant; user private original not accessible in this conversation",
         "disposition": "월별 분배액/수익률 미보장, 분배로 NAV 감소 가능. 분배는 투자원금 환원 포함 가능",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "SOURCE_MATCH",
+        "date": "2026-10-14",
+        "official_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "evidence_summary": "거래소 설명: ETF는 월/분기 일정에 항상 분배금 지급되는 것은 아니며 이익/보수·추적오차 목적 등 조건.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     },
     {
       "claim_id": "sOsEgO2w5mA-23",
@@ -562,6 +683,13 @@
         "result": "CORRECTED_OR_CONTEXTUALIZED_PUBLIC_TRANSCRIPT_ATTRIBUTION",
         "note": "Compared to full available independent public auto transcript, not user original private SRT; chapter timestamp not sentence-level",
         "original_srt_confirmed": false
+      },
+      "primary_recheck_20261014": {
+        "status": "RISK_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "evidence_summary": "국내주식+삼성그룹, 미국지수+미국배당은 지역·기업 중복 노출이 있어 완전한 5개 독립 자산군 아님.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
       }
     },
     {
@@ -582,7 +710,14 @@
         "disposition": "소액 경험은 유익할 수 있으나 학습중 주문비용/손실 최소화 필요",
         "effective_date_or_scope": "Video recorded 2026-04-22 and released 2026-05-15; 2026-10 official material may postdate recording"
       },
-      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR"
+      "timecode_precision": "UPLOADER_CHAPTER_START_APPROXIMATE_NOT_ORIGINAL_SRT_SENTENCE_ANCHOR",
+      "primary_recheck_20261014": {
+        "status": "RISK_BOUNDARY",
+        "date": "2026-10-14",
+        "official_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "evidence_summary": "1주 최소 거래와 09:00~15:30 주문 체험 가능하나 손실·비용 발생. 개인 금융교육법으로는 검증 불가.",
+        "limitations": "Does not establish exact privately held SRT transcript utterance or specific user's return."
+      }
     }
   ],
   "claim_classification_tally": {
@@ -628,5 +763,33 @@
     "public_asr_exact_private_diff": "NOT_RUN",
     "further_source_verification_required": true,
     "no_v3_approval": true
+  },
+  "review_continuation_20261014": {
+    "date": "2026-10-14",
+    "newly_source_scoped_rows": 17,
+    "claim_ids": [
+      "sOsEgO2w5mA-01",
+      "sOsEgO2w5mA-02",
+      "sOsEgO2w5mA-03",
+      "sOsEgO2w5mA-04",
+      "sOsEgO2w5mA-05",
+      "sOsEgO2w5mA-06",
+      "sOsEgO2w5mA-07",
+      "sOsEgO2w5mA-08",
+      "sOsEgO2w5mA-09",
+      "sOsEgO2w5mA-10",
+      "sOsEgO2w5mA-12",
+      "sOsEgO2w5mA-14",
+      "sOsEgO2w5mA-15",
+      "sOsEgO2w5mA-20",
+      "sOsEgO2w5mA-22",
+      "sOsEgO2w5mA-23",
+      "sOsEgO2w5mA-24"
+    ],
+    "original_private_srt_available": false,
+    "original_audio_verified": false,
+    "full_private_vs_public_asr_diff_verified": false,
+    "promoted_to_v3": false,
+    "meaning": "Added source-limited official evidence checks/updated contexts; conditional and hypothetical claims remain open."
   }
 }
