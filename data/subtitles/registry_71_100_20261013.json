@@ -23,7 +23,8 @@
     "Eb7kKf8wnTw",
     "-Hn9eMUWF2Y",
     "aeR4g4Mmy00",
-    "IkL1X2VrPIc"
+    "IkL1X2VrPIc",
+    "HvXLItCOd-A"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -31,7 +32,7 @@
     "Video roster numbers map to 2026-10-13 user-pasted 71-100 markdown list rather than arbitrary ZIP file sequence.",
     "Private ZIP holds all 29 raw SRTs but only SHA/count/size metadata saved to this GitHub branch.",
     "#71 4vNF2fui5jc SRT unavailable, no fabricated subtitles or completed analysis.",
-    "Rows 74-100 CRC/structure verified but not complete content evidence-reviewed.",
+    "Other rows outside V3-approved #72-#77 and #95 remain without V3 approval; #95 original full 868 cue SHA and independent public ASR text full 868 lines exact match on 2026-10-15.",
     "Original audio/frames/full independent public ASR not checked."
   ],
   "items": [
@@ -305,10 +306,21 @@
       "cue_count": 868,
       "raw_srt_bytes": 65094,
       "sha256": "89aa974c052fdde2d56ff2e1d4c353968e195fbd4ad359bc0a9c59f20995689a",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_868_CUES_PUBLIC_ASR_EXACT_FULL_TEXT_KRX_OFFICIAL_VERIFIED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": true,
+      "original_srt_reopened_this_review": true,
+      "raw_srt_sha_recomputed_20261015": true,
+      "source_archive_sha_recomputed_20261015": true,
+      "public_asr_caption_text_match": "868_OF_868_TEXT_EXACT_SHA256",
+      "public_asr_normalized_sha256": "839065095394489edfa24927a2bb98f7ba5b443c2d52f8d599280632359ae065",
+      "video_audio_checked": false,
+      "video_frames_checked": false,
+      "original_cue_timestamps_read": true,
+      "video_claims_approved_v3": 36,
+      "canonical_event_path": "data/analysis_events/HvXLItCOd-A.json",
+      "approved_v3_on": "2026-10-15"
     },
     {
       "roster_no": 96,
@@ -366,7 +378,19 @@
       "public_asr_full_diff_verified": false
     }
   ],
-  "verified_v3_reviewed_count": 6,
-  "verified_v3_claim_count": 178,
-  "full_transcript_review_complete_in_this_archive": false
+  "verified_v3_reviewed_count": 7,
+  "verified_v3_claim_count": 214,
+  "full_transcript_review_complete_in_this_archive": false,
+  "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+  "last_revalidated_cue_byte_hash": {
+    "95": {
+      "video_id": "HvXLItCOd-A",
+      "cue_count": 868,
+      "bytes": 65094,
+      "sha256": "89aa974c052fdde2d56ff2e1d4c353968e195fbd4ad359bc0a9c59f20995689a",
+      "public_text_sha256": "839065095394489edfa24927a2bb98f7ba5b443c2d52f8d599280632359ae065",
+      "full_public_text_equal": true,
+      "audio_checked": false
+    }
+  }
 }
