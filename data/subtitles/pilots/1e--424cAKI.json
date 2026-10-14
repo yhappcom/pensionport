@@ -276,41 +276,43 @@
       "claim_id": "1e--424cAKI-13",
       "timecode": "00:00",
       "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
-      "source_paraphrase": "미국에서15% 원천징수된 ISA ETF 배당이라도 한국에서 언제나 추가 9.9%를 전액 더 낸다",
-      "assessment": "CONTRADICTED",
-      "independent_check": "법상 만기 외국납부세액공제 가능. 영상을 정확히 읽으면 화자는 이중과세처럼 보여도 크레딧 보정한다고 말하므로 반대 오해를 바로잡는 문항임",
+      "source_paraphrase": "화자는 미국 배당 원천세15%와 ISA 만기 분리과세를 합산해 '무조건 이중과세'라고 보는 오해를 크레딧 공제로 설명한다",
+      "assessment": "QUALIFIED",
+      "independent_check": "영상 화자는 이중 과세가 곧바로 누적된다는 오해를 스스로 정정. 2025-07-01 이후 국내 세액 한도 외국납부세액공제 규정을 상품별로 확인",
       "official_sources": [
         "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
         "primary_url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964",
         "basis": "Full 1m21s public Korean auto transcript; Ministry of Economy and Finance and Mirae Asset broker notices on 2025-07 ISA foreign tax credits",
-        "disposition": "법상 만기 외국납부세액공제 가능. 영상을 정확히 읽으면 화자는 이중과세처럼 보여도 크레딧 보정한다고 말하므로 반대 오해를 바로잡는 문항임",
+        "disposition": "영상 화자는 이중 과세가 곧바로 누적된다는 오해를 스스로 정정. 2025-07-01 이후 국내 세액 한도 외국납부세액공제 규정을 상품별로 확인",
         "effective_date_or_scope": "Video released 2026-04-30; 2025-07-01 enacted FTC special rule; taxable profits and account classes vary"
       },
-      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT"
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "previous_thought_experiment_assessment": "CONTRADICTED"
     },
     {
       "claim_id": "1e--424cAKI-14",
       "timecode": "00:00",
       "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
-      "source_paraphrase": "ISA 내 해외배당금은 외국 원천세가 완전히 환급돼 국내배당처럼 초기 100% 재투자할 수 있음",
-      "assessment": "CONTRADICTED",
-      "independent_check": "해외에서 원천징수된 세액의 전액을 계좌에 현금반환하는 것이 아니며, 만기시 국내세액 내 공제 한도. 영상도 해외배당 과세이연효과 감소를 인정",
+      "source_paraphrase": "화자는 외국에 먼저 낸 세금으로 ISA 계좌 과세이연 효과가 국내 배당보다 제한된다고 설명한다",
+      "assessment": "QUALIFIED",
+      "independent_check": "외국세액은 만기 국내 분리과세 범위에서 공제되며 외국 원천세 전액이 상품에 반환되는 구조가 아님. 영상 화자가 전액 환급을 약속한 적 없음",
       "official_sources": [
         "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-14",
         "primary_url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964",
         "basis": "Full 1m21s public Korean auto transcript; Ministry of Economy and Finance and Mirae Asset broker notices on 2025-07 ISA foreign tax credits",
-        "disposition": "해외에서 원천징수된 세액의 전액을 계좌에 현금반환하는 것이 아니며, 만기시 국내세액 내 공제 한도. 영상도 해외배당 과세이연효과 감소를 인정",
+        "disposition": "외국세액은 만기 국내 분리과세 범위에서 공제되며 외국 원천세 전액이 상품에 반환되는 구조가 아님. 영상 화자가 전액 환급을 약속한 적 없음",
         "effective_date_or_scope": "Video released 2026-04-30; 2025-07-01 enacted FTC special rule; taxable profits and account classes vary"
       },
-      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT"
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "previous_thought_experiment_assessment": "CONTRADICTED"
     },
     {
       "claim_id": "1e--424cAKI-15",
@@ -375,8 +377,8 @@
   ],
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 10,
-    "QUALIFIED": 4,
-    "CONTRADICTED": 2,
+    "QUALIFIED": 6,
+    "CONTRADICTED": 0,
     "HYPOTHETICAL": 1
   },
   "verification_status": "PROVISIONAL_PUBLIC_ASR_NOT_APPROVED_NO_REGISTERED_PRIVATE_SRT",
