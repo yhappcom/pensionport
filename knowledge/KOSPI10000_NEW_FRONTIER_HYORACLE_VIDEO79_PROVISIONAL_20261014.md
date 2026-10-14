@@ -1,5 +1,13 @@
 # 박곰희TV #79 코스피 1만 투자지도 — 공개 전사 잠정 학습·공식자료 검증
 
+## 2026-10-14 후속 자료 재검증 — 2차 (이전 내용 중 검증범위 보완)
+
+- **전체 33건 중 2차 이후 공식근거·조건부 위험검토가 붙은 항목 12건, 새 추가대조가 없는 항목 21건.** 최신 [개별 주장파일](../data/subtitles/pilots/mRRev963GaA.json)에서 `primary_recheck_20261014.status`를 꼭 확인. `RISK_BOUNDARY/HYPOTHESIS_BOUNDED`는 정확한 사실확인이 아니라 위험한 결론의 제한조건을 확인한 것임.
+- 새 검토/요약 [통합 2차 보고서](../docs/PROVISIONAL_RECHECK_78_82_ROUND2_20261014.md); [전체146항목 원장](../data/subtitles/provisional_recheck_78_82_20261014.json).
+- **중요 근거:** 코스피1만·2027 피지컬AI 등은 주관적 산업 전망으로 남김. 조선70%·현대차30%는 공격적 집중사례, 보편적 모델 아님.
+- 미해결: `mRRev963GaA-01`, `mRRev963GaA-02`, `mRRev963GaA-03`, `mRRev963GaA-04`, `mRRev963GaA-05`, `mRRev963GaA-10`, `mRRev963GaA-12`, `mRRev963GaA-15`, `mRRev963GaA-17`, `mRRev963GaA-19`, `mRRev963GaA-20`, `mRRev963GaA-21`, `mRRev963GaA-22`, `mRRev963GaA-23`, `mRRev963GaA-27`, `mRRev963GaA-28`, `mRRev963GaA-29`, `mRRev963GaA-30`, `mRRev963GaA-31`, `mRRev963GaA-32`, `mRRev963GaA-33`. 원본 비공개 SRT 접근 불가, 타임코드 여전히 제작자 챕터 시작점, `NOT_APPROVED` 유지.
+
+
 > **2026-10-14 2차 재검토 반영:** 주장 33건 중 공개 자동전사 귀속·표현 5건 정정, 지정 1차 공식자료·산술 6건 재확인. 현행 잠정판정 **확인 7 / 조건 13 / 반증 1 / 사례 12**. 이전 판정표보다 [최신 항목별 pilot](../data/subtitles/pilots/mRRev963GaA.json)과 [통합 재검토 원장](../docs/PROVISIONAL_RECHECK_78_82_20261014.md)을 우선한다. 과장된 간접해석을 직접발언과 혼동하지 않도록 주의. **원본 비공개 SRT 미대조·정식 V3 미승인.**
 
 **검토일:** 2026-10-14 · [원본 영상](https://www.youtube.com/watch?v=mRRev963GaA) · **게스트:** 효라클 · **촬영:** 2026-05-12 · **공개:** 2026-05-17 · **길이:** 69:31.
