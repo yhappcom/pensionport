@@ -125,10 +125,22 @@
       "cue_count": 580,
       "raw_srt_bytes": 46021,
       "sha256": "84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SOURCE_SHA_RECHECKED_FULL_TEXT_REVIEW_CLAIM_GATE_PENDING",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": true,
+      "original_srt_sha_recomputed_20261015": true,
+      "original_zip_crc_verified_20261015": true,
+      "original_raw_srt_read_in_full": true,
+      "private_body_normalized_sha256": "62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51",
+      "private_normalized_characters": 8217,
+      "public_full_asr_normalized_sha256": "62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51",
+      "public_normalized_characters": 8217,
+      "public_private_normalized_full_text_match": true,
+      "reviewed_claim_count_provisional": 40,
+      "approval": "NOT_APPROVED",
+      "original_cue_timestamp_anchors_claim_specific_verified": false,
+      "original_audio_verified": false
     },
     {
       "roster_no": 79,
@@ -136,10 +148,22 @@
       "cue_count": 2063,
       "raw_srt_bytes": 157457,
       "sha256": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SOURCE_SHA_RECHECKED_FULL_TEXT_REVIEW_CLAIM_GATE_PENDING",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": false,
+      "original_srt_sha_recomputed_20261015": true,
+      "original_zip_crc_verified_20261015": true,
+      "original_raw_srt_read_in_full": true,
+      "private_body_normalized_sha256": "417a8b73d81bc67b2b70c7d7c99691d5613df8d65afa6c56370e40448afd879a",
+      "private_normalized_characters": 26628,
+      "public_full_asr_normalized_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+      "public_normalized_characters": 26624,
+      "public_private_normalized_full_text_match": false,
+      "reviewed_claim_count_provisional": 33,
+      "approval": "NOT_APPROVED",
+      "original_cue_timestamp_anchors_claim_specific_verified": false,
+      "original_audio_verified": false
     },
     {
       "roster_no": 80,
@@ -537,5 +561,46 @@
     "frames_checked": false,
     "canonical_event": "data/analysis_events/g5PChibmY5A.json",
     "review_report": "knowledge/VIDEO100_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md"
+  },
+  "source_reconciliation_78_79_20261015": {
+    "as_of": "2026-10-15",
+    "source_zip_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "private_original_srt_verified_roster": [
+      78,
+      79
+    ],
+    "source_audit_only_true": true,
+    "canonical_new_approvals": 0,
+    "source_raw_srt_publicly_committed": false,
+    "items": [
+      {
+        "n": 78,
+        "id": "98UoTYQR5nY",
+        "cues": 580,
+        "raw": "84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880",
+        "bytes": 46021,
+        "private_sha": "62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51",
+        "private_chars": 8217,
+        "public_sha": "62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51",
+        "public_chars": 8217,
+        "matches": true,
+        "claims": 40,
+        "source_status": "PRIVATE_SRT_SOURCE_SHA_RECHECKED_FULL_TEXT_REVIEW_CLAIM_GATE_PENDING"
+      },
+      {
+        "n": 79,
+        "id": "mRRev963GaA",
+        "cues": 2063,
+        "raw": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
+        "bytes": 157457,
+        "private_sha": "417a8b73d81bc67b2b70c7d7c99691d5613df8d65afa6c56370e40448afd879a",
+        "private_chars": 26628,
+        "public_sha": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+        "public_chars": 26624,
+        "matches": false,
+        "claims": 33,
+        "source_status": "PRIVATE_SRT_SOURCE_SHA_RECHECKED_FULL_TEXT_REVIEW_CLAIM_GATE_PENDING"
+      }
+    ]
   }
 }
