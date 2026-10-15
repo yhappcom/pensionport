@@ -32,7 +32,8 @@
     "uyzROR3cUl8",
     "g5PChibmY5A",
     "98UoTYQR5nY",
-    "mRRev963GaA"
+    "mRRev963GaA",
+    "sOsEgO2w5mA"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -216,10 +217,26 @@
       "cue_count": 441,
       "raw_srt_bytes": 34799,
       "sha256": "44b4e9a3da39fcb22c5bed503968c86d43bbcaadef9fbc9666b1d82a135e0707",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": true,
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-15",
+      "source_archive_crc_verified": true,
+      "original_srt_sha_recomputed_20261015": true,
+      "source_original_bytes_unchanged": true,
+      "private_original_cues_verified": 441,
+      "private_original_bytes_verified": 34799,
+      "public_private_normalized_full_match": true,
+      "private_normalized_sha256": "6cda0a0f48c9c56b598a185c7cf4180f5a8c02f9dbfd257c44c2073944f8bb73",
+      "public_normalized_sha256": "6cda0a0f48c9c56b598a185c7cf4180f5a8c02f9dbfd257c44c2073944f8bb73",
+      "normalized_characters": 6212,
+      "individually_reviewed_claim_count": 24,
+      "speaker_original_cue_anchors": 24,
+      "material_bond_risk_corrections": 1,
+      "original_audio_verified": false,
+      "canonical_analysis": "data/analysis_events/sOsEgO2w5mA.json",
+      "report": "knowledge/VIDEO80_10000KRW_5_INVESTMENTS_ORIGINAL_441_CUES_V3_20261015.md"
     },
     {
       "roster_no": 81,
@@ -526,8 +543,8 @@
       "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 15,
-  "verified_v3_claim_count": 403,
+  "verified_v3_reviewed_count": 16,
+  "verified_v3_claim_count": 427,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
@@ -708,5 +725,27 @@
     "original_audio_verified": false,
     "canonical_analysis": "data/analysis_events/mRRev963GaA.json",
     "report": "knowledge/VIDEO79_KOSPI10000_ORIGINAL_2063_CUES_V3_20261015.md"
+  },
+  "video80_v3_reconciliation_20261015": {
+    "roster_no": 80,
+    "video_id": "sOsEgO2w5mA",
+    "source_srt_sha256": "44b4e9a3da39fcb22c5bed503968c86d43bbcaadef9fbc9666b1d82a135e0707",
+    "original_cues": 441,
+    "original_raw_bytes": 34799,
+    "normalized_private_and_public_sha256": "6cda0a0f48c9c56b598a185c7cf4180f5a8c02f9dbfd257c44c2073944f8bb73",
+    "normalized_characters": 6212,
+    "all_full_public_speech_text_matches": true,
+    "claim_anchors": 24,
+    "approved_claims": 24,
+    "classification_tally": {
+      "PRIMARY_CONFIRMED": 10,
+      "QUALIFIED": 11,
+      "CONTRADICTED": 1,
+      "HYPOTHETICAL": 2
+    },
+    "original_audio_checked": false,
+    "original_frames_checked": false,
+    "report": "knowledge/VIDEO80_10000KRW_5_INVESTMENTS_ORIGINAL_441_CUES_V3_20261015.md",
+    "canonical_event": "data/analysis_events/sOsEgO2w5mA.json"
   }
 }
