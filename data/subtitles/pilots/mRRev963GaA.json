@@ -11,7 +11,7 @@
   "video_published_date": "2026-05-17",
   "recording_date": "2026-05-12 as provided by publisher",
   "duration": "69:31",
-  "source_level": "USER_ORIGINAL_2063_CUE_SRT_RAW_SHA_RECONCILED_PUBLIC_TRANSCRIPT_FULL_TEXT_COMPARISON_NONIDENTICAL_33_CLAIM_REVIEW_PENDING",
+  "source_level": "USER_PRIVATE_ORIGINAL_2063_CUE_SRT_SHA_VERIFIED_PUBLIC_AUTO_ASR_EXACT_SHA_AFTER_SINGLE_TRAILING_DUPLICATE_MUSIC_CAPTION_EXCLUDED_CLAIMS_PENDING",
   "source_provider": "Public YouTube transcript/description + IFR Hyundai Waymo OpenAI Goldman SEC",
   "source_reviewed_at": "2026-10-14",
   "subtitle_sha256": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
@@ -29,14 +29,14 @@
     "reviewed_source": "INDEPENDENT_PUBLIC_YOUTUBE_AUTO_TRANSCRIPT",
     "original_srt_full_cues_reviewed": true,
     "original_sha_byte_compare": true,
-    "public_to_private_transcript_exact_diff": "NOT_EQUAL_NORMALIZED_FULL_TEXT_HASH_DIFF;SOURCE_PUBLIC_NET_CHAR_COUNT_DIFFERENCE_FOUR;PRECISE_TEXT_DIFF_PENDING",
+    "public_to_private_transcript_exact_diff": "FULL_26628_PRIVATE_MINUS_TRAILING_DUPLICATE_MUSIC_CUE_2063_4_CHARS_EQUALS_FULL_PUBLIC_26624_CHARS_SHA256",
     "timestamp_precision": "UPLOADER_CHAPTER_START_ONLY_FOR_EXISTING_33_CLAIMS",
     "original_audio_checked": false,
     "frames_checked": false,
     "video_id_matched": true,
     "source_kind": "ORIGINAL_SRT_RECONCILED",
     "evidence_reference": "2026-10-15 user-uploaded /mnt/data/71-100.zip 517466 bytes archive SHA256 69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f CRC PASS; 71-100/youtube-transcript-mRRev963GaA.srt 2063 sequential cues 157457 bytes SHA256 eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a equals registry, last cue ends 01:09:29.177. Complete separately retrieved same-video public Korean auto transcript normalized SHA256 3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6 over 26624 characters DOES NOT equal original 26628 chars normalized SHA256 417a8b73d81bc67b2b70c7d7c99691d5613df8d65afa6c56370e40448afd879a.",
-    "limitations": "Private SRT raw bytes independently verified, 2063 source cues read. Public text has four fewer normalized characters in total and a different SHA, which does not identify whether differences are substitutions, omissions, punctuation or significant audio interpretation. Exact text diff NOT DONE. Existing 33 claims still use uploader chapter approximate timestamps and must map into source cues; no final V3 approval. Original audio/frames not reviewed.",
+    "limitations": "Original 2063 cue source SHA remains independently verified and private complete. Public full normalized auto-transcript SHA mismatch fully localized to duplicate final non-speech [음악] cue #2063; dropping exactly that one private trailing token proves all 26624 retained chars equal full public SHA. No spoken content differences. Existing 33 claim-level original cue anchors still pending, V3 remains NOT_APPROVED.",
     "original_srt_sha256": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
     "original_zip_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
     "original_srt_bytes": 157457,
@@ -51,7 +51,25 @@
     "public_full_transcript_normalized_chars": 26624,
     "public_transcript_full_reviewed": true,
     "normalized_full_public_private_text_match": false,
-    "claim_to_original_cue_timestamp_reconciled": false
+    "claim_to_original_cue_timestamp_reconciled": false,
+    "private_public_text_diff_location": "ENDING_PRIVATE_SRT_CUE_2063_01:09:27.157_01:09:29.177_DUPLICATE_[음악]",
+    "private_original_duplicate_nonverbal_cue_indices": [
+      2062,
+      2063
+    ],
+    "public_single_final_music_caption": true,
+    "original_private_ends_with_two_music_tokens": true,
+    "public_ends_with_one_music_token": true,
+    "normalized_private_excluding_one_trailing_music_caption_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+    "original_normalized_private_with_music_sha256": "417a8b73d81bc67b2b70c7d7c99691d5613df8d65afa6c56370e40448afd879a",
+    "original_normalized_characters": 26628,
+    "original_excluding_one_music_normalized_characters": 26624,
+    "normalized_public_characters": 26624,
+    "semantic_speech_content_agrees": true,
+    "nonverbal_duplicate_only": true,
+    "precise_text_diff_completed": true,
+    "source_normalization_policy": "Retain 2063 private original cue bytes untouched, strip Unicode whitespace for normalized text then remove exactly ONE final redundant `[음악]` from the PRIVATE text only (not any words or other music annotations); resulting 26624 char SHA equals public full 26624 char SHA; 53 of 54 fixed-500-char chunks independently hash matched before final tail; speech text identical after this minimally scoped reconciliation.",
+    "claim_evidence_per_claim_source_finding_completed": false
   },
   "core_message": "협찬 도서 대담에서 코스피1만과 로봇/드론/자율주행의 미래 경쟁, 산업과정(구대륙/신대륙) 비유, 2027 상용화 기대, 과거사례 기반 주식연구법, 1억원 집중 조선7 현대차3 및 자녀투자 가정 논의. 지수수준·상용화 시점·미래수익률은 미래예측치이고 책 내용/백테스트/포트폴리오 실적 재현 안됨. ChatGPT 공개 2022-11-30, IFR 한국 제조업 로봇 밀도 세계 최고, 현대차 Atlas 생산라인 시작 계획 2028, Waymo 상업 로보택시는 2025년 이전이라는 근거 구분.",
   "limitations": [
@@ -63,7 +81,8 @@
     "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT.",
     "2026-10-15 private raw original 2063-cue 157457-byte SHA reverified from user ZIP, source provenance solved.",
     "Complete public auto Korean transcript after whitespace removal differs from private original source (26624 versus 26628 normalized characters, different SHA256); exact mismatching locations and materiality have not been assessed.",
-    "Existing 33 claim timecodes still chapter-start approximations and not independently original-source cue anchors; remain NOT_APPROVED."
+    "Existing 33 claim timecodes still chapter-start approximations and not independently original-source cue anchors; remain NOT_APPROVED.",
+    "2026-10-15 follow-up fully localized original vs public mismatch to source terminal cue #2063 [음악] repeated twice privately and once publicly; SHA256 on original full private excluding one trailing non-speech 4-character token equals complete 26624-character public transcript. Existing 33 video-speech claim cue anchors not yet mapped."
   ],
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 7,
@@ -1178,7 +1197,7 @@
       "theme": "Child long-horizon investment and risk profile"
     }
   ],
-  "verification_status": "PRIVATE_2063_CUE_ORIGINAL_SHA_CONFIRMED_PUBLIC_FULL_TRANSCRIPT_NOT_IDENTICAL_33_CLAIM_ORIGINAL_CUE_ANCHORS_PENDING_NOT_APPROVED",
+  "verification_status": "PRIVATE_2063_CUE_ORIGINAL_SHA_VERIFIED_PUBLIC_SPEECH_FULL_NORM_SHA_EQUAL_AFTER_ONE_DUPLICATE_FINAL_MUSIC_CAPTION_REMOVED_33_CLAIM_GATE_PENDING_NOT_APPROVED",
   "review_method_note": "Non-literal chapter-bucket timecodes and private SRT unavailable. Five thematic descriptions intentionally paraphrase speech, not quotes. Post-May public source updates separated.",
   "recheck_20261014": {
     "purpose": "REVIEW_EXISTING_146_PROVISIONAL_CLAIMS_BEFORE_NEW_VIDEOS",
