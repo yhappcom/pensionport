@@ -24,7 +24,8 @@
     "-Hn9eMUWF2Y",
     "aeR4g4Mmy00",
     "IkL1X2VrPIc",
-    "HvXLItCOd-A"
+    "HvXLItCOd-A",
+    "xIygVI-t04A"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -295,10 +296,24 @@
       "cue_count": 688,
       "raw_srt_bytes": 53780,
       "sha256": "c2add25713c355c1dcfa84af1aeba57f14e2c7736d521ebd7aa5e378a527d1e4",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": false,
+      "source_status_detail": "Original 688 cue SHA256 and ZIP CRC independently matched historical registration; no public full ASR or original voice checked; 12 video RIA legal claims + 4 researcher-only legal omissions. Brokerage event content deliberately out of scope.",
+      "original_srt_reopened_this_review": true,
+      "raw_srt_sha_recomputed_20261015": true,
+      "source_archive_sha_recomputed_20261015": true,
+      "public_asr_full_diff_status": "NOT_DONE_NO_PUBLIC_FULL_TRANSCRIPT",
+      "video_audio_checked": false,
+      "video_frames_checked": false,
+      "original_cue_timestamps_read": true,
+      "video_claims_approved_v3": 16,
+      "speaker_utterance_claims_scoped": 12,
+      "analyst_legally_material_context_items": 4,
+      "canonical_event_path": "data/analysis_events/xIygVI-t04A.json",
+      "approved_v3_on": "2026-10-15",
+      "brokerage_promotional_event_details_excluded": true
     },
     {
       "roster_no": 95,
@@ -381,11 +396,20 @@
       "public_asr_full_diff_verified": false
     }
   ],
-  "verified_v3_reviewed_count": 7,
-  "verified_v3_claim_count": 214,
+  "verified_v3_reviewed_count": 8,
+  "verified_v3_claim_count": 230,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": {
+    "94": {
+      "video_id": "xIygVI-t04A",
+      "cue_count": 688,
+      "bytes": 53780,
+      "sha256": "c2add25713c355c1dcfa84af1aeba57f14e2c7736d521ebd7aa5e378a527d1e4",
+      "original_cue_body_sha256": "e9d24d8b11a7fd14488e97a2163f70155eee1229267b07f5017a6b58ed646c00",
+      "public_full_transcript_available": false,
+      "audio_checked": false
+    },
     "95": {
       "video_id": "HvXLItCOd-A",
       "cue_count": 868,
