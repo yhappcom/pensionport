@@ -1,6 +1,16 @@
 # 박곰희TV 71~100편 전용 출처·검증 대기열
 
-## 2026-10-15 #97 RIA 사용설명서 — 공개 전사 27개 주요항목 검증, 원본 미대조·정식 승인 보류 (이번 회차)
+## 2026-10-15 #97 RIA 사용설명서 — 사용자 원본388큐·공개ASR 정규화 전문 SHA 대조 / 27건 V3 정식 승인 (현재 최종)
+
+- 사용자 이번 회차 업로드 `/mnt/data/71-100.zip` **517,466 bytes**, ZIP CRC 통과 및 SHA256 `69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f` 직접 재계산. 그 안의 `71-100/youtube-transcript-vnPVjbRtZk4.srt` **30,500바이트 / 388개(1~388 연속) / 마지막 00:14:14.040 / SHA256 `e04c76cb0c6f08affd969623450b5f56f374334f3ed4133b625b1e119ea537c2`** 재검사했고 이전 등록값과 모두 일치한다.
+- 공개 원영상의 **전체 한국어 자동전사**를 별도로 획득, 양쪽 본문 공백을 모두 제거한 5,558자 SHA256이 동일한 `c42d55620d1136e9e6a47a3bbd5ce14ad2b43e5635914d19f0dc20279562c1c2`로 확인됨. 동일 자동전사 계열일 수 있으므로 원본 음성·프레임까지 독립 검증한 것은 아님.
+- 원본 **388큐 전체 구조와 내용** 검토, 중요 27개 항목 각각 실제 원본 SRT **큐 번호/밀리초 시작 시각** 부여 및 공식기관 자료와 일대일 심사. **PRIMARY_CONFIRMED 13 / QUALIFIED 8 / CONTRADICTED 2 / HYPOTHETICAL 4**. [정식 V3 27건 분석](../data/analysis_events/vnPVjbRtZk4.json) · [원본 큐 및 개별 증거](../data/subtitles/pilots/vnPVjbRtZk4.json) · [전수 RIA 검증 보고서](../knowledge/VIDEO97_RIA_USAGE_ORIGINAL_VERIFIED_V3_20261015.md).
+- **정정 #10** 원본 큐108 `00:04:05.760`: “이후 매도 후 재매수는 무조건 혜택 불가”는 [미래에셋 RIA FAQ](https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=11&direction=0&listType=1&searchEndDay=30&searchEndMonth=09&searchEndYear=2026&searchStartDay=30&searchStartMonth=09&searchStartYear=2025&searchType=2&startId=09Z2F~&startPage=11)의 기준일 보유 100주·재매수후 150주·동일사 입고 허용100주 예시와 충돌. 타사 대체입고에는 최초취득일 제한. **정정 #27** 원본 큐93 `00:03:33.319`: 2027년 5월 신고는 '종합소득세'가 아니라 해외주식 **양도소득세 확정신고**([국세청](https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?nttSn=1350890)).
+- 세액 가상계산 **605만원 / 121만원 / 다른 계좌 7월 순매수에 따른 약 62.3만원**은 단순 조건에서 수학적으로 맞음. 실제 계좌의 전 금융기관 2026년 해외투자 거래·양도손익·원가와 RIA 적격성까지 확인했다는 뜻 아님.
+- 2025년 3분기 해외주식 **1,611억 달러** 원표, 영상 설명의 **녹화일 `2025-04-11`과 2026 제도 간 불일치**는 중요 법령·절세심사와 별개인 OPEN. **증권사별 이벤트·캐시백 조건은 사용자 요청으로 제외**. 원본 자막 전문·ZIP은 GitHub에 업로드하지 않음.
+- 정식 집계: 기존 #1~70 **70편/1,052항목**, #71~100 중 **#72~77·#94~97 승인10편/304항목** → 합계 **승인80편 /1,356항목**. 기존 잠정 **#78~93 16편/411건**, 임의추가 검증 OPEN **24건** 별도 유지, #71 원본 없음, #98~100 이후 진행. [신규 스냅샷](../data/subtitles/research_progress_after_video97_v3_20261015.json) · `main` 변경 금지.
+
+### 이전 #97 공개 전사 단독 검토 메모 — 388큐 원본 재검증 이전 상태(아카이브, 위 정식 승인으로 대체)
 
 - **영상** `vnPVjbRtZk4` · 2026-04-17 게시 · 14:25 · 공개 유튜브 한국어 자동전사 전체와 업로더 12개 챕터를 확인. [주장별 잠정검토 27건](../data/subtitles/pilots/vnPVjbRtZk4.json) / [검증 보고서](../knowledge/VIDEO97_RIA_USAGE_PUBLIC_ASR_PROVISIONAL_20261015.md).
 - **원본 한계**: 등록 388큐·30,500바이트·SHA `e04c76cb0c6f08affd969623450b5f56f374334f3ed4133b625b1e119ea537c2`는 `registry_71_100_20261013.json`의 과거 메타데이터. 이번 대화에서 원본 ZIP/SRT 바이트를 재확보하지 못해 직접 SHA 재계산이나 원본/공개전사 정확 대조 **미수행**. 공개 전사에 개별 cue 시각 없으며 모든 시각은 업로더 챕터 시작점이다. 원음·영상 화면 미확인.
