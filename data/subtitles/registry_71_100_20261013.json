@@ -30,7 +30,8 @@
     "vnPVjbRtZk4",
     "VxlNnm2PIiQ",
     "uyzROR3cUl8",
-    "g5PChibmY5A"
+    "g5PChibmY5A",
+    "98UoTYQR5nY"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -125,7 +126,7 @@
       "cue_count": 580,
       "raw_srt_bytes": 46021,
       "sha256": "84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880",
-      "source_status": "PRIVATE_SRT_SOURCE_SHA_RECHECKED_FULL_TEXT_REVIEW_CLAIM_GATE_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": true,
@@ -140,7 +141,20 @@
       "reviewed_claim_count_provisional": 40,
       "approval": "NOT_APPROVED",
       "original_cue_timestamp_anchors_claim_specific_verified": false,
-      "original_audio_verified": false
+      "original_audio_verified": false,
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_ON_2026-10-15",
+      "private_original_srt_sha_recomputed": true,
+      "original_cues_reviewed": true,
+      "original_srt_bytes_read": true,
+      "source_archive_crc_verified": true,
+      "private_source_normalized_sha256": "62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51",
+      "normalized_character_count": 8217,
+      "public_private_full_text_whitespace_normalized_match": true,
+      "individually_reviewed_claim_count": 40,
+      "source_anchored_video_claims": 39,
+      "analyst_only_unattributed_context_claims": 1,
+      "canonical_analysis": "data/analysis_events/98UoTYQR5nY.json",
+      "report": "knowledge/VIDEO78_NATIONAL_GROWTH_FUND_ORIGINAL_580_CUES_V3_20261015.md"
     },
     {
       "roster_no": 79,
@@ -481,8 +495,8 @@
       "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 13,
-  "verified_v3_claim_count": 330,
+  "verified_v3_reviewed_count": 14,
+  "verified_v3_claim_count": 370,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
@@ -570,7 +584,7 @@
       79
     ],
     "source_audit_only_true": true,
-    "canonical_new_approvals": 0,
+    "canonical_new_approvals": 1,
     "source_raw_srt_publicly_committed": false,
     "items": [
       {
@@ -601,6 +615,29 @@
         "claims": 33,
         "source_status": "PRIVATE_SRT_SOURCE_SHA_RECHECKED_FULL_TEXT_REVIEW_CLAIM_GATE_PENDING"
       }
+    ],
+    "video78_approved_after_claim_level_gate": true,
+    "video78_canonical_v3": "data/analysis_events/98UoTYQR5nY.json",
+    "remaining_pending_recheck_roster": [
+      79
     ]
+  },
+  "video78_v3_reconciliation_20261015": {
+    "roster_no": 78,
+    "video_id": "98UoTYQR5nY",
+    "original_cues": 580,
+    "original_srt_sha256": "84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880",
+    "original_srt_bytes": 46021,
+    "private_public_normalized_sha256": "62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51",
+    "normalized_chars": 8217,
+    "claims_approved": 40,
+    "speaker_cue_claims": 39,
+    "analyst_only_claims": 1,
+    "source_crc": "PASS",
+    "source_timestamped": true,
+    "audio_checked": false,
+    "frames_checked": false,
+    "report": "knowledge/VIDEO78_NATIONAL_GROWTH_FUND_ORIGINAL_580_CUES_V3_20261015.md",
+    "canonical_analysis": "data/analysis_events/98UoTYQR5nY.json"
   }
 }
