@@ -427,11 +427,11 @@
       "cue_count": 27,
       "raw_srt_bytes": 2149,
       "sha256": "284fd28f13a02ea987da28fbeee4e0b6c3458b9c905b4980a71c43ba10a00e4d",
-      "source_status": "PRIVATE_ORIGINAL_FULL_SRT_RAW_SHA_VERIFIED_CLAIMS_REMAIN_PROVISIONAL",
+      "source_status": "PRIVATE_ORIGINAL_KOREAN_SRT_SHA_MATCHED_CLAIM_SCOPED_V3_PUBLIC_ENGLISH_TRANSLATION",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": false,
-      "review_status": "ORIGINAL_SOURCE_VERIFIED_CLAIM_LEVEL_V3_PENDING",
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-15",
       "original_srt_sha_recomputed_20261015": true,
       "original_zip_crc_verified": true,
       "private_original_full_cues_read": true,
@@ -443,8 +443,14 @@
       "public_private_normalized_comparison_status": "PUBLIC_ENGLISH_TRANSLATION_NOT_HASH_COMPARABLE",
       "source_reconciliation_record": "data/subtitles/source_reconciliation_81_93_20261015.json",
       "claim_count_provisional": 10,
-      "approval": "NOT_APPROVED",
-      "original_audio_verified": false
+      "approval": "APPROVED",
+      "original_audio_verified": false,
+      "public_korean_transcript_sha_not_available": true,
+      "private_original_cue_anchored_claim_count": 9,
+      "analyst_only_context_claim_count": 1,
+      "individually_reviewed_claim_count": 10,
+      "canonical_analysis": "data/analysis_events/3FG6obmr90c.json",
+      "report": "knowledge/VIDEO87_PERILLA_DCA_ORIGINAL_KOREAN_27_CUES_V3_20261015.md"
     },
     {
       "roster_no": 88,
@@ -552,11 +558,11 @@
       "cue_count": 30,
       "raw_srt_bytes": 2339,
       "sha256": "8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98",
-      "source_status": "PRIVATE_ORIGINAL_FULL_SRT_RAW_SHA_VERIFIED_CLAIMS_REMAIN_PROVISIONAL",
+      "source_status": "PRIVATE_ORIGINAL_KOREAN_SRT_SHA_MATCHED_CLAIM_SCOPED_V3_PUBLIC_ENGLISH_TRANSLATION",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": false,
-      "review_status": "ORIGINAL_SOURCE_VERIFIED_CLAIM_LEVEL_V3_PENDING",
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-15",
       "original_srt_sha_recomputed_20261015": true,
       "original_zip_crc_verified": true,
       "private_original_full_cues_read": true,
@@ -568,8 +574,14 @@
       "public_private_normalized_comparison_status": "PUBLIC_ENGLISH_TRANSLATION_NOT_HASH_COMPARABLE",
       "source_reconciliation_record": "data/subtitles/source_reconciliation_81_93_20261015.json",
       "claim_count_provisional": 11,
-      "approval": "NOT_APPROVED",
-      "original_audio_verified": false
+      "approval": "APPROVED",
+      "original_audio_verified": false,
+      "public_korean_transcript_sha_not_available": true,
+      "private_original_cue_anchored_claim_count": 5,
+      "analyst_only_context_claim_count": 6,
+      "individually_reviewed_claim_count": 11,
+      "canonical_analysis": "data/analysis_events/qBbGLXkAC2Y.json",
+      "report": "knowledge/VIDEO92_ETF_AUTOBUY_ORIGINAL_KOREAN_30_CUES_V3_20261015.md"
     },
     {
       "roster_no": 93,
@@ -758,8 +770,8 @@
       "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 18,
-  "verified_v3_claim_count": 452,
+  "verified_v3_reviewed_count": 20,
+  "verified_v3_claim_count": 473,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
@@ -999,12 +1011,14 @@
     "public_translated_english_not_textually_comparable": 3,
     "claims_approved_as_a_result": 0,
     "private_full_srt_contents_not_uploaded": true,
-    "claims_approved_after_individual_education_gate": 25,
+    "claims_approved_after_individual_education_gate": 46,
     "approved_after_audit_videos": [
       84,
-      85
+      85,
+      87,
+      92
     ],
-    "remaining_provisional_count": 11,
-    "remaining_provisional_claims": 289
+    "remaining_provisional_count": 9,
+    "remaining_provisional_claims": 268
   }
 }
