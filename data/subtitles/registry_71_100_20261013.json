@@ -244,11 +244,11 @@
       "cue_count": 1649,
       "raw_srt_bytes": 127248,
       "sha256": "527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12",
-      "source_status": "PRIVATE_SRT_SHA_VERIFIED_PUBLIC_NORMALIZED_TRANSCRIPT_TEXT_DIFF_CLAIMS_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_VERIFIED_PUBLIC_ASR_DIFF_TWO_DUPLICATE_SECTOR_ECHO_CUES_1518_1520_RESOLVED_CLAIMS_PENDING",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false,
-      "review_status": "ORIGINAL_SRT_STRUCTURE_AND_RAW_SHA_CONFIRMED_NO_V3_APPROVAL",
+      "public_asr_full_diff_verified": true,
+      "review_status": "SOURCE_ASR_RECONCILED_TO_TWO_SHORT_ECHO_CUES_ONLY_CLAIM_EVIDENCE_NOT_APPROVED",
       "original_sha_recomputed_20261015": true,
       "archive_crc_pass": true,
       "private_original_cues_read": 1649,
@@ -261,7 +261,21 @@
       "public_private_text_diff_exact_location": "PENDING",
       "original_cue_anchored_claim_count": 0,
       "provisional_claim_count": 22,
-      "approval": "NOT_APPROVED"
+      "approval": "NOT_APPROVED",
+      "public_speech_auto_asr_matches_private_except_two_short_repeated_response_cues": true,
+      "original_srt_raw_unchanged": true,
+      "comparison_only_excluded_private_cue_indices": [
+        1518,
+        1520
+      ],
+      "comparison_extra_text": "second >> 바이오 and second >> 로봇",
+      "normalized_private_comparison_chars": 21912,
+      "normalized_private_comparison_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
+      "normalized_public_chars": 21912,
+      "normalized_public_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
+      "public_private_exact_source_diff": "9 extra chars at original echo cue #1518 and #1520; no numerical financial proposition affected; audio not independently verified",
+      "claim_original_cue_mapping_complete": false,
+      "original_audio_verified": false
     },
     {
       "roster_no": 82,
@@ -773,8 +787,18 @@
     "private_norm_sha256": "878bc799965147000eb90ac32d9ff24c6e0d931d39dcc8f703e0500242c46b1d",
     "public_norm_chars": 21912,
     "public_norm_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
-    "diff_unresolved": true,
+    "diff_unresolved": false,
     "claim_review_pending": 22,
-    "approved": false
+    "approved": false,
+    "exact_diff_resolved": true,
+    "missing_in_public_two_private_short_response_cues": [
+      1518,
+      1520
+    ],
+    "normalized_private_after_comparison_only_echo_skip_characters": 21912,
+    "normalized_private_after_comparison_only_echo_skip_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
+    "public_normalized_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
+    "full_other_caption_text_matches": true,
+    "original_raw_file_untouched": true
   }
 }
