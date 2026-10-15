@@ -1,5 +1,18 @@
 # 박곰희TV 71~100편 전용 출처·검증 대기열
 
+## 2026-10-15 #98·#99 Shorts — 개인 원본48큐 / 공개 전체전사 SHA 동일 / 교육주장17건 정식 V3 승인 (현재)
+
+**공통출처:** 사용자 업로드 원본 `71-100.zip` **517,466 bytes / ZIP CRC PASS / SHA256 `69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f`** 재검증. 두 영상 모두 독립 획득한 공개 유튜브 **한국어 자동전사 전체 본문을 공백제거**하여 비공개 원본 SRT cue 본문 전부와 SHA-256 일치. 자동 ASR끼리 동일한 것이라 **독립 원음·프레임 검증은 아님**. SRT와 ZIP 전체 본문 비공개 보관; GitHub에는 출처 메타데이터·주장·시각·공식근거만 저장.
+
+| 회차 | 원본 비공개 SRT | 전체 본문 정규화 대조 | 교육 주장 범위/공식 심사 |
+|---|---|---|---|
+| **#98 `VxlNnm2PIiQ`** [영상](https://www.youtube.com/watch?v=VxlNnm2PIiQ) | 27큐 2,138 bytes SHA256 `ef02b44dc5c9ed47f761efa99630284dcc32dc5718ddb636fd8e7c1d8b339770` | 386자 SHA256 `a985a4bb60983aa30a06f95241c13e06d93fcca5abc80ca6132ec429de1a99ff` **원본=공개** | **9건**, PRIMARY2 QUALIFIED6 SPEAKER_OPINION1; [원본큐·근거](../data/subtitles/pilots/VxlNnm2PIiQ.json) [V3](../data/analysis_events/VxlNnm2PIiQ.json) [교육보고서](../knowledge/VIDEO98_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md) |
+| **#99 `uyzROR3cUl8`** [영상](https://www.youtube.com/watch?v=uyzROR3cUl8) | 21큐 1,638 bytes SHA256 `14dad3386d243c1bee8a59867933bfa02a3a60602d2da0c9695ad99f08996b33` | 293자 SHA256 `9eb216a23fbb908b1de6d71b304bc1db95f3dccc8b2e1735f675673c3b943432` **원본=공개** | **8건**, PRIMARY3 QUALIFIED5; [원본큐·근거](../data/subtitles/pilots/uyzROR3cUl8.json) [V3](../data/analysis_events/uyzROR3cUl8.json) [교육보고서](../knowledge/VIDEO99_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md) |
+
+- **#98 주요 정정/예외:** "1년 이상 근무" 설명에는 **4주 평균 주 소정근로 15시간 이상**을 추가해야 함([퇴직급여법 제4조](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1030452207)). “1년에 월급 한달치”는 **30일 평균임금**의 비유일 뿐 임금 통계가 달라진다([고용노동부 공식 산식](https://www.moel.go.kr/faq/faqView.do?seqRepeat=89)). IRP 이전에는 **55세 이후 퇴직·300만원 이하 등 예외**가 존재한다([고용노동부](https://1350.moel.go.kr/rtmview.do?id=1000317131)). 신규 IRP 현금성 대기자금이 **항상 무기한 현금**인 것은 아니며 사전지정운용제도(디폴트옵션) 적용 가능([고용노동부](https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19136)).
+- **#99 주요 정정/예외:** 지수 추종은 지수 내 **전 종목 실물 보유 의무가 아니라 표본추출 가능**. 패시브 상품도 기초자산 손실·추적오차·고비용 예외 존재([미 SEC 투자자교육](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-26)). 패시브=원금안전/액티브=고수익 보장은 부적절한 일반화. 펀드 고유 위험·보수 비교 필요([SEC](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds)).
+- **누적(승인만):** #1~70 **70편/1,052건**, #71~100 중 **#72~77·#94~99 12편/321건**, 총 **82편/1,373건**. 기존 #78~93 **16편·411건 잠정**, 선택적 미확정 **24건** 불변. #71 원본 SRT 미보유; #100은 등록만 되어 현재 심사 미수행. [#98·99 다음 진행 원장](../data/subtitles/research_progress_after_video98_99_v3_20261015.json). **Shorts 2편**이므로 703편 롱폼 전용 완료 지표에 두 영상을 롱폼으로 가산하지 않음. `main` 변경 없음.
+
 ## 2026-10-15 #97 RIA 사용설명서 — 사용자 원본388큐·공개ASR 정규화 전문 SHA 대조 / 27건 V3 정식 승인 (현재 최종)
 
 - 사용자 이번 회차 업로드 `/mnt/data/71-100.zip` **517,466 bytes**, ZIP CRC 통과 및 SHA256 `69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f` 직접 재계산. 그 안의 `71-100/youtube-transcript-vnPVjbRtZk4.srt` **30,500바이트 / 388개(1~388 연속) / 마지막 00:14:14.040 / SHA256 `e04c76cb0c6f08affd969623450b5f56f374334f3ed4133b625b1e119ea537c2`** 재검사했고 이전 등록값과 모두 일치한다.
