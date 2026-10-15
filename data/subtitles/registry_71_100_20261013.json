@@ -26,7 +26,8 @@
     "IkL1X2VrPIc",
     "HvXLItCOd-A",
     "xIygVI-t04A",
-    "WJYWW_XXbSM"
+    "WJYWW_XXbSM",
+    "vnPVjbRtZk4"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -371,10 +372,19 @@
       "cue_count": 388,
       "raw_srt_bytes": 30500,
       "sha256": "e04c76cb0c6f08affd969623450b5f56f374334f3ed4133b625b1e119ea537c2",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": true,
+      "public_asr_normalized_sha256": "c42d55620d1136e9e6a47a3bbd5ce14ad2b43e5635914d19f0dc20279562c1c2",
+      "original_normalized_sha256": "c42d55620d1136e9e6a47a3bbd5ce14ad2b43e5635914d19f0dc20279562c1c2",
+      "private_srt_original_bytes_read_again": true,
+      "source_archive_crc_verified": true,
+      "individually_reviewed_claim_count": 27,
+      "public_private_normalization": "REMOVE_ALL_WHITESPACE_AND_CONCATENATE_ALL_CUE_BODIES_VS_COMPLETE_PUBLIC_TRANSCRIPT_5558_CHARS_IDENTICAL",
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_ON_2026-10-15",
+      "report": "knowledge/VIDEO97_RIA_USAGE_ORIGINAL_VERIFIED_V3_20261015.md",
+      "canonical_analysis": "data/analysis_events/vnPVjbRtZk4.json"
     },
     {
       "roster_no": 98,
@@ -410,37 +420,30 @@
       "public_asr_full_diff_verified": false
     }
   ],
-  "verified_v3_reviewed_count": 9,
-  "verified_v3_claim_count": 277,
+  "verified_v3_reviewed_count": 10,
+  "verified_v3_claim_count": 304,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
-  "last_revalidated_cue_byte_hash": {
-    "94": {
-      "video_id": "xIygVI-t04A",
-      "cue_count": 688,
-      "bytes": 53780,
-      "sha256": "c2add25713c355c1dcfa84af1aeba57f14e2c7736d521ebd7aa5e378a527d1e4",
-      "original_cue_body_sha256": "e9d24d8b11a7fd14488e97a2163f70155eee1229267b07f5017a6b58ed646c00",
-      "public_full_transcript_available": false,
-      "audio_checked": false
-    },
-    "95": {
-      "video_id": "HvXLItCOd-A",
-      "cue_count": 868,
-      "bytes": 65094,
-      "sha256": "89aa974c052fdde2d56ff2e1d4c353968e195fbd4ad359bc0a9c59f20995689a",
-      "public_text_sha256": "839065095394489edfa24927a2bb98f7ba5b443c2d52f8d599280632359ae065",
-      "full_public_text_equal": true,
-      "audio_checked": false
-    },
-    "96": {
-      "video_id": "WJYWW_XXbSM",
-      "cue_count": 821,
-      "bytes": 65277,
-      "sha256": "c7005f2ebd266998d5cbdb5d0cdb5132c4db3ddfff872eeca6b700f03b6d0994",
-      "public_text_sha256": "af4d611b0aab63f3818c957dadb551972e95508bdde8ffb18fe6486a343d3251",
-      "full_public_text_equal": true,
-      "audio_checked": false
-    }
+  "last_revalidated_cue_byte_hash": "e04c76cb0c6f08affd969623450b5f56f374334f3ed4133b625b1e119ea537c2",
+  "video97_original_reconciliation": {
+    "checked_at": "2026-10-15",
+    "video_id": "vnPVjbRtZk4",
+    "original_srt_sha256": "e04c76cb0c6f08affd969623450b5f56f374334f3ed4133b625b1e119ea537c2",
+    "original_srt_bytes": 30500,
+    "original_srt_cues": 388,
+    "original_private_zip_bytes": 517466,
+    "zip_crc": "PASS",
+    "zip_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "source_cues_sequential": true,
+    "source_last_time": "00:14:14.040",
+    "normalized_private_utf8_sha256": "c42d55620d1136e9e6a47a3bbd5ce14ad2b43e5635914d19f0dc20279562c1c2",
+    "normalized_public_korean_utf8_sha256": "c42d55620d1136e9e6a47a3bbd5ce14ad2b43e5635914d19f0dc20279562c1c2",
+    "full_normalized_text_match": true,
+    "normalized_character_count": 5558,
+    "original_audio_checked": false,
+    "video_frames_checked": false,
+    "video_claims_approved": 27,
+    "contradicted_claims_explicitly_corrected": 2,
+    "broker_promotions_excluded": true
   }
 }
