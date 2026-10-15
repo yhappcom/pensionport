@@ -25,7 +25,8 @@
     "aeR4g4Mmy00",
     "IkL1X2VrPIc",
     "HvXLItCOd-A",
-    "xIygVI-t04A"
+    "xIygVI-t04A",
+    "WJYWW_XXbSM"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -346,10 +347,23 @@
       "cue_count": 821,
       "raw_srt_bytes": 65277,
       "sha256": "c7005f2ebd266998d5cbdb5d0cdb5132c4db3ddfff872eeca6b700f03b6d0994",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": true,
+      "source_status_detail": "Original 821-cue private SRT raw and ZIP SHA256 independently recomputed and matched historical registry. Full publicly scraped Korean transcript SHA256 exactly matches 821 private cue text lines, and 47 statutory/financial items claim-scoped approved. Neither original voice nor frames independently checked.",
+      "original_srt_reopened_this_review": true,
+      "raw_srt_sha_recomputed_20261015": true,
+      "source_archive_sha_recomputed_20261015": true,
+      "public_asr_caption_text_match": "821_OF_821_TEXT_EXACT_SHA256",
+      "public_asr_normalized_sha256": "af4d611b0aab63f3818c957dadb551972e95508bdde8ffb18fe6486a343d3251",
+      "video_audio_checked": false,
+      "video_frames_checked": false,
+      "original_cue_timestamps_read": true,
+      "video_claims_approved_v3": 47,
+      "canonical_event_path": "data/analysis_events/WJYWW_XXbSM.json",
+      "approved_v3_on": "2026-10-15",
+      "source_approval_gate_version": "REVIEW_AUDIT_20261015_EXISTING_CANONICAL_COMPATIBLE"
     },
     {
       "roster_no": 97,
@@ -396,8 +410,8 @@
       "public_asr_full_diff_verified": false
     }
   ],
-  "verified_v3_reviewed_count": 8,
-  "verified_v3_claim_count": 230,
+  "verified_v3_reviewed_count": 9,
+  "verified_v3_claim_count": 277,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": {
@@ -416,6 +430,15 @@
       "bytes": 65094,
       "sha256": "89aa974c052fdde2d56ff2e1d4c353968e195fbd4ad359bc0a9c59f20995689a",
       "public_text_sha256": "839065095394489edfa24927a2bb98f7ba5b443c2d52f8d599280632359ae065",
+      "full_public_text_equal": true,
+      "audio_checked": false
+    },
+    "96": {
+      "video_id": "WJYWW_XXbSM",
+      "cue_count": 821,
+      "bytes": 65277,
+      "sha256": "c7005f2ebd266998d5cbdb5d0cdb5132c4db3ddfff872eeca6b700f03b6d0994",
+      "public_text_sha256": "af4d611b0aab63f3818c957dadb551972e95508bdde8ffb18fe6486a343d3251",
       "full_public_text_equal": true,
       "audio_checked": false
     }
