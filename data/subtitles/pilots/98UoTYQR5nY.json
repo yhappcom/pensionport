@@ -5,7 +5,7 @@
   "channel": "박곰희TV",
   "source_url": "https://www.youtube.com/watch?v=98UoTYQR5nY",
   "reviewed_at": "2026-10-14",
-  "source_level": "PUBLIC_YOUTUBE_FULL_AUTO_ASR_WITH_UPLOADER_CHAPTERS_PRIVATE_REGISTERED_SRT_NOT_ACCESSIBLE",
+  "source_level": "USER_ORIGINAL_580_CUE_SRT_INTEGRITY_AND_FULL_PUBLIC_AUTO_ASR_NORMALIZED_SHA_RECONCILED_CLAIM_CUE_MAPPING_PENDING",
   "source_provider": "YouTube public auto transcript and uploader description retrieved independently 2026-10-14; FSC 2026-05-06/05-21/09-22; issuer official 2026-05-18/09-29",
   "source_reviewed_at": "2026-10-14",
   "recording_date": "2026-05-19 as described by publisher",
@@ -19,7 +19,10 @@
     "Claims of automatic future annual subscriptions not reliable. 2026-09-22 FSC second tranche explicitly excludes 1st participants",
     "2026-05 reported first-issue sales and 2026-09 second-issue rules must not be stated as same issue or as guaranteed ongoing 2026-10 availability",
     "No raw SRT, ZIP, or full public transcript pasted to GitHub. No user portfolio/financial account touched.",
-    "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT."
+    "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT.",
+    "2026-10-15 original ZIP CRC/private SRT raw SHA and independent full public ASR whitespace-normalized SHA verified: 580 cues, 46021 bytes, 8217 normalized chars. Source authenticity question solved.",
+    "Claim-level original SRT cue anchor remapping for previously reviewed 40 statements is not complete; previous times point to uploader chapters.",
+    "Existing 40 verification_evidence objects have verdict/URL/disposition but lack per-item mandatory source_finding; not counted as approval."
   ],
   "relations": [
     {
@@ -42,26 +45,48 @@
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
   "roster_no": 78,
-  "source_kind": "PUBLIC_YOUTUBE_AUTO_TRANSCRIPT_PRIVATE_ORIGINAL_PENDING",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
   "video_published_date": "2026-05-20",
-  "subtitle_sha256": null,
+  "subtitle_sha256": "84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880",
   "cue_count": null,
   "registered_private_srt_metadata_only": {
-    "sha256": "84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880",
+    "source_register": "data/subtitles/registry_71_100_20261013.json",
     "cue_count": 580,
     "raw_srt_bytes": 46021,
-    "verified_same_bytes": false,
+    "sha256": "84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880",
+    "direct_sha_recomputed_this_session": true,
+    "verified_same_bytes": true,
     "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f"
   },
   "source_audit": {
     "full_transcript_reviewed": true,
     "reviewed_source": "INDEPENDENT_PUBLIC_YOUTUBE_AUTO_TRANSCRIPT",
-    "original_srt_full_cues_reviewed": false,
-    "original_sha_byte_compare": false,
-    "public_to_private_transcript_exact_diff": "NOT_TESTED",
-    "timestamp_precision": "CHAPTER_START_ONLY",
+    "original_srt_full_cues_reviewed": true,
+    "original_sha_byte_compare": true,
+    "public_to_private_transcript_exact_diff": "ALL_8217_CHARACTERS_MATCH_AFTER_STRIPPING_UNICODE_WHITESPACE",
+    "timestamp_precision": "UPLOADER_CHAPTER_START_ONLY_FOR_PREEXISTING_40_CLAIMS",
     "original_audio_checked": false,
-    "frames_checked": false
+    "frames_checked": false,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "video_id_matched": true,
+    "evidence_reference": "User reuploaded /mnt/data/71-100.zip 517466 bytes, CRC PASS archive SHA256 69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f. 2026-10-15 original 71-100/youtube-transcript-98UoTYQR5nY.srt 580 numbered contiguous cues/46021 bytes/SHA256 84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880 independently recomputed. Private cue text concatenated without whitespace 8217 UTF8 characters/SHA256 62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51 exactly matched full separately fetched YouTube public Korean auto transcript.",
+    "limitations": "All 580 original auto-caption cues have been read and source hash verified against registry. Public caption full text is identical after whitespace removal. However existing 40 claim timecodes are uploader CHAPTER timestamps, not newly mapped to speaker SRT cues, and some claims include independent analyst-added corrections rather than literal narration. Each of the 40 items must be re-anchored/attribution-reviewed; existing verification_evidence lacks source_finding for most items. Therefore approval remains NOT_APPROVED despite source integrity solved. No audio or visual independent verification.",
+    "original_srt_sha256": "84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880",
+    "original_zip_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "original_srt_bytes": 46021,
+    "original_cue_count": 580,
+    "original_srt_last_end": "00:20:56.480",
+    "original_srt_sha_recomputed": true,
+    "source_archive_crc": "PASS",
+    "private_original_580_cues_contiguous": true,
+    "private_cue_body_normalized_sha256": "62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51",
+    "public_full_transcript_normalized_sha256": "62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51",
+    "normalized_characters": 8217,
+    "original_srt_full_text_verified": true,
+    "public_full_transcript_reviewed": true,
+    "claim_to_original_cue_timestamp_reconciled": false,
+    "claim_evidence_per_claim_source_finding_completed": false,
+    "public_independent_precise_timestamps": false
   },
   "claims": [
     {
@@ -1194,7 +1219,7 @@
     "CONTRADICTED": 1,
     "HYPOTHETICAL": 2
   },
-  "verification_status": "PROVISIONAL_PUBLIC_ASR_OFFICIAL_EVIDENCE_PRIVATE_SRT_RECONCILIATION_PENDING",
+  "verification_status": "SOURCE_580_CUE_ORIGINAL_SHA_AND_PUBLIC_FULL_8217CHAR_SHA_MATCHED_40_CLAIM_CUE_ATTRIBUTION_AND_PRIMARY_SOURCE_FINDINGS_PENDING_NOT_APPROVED",
   "external_post_publication_updates": [
     {
       "date": "2026-09-22",
@@ -1261,5 +1286,6 @@
     "external_context_boundaries": 1,
     "all_tagged_rows_remain_unverified_for_claim_confirmation": true,
     "private_srt_exact_diff": "NOT_DONE"
-  }
+  },
+  "review_status": "SOURCE_RECONCILED_PRIVATE_PUBLIC_FULL_TEXT_CLAIM_EVIDENCE_GATE_PENDING"
 }
