@@ -3,7 +3,7 @@
   "review_date": "2026-10-14",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "source_kind": "PUBLIC_YOUTUBE_AUTO_TRANSCRIPT_PRIVATE_ORIGINAL_PENDING",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
   "roster_no": 79,
   "video_id": "mRRev963GaA",
   "title": "코스피 1만 투자지도 — 효라클의 구대륙·신대륙, 피지컬AI 상용화 전망과 위험",
@@ -11,27 +11,47 @@
   "video_published_date": "2026-05-17",
   "recording_date": "2026-05-12 as provided by publisher",
   "duration": "69:31",
-  "source_level": "PUBLIC_YOUTUBE_FULL_AUTO_ASR_PRIVATE_REGISTERED_SRT_NOT_RECHECKED",
+  "source_level": "USER_ORIGINAL_2063_CUE_SRT_RAW_SHA_RECONCILED_PUBLIC_TRANSCRIPT_FULL_TEXT_COMPARISON_NONIDENTICAL_33_CLAIM_REVIEW_PENDING",
   "source_provider": "Public YouTube transcript/description + IFR Hyundai Waymo OpenAI Goldman SEC",
   "source_reviewed_at": "2026-10-14",
-  "subtitle_sha256": null,
+  "subtitle_sha256": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
   "cue_count": null,
   "registered_private_srt_metadata_only": {
     "sha256": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
     "cue_count": 2063,
     "raw_srt_bytes": 157457,
-    "verified_same_bytes": false,
-    "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f"
+    "verified_same_bytes": true,
+    "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "direct_sha_recomputed_this_session": true
   },
   "source_audit": {
     "full_transcript_reviewed": true,
     "reviewed_source": "INDEPENDENT_PUBLIC_YOUTUBE_AUTO_TRANSCRIPT",
-    "original_srt_full_cues_reviewed": false,
-    "original_sha_byte_compare": false,
-    "public_to_private_transcript_exact_diff": "NOT_TESTED",
-    "timestamp_precision": "CHAPTER_START_ONLY",
+    "original_srt_full_cues_reviewed": true,
+    "original_sha_byte_compare": true,
+    "public_to_private_transcript_exact_diff": "NOT_EQUAL_NORMALIZED_FULL_TEXT_HASH_DIFF;SOURCE_PUBLIC_NET_CHAR_COUNT_DIFFERENCE_FOUR;PRECISE_TEXT_DIFF_PENDING",
+    "timestamp_precision": "UPLOADER_CHAPTER_START_ONLY_FOR_EXISTING_33_CLAIMS",
     "original_audio_checked": false,
-    "frames_checked": false
+    "frames_checked": false,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "evidence_reference": "2026-10-15 user-uploaded /mnt/data/71-100.zip 517466 bytes archive SHA256 69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f CRC PASS; 71-100/youtube-transcript-mRRev963GaA.srt 2063 sequential cues 157457 bytes SHA256 eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a equals registry, last cue ends 01:09:29.177. Complete separately retrieved same-video public Korean auto transcript normalized SHA256 3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6 over 26624 characters DOES NOT equal original 26628 chars normalized SHA256 417a8b73d81bc67b2b70c7d7c99691d5613df8d65afa6c56370e40448afd879a.",
+    "limitations": "Private SRT raw bytes independently verified, 2063 source cues read. Public text has four fewer normalized characters in total and a different SHA, which does not identify whether differences are substitutions, omissions, punctuation or significant audio interpretation. Exact text diff NOT DONE. Existing 33 claims still use uploader chapter approximate timestamps and must map into source cues; no final V3 approval. Original audio/frames not reviewed.",
+    "original_srt_sha256": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
+    "original_zip_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "original_srt_bytes": 157457,
+    "original_cue_count": 2063,
+    "original_srt_last_end": "01:09:29.177",
+    "original_srt_sha_recomputed": true,
+    "source_archive_crc": "PASS",
+    "private_original_2063_cues_contiguous": true,
+    "private_cue_body_normalized_sha256": "417a8b73d81bc67b2b70c7d7c99691d5613df8d65afa6c56370e40448afd879a",
+    "private_cue_body_normalized_chars": 26628,
+    "public_full_transcript_normalized_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+    "public_full_transcript_normalized_chars": 26624,
+    "public_transcript_full_reviewed": true,
+    "normalized_full_public_private_text_match": false,
+    "claim_to_original_cue_timestamp_reconciled": false
   },
   "core_message": "협찬 도서 대담에서 코스피1만과 로봇/드론/자율주행의 미래 경쟁, 산업과정(구대륙/신대륙) 비유, 2027 상용화 기대, 과거사례 기반 주식연구법, 1억원 집중 조선7 현대차3 및 자녀투자 가정 논의. 지수수준·상용화 시점·미래수익률은 미래예측치이고 책 내용/백테스트/포트폴리오 실적 재현 안됨. ChatGPT 공개 2022-11-30, IFR 한국 제조업 로봇 밀도 세계 최고, 현대차 Atlas 생산라인 시작 계획 2028, Waymo 상업 로보택시는 2025년 이전이라는 근거 구분.",
   "limitations": [
@@ -40,7 +60,10 @@
     "2026-05 speaker forecasts were not converted into realized 2027 results or 2026-10 actual achievements.",
     "Sponsors book content, book's datasets, investment brokerage trade history and claimed personal track records not independently verified.",
     "Actual audio, slides, investment charts, sound, independent original-vs-public full diff unchecked. No SRT/ZIP published.",
-    "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT."
+    "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT.",
+    "2026-10-15 private raw original 2063-cue 157457-byte SHA reverified from user ZIP, source provenance solved.",
+    "Complete public auto Korean transcript after whitespace removal differs from private original source (26624 versus 26628 normalized characters, different SHA256); exact mismatching locations and materiality have not been assessed.",
+    "Existing 33 claim timecodes still chapter-start approximations and not independently original-source cue anchors; remain NOT_APPROVED."
   ],
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 7,
@@ -1155,7 +1178,7 @@
       "theme": "Child long-horizon investment and risk profile"
     }
   ],
-  "verification_status": "PROVISIONAL_PUBLIC_ASR_OFFICIAL_CHECK_PRIVATE_2063_CUE_ORIGINAL_PENDING",
+  "verification_status": "PRIVATE_2063_CUE_ORIGINAL_SHA_CONFIRMED_PUBLIC_FULL_TRANSCRIPT_NOT_IDENTICAL_33_CLAIM_ORIGINAL_CUE_ANCHORS_PENDING_NOT_APPROVED",
   "review_method_note": "Non-literal chapter-bucket timecodes and private SRT unavailable. Five thematic descriptions intentionally paraphrase speech, not quotes. Post-May public source updates separated.",
   "recheck_20261014": {
     "purpose": "REVIEW_EXISTING_146_PROVISIONAL_CLAIMS_BEFORE_NEW_VIDEOS",
