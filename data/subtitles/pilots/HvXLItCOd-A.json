@@ -69,7 +69,15 @@
     "public_transcript_timestamps_available": false,
     "independent_audio_verified": false,
     "claims_verified_at_original_srt_cue_start_count": 35,
-    "claims_research_context_not_spoken_count": 1
+    "claims_research_context_not_spoken_count": 1,
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "evidence_reference": "2026-10-15 user-uploaded private 71-100.zip; ZIP SHA256 69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f; extracted private youtube-transcript-HvXLItCOd-A.srt 868 consecutive cues / 65094 raw bytes / SHA256 89aa974c052fdde2d56ff2e1d4c353968e195fbd4ad359bc0a9c59f20995689a; independently scraped public Korean transcript 868 ordered lines and SHA256 identical; original caption contents NOT published",
+    "limitations": "Original Korean auto-caption private file and public YouTube auto-transcript exact 868 lines match. Independent audio, frames and public timecoded SRT not available. Original SRT timestamps are cue starts only, 36 scoped points include researcher-only context; original PDF table content read but PDF binary SHA unchecked.",
+    "original_srt_sha256": "89aa974c052fdde2d56ff2e1d4c353968e195fbd4ad359bc0a9c59f20995689a",
+    "audio_checked": false,
+    "frames_checked": false
   },
   "claims": [
     {
@@ -86,9 +94,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #28 at 00:00:52.079, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "제작자 목차/공개전사의 자료명 확인. 자료 원문 2026년3월호 수치표는 아직 직접 획득하지 못해 개별 숫자 확정과 구분",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "제작자 목차/공개전사의 자료명 확인. 자료 원문 2026년3월호 수치표는 아직 직접 획득하지 못해 개별 숫자 확정과 구분"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -117,12 +126,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #42 at 00:01:21.360, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "2026-03-31 ETF NAV 3,607,045억원 = 360.7045조원; 2026-02 3,876,420억원 대비 -269,375억원/-7.0%. ETF+ETN total 381.3조원과 구분. 원문 II.1 ETF 시장 규모 ('26.3월) 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "II.1 ETF 시장 규모 ('26.3월)",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "2026-03-31 ETF NAV 3,607,045억원 = 360.7045조원; 2026-02 3,876,420억원 대비 -269,375억원/-7.0%. ETF+ETN total 381.3조원과 구분."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -163,12 +173,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #82 at 00:02:29.680, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "2026-03-31 ETF 정확히 1,084개; 3월 신규상장16, 상폐5, 2월1,073→3월1,084. 원문 I.1 ETF 상장 현황 / II.1 규모 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "I.1 ETF 상장 현황 / II.1 규모",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "2026-03-31 ETF 정확히 1,084개; 3월 신규상장16, 상폐5, 2월1,073→3월1,084."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -196,7 +207,7 @@
     },
     {
       "claim_id": "HvXLItCOd-A-04",
-      "timecode": null,
+      "timecode": "NOT_SPOKEN_RESEARCH_CONTEXT",
       "watch_url": "https://www.youtube.com/watch?v=HvXLItCOd-A",
       "source_paraphrase": "원본 영상 외에 연구자가 추가한 2025년3월말 KRX ETF 시장 규모·종목수 비교 역사자료",
       "assessment": "PRIMARY_CONFIRMED",
@@ -208,9 +219,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://t1.daumcdn.net/brunch/service/user/gNua/file/LeWaiDLUQM-CgNapLlCfPWegWZE.pdf",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Independent researcher historical comparison; not a speaker utterance and no video timestamp. Original video captions fully reviewed.",
         "disposition": "영상의 해당 2025년3월 ETF 순자산185.9조/960개 수치를 직접 발언한 정확한 큐가 없음. 과거 KRX 2025년4월호로 확인한 연구자 비교자료이며 영상 화자 발언으로 오인 금지.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "영상의 해당 2025년3월 ETF 순자산185.9조/960개 수치를 직접 발언한 정확한 큐가 없음. 과거 KRX 2025년4월호로 확인한 연구자 비교자료이며 영상 화자 발언으로 오인 금지."
       },
       "timecode_precision": "NOT_SPOKEN_HISTORICAL_RESEARCH",
       "private_srt_cue_anchor": null,
@@ -234,12 +246,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #105 at 00:03:10.640, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "KODEX 200 161,040억원=16.1040조원 2026-03말 ETF 순자산1위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "I.1 순자산가치총액 상위 ETF",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "KODEX 200 161,040억원=16.1040조원 2026-03말 ETF 순자산1위."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -280,12 +293,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #116 at 00:03:32.840, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "TIGER 미국S&P500 146,553억원=14.6553조원, 2위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "I.1 순자산가치총액 상위 ETF",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "TIGER 미국S&P500 146,553억원=14.6553조원, 2위."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -326,12 +340,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #195 at 00:05:53.360, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "TIGER 반도체TOP10 84,082억원=8.4082조원, 3위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "I.1 순자산가치총액 상위 ETF",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "TIGER 반도체TOP10 84,082억원=8.4082조원, 3위."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -371,9 +386,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #279 at 00:08:36.320, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "원본 279-287큐 00:08:36에서 '비슷하게' 명시; 영상은 두 지표의 엄밀한 완전일치를 주장하지 않았다. 순자산/NAV와 주가×주식수는 차이가 날 수 있어 분석용 회계적 항등으로 보지 않는다.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "원본 279-287큐 00:08:36에서 '비슷하게' 명시; 영상은 두 지표의 엄밀한 완전일치를 주장하지 않았다. 순자산/NAV와 주가×주식수는 차이가 날 수 있어 분석용 회계적 항등으로 보지 않는다."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -401,9 +417,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.samsungfund.com/upload/kodex/newsroom/20250722174437650.pdf",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #292 at 00:08:59.720, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "삼성 KODEX 공식 연금가이드 2002-10-14 상장, 2025 연금가이드북 참고. 당시 최초 ETF 4종목 표는 별도 역사자료로 증빙 영상 원본 292큐는 2002년만 언급하고 '10월14일' 날짜는 삼성자산운용 당시 역사자료에서 독립 확인한 연구자 보완이다.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "삼성 KODEX 공식 연금가이드 2002-10-14 상장, 2025 연금가이드북 참고. 당시 최초 ETF 4종목 표는 별도 역사자료로 증빙 영상 원본 292큐는 2002년만 언급하고 '10월14일' 날짜는 삼성자산운용 당시 역사자료에서 독립 확인한 연구자 보완이다."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -431,9 +448,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.samsungfund.com/upload/kodex/newsroom/20250722174437650.pdf",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #304 at 00:09:21.000, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "국내 2002 ETF 초기 도입 설명 대체로 부합. 2002-10-13 신문 당시 운용사·명칭과 이후 사명교체가 있어 옛 상품법인까지 재검증 OPEN",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "국내 2002 ETF 초기 도입 설명 대체로 부합. 2002-10-13 신문 당시 운용사·명칭과 이후 사명교체가 있어 옛 상품법인까지 재검증 OPEN"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -462,9 +480,11 @@
         "verdict": "CONTRADICTED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.tsx.com/en/news?id=216&year=2015",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #323 at 00:09:57.440, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "**지역 미한정 '세계 최초'라는 발언은 잘못됨.** TMX 공식 기록상 1990-03 캐나다 토론토거래소 Toronto 35 Index Participation Units(TIPs)가 세계 최초 ETF/현대 ETF 선행 상품. 1993-01-22 미국 SPY는 **미국 최초** 거래소 상장 ETF다. '미국 최초 SPY'로 한정하면 맞다. ASR 원음 미확인, 원본 SRT 323~326큐 확인.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "**지역 미한정 '세계 최초'라는 발언은 잘못됨.** TMX 공식 기록상 1990-03 캐나다 토론토거래소 Toronto 35 Index Participation Units(TIPs)가 세계 최초 ETF/현대 ETF 선행 상품. 1993-01-22 미국 SPY는 **미국 최초** 거래소 상장 ETF다. '미국 최초 SPY'로 한정하면 맞다. ASR 원음 미확인, 원본 SRT 323~326큐 확인.",
+        "correction": "Correct history: Toronto Stock Exchange listed Toronto35 TIPs, 1990 as the world's first ETF predecessor. SPY launched 1993-01-22 as the first U.S.-listed ETF. Do not call SPY globally first."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -492,9 +512,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #398 at 00:12:26.519, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "시장성장 해석. 각 요인 기여율 회귀분석 부재, 특정 상품 향후 성장보장 근거 아님",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "시장성장 해석. 각 요인 기여율 회귀분석 부재, 특정 상품 향후 성장보장 근거 아님"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -522,9 +543,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #174 at 00:05:15.520, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "파생형 ETF 포트폴리오 원리. 환헤지, 담보·RP 이자 수익 및 선물 롤오버 비용은 개별 ETF 운용 규약/공시 확인",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "파생형 ETF 포트폴리오 원리. 환헤지, 담보·RP 이자 수익 및 선물 롤오버 비용은 개별 ETF 운용 규약/공시 확인"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -552,9 +574,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #158 at 00:04:47.199, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "상품별 퇴직연금 편입 가능 여부는 운용사·금융사 규정, 모든 선물형 ETF 일률 '불법'으로 해석금지",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "상품별 퇴직연금 편입 가능 여부는 운용사·금융사 규정, 모든 선물형 ETF 일률 '불법'으로 해석금지"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -582,9 +605,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #274 at 00:08:25.280, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "상장종목수는 개수, 순자산총액은 시점별 보유자산 평가액. 종목 증가만으로 AUM 자동 증가하지 않음",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "상장종목수는 개수, 순자산총액은 시점별 보유자산 평가액. 종목 증가만으로 AUM 자동 증가하지 않음"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -613,12 +637,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #424 at 00:13:23.279, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "국내주식 1,475,862억원=147.5862조원, 해외주식 997,380억원=99.7380조원. 유형은 국내/해외 기초시장별 주식 ETF, ETF 전체 NAV와 다름. 원문 II.2 가. ETF 상품유형별 순자산가치총액 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "II.2 가. ETF 상품유형별 순자산가치총액",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "국내주식 1,475,862억원=147.5862조원, 해외주식 997,380억원=99.7380조원. 유형은 국내/해외 기초시장별 주식 ETF, ETF 전체 NAV와 다름."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -659,12 +684,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #438 at 00:13:52.560, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "국내채권 ETF 493,230억원=49.3230조원, 해외채권 ETF 97,558억원=9.7558조원. 원문 II.2 가. ETF 상품유형별 순자산가치총액 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "II.2 가. ETF 상품유형별 순자산가치총액",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "국내채권 ETF 493,230억원=49.3230조원, 해외채권 ETF 97,558억원=9.7558조원."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -704,9 +730,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #427 at 00:13:27.839, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "영상 00:13:23~00:13:52 국내주식형 150조/해외주식형100조 제시; 특정 개인이 실제 미국 ETF를 매도했다고 입증한 자막은 없다. AUM에는 주가·환율·설정·환매 영향 포함.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "영상 00:13:23~00:13:52 국내주식형 150조/해외주식형100조 제시; 특정 개인이 실제 미국 ETF를 매도했다고 입증한 자막은 없다. AUM에는 주가·환율·설정·환매 영향 포함."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -734,9 +761,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #492 at 00:15:31.120, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "금리형 ETF는 현금성 자산 대용 거래지만 ETF 시가/NAV·추적오차·거래/결제/신용비용이 있고 은행 예금자보호와 다름",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "금리형 ETF는 현금성 자산 대용 거래지만 ETF 시가/NAV·추적오차·거래/결제/신용비용이 있고 은행 예금자보호와 다름"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -764,9 +792,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #495 at 00:15:37.480, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "실제 발언 00:15:23~00:15:41 RP 예수금/매도대금 운용·CD금리액티브 용이함 언급. 'ETF 매도 즉시 언제나 은행 통장처럼 현금 출금 가능'은 화자가 직접 보장하지 않았음; 시장 매도체결·증권사 출금가능잔액·결제시간 확인 필요.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "실제 발언 00:15:23~00:15:41 RP 예수금/매도대금 운용·CD금리액티브 용이함 언급. 'ETF 매도 즉시 언제나 은행 통장처럼 현금 출금 가능'은 화자가 직접 보장하지 않았음; 시장 매도체결·증권사 출금가능잔액·결제시간 확인 필요."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -794,9 +823,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://kind.krx.co.kr/disclosure/disclosurebystocktype.do?method=searchDisclosureByStockTypeEtf",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #565 at 00:17:51.720, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "영상의 상품설명과 '퇴직연금 개별 주식 직접 불가' 투자전략 관련, 실제 ETF의 기초자산·월말 보유비중 및 퇴직연금 적격여부는 원문상품설명서 필요",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "영상의 상품설명과 '퇴직연금 개별 주식 직접 불가' 투자전략 관련, 실제 ETF의 기초자산·월말 보유비중 및 퇴직연금 적격여부는 원문상품설명서 필요"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -824,9 +854,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #631 at 00:19:49.039, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "레버리지·역방향 ETF는 보통 일간 수익률 목표, 변동성·경로의존에 따라 장기수익은 단순배수와 다름",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "레버리지·역방향 ETF는 보통 일간 수익률 목표, 변동성·경로의존에 따라 장기수익은 단순배수와 다름"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -854,9 +885,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #561 at 00:17:43.559, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "원본 SRT 560~564큐 '순자산 증가. 사람들이 많이 선택한 탑10'이라고 직접 말함. 하지만 AUM 증가와 투자자 순매수는 가격상승·평가손익·환율을 분리해야 같다고 확언 불가. 이론적 위험고지이지 실제 고객 순매수 실측 표 아님.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "원본 SRT 560~564큐 '순자산 증가. 사람들이 많이 선택한 탑10'이라고 직접 말함. 하지만 AUM 증가와 투자자 순매수는 가격상승·평가손익·환율을 분리해야 같다고 확언 불가. 이론적 위험고지이지 실제 고객 순매수 실측 표 아님."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -884,9 +916,10 @@
         "verdict": "HYPOTHETICAL",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #681 at 00:21:17.360, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "원본 681~694큐에는 개인적 매수 적기·시세상승은 크지 않았다는 의견만 있다. 화자가 '지금 매수하면 반드시 고수익'이라 확약한 것은 아님. 투자 시점 적정성 및 미래 분배금은 별도 불확실 전망.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "원본 681~694큐에는 개인적 매수 적기·시세상승은 크지 않았다는 의견만 있다. 화자가 '지금 매수하면 반드시 고수익'이라 확약한 것은 아님. 투자 시점 적정성 및 미래 분배금은 별도 불확실 전망."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -915,12 +948,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #711 at 00:22:14.120, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "3월 ETF 평균 -7.43%, 상승217/보합2/하락849개. 신규상장 및 상폐 종목 제외. 영상 '-7%·849·200개 정도'는 근사 일치. 원문 II.4 가. ETF 시장전체 월간 ('26.3월) 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "II.4 가. ETF 시장전체 월간 ('26.3월) 수익률",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "3월 ETF 평균 -7.43%, 상승217/보합2/하락849개. 신규상장 및 상폐 종목 제외. 영상 '-7%·849·200개 정도'는 근사 일치."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -961,12 +995,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #719 at 00:22:31.240, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "KODEX WTI원유선물(H) +61.5%; TIGER 원유선물Enhanced(H) +57.7%; RISE 200선물인버스2X +35.4% (2026-03 월간). 원문 I.1 다. 월간 ETF상위 / II.4 월간 상위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "I.1 다. 월간 ETF상위 / II.4 월간 상위10",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "KODEX WTI원유선물(H) +61.5%; TIGER 원유선물Enhanced(H) +57.7%; RISE 200선물인버스2X +35.4% (2026-03 월간)."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -1007,12 +1042,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #749 at 00:23:30.640, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "TIGER 200IT레버리지 -44.9%; TIGER 반도체TOP10레버리지 -41.5%; KODEX 레버리지 -40.2% (2026-03 월간). 원문 II.4 월간 하위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "II.4 월간 하위10",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "TIGER 200IT레버리지 -44.9%; TIGER 반도체TOP10레버리지 -41.5%; KODEX 레버리지 -40.2% (2026-03 월간)."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -1052,9 +1088,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #633 at 00:19:51.960, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "영상 633~646큐에 '+10 -10' 표현과 레버리지/인버스 가치소모 원리 설명은 있으나 '기초지수 누적 −1%'를 직접 발화하지 않았다. 연구자 계산 1.1×0.9−1=−1%, 수수료/재조정 제외.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "영상 633~646큐에 '+10 -10' 표현과 레버리지/인버스 가치소모 원리 설명은 있으나 '기초지수 누적 −1%'를 직접 발화하지 않았다. 연구자 계산 1.1×0.9−1=−1%, 수수료/재조정 제외."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -1082,9 +1119,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #633 at 00:19:51.960, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "영상은 ±10% 왕복과 복리훼손의 개념 설명. 1.2×0.8−1=−4%는 **연구자 산식**, 정확히 해당 숫자를 화자가 말한 것이 아님. 단순 2영업일 비용·추적오차 없는 모형.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "영상은 ±10% 왕복과 복리훼손의 개념 설명. 1.2×0.8−1=−4%는 **연구자 산식**, 정확히 해당 숫자를 화자가 말한 것이 아님. 단순 2영업일 비용·추적오차 없는 모형."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -1112,9 +1150,10 @@
         "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #645 at 00:20:11.520, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "원본 631~646큐는 횡보·왕복 변동성에서 복리훼손 가능함을 설명, 특정 방향으로 진행되는 구간에서 수익 가능성도 641~644큐 명시. 항상 손실이라고 주장한 발언은 없다.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "원본 631~646큐는 횡보·왕복 변동성에서 복리훼손 가능함을 설명, 특정 방향으로 진행되는 구간에서 수익 가능성도 641~644큐 명시. 항상 손실이라고 주장한 발언은 없다."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -1142,9 +1181,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #650 at 00:20:22.080, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "100→50→100이 되려면 50에서 +50=+100%, 50% 손실과 50% 수익은 상쇄되지 않음",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "100→50→100이 되려면 50에서 +50=+100%, 50% 손실과 50% 수익은 상쇄되지 않음"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -1173,12 +1213,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224247522508",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #809 at 00:25:29.120, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "2026년 1~3월 ETF 평균수익률 +6.72%, 상승654/보합6/하락392개, 신규상장·상폐 제외. 원문 II.4 나. ETF시장 전체 연간 ('26.1월~3월) 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "II.4 나. ETF시장 전체 연간 ('26.1월~3월) 수익률",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "2026년 1~3월 ETF 평균수익률 +6.72%, 상승654/보합6/하락392개, 신규상장·상폐 제외."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -1219,12 +1260,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224151836839",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #817 at 00:25:45.600, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "2025년 ETF 연간 평균수익률 +34.22%, 상승727/보합1/하락157개, 신규상장·상폐 제외. 원문 II.4 ETF 시장전체 연간 2025년 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "II.4 ETF 시장전체 연간 2025년 수익률",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "2025년 ETF 연간 평균수익률 +34.22%, 상승727/보합1/하락157개, 신규상장·상폐 제외."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -1265,12 +1307,13 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.blog.naver.com/happy_krx/224151836839",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #825 at 00:26:02.200, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "TIGER 반도체TOP10레버리지 +307.1% (A488080); TIGER 200선물인버스2X -76.2% (A252710); KODEX 200선물인버스2X -76.2% (A252670). 원문 II.4 ETF 연간 2025 수익률 상·하위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.",
         "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
         "primary_document_type": "KOREA_EXCHANGE_ETF_ETN_MONTHLY_ORIGINAL_PDF_TEXT_EXTRACTED",
         "section_locator": "II.4 ETF 연간 2025 수익률 상·하위10",
-        "original_srt_cue_matched": false
+        "original_srt_cue_matched": false,
+        "source_finding": "TIGER 반도체TOP10레버리지 +307.1% (A488080); TIGER 200선물인버스2X -76.2% (A252710); KODEX 200선물인버스2X -76.2% (A252670)."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "previous_assessment_before_krx_pdf_20261015": "QUALIFIED",
@@ -1310,9 +1353,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #768 at 00:24:07.440, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "금융감독 수준 위험 경고: 레버리지 ETF 일간 목표 및 경로의존·변동성 훼손. 단기익 수익률 미래 성과보장 없음",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "금융감독 수준 위험 경고: 레버리지 ETF 일간 목표 및 경로의존·변동성 훼손. 단기익 수익률 미래 성과보장 없음"
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
@@ -1340,9 +1384,10 @@
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-15",
         "primary_url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
-        "basis": "Full publicly retrievable Korean YouTube ASR of 27:46, KRX public dashboard, KRX 2025-03 archived report, Samsung Kodex primary and SEC leveraged risk/independent math. Original March2026 KRX monthly page numeric table not directly obtained.",
+        "basis": "Original private cue #711 at 00:22:14.120, all 868 original cue texts exactly match full public YouTube transcript SHA256. Independently assessed regulatory/statistical/arithmetical claim with primary URL; original audio not checked.",
         "disposition": "2026-03 KRX 원표 −7.43% 전체 평균 및 원유 +61.5%, 인버스 +35.4%와 원본 영상 711~723큐 발언의 독립적 결합. '특정 ETF가 항상 좋다'는 미래보장 발언 아님.",
-        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026."
+        "effective_date_or_scope": "Recorded 2026-04-08, published 2026-04-22, numerical ETF markets are historical 2026-03, not Oct2026.",
+        "source_finding": "2026-03 KRX 원표 −7.43% 전체 평균 및 원유 +61.5%, 인버스 +35.4%와 원본 영상 711~723큐 발언의 독립적 결합. '특정 ETF가 항상 좋다'는 미래보장 발언 아님."
       },
       "timecode_precision": "PRIVATE_ORIGINAL_SRT_CUE_START_EXACT",
       "private_srt_cue_anchor": {
