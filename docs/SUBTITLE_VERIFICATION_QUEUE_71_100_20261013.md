@@ -1,5 +1,15 @@
 # 박곰희TV 71~100편 전용 출처·검증 대기열
 
+## 2026-10-15 #79 효라클 코스피1만 인터뷰 — 원본 2,063큐·정식 33건 V3 승인 (최신)
+
+- 비공개 사용자 ZIP `71-100.zip` **517,466바이트·CRC PASS·SHA-256 `69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f`**. #79 `mRRev963GaA` 개인 한국어 원본 SRT **2,063큐 연속·157,457바이트·raw SHA-256 `eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a`** 등록값 일치.
+- 원본 전사 공백제거 26,628자 SHA `417a8b73d81bc67b2b70c7d7c99691d5613df8d65afa6c56370e40448afd879a`와 공개 전체 자동 한국어 전사 26,624자 SHA `3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6` 불일치는 **개인원본 마지막 비언어 `[음악]` 큐 #2063이 중복된 이유**. 원본을 수정하지 않고 **비교 목적으로만** 그 마지막 중복 토큰 한 개를 제외하면 공백제거 **26,624자 SHA가 완전히 일치**. 음성·영상프레임 독립 인증 아님.
+- 기존 잠정 주장 33건의 공식자료를 개별 심사: **32건 원본 cue 번호/밀리초 시작시각 직접 연결**, **#18은 화자의 발언이 아닌 연구자 완전자율주행 규제 경계**로 분리. `PRIMARY_CONFIRMED 7`, `QUALIFIED 13`, `CONTRADICTED 1`, `HYPOTHETICAL 12` 유지. [33건 큐/공식근거](../data/subtitles/pilots/mRRev963GaA.json) · [정식 V3 JSON](../data/analysis_events/mRRev963GaA.json) · [33개 주장별 보고서](../knowledge/VIDEO79_KOSPI10000_ORIGINAL_2063_CUES_V3_20261015.md).
+- **주요 정정/발언 귀속:** #330 `00:11:04.399` 'ChatGPT 2024년 처음 출시'는 [OpenAI 공식 최초 게시 **2022-11-30**](https://openai.com/index/chatgpt/)로 정정. 게스트의 투자비율 #1572 `00:53:17.440`은 **구대륙 7 : 신대륙 3**, 기존 잠정안의 **조선 7 : 현대차 3**이 아님. 강사 #264 `00:08:43.440`에는 한국 높은 산업용 로봇밀도만 언급하고 **1,220대**는 강사가 말하지 않음; [IFR의 2024 제조업·1만명당 1,220대](https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas)를 **연구자 외부 공식통계**로 분리.
+- **미래사업 시점 조건:** [현대차 2026 CES 원자료](https://www.hyundaimotorgroup.com/en/news/hyundai-motor-group-announces-ai-robotics-strategy--to-lead-human-centered-robotics-era-at-ces-2026) Atlas 부품공정 **2028년**·조립 **2030년** 계획과 인터뷰의 **2027 피지컬AI 확산 전망** 구분. [Waymo 2026-02 발표](https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/) 주간 유료 무인호출 **40만회 이상 이미 운영**. '2027 모든 분야 첫 상용화'는 사실이 아니라 추정. 책 원문 과거 성과·특정 선박용 엔진 발주 공시/금액·2027 주가·역사 백테스트 원자료는 **독립 검증 미완**이며 `QUALIFIED/HYPOTHETICAL` 한계로 남김.
+- **정식 승인 합산:** 1~70 **70편/1,052건** + #71~100 범위 **15편/403건**(#72~79·#94~100) = **85편/1,455건**. 기존 잠정 #80~93 **14편/338건**, 선택적 추가검증 OPEN **24건** 유지, #71 원본 부재. 초안 33건을 V3 승인으로 **이동**했을 뿐 두 번 세지 않는다. **Shorts 별도 분류, 롱폼 703편 지표로 단순 가산 금지.**
+- [새 승인/잠정 스냅샷](../data/subtitles/research_progress_after_video79_v3_20261015.json). 이전 2026-10-14 잠정 보고서 보존. `main`, 사용자 보유자산/KIS/Apps Script, 비공개 전체 SRT/ZIP 공개 상태는 변경하지 않음.
+
 ## 2026-10-15 #78 국민성장펀드 40개 항목 V3 승인 · #79 공개자막 4자 차이 규명 (최신 회차)
 
 - **#78 정식 V3 완료:** 사용자 원본 `98UoTYQR5nY` **580큐 / 46,021 bytes / SHA256 `84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880`** 재검증. 공개 전체 한국어 자동전사와 공백제거 **8,217자 SHA256 `62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51` 정확 일치**. 기존 40개 주장 가운데 **39개 원본 SRT 개별 큐/시작시간 확인**, 1개는 강사가 말하지 않은 **운용사 공식공지의 세무위험을 연구자 보충**으로 분리. `PRIMARY_CONFIRMED 24`, `QUALIFIED 13`, `CONTRADICTED 1`, `HYPOTHETICAL 2`. [주장별 원본 큐](../data/subtitles/pilots/98UoTYQR5nY.json) / [정식 V3](../data/analysis_events/98UoTYQR5nY.json) / [새 40건 검증 보고서](../knowledge/VIDEO78_NATIONAL_GROWTH_FUND_ORIGINAL_580_CUES_V3_20261015.md). 기존 2026-10-14 잠정 보고서는 이력으로 보존, 정식 카운트 중복 없음.
