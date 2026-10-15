@@ -162,10 +162,10 @@
       "cue_count": 2063,
       "raw_srt_bytes": 157457,
       "sha256": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
-      "source_status": "PRIVATE_SRT_SOURCE_SHA_RECHECKED_FULL_TEXT_REVIEW_CLAIM_GATE_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_VERIFIED_PUBLIC_AUTO_ASR_NONVERBAL_TRAILING_MUSIC_CUE_DUPLICATE_ONLY_CLAIMS_PENDING",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false,
+      "public_asr_full_diff_verified": true,
       "original_srt_sha_recomputed_20261015": true,
       "original_zip_crc_verified_20261015": true,
       "original_raw_srt_read_in_full": true,
@@ -177,7 +177,22 @@
       "reviewed_claim_count_provisional": 33,
       "approval": "NOT_APPROVED",
       "original_cue_timestamp_anchors_claim_specific_verified": false,
-      "original_audio_verified": false
+      "original_audio_verified": false,
+      "private_cues": 2063,
+      "original_srt_last_end": "01:09:29.177",
+      "public_asr_normalized_full_speech_match": true,
+      "private_public_normalization": "PRIVATE_REMOVE_ONE_TRAILING_DUPLICATE_NONVERBAL_[음악]_CUE_2063_AND_ALL_WHITESPACE_ONLY",
+      "original_normalized_chars": 26628,
+      "original_normalized_sha256": "417a8b73d81bc67b2b70c7d7c99691d5613df8d65afa6c56370e40448afd879a",
+      "adjusted_original_normalized_chars": 26624,
+      "adjusted_original_normalized_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+      "public_normalized_chars": 26624,
+      "public_normalized_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+      "source_only_duplicate_nonverbal_cue": 2063,
+      "source_diff_affects_spoken_claims": false,
+      "source_original_bytes_unchanged": true,
+      "review_status": "SRT_SOURCE_RECONCILED_CLAIM_LEVEL_V3_PENDING",
+      "claim_count_provisional": 33
     },
     {
       "roster_no": 80,
@@ -620,7 +635,20 @@
     "video78_canonical_v3": "data/analysis_events/98UoTYQR5nY.json",
     "remaining_pending_recheck_roster": [
       79
-    ]
+    ],
+    "video79_public_diff_resolved": {
+      "source_original_cues": 2063,
+      "private_normalized_characters": 26628,
+      "public_normalized_characters": 26624,
+      "extra_private_terminal_cue": 2063,
+      "extra_token": "[음악]",
+      "extra_token_type": "NONVERBAL_MUSIC_MARKER",
+      "private_trimmed_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+      "public_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+      "all_spoken_text_after_specific_nonverbal_dedupe_equal": true,
+      "approval": "NOT_APPROVED",
+      "claim_cue_anchor_pending": 33
+    }
   },
   "video78_v3_reconciliation_20261015": {
     "roster_no": 78,
