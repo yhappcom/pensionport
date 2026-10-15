@@ -1,5 +1,15 @@
 # 박곰희TV 71~100편 전용 출처·검증 대기열
 
+## 2026-10-15 #100 Shorts — 21개 개인 원본큐·294자 공개 자동전사 완전 SHA 대조 / 교육주장 9건 정식 V3 승인 (현재)
+
+- 영상: [남의 말만 듣고 투자하면… `g5PChibmY5A`](https://www.youtube.com/watch?v=g5PChibmY5A), 2026-04-16 게시, 약 45초.
+- 비공개 사용자 파일 `71-100.zip`: 517,466바이트, CRC **PASS**, ZIP SHA256 `69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f` 직접 재검사. 실제 파일 `71-100/youtube-transcript-g5PChibmY5A.srt` 21큐(번호 연속)·1,650바이트·마지막 00:00:45.640·SHA256 `c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0` (등록값 일치).
+- 유튜브 공개 **전체 한국어 자동전사**와 21개 원본 큐의 본문 전체는 **공백 제거 후 294자 SHA256 `022cd98d930854425c02b0b3433ba71df1d6ab5f79f4f11cca53faddc0de01fa`로 일치**. 같은 음성인식 계열일 수 있으므로 독립 원음·프레임 검증을 했다는 뜻은 아님. 발언 시각은 원본 자동자막 cue 시작시각.
+- 중요 투자교육 발언 **9건** = `PRIMARY_CONFIRMED 3`, `QUALIFIED 4`, `SPEAKER_OPINION 2`; 수학적 수익률·보장 주장은 없음. [9개 원본시각·공식 SEC 근거](../data/subtitles/pilots/g5PChibmY5A.json) · [V3 정식분석](../data/analysis_events/g5PChibmY5A.json) · [정정 및 투자원칙 연구 보고서](../knowledge/VIDEO100_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md).
+- **조건 정정:** SNS·뉴스·타인 추천만으로 투자하지 않고 사업·투자 가설·매수/매도 근거 검토는 [SEC 2026년 공식 소셜투자 경보](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/social-media-stock-scams)와 일치. “가장 흔한 실수”와 “타인 확신은 반드시 조기매도로 이어진다”는 심리적 강조로, 통계 입증 주장으로 쓰지 않음. “시장에 규칙 없다”는 문자 그대로의 법적 사실이 아닌 방향예측의 불확실성 비유. 자기 투자원칙이 있다고 원금·수익 보장 또는 무조건 보유할 의무가 생기는 것은 아님.
+- **누적 교육 검증 승인 83편/1,382건**, 이 중 71~100 승인 **13편/330건**(#72~77, #94~100). 기존 잠정 78~93 **16편/411건**, 개별 추가검증 OPEN **24건** 분리 유지. #71 원본 부재. [최신 승인/잠정 스냅샷](../data/subtitles/research_progress_after_video100_v3_20261015.json). Shorts이므로 **롱폼 703편 완료 수에 가산하지 않음**.
+- 원본 ZIP·SRT 전문 GitHub에 저장 금지, 사용자 투자계좌·Apps Script·KIS 및 `main` 미변경.
+
 ## 2026-10-15 #98·#99 Shorts — 개인 원본48큐 / 공개 전체전사 SHA 동일 / 교육주장17건 정식 V3 승인 (현재)
 
 **공통출처:** 사용자 업로드 원본 `71-100.zip` **517,466 bytes / ZIP CRC PASS / SHA256 `69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f`** 재검증. 두 영상 모두 독립 획득한 공개 유튜브 **한국어 자동전사 전체 본문을 공백제거**하여 비공개 원본 SRT cue 본문 전부와 SHA-256 일치. 자동 ASR끼리 동일한 것이라 **독립 원음·프레임 검증은 아님**. SRT와 ZIP 전체 본문 비공개 보관; GitHub에는 출처 메타데이터·주장·시각·공식근거만 저장.
