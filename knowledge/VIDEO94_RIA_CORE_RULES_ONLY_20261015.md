@@ -1,42 +1,85 @@
-# 박곰희TV #94 RIA — 이벤트 조건 제외, 제도 검증만 계속 (2026-10-15)
+# 박곰희TV #94 — RIA 제도 핵심발언 원본 SRT 검증 (이벤트 조건 제외)
 
-[영상](https://www.youtube.com/watch?v=xIygVI-t04A) · 녹화 2026-04-15 · 게시 2026-04-24 · 24:45 · 영상 ID `xIygVI-t04A`
+**검토:** 2026-10-15 · [영상](https://www.youtube.com/watch?v=xIygVI-t04A) · 영상 녹화 2026-04-15 · 공개 2026-04-24 · 약24분45초. **증권사별 이벤트 혜택·참여조건은 사용자 요청으로 검증대상 제외.**
 
-> **원본 688큐 SRT 파일 및 공개 전사 전문 미확보 — `SOURCE_BLOCKED/NOT_APPROVED`.** 이번에 확인한 RIA 제도 12건은 *영상에서 강사가 실제 한 말의 검증 12건이 아니라* 금융사 제도 자료의 독립 검증이다. 원본 SRT 해시 `c2add25713c355c1dcfa84af1aeba57f14e2c7736d521ebd7aa5e378a527d1e4`는 과거 등록값이며 이번 바이트 재계산은 없었다. 영상 대사의 시각·문장·원음 검증 0건. **사용자 요청에 따라 10개 증권사의 이벤트 혜택·참여조건·기간 비교는 검증 목적에서 제외**했고 추가 확인하지 않는다. 과거 행사 조사기록은 데이터에서 출처 추적용으로만 별도 보존했다.
+## 출처 증명: 비공개 원본 688큐 재검사 완료
 
-## 계속 연구할 실질 제도 내용
+사용자가 제공한 `71-100.zip`을 직접 열어 원본 `71-100/youtube-transcript-xIygVI-t04A.srt`를 확인했다. **단, SRT는 자동 생성 자막이므로 원음·영상 화면을 별도 재청취한 것은 아니다.** 원본 ZIP/SRT 전체 텍스트는 GitHub에 저장하지 않는다.
 
-1. **RIA ≠ ISA.** RIA(국내시장복귀계좌)는 해외 상장주식/적격 해외자산의 기존 보유분을 국내시장 복귀시키며 양도세 혜택을 주는 별도 계좌이다. 2025-12-23에 보유했던 적격 해외주식의 수량 한도와 실제 증권사 이체 가능 여부가 중요하다. 다른 계좌에서 매도한 원화만 이체하면 동일한 혜택을 인정받는 구조가 아니다.
-2. **개인 총한도 5,000만원.** 여러 증권사별 계좌를 만들더라도 전체 증권사 합산 적격 RIA 매도대금 5천만원이 한도다. 주식보유평가액·개별 RIA 한도를 무한히 합산할 수 없다.
-3. **결제시점별 공제율.** 2026년 5월 말 이전 해당 해외주식 매도 **결제일** 100%, 6~7월 80%, 8~12월 50% 공제율. **공제율은 양도차익의 대상 소득공제율**이고, 계좌의 현금총액을 지급받거나 납부세금 전액을 무조건 돌려받는 보조금이 아니다. 2026년 10월 현재 100%·80% 시한은 종료됐다.
-4. **최종 결제 이후 1년간 국내 재투자·유지.** 해당 RIA 내 원화예탁금, 적격 국내주식, 적격 국내주식형 ETF/펀드 등에 묶어 유지. RIA 원금 중도 인출은 혜택 무효 위험이 있고 투자이익·일부 인정된 특별사유와 구별한다. 국내상장이라고 해서 미국주식 ETF나 채권·RP 상품이 모두 RIA 적격이라는 것은 아니다.
-5. **다른 계좌의 순매수와 상호작용.** 2026년에 ISA/연금저축/IRP/DC·일반위탁 등 RIA 바깥의 해외주식·해외주식형 국내 ETF/ETN·펀드를 *가중 순매수*하면 RIA 공제액이 줄어들 수 있다. 다만 매수와 매도 **순액·시점·대상자산**을 조문대로 계산해야 하며 모든 매수 1원마다 RIA 공제가 1원 자동 삭감된다고 단순화하면 안 된다.
-6. **실제 절세효과.** 해외주식 간 양도손익통산, 과세연도 해외주식 기본공제(일반적으로 250만원), 해외주식 양도세율, 이미 사용한 RIA 적격매도 대금, 국내투자 운용손실, 환전비용 등을 함께 계산해야 한다. 절세제도는 **국내 주식 수익률이나 원금보장과 무관**하다.
+| 검사 | 원본에서 계산·확인된 값 |
+|---|---|
+| ZIP CRC·전체 SHA256 | 정상 · `69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f` |
+| #94 SRT 용량 | **53,780바이트** |
+| #94 SRT SHA256 | `c2add25713c355c1dcfa84af1aeba57f14e2c7736d521ebd7aa5e378a527d1e4` — 2026-10-13 등록값과 일치 |
+| SRT 전체 Cue 구조 | **1~688 연속 688개 정상**; 끝 00:24:38.407 |
+| 688개 Cue 본문 정규화 SHA256 | `e9d24d8b11a7fd14488e97a2163f70155eee1229267b07f5017a6b58ed646c00` |
+| 공개 유튜브 ASR 전문과 독립 비교 | **불가** — 해당 영상 공개 전사 전문 미제공; 비공개 원본에만 정밀 시각 존재 |
+| 오디오/영상 프레임 독립검증 | **미실시**; 본문은 원본 자동자막 기반 |
 
-**원자료:** [한국투자증권 RIA 제도공지](https://securities.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=46415) · [미래에셋증권 RIA 상품설명](https://securities.miraeasset.com/hki/hki3032/n51.do) · [정부 RIA 정책소개](https://www.korea.kr/news/policyNewsView.do?newsId=148958323)
+원본의 총 688큐 중 약 00:04 이후 대부분은 증권사별 이벤트 상세설명이다. 이는 이번 검증에서 **의도적으로 배제**했다. 실제 법·계좌제도 설명과 필수 위험 요건만 선별해 **영상 속 발언 12건 + 연구자 중요 누락보완 4건 = 교육 확인항목 16건**으로 분리했다. `PRIMARY_CONFIRMED` **8건**, `QUALIFIED` **8건**이며, 원본 자막과 주장을 동일시하지 않는다.
 
-## 공식 맥락 검증 13건 — 강사 발언과 별도
+## RIA 제도 확인 및 영상 발언 정정
 
-| 체크 ID | 검증할 일반 제도/사실 | 근거 수준·적용조건 |
-|---|---|---|
-| `RIA-LAW-01` | RIA stands for Reshoring Investment Account/국내시장복귀계좌; differs from ISA | Law §91-26 and original March2026 broker instructions; portfolio from proceeds of specified existing foreign stock — [참고](https://securities.miraeasset.com/hki/hki3032/n51.do) |
-| `RIA-LAW-02` | 2025-12-23 cutoff refers to eligible shares held by end of the date | Min(holdings 2025-12-23, holdings at transfer) matters; purchased only after Dec23 ineligible generally — [참고](https://securities.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=46415) |
-| `RIA-LAW-03` | RIA overseas stock sell proceeds are automatically converted to KRW on settlement | Account cannot accept arbitrary cash deposits; eligible foreign stock must be transferred into RIA then sold — [참고](https://securities.miraeasset.com/hki/hki3032/n51.do) |
-| `RIA-LAW-04` | 1 person aggregate 50 million KRW RIA foreign stock settlement amount limit across all brokerages | Many accounts allowed at multiple brokers, each one account per broker, but combined sale proceeds limit still 50m. Gross transfer stock market value not itself cap — [참고](https://securities.miraeasset.com/hki/hki3032/n51.do) |
-| `RIA-LAW-05` | 2026 foreign stock settlement by May31 100% income deduction rate, June-July80%, Aug-Dec50% | The qualifying percentage is based on settlement/automatic FX date, NOT opening date or order date and not a 100% cash tax rebate. Ended 100% band before Oct — [참고](https://securities.miraeasset.com/hki/hki3032/n51.do) |
-| `RIA-LAW-06` | An RIA must retain 1y from LAST eligible settlement and hold KRW cash/allowed Korean equities or domestic equity funds | If foreign stocks are sold at different dates, last eligible FX funding date controls final date — [참고](https://securities.miraeasset.com/hki/hki3032/n51.do) |
-| `RIA-LAW-07` | Withdrawing protected principal early (even partial) can invalidate full RIA benefit | Broker's product disclosure distinguishes early protected principal withdrawal from withdrawals of growth exceeding invested principal, and listed legal unavoidable hardship exception — [참고](https://securities.miraeasset.com/hki/hki3032/n51.do) |
-| `RIA-LAW-08` | RIA allowed domestic products include KRX listed equities/qualified Korean equity ETFs or idle KRW cash | Not all domestic listed ETFs count; domestic-listed US exposure normally is overseas investment substitute and may trigger penalty if held outside RIA — [참고](https://securities.miraeasset.com/hki/hki3032/n51.do) |
-| `RIA-LAW-09` | Buying foreign stocks and overseas-investing local ETFs in OTHER accounts in 2026 can reduce RIA relief | Penalty net buying in all institutions including ISA/IRP, based on deal settlement and weighted Jan-May100%, Jun-Jul80%, Aug-Dec50% — [참고](https://securities.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=46415) |
-| `RIA-LAW-10` | For 2026 investment tax, RIA relief is calculated after gains netting and a separate 2.5m KRW overseas capital gain standard deduction | Broker illustrates deduction ordering gains-losses, 2.5m KRW, RIA relief, then taxable remainder22% total. Individual actual gain is unverified — [참고](https://securities.miraeasset.com/hki/hki3032/n51.do) |
-| `RIA-LAW-11` | RIA domestic stocks market losses/FX changes can exceed event rewards and tax savings | Issuer prospectus warns principal loss; foreign assets sale timing / currency FX are actual investment risks, not all investment outcomes profit — [참고](https://securities.miraeasset.com/hki/hki3032/n51.do) |
-| `RIA-LAW-12` | RIA is not the same as regular ISA and moving ISA balances is not an RIA tax-relief substitute | RIA targets foreign-stock disposal tax with unique cutoff, timing and 1y lock; ISA imposes different taxable-income settlement — [참고](https://securities.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=46415) |
-| `RIA-SOURCE-01` | The YouTube video description confirms 10 brokers, chapter divisions and recording date Apr15, but full transcript was NOT accessible | YouTube page has chapter starts for 10 brokerage firms. Firecrawl full content API returned only description; translated YouTube player error and WithTranscript show No Transcript; source file 688 cues from prior chat not mounted — [참고](https://www.youtube.com/watch?v=xIygVI-t04A) |
+### 1. 실제 RIA에서 가능한 것
 
-## 실제 남은 검증
+- 국내시장복귀계좌 **RIA (Reshoring Investment Account)**는 **일반 ISA와 다른 한시적 특별계좌**다. 영상 00:00:36부터 용어를 설명한다.
+- **2025-12-23 결제 완료 기준** 해외주식 보유분의 수량과 입고 직전 보유수량 중 적은 수량만 적격 RIA에 입고한 후, 그 계좌 **안에서 해외주식을 매도하고 자동 원화 환전**해야 한다. 원화만 자유롭게 예치해 동일 소득공제를 받을 수 있는 상품이 아니다. ([삼성자산운용 2026년3월 RIA 가이드](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf))
+- 영상 00:05:35의 **증권사 복수 RIA 개설 가능·개인 전 증권사 합산 해외주식 매도대금 5,000만원 한도**는 원문 공식자료와 일치한다. 이는 **매도대금 한도**이지 이익 5천만원만 공제하는 기준도, 증권사 한 곳당 5천만원도 아니다.
 
-**남음:** #94 한국어 원본 `xIygVI-t04A.srt` 688큐·53,780바이트 검색/복구, 등록 SHA256 바이트 일치 확인, 전사 전문·정확 화자 문구(음성) 및 업로더 챕터 시점 대조, 영상의 계좌·세금 제도 설명에 해당하는 발언만 주장화. 필요한 경우 같은 채널 [#97 RIA 사용설명서](https://www.youtube.com/watch?v=vnPVjbRtZk4)의 공개 한국어 전사를 *주제 맥락*으로 참조할 수 있지만 **#97 자막을 #94 화자의 실제 말처럼 옮기는 것은 금지**한다.
+### 2. 세제 공제: 촬영 당시 맞았지만 빠진 제한조건
 
-**제외:** 증권사별 1만원/경품/최소입고액/환전우대 등 **행사 혜택·조건의 추가검증 일체**. 관련 원본 기록은 [2026-10-14 과거 조사 아카이브](VIDEO94_RIA_BROKERAGE_EVENT_SOURCE_BLOCKED_20261014.md)에만 남긴다.
+원본 큐 #28~#40에서 진행자는 세금이 “면제”된다는 인상을 주며 5월 100%/7월 80%/연말 50%를 설명한다. 실제 조문·금융사 설명상 이는 **요건을 충족한 해외주식 양도소득금액의 공제율**이다. 전 계좌 해외투자 순매수와 기타 요건에 따라 실제 공제액이 줄어들거나 없어질 수 있다. 개인 세금 전액을 무조건 현금 환급해주는 제도는 아니다.
 
-**결론:** 제도 자체의 핵심 이해는 확인. #94 영상 자막 전수분석이 아니므로 `video_claim_count=0`, `NOT_APPROVED`를 유지한다. 완료된 잠정 16편·411개 주장에 산입하지 않으며 `main` 수정 금지.
+| 매도 **결제일** 기준 | 적격 양도소득금액 기본 공제율 | 영상 발언 점검 |
+|---|---:|---|
+| 2026-05-31까지 | **100%** | “5월까지 판다”는 **주문·체결만** 뜻하면 불충분 |
+| 2026-06-01~07-31 | **80%** | 7월 말 체결이어도 결제가 8월이면 **50%** |
+| 2026-08-01~12-31 | **50%** | 2026년 내 결제 완료와 모든 적용요건 필요 |
+
+[금융투자회사 매도 결제일 예시](https://pension.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=47200) · [RIA 공식 조문](https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=26&joNo=0091&lsiSeq=286597&urlMode=lsScJoRltInfoR).
+
+### 3. RIA에서 반드시 국내주식만 사야 하나?
+
+**아니다.** 영상은 RIA 매도 후 국내주식을 매수하는 과정을 주로 설명하고, 00:06:32경 **국내주식형 ETF도 매수 가능**하다고 정확히 언급한다. 증권사 및 자산운용사 공식 안내에 따르면 RIA 내 투자가능 자산은 **국내 상장주식·적격 국내주식형 ETF/펀드·원화 예탁금**이며 **원금의 1년 유지**가 핵심이다. ETF라면 아무 국내상장 ETF나 모두 허용된다는 뜻은 아니다. 국내상장 해외주식 ETF는 별개의 해외투자 대체자산일 수 있다. ([삼성자산운용 RIA 상품구조](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf))
+
+### 4. 영상 초점 밖이지만 실제 투자자에게 필수인 네 가지 조건
+
+아래 항목은 **원본 영상이 실제로 발언한 내용이 아니다.** RIA 가입/절세 판단을 잘못하지 않도록 추가한 연구자 보충이다.
+
+- **대상 주식:** 2025년 12월23일 보유 적격주식 수량 제한. 이후 신규매수분을 무조건 이전해 공제받을 수 없음.
+- **원금 유지:** RIA 해외주식 매도대금 원화 환전·납입 후 **1년 유지**. 납입 원금의 조기인출은 공제취소 위험. 국내 적격 ETF 대신 원화 예탁금 유지 가능.
+- **다른 계좌 투자:** 같은 해 RIA 외 일반·ISA·연금저축·IRP·DC 등 **모든 금융기관**의 해외주식/해외주식형 국내 ETF 등 순매수는 RIA 공제를 축소할 수 있다. 해당 거래의 **결제일과 기간별 가중치**가 적용된다.
+- **실제 신고액:** 해외주식 손익통산→기본공제(통상 250만원)→RIA 공제 순서, 특례 신청/신고서·증빙자료 확인. 개인 실제 절세효과는 보유 원가·양도손익·다른 계좌 거래·국내자산 중도인출 여부가 있어야 계산 가능.
+
+근거: [2026년3월 삼성자산운용 RIA ETF 가이드](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf), [신한투자증권 RIA 설명](https://swap.shinhansec.com/siw/wealth-management/ria/ria_intro/contents.do), [미래에셋증권 RIA 안내](https://securities.miraeasset.com/hki/hki3032/n51.do).
+
+## 16개 주장·위험요건 전체 대조 (원본 Cue 기준)
+
+원본 SRT의 **큐 시작점**을 기록한 것이며 독립 오디오 재생으로 문장 발음시간을 인증한 것은 아니다. `RESEARCHER_...` 4건은 강사가 한 말이 아니다.
+
+| 주장 | 원본 큐·시각 | 판정 대상 (의역) | 분류 | 검증내용 및 자료 |
+|---|---|---|---|---|
+| `01` | `#13` 00:00:36.920 | RIA는 Reshoring Investment Account(국내시장복귀계좌)의 약어라고 소개한다. | PRIMARY_CONFIRMED | 삼성자산운용 2026년 3월 RIA 가이드 1부: RIA 영문 전체명/한국제도명 동일. 영상 STT의 '복귀 투자 계절'은 자동전사 오인식이며 공식명은 국내시장복귀계좌. · [근거](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf) |
+| `02` | `#22` 00:00:56.559 | 기존 미국주식을 별도 RIA로 옮겨 RIA 안에서 매도하는 구조라고 설명한다. | QUALIFIED | 적격 보유분을 RIA로 먼저 입고해 그 안에서 매도하는 기본 구조는 맞다. 단 2025-12-23 당시 적격 보유수량 및 해외상장 과세대상, 전 금융회사 제한을 충족해야 하며 아무 새 해외주식이나 이전할 수는 없음. · [근거](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf) |
+| `03` | `#25` 00:01:05.199 | RIA에서 미국주식을 매도한 후 국내주식을 매수한다고 설명한다. | QUALIFIED | 국내주식 매수는 허용되는 주요 전략이지만 RIA 계좌에서 국내주식형 적격 ETF/펀드 또는 원화 예탁금 유지 역시 허용된다. 1년간 원금 보유가 핵심이며 반드시 즉시 개별 국내주식을 매수해야 하는 것은 아님. · [근거](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf) |
+| `04` | `#28` 00:01:15.400 | RIA에서 해외주식 매도 후 국내주식 투자하면 양도세가 '면제'된다고 단순화한다. | QUALIFIED | 조세특례제한법 제91조의26은 적격 해외주식 양도소득금액의 50~100% 공제를 정하며, 해당 기준·기본공제·다른 계좌 순매수 조정·1년 유지·과세신고 충족 여부에 따라 실제 세액은 달라진다. 모든 해외주식 매도의 양도세 전액 자동 면제가 아님. · [근거](https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=26&joNo=0091&lsiSeq=286597&urlMode=lsScJoRltInfoR) |
+| `05` | `#35` 00:01:32.320 | 5월 말 이전에 팔면 RIA 양도소득의 100%를 면제받을 수 있다고 말한다. | QUALIFIED | 2026년 5월31일까지의 적격 해외주식 **매도 결제 완료일** 기준 양도소득금액 공제율 100%는 공식일치. 촬영당시 유효. '5월 말 매도 주문·체결만'으로 100%라 오인할 위험(5/29 체결→6/2 결제는 80%)과 계좌외 순매수 공제조정·유지조건 반드시 추가. · [근거](https://www.kbsec.com/go.able?idt=20260723&linkcd=s060901010000&seq=10010133) |
+| `06` | `#37` 00:01:37.920 | 7월 말까지 매도하면 80% 양도세 공제 혜택이라고 설명한다. | QUALIFIED | 2026년 6월1일~7월31일 적격 매도 **결제일 기준** 양도소득금액 공제율 80%. '7월 말 매도 체결'만으로 확정되지 않으며 기타 법정 공제조정 가능. · [근거](https://pension.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=47200) |
+| `07` | `#38` 00:01:41.079 | 2026년 연말까지 매도한 RIA 해외주식 양도차익의 절반이 공제된다고 소개한다. | QUALIFIED | 2026년 8월1일~12월31일 적격 매도 결제일 기준 양도소득금액 50% 기본 공제율. 실제 최종 공제는 법정 다른 계좌 해외주식·대체자산 순매수와 손익통산·유지·신고 요건에 따라 달라짐. · [근거](https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=26&joNo=0091&lsiSeq=286597&urlMode=lsScJoRltInfoR) |
+| `08` | `#65` 00:02:45.319 | RIA에서 해외주식을 매도하면 원화 환전 절차가 필요하다고 설명한다. | PRIMARY_CONFIRMED | 삼성자산운용 2026년 3월 RIA 실행 단계: 해외주식 매도대금 결제 때 자동 원화 환전, 원화 국내상장 자산·예탁금 투자. 증권사별 환전 수수료 프로모션은 사용자 지시에 따라 검증 대상에서 제외. · [근거](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf) |
+| `09` | `#77` 00:03:11.599 | 증권사 자기자본이 많다고 고객에게 항상 가장 좋은 증권사는 아니라고 설명한다. | QUALIFIED | 자기자본 규모는 재무건전성 참고 지표지만 수수료뿐 아니라 고객자산분리 보관, 서비스, 투자상품, 건전성비율 등을 종합 판단해야 한다. 발언은 확정적인 증권사 우열 추천이 아니라 위험 판단 원칙. · [근거](https://img.securities.miraeasset.com/download/pdf/hki3032n51.pdf) |
+| `10` | `#100` 00:04:04.840 | 상위 10개 증권사가 모두 크므로 증권사 안정성 걱정은 하지 않아도 된다는 안심성 의견을 제시한다. | QUALIFIED | 증권사의 자기자본 규모만으로 부도·유동성·고객자산·상품 신용 위험이 없어지지는 않는다. 모든 상위사 계좌·상품 절대 안전 보장은 사실이 아니라 규모에 대한 의견. 개별 재무공시/적합성 검증은 수행하지 않음. · [근거](https://img.securities.miraeasset.com/download/pdf/hki3032n51.pdf) |
+| `11` | `#143` 00:05:35.240 | RIA 계좌를 여러 증권사에 동시에 개설할 수 있지만 한도는 개인당 5,000만원이라고 설명한다. | PRIMARY_CONFIRMED | 삼성자산운용 2026년3월 RIA 가이드: 증권사별 1인1계좌, 전 금융회사 RIA 합산 적격 해외주식 매도금액 5,000만원 한도. 입고 가능한 주식 평가액과 매도금액 5,000만원 제한은 다른 개념. · [근거](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf) |
+| `12` | `#171` 00:06:32.000 | RIA에서 국내주식뿐 아니라 국내주식을 편입한 ETF도 매수할 수 있다고 설명한다. | PRIMARY_CONFIRMED | 적격 국내주식형 ETF/펀드도 RIA 내 1년 운용 가능. 단 국내상장 ETF 전부가 아니라 일정 설정경과기간과 국내상장주식 투자비중 80% 등의 상품 적격요건을 확인해야 하며 국내상장 해외투자 ETF는 구분. · [근거](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf) |
+| `13` | **영상 미발언 · 연구자 보완** | 영상이 직접 밝히지 않은 RIA 적용 대상: 2025년 12월23일 기준 적격 해외주식 보유분 수량 제한. | PRIMARY_CONFIRMED | 2025-12-23 결제 완료로 보유한 해외주식 수량과 현재 RIA로 입고할 수량 중 적은 수량이 적격. 원본 688큐에서 날짜·수량 기준이 법 설명부분에 언급되지 않으므로 강사의 실제 발언으로 기재 금지. · [근거](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf) |
+| `14` | **영상 미발언 · 연구자 보완** | 영상이 직접 설명하지 않은 RIA 원금 1년 유지·현금예탁금 허용·중도인출 불이익. | PRIMARY_CONFIRMED | 원화 결제·입금일 기준으로 원금 1년 유지, 국내주식·적격 국내주식형 ETF/펀드·원화 예탁금 운용. 1년 이전 적격 원금 중도인출은 세제혜택 취소 위험. 현금대기 가능하므로 국내주식 즉시 매수 절대의무 아님. · [근거](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf) |
+| `15` | **영상 미발언 · 연구자 보완** | 영상이 직접 설명하지 않은 RIA 외 타 계좌에서의 해외주식·해외투자 ETF 순매수에 따른 공제 축소. | PRIMARY_CONFIRMED | 일반·ISA·연금저축·IRP·DC 등 모든 금융회사 계좌의 해외주식/국내상장 해외투자 ETF·ETN·해외주식형펀드 2026년 가중 순매수액에 따라 RIA 소득공제 조정. 시점별 100/80/50 가중치·순매도 상계 적용; 모든 거래가 자동 전액 삭감인 것은 아님. · [근거](https://pension.koreainvestment.com/main/customer/notice/Notice.jsp?cmd=TF04ga000002&num=47200) |
+| `16` | **영상 미발언 · 연구자 보완** | 영상이 직접 설명하지 않은 세제 계산·양도세 신고: 손익통산·기본공제·RIA 공제 순서. | PRIMARY_CONFIRMED | 2026년 3월 삼성자산운용 RIA 가이드는 해외주식 양도소득 손익통산→기본공제 250만원→RIA 공제 계산 순서와 확정신고 시 특례신청/증빙 제출을 안내. RIA 개설 또는 매도 체결만으로 즉시 세금환급이 완료되는 것이 아님. · [근거](https://www.samsungfund.com/upload/kodex/newsroom/20260325170636388.pdf) |
+
+## 출처·승인 경계
+
+영상이 직접 말한 **12개 RIA 투자교육/증권사 규모 위험 발언**과 분석자가 추가한 **4개 필수 세무·계좌 경계**를 구분했다. 업로드 원본 비공개 SRT **688큐·53,780바이트·SHA 검증**은 완료했다. **공개 유튜브 독립 ASR과의 문자대조, 음성, 화면 검증은 미완료**라는 것을 기록에 보존한다.
+
+2026년 4월의 행사 비교는 사용자 요청에 따라 **심사 대상 아님**. 과거 혜택 내역은 기존 조사 아카이브에만 남기고 현재 연구의 미확정 검증 문턱으로 세지 않는다.
+
+[구조화 16건 원장](../data/subtitles/pilots/xIygVI-t04A.json) · [원본 대기열](../docs/SUBTITLE_VERIFICATION_QUEUE_71_100_20261013.md) · 개인자산·납세 세부사항은 실제 고객 계좌자료 없이는 검증하지 않는다.
