@@ -29,7 +29,8 @@
     "WJYWW_XXbSM",
     "vnPVjbRtZk4",
     "VxlNnm2PIiQ",
-    "uyzROR3cUl8"
+    "uyzROR3cUl8",
+    "g5PChibmY5A"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -438,17 +439,29 @@
       "cue_count": 21,
       "raw_srt_bytes": 1650,
       "sha256": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": true,
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_ON_2026-10-15",
+      "original_srt_sha_recomputed_20261015": true,
+      "private_srt_original_bytes_read_again": true,
+      "source_archive_crc_verified": true,
+      "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+      "original_normalized_sha256": "022cd98d930854425c02b0b3433ba71df1d6ab5f79f4f11cca53faddc0de01fa",
+      "public_private_normalized_sha256": "022cd98d930854425c02b0b3433ba71df1d6ab5f79f4f11cca53faddc0de01fa",
+      "normalized_text_characters": 294,
+      "normalized_whitespace_sha_match": true,
+      "individually_reviewed_claim_count": 9,
+      "report": "knowledge/VIDEO100_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md",
+      "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 12,
-  "verified_v3_claim_count": 321,
+  "verified_v3_reviewed_count": 13,
+  "verified_v3_claim_count": 330,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
-  "last_revalidated_cue_byte_hash": "14dad3386d243c1bee8a59867933bfa02a3a60602d2da0c9695ad99f08996b33",
+  "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
   "video97_original_reconciliation": {
     "checked_at": "2026-10-15",
     "video_id": "vnPVjbRtZk4",
@@ -501,5 +514,28 @@
       "original_audio_checked": false,
       "frames_checked": false
     }
-  ]
+  ],
+  "video100_original_reconciliation": {
+    "roster_no": 100,
+    "video_id": "g5PChibmY5A",
+    "archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "zip_crc": "PASS",
+    "original_srt_sha256": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
+    "raw_srt_bytes": 1650,
+    "cues": 21,
+    "original_last_cue_end": "00:00:45.640",
+    "original_cues_sequential": true,
+    "normalized_private_full_caption_sha256": "022cd98d930854425c02b0b3433ba71df1d6ab5f79f4f11cca53faddc0de01fa",
+    "normalized_public_full_korean_auto_caption_sha256": "022cd98d930854425c02b0b3433ba71df1d6ab5f79f4f11cca53faddc0de01fa",
+    "normalized_characters": 294,
+    "whitespace_normalized_full_transcript_match": true,
+    "claims_approved": 9,
+    "primary": 3,
+    "qualified": 4,
+    "speaker_opinion": 2,
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "canonical_event": "data/analysis_events/g5PChibmY5A.json",
+    "review_report": "knowledge/VIDEO100_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md"
+  }
 }
