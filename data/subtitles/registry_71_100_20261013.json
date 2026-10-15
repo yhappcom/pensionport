@@ -27,7 +27,9 @@
     "HvXLItCOd-A",
     "xIygVI-t04A",
     "WJYWW_XXbSM",
-    "vnPVjbRtZk4"
+    "vnPVjbRtZk4",
+    "VxlNnm2PIiQ",
+    "uyzROR3cUl8"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -392,10 +394,21 @@
       "cue_count": 27,
       "raw_srt_bytes": 2138,
       "sha256": "ef02b44dc5c9ed47f761efa99630284dcc32dc5718ddb636fd8e7c1d8b339770",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": true,
+      "public_private_normalized_sha256": "a985a4bb60983aa30a06f95241c13e06d93fcca5abc80ca6132ec429de1a99ff",
+      "original_normalized_sha256": "a985a4bb60983aa30a06f95241c13e06d93fcca5abc80ca6132ec429de1a99ff",
+      "original_srt_sha_recomputed_20261015": true,
+      "source_archive_crc_verified": true,
+      "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+      "individually_reviewed_claim_count": 9,
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_ON_2026-10-15",
+      "original_audio_verified": false,
+      "report": "knowledge/VIDEO98_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md",
+      "canonical_analysis": "data/analysis_events/VxlNnm2PIiQ.json",
+      "normalized_text_characters": 386
     },
     {
       "roster_no": 99,
@@ -403,10 +416,21 @@
       "cue_count": 21,
       "raw_srt_bytes": 1638,
       "sha256": "14dad3386d243c1bee8a59867933bfa02a3a60602d2da0c9695ad99f08996b33",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": true,
+      "public_private_normalized_sha256": "9eb216a23fbb908b1de6d71b304bc1db95f3dccc8b2e1735f675673c3b943432",
+      "original_normalized_sha256": "9eb216a23fbb908b1de6d71b304bc1db95f3dccc8b2e1735f675673c3b943432",
+      "original_srt_sha_recomputed_20261015": true,
+      "source_archive_crc_verified": true,
+      "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+      "individually_reviewed_claim_count": 8,
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_ON_2026-10-15",
+      "original_audio_verified": false,
+      "report": "knowledge/VIDEO99_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md",
+      "canonical_analysis": "data/analysis_events/uyzROR3cUl8.json",
+      "normalized_text_characters": 293
     },
     {
       "roster_no": 100,
@@ -420,11 +444,11 @@
       "public_asr_full_diff_verified": false
     }
   ],
-  "verified_v3_reviewed_count": 10,
-  "verified_v3_claim_count": 304,
+  "verified_v3_reviewed_count": 12,
+  "verified_v3_claim_count": 321,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
-  "last_revalidated_cue_byte_hash": "e04c76cb0c6f08affd969623450b5f56f374334f3ed4133b625b1e119ea537c2",
+  "last_revalidated_cue_byte_hash": "14dad3386d243c1bee8a59867933bfa02a3a60602d2da0c9695ad99f08996b33",
   "video97_original_reconciliation": {
     "checked_at": "2026-10-15",
     "video_id": "vnPVjbRtZk4",
@@ -445,5 +469,37 @@
     "video_claims_approved": 27,
     "contradicted_claims_explicitly_corrected": 2,
     "broker_promotions_excluded": true
-  }
+  },
+  "latest_short_v3_reconciliation_20261015": [
+    {
+      "roster_no": 98,
+      "video_id": "VxlNnm2PIiQ",
+      "cue_count": 27,
+      "claim_count": 9,
+      "srt_bytes": 2138,
+      "original_sha256": "ef02b44dc5c9ed47f761efa99630284dcc32dc5718ddb636fd8e7c1d8b339770",
+      "normalized_sha256": "a985a4bb60983aa30a06f95241c13e06d93fcca5abc80ca6132ec429de1a99ff",
+      "normalized_characters": 386,
+      "report": "knowledge/VIDEO98_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md",
+      "source_zip_crc": "PASS",
+      "public_korean_full_auto_asr_match_whitespace_normalized": true,
+      "original_audio_checked": false,
+      "frames_checked": false
+    },
+    {
+      "roster_no": 99,
+      "video_id": "uyzROR3cUl8",
+      "cue_count": 21,
+      "claim_count": 8,
+      "srt_bytes": 1638,
+      "original_sha256": "14dad3386d243c1bee8a59867933bfa02a3a60602d2da0c9695ad99f08996b33",
+      "normalized_sha256": "9eb216a23fbb908b1de6d71b304bc1db95f3dccc8b2e1735f675673c3b943432",
+      "normalized_characters": 293,
+      "report": "knowledge/VIDEO99_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md",
+      "source_zip_crc": "PASS",
+      "public_korean_full_auto_asr_match_whitespace_normalized": true,
+      "original_audio_checked": false,
+      "frames_checked": false
+    }
+  ]
 }
