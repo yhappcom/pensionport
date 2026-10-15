@@ -24,8 +24,8 @@
     "full_transcript_reviewed": true,
     "video_id_matched": true,
     "source_kind": "ORIGINAL_SRT_RECONCILED",
-    "evidence_reference": "User reuploaded private 71-100.zip CRC PASS, #96 821 cue 65277 bytes original SHA256 matched registry, original cue normalized body SHA256 identical to 821 line independent publicly fetched YouTube Korean auto transcript; no raw original text published in GitHub.",
-    "limitations": "Both texts share automatic speech recognition and no independent listening/frames. The Youtube public transcript lacks cue-level timestamps; original cue starts used. 2 math corrections are clearly tagged as researcher arithmetic clarifications; case financial details self-reported.",
+    "evidence_reference": "Reuploaded private 71-100.zip CRC passed; original #96 WJYWW_XXbSM 821 cue raw bytes SHA256 c7005f2ebd266998d5cbdb5d0cdb5132c4db3ddfff872eeca6b700f03b6d0994 matches registered metadata; private cue body and entire separately scraped public Korean YouTube auto transcript both SHA256 af4d611b0aab63f3818c957dadb551972e95508bdde8ffb18fe6486a343d3251; no raw subtitles published.",
+    "limitations": "Automatic-transcription text equality proves zero original/private vs public line text differences, NOT independent audio recognition accuracy. Public transcript lacks individual cue timestamps; only user's original auto-SRT provides cue start times. Several investor account balances and legal scenarios are hypothetical; researcher arithmetic is annotated.",
     "original_srt_sha256": "c7005f2ebd266998d5cbdb5d0cdb5132c4db3ddfff872eeca6b700f03b6d0994",
     "original_zip_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
     "original_raw_bytes": 65277,
@@ -44,7 +44,12 @@
     "public_private_cue_text_mismatch_count": 0,
     "public_transcript_has_millisecond_timestamps": false,
     "audio_checked": false,
-    "frames_checked": false
+    "frames_checked": false,
+    "public_transcript_text_exact_match": "TRUE_821_OF_821_SHA256_IDENTICAL",
+    "original_audio_checked": false,
+    "original_frames_checked": false,
+    "public_private_text_normalization": "Trim outer whitespace, join 821 ordered private cue-body rows with \\n; exact public transcript markdown after ## Transcript; identical SHA256",
+    "original_cue_text_match_count": 821
   },
   "claims": [
     {
@@ -1311,28 +1316,28 @@
       "claim_id": "WJYWW_XXbSM-46",
       "timecode": "00:14:06",
       "watch_url": "https://www.youtube.com/watch?v=WJYWW_XXbSM&t=846s",
-      "source_paraphrase": "세 개 과세연도에만 ISA 각2000만원을 납입해도 각8000만원이 된다는 보편적 계산은 성립하지 않는다",
-      "claim_role": "RESEARCHER_ARITHMETIC_CORRECTION_OF_SPEAKER_EXAMPLE",
-      "source_utterance_match_status": "ORIGINAL_PRIVATE_SRT_AUTO_CAPTION_ANCHORED",
+      "source_paraphrase": "ISA 3년·8,000만원 적립 구상의 성립 조건에 대한 연구자 재계산",
+      "claim_role": "RESEARCHER_ARITHMETIC_CLARIFICATION_NOT_AN_INDEPENDENT_SPEAKER_MISTAKE",
+      "source_utterance_match_status": "SPEAKER_NEARBY_EXAMPLE_RESEARCHER_MATH_CLARIFICATION",
       "private_srt_cue_anchor": {
         "cue_index": 407,
         "start_time": "00:14:06:920",
         "source_precision": "REGISTERED_USER_ORIGINAL_AUTO_SRT_CUE_START_NOT_WORD_ONSET"
       },
-      "assessment": "CONTRADICTED",
+      "assessment": "QUALIFIED",
       "independent_check": "영상은 3년과 8000만원을 연결해 설명한다. 2000만원×3개 연도=6000만원. 8000만원은 개설과 만기 사이 **4개 납입연도**를 실제 활용할 때만 가능. 특정 사연의 계약개설일 미확인이라 영상의 구체적 3년 계획 충족을 입증하지 못함",
       "official_sources": [
         "https://www.knbank.co.kr/ib20/mnu/FPMISA100000000"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://www.knbank.co.kr/ib20/mnu/FPMISA100000000",
         "source_finding": "영상은 3년과 8000만원을 연결해 설명한다. 2000만원×3개 연도=6000만원. 8000만원은 개설과 만기 사이 **4개 납입연도**를 실제 활용할 때만 가능. 특정 사연의 계약개설일 미확인이라 영상의 구체적 3년 계획 충족을 입증하지 못함",
         "effective_date_or_scope": "Recorded 2026-04-14, released 2026-04-19; ISA 2026 tax rules apply, future profits hypothetical; user's private tax records not verified.",
         "disposition": "영상은 3년과 8000만원을 연결해 설명한다. 2000만원×3개 연도=6000만원. 8000만원은 개설과 만기 사이 **4개 납입연도**를 실제 활용할 때만 가능. 특정 사연의 계약개설일 미확인이라 영상의 구체적 3년 계획 충족을 입증하지 못함",
         "basis": "Registered private 821 consecutive auto-SRT cue original SHA rechecked, exact complete 821/821 public Korean auto-caption line SHA corroborated; statute, bank/issuer guidance or arithmetic independently cross-checked.",
-        "correction": "영상은 3년과 8000만원을 연결해 설명한다. 2000만원×3개 연도=6000만원. 8000만원은 개설과 만기 사이 **4개 납입연도**를 실제 활용할 때만 가능. 특정 사연의 계약개설일 미확인이라 영상의 구체적 3년 계획 충족을 입증하지 못함"
+        "correction": "Numerical precision caution, not a false direct quote. A 4-contribution-year period can allow 80m even over about 3 calendar years; 1.67m is the speaker's rounded shorthand for 20m/12."
       },
       "timecode_precision": "USER_ORIGINAL_KOREAN_AUTO_SRT_CUE_START_MILLISECOND_NO_AUDIO"
     },
@@ -1340,28 +1345,28 @@
       "claim_id": "WJYWW_XXbSM-47",
       "timecode": "00:15:35",
       "watch_url": "https://www.youtube.com/watch?v=WJYWW_XXbSM&t=935s",
-      "source_paraphrase": "ISA 한도 2000만원을 월167만원씩 12회 이체하면 정확히 2000만원 한도라는 계산",
-      "claim_role": "RESEARCHER_ARITHMETIC_CORRECTION_OF_SPEAKER_EXAMPLE",
-      "source_utterance_match_status": "ORIGINAL_PRIVATE_SRT_AUTO_CAPTION_ANCHORED",
+      "source_paraphrase": "연간2천만원을 월 약167만원으로 나누는 교육예시의 실제 이체한도 보정",
+      "claim_role": "RESEARCHER_ARITHMETIC_CLARIFICATION_NOT_AN_INDEPENDENT_SPEAKER_MISTAKE",
+      "source_utterance_match_status": "SPEAKER_NEARBY_EXAMPLE_RESEARCHER_MATH_CLARIFICATION",
       "private_srt_cue_anchor": {
         "cue_index": 450,
         "start_time": "00:15:35:759",
         "source_precision": "REGISTERED_USER_ORIGINAL_AUTO_SRT_CUE_START_NOT_WORD_ONSET"
       },
-      "assessment": "CONTRADICTED",
+      "assessment": "QUALIFIED",
       "independent_check": "167만원×12=2004만원, 연2000만원보다4만원 초과. '월167정도' 근사치로 설명한 것이므로 화자의 실발언을 자동적 정확한 계산 약속으로 귀속하지 않되 실무 자동납입은 166만6666원 이하와 마지막 달 차액조정",
       "official_sources": [
         "https://consumer.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "checked_at": "2026-10-15",
         "primary_url": "https://consumer.kiwoom.com/mobwm/isa/ia010/MobISAInfoView",
         "source_finding": "167만원×12=2004만원, 연2000만원보다4만원 초과. '월167정도' 근사치로 설명한 것이므로 화자의 실발언을 자동적 정확한 계산 약속으로 귀속하지 않되 실무 자동납입은 166만6666원 이하와 마지막 달 차액조정",
         "effective_date_or_scope": "Recorded 2026-04-14, released 2026-04-19; ISA 2026 tax rules apply, future profits hypothetical; user's private tax records not verified.",
         "disposition": "167만원×12=2004만원, 연2000만원보다4만원 초과. '월167정도' 근사치로 설명한 것이므로 화자의 실발언을 자동적 정확한 계산 약속으로 귀속하지 않되 실무 자동납입은 166만6666원 이하와 마지막 달 차액조정",
         "basis": "Registered private 821 consecutive auto-SRT cue original SHA rechecked, exact complete 821/821 public Korean auto-caption line SHA corroborated; statute, bank/issuer guidance or arithmetic independently cross-checked.",
-        "correction": "167만원×12=2004만원, 연2000만원보다4만원 초과. '월167정도' 근사치로 설명한 것이므로 화자의 실발언을 자동적 정확한 계산 약속으로 귀속하지 않되 실무 자동납입은 166만6666원 이하와 마지막 달 차액조정"
+        "correction": "Numerical precision caution, not a false direct quote. A 4-contribution-year period can allow 80m even over about 3 calendar years; 1.67m is the speaker's rounded shorthand for 20m/12."
       },
       "timecode_precision": "USER_ORIGINAL_KOREAN_AUTO_SRT_CUE_START_MILLISECOND_NO_AUDIO"
     }
@@ -1369,8 +1374,8 @@
   "claim_count": 47,
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 15,
-    "QUALIFIED": 28,
-    "CONTRADICTED": 2,
+    "QUALIFIED": 30,
+    "CONTRADICTED": 0,
     "HYPOTHETICAL": 2
   },
   "core_message": "Two user cases: (1) 40yo family expects to spend returned jeonse deposit of KRW100–200m on housing in ~3yr. ISA annual KRW20m per person, lifetime contributed max KRW100m, carryover and up to four contribution calendar years in ~3 actual years conditionally permits KRW80m per spouse. Monthly KRW1.67m×12 slightly exceeds annual quota and 36 months funds just KRW60m per person; issued notes are unsecured credit-risk securities and a 3yr dividend ETF cannot guarantee gains; DCA reduces timing concentration but historical global lump-sum usually outperformed cash-phase-in. (2) 45yo with apparently zero year-end liability: annual pension tax-credit base KRW6m savings+KRW3m IRP; non-credited pension principal can be taken tax-free but earnings taxable; ISA can be used for shorter liquidity, pension transfer additional 10% max KRW3m extra contribution credit base not guaranteed refunded tax, IRP withdrawals tightly restricted, marriage/childbirth gift KRW100m exemption only if legal conditions.",
@@ -1412,7 +1417,8 @@
     "Case's actual brokerage balances, household source of spouse funds, broker-issued-note risk tolerance, IRP contribution tax verification and gift history inaccessible.",
     "Issued-note parking is credit-risk investment not government-insured principal; housing money in 3yrs may be exposed to equity drawdowns.",
     "Valuation/statistical Vanguard analysis on global equities 3-month DCA must not be extrapolated as definitive Korean dividend ETF 3-year forecasting.",
-    "44 analyzed items include two additional explicit researcher arithmetic correction rows; not necessarily 44 independent literal assertions by video speaker."
+    "47 analyzed items include two additional explicit researcher arithmetic clarification rows; not necessarily 44 independent literal assertions by video speaker."
   ],
-  "verification_status": "ORIGINAL_821_CUE_FULL_PUBLIC_ASR_EXACT_TEXT_MATCHED_SOURCE_SCOPED_44_FINANCIAL_EDUCATION_ITEMS_PENDING_V3_GATE"
+  "verification_status": "V3_READY_CLAIM_SCOPED_47_ITEMS_PRIVATE_SHA_PUBLIC_TEXT_MATCH_OFFICIAL_RULES_WITH_NO_AUDIO",
+  "review_phase": "PRIVATE_SOURCE_821_CUE_SHA_PUBLIC_ASR_821_LINE_MATCHED_OFFICIAL_POLICY_SCOPED_REVIEW"
 }
