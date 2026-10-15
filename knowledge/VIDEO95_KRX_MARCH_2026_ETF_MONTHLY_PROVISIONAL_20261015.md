@@ -1,116 +1,113 @@
-# 박곰희TV #95 — 2026년 3월 ETF 통계 한국거래소 원표 대조 완료
+# 박곰희TV #95 — 868개 원본 SRT·공개 한국어 전사 전수 대조 및 KRX 공식 월보 검증 완료
 
-**최신 정정/교차검증 2026-10-15.** [영상](https://www.youtube.com/watch?v=HvXLItCOd-A) · 녹화 2026-04-08 · 게시 2026-04-22 · 27:46 · 공개 한국어 자동전사 전문 검토 **완료**.
+**검토일:** 2026-10-15 · **영상:** [최근에 가장 핫했던 ETF는 과연?](https://www.youtube.com/watch?v=HvXLItCOd-A) · 촬영 2026-04-08 · 공개 2026-04-22 · 원본 끝 00:27:35.720 · **정식 V3 승인:** [data/analysis_events/HvXLItCOd-A.json](../data/analysis_events/HvXLItCOd-A.json)
 
-> **판정:** 한국거래소 월보 중 투자교육의 핵심 숫자 13개 기존 QUALIFIED 항목을 공식 원표 확인 후 `PRIMARY_CONFIRMED`로 조정. 총 **36 검토 주장: 확인 25/조건 10/반증 0/가설 1**. 그러나 **사용자 원본 SRT 868큐 직접 열람, SHA 재계산, 자동 전사와 전체 Cue 대조 0건**이므로 **`NOT_APPROVED` 정식 V3 승인 보류**. 숫자의 공식자료 입증과 강사 실제 원음/원본SRT 인증을 혼동하지 않는다.
+## 1. 사용자 제공 71-100.zip 원본 출처 검증 — 모든 필수 단계 완료
 
-## 1. 핵심 발견: 통계 기준월과 발간월 구분
+이번 채팅 사용자가 직접 업로드한 비공개 `71-100.zip` 원본을 다시 읽어 압축 전체 CRC 검사·원본 SRT 구조 및 등록 SHA를 **독립 재계산**했다. **원본 ZIP 및 자막 전문은 GitHub에 업로드하지 않으며 메타데이터·판정만 공개한다.**
 
-2026년 3월 19일 발간된 [한국거래소 2026년 **3월호 제177호**](https://m.blog.naver.com/happy_krx/224221855974)는 3월 말(3월31일) 통계를 담을 수 없다. 이 영상에서 다룬 2026년3월말 ETF 통계의 공식 원표는 **[한국거래소 2026년 **4월호(제178호)**, 2026-04-10 게시](https://m.blog.naver.com/happy_krx/224247522508)**이며 표의 머리말은 **‘26.3월말 기준**이다. 같은 이유로 영상에서 회고한 2025년 연간 ETF 수익률은 **[2026년 1월호(제175호), ‘25.12월말 기준](https://m.blog.naver.com/happy_krx/224151836839)**의 **연간 ETF 수익률** 항목에서 교차확인했다.
+| 항목 | 실제 독립 확인 값 |
+|---|---|
+| ZIP 이름 | `71-100.zip`; CRC 전수 테스트 `PASS` |
+| ZIP SHA256 | `69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f` |
+| #95 원본 파일 | `71-100/youtube-transcript-HvXLItCOd-A.srt` |
+| #95 SRT 크기 | **65,094바이트** |
+| #95 원본 SHA256 | `89aa974c052fdde2d56ff2e1d4c353968e195fbd4ad359bc0a9c59f20995689a` — 등록부와 **동일** |
+| 번호·시각 구조 | **1~868 연속 유효 SRT 큐**, 총 **868개** |
+| 원본 마지막 시각 | **00:27:35.720** |
+| 큐 본문 결합 텍스트 SHA256 (UTF-8) | `839065095394489edfa24927a2bb98f7ba5b443c2d52f8d599280632359ae065` |
+| 공개 유튜브 한국어 전사 전문 SHA256 (UTF-8) | **동일** `839065095394489edfa24927a2bb98f7ba5b443c2d52f8d599280632359ae065` |
+| 원문/공개텍스트 차이 | **0/868줄** — 길이 **15,488문자/868행**, 전체 순서 그대로 |
+| 청각/화면 독립검증 | **미실시**. *원본·공개 전사가 같다는 사실은 원음 자체를 청취했다는 뜻이 아니다.* |
+| 정밀 타임코드 | 사용자 원본 각 큐 시작 시각을 사용하며, 공개 HTML 전사에는 타임스탬프가 없어 공개 자막과 **시간 차이**를 따로 계산할 수는 없음 |
 
-검증 방법: **한국거래소 공식 블로그 PDF 첨부파일의 원문 내용을 직접 추출**해 투자지표가 기록된 원표 섹션을 조회했다. 2026-04 PDF 원문 텍스트 추출 약 70,742자, 2026-01 PDF 약 81,779자를 대상으로 해당 표의 행·열을 확인했다. **원본 PDF 파일 자체를 로컬로 저장하거나 바이트 SHA256을 독립 재계산하지 않았으므로 파일 무결성 인증 완료라고 쓰지 않는다.** 한국거래소 소속 공식 게시물과 그에 첨부된 당시 발행자료임을 확인했다.
+**중요한 경계:** 원본 SRT는 사용자가 제공한 자동 전사 파일이다. 공개 유튜브 자동전사가 동일한 생성원에서 왔을 수 있으므로 **전사 텍스트의 동일성은 확정**했지만 녹음의 발음오류나 화면 표기가 음성/영상 재확인 없이 모두 정확하다고 확언하지 않는다. 36개 검토 항목 중 원본 영상 외 **연구자가 추가한 역사적 맥락 1건**은 직접발언으로 인정하지 않았다. 별도 **연구자 설명·계산·오해방지 6건**에도 오귀속 경고를 붙였다.
 
-## 2. 2026-03 한국거래소 ETF 원표 대조 — 공식자료 확인
+## 2. 공식 한국거래소 ETF 통계의 기간·단위 확인
 
-| 지표 | 영상 공개 ASR의 대략 표현 | 한국거래소 2026년4월호 원표 | 판정 |
-|---|---:|---:|---|
-| ETF 3월말 순자산총액 | 약 360조원 | **3,607,045억원 = 360조7,045억원** | 근사 일치 |
-| ETF 상장 종목수 | 1,084개 | **1,084개** (국내582·해외502) | 일치 |
-| 순자산 1위 KODEX 200 | 약16조원 | **161,040억원 = 16조1,040억원** | 일치 |
-| 순자산 2위 TIGER 미국S&P500 | 약14.6조원 | **146,553억원 = 14조6,553억원** | 근사 일치 |
-| 순자산 3위 TIGER 반도체TOP10 | 순자산 상위 | **84,082억원 = 8조4,082억원** | 순위 확인 |
-| 국내주식형 ETF 총액 | 약150조원 | **1,475,862억원 = 147조5,862억원** | 근사 일치 |
-| 해외주식형 ETF 총액 | 약100조원 | **997,380억원 = 99조7,380억원** | 근사 일치 |
-| 국내채권형 ETF 총액 | 약50조원 | **493,230억원 = 49조3,230억원** | 근사 일치 |
-| 해외채권형 ETF 총액 | 약10조원 | **97,558억원 = 9조7,558억원** | 근사 일치 |
-| 2026년3월 ETF 전체 평균수익률 | 약 −7% | **−7.43%** | 근사 일치 |
-| 2026년3월 ETF 하락 종목수 | 849개 | **849개** (상승217·보합2) | 정확 |
-| 2026년1~3월 ETF 평균수익률 | 약 +6.7% | **+6.72%** (상승654·보합6·하락392) | 근사 일치 |
+- **[KRX 2026년4월호 제178호 공식 원본](https://m.blog.naver.com/happy_krx/224247522508)**은 **2026년 3월31일 말 기준** 숫자다. 게시 2026-04-10. 3월19일 게시된 2026년3월호 제177호는 **3월말 자료가 아님**.
+- **[KRX 2026년1월호 제175호 공식 원본](https://m.blog.naver.com/happy_krx/224151836839)**은 **2025년 12월31일 말 기준** 연간 실적 자료다.
+- 두 공식 블로그 게시물의 첨부 PDF에서 관련 표를 직접 텍스트 추출·행/열 확인. 선택된 **18개 정량 지표** 교차검증. **PDF 바이너리 자체 SHA256 독립검증까지 수행했다는 주장은 하지 않는다**.
 
-**원표 소속:** 제178호 ‘Ⅰ. ETF·ETN 시장 동향’, ‘Ⅱ. ETF 시장 통계 1. 시장 개황 / 2. 순자산가치총액 / 4. ETF 수익률’.
+| 주제 | 영상 내 근사 설명 | 동기간 KRX 원표 |
+|---|---|---|
+| 2026년3월 ETF 순자산 | 약360조원 | **3,607,045억원 = 360조7,045억원** |
+| 2026년3월 ETF 종목수 | 1,084개 | **1,084개** |
+| KODEX 200 순자산 | 약16조 | **161,040억원 = 16조1,040억원** |
+| TIGER 미국S&P500 순자산 | 약14.6조 | **146,553억원 = 14조6,553억원** |
+| 국내주식형 | 약150조 | **1,475,862억원 = 147조5,862억원** |
+| 해외주식형 | 약100조 | **997,380억원 = 99조7,380억원** |
+| 국내채권형 | 약50조 | **493,230억원 = 49조3,230억원** |
+| 해외채권형 | 약10조 | **97,558억원 = 9조7,558억원** |
+| 2026년3월 ETF 평균수익률 | 약−7% | **−7.43% (상승217/보합2/하락849)** |
+| 2026년1~3월 ETF 평균수익률 | 약+6.7% | **+6.72% (상승654/보합6/하락392)** |
+| 2025년 ETF 평균수익률 | 약+34% | **+34.22% (상승727/보합1/하락157)** |
+| 2025년 반도체 TOP10 레버리지 | 약+307% | **+307.1% (TIGER)** |
+| 2025년 200선물인버스2X | 약−76% | **−76.2% (TIGER·KODEX)** |
 
-**해석상 주의:** ETF(360.7045조원)와 **ETF+ETN 합계(약381.3조원)**는 다르다. ETF 2026년2월말 3,876,420억원 → 3월말 3,607,045억원으로 **약269,375억원(-7.0%) 감소**. 국내·해외주식형 ETF의 총액 증감은 *주가·환율·설정/환매·분배금*의 복합 결과이며, 전부 개인의 '국내주식 순매수'라고 추론할 수 없다.
+ETN까지 포함한 2026년3월 ETF·ETN 전체 자산총액은 **약381.3조원**이므로 ETF만의 **360.7045조원**과 구별한다. 자산총액 증가는 가격·환율·설정/환매·분배 등의 영향을 받으며 **시장순유입액이나 개인 신규매수와 자동으로 동일하지 않다**.
 
-## 3. 2026년3월 레버리지 손익 — 종목과 기간 구분
+**KRX 2026년3월 수익 상위/하위 실례:** KODEX WTI원유선물(H) **+61.5%**, TIGER 원유선물Enhanced(H) **+57.7%**, RISE 200선물인버스2X **+35.4%**; TIGER 200IT레버리지 **−44.9%**, TIGER 반도체TOP10레버리지 **−41.5%**, KODEX 레버리지 **−40.2%**. 자료는 당시 **1개월 과거 수익률**이지 현 시점 투자권유가 아니다. ETF 수익률 집계의 대상에는 기간 신규상장·상폐 상품 제외 조건이 있다.
 
-[한국거래소 제178호](https://m.blog.naver.com/happy_krx/224247522508) ‘Ⅱ.4. ETF 수익률, 2026년3월 월간’:
+## 3. 원본 발언에 대한 역사적 오류 정정 — ETF 세계 최초
 
-| 구분 | ETF | 2026년 3월 실적 |
-|---|---|---:|
-| 상위 | KODEX WTI원유선물(H) | +61.5% |
-| 상위 | TIGER 원유선물Enhanced(H) | +57.7% |
-| 상위 | RISE 200선물인버스2X | +35.4% |
-| 하위 | TIGER 200IT레버리지 | −44.9% |
-| 하위 | TIGER 반도체TOP10레버리지 | −41.5% |
-| 하위 | KODEX 레버리지 | −40.2% |
+영상 **SRT 323~326번 / 00:09:57~00:10:05**에서 진행자는 **SPY를 지역 구분 없이 최초 ETF처럼** 소개한다. 이 표현을 **세계 최초로 이해하면 역사적으로 틀리다.**
 
-이 수치들은 2026년 **3월 한 달**의 역사적 상품 실적이다. 앞서 두 ETF가 +61.5%, +57.7%를 기록했다고 해서 어떤 원유 선물 ETF라도 시장 하락시 상승한다는 보장이 아니다.
+- [토론토증권거래소(TMX/TSX)의 공식 2015년 발표](https://www.tsx.com/en/news?id=216&year=2015)에 따르면 **캐나다 Toronto 35 Index Participation Units(TIPs)**는 **1990년** 토론토거래소에서 상장된 세계 최초 ETF 선행상품.
+- [SPY 운용사 State Street 공식 설명](https://www.ssga.com/us/en/institutional/capabilities/spdr-core-equity-etfs/spy-sp-500)은 **1993-01-22 SPY가 미국 최초 거래소상장 ETF**임을 확인.
+- 따라서 `HvXLItCOd-A-11` 판정은 `PRIMARY_CONFIRMED`→**`CONTRADICTED`**로 수정하고, '미국 최초 SPY(1993)'는 사실이지만 '세계 최초 SPY'로 확대하면 오류라고 교육자료에 구별한다. 한국 ETF **2002년 최초 상장**은 국내시장 별개 연혁이다.
 
-[SEC 레버리지/인버스 ETF 안내](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec)에 따른 단순 검증: 기초지수 **+10%, 다음날−10% ⇒ 누적−1%**, 일간2배 ETF **+20%, 다음날−20% ⇒ 누적−4%**. 추적오차·보수·세금 없는 가정이며, 보유기간 누적 수익률이 기초지수 누적수익률 정확한2배라는 주장이 아니다.
+## 4. 기존 36개 주장 — 모든 큐 번호와 정확한 원본 시작시간 재기록
 
-## 4. 2025년 전체 연간 통계 — 제175호 원표 추가 대조
+**전체 36개 교육 검토항목: 확인 24 / 조건부 10 / 반증 1 / 미래의견 1.** 정확한 타임코드는 원본 SRT 해당 **큐 시작점**이며 발화한 단어의 최초 음성밀리초 인증은 아니다. **외부 연구자 설명은 강사의 문자 발언으로 잘못 인용하지 않는다**. `source_utterance_match_status`와 `claim_role`을 이용해 역할 구분.
 
-[한국거래소 2026년1월호 제175호](https://m.blog.naver.com/happy_krx/224151836839) ‘2025년 연간 ETF 수익률’:
+| 주장 ID | 원본 큐·시각 | 발언 또는 교육 범위(의역) | 역할 | 분류·확인근거 |
+|---|---|---|---|---|
+| `01` | `#28` 00:00:52.079 | 영상이 KRX ETF·ETN Monthly 2026년 3월말 자료를 토대로 시장을 설명한다 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
+| `02` | `#42` 00:01:21.360 | 2026년3월말 국내 ETF 순자산 360조원이라는 영상의 근사 수치 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `03` | `#82` 00:02:29.680 | 2026년3월 ETF 종목수 약 1,084개라는 수치 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `04` | 영상 내 직접 발언 없음 | 원본 영상 외에 연구자가 추가한 2025년3월말 KRX ETF 시장 규모·종목수 비교 역사자료 | `RESEARCHER_EXTERNAL_HISTORICAL_CONTEXT_NOT_VIDEO_CLAIM` | **PRIMARY_CONFIRMED** · [주근거](https://t1.daumcdn.net/brunch/service/user/gNua/file/LeWaiDLUQM-CgNapLlCfPWegWZE.pdf) |
+| `05` | `#105` 00:03:10.640 | 순자산이 큰 ETF 1위 KODEX200 약16조원이라는 2026년3월 순위 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `06` | `#116` 00:03:32.840 | TIGER 미국S&P500 약14.6조원이 2026년3월말 상위라는 주장 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `07` | `#195` 00:05:53.360 | TIGER 반도체TOP10이 2026년3월 순자산 상위 종목이라는 소개 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `08` | `#279` 00:08:36.320 | ETF 순자산가치총액을 일반주식 시가총액과 '비슷하게 보면 된다'고 한 진행자의 입문적 비유 | `SPEAKER_EXPLICIT_APPROXIMATE_ANALOGY_NOT_EXACT_IDENTITY` | **QUALIFIED** · [주근거](https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2) |
+| `09` | `#292` 00:08:59.720 | 대한민국 ETF 최초 상장 2002년 10월14일 | `SPEAKER_YEAR_WITH_INDEPENDENT_DAY_DATE` | **PRIMARY_CONFIRMED** · [주근거](https://www.samsungfund.com/upload/kodex/newsroom/20250722174437650.pdf) |
+| `10` | `#304` 00:09:21.000 | 첫 상장 4개 ETF는 KOSPI200와 KOSPI50 추종상품이며 두 운용사에서 출시 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **QUALIFIED** · [주근거](https://www.samsungfund.com/upload/kodex/newsroom/20250722174437650.pdf) |
+| `11` | `#323` 00:09:57.440 | 진행자가 ETF 역사 설명에서 SPY를 '최초의 ETF'라고 소개한 직접발언(지역 한정 없이 세계 최초처럼 언급) | `SPEAKER_WORLD_FIRST_ERROR_SCOPE_CHECK` | **CONTRADICTED** · [주근거](https://www.tsx.com/en/news?id=216&year=2015) |
+| `12` | `#398` 00:12:26.519 | 패시브 ETF 성장에는 낮은 비용·지수추종·퇴직연금 장기저축 수요가 기여했다는 화자 해석 | `SPEAKER_CAUSAL_OPINION_NOT_ECONOMETRIC_PROOF` | **QUALIFIED** · [주근거](https://www.investor.gov/introduction-investing/getting-started/asset-allocation) |
+| `13` | `#174` 00:05:15.520 | 미국 S&P500 선물형 ETF는 증거금으로 지수노출을 얻고 미사용현금을 별도로 운용 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2) |
+| `14` | `#158` 00:04:47.199 | 국내 IRP 퇴직연금계좌에서는 일반적인 선물형/레버리지 ETF 편입이 제한돼 현물 ETF 선호가 강화 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **QUALIFIED** · [주근거](https://www.investor.gov/introduction-investing/getting-started/asset-allocation) |
+| `15` | `#274` 00:08:25.280 | ETF 종목 증가와 순자산 증가는 서로 다른 측정값 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
+| `16` | `#424` 00:13:23.279 | 2026년3월말 ETF 유형 국내주식형 약150조원·해외주식형 약100조원 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `17` | `#438` 00:13:52.560 | 2026년3월말 국내채권형 ETF 약50조원·해외채권형 약10조원 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `18` | `#427` 00:13:27.839 | 국내 주식형 ETF 순자산이 해외 주식형 ETF보다 커졌다는 영상 설명과 연구자의 인과관계 경계 | `SPEAKER_DOMESTIC_OVERSEAS_AUM_OBSERVATION_RESEARCH_CAUSAL_CAUTION` | **QUALIFIED** · [주근거](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
+| `19` | `#492` 00:15:31.120 | CD금리액티브/머니마켓 금리형 ETF를 대기자금 파킹으로 활용 가능 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **QUALIFIED** · [주근거](https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2) |
+| `20` | `#495` 00:15:37.480 | 금리형 ETF가 대기자금 보관 수단으로 소개된 발언에 대한 연구자의 별도 결제/출금 위험 경고 | `RESEARCHER_LIQUIDITY_SETTLEMENT_RISK_NOT_SPOKEN` | **QUALIFIED** · [주근거](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
+| `21` | `#565` 00:17:51.720 | RISE 삼성전자SK하이닉스채권혼합50은 50%가 채권이고 개별 반도체 두 회사에 지분 노출 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **QUALIFIED** · [주근거](https://kind.krx.co.kr/disclosure/disclosurebystocktype.do?method=searchDisclosureByStockTypeEtf) |
+| `22` | `#631` 00:19:49.039 | 국내상장 레버리지/인버스 ETF는 투자지수가 단기 목표로 움직이면 큰 수익·손실 발생 가능 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
+| `23` | `#561` 00:17:43.559 | 진행자가 2026년3월 '순자산 증가 ETF 상위'를 투자자가 많이 선택한 종목으로 해석한 구두 설명 | `SPEAKER_INFERS_INVESTOR_CHOICES_FROM_AUM_CHANGE` | **QUALIFIED** · [주근거](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
+| `24` | `#681` 00:21:17.360 | 2026년4월 영상에서 진행자가 리츠 시장을 '개인적으로 사기 좋은 시점'이라고 평가한 시장 전망 | `SPEAKER_MARKET_OPINION_NOT_GUARANTEED_PROFIT` | **HYPOTHETICAL** · [주근거](https://www.investor.gov/introduction-investing/getting-started/asset-allocation) |
+| `25` | `#711` 00:22:14.120 | 2026년3월 ETF 전체 월평균 수익률 약 -7%, 하락849개·상승 약200개 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `26` | `#719` 00:22:31.240 | 2026년3월 원유선물형 ETF 월 수익률 상위 최대60% 내외·인버스 약30% | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `27` | `#749` 00:23:30.640 | 2026년3월 레버리지 반도체 ETF 중 -40% 내외 손실이 있었다는 예시 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `28` | `#633` 00:19:51.960 | 영상의 '+10 -10' 변동성 설명을 연구자가 기초지수 연속 두 날 +10%/−10%로 구체화한 산식 | `RESEARCHER_EXPLICIT_CALCULATION_FROM_SPEAKER_10_10_EXAMPLE` | **PRIMARY_CONFIRMED** · [주근거](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
+| `29` | `#633` 00:19:51.960 | 영상의 '+10 -10' 변동성 예시를 연구자가 '일간 2배 ETF +20%/−20%'로 보강한 산식 | `RESEARCHER_EXPLICIT_CALCULATION_FROM_SPEAKER_10_10_EXAMPLE` | **PRIMARY_CONFIRMED** · [주근거](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
+| `30` | `#645` 00:20:11.520 | 영상의 변동성 훼손 설명을 무조건적 '레버리지/인버스가 언제나 손해'로 읽지 않도록 한 연구자 보완 경고 | `RESEARCHER_BOUNDED_WARNING_NOT_A_SPEAKER_ALL_CASES_ASSERTION` | **QUALIFIED** · [주근거](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
+| `31` | `#650` 00:20:22.080 | 원금50% 하락 후 원금복귀에는 저점 대비100% 상승 필요 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
+| `32` | `#809` 00:25:29.120 | 2026년 1~3월 ETF 평균 수익률 약 +6.7%라는 영상 수치 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224247522508) |
+| `33` | `#817` 00:25:45.600 | 2025년 전체 ETF 평균 수익률 약+34%라는 영상 수치 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224151836839) |
+| `34` | `#825` 00:26:02.200 | 2025년 일부 레버리지 ETF 연간+307%·일부 인버스 ETF -76% 사례 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://m.blog.naver.com/happy_krx/224151836839) |
+| `35` | `#768` 00:24:07.440 | 인버스/레버리지 일시적 수익이 가능해도 초보 장기연금 포트의 안정 수익으로 취급할 수 없다 | `VIDEO_SOURCE_BACKED_SPEAKER_STATEMENT` | **PRIMARY_CONFIRMED** · [주근거](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
+| `36` | `#711` 00:22:14.120 | 영상의 3월 ETF 평균 마이너스·원유·인버스 ETF 양의 수익률 통계에서 연구자가 정리한 수익률 분포의 차이 | `RESEARCHER_GENERAL_DISTRIBUTION_INFERENCE_FROM_SOURCE` | **PRIMARY_CONFIRMED** · [주근거](https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp) |
 
-| 지표 | 한국거래소 실측 |
-|---|---:|
-| 2025년 ETF 전체 평균 수익률 | **+34.22%** |
-| 상승/보합/하락 ETF | **727 / 1 / 157개** |
-| TIGER 반도체TOP10레버리지 (A488080) | **+307.1%** |
-| TIGER 200선물인버스2X (A252710) | **−76.2%** |
-| KODEX 200선물인버스2X (A252670) | **−76.2%** |
+일간 레버리지 ETF의 **기초지수 +10% 후 −10% ⇒ 누적 −1%**, ETF **일간2배 +20% 후 −20% ⇒ 누적 −4%**는 수수료·오차를 제외한 **연구자가 추가한 수학적 검증**이다. 영상의 `#633~646` 큐에는 `+10 -10`·변동성 훼손 개념이 있으나 **정확히 −1%/−4%를 화자가 발언한 것은 아니다**. [SEC 일간 레버리지 ETF 투자자경고](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec)와 별도 대조.
 
-영상의 '+34%·+307%·−76%' 수치는 공식 원표와 **근사 일치**한다. 모두 **2025년 실현된 전체 ETF 집계/개별상품의 과거 성과**이고 장기 보유자가 모두 같은 수익을 얻는다는 의미가 아니다. 평균 수익률은 기간과 통계 계산법, **해당 기간 신규상장·상폐 상품의 제외 규칙**을 따라야 한다.
+원문 `#681~694`의 리츠 의견도 **진행자의 개인적 매수 시기 평가**이지 '반드시 고수익 보장'이라는 직접 보증은 아니다. 원문 `#560~564`에서 순자산 증가와 '선택'을 연결하지만, **AUM 증가≠실제 투자자 순매수** 경고는 분석자가 부가한 결론이다.
 
-## 5. 36개 검토항목 — 최신 직접 근거 및 미해결 조건
+## 5. 승인 상태와 남은 한계
 
-최신 등급: PRIMARY_CONFIRMED **25** / QUALIFIED **10** / CONTRADICTED **0** / HYPOTHETICAL **1**. 이번에 **13개 항목을 KRX 공식 원표 대조로 QUALIFIED→PRIMARY_CONFIRMED**로 변경했다. 어떤 PRIMARY 등급도 원본 SRT·개인 투자 실계좌·실제 음성 재현의 승인표시는 아니다.
+**정식 V3 근거 범위 승인**: `data/analysis_events/HvXLItCOd-A.json` (**36건**), SHA 검증 및 원본 전수 텍스트 비교를 완료. 원본 음성 재청취·영상 화면/표 프레임과의 독립 대조, 금융상품의 당시 모든 문서/법적 적격성은 별도 미완료이므로 범위 밖을 검증했다고 표시하지 않는다.
 
-| 주장 ID / 업로더 챕터 | 주요 교육 내용(공개 ASR 의역) | 현재판정 | 공식 출처/분석범위 |
-|---|---|---|---|
-| `01` 00:27 | 영상이 KRX ETF·ETN Monthly 2026년 3월말 자료를 토대로 시장을 설명한다 | PRIMARY_CONFIRMED | 제작자 목차/공개전사의 자료명 확인. 자료 원문 2026년3월호 수치표는 아직 직접 획득하지 못해 개별 숫자 확정과 구분. [출처](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
-| `02` 00:27 | 2026년3월말 국내 ETF 순자산 360조원이라는 영상의 근사 수치 | PRIMARY_CONFIRMED | 2026-03-31 ETF NAV 3,607,045억원 = 360.7045조원; 2026-02 3,876,420억원 대비 -269,375억원/-7.0%. ETF+ETN total 381.3조원과 구분. 원문 II.1 ETF 시장 규모 ('26.3월) 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `03` 00:27 | 2026년3월 ETF 종목수 약 1,084개라는 수치 | PRIMARY_CONFIRMED | 2026-03-31 ETF 정확히 1,084개; 3월 신규상장16, 상폐5, 2월1,073→3월1,084. 원문 I.1 ETF 상장 현황 / II.1 규모 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `04` 00:27 | 2025년3월말 한국 ETF 순자산은 약185.9조원 | PRIMARY_CONFIRMED | 한국거래소 ETF·ETN Monthly 2025.3월: ETF 순자산가치총액 약185.9조원/ETF 960개, ETF+ETN 총액202.5조원, 유형 혼동 금지. [출처](https://t1.daumcdn.net/brunch/service/user/gNua/file/LeWaiDLUQM-CgNapLlCfPWegWZE.pdf) |
-| `05` 00:27 | 순자산이 큰 ETF 1위 KODEX200 약16조원이라는 2026년3월 순위 | PRIMARY_CONFIRMED | KODEX 200 161,040억원=16.1040조원 2026-03말 ETF 순자산1위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `06` 00:27 | TIGER 미국S&P500 약14.6조원이 2026년3월말 상위라는 주장 | PRIMARY_CONFIRMED | TIGER 미국S&P500 146,553억원=14.6553조원, 2위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `07` 00:27 | TIGER 반도체TOP10이 2026년3월 순자산 상위 종목이라는 소개 | PRIMARY_CONFIRMED | TIGER 반도체TOP10 84,082억원=8.4082조원, 3위. 원문 I.1 순자산가치총액 상위 ETF 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `08` 00:27 | ETF 순자산과 개별 주식의 시가총액은 완전히 같은 지표라는 직관적 비유 | QUALIFIED | ETF NAV 총액은 편입자산 공정가치·부채 반영, 상장좌수×시가 비교와 괴리 가능. 설명용 근사이지 지표 완전동일 아님. [출처](https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2) |
-| `09` 04:14 | 대한민국 ETF 최초 상장 2002년 10월14일 | PRIMARY_CONFIRMED | 삼성 KODEX 공식 연금가이드 2002-10-14 상장, 2025 연금가이드북 참고. 당시 최초 ETF 4종목 표는 별도 역사자료로 증빙. [출처](https://www.samsungfund.com/upload/kodex/newsroom/20250722174437650.pdf) |
-| `10` 04:14 | 첫 상장 4개 ETF는 KOSPI200와 KOSPI50 추종상품이며 두 운용사에서 출시 | QUALIFIED | 국내 2002 ETF 초기 도입 설명 대체로 부합. 2002-10-13 신문 당시 운용사·명칭과 이후 사명교체가 있어 옛 상품법인까지 재검증 OPEN. [출처](https://www.samsungfund.com/upload/kodex/newsroom/20250722174437650.pdf) |
-| `11` 04:14 | 세계 최초 미국 상장 ETF는 SPDR S&P500(SPY), 1993년 출범 | PRIMARY_CONFIRMED | SPY는 미국 최초 상장 대표ETF(1993). 최초 '세계' ETF라는 표현은 캐나다 1990 TIPS 등과 충돌하므로 미국 최초로 한정. [출처](https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2) |
-| `12` 04:14 | 패시브 ETF 성장에는 낮은 비용·지수추종·퇴직연금 장기저축 수요가 기여했다는 화자 해석 | QUALIFIED | 시장성장 해석. 각 요인 기여율 회귀분석 부재, 특정 상품 향후 성장보장 근거 아님. [출처](https://www.investor.gov/introduction-investing/getting-started/asset-allocation) |
-| `13` 04:14 | 미국 S&P500 선물형 ETF는 증거금으로 지수노출을 얻고 미사용현금을 별도로 운용 | PRIMARY_CONFIRMED | 파생형 ETF 포트폴리오 원리. 환헤지, 담보·RP 이자 수익 및 선물 롤오버 비용은 개별 ETF 운용 규약/공시 확인. [출처](https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2) |
-| `14` 04:14 | 국내 IRP 퇴직연금계좌에서는 일반적인 선물형/레버리지 ETF 편입이 제한돼 현물 ETF 선호가 강화 | QUALIFIED | 상품별 퇴직연금 편입 가능 여부는 운용사·금융사 규정, 모든 선물형 ETF 일률 '불법'으로 해석금지. [출처](https://www.investor.gov/introduction-investing/getting-started/asset-allocation) |
-| `15` 04:14 | ETF 종목 증가와 순자산 증가는 서로 다른 측정값 | PRIMARY_CONFIRMED | 상장종목수는 개수, 순자산총액은 시점별 보유자산 평가액. 종목 증가만으로 AUM 자동 증가하지 않음. [출처](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
-| `16` 13:05 | 2026년3월말 ETF 유형 국내주식형 약150조원·해외주식형 약100조원 | PRIMARY_CONFIRMED | 국내주식 1,475,862억원=147.5862조원, 해외주식 997,380억원=99.7380조원. 유형은 국내/해외 기초시장별 주식 ETF, ETF 전체 NAV와 다름. 원문 II.2 가. ETF 상품유형별 순자산가치총액 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `17` 13:05 | 2026년3월말 국내채권형 ETF 약50조원·해외채권형 약10조원 | PRIMARY_CONFIRMED | 국내채권 ETF 493,230억원=49.3230조원, 해외채권 ETF 97,558억원=9.7558조원. 원문 II.2 가. ETF 상품유형별 순자산가치총액 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `18` 13:05 | 국내주식형 ETF 순자산이 해외주식형보다 많아지면 개인이 미국ETF를 매도해 국내ETF만 샀다고 해석 | QUALIFIED | 순자산가치는 가격변동+설정/환매+환율 영향을 합한 숫자. 특정 투자자의 매도·순매수액 단독 귀속/인과 추정 불가. [출처](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
-| `19` 13:05 | CD금리액티브/머니마켓 금리형 ETF를 대기자금 파킹으로 활용 가능 | QUALIFIED | 금리형 ETF는 현금성 자산 대용 거래지만 ETF 시가/NAV·추적오차·거래/결제/신용비용이 있고 은행 예금자보호와 다름. [출처](https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2) |
-| `20` 13:05 | 금리형 ETF의 매도 체결이 은행 입출금처럼 언제나 당일 즉시 출금 가능한 완전 현금화라는 인상 | QUALIFIED | ETF는 시장거래·결제시점(통상 T+2) 및 매매가능시간이 존재, 증권사의 미수/예수금 정책과 출금가능액은 다름. [출처](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
-| `21` 13:05 | RISE 삼성전자SK하이닉스채권혼합50은 50%가 채권이고 개별 반도체 두 회사에 지분 노출 | QUALIFIED | 영상의 상품설명과 '퇴직연금 개별 주식 직접 불가' 투자전략 관련, 실제 ETF의 기초자산·월말 보유비중 및 퇴직연금 적격여부는 원문상품설명서 필요. [출처](https://kind.krx.co.kr/disclosure/disclosurebystocktype.do?method=searchDisclosureByStockTypeEtf) |
-| `22` 13:05 | 국내상장 레버리지/인버스 ETF는 투자지수가 단기 목표로 움직이면 큰 수익·손실 발생 가능 | PRIMARY_CONFIRMED | 레버리지·역방향 ETF는 보통 일간 수익률 목표, 변동성·경로의존에 따라 장기수익은 단순배수와 다름. [출처](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
-| `23` 13:05 | ETF 순자산 증가 상위 상품은 신규 투자자들의 순매수액 순위와 항상 동일 | QUALIFIED | 평가액 상승/하락에 따른 AUM 변동은 신규현금 순유입과 다름. 해당 표의 정식 열 제목 및 증가계산 방법 확인 필요. [출처](https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp) |
-| `24` 13:05 | 리츠는 분배금 때문에 지금 매수하면 반드시 고수익이라는 진행자 의견 | HYPOTHETICAL | 영상은 리츠 가치매력 개인적 판단. 리츠 부동산 가치·공실·금리·분배는 전망이고 안전 수익 보장 아님. [출처](https://www.investor.gov/introduction-investing/getting-started/asset-allocation) |
-| `25` 21:57 | 2026년3월 ETF 전체 월평균 수익률 약 -7%, 하락849개·상승 약200개 | PRIMARY_CONFIRMED | 3월 ETF 평균 -7.43%, 상승217/보합2/하락849개. 신규상장 및 상폐 종목 제외. 영상 '-7%·849·200개 정도'는 근사 일치. 원문 II.4 가. ETF 시장전체 월간 ('26.3월) 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `26` 21:57 | 2026년3월 원유선물형 ETF 월 수익률 상위 최대60% 내외·인버스 약30% | PRIMARY_CONFIRMED | KODEX WTI원유선물(H) +61.5%; TIGER 원유선물Enhanced(H) +57.7%; RISE 200선물인버스2X +35.4% (2026-03 월간). 원문 I.1 다. 월간 ETF상위 / II.4 월간 상위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `27` 21:57 | 2026년3월 레버리지 반도체 ETF 중 -40% 내외 손실이 있었다는 예시 | PRIMARY_CONFIRMED | TIGER 200IT레버리지 -44.9%; TIGER 반도체TOP10레버리지 -41.5%; KODEX 레버리지 -40.2% (2026-03 월간). 원문 II.4 월간 하위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `28` 21:57 | 기초지수 하루 +10% 다음날 -10%면 기초지수 누적수익은 -1% | PRIMARY_CONFIRMED | 1.10×0.90−1=-0.01. 횡보·변동 장세 수익률의 곱셈 구조를 나타냄, 동일 종가기준 가정. [출처](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
-| `29` 21:57 | 같은 2영업일 일간2배 레버리지 ETF는 +20% 다음날 -20%여서 누적 -4% | PRIMARY_CONFIRMED | 1.20×0.80−1=−0.04. 기초지수 누적−1%의 단순2배인−2%와 다름. ETF 비용/추적오차 제외 모델. [출처](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
-| `30` 21:57 | 레버리지/인버스 ETF는 변동성이 크면 언제나 모두 손해가 나고 오를 수 없다 | QUALIFIED | 영상은 장기변동성 훼손을 강조하지만 실제 수익률은 기초자산 상승·하락경로·보유시간에 따라 양/음 모두 가능. 단정된 우월 전략 아님. [출처](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
-| `31` 21:57 | 원금50% 하락 후 원금복귀에는 저점 대비100% 상승 필요 | PRIMARY_CONFIRMED | 100→50→100이 되려면 50에서 +50=+100%, 50% 손실과 50% 수익은 상쇄되지 않음. [출처](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
-| `32` 21:57 | 2026년 1~3월 ETF 평균 수익률 약 +6.7%라는 영상 수치 | PRIMARY_CONFIRMED | 2026년 1~3월 ETF 평균수익률 +6.72%, 상승654/보합6/하락392개, 신규상장·상폐 제외. 원문 II.4 나. ETF시장 전체 연간 ('26.1월~3월) 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224247522508) |
-| `33` 21:57 | 2025년 전체 ETF 평균 수익률 약+34%라는 영상 수치 | PRIMARY_CONFIRMED | 2025년 ETF 연간 평균수익률 +34.22%, 상승727/보합1/하락157개, 신규상장·상폐 제외. 원문 II.4 ETF 시장전체 연간 2025년 수익률 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224151836839) |
-| `34` 21:57 | 2025년 일부 레버리지 ETF 연간+307%·일부 인버스 ETF -76% 사례 | PRIMARY_CONFIRMED | TIGER 반도체TOP10레버리지 +307.1% (A488080); TIGER 200선물인버스2X -76.2% (A252710); KODEX 200선물인버스2X -76.2% (A252670). 원문 II.4 ETF 연간 2025 수익률 상·하위10 직접 대조. 수치 일치이며 편집된 공개 ASR의 원음/비공개 SRT 텍스트 정확성은 미검증.. [출처](https://m.blog.naver.com/happy_krx/224151836839) |
-| `35` 21:57 | 인버스/레버리지 일시적 수익이 가능해도 초보 장기연금 포트의 안정 수익으로 취급할 수 없다 | PRIMARY_CONFIRMED | 금융감독 수준 위험 경고: 레버리지 ETF 일간 목표 및 경로의존·변동성 훼손. 단기익 수익률 미래 성과보장 없음. [출처](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec) |
-| `36` 21:57 | 2026년3월 ETF 전체 평균 마이너스여도 특정 주식·리츠·원유 ETF는 양의 수익 가능 | PRIMARY_CONFIRMED | 횡단면 수익분포의 일반적 특성, 개별 자산 수익률 분산. 2026년3월 실제 분포 정량은 KRX 원표 OPEN. [출처](https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp) |
+[원본 SRT·공개텍스트 검증 주장 원장](../data/subtitles/pilots/HvXLItCOd-A.json) · [KRX 18개 지표 감사 JSON](../data/subtitles/video95_krx_monthly_primary_audit_20261015.json) · [V3 정식 이벤트](../data/analysis_events/HvXLItCOd-A.json).
 
-## 6. 원본 SRT 대조의 남은 유일한 출처 게이트
-
-영상의 사용자 등록 원본 `HvXLItCOd-A.srt` **868큐·65,094바이트**와 등록 SHA256 `89aa974c052fdde2d56ff2e1d4c353968e195fbd4ad359bc0a9c59f20995689a`는 기존 GitHub 등록부 **과거 메타데이터**이다. 이번 연구에서 다음을 실제 수행하지 못했다.
-
-- 현재 채팅·프로젝트 파일 **0건**, Library `/박곰희TV_원본확보`에는 `1-70.zip`만, Drive `박곰희TV_SRT_원본보관함`에도 `1-70.zip`만 확인. **`71-100.zip`이나 영상95 단독 SRT 원본을 이번 세션에서 확보하지 못함**.
-- 따라서 **868개 큐 전문열람/원본 SHA256 재계산/공개 자동자막과 문장별·시간별 Diff/원음·영상 화면 검증 모두 미실시**. 이전 채팅의 ZIP이 이 채팅에 자동 인계된 것으로 가정하지 않음.
-- 실제 #95 SRT를 이 채팅에 재첨부하거나 현재 연결된 Google Drive/Library에 올려 주면 비공개 원문을 GitHub에 노출하지 않고 SHA·큐 수·문장 충실도·결손 큐를 검증할 수 있다. **이번 공식 통계 확정이 곧 정식 V3 승인이라 말하지 않는다**.
-
-[공식 원문 수치 대조 감사 JSON](../data/subtitles/video95_krx_monthly_primary_audit_20261015.json) · [36개 주장별 구조화 원장](../data/subtitles/pilots/HvXLItCOd-A.json) · 원본 미확보 동안 `NOT_APPROVED`, `main` 무변경.
+**사용자 원본 SRT 및 ZIP 내용은 GitHub에 비공개로 유지한다.** `main` 브랜치는 수정하지 않는다.
