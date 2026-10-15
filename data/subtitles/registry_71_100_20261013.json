@@ -31,7 +31,8 @@
     "VxlNnm2PIiQ",
     "uyzROR3cUl8",
     "g5PChibmY5A",
-    "98UoTYQR5nY"
+    "98UoTYQR5nY",
+    "mRRev963GaA"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -162,7 +163,7 @@
       "cue_count": 2063,
       "raw_srt_bytes": 157457,
       "sha256": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
-      "source_status": "PRIVATE_SRT_SHA_VERIFIED_PUBLIC_AUTO_ASR_NONVERBAL_TRAILING_MUSIC_CUE_DUPLICATE_ONLY_CLAIMS_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": true,
@@ -175,7 +176,7 @@
       "public_normalized_characters": 26624,
       "public_private_normalized_full_text_match": false,
       "reviewed_claim_count_provisional": 33,
-      "approval": "NOT_APPROVED",
+      "approval": "APPROVED",
       "original_cue_timestamp_anchors_claim_specific_verified": false,
       "original_audio_verified": false,
       "private_cues": 2063,
@@ -191,8 +192,23 @@
       "source_only_duplicate_nonverbal_cue": 2063,
       "source_diff_affects_spoken_claims": false,
       "source_original_bytes_unchanged": true,
-      "review_status": "SRT_SOURCE_RECONCILED_CLAIM_LEVEL_V3_PENDING",
-      "claim_count_provisional": 33
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_ON_2026-10-15",
+      "claim_count_provisional": 33,
+      "private_source_cues_verified": 2063,
+      "source_cue_count": 2063,
+      "source_original_srt_sha_recomputed": true,
+      "source_archive_crc_verified": true,
+      "source_normalized_chars_all_private": 26628,
+      "source_duplicate_nonverbal_end_cue_index": 2063,
+      "source_nonverbal_music_dedup_only_for_comparison": true,
+      "source_spoken_normalized_chars": 26624,
+      "source_spoken_normalized_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+      "public_private_spoken_text_normalized_full_match": true,
+      "individually_reviewed_claim_count": 33,
+      "original_srt_precise_cue_anchored_claims": 32,
+      "researcher_only_claims_no_cue": 1,
+      "canonical_analysis": "data/analysis_events/mRRev963GaA.json",
+      "report": "knowledge/VIDEO79_KOSPI10000_ORIGINAL_2063_CUES_V3_20261015.md"
     },
     {
       "roster_no": 80,
@@ -510,8 +526,8 @@
       "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 14,
-  "verified_v3_claim_count": 370,
+  "verified_v3_reviewed_count": 15,
+  "verified_v3_claim_count": 403,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
@@ -599,7 +615,7 @@
       79
     ],
     "source_audit_only_true": true,
-    "canonical_new_approvals": 1,
+    "canonical_new_approvals": 2,
     "source_raw_srt_publicly_committed": false,
     "items": [
       {
@@ -633,9 +649,7 @@
     ],
     "video78_approved_after_claim_level_gate": true,
     "video78_canonical_v3": "data/analysis_events/98UoTYQR5nY.json",
-    "remaining_pending_recheck_roster": [
-      79
-    ],
+    "remaining_pending_recheck_roster": [],
     "video79_public_diff_resolved": {
       "source_original_cues": 2063,
       "private_normalized_characters": 26628,
@@ -646,9 +660,12 @@
       "private_trimmed_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
       "public_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
       "all_spoken_text_after_specific_nonverbal_dedupe_equal": true,
-      "approval": "NOT_APPROVED",
-      "claim_cue_anchor_pending": 33
-    }
+      "approval": "APPROVED",
+      "claim_cue_anchor_pending": 0,
+      "claims_approved": 33,
+      "canonical_event": "data/analysis_events/mRRev963GaA.json"
+    },
+    "video79_approved_after_claim_level_gate": true
   },
   "video78_v3_reconciliation_20261015": {
     "roster_no": 78,
@@ -667,5 +684,29 @@
     "frames_checked": false,
     "report": "knowledge/VIDEO78_NATIONAL_GROWTH_FUND_ORIGINAL_580_CUES_V3_20261015.md",
     "canonical_analysis": "data/analysis_events/98UoTYQR5nY.json"
+  },
+  "video79_v3_reconciliation_20261015": {
+    "roster_no": 79,
+    "video_id": "mRRev963GaA",
+    "private_original_sha256": "eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a",
+    "private_original_cues": 2063,
+    "private_original_bytes": 157457,
+    "normalized_public_sha256": "3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6",
+    "private_final_duplicate_music_cue": 2063,
+    "source_content_changed": false,
+    "comparison_only_nonverbal_deduped": true,
+    "verified_speech_text_chars": 26624,
+    "video_speaker_cue_anchor_claims": 32,
+    "researcher_only_unattributed_claims": 1,
+    "claims_approved": 33,
+    "claim_tally": {
+      "PRIMARY_CONFIRMED": 7,
+      "QUALIFIED": 13,
+      "CONTRADICTED": 1,
+      "HYPOTHETICAL": 12
+    },
+    "original_audio_verified": false,
+    "canonical_analysis": "data/analysis_events/mRRev963GaA.json",
+    "report": "knowledge/VIDEO79_KOSPI10000_ORIGINAL_2063_CUES_V3_20261015.md"
   }
 }
