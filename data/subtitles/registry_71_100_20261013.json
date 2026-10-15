@@ -505,11 +505,11 @@
       "cue_count": 343,
       "raw_srt_bytes": 27394,
       "sha256": "a2327dce318b77119511506060203f86688bd80b66669690013cee0c5b55afd2",
-      "source_status": "PRIVATE_ORIGINAL_FULL_SRT_RAW_SHA_VERIFIED_CLAIMS_REMAIN_PROVISIONAL",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": false,
-      "review_status": "ORIGINAL_SOURCE_VERIFIED_CLAIM_LEVEL_V3_PENDING",
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-15",
       "original_srt_sha_recomputed_20261015": true,
       "original_zip_crc_verified": true,
       "private_original_full_cues_read": true,
@@ -522,7 +522,12 @@
       "source_reconciliation_record": "data/subtitles/source_reconciliation_81_93_20261015.json",
       "claim_count_provisional": 30,
       "approval": "NOT_APPROVED",
-      "original_audio_verified": false
+      "original_audio_verified": false,
+      "individually_reviewed_claim_count": 30,
+      "speaker_cue_anchored_claim_count": 29,
+      "researcher_context_claim_count": 1,
+      "canonical_analysis": "data/analysis_events/qzGqHzKfs18.json",
+      "report": "knowledge/VIDEO89_BLUE_SEED_PENSION_ORIGINAL_343_CUES_V3_20261015.md"
     },
     {
       "roster_no": 90,
@@ -810,8 +815,8 @@
       "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 25,
-  "verified_v3_claim_count": 596,
+  "verified_v3_reviewed_count": 26,
+  "verified_v3_claim_count": 626,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
