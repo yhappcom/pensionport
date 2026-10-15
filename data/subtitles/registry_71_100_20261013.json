@@ -247,11 +247,11 @@
       "cue_count": 1649,
       "raw_srt_bytes": 127248,
       "sha256": "527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12",
-      "source_status": "PRIVATE_ORIGINAL_FULL_SRT_RAW_SHA_VERIFIED_CLAIMS_REMAIN_PROVISIONAL",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": true,
-      "review_status": "ORIGINAL_SOURCE_VERIFIED_CLAIM_LEVEL_V3_PENDING",
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-15",
       "original_sha_recomputed_20261015": true,
       "archive_crc_pass": true,
       "private_original_cues_read": 1649,
@@ -264,7 +264,7 @@
       "public_private_text_diff_exact_location": "PENDING",
       "original_cue_anchored_claim_count": 0,
       "provisional_claim_count": 22,
-      "approval": "NOT_APPROVED",
+      "approval": "APPROVED",
       "public_speech_auto_asr_matches_private_except_two_short_repeated_response_cues": true,
       "original_srt_raw_unchanged": true,
       "comparison_only_excluded_private_cue_indices": [
@@ -285,7 +285,13 @@
       "public_full_transcript_compared": true,
       "public_private_normalized_comparison_status": "EXACT_KOREAN_AFTER_SPECIFIC_DUPLICATED_SPEAKER_ECHO_REMOVAL",
       "source_reconciliation_record": "data/subtitles/source_reconciliation_81_93_20261015.json",
-      "claim_count_provisional": 22
+      "claim_count_provisional": 22,
+      "individually_reviewed_claim_count": 22,
+      "speaker_original_cue_anchored_claim_count": 19,
+      "analyst_only_unattributed_context_claim_count": 3,
+      "canonical_analysis": "data/analysis_events/4UE7LOq8syM.json",
+      "report": "knowledge/VIDEO81_CHILD_CORE_SATELLITE_ORIGINAL_1649_CUES_V3_20261015.md",
+      "source_original_bytes_unchanged": true
     },
     {
       "roster_no": 82,
@@ -534,7 +540,10 @@
       "speaker_cue_anchored_claim_count": 10,
       "analyst_only_tax_context_claim_count": 7,
       "canonical_analysis": "data/analysis_events/1e--424cAKI.json",
-      "report": "knowledge/VIDEO90_ISA_FOREIGN_DIVIDEND_ORIGINAL_38_CUES_V3_20261015.md"
+      "report": "knowledge/VIDEO90_ISA_FOREIGN_DIVIDEND_ORIGINAL_38_CUES_V3_20261015.md",
+      "speaker_original_cue_anchored_claim_count": 10,
+      "analyst_only_unattributed_context_claim_count": 7,
+      "source_original_bytes_unchanged": true
     },
     {
       "roster_no": 91,
@@ -782,8 +791,8 @@
       "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 21,
-  "verified_v3_claim_count": 490,
+  "verified_v3_reviewed_count": 23,
+  "verified_v3_claim_count": 529,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
@@ -1023,15 +1032,16 @@
     "public_translated_english_not_textually_comparable": 3,
     "claims_approved_as_a_result": 0,
     "private_full_srt_contents_not_uploaded": true,
-    "claims_approved_after_individual_education_gate": 63,
+    "claims_approved_after_individual_education_gate": 85,
     "approved_after_audit_videos": [
+      81,
       84,
       85,
       87,
       90,
       92
     ],
-    "remaining_provisional_count": 8,
-    "remaining_provisional_claims": 251
+    "remaining_provisional_count": 7,
+    "remaining_provisional_claims": 229
   }
 }
