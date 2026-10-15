@@ -11,7 +11,7 @@
   "video_published_date": "2026-05-13",
   "recording_date": "2026-05-02",
   "duration": "54:06",
-  "source_level": "USER_ORIGINAL_PRIVATE_1649_CUE_RAW_SHA_CONFIRMED_PUBLIC_FULL_KOREAN_ASR_NORMALIZED_SHA_DIFF_UNRESOLVED_CLAIMS_PROVISIONAL",
+  "source_level": "USER_ORIGINAL_PRIVATE_1649_CUE_SRT_SHA_VERIFIED_PUBLIC_FULL_AUTO_ASR_SPEECH_SHA_MATCH_AFTER_SKIPPING_TWO_SHORT_ECHO_CUES_ONLY_22_CLAIMS_PENDING",
   "subtitle_sha256": "527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12",
   "cue_count": null,
   "registered_private_srt_metadata_only": {
@@ -28,7 +28,7 @@
     "reviewed_source": "INDEPENDENT_PUBLIC_YOUTUBE_AUTO_TRANSCRIPT",
     "original_srt_full_cues_reviewed": true,
     "original_sha_byte_compare": true,
-    "public_to_private_transcript_exact_diff": "NOT_EQUAL_ORIGINAL_PRIVATE_21921_CHARS_VS_PUBLIC_21912_CHARS_DIFFERENCE_LOCATIONS_NOT_YET_VALIDATED",
+    "public_to_private_transcript_exact_diff": "PUBLIC_FULL_21912_NORMALIZED_CHARS_EQUALS_PRIVATE_21921_NORMALIZED_CHARS_AFTER_COMPARISON_ONLY_EXCLUSION_OF_ECHO_CUES_1518_1520",
     "timestamp_precision": "EXISTING_PROVISIONAL_UPLOADER_CHAPTERS_NOT_MAPPED_TO_ORIGINAL_SRT",
     "original_audio_checked": false,
     "frames_checked": false,
@@ -47,8 +47,34 @@
     "public_full_transcript_normalized_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
     "claim_to_original_cue_timestamp_reconciled": false,
     "claim_evidence_per_claim_source_finding_completed": false,
-    "evidence_reference": "2026-10-15 user ZIP 517466 bytes CRC PASS SHA 69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f; original file 71-100/youtube-transcript-4UE7LOq8syM.srt 1649 consecutive cue raw 127248 bytes SHA 527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12 matches prior registry; independently obtained public complete same-video Korean ASR 21912 whitespace-normalized characters SHA 93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82 differs from private all-cue 21921 normalized SHA 878bc799965147000eb90ac32d9ff24c6e0d931d39dcc8f703e0500242c46b1d.",
-    "limitations": "Original file CRC/byte SHA and 1649 source cues integrity now VERIFIED. However independently retrieved public complete auto captions differ from original normalized transcript by net 9 characters and locations/meaning have not been determined; 22 video assertions remain chapter timestamps and not individually reanchored with official source evidence. Audio/frames not verified. Not approved."
+    "evidence_reference": "Full private 71-100.zip CRC and SHA 69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f; 1649 original SRT cues raw SHA 527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12. Complete public Korean ASR differs only at repeated nonunique response cues 1518 and 1520; after excluding these two original short echo bodies from comparison, full spoken text normalizes to 21912 characters SHA 93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82 equal public.",
+    "limitations": "Private original 1649-cue SRT SHA and complete public auto caption full comparison reveal exactly two short repeated sector-name echo responses: original cue #1518 '>> 바이오' and #1520 '>> 로봇' omitted in public transcript. Omitting those two cue bodies ONLY for normalized text comparison changes private 21921 characters to 21912 and SHA exactly equals public 21912-character SHA. This is source textual reconciliation, NOT proof whether echoes were actually spoken; audio/frames not checked. Original SRT bytes preserved. Old 22 claim timecodes and evidence gates not individually remapped yet; keep NOT_APPROVED.",
+    "difference_localized": true,
+    "original_private_extra_echo_cues": [
+      {
+        "cue_index": 1518,
+        "start_time": "00:49:51.559",
+        "end_time": "00:49:53.559",
+        "utterance_type": "REPEATED_SHORT_ECHO",
+        "original_autocaption": "두번째 >> 바이오"
+      },
+      {
+        "cue_index": 1520,
+        "start_time": "00:49:53.559",
+        "end_time": "00:49:55.440",
+        "utterance_type": "REPEATED_SHORT_ECHO",
+        "original_autocaption": "두번째 >> 로봇"
+      }
+    ],
+    "source_full_normalized_characters": 21921,
+    "source_original_normalized_sha256": "878bc799965147000eb90ac32d9ff24c6e0d931d39dcc8f703e0500242c46b1d",
+    "public_full_normalized_characters": 21912,
+    "public_full_normalized_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
+    "private_speech_normalized_chars_after_omitting_only_two_echo_cues_for_comparison": 21912,
+    "private_speech_normalized_sha256_after_omitting_only_two_echo_cues_for_comparison": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
+    "all_other_spoken_caption_characters_full_match": true,
+    "comparison_only_short_echo_omission_not_material_numeric_investment_claim": true,
+    "private_original_source_bytes_unchanged": true
   },
   "core_message": "자녀의 사용시점은 수십 년 뒤이므로 산업/기업 미래를 30년 정확히 예측하기보다 지수 ETF를 주요 코어로 두고 소수 테마 ETF를 여러 위성으로 운용하는 제안을 담았다. 화자의 60% S&P500 + 4개 테마 각각10%는 하나의 주식형 집중 시나리오이며 '전통적 주식60/채권40'과 다르다. 법적 미성년 증여재산공제는 직계존속 10년 합산2000만원이므로 계좌 개설만으로 자동 면세가 되는 것은 아니다.",
   "claims": [
@@ -745,7 +771,7 @@
     "CONTRADICTED": 0,
     "HYPOTHETICAL": 4
   },
-  "verification_status": "SOURCE_INTEGRITY_RECHECK_1649_ORIGINAL_CUES_VERIFIED_PUBLIC_DIFF_21921_VS_21912_CHARS_CLAIM_GATE_PENDING_NOT_APPROVED",
+  "verification_status": "ORIGINAL_1649_SRT_SHA_AND_PUBLIC_21912_CHAR_SHA_FULL_MATCH_WITH_TWO_SHORT_ECHO_RESPONSES_EXCLUDED_ONLY_FOR_COMPARISON_22_CLAIM_GATES_OPEN_NOT_APPROVED",
   "chapters": [
     "00:29 자녀 포트폴리오",
     "08:18 장기 설계 조건",
@@ -761,7 +787,8 @@
     "Only independent original publisher/issuer/authority references establish their limited effective-scope rules; undocumented fund-specific prices, personal portfolio claims, performance remain provisional.",
     "Actual soundtrack, video frames, monthly investor/insurance statements not retrieved; user raw SRT/ZIP not published.",
     "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT.",
-    "2026-10-15 original private 1649 cue raw file 127248 bytes SHA verified; separately scraped public full Korean ASR normalized full text does NOT match (21921 vs 21912 chars); prior 22 claims retain NOT_APPROVED until location and materiality of differences plus exact source cues reviewed."
+    "2026-10-15 original private 1649 cue raw file 127248 bytes SHA verified; separately scraped public full Korean ASR normalized full text does NOT match (21921 vs 21912 chars); prior 22 claims retain NOT_APPROVED until location and materiality of differences plus exact source cues reviewed.",
+    "2026-10-15 exact 9-character private/public normalized text difference localized to original private short echo cue #1518 >> 바이오 and cue #1520 >> 로봇. Compare excluding these two repeated replies only => 21912 chars SHA exactly matches public. Original captions, conversational attribution and 22 unanchored claims preserved."
   ],
   "relations": [
     {
