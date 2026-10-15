@@ -1,5 +1,25 @@
 # 박곰희TV 71~100편 전용 출처·검증 대기열
 
+## 2026-10-15 #100 정식 V3 승인 완료 + 잠정 #78·#79 원본 출처 재검증 (최신)
+
+### 이번 회차 정식 승인: #100 `g5PChibmY5A` Shorts
+
+- 개인 ZIP `71-100.zip` **517,466 bytes / ZIP CRC PASS / SHA256 `69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f`** 직접 재검증. 사용자 원본 #100 21큐 / 1,650 bytes / 원문 SHA256 `c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0` / 마지막 00:00:45.640, 과거 등록값과 일치.
+- 독립 확보 공개 유튜브 한국어 자동전사 **전체 294자**, 원본 cue 본문 공백 제거 SHA256 양쪽 `022cd98d930854425c02b0b3433ba71df1d6ab5f79f4f11cca53faddc0de01fa`로 일치. 원음·영상화면 별도 확인 안함.
+- 투자교육 핵심발언 **9건**: `PRIMARY_CONFIRMED 3`, `QUALIFIED 4`, `SPEAKER_OPINION 2`, 모두 원본 cue 번호/시각 연결. “가장 많은 초보 실수”는 강사 의견이며 통계 순위 증명 아님. “시장에 규칙 없다”는 단기 가격방향 불확실성 비유; 투자원칙이 원금을 보호한다는 보장 아님. [공식 SEC 소셜미디어 투자경보](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/social-media-stock-scams) · [검증 원장](../data/subtitles/pilots/g5PChibmY5A.json) · [V3 분석](../data/analysis_events/g5PChibmY5A.json) · [세부 교육보고서](../knowledge/VIDEO100_V3_ORIGINAL_SUBTITLE_REVIEW_20261015.md).
+- 기존 #1~70 **70편/1,052건**, #71~100 V3 **13편/330건** → **83편/1,382건 교육용 승인**. Shorts는 롱폼 703편의 완료 수에 가산하지 않음. [진행 원장](../data/subtitles/research_progress_after_video100_v3_20261015.json).
+
+### 잠정 #78·#79 — 이번 회차 출처 재검증만 완료 / 주장 정식 승격 **하지 않음**
+
+| 영상 | 개인 원본 SRT | 공개 유튜브 전체 한국어 자동전사 | 다음 승인 문턱 |
+|---|---|---|---|
+| **#78 `98UoTYQR5nY`** 국민참여형 국민성장펀드 | **580큐·46,021 bytes** / 원본 SHA `84f79c55ff482c5753bdc6410093a7ff3fa7531b5f5ed9f6906d34e910804880` 등록 일치 | 공백 제거 **8,217자** 양측 SHA `62d3f3a2c710543f64c14b00290daabd7387a05bb2729e7daa28d62390175e51` **전문 일치** | 기존 잠정 40건은 정확한 **개별 원본큐 앵커** 및 `verification_evidence.source_finding`을 각주장별로 채우고 강사 설명/분석자 보충 구분 필요 |
+| **#79 `mRRev963GaA`** 코스피 1만 투자지도·효라클 | **2,063큐·157,457 bytes** / 원본 SHA `eccfbf426105e0873af73c2f38ec470de0ed8b35096e17aef6b190845a34f99a` 등록 일치 | 개인 원본 공백제거 **26,628자**, SHA `417a8b73d81bc67b2b70c7d7c99691d5613df8d65afa6c56370e40448afd879a`; 공개 전사 **26,624자**, SHA `3738665c069c048d4b1178ca9a74276eecb348486c8597e7ab0e22ef20f0f8b6`로 **전체 불일치** | 공개/원본 문자열 차이의 **위치·의미 확인**, 기존 잠정 33건 원본 발언 시각/공식 확인 필요 |
+
+- #78 기존 40건·#79 33건은 모두 `NOT_APPROVED` 유지. 기존 잠정 #78~93 **16편·411건**, 선택 검증 OPEN **24건**, #71 원본 미확보 유지. 원본 SRT/ZIP 전문은 **공개 GitHub에 저장하지 않음**.
+- #78과 관련한 중요한 정부 후순위 손실 흡수 비율은 [금융위원회 2026-05-21 공식 설명](https://www.fsc.go.kr/no010101/86950) 참고. **국민성장펀드 150조 정책 전체 ≠ 개인가입 6,000억원 공모펀드**, 정부 후순위 재정 1,200억원은 개인 원금 전액 보호를 의미하지 않음([금융위원회 2026-05-06](https://www.fsc.go.kr/no010101/86834)).
+- 이번 변경 파일: [#78 잠정 검증](../data/subtitles/pilots/98UoTYQR5nY.json), [#79 잠정 검증](../data/subtitles/pilots/mRRev963GaA.json), [출처 검증 상태 포함 새 스냅샷](../data/subtitles/research_progress_after_video100_and_sources78_79_20261015.json). 승인기록·기존 초안·`main` 보존.
+
 ## 2026-10-15 #100 Shorts — 21개 개인 원본큐·294자 공개 자동전사 완전 SHA 대조 / 교육주장 9건 정식 V3 승인 (현재)
 
 - 영상: [남의 말만 듣고 투자하면… `g5PChibmY5A`](https://www.youtube.com/watch?v=g5PChibmY5A), 2026-04-16 게시, 약 45초.
