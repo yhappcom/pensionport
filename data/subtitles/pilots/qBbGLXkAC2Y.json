@@ -3,7 +3,7 @@
   "review_date": "2026-10-14",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "source_kind": "PUBLIC_YOUTUBE_ENGLISH_TRANSLATED_TRANSCRIPT_PRIVATE_SRT_NOT_ACCESSIBLE",
+  "source_kind": "USER_PRIVATE_KOREAN_TIMECODED_AUTO_SRT",
   "roster_no": 92,
   "video_id": "qBbGLXkAC2Y",
   "title": "ETF 자동매수 장점 3가지 — DCA·매수 타이밍·습관과 수수료 위험",
@@ -11,8 +11,8 @@
   "video_published_date": "2026-04-28",
   "recording_date": null,
   "duration": "01:00",
-  "source_level": "PUBLIC_YOUTUBE_FULL_ENGLISH_TRANSLATED_ASR_NO_CHAPTERS_KOREAN_PRIVATE_SRT_NOT_ACCESSIBLE",
-  "subtitle_sha256": null,
+  "source_level": "ORIGINAL_USER_KOREAN_SRT_RAW_SHA_RECONCILED_PUBLIC_ENGLISH_TRANSLATION_NOT_TEXT_SHA_COMPARABLE_CLAIM_ANCHORED",
+  "subtitle_sha256": "8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98",
   "cue_count": null,
   "registered_private_srt_metadata_only": {
     "sha256": "8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98",
@@ -22,20 +22,35 @@
   },
   "source_audit": {
     "full_transcript_reviewed": true,
-    "reviewed_source": "ENGLISH_TRANSLATED_PUBLIC_YOUTUBE_AUTO_ASR",
-    "original_srt_full_cues_reviewed": false,
-    "original_korean_srt_full_cues_reviewed": false,
-    "original_sha_byte_compare": false,
-    "public_to_private_transcript_exact_diff": "NOT_TESTED",
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha_recomputed": true,
+    "original_srt_full_cues_reviewed": true,
+    "original_sha_byte_compare": true,
+    "original_srt_sha256": "8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98",
+    "original_zip_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "original_srt_bytes": 2339,
+    "original_cue_count": 30,
+    "original_srt_last_end": "00:01:01.000",
+    "source_archive_crc": "PASS",
+    "private_cue_body_normalized_sha256": "09fc96d553a54cf5868c173b7ffd7427e9eda0cd3cc2946bf15fe6db17d3b8a0",
+    "private_normalized_characters": 413,
+    "public_transcript_kind": "ENGLISH_AUTO_TRANSLATED_DIFFERENT_LANGUAGE",
+    "public_korean_auto_full_text_sha_available": false,
+    "public_to_private_transcript_exact_diff": "NOT_COMPARABLE_DIFFERENT_LANGUAGE",
+    "claim_to_original_cue_timestamp_reconciled": true,
+    "claim_evidence_per_claim_source_finding_completed": true,
+    "source_attributed_speaker_claims_with_private_cue_anchor": 5,
+    "independently_added_researcher_items_without_video_cue": 6,
     "original_audio_checked": false,
     "frames_checked": false,
-    "timestamp_precision": "VIDEO_START_ONLY"
+    "evidence_reference": "User ZIP SHA 69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f CRC PASS, original Korean SRT 30 cues 2339 raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98 all timecodes checked; normalized private 413 chars SHA 09fc96d553a54cf5868c173b7ffd7427e9eda0cd3cc2946bf15fe6db17d3b8a0; public transcript is English translated, so no cross-language raw SHA equivalence claimed."
   },
   "core_message": "Automatic ETF buys implement regular investing and remove some behavioral timing decisions. They cannot eliminate market volatility, avoid transaction fees, guarantee brokerage order execution or outperform lump-sum under all scenarios. This short repeats principles in #85 and points to the same parent longform.",
   "claims": [
     {
       "claim_id": "qBbGLXkAC2Y-01",
-      "timecode": "00:00",
+      "timecode": "00:00:05",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
       "source_paraphrase": "자동매수는 투자하기 귀찮거나 시기를 기다리다 놓치는 투자자에게 행동적 실행 도구",
       "assessment": "QUALIFIED",
@@ -45,17 +60,27 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; cue #4 00:00:05.839. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "영상 영어 번역 전사상 화자는 반복적 매수 주저를 줄이는 방법을 권함. 심리적 효용이고 미래 수익성과 별개",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "원본 #1~5 자동매수를 세 가지 장점 소개하는 1분 동영상으로 타이밍 미루기 줄이는 실행 전략, 수익률 보장은 아님."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": 4,
+      "source_cue_start": "00:00:05.839",
+      "source_anchor_sec": 5,
+      "claim_role": "SPEAKER_PARAPHRASE_WITH_RESEARCHER_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 4,
+        "start_time": "00:00:05.839",
+        "source_precision": "USER_PRIVATE_ORIGINAL_AUTO_SRT_CUE_START"
+      }
     },
     {
       "claim_id": "qBbGLXkAC2Y-02",
-      "timecode": "00:00",
+      "timecode": "00:00:21",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
       "source_paraphrase": "정액 매수 시 고가에 적은 수량, 저가에 많은 수량을 사는 비용평균(DCA) 효과",
       "assessment": "PRIMARY_CONFIRMED",
@@ -65,17 +90,27 @@
       ],
       "verification_evidence": {
         "verdict": "PRIMARY_CONFIRMED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; cue #12 00:00:21.359. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "SEC는 정해진 금액을 시장등락에 무관하게 정기투자하는 방식으로 DCA 정의. 최소 거래주수 및 주문가격·수수료 영향",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "원본 #12~16 같은 금액 DCA 시 가격이 낮으면 더 많은 수량, 높으면 적은 수량. 거래량 최소단위와 시장가 변화는 남음."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": 12,
+      "source_cue_start": "00:00:21.359",
+      "source_anchor_sec": 21,
+      "claim_role": "SPEAKER_PARAPHRASE_WITH_RESEARCHER_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 12,
+        "start_time": "00:00:21.359",
+        "source_precision": "USER_PRIVATE_ORIGINAL_AUTO_SRT_CUE_START"
+      }
     },
     {
       "claim_id": "qBbGLXkAC2Y-03",
-      "timecode": "00:00",
+      "timecode": "00:00:18",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
       "source_paraphrase": "영상의 'ETF 자동매수하면 타이밍 걱정이 전혀 없다'는 표현",
       "assessment": "QUALIFIED",
@@ -85,19 +120,29 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; cue #11 00:00:18.800. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "매달 매수일을 고르는 의사결정 부담을 없앤다는 취지. 폭락/시장위험 또는 매수 타이밍별 수익률 차이를 없애는 제도 아님",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "원본 #11 자동매수가 '타이밍 고민 없애준다'는 발언은 반복투자 결정부담을 낮춘다는 뜻이고, 시장가격 위험/계좌손실 사라짐 아님."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": 11,
+      "source_cue_start": "00:00:18.800",
+      "source_anchor_sec": 18,
+      "claim_role": "SPEAKER_PARAPHRASE_WITH_RESEARCHER_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 11,
+        "start_time": "00:00:18.800",
+        "source_precision": "USER_PRIVATE_ORIGINAL_AUTO_SRT_CUE_START"
+      }
     },
     {
       "claim_id": "qBbGLXkAC2Y-04",
-      "timecode": "00:00",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
-      "source_paraphrase": "정기매수는 장기간 언제나 일시금 일괄 투자보다 수익이 높다",
+      "source_paraphrase": "연구자 보충: 정기매수는 장기간 언제나 일시금 일괄 투자보다 수익이 높다 (영상에서 해당 확정 사실을 화자가 직접 주장한 것은 아님)",
       "assessment": "QUALIFIED",
       "independent_check": "영상이 실제 모든 장세에서 DCA 우월성을 보증한다는 말 아님. 상승장에 초기에 일괄투자하는 경우 더 큰 수익이 날 수 있음",
       "official_sources": [
@@ -105,19 +150,25 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; NOT SPOKEN researcher context. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "영상이 실제 모든 장세에서 DCA 우월성을 보증한다는 말 아님. 상승장에 초기에 일괄투자하는 경우 더 큰 수익이 날 수 있음",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "연구자 보충: DCA가 일시납보다 모든 시기 수익 우월하다는 비교 실증을 강사는 주장하지 않았다; 일시납 수익 우월한 장도 가능."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_PRIMARY_SOURCE_CONTEXT_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
     },
     {
       "claim_id": "qBbGLXkAC2Y-05",
-      "timecode": "00:00",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
-      "source_paraphrase": "정액적립식 매매는 시장이 연속하락할 때도 원금을 보호한다",
+      "source_paraphrase": "연구자 보충: 정액적립식 매매는 시장이 연속하락할 때도 원금을 보호한다 (영상에서 해당 확정 사실을 화자가 직접 주장한 것은 아님)",
       "assessment": "QUALIFIED",
       "independent_check": "낮은 가격에 더 많은 ETF 수량 확보는 가능해도 총자산 시가손실·지속 하락을 막지 못함",
       "official_sources": [
@@ -125,19 +176,25 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; NOT SPOKEN researcher context. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "낮은 가격에 더 많은 ETF 수량 확보는 가능해도 총자산 시가손실·지속 하락을 막지 못함",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "연구자 보충: 가격하락 중 자동매수해도 ETF 시가손실은 발생할 수 있음. 영상이 원금보장한다고 말하지 않음."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_PRIMARY_SOURCE_CONTEXT_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
     },
     {
       "claim_id": "qBbGLXkAC2Y-06",
-      "timecode": "00:00",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
-      "source_paraphrase": "자동 투자 설정이 성공해도 예수금 부족·거래일 휴일·미체결 등 실제 주문제약은 있음",
+      "source_paraphrase": "연구자 보충: 자동 투자 설정이 성공해도 예수금 부족·거래일 휴일·미체결 등 실제 주문제약은 있음 (영상에서 해당 확정 사실을 화자가 직접 주장한 것은 아님)",
       "assessment": "QUALIFIED",
       "independent_check": "특정 금융사/자동매수 약정별 실패처리 또는 1주 거래단위 조건 미조회, 계좌 별 약관 필요",
       "official_sources": [
@@ -145,17 +202,23 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; NOT SPOKEN researcher context. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "특정 금융사/자동매수 약정별 실패처리 또는 1주 거래단위 조건 미조회, 계좌 별 약관 필요",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "연구자 보충: 중개사별 자동매수 설정·결제·최소주문/예수금/장휴장·미체결은 별도. 화자의 직접 설명에는 계좌별 약관 없음."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_PRIMARY_SOURCE_CONTEXT_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
     },
     {
       "claim_id": "qBbGLXkAC2Y-07",
-      "timecode": "00:00",
+      "timecode": "00:00:32",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
       "source_paraphrase": "자동화는 매월 투자예산을 따르는 습관을 만들 수 있다",
       "assessment": "QUALIFIED",
@@ -165,17 +228,27 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; cue #17 00:00:32.200. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "시간·실행부담을 줄이는 선택적 행동전략으로 장기 성과 보증이나 수익통계가 아님",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "원본 #17~21 자동매수는 투자 습관을 만드는 행동적 도구라는 교육의견. 계좌별 위험·실현성과는 별도."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": 17,
+      "source_cue_start": "00:00:32.200",
+      "source_anchor_sec": 32,
+      "claim_role": "SPEAKER_PARAPHRASE_WITH_RESEARCHER_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 17,
+        "start_time": "00:00:32.200",
+        "source_precision": "USER_PRIVATE_ORIGINAL_AUTO_SRT_CUE_START"
+      }
     },
     {
       "claim_id": "qBbGLXkAC2Y-08",
-      "timecode": "00:00",
+      "timecode": "00:00:46",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
       "source_paraphrase": "시장가격을 자주 보지 않는 것이 언제나 더 높은 실현 수익률을 제공한다",
       "assessment": "QUALIFIED",
@@ -185,19 +258,29 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; cue #25 00:00:46.800. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "화자의 행동철학·주관적 조언. 개별 위험관리·리밸런싱·계좌 현금확인 필요, 어떤 경우도 언제나 성과우월 입증 안 됨",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "원본 #23~26 가격화면을 덜 보는 일이 심리적 유익할 수 있다는 조언. 수익률이 모든 시장국면에서 반드시 높아진다는 뜻은 아님."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": 25,
+      "source_cue_start": "00:00:46.800",
+      "source_anchor_sec": 46,
+      "claim_role": "SPEAKER_PARAPHRASE_WITH_RESEARCHER_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 25,
+        "start_time": "00:00:46.800",
+        "source_precision": "USER_PRIVATE_ORIGINAL_AUTO_SRT_CUE_START"
+      }
     },
     {
       "claim_id": "qBbGLXkAC2Y-09",
-      "timecode": "00:00",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
-      "source_paraphrase": "매수규칙을 설정하면 중개수수료·ETF 내부보수·세금이 사라진다",
+      "source_paraphrase": "연구자 보충: 매수규칙을 설정하면 중개수수료·ETF 내부보수·세금이 사라진다 (영상에서 해당 확정 사실을 화자가 직접 주장한 것은 아님)",
       "assessment": "QUALIFIED",
       "independent_check": "자동화는 수수료 면제 제도가 아님; SEC ETF 수수료·거래비용은 장기 성과를 줄임",
       "official_sources": [
@@ -205,19 +288,25 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/mutual-fund-fees-and-expenses",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; NOT SPOKEN researcher context. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "자동화는 수수료 면제 제도가 아님; SEC ETF 수수료·거래비용은 장기 성과를 줄임",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "연구자 보충: ETF 자동매수 설정만으로 중개수수료, ETF 보수, 세금이 소멸하지 않는다. 영상에서 면제를 언급하지 않음."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_PRIMARY_SOURCE_CONTEXT_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
     },
     {
       "claim_id": "qBbGLXkAC2Y-10",
-      "timecode": "00:00",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
-      "source_paraphrase": "자동이체와 ETF자동매수는 같은 기능이므로 은행 이체설정만 해도 종목이 구매된다",
+      "source_paraphrase": "연구자 보충: 자동이체와 ETF자동매수는 같은 기능이므로 은행 이체설정만 해도 종목이 구매된다 (영상에서 해당 확정 사실을 화자가 직접 주장한 것은 아님)",
       "assessment": "QUALIFIED",
       "independent_check": "연결된 풀영상 및 #85 공개전사는 이체·매수약정 별도 필요. 이번 #92 쇼츠는 자동매수 장점에 집중하며 둘을 동일시한 발언 자체는 없음",
       "official_sources": [
@@ -225,19 +314,25 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; NOT SPOKEN researcher context. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "연결된 풀영상 및 #85 공개전사는 이체·매수약정 별도 필요. 이번 #92 쇼츠는 자동매수 장점에 집중하며 둘을 동일시한 발언 자체는 없음",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "연구자 보충: 자동이체·ETF자동매수는 별도 계약일 수 있으며 은행이체만으로 매수 주문이 생기는 것은 아님. 이 Shorts 강사가 기능을 동일시하지 않음."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_PRIMARY_SOURCE_CONTEXT_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
     },
     {
       "claim_id": "qBbGLXkAC2Y-11",
-      "timecode": "00:00",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
       "watch_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
-      "source_paraphrase": "#92 짧은 공개 영어 전사만으로 한국어 화자의 표현/확정된 투자 사례를 인증할 수 있다",
+      "source_paraphrase": "연구자 보충: #92 짧은 공개 영어 전사만으로 한국어 화자의 표현/확정된 투자 사례를 인증할 수 있다 (영상에서 해당 확정 사실을 화자가 직접 주장한 것은 아님)",
       "assessment": "QUALIFIED",
       "independent_check": "실제 한국어 원음·비공개 등록 SRT 30큐 미열람, 정확 인용과 영상프레임 검증불가. 공개전사는 영어 자동번역",
       "official_sources": [
@@ -245,13 +340,19 @@
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "checked_at": "2026-10-14",
+        "checked_at": "2026-10-15",
         "primary_url": "https://www.youtube.com/watch?v=qBbGLXkAC2Y",
-        "basis": "Complete English translated public YouTube auto transcript for video92, independent SEC Investor.gov DCA/fees and KRX ETF rule scope only. Private Korean 30-cue SRT inaccessible.",
+        "basis": "PRIVATE ORIGINAL KOREAN SRT verified raw SHA 8483a5bd9a901dbd2b1387c409212c4271990764c24098785f2afa160005fc98; NOT SPOKEN researcher context. Public auto transcript ENGLISH translation; normalized Korean-to-English SHA equality not claimed. Original audio/frames unchecked.",
         "disposition": "실제 한국어 원음·비공개 등록 SRT 30큐 미열람, 정확 인용과 영상프레임 검증불가. 공개전사는 영어 자동번역",
-        "effective_date_or_scope": "Published 2026-04-28. No live brokerage account or executor tested."
+        "effective_date_or_scope": "Original Korean short published 2026-05; original timed user SRT, general Investor.gov investor-education rules 2026-10",
+        "source_finding": "연구자 보충: 이번 #92 공개 전사는 영어 자동번역이라 한국어 문구를 번역만으로 확정할 수 없으나 사용자원본 30큐 한국어 SRT의 raw SHA를 검증했다. 음원/화면 검증 미실시."
       },
-      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE"
+      "timecode_precision": "VIDEO_START_ONLY_TRANSLATED_PUBLIC_ASR_NO_PRIVATE_CUE",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_PRIMARY_SOURCE_CONTEXT_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
     }
   ],
   "claim_classification_tally": {
@@ -260,7 +361,7 @@
     "CONTRADICTED": 0,
     "HYPOTHETICAL": 0
   },
-  "verification_status": "PROVISIONAL_ENGLISH_TRANSLATED_ASR_NOT_APPROVED",
+  "verification_status": "V3_ELIGIBLE_USER_ORIGINAL_KOREAN_SOURCE_SHA_VERIFIED_PUBLIC_ENGLISH_TRANSLATION_NO_CROSS_LANGUAGE_HASH_11_CLAIMS_ANCHORED",
   "chapters": [
     "00:00 3가지 장점; 쇼츠 챕터 없음"
   ],
@@ -276,6 +377,8 @@
     "Original private Korean 30-cue SRT not accessible and source SHA not recalculated.",
     "The public YouTube transcript is in English translation; do not treat paraphrases as exact Korean speaker quotes.",
     "No date- or broker-specific automatic investment policy, actual order, fee, or price fill independently checked.",
-    "Some rows are misconceptions explicitly NOT asserted by the speaker; QUALIFIED prevents false contradicted attributions."
+    "Some rows are misconceptions explicitly NOT asserted by the speaker; QUALIFIED prevents false contradicted attributions.",
+    "Original private Korean auto SRT full byte SHA and cue structure independently checked 2026-10-15; public transcript was English translated so cannot claim Korean-public full text SHA match.",
+    "Researcher-only statements explicitly separated from speaker-anchored educational claims; audio/video frames unchecked."
   ]
 }
