@@ -3,7 +3,7 @@
   "review_date": "2026-10-14",
   "stage": "EVIDENCE_REVIEW_DRAFT",
   "approval": "NOT_APPROVED",
-  "source_kind": "PUBLIC_YOUTUBE_AUTO_TRANSCRIPT_USER_PRIVATE_SRT_NOT_ACCESSIBLE",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
   "roster_no": 81,
   "video_id": "4UE7LOq8syM",
   "title": "자녀계좌 코어·새틀라이트 장기 포트폴리오와 미성년 증여",
@@ -11,25 +11,44 @@
   "video_published_date": "2026-05-13",
   "recording_date": "2026-05-02",
   "duration": "54:06",
-  "source_level": "PUBLIC_YOUTUBE_FULL_AUTO_ASR_WITH_UPLOADER_CHAPTERS_PRIVATE_REGISTERED_SRT_NOT_ACCESSIBLE",
-  "subtitle_sha256": null,
+  "source_level": "USER_ORIGINAL_PRIVATE_1649_CUE_RAW_SHA_CONFIRMED_PUBLIC_FULL_KOREAN_ASR_NORMALIZED_SHA_DIFF_UNRESOLVED_CLAIMS_PROVISIONAL",
+  "subtitle_sha256": "527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12",
   "cue_count": null,
   "registered_private_srt_metadata_only": {
     "sha256": "527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12",
     "cue_count": 1649,
     "raw_srt_bytes": 127248,
     "verified_same_bytes_this_review": false,
-    "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f"
+    "source_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "verified_same_bytes": true,
+    "direct_sha_recomputed_20261015": true
   },
   "source_audit": {
     "full_transcript_reviewed": true,
     "reviewed_source": "INDEPENDENT_PUBLIC_YOUTUBE_AUTO_TRANSCRIPT",
-    "original_srt_full_cues_reviewed": false,
-    "original_sha_byte_compare": false,
-    "public_to_private_transcript_exact_diff": "NOT_TESTED",
-    "timestamp_precision": "UPLOADER_CHAPTER_START_APPROXIMATE",
+    "original_srt_full_cues_reviewed": true,
+    "original_sha_byte_compare": true,
+    "public_to_private_transcript_exact_diff": "NOT_EQUAL_ORIGINAL_PRIVATE_21921_CHARS_VS_PUBLIC_21912_CHARS_DIFFERENCE_LOCATIONS_NOT_YET_VALIDATED",
+    "timestamp_precision": "EXISTING_PROVISIONAL_UPLOADER_CHAPTERS_NOT_MAPPED_TO_ORIGINAL_SRT",
     "original_audio_checked": false,
-    "frames_checked": false
+    "frames_checked": false,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "video_id_matched": true,
+    "original_srt_sha_recomputed": true,
+    "original_srt_sha256": "527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12",
+    "original_zip_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "source_archive_crc": "PASS",
+    "original_srt_bytes": 127248,
+    "original_cue_count": 1649,
+    "original_srt_last_end": "00:53:54.400",
+    "private_cue_body_normalized_chars": 21921,
+    "private_cue_body_normalized_sha256": "878bc799965147000eb90ac32d9ff24c6e0d931d39dcc8f703e0500242c46b1d",
+    "public_full_transcript_normalized_chars": 21912,
+    "public_full_transcript_normalized_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
+    "claim_to_original_cue_timestamp_reconciled": false,
+    "claim_evidence_per_claim_source_finding_completed": false,
+    "evidence_reference": "2026-10-15 user ZIP 517466 bytes CRC PASS SHA 69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f; original file 71-100/youtube-transcript-4UE7LOq8syM.srt 1649 consecutive cue raw 127248 bytes SHA 527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12 matches prior registry; independently obtained public complete same-video Korean ASR 21912 whitespace-normalized characters SHA 93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82 differs from private all-cue 21921 normalized SHA 878bc799965147000eb90ac32d9ff24c6e0d931d39dcc8f703e0500242c46b1d.",
+    "limitations": "Original file CRC/byte SHA and 1649 source cues integrity now VERIFIED. However independently retrieved public complete auto captions differ from original normalized transcript by net 9 characters and locations/meaning have not been determined; 22 video assertions remain chapter timestamps and not individually reanchored with official source evidence. Audio/frames not verified. Not approved."
   },
   "core_message": "자녀의 사용시점은 수십 년 뒤이므로 산업/기업 미래를 30년 정확히 예측하기보다 지수 ETF를 주요 코어로 두고 소수 테마 ETF를 여러 위성으로 운용하는 제안을 담았다. 화자의 60% S&P500 + 4개 테마 각각10%는 하나의 주식형 집중 시나리오이며 '전통적 주식60/채권40'과 다르다. 법적 미성년 증여재산공제는 직계존속 10년 합산2000만원이므로 계좌 개설만으로 자동 면세가 되는 것은 아니다.",
   "claims": [
@@ -726,7 +745,7 @@
     "CONTRADICTED": 0,
     "HYPOTHETICAL": 4
   },
-  "verification_status": "PROVISIONAL_EVIDENCE_REVIEW_NOT_APPROVED_ORIGINAL_SRT_CUE_VALIDATION_REQUIRED",
+  "verification_status": "SOURCE_INTEGRITY_RECHECK_1649_ORIGINAL_CUES_VERIFIED_PUBLIC_DIFF_21921_VS_21912_CHARS_CLAIM_GATE_PENDING_NOT_APPROVED",
   "chapters": [
     "00:29 자녀 포트폴리오",
     "08:18 장기 설계 조건",
@@ -741,7 +760,8 @@
     "Claim rows are educationally material theme/paraphrase candidates, not quote-exact 1:1 sentence alignment.",
     "Only independent original publisher/issuer/authority references establish their limited effective-scope rules; undocumented fund-specific prices, personal portfolio claims, performance remain provisional.",
     "Actual soundtrack, video frames, monthly investor/insurance statements not retrieved; user raw SRT/ZIP not published.",
-    "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT."
+    "2026-10-14 correction: where the draft paraphrased a speaker as making an unqualified guarantee, the statement was aligned to the independently available public ASR including later speaker caveats. This is not a verification of the inaccessible user private SRT.",
+    "2026-10-15 original private 1649 cue raw file 127248 bytes SHA verified; separately scraped public full Korean ASR normalized full text does NOT match (21921 vs 21912 chars); prior 22 claims retain NOT_APPROVED until location and materiality of differences plus exact source cues reviewed."
   ],
   "relations": [
     {
