@@ -244,10 +244,24 @@
       "cue_count": 1649,
       "raw_srt_bytes": 127248,
       "sha256": "527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12",
-      "source_status": "SRT_STRUCTURE_CHECKED_FULL_CONTENT_REVIEW_PENDING",
+      "source_status": "PRIVATE_SRT_SHA_VERIFIED_PUBLIC_NORMALIZED_TRANSCRIPT_TEXT_DIFF_CLAIMS_PENDING",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false
+      "public_asr_full_diff_verified": false,
+      "review_status": "ORIGINAL_SRT_STRUCTURE_AND_RAW_SHA_CONFIRMED_NO_V3_APPROVAL",
+      "original_sha_recomputed_20261015": true,
+      "archive_crc_pass": true,
+      "private_original_cues_read": 1649,
+      "private_original_raw_bytes_verified": 127248,
+      "private_normalized_characters": 21921,
+      "private_normalized_sha256": "878bc799965147000eb90ac32d9ff24c6e0d931d39dcc8f703e0500242c46b1d",
+      "public_normalized_characters": 21912,
+      "public_normalized_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
+      "public_private_full_normalized_equal": false,
+      "public_private_text_diff_exact_location": "PENDING",
+      "original_cue_anchored_claim_count": 0,
+      "provisional_claim_count": 22,
+      "approval": "NOT_APPROVED"
     },
     {
       "roster_no": 82,
@@ -747,5 +761,20 @@
     "original_frames_checked": false,
     "report": "knowledge/VIDEO80_10000KRW_5_INVESTMENTS_ORIGINAL_441_CUES_V3_20261015.md",
     "canonical_event": "data/analysis_events/sOsEgO2w5mA.json"
+  },
+  "video81_source_integrity_recheck_20261015": {
+    "roster_no": 81,
+    "video_id": "4UE7LOq8syM",
+    "original_sha256": "527d4e699de482055bf1e94be617bead89abc48b527b6dcf27f977c1145dde12",
+    "cues": 1649,
+    "bytes": 127248,
+    "zip_crc": "PASS",
+    "private_norm_chars": 21921,
+    "private_norm_sha256": "878bc799965147000eb90ac32d9ff24c6e0d931d39dcc8f703e0500242c46b1d",
+    "public_norm_chars": 21912,
+    "public_norm_sha256": "93b06fbf10b37ed690aa63fd8920a9ab956c6144a2ead3e60ffd190184f9dd82",
+    "diff_unresolved": true,
+    "claim_review_pending": 22,
+    "approved": false
   }
 }
