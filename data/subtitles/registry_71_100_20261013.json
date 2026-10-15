@@ -33,7 +33,9 @@
     "g5PChibmY5A",
     "98UoTYQR5nY",
     "mRRev963GaA",
-    "sOsEgO2w5mA"
+    "sOsEgO2w5mA",
+    "j2vE_QWU7vg",
+    "BwbFnc0-yFc"
   ],
   "original_complete_caption_bytes_publicly_stored": false,
   "old_1_70_baseline_untouched": true,
@@ -340,11 +342,11 @@
       "cue_count": 36,
       "raw_srt_bytes": 2839,
       "sha256": "344a9e30e028904392ea47606a03abbe13a4a308113e5833afc9eee83baedcad",
-      "source_status": "PRIVATE_ORIGINAL_FULL_SRT_RAW_SHA_VERIFIED_CLAIMS_REMAIN_PROVISIONAL",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false,
-      "review_status": "ORIGINAL_SOURCE_VERIFIED_CLAIM_LEVEL_V3_PENDING",
+      "public_asr_full_diff_verified": true,
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-15",
       "original_srt_sha_recomputed_20261015": true,
       "original_zip_crc_verified": true,
       "private_original_full_cues_read": true,
@@ -356,8 +358,13 @@
       "public_private_normalized_comparison_status": "EXACT_KOREAN_AFTER_WHITESPACE",
       "source_reconciliation_record": "data/subtitles/source_reconciliation_81_93_20261015.json",
       "claim_count_provisional": 13,
-      "approval": "NOT_APPROVED",
-      "original_audio_verified": false
+      "approval": "APPROVED",
+      "original_audio_verified": false,
+      "individually_reviewed_claim_count": 13,
+      "speaker_cue_anchored_claim_count": 10,
+      "analyst_only_context_claim_count": 3,
+      "canonical_analysis": "data/analysis_events/j2vE_QWU7vg.json",
+      "report": "knowledge/VIDEO84_FIRE_WITHDRAWAL_ORIGINAL_36_CUES_V3_20261015.md"
     },
     {
       "roster_no": 85,
@@ -365,11 +372,11 @@
       "cue_count": 26,
       "raw_srt_bytes": 2021,
       "sha256": "387cc34c863f3875017312895816398a5ec017f7494c0c96501f84be95b6f324",
-      "source_status": "PRIVATE_ORIGINAL_FULL_SRT_RAW_SHA_VERIFIED_CLAIMS_REMAIN_PROVISIONAL",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
-      "public_asr_full_diff_verified": false,
-      "review_status": "ORIGINAL_SOURCE_VERIFIED_CLAIM_LEVEL_V3_PENDING",
+      "public_asr_full_diff_verified": true,
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-15",
       "original_srt_sha_recomputed_20261015": true,
       "original_zip_crc_verified": true,
       "private_original_full_cues_read": true,
@@ -381,8 +388,13 @@
       "public_private_normalized_comparison_status": "EXACT_KOREAN_AFTER_WHITESPACE",
       "source_reconciliation_record": "data/subtitles/source_reconciliation_81_93_20261015.json",
       "claim_count_provisional": 12,
-      "approval": "NOT_APPROVED",
-      "original_audio_verified": false
+      "approval": "APPROVED",
+      "original_audio_verified": false,
+      "individually_reviewed_claim_count": 12,
+      "speaker_cue_anchored_claim_count": 10,
+      "analyst_only_context_claim_count": 2,
+      "canonical_analysis": "data/analysis_events/BwbFnc0-yFc.json",
+      "report": "knowledge/VIDEO85_ETF_AUTOBUY_ORIGINAL_26_CUES_V3_20261015.md"
     },
     {
       "roster_no": 86,
@@ -746,8 +758,8 @@
       "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 16,
-  "verified_v3_claim_count": 427,
+  "verified_v3_reviewed_count": 18,
+  "verified_v3_claim_count": 452,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
@@ -986,6 +998,13 @@
     "public_normalized_after_specifically_qualified_duplicate_removal": 2,
     "public_translated_english_not_textually_comparable": 3,
     "claims_approved_as_a_result": 0,
-    "private_full_srt_contents_not_uploaded": true
+    "private_full_srt_contents_not_uploaded": true,
+    "claims_approved_after_individual_education_gate": 25,
+    "approved_after_audit_videos": [
+      84,
+      85
+    ],
+    "remaining_provisional_count": 11,
+    "remaining_provisional_claims": 289
   }
 }
