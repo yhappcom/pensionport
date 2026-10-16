@@ -421,11 +421,11 @@
       "cue_count": 1268,
       "raw_srt_bytes": 97254,
       "sha256": "35c1cd05611d631ca909a8165ffe3bcfc7a129c09d0722d06b9665500f5511dc",
-      "source_status": "PRIVATE_ORIGINAL_FULL_SRT_RAW_SHA_VERIFIED_CLAIMS_REMAIN_PROVISIONAL",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": false,
-      "review_status": "ORIGINAL_SOURCE_VERIFIED_CLAIM_LEVEL_V3_PENDING",
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-16",
       "original_srt_sha_recomputed_20261015": true,
       "original_zip_crc_verified": true,
       "private_original_full_cues_read": true,
@@ -437,8 +437,13 @@
       "public_private_normalized_comparison_status": "EXACT_KOREAN_AFTER_WHITESPACE",
       "source_reconciliation_record": "data/subtitles/source_reconciliation_81_93_20261015.json",
       "claim_count_provisional": 37,
-      "approval": "NOT_APPROVED",
-      "original_audio_verified": false
+      "approval": "APPROVED",
+      "original_audio_verified": false,
+      "individually_reviewed_claim_count": 37,
+      "speaker_cue_anchored_claim_count": 36,
+      "researcher_context_not_spoken_count": 1,
+      "canonical_analysis": "data/analysis_events/kdiFNJADwzI.json",
+      "report": "knowledge/VIDEO86_MINOR_GIFT_TAX_1268_CUES_V3_20261015.md"
     },
     {
       "roster_no": 87,
@@ -480,11 +485,11 @@
       "cue_count": 730,
       "raw_srt_bytes": 56318,
       "sha256": "918e93eff069a7132e643a8d8a1bad0686f36c6ddd9e00e0e8c2408741e5e67b",
-      "source_status": "PRIVATE_ORIGINAL_FULL_SRT_RAW_SHA_VERIFIED_CLAIMS_REMAIN_PROVISIONAL",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": false,
-      "review_status": "ORIGINAL_SOURCE_VERIFIED_CLAIM_LEVEL_V3_PENDING",
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-16",
       "original_srt_sha_recomputed_20261015": true,
       "original_zip_crc_verified": true,
       "private_original_full_cues_read": true,
@@ -496,8 +501,13 @@
       "public_private_normalized_comparison_status": "PUBLIC_ENGLISH_TRANSLATION_NOT_HASH_COMPARABLE",
       "source_reconciliation_record": "data/subtitles/source_reconciliation_81_93_20261015.json",
       "claim_count_provisional": 35,
-      "approval": "NOT_APPROVED",
-      "original_audio_verified": false
+      "approval": "APPROVED",
+      "original_audio_verified": false,
+      "individually_reviewed_claim_count": 35,
+      "speaker_cue_anchored_claim_count": 33,
+      "researcher_context_not_spoken_count": 2,
+      "canonical_analysis": "data/analysis_events/91GRhqMQRdE.json",
+      "report": "knowledge/VIDEO88_NPS_2026_ORIGINAL_730_CUES_V3_20261016.md"
     },
     {
       "roster_no": 89,
@@ -634,11 +644,11 @@
       "cue_count": 1461,
       "raw_srt_bytes": 113456,
       "sha256": "99b15eeb7c6253784de581e4d8827fd7f5fcc310127e2997555af7132f0b3a3c",
-      "source_status": "PRIVATE_ORIGINAL_FULL_SRT_RAW_SHA_VERIFIED_CLAIMS_REMAIN_PROVISIONAL",
+      "source_status": "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3",
       "audio_verified": false,
       "frames_verified": false,
       "public_asr_full_diff_verified": false,
-      "review_status": "ORIGINAL_SOURCE_VERIFIED_CLAIM_LEVEL_V3_PENDING",
+      "review_status": "V3_CLAIM_SCOPED_APPROVED_2026-10-16",
       "original_srt_sha_recomputed_20261015": true,
       "original_zip_crc_verified": true,
       "private_original_full_cues_read": true,
@@ -650,8 +660,13 @@
       "public_private_normalized_comparison_status": "EXACT_KOREAN_AFTER_WHITESPACE",
       "source_reconciliation_record": "data/subtitles/source_reconciliation_81_93_20261015.json",
       "claim_count_provisional": 40,
-      "approval": "NOT_APPROVED",
-      "original_audio_verified": false
+      "approval": "APPROVED",
+      "original_audio_verified": false,
+      "individually_reviewed_claim_count": 40,
+      "speaker_cue_anchored_claim_count": 34,
+      "researcher_context_not_spoken_count": 6,
+      "canonical_analysis": "data/analysis_events/PEQX1lWVUNU.json",
+      "report": "knowledge/VIDEO93_HOUSEHOLD_HEALTHCARE_ORIGINAL_1461_CUES_V3_20261016.md"
     },
     {
       "roster_no": 94,
@@ -815,8 +830,8 @@
       "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 26,
-  "verified_v3_claim_count": 626,
+  "verified_v3_reviewed_count": 29,
+  "verified_v3_claim_count": 738,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
@@ -1056,17 +1071,26 @@
     "public_translated_english_not_textually_comparable": 3,
     "claims_approved_as_a_result": 0,
     "private_full_srt_contents_not_uploaded": true,
-    "claims_approved_after_individual_education_gate": 111,
+    "claims_approved_after_individual_education_gate": 311,
     "approved_after_audit_videos": [
       81,
+      82,
+      83,
       84,
       85,
+      86,
       87,
+      88,
+      89,
       90,
       91,
-      92
+      92,
+      93
     ],
-    "remaining_provisional_count": 6,
-    "remaining_provisional_claims": 203
+    "remaining_provisional_count": 0,
+    "remaining_provisional_claims": 0,
+    "broker_marketing_claims_excluded_from_education": 3,
+    "source_verified_all_original_13": true,
+    "private_original_srt_unchanged": true
   }
 }
