@@ -69,6 +69,43 @@ def registered_sources(root):
                 or row["cue_count"] <= 0 or video_id in registry):
             raise ValueError("LATER_SRT_REVIEWED_ROW_UNTRUSTED")
         registry[video_id] = {"sha256": sha, "cue_count": row["cue_count"]}
+    # 2026-10-18: 29 freshly uploaded private SRT files (#101-129).
+    # Only explicitly V3-reviewed rows with true raw-file SHA preflight are
+    # registered; the other rows must remain source-intake only.
+    additional = root / "data/subtitles/registry_101_129_20261018.json"
+    if additional.is_file():
+        a = load(additional)
+        if (a.get("source_archive_sha256")
+                != "3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951"
+                or a.get("source_archive_bytes") != 477242
+                or a.get("archive_crc") != "PASS_ALL"
+                or len(a.get("items", [])) != 29
+                or a.get("total_cues") != 17701
+                or a.get("total_srt_bytes") != 1352355):
+            raise ValueError("BATCH_101_129_SOURCE_INTEGRITY_MISMATCH")
+        new_ids = set()
+        for row in a["items"]:
+            video_id, sha = row.get("video_id"), row.get("sha256")
+            n = row.get("roster_no")
+            if (not isinstance(video_id, str) or not YT_ID.fullmatch(video_id)
+                    or n != roster.get(video_id) or n not in range(101, 130)
+                    or video_id in new_ids or not isinstance(sha, str)
+                    or not re.fullmatch(r"[a-f0-9]{64}", sha)
+                    or not isinstance(row.get("cue_count"), int)
+                    or row["cue_count"] < 1
+                    or not isinstance(row.get("raw_srt_bytes"), int)
+                    or row["raw_srt_bytes"] < 1):
+                raise ValueError("BATCH_101_129_UNTRUSTED_ENTRY")
+            new_ids.add(video_id)
+            if row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3":
+                continue
+            if (row.get("full_transcript_reviewed") is not True
+                    or row.get("v3_status") != "APPROVED"
+                    or video_id in registry):
+                raise ValueError("BATCH_101_129_UNTRUSTED_PROMOTION")
+            registry[video_id] = {"sha256": sha, "cue_count": row["cue_count"]}
+        if len(new_ids) != 29:
+            raise ValueError("BATCH_101_129_MISSING_VIDEOS")
     return registry
 
 
