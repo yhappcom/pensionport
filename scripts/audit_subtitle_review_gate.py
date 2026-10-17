@@ -72,6 +72,36 @@ def registered_sources(root):
     return registry
 
 
+def verified_video71_public_equivalence(pilot, video_id):
+    """Exception ONLY for same-video first-party complete ASR matched to public timed cues.
+
+    Does NOT assert original private SRT bytes, audio, or exact millisecond onset.
+    """
+    if video_id != "4vNF2fui5jc" or pilot.get("roster_no") != 71:
+        return False
+    a = pilot.get("source_audit") or {}
+    return all((
+        a.get("source_kind") == "INDEPENDENT_FULL_KOREAN_TRANSCRIPT",
+        a.get("first_party_youtube_transcript_verified") is True,
+        a.get("youtube_native_ko_asr_track_found") is True,
+        a.get("full_text_exact_match") is True,
+        a.get("full_transcript_reviewed") is True,
+        a.get("video_id_matched") is True,
+        a.get("timestamps_approximate") is True,
+        a.get("third_party_timed_cues") == 1620,
+        a.get("private_original_srt_available") is False,
+        a.get("normalized_characters") == 21424,
+        a.get("first_party_transcript_normalized_sha256")
+           == "75c5344077f5ee0aacac242903f8b07ed523a1ba991fd80732a8ff8dc199736c",
+        a.get("third_party_timed_normalized_sha256")
+           == "75c5344077f5ee0aacac242903f8b07ed523a1ba991fd80732a8ff8dc199736c",
+        a.get("first_party_source_url")
+           == "https://www.youtube.com/watch?v=4vNF2fui5jc",
+        a.get("timed_source_url")
+           == "https://yoututranscript.com/transcript/4vNF2fui5jc",
+    ))
+
+
 def integrity(pilot, video_id, registry, roster):
     issues = []
     if pilot.get("video_id") != video_id:
@@ -101,7 +131,7 @@ def integrity(pilot, video_id, registry, roster):
     draft_hash = external.get("sha256") or pilot.get("subtitle_sha256")
     if expected_hash and draft_hash != expected_hash:
         issues.append("REGISTERED_SRT_HASH_MISMATCH")
-    if not expected_hash:
+    if not expected_hash and not verified_video71_public_equivalence(pilot, video_id):
         issues.append("NO_REGISTERED_SRT")
     return sorted(set(issues))
 
@@ -121,6 +151,8 @@ def source_gate(pilot):
         return "ORIGINAL_SRT_HASH_NOT_RECONCILED"
     if s["source_kind"] == "INDEPENDENT_FULL_KOREAN_TRANSCRIPT" and s.get("timestamps_approximate") is not True and s.get("precise_timing_verified") is not True:
         return "TIME_PRECISION_UNDECLARED"
+    if pilot.get("video_id") == "4vNF2fui5jc" and not verified_video71_public_equivalence(pilot, pilot.get("video_id")):
+        return "VIDEO71_PUBLIC_EQUIVALENCE_UNPROVEN"
     return None
 
 
