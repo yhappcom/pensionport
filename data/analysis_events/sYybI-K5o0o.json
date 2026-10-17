@@ -1,0 +1,395 @@
+{
+  "schema_version": 3,
+  "analysis_status": "COMPLETE",
+  "approval": "APPROVED",
+  "reviewed_at": "2026-10-18",
+  "video_id": "sYybI-K5o0o",
+  "roster_no": 106,
+  "title": "일 안해도 월급만큼 받고 싶어요! 현실적인 파이어 하는 방법",
+  "channel": "박곰희TV",
+  "source_url": "https://www.youtube.com/watch?v=sYybI-K5o0o",
+  "published_at": "2026-04-10",
+  "duration": "00:47:29",
+  "pilot_video_id": "sYybI-K5o0o",
+  "source_level": "USER_PRIVATE_ORIGINAL_1536_CUES_SHA_RECONCILED_WITH_REGISTER",
+  "source_provider": "Private original Korean automatic SRT provided inside 101-129.zip, ZIP/SRT SHA-256 matched against indexed registry; YouTube ID and published date independently checked",
+  "core_message": "FIRE 필요자산은 연지출/가정 인출률로 역산하지만 4% 규칙은 보장수익률이 아니며 조기 은퇴 긴 기간, 세금·건보료·생활비·변동성, 투자 집중위험을 고려해야 한다. 영상의 종합소득세 정산·건보료 설명 일부는 2026 공식제도와 달라 정정 필요.",
+  "core_claims": [
+    {
+      "claim_id": "sYybI-K5o0o-01",
+      "timecode": "00:15:17",
+      "source_cue_index": 494,
+      "source_cue_start": "00:15:17.839",
+      "source_anchor_sec": 917,
+      "claim": "파이어 자금 축적에 기본 10년 걸리고 노력하면 가능하다는 진행자 시나리오",
+      "verification": "HYPOTHETICAL",
+      "sources": [],
+      "disposition": "미래 원금·저축률·기대수익률 미확정",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-02",
+      "timecode": "00:19:22",
+      "source_cue_index": 633,
+      "source_cue_start": "00:19:22.400",
+      "source_anchor_sec": 1162,
+      "claim": "미국 1인당 GDP 8만달러와 20억원을 경제적 자유 자금 사례로 연결",
+      "verification": "HYPOTHETICAL",
+      "sources": [],
+      "disposition": "구술 예시이며 인구통계 실수요 아님",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-03",
+      "timecode": "00:20:27",
+      "source_cue_index": 665,
+      "source_cue_start": "00:20:27.520",
+      "source_anchor_sec": 1227,
+      "claim": "20억원에 인출 가정 4%를 적용해 연 8000만원을 역산",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://investor.vanguard.com/investor-resources-education/retirement/early-retirement"
+      ],
+      "disposition": "20억원×0.04=8000만원은 단순 산술. Vanguard는 첫해 초기자산 4% 인출 후 물가 조정하는 역사적 접근을 설명하며, 30년 이상 FIRE에는 재설계가 필요하다고 밝힌다.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-04",
+      "timecode": "00:20:57",
+      "source_cue_index": 681,
+      "source_cue_start": "00:20:57.679",
+      "source_anchor_sec": 1257,
+      "claim": "10억원에 연 4%를 적용하면 세전 연 4000만원 현금흐름이라는 사례",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://investor.vanguard.com/investor-resources-education/retirement/early-retirement"
+      ],
+      "disposition": "10억원×4%=4000만원 계산은 맞으나 일정 수익률의 '배당' 확약이 아니라 목표 인출 가정. 손실·세금·물가·변동성 고려해야 한다.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-05",
+      "timecode": "00:22:08",
+      "source_cue_index": 720,
+      "source_cue_start": "00:22:08.480",
+      "source_anchor_sec": 1328,
+      "claim": "연간 생활비의 25배가 4%룰의 역산 목표라는 설명",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://investor.vanguard.com/investor-resources-education/retirement/early-retirement"
+      ],
+      "disposition": "연간 인출액 4% 역산 시 초기자산=연지출÷0.04=25×연지출, 그러나 조기은퇴 50년 이상 적정 성공률·자산구성 미입증.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-06",
+      "timecode": "00:22:27",
+      "source_cue_index": 728,
+      "source_cue_start": "00:22:27.520",
+      "source_anchor_sec": 1347,
+      "claim": "연 생활비 2000만원을 4%로 조달한다면 목표자산 5억원",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://investor.vanguard.com/investor-resources-education/retirement/early-retirement"
+      ],
+      "disposition": "2000만원÷0.04=5억원 산술 맞음; 세후 현금흐름·주거비·의료비·수명·거주지·투자손실 미반영.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-07",
+      "timecode": "00:24:53",
+      "source_cue_index": 812,
+      "source_cue_start": "00:24:53.159",
+      "source_anchor_sec": 1493,
+      "claim": "인출률 4%, 6%, 8%를 선택하면 필요 은퇴원금이 달라진다는 시나리오",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://investor.vanguard.com/investor-resources-education/retirement/early-retirement"
+      ],
+      "disposition": "연 6000만원 기준 4%=15억원, 6%=10억원, 8%=7.5억원 단순 역산. 6~8%가 안전인출률이거나 고정 현금배당을 보장하는 것은 아니다.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-08",
+      "timecode": "00:24:55",
+      "source_cue_index": 813,
+      "source_cue_start": "00:24:55.080",
+      "source_anchor_sec": 1495,
+      "claim": "커버드콜을 섞어 8% 분배율을 목표로 하는 예시",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "disposition": "SEC 설명에서 고정적인 월/분기 분배가 원금 보전·총수익을 뜻하지 않고 분배재원에 자본환급도 포함 가능. 개별 펀드 상품설명서 필요.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-09",
+      "timecode": "00:25:06",
+      "source_cue_index": 821,
+      "source_cue_start": "00:25:06.279",
+      "source_anchor_sec": 1506,
+      "claim": "연 6000만원 지출을 6% 인출로 충당하려면 원금 10억원이라는 역산",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://investor.vanguard.com/investor-resources-education/retirement/early-retirement"
+      ],
+      "disposition": "6000만원÷0.06=10억원(월 500만원 세전가정). 6%를 미래의 안정적인 배당·채권이자율로 인증할 수 없다.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-10",
+      "timecode": "00:26:39",
+      "source_cue_index": 867,
+      "source_cue_start": "00:26:39.840",
+      "source_anchor_sec": 1599,
+      "claim": "통상 금융소득 2000만원 초과 시 종합과세를 고려해야 한다는 원칙",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2163&nttSn=1349597"
+      ],
+      "disposition": "국세청 2026-03-09 일반 안내 연 금융소득 합계 2000만원 초과 종합과세; 단 2026년 지급분 중 적격 고배당기업 주식 배당은 별도 분리과세 신청 가능해 모든 배당의 무조건 합산은 오해.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-11",
+      "timecode": "00:26:58",
+      "source_cue_index": 876,
+      "source_cue_start": "00:26:58.760",
+      "source_anchor_sec": 1618,
+      "claim": "금융소득 6000만원이면 2000만원을 제외한 4000만원만 낮은 소득구간부터 매긴다는 세액 계산 사례",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7666&mi=2224"
+      ],
+      "disposition": "금융소득 종합과세에는 일반세율/원천징수세율 비교과세, 다른 소득, 인적공제, 배당세액공제, 지방소득세 및 별도 금융소득 특례를 고려해야 함. 4000만원에 단순 6.6%→16.5%만 적용한 계산으로 실제 결정세액 확정 불가.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-12",
+      "timecode": "00:27:59",
+      "source_cue_index": 909,
+      "source_cue_start": "00:27:59.919",
+      "source_anchor_sec": 1679,
+      "claim": "배당 6000만원을 받아 종합소득세를 신고해도 세액 추가납부도 환급도 절대 없다는 설명",
+      "verification": "CONTRADICTED",
+      "sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7666&mi=2224"
+      ],
+      "disposition": "국세청 종합소득세 안내는 원천징수 세액을 기납부세액으로 공제한 뒤 '납부(환급)할 세액'을 산출한다고 명시한다. 금융소득 비교과세와 고배당 특례 및 개인 다른 소득·공제에 따라 추가 납부/환급 여부가 달라짐. '환급 불가/추가세 없음' 보편 단정 성립하지 않음.",
+      "correction": "기납부 원천징수세액과 최종 결정세액 비교·법상 비교과세/특례를 적용하여 납부 또는 환급 여부를 사례별 결정",
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-13",
+      "timecode": "00:31:10",
+      "source_cue_index": 1015,
+      "source_cue_start": "00:31:10.799",
+      "source_anchor_sec": 1870,
+      "claim": "퇴사해 지역가입자가 되면 금융소득이 1000만원을 넘으면 건강보험료가 발생한다는 설명",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.nhis.or.kr/lm/lmxsrv/law/lawFullContent.do?MODE=threeView&SEQ=29&SEQ_HISTORY=100002"
+      ],
+      "disposition": "건보공단 시행규칙은 일반 일정 이자·배당 소득 합계가 1000만원 이하이면 소득평가액에 미산입하는 한계를 규정; 1000만원 초과부터 소득산정 포함 가능하나 자격·세대·재산·시차 등 고려, 보험료 일률 신규 생성 아님.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-14",
+      "timecode": "00:31:12",
+      "source_cue_index": 1016,
+      "source_cue_start": "00:31:12.519",
+      "source_anchor_sec": 1872,
+      "claim": "건강보험료를 금융소득에 고정 8%로 더해야 한다는 설명",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://edi.nhis.or.kr/portal/images/popup/20251204_pop01longdesc.html"
+      ],
+      "disposition": "건보공단 공식 2026 건강보험료율은 7.19%, 장기요양보험료율은 소득기준 약 0.9448%포인트(건강보험료 7.19% 대비 비율 공식)로 별도다. 지역가입자는 소득뿐 아니라 재산 및 경감 조건이 적용되어 배당액 전체에 동일한 8%를 더하는 식은 부정확.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-15",
+      "timecode": "00:31:36",
+      "source_cue_index": 1029,
+      "source_cue_start": "00:31:36.600",
+      "source_anchor_sec": 1896,
+      "claim": "은퇴 후 낮은 급여로 직장가입자가 되면 보험료가 줄어든다는 사례",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.nhis.or.kr/lm/lmxsrv/main/moviePopup.do?seqMovie=56"
+      ],
+      "disposition": "직장가입자 보수월액보험료는 노사 각각 50% 부담하지만 연간 보수 외 소득 2000만원 초과분의 추가 건강보험료는 개인 부담. 임의의 형식적 취업·법인설립만으로 건강보험료 절감 보증할 수 없다.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-16",
+      "timecode": "00:36:05",
+      "source_cue_index": 1179,
+      "source_cue_start": "00:36:05.319",
+      "source_anchor_sec": 2165,
+      "claim": "45세 전후 FIRE 달성을 위해 부업/근로소득 확대를 제안하는 개인 모델",
+      "verification": "HYPOTHETICAL",
+      "sources": [],
+      "disposition": "speaker example not empirical forecast",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-17",
+      "timecode": "00:38:19",
+      "source_cue_index": 1255,
+      "source_cue_start": "00:38:19.160",
+      "source_anchor_sec": 2299,
+      "claim": "35세의 과도한 암호자산·개별주식 일발투자로 빠른 FIRE를 추구하는 전략을 위험하다고 경계",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
+      ],
+      "disposition": "소수 종목·시장에 자본을 집중하면 상당한 손실위험을 부담함. 레버리지 여부·유동성·원금 변동을 확인하고 기대대박을 기본 재무 계획으로 인정하지 않는다.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "sYybI-K5o0o-18",
+      "timecode": "00:39:31",
+      "source_cue_index": 1291,
+      "source_cue_start": "00:39:31.960",
+      "source_anchor_sec": 2371,
+      "claim": "65세까지 계속 일하고 모으면 경제적 자유가 확실하다는 회화상 예시",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://investor.vanguard.com/investor-resources-education/retirement/early-retirement"
+      ],
+      "disposition": "고용 지속, 임금·저축, 투자 수익, 건강, 실업·은퇴시점, 지출은 보장되지 않음. 근로연수만으로 적립 자산 목표를 확정하지 않는다.",
+      "correction": null,
+      "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
+    }
+  ],
+  "claim_classification_tally": {
+    "HYPOTHETICAL": 3,
+    "PRIMARY_CONFIRMED": 2,
+    "QUALIFIED": 12,
+    "CONTRADICTED": 1
+  },
+  "actionable_guidance": [
+    "Use 25x annual spending as a starting algebraic heuristic only; adjust for 40-50 year retirement horizons, taxes, inflation and market returns.",
+    "Keep dividend/distribution yield separate from total-return based safe withdrawal rate. A 6%-8% withdrawal or cash distribution is not an investable guaranteed pension.",
+    "Compute annual financial income by tax treatment: 2026 high-dividend Korean company share distributions may be split-tax eligible with application, unlike general fully comprehensive-taxed income.",
+    "For retiree insurance model 2026 7.19% NHIS rate and additional LTC rules; income-versus-asset insurance factors and employment category cannot be captured as blanket 8% of gross dividends.",
+    "Compare actual tax withholding, earned/business/pension income, exemptions, credit and ordinary vs special separate taxation with filing returns; do not promise there is never extra payment or refund.",
+    "Avoid making concentrated crypto/equity high-risk windfalls the base case for reaching early FIRE; model sustainable contribution and downside scenarios.",
+    "Obtain personalized tax advice from qualified professional before moving a large portfolio merely to avoid health-insurance or tax payments."
+  ],
+  "assumptions": [
+    "2026-10-18 uploaded 101-129.zip: 477,242 bytes CRC PASS SHA256 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951; original video SRT 1536 cues 116452 bytes SHA256 1cf58ec2188236f3bb81bf54f4a7dd43cf50f84aba8fd887b375945dd6d1e5d5.",
+    "4% heuristic originally 30-year historical study, for long FIRE 50 year estimate planning withdrawals and currency/inflation assumptions need separate model.",
+    "Korean general financial income aggregate threshold KRW20m applies with 2026 high dividend exception conditional on exact eligible issuer/holder and 2027 filing.",
+    "2026 NHIS health insurance base rate 7.19% plus separate long-term care insurance line, not flat 8% of all dividends.",
+    "Personal earned income, family status, home value and tax credit information are not supplied."
+  ],
+  "risks_and_exceptions": [
+    "Vanguard's 4% withdrawal rule does not equal an asset that pays a fixed 4% dividend or guarantee one can fund 50 years of retirement.",
+    "Fund distributions can be funded by return of investor capital and do not equal positive total return.",
+    "Certain 2026 KR company high dividends may be subject to opt-in separate tax, so unconditional whole-bracket general tax conclusion is invalid.",
+    "Korean dividend tax excess and deductions require financial-income comparison taxation and accurate resident income classifications.",
+    "Regional/employee health insurance differs; employee's nonpayroll income above KRW20m may trigger entirely self-paid additional insurance.",
+    "Early-retirement 10 years/45 years/65 years scenarios are personal assumptions, not general probability or actual success guarantee.",
+    "Automatic SRT ambiguities may be material, original recorded voice and onscreen calculations were not reverified."
+  ],
+  "quantitative_claims": [
+    {
+      "metric": "SOURCE_1536_CUES",
+      "private_srt_sha256": "1cf58ec2188236f3bb81bf54f4a7dd43cf50f84aba8fd887b375945dd6d1e5d5",
+      "raw_bytes": 116452,
+      "cue_count": 1536,
+      "original_audio_verified": false
+    },
+    {
+      "metric": "FIRE_ASSET_REQUIREMENT_PRETAX",
+      "annual_cashflow_krw": 60000000,
+      "asset_at_4pct_krw": 1500000000,
+      "asset_at_6pct_krw": 1000000000,
+      "asset_at_8pct_krw": 750000000,
+      "rates_hypothetical_not_guaranteed": true
+    },
+    {
+      "metric": "ANNUAL_2O_MILLION_AT_4_PERCENT",
+      "annual_spending_krw": 20000000,
+      "principal_krw": 500000000
+    },
+    {
+      "metric": "2026_NHIS_RATE",
+      "health_premium_base_pct": 7.19,
+      "ltc_relative_extra_equivalent_pct": 0.9448,
+      "not_personal_effective_dividend_rate": true,
+      "source": "https://edi.nhis.or.kr/portal/images/popup/20251204_pop01longdesc.html"
+    },
+    {
+      "metric": "FINANCIAL_INCOME_AGGREGATION_DEFAULT_THRESHOLD",
+      "krw": 20000000,
+      "high_dividend_special_separate_tax_exception_2026": true,
+      "source": "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2163&nttSn=1349597"
+    }
+  ],
+  "relations": [
+    {
+      "type": "FIRE_PORTFOLIO_ASSET_ALLOCATIONS",
+      "related_video_id": "-3iNxrjeQak",
+      "detail": "#105 low-cost index funds / 4% rule historical returns and withdrawal exceptions"
+    },
+    {
+      "type": "RETIREMENT_INCOME_CASHFLOW",
+      "related_video_id": "8tTh8bRc4OI",
+      "detail": "#110 public pension future liability and deferred retirement"
+    },
+    {
+      "type": "FUND_DISTRIBUTIONS",
+      "related_video_id": "BEUvOl-expQ",
+      "detail": "#120 long video dividend cashflow not yet fully V3 verified"
+    },
+    {
+      "type": "TAX_RULE_EXCEPTION",
+      "related_video_id": "Gk3-ZC9W3vw",
+      "detail": "#107 cross-border ISA US dividend effective taxes remain claim-review pending"
+    }
+  ],
+  "verification_status": "V3_APPROVED_18_EDUCATIONAL_CLAIMS_PRIVATE_ORIGINAL_SRT_1536_CUES_2026_OFFICIAL_CORRECTIONS_1_CONTRADICTED",
+  "evidence_gate": {
+    "version": 1,
+    "source_checked": true,
+    "all_material_claims_triaged": true,
+    "source_audit_reference": "data/subtitles/pilots/sYybI-K5o0o.json#source_audit",
+    "claim_evidence_reference": "data/subtitles/pilots/sYybI-K5o0o.json#claims[*].verification_evidence",
+    "source_fingerprint": "1cf58ec2188236f3bb81bf54f4a7dd43cf50f84aba8fd887b375945dd6d1e5d5",
+    "source_archive_fingerprint": "3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951",
+    "source_cue_count": 1536,
+    "source_byte_size": 116452,
+    "original_srt_sha_recomputed": true,
+    "original_cues_read": true,
+    "original_audio_verified": false,
+    "original_frames_verified": false,
+    "full_source_text_publicly_uploaded": false
+  },
+  "limitations": [
+    "No raw private SRT/ZIP uploaded publicly",
+    "No original audio/frames independently authenticated",
+    "2026 high-dividend preferential split taxation may modify treatment of eligible income; fund distributions vs corporate dividends differ",
+    "2026 health insurance base rate 7.19% distinct from extra LTC rate",
+    "Personal tax cashflow and 10-year FIRE timing cannot be asserted as universally valid"
+  ]
+}
