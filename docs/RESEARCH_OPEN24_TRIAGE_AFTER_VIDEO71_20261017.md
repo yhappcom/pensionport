@@ -1,5 +1,7 @@
 # 71번 주장검토 완료 이후 — 선택적 추가검증 OPEN 24건 후속 실행 원장
 
+> **2026-10-17 최종 재심사 참고:** 이 문서는 #71 최초 예비검토 직후의 OPEN24 분류 이력이다. 이후 #71의 YouTube 1차 전체 한국어 전사와 1,620개 시간표시 큐의 정규화 21,424자 직접 일치로 교육용 V3 13건을 승인했고 누적 **100편·1,803건**이 됐다. [통합 최종 보고서](RESEARCH_VIDEO71_OPEN24_FINAL_STATUS_20261017.md), [24건 최종 근거별 재심사](../knowledge/OPEN_24_FINAL_EVIDENCE_REVIEW_AFTER_VIDEO71_20261017.md). 선택추가검증 OPEN 24건은 독립 증거 미확보로 그대로 유지한다.
+
 **기준일:** 2026-10-17  
 **작업 순서:** #71 내용심사 및 근거 기록 완료 → **본 OPEN 24건 증빙 요구사항 정리** → 사용자 지시 전까지 #101 신규 V3 분석 착수하지 않음.  
 **검토 대상:** [기존 개별 검증 원장](../data/subtitles/optional_verification_register_20261012.json) / [기존 24건 근거 재점검](../knowledge/OPTIONAL_24_EVIDENCE_GATE_REFRESH_20261017.md).
