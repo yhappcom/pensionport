@@ -65,12 +65,12 @@
       "public_asr_length_chars_including_whitespace": 29404,
       "public_asr_whitespace_normalized_characters": 21424,
       "public_asr_whitespace_normalized_sha256": "75c5344077f5ee0aacac242903f8b07ed523a1ba991fd80732a8ff8dc199736c",
-      "public_asr_timed_cues_available": false,
+      "public_asr_timed_cues_available": true,
       "public_asr_source_record": "data/subtitles/source_acquisition/video71_public_asr_precheck_20261017.json",
       "public_asr_provisional_report": "knowledge/VIDEO71_PUBLIC_ASR_PRELIMINARY_20261017.md",
       "public_asr_candidate_claim_count_not_approved": 13,
-      "public_asr_candidate_claims_approved": 0,
-      "review_status": "PUBLIC_KOREAN_TIMED_ASR_1620_CUES_RECONSTRUCTED_PRIVATE_ORIGINAL_MISSING_V3_NOT_APPROVED",
+      "public_asr_candidate_claims_approved": 13,
+      "review_status": "PUBLIC_FIRST_PARTY_FULL_ASR_EQUIVALENT_WITH_TIMED_PUBLIC_SOURCE_V3_APPROVED_20261017",
       "private_original_srt_still_missing": true,
       "public_timed_asr_available": true,
       "public_timed_asr_source_kind": "DERIVED_PUBLIC_AUTO_KOREAN_SRT_SECONDS_PRECISION",
@@ -85,7 +85,17 @@
       "public_timed_asr_start_time_precision": "WHOLE_SECONDS_ORIGINALLY;_MILISECONDS_RECONSTRUCTED",
       "original_private_binary_sha_unavailable": true,
       "public_asr_precise_cue_audio_millisecond_verified": false,
-      "approved_education_claims_new": 0
+      "approved_education_claims_new": 13,
+      "equivalent_first_party_native_ko_asr_track_metadata": true,
+      "equivalent_full_youtube_and_timed_text_exact_match": true,
+      "equivalent_first_party_full_body_normalized_chars": 21424,
+      "equivalent_first_party_full_body_normalized_sha256": "75c5344077f5ee0aacac242903f8b07ed523a1ba991fd80732a8ff8dc199736c",
+      "equivalent_timestamp_approximate_seconds": true,
+      "equivalent_source_audit": "data/subtitles/pilots/4vNF2fui5jc.json#source_audit",
+      "equivalent_v3_event": "data/analysis_events/4vNF2fui5jc.json",
+      "equivalent_raw_private_srt_verified": false,
+      "equivalent_independent_original_audio_verified": false,
+      "equivalent_note": "SOURCE_SRT_UNAVAILABLE means private user-original absent, not that same-video public YouTube native ASR first-party full transcript content could not be verified. 2026-10-17 full public body string equality established across firstparty and timestamped thirdparty; private raw SRT and milliseconds remain unverified."
     },
     {
       "roster_no": 72,
@@ -858,8 +868,8 @@
       "canonical_analysis": "data/analysis_events/g5PChibmY5A.json"
     }
   ],
-  "verified_v3_reviewed_count": 29,
-  "verified_v3_claim_count": 738,
+  "verified_v3_reviewed_count": 30,
+  "verified_v3_claim_count": 751,
   "full_transcript_review_complete_in_this_archive": false,
   "last_revalidated_private_uploaded_archive_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
   "last_revalidated_cue_byte_hash": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
@@ -1146,5 +1156,25 @@
     "original_audio_verified": false,
     "original_frames_verified": false,
     "new_V3_claims": 0
+  },
+  "video71_public_equivalent_source_v3_20261017": {
+    "video_id": "4vNF2fui5jc",
+    "roster_no": 71,
+    "original_private_srt_absent": true,
+    "source_kind": "YOUTUBE_FIRST_PARTY_KOREAN_ASR_COMPLETE_BODY_EXACT_MATCH_THIRDPARTY_TIMED_1620_CUES",
+    "native_ko_asr_track_metadata_confirmed": true,
+    "first_party_full_body_normalized_sha256": "75c5344077f5ee0aacac242903f8b07ed523a1ba991fd80732a8ff8dc199736c",
+    "third_party_full_body_normalized_sha256": "75c5344077f5ee0aacac242903f8b07ed523a1ba991fd80732a8ff8dc199736c",
+    "full_normalized_exact_text_match": true,
+    "caption_cues_with_approx_start": 1620,
+    "original_millisecond_timestamp_verified": false,
+    "derived_srt_millisecond_start_end_reconstructed": true,
+    "raw_original_srt_verified": false,
+    "video_audio_independently_checked": false,
+    "video_frames_checked": false,
+    "pilot": "data/subtitles/pilots/4vNF2fui5jc.json",
+    "v3_event": "data/analysis_events/4vNF2fui5jc.json",
+    "approved_education_claims": 13,
+    "approval_scope": "CLAIM_SCOPED_V3_ONLY_INDEPENDENT_FIRSTPARTY_FULL_KO_ASR_TEXT_EQUIVALENCE_NO_AUDIO_APPROVAL"
   }
 }
