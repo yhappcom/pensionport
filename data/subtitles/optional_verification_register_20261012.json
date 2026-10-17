@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-13",
+  "as_of": "2026-10-17",
   "policy_reference": "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md",
   "intent": "Optional claim-specific verification, not a global blockade for the video research programme",
   "counting_rule": "OPEN here does NOT revoke educational V3 complete status unless the underlying core claim cannot be safely scoped, then change affected record to PARTIAL.",
@@ -810,7 +810,8 @@
       "new_evidence_note": "2026-09-30 Korean 5Y treasury YTM was 4.203% close; previous day 4.276% (Yonhap/Infomax). KRX 5-year treasury FUTURES synthetic standardized coupon 5% does not represent then-current CASH market YTM. Original recording's exact quote date/security remain unproven.",
       "latest_evidence_urls": [
         "https://www.yna.co.kr/view/AKR20260930158400008",
-        "https://www.krx.co.kr/contents/OPN/01/01040502/OPN01040502.jsp"
+        "https://www.krx.co.kr/contents/OPN/01/01040502/OPN01040502.jsp",
+        "https://mofe.go.kr/st/fnancstats/ktb50201.do?bbsId=MOSFBBS_000000000049&menuNo=6050300"
       ],
       "reviewed_at": "2026-10-13",
       "triage_20261013_pass2": {
@@ -822,6 +823,14 @@
         "outcome": "OPEN_RETAINED_NO_UNSUPPORTED_RESOLUTION",
         "original_audio_checked": false,
         "original_frames_checked": false
+      },
+      "recheck_20261017": {
+        "checked_at": "2026-10-17",
+        "official_source": "Korean Ministry of Finance 2026-09-21 5Y bond auction listing (국고04125-3109), 2026-09-28 follow-up non-competitive offer",
+        "source_url": "https://mofe.go.kr/st/fnancstats/ktb50201.do?bbsId=MOSFBBS_000000000049&menuNo=6050300",
+        "disposition": "OFFICIAL_ISSUANCE_ID_FOUND_NOT_SAME_AS_VIDEO_DATE_SECONDARY_5Y_YTM",
+        "status": "OPEN",
+        "closing_gap": "Exact recorded date and same-day matched-maturity secondary market bond YTM, not issue coupon or 5Y futures notional coupon; video original screen/audio if figures unclear."
       }
     },
     {
@@ -1364,7 +1373,7 @@
     "definition": "RESOLVED is a dated independently evidenced claim or disproof of universal statement; not certification of original speech, exact future fund constituents or specific holder's tax status."
   },
   "reassessment_20261013_report": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
-  "last_review_note": "2026-10-13 timeout recovery: 12 previously RESOLVED preserved, +2 (ETF overlap 8 shared and 5.6% as of Aug4; universally guaranteed KRW10k buy claim rejected). 2026 Sep30 YTM and minor general accounts evidence enrichment only, each remains OPEN. 2026-10-13 dated recheck: QQQ/SCHD page refreshed to Oct2 showing 8 shared, 4.8% min-weight overlap (rounded components sum 4.82%); old Aug4 5.6% cannot be reproduced from now-live page. Resolved status unchanged.\n2026-10-13 additional #35: separately registered OPEN original insurance surrender contract; prior established 37 (14 resolved / 23 open) preserved, new 38 (14 / 24). Financially sensitive specific contract not independently available.\n2026-10-13 evidence gate reassessment: all 24 OPEN claims individually assigned evidence gate and missing-proof trigger. Recomputed 7y/10y, annual-vs-monthly 6%, and 30y 2.13m at 4%; official MOEL, FSC, KTCU and NTS primary references checked. No unverified closure; 14 RESOLVED / 24 OPEN unchanged. | 2026-10-14 cross-video periodic gift PV n=0..9 matches 1993만원, unresolved actual signed contract remains OPEN; no count changes.",
+  "last_review_note": "2026-10-13 timeout recovery: 12 previously RESOLVED preserved, +2 (ETF overlap 8 shared and 5.6% as of Aug4; universally guaranteed KRW10k buy claim rejected). 2026 Sep30 YTM and minor general accounts evidence enrichment only, each remains OPEN. 2026-10-13 dated recheck: QQQ/SCHD page refreshed to Oct2 showing 8 shared, 4.8% min-weight overlap (rounded components sum 4.82%); old Aug4 5.6% cannot be reproduced from now-live page. Resolved status unchanged.\n2026-10-13 additional #35: separately registered OPEN original insurance surrender contract; prior established 37 (14 resolved / 23 open) preserved, new 38 (14 / 24). Financially sensitive specific contract not independently available.\n2026-10-13 evidence gate reassessment: all 24 OPEN claims individually assigned evidence gate and missing-proof trigger. Recomputed 7y/10y, annual-vs-monthly 6%, and 30y 2.13m at 4%; official MOEL, FSC, KTCU and NTS primary references checked. No unverified closure; 14 RESOLVED / 24 OPEN unchanged. | 2026-10-14 cross-video periodic gift PV n=0..9 matches 1993만원, unresolved actual signed contract remains OPEN; no count changes. | 2026-10-17 optional 24 evidence availability check: no source-level closure; HIGH9/MEDIUM9/LOW6; MOFE 2026-09 5Y issue auction is not matched trade-date YTM for video WGFP; new #71 public Korean full auto ASR captured separately but missing private SRT and no V3 approval.",
   "reassessment_20261013_pass2_report": "knowledge/OPEN_24_EVIDENCE_GATE_REVIEW_20261013.md",
   "reassessment_20261013_pass2_summary": {
     "audited_at": "2026-10-13",
@@ -1376,5 +1385,21 @@
     "closed_new_without_primary_proof": 0,
     "original_audio_checked": false,
     "original_frames_checked": false
+  },
+  "reassessment_20261017": {
+    "report": "knowledge/OPTIONAL_24_EVIDENCE_GATE_REFRESH_20261017.md",
+    "source_review": "2026-10-17 read all 38 optional ledger records, rechecked 24 OPEN evidentiary blockers; only verified government 2026-09-21 5-year auction-listing context for one item but no comparable video-date YTM",
+    "high_open": 9,
+    "medium_open": 9,
+    "low_open": 6,
+    "open": 24,
+    "resolved": 14,
+    "new_resolutions": 0,
+    "changed_status_count": 0,
+    "private_contracts_not_available": true,
+    "independent_audio_verified": false,
+    "independent_frames_verified": false,
+    "video71_public_asr_recovery_separate": "data/subtitles/source_acquisition/video71_public_asr_precheck_20261017.json",
+    "no_unsupported_closure": true
   }
 }
