@@ -1,5 +1,12 @@
 # 박곰희TV 71~100편 전용 출처·검증 대기열
 
+## 2026-10-17 #71 동등출처 교육 V3 13건 승인 (최신)
+
+- [YouTube 원본 영상](https://www.youtube.com/watch?v=4vNF2fui5jc)의 한국어 전체 자동전사 21,424자(공백 제거)와 [공개 초단위 시각 전사](https://yoututranscript.com/transcript/4vNF2fui5jc) 1,620큐의 전문이 문자단위로 완전히 일치. 원본 YouTube 플레이어에서 동일 영상의 한국어 자동생성 트랙도 확인.
+- 13개 교육 주장(일차확인1, 조건부6, 진행자·출연자 의견3, 가정3)을 [V3 단일 분석](../data/analysis_events/4vNF2fui5jc.json)으로 승인. 누적 100편/1,803건. [동등출처 심사](../knowledge/VIDEO71_YOUTUBE_PRIMARY_TRANSCRIPT_EQUIVALENT_V3_20261017.md) 및 [새 원장](../data/subtitles/research_progress_after_video71_equivalent_v3_20261017.json).
+- 기존 개인 원본 SRT는 여전히 없음. 초단위 시각만 근삿값으로 사용하며 보간 밀리초/종료값, 실제 원음, 영상 화면, 사적 계좌 실적을 원본 검증했다고 주장하지 않음. 종전 예비 승인 보류는 과거 시점의 이력이다.
+- 별도 추가검증 OPEN24 건은 유지. #101 이후 연구 미착수.
+
 ## 2026-10-17 #71 공개 시간표시 전사 13건 주장별 공식근거 검토 종결 · V3 출처 보류 (후속)
 
 - **재대조:** 공개 한국어 자동전사 [동일 영상](https://yoututranscript.com/transcript/4vNF2fui5jc) **1,620큐**를 재조회해 기존 13개 주장 후보의 원문 앞뒤 문맥과 초 단위 시각을 확인했다. 진행자/출연자 진술을 분리했고, 주장별 구조화 판정은 [13건 근거 데이터](../data/subtitles/source_acquisition/video71_public_13_claim_evidence_review_20261017.json), 세부 판단은 [검토 종결 보고서](../knowledge/VIDEO71_PUBLIC_13_CLAIM_REVIEW_CLOSEOUT_20261017.md)에 저장했다.
