@@ -1,5 +1,11 @@
 # 박곰희TV 투자 지식 연구 — 실제 파일 기반 검증 대기열
 
+## 2026-10-17 #71 공개 13개 주장 검토 종결 — 원본 SRT 출처 승인 보류
+
+- #71 `4vNF2fui5jc` 공개 한국어 타임스탬프 자막 **1,620개**의 13개 후보 주장을 다시 읽고 SEC/DART/Tesla 공식자료와 구분하여 [13건 주장별 검토 문서](../knowledge/VIDEO71_PUBLIC_13_CLAIM_REVIEW_CLOSEOUT_20261017.md)와 [검증 레코드](../data/subtitles/source_acquisition/video71_public_13_claim_evidence_review_20261017.json)를 신규 작성했다. Tesla 2025 인도 1,636,129대 공식수치 일치; 전환사채 표면금리 7~8% 불특정; 20:80은 두 종목 간 배분·개인 계좌 미검증.
+- **13건 내용 검토 완료는 V3 승인이 아님.** 개인 원본 SRT 및 독립 원음·화면 미확인, 공개 초 단위 타임코드의 밀리초 보간. `SOURCE_SRT_UNAVAILABLE / V3_SOURCE_GATE_OPEN / NOT_APPROVED`. 승인 **99편·1,790건**, 기존 24 OPEN 유지. 기본 `main`, 비공개 원문 및 기타 영상 승인 기록 변경 없음.
+- 후속 순서: 기존 OPEN 24건의 증거별 정리. **#101 이후 신규 영상 분석은 그 이후**.
+
 ## 2026-10-13 #70 최종편 완료 — 1~70편 연구 70/70 원본 완료
 
 - **최종 #70 `Dde4ogogNEk` 원본 확인**: 사용자 저작권 비공개 `1-70.zip/1-70/youtube-transcript-Dde4ogogNEk.srt`, **421개 자동자막 큐/33,896바이트/15:34.750**, SHA256 `81da490d5ccc2494233d9f789367a0bfa026f93833464e0d977087e0d2e58134` GitHub `registry.json` 정확히 일치. [주장별 근거](../data/subtitles/pilots/Dde4ogogNEk.json) / [canonical V3](../data/analysis_events/Dde4ogogNEk.json) / [종합검증 보고서](../knowledge/INVESTING_MIND_HONG_JINCHAE_BOOK_VIDEO70_VERIFIED_20261013.md). **27개 중요 주장 (공식·수학확인9 / 조건부17 / 반증1)**. 2026 홍진채 『주식하는 마음』 개정판 발행 [서지확인](https://www.yes24.com/Product/Goods/178256970); 상승장 운·실력 혼동·서면 투자원칙·장기투자 근거·동일 업종 중복노출 분산부족·떨어지는 칼날의 내재가치 판단·승률30/70%의 기대손익을 SEC/CFA 자료 및 독립 수학으로 구분. **안전자산85~90%+공격투자10~15% 바벨 예시가 전체 투자자에게 대규모 손실 절대 불발을 보장한다는 단정은 반증**.
