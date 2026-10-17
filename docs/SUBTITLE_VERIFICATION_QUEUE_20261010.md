@@ -1,5 +1,11 @@
 # 박곰희TV 투자 지식 연구 — 실제 파일 기반 검증 대기열
 
+## 2026-10-17 #71 YouTube 본문 동등출처 교육 V3 최종 승인
+
+- #71 한국어 원영상 전사 및 제3자 1,620큐 시간표시 전사를 정규화해 21,424자 완전 일치, native ko/asr 트랙 메타데이터 확인. [심사 보고서](../knowledge/VIDEO71_YOUTUBE_PRIMARY_TRANSCRIPT_EQUIVALENT_V3_20261017.md).
+- #71 교육 주장 13건 정식 검증 완료, 승인 총계 100편/1,803건. [pilot](../data/subtitles/pilots/4vNF2fui5jc.json), [정식 단일분석](../data/analysis_events/4vNF2fui5jc.json). 사용자 개인 SRT 원본 없음/원시 밀리초 시각·음성·프레임 직접검증 없음.
+- 추가검증 24건 별도, #101 착수 보류.
+
 ## 2026-10-17 #71 공개 13개 주장 검토 종결 — 원본 SRT 출처 승인 보류
 
 - #71 `4vNF2fui5jc` 공개 한국어 타임스탬프 자막 **1,620개**의 13개 후보 주장을 다시 읽고 SEC/DART/Tesla 공식자료와 구분하여 [13건 주장별 검토 문서](../knowledge/VIDEO71_PUBLIC_13_CLAIM_REVIEW_CLOSEOUT_20261017.md)와 [검증 레코드](../data/subtitles/source_acquisition/video71_public_13_claim_evidence_review_20261017.json)를 신규 작성했다. Tesla 2025 인도 1,636,129대 공식수치 일치; 전환사채 표면금리 7~8% 불특정; 20:80은 두 종목 간 배분·개인 계좌 미검증.
