@@ -70,8 +70,22 @@
       "public_asr_provisional_report": "knowledge/VIDEO71_PUBLIC_ASR_PRELIMINARY_20261017.md",
       "public_asr_candidate_claim_count_not_approved": 13,
       "public_asr_candidate_claims_approved": 0,
-      "review_status": "PUBLIC_ASR_PRELIMINARY_NO_PRIVATE_ORIGINAL_SRT_V3_NOT_APPROVED",
-      "private_original_srt_still_missing": true
+      "review_status": "PUBLIC_KOREAN_TIMED_ASR_1620_CUES_RECONSTRUCTED_PRIVATE_ORIGINAL_MISSING_V3_NOT_APPROVED",
+      "private_original_srt_still_missing": true,
+      "public_timed_asr_available": true,
+      "public_timed_asr_source_kind": "DERIVED_PUBLIC_AUTO_KOREAN_SRT_SECONDS_PRECISION",
+      "public_timed_asr_lines": 1620,
+      "public_timed_asr_full_normalized_sha256": "75c5344077f5ee0aacac242903f8b07ed523a1ba991fd80732a8ff8dc199736c",
+      "public_timed_asr_same_text_as_previous_public_untimed": true,
+      "public_timed_asr_filename": "youtube-transcript-4vNF2fui5jc_public_auto_timed_20261017.srt",
+      "public_timed_asr_bytes": 125816,
+      "public_timed_asr_file_sha256": "36ab40d6af3d7a47c3a9c4fd8598d53880c75610cab5ea13f66d2dccf78c895c",
+      "public_timed_asr_source_url": "https://yoututranscript.com/transcript/4vNF2fui5jc",
+      "public_timed_asr_provenance_record": "data/subtitles/source_acquisition/video71_public_timed_asr_20261017.json",
+      "public_timed_asr_start_time_precision": "WHOLE_SECONDS_ORIGINALLY;_MILISECONDS_RECONSTRUCTED",
+      "original_private_binary_sha_unavailable": true,
+      "public_asr_precise_cue_audio_millisecond_verified": false,
+      "approved_education_claims_new": 0
     },
     {
       "roster_no": 72,
@@ -1117,5 +1131,20 @@
     "preliminary_claim_candidates": 13,
     "preliminary_report": "knowledge/VIDEO71_PUBLIC_ASR_PRELIMINARY_20261017.md",
     "scope": "NO_APPROVAL_OR_COUNT_CHANGE_NO_USER_SRT_SHA_MATCH"
+  },
+  "video71_timed_public_caption_recovery_20261017": {
+    "roster_no": 71,
+    "video_id": "4vNF2fui5jc",
+    "public_source_record": "data/subtitles/source_acquisition/video71_public_timed_asr_20261017.json",
+    "source_site": "https://yoututranscript.com/transcript/4vNF2fui5jc",
+    "public_full_cues": 1620,
+    "full_caption_text_sha256": "75c5344077f5ee0aacac242903f8b07ed523a1ba991fd80732a8ff8dc199736c",
+    "derived_srt_bytes": 125816,
+    "derived_srt_sha256": "36ab40d6af3d7a47c3a9c4fd8598d53880c75610cab5ea13f66d2dccf78c895c",
+    "full_private_original_source_still_missing": true,
+    "private_original_source_status_unchanged": true,
+    "original_audio_verified": false,
+    "original_frames_verified": false,
+    "new_V3_claims": 0
   }
 }
