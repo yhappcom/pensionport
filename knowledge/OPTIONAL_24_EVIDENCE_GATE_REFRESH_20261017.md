@@ -1,5 +1,7 @@
 # 박곰희TV 선택적 추가검증 24건 — 증거 접근성 재점검 (2026-10-17)
 
+> **2026-10-17 갱신 이력 안내:** 아래 본문은 #71의 YouTube 전체 전사 동등검증 이전의 증거 게이트 점검 기록이다. 최신 영상 승인수는 **100편·1,803개 주장**, #71 V3 승인 범위/원본 SRT 미보유 구분은 [#71 최종 보고서](VIDEO71_YOUTUBE_PRIMARY_TRANSCRIPT_EQUIVALENT_V3_20261017.md)를 따른다. 이후 같은 날 재검토한 OPEN 24건의 모든 신규 공식근거·개별 사용제한·종결 조건은 [24건 최종 보고서](OPEN_24_FINAL_EVIDENCE_REVIEW_AFTER_VIDEO71_20261017.md) 및 [통합 상태 보고서](../docs/RESEARCH_VIDEO71_OPEN24_FINAL_STATUS_20261017.md)가 최신이다. 14건 RESOLVED, 24건 OPEN 유지.
+
 ## 이번 점검 결과
 
 2026-10-17 GitHub 최신 [검증 상태 원장](../data/subtitles/optional_verification_register_20261012.json) 내 기존 **38건 중 RESOLVED 14건 / OPEN 24건**을 다시 대조했다. 이번에 **24건 상태를 증거 없이 종결한 사례는 없음(신규 RESOLVED 0)**. HIGH 9 / MEDIUM 9 / LOW 6. **이 24건은 전체 교육 V3 승인 99편/1,790건을 뒤집거나, 이미 진행 중인 #101 이후 영상 연구를 정지시키는 전역 게이트가 아님.**
