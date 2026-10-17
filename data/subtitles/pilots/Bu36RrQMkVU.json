@@ -1,0 +1,187 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-13",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "roster_no": 25,
+  "video_id": "Bu36RrQMkVU",
+  "title": "자녀 계좌에 담을 미래 산업은? — 양자·자율주행·바이오·로봇",
+  "source_url": "https://www.youtube.com/watch?v=Bu36RrQMkVU",
+  "video_published_date": "2026-09-01",
+  "subtitle_sha256": "53f66964b1a0d486b3638ba42ec1336937753f7e016f615a973f98f0f13fa9e4",
+  "cue_count": 39,
+  "raw_transcript_publicly_stored": false,
+  "audio_checked": false,
+  "frames_checked": false,
+  "core_message": "장기 투자에서 양자컴퓨터·자율주행·헬스케어·로봇을 테마로 제안하나 과장된 과학 수치와 사고원인 주장, 기술 완성/원금보장을 분리한다.",
+  "claims": [
+    {
+      "claim_id": "Bu36RrQMkVU-01",
+      "timecode": "00:00:04",
+      "watch_url": "https://www.youtube.com/watch?v=Bu36RrQMkVU&t=4s",
+      "source_paraphrase": "3년 뒤에도 존재하고 30년 뒤 더 커질 산업을 자녀 계좌의 투자대상으로 고르라고 제안한다.",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "30년 후 산업 규모·해당 테마 ETF 기업 생존/수익률은 예측 가정일 뿐 검증된 결과 아님.",
+      "official_sources": [],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "30년 후 산업 규모·해당 테마 ETF 기업 생존/수익률은 예측 가정일 뿐 검증된 결과 아님.",
+        "disposition": "30년 후 산업 규모·해당 테마 ETF 기업 생존/수익률은 예측 가정일 뿐 검증된 결과 아님."
+      },
+      "original_srt_anchor_start_sec": 4,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "Bu36RrQMkVU-02",
+      "timecode": "00:00:13",
+      "watch_url": "https://www.youtube.com/watch?v=Bu36RrQMkVU&t=13s",
+      "source_paraphrase": "양자컴퓨터가 기존 컴퓨터로 1억년 걸리는 문제를 몇 초 만에 끝낸다고 설명한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "문제·하드웨어·오류정정·비교 기준 없이 보편적 '1억년→몇 초' 성능을 입증할 수 없음. 선별 벤치마크를 전반적 금융상업 성능으로 일반화 금지. Google Sycamore 2019 제한적 회로샘플링 실험은 200초 대 일반슈퍼컴퓨터 추정 1만년으로, 영상 1억년→몇초 보편화와 다르다.",
+      "official_sources": [
+        "https://www.sec.gov/Archives/edgar/data/1944285/000199937126015513/tema-485apos_072126.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "문제·하드웨어·오류정정·비교 기준 없이 보편적 '1억년→몇 초' 성능을 입증할 수 없음. 선별 벤치마크를 전반적 금융상업 성능으로 일반화 금지.",
+        "disposition": "문제·하드웨어·오류정정·비교 기준 없이 보편적 '1억년→몇 초' 성능을 입증할 수 없음. 선별 벤치마크를 전반적 금융상업 성능으로 일반화 금지.",
+        "primary_url": "https://research.google/pubs/quantum-supremacy-using-a-programmable-superconducting-processor/",
+        "source_finding": "2019 Google/Nature Sycamore random-circuit sampling experiment claimed 200 seconds vs 10,000 years classical for one task; no source for generic 100 million years vs seconds.",
+        "effective_date_or_scope": "2026-10-13 official law/regulator educational reference; assumptions/time period as stated",
+        "scope_correction": "Specific quantum processor benchmark is not arbitrary algorithm speed or ETF expected return",
+        "do_not_reuse_video_speed_claim": true
+      },
+      "original_srt_anchor_start_sec": 13,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "Bu36RrQMkVU-03",
+      "timecode": "00:00:28",
+      "watch_url": "https://www.youtube.com/watch?v=Bu36RrQMkVU&t=28s",
+      "source_paraphrase": "자동차 교통사고의 99% 또는 99.99%가 운전자 잘못이며 자율주행 기술은 거의 완성됐다고 말한다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "NHTSA는 충돌 직전 critical reason을 충돌 전체 원인 또는 과실과 동일시하지 않는다. 99~99.99% 보편 수치 근거 없음; 자율주행 기술·허가·안전책임 여전히 논쟁/개발 중.",
+      "official_sources": [
+        "https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/811731.pdf"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "NHTSA는 충돌 직전 critical reason을 충돌 전체 원인 또는 과실과 동일시하지 않는다. 99~99.99% 보편 수치 근거 없음; 자율주행 기술·허가·안전책임 여전히 논쟁/개발 중.",
+        "disposition": "NHTSA는 충돌 직전 critical reason을 충돌 전체 원인 또는 과실과 동일시하지 않는다. 99~99.99% 보편 수치 근거 없음; 자율주행 기술·허가·안전책임 여전히 논쟁/개발 중.",
+        "primary_url": "https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/811731.pdf",
+        "source_finding": "NHTSA는 충돌 직전 critical reason을 충돌 전체 원인 또는 과실과 동일시하지 않는다. 99~99.99% 보편 수치 근거 없음; 자율주행 기술·허가·안전책임 여전히 논쟁/개발 중.",
+        "effective_date_or_scope": "2026-10-13 official law/regulator educational reference; assumptions/time period as stated",
+        "correction": "NHTSA는 충돌 직전 critical reason을 충돌 전체 원인 또는 과실과 동일시하지 않는다. 99~99.99% 보편 수치 근거 없음; 자율주행 기술·허가·안전책임 여전히 논쟁/개발 중."
+      },
+      "original_srt_anchor_start_sec": 28,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "Bu36RrQMkVU-04",
+      "timecode": "00:00:45",
+      "watch_url": "https://www.youtube.com/watch?v=Bu36RrQMkVU&t=45s",
+      "source_paraphrase": "고령화로 바이오헬스케어 수요가 늘고 업종은 경기방어적 장기 우상향 특징을 갖는다고 주장한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "고령화 수요 증가 가능성과 개별 제약·CDMO·의료기기 종목의 사업·임상·가격·규제 실패 위험은 별개.",
+      "official_sources": [
+        "https://www.sec.gov/Archives/edgar/data/1944285/000199937126015513/tema-485apos_072126.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "고령화 수요 증가 가능성과 개별 제약·CDMO·의료기기 종목의 사업·임상·가격·규제 실패 위험은 별개.",
+        "disposition": "고령화 수요 증가 가능성과 개별 제약·CDMO·의료기기 종목의 사업·임상·가격·규제 실패 위험은 별개.",
+        "primary_url": "https://www.sec.gov/Archives/edgar/data/1944285/000199937126015513/tema-485apos_072126.htm",
+        "source_finding": "고령화 수요 증가 가능성과 개별 제약·CDMO·의료기기 종목의 사업·임상·가격·규제 실패 위험은 별개.",
+        "effective_date_or_scope": "2026-10-13 official law/regulator educational reference; assumptions/time period as stated"
+      },
+      "original_srt_anchor_start_sec": 45,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "Bu36RrQMkVU-05",
+      "timecode": "00:01:00",
+      "watch_url": "https://www.youtube.com/watch?v=Bu36RrQMkVU&t=60s",
+      "source_paraphrase": "로봇과 AI의 융합으로 제조업에서 일상까지 로봇 투자 수요가 계속 커질 것이라고 전망한다.",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "산업 방향성 예상과 관련 상장기업의 이익/총수익률 검증은 별도, 미래 전체 산업 성장 미확정.",
+      "official_sources": [],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "산업 방향성 예상과 관련 상장기업의 이익/총수익률 검증은 별도, 미래 전체 산업 성장 미확정.",
+        "disposition": "산업 방향성 예상과 관련 상장기업의 이익/총수익률 검증은 별도, 미래 전체 산업 성장 미확정."
+      },
+      "original_srt_anchor_start_sec": 60,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "Bu36RrQMkVU-06",
+      "timecode": "00:01:14",
+      "watch_url": "https://www.youtube.com/watch?v=Bu36RrQMkVU&t=74s",
+      "source_paraphrase": "AI·방산·우주·보안 등 여러 산업 ETF를 분산하면 미래 투자위험을 줄일 수 있다고 제안한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "서로 다른 이름의 미래 산업 ETF에도 공통 빅테크·성장·금리 민감도가 있어 상관·보유종목 중복을 확인해야 한다.",
+      "official_sources": [
+        "https://www.sec.gov/Archives/edgar/data/1944285/000199937126015513/tema-485apos_072126.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "서로 다른 이름의 미래 산업 ETF에도 공통 빅테크·성장·금리 민감도가 있어 상관·보유종목 중복을 확인해야 한다.",
+        "disposition": "서로 다른 이름의 미래 산업 ETF에도 공통 빅테크·성장·금리 민감도가 있어 상관·보유종목 중복을 확인해야 한다.",
+        "primary_url": "https://www.sec.gov/Archives/edgar/data/1944285/000199937126015513/tema-485apos_072126.htm",
+        "source_finding": "서로 다른 이름의 미래 산업 ETF에도 공통 빅테크·성장·금리 민감도가 있어 상관·보유종목 중복을 확인해야 한다.",
+        "effective_date_or_scope": "2026-10-13 official law/regulator educational reference; assumptions/time period as stated"
+      },
+      "original_srt_anchor_start_sec": 74,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    }
+  ],
+  "limitations": [
+    "Full user ZIP SRT parsed locally, historical original SHA256 matched registry; source original media not heard/seen.",
+    "Long interviews sampled by fixed time intervals plus detailed material-claim contexts, not every historical assertion certified.",
+    "양자컴퓨터 극단적 속도 비교는 원문 출처·실험 조건 미확보.",
+    "자율주행 99% 사고원인 단정은 NHTSA 자료와 부합하지 않는다.",
+    "혁신분야 성장과 해당 ETF 수익률·존속은 다르다."
+  ],
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "53f66964b1a0d486b3638ba42ec1336937753f7e016f615a973f98f0f13fa9e4",
+    "original_cue_count": 39,
+    "original_raw_bytes": 3016,
+    "original_srt_end_sec": 88.52,
+    "evidence_reference": "Private user 1-70.zip original 1-70/youtube-transcript-Bu36RrQMkVU.srt parsed 39 cues with SHA256 registry match; full text indexed with time intervals and claim context reviewed; no audio/frames",
+    "audio_checked": false,
+    "frames_checked": false,
+    "public_transcript_text_exact_match": "NOT_CHECKED_NONBLOCKING",
+    "precise_timing_verified": false,
+    "limitations": "All source cue blocks structurally checked; no claim that full original recording or on-screen calculations were viewed."
+  },
+  "verification_status": "SOURCE_VERIFIED_39_CUES_EDUCATIONAL_6_MATERIAL_CLAIMS_TRIAGED",
+  "relations": [
+    {
+      "type": "EXTEND",
+      "related_video_id": "k9O79HeMOp0",
+      "theme": "테마 ETF 집중/기초자산 위험"
+    },
+    {
+      "type": "REINFORCE",
+      "related_video_id": "BfwtFsuxm3A",
+      "theme": "자녀 코어-위성 자산배분 가정"
+    }
+  ],
+  "review_supplement_20261013": {
+    "closeout_source": "knowledge/OPEN_30_EVIDENCE_TRIAGE_20261013.md",
+    "source_verified_at": "2026-10-13",
+    "actual_audio_checked": false,
+    "actual_frames_checked": false,
+    "educational_record_approval_unchanged": true
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-12",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "audio_checked": false,
+  "frames_checked": false,
+  "raw_transcript_publicly_stored": false,
+  "roster_no": 61,
+  "video_id": "7RRWNL0V6As",
+  "title": "ETF 베이직 #4 | ETF 분배금 ver.2026",
+  "source_url": "https://www.youtube.com/watch?v=7RRWNL0V6As",
+  "subtitle_sha256": "4515d3446c4874d3a376d86b1dd46ab89446e992911b0d42b52aa0df5ffb3c83",
+  "cue_count": 152,
+  "core_message": "주식배당과 ETF 분배금, 분배락, 분배금 지급과 재투자의 차이, 상품별 지급 정책을 설명한다.",
+  "claims": [
+    {
+      "claim_id": "7RRWNL0V6As-01",
+      "timecode": "00:00:53",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=53s",
+      "source_paraphrase": "기업의 배당금이 ETF에 유입되고, ETF가 분배금을 지급할 수 있다는 구조를 설명한다.",
+      "independent_check": "배당 이외 이자·옵션 프리미엄 등도 ETF 분배재원에 관련될 수 있으므로 주식배당만으로 한정하지 않는다.",
+      "assessment": "QUALIFIED",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 53.399,
+      "timecode_precision": "ORIGINAL_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "SEC fund distribution guide: ETFs may distribute equity dividends, bond interest, realized capital gains and in some cases return of capital; not all ETFs pay distributions.",
+        "effective_date_or_scope": "KRX ETF guidance / issuer Korea 2025-07-01 TR distribution transition / SEC 2026 fund-distribution educational coverage",
+        "basis": "SEC fund distribution guide: ETFs may distribute equity dividends, bond interest, realized capital gains and in some cases return of capital; not all ETFs pay distributions.",
+        "disposition": "배당 이외 이자·옵션 프리미엄 등도 ETF 분배재원에 관련될 수 있으므로 주식배당만으로 한정하지 않는다."
+      }
+    },
+    {
+      "claim_id": "7RRWNL0V6As-02",
+      "timecode": "00:01:42",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=102s",
+      "source_paraphrase": "기업배당과 ETF 분배금 지급은 정하는 방식이 다르다고 설명한다.",
+      "independent_check": "ETF 분배정책과 관련 법규·투자설명서 확인이 중요하다.",
+      "assessment": "FOUNDATIONAL",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 101.92,
+      "timecode_precision": "ORIGINAL_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "source_finding": "KRX regulation/issuer distribution policy determines when and how ETF cash payments occur; individual corporate dividend policy is not identical.",
+        "effective_date_or_scope": "KRX ETF guidance / issuer Korea 2025-07-01 TR distribution transition / SEC 2026 fund-distribution educational coverage",
+        "basis": "KRX regulation/issuer distribution policy determines when and how ETF cash payments occur; individual corporate dividend policy is not identical.",
+        "disposition": "ETF 분배정책과 관련 법규·투자설명서 확인이 중요하다."
+      }
+    },
+    {
+      "claim_id": "7RRWNL0V6As-03",
+      "timecode": "00:02:13",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=121s",
+      "source_paraphrase": "PR 지수는 분배금을 지급하고 TR 지수는 전액 재투자한다는 연결로 설명한다.",
+      "independent_check": "정확하지 않은 일반화. PR은 배당을 제외한 가격지수, TR은 배당 재투자 가정 총수익지수의 정의다. ETF 실제 분배 지급은 지수 형태만으로 자동 결정되지 않는다.",
+      "assessment": "OVERGENERALIZED_NEEDS_CORRECTION",
+      "official_sources": [
+        "https://www.riseetf.co.kr/cust/notice/123?page=1",
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 133.56,
+      "timecode_precision": "ORIGINAL_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.riseetf.co.kr/cust/notice/123?page=1",
+        "source_finding": "PR (Price Return) is a benchmark index that excludes reinvested distributions from its index return calculation; TR (Total Return) reflects assumed reinvestment. Neither automatically dictates whether a particular ETF physically pays cash. 2025-07-01 Korean TR distribution change includes domestic-equity exceptions.",
+        "effective_date_or_scope": "KRX ETF guidance / issuer Korea 2025-07-01 TR distribution transition / SEC 2026 fund-distribution educational coverage",
+        "basis": "PR (Price Return) is a benchmark index that excludes reinvested distributions from its index return calculation; TR (Total Return) reflects assumed reinvestment. Neither automatically dictates whether a particular ETF physically pays cash. 2025-07-01 Korean TR distribution change includes domestic-equity exceptions.",
+        "disposition": "정확하지 않은 일반화. PR은 배당을 제외한 가격지수, TR은 배당 재투자 가정 총수익지수의 정의다. ETF 실제 분배 지급은 지수 형태만으로 자동 결정되지 않는다.",
+        "correction": "PR/ TR는 지수 수익률에 배당을 반영하는 계산법 차이이지 'PR이면 무조건 현금 지급·TR이면 무조건 내부 재투자' 규칙이 아니다. ETF의 실제 분배는 세법과 투자설명서·운용정책을 확인해야 한다.",
+        "additional_primary_url": "https://m.samsungfund.com/etf/lounge/notice-view.do?no=67815&searchText=2025"
+      }
+    },
+    {
+      "claim_id": "7RRWNL0V6As-04",
+      "timecode": "00:02:44",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=164s",
+      "source_paraphrase": "분배하지 않고 내부 재투자하면 NAV에 반영될 수 있다고 설명한다.",
+      "independent_check": "이자·배당 재투자 구조 자체는 이해 가능하지만 2025-07부터 많은 TR ETF가 연 1회 이상 분배하도록 변경됐으며 국내주식형 예외가 있다.",
+      "assessment": "HISTORICALLY_CONDITIONED",
+      "official_sources": [
+        "https://m.samsungfund.com/etf/lounge/notice-view.do?no=67815&searchText=2025",
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 163.68,
+      "timecode_precision": "ORIGINAL_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://m.samsungfund.com/etf/lounge/notice-view.do?no=67815&searchText=2025",
+        "source_finding": "2025 tax-law amendment: from 2025-07-01 interest/dividends arising in many overseas and bond TR ETFs could no longer be fully retained; domestic-equity TR ETFs may still elect deferred distribution. NAV may retain other gains until distribution.",
+        "effective_date_or_scope": "KRX ETF guidance / issuer Korea 2025-07-01 TR distribution transition / SEC 2026 fund-distribution educational coverage",
+        "basis": "2025 tax-law amendment: from 2025-07-01 interest/dividends arising in many overseas and bond TR ETFs could no longer be fully retained; domestic-equity TR ETFs may still elect deferred distribution. NAV may retain other gains until distribution.",
+        "disposition": "이자·배당 재투자 구조 자체는 이해 가능하지만 2025-07부터 많은 TR ETF가 연 1회 이상 분배하도록 변경됐으며 국내주식형 예외가 있다.",
+        "additional_primary_url": "https://www.riseetf.co.kr/cust/notice/123?page=1"
+      }
+    },
+    {
+      "claim_id": "7RRWNL0V6As-05",
+      "timecode": "00:03:28",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=208s",
+      "source_paraphrase": "ETF의 분배금 지급 주기를 연·반기·분기·월 등으로 구분한다.",
+      "independent_check": "상품별 기준일 및 지급 규칙이 다르고 예고 주기라도 지급 금액이 확정돼 있지 않다.",
+      "assessment": "FOUNDATIONAL_WITH_CONDITIONS",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp"
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 208.2,
+      "timecode_precision": "ORIGINAL_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "source_finding": "KRX: cash distributions may follow periodic schedule but not every expected period guarantees a fixed cash payment.",
+        "effective_date_or_scope": "KRX ETF guidance / issuer Korea 2025-07-01 TR distribution transition / SEC 2026 fund-distribution educational coverage",
+        "basis": "KRX: cash distributions may follow periodic schedule but not every expected period guarantees a fixed cash payment.",
+        "disposition": "상품별 기준일 및 지급 규칙이 다르고 예고 주기라도 지급 금액이 확정돼 있지 않다."
+      }
+    },
+    {
+      "claim_id": "7RRWNL0V6As-06",
+      "timecode": "00:03:49",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=229s",
+      "source_paraphrase": "분배금은 매번 같은 금액이 아니라고 말한다.",
+      "independent_check": "분배금은 수익 상황 및 정책에 따라 변동. 월분배 구조라도 지급액·원금이 보장되지 않음.",
+      "assessment": "FOUNDATIONAL_WITH_RISK",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 229.519,
+      "timecode_precision": "ORIGINAL_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "SEC Aug 2026: dividend payments are not guaranteed and funds may lose money while paying income.",
+        "effective_date_or_scope": "KRX ETF guidance / issuer Korea 2025-07-01 TR distribution transition / SEC 2026 fund-distribution educational coverage",
+        "basis": "SEC Aug 2026: dividend payments are not guaranteed and funds may lose money while paying income.",
+        "disposition": "분배금은 수익 상황 및 정책에 따라 변동. 월분배 구조라도 지급액·원금이 보장되지 않음."
+      }
+    },
+    {
+      "claim_id": "7RRWNL0V6As-07",
+      "timecode": "00:04:09",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=249s",
+      "source_paraphrase": "ETF 분배금 지급 시 그에 상응하는 NAV·시장가격의 분배락을 설명한다.",
+      "independent_check": "기계적 NAV 감소를 운용사 공식자료에서 확인. 분배락 자체를 추가 투자손실로 계산하면 중복계상 오류.",
+      "assessment": "OFFICIAL_VERIFIED",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "https://www.samsungfund.com/etf/lounge/notice-view.do?no=67815"
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 249.68,
+      "timecode_precision": "ORIGINAL_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+        "source_finding": "SEC: Fund NAV normally declines by the value distributed; distribution is transfer of value, not additional investment performance.",
+        "effective_date_or_scope": "KRX ETF guidance / issuer Korea 2025-07-01 TR distribution transition / SEC 2026 fund-distribution educational coverage",
+        "basis": "SEC: Fund NAV normally declines by the value distributed; distribution is transfer of value, not additional investment performance.",
+        "disposition": "기계적 NAV 감소를 운용사 공식자료에서 확인. 분배락 자체를 추가 투자손실로 계산하면 중복계상 오류."
+      }
+    },
+    {
+      "claim_id": "7RRWNL0V6As-08",
+      "timecode": "00:04:57",
+      "watch_url": "https://www.youtube.com/watch?v=7RRWNL0V6As&t=297s",
+      "source_paraphrase": "동일 지수 ETF라도 가격이 높다는 이유만으로 규모나 수익률이 좋다고 볼 수 없다고 설명한다.",
+      "independent_check": "ETF 단위당 가격과 ETF 순자산총액·총수익률은 서로 다르다.",
+      "assessment": "FOUNDATIONAL",
+      "official_sources": [
+        "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+      ],
+      "verification_checked_on": "2026-10-12",
+      "original_srt_anchor_start_sec": 296.36,
+      "timecode_precision": "ORIGINAL_SRT_CUE_START_NOT_AUDIO_ALIGNED",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-12",
+        "primary_url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp",
+        "source_finding": "KRX: ETF per-share NAV/market price is per unit, total AUM is units outstanding multiplied by NAV; different issue prices or splits do not imply total assets/performance.",
+        "effective_date_or_scope": "KRX ETF guidance / issuer Korea 2025-07-01 TR distribution transition / SEC 2026 fund-distribution educational coverage",
+        "basis": "KRX: ETF per-share NAV/market price is per unit, total AUM is units outstanding multiplied by NAV; different issue prices or splits do not imply total assets/performance.",
+        "disposition": "ETF 단위당 가격과 ETF 순자산총액·총수익률은 서로 다르다."
+      }
+    }
+  ],
+  "limitations": [
+    "자동 음성인식 SRT 기반 핵심 구간 검토이며 원음 및 모든 영상 화면과 직접 일치 대조하지 않음",
+    "교육 원칙, 투자 권고, 법/정책·시간에 좌우되는 상품조건을 구분. 공식자료 일부분만 대조함",
+    "특정 ETF의 현행 가격·수익률·보수·분배방식은 개별 현행 투자설명서로 재확인 전에는 현재 사실로 이용 금지",
+    "이번 결과는 정식 canonical 분석이나 투자 지식 승인으로 집계하지 않음",
+    "2026-10-12 전체 152 원본 SRT 구간 직접 검토/등록 해시 검증. 2:13 PR/TR 지수와 분배정책의 동일시 오류 정정. 2025-07-01 일부 TR ETF 이자/배당 분배 의무화, 국내 주식형 TR 예외와 개별 설명서 확인.",
+    "분배락과 분배금 수령을 함께 평가해야 하며 분배율만으로 총수익률·세후 현금흐름을 계산할 수 없음."
+  ],
+  "existing_registry_srt": {
+    "sha256": "4515d3446c4874d3a376d86b1dd46ab89446e992911b0d42b52aa0df5ffb3c83",
+    "cue_count": 152,
+    "last_sec": 353.52,
+    "raw_srt_bytes": 11993,
+    "verified_same_bytes": true,
+    "archived_privately": true
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "4515d3446c4874d3a376d86b1dd46ab89446e992911b0d42b52aa0df5ffb3c83",
+    "evidence_reference": "Private original user 1-70.zip/youtube-transcript-7RRWNL0V6As.srt, all 152 cues inspected, SHA256/cue/end matched registry on 2026-10-12",
+    "original_cue_count": 152,
+    "original_end_sec": 353.52,
+    "timestamps_approximate": false,
+    "precise_timing_verified": false,
+    "public_transcript_comparison": "NOT_FETCHED_NONBLOCKING",
+    "audio_checked": false,
+    "frames_checked": false,
+    "limitations": "All 152 original SRT cues reviewed but no video sound/screen checked. PR/TR remarks interpreted in 2025/2026 Korean distribution regime; actual fund prospectus/tax treatment depends on tracking and domicile."
+  },
+  "verification_status": "8_EDUCATIONAL_CLAIMS_TRIAGED_ONE_PR_TR_DEFINITION_CONTRADICTED_ORIGINAL_SRT_VERIFIED_AUDIO_OPEN",
+  "relations": [
+    {
+      "type": "REINFORCE",
+      "related_video_id": "LVE7XN_esTc",
+      "theme": "ETF 비교에 총수익률·분배금·NAV/시장가격 차이 포함"
+    },
+    {
+      "type": "EXTEND",
+      "related_video_id": "uiauof6tOFk",
+      "theme": "소득형 ETF 분배금과 재투자·투자목적을 구분"
+    },
+    {
+      "type": "EXTEND",
+      "related_video_id": "sz5N9WJS310",
+      "theme": "은퇴분배금과 과세제외 원금 인출 및 지속가능한 수익률 구분"
+    }
+  ]
+}
