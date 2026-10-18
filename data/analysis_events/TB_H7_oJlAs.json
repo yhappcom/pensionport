@@ -86,7 +86,8 @@
   "assumptions": [
     "Original source private SRT SHA256 ce1a297ccc453f9b19dc58e903267cefc21e6e28c458d8ae2e9d9c894613b03b; archive sha 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951; source ZIP CRC verified.",
     "Parsed 22 original numbered cues, time starts monotonic, all material educational claims triaged within chosen scope.",
-    "Official sources scoped to 2026-10-18 or dated official educational doctrine; issuer-specific IRP fee data not equivalent to broker-wide assurance."
+    "Official sources scoped to 2026-10-18 or dated official educational doctrine; issuer-specific IRP fee data not equivalent to broker-wide assurance.",
+    "2026-10-18 complete YouTube same-video public ko ASR and private original SRT both 310 whitespace-normalized characters SHA256 c3b5f2497a617889813afcc2dc291476e73561c92dd75123302b24075a18a916. Matching ASR is not independent original-audio verification."
   ],
   "risks_and_exceptions": [
     "Original ASR can misrecognize Korean numerals and financial expressions; independent audio/frames not checked.",
@@ -124,12 +125,18 @@
     "original_srt_sha_recomputed": true,
     "original_cues_read": true,
     "original_audio_verified": false,
-    "original_frames_verified": false
+    "original_frames_verified": false,
+    "public_asr_full_text_normalized_sha256": "c3b5f2497a617889813afcc2dc291476e73561c92dd75123302b24075a18a916",
+    "private_asr_full_text_normalized_sha256": "c3b5f2497a617889813afcc2dc291476e73561c92dd75123302b24075a18a916",
+    "firstparty_public_full_text_whitespace_normalized_exact_match": true,
+    "audio_verified": false,
+    "last_scope_revalidated": "2026-10-18"
   },
   "limitations": [
     "원본 비공개 SRT 구조·해시 확인, 공개 GitHub 전문 미등록.",
     "원음·원영상 프레임 독립 확인 미실시.",
     "세율·수수료·상품 사용조건은 검증일과 계좌 재원별로 제한.",
-    "주장별 검증 판정은 사실/의견/비유 구분이며 개인 투자 권유가 아니다."
+    "주장별 검증 판정은 사실/의견/비유 구분이며 개인 투자 권유가 아니다.",
+    "Cues are rolling auto-ASR timestamps and audio was not independently replayed; the equal full body SHA represents automatic-caption source-text match only."
   ]
 }
