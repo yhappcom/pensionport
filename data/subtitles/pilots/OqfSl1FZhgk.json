@@ -31,8 +31,18 @@
     "evidence_reference": "Original private 101-129.zip with SHA/CRC checked, entire short original cue bodies directly reviewed and anchored to actual SRT start times; official source-level scope verified.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "public_auto_asr_exact_body_compared": false,
-    "limitations": "No independently heard audio or examined original video screen; private auto captions can share ASR mistakes with public counterparts. Source SRT timestamps only."
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "No independently heard audio or examined original video screen; private auto captions can share ASR mistakes with public counterparts. Source SRT timestamps only.",
+    "youtube_public_source_url": "https://www.youtube.com/watch?v=OqfSl1FZhgk",
+    "private_full_text_normalized_chars": 355,
+    "private_full_text_normalized_sha256": "42ef8ba1f88aee39021c23789cbd6b86acdd9a50c4fd476fd6a97a629cb9ef97",
+    "public_source_language": "ko",
+    "public_full_text_normalized_chars": 355,
+    "public_full_text_normalized_sha256": "42ef8ba1f88aee39021c23789cbd6b86acdd9a50c4fd476fd6a97a629cb9ef97",
+    "public_private_fullbody_status": "EXACT_KOREAN_FULL_TEXT",
+    "independent_audio_checked": false,
+    "reaudit_at": "2026-10-18",
+    "reaudit_limitation": "Full Korean same-video auto-transcript SHA matches after removing whitespace; common ASR engine may cause correlated errors and audio has not been independently listened to."
   },
   "claims": [
     {
@@ -126,6 +136,7 @@
     "No audio/video frame verification or personal financial advice.",
     "Video SRT contents kept private; original source SHA and cue anchors are sufficient public provenance.",
     "Generalized financial guarantees, TDF retirement ages, US-only equity concentration and dividends are not guaranteed.",
-    "Official evidence only validates separately specified material facts and date conditions."
+    "Official evidence only validates separately specified material facts and date conditions.",
+    "Full Korean same-video auto-transcript SHA matches after removing whitespace; common ASR engine may cause correlated errors and audio has not been independently listened to."
   ]
 }
