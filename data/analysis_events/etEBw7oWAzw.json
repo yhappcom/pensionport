@@ -86,7 +86,8 @@
   "assumptions": [
     "Private 101-129.zip source ZIP CRC pass and SHA256 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951; individual SRT SHA256 8863078711508ac61cc57ede59a40a3a75491fd241def6ec4fb412841ab68eb5; 21 sequential SRT cues validated.",
     "No original video acoustic or frame verification; recognized numerical claims may require further source comparison if changing the video conclusion.",
-    "Official primary source read establishes only stated legal, securities-industry or educational scope; individual account eligibility or product price not authenticated."
+    "Official primary source read establishes only stated legal, securities-industry or educational scope; individual account eligibility or product price not authenticated.",
+    "2026-10-18 same-video public transcript vs original uploaded SRT provenance re-audit: EXACT_KOREAN_FULL_TEXT. Public language=ko; original audio/video frames NOT separately examined."
   ],
   "risks_and_exceptions": [
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
@@ -127,12 +128,22 @@
     "original_srt_sha_recomputed": true,
     "original_cues_read": true,
     "original_audio_verified": false,
-    "original_frames_verified": false
+    "original_frames_verified": false,
+    "public_private_fullbody_status": "EXACT_KOREAN_FULL_TEXT",
+    "private_fullbody_normalized_chars": 296,
+    "public_fullbody_normalized_chars": 296,
+    "private_fullbody_normalized_sha256": "813dbbc4ef1ca8d341c30434d35c645955f0cef4d0c4dfa5aa1cbfe132579656",
+    "public_fullbody_normalized_sha256": "813dbbc4ef1ca8d341c30434d35c645955f0cef4d0c4dfa5aa1cbfe132579656",
+    "public_language": "ko",
+    "raw_audio_verified": false,
+    "raw_frames_verified": false,
+    "compared_at": "2026-10-18"
   },
   "limitations": [
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
     "Video audio/frames not independently checked; raw SRT start printed to whole seconds above for claim anchors but original subsecond read available in private file.",
     "Official issuer/program conditions may change and require dated recheck; individual claim eligibility unverified.",
-    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments."
+    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments.",
+    "Full Korean same-video auto-transcript SHA matches after removing whitespace; common ASR engine may cause correlated errors and audio has not been independently listened to."
   ]
 }
