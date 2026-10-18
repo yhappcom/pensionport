@@ -85,7 +85,8 @@
   "assumptions": [
     "Original source private SRT SHA256 8d9d4dca4f418d48c288b20a9ebece5076659f2fe1debf9cae491a5ce8ccfd7a; archive sha 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951; source ZIP CRC verified.",
     "Parsed 25 original numbered cues, time starts monotonic, all material educational claims triaged within chosen scope.",
-    "Official sources scoped to 2026-10-18 or dated official educational doctrine; issuer-specific IRP fee data not equivalent to broker-wide assurance."
+    "Official sources scoped to 2026-10-18 or dated official educational doctrine; issuer-specific IRP fee data not equivalent to broker-wide assurance.",
+    "2026-10-18 Korean full YouTube public auto-transcript checksum ace491b1edce9d171487b02bb400e72f012f4d5a1bebf12f791e322273db0477 (365 chars) vs user private original normalized ace491b1edce9d171487b02bb400e72f012f4d5a1bebf12f791e322273db0477 (365 chars), full text equal=true; both may share ASR engine, voice and frame validation not done."
   ],
   "risks_and_exceptions": [
     "Original ASR can misrecognize Korean numerals and financial expressions; independent audio/frames not checked.",
@@ -124,12 +125,20 @@
     "original_srt_sha_recomputed": true,
     "original_cues_read": true,
     "original_audio_verified": false,
-    "original_frames_verified": false
+    "original_frames_verified": false,
+    "public_private_whitespace_normalized_full_body_exact_match": true,
+    "public_auto_transcript_checked_at": "2026-10-18",
+    "public_same_video_first_party_url": "https://www.youtube.com/watch?v=0R34RYiwDC4",
+    "private_normalized_fulltext_sha256": "ace491b1edce9d171487b02bb400e72f012f4d5a1bebf12f791e322273db0477",
+    "public_normalized_fulltext_sha256": "ace491b1edce9d171487b02bb400e72f012f4d5a1bebf12f791e322273db0477",
+    "raw_audio_checked": false,
+    "original_frames_checked": false
   },
   "limitations": [
     "원본 비공개 SRT 구조·해시 확인, 공개 GitHub 전문 미등록.",
     "원음·원영상 프레임 독립 확인 미실시.",
     "세율·수수료·상품 사용조건은 검증일과 계좌 재원별로 제한.",
-    "주장별 검증 판정은 사실/의견/비유 구분이며 개인 투자 권유가 아니다."
+    "주장별 검증 판정은 사실/의견/비유 구분이며 개인 투자 권유가 아니다.",
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   ]
 }
