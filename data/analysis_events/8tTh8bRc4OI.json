@@ -283,7 +283,8 @@
     "Official NPS 2025 reform phased pension rate effective 2026; 2025 and pre-2026 accrued replacement standards remain as then in force.",
     "Pension contribution rates are proportional to legally defined covered wage base, potentially minimum/maximum limits apply.",
     "Future personal pension forecast depends on actual insured months, income history, accrual period, pension commencement, inflation and legal changes.",
-    "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged."
+    "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged.",
+    "2026-10-18 Korean complete same-video YouTube ASR vs user original normalized 20397 chars, SHA-256=acd13851e8a583ce2a086e22bfcaf8d1a9a2d112a17ef55ecc1845c12df20ff3, perfect exact match; original speech or frame not independently heard."
   ],
   "risks_and_exceptions": [
     "Old 40% target and 2025 41.5% effective rate must not be mixed with 2026 43% new-accrual rate.",
@@ -365,13 +366,21 @@
     "original_cues_read": true,
     "original_audio_verified": false,
     "original_frames_verified": false,
-    "full_source_text_publicly_uploaded": false
+    "full_source_text_publicly_uploaded": false,
+    "public_private_whitespace_normalized_full_body_exact_match": true,
+    "public_auto_transcript_checked_at": "2026-10-18",
+    "public_same_video_first_party_url": "https://www.youtube.com/watch?v=8tTh8bRc4OI",
+    "private_normalized_fulltext_sha256": "acd13851e8a583ce2a086e22bfcaf8d1a9a2d112a17ef55ecc1845c12df20ff3",
+    "public_normalized_fulltext_sha256": "acd13851e8a583ce2a086e22bfcaf8d1a9a2d112a17ef55ecc1845c12df20ff3",
+    "raw_audio_checked": false,
+    "original_frames_checked": false
   },
   "limitations": [
     "Pension service period before 2026 uses prior replacement-rate provisions",
     "Not all holders pay 9.5% in full; wage employee and employer share 4.75% each",
     "Delay is not always optimal because recipients surrender interim payments; future tax and health insurance may change",
     "Back contribution amounts and tax benefits depend on actual date/eligibility and policyholder history",
-    "Private original SRT CRC verified, spoken audio/original slides not checked"
+    "Private original SRT CRC verified, spoken audio/original slides not checked",
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   ]
 }
