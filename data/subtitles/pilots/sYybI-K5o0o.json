@@ -46,7 +46,20 @@
     "public_private_fulltext_sha_exact_match": true,
     "independent_spoken_audio_audited": false,
     "public_fulltext_checked_at": "2026-10-18",
-    "public_source_transcript_caveat": "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
+    "public_source_transcript_caveat": "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment.",
+    "additional_deep_validation_20261018": {
+      "completed": true,
+      "source_original_private_hash_preserved": true,
+      "claim_identifiers": [
+        "sYybI-K5o0o-12",
+        "sYybI-K5o0o-13",
+        "sYybI-K5o0o-14"
+      ],
+      "note": "2026 FIRE model research: special 2026 eligible Korean high dividend corporate-stock tax election may exclude ordinary taxable income and ordinary ETF payouts. Comparable general financial income 60m only national alternative floor 8.4m and model income-base0 no additional (base deduction1.5m); when other net taxable base 60m, financial taxable60m 14% upfront, national taxable max method additional national5.32m, local illustration532k (no other credits / no dividend grossup / no special). NHIS 2026 7.19% + LTC income equivalent0.9448% nominal 8.1348%, gross60m region income illustration annual4,880,880 excl property/status/timing.",
+      "claim_counts_unchanged": true,
+      "original_audio_checked": false,
+      "original_frames_checked": false
+    }
   },
   "claims": [
     {
@@ -265,19 +278,21 @@
       "source_cue_index": 909,
       "source_cue_start": "00:27:59.919",
       "source_paraphrase": "배당 6000만원을 받아 종합소득세를 신고해도 세액 추가납부도 환급도 절대 없다는 설명",
-      "independent_check": "국세청 종합소득세 안내는 원천징수 세액을 기납부세액으로 공제한 뒤 '납부(환급)할 세액'을 산출한다고 명시한다. 금융소득 비교과세와 고배당 특례 및 개인 다른 소득·공제에 따라 추가 납부/환급 여부가 달라짐. '환급 불가/추가세 없음' 보편 단정 성립하지 않음.",
+      "independent_check": "2026 금융소득 '6천만원이면 추가세도 환급도 절대 없다'는 보편단정은 반증됨. 적용 조건을 엄격히 제한한 일반 금융소득 비교과세 계산에서 ① 일반 과세 이자/펀드 분배 과세소득 연6000만원, 별도 종합과세소득0, 본인 기본공제150만원, 법정 특별공제/기타세액공제/고배당특례 없음: (6000-2000-150)만원 과표3850만원 기본세율 산출451.5만원+2000만원×14% 280만원=731.5만원 vs 전 금융소득6000만원×14%=840만원 비교 최저세액 → 본세840만원, 기납부 본세840만원, 추가납부0 가능. ② 다른 종합소득 세무과표6000만원(해당 과표는 소득공제 후 금액), 일반과세 금융소득6000만원, 모든 추가공제/공제특례 없음: 2000만원×14%280만원 + 1억원 기본세율1956만원=2236만원 vs 금융6000만원×14%840만원 + 다른과표6000만원 기본세율864만원=1704만원; 추가 본세 =2236−1704=532만원. 지방소득세 단순 추가53.2만원 별도. ②는 모형이지 개인 확정고지 금액 아님. 고배당 특례·국내배당 가산/세액공제·실제 다른 소득·외국세금과 개인공제에 따라 전부 달라진다.",
       "assessment": "CONTRADICTED",
       "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7675&mi=2238",
         "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7666&mi=2224"
       ],
       "verification_evidence": {
         "verdict": "CONTRADICTED",
-        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7666&mi=2224",
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7675&mi=2238",
         "checked_at": "2026-10-18",
-        "source_finding": "국세청 종합소득세 안내는 원천징수 세액을 기납부세액으로 공제한 뒤 '납부(환급)할 세액'을 산출한다고 명시한다. 금융소득 비교과세와 고배당 특례 및 개인 다른 소득·공제에 따라 추가 납부/환급 여부가 달라짐. '환급 불가/추가세 없음' 보편 단정 성립하지 않음.",
-        "effective_date_or_scope": "Korean NTS general tax reconciliation; case-specific comparisons required",
-        "disposition": "국세청 종합소득세 안내는 원천징수 세액을 기납부세액으로 공제한 뒤 '납부(환급)할 세액'을 산출한다고 명시한다. 금융소득 비교과세와 고배당 특례 및 개인 다른 소득·공제에 따라 추가 납부/환급 여부가 달라짐. '환급 불가/추가세 없음' 보편 단정 성립하지 않음.",
-        "correction": "기납부 원천징수세액과 최종 결정세액 비교·법상 비교과세/특례를 적용하여 납부 또는 환급 여부를 사례별 결정"
+        "source_finding": "2026 금융소득 '6천만원이면 추가세도 환급도 절대 없다'는 보편단정은 반증됨. 적용 조건을 엄격히 제한한 일반 금융소득 비교과세 계산에서 ① 일반 과세 이자/펀드 분배 과세소득 연6000만원, 별도 종합과세소득0, 본인 기본공제150만원, 법정 특별공제/기타세액공제/고배당특례 없음: (6000-2000-150)만원 과표3850만원 기본세율 산출451.5만원+2000만원×14% 280만원=731.5만원 vs 전 금융소득6000만원×14%=840만원 비교 최저세액 → 본세840만원, 기납부 본세840만원, 추가납부0 가능. ② 다른 종합소득 세무과표6000만원(해당 과표는 소득공제 후 금액), 일반과세 금융소득6000만원, 모든 추가공제/공제특례 없음: 2000만원×14%280만원 + 1억원 기본세율1956만원=2236만원 vs 금융6000만원×14%840만원 + 다른과표6000만원 기본세율864만원=1704만원; 추가 본세 =2236−1704=532만원. 지방소득세 단순 추가53.2만원 별도. ②는 모형이지 개인 확정고지 금액 아님. 고배당 특례·국내배당 가산/세액공제·실제 다른 소득·외국세금과 개인공제에 따라 전부 달라진다.",
+        "effective_date_or_scope": "INDEPENDENT_2026_10_18_SOURCE_EXACT_MODEL_AND_PERIOD_IN_NOTE",
+        "disposition": "2026 금융소득 '6천만원이면 추가세도 환급도 절대 없다'는 보편단정은 반증됨. 적용 조건을 엄격히 제한한 일반 금융소득 비교과세 계산에서 ① 일반 과세 이자/펀드 분배 과세소득 연6000만원, 별도 종합과세소득0, 본인 기본공제150만원, 법정 특별공제/기타세액공제/고배당특례 없음: (6000-2000-150)만원 과표3850만원 기본세율 산출451.5만원+2000만원×14% 280만원=731.5만원 vs 전 금융소득6000만원×14%=840만원 비교 최저세액 → 본세840만원, 기납부 본세840만원, 추가납부0 가능. ② 다른 종합소득 세무과표6000만원(해당 과표는 소득공제 후 금액), 일반과세 금융소득6000만원, 모든 추가공제/공제특례 없음: 2000만원×14%280만원 + 1억원 기본세율1956만원=2236만원 vs 금융6000만원×14%840만원 + 다른과표6000만원 기본세율864만원=1704만원; 추가 본세 =2236−1704=532만원. 지방소득세 단순 추가53.2만원 별도. ②는 모형이지 개인 확정고지 금액 아님. 고배당 특례·국내배당 가산/세액공제·실제 다른 소득·외국세금과 개인공제에 따라 전부 달라진다.",
+        "correction": "기납부 원천징수세액과 최종 결정세액 비교·법상 비교과세/특례를 적용하여 납부 또는 환급 여부를 사례별 결정",
+        "recheck_confidence": "CONTRADICTED_AS_UNIVERSAL_THROUGH_TWO_CONDITIONAL_CALCULATIONS"
       }
     },
     {
@@ -286,18 +301,20 @@
       "source_cue_index": 1015,
       "source_cue_start": "00:31:10.799",
       "source_paraphrase": "퇴사해 지역가입자가 되면 금융소득이 1000만원을 넘으면 건강보험료가 발생한다는 설명",
-      "independent_check": "건보공단 시행규칙은 일반 일정 이자·배당 소득 합계가 1000만원 이하이면 소득평가액에 미산입하는 한계를 규정; 1000만원 초과부터 소득산정 포함 가능하나 자격·세대·재산·시차 등 고려, 보험료 일률 신규 생성 아님.",
+      "independent_check": "2026 공단 자료는 지역가입자의 소득과 재산에 따라 보험료가 결정되고 이자·배당소득 반영 및 피부양 자격 조건과 신고 반영시점이 별도로 존재함을 전제한다. 연 금융소득 1000만원 기준만으로 모든 퇴직자가 같은 액수의 건보료가 '새로 발생'하거나 즉시 반영된다는 결론은 불가. 실제 보험료 산정 소득과 재산을 따로 확인해야 한다.",
       "assessment": "QUALIFIED",
       "official_sources": [
+        "https://www.nhis.or.kr/renewal_popup/poster/20260204_poster_longdesc_1.html",
         "https://www.nhis.or.kr/lm/lmxsrv/law/lawFullContent.do?MODE=threeView&SEQ=29&SEQ_HISTORY=100002"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": "https://www.nhis.or.kr/lm/lmxsrv/law/lawFullContent.do?MODE=threeView&SEQ=29&SEQ_HISTORY=100002",
+        "primary_url": "https://www.nhis.or.kr/renewal_popup/poster/20260204_poster_longdesc_1.html",
         "checked_at": "2026-10-18",
-        "source_finding": "건보공단 시행규칙은 일반 일정 이자·배당 소득 합계가 1000만원 이하이면 소득평가액에 미산입하는 한계를 규정; 1000만원 초과부터 소득산정 포함 가능하나 자격·세대·재산·시차 등 고려, 보험료 일률 신규 생성 아님.",
-        "effective_date_or_scope": "NHIS general rule insured status vs regional property and income",
-        "disposition": "건보공단 시행규칙은 일반 일정 이자·배당 소득 합계가 1000만원 이하이면 소득평가액에 미산입하는 한계를 규정; 1000만원 초과부터 소득산정 포함 가능하나 자격·세대·재산·시차 등 고려, 보험료 일률 신규 생성 아님."
+        "source_finding": "2026 공단 자료는 지역가입자의 소득과 재산에 따라 보험료가 결정되고 이자·배당소득 반영 및 피부양 자격 조건과 신고 반영시점이 별도로 존재함을 전제한다. 연 금융소득 1000만원 기준만으로 모든 퇴직자가 같은 액수의 건보료가 '새로 발생'하거나 즉시 반영된다는 결론은 불가. 실제 보험료 산정 소득과 재산을 따로 확인해야 한다.",
+        "effective_date_or_scope": "INDEPENDENT_2026_10_18_SOURCE_EXACT_MODEL_AND_PERIOD_IN_NOTE",
+        "disposition": "2026 공단 자료는 지역가입자의 소득과 재산에 따라 보험료가 결정되고 이자·배당소득 반영 및 피부양 자격 조건과 신고 반영시점이 별도로 존재함을 전제한다. 연 금융소득 1000만원 기준만으로 모든 퇴직자가 같은 액수의 건보료가 '새로 발생'하거나 즉시 반영된다는 결론은 불가. 실제 보험료 산정 소득과 재산을 따로 확인해야 한다.",
+        "recheck_confidence": "CONDITIONAL_STATUS_AND_INCOME_ASSESSMENT"
       }
     },
     {
@@ -306,7 +323,7 @@
       "source_cue_index": 1016,
       "source_cue_start": "00:31:12.519",
       "source_paraphrase": "건강보험료를 금융소득에 고정 8%로 더해야 한다는 설명",
-      "independent_check": "건보공단 공식 2026 건강보험료율은 7.19%, 장기요양보험료율은 소득기준 약 0.9448%포인트(건강보험료 7.19% 대비 비율 공식)로 별도다. 지역가입자는 소득뿐 아니라 재산 및 경감 조건이 적용되어 배당액 전체에 동일한 8%를 더하는 식은 부정확.",
+      "independent_check": "국민건강보험공단 2026년 공식 요율은 일반 건강보험료 7.19%, 장기요양보험료는 기준소득 대비 0.9448%(건보료에 대한 환산 비율로 청구)로 명목 소득기준 합계 8.1348%이며, 60,000,000원 전액이 지역가입자 부과소득으로 잡히고 재산보험료 제외라는 가정에서 건강보험 4,314,000원/연 + 장기요양 566,880원/연 = 4,880,880원/연(월 평균406,740원). 지역보험료에는 재산 점수×211.5원, 감면·소득과표·연간 적용시차, 보험료상하한, 직장가입과 피부양 구분이 있어 개인 실제 보험료 아님; 영상 단일 8%를 확정 보험료율로 쓰지 않는다.",
       "assessment": "QUALIFIED",
       "official_sources": [
         "https://edi.nhis.or.kr/portal/images/popup/20251204_pop01longdesc.html"
@@ -315,9 +332,10 @@
         "verdict": "QUALIFIED",
         "primary_url": "https://edi.nhis.or.kr/portal/images/popup/20251204_pop01longdesc.html",
         "checked_at": "2026-10-18",
-        "source_finding": "건보공단 공식 2026 건강보험료율은 7.19%, 장기요양보험료율은 소득기준 약 0.9448%포인트(건강보험료 7.19% 대비 비율 공식)로 별도다. 지역가입자는 소득뿐 아니라 재산 및 경감 조건이 적용되어 배당액 전체에 동일한 8%를 더하는 식은 부정확.",
-        "effective_date_or_scope": "NHIS 2026 rate schedule effective year; do not equate LTC + health or base and full aggregate",
-        "disposition": "건보공단 공식 2026 건강보험료율은 7.19%, 장기요양보험료율은 소득기준 약 0.9448%포인트(건강보험료 7.19% 대비 비율 공식)로 별도다. 지역가입자는 소득뿐 아니라 재산 및 경감 조건이 적용되어 배당액 전체에 동일한 8%를 더하는 식은 부정확."
+        "source_finding": "국민건강보험공단 2026년 공식 요율은 일반 건강보험료 7.19%, 장기요양보험료는 기준소득 대비 0.9448%(건보료에 대한 환산 비율로 청구)로 명목 소득기준 합계 8.1348%이며, 60,000,000원 전액이 지역가입자 부과소득으로 잡히고 재산보험료 제외라는 가정에서 건강보험 4,314,000원/연 + 장기요양 566,880원/연 = 4,880,880원/연(월 평균406,740원). 지역보험료에는 재산 점수×211.5원, 감면·소득과표·연간 적용시차, 보험료상하한, 직장가입과 피부양 구분이 있어 개인 실제 보험료 아님; 영상 단일 8%를 확정 보험료율로 쓰지 않는다.",
+        "effective_date_or_scope": "INDEPENDENT_2026_10_18_SOURCE_EXACT_MODEL_AND_PERIOD_IN_NOTE",
+        "disposition": "국민건강보험공단 2026년 공식 요율은 일반 건강보험료 7.19%, 장기요양보험료는 기준소득 대비 0.9448%(건보료에 대한 환산 비율로 청구)로 명목 소득기준 합계 8.1348%이며, 60,000,000원 전액이 지역가입자 부과소득으로 잡히고 재산보험료 제외라는 가정에서 건강보험 4,314,000원/연 + 장기요양 566,880원/연 = 4,880,880원/연(월 평균406,740원). 지역보험료에는 재산 점수×211.5원, 감면·소득과표·연간 적용시차, 보험료상하한, 직장가입과 피부양 구분이 있어 개인 실제 보험료 아님; 영상 단일 8%를 확정 보험료율로 쓰지 않는다.",
+        "recheck_confidence": "OFFICIAL_2026_RATES_CONFIRMED_MODEL_ONLY"
       }
     },
     {
@@ -410,6 +428,7 @@
     "2026 high-dividend preferential split taxation may modify treatment of eligible income; fund distributions vs corporate dividends differ",
     "2026 health insurance base rate 7.19% distinct from extra LTC rate",
     "Personal tax cashflow and 10-year FIRE timing cannot be asserted as universally valid",
-    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment.",
+    "2026-10-18 three-video deep review updated assumptions and quantitative source findings only; V3 prior pilot NOT_APPROVED status and canonical APPROVED remain separate; all private original SRT retained outside public git."
   ]
 }
