@@ -36,13 +36,18 @@
       "source_cue_index": 95,
       "source_cue_start": "00:03:10.879",
       "source_paraphrase": "증권계좌 ISA·연금저축·IRP를 여러 기관으로 나누고 행사별로 옮길 수 있다는 사례",
-      "independent_check": "개인 금융사의 이벤트·거래수수료·이전 시점 및 기초자산 매각 여부는 금융회사마다 다르다; 사적 수익자료 미확인.",
-      "assessment": "SPEAKER_OPINION",
-      "official_sources": [],
+      "independent_check": "ISA·연금저축·IRP는 서로 다른 가입·공제·계좌이전 조건이 있으며 계좌기관별 이벤트와 수수료는 개별 금융회사 2026 당시 약관으로 확인해야 한다. 행사금액·개인이 실제 이전했는지는 증빙 없으므로 미확정.",
+      "assessment": "QUALIFIED",
+      "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2343"
+      ],
       "verification_evidence": {
-        "verdict": "SPEAKER_OPINION",
-        "basis": "개인 금융사의 이벤트·거래수수료·이전 시점 및 기초자산 매각 여부는 금융회사마다 다르다; 사적 수익자료 미확인.",
-        "disposition": "개인 금융사의 이벤트·거래수수료·이전 시점 및 기초자산 매각 여부는 금융회사마다 다르다; 사적 수익자료 미확인."
+        "verdict": "QUALIFIED",
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2343",
+        "checked_at": "2026-10-18",
+        "source_finding": "ISA·연금저축·IRP는 서로 다른 가입·공제·계좌이전 조건이 있으며 계좌기관별 이벤트와 수수료는 개별 금융회사 2026 당시 약관으로 확인해야 한다. 행사금액·개인이 실제 이전했는지는 증빙 없으므로 미확정.",
+        "effective_date_or_scope": "2026_GENERAL_TAX_ACCOUNT_REQUIREMENTS_NOT_PROMOTION_SPECIFIC",
+        "disposition": "ISA·연금저축·IRP는 서로 다른 가입·공제·계좌이전 조건이 있으며 계좌기관별 이벤트와 수수료는 개별 금융회사 2026 당시 약관으로 확인해야 한다. 행사금액·개인이 실제 이전했는지는 증빙 없으므로 미확정."
       }
     },
     {
@@ -278,8 +283,8 @@
   ],
   "claim_count": 13,
   "claim_classification_tally": {
-    "SPEAKER_OPINION": 3,
-    "QUALIFIED": 9,
+    "SPEAKER_OPINION": 2,
+    "QUALIFIED": 10,
     "PRIMARY_CONFIRMED": 1
   },
   "core_message": "연금·ISA 투자자 질의에서 기대 수익률 가정, 지수/자산배분 위험, 과세이연, 복리·배당재투자, AI 일괄매도 권고의 한계 등을 구별.",
