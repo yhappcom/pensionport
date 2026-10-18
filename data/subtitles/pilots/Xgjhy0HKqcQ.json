@@ -28,11 +28,20 @@
     "final_srt_end": "00:01:15.280",
     "crc_verified": true,
     "all_cues_numbered_and_monotonic": true,
-    "evidence_reference": "Private user-uploaded 101-129.zip, 2026-10-18 ZIP CRC, decoded all original Korean ASR SRT cues and matched to official 791-video roster; official law/regulatory/issuer official pages reviewed claim by claim.",
+    "evidence_reference": "Private user-uploaded 101-129.zip, 2026-10-18 ZIP CRC, decoded all original Korean ASR SRT cues and matched to official 791-video roster; official law/regulatory/issuer official pages reviewed claim by claim. Repeat audit 2026-10-18 fetched same-video complete YouTube Korean ASR watch-page transcript and exactly matched source-private normalized body, both 465 chars SHA256 a6b7d4263a43fb40ea24314c69b74c48774e8f2f149f491d08161de693d2fb98. Same ASR recognizer possible: not independent audio check.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "public_auto_asr_exact_body_compared": false,
-    "limitations": "Automatic original user SRT text may contain ASR errors; live audio/visual not independently inspected, public YouTube full ASR not yet normalized-string reconciled; cue milliseconds are source SRT cue starts, not independently verified audio onsets."
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "Automatic original user SRT text may contain ASR errors; live audio/visual not independently inspected, public YouTube full ASR not yet normalized-string reconciled; cue milliseconds are source SRT cue starts, not independently verified audio onsets.",
+    "public_full_body_identical_to_private_normalized": true,
+    "private_full_body_normalized_chars": 465,
+    "youtube_public_full_body_normalized_chars": 465,
+    "private_full_body_normalized_sha256": "a6b7d4263a43fb40ea24314c69b74c48774e8f2f149f491d08161de693d2fb98",
+    "youtube_public_full_body_normalized_sha256": "a6b7d4263a43fb40ea24314c69b74c48774e8f2f149f491d08161de693d2fb98",
+    "public_source_url": "https://www.youtube.com/watch?v=Xgjhy0HKqcQ",
+    "public_caption_language": "ko",
+    "public_asr_same_underlying_youtube_source_possible": true,
+    "independent_original_audio_verified": false
   },
   "claims": [
     {
@@ -101,18 +110,19 @@
       "source_cue_index": 17,
       "source_cue_start": "00:00:36.360",
       "source_paraphrase": "IRP 퇴직급여 연금 수령연차별 퇴직소득세 30%, 40%, 50% 감면",
-      "independent_check": "2026년 시행 소득세법 제129조 1항 5호의3: 1~10년차 원래 퇴직소득 원천세의 70%, 11~20년차 60%, 21년차부터 50% 징수. 해당 연차 인출분에만 적용하며 연금수령 한도 준수.",
+      "independent_check": "2026 국세청: 퇴직소득 이연세액 기준 1~10년차70% 징수, 11~20년차60%, 21년차부터50%; 이는 감면 30/40/50%로 환산한 내용. 추가납입 공제/운용수익 과세는 별도.",
       "assessment": "PRIMARY_CONFIRMED",
       "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312",
         "https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1030666693"
       ],
       "verification_evidence": {
         "verdict": "PRIMARY_CONFIRMED",
         "checked_at": "2026-10-18",
-        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1030666693",
-        "source_finding": "2026년 시행 소득세법 제129조 1항 5호의3: 1~10년차 원래 퇴직소득 원천세의 70%, 11~20년차 60%, 21년차부터 50% 징수. 해당 연차 인출분에만 적용하며 연금수령 한도 준수.",
-        "effective_date_or_scope": "KOREAN_INCOME_TAX_ACT_EFFECTIVE_2026_07_01",
-        "disposition": "2026년 시행 소득세법 제129조 1항 5호의3: 1~10년차 원래 퇴직소득 원천세의 70%, 11~20년차 60%, 21년차부터 50% 징수. 해당 연차 인출분에만 적용하며 연금수령 한도 준수."
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312",
+        "source_finding": "2026 국세청: 퇴직소득 이연세액 기준 1~10년차70% 징수, 11~20년차60%, 21년차부터50%; 이는 감면 30/40/50%로 환산한 내용. 추가납입 공제/운용수익 과세는 별도.",
+        "effective_date_or_scope": "NTS_2026_TAX_DEFERRED_RETIREMENT_INCOME_ONLY",
+        "disposition": "2026 국세청: 퇴직소득 이연세액 기준 1~10년차70% 징수, 11~20년차60%, 21년차부터50%; 이는 감면 30/40/50%로 환산한 내용. 추가납입 공제/운용수익 과세는 별도."
       }
     },
     {
@@ -146,6 +156,7 @@
     "원본 비공개 SRT 구조·해시 확인, 공개 GitHub 전문 미등록.",
     "원음·원영상 프레임 독립 확인 미실시.",
     "세율·수수료·상품 사용조건은 검증일과 계좌 재원별로 제한.",
-    "주장별 검증 판정은 사실/의견/비유 구분이며 개인 투자 권유가 아니다."
+    "주장별 검증 판정은 사실/의견/비유 구분이며 개인 투자 권유가 아니다.",
+    "Public complete same-video YouTube ASR was normalized and body-level exactly matched to private SRT; this cross-source identity does not establish original audible phoneme accuracy or true milliseconds of audio onset."
   ]
 }
