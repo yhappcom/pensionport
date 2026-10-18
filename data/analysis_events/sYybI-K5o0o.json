@@ -301,7 +301,8 @@
     "Korean general financial income aggregate threshold KRW20m applies with 2026 high dividend exception conditional on exact eligible issuer/holder and 2027 filing.",
     "2026 NHIS health insurance base rate 7.19% plus separate long-term care insurance line, not flat 8% of all dividends.",
     "Personal earned income, family status, home value and tax credit information are not supplied.",
-    "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged."
+    "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged.",
+    "2026-10-18 Korean full YouTube public auto-transcript checksum 40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03 (19919 chars) vs user private original normalized 40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03 (19919 chars), full text equal=true; both may share ASR engine, voice and frame validation not done."
   ],
   "risks_and_exceptions": [
     "Vanguard's 4% withdrawal rule does not equal an asset that pays a fixed 4% dividend or guarantee one can fund 50 years of retirement.",
@@ -385,13 +386,21 @@
     "original_cues_read": true,
     "original_audio_verified": false,
     "original_frames_verified": false,
-    "full_source_text_publicly_uploaded": false
+    "full_source_text_publicly_uploaded": false,
+    "public_private_whitespace_normalized_full_body_exact_match": true,
+    "public_auto_transcript_checked_at": "2026-10-18",
+    "public_same_video_first_party_url": "https://www.youtube.com/watch?v=sYybI-K5o0o",
+    "private_normalized_fulltext_sha256": "40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03",
+    "public_normalized_fulltext_sha256": "40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03",
+    "raw_audio_checked": false,
+    "original_frames_checked": false
   },
   "limitations": [
     "No raw private SRT/ZIP uploaded publicly",
     "No original audio/frames independently authenticated",
     "2026 high-dividend preferential split taxation may modify treatment of eligible income; fund distributions vs corporate dividends differ",
     "2026 health insurance base rate 7.19% distinct from extra LTC rate",
-    "Personal tax cashflow and 10-year FIRE timing cannot be asserted as universally valid"
+    "Personal tax cashflow and 10-year FIRE timing cannot be asserted as universally valid",
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   ]
 }
