@@ -31,8 +31,19 @@
     "evidence_reference": "Original private 101-129.zip with SHA/CRC checked, entire short original cue bodies directly reviewed and anchored to actual SRT start times; official source-level scope verified.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "public_auto_asr_exact_body_compared": false,
-    "limitations": "No independently heard audio or examined original video screen; private auto captions can share ASR mistakes with public counterparts. Source SRT timestamps only."
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "No independently heard audio or examined original video screen; private auto captions can share ASR mistakes with public counterparts. Source SRT timestamps only.",
+    "public_full_text_source_url": "https://www.youtube.com/watch?v=AX1AAZVOnJU",
+    "public_full_text_acquired_from_same_video": true,
+    "public_full_text_type": "YOUTUBE_WATCH_PAGE_KO_AUTO_ASR",
+    "private_full_text_whitespace_normalized_chars": 435,
+    "private_full_text_whitespace_normalized_sha256": "e5ace9c51bad3be3cca5121e43c6cfb708491a88e1a6f2caa7ee73a2a456e578",
+    "public_full_text_whitespace_normalized_chars": 435,
+    "public_full_text_whitespace_normalized_sha256": "e5ace9c51bad3be3cca5121e43c6cfb708491a88e1a6f2caa7ee73a2a456e578",
+    "public_private_fulltext_sha_exact_match": true,
+    "independent_spoken_audio_audited": false,
+    "public_fulltext_checked_at": "2026-10-18",
+    "public_source_transcript_caveat": "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   },
   "claims": [
     {
@@ -126,6 +137,7 @@
     "No audio/video frame verification or personal financial advice.",
     "Video SRT contents kept private; original source SHA and cue anchors are sufficient public provenance.",
     "Generalized financial guarantees, TDF retirement ages, US-only equity concentration and dividends are not guaranteed.",
-    "Official evidence only validates separately specified material facts and date conditions."
+    "Official evidence only validates separately specified material facts and date conditions.",
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   ]
 }
