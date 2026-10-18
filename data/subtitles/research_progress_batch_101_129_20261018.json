@@ -236,7 +236,8 @@
     "#127 적립식 매수도 손실 가능, 장기 연7/12% 비보장, 일1% 매매→월30% 수익 고정재현불가(20거래일 월복리 약22%).",
     "#129 디폴트옵션 사전지정과 실제 적용 별도; TDF2060 원금/은퇴소득 미보장, 3년63% 화면수익·개인주식 매매 인증 불가.",
     "2026-10-18 #101~103 focused re-audit: #101 added three material claim reviews (Yellow Umbrella income deduction vs pension tax credit, NPS 2026 regional/voluntary monthly minimum distinctions, covered-call SCHD/JEPI future cashflow crossover unverified). #102 and #103 complete original/user SRT vs public full same-video YouTube ASR body normalized SHA exact matched. #101 full body 19312 private vs 19294 public does not match, so no blanket literal equivalence.",
-    "2026-10-18 focused 104-110 recheck: full private SRT verified 4636 cues; identical entire public YouTube ASR for 104,105,106,108,109,110; #107 9387 private vs 9352 public normalized chars and different SHA. KB Securities notice 2025-06-30 verifies ISA foreign fund tax credit from July 1 2025 excluding 2025 Jan-June retroactivity; uniform 0.55 foreign tax credit factor and tax zero remain unverified. Other 105 12.2 author primary quote, 106 high-dividend corporation tax exception, 110 MOHW 43% new policy qualified. Video and claim counts unchanged."
+    "2026-10-18 focused 104-110 recheck: full private SRT verified 4636 cues; identical entire public YouTube ASR for 104,105,106,108,109,110; #107 9387 private vs 9352 public normalized chars and different SHA. KB Securities notice 2025-06-30 verifies ISA foreign fund tax credit from July 1 2025 excluding 2025 Jan-June retroactivity; uniform 0.55 foreign tax credit factor and tax zero remain unverified. Other 105 12.2 author primary quote, 106 high-dividend corporation tax exception, 110 MOHW 43% new policy qualified. Video and claim counts unchanged.",
+    "2026-10-18 three-video (#107, #105, #106) deep independent evidence check: NYU Damodaran 1975-2024 dividends included annual positives 41/50=82%, CAGR 12.26364686%; SPIVA 2002-2022 large cap active non-underperform 5.21% vs video17% not same cohort; 2026 60m ordinary financial income illustrative other-tax-base 0 vs 60m national additional tax 0 vs 5.32m; nominal NHIS rates 7.19+0.9448; #107 2025-07 ISA foreign tax start confirmed, uniform0.55 credit and actual tax0 still not proven. V3 count 129/2095 and legacy OPEN24 unchanged."
   ],
   "research_branch_only": true,
   "main_untouched": true,
@@ -298,5 +299,44 @@
       "#110 MOHW 2026 statutory NPS rate path and replacement policy; not historical/personal retroactive pension"
     ],
     "report": "knowledge/VIDEO104_110_FOCUSED_V3_REAUDIT_20261018.md"
+  },
+  "deep_independent_validation_105_106_107_20261018": {
+    "at": "2026-10-18",
+    "scope_roster": [
+      105,
+      106,
+      107
+    ],
+    "claims_reexamined": 46,
+    "claims_with_new_primary_quantitative_details": 10,
+    "additional_approved_claims": 0,
+    "approved_total_videos_unchanged": 129,
+    "approved_total_claims_unchanged": 2095,
+    "legacy_optional_open_unchanged": 24,
+    "video105": {
+      "sp500_1975_2024_cagr_percent": 12.263646860602861,
+      "positive_years": 41,
+      "out_of_years": 50,
+      "positive_year_percentage": 82,
+      "spiva_2022_20_year_all_largecap_non_underperformed_percent": 5.21,
+      "video_17percent_as_same_cohort_unverified": true
+    },
+    "video106": {
+      "general_financial_gross_won": 60000000,
+      "scenario_no_other_tax_additional_national_won": 0,
+      "scenario_other_net_taxbase_60m_additional_national_won": 5320000,
+      "nominal_nhis_2026_health_percent": 7.19,
+      "long_term_care_income_equivalent_percent": 0.9448,
+      "actual_private_tax_or_premium_verified": false
+    },
+    "video107": {
+      "isa_foreign_tax_credit_start": "2025-07-01",
+      "first_half_2025_retroactive": false,
+      "uniform_factor_055_verified": false,
+      "individual_zero_tax_confirmed": false,
+      "private_public_asr_exact_match": false
+    },
+    "report": "knowledge/VIDEO105_106_107_TARGETED_OFFICIAL_RECHECK_20261018.md",
+    "scope_limit": "Research/policy and mathematical illustrations only, no actual trading transactions or tax filings independently checked."
   }
 }
