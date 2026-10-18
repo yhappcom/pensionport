@@ -31,8 +31,19 @@
     "evidence_reference": "Private uploaded 101-129.zip source SHA-256 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951, exact private SRT per-video SHA-256 53c612f364d8aa856296ec701acc8c667b3f82af7c21849dfda91706997136c4; all 23 original cue texts read in this batch; YouTube video title/upload date separately checked when accessible.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "public_auto_asr_exact_body_compared": false,
-    "limitations": "Private auto-ASR source may misrecognize names and numbers, especially #123 first two opening cues; official support levels checked as 2026 program eligibility, not personal entitlements. No original sound/frame verification."
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "Private auto-ASR source may misrecognize names and numbers, especially #123 first two opening cues; official support levels checked as 2026 program eligibility, not personal entitlements. No original sound/frame verification.",
+    "public_full_text_source_url": "https://www.youtube.com/watch?v=Hv7WZ0APt1o",
+    "public_full_text_acquired_from_same_video": true,
+    "public_full_text_type": "YOUTUBE_WATCH_PAGE_KO_AUTO_ASR",
+    "private_full_text_whitespace_normalized_chars": 324,
+    "private_full_text_whitespace_normalized_sha256": "e15f67dd89fddda304c05f39a81c3fddc3ca986adb61cd1dfa99121008fc68ca",
+    "public_full_text_whitespace_normalized_chars": 324,
+    "public_full_text_whitespace_normalized_sha256": "e15f67dd89fddda304c05f39a81c3fddc3ca986adb61cd1dfa99121008fc68ca",
+    "public_private_fulltext_sha_exact_match": true,
+    "independent_spoken_audio_audited": false,
+    "public_fulltext_checked_at": "2026-10-18",
+    "public_source_transcript_caveat": "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   },
   "claims": [
     {
@@ -134,6 +145,7 @@
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
     "Video audio/frames not independently checked; raw SRT start printed to whole seconds above for claim anchors but original subsecond read available in private file.",
     "Official issuer/program conditions may change and require dated recheck; individual claim eligibility unverified.",
-    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments."
+    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments.",
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   ]
 }
