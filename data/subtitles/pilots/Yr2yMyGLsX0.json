@@ -32,7 +32,18 @@
     "original_audio_checked": false,
     "frames_checked": false,
     "evidence_reference": "All original 937 chronological source cues registered and interpreted; KOFIA original ISA disclosure portal, Feb26/Mar2 KOFIA press reports via contemporaneous Yonhap reporting, Korean securities ISA issuer legal account terms cross checked by date.",
-    "limitations": "Video original KOFIA 2022-2026 chart not independently pixel-matched to official month-by-month original table; 46% ETF/34% shares/8.7% deposits figure unconfirmed; no original audio."
+    "limitations": "Video original KOFIA 2022-2026 chart not independently pixel-matched to official month-by-month original table; 46% ETF/34% shares/8.7% deposits figure unconfirmed; no original audio.",
+    "public_auto_asr_exact_body_compared": true,
+    "youtube_public_source_url": "https://www.youtube.com/watch?v=Yr2yMyGLsX0",
+    "private_full_text_normalized_chars": 12204,
+    "private_full_text_normalized_sha256": "1788d5c0dc1a65c9b622c11e342e29df11da4948ef98b3473a34f6ddd9faa66e",
+    "public_full_text_normalized_chars": 12190,
+    "public_full_text_normalized_sha256": "6f39a3266143635b2e9c0952a6b5d4bde53373467e24606ef03bcf2a7a71dd44",
+    "public_source_language": "ko",
+    "public_private_fullbody_status": "DIFFERENT_KOREAN_ASR",
+    "independent_audio_checked": false,
+    "reaudit_at": "2026-10-18",
+    "reaudit_limitation": "Same video first-party Korean auto-caption full-body whitespace-normalized hash comparison does not independently validate spoken phonemes or video frames. Differences are NOT proof uploaded SRT source is corrupt."
   },
   "claims": [
     {
@@ -61,18 +72,19 @@
       "source_cue_index": 211,
       "source_cue_start": "00:06:12.440",
       "source_paraphrase": "ISA가 2016년 3월 14일 출범했다는 발언",
-      "independent_check": "금융투자협회 자료 전달 보도는 2016년 3월 ISA 도입, 2026년 3월 10주년을 확인. 3월14일 특정 일자는 당초 금융위 공문/약관 인가 원문 확인이 필요해 일까지 엄격히 인증하지 않음.",
-      "assessment": "QUALIFIED",
+      "independent_check": "2016-02-12 금융위원회 공식 ISA 활성화 발표문에서 당초 출시일을 2016-03-14로 확정 발표. 실제 2016년 3월 시행 사실은 2026-02-26 금투협 공표와 보도 다수로 교차 확인됨. 따라서 영상의 정확한 2016-03-14 출범일은 공식 정책문서로 확정(다만 2016년 3월 말 은행 일임형 출범은 별도).",
+      "assessment": "PRIMARY_CONFIRMED",
       "official_sources": [
+        "https://www.korea.kr/news/policyNewsView.do?newsId=156109166",
         "https://www.yna.co.kr/view/AKR20260227135100008"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
-        "primary_url": "https://www.yna.co.kr/view/AKR20260227135100008",
+        "verdict": "PRIMARY_CONFIRMED",
+        "primary_url": "https://www.korea.kr/news/policyNewsView.do?newsId=156109166",
         "checked_at": "2026-10-18",
-        "source_finding": "금융투자협회 자료 전달 보도는 2016년 3월 ISA 도입, 2026년 3월 10주년을 확인. 3월14일 특정 일자는 당초 금융위 공문/약관 인가 원문 확인이 필요해 일까지 엄격히 인증하지 않음.",
-        "effective_date_or_scope": "2016-03 ISA introduction; exact day not from independent primary",
-        "disposition": "금융투자협회 자료 전달 보도는 2016년 3월 ISA 도입, 2026년 3월 10주년을 확인. 3월14일 특정 일자는 당초 금융위 공문/약관 인가 원문 확인이 필요해 일까지 엄격히 인증하지 않음."
+        "source_finding": "2016-02-12 금융위원회 공식 ISA 활성화 발표문에서 당초 출시일을 2016-03-14로 확정 발표. 실제 2016년 3월 시행 사실은 2026-02-26 금투협 공표와 보도 다수로 교차 확인됨. 따라서 영상의 정확한 2016-03-14 출범일은 공식 정책문서로 확정(다만 2016년 3월 말 은행 일임형 출범은 별도).",
+        "effective_date_or_scope": "FSC_ISA_INITIAL_LAUNCH_2016_MARCH_14_EXCEPTION_BANK_DELEGATED_MARCH_LATER",
+        "disposition": "2016-02-12 금융위원회 공식 ISA 활성화 발표문에서 당초 출시일을 2016-03-14로 확정 발표. 실제 2016년 3월 시행 사실은 2026-02-26 금투협 공표와 보도 다수로 교차 확인됨. 따라서 영상의 정확한 2016-03-14 출범일은 공식 정책문서로 확정(다만 2016년 3월 말 은행 일임형 출범은 별도)."
       }
     },
     {
@@ -81,18 +93,19 @@
       "source_cue_index": 328,
       "source_cue_start": "00:10:00.600",
       "source_paraphrase": "2026년 1월 말 ISA 약 806만 계좌와 54조원 자산이라는 자료",
-      "independent_check": "KOFIA 발표 인용 2026-01-31 ISA 가입자 807만 명, 금액 54조7000억원. 영상의 806만/54조는 시점·반올림 차이가 있을 수 있으나 2026 수치로 출처와 범위를 표시하여 2026-10 현재 값처럼 인용 금지.",
+      "independent_check": "2026-02-26 금융투자협회 발표: 2026-01 말 ISA 가입자 약 807만 명, 가입금액 54.7조원. 영상의 약806만/54조는 근접·대략값이지만 정확히 동일한 원표 숫자로 쓰거나 2026-10 최신으로 인용하면 안 됨. 기사도 1차 발표의 보도 전재이며 월별 원장·동영상 이미지 픽셀 대조는 수행하지 않음.",
       "assessment": "QUALIFIED",
       "official_sources": [
+        "https://www.newsis.com/view/NISX20260226_0003527439",
         "https://www.yna.co.kr/amp/view/AKR20260226083500008"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": "https://www.yna.co.kr/amp/view/AKR20260226083500008",
+        "primary_url": "https://www.newsis.com/view/NISX20260226_0003527439",
         "checked_at": "2026-10-18",
-        "source_finding": "KOFIA 발표 인용 2026-01-31 ISA 가입자 807만 명, 금액 54조7000억원. 영상의 806만/54조는 시점·반올림 차이가 있을 수 있으나 2026 수치로 출처와 범위를 표시하여 2026-10 현재 값처럼 인용 금지.",
-        "effective_date_or_scope": "KOFIA Jan31 2026 press data via Yonhap Feb26, monthly original table not exported",
-        "disposition": "KOFIA 발표 인용 2026-01-31 ISA 가입자 807만 명, 금액 54조7000억원. 영상의 806만/54조는 시점·반올림 차이가 있을 수 있으나 2026 수치로 출처와 범위를 표시하여 2026-10 현재 값처럼 인용 금지."
+        "source_finding": "2026-02-26 금융투자협회 발표: 2026-01 말 ISA 가입자 약 807만 명, 가입금액 54.7조원. 영상의 약806만/54조는 근접·대략값이지만 정확히 동일한 원표 숫자로 쓰거나 2026-10 최신으로 인용하면 안 됨. 기사도 1차 발표의 보도 전재이며 월별 원장·동영상 이미지 픽셀 대조는 수행하지 않음.",
+        "effective_date_or_scope": "KOFIA_JAN2026_SNAPSHOT_AS_REPORTED_2026_FEB26",
+        "disposition": "2026-02-26 금융투자협회 발표: 2026-01 말 ISA 가입자 약 807만 명, 가입금액 54.7조원. 영상의 약806만/54조는 근접·대략값이지만 정확히 동일한 원표 숫자로 쓰거나 2026-10 최신으로 인용하면 안 됨. 기사도 1차 발표의 보도 전재이며 월별 원장·동영상 이미지 픽셀 대조는 수행하지 않음."
       }
     },
     {
@@ -241,18 +254,19 @@
       "source_cue_index": 789,
       "source_cue_start": "00:24:10.559",
       "source_paraphrase": "중개형 ISA 구성비 ETF 46%, 주식 34%, 예금성 8.7%라는 영상 차트",
-      "independent_check": "KOFIA 운용현황/유형별 투자자산 공시와 시점·수치 분모·'예금성' 분류를 원표로 확인하지 못했다. 특히 중개형 ISA가 은행 예금을 직접 담는다는 뜻으로 오해 금지.",
+      "independent_check": "2026-02-26 금융투자협회 발표를 언론이 전달한 2026-01 말 투자중개형 ISA 자산 ETF 46.8%, 국내주식 34.2%는 영상의 반올림 46%/34%와 대략 부합. 하지만 영상의 '예금(성) 8.7%' 원표/항목 정의와 시점 일치 여부는 아직 공식 금투협 월별 상품 분류 원자료 및 화면을 직접 대조하지 못하여 미확정. ETF 비중46.8%가 전체 ISA(신탁형 포함)의 ETF 비율인 것처럼 쓰면 안 됨.",
       "assessment": "QUALIFIED",
       "official_sources": [
+        "https://www.newsis.com/view/NISX20260226_0003527439",
         "https://dis.kofia.or.kr/"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": "https://dis.kofia.or.kr/",
+        "primary_url": "https://www.newsis.com/view/NISX20260226_0003527439",
         "checked_at": "2026-10-18",
-        "source_finding": "KOFIA 운용현황/유형별 투자자산 공시와 시점·수치 분모·'예금성' 분류를 원표로 확인하지 못했다. 특히 중개형 ISA가 은행 예금을 직접 담는다는 뜻으로 오해 금지.",
-        "effective_date_or_scope": "2026 JAN KOFIA EXACT_PORTFOLIO_ASSET_MIX_ORIGINAL_TABLE_NOT_RECONCILED",
-        "disposition": "KOFIA 운용현황/유형별 투자자산 공시와 시점·수치 분모·'예금성' 분류를 원표로 확인하지 못했다. 특히 중개형 ISA가 은행 예금을 직접 담는다는 뜻으로 오해 금지."
+        "source_finding": "2026-02-26 금융투자협회 발표를 언론이 전달한 2026-01 말 투자중개형 ISA 자산 ETF 46.8%, 국내주식 34.2%는 영상의 반올림 46%/34%와 대략 부합. 하지만 영상의 '예금(성) 8.7%' 원표/항목 정의와 시점 일치 여부는 아직 공식 금투협 월별 상품 분류 원자료 및 화면을 직접 대조하지 못하여 미확정. ETF 비중46.8%가 전체 ISA(신탁형 포함)의 ETF 비율인 것처럼 쓰면 안 됨.",
+        "effective_date_or_scope": "KOFIA_2026_JAN_31_INVESTMENT_BROKERAGE_ISA_CATEGORY_SECONDARY_CONTEMPORANEOUS_REPORT_NOT_ORIGINAL_MONTHLY_TABLE",
+        "disposition": "2026-02-26 금융투자협회 발표를 언론이 전달한 2026-01 말 투자중개형 ISA 자산 ETF 46.8%, 국내주식 34.2%는 영상의 반올림 46%/34%와 대략 부합. 하지만 영상의 '예금(성) 8.7%' 원표/항목 정의와 시점 일치 여부는 아직 공식 금투협 월별 상품 분류 원자료 및 화면을 직접 대조하지 못하여 미확정. ETF 비중46.8%가 전체 ISA(신탁형 포함)의 ETF 비율인 것처럼 쓰면 안 됨."
       }
     },
     {
@@ -298,8 +312,8 @@
   ],
   "claim_count": 13,
   "claim_classification_tally": {
-    "QUALIFIED": 12,
-    "PRIMARY_CONFIRMED": 1
+    "QUALIFIED": 11,
+    "PRIMARY_CONFIRMED": 2
   },
   "core_message": "2026년 1월 말 금융투자협회 ISA 가입 807만 계좌·54조7천억원이라는 *당시* 통계와 2021 중개형 도입·계좌이전·1인1계좌 규칙을 구분하고, 2026년 3월 이벤트/중개형 세부 자산비중 그래프의 원표 미확보는 자료제약으로 남긴다.",
   "limitations": [
@@ -308,6 +322,7 @@
     "Video stated 806만 and 54조 could be rounded or snapshot timing; not exact 807만 54.7조 in all cases",
     "A trust ISA does not legally mean deposits only",
     "A single-person one ISA rule and transfer conversion differ; do not open independent extra tax-free ISA",
-    "2026 March anniversary promotions are expired or conditional; no guaranteed cash award in October."
+    "2026 March anniversary promotions are expired or conditional; no guaranteed cash award in October.",
+    "2026-10-18 the exact 2016-03-14 start date now primary confirmed via FSC 2016 release. KOFIA Jan2026 ETF46.8/stock34.2 as official-announcement contemporaneous reporting only, 8.7% bank deposits/cash instrument still primary-table/label unverified."
   ]
 }
