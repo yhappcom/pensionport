@@ -31,8 +31,18 @@
     "evidence_reference": "Source 101-129.zip raw SRT 923 cues all text checked; recorded SHA and CRC, manual cue-area source review crosschecked with SEC investment and trade order guidance, Korean stock exchange order type terminology separately caveated.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "public_auto_asr_exact_body_compared": false,
-    "limitations": "Original video trading-app visual frames not examined, exact current broker UI/auto order options not certified; some '최우선/최유리' auto-caption confusion possible."
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "Original video trading-app visual frames not examined, exact current broker UI/auto order options not certified; some '최우선/최유리' auto-caption confusion possible.",
+    "youtube_public_source_url": "https://www.youtube.com/watch?v=zDcF_zPTSYE",
+    "private_full_text_normalized_chars": 12112,
+    "private_full_text_normalized_sha256": "d209c8973d4700307d65a0dcb0607f89d93bcf10e78e563b104a0f8113b637ef",
+    "public_full_text_normalized_chars": 12104,
+    "public_full_text_normalized_sha256": "b066a5edd4f44d70c42408a1c6739dad83c5c6bcddf84b6689c5fd3515cf2326",
+    "public_source_language": "ko",
+    "public_private_fullbody_status": "DIFFERENT_KOREAN_ASR",
+    "independent_audio_checked": false,
+    "reaudit_at": "2026-10-18",
+    "reaudit_limitation": "Same video first-party Korean auto-caption full-body whitespace-normalized hash comparison does not independently validate spoken phonemes or video frames. Differences are NOT proof uploaded SRT source is corrupt."
   },
   "claims": [
     {
@@ -231,17 +241,18 @@
       "source_cue_start": "00:17:56.000",
       "source_paraphrase": "최우선·최유리 지정가·시장가 주문은 호가가격/체결방식이 다르다",
       "assessment": "QUALIFIED",
-      "independent_check": "한국거래소 공식 주문유형의 최유리지정가 정의를 확인한다. 화면에서 '최우선'과 '최유리' 인식 혼동 소지가 있으므로 개별 앱의 정의와 유동성 고려. 선물 규정 표는 주식 ETF 체결을 직접 인증하지 않음.",
+      "independent_check": "한국거래소 공식 현물 주문유형: 매수 최유리지정가는 주문시점 상대편 최우선 매도호가, 매수 최우선지정가는 같은 편 최우선 매수호가, 시장가는 가격 제한 없이 현재 반대호가와 순차 체결을 추구한다. 가격보호와 미체결 위험 및 지정 호가 기반 가격을 명확히 구분해야 한다. 앱 화면 원본은 보지 못했다.",
       "official_sources": [
+        "https://global.krx.co.kr/contents/GLB/06/0602/0602010201/GLB0602010201T2.jsp",
         "https://regulation.krx.co.kr/contents/RGL/03/03050100/RGL03050100T1.jsp"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "disposition": "한국거래소 공식 주문유형의 최유리지정가 정의를 확인한다. 화면에서 '최우선'과 '최유리' 인식 혼동 소지가 있으므로 개별 앱의 정의와 유동성 고려. 선물 규정 표는 주식 ETF 체결을 직접 인증하지 않음.",
+        "disposition": "한국거래소 공식 현물 주문유형: 매수 최유리지정가는 주문시점 상대편 최우선 매도호가, 매수 최우선지정가는 같은 편 최우선 매수호가, 시장가는 가격 제한 없이 현재 반대호가와 순차 체결을 추구한다. 가격보호와 미체결 위험 및 지정 호가 기반 가격을 명확히 구분해야 한다. 앱 화면 원본은 보지 못했다.",
         "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
-        "primary_url": "https://regulation.krx.co.kr/contents/RGL/03/03050100/RGL03050100T1.jsp",
+        "primary_url": "https://global.krx.co.kr/contents/GLB/06/0602/0602010201/GLB0602010201T2.jsp",
         "checked_at": "2026-10-18",
-        "source_finding": "한국거래소 공식 주문유형의 최유리지정가 정의를 확인한다. 화면에서 '최우선'과 '최유리' 인식 혼동 소지가 있으므로 개별 앱의 정의와 유동성 고려. 선물 규정 표는 주식 ETF 체결을 직접 인증하지 않음.",
+        "source_finding": "한국거래소 공식 현물 주문유형: 매수 최유리지정가는 주문시점 상대편 최우선 매도호가, 매수 최우선지정가는 같은 편 최우선 매수호가, 시장가는 가격 제한 없이 현재 반대호가와 순차 체결을 추구한다. 가격보호와 미체결 위험 및 지정 호가 기반 가격을 명확히 구분해야 한다. 앱 화면 원본은 보지 못했다.",
         "effective_date_or_scope": "KOREAN_EXCHANGE_ORDER_TYPE_TERMINOLOGY_DERIVATIVES_REFERENCE_ONLY"
       }
     },
@@ -322,19 +333,42 @@
         "source_finding": "자동매수는 본인 투자원칙과 정기 점검을 대체하지 않는다. 금융시장/개인 현금흐름·상품폐지·수수료·낙폭 위험으로 손실 가능.",
         "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
       }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-15",
+      "timecode": "00:18:15",
+      "source_cue_index": 555,
+      "source_cue_start": "00:18:15.480",
+      "source_paraphrase": "시장가 주문은 호가를 먹으면서 비싸게라도 '무조건' 전량 체결된다는 화자의 단정",
+      "independent_check": "한국거래소의 시장가 주문은 가격을 정하지 않고 반대편 호가와 체결을 우선 시도하지만, 거래정지·반대호가 부족·가격제한·장마감·잔량 및 거래가능시간 제약으로 **무조건 전량 체결되는 것은 아니다**. 체결 지시와 체결 보장은 다르고 지정가/최유리지정가 주문과 같은 동작이 아니다. 영상에서 '무조건'에 해당하는 구간은 00:18:14~00:18:19의 자동 SRT cue 554~558. 해당 음성을 직접 재생 검증하지 않았음.",
+      "assessment": "CONTRADICTED",
+      "official_sources": [
+        "https://global.krx.co.kr/contents/GLB/06/0602/0602010201/GLB0602010201T2.jsp",
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-18",
+        "primary_url": "https://global.krx.co.kr/contents/GLB/06/0602/0602010201/GLB0602010201T2.jsp",
+        "source_finding": "한국거래소의 시장가 주문은 가격을 정하지 않고 반대편 호가와 체결을 우선 시도하지만, 거래정지·반대호가 부족·가격제한·장마감·잔량 및 거래가능시간 제약으로 **무조건 전량 체결되는 것은 아니다**. 체결 지시와 체결 보장은 다르고 지정가/최유리지정가 주문과 같은 동작이 아니다. 영상에서 '무조건'에 해당하는 구간은 00:18:14~00:18:19의 자동 SRT cue 554~558. 해당 음성을 직접 재생 검증하지 않았음.",
+        "effective_date_or_scope": "KRX_KOSPI_KOSDAQ_ETF_ORDER_EXECUTION_SCOPE_AUTOMATIC_ASR",
+        "disposition": "한국거래소의 시장가 주문은 가격을 정하지 않고 반대편 호가와 체결을 우선 시도하지만, 거래정지·반대호가 부족·가격제한·장마감·잔량 및 거래가능시간 제약으로 **무조건 전량 체결되는 것은 아니다**. 체결 지시와 체결 보장은 다르고 지정가/최유리지정가 주문과 같은 동작이 아니다. 영상에서 '무조건'에 해당하는 구간은 00:18:14~00:18:19의 자동 SRT cue 554~558. 해당 음성을 직접 재생 검증하지 않았음."
+      }
     }
   ],
-  "claim_count": 14,
+  "claim_count": 15,
   "claim_classification_tally": {
     "QUALIFIED": 10,
     "PRIMARY_CONFIRMED": 3,
-    "HYPOTHETICAL": 1
+    "HYPOTHETICAL": 1,
+    "CONTRADICTED": 1
   },
   "core_message": "ETF 자동매수의 편의성은 자동이체/증권 자동주문/시장가·지정가 체결위험을 구분해 활용해야 하며, 정액 매수는 손실과 수수료/미체결 위험을 없애지 않는다.",
   "limitations": [
     "증권사 앱/자동주문 UI 2026년 현재 실제 화면 미확인.",
     "ETF와 일반 펀드 기준가격 산정은 다르며 자동자막 용어가 흔들릴 수 있음.",
     "연 220영업일·1주 매입·30만원 예시는 가정이지 특정 가격·수수료의 실제 수익률이 아님.",
-    "저작권 비공개 원본 전문 GitHub 업로드하지 않음."
+    "저작권 비공개 원본 전문 GitHub 업로드하지 않음.",
+    "2026-10-18 #111 신규 필수 위험 주장: '시장가 무조건 전량 체결'은 잘못된 일반화; 거래정지·상대호가·장 종료 시 미체결 가능. 원본 거래앱/영상 음성 미검증."
   ]
 }
