@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
   "reviewed_at": "2026-10-18",
-  "purpose": "BATCH_101_129_PRIVATE_SRT_INTEGRITY_AND_PARTIAL_V3_CLAIM_SCOPED_COMPLETION",
+  "purpose": "BATCH_101_129_ORIGINAL_PRIVATE_SRT_INTEGRITY_FULL_V3_CLAIM_SCOPED_COMPLETED_WITH_ASR_AUDIO_AND_ACCOUNT_LIMITATIONS",
   "original_approved_baseline": {
     "videos": 100,
     "claims": 1803,
     "video_numbers": "1-100"
   },
   "approved_in_this_batch": {
-    "videos": 23,
-    "education_claims": 195,
-    "source_cues_reviewed": 10125,
+    "videos": 29,
+    "education_claims": 289,
+    "source_cues_reviewed": 17701,
     "items": [
       {
         "roster_no": 101,
@@ -127,6 +127,12 @@
         "canonical_path": "data/analysis_events/Uyab8p3HaRE.json"
       },
       {
+        "roster_no": 120,
+        "video_id": "BEUvOl-expQ",
+        "education_claims": 16,
+        "canonical_path": "data/analysis_events/BEUvOl-expQ.json"
+      },
+      {
         "roster_no": 121,
         "video_id": "ySbuYun5mNw",
         "education_claims": 4,
@@ -145,17 +151,47 @@
         "canonical_path": "data/analysis_events/GzrRt18o2Jc.json"
       },
       {
+        "roster_no": 124,
+        "video_id": "iCApyfb2CzI",
+        "education_claims": 19,
+        "canonical_path": "data/analysis_events/iCApyfb2CzI.json"
+      },
+      {
+        "roster_no": 125,
+        "video_id": "2q6MwCgIRnY",
+        "education_claims": 13,
+        "canonical_path": "data/analysis_events/2q6MwCgIRnY.json"
+      },
+      {
+        "roster_no": 126,
+        "video_id": "CLlGTnbfQuI",
+        "education_claims": 14,
+        "canonical_path": "data/analysis_events/CLlGTnbfQuI.json"
+      },
+      {
+        "roster_no": 127,
+        "video_id": "RokBHHg3UAM",
+        "education_claims": 16,
+        "canonical_path": "data/analysis_events/RokBHHg3UAM.json"
+      },
+      {
         "roster_no": 128,
         "video_id": "Ctg-Q3haZAE",
         "education_claims": 13,
         "canonical_path": "data/analysis_events/Ctg-Q3haZAE.json"
+      },
+      {
+        "roster_no": 129,
+        "video_id": "mZnhZM3Wc88",
+        "education_claims": 16,
+        "canonical_path": "data/analysis_events/mZnhZM3Wc88.json"
       }
     ]
   },
   "current_cumulative": {
-    "approved_v3_videos": 123,
-    "approved_educational_claims": 1998,
-    "unapproved_v3_roster_videos": 668,
+    "approved_v3_videos": 129,
+    "approved_educational_claims": 2092,
+    "unapproved_v3_roster_videos": 662,
     "total_roster": 791
   },
   "source_intake": {
@@ -170,47 +206,10 @@
     "full_raw_srt_content_in_public_repository": false
   },
   "pending_in_batch": {
-    "video_count": 6,
+    "video_count": 0,
     "private_original_srt_available": true,
-    "v3_approval_not_yet_given": true,
-    "items": [
-      {
-        "roster_no": 120,
-        "video_id": "BEUvOl-expQ",
-        "cue_count": 995,
-        "reason": "SOURCE_INTEGRITY_ONLY_CLAIM_SCOPE_NOT_YET_REVIEWED"
-      },
-      {
-        "roster_no": 124,
-        "video_id": "iCApyfb2CzI",
-        "cue_count": 1539,
-        "reason": "SOURCE_INTEGRITY_ONLY_CLAIM_SCOPE_NOT_YET_REVIEWED"
-      },
-      {
-        "roster_no": 125,
-        "video_id": "2q6MwCgIRnY",
-        "cue_count": 937,
-        "reason": "SOURCE_INTEGRITY_ONLY_CLAIM_SCOPE_NOT_YET_REVIEWED"
-      },
-      {
-        "roster_no": 126,
-        "video_id": "CLlGTnbfQuI",
-        "cue_count": 1171,
-        "reason": "SOURCE_INTEGRITY_ONLY_CLAIM_SCOPE_NOT_YET_REVIEWED"
-      },
-      {
-        "roster_no": 127,
-        "video_id": "RokBHHg3UAM",
-        "cue_count": 1238,
-        "reason": "SOURCE_INTEGRITY_ONLY_CLAIM_SCOPE_NOT_YET_REVIEWED"
-      },
-      {
-        "roster_no": 129,
-        "video_id": "mZnhZM3Wc88",
-        "cue_count": 1696,
-        "reason": "SOURCE_INTEGRITY_ONLY_CLAIM_SCOPE_NOT_YET_REVIEWED"
-      }
-    ]
+    "v3_approval_not_yet_given": false,
+    "items": []
   },
   "legacy_optional_verification": {
     "total_items": 38,
@@ -229,10 +228,16 @@
     "#107 ISA US dividends: ordinary Korean 15.4% vs U.S. treaty 15%, issuer ISA 200m/400m cap (KRW 2m/4m), 9.9% excess; claimed foreign-tax-credit 0.55 factor and zero-KRW actual settlement are legally unverified OPEN. Scoping 15 education claims does not verify actual 0.55 tax factor.",
     "#119 Morgan Housel's Psychology of Money: publisher confirms 2020 book 19 stories, SEC confirms illustrative compounding, 50% win ratio has mathematical gain/loss condition, but socioeconomic siblings claim/IBM storage history/translated edition exact wording not independently source-verified.",
     "#115 KOFIA ISA Jan2026 8.07 million accounts/54.7 trillion (verified contemporary KOFIA release), but 2026 original video chart of ETF46%/equities34%/deposit-like8.7% and intermediary definitions not source and frame reconciled; March anniversary offers are not current.",
-    "#128 Historic 2026 Mar/May issuer ISA promotions: Kiwoom max 1m for >=2e8 net/transfer 2x and KB max 700k through May31 with June hold independently confirmed; 60-day RP 7% product and other brokers' chart NOT matched; old offers cannot be current Oct2026 recommendations."
+    "#128 Historic 2026 Mar/May issuer ISA promotions: Kiwoom max 1m for >=2e8 net/transfer 2x and KB max 700k through May31 with June hold independently confirmed; 60-day RP 7% product and other brokers' chart NOT matched; old offers cannot be current Oct2026 recommendations.",
+    "#120 월배당 영상 7.8%는 과거/가정 분배율이며 총수익·현금흐름 보장이 아니다. 월50만원×12개월 가입 첫해 월4만원 현금흐름으로 표현 금지.",
+    "#124 국민연금 2026 전체9.5%·근로자/사업주 각4.75%, 2026-07 푸른씨앗 50인미만 확대/2027-01 100인미만 예정; 두루누리 자격 소득기준 별도.",
+    "#125 연7% 자산배분·연12% S&P500은 미래고정수익 아님; ISA 2015 구자료로 2026 금융기관 이벤트/원금중도인출 개별 사건 확정 금지.",
+    "#126 ISA 월167만원은 연2000만원/12 근삿값; 개인별 연금저축600/IRP포함900만원 세액공제 인정액, 채권 저쿠폰 YTM/세율, 건보료는 별도 확인.",
+    "#127 적립식 매수도 손실 가능, 장기 연7/12% 비보장, 일1% 매매→월30% 수익 고정재현불가(20거래일 월복리 약22%).",
+    "#129 디폴트옵션 사전지정과 실제 적용 별도; TDF2060 원금/은퇴소득 미보장, 3년63% 화면수익·개인주식 매매 인증 불가."
   ],
   "research_branch_only": true,
   "main_untouched": true,
-  "approval_count_status": "PARTIAL_23_OF_29_V3_DONE_6_PENDING",
-  "report": "knowledge/VIDEO101_129_PROGRESS_AND_EVIDENCE_20261018.md"
+  "approval_count_status": "ALL_29_OF_29_CLAIM_SCOPED_V3_APPROVED_AUTOMATED_CHECK_PENDING_FINAL_VALIDATION",
+  "report": "knowledge/VIDEO101_129_V3_COMPLETE_EVIDENCE_20261018.md"
 }
