@@ -132,7 +132,14 @@
       "canonical": "data/analysis_events/0R34RYiwDC4.json",
       "source_audio_verified": false,
       "source_frames_verified": false,
-      "review_date": "2026-10-18"
+      "review_date": "2026-10-18",
+      "reaudit_20261018_public_asr": {
+        "public_same_video_transcript_compared": true,
+        "private_srt_source_hash_preserved": true,
+        "complete_whitespace_normalized_sha256_equal": true,
+        "original_audio_or_frames_checked": false,
+        "scope": "2026-10-18 video104-110 focused source and claims recheck; existing V3 approval and claim counts unchanged"
+      }
     },
     {
       "roster_no": 105,
@@ -151,7 +158,14 @@
       "canonical": "data/analysis_events/-3iNxrjeQak.json",
       "source_audio_verified": false,
       "source_frames_verified": false,
-      "review_date": "2026-10-18"
+      "review_date": "2026-10-18",
+      "reaudit_20261018_public_asr": {
+        "public_same_video_transcript_compared": true,
+        "private_srt_source_hash_preserved": true,
+        "complete_whitespace_normalized_sha256_equal": true,
+        "original_audio_or_frames_checked": false,
+        "scope": "2026-10-18 video104-110 focused source and claims recheck; existing V3 approval and claim counts unchanged"
+      }
     },
     {
       "roster_no": 106,
@@ -171,7 +185,14 @@
       "source_audio_verified": false,
       "source_frames_verified": false,
       "review_date": "2026-10-18",
-      "claimed_video_source_metadata_checked": true
+      "claimed_video_source_metadata_checked": true,
+      "reaudit_20261018_public_asr": {
+        "public_same_video_transcript_compared": true,
+        "private_srt_source_hash_preserved": true,
+        "complete_whitespace_normalized_sha256_equal": true,
+        "original_audio_or_frames_checked": false,
+        "scope": "2026-10-18 video104-110 focused source and claims recheck; existing V3 approval and claim counts unchanged"
+      }
     },
     {
       "roster_no": 107,
@@ -194,7 +215,15 @@
       "additional_optional_evidence_gates": [
         "ISA_2026_FOREIGN_TAX_CREDIT_FACTOR_0_55_PRIMARY_LAW_AND_BROKER_SETTLEMENT_OPEN"
       ],
-      "approval_scope": "EDUCATIONAL_CLAIM_CONTEXT_V3_NOT_TAX_EFFECTIVE_RATE_PROOF"
+      "approval_scope": "EDUCATIONAL_CLAIM_CONTEXT_V3_NOT_TAX_EFFECTIVE_RATE_PROOF",
+      "reaudit_20261018_public_asr": {
+        "public_same_video_transcript_compared": true,
+        "private_srt_source_hash_preserved": true,
+        "complete_whitespace_normalized_sha256_equal": false,
+        "original_audio_or_frames_checked": false,
+        "independent_tax_statement_verified_num": 4,
+        "scope": "2026-10-18 video104-110 focused source and claims recheck; existing V3 approval and claim counts unchanged"
+      }
     },
     {
       "roster_no": 108,
@@ -213,7 +242,14 @@
       "canonical": "data/analysis_events/AX1AAZVOnJU.json",
       "source_audio_verified": false,
       "source_frames_verified": false,
-      "review_date": "2026-10-18"
+      "review_date": "2026-10-18",
+      "reaudit_20261018_public_asr": {
+        "public_same_video_transcript_compared": true,
+        "private_srt_source_hash_preserved": true,
+        "complete_whitespace_normalized_sha256_equal": true,
+        "original_audio_or_frames_checked": false,
+        "scope": "2026-10-18 video104-110 focused source and claims recheck; existing V3 approval and claim counts unchanged"
+      }
     },
     {
       "roster_no": 109,
@@ -232,7 +268,14 @@
       "canonical": "data/analysis_events/Hv7WZ0APt1o.json",
       "source_audio_verified": false,
       "source_frames_verified": false,
-      "review_date": "2026-10-18"
+      "review_date": "2026-10-18",
+      "reaudit_20261018_public_asr": {
+        "public_same_video_transcript_compared": true,
+        "private_srt_source_hash_preserved": true,
+        "complete_whitespace_normalized_sha256_equal": true,
+        "original_audio_or_frames_checked": false,
+        "scope": "2026-10-18 video104-110 focused source and claims recheck; existing V3 approval and claim counts unchanged"
+      }
     },
     {
       "roster_no": 110,
@@ -251,7 +294,14 @@
       "canonical": "data/analysis_events/8tTh8bRc4OI.json",
       "source_audio_verified": false,
       "source_frames_verified": false,
-      "review_date": "2026-10-18"
+      "review_date": "2026-10-18",
+      "reaudit_20261018_public_asr": {
+        "public_same_video_transcript_compared": true,
+        "private_srt_source_hash_preserved": true,
+        "complete_whitespace_normalized_sha256_equal": true,
+        "original_audio_or_frames_checked": false,
+        "scope": "2026-10-18 video104-110 focused source and claims recheck; existing V3 approval and claim counts unchanged"
+      }
     },
     {
       "roster_no": 111,
@@ -660,5 +710,41 @@
     "video102_103_text_match": true,
     "video104_to_129_claim_records_unchanged": true,
     "evidence_note": "Evidence review and derived count reconciliation only; no raw SRT or ZIP source contents stored on GitHub."
+  },
+  "focused_reaudit_104_110_20261018": {
+    "video_numbers": [
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110
+    ],
+    "video_ids": [
+      "0R34RYiwDC4",
+      "-3iNxrjeQak",
+      "sYybI-K5o0o",
+      "Gk3-ZC9W3vw",
+      "AX1AAZVOnJU",
+      "Hv7WZ0APt1o",
+      "8tTh8bRc4OI"
+    ],
+    "source_cues": 4636,
+    "all_original_srt_sha_crc_verified": true,
+    "public_private_full_body_exact_match": 6,
+    "public_private_full_body_mismatch_video_roster": [
+      107
+    ],
+    "prior_approved_claim_counts_unchanged": true,
+    "scope_qualifications": [
+      "#105 12.2pct author firsthand claim independently attributed, raw index-series CAGR not recomputed",
+      "#106 2026 high dividend corporate shareholder special separate tax not every fund distribution",
+      "#107 KB 2025-06-30 notice establishes 2025-07-01 ISA foreign tax credit start, no Jan-Jun retroactivity; factor 0.55 and personal tax 0 not certified",
+      "#110 MOHW 2026 43pct replacement accrual policy Q&A confirms non-retroactive personal interpretation"
+    ],
+    "final_cumulative_v3_videos": 129,
+    "final_cumulative_v3_claims": 2095,
+    "legacy_open_24_unchanged": true
   }
 }
