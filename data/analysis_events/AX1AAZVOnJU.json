@@ -86,7 +86,8 @@
   "assumptions": [
     "User uploaded SRT raw byte size 2356, 29 numbered cues, SHA-256 06a8106a387eeb5125195e85cbb4983ac49d051966fdc1e4a2d5313461c532bd; private archive SHA 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951",
     "Full source short cue content reviewed and all education claims triaged; original video audio and frames not independently watched.",
-    "Official source material applies only to its precise jurisdiction, date, product and investor education scope."
+    "Official source material applies only to its precise jurisdiction, date, product and investor education scope.",
+    "2026-10-18 Korean full YouTube public auto-transcript checksum e5ace9c51bad3be3cca5121e43c6cfb708491a88e1a6f2caa7ee73a2a456e578 (435 chars) vs user private original normalized e5ace9c51bad3be3cca5121e43c6cfb708491a88e1a6f2caa7ee73a2a456e578 (435 chars), full text equal=true; both may share ASR engine, voice and frame validation not done."
   ],
   "risks_and_exceptions": [
     "No security, pension product or investment strategy can offer guaranteed returns based on time or diversifying equities alone.",
@@ -122,12 +123,20 @@
     "original_srt_sha_recomputed": true,
     "original_cues_read": true,
     "original_audio_verified": false,
-    "original_frames_verified": false
+    "original_frames_verified": false,
+    "public_private_whitespace_normalized_full_body_exact_match": true,
+    "public_auto_transcript_checked_at": "2026-10-18",
+    "public_same_video_first_party_url": "https://www.youtube.com/watch?v=AX1AAZVOnJU",
+    "private_normalized_fulltext_sha256": "e5ace9c51bad3be3cca5121e43c6cfb708491a88e1a6f2caa7ee73a2a456e578",
+    "public_normalized_fulltext_sha256": "e5ace9c51bad3be3cca5121e43c6cfb708491a88e1a6f2caa7ee73a2a456e578",
+    "raw_audio_checked": false,
+    "original_frames_checked": false
   },
   "limitations": [
     "No audio/video frame verification or personal financial advice.",
     "Video SRT contents kept private; original source SHA and cue anchors are sufficient public provenance.",
     "Generalized financial guarantees, TDF retirement ages, US-only equity concentration and dividends are not guaranteed.",
-    "Official evidence only validates separately specified material facts and date conditions."
+    "Official evidence only validates separately specified material facts and date conditions.",
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   ]
 }
