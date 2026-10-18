@@ -185,9 +185,10 @@
       "claim": "배당 6000만원을 받아 종합소득세를 신고해도 세액 추가납부도 환급도 절대 없다는 설명",
       "verification": "CONTRADICTED",
       "sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7675&mi=2238",
         "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7666&mi=2224"
       ],
-      "disposition": "국세청 종합소득세 안내는 원천징수 세액을 기납부세액으로 공제한 뒤 '납부(환급)할 세액'을 산출한다고 명시한다. 금융소득 비교과세와 고배당 특례 및 개인 다른 소득·공제에 따라 추가 납부/환급 여부가 달라짐. '환급 불가/추가세 없음' 보편 단정 성립하지 않음.",
+      "disposition": "2026 금융소득 '6천만원이면 추가세도 환급도 절대 없다'는 보편단정은 반증됨. 적용 조건을 엄격히 제한한 일반 금융소득 비교과세 계산에서 ① 일반 과세 이자/펀드 분배 과세소득 연6000만원, 별도 종합과세소득0, 본인 기본공제150만원, 법정 특별공제/기타세액공제/고배당특례 없음: (6000-2000-150)만원 과표3850만원 기본세율 산출451.5만원+2000만원×14% 280만원=731.5만원 vs 전 금융소득6000만원×14%=840만원 비교 최저세액 → 본세840만원, 기납부 본세840만원, 추가납부0 가능. ② 다른 종합소득 세무과표6000만원(해당 과표는 소득공제 후 금액), 일반과세 금융소득6000만원, 모든 추가공제/공제특례 없음: 2000만원×14%280만원 + 1억원 기본세율1956만원=2236만원 vs 금융6000만원×14%840만원 + 다른과표6000만원 기본세율864만원=1704만원; 추가 본세 =2236−1704=532만원. 지방소득세 단순 추가53.2만원 별도. ②는 모형이지 개인 확정고지 금액 아님. 고배당 특례·국내배당 가산/세액공제·실제 다른 소득·외국세금과 개인공제에 따라 전부 달라진다.",
       "correction": "기납부 원천징수세액과 최종 결정세액 비교·법상 비교과세/특례를 적용하여 납부 또는 환급 여부를 사례별 결정",
       "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
     },
@@ -200,9 +201,10 @@
       "claim": "퇴사해 지역가입자가 되면 금융소득이 1000만원을 넘으면 건강보험료가 발생한다는 설명",
       "verification": "QUALIFIED",
       "sources": [
+        "https://www.nhis.or.kr/renewal_popup/poster/20260204_poster_longdesc_1.html",
         "https://www.nhis.or.kr/lm/lmxsrv/law/lawFullContent.do?MODE=threeView&SEQ=29&SEQ_HISTORY=100002"
       ],
-      "disposition": "건보공단 시행규칙은 일반 일정 이자·배당 소득 합계가 1000만원 이하이면 소득평가액에 미산입하는 한계를 규정; 1000만원 초과부터 소득산정 포함 가능하나 자격·세대·재산·시차 등 고려, 보험료 일률 신규 생성 아님.",
+      "disposition": "2026 공단 자료는 지역가입자의 소득과 재산에 따라 보험료가 결정되고 이자·배당소득 반영 및 피부양 자격 조건과 신고 반영시점이 별도로 존재함을 전제한다. 연 금융소득 1000만원 기준만으로 모든 퇴직자가 같은 액수의 건보료가 '새로 발생'하거나 즉시 반영된다는 결론은 불가. 실제 보험료 산정 소득과 재산을 따로 확인해야 한다.",
       "correction": null,
       "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
     },
@@ -217,7 +219,7 @@
       "sources": [
         "https://edi.nhis.or.kr/portal/images/popup/20251204_pop01longdesc.html"
       ],
-      "disposition": "건보공단 공식 2026 건강보험료율은 7.19%, 장기요양보험료율은 소득기준 약 0.9448%포인트(건강보험료 7.19% 대비 비율 공식)로 별도다. 지역가입자는 소득뿐 아니라 재산 및 경감 조건이 적용되어 배당액 전체에 동일한 8%를 더하는 식은 부정확.",
+      "disposition": "국민건강보험공단 2026년 공식 요율은 일반 건강보험료 7.19%, 장기요양보험료는 기준소득 대비 0.9448%(건보료에 대한 환산 비율로 청구)로 명목 소득기준 합계 8.1348%이며, 60,000,000원 전액이 지역가입자 부과소득으로 잡히고 재산보험료 제외라는 가정에서 건강보험 4,314,000원/연 + 장기요양 566,880원/연 = 4,880,880원/연(월 평균406,740원). 지역보험료에는 재산 점수×211.5원, 감면·소득과표·연간 적용시차, 보험료상하한, 직장가입과 피부양 구분이 있어 개인 실제 보험료 아님; 영상 단일 8%를 확정 보험료율로 쓰지 않는다.",
       "correction": null,
       "source_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_ONSET"
     },
@@ -302,7 +304,8 @@
     "2026 NHIS health insurance base rate 7.19% plus separate long-term care insurance line, not flat 8% of all dividends.",
     "Personal earned income, family status, home value and tax credit information are not supplied.",
     "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged.",
-    "2026-10-18 Korean full YouTube public auto-transcript checksum 40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03 (19919 chars) vs user private original normalized 40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03 (19919 chars), full text equal=true; both may share ASR engine, voice and frame validation not done."
+    "2026-10-18 Korean full YouTube public auto-transcript checksum 40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03 (19919 chars) vs user private original normalized 40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03 (19919 chars), full text equal=true; both may share ASR engine, voice and frame validation not done.",
+    "2026 FIRE model research: special 2026 eligible Korean high dividend corporate-stock tax election may exclude ordinary taxable income and ordinary ETF payouts. Comparable general financial income 60m only national alternative floor 8.4m and model income-base0 no additional (base deduction1.5m); when other net taxable base 60m, financial taxable60m 14% upfront, national taxable max method additional national5.32m, local illustration532k (no other credits / no dividend grossup / no special). NHIS 2026 7.19% + LTC income equivalent0.9448% nominal 8.1348%, gross60m region income illustration annual4,880,880 excl property/status/timing."
   ],
   "risks_and_exceptions": [
     "Vanguard's 4% withdrawal rule does not equal an asset that pays a fixed 4% dividend or guarantee one can fund 50 years of retirement.",
@@ -312,7 +315,8 @@
     "Regional/employee health insurance differs; employee's nonpayroll income above KRW20m may trigger entirely self-paid additional insurance.",
     "Early-retirement 10 years/45 years/65 years scenarios are personal assumptions, not general probability or actual success guarantee.",
     "Automatic SRT ambiguities may be material, original recorded voice and onscreen calculations were not reverified.",
-    "2026 국세청 고배당기업 주식 배당 분리과세는 2026년 이후 지급분/적격 기업 주식/선택 신청 요건을 따르며 모든 ETF 분배소득에 자동 적용되는 것은 아니다."
+    "2026 국세청 고배당기업 주식 배당 분리과세는 2026년 이후 지급분/적격 기업 주식/선택 신청 요건을 따르며 모든 ETF 분배소득에 자동 적용되는 것은 아니다.",
+    "2026 기본 금융소득6000만원 추가세액은 타소득0 조건에서는 국세0 증가 시나리오 가능, 타소득 과세표준6000만원 조건에서는 국세 추가532만원 시나리오 발생. 세액공제·국내배당 가산·고배당 특례 미반영, 실제 세무 결과 아님."
   ],
   "quantitative_claims": [
     {
@@ -347,6 +351,34 @@
       "krw": 20000000,
       "high_dividend_special_separate_tax_exception_2026": true,
       "source": "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2163&nttSn=1349597"
+    },
+    {
+      "metric": "GENERAL_FINANCIAL_INCOME_60M_TWO_CONDITIONAL_2026_TAX_SCENARIOS",
+      "gross_general_taxable_financial_income_won": 60000000,
+      "withheld_national_14pct_won": 8400000,
+      "scenario_1_other_income_zero_self_base_deduction_won": 1500000,
+      "scenario_1_national_comparison_result_won": 8400000,
+      "scenario_1_incremental_national_won": 0,
+      "scenario_2_other_net_tax_base_won": 60000000,
+      "scenario_2_national_comparison_formula_A_won": 22360000,
+      "scenario_2_comparison_formula_B_won": 17040000,
+      "scenario_2_incremental_national_won": 5320000,
+      "scenario_2_local_increment_illustrative_won": 532000,
+      "excludes": "Dividend gross-up/tax credit, other personal credits, special high dividend dividend separation, all transaction details",
+      "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7675&mi=2238"
+    },
+    {
+      "metric": "NHIS_2026_GENERAL_REGIONAL_INCOME_ONLY_RATE_EXAMPLE",
+      "example_assessed_income_won": 60000000,
+      "health_pct": 7.19,
+      "longterm_income_equivalent_pct": 0.9448,
+      "combined_rate_percent": 8.1348,
+      "hypothetical_annual_health_won": 4314000,
+      "hypothetical_annual_ltc_won": 566880,
+      "hypothetical_total_annual_won": 4880880,
+      "monthly_annual_div12_won": 406740,
+      "excludes": "Actual income assessment, reported property, timing, status, caps, deductions",
+      "source": "https://edi.nhis.or.kr/portal/images/popup/20251204_pop01longdesc.html"
     }
   ],
   "relations": [
@@ -393,7 +425,18 @@
     "private_normalized_fulltext_sha256": "40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03",
     "public_normalized_fulltext_sha256": "40887fc979505eb32ac3c174eee0b91283f959a79c53bc5a668cbf5163e1cd03",
     "raw_audio_checked": false,
-    "original_frames_checked": false
+    "original_frames_checked": false,
+    "focused_deep_review_20261018": {
+      "scope_ids": [
+        "sYybI-K5o0o-12",
+        "sYybI-K5o0o-13",
+        "sYybI-K5o0o-14"
+      ],
+      "quant_source_reproduced": false,
+      "personal_accounts_verified": false,
+      "original_audio_verified": false,
+      "additional_explanatory_limits": "2026 FIRE model research: special 2026 eligible Korean high dividend corporate-stock tax election may exclude ordinary taxable income and ordinary ETF payouts. Comparable general financial income 60m only national alternative floor 8.4m and model income-base0 no additional (base deduction1.5m); when other net taxable base 60m, financial taxable60m 14% upfront, national taxable max method additional national5.32m, local illustration532k (no other credits / no dividend grossup / no special). NHIS 2026 7.19% + LTC income equivalent0.9448% nominal 8.1348%, gross60m region income illustration annual4,880,880 excl property/status/timing."
+    }
   },
   "limitations": [
     "No raw private SRT/ZIP uploaded publicly",
