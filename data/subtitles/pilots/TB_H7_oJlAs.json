@@ -28,11 +28,20 @@
     "final_srt_end": "00:00:51.960",
     "crc_verified": true,
     "all_cues_numbered_and_monotonic": true,
-    "evidence_reference": "Private user-uploaded 101-129.zip, 2026-10-18 ZIP CRC, decoded all original Korean ASR SRT cues and matched to official 791-video roster; official law/regulatory/issuer official pages reviewed claim by claim.",
+    "evidence_reference": "Private user-uploaded 101-129.zip, 2026-10-18 ZIP CRC, decoded all original Korean ASR SRT cues and matched to official 791-video roster; official law/regulatory/issuer official pages reviewed claim by claim. Repeat audit 2026-10-18 fetched same-video complete YouTube Korean ASR watch-page transcript and exactly matched source-private normalized body, both 310 chars SHA256 c3b5f2497a617889813afcc2dc291476e73561c92dd75123302b24075a18a916. Same ASR recognizer possible: not independent audio check.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "public_auto_asr_exact_body_compared": false,
-    "limitations": "Automatic original user SRT text may contain ASR errors; live audio/visual not independently inspected, public YouTube full ASR not yet normalized-string reconciled; cue milliseconds are source SRT cue starts, not independently verified audio onsets."
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "Automatic original user SRT text may contain ASR errors; live audio/visual not independently inspected, public YouTube full ASR not yet normalized-string reconciled; cue milliseconds are source SRT cue starts, not independently verified audio onsets.",
+    "public_full_body_identical_to_private_normalized": true,
+    "private_full_body_normalized_chars": 310,
+    "youtube_public_full_body_normalized_chars": 310,
+    "private_full_body_normalized_sha256": "c3b5f2497a617889813afcc2dc291476e73561c92dd75123302b24075a18a916",
+    "youtube_public_full_body_normalized_sha256": "c3b5f2497a617889813afcc2dc291476e73561c92dd75123302b24075a18a916",
+    "public_source_url": "https://www.youtube.com/watch?v=TB_H7_oJlAs",
+    "public_caption_language": "ko",
+    "public_asr_same_underlying_youtube_source_possible": true,
+    "independent_original_audio_verified": false
   },
   "claims": [
     {
@@ -126,6 +135,7 @@
     "원본 비공개 SRT 구조·해시 확인, 공개 GitHub 전문 미등록.",
     "원음·원영상 프레임 독립 확인 미실시.",
     "세율·수수료·상품 사용조건은 검증일과 계좌 재원별로 제한.",
-    "주장별 검증 판정은 사실/의견/비유 구분이며 개인 투자 권유가 아니다."
+    "주장별 검증 판정은 사실/의견/비유 구분이며 개인 투자 권유가 아니다.",
+    "Public complete same-video YouTube ASR was normalized and body-level exactly matched to private SRT; this cross-source identity does not establish original audible phoneme accuracy or true milliseconds of audio onset."
   ]
 }
