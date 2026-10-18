@@ -86,7 +86,8 @@
   "assumptions": [
     "Private 101-129.zip source ZIP CRC pass and SHA256 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951; individual SRT SHA256 53c612f364d8aa856296ec701acc8c667b3f82af7c21849dfda91706997136c4; 23 sequential SRT cues validated.",
     "No original video acoustic or frame verification; recognized numerical claims may require further source comparison if changing the video conclusion.",
-    "Official primary source read establishes only stated legal, securities-industry or educational scope; individual account eligibility or product price not authenticated."
+    "Official primary source read establishes only stated legal, securities-industry or educational scope; individual account eligibility or product price not authenticated.",
+    "2026-10-18 Korean full YouTube public auto-transcript checksum e15f67dd89fddda304c05f39a81c3fddc3ca986adb61cd1dfa99121008fc68ca (324 chars) vs user private original normalized e15f67dd89fddda304c05f39a81c3fddc3ca986adb61cd1dfa99121008fc68ca (324 chars), full text equal=true; both may share ASR engine, voice and frame validation not done."
   ],
   "risks_and_exceptions": [
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
@@ -128,12 +129,20 @@
     "original_srt_sha_recomputed": true,
     "original_cues_read": true,
     "original_audio_verified": false,
-    "original_frames_verified": false
+    "original_frames_verified": false,
+    "public_private_whitespace_normalized_full_body_exact_match": true,
+    "public_auto_transcript_checked_at": "2026-10-18",
+    "public_same_video_first_party_url": "https://www.youtube.com/watch?v=Hv7WZ0APt1o",
+    "private_normalized_fulltext_sha256": "e15f67dd89fddda304c05f39a81c3fddc3ca986adb61cd1dfa99121008fc68ca",
+    "public_normalized_fulltext_sha256": "e15f67dd89fddda304c05f39a81c3fddc3ca986adb61cd1dfa99121008fc68ca",
+    "raw_audio_checked": false,
+    "original_frames_checked": false
   },
   "limitations": [
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
     "Video audio/frames not independently checked; raw SRT start printed to whole seconds above for claim anchors but original subsecond read available in private file.",
     "Official issuer/program conditions may change and require dated recheck; individual claim eligibility unverified.",
-    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments."
+    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments.",
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   ]
 }
