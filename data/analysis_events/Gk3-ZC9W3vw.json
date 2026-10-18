@@ -142,9 +142,10 @@
       "claim": "2025년 초 외국납부세액 제도 변경으로 ISA 해외 ETF 배당에 이중과세 문제가 발생했다는 설명",
       "verification": "QUALIFIED",
       "sources": [
+        "https://m.kbsec.com/go.able?idt=20250630&linkcd=s060300010000&seq=10008659",
         "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&nttSn=1350542"
       ],
-      "disposition": "2025년 전후 국내 펀드 외국납부세액 공제방식 변화는 공식 국세청 일반자료가 존재하나, 영상의 특정 2025-01~07 적용·소급 또는 실제 이중과세는 상품/계좌/거래명세 없이 직접 인증 불가.",
+      "disposition": "KB증권의 2025-06-30 원문 공지로 2025-01-01 일반 펀드 단계 선환급→투자자 소득 지급·공제 방식 변경, **2025-07-01부터 ISA 투자펀드 외국납부세액 공제 적용**, 2025-01~06 발생분은 **소급 불가**를 독립 확인. 제도 시행일은 확인되었으나 특정 ETF, 투자자 계좌의 실제 미환급액·공제정산 내역은 확인하지 않았다.",
       "source_precision": "USER_PRIVATE_ASR_CUE_START_NO_ORIGINAL_AUDIO",
       "correction": null
     },
@@ -157,9 +158,10 @@
       "claim": "ISA 외국납부세액에 약 0.55 크레딧 비율을 적용해 보정한다는 영상 설명",
       "verification": "QUALIFIED",
       "sources": [
+        "https://m.kbsec.com/go.able?idt=20250630&linkcd=s060300010000&seq=10008659",
         "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&nttSn=1350542"
       ],
-      "disposition": "영상에서만 제시되는 0.55 계수는 **ISA 2026 개별 조세법령/금융사 정산 명세의 직접 입증을 이 회차에 확보하지 못함**. 주어진 예시의 계수 곱셈은 가능하나 세법상 공제율로 사용 금지.",
+      "disposition": "KB증권 공식공지는 ISA 외국납부세액 총합에 '공제율'을 적용하고 만기 시 배당소득 원천징수세액 한도로 차감한다고 밝히지만, **모든 해외 ETF/ISA에 일률 0.55**라는 확정률을 제시하지 않는다. 2026 국세청 역시 펀드 외국납부세액 공제율은 국외/국내 원천세율 등에 따른 계산이며 같은 0.55 보편률이 아님. 개별 펀드 명세 및 증권사 정산 전 0.55 확정치 금지.",
       "source_precision": "USER_PRIVATE_ASR_CUE_START_NO_ORIGINAL_AUDIO",
       "correction": null
     },
@@ -202,9 +204,10 @@
       "claim": "외국세액 15만원×0.55=82500원 크레딧을 적용한다는 계산",
       "verification": "QUALIFIED",
       "sources": [
+        "https://m.kbsec.com/go.able?idt=20250630&linkcd=s060300010000&seq=10008659",
         "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&nttSn=1350542"
       ],
-      "disposition": "15만원×0.55=82,500원 산술 참. 하지만 특정 0.55 외국납부세액 공제비율이 현재 ISA 정산에 법적으로 적용되는지는 독립 공식 근거 미확보. 미확인 계수로 실제 세금 계산 금지.",
+      "disposition": "15만원×0.55=82,500원은 산술 예시만 확정. 2025-07-01 ISA 공제 도입 및 원천징수세액 한도는 KB증권 공식공지로 확인되지만, 사례의 0.55는 펀드·국외/국내 원천세율·공제율 산정원표/계좌 명세 없이 법정 고정 공제율로 승인할 수 없음.",
       "source_precision": "USER_PRIVATE_ASR_CUE_START_NO_ORIGINAL_AUDIO",
       "correction": null
     },
@@ -217,11 +220,12 @@
       "claim": "ISA 예시 과세표준 55만원×9.9%=54450원, 크레딧을 공제하면 납부세액 0이라는 시뮬레이션",
       "verification": "QUALIFIED",
       "sources": [
+        "https://m.kbsec.com/go.able?idt=20250630&linkcd=s060300010000&seq=10008659",
         "https://securities.koreainvestment.com/main/mall/isa/_static/TF02ef010000.jsp"
       ],
-      "disposition": "배당100만원에 해외세 15만원→85만원 입금, 다른 이익170만원→255만원, 비과세200만원 제외한 55만원×9.9%=54,450원 산술 확인. 단 이 사례에 영상의 82,500원 크레딧 공제 허용 여부는 독립 입증되지 않아 '세액0'을 실제 정산 결과로 확정할 수 없다.",
+      "disposition": "ISA 일반형 가상계좌 순이익 255만원−비과세 200만원=55만원, 이를 지방세 포함 9.9%에 단순 적용하면 54,450원은 산술. 그러나 KB증권 공식공지에 따르면 비과세금액은 이자소득에서 먼저 차감하며 외국납부세액 공제는 **해당 ISA 산출세액 중 배당소득 원천징수세액(본세 9%)을 한도**로 한다. 영상의 미검증 0.55율로 단순 82,500원을 54,450원에서 차감하여 최종 '납부 0원'이라 단정할 수 없다. 실제 배당/이자 소득 내역과 KB 정산표 필요.",
       "source_precision": "USER_PRIVATE_ASR_CUE_START_NO_ORIGINAL_AUDIO",
-      "correction": null
+      "correction": "국세청·KB증권 원문상 공제한도는 소득구성에 따라 배당소득 원천징수세액(본세9%) 범위로 제한되며 예시의 미확정 0.55 계수를 9.9% 포함 세액에서 단순 차감해 확정 세액0원이라 주장하지 않는다."
     },
     {
       "claim_id": "Gk3-ZC9W3vw-15",
@@ -256,7 +260,8 @@
     "User-uploaded SRT ZIP SHA-256 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951; original #107 Korean 719 cue file 53,314 bytes SHA-256 0a9ac26a9c580aee868384332d7a78e0ff81360ce43cacda55c000416241951c.",
     "All 15 scoped educational claims are attached to source-start cues, official source scope or hypothesis. Per-claim qualified verdict DOES NOT confirm the unverified 0.55 legal factor.",
     "General 2026 ISA caps and rules derived from named product guides, not personal contract statements.",
-    "The NTS cross-border ETF tax notice does not by itself establish an individualized ISA credit ledger, specifically the 0.55 legal formula."
+    "The NTS cross-border ETF tax notice does not by itself establish an individualized ISA credit ledger, specifically the 0.55 legal formula.",
+    "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged."
   ],
   "risks_and_exceptions": [
     "Foreign fund-level tax leakage may survive a resident's favorable ISA final domestic profit-tax treatment.",
@@ -264,7 +269,8 @@
     "In the video, 0.55 x 150000 = 82500 and 550000 x 0.099 = 54450 are both arithmetically true; treating their difference as an actual refund or automatically zero Korean tax is not supported.",
     "2025 foreign-tax-credit law changes and transitional relief must be matched to source law's effective dates and investor actual transactions.",
     "Foreign publicly listed US shares/ETFs and domestic listed ETFs under Korean brokerage ISA differ in tax and investment eligibility.",
-    "Neither raw recorded audio nor dated original ISA screens were independently verified."
+    "Neither raw recorded audio nor dated original ISA screens were independently verified.",
+    "KB증권 2025-06-30 ISA 외국납부세액공제 공지 직접 확보: 시행 2025-07-01, 2025-01~06 소급 불가, 공제는 배당소득 원천징수세액 한도, 초과 공제 이월 불가. 영상의 모든 ISA에 공통 0.55 외국세액 크레딧 비율 및 최종 납부세액 0원 주장은 증명되지 않음."
   ],
   "quantitative_claims": [
     {
@@ -326,7 +332,7 @@
       "detail": "#101 freelancer income tax vs dividend account tax reporting need distinct treatment"
     }
   ],
-  "verification_status": "V3_APPROVED_15_SCOPED_ISA_EDUCATION_CLAIMS_PRIVATE_719_CUES_LEGAL_FOREIGN_CREDIT_0_55_OPEN",
+  "verification_status": "V3_SCOPED_15_CLAIMS_RECHECK_20261018_KB_2025_JUL_APPLICABILITY_CONFIRMED_FACTOR_055_UNVERIFIED",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
