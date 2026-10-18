@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "reviewed_at": "2026-10-18",
-  "purpose": "BATCH_101_129_ORIGINAL_PRIVATE_SRT_INTEGRITY_FULL_V3_CLAIM_SCOPED_COMPLETED_WITH_ASR_AUDIO_AND_ACCOUNT_LIMITATIONS",
+  "purpose": "BATCH_101_129_29_VIDEO_V3_APPROVED_AND_FOCUSED_101_103_EVIDENCE_REAUDIT_20261018",
   "original_approved_baseline": {
     "videos": 100,
     "claims": 1803,
@@ -9,13 +9,13 @@
   },
   "approved_in_this_batch": {
     "videos": 29,
-    "education_claims": 289,
+    "education_claims": 292,
     "source_cues_reviewed": 17701,
     "items": [
       {
         "roster_no": 101,
         "video_id": "_gyLWp83OMU",
-        "education_claims": 16,
+        "education_claims": 19,
         "canonical_path": "data/analysis_events/_gyLWp83OMU.json"
       },
       {
@@ -190,7 +190,7 @@
   },
   "current_cumulative": {
     "approved_v3_videos": 129,
-    "approved_educational_claims": 2092,
+    "approved_educational_claims": 2095,
     "unapproved_v3_roster_videos": 662,
     "total_roster": 791
   },
@@ -234,10 +234,34 @@
     "#125 연7% 자산배분·연12% S&P500은 미래고정수익 아님; ISA 2015 구자료로 2026 금융기관 이벤트/원금중도인출 개별 사건 확정 금지.",
     "#126 ISA 월167만원은 연2000만원/12 근삿값; 개인별 연금저축600/IRP포함900만원 세액공제 인정액, 채권 저쿠폰 YTM/세율, 건보료는 별도 확인.",
     "#127 적립식 매수도 손실 가능, 장기 연7/12% 비보장, 일1% 매매→월30% 수익 고정재현불가(20거래일 월복리 약22%).",
-    "#129 디폴트옵션 사전지정과 실제 적용 별도; TDF2060 원금/은퇴소득 미보장, 3년63% 화면수익·개인주식 매매 인증 불가."
+    "#129 디폴트옵션 사전지정과 실제 적용 별도; TDF2060 원금/은퇴소득 미보장, 3년63% 화면수익·개인주식 매매 인증 불가.",
+    "2026-10-18 #101~103 focused re-audit: #101 added three material claim reviews (Yellow Umbrella income deduction vs pension tax credit, NPS 2026 regional/voluntary monthly minimum distinctions, covered-call SCHD/JEPI future cashflow crossover unverified). #102 and #103 complete original/user SRT vs public full same-video YouTube ASR body normalized SHA exact matched. #101 full body 19312 private vs 19294 public does not match, so no blanket literal equivalence."
   ],
   "research_branch_only": true,
   "main_untouched": true,
-  "approval_count_status": "ALL_29_OF_29_CLAIM_SCOPED_V3_APPROVED_AUTOMATED_CHECK_PENDING_FINAL_VALIDATION",
-  "report": "knowledge/VIDEO101_129_V3_COMPLETE_EVIDENCE_20261018.md"
+  "approval_count_status": "ALL_29_OF_29_V3_APPROVED_101_103_REAUDIT_ADDS_3_SCOPED_CLAIMS_SOURCE_EQUIVALENCE_102_103",
+  "report": "knowledge/VIDEO101_129_V3_COMPLETE_EVIDENCE_20261018.md",
+  "focused_reaudit_101_103": {
+    "video_ids": [
+      "_gyLWp83OMU",
+      "Xgjhy0HKqcQ",
+      "TB_H7_oJlAs"
+    ],
+    "original_zip_sha256": "3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951",
+    "original_cues_count": 1504,
+    "source_srt_bytes": 116268,
+    "original_claim_count": 25,
+    "new_101_claim_count": 3,
+    "final_claim_count": 28,
+    "orig_original_sha_matched_3of3": true,
+    "public_full_text_equal": [
+      false,
+      true,
+      true
+    ],
+    "rechecked_date": "2026-10-18",
+    "new_report": "knowledge/VIDEO101_103_FOCUSED_V3_REAUDIT_20261018.md",
+    "other_104_129_claims_mutated": false,
+    "account_asset_not_changed": true
+  }
 }
