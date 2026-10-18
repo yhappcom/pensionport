@@ -81,10 +81,11 @@
       "claim": "1975~2024년 S&P500 연평균 12.2%라는 책/영상 설명",
       "verification": "QUALIFIED",
       "sources": [
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html",
         "https://www.morningstar.com/personal-finance/jl-collins-still-simple-path-wealth",
         "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
-      "disposition": "『The Simple Path to Wealth』 저자 J.L. Collins의 2025년 Morningstar 인터뷰에서 1975년 이후 약 50년 수익률을 12.2%라고 직접 구술한 사실은 확인했다. **저자 수치의 귀속/발언은 1차 확인**하되 배당 재투자·산술/기하 평균·연도 말 가격/시장지수 원표를 별도 재계산하지 못했다. 그러므로 실제 1975~2024 투자자의 검증된 연평균 CAGR 또는 미래 12.2% 기대수익으로 인용하지 않는다.",
+      "disposition": "NYU Stern Damodaran 원표의 S&P500(배당 포함) 연말 누적투자값 1974년 $3,023.54와 2024년 $982,817.82을 가져오면 1975~2024년 50년 연복리 CAGR=(982817.82/3023.54)^(1/50)-1=12.26364686%, 통상 소수점 첫째자리 반올림으로 12.3%. 50개 연간 총수익률 산술평균은 13.5546%. 영상의 12.2%는 저자의 발언으로는 출처가 있고 유사한 장기 수치이나 동일 원표 소수점 1자리 정확한 결과는 아니다; 12.2%와 12.26%/12.3%를 혼동하지 않고 다른 복리·재투자 방법론 가능성을 인정하며 금융수익 보장으로 이용하지 않는다.",
       "correction": null,
       "source_precision": "PRIVATE_AUTO_SRT_CUE_START_NOT_AUDIO_ONSET"
     },
@@ -152,9 +153,10 @@
       "claim": "50년 중 82% 기간 상승했고, 시장타이밍은 어렵다는 영상 정량 예시",
       "verification": "QUALIFIED",
       "sources": [
+        "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html",
         "https://www.spglobal.com/spdji/en/spiva/article/spiva-us-year-end-2024/"
       ],
-      "disposition": "기간이 영업일/월/분기/연 중 무엇인지, 주가지수·분배금 통계 분모가 불명. 82%는 이 회차 공식자료로 재현되지 않았으므로 마켓 타이밍의 불확실성과 독립적으로 다뤄야 한다.",
+      "disposition": "같은 Damodaran S&P500 배당 포함 연수익 1975~2024 50개를 연 단위로 계수하면 플러스41개, 마이너스9개로 상승한 '연도 비율'은 41/50=82%로 정확히 재현됨. 반면 82%가 개별 영업일/월의 상승 확률, 실현자산수익률, 시장진입시점별 성공 확률을 뜻하는 것은 아니다. 2026-10-18 공식 원표 독립계수로 확인.",
       "correction": null,
       "source_precision": "PRIVATE_AUTO_SRT_CUE_START_NOT_AUDIO_ONSET"
     },
@@ -180,10 +182,11 @@
       "claim": "20년 미국 액티브 펀드 중 벤치마크 초과·생존 17%라는 SPIVA 유사 통계",
       "verification": "QUALIFIED",
       "sources": [
+        "https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-year-end-2022.pdf",
         "https://www.spglobal.com/spdji/en/spiva/article/spiva-us-year-end-2024/"
       ],
-      "disposition": "2024 SPIVA의 다수 액티브 펀드 장기 벤치마크 열세는 확인되지만 2002~2022 정확한 분자/분모/중복·청산 펀드 포함 방식과 17%를 한 화면 그대로 대조하지 못했다.",
-      "correction": null,
+      "disposition": "S&P Dow Jones Indices 2022 연말 SPIVA 정식 보고서 Report 1a(PDF 9쪽): 2003~2022 20년 'All Large-Cap Funds'의 S&P500 대비 미달 94.79%, 따라서 생존+초과(동률 처리 영향 포함) 보수적 보완율 5.21%. 'All Domestic Funds'는 S&P Composite1500 대비 미달92.14%, 보완율7.86%. 해당 보고서 Report2 20년 생존률은 전체 미국주식32.18%, 대형주27.76%. 영상의 17%는 이 2022 20년 동일대상/동일분모 SPIVA 수치가 아니므로 그대로 확정 통계로 사용 금지; 별도의 17% 분자·분모 및 원문 표를 제출하면 다시 판정.",
+      "correction": "SPIVA 2022 Report1a PDF9쪽 미국 대형주 액티브 펀드 20년 미달94.79%, 비미달 5.21%; 모든 미국주식 액티브 펀드 미달92.14%, 비미달7.86%. 영상17%와 일치하지 않으며 모집단·기간 정의 원증빙 필요.",
       "source_precision": "PRIVATE_AUTO_SRT_CUE_START_NOT_AUDIO_ONSET"
     },
     {
@@ -216,13 +219,15 @@
     "All 785 continuous source cues decoded and materially reviewed; 13 limited claims have primary source date-scope, usage restrictions and reproducibility labels.",
     "Original video audio, visuals and author book text pages or trading app UI were not independently verified.",
     "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged.",
-    "2026-10-18 Korean full YouTube public auto-transcript checksum c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae (11226 chars) vs user private original normalized c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae (11226 chars), full text equal=true; both may share ASR engine, voice and frame validation not done."
+    "2026-10-18 Korean full YouTube public auto-transcript checksum c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae (11226 chars) vs user private original normalized c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae (11226 chars), full text equal=true; both may share ASR engine, voice and frame validation not done.",
+    "NYU Stern/Aswath Damodaran 1975~2024 'S&P 500 (includes dividends)' 50 annual observation primary table reproduced: 41 annual positive years (82%), 9 negative; end-1974 cumulative $3023.54, end-2024 $982817.82, geometric CAGR (982817.82/3023.54)^(1/50)-1 ≈12.26364686%; arithmetic mean of 50 rounded annual returns ≈13.5546%. Video/Collins 12.2% is nearby but not one-decimal standard rounding of dataset 12.26 (12.3). S&P 2022 SPIVA report1a p9 20-year all large-cap underperformance94.79% (outperformance complement5.21%), ALL domestic underperformance92.14%(complement7.86%); 17% not supported as those exact 20yr categories. Could refer to different universe, remains qualified not universal contradiction."
   ],
   "risks_and_exceptions": [
     "시장 전체에 분산해도 미국주식/채권/현금 간 자산배분이 충분하지 않을 수 있다.",
     "4% 초기 인출 가정을 모든 은퇴기간·통화·세제·자본시장에 보편화하면 파산 위험을 과소평가한다.",
     "2025년 책 개정판 확인만으로 구술의 인용 문장과 각 역사 수치가 본문 원어·원표와 정확히 일치한다고 인증할 수 없다.",
-    "Morningstar 2025 저자 직접 인터뷰에서 '12.2%' 장기 역사적 평균 발언은 확인되지만 원본 지수/분배금/누적 방법론의 독립 역사 CAGR 재계산은 미완료. 책 저자 자기발언의 입증과 통계 원표 입증은 별개."
+    "Morningstar 2025 저자 직접 인터뷰에서 '12.2%' 장기 역사적 평균 발언은 확인되지만 원본 지수/분배금/누적 방법론의 독립 역사 CAGR 재계산은 미완료. 책 저자 자기발언의 입증과 통계 원표 입증은 별개.",
+    "영상의 SPIVA '20년17% 성과'는 2022년 20년 대형주 전체(초과·동률 포함 비미달5.21%) 및 국내주식 전체(7.86%)를 동일 모집단으로 삼으면 맞지 않는다. 분모/벤치마크 원문 확보 전 수치 재사용 금지."
   ],
   "quantitative_claims": [
     {
@@ -245,6 +250,31 @@
       "metric": "SPIVA_2002_2022_17_PERCENT_ACTIVE_SURVIVORS_OUTPERFORM_NOT_REPRODUCED",
       "claimed_percent": 17,
       "status": "QUALIFIED_UNCERTIFIED"
+    },
+    {
+      "metric": "DAMODARAN_1975_2024_SP500_DIVIDENDS_INCLUDED_REPRODUCED",
+      "years": 50,
+      "cumulative_initial_at_1974_end_usd": 3023.54,
+      "cumulative_2024_end_usd": 982817.82,
+      "positive_years": 41,
+      "negative_years": 9,
+      "positive_year_share_percent": 82,
+      "geometric_cagr_percent": 12.263646860602861,
+      "arithmetic_average_rounded_annual_returns_percent": 13.5546,
+      "video_presenter_rounded_claim_percent": 12.2,
+      "single_decimal_conventional_round_percent": 12.3,
+      "source": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html"
+    },
+    {
+      "metric": "SPIVA_US_YEAR_END_2022_20_YEAR_FUND_UNDERPERFORMANCE_REFERENCE",
+      "large_cap_underperform_percent": 94.79,
+      "large_cap_non_underperform_percent": 5.21,
+      "all_domestic_underperform_percent": 92.14,
+      "all_domestic_non_underperform_percent": 7.86,
+      "video_17pct_reproduced_same_population": false,
+      "source": "https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-year-end-2022.pdf",
+      "pdf_report_page": "Report 1a, PDF page 9",
+      "risk": "Different universe and time window might yield different percentages; 17pct not categorically impossible."
     }
   ],
   "relations": [
@@ -278,7 +308,18 @@
     "private_normalized_fulltext_sha256": "c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae",
     "public_normalized_fulltext_sha256": "c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae",
     "raw_audio_checked": false,
-    "original_frames_checked": false
+    "original_frames_checked": false,
+    "focused_deep_review_20261018": {
+      "scope_ids": [
+        "-3iNxrjeQak-10",
+        "-3iNxrjeQak-12",
+        "-3iNxrjeQak-05"
+      ],
+      "quant_source_reproduced": true,
+      "personal_accounts_verified": false,
+      "original_audio_verified": false,
+      "additional_explanatory_limits": "NYU Stern/Aswath Damodaran 1975~2024 'S&P 500 (includes dividends)' 50 annual observation primary table reproduced: 41 annual positive years (82%), 9 negative; end-1974 cumulative $3023.54, end-2024 $982817.82, geometric CAGR (982817.82/3023.54)^(1/50)-1 ≈12.26364686%; arithmetic mean of 50 rounded annual returns ≈13.5546%. Video/Collins 12.2% is nearby but not one-decimal standard rounding of dataset 12.26 (12.3). S&P 2022 SPIVA report1a p9 20-year all large-cap underperformance94.79% (outperformance complement5.21%), ALL domestic underperformance92.14%(complement7.86%); 17% not supported as those exact 20yr categories. Could refer to different universe, remains qualified not universal contradiction."
+    }
   },
   "limitations": [
     "저자판본 2025-05-20 확인. 문장별 책 원문 페이지와 영상 실제 음성은 미대조.",
