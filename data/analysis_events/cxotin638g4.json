@@ -86,14 +86,16 @@
   "assumptions": [
     "Private 101-129.zip source ZIP CRC pass and SHA256 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951; individual SRT SHA256 26462dc3c33253ca95ad498ae67d7c0f590c46fb99d9e912584aee4673eeda92; 32 sequential SRT cues validated.",
     "No original video acoustic or frame verification; recognized numerical claims may require further source comparison if changing the video conclusion.",
-    "Official primary source read establishes only stated legal, securities-industry or educational scope; individual account eligibility or product price not authenticated."
+    "Official primary source read establishes only stated legal, securities-industry or educational scope; individual account eligibility or product price not authenticated.",
+    "2026-10-18 same-video public transcript vs original uploaded SRT provenance re-audit: NOT_COMPARABLE_YOUTUBE_PUBLIC_ENGLISH_TRANSCRIPT_PRIVATE_KOREAN_SRT. Public language=en; original audio/video frames NOT separately examined."
   ],
   "risks_and_exceptions": [
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
     "Video audio/frames not independently checked; raw SRT start printed to whole seconds above for claim anchors but original subsecond read available in private file.",
     "Official issuer/program conditions may change and require dated recheck; individual claim eligibility unverified.",
     "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments.",
-    "Never treat a general legal rate or public program qualification as a guaranteed personal payout, future rate, tax saving, or investment return."
+    "Never treat a general legal rate or public program qualification as a guaranteed personal payout, future rate, tax saving, or investment return.",
+    "The YouTube first-party public transcript was returned as ENGLISH translated body even when hl=ko&cc_lang_pref=ko, thus Korean private source text equivalence cannot be asserted or disproven. Only Korean user SRT has 32 original cues/sha matched."
   ],
   "quantitative_claims": [
     {
@@ -127,12 +129,22 @@
     "original_srt_sha_recomputed": true,
     "original_cues_read": true,
     "original_audio_verified": false,
-    "original_frames_verified": false
+    "original_frames_verified": false,
+    "public_private_fullbody_status": "NOT_COMPARABLE_YOUTUBE_PUBLIC_ENGLISH_TRANSCRIPT_PRIVATE_KOREAN_SRT",
+    "private_fullbody_normalized_chars": 460,
+    "public_fullbody_normalized_chars": 1064,
+    "private_fullbody_normalized_sha256": "d0c5971717c7b9d6c3729178e61641a23893eda9c271dd0f029c013afa060ab9",
+    "public_fullbody_normalized_sha256": "b91cd1d9b3cddd14febfdcfd0b25a82d00db4ffeb806be2d2e6868f08b58e493",
+    "public_language": "en",
+    "raw_audio_verified": false,
+    "raw_frames_verified": false,
+    "compared_at": "2026-10-18"
   },
   "limitations": [
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
     "Video audio/frames not independently checked; raw SRT start printed to whole seconds above for claim anchors but original subsecond read available in private file.",
     "Official issuer/program conditions may change and require dated recheck; individual claim eligibility unverified.",
-    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments."
+    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments.",
+    "YouTube watch-page English transcript, even when hl=ko&cc_lang_pref=ko, is not a Korean full-body comparison and hash mismatch proves nothing about original Korean SRT; original audio/video not separately examined."
   ]
 }
