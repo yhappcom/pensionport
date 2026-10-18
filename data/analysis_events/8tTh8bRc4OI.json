@@ -166,10 +166,12 @@
       "claim": "국민연금의 2026년 명목 소득대체율 43%라는 설명",
       "verification": "PRIMARY_CONFIRMED",
       "sources": [
+        "https://www.mohw.go.kr/menu.es?mid=a10714060000",
         "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0104M0.do"
       ],
-      "disposition": "NPS 2026 소득대체율 43%는 2026년 이후 가입기간에 적용되며 2025년까지 누적 가입분 및 이미 수급 중인 연금에 일괄 소급하는 수치가 아님. 2025 실제 제도 기준은 41.5%였다.",
-      "source_precision": "PRIVATE_ORIGINAL_ASR_SRT_CUE_START_NOT_AUDIO_ONSET"
+      "disposition": "보건복지부 2025 개혁 공식 Q&A는 보험료율을 2026 9.5%부터 매년 0.5%p씩 인상해 2033년 13%로 하고, 소득대체율 43%는 2026부터 일시 인상하는 것을 명시. 부처의 40년 가입/25년 수급·임금증가/2025 현재가 사례는 제도 시뮬레이션으로, 실제 과거 가입연도별 산정율이나 이미 수급 중인 개인이 모두 일괄 43%가 되는 것을 보장하지 않는다.",
+      "source_precision": "PRIVATE_ORIGINAL_ASR_SRT_CUE_START_NOT_AUDIO_ONSET",
+      "correction": null
     },
     {
       "claim_id": "8tTh8bRc4OI-13",
@@ -280,7 +282,8 @@
     "Uploaded SRT SHA256 028bb443825d7723485557d676dc69d4db64761cb8bf31cf3abe9cff72a7cf34 and 1519 timed cues, source ZIP SHA 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951 with valid CRC.",
     "Official NPS 2025 reform phased pension rate effective 2026; 2025 and pre-2026 accrued replacement standards remain as then in force.",
     "Pension contribution rates are proportional to legally defined covered wage base, potentially minimum/maximum limits apply.",
-    "Future personal pension forecast depends on actual insured months, income history, accrual period, pension commencement, inflation and legal changes."
+    "Future personal pension forecast depends on actual insured months, income history, accrual period, pension commencement, inflation and legal changes.",
+    "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged."
   ],
   "risks_and_exceptions": [
     "Old 40% target and 2025 41.5% effective rate must not be mixed with 2026 43% new-accrual rate.",
@@ -289,7 +292,8 @@
     "Guaranteed government statutory benefit duty is not a guarantee of a fixed inflation-adjusted individual future payout independent of pension reform.",
     "Deferred pension calculations need loss of cash flows during deferral, possible base pension and health insurance impact.",
     "Pension first layer vs retirement occupational vs personal accounts differ in investment risk/tax, even if all are colloquially pensions.",
-    "Actual audio and images not checked, originally auto-generated SRT may misrecognize exact figures."
+    "Actual audio and images not checked, originally auto-generated SRT may misrecognize exact figures.",
+    "보건복지부 2025 연금개혁 Q&A의 40년 가입 시뮬레이션/2026 43% 신산식은 개인 보장 월연금액 또는 2026 이전 가입기간의 일괄 신소득대체율 적용 증거가 아니다."
   ],
   "quantitative_claims": [
     {
