@@ -235,11 +235,12 @@
     "#126 ISA 월167만원은 연2000만원/12 근삿값; 개인별 연금저축600/IRP포함900만원 세액공제 인정액, 채권 저쿠폰 YTM/세율, 건보료는 별도 확인.",
     "#127 적립식 매수도 손실 가능, 장기 연7/12% 비보장, 일1% 매매→월30% 수익 고정재현불가(20거래일 월복리 약22%).",
     "#129 디폴트옵션 사전지정과 실제 적용 별도; TDF2060 원금/은퇴소득 미보장, 3년63% 화면수익·개인주식 매매 인증 불가.",
-    "2026-10-18 #101~103 focused re-audit: #101 added three material claim reviews (Yellow Umbrella income deduction vs pension tax credit, NPS 2026 regional/voluntary monthly minimum distinctions, covered-call SCHD/JEPI future cashflow crossover unverified). #102 and #103 complete original/user SRT vs public full same-video YouTube ASR body normalized SHA exact matched. #101 full body 19312 private vs 19294 public does not match, so no blanket literal equivalence."
+    "2026-10-18 #101~103 focused re-audit: #101 added three material claim reviews (Yellow Umbrella income deduction vs pension tax credit, NPS 2026 regional/voluntary monthly minimum distinctions, covered-call SCHD/JEPI future cashflow crossover unverified). #102 and #103 complete original/user SRT vs public full same-video YouTube ASR body normalized SHA exact matched. #101 full body 19312 private vs 19294 public does not match, so no blanket literal equivalence.",
+    "2026-10-18 focused 104-110 recheck: full private SRT verified 4636 cues; identical entire public YouTube ASR for 104,105,106,108,109,110; #107 9387 private vs 9352 public normalized chars and different SHA. KB Securities notice 2025-06-30 verifies ISA foreign fund tax credit from July 1 2025 excluding 2025 Jan-June retroactivity; uniform 0.55 foreign tax credit factor and tax zero remain unverified. Other 105 12.2 author primary quote, 106 high-dividend corporation tax exception, 110 MOHW 43% new policy qualified. Video and claim counts unchanged."
   ],
   "research_branch_only": true,
   "main_untouched": true,
-  "approval_count_status": "ALL_29_OF_29_V3_APPROVED_101_103_REAUDIT_ADDS_3_SCOPED_CLAIMS_SOURCE_EQUIVALENCE_102_103",
+  "approval_count_status": "ALL_29_OF_29_V3_APPROVED_101_103_AND_104_110_FOCUSED_REAUDIT_20261018_CLAIMS_2095_UNCHANGED",
   "report": "knowledge/VIDEO101_129_V3_COMPLETE_EVIDENCE_20261018.md",
   "focused_reaudit_101_103": {
     "video_ids": [
@@ -263,5 +264,39 @@
     "new_report": "knowledge/VIDEO101_103_FOCUSED_V3_REAUDIT_20261018.md",
     "other_104_129_claims_mutated": false,
     "account_asset_not_changed": true
+  },
+  "focused_reaudit_104_110": {
+    "date": "2026-10-18",
+    "roster_numbers": [
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110
+    ],
+    "original_user_srt_cue_count": 4636,
+    "video_count": 7,
+    "previously_v3_approved_claims": 77,
+    "new_claims": 0,
+    "after_v3_claims": 77,
+    "original_individual_srt_sha256_and_zip_crc_all_pass": true,
+    "youtube_public_full_normalized_body_sha_identical_count": 6,
+    "youtube_public_full_normalized_body_sha_mismatch": [
+      107
+    ],
+    "prior_101_103_reaudit_preserved": true,
+    "legacy_open24_not_closed": true,
+    "same_underlying_ASR_engine_possible": true,
+    "audio_verified": false,
+    "frames_verified": false,
+    "official_dated_issues": [
+      "#105 author 2025 interview supports only author first-person 12.2% claim; exact returns series and 82%/SPIVA 17% remain unreplicated",
+      "#106 2026 high-dividend direct qualified company payout special election distinct from general income and fund distribution",
+      "#107 KB Securities 2025-06-30 notice confirms foreign tax credit ISA first effective July 1 2025 / Jan-June no retro; 0.55 exact rate and zero tax remain unsupported",
+      "#110 MOHW 2026 statutory NPS rate path and replacement policy; not historical/personal retroactive pension"
+    ],
+    "report": "knowledge/VIDEO104_110_FOCUSED_V3_REAUDIT_20261018.md"
   }
 }
