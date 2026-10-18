@@ -9,7 +9,7 @@
   },
   "approved_in_this_batch": {
     "videos": 29,
-    "education_claims": 292,
+    "education_claims": 293,
     "source_cues_reviewed": 17701,
     "items": [
       {
@@ -75,7 +75,7 @@
       {
         "roster_no": 111,
         "video_id": "zDcF_zPTSYE",
-        "education_claims": 14,
+        "education_claims": 15,
         "canonical_path": "data/analysis_events/zDcF_zPTSYE.json"
       },
       {
@@ -190,7 +190,7 @@
   },
   "current_cumulative": {
     "approved_v3_videos": 129,
-    "approved_educational_claims": 2095,
+    "approved_educational_claims": 2096,
     "unapproved_v3_roster_videos": 662,
     "total_roster": 791
   },
@@ -237,11 +237,12 @@
     "#129 디폴트옵션 사전지정과 실제 적용 별도; TDF2060 원금/은퇴소득 미보장, 3년63% 화면수익·개인주식 매매 인증 불가.",
     "2026-10-18 #101~103 focused re-audit: #101 added three material claim reviews (Yellow Umbrella income deduction vs pension tax credit, NPS 2026 regional/voluntary monthly minimum distinctions, covered-call SCHD/JEPI future cashflow crossover unverified). #102 and #103 complete original/user SRT vs public full same-video YouTube ASR body normalized SHA exact matched. #101 full body 19312 private vs 19294 public does not match, so no blanket literal equivalence.",
     "2026-10-18 focused 104-110 recheck: full private SRT verified 4636 cues; identical entire public YouTube ASR for 104,105,106,108,109,110; #107 9387 private vs 9352 public normalized chars and different SHA. KB Securities notice 2025-06-30 verifies ISA foreign fund tax credit from July 1 2025 excluding 2025 Jan-June retroactivity; uniform 0.55 foreign tax credit factor and tax zero remain unverified. Other 105 12.2 author primary quote, 106 high-dividend corporation tax exception, 110 MOHW 43% new policy qualified. Video and claim counts unchanged.",
-    "2026-10-18 three-video (#107, #105, #106) deep independent evidence check: NYU Damodaran 1975-2024 dividends included annual positives 41/50=82%, CAGR 12.26364686%; SPIVA 2002-2022 large cap active non-underperform 5.21% vs video17% not same cohort; 2026 60m ordinary financial income illustrative other-tax-base 0 vs 60m national additional tax 0 vs 5.32m; nominal NHIS rates 7.19+0.9448; #107 2025-07 ISA foreign tax start confirmed, uniform0.55 credit and actual tax0 still not proven. V3 count 129/2095 and legacy OPEN24 unchanged."
+    "2026-10-18 three-video (#107, #105, #106) deep independent evidence check: NYU Damodaran 1975-2024 dividends included annual positives 41/50=82%, CAGR 12.26364686%; SPIVA 2002-2022 large cap active non-underperform 5.21% vs video17% not same cohort; 2026 60m ordinary financial income illustrative other-tax-base 0 vs 60m national additional tax 0 vs 5.32m; nominal NHIS rates 7.19+0.9448; #107 2025-07 ISA foreign tax start confirmed, uniform0.55 credit and actual tax0 still not proven. V3 count 129/2095 and legacy OPEN24 unchanged.",
+    "2026-10-18 #111~117 7-video focused re-audit: 2016 private original numbered cues & SHA CRC pass, public full Korean auto-caption exactly matches #112,113,114,116 but differs #111/#115; #117 YouTube returns English translated text not valid Korean comparison. KRX disproves #111 'market price guarantees all shares execution' (new CONTRADICTED claim). FSC 2016-02-12 source proves 2016-03-14 ISA launch, KOFIA 2026 Jan ETF46.8/equities34.2 reported, 8.7% cash/term source original table still unverified, MMW CMA not deposit insured. Cumulative 129 videos 2096 claims, legacy OPEN24 preserved."
   ],
   "research_branch_only": true,
   "main_untouched": true,
-  "approval_count_status": "ALL_29_OF_29_V3_APPROVED_101_103_AND_104_110_FOCUSED_REAUDIT_20261018_CLAIMS_2095_UNCHANGED",
+  "approval_count_status": "ALL_29_OF_29_V3_APPROVED_101_103_104_110_111_117_FOCUSED_EVIDENCE_REAUDITS_20261018_129_VIDEOS_2096_CLAIMS",
   "report": "knowledge/VIDEO101_129_V3_COMPLETE_EVIDENCE_20261018.md",
   "focused_reaudit_101_103": {
     "video_ids": [
@@ -338,5 +339,46 @@
     },
     "report": "knowledge/VIDEO105_106_107_TARGETED_OFFICIAL_RECHECK_20261018.md",
     "scope_limit": "Research/policy and mathematical illustrations only, no actual trading transactions or tax filings independently checked."
+  },
+  "focused_reaudit_111_117_20261018": {
+    "roster": [
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117
+    ],
+    "original_zip_sha256": "3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951",
+    "source_cues": 2016,
+    "previous_v3_educational_claims": 48,
+    "added_111_market_order_claims": 1,
+    "approved_scope_educational_claims": 49,
+    "private_original_7of7_sha_crc_pass": true,
+    "youtube_same_video_korean_full_body_exact": [
+      112,
+      113,
+      114,
+      116
+    ],
+    "korean_difference": [
+      111,
+      115
+    ],
+    "english_transcript_uncomparable": [
+      117
+    ],
+    "first_party_FSC_2016_03_14_confirmed": true,
+    "kofia_etf_46_8pct_and_stock_34_2pct_secondary_reported_and_primary_table_not_checked": true,
+    "kofia_8_7pct_deposit_label_unverified": true,
+    "meritz_mmw_2026_non_deposit_insured_confirmed": true,
+    "video118_to129_per_video_claims_unchanged": true,
+    "total_approved_videos": 129,
+    "total_approved_claims": 2096,
+    "previous_legacy_verification_open24_unchanged": true,
+    "private_srt_not_published": true,
+    "original_audio_or_frames_not_verified": true,
+    "report": "knowledge/VIDEO111_117_FOCUSED_V3_REAUDIT_20261018.md"
   }
 }
