@@ -240,10 +240,52 @@
       "disposition": "개인 소득 불확실성, 자본차익·분배금 세후총수익, 업종 집중을 고려한 상황적 선호일 뿐 프리랜서 모두에게 배당형이 지수형보다 우수하다는 실증은 없다.",
       "correction": null,
       "source_precision": "PRIVATE_USER_AUTO_SRT_CUE_START_NOT_INDEPENDENT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "_gyLWp83OMU-17",
+      "timecode": "00:27:24",
+      "source_cue_index": 877,
+      "source_cue_start": "00:27:24.159",
+      "claim": "노란우산은 소기업·소상공인 소득공제 제도, 연금저축·IRP는 세액공제 제도라는 구분과 연금저축 먼저 채우자는 화자의 선호",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.8899.or.kr/cmnsCnts/view?menuId=C080301000"
+      ],
+      "disposition": "노란우산 공식 제도는 소기업·소상공인 대표 및 가입요건을 충족한 무등록 프리랜서가 대상이고 2026 소득구간에 따라 연 최대 200만~600만원 소득공제다. 연금저축과 IRP의 세액공제와 효과·인출조건이 다르므로 '연금저축이 노란우산보다 모든 프리랜서에게 항상 우선'이라는 투자자별 절대명제는 입증되지 않았다.",
+      "correction": null,
+      "source_precision": "USER_PRIVATE_AUTO_ASR_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "_gyLWp83OMU-18",
+      "timecode": "00:27:03",
+      "source_cue_index": 866,
+      "source_cue_start": "00:27:03.320",
+      "claim": "국민연금 가입기간 확보를 위해 '최소금액 월 9만원 조금 넘게' 납부할 수 있다는 숫자 설명",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0097M0.do"
+      ],
+      "disposition": "2026.4~2027.3 일반 임의가입자는 중위수 기준소득월액 1,013,000원×9.5%=월 약96,230원으로 화자의 '9만원 조금 넘게'와 부합할 수 있다. 그러나 지역가입자 소득월액 하한(2026.7부터 410,000원)의 명목보험료는 월38,950원이고, 종전 2026.6까지 40만원 기준 월38,000원이다. 프리랜서라는 직업만으로 임의가입자에 해당하거나 일률적으로 월9만원이 최저라고 단정하면 오류다.",
+      "correction": "월9만원대는 임의가입자 기준의 한 사례. 지역가입자 소득하한 기준 보험료는 2026-07 이후 월38,950원. 프리랜서 전체의 단일 월 최소 보험료가 아님.",
+      "source_precision": "USER_PRIVATE_AUTO_ASR_CUE_START_NOT_AUDIO_ONSET"
+    },
+    {
+      "claim_id": "_gyLWp83OMU-19",
+      "timecode": "00:40:36",
+      "source_cue_index": 1275,
+      "source_cue_start": "00:40:36.200",
+      "claim": "커버드콜 투자는 프리랜서 배당성장 전략에 맞지 않고 SCHD 분배금이 JEPI를 장기 약10년 후 역전할 수 있다는 구술 전망",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write"
+      ],
+      "disposition": "OIC 공식 covered-call 전략 해설은 옵션 프리미엄의 현금유입, 상승이익 상한, 기초자산 급락손실을 확인한다. 그러나 SCHD와 JEPI 실제 누적/연간 분배금이 10여년 뒤 어느 때 역전할지는 두 ETF의 개별 배당금·편입자산·성장률·세금·매수시점·환율 가정과 공식 과거 월별 자료가 없으므로 검증되지 않는다. 전략별 장단점을 설명할 수는 있으나 모든 프리랜서가 covered call을 피해야 한다는 개인별 투자 적합성 판단은 입증되지 않았다.",
+      "correction": null,
+      "source_precision": "USER_PRIVATE_AUTO_ASR_CUE_START_NOT_AUDIO_ONSET"
     }
   ],
   "claim_classification_tally": {
-    "QUALIFIED": 12,
+    "QUALIFIED": 15,
     "PRIMARY_CONFIRMED": 3,
     "CONTRADICTED": 1
   },
@@ -254,14 +296,18 @@
     "Verify NPS contribution record and the 10-year entitlement minimum; regional participation and payment capacity differ by contract.",
     "Build independent retirement support using pensions/IRP within tax and contribution limits, after income-tax reserves and emergency liquidity.",
     "Use ISA only where account eligibility and product restrictions fit; ISA maturity-to-pension transfers require account-specific formal procedures.",
-    "Dividend-paying securities and monthly distribution ETFs have uncertain payments and can lose capital; compare after-tax total returns, not advertised headline distribution only."
+    "Dividend-paying securities and monthly distribution ETFs have uncertain payments and can lose capital; compare after-tax total returns, not advertised headline distribution only.",
+    "노란우산의 사업소득금액별 소득공제와 연금저축·IRP의 세액공제, 중도환급조건 및 생활자금 제약을 각각 비교할 것.",
+    "프리랜서의 국민연금 가입자격을 소득활동 지역가입/임의가입으로 구분한 다음 2026년 월 최저 기준과 신고소득을 확인할 것.",
+    "Covered-call의 옵션 프리미엄·상승상한을 확인하고 SCHD/JEPI의 10년 후 분배금 역전을 기정사실로 삼지 말 것."
   ],
   "assumptions": [
     "This user-uploaded ZIP SHA-256=3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951; individual #101 SRT SHA-256=7ca8164879d5d3b2923ae6f63e5e632c177c417cd9e7281c2bbaa73e03906907.",
     "All 1449 SRT cue numbers, start order, start/end formatting, UTF-8 decoding and original source ZIP CRC passed; no video audio/frames independently checked.",
     "NTS bookkeeping thresholds vary by occupation and prior-year income: 75m, 150m, 300m KRW groupings; some professional exemptions may apply.",
     "NTS 3% income withholding plus common local income component is not same as final tax computation. Self-employment income category and residence may vary.",
-    "Source video YouTube original webpage title, uploaded date 2026-04-15 and duration 46:32 checked."
+    "Source video YouTube original webpage title, uploaded date 2026-04-15 and duration 46:32 checked.",
+    "2026-10-18 YouTube same-video public full Korean ASR normalized 19,294 characters SHA256 096af8a733ea1f394f9917c10d9096337a37aba4a658be888b4cd3f545f7b46f differs from private original SRT 19,312 characters SHA256 5917ed8127c23684d5a11930f2d829d09cd25b3899be2889daf51423033fca9a."
   ],
   "risks_and_exceptions": [
     "#101 video statement around 00:15:13 that freelancers above KRW75m broadly require double-entry is incorrect as blanket rule; NTS requires industry category and other applicable criteria.",
@@ -270,7 +316,10 @@
     "NPS is not universally absent for freelancers; 18-60 general national coverage and eligibility/classification rules apply.",
     "Tax refunds depend on actual taxable earnings, admissible expense proofs, credits and prior tax withheld; may result in additional payment.",
     "An individual could need near-term cash for irregular income interruptions; locked retirement accounts are not universally ideal for all savings.",
-    "Monthly dividends/distributions are not contractually guaranteed wages; ex-dividend share-price movements and principal loss risk remain."
+    "Monthly dividends/distributions are not contractually guaranteed wages; ex-dividend share-price movements and principal loss risk remain.",
+    "노란우산 사업자 소득공제 vs 연금저축·IRP 세액공제의 개인별 법정 자격·금전 인출 조건은 같지 않으며, 프리랜서 모두가 한쪽을 우선해야 한다는 규칙은 아니다.",
+    "2026 NPS 월 9만원대는 임의가입 기준소득의 한 예; 지역가입 소득하한액 41만원×9.5%=38,950원과 구분.",
+    "SCHD와 JEPI 장기 분배금 역전 예상은 종목·시점별 미래 실증근거가 없으므로 시점이 정해진 투자결과로 인용하지 않는다."
   ],
   "quantitative_claims": [
     {
@@ -307,6 +356,28 @@
       "pension_savings_plus_IRP_tax_credit_cap_krw": 9000000,
       "source": "https://www.shinhansec.com/siw/pension/irp/irp_guide_tab1/view.do",
       "actual_personal_credit_may_be_lower": true
+    },
+    {
+      "metric": "2026_NPS_MINIMUM_PREMIUM_CATEGORY_DISTINCTION",
+      "video_spoken_approx_won": 90000,
+      "voluntary_mid_base_2026_apr_to_2027_mar_won": 1013000,
+      "voluntary_2026_monthly_premium_won": 96230,
+      "regional_2026_jul_min_base_won": 410000,
+      "regional_2026_jul_min_premium_won": 38950,
+      "private_account_verified": false,
+      "source": "https://www.nps.or.kr/pnsgdnc/newgdnc/getOHAE0001M1.do?menuId=MN24000897&pstId=ZZ202600000000000268"
+    },
+    {
+      "metric": "YELLOW_UMBRELLA_2026_INCOME_DEDUCTION_NOT_PENSION_TAX_CREDIT",
+      "maximum_income_deduction_won": 6000000,
+      "not_universal_cap": true,
+      "source": "https://www.8899.or.kr/cmnsCnts/view?menuId=C080301000"
+    },
+    {
+      "metric": "SCHD_VS_JEPI_DIVIDEND_YIELD_CROSSOVER_PROJECTION",
+      "speaker_years_approx": 10,
+      "actual_issuer_time_series_or_future_dividend_verified": false,
+      "source": "https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write"
     }
   ],
   "relations": [
@@ -321,7 +392,7 @@
       "explanation": "#104 long-term retirement investing with loss limitations."
     }
   ],
-  "verification_status": "V3_APPROVED_16_MATERIAL_CLAIMS_1449_PRIVATE_SRT_CUES_ONE_CORRECTED_FINANCE_REGULATORY_OVERGENERALIZATION",
+  "verification_status": "V3_SCOPED_APPROVED_19_CLAIMS_REAUDITED_20261018_PUBLIC_101_FULL_ASR_DIFFERENCE_DOCUMENTED",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -336,7 +407,11 @@
     "original_cues_read": true,
     "original_audio_verified": false,
     "original_frames_verified": false,
-    "full_source_text_publicly_uploaded": false
+    "full_source_text_publicly_uploaded": false,
+    "normalized_public_full_body_exact_match": false,
+    "private_normalized_chars": 19312,
+    "youtube_public_normalized_chars": 19294,
+    "private_public_comparison_completed_at": "2026-10-18"
   },
   "limitations": [
     "420만명 규모는 정확한 공식모집단·연도 미확정; 투자 지식으로 확정 인용 금지.",
@@ -344,6 +419,7 @@
     "복식부기 7500만원은 모든 업종 공통 기준이 아님.",
     "개인 계좌 세액공제·국민연금 가입기간/금액, ISA 신청 자격은 해당자의 소득과 계약에 달림.",
     "배당 ETF 수익과 배당지급은 손실 또는 지급 중단 가능.",
-    "원음·영상화면·독립 공개 전사 전문 대조 미실시; 모든 비공개 원문은 사용자에게 보관."
+    "원음·영상화면·독립 공개 전사 전문 대조 미실시; 모든 비공개 원문은 사용자에게 보관.",
+    "2026-10-18 read-through identified 3 previously omitted materially relevant claims, approved 19 with material NPS/YELLOW_UMBRELLA and Options Council scopes; no original audio, charts or securities-trading account confirmation."
   ]
 }
