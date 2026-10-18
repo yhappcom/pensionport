@@ -25,9 +25,10 @@
       "claim": "CMA MMW형이나 발행어음형에 비상금을 넣으면 은행 예금보다 낫다는 제안",
       "verification": "QUALIFIED",
       "sources": [
+        "https://www.imeritz.com/meritzcma/CmaMmw.do",
         "https://www.shinhansec.com/siw/wealth-management/cma/guide/view.do"
       ],
-      "disposition": "MMW/발행어음형 CMA는 구조·신용위험·당시 수익률·예금자보호 대상 여부가 다르다. 위험과 해당 일자 상품설명서를 확인하기 전 은행 수시입출금보다 무조건 우월하다고 할 수 없다.",
+      "disposition": "메리츠증권의 2026년 MMW CMA 상품안내는 랩 일임형, 한국증권금융 예수금 등에 투자, 실적배당, 랩수수료 연0.05%, 예금자보호 미적용 및 투자원금손실 가능을 직접 명시한다. 발행어음형 CMA는 증권사 자체 발행어음 신용위험을 부담. 따라서 생계비·비상금 통장에 CMA를 쓰라는 영상 조언은 은행 보호예금보다 우월하거나 원금안전이라는 의미로 사용 금지.",
       "correction": null,
       "source_precision": "USER_SUPPLIED_AUTO_SRT_APPROXIMATE_START_NOT_AUDIO_VERIFIED"
     },
@@ -101,14 +102,16 @@
   "assumptions": [
     "Private 101-129.zip source ZIP CRC pass and SHA256 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951; individual SRT SHA256 7672a298fb706e0de8ff34f0b071e7263d70c9de400060d3e0567d9a305e0d33; 47 sequential SRT cues validated.",
     "No original video acoustic or frame verification; recognized numerical claims may require further source comparison if changing the video conclusion.",
-    "Official primary source read establishes only stated legal, securities-industry or educational scope; individual account eligibility or product price not authenticated."
+    "Official primary source read establishes only stated legal, securities-industry or educational scope; individual account eligibility or product price not authenticated.",
+    "2026-10-18 full same-video YouTube transcript vs original private user SRT whitespace-normalized hash status: EXACT_KOREAN_FULL_TEXT (private 661 chars vs public 661 chars), voice/frames not directly verified."
   ],
   "risks_and_exceptions": [
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
     "Video audio/frames not independently checked; raw SRT start printed to whole seconds above for claim anchors but original subsecond read available in private file.",
     "Official issuer/program conditions may change and require dated recheck; individual claim eligibility unverified.",
     "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments.",
-    "Never treat a general legal rate or public program qualification as a guaranteed personal payout, future rate, tax saving, or investment return."
+    "Never treat a general legal rate or public program qualification as a guaranteed personal payout, future rate, tax saving, or investment return.",
+    "2026 Meritz official MMW disclosure: MMW CMA is investment-management wrap using Korea Securities Finance accounts, investment losses possible, not deposit-insured, annual wrapper fee0.05%. Bank savings deposit safety cannot be assumed for CMA or issuer-paper CMA."
   ],
   "quantitative_claims": [
     {
@@ -142,12 +145,22 @@
     "original_srt_sha_recomputed": true,
     "original_cues_read": true,
     "original_audio_verified": false,
-    "original_frames_verified": false
+    "original_frames_verified": false,
+    "public_private_fullbody_status": "EXACT_KOREAN_FULL_TEXT",
+    "private_fullbody_normalized_chars": 661,
+    "public_fullbody_normalized_chars": 661,
+    "private_fullbody_normalized_sha256": "71fdc3ae07b8c22e85046e2362c43ca1f8f3c053685c088fe2015ae4a597d01a",
+    "public_fullbody_normalized_sha256": "71fdc3ae07b8c22e85046e2362c43ca1f8f3c053685c088fe2015ae4a597d01a",
+    "public_language": "ko",
+    "raw_audio_verified": false,
+    "raw_frames_verified": false,
+    "compared_at": "2026-10-18"
   },
   "limitations": [
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
     "Video audio/frames not independently checked; raw SRT start printed to whole seconds above for claim anchors but original subsecond read available in private file.",
     "Official issuer/program conditions may change and require dated recheck; individual claim eligibility unverified.",
-    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments."
+    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments.",
+    "Same video first-party Korean auto-caption full-body whitespace-normalized hash comparison does not independently validate spoken phonemes or video frames. Differences are NOT proof uploaded SRT source is corrupt."
   ]
 }
