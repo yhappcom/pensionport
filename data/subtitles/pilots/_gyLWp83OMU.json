@@ -31,11 +31,19 @@
     "crc_verified": true,
     "all_cues_numbered_and_monotonic": true,
     "private_source_filename": "youtube-transcript-_gyLWp83OMU.srt",
-    "evidence_reference": "2026-10-18 raw private uploaded 101-129.zip with SHA256, all 1449 timed cue parser preflight, topic/sensitive numeric cues mapped to this review. Original video metadata same id title upload date confirmed.",
+    "evidence_reference": "2026-10-18 raw private uploaded 101-129.zip with SHA256, all 1449 timed cue parser preflight, topic/sensitive numeric cues mapped to this review. Original video metadata same id title upload date confirmed. Repeat audit 2026-10-18 matched original ZIP and single SRT SHA, added YouTube full ASR body normalization/hash comparison (mismatch 19312/19294 chars), and three missed scoped lessons with official NPS, Yellow Umbrella, Options Industry Council references.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "public_auto_asr_exact_body_compared": false,
-    "limitations": "Private uploaded auto-caption transcript, ASR mistakes possible; not complete original audio or slide examination; claims represent scoped material education points, not every anecdotal remark."
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "Private uploaded auto-caption transcript, ASR mistakes possible; not complete original audio or slide examination; claims represent scoped material education points, not every anecdotal remark.",
+    "public_asr_full_body_exact_match": false,
+    "private_full_body_normalized_chars": 19312,
+    "private_full_body_normalized_sha256": "5917ed8127c23684d5a11930f2d829d09cd25b3899be2889daf51423033fca9a",
+    "youtube_public_full_body_normalized_chars": 19294,
+    "youtube_public_full_body_normalized_sha256": "096af8a733ea1f394f9917c10d9096337a37aba4a658be888b4cd3f545f7b46f",
+    "youtube_first_party_ko_asr_url": "https://www.youtube.com/watch?v=_gyLWp83OMU",
+    "public_auto_asr_precision_note": "The complete independently downloaded YouTube watch-page ASR text differs from private original caption text: normalized character counts differ by 18 and SHA differs. It does not imply corrupt original SRT. Literal private/public ASR equality is NOT asserted and audio was not directly compared.",
+    "revalidated_only_roster_101_103_20261018": true
   },
   "claims": [
     {
@@ -358,11 +366,71 @@
         "effective_date_or_scope": "GENERAL_INVESTOR_EDUCATION",
         "disposition": "개인 소득 불확실성, 자본차익·분배금 세후총수익, 업종 집중을 고려한 상황적 선호일 뿐 프리랜서 모두에게 배당형이 지수형보다 우수하다는 실증은 없다."
       }
+    },
+    {
+      "claim_id": "_gyLWp83OMU-17",
+      "timecode": "00:27:24",
+      "source_cue_index": 877,
+      "source_cue_start": "00:27:24.159",
+      "source_paraphrase": "노란우산은 소기업·소상공인 소득공제 제도, 연금저축·IRP는 세액공제 제도라는 구분과 연금저축 먼저 채우자는 화자의 선호",
+      "independent_check": "노란우산 공식 제도는 소기업·소상공인 대표 및 가입요건을 충족한 무등록 프리랜서가 대상이고 2026 소득구간에 따라 연 최대 200만~600만원 소득공제다. 연금저축과 IRP의 세액공제와 효과·인출조건이 다르므로 '연금저축이 노란우산보다 모든 프리랜서에게 항상 우선'이라는 투자자별 절대명제는 입증되지 않았다.",
+      "assessment": "QUALIFIED",
+      "official_sources": [
+        "https://www.8899.or.kr/cmnsCnts/view?menuId=C080301000"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-18",
+        "primary_url": "https://www.8899.or.kr/cmnsCnts/view?menuId=C080301000",
+        "source_finding": "노란우산 공식 제도는 소기업·소상공인 대표 및 가입요건을 충족한 무등록 프리랜서가 대상이고 2026 소득구간에 따라 연 최대 200만~600만원 소득공제다. 연금저축과 IRP의 세액공제와 효과·인출조건이 다르므로 '연금저축이 노란우산보다 모든 프리랜서에게 항상 우선'이라는 투자자별 절대명제는 입증되지 않았다.",
+        "effective_date_or_scope": "KOREAN_SMALL_BUSINESS_YELLOW_UMBRELLA_2026_EXACT_INCOME_AND_ELIGIBILITY_CONTEXT",
+        "disposition": "노란우산 공식 제도는 소기업·소상공인 대표 및 가입요건을 충족한 무등록 프리랜서가 대상이고 2026 소득구간에 따라 연 최대 200만~600만원 소득공제다. 연금저축과 IRP의 세액공제와 효과·인출조건이 다르므로 '연금저축이 노란우산보다 모든 프리랜서에게 항상 우선'이라는 투자자별 절대명제는 입증되지 않았다."
+      }
+    },
+    {
+      "claim_id": "_gyLWp83OMU-18",
+      "timecode": "00:27:03",
+      "source_cue_index": 866,
+      "source_cue_start": "00:27:03.320",
+      "source_paraphrase": "국민연금 가입기간 확보를 위해 '최소금액 월 9만원 조금 넘게' 납부할 수 있다는 숫자 설명",
+      "independent_check": "2026.4~2027.3 일반 임의가입자는 중위수 기준소득월액 1,013,000원×9.5%=월 약96,230원으로 화자의 '9만원 조금 넘게'와 부합할 수 있다. 그러나 지역가입자 소득월액 하한(2026.7부터 410,000원)의 명목보험료는 월38,950원이고, 종전 2026.6까지 40만원 기준 월38,000원이다. 프리랜서라는 직업만으로 임의가입자에 해당하거나 일률적으로 월9만원이 최저라고 단정하면 오류다.",
+      "assessment": "QUALIFIED",
+      "official_sources": [
+        "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0097M0.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-18",
+        "primary_url": "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0097M0.do",
+        "source_finding": "2026.4~2027.3 일반 임의가입자는 중위수 기준소득월액 1,013,000원×9.5%=월 약96,230원으로 화자의 '9만원 조금 넘게'와 부합할 수 있다. 그러나 지역가입자 소득월액 하한(2026.7부터 410,000원)의 명목보험료는 월38,950원이고, 종전 2026.6까지 40만원 기준 월38,000원이다. 프리랜서라는 직업만으로 임의가입자에 해당하거나 일률적으로 월9만원이 최저라고 단정하면 오류다.",
+        "effective_date_or_scope": "NPS_VOLUNTARY_FROM_2026_04_AND_REGIONAL_FROM_2026_07_DIFFERENT_BASE",
+        "disposition": "2026.4~2027.3 일반 임의가입자는 중위수 기준소득월액 1,013,000원×9.5%=월 약96,230원으로 화자의 '9만원 조금 넘게'와 부합할 수 있다. 그러나 지역가입자 소득월액 하한(2026.7부터 410,000원)의 명목보험료는 월38,950원이고, 종전 2026.6까지 40만원 기준 월38,000원이다. 프리랜서라는 직업만으로 임의가입자에 해당하거나 일률적으로 월9만원이 최저라고 단정하면 오류다."
+      }
+    },
+    {
+      "claim_id": "_gyLWp83OMU-19",
+      "timecode": "00:40:36",
+      "source_cue_index": 1275,
+      "source_cue_start": "00:40:36.200",
+      "source_paraphrase": "커버드콜 투자는 프리랜서 배당성장 전략에 맞지 않고 SCHD 분배금이 JEPI를 장기 약10년 후 역전할 수 있다는 구술 전망",
+      "independent_check": "OIC 공식 covered-call 전략 해설은 옵션 프리미엄의 현금유입, 상승이익 상한, 기초자산 급락손실을 확인한다. 그러나 SCHD와 JEPI 실제 누적/연간 분배금이 10여년 뒤 어느 때 역전할지는 두 ETF의 개별 배당금·편입자산·성장률·세금·매수시점·환율 가정과 공식 과거 월별 자료가 없으므로 검증되지 않는다. 전략별 장단점을 설명할 수는 있으나 모든 프리랜서가 covered call을 피해야 한다는 개인별 투자 적합성 판단은 입증되지 않았다.",
+      "assessment": "QUALIFIED",
+      "official_sources": [
+        "https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-18",
+        "primary_url": "https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write",
+        "source_finding": "OIC 공식 covered-call 전략 해설은 옵션 프리미엄의 현금유입, 상승이익 상한, 기초자산 급락손실을 확인한다. 그러나 SCHD와 JEPI 실제 누적/연간 분배금이 10여년 뒤 어느 때 역전할지는 두 ETF의 개별 배당금·편입자산·성장률·세금·매수시점·환율 가정과 공식 과거 월별 자료가 없으므로 검증되지 않는다. 전략별 장단점을 설명할 수는 있으나 모든 프리랜서가 covered call을 피해야 한다는 개인별 투자 적합성 판단은 입증되지 않았다.",
+        "effective_date_or_scope": "OIC_GENERAL_COVERED_CALL_RISK_AND_UNVERIFIED_10_YEAR_SCHD_JEPI_FUTURE",
+        "disposition": "OIC 공식 covered-call 전략 해설은 옵션 프리미엄의 현금유입, 상승이익 상한, 기초자산 급락손실을 확인한다. 그러나 SCHD와 JEPI 실제 누적/연간 분배금이 10여년 뒤 어느 때 역전할지는 두 ETF의 개별 배당금·편입자산·성장률·세금·매수시점·환율 가정과 공식 과거 월별 자료가 없으므로 검증되지 않는다. 전략별 장단점을 설명할 수는 있으나 모든 프리랜서가 covered call을 피해야 한다는 개인별 투자 적합성 판단은 입증되지 않았다."
+      }
     }
   ],
-  "claim_count": 16,
+  "claim_count": 19,
   "claim_classification_tally": {
-    "QUALIFIED": 12,
+    "QUALIFIED": 15,
     "PRIMARY_CONFIRMED": 3,
     "CONTRADICTED": 1
   },
@@ -377,6 +445,7 @@
     "복식부기 7500만원은 모든 업종 공통 기준이 아님.",
     "개인 계좌 세액공제·국민연금 가입기간/금액, ISA 신청 자격은 해당자의 소득과 계약에 달림.",
     "배당 ETF 수익과 배당지급은 손실 또는 지급 중단 가능.",
-    "원음·영상화면·독립 공개 전사 전문 대조 미실시; 모든 비공개 원문은 사용자에게 보관."
+    "원음·영상화면·독립 공개 전사 전문 대조 미실시; 모든 비공개 원문은 사용자에게 보관.",
+    "2026-10-18 영상 #101 추가심사: 노란우산·연금 세액공제 비교, 국민연금 임의/지역가입 최저 보험료, SCHD/JEPI 10년 분배금 비교는 가입자 유형·예상치·상품 실제 배당의 조건부 판단이다."
   ]
 }
