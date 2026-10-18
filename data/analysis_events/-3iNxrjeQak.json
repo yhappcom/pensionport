@@ -215,7 +215,8 @@
     "Source archive full CRC and per-SRT fingerprint valid: 2a79ecc0bc63c7447a51d4f201da3338a74fa5d0c90bda0d76b90f5e87980093.",
     "All 785 continuous source cues decoded and materially reviewed; 13 limited claims have primary source date-scope, usage restrictions and reproducibility labels.",
     "Original video audio, visuals and author book text pages or trading app UI were not independently verified.",
-    "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged."
+    "2026-10-18 original source audit recheck verified dated external first-party evidence for specific claims; all other past review limits and claim counts unchanged.",
+    "2026-10-18 Korean full YouTube public auto-transcript checksum c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae (11226 chars) vs user private original normalized c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae (11226 chars), full text equal=true; both may share ASR engine, voice and frame validation not done."
   ],
   "risks_and_exceptions": [
     "시장 전체에 분산해도 미국주식/채권/현금 간 자산배분이 충분하지 않을 수 있다.",
@@ -270,12 +271,20 @@
     "original_srt_sha_recomputed": true,
     "original_cues_read": true,
     "original_audio_verified": false,
-    "original_frames_verified": false
+    "original_frames_verified": false,
+    "public_private_whitespace_normalized_full_body_exact_match": true,
+    "public_auto_transcript_checked_at": "2026-10-18",
+    "public_same_video_first_party_url": "https://www.youtube.com/watch?v=-3iNxrjeQak",
+    "private_normalized_fulltext_sha256": "c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae",
+    "public_normalized_fulltext_sha256": "c9714bad48b6ed7b1d5c9a39d98ecb406f1edb7265ecd78c8c2ac2c0500dc2ae",
+    "raw_audio_checked": false,
+    "original_frames_checked": false
   },
   "limitations": [
     "저자판본 2025-05-20 확인. 문장별 책 원문 페이지와 영상 실제 음성은 미대조.",
     "미국 장기수익률 12.2%, 82% 상승기간, SPIVA 17% 숫자는 원표·측정법 미재현이므로 확정 통계로 재사용 불가.",
     "4% 인출률은 영구 무위험 연금이 아니며 퇴직시점과 자산군·세제·건강·보수에 따라 달라진다.",
-    "원본 자동 SRT만 구조 검증. 사적 ZIP 전문 공개하지 않음."
+    "원본 자동 SRT만 구조 검증. 사적 ZIP 전문 공개하지 않음.",
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
   ]
 }
