@@ -31,8 +31,18 @@
     "evidence_reference": "Private uploaded 101-129.zip source SHA-256 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951, exact private SRT per-video SHA-256 8863078711508ac61cc57ede59a40a3a75491fd241def6ec4fb412841ab68eb5; all 21 original cue texts read in this batch; YouTube video title/upload date separately checked when accessible.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "public_auto_asr_exact_body_compared": false,
-    "limitations": "Private auto-ASR source may misrecognize names and numbers, especially #123 first two opening cues; official support levels checked as 2026 program eligibility, not personal entitlements. No original sound/frame verification."
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "Private auto-ASR source may misrecognize names and numbers, especially #123 first two opening cues; official support levels checked as 2026 program eligibility, not personal entitlements. No original sound/frame verification.",
+    "youtube_public_source_url": "https://www.youtube.com/watch?v=etEBw7oWAzw",
+    "private_full_text_normalized_chars": 296,
+    "private_full_text_normalized_sha256": "813dbbc4ef1ca8d341c30434d35c645955f0cef4d0c4dfa5aa1cbfe132579656",
+    "public_source_language": "ko",
+    "public_full_text_normalized_chars": 296,
+    "public_full_text_normalized_sha256": "813dbbc4ef1ca8d341c30434d35c645955f0cef4d0c4dfa5aa1cbfe132579656",
+    "public_private_fullbody_status": "EXACT_KOREAN_FULL_TEXT",
+    "independent_audio_checked": false,
+    "reaudit_at": "2026-10-18",
+    "reaudit_limitation": "Full Korean same-video auto-transcript SHA matches after removing whitespace; common ASR engine may cause correlated errors and audio has not been independently listened to."
   },
   "claims": [
     {
@@ -134,6 +144,7 @@
     "Original private ZIP/SRT not uploaded to public GitHub; hashes and limited paraphrases only.",
     "Video audio/frames not independently checked; raw SRT start printed to whole seconds above for claim anchors but original subsecond read available in private file.",
     "Official issuer/program conditions may change and require dated recheck; individual claim eligibility unverified.",
-    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments."
+    "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments.",
+    "Full Korean same-video auto-transcript SHA matches after removing whitespace; common ASR engine may cause correlated errors and audio has not been independently listened to."
   ]
 }
