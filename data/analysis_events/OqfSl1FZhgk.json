@@ -86,7 +86,8 @@
   "assumptions": [
     "User uploaded SRT raw byte size 1931, 25 numbered cues, SHA-256 9e498c1d5c1b601ad7f3765d90cf7dd89f21046e2847a08b11b80543aa83838f; private archive SHA 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951",
     "Full source short cue content reviewed and all education claims triaged; original video audio and frames not independently watched.",
-    "Official source material applies only to its precise jurisdiction, date, product and investor education scope."
+    "Official source material applies only to its precise jurisdiction, date, product and investor education scope.",
+    "2026-10-18 same-video public transcript vs original uploaded SRT provenance re-audit: EXACT_KOREAN_FULL_TEXT. Public language=ko; original audio/video frames NOT separately examined."
   ],
   "risks_and_exceptions": [
     "No security, pension product or investment strategy can offer guaranteed returns based on time or diversifying equities alone.",
@@ -124,12 +125,22 @@
     "original_srt_sha_recomputed": true,
     "original_cues_read": true,
     "original_audio_verified": false,
-    "original_frames_verified": false
+    "original_frames_verified": false,
+    "public_private_fullbody_status": "EXACT_KOREAN_FULL_TEXT",
+    "private_fullbody_normalized_chars": 355,
+    "public_fullbody_normalized_chars": 355,
+    "private_fullbody_normalized_sha256": "42ef8ba1f88aee39021c23789cbd6b86acdd9a50c4fd476fd6a97a629cb9ef97",
+    "public_fullbody_normalized_sha256": "42ef8ba1f88aee39021c23789cbd6b86acdd9a50c4fd476fd6a97a629cb9ef97",
+    "public_language": "ko",
+    "raw_audio_verified": false,
+    "raw_frames_verified": false,
+    "compared_at": "2026-10-18"
   },
   "limitations": [
     "No audio/video frame verification or personal financial advice.",
     "Video SRT contents kept private; original source SHA and cue anchors are sufficient public provenance.",
     "Generalized financial guarantees, TDF retirement ages, US-only equity concentration and dividends are not guaranteed.",
-    "Official evidence only validates separately specified material facts and date conditions."
+    "Official evidence only validates separately specified material facts and date conditions.",
+    "Full Korean same-video auto-transcript SHA matches after removing whitespace; common ASR engine may cause correlated errors and audio has not been independently listened to."
   ]
 }
