@@ -112,9 +112,11 @@
       "source_cue_index": 411,
       "source_cue_start": "00:13:07.240",
       "claim": "월500만원 적립 가능한 고소득 투자자는 세금 외 직업·계좌·시간제약도 고려",
-      "verification": "SPEAKER_OPINION",
-      "sources": [],
-      "disposition": "영상의 고소득자 행태 일반화는 화자의 교육상 자금계획 의견이며 실증통계가 아님.",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2343"
+      ],
+      "disposition": "월 500만원을 저축할 여력이 있더라도 소득세 공제·ISA/IRP 상품 선택은 납세자별 소득·기존납입액·유동성 수요·법정 한도에 좌우된다. 영상의 행동사례를 세금 절약의 확정결과로 취급할 수 없다.",
       "source_precision": "PRIVATE_SRT_CUE_NOT_AUDIO_ONSET"
     },
     {
@@ -195,10 +197,10 @@
     }
   ],
   "claim_classification_tally": {
-    "QUALIFIED": 9,
+    "QUALIFIED": 10,
     "PRIMARY_CONFIRMED": 2,
     "HYPOTHETICAL": 1,
-    "SPEAKER_OPINION": 2
+    "SPEAKER_OPINION": 1
   },
   "actionable_guidance": [
     "ISA 167만원 is the approximate monthly translation of annual 2000만원, not mandatory regular debit.",
