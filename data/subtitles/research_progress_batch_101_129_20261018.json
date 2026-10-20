@@ -402,5 +402,34 @@
     "optional_verification_legacy_open_unchanged": 24,
     "report": "knowledge/VIDEO111_115_117_KOREAN_TRANSCRIPT_KOFIA_SOURCE_RECHECK_20261020.md",
     "main_untouched": true
+  },
+  "duplicate_cue_reconciliation_111_115_20261020": {
+    "checked_at": "2026-10-20",
+    "source": "User reuploaded exact original #111/#115 SRT individual files; verified binary SHA-256 and all cue counts.",
+    "scope_video_numbers": [
+      111,
+      115
+    ],
+    "video_111_raw_sha256_matches_20261018_registry": true,
+    "video_115_raw_sha256_matches_20261018_registry": true,
+    "video_111_omitted_duplicate_cues_for_public_comparison_only": [
+      442
+    ],
+    "video_115_omitted_duplicate_cues_for_public_comparison_only": [
+      7,
+      88
+    ],
+    "video_111_deduplicated_fulltext_sha_matches_public_ko": true,
+    "video_115_deduplicated_fulltext_sha_matches_public_ko": true,
+    "reconciliation_result": "BOTH_RESOLVED_KOREAN_FULLTEXT_EXCEPT_DUPLICATE_OVERLAP_CUE",
+    "original_raw_srt_files_unchanged": true,
+    "previous_20261018_mismatch_observation_preserved": true,
+    "video_117_previous_fulltext_match_preserved": true,
+    "audio_and_video_frames_verified": false,
+    "video_115_isa_deposit_8_7_percent_primary_table_still_open": true,
+    "legacy_optional_register_unchanged": true,
+    "approved_video_count_unchanged": 129,
+    "approved_educational_claim_count_unchanged": 2096,
+    "report": "knowledge/VIDEO111_115_DUPLICATE_SRT_CUE_FULLTEXT_RECONCILIATION_20261020.md"
   }
 }
