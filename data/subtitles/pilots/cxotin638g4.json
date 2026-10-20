@@ -31,18 +31,40 @@
     "evidence_reference": "Private uploaded 101-129.zip source SHA-256 3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951, exact private SRT per-video SHA-256 26462dc3c33253ca95ad498ae67d7c0f590c46fb99d9e912584aee4673eeda92; all 32 original cue texts read in this batch; YouTube video title/upload date separately checked when accessible.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "public_auto_asr_exact_body_compared": false,
+    "public_auto_asr_exact_body_compared": true,
     "limitations": "Private auto-ASR source may misrecognize names and numbers, especially #123 first two opening cues; official support levels checked as 2026 program eligibility, not personal entitlements. No original sound/frame verification.",
     "youtube_public_source_url": "https://www.youtube.com/watch?v=cxotin638g4",
     "private_full_text_normalized_chars": 460,
     "private_full_text_normalized_sha256": "d0c5971717c7b9d6c3729178e61641a23893eda9c271dd0f029c013afa060ab9",
-    "public_source_language": "en",
-    "public_full_text_normalized_chars": 1064,
-    "public_full_text_normalized_sha256": "b91cd1d9b3cddd14febfdcfd0b25a82d00db4ffeb806be2d2e6868f08b58e493",
-    "public_private_fullbody_status": "NOT_COMPARABLE_YOUTUBE_PUBLIC_ENGLISH_TRANSCRIPT_PRIVATE_KOREAN_SRT",
+    "public_source_language": "ko",
+    "public_full_text_normalized_chars": 460,
+    "public_full_text_normalized_sha256": "d0c5971717c7b9d6c3729178e61641a23893eda9c271dd0f029c013afa060ab9",
+    "public_private_fullbody_status": "EXACT_KOREAN_NORMALIZED_FULL_BODY_MATCH",
     "independent_audio_checked": false,
-    "reaudit_at": "2026-10-18",
-    "reaudit_limitation": "YouTube watch-page English transcript, even when hl=ko&cc_lang_pref=ko, is not a Korean full-body comparison and hash mismatch proves nothing about original Korean SRT; original audio/video not separately examined."
+    "reaudit_at": "2026-10-20",
+    "reaudit_limitation": "Same-video public Korean full transcript collected with KR/ko locale; whitespace-stripped 460-char SHA-256 exactly matches previously custody-verified private Korean SRT normalized body. Audio, subtitle timing, and video frames not independently verified.",
+    "previous_english_public_fetch_20261018": {
+      "date": "2026-10-18",
+      "language": "en",
+      "normalized_chars": 1064,
+      "normalized_sha256": "b91cd1d9b3cddd14febfdcfd0b25a82d00db4ffeb806be2d2e6868f08b58e493",
+      "comparison_status": "NOT_COMPARABLE_YOUTUBE_PUBLIC_ENGLISH_TRANSCRIPT_PRIVATE_KOREAN_SRT",
+      "limitation": "YouTube watch-page English transcript, even when hl=ko&cc_lang_pref=ko, is not a Korean full-body comparison and hash mismatch proves nothing about original Korean SRT; original audio/video not separately examined."
+    },
+    "korean_transcript_reconciliation_20261020": {
+      "status": "RESOLVED_NORMALIZED_KOREAN_FULL_BODY_ONLY",
+      "same_video_public_url": "https://www.youtube.com/watch?v=cxotin638g4",
+      "acquisition": "Public transcript of same YouTube watch video, KR/ko locale (Firecrawl scrape)",
+      "normalization": "remove all Unicode whitespace, UTF-8 SHA-256",
+      "private_chars": 460,
+      "public_chars": 460,
+      "private_sha256": "d0c5971717c7b9d6c3729178e61641a23893eda9c271dd0f029c013afa060ab9",
+      "public_sha256": "d0c5971717c7b9d6c3729178e61641a23893eda9c271dd0f029c013afa060ab9",
+      "transcript_cue_timestamps_verified": false,
+      "original_audio_verified": false,
+      "original_frames_verified": false,
+      "report": "knowledge/VIDEO111_115_117_KOREAN_TRANSCRIPT_KOFIA_SOURCE_RECHECK_20261020.md"
+    }
   },
   "claims": [
     {
@@ -141,6 +163,6 @@
     "Video audio/frames not independently checked; raw SRT start printed to whole seconds above for claim anchors but original subsecond read available in private file.",
     "Official issuer/program conditions may change and require dated recheck; individual claim eligibility unverified.",
     "Qualifying a video does not mean all viewers can obtain benefits, return levels or tax treatments.",
-    "YouTube watch-page English transcript, even when hl=ko&cc_lang_pref=ko, is not a Korean full-body comparison and hash mismatch proves nothing about original Korean SRT; original audio/video not separately examined."
+    "On 2026-10-18 YouTube returned English translated transcript, preventing Korean comparison at that time. On 2026-10-20 KR/ko extraction returned Korean full text whose whitespace-normalized SHA-256 equals the private SRT reference; audio, frames and per-cue timecodes remain unverified."
   ]
 }
