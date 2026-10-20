@@ -40,10 +40,47 @@
     "public_full_text_normalized_chars": 12190,
     "public_full_text_normalized_sha256": "6f39a3266143635b2e9c0952a6b5d4bde53373467e24606ef03bcf2a7a71dd44",
     "public_source_language": "ko",
-    "public_private_fullbody_status": "DIFFERENT_KOREAN_ASR",
+    "public_private_fullbody_status": "EXACT_KOREAN_NORMALIZED_AFTER_DUPLICATE_CUE_COLLAPSE",
     "independent_audio_checked": false,
-    "reaudit_at": "2026-10-18",
-    "reaudit_limitation": "Same video first-party Korean auto-caption full-body whitespace-normalized hash comparison does not independently validate spoken phonemes or video frames. Differences are NOT proof uploaded SRT source is corrupt."
+    "reaudit_at": "2026-10-20",
+    "reaudit_limitation": "Uploaded original SRT file raw SHA equals prior registered source SHA; live same-video Korean public normalized transcript hash differs solely due to omitted duplicate overlapping cues. After excluding only identified duplicate cue(s) in a comparison copy, full normalized text SHA exactly equals published public transcript SHA. Retain original SRT and historical raw mismatching SHA evidence; source audio, subtitle timing and actual video frames have NOT been independently checked.",
+    "previous_public_private_fullbody_status_20261018": "DIFFERENT_KOREAN_ASR",
+    "korean_transcript_reconciliation_20261020": {
+      "status": "RESOLVED_EXACT_KOREAN_FULL_BODY_AFTER_DUPLICATE_CUE_COLLAPSE",
+      "source_reuploaded": true,
+      "reuploaded_bytes": 69427,
+      "reuploaded_cues": 937,
+      "reuploaded_raw_srt_sha256": "3863a2d973539dade7758b4c34d14c2e2ed8abeff240ffaeb3c68b3820ef3bb9",
+      "raw_srt_hash_matches_prior_20261018": true,
+      "private_whitespace_normalized_chars": 12204,
+      "private_whitespace_normalized_sha256": "1788d5c0dc1a65c9b622c11e342e29df11da4948ef98b3473a34f6ddd9faa66e",
+      "public_whitespace_normalized_chars": 12190,
+      "public_whitespace_normalized_sha256": "6f39a3266143635b2e9c0952a6b5d4bde53373467e24606ef03bcf2a7a71dd44",
+      "comparison_excluded_original_duplicate_cues": [
+        {
+          "index": 7,
+          "duplicate_of": 6,
+          "original_start": "00:00:11,320",
+          "text_normalized_length": 8
+        },
+        {
+          "index": 88,
+          "duplicate_of": 87,
+          "original_start": "00:02:37,680",
+          "text_normalized_length": 6
+        }
+      ],
+      "normalized_deduplicated_original_chars": 12190,
+      "normalized_deduplicated_original_sha256": "6f39a3266143635b2e9c0952a6b5d4bde53373467e24606ef03bcf2a7a71dd44",
+      "matches_public_fulltext_exact_sha256": true,
+      "raw_fullbody_strings_identical_without_dedupe": false,
+      "original_srt_is_modified": false,
+      "source_audio_verified": false,
+      "source_frames_verified": false,
+      "timestamps_verified": false,
+      "source": "Public same-video YouTube Korean transcript re-fetched 2026-10-20 KR/ko; matched reuploaded individual raw SRT; Unicode whitespace removed before hash.",
+      "report": "knowledge/VIDEO111_115_DUPLICATE_SRT_CUE_FULLTEXT_RECONCILIATION_20261020.md"
+    }
   },
   "claims": [
     {
@@ -323,6 +360,7 @@
     "A trust ISA does not legally mean deposits only",
     "A single-person one ISA rule and transfer conversion differ; do not open independent extra tax-free ISA",
     "2026 March anniversary promotions are expired or conditional; no guaranteed cash award in October.",
-    "2026-10-18 the exact 2016-03-14 start date now primary confirmed via FSC 2016 release. KOFIA Jan2026 ETF46.8/stock34.2 as official-announcement contemporaneous reporting only, 8.7% bank deposits/cash instrument still primary-table/label unverified."
+    "2026-10-18 the exact 2016-03-14 start date now primary confirmed via FSC 2016 release. KOFIA Jan2026 ETF46.8/stock34.2 as official-announcement contemporaneous reporting only, 8.7% bank deposits/cash instrument still primary-table/label unverified.",
+    "2026-10-20 public Korean full transcript difference resolved as only overlapping duplicate source SRT cues; original cues preserved. Original audio/frame validation remains unperformed."
   ]
 }
