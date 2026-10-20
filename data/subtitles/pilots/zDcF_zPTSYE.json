@@ -39,10 +39,41 @@
     "public_full_text_normalized_chars": 12104,
     "public_full_text_normalized_sha256": "b066a5edd4f44d70c42408a1c6739dad83c5c6bcddf84b6689c5fd3515cf2326",
     "public_source_language": "ko",
-    "public_private_fullbody_status": "DIFFERENT_KOREAN_ASR",
+    "public_private_fullbody_status": "EXACT_KOREAN_NORMALIZED_AFTER_DUPLICATE_CUE_COLLAPSE",
     "independent_audio_checked": false,
-    "reaudit_at": "2026-10-18",
-    "reaudit_limitation": "Same video first-party Korean auto-caption full-body whitespace-normalized hash comparison does not independently validate spoken phonemes or video frames. Differences are NOT proof uploaded SRT source is corrupt."
+    "reaudit_at": "2026-10-20",
+    "reaudit_limitation": "Uploaded original SRT file raw SHA equals prior registered source SHA; live same-video Korean public normalized transcript hash differs solely due to omitted duplicate overlapping cues. After excluding only identified duplicate cue(s) in a comparison copy, full normalized text SHA exactly equals published public transcript SHA. Retain original SRT and historical raw mismatching SHA evidence; source audio, subtitle timing and actual video frames have NOT been independently checked.",
+    "previous_public_private_fullbody_status_20261018": "DIFFERENT_KOREAN_ASR",
+    "korean_transcript_reconciliation_20261020": {
+      "status": "RESOLVED_EXACT_KOREAN_FULL_BODY_AFTER_DUPLICATE_CUE_COLLAPSE",
+      "source_reuploaded": true,
+      "reuploaded_bytes": 69695,
+      "reuploaded_cues": 923,
+      "reuploaded_raw_srt_sha256": "fc54c5435784ce95c402d5f30b5027ec328d85b0842dec28ed0e922f2048e99b",
+      "raw_srt_hash_matches_prior_20261018": true,
+      "private_whitespace_normalized_chars": 12112,
+      "private_whitespace_normalized_sha256": "d209c8973d4700307d65a0dcb0607f89d93bcf10e78e563b104a0f8113b637ef",
+      "public_whitespace_normalized_chars": 12104,
+      "public_whitespace_normalized_sha256": "b066a5edd4f44d70c42408a1c6739dad83c5c6bcddf84b6689c5fd3515cf2326",
+      "comparison_excluded_original_duplicate_cues": [
+        {
+          "index": 442,
+          "duplicate_of": 441,
+          "original_start": "00:14:33,399",
+          "text_normalized_length": 8
+        }
+      ],
+      "normalized_deduplicated_original_chars": 12104,
+      "normalized_deduplicated_original_sha256": "b066a5edd4f44d70c42408a1c6739dad83c5c6bcddf84b6689c5fd3515cf2326",
+      "matches_public_fulltext_exact_sha256": true,
+      "raw_fullbody_strings_identical_without_dedupe": false,
+      "original_srt_is_modified": false,
+      "source_audio_verified": false,
+      "source_frames_verified": false,
+      "timestamps_verified": false,
+      "source": "Public same-video YouTube Korean transcript re-fetched 2026-10-20 KR/ko; matched reuploaded individual raw SRT; Unicode whitespace removed before hash.",
+      "report": "knowledge/VIDEO111_115_DUPLICATE_SRT_CUE_FULLTEXT_RECONCILIATION_20261020.md"
+    }
   },
   "claims": [
     {
@@ -370,6 +401,7 @@
     "ETF와 일반 펀드 기준가격 산정은 다르며 자동자막 용어가 흔들릴 수 있음.",
     "연 220영업일·1주 매입·30만원 예시는 가정이지 특정 가격·수수료의 실제 수익률이 아님.",
     "저작권 비공개 원본 전문 GitHub 업로드하지 않음.",
-    "2026-10-18 #111 신규 필수 위험 주장: '시장가 무조건 전량 체결'은 잘못된 일반화; 거래정지·상대호가·장 종료 시 미체결 가능. 원본 거래앱/영상 음성 미검증."
+    "2026-10-18 #111 신규 필수 위험 주장: '시장가 무조건 전량 체결'은 잘못된 일반화; 거래정지·상대호가·장 종료 시 미체결 가능. 원본 거래앱/영상 음성 미검증.",
+    "2026-10-20 public Korean full transcript difference resolved as only overlapping duplicate source SRT cues; original cues preserved. Original audio/frame validation remains unperformed."
   ]
 }
