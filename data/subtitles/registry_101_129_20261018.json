@@ -524,6 +524,33 @@
         "claim12_verdict": "QUALIFIED",
         "original_srt_unchanged": true,
         "report": "knowledge/VIDEO115_KOFIA_ORIGINAL_HWPX_JAN2026_87_PRIMARY_RECONCILIATION_20261021.md"
+      },
+      "official_isa_202601_totals_research_correction_20261021": {
+        "checked_at": "2026-10-21",
+        "status": "SOURCE_TOTALS_RECONCILED_IN_RESEARCH_BANK_DEPOSIT_CASH_RP_DEFINED_KOFIA_REPORTING_CODE_OPEN",
+        "source_original_sha256": "4ebe9e5af9cacb31ed66125a8bd3f6c79fda7e29bb94ce7adcb3c972f1b692a8",
+        "correction_data": "data/subtitles/kofia_isa_202601_corrected_asset_totals_20261021.json",
+        "corrected_totals_100million_krw": {
+          "brokerage": 459229,
+          "trust": 166015,
+          "discretionary": 16330,
+          "total": 641574
+        },
+        "reported_erroneous_totals_100million_krw": {
+          "brokerage": 346763,
+          "trust": 162742,
+          "discretionary": 13897
+        },
+        "official_kofia_erratum_received": false,
+        "source_original_remains_unchanged": true,
+        "brokerage_isa_misused_cash_is_not_bank_term_deposit": true,
+        "RP_as_separate_product_confirmed": true,
+        "trust_can_hold_bank_term_deposit": true,
+        "statistical_bucket_label_primary_confirmed": "예적금 등",
+        "statistical_bucket_amount_100million_krw": 39834,
+        "statistical_bucket_percent": 8.7,
+        "statistical_bucket_precise_subcategories": "UNKNOWN_UNTIL_KOFIA_REPORTING_DEFINITION",
+        "report": "knowledge/VIDEO115_KOFIA_202601_CORRECTED_TOTALS_AND_ASSET_CATEGORY_DEFINITION_20261021.md"
       }
     },
     {
