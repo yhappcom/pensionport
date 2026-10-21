@@ -32,7 +32,7 @@
     "original_audio_checked": false,
     "frames_checked": false,
     "evidence_reference": "All original 937 chronological source cues registered and interpreted; KOFIA original ISA disclosure portal, Feb26/Mar2 KOFIA press reports via contemporaneous Yonhap reporting, Korean securities ISA issuer legal account terms cross checked by date.",
-    "limitations": "Video original KOFIA 2022-2026 chart not independently pixel-matched to official month-by-month original table; 46% ETF/34% shares/8.7% deposits figure unconfirmed; no original audio.",
+    "limitations": "Video original KOFIA 2022-2026 chart not independently pixel-matched to official month-by-month original table; 46% ETF/34% shares/8.7% deposits figure unconfirmed; no original audio. 2026-10-21 original uploaded KOFIA HWPX and user video frame reconciled: 예적금 등 8.7% is primary verified; KOFIA HWPX total cells contain math errors and meaning of '등' subcomponents is not specified.",
     "public_auto_asr_exact_body_compared": true,
     "youtube_public_source_url": "https://www.youtube.com/watch?v=Yr2yMyGLsX0",
     "private_full_text_normalized_chars": 12204,
@@ -129,6 +129,33 @@
       },
       "risk_limit": "Official source monthly table and Jan video frame needed before concluding 8.7 or classifying cash as actual bank term deposit in brokerage ISA.",
       "report": "knowledge/VIDEO115_202601_ISA_87_KOFIA_RECHECK_FOLLOWUP_20261020.md"
+    },
+    "original_2026_KOFIA_asset_mix_chart_reconciled": true,
+    "kofia_jan2026_87_primary_verified_20261021": {
+      "status": "RESOLVED_PRIMARY_CONFIRMED_FOR_ASSET_LABEL_AND_PERCENT",
+      "checked_at": "2026-10-21",
+      "source_original_uploaded_hwpx_sha256": "4ebe9e5af9cacb31ed66125a8bd3f6c79fda7e29bb94ce7adcb3c972f1b692a8",
+      "source_original_uploaded_hwpx_bytes": 566709,
+      "original_video_screenshot_sha256": "f015f3ec1facd222924855c29d5a99c87508c7ae2f2700bc7364e5e5ba1da9f0",
+      "screenshot_image_dimensions": "1148x672",
+      "video_source_time": "00:24:13",
+      "asset_label": "예적금 등",
+      "asset_amount_100million_krw": 39834,
+      "reported_percentage": 8.7,
+      "actual_denominator_by_sum_100million_krw": 459229,
+      "actual_percentage": 8.67410376957901,
+      "published_total_cell_100million_krw": 346763,
+      "published_total_cell_consistent_with_asset_sum": false,
+      "corrected_totals_by_type_100million_krw": {
+        "brokerage": 459229,
+        "trust": 166015,
+        "discretionary": 16330,
+        "all": 641574
+      },
+      "downstream_asset_label_legal_meaning_status": "QUALIFIED_CATEGORY_COMPONENTS_UNDEFINED",
+      "video_frames_verified": "USER_PROVIDED_SINGLE_FRAME_ONLY",
+      "original_audio_verified": false,
+      "report": "knowledge/VIDEO115_KOFIA_ORIGINAL_HWPX_JAN2026_87_PRIMARY_RECONCILIATION_20261021.md"
     }
   },
   "claims": [
@@ -339,20 +366,21 @@
       "timecode": "00:24:10",
       "source_cue_index": 789,
       "source_cue_start": "00:24:10.559",
-      "source_paraphrase": "중개형 ISA 구성비 ETF 46%, 주식 34%, 예금성 8.7%라는 영상 차트",
-      "independent_check": "2026-02-26 금융투자협회 발표를 언론이 전달한 2026-01 말 투자중개형 ISA 자산 ETF 46.8%, 국내주식 34.2%는 영상의 반올림 46%/34%와 대략 부합. 하지만 영상의 '예금(성) 8.7%' 원표/항목 정의와 시점 일치 여부는 아직 공식 금투협 월별 상품 분류 원자료 및 화면을 직접 대조하지 못하여 미확정. ETF 비중46.8%가 전체 ISA(신탁형 포함)의 ETF 비율인 것처럼 쓰면 안 됨.",
-      "assessment": "QUALIFIED",
+      "source_paraphrase": "2026년 1월 말 중개형 ISA 자산구성 ETF 46.8%, 주식 34.2%, '예적금 등' 8.7%라는 영상 차트",
+      "independent_check": "금융투자협회 2026-02-26 원본 HWPX 별첨 2026-01 ISA 상품별 운용현황을 사용자 첨부에서 직접 판독: 중개형 예적금 등 39,834억원 / 구성 항목 직접 합계 459,229억원=8.6741%→8.7%, ETF46.8%, 주식34.2%. 사용자 캡처 영상 24:13 도표에도 '예적금등 8.70%' 표기. 다만 원표에 인쇄된 중개형 합계 346,763억원, 신탁형 162,742억원, 일임형 13,897억원은 각 구성 항목 합계 459,229/166,015/16,330억원과 불일치하는 원표 자체 합계 표기 오류이다. 은행 정기예금 직접 투자 가능성이나 '예적금 등' 하위항목 정의는 이 사실에서 입증되지 않는다.",
+      "assessment": "PRIMARY_CONFIRMED",
       "official_sources": [
-        "https://www.newsis.com/view/NISX20260226_0003527439",
-        "https://dis.kofia.or.kr/"
+        "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
+        "https://www.kofia.or.kr/brd/m_211/down.do?brd_id=www_report2&seq=327&data_tp=A&file_seq=1",
+        "https://www.yna.co.kr/amp/view/AKR20260324143900008"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
-        "primary_url": "https://www.newsis.com/view/NISX20260226_0003527439",
-        "checked_at": "2026-10-18",
-        "source_finding": "2026-02-26 금융투자협회 발표를 언론이 전달한 2026-01 말 투자중개형 ISA 자산 ETF 46.8%, 국내주식 34.2%는 영상의 반올림 46%/34%와 대략 부합. 하지만 영상의 '예금(성) 8.7%' 원표/항목 정의와 시점 일치 여부는 아직 공식 금투협 월별 상품 분류 원자료 및 화면을 직접 대조하지 못하여 미확정. ETF 비중46.8%가 전체 ISA(신탁형 포함)의 ETF 비율인 것처럼 쓰면 안 됨.",
-        "effective_date_or_scope": "KOFIA_2026_JAN_31_INVESTMENT_BROKERAGE_ISA_CATEGORY_SECONDARY_CONTEMPORANEOUS_REPORT_NOT_ORIGINAL_MONTHLY_TABLE",
-        "disposition": "2026-02-26 금융투자협회 발표를 언론이 전달한 2026-01 말 투자중개형 ISA 자산 ETF 46.8%, 국내주식 34.2%는 영상의 반올림 46%/34%와 대략 부합. 하지만 영상의 '예금(성) 8.7%' 원표/항목 정의와 시점 일치 여부는 아직 공식 금투협 월별 상품 분류 원자료 및 화면을 직접 대조하지 못하여 미확정. ETF 비중46.8%가 전체 ISA(신탁형 포함)의 ETF 비율인 것처럼 쓰면 안 됨."
+        "verdict": "PRIMARY_CONFIRMED",
+        "primary_url": "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
+        "checked_at": "2026-10-21",
+        "source_finding": "User-provided KOFIA official press release HWPX SHA 4ebe9e5af9cacb31ed66125a8bd3f6c79fda7e29bb94ce7adcb3c972f1b692a8 has Jan2026 brokeraged ISA 예적금 등 39,834억원 and 8.7%. Sum of seven asset categories 459,229억원 yields 8.6741%, and original user screenshot at 24:13 says 예적금등 8.70%. Printed table total 346,763억원 is erroneous; corrected 459,229 independently agrees with Yonhap KOFIA-reported Jan2026 valuation.",
+        "effective_date_or_scope": "KOFIA_ATTACHED_ORIGINAL_HWPX_2026_JAN_BROKERAGE_ISA_ASSET_CATEGORY_AND_USER_VIDEO_FRAME_CHECK_2026_10_21",
+        "disposition": "PRIMARY_CONFIRMED for exact label '예적금 등' and percentage 8.7% only; DO NOT accept the original HWPX total cells as arithmetic-valid. The asset category is not proof that brokerage ISA allows direct bank fixed-term deposits; its subcategories are undefined in this source. See knowledge/VIDEO115_KOFIA_ORIGINAL_HWPX_JAN2026_87_PRIMARY_RECONCILIATION_20261021.md"
       }
     },
     {
@@ -360,19 +388,20 @@
       "timecode": "00:24:29",
       "source_cue_index": 799,
       "source_cue_start": "00:24:29.480",
-      "source_paraphrase": "중개형 ISA에서 예금성 8.7%라는 표기에 대한 출연자의 분류 의문",
-      "independent_check": "중개형 ISA에서는 예금·예수금·RP·현금성투자상품 분류가 통계 표와 상품명에 따라 달라짐. '예금성' 8.7%라는 그래프 라벨만으로 은행 예금이 들어 있음을 단정하지 않는다.",
+      "source_paraphrase": "중개형 ISA의 '예적금 등 8.7%' 표기에 대해 예금/예수금 분류를 출연자들이 질문한 발언",
+      "independent_check": "영상 캡처와 2026-02-26 금투협 HWPX 원표는 실제 라벨이 '예적금 등'이며 8.7%로 일치함을 확인. 그러나 해당 통계분류의 세부 상품에 은행 정기예금/예수금/고객예탁금/RP가 각각 포함되는지는 HWPX 표에서 확인되지 않으므로, 중개형 ISA의 은행 정기예금 직접 편입 가능성을 이 통계로 단정하지 않는다.",
       "assessment": "QUALIFIED",
       "official_sources": [
+        "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
         "https://dis.kofia.or.kr/"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": "https://dis.kofia.or.kr/",
-        "checked_at": "2026-10-18",
-        "source_finding": "중개형 ISA에서는 예금·예수금·RP·현금성투자상품 분류가 통계 표와 상품명에 따라 달라짐. '예금성' 8.7%라는 그래프 라벨만으로 은행 예금이 들어 있음을 단정하지 않는다.",
-        "effective_date_or_scope": "KOFIA asset class label and account eligibility unresolved",
-        "disposition": "중개형 ISA에서는 예금·예수금·RP·현금성투자상품 분류가 통계 표와 상품명에 따라 달라짐. '예금성' 8.7%라는 그래프 라벨만으로 은행 예금이 들어 있음을 단정하지 않는다."
+        "primary_url": "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
+        "checked_at": "2026-10-21",
+        "source_finding": "KOFIA published original 2026-Jan table explicitly labels brokerage ISA category as '예적금 등' at 8.7%; screenshot agrees. Table does not define the instruments encompassed by '등'; speakers' question whether it is 예수금 remains interpretative rather than demonstrated.",
+        "effective_date_or_scope": "KOFIA_JAN2026_STATISTICAL_LABEL_VERIFIED_BUT_SUBCOMPONENTS_NOT_DEFINED",
+        "disposition": "Maintain QUALIFIED for instrument meaning: '예적금 등' is statistical category, not evidence of directly purchasing bank deposits via brokerage ISA; separate RP/예탁금/예수금 from actual bank deposits. Table arithmetic total cells have errors."
       }
     },
     {
@@ -398,18 +427,19 @@
   ],
   "claim_count": 13,
   "claim_classification_tally": {
-    "QUALIFIED": 11,
-    "PRIMARY_CONFIRMED": 2
+    "QUALIFIED": 10,
+    "PRIMARY_CONFIRMED": 3
   },
   "core_message": "2026년 1월 말 금융투자협회 ISA 가입 807만 계좌·54조7천억원이라는 *당시* 통계와 2021 중개형 도입·계좌이전·1인1계좌 규칙을 구분하고, 2026년 3월 이벤트/중개형 세부 자산비중 그래프의 원표 미확보는 자료제약으로 남긴다.",
   "limitations": [
-    "No exact KOFIA PDF/CSV monthly individual chart-to-slide reconciliation",
+    "2026-10-21 original attached KOFIA HWPX Jan2026 asset-category table and supplied same-video chart screenshot match percentages, including 예적금 등 8.7%; source totals are misprinted and category subcomponents are not defined.",
     "KOFIA approx807만 Jan2026 is not 2026-10 active subscriber count",
     "Video stated 806만 and 54조 could be rounded or snapshot timing; not exact 807만 54.7조 in all cases",
     "A trust ISA does not legally mean deposits only",
     "A single-person one ISA rule and transfer conversion differ; do not open independent extra tax-free ISA",
     "2026 March anniversary promotions are expired or conditional; no guaranteed cash award in October.",
     "2026-10-18 the exact 2016-03-14 start date now primary confirmed via FSC 2016 release. KOFIA Jan2026 ETF46.8/stock34.2 as official-announcement contemporaneous reporting only, 8.7% bank deposits/cash instrument still primary-table/label unverified.",
-    "2026-10-20 public Korean full transcript difference resolved as only overlapping duplicate source SRT cues; original cues preserved. Original audio/frame validation remains unperformed."
+    "2026-10-20 public Korean full transcript difference resolved as only overlapping duplicate source SRT cues; original cues preserved. Original audio/frame validation remains unperformed.",
+    "Official KOFIA HWPX original total cells for three ISA account types are arithmetically inconsistent with item sums; use corrected item sums and independently published January valuation totals, not erroneous printed totals."
   ]
 }
