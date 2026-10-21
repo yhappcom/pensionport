@@ -156,6 +156,35 @@
       "video_frames_verified": "USER_PROVIDED_SINGLE_FRAME_ONLY",
       "original_audio_verified": false,
       "report": "knowledge/VIDEO115_KOFIA_ORIGINAL_HWPX_JAN2026_87_PRIMARY_RECONCILIATION_20261021.md"
+    },
+    "kofia_202601_printed_totals_correction_and_product_definitions_20261021": {
+      "checked_at": "2026-10-21",
+      "source_hwpx_sha256": "4ebe9e5af9cacb31ed66125a8bd3f6c79fda7e29bb94ce7adcb3c972f1b692a8",
+      "nonofficial_correction_table": "data/subtitles/kofia_isa_202601_corrected_asset_totals_20261021.json",
+      "original_official_hwpx_unchanged": true,
+      "original_official_hwpx_total_cells_incorrect": true,
+      "corrected_totals_100million_krw": {
+        "brokerage": 459229,
+        "trust": 166015,
+        "discretionary": 16330,
+        "total": 641574
+      },
+      "old_total_cells_100million_krw": {
+        "brokerage": 346763,
+        "trust": 162742,
+        "discretionary": 13897
+      },
+      "old_total_cells_match_november_2025_kcmi_statistics": true,
+      "official_issuer_rectification_announced": false,
+      "bank_term_deposits_brokerage_directly_tradable": false,
+      "brokerage_cash_balance_exists": true,
+      "brokerage_RP_is_separate_product": true,
+      "trust_ISA_can_hold_bank_deposits": true,
+      "exact_kofia_bucket_reporting_rules_available_in_hwpx": false,
+      "status": "SOURCE_TOTAL_CORRECTED_IN_RESEARCH; PRODUCT_CONCEPTS_CONFIRMED; EXACT_SUBCOMPONENT_BREAKDOWN_REQUIRES_ISSUER",
+      "claim11": "PRIMARY_CONFIRMED",
+      "claim12": "QUALIFIED",
+      "report": "knowledge/VIDEO115_KOFIA_202601_CORRECTED_TOTALS_AND_ASSET_CATEGORY_DEFINITION_20261021.md"
     }
   },
   "claims": [
@@ -389,19 +418,21 @@
       "source_cue_index": 799,
       "source_cue_start": "00:24:29.480",
       "source_paraphrase": "중개형 ISA의 '예적금 등 8.7%' 표기에 대해 예금/예수금 분류를 출연자들이 질문한 발언",
-      "independent_check": "영상 캡처와 2026-02-26 금투협 HWPX 원표는 실제 라벨이 '예적금 등'이며 8.7%로 일치함을 확인. 그러나 해당 통계분류의 세부 상품에 은행 정기예금/예수금/고객예탁금/RP가 각각 포함되는지는 HWPX 표에서 확인되지 않으므로, 중개형 ISA의 은행 정기예금 직접 편입 가능성을 이 통계로 단정하지 않는다.",
+      "independent_check": "2026-01 중개형 ISA '예적금 등' 39,834억원(8.7%) 라벨은 금융투자협회 2026-02-26 원본 HWPX로 PRIMARY_CONFIRMED. 실무상품은 구분: 중개형 ISA 예수금/예탁금은 매수미사용 현금이며 한국투자증권 상품안내의 예탁금이용료 지급대상, RP는 별도 매입가능 금융상품, 은행 정기예금은 미래에셋/유안타 상품안내상 신탁형 편입 대상으로 구분된다. 그러나 금투협의 정확한 '예적금 등' 통계 하위코드 및 이 중 무엇이 얼마 포함되었는지는 원표에 미기재이며 공식 통계 분류 정의/기관 답변 없이는 확정할 수 없다. 그러므로 해석 QUALIFIED 유지.",
       "assessment": "QUALIFIED",
       "official_sources": [
         "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
-        "https://dis.kofia.or.kr/"
+        "https://securities.koreainvestment.com/main/mall/isa/_static/TF02ef020000.jsp",
+        "https://securities.miraeasset.com/mw/mks/mks4659/n01.do",
+        "https://www.myasset.com/myasset/static/agreement/isa_prdDsc.pdf"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "primary_url": "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
         "checked_at": "2026-10-21",
-        "source_finding": "KOFIA published original 2026-Jan table explicitly labels brokerage ISA category as '예적금 등' at 8.7%; screenshot agrees. Table does not define the instruments encompassed by '등'; speakers' question whether it is 예수금 remains interpretative rather than demonstrated.",
-        "effective_date_or_scope": "KOFIA_JAN2026_STATISTICAL_LABEL_VERIFIED_BUT_SUBCOMPONENTS_NOT_DEFINED",
-        "disposition": "Maintain QUALIFIED for instrument meaning: '예적금 등' is statistical category, not evidence of directly purchasing bank deposits via brokerage ISA; separate RP/예탁금/예수금 from actual bank deposits. Table arithmetic total cells have errors."
+        "source_finding": "Original KOFIA HWPX contains '예적금 등' but no definition of component reporting codes. Korea Investment Securities officially distinguishes uninvested 예수금/예탁금 and RP and states the former receives deposit use fees; Mirae Asset/Yuanta ISA materials list bank deposits under trust-type rather than brokerage-type investment products. Thus financial products' differences verified, but statistical subcategory inclusion and amounts not proven.",
+        "effective_date_or_scope": "KOFIA_2026_JAN31_AGGREGATED_ASSET_CLASS_LABEL_VERIFIED_BROKERAGE_PRODUCTS_DISTINGUISHED_SUBCATEGORY_REPORTING_CODE_NOT_DISCLOSED",
+        "disposition": "Video question answered at defensible educational level: '예적금 등' is a statistical bucket, not evidence of brokerage investors buying bank term deposits. Do not assert 39,834억원 consists entirely of cash deposits or includes RP; exact KOFIA classification remains OPEN. Nonofficial table corrected totals documented in knowledge/VIDEO115_KOFIA_202601_CORRECTED_TOTALS_AND_ASSET_CATEGORY_DEFINITION_20261021.md."
       }
     },
     {
@@ -440,6 +471,7 @@
     "2026 March anniversary promotions are expired or conditional; no guaranteed cash award in October.",
     "2026-10-18 the exact 2016-03-14 start date now primary confirmed via FSC 2016 release. KOFIA Jan2026 ETF46.8/stock34.2 as official-announcement contemporaneous reporting only, 8.7% bank deposits/cash instrument still primary-table/label unverified.",
     "2026-10-20 public Korean full transcript difference resolved as only overlapping duplicate source SRT cues; original cues preserved. Original audio/frame validation remains unperformed.",
-    "Official KOFIA HWPX original total cells for three ISA account types are arithmetically inconsistent with item sums; use corrected item sums and independently published January valuation totals, not erroneous printed totals."
+    "Official KOFIA HWPX original total cells for three ISA account types are arithmetically inconsistent with item sums; use corrected item sums and independently published January valuation totals, not erroneous printed totals.",
+    "2026-10-21 unofficial corrected totals published separately with immutable source SHA. Brokerage '예적금 등' 39,834억원 internal categories remain undisclosed; registered product types were clarified with 2025/26 broker official descriptions, not KOFIA reporting codebook."
   ]
 }
