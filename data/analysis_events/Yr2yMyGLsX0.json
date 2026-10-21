@@ -166,13 +166,15 @@
       "timecode": "00:24:29",
       "source_cue_index": 799,
       "source_cue_start": "00:24:29.480",
-      "claim": "중개형 ISA '예적금 등 8.7%' 통계 분류에 대한 출연자의 예금·예수금 의문",
+      "claim": "2026-01 중개형 ISA '예적금 등' 8.7%는 실제 공시 통계분류이며, 예수금/예탁금·RP와 은행 정기예금은 별도 상품개념이라는 방송의 질문",
       "verification": "QUALIFIED",
       "sources": [
         "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
-        "https://dis.kofia.or.kr/"
+        "https://securities.koreainvestment.com/main/mall/isa/_static/TF02ef020000.jsp",
+        "https://securities.miraeasset.com/mw/mks/mks4659/n01.do",
+        "https://www.myasset.com/myasset/static/agreement/isa_prdDsc.pdf"
       ],
-      "disposition": "2026-10-21 금투협 HWPX와 영상 캡처의 원표 라벨이 모두 '예적금 등'임은 PRIMARY_CONFIRMED. 그러나 이 통계분류의 세부 예수금·현금·예금·RP 포함 여부는 HWPX의 표에 명시되지 않았음. 계좌 내 고객예탁금과 은행 정기예금을 구별하며 중개형의 직접 은행 정기예금 구매 가능성은 미확정/비약 금지. 이 해석 주장은 QUALIFIED 유지.",
+      "disposition": "한국투자증권: 중개형 ISA 미매수 현금인 예수금은 예탁금이용료 지급 대상, 예탁금과 RP를 별도 분류. 미래에셋/유안타: 중개형의 직접 투자상품에 은행 예금을 포함하지 않고 신탁형에 예금 편입을 명시. 금투협 2026-01 '예적금 등' 39,834억원은 공시 집계 라벨로 확인됐으나 세부 보고 코드 및 은행 예금·예탁금·RP의 포함/제외 세칙은 HWPX에 없으므로 정의 중 통계 배분 부분은 검증 대기(QUALIFIED). 단순히 8.7%=은행 정기예금 또는 전부 예수금으로 단정하지 않는다.",
       "source_precision": "PRIVATE_ORIGINAL_AUTO_SRT_CUE_START"
     },
     {
@@ -293,6 +295,29 @@
       "legal_product_meaning": "QUALIFIED_SUBCOMPONENTS_NOT_DEFINED",
       "resolution": "PRIMARY_CONFIRMED_8_7_VALUE_AND_LABEL; SOURCE_TOTALS_INCORRECT",
       "report": "knowledge/VIDEO115_KOFIA_ORIGINAL_HWPX_JAN2026_87_PRIMARY_RECONCILIATION_20261021.md"
+    },
+    {
+      "metric": "KOFIA_2026_JAN_ISA_ASSET_TOTALS_RESEARCH_CORRECTION_AND_CATEGORY_DEFINITION",
+      "as_of": "2026-01-31",
+      "nonofficial_research_correction": "data/subtitles/kofia_isa_202601_corrected_asset_totals_20261021.json",
+      "official_source_original_left_unchanged": true,
+      "corrected_totals_100million_krw": {
+        "brokerage": 459229,
+        "trust": 166015,
+        "discretionary": 16330,
+        "total": 641574
+      },
+      "original_misprinted_total_cells_100million_krw": {
+        "brokerage": 346763,
+        "trust": 162742,
+        "discretionary": 13897
+      },
+      "issuer_corrected_press_release_confirmed": false,
+      "brokerage_cash_deposit_definition_education_complete": true,
+      "bank_term_deposit_vs_RP_product_distinction_verified": true,
+      "statistical_label_subcategory_breakdown_verified": false,
+      "educational_disposition": "Do not attribute the 8.7% to any specific bank deposit, customer cash or RP subtype without KOFIA category codebook.",
+      "report": "knowledge/VIDEO115_KOFIA_202601_CORRECTED_TOTALS_AND_ASSET_CATEGORY_DEFINITION_20261021.md"
     }
   ],
   "relations": [
@@ -307,7 +332,7 @@
       "detail": "#109 withdrawal principal limit vs taxable profits"
     }
   ],
-  "verification_status": "V3_APPROVED_13_SCOPED_KOFIA_JAN2026_ASSET_MIX_PRIMARY_MATCH_WITH_SOURCE_TOTAL_CELL_ERRORS_AND_CATEGORY_DEFINITION_QUALIFIED",
+  "verification_status": "V3_APPROVED_13_SCOPED_KOFIA_JAN2026_87_CONFIRMED_RESEARCH_TOTALS_CORRECTED_LEGAL_PRODUCT_TYPES_VERIFIED_SUBCATEGORY_CODE_OPEN",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -336,7 +361,12 @@
     "asset_mix_video_screenshot_source": "USER_PROVIDED_SINGLE_FRAME_2026_10_21",
     "asset_mix_primary_hwpx_verified": true,
     "asset_mix_original_total_cells_correct": false,
-    "source_reconciliation_report": "knowledge/VIDEO115_KOFIA_ORIGINAL_HWPX_JAN2026_87_PRIMARY_RECONCILIATION_20261021.md"
+    "source_reconciliation_report": "knowledge/VIDEO115_KOFIA_ORIGINAL_HWPX_JAN2026_87_PRIMARY_RECONCILIATION_20261021.md",
+    "corrected_original_hwpx_total_cells_research_record": "data/subtitles/kofia_isa_202601_corrected_asset_totals_20261021.json",
+    "bank_deposit_vs_customer_cash_vs_RP_product_definitions_checked": true,
+    "exact_KOFIA_statistical_bucket_subcategories_confirmed": false,
+    "official_KOFIA_erratum_verified": false,
+    "product_type_evidence_report": "knowledge/VIDEO115_KOFIA_202601_CORRECTED_TOTALS_AND_ASSET_CATEGORY_DEFINITION_20261021.md"
   },
   "limitations": [
     "2026-10-21 original KOFIA HWPX and video screenshot primary matched for category '예적금 등' 8.7%, yet official HWPX category total cells contain errors and internal legal instrument composition is undefined.",
@@ -346,6 +376,7 @@
     "A single-person one ISA rule and transfer conversion differ; do not open independent extra tax-free ISA",
     "2026 March anniversary promotions are expired or conditional; no guaranteed cash award in October.",
     "Same video first-party Korean auto-caption full-body whitespace-normalized hash comparison does not independently validate spoken phonemes or video frames. Differences are NOT proof uploaded SRT source is corrupt.",
-    "Original HWPX total cells printed as brokerage 346,763, trust 162,742, discretionary 13,897 (억원) contradict Jan2026 item sums 459,229/166,015/16,330 and independent KOFIA-reported figures; do not use printed totals."
+    "Original HWPX total cells printed as brokerage 346,763, trust 162,742, discretionary 13,897 (억원) contradict Jan2026 item sums 459,229/166,015/16,330 and independent KOFIA-reported figures; do not use printed totals.",
+    "2026-10-21 corrected data totals are RESEARCH nonofficial, not an issuer-published erratum. For original KOFIA HWPX '예적금 등' internal inclusion/amount breakdown remains unpublished; specific asset composition cannot be inferred from the category name."
   ]
 }
