@@ -152,13 +152,13 @@
       "timecode": "00:24:10",
       "source_cue_index": 789,
       "source_cue_start": "00:24:10.559",
-      "claim": "중개형 ISA 구성비 ETF 46%, 주식 34%, 예금성 8.7%라는 영상 차트",
-      "verification": "QUALIFIED",
+      "claim": "2026년 1월 중개형 ISA 자산구성 ETF 46.8%, 주식 34.2%, '예적금 등' 8.7%가 영상과 금융투자협회 원표에서 일치",
+      "verification": "PRIMARY_CONFIRMED",
       "sources": [
-        "https://www.newsis.com/view/NISX20260226_0003527439",
-        "https://dis.kofia.or.kr/"
+        "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
+        "https://www.yna.co.kr/amp/view/AKR20260324143900008"
       ],
-      "disposition": "2026-02-26 금융투자협회 발표를 언론이 전달한 2026-01 말 투자중개형 ISA 자산 ETF 46.8%, 국내주식 34.2%는 영상의 반올림 46%/34%와 대략 부합. 하지만 영상의 '예금(성) 8.7%' 원표/항목 정의와 시점 일치 여부는 아직 공식 금투협 월별 상품 분류 원자료 및 화면을 직접 대조하지 못하여 미확정. ETF 비중46.8%가 전체 ISA(신탁형 포함)의 ETF 비율인 것처럼 쓰면 안 됨.",
+      "disposition": "2026-10-21 사용자 제공 금융투자협회 2026-02-26 보도자료 원본 HWPX의 '26.1월 ISA 상품별 운용 현황' 중개형 행에서 ETF215,090억원(46.8%), 주식157,195억원(34.2%), 예적금 등39,834억원(8.7%)를 확인하고, 사용자 영상 24:13 캡처에서 이 세 비율 및 '예적금등'을 픽셀 대조. 구성항목 직접 합산 분모는 459,229억원이다. 공식 원표의 '합계 346,763억원'은 수치 오기로 39,834/346,763은 8.7%가 아니다. 수정 분모는 항목별 합산 및 2026-03-25 금투협 인용 독립 보도와 일치. 해당 통계가 중개형에서 은행 정기예금을 직접 매수할 수 있음을 뜻하지 않는다.",
       "source_precision": "PRIVATE_ORIGINAL_AUTO_SRT_CUE_START"
     },
     {
@@ -166,12 +166,13 @@
       "timecode": "00:24:29",
       "source_cue_index": 799,
       "source_cue_start": "00:24:29.480",
-      "claim": "중개형 ISA에서 예금성 8.7%라는 표기에 대한 출연자의 분류 의문",
+      "claim": "중개형 ISA '예적금 등 8.7%' 통계 분류에 대한 출연자의 예금·예수금 의문",
       "verification": "QUALIFIED",
       "sources": [
+        "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
         "https://dis.kofia.or.kr/"
       ],
-      "disposition": "중개형 ISA에서는 예금·예수금·RP·현금성투자상품 분류가 통계 표와 상품명에 따라 달라짐. '예금성' 8.7%라는 그래프 라벨만으로 은행 예금이 들어 있음을 단정하지 않는다.",
+      "disposition": "2026-10-21 금투협 HWPX와 영상 캡처의 원표 라벨이 모두 '예적금 등'임은 PRIMARY_CONFIRMED. 그러나 이 통계분류의 세부 예수금·현금·예금·RP 포함 여부는 HWPX의 표에 명시되지 않았음. 계좌 내 고객예탁금과 은행 정기예금을 구별하며 중개형의 직접 은행 정기예금 구매 가능성은 미확정/비약 금지. 이 해석 주장은 QUALIFIED 유지.",
       "source_precision": "PRIVATE_ORIGINAL_AUTO_SRT_CUE_START"
     },
     {
@@ -189,8 +190,8 @@
     }
   ],
   "claim_classification_tally": {
-    "QUALIFIED": 11,
-    "PRIMARY_CONFIRMED": 2
+    "QUALIFIED": 10,
+    "PRIMARY_CONFIRMED": 3
   },
   "actionable_guidance": [
     "Treat financial-association investor count series as dated snapshots; do not use Jan 2026 approximately 807m individual ISA accounts and KRW54.7tn for later 2026 without updating the series.",
@@ -230,12 +231,13 @@
       "original_monthly_table_independently_exported": false
     },
     {
-      "metric": "ORIGINAL_VIDEO_2026_ISA_MIX_UNCONFIRMED",
+      "metric": "HISTORICAL_20261018_ORIGINAL_VIDEO_ISA_MIX_UNCONFIRMED_SUPERSEDED_20261021",
       "etf_share_video_pct": 46,
       "stocks_share_video_pct": 34,
       "deposit_like_video_pct": 8.7,
       "source_table_visual_and_denominator_verified": false,
-      "status": "OPEN_SCREEN_AND_ORIGINAL_2026_KOFIA_TABLE"
+      "status": "OPEN_SCREEN_AND_ORIGINAL_2026_KOFIA_TABLE",
+      "superseded_by": "KOFIA_JAN2026_VIDEO_SCREEN_AND_ORIGINAL_HWPX_PRIMARY_CONFIRMED_20261021"
     },
     {
       "metric": "KOREA_ISA_ANNIVERSARY_2026_MARCH",
@@ -259,9 +261,38 @@
       "video_rounded_etf_percent": 46,
       "video_rounded_equity_percent": 34,
       "video_bank_deposit_cash_like_percent": 8.7,
-      "bank_deposit_cash_like_percent_primary_table_verified": false,
+      "bank_deposit_cash_like_percent_primary_table_verified": true,
       "original_kofia_monthly_table_downloaded": false,
-      "source": "https://www.newsis.com/view/NISX20260226_0003527439"
+      "source": "https://www.newsis.com/view/NISX20260226_0003527439",
+      "superseded_by": "KOFIA_JAN2026_VIDEO_SCREEN_AND_ORIGINAL_HWPX_PRIMARY_CONFIRMED_20261021"
+    },
+    {
+      "metric": "KOFIA_JAN2026_VIDEO_SCREEN_AND_ORIGINAL_HWPX_PRIMARY_CONFIRMED_20261021",
+      "data_as_of": "2026-01-31",
+      "source_pub_date": "2026-02-26",
+      "official_source": "https://www.kofia.or.kr/brd/m_211/view.do?seq=327",
+      "original_hwpx_sha256": "4ebe9e5af9cacb31ed66125a8bd3f6c79fda7e29bb94ce7adcb3c972f1b692a8",
+      "image_sha256": "f015f3ec1facd222924855c29d5a99c87508c7ae2f2700bc7364e5e5ba1da9f0",
+      "account_type": "투자중개형",
+      "category_label": "예적금 등",
+      "deposit_like_amount_100million_krw": 39834,
+      "deposit_like_percent": 8.7,
+      "etf_amount_100million_krw": 215090,
+      "etf_pct": 46.8,
+      "stock_amount_100million_krw": 157195,
+      "stock_pct": 34.2,
+      "denominator_corrected_from_category_sum_100million_krw": 459229,
+      "published_total_cell_100million_krw": 346763,
+      "published_total_cell_error_confirmed": true,
+      "other_type_category_sum_corrected_100million_krw": {
+        "trust": 166015,
+        "discretionary": 16330,
+        "total": 641574
+      },
+      "independent_total_check": "https://www.yna.co.kr/amp/view/AKR20260324143900008",
+      "legal_product_meaning": "QUALIFIED_SUBCOMPONENTS_NOT_DEFINED",
+      "resolution": "PRIMARY_CONFIRMED_8_7_VALUE_AND_LABEL; SOURCE_TOTALS_INCORRECT",
+      "report": "knowledge/VIDEO115_KOFIA_ORIGINAL_HWPX_JAN2026_87_PRIMARY_RECONCILIATION_20261021.md"
     }
   ],
   "relations": [
@@ -276,7 +307,7 @@
       "detail": "#109 withdrawal principal limit vs taxable profits"
     }
   ],
-  "verification_status": "V3_APPROVED_13_SCOPED_KOFIA_ISA_DATA_EDUCATION_937_PRIVATE_CUES_WITH_ORIGINAL_CHART_OPEN",
+  "verification_status": "V3_APPROVED_13_SCOPED_KOFIA_JAN2026_ASSET_MIX_PRIMARY_MATCH_WITH_SOURCE_TOTAL_CELL_ERRORS_AND_CATEGORY_DEFINITION_QUALIFIED",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -292,7 +323,7 @@
     "original_audio_verified": false,
     "original_frames_verified": false,
     "full_source_text_publicly_uploaded": false,
-    "public_private_fullbody_status": "DIFFERENT_KOREAN_ASR",
+    "public_private_fullbody_status": "EXACT_KOREAN_FULLBODY_MATCH_AFTER_DUPLICATE_SOURCE_CUE_DEDUP",
     "private_fullbody_normalized_chars": 12204,
     "public_fullbody_normalized_chars": 12190,
     "private_fullbody_normalized_sha256": "1788d5c0dc1a65c9b622c11e342e29df11da4948ef98b3473a34f6ddd9faa66e",
@@ -300,15 +331,21 @@
     "public_language": "ko",
     "raw_audio_verified": false,
     "raw_frames_verified": false,
-    "compared_at": "2026-10-18"
+    "compared_at": "2026-10-18",
+    "asset_mix_video_screenshot_checked": true,
+    "asset_mix_video_screenshot_source": "USER_PROVIDED_SINGLE_FRAME_2026_10_21",
+    "asset_mix_primary_hwpx_verified": true,
+    "asset_mix_original_total_cells_correct": false,
+    "source_reconciliation_report": "knowledge/VIDEO115_KOFIA_ORIGINAL_HWPX_JAN2026_87_PRIMARY_RECONCILIATION_20261021.md"
   },
   "limitations": [
-    "No exact KOFIA PDF/CSV monthly individual chart-to-slide reconciliation",
+    "2026-10-21 original KOFIA HWPX and video screenshot primary matched for category '예적금 등' 8.7%, yet official HWPX category total cells contain errors and internal legal instrument composition is undefined.",
     "KOFIA approx807만 Jan2026 is not 2026-10 active subscriber count",
     "Video stated 806만 and 54조 could be rounded or snapshot timing; not exact 807만 54.7조 in all cases",
     "A trust ISA does not legally mean deposits only",
     "A single-person one ISA rule and transfer conversion differ; do not open independent extra tax-free ISA",
     "2026 March anniversary promotions are expired or conditional; no guaranteed cash award in October.",
-    "Same video first-party Korean auto-caption full-body whitespace-normalized hash comparison does not independently validate spoken phonemes or video frames. Differences are NOT proof uploaded SRT source is corrupt."
+    "Same video first-party Korean auto-caption full-body whitespace-normalized hash comparison does not independently validate spoken phonemes or video frames. Differences are NOT proof uploaded SRT source is corrupt.",
+    "Original HWPX total cells printed as brokerage 346,763, trust 162,742, discretionary 13,897 (억원) contradict Jan2026 item sums 459,229/166,015/16,330 and independent KOFIA-reported figures; do not use printed totals."
   ]
 }
