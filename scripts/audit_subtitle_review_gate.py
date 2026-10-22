@@ -106,6 +106,34 @@ def registered_sources(root):
             registry[video_id] = {"sha256": sha, "cue_count": row["cue_count"]}
         if len(new_ids) != 29:
             raise ValueError("BATCH_101_129_MISSING_VIDEOS")
+    # 2026-10-22: Independently verified single uploaded #130 original SRT.
+    # Preserve all prior batch source-integrity totals and IDs.
+    one30 = root / "data/subtitles/registry_130_20261022.json"
+    if one30.is_file():
+        extra = load(one30)
+        items = extra.get("items", [])
+        if (extra.get("uploaded_private_individual_srt_count") != 1
+                or extra.get("raw_srt_bytes") != 132206
+                or extra.get("total_cues") != 1697
+                or extra.get("source_intake_sha256")
+                != "2bb3202be49a167d04e61771a8a10039b228687b0341496fbc1545c9e3c5407b"
+                or len(items) != 1):
+            raise ValueError("VIDEO130_SOURCE_INTAKE_PROVENANCE_INVALID")
+        row = items[0]
+        vid, sha = row.get("video_id"), row.get("sha256")
+        if (vid != "SaNok0umUQY" or row.get("roster_no") != 130
+                or row.get("roster_no") != roster.get(vid)
+                or sha != extra["source_intake_sha256"]
+                or vid in registry
+                or row.get("cue_count") != 1697
+                or row.get("raw_srt_bytes") != 132206
+                or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                or row.get("v3_status") != "APPROVED"
+                or row.get("full_transcript_reviewed") is not True
+                or row.get("public_same_video_ko_normalized_chars") != 22900
+                or row.get("private_dedup_ko_normalized_sha256") != row.get("public_ko_normalized_sha256")):
+            raise ValueError("VIDEO130_UNTRUSTED_SOURCE_PROMOTION")
+        registry[vid] = {"sha256": sha, "cue_count": row["cue_count"]}
     return registry
 
 
