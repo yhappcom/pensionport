@@ -1,0 +1,832 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-13",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "roster_no": 41,
+  "video_id": "jdg_4nQUCVU",
+  "title": "현명한 자산배분 투자 — 수익률 분산과 복리, 상관관계, 최적화, 장기투자 한계",
+  "source_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU",
+  "video_published_date": "NOT_INDEPENDENTLY_VERIFIED",
+  "subtitle_sha256": "27bfe3e93b1c4007da77d91aab367ace57f191a665ed2d4615e6293650ca5766",
+  "cue_count": 944,
+  "raw_transcript_publicly_stored": false,
+  "audio_checked": false,
+  "frames_checked": false,
+  "core_message": "변동성·기하평균·분산효과 수학은 채택하지만 3% 예금 절대 패배, 10년·30년 무손실·고정 8% 성과 및 상관분산 항상 수익 증가라는 과장은 제거한다.",
+  "limitations": [
+    "원서 서지·상세 실험 시계열과 1926~1998 표 숫자 미독립재현.",
+    "원음·화면·공개 ASR 전체 전문 대조 미실시.",
+    "원본 비공개 SRT ZIP 공개저장 없음.",
+    "책에서 인용된 8.4% vs >15% 백테스트 성과는 원본 표 없이 독립 재현되지 않았으며 미래 기대수익률로 사용 금지.",
+    "리밸런싱과 낮은 상관관계가 언제나 수익률도 높인다는 절대명제는 오해; 거래비용·환율·시장환경 중요.",
+    "+30%/-10% 독립 동전의 단일 복리 약8.1665%, 두 동전 50:50 반년 독립·연도 말 리밸런싱 약9.0794%는 수학적 검증 완료.",
+    "원저 출판연도는 McGraw-Hill 자체 서지로 2000-09-22 확인되었으나 저서 통계·대체 자산 8.4 vs 15% 실험 전체는 독립자료/프로그램 재현 미완료."
+  ],
+  "existing_registry_srt": {
+    "sha256": "27bfe3e93b1c4007da77d91aab367ace57f191a665ed2d4615e6293650ca5766",
+    "cue_count": 944,
+    "last_sec": 2110.8,
+    "raw_srt_bytes": 75798,
+    "verified_same_bytes": true,
+    "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd"
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "27bfe3e93b1c4007da77d91aab367ace57f191a665ed2d4615e6293650ca5766",
+    "original_cue_count": 944,
+    "original_raw_bytes": 75798,
+    "original_srt_end_sec": 2110.8,
+    "evidence_reference": "Private 1-70.zip 1-70/youtube-transcript-jdg_4nQUCVU.srt 944 cues/75798 bytes SHA matched registry; full 35m11s textual timeline reviewed.",
+    "limitations": "Source-book numerical chart, independent public ASR, audio and original video frame comparison unavailable.",
+    "audio_checked": false,
+    "frames_checked": false,
+    "public_transcript_text_exact_match": "NOT_TESTED_NONBLOCKING",
+    "precise_timing_verified": false
+  },
+  "verification_status": "EDUCATIONAL_35_CLAIM_SCOPED_944_SOURCE_CUES_SHA_MATCHED_AUDIO_FRAMES_UNVERIFIED",
+  "relations": [
+    {
+      "type": "REINFORCE",
+      "related_video_id": "YYZyCr7uapw",
+      "theme": "장기 리밸런싱·주식채권 위험 노출"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "jdg_4nQUCVU-01",
+      "timecode": "00:00:27",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=27s",
+      "source_paraphrase": "장기 분산의 효과를 수학과 데이터로 검증한다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "분산·상관·복리·재조정은 수학적 모델이 가능하나 미래 수익보증은 아니다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "분산·상관·복리·재조정은 수학적 모델이 가능하나 미래 수익보증은 아니다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "분산·상관·복리·재조정은 수학적 모델이 가능하나 미래 수익보증은 아니다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 27,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-02",
+      "timecode": "00:02:06",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=126s",
+      "source_paraphrase": "번스타인의 The Intelligent Asset Allocator가 2000년 9월 출간되어 닷컴버블 붕괴 직전 시기에 있었다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "출판사 McGraw-Hill 공식 서지는 초판 2000년 9월22일 출판으로 명시. 책 본문 예측 발언과 닷컴 버블 폭락의 날짜 비교는 별도 해석이며 출간 날짜 자체 확인.",
+      "official_sources": [
+        "https://www.mheducation.com/highered/mhp/product/intelligent-asset-allocator-hc.html"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "출판사 McGraw-Hill 공식 서지는 초판 2000년 9월22일 출판으로 명시. 책 본문 예측 발언과 닷컴 버블 폭락의 날짜 비교는 별도 해석이며 출간 날짜 자체 확인.",
+        "primary_url": "https://www.mheducation.com/highered/mhp/product/intelligent-asset-allocator-hc.html",
+        "source_finding": "출판사 McGraw-Hill 공식 서지는 초판 2000년 9월22일 출판으로 명시. 책 본문 예측 발언과 닷컴 버블 폭락의 날짜 비교는 별도 해석이며 출간 날짜 자체 확인.",
+        "effective_date_or_scope": "McGraw-Hill original publisher, September 22 2000 publication date"
+      },
+      "original_srt_anchor_start_sec": 126,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-03",
+      "timecode": "00:03:48",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=228s",
+      "source_paraphrase": "연3% 확정 예금과 연 +30%/-10% 각각 반반의 동전 사례를 비교한다.",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "실제 투자상품이 아니라 서로 다른 확률분포에 관한 교육용 가설이다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "실제 투자상품이 아니라 서로 다른 확률분포에 관한 교육용 가설이다."
+      },
+      "original_srt_anchor_start_sec": 228,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-04",
+      "timecode": "00:04:29",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=269s",
+      "source_paraphrase": "독립 +30%/-10% 동전의 장기 기하평균 성장률 8.17%.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "sqrt(1.3*0.9)-1=8.166538%; 각 연도 결과가 무작위이므로 실제30년 실현수익이 고정되지 않는다.",
+      "official_sources": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "sqrt(1.3*0.9)-1=8.166538%; 각 연도 결과가 무작위이므로 실제30년 실현수익이 고정되지 않는다.",
+        "primary_url": "https://www.sec.gov/investor/pubs/assetallocation.htm",
+        "source_finding": "sqrt(1.3*0.9)-1=8.166538%; 각 연도 결과가 무작위이므로 실제30년 실현수익이 고정되지 않는다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 269,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-05",
+      "timecode": "00:05:15",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=315s",
+      "source_paraphrase": "3% 예금은 동전투자를 장기간 절대 이기지 못한다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "30년 모두 -10%인 경로의 확률 2^-30 >0. 동전 분포의 복리기대 우위와 어떤 경로에서도 이긴다는 뜻은 다르다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "30년 모두 -10%인 경로의 확률 2^-30 >0. 동전 분포의 복리기대 우위와 어떤 경로에서도 이긴다는 뜻은 다르다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "30년 모두 -10%인 경로의 확률 2^-30 >0. 동전 분포의 복리기대 우위와 어떤 경로에서도 이긴다는 뜻은 다르다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic",
+        "correction": "30년 모두 -10%인 경로의 확률 2^-30 >0. 동전 분포의 복리기대 우위와 어떤 경로에서도 이긴다는 뜻은 다르다."
+      },
+      "original_srt_anchor_start_sec": 315,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-06",
+      "timecode": "00:05:48",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=348s",
+      "source_paraphrase": "예금수익 3%에 머물면 누구나 은퇴 빈곤이 확정된다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "자산규모·물가·저축·공적연금·소비가 다르므로 명목금리 3%만으로 노후빈곤을 단정할 수 없다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "자산규모·물가·저축·공적연금·소비가 다르므로 명목금리 3%만으로 노후빈곤을 단정할 수 없다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "자산규모·물가·저축·공적연금·소비가 다르므로 명목금리 3%만으로 노후빈곤을 단정할 수 없다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic",
+        "correction": "자산규모·물가·저축·공적연금·소비가 다르므로 명목금리 3%만으로 노후빈곤을 단정할 수 없다."
+      },
+      "original_srt_anchor_start_sec": 348,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-07",
+      "timecode": "00:06:20",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=380s",
+      "source_paraphrase": "동전 +30%와 -10%의 산술평균은 10%.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "(30-10)/2=10%; 기하평균 8.17%와 별개.",
+      "official_sources": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "(30-10)/2=10%; 기하평균 8.17%와 별개.",
+        "primary_url": "https://www.sec.gov/investor/pubs/assetallocation.htm",
+        "source_finding": "(30-10)/2=10%; 기하평균 8.17%와 별개.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 380,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-08",
+      "timecode": "00:06:45",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=405s",
+      "source_paraphrase": "첫해 +100% 이후 -50%면 산술평균 25%, 누적 수익률 0%.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "1×2×0.5=1, 2년 산술평균(100-50)/2=25%; SRT의 두 번째 수익률 부호는 자동전사 누락으로 의심되나 원음 확인 안됨.",
+      "official_sources": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "1×2×0.5=1, 2년 산술평균(100-50)/2=25%; SRT의 두 번째 수익률 부호는 자동전사 누락으로 의심되나 원음 확인 안됨.",
+        "primary_url": "https://www.sec.gov/investor/pubs/assetallocation.htm",
+        "source_finding": "1×2×0.5=1, 2년 산술평균(100-50)/2=25%; SRT의 두 번째 수익률 부호는 자동전사 누락으로 의심되나 원음 확인 안됨.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 405,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-09",
+      "timecode": "00:07:06",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=426s",
+      "source_paraphrase": "수익률 변동은 산술평균보다 기하성장률을 낮춘다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "동일 산술기대 대비 복리의 변동성 손실은 수학적 개념. 모든 투자경로에서 손해가 확정된다는 뜻 아님.",
+      "official_sources": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "동일 산술기대 대비 복리의 변동성 손실은 수학적 개념. 모든 투자경로에서 손해가 확정된다는 뜻 아님.",
+        "primary_url": "https://www.sec.gov/investor/pubs/assetallocation.htm",
+        "source_finding": "동일 산술기대 대비 복리의 변동성 손실은 수학적 개념. 모든 투자경로에서 손해가 확정된다는 뜻 아님.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 426,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-10",
+      "timecode": "00:08:00",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=480s",
+      "source_paraphrase": "표준편차는 위험과 변동성을 측정한다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "수익률 표준편차는 분산의 지표지만 극단적 손실·유동성·상관 변화 등 위험 전체는 아니다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "수익률 표준편차는 분산의 지표지만 극단적 손실·유동성·상관 변화 등 위험 전체는 아니다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "수익률 표준편차는 분산의 지표지만 극단적 손실·유동성·상관 변화 등 위험 전체는 아니다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 480,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-11",
+      "timecode": "00:08:30",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=510s",
+      "source_paraphrase": "정규분포 평균 ±1·2 표준편차의 대략적 해석.",
+      "assessment": "QUALIFIED",
+      "independent_check": "정규분포라면 대략 68%·95% 구간이지만 실제 주식 분포는 정규분포 보장이 없고 손실 범위를 한정하지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "정규분포라면 대략 68%·95% 구간이지만 실제 주식 분포는 정규분포 보장이 없고 손실 범위를 한정하지 않는다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "정규분포라면 대략 68%·95% 구간이지만 실제 주식 분포는 정규분포 보장이 없고 손실 범위를 한정하지 않는다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 510,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-12",
+      "timecode": "00:09:45",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=585s",
+      "source_paraphrase": "LTCM은 작은 관측변동성에도 파산위험이 있다고 소개한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "레버리지와 꼬리위험 예시로 타당하나 원 LTCM 장부/손실 원표는 이 연구에서 직접 확인하지 않았다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "레버리지와 꼬리위험 예시로 타당하나 원 LTCM 장부/손실 원표는 이 연구에서 직접 확인하지 않았다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "레버리지와 꼬리위험 예시로 타당하나 원 LTCM 장부/손실 원표는 이 연구에서 직접 확인하지 않았다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 585,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-13",
+      "timecode": "00:10:55",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=655s",
+      "source_paraphrase": "1926~1998 미국 국채·주식 수익률을 자산별로 비교한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "단기국채3.77, 중기5.31, 장기5.34, 대형주11, 소형주12%는 영상의 책 표 인용이며 원서 기간/재투자·비용/복제 검증 미실시.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "단기국채3.77, 중기5.31, 장기5.34, 대형주11, 소형주12%는 영상의 책 표 인용이며 원서 기간/재투자·비용/복제 검증 미실시.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "단기국채3.77, 중기5.31, 장기5.34, 대형주11, 소형주12%는 영상의 책 표 인용이며 원서 기간/재투자·비용/복제 검증 미실시.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 655,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-14",
+      "timecode": "00:12:16",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=736s",
+      "source_paraphrase": "대공황 미 대형주64%·소형주88% 손실을 인용한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "주가/총수익·고점·회복 기간과 데이터 시계열 미대조. 미래 최악 손실의 고정 상한은 아니다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "주가/총수익·고점·회복 기간과 데이터 시계열 미대조. 미래 최악 손실의 고정 상한은 아니다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "주가/총수익·고점·회복 기간과 데이터 시계열 미대조. 미래 최악 손실의 고정 상한은 아니다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 736,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-15",
+      "timecode": "00:13:14",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=794s",
+      "source_paraphrase": "5년 주식을 보유하면 수익이 충분히 보장된다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "과거에도 손실인 5년 구간이 존재하고 SEC는 단기 유동성 필요시 주식편중을 경계한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "과거에도 손실인 5년 구간이 존재하고 SEC는 단기 유동성 필요시 주식편중을 경계한다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "과거에도 손실인 5년 구간이 존재하고 SEC는 단기 유동성 필요시 주식편중을 경계한다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic",
+        "correction": "과거에도 손실인 5년 구간이 존재하고 SEC는 단기 유동성 필요시 주식편중을 경계한다."
+      },
+      "original_srt_anchor_start_sec": 794,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-16",
+      "timecode": "00:13:58",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=838s",
+      "source_paraphrase": "10년 미국 주식 투자면 원금손실 가능성이 사실상 없다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "기간이 길어져도 미래 실질/명목 손실위험이 0으로 확정되는 것은 아니며 자산·국가·시점·비용에 좌우된다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "기간이 길어져도 미래 실질/명목 손실위험이 0으로 확정되는 것은 아니며 자산·국가·시점·비용에 좌우된다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "기간이 길어져도 미래 실질/명목 손실위험이 0으로 확정되는 것은 아니며 자산·국가·시점·비용에 좌우된다.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic",
+        "correction": "기간이 길어져도 미래 실질/명목 손실위험이 0으로 확정되는 것은 아니며 자산·국가·시점·비용에 좌우된다."
+      },
+      "original_srt_anchor_start_sec": 838,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-17",
+      "timecode": "00:14:14",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=854s",
+      "source_paraphrase": "1926~1998 미국 대형주 30년 구간 연환산 8% 미만이 없었다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "원본 저서·실현 시계열 30년 롤링 수익률 표를 재구축하지 못함. 과거 미국 특정 기간의 주장으로만 표시하고 모든 미래 주식 8% 보장 불가.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "원본 저서·실현 시계열 30년 롤링 수익률 표를 재구축하지 못함. 과거 미국 특정 기간의 주장으로만 표시하고 모든 미래 주식 8% 보장 불가.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "원본 저서·실현 시계열 30년 롤링 수익률 표를 재구축하지 못함. 과거 미국 특정 기간의 주장으로만 표시하고 모든 미래 주식 8% 보장 불가.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 854,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-18",
+      "timecode": "00:15:41",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=941s",
+      "source_paraphrase": "1억원을 연8%와 연13%로 각각 30년 복리 투자한다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "1억원×1.08^30 약10억626만원, 1억원×1.13^30 약39억1159만원; 세전 고정수익률 가상계산.",
+      "official_sources": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Original user private SRT 944 cues full text review and primary SEC investor guidance; arithmetic independently recalculated, source-book table not reproduced",
+        "disposition": "1억원×1.08^30 약10억626만원, 1억원×1.13^30 약39억1159만원; 세전 고정수익률 가상계산.",
+        "primary_url": "https://www.sec.gov/investor/pubs/assetallocation.htm",
+        "source_finding": "1억원×1.08^30 약10억626만원, 1억원×1.13^30 약39억1159만원; 세전 고정수익률 가상계산.",
+        "effective_date_or_scope": "Original 1926–98 historical example scoped; general regulator education and transparent hypothetical arithmetic"
+      },
+      "original_srt_anchor_start_sec": 941,
+      "timecode_precision": "REGISTERED_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_AUTHENTICATED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-19",
+      "timecode": "00:16:01",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=961s",
+      "source_paraphrase": "같은 30년이라도 최종 수익·금액은 여전히 크게 다르다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "기간이 길수록 연환산 수익률 범위가 좁아지는 경향은 가능하나 최종 복리 금액의 차이는 크게 확대될 수 있다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "기간이 길수록 연환산 수익률 범위가 좁아지는 경향은 가능하나 최종 복리 금액의 차이는 크게 확대될 수 있다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "기간이 길수록 연환산 수익률 범위가 좁아지는 경향은 가능하나 최종 복리 금액의 차이는 크게 확대될 수 있다.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 961,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-20",
+      "timecode": "00:16:26",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=986s",
+      "source_paraphrase": "30년 장기주식투자에서 원금 손실은 절대로 없다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "미국 1926–1998년 일부 인샘플 결과는 미래 한국 투자자, 개별주식, 환율·물가 조정 실질 손실의 무가능성을 보장하지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "미국 1926–1998년 일부 인샘플 결과는 미래 한국 투자자, 개별주식, 환율·물가 조정 실질 손실의 무가능성을 보장하지 않는다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "미국 1926–1998년 일부 인샘플 결과는 미래 한국 투자자, 개별주식, 환율·물가 조정 실질 손실의 무가능성을 보장하지 않는다.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables.",
+        "correction": "미국 1926–1998년 일부 인샘플 결과는 미래 한국 투자자, 개별주식, 환율·물가 조정 실질 손실의 무가능성을 보장하지 않는다."
+      },
+      "original_srt_anchor_start_sec": 986,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-21",
+      "timecode": "00:17:20",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1040s",
+      "source_paraphrase": "단기 필요 생활비를 고변동성 주식에만 배치해서는 안 된다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "SEC는 목표 투자기간·위험감내에 맞는 주식·채권·현금 비중을 안내한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "SEC는 목표 투자기간·위험감내에 맞는 주식·채권·현금 비중을 안내한다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "SEC는 목표 투자기간·위험감내에 맞는 주식·채권·현금 비중을 안내한다.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1040,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-22",
+      "timecode": "00:17:51",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1071s",
+      "source_paraphrase": "대공황 직전 월15달러 정기적립 홍보를 한 존 래스코브 사례.",
+      "assessment": "QUALIFIED",
+      "independent_check": "1929년 신문 원문·사후배당재투자/수익률 시계열 미대조. 역사적 이야기로만 유지.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "1929년 신문 원문·사후배당재투자/수익률 시계열 미대조. 역사적 이야기로만 유지.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+        "source_finding": "1929년 신문 원문·사후배당재투자/수익률 시계열 미대조. 역사적 이야기로만 유지.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1071,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-23",
+      "timecode": "00:18:52",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1132s",
+      "source_paraphrase": "과거 주식 수익률을 그대로 미래 연금 수익률에 적용하면 위험하다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "표본기간·사업가치·금리환경 변화로 역사적 수익률이 미래를 확정하지 않음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "표본기간·사업가치·금리환경 변화로 역사적 수익률이 미래를 확정하지 않음.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "표본기간·사업가치·금리환경 변화로 역사적 수익률이 미래를 확정하지 않음.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1132,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-24",
+      "timecode": "00:21:37",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1297s",
+      "source_paraphrase": "독립 동전 두 개를 각 절반에 배치하면 표준편차20%가 약14%가 된다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "동일 각 σ20% 독립 시 σportfolio=sqrt(.5²×.2²+.5²×.2²)=14.1421%. 각년 50:50 비중 리밸런싱 전제.",
+      "official_sources": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "동일 각 σ20% 독립 시 σportfolio=sqrt(.5²×.2²+.5²×.2²)=14.1421%. 각년 50:50 비중 리밸런싱 전제.",
+        "primary_url": "https://www.sec.gov/investor/pubs/assetallocation.htm",
+        "source_finding": "동일 각 σ20% 독립 시 σportfolio=sqrt(.5²×.2²+.5²×.2²)=14.1421%. 각년 50:50 비중 리밸런싱 전제.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1297,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-25",
+      "timecode": "00:21:54",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1314s",
+      "source_paraphrase": "독립 동전 두 개를 리밸런싱한 복리성장률은 약9.08%다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "두 동전 포트 1년 수익률 -10%, +10%, +30%, 확률 각25%,50%,25%. e^[.25ln(.9)+.5ln(1.1)+.25ln(1.3)]-1=9.0794%; 영상 반올림 9.08% 맞음.",
+      "official_sources": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "두 동전 포트 1년 수익률 -10%, +10%, +30%, 확률 각25%,50%,25%. e^[.25ln(.9)+.5ln(1.1)+.25ln(1.3)]-1=9.0794%; 영상 반올림 9.08% 맞음.",
+        "primary_url": "https://www.sec.gov/investor/pubs/assetallocation.htm",
+        "source_finding": "두 동전 포트 1년 수익률 -10%, +10%, +30%, 확률 각25%,50%,25%. e^[.25ln(.9)+.5ln(1.1)+.25ln(1.3)]-1=9.0794%; 영상 반올림 9.08% 맞음.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1314,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-26",
+      "timecode": "00:22:56",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1376s",
+      "source_paraphrase": "상관계수 +1이면 비슷한 두 자산 분산효과가 없고 -1이면 커진다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "σ가 같은 완전 상관+1일 때 위험감소가 없음. σ 비율에 따라 상관 -1의 무위험 조합 가능 가중치가 달라지며 현실에서 안정적 -1 유지 어려움.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "σ가 같은 완전 상관+1일 때 위험감소가 없음. σ 비율에 따라 상관 -1의 무위험 조합 가능 가중치가 달라지며 현실에서 안정적 -1 유지 어려움.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "σ가 같은 완전 상관+1일 때 위험감소가 없음. σ 비율에 따라 상관 -1의 무위험 조합 가능 가중치가 달라지며 현실에서 안정적 -1 유지 어려움.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1376,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-27",
+      "timecode": "00:23:33",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1413s",
+      "source_paraphrase": "상관 낮은 자산을 섞고 재조정하면 수익과 위험이 언제나 동시에 개선된다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "독립 코인 가설에서는 그렇지만 현실에서는 기대수익·상관 추정오차, 하락 동조, 거래비용으로 총수익이 낮아질 수도 있다.",
+      "official_sources": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "독립 코인 가설에서는 그렇지만 현실에서는 기대수익·상관 추정오차, 하락 동조, 거래비용으로 총수익이 낮아질 수도 있다.",
+        "primary_url": "https://www.sec.gov/investor/pubs/assetallocation.htm",
+        "source_finding": "독립 코인 가설에서는 그렇지만 현실에서는 기대수익·상관 추정오차, 하락 동조, 거래비용으로 총수익이 낮아질 수도 있다.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables.",
+        "correction": "독립 코인 가설에서는 그렇지만 현실에서는 기대수익·상관 추정오차, 하락 동조, 거래비용으로 총수익이 낮아질 수도 있다."
+      },
+      "original_srt_anchor_start_sec": 1413,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-28",
+      "timecode": "00:24:35",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1475s",
+      "source_paraphrase": "주식과 채권을 결합하면 동일 위험 대비 우월한 조합이 존재할 수 있다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "상관·기대수익·변동성에 따라 기하학적 효율경계가 변화하고 위험대비 개선이 가능하지만 미래 모든 경우 보장 아님.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "상관·기대수익·변동성에 따라 기하학적 효율경계가 변화하고 위험대비 개선이 가능하지만 미래 모든 경우 보장 아님.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "상관·기대수익·변동성에 따라 기하학적 효율경계가 변화하고 위험대비 개선이 가능하지만 미래 모든 경우 보장 아님.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1475,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-29",
+      "timecode": "00:26:10",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1570s",
+      "source_paraphrase": "해외·소형주·리츠로 더 넓은 분산이 가능하다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "다른 자산군 보유가 지역 위험을 분산할 수 있지만 단순 종목수만으로 실질 분산 효과 보장 불가. 환율·통화·부동산시장 노출도 검토.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "다른 자산군 보유가 지역 위험을 분산할 수 있지만 단순 종목수만으로 실질 분산 효과 보장 불가. 환율·통화·부동산시장 노출도 검토.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "다른 자산군 보유가 지역 위험을 분산할 수 있지만 단순 종목수만으로 실질 분산 효과 보장 불가. 환율·통화·부동산시장 노출도 검토.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1570,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-30",
+      "timecode": "00:27:18",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1638s",
+      "source_paraphrase": "1970–1998 5년 평균분산 최적화 전략 연8.4%, 6자산균등 전략 연15% 이상이라고 인용한다.",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "책 본문 실험의 실제 표·자산집합·룩백/홀딩기간·비용·순수익 계산을 독립 재현하지 못함. 원저자 인용 사례 이상으로 승인 불가.",
+      "official_sources": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "책 본문 실험의 실제 표·자산집합·룩백/홀딩기간·비용·순수익 계산을 독립 재현하지 못함. 원저자 인용 사례 이상으로 승인 불가."
+      },
+      "original_srt_anchor_start_sec": 1638,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-31",
+      "timecode": "00:28:04",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1684s",
+      "source_paraphrase": "직전 5년 자료로 만든 최적 포트가 다음 5년에도 최적이라고 할 수 없다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "과거 수익률·분산·상관관계의 추정오차 때문에 평균분산최적화 결과의 비중이 극단적으로 편향될 수 있음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "과거 수익률·분산·상관관계의 추정오차 때문에 평균분산최적화 결과의 비중이 극단적으로 편향될 수 있음.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "과거 수익률·분산·상관관계의 추정오차 때문에 평균분산최적화 결과의 비중이 극단적으로 편향될 수 있음.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1684,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-32",
+      "timecode": "00:29:19",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1759s",
+      "source_paraphrase": "4자산 미국대형·미국소형·해외주식·단기채권만으로 실전 분산구성이 가능하다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "실용 예시지만 미국 거주자 설정과 한국 투자자의 세금/통화/투자기간이 다르고 최적 보장은 없음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "실용 예시지만 미국 거주자 설정과 한국 투자자의 세금/통화/투자기간이 다르고 최적 보장은 없음.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "실용 예시지만 미국 거주자 설정과 한국 투자자의 세금/통화/투자기간이 다르고 최적 보장은 없음.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1759,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-33",
+      "timecode": "00:30:40",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1840s",
+      "source_paraphrase": "공격적도 주식75% 이내, 보수적도25% 이상이 반드시 옳다.",
+      "assessment": "CONTRADICTED",
+      "independent_check": "영상 소개한 번스타인 선호 범위이나 일반 법/보편 위험한계가 아님. SEC는 투자기간에 따라 주식100% 또는 현금100%도 합리적일 수 있는 예시 제시.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "영상 소개한 번스타인 선호 범위이나 일반 법/보편 위험한계가 아님. SEC는 투자기간에 따라 주식100% 또는 현금100%도 합리적일 수 있는 예시 제시.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "영상 소개한 번스타인 선호 범위이나 일반 법/보편 위험한계가 아님. SEC는 투자기간에 따라 주식100% 또는 현금100%도 합리적일 수 있는 예시 제시.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables.",
+        "correction": "영상 소개한 번스타인 선호 범위이나 일반 법/보편 위험한계가 아님. SEC는 투자기간에 따라 주식100% 또는 현금100%도 합리적일 수 있는 예시 제시."
+      },
+      "original_srt_anchor_start_sec": 1840,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-34",
+      "timecode": "00:31:20",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1880s",
+      "source_paraphrase": "포트 공격성은 개별 주식이 아니라 오직 주식/채권 비중이 결정한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "주식/채권 비중은 중요한 1차 위험요인이지만 종목 집중·레버리지·듀레이션·신용·환율 위험도 별도.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "주식/채권 비중은 중요한 1차 위험요인이지만 종목 집중·레버리지·듀레이션·신용·환율 위험도 별도.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "주식/채권 비중은 중요한 1차 위험요인이지만 종목 집중·레버리지·듀레이션·신용·환율 위험도 별도.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1880,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    },
+    {
+      "claim_id": "jdg_4nQUCVU-35",
+      "timecode": "00:32:41",
+      "watch_url": "https://www.youtube.com/watch?v=jdg_4nQUCVU&t=1961s",
+      "source_paraphrase": "주식40%·채권60%는 모든 은퇴자에게 가장 안전하다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "개인 연금소득, 장수/의료비, 물가 및 채권위험에 따라 40/60이 항상 가장 안전하거나 최적은 아니다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "Private registered 944-cue original SRT, direct arithmetic and official SEC investment guidance. Source book experimental return chart not independently replicated.",
+        "disposition": "개인 연금소득, 장수/의료비, 물가 및 채권위험에 따라 40/60이 항상 가장 안전하거나 최적은 아니다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "개인 연금소득, 장수/의료비, 물가 및 채권위험에 따라 40/60이 항상 가장 안전하거나 최적은 아니다.",
+        "effective_date_or_scope": "Independent mathematical model and SEC public investor principles; dated book figures source-only pending original tables."
+      },
+      "original_srt_anchor_start_sec": 1961,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_AUDIO_VERIFIED"
+    }
+  ],
+  "claim_count": 35
+}
