@@ -44,7 +44,30 @@
     "limitations": "Neither original audio waveform nor video frames independently checked, only user SRT versus public same-video Korean transcript; ASR transcription errors possible; reader comments are self-reports and no account statements can be authenticated.",
     "original_audio_checked": false,
     "frames_checked": false,
-    "user_original_srt_publicly_uploaded": false
+    "user_original_srt_publicly_uploaded": false,
+    "media_independent_audit_20261022": {
+      "result": "INCOMPLETE_ACCESS_BLOCKED",
+      "html5_video_element_verified": true,
+      "observed_player_state": {
+        "current_time_seconds_approx": 1235,
+        "duration_seconds": 3654.141,
+        "ready_state": 4,
+        "video_width": 1280,
+        "video_height": 720,
+        "paused": true
+      },
+      "sample_times_requested": [
+        "00:20:28",
+        "00:38:14",
+        "00:46:58"
+      ],
+      "audio_extracted": false,
+      "media_frames_captured": false,
+      "media_visual_content_verified": false,
+      "media_audio_content_verified": false,
+      "subscriber_private_account_returns_verification": "EXCLUDED_BY_USER_REQUEST",
+      "report": "knowledge/VIDEO130_MEDIA_INDEPENDENT_INSPECTION_ATTEMPT_20261022.md"
+    }
   },
   "claims": [
     {
@@ -569,6 +592,7 @@
     "Red-flag educational claims (DCA solves all losses, 30+ years never fail, non-sale property has no loss) corrected in evidence fields.",
     "Withdrawal ages, ISA and pension contribution/tax credit caps depend on participant and current laws.",
     "All private subscriber wealth reports and book/market performance claims remain conditional; do not certify private balances.",
-    "Video original audio and frames not inspected; SRT/public Korean text matched only after duplicate cue collapse."
+    "Video original audio and frames not inspected; SRT/public Korean text matched only after duplicate cue collapse.",
+    "2026-10-22 media independent audio/frame check attempted but access restricted: no audio samples or verifiable video pixels; private subscriber account returns excluded from scope by user request."
   ]
 }
