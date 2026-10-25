@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
   "review_date": "2026-10-26",
-  "stage": "EVIDENCE_REVIEWED",
-  "approval": "APPROVED",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
   "roster_no": 144,
   "video_id": "GvGNAsizyp8",
   "title": "고수들의 투자 공부법 | 투자자 루틴 따라하기 3편 ver2026",
@@ -22,7 +22,7 @@
   "source_audit": {
     "full_transcript_reviewed": true,
     "video_id_matched": true,
-    "source_kind": "ORIGINAL_SRT_DIRECT_ZIP_RECONCILED",
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
     "original_srt_sha256": "d5f2f13cab031491d3f49e723d4adc790e04674fe7916be52d39f71e3242c376",
     "original_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
     "cue_count": 774,
@@ -33,7 +33,8 @@
     "public_full_ko_transcript_checked": false,
     "subscriber_account_proof_excluded": true,
     "source_registry": "data/subtitles/registry_141_145_20261026.json",
-    "limitations": "Public audio/frames and public Korean video transcript full-body equivalence not established; source SRT entire cue chain and important original utterance context directly read; product promotion visual/terms contemporaneous archive not confirmed."
+    "limitations": "Public audio/frames and public Korean video transcript full-body equivalence not established; source SRT entire cue chain and important original utterance context directly read; product promotion visual/terms contemporaneous archive not confirmed. User provided original SRT is not a verified audio waveform or official alternative transcript.",
+    "evidence_reference": "Private original SRT bytes extracted from 101-200.zip, SHA-256 and sequential numbered cues independently recomputed; material claims inspected with adjacent auto-caption context, then checked against issuer/regulator original pages where cited. See knowledge/VIDEO141_145_FULL_V3_SOURCE_EVIDENCE_REVIEW_20261026.md."
   },
   "claims": [
     {
