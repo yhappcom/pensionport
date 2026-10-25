@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
   "review_date": "2026-10-26",
-  "stage": "EVIDENCE_REVIEWED",
-  "approval": "APPROVED",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
   "roster_no": 142,
   "video_id": "faqbdJ1C43Y",
   "title": "월급 100만원, 현실적인 투자 계획 짜주세요! | ASK곰희 ver2026",
@@ -22,7 +22,7 @@
   "source_audit": {
     "full_transcript_reviewed": true,
     "video_id_matched": true,
-    "source_kind": "ORIGINAL_SRT_DIRECT_ZIP_RECONCILED",
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
     "original_srt_sha256": "7505f16a7e74ad54033a1b7f5d6a48b0558e37bf90cdb678f59bcae4989318ed",
     "original_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
     "cue_count": 1026,
@@ -33,7 +33,8 @@
     "public_full_ko_transcript_checked": false,
     "subscriber_account_proof_excluded": true,
     "source_registry": "data/subtitles/registry_141_145_20261026.json",
-    "limitations": "Public audio/frames and public Korean video transcript full-body equivalence not established; source SRT entire cue chain and important original utterance context directly read; product promotion visual/terms contemporaneous archive not confirmed."
+    "limitations": "Public audio/frames and public Korean video transcript full-body equivalence not established; source SRT entire cue chain and important original utterance context directly read; product promotion visual/terms contemporaneous archive not confirmed. User provided original SRT is not a verified audio waveform or official alternative transcript.",
+    "evidence_reference": "Private original SRT bytes extracted from 101-200.zip, SHA-256 and sequential numbered cues independently recomputed; material claims inspected with adjacent auto-caption context, then checked against issuer/regulator original pages where cited. See knowledge/VIDEO141_145_FULL_V3_SOURCE_EVIDENCE_REVIEW_20261026.md."
   },
   "claims": [
     {
@@ -73,14 +74,16 @@
       "source_paraphrase": "주택청약 상품에는 매달 2만원을 납입하며 시작한다",
       "independent_check": "월2만원 자동납입은 제안된 습관이며 실제 청약 납입 인정회차·선납/납입액·상품유형별 인정기준은 별도 확인. 일률적 당첨 유리함을 보장하지 않는다.",
       "assessment": "QUALIFIED",
-      "official_sources": [],
+      "official_sources": [
+        "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp"
+      ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": null,
+        "primary_url": "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp",
         "checked_at": "2026-10-26",
-        "source_finding": "월2만원 자동납입은 제안된 습관이며 실제 청약 납입 인정회차·선납/납입액·상품유형별 인정기준은 별도 확인. 일률적 당첨 유리함을 보장하지 않는다.",
+        "source_finding": "월2만원 자동납입은 제안된 습관이며 실제 청약 납입 인정회차·선납/납입액·상품유형별 인정기준은 별도 확인. 일률적 당첨 유리함을 보장하지 않는다. Government housing fund original product terms in updated 2026-06-30 guide; historical 2026-02 rate and personal eligibility not separately confirmed.",
         "disposition": "월2만원 자동납입은 제안된 습관이며 실제 청약 납입 인정회차·선납/납입액·상품유형별 인정기준은 별도 확인. 일률적 당첨 유리함을 보장하지 않는다.",
-        "effective_date_or_scope": "2026-02 source date 2026-02-08; primary public documentation inspected as of 2026-10-26"
+        "effective_date_or_scope": "2026-02 source date 2026-02-08; primary public documentation inspected as of 2026-10-26 Historical conditions not independently snapshot-verified."
       },
       "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
     },
@@ -126,14 +129,16 @@
       "source_paraphrase": "청년형 주택청약저축 연4.5%를 5년간 월2만원에 적용하면 약130만원",
       "independent_check": "우대금리4.5% 적용 대상·소득/연령/가입조건·우대기간과 세후 금리는 개별 약관으로 검증해야 한다. 단순 2만원×60=120만원 원금은 확정, 130만원은 우대금리 가정 결과.",
       "assessment": "QUALIFIED",
-      "official_sources": [],
+      "official_sources": [
+        "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp"
+      ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": null,
+        "primary_url": "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp",
         "checked_at": "2026-10-26",
-        "source_finding": "우대금리4.5% 적용 대상·소득/연령/가입조건·우대기간과 세후 금리는 개별 약관으로 검증해야 한다. 단순 2만원×60=120만원 원금은 확정, 130만원은 우대금리 가정 결과.",
+        "source_finding": "우대금리4.5% 적용 대상·소득/연령/가입조건·우대기간과 세후 금리는 개별 약관으로 검증해야 한다. 단순 2만원×60=120만원 원금은 확정, 130만원은 우대금리 가정 결과. Government housing fund original product terms in updated 2026-06-30 guide; historical 2026-02 rate and personal eligibility not separately confirmed.",
         "disposition": "우대금리4.5% 적용 대상·소득/연령/가입조건·우대기간과 세후 금리는 개별 약관으로 검증해야 한다. 단순 2만원×60=120만원 원금은 확정, 130만원은 우대금리 가정 결과.",
-        "effective_date_or_scope": "2026-02 source date 2026-02-08; primary public documentation inspected as of 2026-10-26"
+        "effective_date_or_scope": "2026-02 source date 2026-02-08; primary public documentation inspected as of 2026-10-26 Historical conditions not independently snapshot-verified."
       },
       "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
     },
