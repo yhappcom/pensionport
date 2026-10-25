@@ -17,8 +17,8 @@
   },
   "new_claim_categories": {
     "PRIMARY_CONFIRMED": 22,
-    "CONTRADICTED": 11,
-    "QUALIFIED": 55,
+    "QUALIFIED": 62,
+    "CONTRADICTED": 4,
     "HYPOTHETICAL": 11,
     "SPEAKER_OPINION": 1
   },
@@ -157,10 +157,10 @@
   },
   "source_accuracy_limits": [
     "Video screenshots/audio not obtained and must not be claimed verified.",
-    "Formal per-company 2026 historical securities special interest rates, ISA/tax policies conditional on issuer, time, eligibility.",
-    "Subscriber private investment account yield proof explicitly EXCLUDED.",
-    "Video #139 is sponsor promotional material; no investment endorsement.",
-    "Speaker financial claims classified PRIMARY_CONFIRMED only for documented historical/scope items, other claims QUALIFIED, HYPOTHETICAL, OPINION or CONTRADICTED with correction."
+    "2026-10-26 second-pass confirms published video screenshots/audio not verified; private original SRT textual context only.",
+    "2026-10-26 second-pass confirms published video screenshots/audio not verified; private original SRT textual context only.",
+    "2026-10-26 second-pass confirms published video screenshots/audio not verified; private original SRT textual context only.",
+    "2026-10-26 second-pass confirms published video screenshots/audio not verified; private original SRT textual context only."
   ],
   "prior_research_unchanged": true,
   "main_branch_unchanged": true,
@@ -168,5 +168,63 @@
     "batch_registry": "data/subtitles/registry_131_140_20261026.json",
     "report": "knowledge/VIDEO131_140_V3_CLAIM_EVIDENCE_REVIEW_20261026.md"
   },
-  "approval_note": "Approval is educational source/evidence triage of claims, NOT acceptance of all statements as true; unconfirmed reports remain excluded from use."
+  "approval_note": "Approval is educational source/evidence triage of claims, NOT acceptance of all statements as true; unconfirmed reports remain excluded from use. Second-pass verdicts supersede first-pass claim_categories: QUALIFIED62, CONTRADICTED4, original recorded as first_pass_claim_categories_20261026.",
+  "first_pass_claim_categories_20261026": {
+    "PRIMARY_CONFIRMED": 22,
+    "CONTRADICTED": 11,
+    "QUALIFIED": 55,
+    "HYPOTHETICAL": 11,
+    "SPEAKER_OPINION": 1
+  },
+  "second_pass_source_context_regulatory_and_media_audit_20261026": {
+    "audit_at": "2026-10-26",
+    "original_private_srt_files_accessible_and_rehashed": true,
+    "source_srt_files": 10,
+    "source_srt_cues": 16411,
+    "raw_bytes": 1224188,
+    "all_sha256_match_registered": true,
+    "contradicted_claims_reviewed": 11,
+    "contradicted_remained": 4,
+    "overbroad_source_paraphrase_corrections_to_qualified": 7,
+    "reclassified_claims": [
+      "xKMPTIdMgI4-02",
+      "xKMPTIdMgI4-03",
+      "GmwmPKFY4PY-02",
+      "wnDrGtqH-yE-07",
+      "h3_r0ZKykYY-06",
+      "jMJbEelMgLA-09",
+      "jMJbEelMgLA-10"
+    ],
+    "still_contradicted": [
+      "AWULeF_xzFc-02",
+      "S9W_Qe9JrlI-03",
+      "xKMPTIdMgI4-10",
+      "wnDrGtqH-yE-05"
+    ],
+    "new_tally": {
+      "PRIMARY_CONFIRMED": 22,
+      "QUALIFIED": 62,
+      "CONTRADICTED": 4,
+      "HYPOTHETICAL": 11,
+      "SPEAKER_OPINION": 1
+    },
+    "retirement_SRT_and_legal_evidence_second_pass": true,
+    "IRP_DC_general_risk_limit_70_percent_verified": true,
+    "qualified_TDF_100_percent_exemption_verified": true,
+    "pension_savings_600_and_combined_900_tax_credit_verified": true,
+    "private_pension_1500_income_tax_threshold_is_not_withdrawal_ban": true,
+    "gift_tax_generation_skip_surcharge_basis_verified": true,
+    "rental_principal_interest_deduction_40_percent_combined_4million_won_verified": true,
+    "NPS_2026_A_value_3193511_krw_and_definition_verified": true,
+    "same_video_public_korean_fullbody_retrieved": false,
+    "video_original_audio_or_frames_verified": false,
+    "reason_media_limitations": "Third-party YouTube Korean transcript pages inaccessible by web interface; independent public transcript scraping provider reported insufficient credits; original audio/video sampled media not accessible. No spoofed verification.",
+    "sponsor_video139_8_claims_not_neutral_investor_instruction": true,
+    "subscribers_personal_actual_account_proof_excluded": true,
+    "claim_count_unchanged": 100,
+    "approved_videos_unchanged": 140,
+    "legacy_optional_verification_open24_unchanged": true,
+    "main_unchanged": true,
+    "report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+  }
 }
