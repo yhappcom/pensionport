@@ -164,7 +164,8 @@
     "Historical education recorded near 2026-02-22; current financial terms and price may differ.",
     "Automated original SRT full cues, not authenticated actual audio and video frames.",
     "Reader private brokerage returns and account statements excluded by user request.",
-    "Core claim exact expressions are summaries of source cue context; language and timing are ASR-generated."
+    "Core claim exact expressions are summaries of source cue context; language and timing are ASR-generated.",
+    "2026-10-26 source references for fund/account tax conditions distinguish the video as-of Feb/Mar and regulator's post-video Apr 2026 updates."
   ],
   "risks_and_exceptions": [
     "-71DQQIcTlc-04: 4%는 설명을 위한 미래 수익률 가정으로 보장금리·확정연금액이 아니다.",
@@ -220,7 +221,24 @@
     "public_korean_fullbody_match_unverified": true,
     "source_registry": "data/subtitles/registry_131_140_20261026.json",
     "subscriber_private_account_return_proof": "EXCLUDED_BY_USER_REQUEST",
-    "non_investment_commercial_content": false
+    "non_investment_commercial_content": false,
+    "legal_regulatory_second_pass_20261026": {
+      "date_checked": "2026-10-26",
+      "original_video_as_of": "2026-02-22",
+      "pension_savings_tax_credit_max_krw": 6000000,
+      "combined_pension_savings_IRP_tax_credit_max_krw": 9000000,
+      "extra_combined_voluntary_contributions_max_krw": 18000000,
+      "private_taxable_pension_annual_1500w_is_collection_ban": false,
+      "private_taxable_pension_annual_threshold_krw": 15000000,
+      "above_threshold_15pct_separate_income_tax_option_exists": true,
+      "employer_funded_deferred_severance_tax_treatment_separate": true,
+      "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6608",
+      "report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+    },
+    "original_video_audio_and_screen_independently_checked": false,
+    "public_korean_video_transcript_independently_fulltext_checked": false,
+    "source_file_private_SRT_context_check_passed": true,
+    "second_pass_evidence_file": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
   },
   "limitations": [
     "Evidence is source-cue and dated product scoped.",
