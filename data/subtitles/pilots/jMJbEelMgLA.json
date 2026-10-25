@@ -212,20 +212,31 @@
       "claim_id": "jMJbEelMgLA-10",
       "timecode": "00:34:44",
       "source_cue_index": 1084,
-      "source_paraphrase": "빚 갚기보다 투자가 수익이 크니 우선",
-      "assessment": "CONTRADICTED",
-      "independent_check": "대출 상환은 확정이자 절감 효과가 있지만 투자수익은 미보장·손실 가능. 고금리 채무와 비상금 상황을 무시한 보편적 투자우선 조언은 위험하다.",
+      "source_paraphrase": "대출금리가 낮다면 즉시 전액 상환하기보다 투자하여 나중에 목돈으로 상환하는 전략을 선호하지만 개인적으로는 빚 상환의 심리적 편익도 인정",
+      "assessment": "QUALIFIED",
+      "independent_check": "SRT cue1082~1116은 '금리 낮네 투자하세요'라는 낮은 대출금리 조건과 화자 자신의 조기 상환 선호를 함께 설명한다. '어떤 부채든 투자부터 하면 무조건 수익이 크다'는 기존 절대화는 부정확. 확정 대출이자 절감과 투자 원금손실 가능성, 고금리부채 우선 상환, 비상자금·세금·위험감내에 따라 결정해야 한다.",
       "official_sources": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47"
+        "https://www.consumerfinance.gov/archive/blog/servicemembers-immediate-actions-financial-success-pay-down-debt-make-plan-start-early/"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
-        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47",
+        "verdict": "QUALIFIED",
+        "primary_url": "https://www.consumerfinance.gov/archive/blog/servicemembers-immediate-actions-financial-success-pay-down-debt-make-plan-start-early/",
         "checked_at": "2026-10-26",
-        "source_finding": "대출 상환은 확정이자 절감 효과가 있지만 투자수익은 미보장·손실 가능. 고금리 채무와 비상금 상황을 무시한 보편적 투자우선 조언은 위험하다.",
-        "effective_date_or_scope": "2026-02-13 user SRT, current original source meaning checked 2026-10-26",
-        "disposition": "대출 상환은 확정이자 절감 효과가 있지만 투자수익은 미보장·손실 가능. 고금리 채무와 비상금 상황을 무시한 보편적 투자우선 조언은 위험하다.",
-        "correction": "대출 상환은 확정이자 절감 효과가 있지만 투자수익은 미보장·손실 가능. 고금리 채무와 비상금 상황을 무시한 보편적 투자우선 조언은 위험하다."
+        "source_finding": "SRT cue1082~1116은 '금리 낮네 투자하세요'라는 낮은 대출금리 조건과 화자 자신의 조기 상환 선호를 함께 설명한다. '어떤 부채든 투자부터 하면 무조건 수익이 크다'는 기존 절대화는 부정확. 확정 대출이자 절감과 투자 원금손실 가능성, 고금리부채 우선 상환, 비상자금·세금·위험감내에 따라 결정해야 한다.",
+        "effective_date_or_scope": "FULL_USER_PRIVATE_ORIGINAL_SRT_CUE_CONTEXT_RECHECK_2026_10_26",
+        "disposition": "SRT cue1082~1116은 '금리 낮네 투자하세요'라는 낮은 대출금리 조건과 화자 자신의 조기 상환 선호를 함께 설명한다. '어떤 부채든 투자부터 하면 무조건 수익이 크다'는 기존 절대화는 부정확. 확정 대출이자 절감과 투자 원금손실 가능성, 고금리부채 우선 상환, 비상자금·세금·위험감내에 따라 결정해야 한다.",
+        "review_type": "2026-10-26 RECONCILIATION OF OVERSTATED PRIOR SOURCE PARAPHRASE",
+        "previous_verdict": "CONTRADICTED"
+      },
+      "source_context_reaudit_20261026": {
+        "cue": 1084,
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "빚 갚기보다 투자가 수익이 크니 우선",
+          "independent_check": "대출 상환은 확정이자 절감 효과가 있지만 투자수익은 미보장·손실 가능. 고금리 채무와 비상금 상황을 무시한 보편적 투자우선 조언은 위험하다."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Former CONTRADICTED alleged stronger categorical statement than SRT actually supports; financial risk qualifications still apply"
       }
     },
     {
@@ -250,9 +261,8 @@
   ],
   "claim_count": 11,
   "claim_classification_tally": {
-    "QUALIFIED": 7,
-    "HYPOTHETICAL": 3,
-    "CONTRADICTED": 1
+    "QUALIFIED": 8,
+    "HYPOTHETICAL": 3
   },
   "core_message": "월급 200만원의 예산·저축계획과 5년 평가금액 가정, 부채·할부 위험을 구분",
   "limitations": [
