@@ -157,10 +157,16 @@
       "claim": "수소차는 전기차보다 환경친화적이고 오염이 전혀 없다",
       "verification": "QUALIFIED",
       "sources": [
-        "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+        "https://afdc.energy.gov/vehicles/emissions-hydrogen"
       ],
-      "disposition": "운행시 무공해 배출과 수소 생산·저장·운송 단계의 에너지 소비·온실가스 배출은 구분. '생애주기 완전 무배출'이라고 단정 불가.",
-      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION"
+      "disposition": "수소연료전지차는 주행 중 배기가스 대신 물을 배출할 수 있으나, 수소의 생산·운송과 자동차 제조 과정의 온실가스 배출이 발생할 수 있다. 따라서 '평생 오염이 전혀 없다'는 표현은 부정확하고, 배터리 전기차와 어느 쪽이 친환경인지도 전력원·수소 생산경로와 차량 전과정평가에 따라 바뀐다.",
+      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION",
+      "source_fit_reaudit_20261026": {
+        "old_primary_url": "US SEC broad investor resource or generic prior NTS link",
+        "new_primary_url": "https://afdc.energy.gov/vehicles/emissions-hydrogen",
+        "reason": "Replace off-topic reference with institution directly addressing this claim and retain caveats",
+        "audio_checked": false
+      }
     }
   ],
   "claim_classification_tally": {
@@ -246,7 +252,11 @@
     "user_SRT_excerpt_checked_with_surrounding_cues": true,
     "public_video_Korean_transcript_fullbody_verified": false,
     "audio_video_visual_original_verified": false,
-    "second_pass_report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+    "second_pass_report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md",
+    "original_video_audio_and_screen_independently_checked": false,
+    "public_korean_video_transcript_independently_fulltext_checked": false,
+    "source_file_private_SRT_context_check_passed": true,
+    "second_pass_evidence_file": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
   },
   "limitations": [
     "5년 7500만원은 보장/확정액이 아닌 모델 추정치.",
