@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
   "review_date": "2026-10-26",
-  "stage": "EVIDENCE_REVIEWED",
-  "approval": "APPROVED",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
   "roster_no": 145,
   "video_id": "sRadRD7qRu8",
   "title": "원금이 줄어들지 않는 '4%의 룰' | 연금부자수업 EP.08",
@@ -22,7 +22,7 @@
   "source_audit": {
     "full_transcript_reviewed": true,
     "video_id_matched": true,
-    "source_kind": "ORIGINAL_SRT_DIRECT_ZIP_RECONCILED",
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
     "original_srt_sha256": "615ba53ec075ef2e19ed4f7cf4fe6cfb3ad0b32457bfc66ee01fa56297284562",
     "original_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
     "cue_count": 745,
@@ -33,7 +33,8 @@
     "public_full_ko_transcript_checked": false,
     "subscriber_account_proof_excluded": true,
     "source_registry": "data/subtitles/registry_141_145_20261026.json",
-    "limitations": "Public audio/frames and public Korean video transcript full-body equivalence not established; source SRT entire cue chain and important original utterance context directly read; product promotion visual/terms contemporaneous archive not confirmed."
+    "limitations": "Public audio/frames and public Korean video transcript full-body equivalence not established; source SRT entire cue chain and important original utterance context directly read; product promotion visual/terms contemporaneous archive not confirmed. User provided original SRT is not a verified audio waveform or official alternative transcript.",
+    "evidence_reference": "Private original SRT bytes extracted from 101-200.zip, SHA-256 and sequential numbered cues independently recomputed; material claims inspected with adjacent auto-caption context, then checked against issuer/regulator original pages where cited. See knowledge/VIDEO141_145_FULL_V3_SOURCE_EVIDENCE_REVIEW_20261026.md."
   },
   "claims": [
     {
@@ -258,14 +259,16 @@
       "source_paraphrase": "과거 SK텔레콤 20~25만원 주가에 연1만원 배당이면 4~5% 배당수익",
       "independent_check": "배당금1만원/가격20~25만원이면 수학적으로 4~5%이지만 영상 회고의 실제 주가·배당금·배당기준일과 과거 주식분할·당시 세금은 별도 원표 미대조.",
       "assessment": "QUALIFIED",
-      "official_sources": [],
+      "official_sources": [
+        "https://www.sktelecom.com/img/eng/audit/20220311/SKT2021YESeparate.pdf"
+      ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": null,
+        "primary_url": "https://www.sktelecom.com/img/eng/audit/20220311/SKT2021YESeparate.pdf",
         "checked_at": "2026-10-26",
-        "source_finding": "배당금1만원/가격20~25만원이면 수학적으로 4~5%이지만 영상 회고의 실제 주가·배당금·배당기준일과 과거 주식분할·당시 세금은 별도 원표 미대조.",
+        "source_finding": "배당금1만원/가격20~25만원이면 수학적으로 4~5%이지만 영상 회고의 실제 주가·배당금·배당기준일과 과거 주식분할·당시 세금은 별도 원표 미대조. SK Telecom audited 2020 figures show KRW10,000 annual DPS and KRW238,000 closing stock price; 2020 year-end historical source, not a guaranteed dividend.",
         "disposition": "배당금1만원/가격20~25만원이면 수학적으로 4~5%이지만 영상 회고의 실제 주가·배당금·배당기준일과 과거 주식분할·당시 세금은 별도 원표 미대조.",
-        "effective_date_or_scope": "2026-02 source date 2026-02-01; primary public documentation inspected as of 2026-10-26"
+        "effective_date_or_scope": "2026-02 source date 2026-02-01; primary public documentation inspected as of 2026-10-26 2020 audited original share figures, do not apply to post-split stock price."
       },
       "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
     },
