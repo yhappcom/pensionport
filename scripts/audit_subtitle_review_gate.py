@@ -134,6 +134,46 @@ def registered_sources(root):
                 or row.get("private_dedup_ko_normalized_sha256") != row.get("public_ko_normalized_sha256")):
             raise ValueError("VIDEO130_UNTRUSTED_SOURCE_PROMOTION")
         registry[vid] = {"sha256": sha, "cue_count": row["cue_count"]}
+    # 2026-10-26: #131-140 individually uploaded (no ZIP). Exact raw SRT fingerprints
+    # are pinned independently of the user-supplied registry metadata.
+    next10 = root / "data/subtitles/registry_131_140_20261026.json"
+    if next10.is_file():
+        batch = load(next10)
+        pinned = {
+            "AWULeF_xzFc": (131, "5d523ef48ff86420f7aaff5b3c38c715e7182d986eeb4b015e72f37ac2facd6d", 377, 30103),
+            "S9W_Qe9JrlI": (132, "aa2af19a03c43d32f03950b1beafe7127caeff1b093be445cab09787cd152b85", 1673, 127045),
+            "fhh23gVq4I0": (133, "bc5e12103e36365c59c2a4f160901f2959ac98d53df8f4ded8869f88aeaf9c93", 1369, 101759),
+            "xKMPTIdMgI4": (134, "9717720dd8e7a068718a72f2fd0d484b06b14d6a1e0ce8a01474e85ee4d08ef2", 1573, 118632),
+            "GmwmPKFY4PY": (135, "ed9a2089ee5732387e954b0f32192be3cca4cb583373abee180ab7fbef7369fb", 1907, 146238),
+            "-71DQQIcTlc": (136, "808886ae6721f4085a14dd0ded770c1bdef1e773a6b99d4e3fed16ed69c4523e", 1423, 108892),
+            "wnDrGtqH-yE": (137, "21153828423dd3a699e92c183121768d7291651f7c9131781a58cfd2fa3e0935", 1229, 93204),
+            "ex2wK2N_9uo": (138, "95d159bfb59b3020672b7881fded81a22fbbfe58d44416f36c8616a388f38cf1", 4569, 320276),
+            "h3_r0ZKykYY": (139, "090ef1a0cbb5e9a5d761644ebbdf34ac24ca736a15b5eb7f4a32cd5c005ffd2b", 788, 61729),
+            "jMJbEelMgLA": (140, "1436621222d9184e3884dbf97d525dffdac623db042e87c8aa50fbc8733f6c4c", 1503, 116310),
+        }
+        rows = batch.get("items", [])
+        if (len(rows) != 10
+                or batch.get("total_srt_bytes") != 1224188
+                or batch.get("total_cues") != 16411
+                or set(x.get("video_id") for x in rows) != set(pinned)):
+            raise ValueError("BATCH_131_140_SOURCE_INTAKE_INVALID")
+        if (sum(x.get("cue_count", 0) for x in rows) != 16411
+                or sum(x.get("raw_srt_bytes", 0) for x in rows) != 1224188):
+            raise ValueError("BATCH_131_140_CUE_BYTE_SUM_INVALID")
+        for row in rows:
+            vid = row["video_id"]
+            no, sha, cues, byte_len = pinned[vid]
+            if (row.get("roster_no") != no
+                    or roster.get(vid) != no
+                    or row.get("sha256") != sha
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != byte_len
+                    or row.get("full_transcript_reviewed") is not True
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED"
+                    or vid in registry):
+                raise ValueError("BATCH_131_140_UNTRUSTED_ENTRY")
+            registry[vid] = {"sha256": sha, "cue_count": cues}
     return registry
 
 
