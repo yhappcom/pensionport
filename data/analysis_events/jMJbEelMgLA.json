@@ -110,25 +110,45 @@
       "claim_id": "jMJbEelMgLA-09",
       "timecode": "00:33:15",
       "source_cue_index": 1033,
-      "claim": "가전·차량 구매는 현금 대신 할부가 언제나 유리",
-      "verification": "CONTRADICTED",
+      "claim": "차량 구매 시 현금 일시불보다 저금리 할부로 유동성을 확보하는 방안을 긍정적으로 설명",
+      "verification": "QUALIFIED",
       "sources": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47"
+        "https://www.consumerfinance.gov/ask-cfpb/how-do-i-compare-auto-loan-offers-what-should-i-look-at-besides-the-monthly-payment-en-753/"
       ],
-      "disposition": "할부금리·할인·보험·연체수수료·기회비용을 비교해야 하며 할부가 항상 이득이라는 일반화는 틀리다.",
-      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION"
+      "disposition": "SRT cue1029~1078은 3~4% 금리의 차량 할부와 현금 시간가치의 비교 사례. '할부가 언제나 이득'이라는 기존 절대화 문구는 실제 발언보다 과장돼 이를 철회. 현금 할인·할부 연환산비용(APR)·계약기간·현금 운용의 불확실한 순수익·상환능력을 비교해야 하며 대출자에게 보편적인 확정 이득은 아님.",
+      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION",
+      "source_context_reaudit_20261026": {
+        "cue": 1033,
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "가전·차량 구매는 현금 대신 할부가 언제나 유리",
+          "independent_check": "할부금리·할인·보험·연체수수료·기회비용을 비교해야 하며 할부가 항상 이득이라는 일반화는 틀리다."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Former CONTRADICTED alleged stronger categorical statement than SRT actually supports; financial risk qualifications still apply"
+      }
     },
     {
       "claim_id": "jMJbEelMgLA-10",
       "timecode": "00:34:44",
       "source_cue_index": 1084,
-      "claim": "빚 갚기보다 투자가 수익이 크니 우선",
-      "verification": "CONTRADICTED",
+      "claim": "대출금리가 낮다면 즉시 전액 상환하기보다 투자하여 나중에 목돈으로 상환하는 전략을 선호하지만 개인적으로는 빚 상환의 심리적 편익도 인정",
+      "verification": "QUALIFIED",
       "sources": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47"
+        "https://www.consumerfinance.gov/archive/blog/servicemembers-immediate-actions-financial-success-pay-down-debt-make-plan-start-early/"
       ],
-      "disposition": "대출 상환은 확정이자 절감 효과가 있지만 투자수익은 미보장·손실 가능. 고금리 채무와 비상금 상황을 무시한 보편적 투자우선 조언은 위험하다.",
-      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION"
+      "disposition": "SRT cue1082~1116은 '금리 낮네 투자하세요'라는 낮은 대출금리 조건과 화자 자신의 조기 상환 선호를 함께 설명한다. '어떤 부채든 투자부터 하면 무조건 수익이 크다'는 기존 절대화는 부정확. 확정 대출이자 절감과 투자 원금손실 가능성, 고금리부채 우선 상환, 비상자금·세금·위험감내에 따라 결정해야 한다.",
+      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION",
+      "source_context_reaudit_20261026": {
+        "cue": 1084,
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "빚 갚기보다 투자가 수익이 크니 우선",
+          "independent_check": "대출 상환은 확정이자 절감 효과가 있지만 투자수익은 미보장·손실 가능. 고금리 채무와 비상금 상황을 무시한 보편적 투자우선 조언은 위험하다."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Former CONTRADICTED alleged stronger categorical statement than SRT actually supports; financial risk qualifications still apply"
+      }
     },
     {
       "claim_id": "jMJbEelMgLA-11",
@@ -144,9 +164,8 @@
     }
   ],
   "claim_classification_tally": {
-    "QUALIFIED": 6,
-    "HYPOTHETICAL": 3,
-    "CONTRADICTED": 2
+    "QUALIFIED": 8,
+    "HYPOTHETICAL": 3
   },
   "actionable_guidance": [
     "jMJbEelMgLA-01: 월급이 같아도 주거/부양/고금리채무·고정비에 따라 실천 가능한 월 저축액이 달라진다.",
@@ -168,8 +187,9 @@
     "jMJbEelMgLA-03: 월95만원×12=1,140만원으로 일반 ISA의 연2,000만원 납입 한도 이하이지만 실제 개인 매월 저축여력은 검증 대상 외.",
     "jMJbEelMgLA-04: 3만+2만+95만=100만원 산술 예시. 보험상품의 보장 및 95만원 실제 납입 기록은 검증하지 않는다.",
     "jMJbEelMgLA-06: 실제 납입금은 5700만원으로 7500만원은 1800만원 평가이익과 복리 성장 가정이 필요하다. 고정 수익이나 목표 달성을 보장하지 않는다.",
-    "jMJbEelMgLA-09: 할부금리·할인·보험·연체수수료·기회비용을 비교해야 하며 할부가 항상 이득이라는 일반화는 틀리다.",
-    "jMJbEelMgLA-10: 대출 상환은 확정이자 절감 효과가 있지만 투자수익은 미보장·손실 가능. 고금리 채무와 비상금 상황을 무시한 보편적 투자우선 조언은 위험하다.",
+    "jMJbEelMgLA-03: 월95만원×12=1,140만원으로 일반 ISA의 연2,000만원 납입 한도 이하이지만 실제 개인 매월 저축여력은 검증 대상 외.",
+    "jMJbEelMgLA-04: 3만+2만+95만=100만원 산술 예시. 보험상품의 보장 및 95만원 실제 납입 기록은 검증하지 않는다.",
+    "jMJbEelMgLA-06: 실제 납입금은 5700만원으로 7500만원은 1800만원 평가이익과 복리 성장 가정이 필요하다. 고정 수익이나 목표 달성을 보장하지 않는다.",
     "No provider terms or hypothetical yields guarantee capital preservation or future returns.",
     "Maintain per-claim historical/scope restrictions."
   ],
@@ -204,7 +224,7 @@
       "relation": "Previous approved study and baseline; no evidence claims altered."
     }
   ],
-  "verification_status": "V3_APPROVED_MATERIAL_CLAIMS_SCOPED_WITH_INDEPENDENT_FINANCIAL_SOURCE_EVIDENCE",
+  "verification_status": "V3_APPROVED_CLAIM_SCOPED_AFTER_SECOND_PASS_20261026",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -221,12 +241,18 @@
     "public_korean_fullbody_match_unverified": true,
     "source_registry": "data/subtitles/registry_131_140_20261026.json",
     "subscriber_private_account_return_proof": "EXCLUDED_BY_USER_REQUEST",
-    "non_investment_commercial_content": false
+    "non_investment_commercial_content": false,
+    "source_context_11_claim_reaudit_20261026": "PARTIAL_RECLASS_5_OF_11_TO_QUALIFIED",
+    "user_SRT_excerpt_checked_with_surrounding_cues": true,
+    "public_video_Korean_transcript_fullbody_verified": false,
+    "audio_video_visual_original_verified": false,
+    "second_pass_report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
   },
   "limitations": [
     "5년 7500만원은 보장/확정액이 아닌 모델 추정치.",
     "청약납입 인정액과 저축가능한 최저 납입액 구별.",
     "Subscriber real accounts and returns excluded by request.",
-    "Independent original audio/video frame verification and publicly accessible full-body public ASR exact match not completed; original private uploaded SRT kept outside public GitHub."
+    "Independent original audio/video frame verification and publicly accessible full-body public ASR exact match not completed; original private uploaded SRT kept outside public GitHub.",
+    "2026-10-26 original SRT context correction: five oversimplified prior CONTRADICTED quotes have been changed to QUALIFIED; original verdict history preserved in core_claims.source_context_reaudit_20261026. Audio/visual and public transcript fullbody remain unverified."
   ]
 }
