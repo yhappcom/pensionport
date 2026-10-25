@@ -153,7 +153,8 @@
     "Historical education recorded near 2026-03-01; current financial terms and price may differ.",
     "Automated original SRT full cues, not authenticated actual audio and video frames.",
     "Reader private brokerage returns and account statements excluded by user request.",
-    "Core claim exact expressions are summaries of source cue context; language and timing are ASR-generated."
+    "Core claim exact expressions are summaries of source cue context; language and timing are ASR-generated.",
+    "2026-10-26 source references for fund/account tax conditions distinguish the video as-of Feb/Mar and regulator's post-video Apr 2026 updates."
   ],
   "risks_and_exceptions": [
     "fhh23gVq4I0-06: 수익률은 설명용 미래 가정이며 장기 연평균 7~8% 확약이나 원금보전 근거가 아니다.",
@@ -207,7 +208,28 @@
     "public_korean_fullbody_match_unverified": true,
     "source_registry": "data/subtitles/registry_131_140_20261026.json",
     "subscriber_private_account_return_proof": "EXCLUDED_BY_USER_REQUEST",
-    "non_investment_commercial_content": false
+    "non_investment_commercial_content": false,
+    "legal_regulatory_second_pass_20261026": {
+      "date_checked": "2026-10-26",
+      "original_video_as_of": "2026-03-01",
+      "question": "Stock/bond 50:50 and TDF in 연금저축 vs IRP",
+      "eligibility_verified": {
+        "pension_savings_fund_stock_risk_assets_up_to_100_percent": true,
+        "irp_dc_risky_assets_general_max_pct": 70,
+        "qualified_tdf_possible_100pct_in_dc_irp": true,
+        "all_tdf_automatically_exempt": false,
+        "tdf_maturity_year_is_not_fund_termination": true
+      },
+      "issuer_source": "https://kbam.co.kr/pension/guide/pension-account-investment-products-guide",
+      "regulator_policy_source": "https://eiec.kdi.re.kr/policy/materialView.do?num=278764",
+      "effective_date_caveat": "FSS 2026-04-01 disclosure/risk-categorization requirements postdate this 2026-03-01 video; do not backdate Apr requirements; general 70%/qualified TDF exemption existed before video.",
+      "original_cue_range": "630-760",
+      "report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+    },
+    "original_video_audio_and_screen_independently_checked": false,
+    "public_korean_video_transcript_independently_fulltext_checked": false,
+    "source_file_private_SRT_context_check_passed": true,
+    "second_pass_evidence_file": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
   },
   "limitations": [
     "Evidence claims are scoped to dated video; no profits or fees are guaranteed.",
