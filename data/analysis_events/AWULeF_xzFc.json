@@ -30,15 +30,19 @@
     },
     {
       "claim_id": "AWULeF_xzFc-02",
-      "timecode": "00:06:03",
-      "source_cue_index": 158,
+      "timecode": "00:06:08",
+      "source_cue_index": 161,
       "claim": "발행어음 금리는 은행 예금보다 항상 높다",
       "verification": "CONTRADICTED",
       "sources": [
         "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
       ],
       "disposition": "예금·발행어음 금리는 만기·조건별로 변해 상대적 우위가 보장되지 않는다.",
-      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION"
+      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION",
+      "source_context_original_srt_cue_range": [
+        161,
+        162
+      ]
     },
     {
       "claim_id": "AWULeF_xzFc-03",
@@ -187,7 +191,11 @@
     "public_korean_fullbody_match_unverified": true,
     "source_registry": "data/subtitles/registry_131_140_20261026.json",
     "subscriber_private_account_return_proof": "EXCLUDED_BY_USER_REQUEST",
-    "non_investment_commercial_content": false
+    "non_investment_commercial_content": false,
+    "original_video_audio_and_screen_independently_checked": false,
+    "public_korean_video_transcript_independently_fulltext_checked": false,
+    "source_file_private_SRT_context_check_passed": true,
+    "second_pass_evidence_file": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
   },
   "limitations": [
     "현행 금리를 2026년3월 숫자 그대로 인용 불가.",
