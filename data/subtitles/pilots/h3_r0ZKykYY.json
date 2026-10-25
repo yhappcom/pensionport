@@ -28,7 +28,16 @@
     "evidence_reference": "Video original 788 SRT cue text shows commercial advertisement disclosure; product fee rates checked against official Cafe24 service pricing.",
     "limitations": "This is branded promotional/paid sponsored service content and NOT independent investor education. Provider financial claims can be subject to contract-specific terms; source audio/screens not checked.",
     "original_audio_checked": false,
-    "frames_checked": false
+    "frames_checked": false,
+    "claim_context_reaudit_20261026": {
+      "performed": true,
+      "latest_status": "SOURCE_CONTEXT_CORRECTED_AND_DOCUMENTED",
+      "report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md",
+      "public_KO_fullbody_verified": false,
+      "original_audio_verified": false,
+      "original_video_frames_verified": false,
+      "subscriber_private_profit_proof": "EXCLUDED_BY_USER_REQUEST"
+    }
   },
   "claims": [
     {
@@ -130,20 +139,31 @@
       "claim_id": "h3_r0ZKykYY-06",
       "timecode": "00:15:49",
       "source_cue_index": 455,
-      "source_paraphrase": "매출의 2%만 내면 온라인몰 전체 비용이 해결된다",
-      "assessment": "CONTRADICTED",
-      "independent_check": "2% PRO 서비스 수수료는 유통/결제/물류/광고/상품조달/세금 등 모든 원가를 포함하지 않는다. '전체 운영비용2%'로 해석하는 것은 오류.",
+      "source_paraphrase": "카페24 PRO를 연결한 자사몰에서 매출이 발생하면 해당 매출에 대한 서비스 수수료 2%를 부담한다는 설명",
+      "assessment": "QUALIFIED",
+      "independent_check": "SRT cue392~399와 449~463은 카페24 PRO 자사몰 매출 2%·마켓 매출 1%의 서비스 이용료만 설명한다. '2%로 모든 쇼핑몰 사업비가 해결된다'는 기존 요약과 정정은 원문이 말하지 않은 내용을 추가하므로 철회. 상품조달·PG·물류·광고비 별도 가능이라는 경계는 교육 메모로 유지하되 화자 반증으로 계산하지 않음. 2026-02-15 계약 혜택은 당시 약관·프로모션으로 별도 제한.",
       "official_sources": [
-        "https://support.cafe24.com/hc/ko/articles/47175394794265-%EC%B9%B4%ED%8E%9824-PRO-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B9%84%EC%9A%A9%EC%9D%80-%EC%96%BC%EB%A7%88%EC%9D%B8%EA%B0%80%EC%9A%94"
+        "https://www.cafe24.com/commerce/service/cafe24pro.html"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
-        "primary_url": "https://support.cafe24.com/hc/ko/articles/47175394794265-%EC%B9%B4%ED%8E%9824-PRO-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B9%84%EC%9A%A9%EC%9D%80-%EC%96%BC%EB%A7%88%EC%9D%B8%EA%B0%80%EC%9A%94",
+        "verdict": "QUALIFIED",
+        "primary_url": "https://www.cafe24.com/commerce/service/cafe24pro.html",
         "checked_at": "2026-10-26",
-        "source_finding": "2% PRO 서비스 수수료는 유통/결제/물류/광고/상품조달/세금 등 모든 원가를 포함하지 않는다. '전체 운영비용2%'로 해석하는 것은 오류.",
-        "effective_date_or_scope": "Commercial video 2026-02-15; service/terms/time-limited offers checked 2026-10-26",
-        "disposition": "2% PRO 서비스 수수료는 유통/결제/물류/광고/상품조달/세금 등 모든 원가를 포함하지 않는다. '전체 운영비용2%'로 해석하는 것은 오류.",
-        "correction": "2% PRO 서비스 수수료는 유통/결제/물류/광고/상품조달/세금 등 모든 원가를 포함하지 않는다. '전체 운영비용2%'로 해석하는 것은 오류."
+        "source_finding": "SRT cue392~399와 449~463은 카페24 PRO 자사몰 매출 2%·마켓 매출 1%의 서비스 이용료만 설명한다. '2%로 모든 쇼핑몰 사업비가 해결된다'는 기존 요약과 정정은 원문이 말하지 않은 내용을 추가하므로 철회. 상품조달·PG·물류·광고비 별도 가능이라는 경계는 교육 메모로 유지하되 화자 반증으로 계산하지 않음. 2026-02-15 계약 혜택은 당시 약관·프로모션으로 별도 제한.",
+        "effective_date_or_scope": "FULL_USER_PRIVATE_ORIGINAL_SRT_CUE_CONTEXT_RECHECK_2026_10_26",
+        "disposition": "SRT cue392~399와 449~463은 카페24 PRO 자사몰 매출 2%·마켓 매출 1%의 서비스 이용료만 설명한다. '2%로 모든 쇼핑몰 사업비가 해결된다'는 기존 요약과 정정은 원문이 말하지 않은 내용을 추가하므로 철회. 상품조달·PG·물류·광고비 별도 가능이라는 경계는 교육 메모로 유지하되 화자 반증으로 계산하지 않음. 2026-02-15 계약 혜택은 당시 약관·프로모션으로 별도 제한.",
+        "review_type": "2026-10-26 RECONCILIATION OF OVERSTATED PRIOR SOURCE PARAPHRASE",
+        "previous_verdict": "CONTRADICTED"
+      },
+      "source_context_reaudit_20261026": {
+        "cue": 455,
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "매출의 2%만 내면 온라인몰 전체 비용이 해결된다",
+          "independent_check": "2% PRO 서비스 수수료는 유통/결제/물류/광고/상품조달/세금 등 모든 원가를 포함하지 않는다. '전체 운영비용2%'로 해석하는 것은 오류."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Former CONTRADICTED alleged stronger categorical statement than SRT actually supports; financial risk qualifications still apply"
       }
     },
     {
@@ -188,8 +208,7 @@
   "claim_count": 8,
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 2,
-    "QUALIFIED": 5,
-    "CONTRADICTED": 1
+    "QUALIFIED": 6
   },
   "core_message": "상업 광고임을 표시하고 카페24 PRO 요금2%/1%, 3개월 프로모션 한계와 전체사업비를 분리",
   "limitations": [
