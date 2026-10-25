@@ -80,13 +80,23 @@
       "claim_id": "h3_r0ZKykYY-06",
       "timecode": "00:15:49",
       "source_cue_index": 455,
-      "claim": "매출의 2%만 내면 온라인몰 전체 비용이 해결된다",
-      "verification": "CONTRADICTED",
+      "claim": "카페24 PRO를 연결한 자사몰에서 매출이 발생하면 해당 매출에 대한 서비스 수수료 2%를 부담한다는 설명",
+      "verification": "QUALIFIED",
       "sources": [
-        "https://support.cafe24.com/hc/ko/articles/47175394794265-%EC%B9%B4%ED%8E%9824-PRO-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B9%84%EC%9A%A9%EC%9D%80-%EC%96%BC%EB%A7%88%EC%9D%B8%EA%B0%80%EC%9A%94"
+        "https://www.cafe24.com/commerce/service/cafe24pro.html"
       ],
-      "disposition": "2% PRO 서비스 수수료는 유통/결제/물류/광고/상품조달/세금 등 모든 원가를 포함하지 않는다. '전체 운영비용2%'로 해석하는 것은 오류.",
-      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION"
+      "disposition": "SRT cue392~399와 449~463은 카페24 PRO 자사몰 매출 2%·마켓 매출 1%의 서비스 이용료만 설명한다. '2%로 모든 쇼핑몰 사업비가 해결된다'는 기존 요약과 정정은 원문이 말하지 않은 내용을 추가하므로 철회. 상품조달·PG·물류·광고비 별도 가능이라는 경계는 교육 메모로 유지하되 화자 반증으로 계산하지 않음. 2026-02-15 계약 혜택은 당시 약관·프로모션으로 별도 제한.",
+      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION",
+      "source_context_reaudit_20261026": {
+        "cue": 455,
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "매출의 2%만 내면 온라인몰 전체 비용이 해결된다",
+          "independent_check": "2% PRO 서비스 수수료는 유통/결제/물류/광고/상품조달/세금 등 모든 원가를 포함하지 않는다. '전체 운영비용2%'로 해석하는 것은 오류."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Former CONTRADICTED alleged stronger categorical statement than SRT actually supports; financial risk qualifications still apply"
+      }
     },
     {
       "claim_id": "h3_r0ZKykYY-07",
@@ -115,8 +125,7 @@
   ],
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 2,
-    "QUALIFIED": 5,
-    "CONTRADICTED": 1
+    "QUALIFIED": 6
   },
   "actionable_guidance": [
     "h3_r0ZKykYY-01: 영상 원본 SRT가 시작 부분에 광고임을 명시. 카페24PRO 공식 서비스 판매·광고 홍보의 일부이므로 투자 중립 교육으로 간주하지 않는다.",
@@ -135,7 +144,6 @@
     "Core claim exact expressions are summaries of source cue context; language and timing are ASR-generated."
   ],
   "risks_and_exceptions": [
-    "h3_r0ZKykYY-06: 2% PRO 서비스 수수료는 유통/결제/물류/광고/상품조달/세금 등 모든 원가를 포함하지 않는다. '전체 운영비용2%'로 해석하는 것은 오류.",
     "No provider terms or hypothetical yields guarantee capital preservation or future returns.",
     "Video is a paid commercial endorsement, not independent financial advice."
   ],
@@ -170,7 +178,7 @@
       "relation": "Previous approved study and baseline; no evidence claims altered."
     }
   ],
-  "verification_status": "V3_COMPLETE_8_SPONSORED_PROMOTION_CLAIM_GATES_NOT_INVESTMENT_EDUCATION",
+  "verification_status": "V3_APPROVED_CLAIM_SCOPED_AFTER_SECOND_PASS_20261026",
   "evidence_gate": {
     "version": 1,
     "source_checked": true,
@@ -187,12 +195,18 @@
     "public_korean_fullbody_match_unverified": true,
     "source_registry": "data/subtitles/registry_131_140_20261026.json",
     "subscriber_private_account_return_proof": "EXCLUDED_BY_USER_REQUEST",
-    "non_investment_commercial_content": true
+    "non_investment_commercial_content": true,
+    "source_context_11_claim_reaudit_20261026": "PARTIAL_RECLASS_5_OF_11_TO_QUALIFIED",
+    "user_SRT_excerpt_checked_with_surrounding_cues": true,
+    "public_video_Korean_transcript_fullbody_verified": false,
+    "audio_video_visual_original_verified": false,
+    "second_pass_report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
   },
   "limitations": [
     "Not investment education, primarily commercial content, includes conflict of interest.",
     "Fee rates exclude VAT and many business costs. No sales or profit guarantees.",
     "YouTube actual audiovisual and public fullbody textual match not authenticated.",
-    "Independent original audio/video frame verification and publicly accessible full-body public ASR exact match not completed; original private uploaded SRT kept outside public GitHub."
+    "Independent original audio/video frame verification and publicly accessible full-body public ASR exact match not completed; original private uploaded SRT kept outside public GitHub.",
+    "2026-10-26 original SRT context correction: five oversimplified prior CONTRADICTED quotes have been changed to QUALIFIED; original verdict history preserved in core_claims.source_context_reaudit_20261026. Audio/visual and public transcript fullbody remain unverified."
   ]
 }
