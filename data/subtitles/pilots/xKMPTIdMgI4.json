@@ -76,40 +76,71 @@
       "claim_id": "xKMPTIdMgI4-02",
       "timecode": "00:12:17",
       "source_cue_index": 368,
-      "source_paraphrase": "CMA가 안전하며 실제 손실을 보기는 어려울 것이라는 발언",
-      "independent_check": "영상은 'CMA 안전하잖아요. 잘못되는 거 못 볼 겁니다'라고 표현했으나 MMW형 CMA 공식 안내는 예금자보호 비대상·원금손실 가능을 명시하므로 실제 손실 가능성을 배제하거나 은행예금처럼 안내하면 안 된다.",
-      "assessment": "CONTRADICTED",
+      "source_paraphrase": "CMA를 안전성이 높고 본인 생애에 문제가 발생할 가능성이 매우 낮은 상품처럼 표현",
+      "independent_check": "원본 SRT cue368~370에는 '이렇게 CMA 안전하잖아요', '제 생애에는 잘못되는 거 못 볼 겁니다'라는 위험가능성에 관한 주관적 예측에 가까운 발언이 있다. 화자가 법적으로 '모든 CMA 원금 보장'을 선언했다는 기존 CONTRADICTED 요약은 지나치다. 하지만 MMW형 CMA는 원금손실 가능성이 있고 예금자보호 대상이 아니므로 투자자용 교육에서는 '은행 예금과 같은 안전'이라고 표현하지 않아야 한다.",
+      "assessment": "QUALIFIED",
       "official_sources": [
         "https://home.imeritz.com/meritzcma/CmaMmw.do"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "primary_url": "https://home.imeritz.com/meritzcma/CmaMmw.do",
         "checked_at": "2026-10-26",
-        "source_finding": "영상은 'CMA 안전하잖아요. 잘못되는 거 못 볼 겁니다'라고 표현했으나 MMW형 CMA 공식 안내는 예금자보호 비대상·원금손실 가능을 명시하므로 실제 손실 가능성을 배제하거나 은행예금처럼 안내하면 안 된다.",
-        "effective_date_or_scope": "2026-02-26 video historical, independent check on 2026-10-26",
-        "disposition": "영상은 'CMA 안전하잖아요. 잘못되는 거 못 볼 겁니다'라고 표현했으나 MMW형 CMA 공식 안내는 예금자보호 비대상·원금손실 가능을 명시하므로 실제 손실 가능성을 배제하거나 은행예금처럼 안내하면 안 된다.",
-        "correction": "영상은 'CMA 안전하잖아요. 잘못되는 거 못 볼 겁니다'라고 표현했으나 MMW형 CMA 공식 안내는 예금자보호 비대상·원금손실 가능을 명시하므로 실제 손실 가능성을 배제하거나 은행예금처럼 안내하면 안 된다."
+        "source_finding": "원본 SRT cue368~370에는 '이렇게 CMA 안전하잖아요', '제 생애에는 잘못되는 거 못 볼 겁니다'라는 위험가능성에 관한 주관적 예측에 가까운 발언이 있다. 화자가 법적으로 '모든 CMA 원금 보장'을 선언했다는 기존 CONTRADICTED 요약은 지나치다. 하지만 MMW형 CMA는 원금손실 가능성이 있고 예금자보호 대상이 아니므로 투자자용 교육에서는 '은행 예금과 같은 안전'이라고 표현하지 않아야 한다.",
+        "disposition": "원본 SRT cue368~370에는 '이렇게 CMA 안전하잖아요', '제 생애에는 잘못되는 거 못 볼 겁니다'라는 위험가능성에 관한 주관적 예측에 가까운 발언이 있다. 화자가 법적으로 '모든 CMA 원금 보장'을 선언했다는 기존 CONTRADICTED 요약은 지나치다. 하지만 MMW형 CMA는 원금손실 가능성이 있고 예금자보호 대상이 아니므로 투자자용 교육에서는 '은행 예금과 같은 안전'이라고 표현하지 않아야 한다.",
+        "effective_date_or_scope": "ORIGINAL_SRT_CUES_CONTEXTUAL_SECOND_REAUDIT_2026_10_26",
+        "previous_verdict": "CONTRADICTED"
+      },
+      "source_context_reaudit_20261026": {
+        "cue_range": [
+          368,
+          369,
+          370
+        ],
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "CMA가 안전하며 실제 손실을 보기는 어려울 것이라는 발언",
+          "independent_check": "영상은 'CMA 안전하잖아요. 잘못되는 거 못 볼 겁니다'라고 표현했으나 MMW형 CMA 공식 안내는 예금자보호 비대상·원금손실 가능을 명시하므로 실제 손실 가능성을 배제하거나 은행예금처럼 안내하면 안 된다."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Video contains conditional market snapshot or speaker's risk belief; prior strong categorical interpretation overreached.",
+        "original_audio_video_verified": false
       }
     },
     {
       "claim_id": "xKMPTIdMgI4-03",
       "timecode": "00:12:26",
       "source_cue_index": 372,
-      "source_paraphrase": "MMW CMA가 언제나 금리가 제일 높다",
-      "independent_check": "MMW는 변동실적형이고 수수료·상품/조건별 금리가 달라 항상 최고금리로 정할 수 없다.",
-      "assessment": "CONTRADICTED",
+      "source_paraphrase": "영상 당시 화면 비교에서 MMW CMA의 금리가 가장 높다고 설명하고 왜 보통 높게 나타나는지 질문",
+      "independent_check": "원본 SRT cue366~379에서 '금리는 지금 다시 조회해야 한다', '금리 제일 높은 거는 MMW', '왜 저게 항상 높은 거예요?'라고 말한다. 금리표 시점별 조건의 주장으로 보아야 하며 모든 시대·증권사에서 MMW가 최고 금리를 보장한다고 단정할 근거는 없다. 2026-02-26 화면 속 실제 판매금리를 독립 픽셀·상품공시 대조하지 않았으므로 해당 시점 최고금리도 PRIMARY_CONFIRMED가 아니라 QUALIFIED.",
+      "assessment": "QUALIFIED",
       "official_sources": [
         "https://home.imeritz.com/meritzcma/CmaMmw.do"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
+        "verdict": "QUALIFIED",
         "primary_url": "https://home.imeritz.com/meritzcma/CmaMmw.do",
         "checked_at": "2026-10-26",
-        "source_finding": "MMW는 변동실적형이고 수수료·상품/조건별 금리가 달라 항상 최고금리로 정할 수 없다.",
-        "effective_date_or_scope": "2026-02-26 video historical, independent check on 2026-10-26",
-        "disposition": "MMW는 변동실적형이고 수수료·상품/조건별 금리가 달라 항상 최고금리로 정할 수 없다.",
-        "correction": "MMW는 변동실적형이고 수수료·상품/조건별 금리가 달라 항상 최고금리로 정할 수 없다."
+        "source_finding": "원본 SRT cue366~379에서 '금리는 지금 다시 조회해야 한다', '금리 제일 높은 거는 MMW', '왜 저게 항상 높은 거예요?'라고 말한다. 금리표 시점별 조건의 주장으로 보아야 하며 모든 시대·증권사에서 MMW가 최고 금리를 보장한다고 단정할 근거는 없다. 2026-02-26 화면 속 실제 판매금리를 독립 픽셀·상품공시 대조하지 않았으므로 해당 시점 최고금리도 PRIMARY_CONFIRMED가 아니라 QUALIFIED.",
+        "disposition": "원본 SRT cue366~379에서 '금리는 지금 다시 조회해야 한다', '금리 제일 높은 거는 MMW', '왜 저게 항상 높은 거예요?'라고 말한다. 금리표 시점별 조건의 주장으로 보아야 하며 모든 시대·증권사에서 MMW가 최고 금리를 보장한다고 단정할 근거는 없다. 2026-02-26 화면 속 실제 판매금리를 독립 픽셀·상품공시 대조하지 않았으므로 해당 시점 최고금리도 PRIMARY_CONFIRMED가 아니라 QUALIFIED.",
+        "effective_date_or_scope": "ORIGINAL_SRT_CUES_CONTEXTUAL_SECOND_REAUDIT_2026_10_26",
+        "previous_verdict": "CONTRADICTED"
+      },
+      "source_context_reaudit_20261026": {
+        "cue_range": [
+          371,
+          372,
+          378,
+          379
+        ],
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "MMW CMA가 언제나 금리가 제일 높다",
+          "independent_check": "MMW는 변동실적형이고 수수료·상품/조건별 금리가 달라 항상 최고금리로 정할 수 없다."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Video contains conditional market snapshot or speaker's risk belief; prior strong categorical interpretation overreached.",
+        "original_audio_video_verified": false
       }
     },
     {
@@ -269,8 +300,8 @@
   "claim_count": 11,
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 4,
-    "CONTRADICTED": 3,
-    "QUALIFIED": 4
+    "QUALIFIED": 6,
+    "CONTRADICTED": 1
   },
   "core_message": "MMW CMA·ISA 배당ETF·조부모 증여의 계좌별 기초와 위험",
   "limitations": [
