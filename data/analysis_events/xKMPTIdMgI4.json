@@ -32,25 +32,56 @@
       "claim_id": "xKMPTIdMgI4-02",
       "timecode": "00:12:17",
       "source_cue_index": 368,
-      "claim": "CMA가 안전하며 실제 손실을 보기는 어려울 것이라는 발언",
-      "verification": "CONTRADICTED",
+      "claim": "CMA를 안전성이 높고 본인 생애에 문제가 발생할 가능성이 매우 낮은 상품처럼 표현",
+      "verification": "QUALIFIED",
       "sources": [
         "https://home.imeritz.com/meritzcma/CmaMmw.do"
       ],
-      "disposition": "원문은 '손실을 보기 어렵다'는 취지이지 실제 '원금손실 절대 불가능'이라고 단정적 표현을 했다는 직접 인용은 아니다. 다만 MMW CMA는 투자원금 손실·예금자보호 비대상 위험이 있으므로 예금과 동일시하면 부정확.",
-      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION"
+      "disposition": "원본 SRT cue368~370에는 '이렇게 CMA 안전하잖아요', '제 생애에는 잘못되는 거 못 볼 겁니다'라는 위험가능성에 관한 주관적 예측에 가까운 발언이 있다. 화자가 법적으로 '모든 CMA 원금 보장'을 선언했다는 기존 CONTRADICTED 요약은 지나치다. 하지만 MMW형 CMA는 원금손실 가능성이 있고 예금자보호 대상이 아니므로 투자자용 교육에서는 '은행 예금과 같은 안전'이라고 표현하지 않아야 한다.",
+      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION",
+      "source_context_reaudit_20261026": {
+        "cue_range": [
+          368,
+          369,
+          370
+        ],
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "CMA가 안전하며 실제 손실을 보기는 어려울 것이라는 발언",
+          "independent_check": "영상은 'CMA 안전하잖아요. 잘못되는 거 못 볼 겁니다'라고 표현했으나 MMW형 CMA 공식 안내는 예금자보호 비대상·원금손실 가능을 명시하므로 실제 손실 가능성을 배제하거나 은행예금처럼 안내하면 안 된다."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Video contains conditional market snapshot or speaker's risk belief; prior strong categorical interpretation overreached.",
+        "original_audio_video_verified": false
+      }
     },
     {
       "claim_id": "xKMPTIdMgI4-03",
       "timecode": "00:12:26",
       "source_cue_index": 372,
-      "claim": "MMW CMA가 언제나 금리가 제일 높다",
-      "verification": "CONTRADICTED",
+      "claim": "영상 당시 화면 비교에서 MMW CMA의 금리가 가장 높다고 설명하고 왜 보통 높게 나타나는지 질문",
+      "verification": "QUALIFIED",
       "sources": [
         "https://home.imeritz.com/meritzcma/CmaMmw.do"
       ],
-      "disposition": "MMW는 변동실적형이고 수수료·상품/조건별 금리가 달라 항상 최고금리로 정할 수 없다.",
-      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION"
+      "disposition": "원본 SRT cue366~379에서 '금리는 지금 다시 조회해야 한다', '금리 제일 높은 거는 MMW', '왜 저게 항상 높은 거예요?'라고 말한다. 금리표 시점별 조건의 주장으로 보아야 하며 모든 시대·증권사에서 MMW가 최고 금리를 보장한다고 단정할 근거는 없다. 2026-02-26 화면 속 실제 판매금리를 독립 픽셀·상품공시 대조하지 않았으므로 해당 시점 최고금리도 PRIMARY_CONFIRMED가 아니라 QUALIFIED.",
+      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION",
+      "source_context_reaudit_20261026": {
+        "cue_range": [
+          371,
+          372,
+          378,
+          379
+        ],
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "MMW CMA가 언제나 금리가 제일 높다",
+          "independent_check": "MMW는 변동실적형이고 수수료·상품/조건별 금리가 달라 항상 최고금리로 정할 수 없다."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Video contains conditional market snapshot or speaker's risk belief; prior strong categorical interpretation overreached.",
+        "original_audio_video_verified": false
+      }
     },
     {
       "claim_id": "xKMPTIdMgI4-04",
@@ -151,8 +182,8 @@
   ],
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 4,
-    "CONTRADICTED": 3,
-    "QUALIFIED": 4
+    "QUALIFIED": 6,
+    "CONTRADICTED": 1
   },
   "actionable_guidance": [
     "xKMPTIdMgI4-01: MMW는 일임형 랩, RP는 별도 유가증권 거래로 구조가 다르다.",
@@ -172,8 +203,6 @@
     "2026-10-26 source references for fund/account tax conditions distinguish the video as-of Feb/Mar and regulator's post-video Apr 2026 updates."
   ],
   "risks_and_exceptions": [
-    "xKMPTIdMgI4-02: MMW형 CMA 공식안내는 예금보호 비대상이고 원금손실이 가능하다고 명시한다.",
-    "xKMPTIdMgI4-03: MMW는 변동실적형이고 수수료·상품/조건별 금리가 달라 항상 최고금리로 정할 수 없다.",
     "xKMPTIdMgI4-10: 지수·국가·상품·매입시점·세금·환율·인출기간에 따라 20년 보유손실은 발생할 수 있어 보장으로 이용 금지.",
     "No provider terms or hypothetical yields guarantee capital preservation or future returns.",
     "Maintain per-claim historical/scope restrictions."
@@ -252,7 +281,8 @@
     "original_video_audio_and_screen_independently_checked": false,
     "public_korean_video_transcript_independently_fulltext_checked": false,
     "source_file_private_SRT_context_check_passed": true,
-    "second_pass_evidence_file": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+    "second_pass_evidence_file": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md",
+    "second_pass_134_conditional_rate_and_CMA_safety_review": "QUALIFIED_NO_ABSOLUTE_PROOF"
   },
   "limitations": [
     "No original audio or video frame review.",
