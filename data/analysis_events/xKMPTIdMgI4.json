@@ -168,7 +168,8 @@
     "Historical education recorded near 2026-02-26; current financial terms and price may differ.",
     "Automated original SRT full cues, not authenticated actual audio and video frames.",
     "Reader private brokerage returns and account statements excluded by user request.",
-    "Core claim exact expressions are summaries of source cue context; language and timing are ASR-generated."
+    "Core claim exact expressions are summaries of source cue context; language and timing are ASR-generated.",
+    "2026-10-26 source references for fund/account tax conditions distinguish the video as-of Feb/Mar and regulator's post-video Apr 2026 updates."
   ],
   "risks_and_exceptions": [
     "xKMPTIdMgI4-02: MMW형 CMA 공식안내는 예금보호 비대상이고 원금손실이 가능하다고 명시한다.",
@@ -225,7 +226,33 @@
     "public_korean_fullbody_match_unverified": true,
     "source_registry": "data/subtitles/registry_131_140_20261026.json",
     "subscriber_private_account_return_proof": "EXCLUDED_BY_USER_REQUEST",
-    "non_investment_commercial_content": false
+    "non_investment_commercial_content": false,
+    "legal_regulatory_second_pass_20261026": {
+      "date_checked": "2026-10-26",
+      "original_video_as_of": "2026-02-26",
+      "fund_rules": {
+        "pension_savings_fund_risk_asset_limit_pct": 100,
+        "irp_dc_general_risky_limit_pct": 70,
+        "qualified_tdf_possible_allocation_pct": 100,
+        "tdf_general_unqualified_exempt": false
+      },
+      "gift_tax": {
+        "minor_up_to_20b_krw_not_applicable_threshold_note": "미성년 수증자가 20억원을 초과해 증여받는 경우 40% 할증 가능",
+        "regular_generation_skipping_surtax_30pct_basis": "증여세 산출세액, not 30% of gift principal",
+        "gift_deduction_direct_ancestor_10yr": {
+          "adult_krw": 50000000,
+          "minor_krw": 20000000
+        }
+      },
+      "source_fund": "https://kbam.co.kr/pension/guide/pension-account-investment-products-guide",
+      "source_gift": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7960&mi=6538",
+      "post_video_fss_2026_04_note": true,
+      "report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+    },
+    "original_video_audio_and_screen_independently_checked": false,
+    "public_korean_video_transcript_independently_fulltext_checked": false,
+    "source_file_private_SRT_context_check_passed": true,
+    "second_pass_evidence_file": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
   },
   "limitations": [
     "No original audio or video frame review.",
