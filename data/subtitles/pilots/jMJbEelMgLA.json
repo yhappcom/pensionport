@@ -245,17 +245,23 @@
       "source_cue_index": 1410,
       "source_paraphrase": "수소차는 전기차보다 환경친화적이고 오염이 전혀 없다",
       "assessment": "QUALIFIED",
-      "independent_check": "운행시 무공해 배출과 수소 생산·저장·운송 단계의 에너지 소비·온실가스 배출은 구분. '생애주기 완전 무배출'이라고 단정 불가.",
+      "independent_check": "수소연료전지차는 주행 중 배기가스 대신 물을 배출할 수 있으나, 수소의 생산·운송과 자동차 제조 과정의 온실가스 배출이 발생할 수 있다. 따라서 '평생 오염이 전혀 없다'는 표현은 부정확하고, 배터리 전기차와 어느 쪽이 친환경인지도 전력원·수소 생산경로와 차량 전과정평가에 따라 바뀐다.",
       "official_sources": [
-        "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+        "https://afdc.energy.gov/vehicles/emissions-hydrogen"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset",
+        "primary_url": "https://afdc.energy.gov/vehicles/emissions-hydrogen",
         "checked_at": "2026-10-26",
-        "source_finding": "운행시 무공해 배출과 수소 생산·저장·운송 단계의 에너지 소비·온실가스 배출은 구분. '생애주기 완전 무배출'이라고 단정 불가.",
-        "effective_date_or_scope": "2026-02-13 user SRT, current original source meaning checked 2026-10-26",
-        "disposition": "운행시 무공해 배출과 수소 생산·저장·운송 단계의 에너지 소비·온실가스 배출은 구분. '생애주기 완전 무배출'이라고 단정 불가."
+        "source_finding": "수소연료전지차는 주행 중 배기가스 대신 물을 배출할 수 있으나, 수소의 생산·운송과 자동차 제조 과정의 온실가스 배출이 발생할 수 있다. 따라서 '평생 오염이 전혀 없다'는 표현은 부정확하고, 배터리 전기차와 어느 쪽이 친환경인지도 전력원·수소 생산경로와 차량 전과정평가에 따라 바뀐다.",
+        "effective_date_or_scope": "2026-10-26 direct relevant specialized official evidence recheck",
+        "disposition": "수소연료전지차는 주행 중 배기가스 대신 물을 배출할 수 있으나, 수소의 생산·운송과 자동차 제조 과정의 온실가스 배출이 발생할 수 있다. 따라서 '평생 오염이 전혀 없다'는 표현은 부정확하고, 배터리 전기차와 어느 쪽이 친환경인지도 전력원·수소 생산경로와 차량 전과정평가에 따라 바뀐다."
+      },
+      "source_fit_reaudit_20261026": {
+        "old_primary_url": "US SEC broad investor resource or generic prior NTS link",
+        "new_primary_url": "https://afdc.energy.gov/vehicles/emissions-hydrogen",
+        "reason": "Replace off-topic reference with institution directly addressing this claim and retain caveats",
+        "audio_checked": false
       }
     }
   ],
