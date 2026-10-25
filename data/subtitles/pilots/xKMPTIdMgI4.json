@@ -28,7 +28,29 @@
     "evidence_reference": "Original user SRT complete numbered cues and raw SHA inspected; claims linked to public regulator/finance provider sources.",
     "limitations": "Acoustic and video-frames not verified; original public Korean same-video ASR was unavailable for SHA comparison; historical estimates and individual returns restricted.",
     "original_audio_checked": false,
-    "frames_checked": false
+    "frames_checked": false,
+    "legal_regulatory_second_pass_20261026": {
+      "date_checked": "2026-10-26",
+      "original_video_as_of": "2026-02-26",
+      "fund_rules": {
+        "pension_savings_fund_risk_asset_limit_pct": 100,
+        "irp_dc_general_risky_limit_pct": 70,
+        "qualified_tdf_possible_allocation_pct": 100,
+        "tdf_general_unqualified_exempt": false
+      },
+      "gift_tax": {
+        "minor_up_to_20b_krw_not_applicable_threshold_note": "미성년 수증자가 20억원을 초과해 증여받는 경우 40% 할증 가능",
+        "regular_generation_skipping_surtax_30pct_basis": "증여세 산출세액, not 30% of gift principal",
+        "gift_deduction_direct_ancestor_10yr": {
+          "adult_krw": 50000000,
+          "minor_krw": 20000000
+        }
+      },
+      "source_fund": "https://kbam.co.kr/pension/guide/pension-account-investment-products-guide",
+      "source_gift": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7960&mi=6538",
+      "post_video_fss_2026_04_note": true,
+      "report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+    }
   },
   "claims": [
     {
@@ -254,6 +276,7 @@
   "limitations": [
     "No original audio or video frame review.",
     "Historical yields/earnings are not guaranteed current or future performance.",
-    "Personal account returns excluded by user request."
+    "Personal account returns excluded by user request.",
+    "2026-10-26: Supplemented specific 2026 pension account risks and NTS tax/allowance parameters with direct issuer/regulator references; full video audio/frames remain unverified."
   ]
 }
