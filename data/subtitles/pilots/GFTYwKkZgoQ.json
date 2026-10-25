@@ -34,7 +34,16 @@
     "subscriber_account_proof_excluded": true,
     "source_registry": "data/subtitles/registry_141_145_20261026.json",
     "limitations": "Public audio/frames and public Korean video transcript full-body equivalence not established; source SRT entire cue chain and important original utterance context directly read; product promotion visual/terms contemporaneous archive not confirmed. User provided original SRT is not a verified audio waveform or official alternative transcript.",
-    "evidence_reference": "Private original SRT bytes extracted from 101-200.zip, SHA-256 and sequential numbered cues independently recomputed; material claims inspected with adjacent auto-caption context, then checked against issuer/regulator original pages where cited. See knowledge/VIDEO141_145_FULL_V3_SOURCE_EVIDENCE_REVIEW_20261026.md."
+    "evidence_reference": "Private original SRT bytes extracted from 101-200.zip, SHA-256 and sequential numbered cues independently recomputed; material claims inspected with adjacent auto-caption context, then checked against issuer/regulator original pages where cited. See knowledge/VIDEO141_145_FULL_V3_SOURCE_EVIDENCE_REVIEW_20261026.md.",
+    "priority_reaudit_20261026": {
+      "performed": true,
+      "raw_srt_reopened_and_original_file_sha_verified": true,
+      "reviewed_claims": [
+        "GFTYwKkZgoQ-06"
+      ],
+      "audio_video_frames_verified": false,
+      "report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+    }
   },
   "claims": [
     {
@@ -139,24 +148,41 @@
     },
     {
       "claim_id": "GFTYwKkZgoQ-06",
-      "source_cue_index": 334,
-      "timecode": "00:10:39",
-      "source_paraphrase": "IRP는 모두 예금자보호를 받지 못하는 계좌다",
-      "independent_check": "IRP는 상품을 보관하는 세제 계좌이므로 예금 등 보호대상 원리금보장상품으로 운용한 적립금은 예금보험의 보호대상이 될 수 있다. 비보호는 투자실적 연동 펀드·ETF 등에 해당. 원본은 화면의 투자위험 고지 문구를 읽는 장면이므로 특정 약관의 대상상품 구별 필요.",
+      "source_cue_index": 335,
+      "timecode": "00:10:41",
+      "source_paraphrase": "IRP 가입 화면의 위험고지에서 'IRP는 예금자 비보호입니다'라고 읽고 원금손실 가능성을 설명",
+      "independent_check": "사용자 원본 SRT cue335~340은 실제로 'IRP는 예금자 비보호'라고 말하지만 개설 화면의 상품군 전체를 포괄하는 근거는 없다. 금융위원회 2025-07-22 공식 QA는 개인형 IRP·DC 적립금 중 예금 등 보호상품으로 운용되는 금액을 일반 보호예금과 별도로 1인당 1억원까지 보호한다고 명시한다. 펀드·ETF·실적배당형 상품은 비보호. 'IRP 전체 비보호'로 일반화한 문장만 반증하며 읽고 있던 특정 증권사 화면의 특정 고지문구 자체의 적법성은 화면 미확인으로 판정하지 않는다.",
       "assessment": "CONTRADICTED",
       "official_sources": [
-        "https://m.korea.kr/multi/mediaNewsView.do?newsId=148952118"
+        "https://fsc.go.kr/po020201/84975"
       ],
       "verification_evidence": {
         "verdict": "CONTRADICTED",
-        "primary_url": "https://m.korea.kr/multi/mediaNewsView.do?newsId=148952118",
+        "primary_url": "https://fsc.go.kr/po020201/84975",
+        "secondary_urls": [],
         "checked_at": "2026-10-26",
-        "source_finding": "IRP는 상품을 보관하는 세제 계좌이므로 예금 등 보호대상 원리금보장상품으로 운용한 적립금은 예금보험의 보호대상이 될 수 있다. 비보호는 투자실적 연동 펀드·ETF 등에 해당. 원본은 화면의 투자위험 고지 문구를 읽는 장면이므로 특정 약관의 대상상품 구별 필요.",
-        "disposition": "IRP는 상품을 보관하는 세제 계좌이므로 예금 등 보호대상 원리금보장상품으로 운용한 적립금은 예금보험의 보호대상이 될 수 있다. 비보호는 투자실적 연동 펀드·ETF 등에 해당. 원본은 화면의 투자위험 고지 문구를 읽는 장면이므로 특정 약관의 대상상품 구별 필요.",
-        "effective_date_or_scope": "2026-02 source date 2026-02-06; primary public documentation inspected as of 2026-10-26",
-        "correction": "IRP는 상품을 보관하는 세제 계좌이므로 예금 등 보호대상 원리금보장상품으로 운용한 적립금은 예금보험의 보호대상이 될 수 있다. 비보호는 투자실적 연동 펀드·ETF 등에 해당. 원본은 화면의 투자위험 고지 문구를 읽는 장면이므로 특정 약관의 대상상품 구별 필요."
+        "source_finding": "사용자 원본 SRT cue335~340은 실제로 'IRP는 예금자 비보호'라고 말하지만 개설 화면의 상품군 전체를 포괄하는 근거는 없다. 금융위원회 2025-07-22 공식 QA는 개인형 IRP·DC 적립금 중 예금 등 보호상품으로 운용되는 금액을 일반 보호예금과 별도로 1인당 1억원까지 보호한다고 명시한다. 펀드·ETF·실적배당형 상품은 비보호. 'IRP 전체 비보호'로 일반화한 문장만 반증하며 읽고 있던 특정 증권사 화면의 특정 고지문구 자체의 적법성은 화면 미확인으로 판정하지 않는다.",
+        "disposition": "사용자 원본 SRT cue335~340은 실제로 'IRP는 예금자 비보호'라고 말하지만 개설 화면의 상품군 전체를 포괄하는 근거는 없다. 금융위원회 2025-07-22 공식 QA는 개인형 IRP·DC 적립금 중 예금 등 보호상품으로 운용되는 금액을 일반 보호예금과 별도로 1인당 1억원까지 보호한다고 명시한다. 펀드·ETF·실적배당형 상품은 비보호. 'IRP 전체 비보호'로 일반화한 문장만 반증하며 읽고 있던 특정 증권사 화면의 특정 고지문구 자체의 적법성은 화면 미확인으로 판정하지 않는다.",
+        "effective_date_or_scope": "Original 2026-02 video versus direct 1994 Bengen, 1895 will, 2025-07 FSC, 2026 state housing guide. Date and research boundaries in text.",
+        "correction": "사용자 원본 SRT cue335~340은 실제로 'IRP는 예금자 비보호'라고 말하지만 개설 화면의 상품군 전체를 포괄하는 근거는 없다. 금융위원회 2025-07-22 공식 QA는 개인형 IRP·DC 적립금 중 예금 등 보호상품으로 운용되는 금액을 일반 보호예금과 별도로 1인당 1억원까지 보호한다고 명시한다. 펀드·ETF·실적배당형 상품은 비보호. 'IRP 전체 비보호'로 일반화한 문장만 반증하며 읽고 있던 특정 증권사 화면의 특정 고지문구 자체의 적법성은 화면 미확인으로 판정하지 않는다."
       },
-      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE",
+      "context_second_pass_20261026": {
+        "before": {
+          "status": "CONTRADICTED",
+          "phrase": "IRP는 모두 예금자보호를 받지 못하는 계좌다",
+          "finding": "IRP는 상품을 보관하는 세제 계좌이므로 예금 등 보호대상 원리금보장상품으로 운용한 적립금은 예금보험의 보호대상이 될 수 있다. 비보호는 투자실적 연동 펀드·ETF 등에 해당. 원본은 화면의 투자위험 고지 문구를 읽는 장면이므로 특정 약관의 대상상품 구별 필요.",
+          "urls": [
+            "https://m.korea.kr/multi/mediaNewsView.do?newsId=148952118"
+          ],
+          "source_cue": 334
+        },
+        "after_verdict": "CONTRADICTED",
+        "reference_cue": 335,
+        "reviewed_adjacent_source_SRT": true,
+        "independent_citation_support_only_for_scope_as_reported": true,
+        "detail_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+      }
     },
     {
       "claim_id": "GFTYwKkZgoQ-07",
