@@ -174,6 +174,41 @@ def registered_sources(root):
                     or vid in registry):
                 raise ValueError("BATCH_131_140_UNTRUSTED_ENTRY")
             registry[vid] = {"sha256": sha, "cue_count": cues}
+    # 2026-10-26: source evidence for #141-145 from the original user ZIP.
+    # Ignore __MACOSX AppleDouble metadata and pin raw source SRT hashes.
+    five = root / "data/subtitles/registry_141_145_20261026.json"
+    if five.is_file():
+        extra = load(five)
+        expected = {
+            "O8YUK1OugHs": (141, "fada8dc0d2572c31621ae09a39ef353b733d48910613866a33250561fb1e2811", 1260, 96513),
+            "faqbdJ1C43Y": (142, "7505f16a7e74ad54033a1b7f5d6a48b0558e37bf90cdb678f59bcae4989318ed", 1026, 78567),
+            "GFTYwKkZgoQ": (143, "4e7da21b940bee5b5f21895232559cf6d31a6bde762b3c788bf39b", 1067, 82637),
+            "GvGNAsizyp8": (144, "d5f2f13cab031491d3f49e723d4adc790e04674fe7916be52d39f71e3242c376", 774, 60695),
+            "sRadRD7qRu8": (145, "615ba53ec075ef2e19ed4f7cf4fe6cfb3ad0b32457bfc66ee01fa56297284562", 745, 57458),
+        }
+        entries = extra.get("items", [])
+        if (extra.get("archive_sha256") != "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e"
+                or extra.get("total_videos") != 5
+                or extra.get("total_raw_bytes") != 375870
+                or extra.get("total_original_cues") != 4872
+                or len(entries) != 5
+                or {x.get("video_id") for x in entries} != set(expected)
+                or sum(x.get("raw_srt_bytes", 0) for x in entries) != 375870
+                or sum(x.get("cue_count", 0) for x in entries) != 4872):
+            raise ValueError("BATCH_141_145_SOURCE_REGISTRY_INVALID")
+        for row in entries:
+            vid = row["video_id"]
+            no, sha, cues, byte_len = expected[vid]
+            if (vid in registry or roster.get(vid) != no
+                    or row.get("roster_no") != no
+                    or row.get("sha256") != sha
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != byte_len
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("full_transcript_reviewed") is not True
+                    or row.get("v3_status") != "APPROVED"):
+                raise ValueError("BATCH_141_145_UNTRUSTED_ENTRY")
+            registry[vid] = {"sha256": sha, "cue_count": cues}
     return registry
 
 
