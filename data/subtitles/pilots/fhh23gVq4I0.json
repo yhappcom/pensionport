@@ -28,7 +28,24 @@
     "evidence_reference": "User-uploaded entire SRT indexed by numbered cues with file SHA256; video material financial statements cross-checked against cited independent sources.",
     "limitations": "Same-video public ASR exact full-body comparison and independent raw sound/frame inspections not performed. Subscriber private brokerage performance not authenticated by user request.",
     "original_audio_checked": false,
-    "frames_checked": false
+    "frames_checked": false,
+    "legal_regulatory_second_pass_20261026": {
+      "date_checked": "2026-10-26",
+      "original_video_as_of": "2026-03-01",
+      "question": "Stock/bond 50:50 and TDF in 연금저축 vs IRP",
+      "eligibility_verified": {
+        "pension_savings_fund_stock_risk_assets_up_to_100_percent": true,
+        "irp_dc_risky_assets_general_max_pct": 70,
+        "qualified_tdf_possible_100pct_in_dc_irp": true,
+        "all_tdf_automatically_exempt": false,
+        "tdf_maturity_year_is_not_fund_termination": true
+      },
+      "issuer_source": "https://kbam.co.kr/pension/guide/pension-account-investment-products-guide",
+      "regulator_policy_source": "https://eiec.kdi.re.kr/policy/materialView.do?num=278764",
+      "effective_date_caveat": "FSS 2026-04-01 disclosure/risk-categorization requirements postdate this 2026-03-01 video; do not backdate Apr requirements; general 70%/qualified TDF exemption existed before video.",
+      "original_cue_range": "630-760",
+      "report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+    }
   },
   "claims": [
     {
@@ -225,6 +242,7 @@
   "core_message": "연금 장기투자 주식/채권 50:50과 위험관리",
   "limitations": [
     "Evidence claims are scoped to dated video; no profits or fees are guaranteed.",
-    "Personal account performance/returns excluded from actual-balance verification by user request."
+    "Personal account performance/returns excluded from actual-balance verification by user request.",
+    "2026-10-26: Supplemented specific 2026 pension account risks and NTS tax/allowance parameters with direct issuer/regulator references; full video audio/frames remain unverified."
   ]
 }
