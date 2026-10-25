@@ -179,7 +179,9 @@
     "User-provided Korean auto SRT is direct textual source, not an authenticated audio/video track.",
     "Individual private subscriber brokerage returns/positions are outside requested scope."
   ],
-  "risks_and_exceptions": [],
+  "risks_and_exceptions": [
+    "Risk of investment loss, dated product conditions, tax and sponsorship conflicts remain; see per-claim limitations and independent_check."
+  ],
   "quantitative_claims": [
     {
       "metric": "ORIGINAL_SRT",
@@ -221,7 +223,8 @@
     "source_registry": "data/subtitles/registry_141_145_20261026.json",
     "subscriber_private_account_return_proof": "EXCLUDED_BY_USER_REQUEST",
     "sponsored_ad_segment_present": false,
-    "video_screen_only_interest_rates_verified": false
+    "video_screen_only_interest_rates_verified": false,
+    "pilot_is_review_draft_not_independent_approval": true
   },
   "limitations": [
     "All video-derived wording comes from user's uploaded Korean original SRT; no word-for-word verification against acoustic video.",
