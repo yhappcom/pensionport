@@ -34,7 +34,17 @@
     "subscriber_account_proof_excluded": true,
     "source_registry": "data/subtitles/registry_141_145_20261026.json",
     "limitations": "Public audio/frames and public Korean video transcript full-body equivalence not established; source SRT entire cue chain and important original utterance context directly read; product promotion visual/terms contemporaneous archive not confirmed. User provided original SRT is not a verified audio waveform or official alternative transcript.",
-    "evidence_reference": "Private original SRT bytes extracted from 101-200.zip, SHA-256 and sequential numbered cues independently recomputed; material claims inspected with adjacent auto-caption context, then checked against issuer/regulator original pages where cited. See knowledge/VIDEO141_145_FULL_V3_SOURCE_EVIDENCE_REVIEW_20261026.md."
+    "evidence_reference": "Private original SRT bytes extracted from 101-200.zip, SHA-256 and sequential numbered cues independently recomputed; material claims inspected with adjacent auto-caption context, then checked against issuer/regulator original pages where cited. See knowledge/VIDEO141_145_FULL_V3_SOURCE_EVIDENCE_REVIEW_20261026.md.",
+    "priority_reaudit_20261026": {
+      "performed": true,
+      "raw_srt_reopened_and_original_file_sha_verified": true,
+      "reviewed_claims": [
+        "faqbdJ1C43Y-06",
+        "faqbdJ1C43Y-10"
+      ],
+      "audio_video_frames_verified": false,
+      "report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+    }
   },
   "claims": [
     {
@@ -126,21 +136,41 @@
       "claim_id": "faqbdJ1C43Y-06",
       "source_cue_index": 878,
       "timecode": "00:28:59",
-      "source_paraphrase": "청년형 주택청약저축 연4.5%를 5년간 월2만원에 적용하면 약130만원",
-      "independent_check": "우대금리4.5% 적용 대상·소득/연령/가입조건·우대기간과 세후 금리는 개별 약관으로 검증해야 한다. 단순 2만원×60=120만원 원금은 확정, 130만원은 우대금리 가정 결과.",
+      "source_paraphrase": "청년주택드림 청약통장 연 4.5% 금리를 가정하면 매월 2만원씩 5년 납입 후 약 130만원이라는 설명",
+      "independent_check": "SRT cue871~883 원금 월2만원×60=120만원, 영상은 약130만원 평가액과 청년주택드림 청약통장 우대 4.5%를 예시로 든다. 주택도시기금 공식 안내상 최고 연4.5%는 가입기간 2년 이상, 무주택기간(가입기간 최대 10년) 및 개별 자격을 충족할 때 세전 단리 방식의 변동금리. 매월 월초 2만원·60개월·연4.5% 단리를 단순 적용하면 약133.725만원, 월말 납입이면 약133.275만원으로 '약130만원'은 반올림 사례로 타당하나 4.5%를 언제나 주는 적금으로 보면 안 됨. 2026-02 당시 특약·연도별 변경이율을 고정 증명한 것은 아니며, 2026-03 자료와 조건을 대조.",
       "assessment": "QUALIFIED",
       "official_sources": [
-        "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp"
+        "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp",
+        "https://www.redcross.or.kr/main/sm/sprt/selectOdtmSprtPrgrmCntntsInfo.do?mi=1275&prgrmSn=1003"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
         "primary_url": "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp",
+        "secondary_urls": [
+          "https://www.redcross.or.kr/main/sm/sprt/selectOdtmSprtPrgrmCntntsInfo.do?mi=1275&prgrmSn=1003"
+        ],
         "checked_at": "2026-10-26",
-        "source_finding": "우대금리4.5% 적용 대상·소득/연령/가입조건·우대기간과 세후 금리는 개별 약관으로 검증해야 한다. 단순 2만원×60=120만원 원금은 확정, 130만원은 우대금리 가정 결과. Government housing fund original product terms in updated 2026-06-30 guide; historical 2026-02 rate and personal eligibility not separately confirmed.",
-        "disposition": "우대금리4.5% 적용 대상·소득/연령/가입조건·우대기간과 세후 금리는 개별 약관으로 검증해야 한다. 단순 2만원×60=120만원 원금은 확정, 130만원은 우대금리 가정 결과.",
-        "effective_date_or_scope": "2026-02 source date 2026-02-08; primary public documentation inspected as of 2026-10-26 Historical conditions not independently snapshot-verified."
+        "source_finding": "SRT cue871~883 원금 월2만원×60=120만원, 영상은 약130만원 평가액과 청년주택드림 청약통장 우대 4.5%를 예시로 든다. 주택도시기금 공식 안내상 최고 연4.5%는 가입기간 2년 이상, 무주택기간(가입기간 최대 10년) 및 개별 자격을 충족할 때 세전 단리 방식의 변동금리. 매월 월초 2만원·60개월·연4.5% 단리를 단순 적용하면 약133.725만원, 월말 납입이면 약133.275만원으로 '약130만원'은 반올림 사례로 타당하나 4.5%를 언제나 주는 적금으로 보면 안 됨. 2026-02 당시 특약·연도별 변경이율을 고정 증명한 것은 아니며, 2026-03 자료와 조건을 대조.",
+        "disposition": "SRT cue871~883 원금 월2만원×60=120만원, 영상은 약130만원 평가액과 청년주택드림 청약통장 우대 4.5%를 예시로 든다. 주택도시기금 공식 안내상 최고 연4.5%는 가입기간 2년 이상, 무주택기간(가입기간 최대 10년) 및 개별 자격을 충족할 때 세전 단리 방식의 변동금리. 매월 월초 2만원·60개월·연4.5% 단리를 단순 적용하면 약133.725만원, 월말 납입이면 약133.275만원으로 '약130만원'은 반올림 사례로 타당하나 4.5%를 언제나 주는 적금으로 보면 안 됨. 2026-02 당시 특약·연도별 변경이율을 고정 증명한 것은 아니며, 2026-03 자료와 조건을 대조.",
+        "effective_date_or_scope": "Original 2026-02 video versus direct 1994 Bengen, 1895 will, 2025-07 FSC, 2026 state housing guide. Date and research boundaries in text."
       },
-      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE",
+      "context_second_pass_20261026": {
+        "before": {
+          "status": "QUALIFIED",
+          "phrase": "청년형 주택청약저축 연4.5%를 5년간 월2만원에 적용하면 약130만원",
+          "finding": "우대금리4.5% 적용 대상·소득/연령/가입조건·우대기간과 세후 금리는 개별 약관으로 검증해야 한다. 단순 2만원×60=120만원 원금은 확정, 130만원은 우대금리 가정 결과.",
+          "urls": [
+            "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp"
+          ],
+          "source_cue": 878
+        },
+        "after_verdict": "QUALIFIED",
+        "reference_cue": 878,
+        "reviewed_adjacent_source_SRT": true,
+        "independent_citation_support_only_for_scope_as_reported": true,
+        "detail_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+      }
     },
     {
       "claim_id": "faqbdJ1C43Y-07",
@@ -196,21 +226,41 @@
       "claim_id": "faqbdJ1C43Y-10",
       "source_cue_index": 950,
       "timecode": "00:31:14",
-      "source_paraphrase": "월50만원(청약2만원+투자48만원) 5년 뒤 합계 약3878만원",
-      "independent_check": "월 총 납입원금3000만원. 연10% 수익률의 월복리 근사에서 월50만원 전액 투자 시 약3,872만원이므로 영상 수치3878만원은 가정에 가까우나 청약2만원4.5%/투자48만원10% 구분 계산과 세후비용의 정확한 화면식은 미확정.",
+      "source_paraphrase": "매월 청약2만원(우대4.5% 가정)·ISA 투자48만원(연10% 기대수익 가정)의 5년 후 합산 평가액 3878만원 시뮬레이션",
+      "independent_check": "SRT cue871~883, 889~921, 949~954을 대조: 월2만원×60=120만원, 월48만원×60=2880만원, 총 원금 3000만원. 투자상품 10%를 명목연율로 가정해 월수익 0.10/12을 적용하면 월초 투자 48만원의 1년 후 미래가치 약608.17만원으로 SRT의 '608만원'과 일치. 5년 월초 투자분은 약3747.95만원, 청약 월초 단리 4.5% 약133.725만원 = 합계 약3881.68만원. 같은 금리 가정에서 월말 납입이면 투자분 약3716.98만원+청약 약133.275만원 = 약3850.25만원. 실제 영상 표 3878만원은 이 가정 범위 내에 있으나 3881.68만원과 3.68만원 차이가 나므로 정확한 세부 계산식/납입시점/중간반올림은 확인하지 못했다. 10%는 미래 보장수익이 아니고 세금·운용보수·환율은 제외. 금액3878만원을 '검증된 정확한 원표 공식 결과'로 PRIMARY 승격 금지.",
       "assessment": "QUALIFIED",
       "official_sources": [
-        "https://www.investor.gov/introduction-investing"
+        "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp",
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": "https://www.investor.gov/introduction-investing",
+        "primary_url": "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp",
+        "secondary_urls": [
+          "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+        ],
         "checked_at": "2026-10-26",
-        "source_finding": "월 총 납입원금3000만원. 연10% 수익률의 월복리 근사에서 월50만원 전액 투자 시 약3,872만원이므로 영상 수치3878만원은 가정에 가까우나 청약2만원4.5%/투자48만원10% 구분 계산과 세후비용의 정확한 화면식은 미확정.",
-        "disposition": "월 총 납입원금3000만원. 연10% 수익률의 월복리 근사에서 월50만원 전액 투자 시 약3,872만원이므로 영상 수치3878만원은 가정에 가까우나 청약2만원4.5%/투자48만원10% 구분 계산과 세후비용의 정확한 화면식은 미확정.",
-        "effective_date_or_scope": "2026-02 source date 2026-02-08; primary public documentation inspected as of 2026-10-26"
+        "source_finding": "SRT cue871~883, 889~921, 949~954을 대조: 월2만원×60=120만원, 월48만원×60=2880만원, 총 원금 3000만원. 투자상품 10%를 명목연율로 가정해 월수익 0.10/12을 적용하면 월초 투자 48만원의 1년 후 미래가치 약608.17만원으로 SRT의 '608만원'과 일치. 5년 월초 투자분은 약3747.95만원, 청약 월초 단리 4.5% 약133.725만원 = 합계 약3881.68만원. 같은 금리 가정에서 월말 납입이면 투자분 약3716.98만원+청약 약133.275만원 = 약3850.25만원. 실제 영상 표 3878만원은 이 가정 범위 내에 있으나 3881.68만원과 3.68만원 차이가 나므로 정확한 세부 계산식/납입시점/중간반올림은 확인하지 못했다. 10%는 미래 보장수익이 아니고 세금·운용보수·환율은 제외. 금액3878만원을 '검증된 정확한 원표 공식 결과'로 PRIMARY 승격 금지.",
+        "disposition": "SRT cue871~883, 889~921, 949~954을 대조: 월2만원×60=120만원, 월48만원×60=2880만원, 총 원금 3000만원. 투자상품 10%를 명목연율로 가정해 월수익 0.10/12을 적용하면 월초 투자 48만원의 1년 후 미래가치 약608.17만원으로 SRT의 '608만원'과 일치. 5년 월초 투자분은 약3747.95만원, 청약 월초 단리 4.5% 약133.725만원 = 합계 약3881.68만원. 같은 금리 가정에서 월말 납입이면 투자분 약3716.98만원+청약 약133.275만원 = 약3850.25만원. 실제 영상 표 3878만원은 이 가정 범위 내에 있으나 3881.68만원과 3.68만원 차이가 나므로 정확한 세부 계산식/납입시점/중간반올림은 확인하지 못했다. 10%는 미래 보장수익이 아니고 세금·운용보수·환율은 제외. 금액3878만원을 '검증된 정확한 원표 공식 결과'로 PRIMARY 승격 금지.",
+        "effective_date_or_scope": "Original 2026-02 video versus direct 1994 Bengen, 1895 will, 2025-07 FSC, 2026 state housing guide. Date and research boundaries in text."
       },
-      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE",
+      "context_second_pass_20261026": {
+        "before": {
+          "status": "QUALIFIED",
+          "phrase": "월50만원(청약2만원+투자48만원) 5년 뒤 합계 약3878만원",
+          "finding": "월 총 납입원금3000만원. 연10% 수익률의 월복리 근사에서 월50만원 전액 투자 시 약3,872만원이므로 영상 수치3878만원은 가정에 가까우나 청약2만원4.5%/투자48만원10% 구분 계산과 세후비용의 정확한 화면식은 미확정.",
+          "urls": [
+            "https://www.investor.gov/introduction-investing"
+          ],
+          "source_cue": 950
+        },
+        "after_verdict": "QUALIFIED",
+        "reference_cue": 950,
+        "reviewed_adjacent_source_SRT": true,
+        "independent_citation_support_only_for_scope_as_reported": true,
+        "detail_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+      }
     },
     {
       "claim_id": "faqbdJ1C43Y-11",
