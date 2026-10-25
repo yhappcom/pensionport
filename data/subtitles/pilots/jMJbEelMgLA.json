@@ -28,7 +28,16 @@
     "evidence_reference": "Entire user SRT file SHA256 and cue chain verified; selected monetary and consumer credit claims checked against regulation and investor risk disclosures.",
     "limitations": "Independent video waveform/framed images/public same-video transcript not verified. Personal account returns excluded.",
     "original_audio_checked": false,
-    "frames_checked": false
+    "frames_checked": false,
+    "claim_context_reaudit_20261026": {
+      "performed": true,
+      "latest_status": "SOURCE_CONTEXT_CORRECTED_AND_DOCUMENTED",
+      "report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md",
+      "public_KO_fullbody_verified": false,
+      "original_audio_verified": false,
+      "original_video_frames_verified": false,
+      "subscriber_private_profit_proof": "EXCLUDED_BY_USER_REQUEST"
+    }
   },
   "claims": [
     {
@@ -172,20 +181,31 @@
       "claim_id": "jMJbEelMgLA-09",
       "timecode": "00:33:15",
       "source_cue_index": 1033,
-      "source_paraphrase": "가전·차량 구매는 현금 대신 할부가 언제나 유리",
-      "assessment": "CONTRADICTED",
-      "independent_check": "할부금리·할인·보험·연체수수료·기회비용을 비교해야 하며 할부가 항상 이득이라는 일반화는 틀리다.",
+      "source_paraphrase": "차량 구매 시 현금 일시불보다 저금리 할부로 유동성을 확보하는 방안을 긍정적으로 설명",
+      "assessment": "QUALIFIED",
+      "independent_check": "SRT cue1029~1078은 3~4% 금리의 차량 할부와 현금 시간가치의 비교 사례. '할부가 언제나 이득'이라는 기존 절대화 문구는 실제 발언보다 과장돼 이를 철회. 현금 할인·할부 연환산비용(APR)·계약기간·현금 운용의 불확실한 순수익·상환능력을 비교해야 하며 대출자에게 보편적인 확정 이득은 아님.",
       "official_sources": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47"
+        "https://www.consumerfinance.gov/ask-cfpb/how-do-i-compare-auto-loan-offers-what-should-i-look-at-besides-the-monthly-payment-en-753/"
       ],
       "verification_evidence": {
-        "verdict": "CONTRADICTED",
-        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47",
+        "verdict": "QUALIFIED",
+        "primary_url": "https://www.consumerfinance.gov/ask-cfpb/how-do-i-compare-auto-loan-offers-what-should-i-look-at-besides-the-monthly-payment-en-753/",
         "checked_at": "2026-10-26",
-        "source_finding": "할부금리·할인·보험·연체수수료·기회비용을 비교해야 하며 할부가 항상 이득이라는 일반화는 틀리다.",
-        "effective_date_or_scope": "2026-02-13 user SRT, current original source meaning checked 2026-10-26",
-        "disposition": "할부금리·할인·보험·연체수수료·기회비용을 비교해야 하며 할부가 항상 이득이라는 일반화는 틀리다.",
-        "correction": "할부금리·할인·보험·연체수수료·기회비용을 비교해야 하며 할부가 항상 이득이라는 일반화는 틀리다."
+        "source_finding": "SRT cue1029~1078은 3~4% 금리의 차량 할부와 현금 시간가치의 비교 사례. '할부가 언제나 이득'이라는 기존 절대화 문구는 실제 발언보다 과장돼 이를 철회. 현금 할인·할부 연환산비용(APR)·계약기간·현금 운용의 불확실한 순수익·상환능력을 비교해야 하며 대출자에게 보편적인 확정 이득은 아님.",
+        "effective_date_or_scope": "FULL_USER_PRIVATE_ORIGINAL_SRT_CUE_CONTEXT_RECHECK_2026_10_26",
+        "disposition": "SRT cue1029~1078은 3~4% 금리의 차량 할부와 현금 시간가치의 비교 사례. '할부가 언제나 이득'이라는 기존 절대화 문구는 실제 발언보다 과장돼 이를 철회. 현금 할인·할부 연환산비용(APR)·계약기간·현금 운용의 불확실한 순수익·상환능력을 비교해야 하며 대출자에게 보편적인 확정 이득은 아님.",
+        "review_type": "2026-10-26 RECONCILIATION OF OVERSTATED PRIOR SOURCE PARAPHRASE",
+        "previous_verdict": "CONTRADICTED"
+      },
+      "source_context_reaudit_20261026": {
+        "cue": 1033,
+        "prior": {
+          "assessment": "CONTRADICTED",
+          "source_paraphrase": "가전·차량 구매는 현금 대신 할부가 언제나 유리",
+          "independent_check": "할부금리·할인·보험·연체수수료·기회비용을 비교해야 하며 할부가 항상 이득이라는 일반화는 틀리다."
+        },
+        "corrected_verdict": "QUALIFIED",
+        "reason": "Former CONTRADICTED alleged stronger categorical statement than SRT actually supports; financial risk qualifications still apply"
       }
     },
     {
@@ -230,9 +250,9 @@
   ],
   "claim_count": 11,
   "claim_classification_tally": {
-    "QUALIFIED": 6,
+    "QUALIFIED": 7,
     "HYPOTHETICAL": 3,
-    "CONTRADICTED": 2
+    "CONTRADICTED": 1
   },
   "core_message": "월급 200만원의 예산·저축계획과 5년 평가금액 가정, 부채·할부 위험을 구분",
   "limitations": [
