@@ -16,10 +16,10 @@
     "claims_checked": 74,
     "verdicts": {
       "PRIMARY_CONFIRMED": 16,
-      "QUALIFIED": 40,
-      "SPEAKER_OPINION": 4,
+      "QUALIFIED": 42,
+      "CONTRADICTED": 5,
       "HYPOTHETICAL": 7,
-      "CONTRADICTED": 7
+      "SPEAKER_OPINION": 4
     }
   },
   "current_cumulative": {
@@ -43,7 +43,7 @@
     "original_video_audio_frames_checked": false,
     "original_srt_publicly_saved": false
   },
-  "claim_corrections_7_count": 7,
+  "claim_corrections_7_count": 5,
   "caution_for_future": [
     "#141 paid Hana Securities issuer advertising segment distinct from editorial education; historical event offer rates must not be claimed currently valid.",
     "#142 48만원 monthly investments and 2만원 housing savings have 3000만원 combined 5year principal, 3878만원 projected future value must include model assumptions.",
@@ -58,7 +58,7 @@
   "optional_low_priority_open_gates": [
     "#141 2026 issuer event original rate chart/terms and comparison of MMW issuer fees",
     "#142 청약 저축 exact 2026 eligibility and precise projected value assumptions",
-    "#145 historical company dividend chart and Nobelfoundation 67.5% alleged origin",
+    "#145 historical corporate dividend chart and Nobel foundation exact first-party 67.5% payout rule source; original will text is confirmed not to contain this percentage",
     "#141-145 external public Korean full body and actual video/audio optional if needed for material conflicts"
   ],
   "sources": {
@@ -128,14 +128,59 @@
       "source_cues": 745,
       "claims_checked": 16,
       "verdicts": {
-        "QUALIFIED": 4,
-        "CONTRADICTED": 6,
         "PRIMARY_CONFIRMED": 4,
+        "QUALIFIED": 6,
+        "CONTRADICTED": 4,
         "HYPOTHETICAL": 2
       },
       "v3_status": "APPROVED"
     }
   ],
   "main_untouched": true,
-  "original_prior_studies_untouched": true
+  "original_prior_studies_untouched": true,
+  "first_pass_verdicts_20261026": {
+    "PRIMARY_CONFIRMED": 16,
+    "QUALIFIED": 40,
+    "SPEAKER_OPINION": 4,
+    "HYPOTHETICAL": 7,
+    "CONTRADICTED": 7
+  },
+  "priority_reaudit_20261026": {
+    "completed": true,
+    "source_srt_reopened_again": [
+      "faqbdJ1C43Y",
+      "GFTYwKkZgoQ",
+      "sRadRD7qRu8"
+    ],
+    "source_sha256_reverified": true,
+    "previous_contradicted_claims_reaudited": 7,
+    "contradicted_remaining": 5,
+    "reclassified_to_qualified": [
+      "sRadRD7qRu8-06",
+      "sRadRD7qRu8-13"
+    ],
+    "primary_verification": {
+      "IRP_deposit_insurance_from_2025_09_01": "Official FSC 2025-07-22 Q&A confirms insured deposits in IRP separately protected up to 100m KRW, market-risk ETFs not insured.",
+      "bengen_1994": "Original JFP Oct1994 10-page PDF; initial 4% and annual CPI adjustment 30y portfolio longevity, not guarantee of perpetual principal or 6%.",
+      "nobel_will_1895": "1895 original will lacks '67.5%', multiple historical secondary reports cite foundation payout practice; first-party ratio rule undiscovered and noncritical.",
+      "housing_savings_2026": "Government housing fund 4.5% conditional pre-tax simple rate for eligible 2y+ housing savings."
+    },
+    "five_year_projection": {
+      "annual_nominal_ETF_10pct": true,
+      "monthly_ETF_krw": 480000,
+      "housing_monthly_krw": 20000,
+      "housing_assumed_annual_simple_rate": 0.045,
+      "months": 60,
+      "principal_total_krw": 30000000,
+      "video_claimed_future_value_krw": 38780000,
+      "assumption_start_month_krw": 38816793,
+      "assumption_end_month_krw": 38502545,
+      "exact_video_spreadsheet_formula_authenticated": false
+    },
+    "original_video_audio_visual_checked": false,
+    "public_auto_transcript_sha_verified": false,
+    "subscriber_proof_excluded": true,
+    "final_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md",
+    "scope_completion": "HIGH_PRIORITY_FOUR_AREAS_COMPLETE_WITH_NONCRITICAL_ASSUMPTION_CAVEATS"
+  }
 }
