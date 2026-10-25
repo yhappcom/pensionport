@@ -35,10 +35,16 @@
       "claim": "신용카드를 쓰지 않으면 신용점수가 무조건 낮아진다",
       "verification": "QUALIFIED",
       "sources": [
-        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47"
+        "https://www.bccard.com/app/card/app/card/ContentsLinkActn.do?pgm_id=ind1112"
       ],
-      "disposition": "신용평가는 연체·채무·금융거래 등 복합자료를 사용하며 카드 미사용 하나가 일률적인 신용점수 악화의 원인이 아니다.",
-      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION"
+      "disposition": "신용평가는 거래실적, 연체, 카드채무, 가처분소득, 복수카드 이용 등 복합자료에 의존한다. 신용카드를 전혀 쓰지 않는다는 이유 하나로 무조건 낮아진다고 단정할 수 없다. 관련 BC카드 발급심사 안내는 신용평가자료의 복수요인을 확인하나 개인신용평가회사의 세부 점수 모형 그 자체를 완전히 공개하진 않는다. 따라서 QUALIFIED 유지.",
+      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION",
+      "source_fit_reaudit_20261026": {
+        "old_primary_url": "US SEC broad investor resource or generic prior NTS link",
+        "new_primary_url": "https://www.bccard.com/app/card/app/card/ContentsLinkActn.do?pgm_id=ind1112",
+        "reason": "Replace off-topic reference with institution directly addressing this claim and retain caveats",
+        "audio_checked": false
+      }
     },
     {
       "claim_id": "wnDrGtqH-yE-03",
@@ -71,10 +77,16 @@
       "claim": "전세자금대출 원리금 연1000만원 전액 소득공제",
       "verification": "CONTRADICTED",
       "sources": [
-        "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239033&mi=40681"
+        "https://s.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239021&mi=40629"
       ],
-      "disposition": "국세청의 주택임차차입금 원리금상환액 소득공제는 적격원리금의 40%, 주택청약저축 공제 합산 연 최대400만원이며 연1000만원을 공제하는 방식이 아니다. 대출조건/무주택 세대주 기준도 확인해야 한다.",
-      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION"
+      "disposition": "영상 cue565~579: '원리금 전체가 소득공제, 연1000만원/월83만원'이라고 설명. 그러나 실제 적격 원리금상환액의 40%가 공제액으로 계산되고 주택마련저축 공제와 합산 연 최대400만원(원리금 1000만원 모두 공제되는 것과 구분). 본인 소득·무주택 세대주/일부 세대원·주택면적·대출시기 요건 확인. 연1000만원의 상환액을 채우면 관련 다른 공제가 없을 때 최대 400만원의 소득공제액이 될 수 있음.",
+      "source_precision": "USER_AUTO_SRT_CUE_APPROX_NO_ACOUSTIC_FRAME_AUTHENTICATION",
+      "source_fit_reaudit_20261026": {
+        "old_primary_url": "US SEC broad investor resource or generic prior NTS link",
+        "new_primary_url": "https://s.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239021&mi=40629",
+        "reason": "Replace off-topic reference with institution directly addressing this claim and retain caveats",
+        "audio_checked": false
+      }
     },
     {
       "claim_id": "wnDrGtqH-yE-06",
@@ -225,7 +237,11 @@
     "user_SRT_excerpt_checked_with_surrounding_cues": true,
     "public_video_Korean_transcript_fullbody_verified": false,
     "audio_video_visual_original_verified": false,
-    "second_pass_report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+    "second_pass_report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md",
+    "original_video_audio_and_screen_independently_checked": false,
+    "public_korean_video_transcript_independently_fulltext_checked": false,
+    "source_file_private_SRT_context_check_passed": true,
+    "second_pass_evidence_file": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
   },
   "limitations": [
     "Evidence is source-cue and dated product scoped.",
