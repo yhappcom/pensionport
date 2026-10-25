@@ -1,5 +1,7 @@
 # 박곰희TV #131~140 V3 정식 자막 분석·독립 근거 검증 보고서
 
+> **2차 원문 문맥 재감사 결과(2026-10-26)가 본 1차 보고서의 11건 `CONTRADICTED` 판정을 대체함:** SRT 10편 16,411 cues의 11건 실제 발언을 전후 문맥까지 재대조한 결과 **7건은 `QUALIFIED`로 수정, 4건만 `CONTRADICTED` 유지**. 최신 판정 **PRIMARY_CONFIRMED22 / QUALIFIED62 / CONTRADICTED4 / HYPOTHETICAL11 / SPEAKER_OPINION1**. 아래 1차의 11건 목록은 *당시 연구 이력*으로만 읽고 현행 '11건 오류'로 재인용하지 말 것. 최종 참조: [#131~140 2차 금융제도·원문 문맥·미디어 검증 보고](VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md). 한국어 공개 전문·실제 원음·화면은 아직 미검증임.
+
 **검토일:** 2026-10-26  **연구 브랜치:** `feat/subtitles-incremental-registry-20261009`  **원본 공개:** 하지 않음
 
 ## 1. 판정
