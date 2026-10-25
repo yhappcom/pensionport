@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-26",
+  "roster_range": "141-145",
+  "baseline_prior": {
+    "approved_v3_videos": 140,
+    "total_reviewed_claims": 2224,
+    "other_old_audit_issues_open": 24
+  },
+  "new_batch": {
+    "videos": 5,
+    "source_srt_zip": "101-200.zip",
+    "zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
+    "original_srt_cues": 4872,
+    "original_srt_bytes": 375870,
+    "claims_checked": 74,
+    "verdicts": {
+      "PRIMARY_CONFIRMED": 16,
+      "QUALIFIED": 40,
+      "SPEAKER_OPINION": 4,
+      "HYPOTHETICAL": 7,
+      "CONTRADICTED": 7
+    }
+  },
+  "current_cumulative": {
+    "approved_v3_videos": 145,
+    "total_reviewed_claims": 2298,
+    "total_target_videos": 791,
+    "remaining_video_count": 646
+  },
+  "separate_legacy_optional_verification": {
+    "resolved": 14,
+    "open": 24,
+    "unchanged": true
+  },
+  "file_integrity": {
+    "zip_opened": true,
+    "all_original_srt_fingerprints_recomputed": true,
+    "roster_id_match": true,
+    "Mac_AppleDouble_sidecars_ignored": true,
+    "full_transcript_structural_review": true,
+    "public_external_transcript_fulltext_rechecked": false,
+    "original_video_audio_frames_checked": false,
+    "original_srt_publicly_saved": false
+  },
+  "claim_corrections_7_count": 7,
+  "caution_for_future": [
+    "#141 paid Hana Securities issuer advertising segment distinct from editorial education; historical event offer rates must not be claimed currently valid.",
+    "#142 48만원 monthly investments and 2만원 housing savings have 3000만원 combined 5year principal, 3878만원 projected future value must include model assumptions.",
+    "#143 IRP deposits may have deposit insurance, while IRP stock funds have loss risk; income sources use different tax rates.",
+    "#144 monthly simple net worth differences do not give true portfolio return if deposits/withdrawals occur.",
+    "#145 Bengen 4% is 30-year historical initial withdrawal rule, not perpetual principal preservation. 6% is riskier and cannot be advertised as guaranteed.",
+    "#145 Alfred Nobel original will contains no 67.5% phrase, must not quote original as if it does.",
+    "Actual source SRT and audio/visual source permissions are distinct; no blanket audiovideo verification claims.",
+    "Subscriber private account returns and positions are EXCLUDED_BY_USER_REQUEST."
+  ],
+  "claim_audit_priority_status": "CLAIM_LEVEL_SOURCE_AND_INDEPENDENT_POLICY_VERIFIED_WITH_SCOPED_OPEN_SNAPSHOT_GATES",
+  "optional_low_priority_open_gates": [
+    "#141 2026 issuer event original rate chart/terms and comparison of MMW issuer fees",
+    "#142 청약 저축 exact 2026 eligibility and precise projected value assumptions",
+    "#145 historical company dividend chart and Nobelfoundation 67.5% alleged origin",
+    "#141-145 external public Korean full body and actual video/audio optional if needed for material conflicts"
+  ],
+  "sources": {
+    "registry": "data/subtitles/registry_141_145_20261026.json",
+    "report": "knowledge/VIDEO141_145_FULL_V3_SOURCE_EVIDENCE_REVIEW_20261026.md",
+    "pilots": "data/subtitles/pilots/{VIDEO_ID}.json",
+    "canonical": "data/analysis_events/{VIDEO_ID}.json"
+  },
+  "per_video": [
+    {
+      "roster_no": 141,
+      "video_id": "O8YUK1OugHs",
+      "raw_srt_bytes": 96513,
+      "source_cues": 1260,
+      "claims_checked": 15,
+      "verdicts": {
+        "PRIMARY_CONFIRMED": 6,
+        "QUALIFIED": 8,
+        "SPEAKER_OPINION": 1
+      },
+      "v3_status": "APPROVED"
+    },
+    {
+      "roster_no": 142,
+      "video_id": "faqbdJ1C43Y",
+      "raw_srt_bytes": 78567,
+      "source_cues": 1026,
+      "claims_checked": 13,
+      "verdicts": {
+        "SPEAKER_OPINION": 1,
+        "HYPOTHETICAL": 4,
+        "QUALIFIED": 8
+      },
+      "v3_status": "APPROVED"
+    },
+    {
+      "roster_no": 143,
+      "video_id": "GFTYwKkZgoQ",
+      "raw_srt_bytes": 82637,
+      "source_cues": 1067,
+      "claims_checked": 17,
+      "verdicts": {
+        "QUALIFIED": 10,
+        "PRIMARY_CONFIRMED": 5,
+        "CONTRADICTED": 1,
+        "HYPOTHETICAL": 1
+      },
+      "v3_status": "APPROVED"
+    },
+    {
+      "roster_no": 144,
+      "video_id": "GvGNAsizyp8",
+      "raw_srt_bytes": 60695,
+      "source_cues": 774,
+      "claims_checked": 13,
+      "verdicts": {
+        "QUALIFIED": 10,
+        "SPEAKER_OPINION": 2,
+        "PRIMARY_CONFIRMED": 1
+      },
+      "v3_status": "APPROVED"
+    },
+    {
+      "roster_no": 145,
+      "video_id": "sRadRD7qRu8",
+      "raw_srt_bytes": 57458,
+      "source_cues": 745,
+      "claims_checked": 16,
+      "verdicts": {
+        "QUALIFIED": 4,
+        "CONTRADICTED": 6,
+        "PRIMARY_CONFIRMED": 4,
+        "HYPOTHETICAL": 2
+      },
+      "v3_status": "APPROVED"
+    }
+  ],
+  "main_untouched": true,
+  "original_prior_studies_untouched": true
+}
