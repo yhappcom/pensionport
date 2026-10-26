@@ -16,14 +16,15 @@
     "all_end_not_before_start": true,
     "total_cues": 4538,
     "total_raw_srt_bytes": 344466,
-    "files_scanned": 5
+    "files_scanned": 5,
+    "full_source_used_for_v3_claim_context": true
   },
-  "scope": "SOURCE_CUSTODY_AND_SRT_VALIDITY_ONLY__NOT_CLAIM_VERIFICATION__NOT_V3_APPROVED",
+  "scope": "PRIVATE_SOURCE_CUSTODY_AND_SRT_VALIDITY_PLUS_FIVE_V3_SOURCE_CUED_APPROVALS",
   "original_audio_checked": false,
   "frames_checked": false,
   "public_full_ko_transcript_independent_check": false,
   "private_full_srt_published": false,
-  "v3_approval_count": 0,
+  "v3_approval_count": 5,
   "items": [
     {
       "roster_no": 161,
@@ -34,8 +35,10 @@
       "last_cue_end": "00:23:16,559",
       "text_chars": 13595,
       "filename": "101-200/youtube-transcript-GzazVJg1V1I.srt",
-      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_ANALYSIS_PENDING",
-      "v3_status": "NOT_APPROVED"
+      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_AND_FULL_SOURCE_CUED_V3",
+      "v3_status": "APPROVED",
+      "original_audio_checked": false,
+      "public_korean_transcript_fullbody_checked": false
     },
     {
       "roster_no": 162,
@@ -46,8 +49,10 @@
       "last_cue_end": "00:27:16,679",
       "text_chars": 16252,
       "filename": "101-200/youtube-transcript-myQ6i7AjmDY.srt",
-      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_ANALYSIS_PENDING",
-      "v3_status": "NOT_APPROVED"
+      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_AND_FULL_SOURCE_CUED_V3",
+      "v3_status": "APPROVED",
+      "original_audio_checked": false,
+      "public_korean_transcript_fullbody_checked": false
     },
     {
       "roster_no": 163,
@@ -58,8 +63,10 @@
       "last_cue_end": "00:09:32,680",
       "text_chars": 5111,
       "filename": "101-200/youtube-transcript-PUWsNu9b3cc.srt",
-      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_ANALYSIS_PENDING",
-      "v3_status": "NOT_APPROVED"
+      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_AND_FULL_SOURCE_CUED_V3",
+      "v3_status": "APPROVED",
+      "original_audio_checked": false,
+      "public_korean_transcript_fullbody_checked": false
     },
     {
       "roster_no": 164,
@@ -70,8 +77,10 @@
       "last_cue_end": "00:47:44,760",
       "text_chars": 26595,
       "filename": "101-200/youtube-transcript-lvC7RFbNEx0.srt",
-      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_ANALYSIS_PENDING",
-      "v3_status": "NOT_APPROVED"
+      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_AND_FULL_SOURCE_CUED_V3",
+      "v3_status": "APPROVED",
+      "original_audio_checked": false,
+      "public_korean_transcript_fullbody_checked": false
     },
     {
       "roster_no": 165,
@@ -82,8 +91,19 @@
       "last_cue_end": "00:33:38,000",
       "text_chars": 19780,
       "filename": "101-200/youtube-transcript-EJajY-ZEliM.srt",
-      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_ANALYSIS_PENDING",
-      "v3_status": "NOT_APPROVED"
+      "source_status": "RAW_SRT_HASHED_TIMECODES_VERIFIED_AND_FULL_SOURCE_CUED_V3",
+      "v3_status": "APPROVED",
+      "original_audio_checked": false,
+      "public_korean_transcript_fullbody_checked": false
     }
-  ]
+  ],
+  "v3_approval_reviewed_at": "2026-10-26",
+  "v3_approved_analysis_paths": [
+    "data/analysis_events/GzazVJg1V1I.json",
+    "data/analysis_events/myQ6i7AjmDY.json",
+    "data/analysis_events/PUWsNu9b3cc.json",
+    "data/analysis_events/lvC7RFbNEx0.json",
+    "data/analysis_events/EJajY-ZEliM.json"
+  ],
+  "v3_full_evidence_report": "knowledge/VIDEO161_165_FULL_V3_SECOND_PASS_EVIDENCE_REVIEW_20261026.md"
 }
