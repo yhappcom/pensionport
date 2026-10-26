@@ -6,7 +6,7 @@
 
 사용자가 제공한 `101-200.zip`에서 #146~150의 한국어 원본 자동자막 **5개·4,961 cue·382,727 bytes**를 추출하여 바이트 SHA-256 및 로스터 ID·타임코드 연속성을 확인했다. 자막 전체 주제 흐름과 핵심 투자·연금·시장 숫자에 대해 전후 발언 문맥을 읽고 독립 금융기관 자료와 재검증, 잘못 인용된 절대적 표현·숫자 오류를 정리했다.
 
-**정식 V3 승인 5편·80건**: `PRIMARY_CONFIRMED 20 / QUALIFIED 41 / CONTRADICTED 3 / HYPOTHETICAL 5 / SPEAKER_OPINION 11`. 기존 #1~145(145편·2,298건)와 합산 **150편·2,378건**; 다음 #151. 역사적 별도 optional OPEN24 변동 없음.
+**정식 V3 승인 5편·80건**: `PRIMARY_CONFIRMED 20 / QUALIFIED 44 / CONTRADICTED 3 / HYPOTHETICAL 5 / SPEAKER_OPINION 8`. 기존 #1~145(145편·2,298건)와 합산 **150편·2,378건**; 다음 #151. 역사적 별도 optional OPEN24 변동 없음.
 
 SRT 파일과 원본 ZIP은 GitHub에 올리지 않고 SHA·검증 결과만 보존했다. 공개 한국어 전사 전체 본문 대조와 원본 영상 음성·프레임 확인은 사용자가 합의한 위험기반 선택 검증이며 이번 범위에서는 수행하지 않았다. **음성/영상이 확인됐다고 주장하지 않음**. 구독자·화자 가족의 실제 계좌 잔액·수익 증명은 사용자 요청으로 제외.
 
@@ -77,6 +77,10 @@ SRT 실제 화자 표현은 **"1.2억에 4%면 480만원"**까지 맞지만 **12
 #147의 학습 습관/뉴스 읽기는 화자의 의견으로 분류. ETF는 상장된 펀드의 운용구조이며 광범위 분산형 외에 섹터집중·단일종목·레버리지 등 **모든 ETF가 초보자에게 자동 안전한 것은 아니다.** 영상의 수면제 관련 개인경험은 **투자 지식·건강 효능 입증 자료가 아니므로** 별도 실적 검증·복용 권고 대상으로 사용하지 않음.
 
 자료: [Investor.gov 자산배분](https://www.investor.gov/introduction-investing/getting-started/asset-allocation), [Investor.gov 단일주식 ETF 위험](https://www.investor.gov/introduction-investing/investing-basics/glossary/single-stock-etfs).
+
+## 2차 감사 분류 정밀화
+
+#147의 환율 지표 관찰, #148의 금리형 채권·ETF 혼합, #150의 IRP 일시금·연금인출 비교 3건은 단순 의견으로만 관리하면 수익률·세제 활용 제한을 놓치므로 **SPEAKER_OPINION에서 QUALIFIED로 재분류**했다. 원문을 사실 확정으로 올린 것이 아니라 금융조건과 위험을 명시하는 증거 게이트 조정이다. 변경 이력은 진행 원장에 보존했다.
 
 ## 2차 감사 결론과 OPEN 처리
 
