@@ -210,7 +210,9 @@
       "source_cue_index": 1007,
       "claim": "월 50만원×30년을 투자해 원금 1.9억원이라는 설명",
       "verification": "QUALIFIED",
-      "sources": [],
+      "sources": [
+        "https://www.youtube.com/watch?v=lvC7RFbNEx0"
+      ],
       "disposition": "50만원×12개월×30년=1억8천만원 신규 납입. 기존 계좌 원금 약1천만원을 합산하면 1억9천만원 가능. 정확한 기존 원금은 사적 계좌 실적.",
       "source_precision": "ORIGINAL_KOREAN_AUTOMATIC_SRT_TEXT_NOT_AUDIO_AUTHENTICATED"
     },
@@ -324,5 +326,11 @@
   "limitations": [
     "No screen-level ETF chart authentication; issuer date-specific classes must be checked individually.",
     "Spoken 30-year selection vs erroneous-looking 3-year auto-transcription remains an OPEN audio/screen check."
+  ],
+  "relations": [
+    {
+      "related_roster_no": 163,
+      "relation": "Follows prior video in 791-video V3 source-based research, 2025-year-end policies used as primary comparison; private raw caption archive kept in Drive."
+    }
   ]
 }
