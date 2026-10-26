@@ -10,6 +10,9 @@
 - `knowledge/`, `synthesis/`: 주제별 통합 지식
 
 ## 운영
+
+- [자막 연구 CI 실패 알림 예방 및 안전한 배치 저장 지침](docs/SUBTITLE_CI_PUSH_POLICY_20261026.md): 중간 불완전 커밋을 줄이기 위한 사전검사, 일괄 push, 중복 실행 취소와 최종 CI 승인을 규정한다.
+- 새 배치 승인 이전에 `python -B scripts/preflight_subtitle_batch.py`로 **staged 파일 전체**를 점검한다. GitHub의 증빙 게이트 통과와 저장 파일 재조회도 별도로 필요하다.
 매 실행은 **미완료 롱폼 선택 → 정확한 영상의 원문 확보 → 내용·검증 분석 → 단일 JSON 저장 → 재조회·검증**으로 진행한다.
 
 - 신규 분석 파일을 검증하면 완료 기록으로 인정한다. **별도 `data/canonical_events/` 등록을 새로 요구하거나 생성하지 않는다.**
