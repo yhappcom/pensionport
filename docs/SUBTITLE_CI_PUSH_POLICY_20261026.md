@@ -43,11 +43,11 @@ git push origin feat/subtitles-incremental-registry-20261009
 
 ```yaml
 concurrency:
-  group: subtitle-evidence-${{ github.head_ref || github.ref_name }}
+  group: subtitle-evidence-${{ github.workflow }}-${{ github.event_name }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 ```
 
-- 새 push 또는 같은 브랜치 PR 이벤트가 발생하면 **아직 실행 중인 이전 검사**를 취소하고 최신 실행을 우선한다. 이미 종료된 실패 실행과 메일을 없애지는 못한다.
+- 같은 브랜치·같은 이벤트 종류(push 또는 pull_request)의 새 실행이 발생하면 **아직 실행 중인 이전 검사**를 취소하고 최신 실행을 우선한다. Push와 PR 검사는 별도로 구분해 필수 PR 검사가 서로 취소되지 않도록 한다. 이미 종료된 실패 실행과 메일을 없애지는 못한다.
 - 원본 SRT/ZIP의 공개 업로드 차단, 연구 증빙/반증·원본 해시 검사, CI 오류 시 차단은 그대로 유지한다.
 - CI 트리거를 끄거나 `continue-on-error`로 실패를 성공처럼 처리하지 않는다.
 - GitHub 개인 계정의 이메일 수신 설정은 저장소 워크플로 파일과 **별개**다. 전체 오류 통보를 끄는 것은 권장하지 않으며 계정 알림 변경은 소유자 확인에 따른다.
