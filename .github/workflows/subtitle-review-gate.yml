@@ -8,6 +8,7 @@ on:
       - "data/subtitles/**"
       - "data/analysis_events/**"
       - "scripts/audit_subtitle_review_gate.py"
+      - "scripts/preflight_subtitle_batch.py"
       - "scripts/ingest_subtitle_zip.py"
       - "scripts/recover_subtitle_sources.py"
       - "scripts/reproduce_all_weather_1972_2022.py"
@@ -24,6 +25,7 @@ on:
       - "data/subtitles/**"
       - "data/analysis_events/**"
       - "scripts/audit_subtitle_review_gate.py"
+      - "scripts/preflight_subtitle_batch.py"
       - "scripts/ingest_subtitle_zip.py"
       - "scripts/recover_subtitle_sources.py"
       - "scripts/reproduce_all_weather_1972_2022.py"
@@ -39,6 +41,13 @@ on:
 permissions:
   contents: read
 
+# Stop duplicate in-flight runs only within the same event and branch/PR.
+# Keep push and pull_request separate so a required PR check is not cancelled by push.
+# This does NOT conceal completed failures or weaken any evidence validation.
+concurrency:
+  group: subtitle-evidence-${{ github.workflow }}-${{ github.event_name }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   audit:
     name: Audit evidence/provenance without approval inflation
@@ -49,8 +58,9 @@ jobs:
           fetch-depth: 0
       - name: Compile and test read-only audit tool
         run: |
-          python -m py_compile scripts/audit_subtitle_review_gate.py
+          python -m py_compile scripts/audit_subtitle_review_gate.py scripts/preflight_subtitle_batch.py
           python scripts/audit_subtitle_review_gate.py --self-test
+          python -B scripts/preflight_subtitle_batch.py --self-test
           python -m py_compile scripts/ingest_subtitle_zip.py scripts/recover_subtitle_sources.py
           python scripts/recover_subtitle_sources.py --self-test
           python -m py_compile scripts/reproduce_all_weather_1972_2022.py
