@@ -208,10 +208,10 @@
     {
       "claim_id": "Q3OrWpOVS2E-10",
       "source_cue_index": 520,
-      "timecode": "00:17:04",
-      "source_paraphrase": "안정형 사전지정운용 상품에 예금·채권 등이 포함될 수 있다",
+      "timecode": "00:17:09",
+      "source_paraphrase": "퇴직연금 전체 운용수익률이 약2%에 그치는 사례와 TDF를 디폴트옵션에 활용할지 논의",
       "assessment": "QUALIFIED",
-      "independent_check": "금융회사 디폴트옵션 모델은 원리금보장상품100%형부터 펀드혼합형까지 달라 실제 포트폴리오 구성·위험등급·보수와 보호대상 유무를 따로 확인.",
+      "independent_check": "SRT cue520~536은 전체 퇴직연금 평균 2%대라는 회고와 제도적 운용 방식 평가다. 해당 연도·원표의 실제 업권별 수익률은 제공되지 않아 수치 정확성 미확정. TDF가 디폴트옵션에 포함될 수 있으나 투자형 TDF에 원금손실 위험 있음.",
       "official_sources": [
         "https://pension.kebhana.com/files/POR/Notice/PSNL_IRP_PRD_INVTM.pdf"
       ],
@@ -219,31 +219,41 @@
         "verdict": "QUALIFIED",
         "primary_url": "https://pension.kebhana.com/files/POR/Notice/PSNL_IRP_PRD_INVTM.pdf",
         "checked_at": "2026-10-26",
-        "source_finding": "금융회사 디폴트옵션 모델은 원리금보장상품100%형부터 펀드혼합형까지 달라 실제 포트폴리오 구성·위험등급·보수와 보호대상 유무를 따로 확인.",
-        "disposition": "금융회사 디폴트옵션 모델은 원리금보장상품100%형부터 펀드혼합형까지 달라 실제 포트폴리오 구성·위험등급·보수와 보호대상 유무를 따로 확인.",
+        "source_finding": "SRT cue520~536은 전체 퇴직연금 평균 2%대라는 회고와 제도적 운용 방식 평가다. 해당 연도·원표의 실제 업권별 수익률은 제공되지 않아 수치 정확성 미확정. TDF가 디폴트옵션에 포함될 수 있으나 투자형 TDF에 원금손실 위험 있음.",
+        "disposition": "SRT cue520~536은 전체 퇴직연금 평균 2%대라는 회고와 제도적 운용 방식 평가다. 해당 연도·원표의 실제 업권별 수익률은 제공되지 않아 수치 정확성 미확정. TDF가 디폴트옵션에 포함될 수 있으나 투자형 TDF에 원금손실 위험 있음.",
         "effective_date_or_scope": "2026-01 video inferred from raw SRT, 2026-10-26 first-party financial document; 2026 retirement tax actual receipt rule"
       },
       "reviewed_adjacent_source_cues": true
     },
     {
       "claim_id": "Q3OrWpOVS2E-11",
-      "source_cue_index": 562,
-      "timecode": "00:18:29",
-      "source_paraphrase": "자금 대기 기간의 기회비용이 이자 약 10만원이라는 계산",
-      "assessment": "QUALIFIED",
-      "independent_check": "대기자금 1억2천만원, 14일에 대한 단순 이자 약10만원은 연이율 약2.17% 가정에서 성립(1.2억×0.0217×14/365≈10만원). 실제 계좌 금리/일수/세후 이자 미확인; 실현손실이나 자동 투자성과 보장이 아니라 예시.",
+      "source_cue_index": 569,
+      "timecode": "00:18:34",
+      "source_paraphrase": "1억2천만원을 연4%로 운용하면 연480만원인데 월20만원·2주10만원의 기회비용이라고 계산",
+      "assessment": "CONTRADICTED",
+      "independent_check": "정확한 산술은 1억2천만원×4%=연480만원, 월40만원(480/12), 약14일은 18.4만원(480×14/365)이다. 영상은 이를 월20만원→2주10만원으로 환산한 명백한 2배 계산 오류가 있다. 10만원은 연수익률 약2.17%/14일에 해당한다. 이자는 미래 확정수익이 아니라 가정이고, 실거래계좌의 손실액이라고 표현하면 안 된다.",
       "official_sources": [
         "https://file.shinhansec.com/filedoc/mtscon/irp_guide.pdf"
       ],
       "verification_evidence": {
-        "verdict": "QUALIFIED",
+        "verdict": "CONTRADICTED",
         "primary_url": "https://file.shinhansec.com/filedoc/mtscon/irp_guide.pdf",
         "checked_at": "2026-10-26",
-        "source_finding": "대기자금 1억2천만원, 14일에 대한 단순 이자 약10만원은 연이율 약2.17% 가정에서 성립(1.2억×0.0217×14/365≈10만원). 실제 계좌 금리/일수/세후 이자 미확인; 실현손실이나 자동 투자성과 보장이 아니라 예시.",
-        "disposition": "대기자금 1억2천만원, 14일에 대한 단순 이자 약10만원은 연이율 약2.17% 가정에서 성립(1.2억×0.0217×14/365≈10만원). 실제 계좌 금리/일수/세후 이자 미확인; 실현손실이나 자동 투자성과 보장이 아니라 예시.",
-        "effective_date_or_scope": "2026-01 video inferred from raw SRT, 2026-10-26 first-party financial document; 2026 retirement tax actual receipt rule"
+        "source_finding": "정확한 산술은 1억2천만원×4%=연480만원, 월40만원(480/12), 약14일은 18.4만원(480×14/365)이다. 영상은 이를 월20만원→2주10만원으로 환산한 명백한 2배 계산 오류가 있다. 10만원은 연수익률 약2.17%/14일에 해당한다. 이자는 미래 확정수익이 아니라 가정이고, 실거래계좌의 손실액이라고 표현하면 안 된다.",
+        "disposition": "정확한 산술은 1억2천만원×4%=연480만원, 월40만원(480/12), 약14일은 18.4만원(480×14/365)이다. 영상은 이를 월20만원→2주10만원으로 환산한 명백한 2배 계산 오류가 있다. 10만원은 연수익률 약2.17%/14일에 해당한다. 이자는 미래 확정수익이 아니라 가정이고, 실거래계좌의 손실액이라고 표현하면 안 된다.",
+        "correction": "정확한 산술은 1억2천만원×4%=연480만원, 월40만원(480/12), 약14일은 18.4만원(480×14/365)이다. 영상은 이를 월20만원→2주10만원으로 환산한 명백한 2배 계산 오류가 있다. 10만원은 연수익률 약2.17%/14일에 해당한다. 이자는 미래 확정수익이 아니라 가정이고, 실거래계좌의 손실액이라고 표현하면 안 된다.",
+        "effective_date_or_scope": "Original SRT cue 569-578 says monthly20w/half10w; simple arithmetic rechecked independently. 2026 retirement tax as separate reference."
       },
-      "reviewed_adjacent_source_cues": true
+      "reviewed_adjacent_source_cues": true,
+      "original_source_context_checked_20261026": {
+        "start_cue": 563,
+        "end_cue": 579,
+        "actual_monthly_spoken_won": 200000,
+        "correct_monthly_for_4pct_won": 400000,
+        "actual_half_month_spoken_won": 100000,
+        "correct_14_day_at_4pct_won": 184110,
+        "reason": "2x undercount from source script, not category opinion"
+      }
     },
     {
       "claim_id": "Q3OrWpOVS2E-12",
@@ -382,21 +392,21 @@
     },
     {
       "claim_id": "Q3OrWpOVS2E-19",
-      "source_cue_index": 1010,
+      "source_cue_index": 1008,
       "timecode": "00:32:55",
-      "source_paraphrase": "퇴직금 약1.2억원에서 4% 이자를 확정적으로 계속 받을 수 있다는 예측",
+      "source_paraphrase": "초보 은퇴자는 금리형 자산에 50% 비중을 두고 나머지 유형을 10%씩 배분하거나, 경험자라면 다섯 유형에 20%씩 배분하는 예시",
       "assessment": "QUALIFIED",
-      "independent_check": "퇴직연금 디폴트옵션/ELB/MMF 등은 4% 이자확약이 아니며 잔존기간·금리·신용위험이 있다. 개인의 장기 인출액은 시장/퇴직소득세/비용에 따라 달라진다.",
+      "independent_check": "SRT cue1002~1015은 상대적으로 금리형에 높은 비중을 둔 보수형(50/10/10/10/10)과 5개 상품군에 균등 20%씩 분산하는 적극형이라는 개인 위험성향 예시. 50% 금리형도 ELB 신용/중도매도 위험 등이 남고, 다섯 상품군이 모두 독립적인 저위험 자산이라는 보장은 없다. 4% 확정금리라는 기존 초안 요약은 원문에 없으므로 철회한다.",
       "official_sources": [
-        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs/mutual-funds"
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
       ],
       "verification_evidence": {
         "verdict": "QUALIFIED",
-        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs/mutual-funds",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
         "checked_at": "2026-10-26",
-        "source_finding": "퇴직연금 디폴트옵션/ELB/MMF 등은 4% 이자확약이 아니며 잔존기간·금리·신용위험이 있다. 개인의 장기 인출액은 시장/퇴직소득세/비용에 따라 달라진다.",
-        "disposition": "퇴직연금 디폴트옵션/ELB/MMF 등은 4% 이자확약이 아니며 잔존기간·금리·신용위험이 있다. 개인의 장기 인출액은 시장/퇴직소득세/비용에 따라 달라진다.",
-        "effective_date_or_scope": "2026-01 video inferred from raw SRT, 2026-10-26 first-party financial document; 2026 retirement tax actual receipt rule"
+        "source_finding": "SRT cue1002~1015은 상대적으로 금리형에 높은 비중을 둔 보수형(50/10/10/10/10)과 5개 상품군에 균등 20%씩 분산하는 적극형이라는 개인 위험성향 예시. 50% 금리형도 ELB 신용/중도매도 위험 등이 남고, 다섯 상품군이 모두 독립적인 저위험 자산이라는 보장은 없다. 4% 확정금리라는 기존 초안 요약은 원문에 없으므로 철회한다.",
+        "disposition": "SRT cue1002~1015은 상대적으로 금리형에 높은 비중을 둔 보수형(50/10/10/10/10)과 5개 상품군에 균등 20%씩 분산하는 적극형이라는 개인 위험성향 예시. 50% 금리형도 ELB 신용/중도매도 위험 등이 남고, 다섯 상품군이 모두 독립적인 저위험 자산이라는 보장은 없다. 4% 확정금리라는 기존 초안 요약은 원문에 없으므로 철회한다.",
+        "effective_date_or_scope": "User SRT actual cue1002-1016 manual contextual check"
       },
       "reviewed_adjacent_source_cues": true
     }
@@ -405,7 +415,8 @@
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 6,
     "HYPOTHETICAL": 2,
-    "QUALIFIED": 10,
+    "QUALIFIED": 9,
+    "CONTRADICTED": 1,
     "SPEAKER_OPINION": 1
   },
   "core_message": "퇴직급여 IRP 운용, 디폴트옵션 신규입금/만기별 대기기간, 연금수령한도 연차/퇴직소득세 실제수령연차, 퇴직소득세 30/40/50% 감면",
