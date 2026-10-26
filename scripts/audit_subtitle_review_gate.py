@@ -380,6 +380,48 @@ def registered_sources(root):
                     or row.get("v3_status") != "APPROVED"):
                 raise ValueError("BATCH_166_170_UNTRUSTED_SOURCE")
             registry[vid] = {"sha256": digest, "cue_count": cues}
+    # 2026-10-26 source custody: #171-175 from private user 101-200.zip.
+    # #172 is a subscriber event notice, explicitly excluded from educational V3
+    # completion despite its private SRT being fully present and reviewed.
+    batch_171_175 = root / "data/subtitles/registry_171_175_20261026.json"
+    if batch_171_175.is_file():
+        check = load(batch_171_175)
+        pinned = {
+            "3VaPIvusEWw": (171, "b9b63654d7cbe7ff9a4e9d87185f2d9f77110dc8241c5ff3df9a91c9ad562dce", 506, 39852, True),
+            "4Q-B0dIOvMk": (172, "66dfcc8bd21a1ee0a8b89a3321086d9065442aa92cc617671f06c64a5064e900", 224, 16867, False),
+            "LDAY8JrlmXo": (173, "f72a85cd544e636316b8609d4b150e4b57fad815f09424c42ad06a9aaff575b7", 1254, 94119, True),
+            "nepnyHFGlCo": (174, "e2227f86c644a6a98f9b6d4225eed7c036ae9c2ca0cb379af9c9280c8bf450e1", 1072, 81777, True),
+            "spz5Wxw-Sdk": (175, "5229159cf4506eeccc601c86c71e98fa17864ca6076510114449ff0f879c05e9", 692, 53324, True),
+        }
+        entries = check.get("items", [])
+        if (check.get("archive_sha256") != "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e"
+                or check.get("total_videos") != 5
+                or check.get("v3_approval_count") != 4
+                or check.get("event_non_educational_excluded_count") != 1
+                or check.get("total_raw_bytes") != 285939
+                or check.get("total_original_cues") != 3748
+                or len(entries) != 5
+                or {r.get("video_id") for r in entries} != set(pinned)
+                or sum(r.get("raw_srt_bytes", 0) for r in entries) != 285939
+                or sum(r.get("cue_count", 0) for r in entries) != 3748):
+            raise ValueError("BATCH_171_175_SOURCE_PROVENANCE_INVALID")
+        for row in entries:
+            vid = row["video_id"]
+            no, digest, cues, nbytes, educational = pinned[vid]
+            expected_source = ("PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3" if educational
+                               else "PRIVATE_SRT_SHA_MATCHED_NON_EDUCATIONAL_EXCLUDED")
+            expected_v3 = "APPROVED" if educational else "EXCLUDED_NON_EDUCATIONAL_EVENT"
+            if (vid in registry or roster.get(vid) != no
+                    or row.get("roster_no") != no or row.get("sha256") != digest
+                    or row.get("cue_count") != cues or row.get("raw_srt_bytes") != nbytes
+                    or row.get("source_status") != expected_source
+                    or row.get("v3_status") != expected_v3
+                    or row.get("full_transcript_reviewed") is not True):
+                raise ValueError("BATCH_171_175_PINNED_SOURCE_MISMATCH")
+            # Source hash alone never counts as educational approval, and #172
+            # must not enter the pilot -> canonical evidence approval registry.
+            if educational:
+                registry[vid] = {"sha256": digest, "cue_count": cues}
     return registry
 
 
