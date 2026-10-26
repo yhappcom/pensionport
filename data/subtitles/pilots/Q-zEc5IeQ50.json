@@ -392,13 +392,18 @@
       "source_cue_index": 700,
       "timecode": "00:21:50",
       "source_paraphrase": "금리형 채권 운용과 자산배분 ETF 운용을 별도 전략으로 혼합",
-      "assessment": "SPEAKER_OPINION",
-      "independent_check": "하나의 계좌 내 전략별 위험/손익을 분리 관리하라는 원칙적 제안이며 특정 고정비중이 미래 수익/절세를 보장하지 않는다",
-      "official_sources": [],
+      "assessment": "QUALIFIED",
+      "independent_check": "금리형 채권운용과 자산배분 ETF 혼합은 가능한 전략이지만 채권금리·가격손실·ETF 위험 및 비용을 고려해야 하며 확정수익이나 무손실을 뜻하지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
       "verification_evidence": {
-        "verdict": "SPEAKER_OPINION",
-        "basis": "하나의 계좌 내 전략별 위험/손익을 분리 관리하라는 원칙적 제안이며 특정 고정비중이 미래 수익/절세를 보장하지 않는다",
-        "disposition": "하나의 계좌 내 전략별 위험/손익을 분리 관리하라는 원칙적 제안이며 특정 고정비중이 미래 수익/절세를 보장하지 않는다"
+        "verdict": "QUALIFIED",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "checked_at": "2026-10-26",
+        "source_finding": "금리형 채권운용과 자산배분 ETF 혼합은 가능한 전략이지만 채권금리·가격손실·ETF 위험 및 비용을 고려해야 하며 확정수익이나 무손실을 뜻하지 않는다.",
+        "disposition": "금리형 채권운용과 자산배분 ETF 혼합은 가능한 전략이지만 채권금리·가격손실·ETF 위험 및 비용을 고려해야 하며 확정수익이나 무손실을 뜻하지 않는다.",
+        "effective_date_or_scope": "Source-cue investment-risk topic requiring conditional evidence gate."
       },
       "reviewed_adjacent_source_cues": true
     },
@@ -465,10 +470,10 @@
   ],
   "claim_count": 22,
   "claim_classification_tally": {
-    "QUALIFIED": 15,
+    "QUALIFIED": 16,
     "CONTRADICTED": 1,
     "PRIMARY_CONFIRMED": 3,
-    "SPEAKER_OPINION": 2,
+    "SPEAKER_OPINION": 1,
     "HYPOTHETICAL": 1
   },
   "core_message": "Five pension investment approaches and mixed interest-bearing bonds/asset-allocation: issuer risk, horizon, and return assumptions must be scoped.",
