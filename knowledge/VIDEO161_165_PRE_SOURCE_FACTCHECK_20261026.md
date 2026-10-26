@@ -1,5 +1,7 @@
 # 박곰희TV #161~165 — 원본 확보·무결성 확인 및 공식자료 사전검증 (V3 심층검토 대기)
 
+> **상태 갱신 (2026-10-26): 이 문서는 정식 승인 전 사전검증 스냅샷으로 보존합니다. 이후 #161~165의 원본 SRT 4,538큐·핵심 94개 주장별 공식 대조를 완료하여 정식 V3 분석 5편을 `APPROVED`했습니다. 최종 판정은 [94건 2차 검증 보고서](VIDEO161_165_FULL_V3_SECOND_PASS_EVIDENCE_REVIEW_20261026.md)와 [누적 진행 원장](../data/subtitles/research_progress_batch_161_165_20261026.json)을 기준으로 하세요. 아래 기존 ‘V3 미승인·대기’ 문구는 당시 진행 상태의 역사적 기록입니다.**
+
 - 점검일: 2026-10-26 (Asia/Seoul)
 - 브랜치: `feat/subtitles-incremental-registry-20261009`
 - 단계: **SRT_RAW_SOURCE_VERIFIED / POLICY_PRECHECK / V3_NOT_APPROVED**
