@@ -63,9 +63,11 @@
       "timecode": "00:14:32",
       "source_cue_index": 446,
       "claim": "코스피·나스닥·달러환율 등의 숫자 감각을 얻도록 매일 확인",
-      "verification": "SPEAKER_OPINION",
-      "sources": [],
-      "disposition": "학습법/시장 이해도 개선을 위한 습관 제안이며 미래 증시 방향 예측 방법으로 인증하지 않음",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "disposition": "경제지표·환율을 매일 살펴보는 것은 학습 습관 제안이지만, 관찰 자체로 미래 가격 예측이나 확정 수익을 보장하지 않는다.",
       "source_precision": "USER_KOREAN_AUTOMATIC_SRT_TEXT_WITH_ADJACENT_CONTEXT_NOT_AUDIO_AUTHENTICATED"
     },
     {
@@ -174,26 +176,21 @@
     }
   ],
   "claim_classification_tally": {
-    "SPEAKER_OPINION": 4,
+    "SPEAKER_OPINION": 3,
     "HYPOTHETICAL": 2,
     "PRIMARY_CONFIRMED": 2,
-    "QUALIFIED": 6
+    "QUALIFIED": 7
   },
   "actionable_guidance": [
     "O7-EBvOsTlg-04: NXT 프리마켓08:00부터와 한국거래소 정규장09:00부터는 다른 장. 종목·호가·체결 데이터 일치 여부는 개별 시세원에 따라 다름",
     "O7-EBvOsTlg-06: 소액 투자로 경험은 가능하지만 한 주의 단일종목도 원금손실·수수료·종목집중위험을 내포. 매수 전 기업공시·위험감내 필요",
     "O7-EBvOsTlg-07: 상관관계가 완전동일하지 않은 자산끼리 배분하면 특정 위험을 줄일 수 있으나 종목/통화/금리차로 모두 동시 하락하거나 손실이 날 수 있음",
     "O7-EBvOsTlg-08: 전형적인 광범위 지수 ETF는 분산되지만 섹터/단일종목·레버리지 ETF는 집중위험이 크고 ETF라는 법적 명칭 자체가 분산 보증은 아님",
-    "O7-EBvOsTlg-09: 넓게 분산된 저비용 인덱스 ETF를 장기보유하는 투자원칙은 유용하나 모든 ETF가 저보수·장기보유 적합 또는 무손실이 아님",
-    "O7-EBvOsTlg-10: 특정 운용보수와 총보수·합성ETF 비용·매매스프레드, 해외자산 세금은 다르므로 전 상품 최저수수료 주장 검증 불가",
-    "O7-EBvOsTlg-11: 영상 cue621~627은 '분산이 충분하고 저비용인 친구라면'이라는 조건을 둔다. 이를 모든 ETF의 무조건 적합성으로 반증하면 원문 오인용; 레버리지/인버스·집중 ETF 등 예외 강조",
-    "O7-EBvOsTlg-14: 지출·부채·비상자금·손실감내를 함께 살피는 원칙. 적립/장기 보유도 시장손실 가능성이 있으며 근로소득 증가 가능성을 확정 금지"
+    "O7-EBvOsTlg-09: 넓게 분산된 저비용 인덱스 ETF를 장기보유하는 투자원칙은 유용하나 모든 ETF가 저보수·장기보유 적합 또는 무손실이 아님"
   ],
   "assumptions": [
     "User-uploaded private Korean original automatic SRT is primary text: no independent verification of YouTube raw acoustic/video streams or alternate public Korean full text.",
-    "Issuer interest-rate or product brochure publication dates may postdate the original video: those documents validate generic risks and eligibility only, not individual 2026-Jan screens.",
-    "Individual family/subscriber actual brokerage balances and returns proof explicitly excluded.",
-    "Source-adjacent local SRT wording and original exact cue time may include speech recognition errors."
+    "Issuer interest-rate or product brochure publication dates may postdate the original video: those documents validate generic risks and eligibility only, not individual 2026-Jan screens."
   ],
   "risks_and_exceptions": [
     "No categorical false claims remain after source-context second pass; qualified risks and hypothetical returns are not guaranteed."
