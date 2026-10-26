@@ -215,9 +215,11 @@
       "timecode": "00:21:50",
       "source_cue_index": 700,
       "claim": "금리형 채권 운용과 자산배분 ETF 운용을 별도 전략으로 혼합",
-      "verification": "SPEAKER_OPINION",
-      "sources": [],
-      "disposition": "하나의 계좌 내 전략별 위험/손익을 분리 관리하라는 원칙적 제안이며 특정 고정비중이 미래 수익/절세를 보장하지 않는다"
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "disposition": "채권과 자산배분 ETF 혼합은 의견을 넘어 금리 및 수익률 위험이 있는 금융전략 사례로 원금보장이 없다."
     },
     {
       "claim_id": "Q-zEc5IeQ50-20",
@@ -254,19 +256,17 @@
     }
   ],
   "claim_classification_tally": {
-    "QUALIFIED": 15,
+    "QUALIFIED": 16,
     "CONTRADICTED": 1,
     "PRIMARY_CONFIRMED": 3,
-    "SPEAKER_OPINION": 2,
+    "SPEAKER_OPINION": 1,
     "HYPOTHETICAL": 1
   },
   "actionable_guidance": [
     "과거 1개월 실적을 연간 확정 금리로 환산할 수 없고 MMF 운용성과·환매유동성·비용은 변동한다",
     "단기우량채·CP에 분산투자하는 MMF도 예금보험 비대상·시장 및 신용 위험과 원금손실 가능성이 있어 무조건 안전하다고 할 수 없다",
     "특정 원리금보장형 ELB는 만기시 원금·약정이자 지급 구조이나 발행사 파산·신용위험과 중도해지 손실 가능성이 있고 예금자보호 비대상",
-    "약정 만기보유 시 발행사의 지급의무라는 뜻이며 정부·예금보험의 원금보장과 다르다. 발행사 부도시 원금 100% 손실 가능",
-    "영상 2026년1월 당시 발행금리·청약제한·판매시점의 원표와 영상 프레임 미검증. 공식 2026년 5월 투자안내는 해당 월 수치여서 1월 계약조건을 소급 인증 못함",
-    "발행규모·판매기간·수요예측에 따라 정해진 배정조건과 청약 체결 여부를 확인해야 함. 발행사별 모두 동일하지 않음"
+    "약정 만기보유 시 발행사의 지급의무라는 뜻이며 정부·예금보험의 원금보장과 다르다. 발행사 부도시 원금 100% 손실 가능"
   ],
   "assumptions": [
     "Original user Korean ASR, audio and video screenshots not independently authenticated",
