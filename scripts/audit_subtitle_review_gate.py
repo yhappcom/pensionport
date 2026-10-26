@@ -243,6 +243,36 @@ def registered_sources(root):
                     or entry.get("v3_status") != "APPROVED"):
                 raise ValueError("BATCH_146_150_UNTRUSTED_SOURCE")
             registry[vid] = {"sha256": sha, "cue_count": cues}
+    # Source integrity gate #151-155 (user uploaded 101-200.zip) 2026-10-26.
+    batch_151_155 = root / "data/subtitles/registry_151_155_20261026.json"
+    if batch_151_155.is_file():
+        source = load(batch_151_155)
+        expected = {
+            "Cdf6LtiiD_o": (151, "b2e29d7d8573740a1e7ca918509036ead3ebc633d91f7e82d21117f9b44b458d", 1397, 110439),
+            "Eim44cy1lkg": (152, "53f06b0bc97ace07a504dff18b203b5da8f2e77f181129f0f353c6614b485060", 485, 37161),
+            "1bfGwu2ASx4": (153, "299c08fb9745485e3c966d103588198dec2dd065a0f9fb9a3ba89e82d95692eb", 1089, 83568),
+            "Jl0rwMExTbg": (154, "edfe591d3eb6a42d3efe4017e9376702de2b2c7424a2395adb9e63ac09e5839d", 1252, 93689),
+            "XsDB9nf57_A": (155, "84e51e4f1b8827c583cf207c963385e4ea62b7794d2e6577287c6cc1f8a1bcdc", 1124, 85621),
+        }
+        rows = source.get("items", [])
+        if (source.get("archive_sha256") != "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e"
+                or source.get("videos") != 5 or source.get("bytes") != 410478
+                or source.get("cues") != 5347 or len(rows) != 5
+                or {r.get("video_id") for r in rows} != set(expected)
+                or sum(r.get("raw_srt_bytes", 0) for r in rows) != 410478
+                or sum(r.get("cue_count", 0) for r in rows) != 5347):
+            raise ValueError("BATCH_151_155_SOURCE_REGISTRY_MISMATCH")
+        for entry in rows:
+            vid = entry["video_id"]
+            no, sha, cues, size = expected[vid]
+            if (vid in registry or roster.get(vid) != no
+                    or entry.get("roster_no") != no or entry.get("sha256") != sha
+                    or entry.get("cue_count") != cues or entry.get("raw_srt_bytes") != size
+                    or entry.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or entry.get("full_transcript_reviewed") is not True
+                    or entry.get("v3_status") != "APPROVED"):
+                raise ValueError("BATCH_151_155_UNTRUSTED_SOURCE")
+            registry[vid] = {"sha256": sha, "cue_count": cues}
     return registry
 
 
