@@ -24,7 +24,8 @@
     "frames_checked": false,
     "public_full_ko_transcript_checked": false,
     "drive_file_id": "1izqktxhhndKSfqrKAJo_aACrx_O0Mt50",
-    "limitations": "2025-12 press release versus later 2026 RIA operation; raw automatic SRT, audio and video not authenticated."
+    "limitations": "2025-12 press release versus later 2026 RIA operation; raw automatic SRT, audio and video not authenticated.",
+    "evidence_reference": "Private original full-length Korean automatic SRT indexed by every cue, raw SHA-256 verified against the source registry and source ZIP; each material review claim located in original timed speaker context and compared to dated independent primary policy where relevant. No original audio, historic video screen or complete public Korean transcript independently matched."
   },
   "core_message": "RIA 해외주식 국내복귀의 매도한도와 환헤지·해외자회사 배당 세제를 2025 발표와 2026 실제 시행으로 구분",
   "claims": [
@@ -204,18 +205,19 @@
       "source_cue_index": 353,
       "timecode": "00:11:00",
       "source_paraphrase": "국내 주식 복귀가 원/달러 환율·코스피를 올릴 것이라는 기대",
-      "assessment": "SPEAKER_OPINION",
+      "assessment": "HYPOTHETICAL",
       "independent_check": "자금흐름 반응과 시장가격 상승은 예측으로 확정 불가. 유도 정책 자체가 가격 상승 보장을 뜻하지 않는다.",
       "official_sources": [
         "https://www.korea.kr/news/policyNewsView.do?newsId=148957067"
       ],
       "verification_evidence": {
-        "verdict": "SPEAKER_OPINION",
+        "verdict": "HYPOTHETICAL",
         "checked_at": "2026-10-26",
         "primary_url": "https://www.korea.kr/news/policyNewsView.do?newsId=148957067",
         "source_finding": "자금흐름 반응과 시장가격 상승은 예측으로 확정 불가. 유도 정책 자체가 가격 상승 보장을 뜻하지 않는다.",
         "disposition": "자금흐름 반응과 시장가격 상승은 예측으로 확정 불가. 유도 정책 자체가 가격 상승 보장을 뜻하지 않는다.",
-        "effective_date_or_scope": "2025-12-29 video / 2025-12-24 policy announcement distinguished from 2026 operational rules"
+        "effective_date_or_scope": "2025-12-29 video / 2025-12-24 policy announcement distinguished from 2026 operational rules",
+        "basis": "자금흐름 반응과 시장가격 상승은 예측으로 확정 불가. 유도 정책 자체가 가격 상승 보장을 뜻하지 않는다."
       }
     },
     {
@@ -291,7 +293,8 @@
         "primary_url": "https://www.korea.kr/news/policyNewsView.do?newsId=148957067",
         "source_finding": "10% 증거금은 화자의 예시. 실제 개인 선물환 상품의 계약단위·증거금·유지증거금은 판매사별 검증 필요.",
         "disposition": "10% 증거금은 화자의 예시. 실제 개인 선물환 상품의 계약단위·증거금·유지증거금은 판매사별 검증 필요.",
-        "effective_date_or_scope": "2025-12-29 video / 2025-12-24 policy announcement distinguished from 2026 operational rules"
+        "effective_date_or_scope": "2025-12-29 video / 2025-12-24 policy announcement distinguished from 2026 operational rules",
+        "basis": "10% 증거금은 화자의 예시. 실제 개인 선물환 상품의 계약단위·증거금·유지증거금은 판매사별 검증 필요."
       }
     },
     {
@@ -367,14 +370,15 @@
         "primary_url": "https://www.korea.kr/news/policyNewsView.do?newsId=148957067",
         "source_finding": "MSCI 국가분류는 시장접근성·결제 인프라 등 다양한 요건에 따른 심사; 이번 세제정책만으로 편입이 확정되지 않는다.",
         "disposition": "MSCI 국가분류는 시장접근성·결제 인프라 등 다양한 요건에 따른 심사; 이번 세제정책만으로 편입이 확정되지 않는다.",
-        "effective_date_or_scope": "2025-12-29 video / 2025-12-24 policy announcement distinguished from 2026 operational rules"
+        "effective_date_or_scope": "2025-12-29 video / 2025-12-24 policy announcement distinguished from 2026 operational rules",
+        "basis": "MSCI 국가분류는 시장접근성·결제 인프라 등 다양한 요건에 따른 심사; 이번 세제정책만으로 편입이 확정되지 않는다."
       }
     }
   ],
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 6,
     "QUALIFIED": 9,
-    "SPEAKER_OPINION": 2,
-    "HYPOTHETICAL": 1
+    "HYPOTHETICAL": 2,
+    "SPEAKER_OPINION": 1
   }
 }
