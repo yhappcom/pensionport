@@ -142,7 +142,9 @@
       "source_cue_index": 342,
       "claim": "결혼할 때까지 47만원 10년 납입 스케줄이 부족하다는 참석자 정정",
       "verification": "PRIMARY_CONFIRMED",
-      "sources": [],
+      "sources": [
+        "https://www.youtube.com/watch?v=EJajY-ZEliM"
+      ],
       "disposition": "가정된 혼인연령보다 10년 계약 납입기간이 남는 시나리오를 원문에서 참석자가 지적; 화자도 조건을 재검토, 확정 납입 연표 아님.",
       "source_precision": "ORIGINAL_KOREAN_AUTOMATIC_SRT_TEXT_NOT_AUDIO_AUTHENTICATED"
     },
@@ -208,7 +210,9 @@
       "source_cue_index": 702,
       "claim": "금융사마다 미성년 계좌를 모바일/오프라인 개설하는 방식이 다르다",
       "verification": "QUALIFIED",
-      "sources": [],
+      "sources": [
+        "https://www.youtube.com/watch?v=EJajY-ZEliM"
+      ],
       "disposition": "미성년 가입 서류·법정대리인 확인·수탁상품/신청방식은 증권사 정책에 좌우됨. 화면 미확인.",
       "source_precision": "ORIGINAL_KOREAN_AUTOMATIC_SRT_TEXT_NOT_AUDIO_AUTHENTICATED"
     },
@@ -376,5 +380,11 @@
   "limitations": [
     "No actual signed annuity gift, current 3% applicable rate or broker account screenshots confirmed.",
     "No audio or screens checked; conditional law statements correctly qualified."
+  ],
+  "relations": [
+    {
+      "related_roster_no": 164,
+      "relation": "Follows prior video in 791-video V3 source-based research, 2025-year-end policies used as primary comparison; private raw caption archive kept in Drive."
+    }
   ]
 }
