@@ -305,6 +305,45 @@ def registered_sources(root):
                     or row.get("v3_status") != "APPROVED"):
                 raise ValueError("BATCH_156_160_UNTRUSTED_SOURCE")
             registry[vid] = {"sha256": digest, "cue_count": cues}
+    # Extend immutable-source acceptance to #161-165 private originals (2026-10-26).
+    # The full user ZIP was SHA-matched again after Drive upload. Require each
+    # video's independent source fingerprint, official roster, original length,
+    # verbatim cue count and reviewed status; never infer source provenance
+    # from an unreviewed ZIP or the filename alone.
+    batch_161_165 = root / "data/subtitles/registry_161_165_20261026.json"
+    if batch_161_165.is_file():
+        data = load(batch_161_165)
+        pinned = {
+            "GzazVJg1V1I": (161, "cef8db8d4220dfa87364ed8b2b5dcab4d5a44d4a10127d62f03df1efcec71c4d", 746, 57165),
+            "myQ6i7AjmDY": (162, "f89240f19cad9b86f683732956ba2048b6a8cca9be48cf739b5693bb1f258ea6", 913, 69025),
+            "PUWsNu9b3cc": (163, "6f5ec204d9c07ecaa1a83f3fc64f921c55a4ba9df85c21957e8f6e2eea960722", 270, 21193),
+            "lvC7RFbNEx0": (164, "d3b563ae6e73263bdb986f701c99d6f548cdd3941bddf163d365a1f2fbd83b08", 1507, 113458),
+            "EJajY-ZEliM": (165, "c0874fab8e6315a7f58065617d99b26a5b58e41f86cf34b0f6b6bf4cf6e519d8", 1102, 83625),
+        }
+        rows = data.get("items", [])
+        if (data.get("archive_sha256") != "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e"
+                or data.get("total_videos") != 5
+                or data.get("total_raw_bytes") != 344466
+                or data.get("total_original_cues") != 4538
+                or data.get("v3_approval_count") != 5
+                or len(rows) != 5
+                or {r.get("video_id") for r in rows} != set(pinned)
+                or sum(r.get("raw_srt_bytes", 0) for r in rows) != 344466
+                or sum(r.get("cue_count", 0) for r in rows) != 4538):
+            raise ValueError("BATCH_161_165_INVALID_SOURCE_REGISTRY")
+        for row in rows:
+            vid = row["video_id"]
+            no, digest, cues, nbytes = pinned[vid]
+            if (vid in registry or roster.get(vid) != no
+                    or row.get("roster_no") != no
+                    or row.get("sha256") != digest
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != nbytes
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("full_transcript_reviewed") is not True
+                    or row.get("v3_status") != "APPROVED"):
+                raise ValueError("BATCH_161_165_UNTRUSTED_SOURCE")
+            registry[vid] = {"sha256": digest, "cue_count": cues}
     return registry
 
 
