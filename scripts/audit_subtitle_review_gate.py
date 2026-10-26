@@ -459,6 +459,42 @@ def registered_sources(root):
                     or item.get("v3_status") != "APPROVED"):
                 raise ValueError("BATCH_176_180_UNTRUSTED_SOURCE")
             registry[vid] = {"sha256": digest, "cue_count": cues}
+    # 2026-10-27 user private 101-200.zip; #181-185 source integrity pinned.
+    # Source hashes and receipt alone never imply correct education; checked
+    # pilot/canonical evidence and claim disposition remain mandatory.
+    batch_181_185 = root / "data/subtitles/registry_181_185_20261027.json"
+    if batch_181_185.is_file():
+        pack = load(batch_181_185)
+        pinned = {
+            "N0ZLjtGbHX4": (181, "69b524733f5a753c3e57e3808b46944eac97c9895d2e6daaf6d1f3fc6b1fd501", 32, 2534),
+            "UKDhdcn3AUk": (182, "4bfd0b8bf362a5e5a5be6d88b1136db57b0b2594bf3af3b6de9c702623a2ff11", 1495, 113943),
+            "3iDRSQnDQco": (183, "126de3cbe26f71a55c865348592d72fe6f3a4974ba8fe20bdae28188d2c76e3f", 948, 72769),
+            "QKDR6b3cuHY": (184, "99f144af8c4094400c5b05400a3dd7b33ffa8bfa8f9910d9c80d89c45de9905b", 528, 40269),
+            "V7H65oaoflo": (185, "828f839fddc92792459f7553eeb214bee0c070552f39643c1fde8c2e000283a6", 956, 74831),
+        }
+        recs = pack.get("items", [])
+        if (pack.get("archive_sha256") != "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e"
+                or pack.get("archive_raw_bytes") != 2273410
+                or pack.get("total_videos") != 5
+                or pack.get("v3_approval_count") != 5
+                or pack.get("total_original_cues") != 3959
+                or pack.get("total_raw_bytes") != 304346
+                or len(recs) != 5
+                or {item.get("video_id") for item in recs} != set(pinned)
+                or sum(item.get("cue_count", 0) for item in recs) != 3959
+                or sum(item.get("raw_srt_bytes", 0) for item in recs) != 304346):
+            raise ValueError("BATCH_181_185_SOURCE_INTEGRITY_INVALID")
+        for item in recs:
+            vid = item["video_id"]
+            n, digest, cues, raw_bytes = pinned[vid]
+            if (vid in registry or roster.get(vid) != n or item.get("roster_no") != n
+                    or item.get("sha256") != digest or item.get("cue_count") != cues
+                    or item.get("raw_srt_bytes") != raw_bytes
+                    or item.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or item.get("full_transcript_reviewed") is not True
+                    or item.get("v3_status") != "APPROVED"):
+                raise ValueError("BATCH_181_185_UNTRUSTED_SOURCE")
+            registry[vid] = {"sha256": digest, "cue_count": cues}
     return registry
 
 
