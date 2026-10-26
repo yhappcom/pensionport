@@ -106,15 +106,25 @@
       "source_cue_index": 446,
       "timecode": "00:14:32",
       "source_paraphrase": "코스피·나스닥·달러환율 등의 숫자 감각을 얻도록 매일 확인",
-      "assessment": "SPEAKER_OPINION",
-      "independent_check": "학습법/시장 이해도 개선을 위한 습관 제안이며 미래 증시 방향 예측 방법으로 인증하지 않음",
-      "official_sources": [],
+      "assessment": "QUALIFIED",
+      "independent_check": "화자는 코스피·나스닥·환율을 매일 지켜보라는 학습습관을 권장했다. 지표 관찰은 투자자의 금융시장 감각 학습으로 도움이 될 수 있지만 단독으로 미래 가격·환율방향을 예측하거나 특정 수익률을 보장하는 지식은 아니다. 투자추천 신호로 단정 금지.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
       "verification_evidence": {
-        "verdict": "SPEAKER_OPINION",
-        "basis": "학습법/시장 이해도 개선을 위한 습관 제안이며 미래 증시 방향 예측 방법으로 인증하지 않음",
-        "disposition": "학습법/시장 이해도 개선을 위한 습관 제안이며 미래 증시 방향 예측 방법으로 인증하지 않음"
+        "verdict": "QUALIFIED",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "checked_at": "2026-10-26",
+        "source_finding": "화자는 코스피·나스닥·환율을 매일 지켜보라는 학습습관을 권장했다. 지표 관찰은 투자자의 금융시장 감각 학습으로 도움이 될 수 있지만 단독으로 미래 가격·환율방향을 예측하거나 특정 수익률을 보장하는 지식은 아니다. 투자추천 신호로 단정 금지.",
+        "disposition": "화자는 코스피·나스닥·환율을 매일 지켜보라는 학습습관을 권장했다. 지표 관찰은 투자자의 금융시장 감각 학습으로 도움이 될 수 있지만 단독으로 미래 가격·환율방향을 예측하거나 특정 수익률을 보장하는 지식은 아니다. 투자추천 신호로 단정 금지.",
+        "effective_date_or_scope": "Second-pass financial-dynamic source claim rather than unverifiable personal opinion; original SRT contextual wording retained"
       },
-      "reviewed_adjacent_source_cues": true
+      "reviewed_adjacent_source_cues": true,
+      "quality_gate_classification_20261026": {
+        "previous_verdict": "SPEAKER_OPINION",
+        "reclassified_to": "QUALIFIED",
+        "reason": "Financial dynamic term in source; preserve dated risk and source limitations."
+      }
     },
     {
       "claim_id": "O7-EBvOsTlg-06",
@@ -289,10 +299,10 @@
   ],
   "claim_count": 14,
   "claim_classification_tally": {
-    "SPEAKER_OPINION": 4,
+    "SPEAKER_OPINION": 3,
     "HYPOTHETICAL": 2,
     "PRIMARY_CONFIRMED": 2,
-    "QUALIFIED": 6
+    "QUALIFIED": 7
   },
   "core_message": "초급 투자자 일간·월간 습관: 뉴스/지수 관찰, 소액 분산형 ETF, 꾸준한 예산관리와 학습.",
   "limitations": [
