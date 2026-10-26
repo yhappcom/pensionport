@@ -193,9 +193,11 @@
       "timecode": "00:29:34",
       "source_cue_index": 905,
       "claim": "퇴직금을 한 번에 인출하기보다 위험·세제에 따라 분산 운용을 제안",
-      "verification": "SPEAKER_OPINION",
-      "sources": [],
-      "disposition": "실제 생활비·급전 필요·수령기간·위험감내에 대한 개인적 제안. 한 번에 인출하지 않으면 원금보전 또는 세후수익 우월 보장은 아님."
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://file.shinhansec.com/filedoc/mtscon/irp_guide.pdf"
+      ],
+      "disposition": "IRP 일시금 인출과 연금수령의 세제 및 유동성 조건은 개인 사정에 따라 달라진다."
     },
     {
       "claim_id": "Q3OrWpOVS2E-18",
@@ -223,22 +225,17 @@
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 6,
     "HYPOTHETICAL": 2,
-    "QUALIFIED": 9,
-    "CONTRADICTED": 1,
-    "SPEAKER_OPINION": 1
+    "QUALIFIED": 10,
+    "CONTRADICTED": 1
   },
   "actionable_guidance": [
     "비대면 계좌수수료 면제와 상품 총보수, 운용/자산관리 수수료가 금융회사·계좌의 자금출처·수수료 정책에 따라 변한다. 모든 은행보다 증권사가 언제나 비용이 낮다는 일괄 법칙은 없다.",
     "DB형 등 법정 퇴직금은 퇴직 전 3개월 임금으로 산정하는 1일 평균임금×30일×계속근로연수 기준. 단순 최종 월급×연수와 다를 수 있고 DC형은 사용자 부담금과 운용성과로 달라진다.",
-    "영상은 신규 납입으로 보이는 사례에서 2주+2주/한달로 설명. 2026년 상품사 공식 안내는 신규 적립금은 첫 통지 이후 2주, 기존 정기예금·ELB 등 만기금은 4주 대기 후 통지+2주 총 6주. 영상 사례별 안내 문자 실제 발송일은 미확인. 신규/만기 자금을 같은 대기 기간으로 일반화하지 않는다.",
-    "운용상품 위험등급 4등급은 판매자 위험표시로 실제 주식·채권·예금 편입비중이 자동 결정되지 않는다. 등록된 포트폴리오 상품설명서를 확인해야 한다.",
-    "SRT cue520~536은 전체 퇴직연금 평균 2%대라는 회고와 제도적 운용 방식 평가다. 해당 연도·원표의 실제 업권별 수익률은 제공되지 않아 수치 정확성 미확정. TDF가 디폴트옵션에 포함될 수 있으나 투자형 TDF에 원금손실 위험 있음.",
-    "정확한 산술은 1억2천만원×4%=연480만원, 월40만원(480/12), 약14일은 18.4만원(480×14/365)이다. 영상은 이를 월20만원→2주10만원으로 환산한 명백한 2배 계산 오류가 있다. 10만원은 연수익률 약2.17%/14일에 해당한다. 이자는 미래 확정수익이 아니라 가정이고, 실거래계좌의 손실액이라고 표현하면 안 된다."
+    "영상은 신규 납입으로 보이는 사례에서 2주+2주/한달로 설명. 2026년 상품사 공식 안내는 신규 적립금은 첫 통지 이후 2주, 기존 정기예금·ELB 등 만기금은 4주 대기 후 통지+2주 총 6주. 영상 사례별 안내 문자 실제 발송일은 미확인. 신규/만기 자금을 같은 대기 기간으로 일반화하지 않는다."
   ],
   "assumptions": [
     "Private user source auto SRT used as complete transcript; audio frames and public second transcript not independently authenticated.",
-    "Historic source rates and quotation applicability limited to relevant date.",
-    "Individual reader/family brokerage balance/return proof explicitly excluded."
+    "Historic source rates and quotation applicability limited to relevant date."
   ],
   "risks_and_exceptions": [
     "Q3OrWpOVS2E-11: 정확한 산술은 1억2천만원×4%=연480만원, 월40만원(480/12), 약14일은 18.4만원(480×14/365)이다. 영상은 이를 월20만원→2주10만원으로 환산한 명백한 2배 계산 오류가 있다. 10만원은 연수익률 약2.17%/14일에 해당한다. 이자는 미래 확정수익이 아니라 가정이고, 실거래계좌의 손실액이라고 표현하면 안 된다."
