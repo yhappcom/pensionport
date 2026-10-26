@@ -129,7 +129,7 @@
       "timecode": "00:11:00",
       "source_cue_index": 353,
       "claim": "국내 주식 복귀가 원/달러 환율·코스피를 올릴 것이라는 기대",
-      "verification": "SPEAKER_OPINION",
+      "verification": "HYPOTHETICAL",
       "sources": [
         "https://www.korea.kr/news/policyNewsView.do?newsId=148957067"
       ],
@@ -236,8 +236,8 @@
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 6,
     "QUALIFIED": 9,
-    "SPEAKER_OPINION": 2,
-    "HYPOTHETICAL": 1
+    "HYPOTHETICAL": 2,
+    "SPEAKER_OPINION": 1
   },
   "actionable_guidance": [
     "GzazVJg1V1I-01: 2025-12-24 기획재정부 원 발표 취지와 일치. 실제 외환시장 개선 효과는 별도 실증 문제.",
@@ -277,8 +277,8 @@
       "tally": {
         "PRIMARY_CONFIRMED": 6,
         "QUALIFIED": 9,
-        "SPEAKER_OPINION": 2,
-        "HYPOTHETICAL": 1
+        "HYPOTHETICAL": 2,
+        "SPEAKER_OPINION": 1
       }
     }
   ],
@@ -304,5 +304,11 @@
   "limitations": [
     "Original audio or product trading interface not inspected.",
     "2025/2026 RIA final implementation terms must not be backdated."
+  ],
+  "relations": [
+    {
+      "related_roster_no": 160,
+      "relation": "Follows prior video in 791-video V3 source-based research, 2025-year-end policies used as primary comparison; private raw caption archive kept in Drive."
+    }
   ]
 }
