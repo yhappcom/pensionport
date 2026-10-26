@@ -22,7 +22,9 @@
       "source_cue_index": 13,
       "claim": "한국투자증권 연금저축·ISA 판촉 이벤트를 소개하는 광고성 영상",
       "verification": "PRIMARY_CONFIRMED",
-      "sources": [],
+      "sources": [
+        "https://www.youtube.com/watch?v=PUWsNu9b3cc"
+      ],
       "disposition": "원본 SRT에서 광고 목적과 증권사 이벤트 소개를 명시. 정부 제도와 특정 판매사 가입 판촉을 구분.",
       "source_precision": "ORIGINAL_KOREAN_AUTOMATIC_SRT_TEXT_NOT_AUDIO_AUTHENTICATED"
     },
@@ -249,5 +251,11 @@
   "limitations": [
     "Broker promotion fine print not checked independently; nonmandatory per project policy.",
     "No audiovisual proof."
+  ],
+  "relations": [
+    {
+      "related_roster_no": 162,
+      "relation": "Follows prior video in 791-video V3 source-based research, 2025-year-end policies used as primary comparison; private raw caption archive kept in Drive."
+    }
   ]
 }
