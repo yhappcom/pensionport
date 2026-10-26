@@ -13,10 +13,10 @@
     "source_bytes": 382727,
     "verdicts": {
       "PRIMARY_CONFIRMED": 20,
-      "QUALIFIED": 41,
+      "QUALIFIED": 44,
       "CONTRADICTED": 3,
       "HYPOTHETICAL": 5,
-      "SPEAKER_OPINION": 11
+      "SPEAKER_OPINION": 8
     },
     "per_video": [
       {
@@ -90,5 +90,20 @@
   ],
   "pending_batch_video_count": 0,
   "report": "knowledge/VIDEO146_150_FULL_V3_SECOND_PASS_EVIDENCE_REVIEW_20261026.md",
-  "research_branch_only": true
+  "research_branch_only": true,
+  "first_pass_verdicts_20261026": {
+    "PRIMARY_CONFIRMED": 20,
+    "QUALIFIED": 41,
+    "CONTRADICTED": 3,
+    "HYPOTHETICAL": 5,
+    "SPEAKER_OPINION": 11
+  },
+  "source_second_pass_classifications": {
+    "changed_from_opinion_to_qualified": [
+      "O7-EBvOsTlg-05",
+      "Q-zEc5IeQ50-19",
+      "Q3OrWpOVS2E-17"
+    ],
+    "reason": "Financial dynamic meaning (exchange rate, rate-bearing bonds, annuity withdrawal tax) cannot be classified only as subjective opinion in evidence gate."
+  }
 }
