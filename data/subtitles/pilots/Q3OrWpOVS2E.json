@@ -360,13 +360,18 @@
       "source_cue_index": 905,
       "timecode": "00:29:34",
       "source_paraphrase": "퇴직금을 한 번에 인출하기보다 위험·세제에 따라 분산 운용을 제안",
-      "assessment": "SPEAKER_OPINION",
-      "independent_check": "실제 생활비·급전 필요·수령기간·위험감내에 대한 개인적 제안. 한 번에 인출하지 않으면 원금보전 또는 세후수익 우월 보장은 아님.",
-      "official_sources": [],
+      "assessment": "QUALIFIED",
+      "independent_check": "퇴직급여를 IRP에서 일시에 인출하는 방식과 적격 연금수령으로 나누는 방식은 세액 감면과 유동성 효과가 다르다. 자산 필요 시기·납세상황·위험감내에 따라 비교해야 하며 분할인출이 언제나 절대적으로 더 좋은 것은 아니다.",
+      "official_sources": [
+        "https://file.shinhansec.com/filedoc/mtscon/irp_guide.pdf"
+      ],
       "verification_evidence": {
-        "verdict": "SPEAKER_OPINION",
-        "basis": "실제 생활비·급전 필요·수령기간·위험감내에 대한 개인적 제안. 한 번에 인출하지 않으면 원금보전 또는 세후수익 우월 보장은 아님.",
-        "disposition": "실제 생활비·급전 필요·수령기간·위험감내에 대한 개인적 제안. 한 번에 인출하지 않으면 원금보전 또는 세후수익 우월 보장은 아님."
+        "verdict": "QUALIFIED",
+        "primary_url": "https://file.shinhansec.com/filedoc/mtscon/irp_guide.pdf",
+        "checked_at": "2026-10-26",
+        "source_finding": "퇴직급여를 IRP에서 일시에 인출하는 방식과 적격 연금수령으로 나누는 방식은 세액 감면과 유동성 효과가 다르다. 자산 필요 시기·납세상황·위험감내에 따라 비교해야 하며 분할인출이 언제나 절대적으로 더 좋은 것은 아니다.",
+        "disposition": "퇴직급여를 IRP에서 일시에 인출하는 방식과 적격 연금수령으로 나누는 방식은 세액 감면과 유동성 효과가 다르다. 자산 필요 시기·납세상황·위험감내에 따라 비교해야 하며 분할인출이 언제나 절대적으로 더 좋은 것은 아니다.",
+        "effective_date_or_scope": "2026 qualified retirement-income tax comparisons and speaker's flexible suggestion."
       },
       "reviewed_adjacent_source_cues": true
     },
@@ -415,9 +420,8 @@
   "claim_classification_tally": {
     "PRIMARY_CONFIRMED": 6,
     "HYPOTHETICAL": 2,
-    "QUALIFIED": 9,
-    "CONTRADICTED": 1,
-    "SPEAKER_OPINION": 1
+    "QUALIFIED": 10,
+    "CONTRADICTED": 1
   },
   "core_message": "퇴직급여 IRP 운용, 디폴트옵션 신규입금/만기별 대기기간, 연금수령한도 연차/퇴직소득세 실제수령연차, 퇴직소득세 30/40/50% 감면",
   "limitations": [
