@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-27",
+  "prior_baseline": {
+    "approved_v3_videos": 212,
+    "reviewed_material_and_editorial_claims": 3495
+  },
+  "batch": {
+    "roster_range": "216-220",
+    "videos_in_roster": 5,
+    "private_original_srt_present": 5,
+    "educational_v3_approved": 4,
+    "noninvestment_topic_excluded": 1,
+    "source_original_cues": 4241,
+    "original_srt_bytes": 328612,
+    "approved_source_cues": 3205,
+    "approved_source_bytes": 249161,
+    "source_zip": "201-300.zip",
+    "source_zip_sha256": "b5674d1a3e07b3ab40d4ca9b548dd6378916105bfb91f287247d4dd85242832d",
+    "claim_count": 65,
+    "tally": {
+      "PRIMARY_CONFIRMED": 17,
+      "QUALIFIED": 42,
+      "CONTRADICTED": 0,
+      "HYPOTHETICAL": 6,
+      "SPEAKER_OPINION": 0
+    },
+    "per_video": [
+      {
+        "no": 216,
+        "id": "b5OV0BEle_o",
+        "cues": 690,
+        "claims": 16,
+        "status": "APPROVED"
+      },
+      {
+        "no": 217,
+        "id": "l0Q-2Ah-ba8",
+        "cues": 470,
+        "claims": 17,
+        "status": "APPROVED"
+      },
+      {
+        "no": 218,
+        "id": "7JqAdMGokqk",
+        "cues": 937,
+        "claims": 14,
+        "status": "APPROVED"
+      },
+      {
+        "no": 219,
+        "id": "BxqQAqr2OA0",
+        "cues": 1036,
+        "claims": 0,
+        "status": "EXCLUDED_NON_INVESTMENT_CONSUMER_TELECOM",
+        "exclusion_reason_path": "data/subtitles/exclusions/BxqQAqr2OA0.json"
+      },
+      {
+        "no": 220,
+        "id": "IK_VUi3PUIU",
+        "cues": 1108,
+        "claims": 18,
+        "status": "APPROVED"
+      }
+    ]
+  },
+  "current_cumulative": {
+    "approved_v3_videos": 216,
+    "reviewed_material_and_editorial_claims": 3560,
+    "total_roster_videos": 791,
+    "remaining_v3_roster_videos": 575
+  },
+  "legacy_optional_verification": {
+    "total": 38,
+    "resolved": 14,
+    "open": 24,
+    "unchanged": true
+  },
+  "source_integrity": {
+    "source_registry": "data/subtitles/registry_216_220_20261027.json",
+    "all_five_original_SRT_SHA256_recomputed": true,
+    "all_source_cues_structurally_parsed": true,
+    "source_scope_exclusion_219_documented": true,
+    "original_zip_or_srt_committed": false,
+    "google_drive_uploaded": false,
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_full_ko_subtitles_independently_checked": false
+  },
+  "secondary_verification": {
+    "reviewed_claims": 65,
+    "tally": {
+      "PRIMARY_CONFIRMED": 17,
+      "QUALIFIED": 42,
+      "CONTRADICTED": 0,
+      "HYPOTHETICAL": 6,
+      "SPEAKER_OPINION": 0
+    },
+    "untriaged_selected_material_claims": 0,
+    "report": "knowledge/VIDEO216_220_FULL_V3_CLAIM_SCOPE_REVIEW_20261027.md"
+  },
+  "policy_corrections": [
+    {
+      "no": 216,
+      "claim_id": "b5OV0BEle_o-02",
+      "issue": "2026 first 10 years 70% original deferred retirement income tax, years 11-20 60%, years 21+ 50%; actual receipt year prerequisite",
+      "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6605"
+    },
+    {
+      "no": 217,
+      "claim_id": "l0Q-2Ah-ba8-14",
+      "issue": "Undeducted pension account principal not taxable income; tax source order separate from 1500만원 annual private income threshold",
+      "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6605"
+    },
+    {
+      "no": 218,
+      "claim_id": "7JqAdMGokqk-08",
+      "issue": "Target-date funds adjust allocations but do not guarantee retirement income; periodic rebalance and total costs matter",
+      "source": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin"
+    },
+    {
+      "no": 219,
+      "issue": "Telecom consumer-price/subsidy guide excluded from investing knowledge; law 2025-07-22 abolished 15% add-on support cap",
+      "source": "https://www.korea.kr/news/policyNewsView.do?newsId=148953626"
+    },
+    {
+      "no": 220,
+      "claim_id": "IK_VUi3PUIU-11",
+      "issue": "NPS 2026 catch-up contribution premium applies rate in payment due month, not only application date (income monthly base from application month)",
+      "source": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do"
+    }
+  ],
+  "limitations": [
+    "Original audio and video frames not compared with full Korean subtitle source",
+    "#216 actual IRP opening/withdrawal and tax withholding history unverified",
+    "#217 sample 1억 principal and personal pension account balances hypothetical",
+    "#218 subscriber brokerage deposits/performance and target date fund actual product terms unverified",
+    "#219 investment V3 not undertaken because consumer telephone topic; only source scope documented",
+    "#220 NPS personal contribution history, 2025/26 individual credit and private insurer statements unverified"
+  ],
+  "notes": [
+    "Legacy OPEN 24 unchanged; #204 original absence user waiver unchanged.",
+    "Do not push private original SRT or ZIP or upload to Google Drive.",
+    "main branch preserved.",
+    "Cumulative V3 count increments only after Push and PR CI both success."
+  ]
+}

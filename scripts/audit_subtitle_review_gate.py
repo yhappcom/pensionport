@@ -729,6 +729,51 @@ def registered_sources(root):
                     or r.get("full_transcript_reviewed") is not True):
                 raise ValueError("BATCH_211_215_PINNED_SOURCE_MISMATCH")
             registry[vid] = {"sha256": sha, "cue_count": cues}
+    # 2026-10-27 privately provided original SRT #216-220, scope exclusion #219.
+    batch_216_220 = root / "data/subtitles/registry_216_220_20261027.json"
+    if batch_216_220.is_file():
+        pack = load(batch_216_220)
+        pinned = {
+            "b5OV0BEle_o": (216, "e24d665f1a5578acdb4f95a4d06fe42a5d955b5058cbe8305bf7799af7c0f7e8", 690, 52457, True),
+            "l0Q-2Ah-ba8": (217, "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747", 470, 37350, True),
+            "7JqAdMGokqk": (218, "fa1e800e6832c39296e1b943f39e4631357bac262978f4e77a0420709a3c33ce", 937, 73162, True),
+            "BxqQAqr2OA0": (219, "467e89b2db4d58954451e17c8f43e74693406c9062b33c8aace113e6b3ff91a2", 1036, 79451, False),
+            "IK_VUi3PUIU": (220, "d0f9dc42c6143d63b66028cb46121be18ce2470a3809048f7b7c57c83f745c10", 1108, 86192, True),
+        }
+        rows = pack.get("items", [])
+        if (pack.get("archive_sha256") != "b5674d1a3e07b3ab40d4ca9b548dd6378916105bfb91f287247d4dd85242832d"
+                or pack.get("archive_raw_bytes") != 2913470
+                or pack.get("archive_raw_srt_count") != 99
+                or pack.get("v3_approval_count") != 4
+                or pack.get("noninvestment_scope_excluded") != 1
+                or pack.get("total_videos") != 5
+                or pack.get("total_original_cues") != 4241
+                or pack.get("total_raw_bytes") != 328612
+                or len(rows) != 5
+                or {row.get("video_id") for row in rows} != set(pinned)
+                or sum(row.get("cue_count") or 0 for row in rows) != 4241
+                or sum(row.get("raw_srt_bytes") or 0 for row in rows) != 328612):
+            raise ValueError("BATCH_216_220_SOURCE_INTEGRITY_INVALID")
+        for row in rows:
+            vid = row["video_id"]
+            no, sha, cues, byte_count, educational = pinned[vid]
+            if (row.get("roster_no") != no
+                    or roster.get(vid) != no
+                    or row.get("sha256") != sha
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != byte_count
+                    or row.get("full_transcript_reviewed") is not True):
+                raise ValueError("BATCH_216_220_PINNED_SOURCE_MISMATCH")
+            if not educational:
+                if (row.get("v3_status") != "EXCLUDED_NON_INVESTMENT_CONSUMER_TELECOM"
+                        or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_EXCLUDED_NON_INVESTMENT"):
+                    raise ValueError("BATCH_216_220_NON_INVESTMENT_SCOPE_INVALID")
+                continue
+            if (vid in registry
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED"):
+                raise ValueError("BATCH_216_220_APPROVAL_SOURCE_INVALID")
+            registry[vid] = {"sha256": sha, "cue_count": cues}
     return registry
 
 
