@@ -167,4 +167,4 @@
 
 ## 6. 이전 비승인 분석 파일 원문 보존
 
-#212 `data/analysis_events/4TFtEQxSM38.json`에는 최초부터 `schema_version:1`의 `content_analyzed` 비승인 요약이 존재했다. 이전 파일은 `data/analysis_events/legacy_pre_v3/4TFtEQxSM38_20261027.json`에 **내용 변경 없이 그대로 보존**하고, 정식 V3 분석에는 `legacy_analysis_snapshot_path`를 연결한다. 이전 연구의 세 가지 핵심 개념(현재가/주문/잔고, 미체결/정정, 체결·보유 차이)을 신규 증빙과 대조했으며, 과거 파일을 폐기하거나 승인 이력으로 허위 계상하지 않았다.
+#212 `data/analysis_events/4TFtEQxSM38.json`에는 최초부터 `schema_version:1`의 `content_analyzed` 비승인 요약이 존재했다. 이전 파일은 `knowledge/legacy_pre_v3/4TFtEQxSM38_20261027.json`에 **내용 변경 없이 그대로 보존**하고, 정식 V3 분석에는 `legacy_analysis_snapshot_path`를 연결한다. 이전 연구의 세 가지 핵심 개념(현재가/주문/잔고, 미체결/정정, 체결·보유 차이)을 신규 증빙과 대조했으며, 과거 파일을 폐기하거나 승인 이력으로 허위 계상하지 않았다.
