@@ -849,6 +849,48 @@ def registered_sources(root):
                     or row.get("v3_status") != "APPROVED" or vid in registry):
                 raise ValueError("BATCH_226_230_APPROVAL_INTEGRITY_INVALID")
             registry[vid] = {"sha256": sha, "cue_count": cues}
+
+    # 2026-10-28: #231-235 private SRT claim-scoped verification; pin each
+    # source fingerprint while avoiding binary ZIP/SRT publication.
+    batch231 = root / "data/subtitles/registry_231_235_20261028.json"
+    if batch231.is_file():
+        b = load(batch231)
+        pinned = {
+            "C7KctGzg-K0": (231, "765437339fcec7bd4115f9346c3da0ea1784af0d25ddd1c8562e7cc43420078c", 214, 16513),
+            "WIXWPJjhF50": (232, "1050fbb4022181130dce827328d165c863a5ec3a87f869dddc0f9fd3ae3ba17a", 185, 14534),
+            "BK4AlJFw9SM": (233, "ceb2be2bfa8ff42da23474bab207c674555e19a6444a9961beff187fbb4f0bc8", 504, 40365),
+            "iP75FC0Gg0g": (234, "b7c3de1cd35592a4a3e373b48497a664217d8647988d78e875a648e5a4adeb33", 782, 60135),
+            "1Hzf1eiM-t8": (235, "8e1d0640f0cce2403325f4a2bf29ed1b504ef116a9f08f9743c49780c28b6b40", 805, 61419),
+        }
+        rows = b.get("items", [])
+        if (b.get("archive_sha256") != "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10"
+                or b.get("archive_raw_bytes") != 2913470
+                or b.get("archive_raw_srt_count") != 99
+                or b.get("total_original_cues") != 2490
+                or b.get("total_raw_bytes") != 192966
+                or len(rows) != 5
+                or {r.get("video_id") for r in rows} != set(pinned)):
+            raise ValueError("BATCH_231_235_SOURCE_INTEGRITY_INVALID")
+        for row in rows:
+            vid = row["video_id"]
+            no, sha, cues, bytes_count = pinned[vid]
+            if (row.get("roster_no") != no
+                    or roster.get(vid) != no
+                    or row.get("sha256") != sha
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != bytes_count):
+                raise ValueError("BATCH_231_235_SOURCE_FINGERPRINT_MISMATCH")
+            if b.get("v3_approval_count") == 0:
+                if row.get("v3_status") != "EVIDENCE_REVIEW_PENDING":
+                    raise ValueError("BATCH_231_235_PENDING_STATUS_INVALID")
+                continue
+            if (b.get("v3_approval_count") != 5
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED"
+                    or row.get("full_transcript_reviewed") is not True
+                    or vid in registry):
+                raise ValueError("BATCH_231_235_PROMOTION_INTEGRITY_INVALID")
+            registry[vid] = {"sha256": sha, "cue_count": cues}
     return registry
 
 
