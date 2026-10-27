@@ -654,6 +654,44 @@ def registered_sources(root):
                     or row.get("full_transcript_reviewed") is not True):
                 raise ValueError("BATCH_201_205_PINNED_SOURCE_MISMATCH")
             registry[vid] = {"sha256": sha, "cue_count": cues}
+    # 2026-10-27 original privately provided 201-300.zip: #206-210
+    # Pinned source custody is independent of claims; reuse is recorded separately.
+    batch_206_210 = root / "data/subtitles/registry_206_210_20261027.json"
+    if batch_206_210.is_file():
+        pack = load(batch_206_210)
+        pinned = {
+            "qabOz6b9hlg": (206, "c9e03410ff2da2cadfca4ea57ced820b2e3b73428deb95742c42f6ebf5b8e61d", 9302, 721435),
+            "05JCQ8-v6zc": (207, "41021e2fe64bd3854821a3ed55d7f7ebeb6bf2a95e09511335d726a3be686372", 2591, 202630),
+            "CToQ4bXaP54": (208, "11b65791af65f9463878aa60f9e85291c2e8de498e522617bfe3387566060874", 3507, 282393),
+            "gxzKfJ6e1j0": (209, "fa19ef8d43e75f16c20fc671f02f6d476cf09c3d9deb1733c03a789b460d2069", 1221, 92811),
+            "NJbzYMXw6Eg": (210, "6e3737decd138ba2bd90b771f374771c1bd66db5165ae29336097a5305e61f06", 1159, 90552),
+        }
+        records = pack.get("items", [])
+        if (pack.get("archive_sha256") != "b5674d1a3e07b3ab40d4ca9b548dd6378916105bfb91f287247d4dd85242832d"
+                or pack.get("archive_raw_bytes") != 2913470
+                or pack.get("archive_raw_srt_count") != 99
+                or pack.get("v3_approval_count") != 5
+                or pack.get("total_videos") != 5
+                or pack.get("total_original_cues") != 17780
+                or pack.get("total_raw_bytes") != 1389821
+                or len(records) != 5
+                or {row.get("video_id") for row in records} != set(pinned)
+                or sum(row.get("cue_count") or 0 for row in records) != 17780
+                or sum(row.get("raw_srt_bytes") or 0 for row in records) != 1389821):
+            raise ValueError("BATCH_206_210_SOURCE_INTEGRITY_INVALID")
+        for row in records:
+            vid = row["video_id"]
+            n, sha, cues, size = pinned[vid]
+            if (vid in registry or roster.get(vid) != n
+                    or row.get("roster_no") != n
+                    or row.get("sha256") != sha
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != size
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED"
+                    or row.get("full_transcript_reviewed") is not True):
+                raise ValueError("BATCH_206_210_PINNED_SOURCE_MISMATCH")
+            registry[vid] = {"sha256": sha, "cue_count": cues}
     return registry
 
 
