@@ -610,6 +610,50 @@ def registered_sources(root):
                     or row.get("full_transcript_reviewed") is not True):
                 raise ValueError("BATCH_196_200_PINNED_SOURCE_MISMATCH")
             registry[vid] = {"sha256": digest, "cue_count": cues}
+    # 2026-10-27 #201-205 holiday compilation, source fingerprints/exception.
+    # #204 is a user-approved absent source; it is not claim-scoped V3.
+    batch_201_205 = root / "data/subtitles/registry_201_205_20261027.json"
+    if batch_201_205.is_file():
+        pack = load(batch_201_205)
+        pinned = {
+            "ATMJeH2TyxE": (201, "68b05b22dc6db3c5e9c13b97ff1c69011e9fa82402ab87c351ccdf742864956a", 3393, 265608, True),
+            "sUtOQJH-wgc": (202, "41be4c5e9fee517ce4f41e54dcbaeb04531d63cd1515b627a7b67c10c22fe63b", 5000, 391701, True),
+            "CFZNyQ8pRUE": (203, "2bde99a09d8a3e7a94d6502502c334a76d63ad1f63ede525cba876c25f9f18f3", 3507, 275214, True),
+            "yl0UyfkvaHs": (204, None, None, None, False),
+            "EdRzQmddbHE": (205, "e12b4a5d276eaf2e61a39a1a0f51dace36d3b38304a60cc27a2fc9b678dfa3cf", 21742, 1714929, True),
+        }
+        records = pack.get("items", [])
+        if (pack.get("archive_sha256") != "b5674d1a3e07b3ab40d4ca9b548dd6378916105bfb91f287247d4dd85242832d"
+                or pack.get("archive_raw_bytes") != 2913470
+                or pack.get("archive_raw_srt_count") != 99
+                or pack.get("v3_approval_count") != 4
+                or pack.get("nonapproved_exception_count") != 1
+                or pack.get("total_videos") != 5
+                or pack.get("total_original_cues") != 33642
+                or pack.get("total_raw_bytes") != 2647452
+                or len(records) != 5
+                or {row.get("video_id") for row in records} != set(pinned)
+                or sum(row.get("cue_count") or 0 for row in records) != 33642
+                or sum(row.get("raw_srt_bytes") or 0 for row in records) != 2647452):
+            raise ValueError("BATCH_201_205_SOURCE_INTEGRITY_INVALID")
+        for row in records:
+            vid = row["video_id"]
+            n, sha, cues, size, educational = pinned[vid]
+            if roster.get(vid) != n or row.get("roster_no") != n:
+                raise ValueError("BATCH_201_205_ROSTER_INVALID")
+            if not educational:
+                if (row.get("v3_status") != "EXCLUDED_SOURCE_ABSENCE_USER_APPROVED"
+                        or row.get("source_status") != "SOURCE_ABSENT_USER_EXCEPTION_APPROVED_NO_RETRIEVAL"
+                        or row.get("sha256") is not None or row.get("cue_count") is not None):
+                    raise ValueError("BATCH_201_205_EXCEPTION_INVALID")
+                continue
+            if (vid in registry or row.get("sha256") != sha
+                    or row.get("cue_count") != cues or row.get("raw_srt_bytes") != size
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED"
+                    or row.get("full_transcript_reviewed") is not True):
+                raise ValueError("BATCH_201_205_PINNED_SOURCE_MISMATCH")
+            registry[vid] = {"sha256": sha, "cue_count": cues}
     return registry
 
 
