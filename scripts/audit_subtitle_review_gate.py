@@ -528,6 +528,50 @@ def registered_sources(root):
                     or item.get("v3_status") != "APPROVED"):
                 raise ValueError("BATCH_186_190_UNTRUSTED_SOURCE")
             registry[vid] = {"sha256": digest, "cue_count": cues}
+    # 2026-10-27 original user private 101-200.zip: #191-195.
+    # #191 is promotional product/public-service app walkthrough rather than
+    # investment education. Preserve source custody but never count V3 approval.
+    batch_191_195 = root / "data/subtitles/registry_191_195_20261027.json"
+    if batch_191_195.is_file():
+        record = load(batch_191_195)
+        pinned = {
+            "h1VSdD5XeO4": (191, "ba89b381afbd90b2ea52472b556a21cbb3f5828563307ea8882719e0d3a60d30", 20, 1566, False),
+            "iy7_HMMSLGc": (192, "49b22feace6be6cd0ff26fe021ccaad5ac0de5ddc471e0a4ae2855f35f33e649", 784, 60093, True),
+            "KgiwKdha6F4": (193, "e54ec8ba21358063cc8e35079fcbf998425be770763516f83d7316900dab6104", 868, 68397, True),
+            "IfpexqB1IGA": (194, "0c7c014714223abe9450741074664ac3fa88b2a15bdf9c8851e844a2033d3eae", 1258, 98058, True),
+            "pbDPZUwogeQ": (195, "893492c4c57925802fb3a1cc92b0a5051cd30553cbb9cb7377f50d1be42ad4d6", 334, 26609, True),
+        }
+        items = record.get("items", [])
+        if (record.get("archive_sha256") != "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e"
+                or record.get("archive_raw_bytes") != 2273410
+                or record.get("total_videos") != 5
+                or record.get("v3_approval_count") != 4
+                or record.get("event_non_educational_excluded_count") != 1
+                or record.get("total_original_cues") != 3264
+                or record.get("total_raw_bytes") != 254723
+                or len(items) != 5
+                or {item.get("video_id") for item in items} != set(pinned)
+                or sum(item.get("cue_count", 0) for item in items) != 3264
+                or sum(item.get("raw_srt_bytes", 0) for item in items) != 254723):
+            raise ValueError("BATCH_191_195_SOURCE_INTEGRITY_INVALID")
+        for row in items:
+            vid = row["video_id"]
+            no, digest, cues, byte_count, educational = pinned[vid]
+            expected_source = ("PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3" if educational
+                               else "PRIVATE_SRT_SHA_MATCHED_NON_EDUCATIONAL_EXCLUDED")
+            expected_status = "APPROVED" if educational else "EXCLUDED_NON_EDUCATIONAL_EVENT"
+            if (vid in registry or roster.get(vid) != no
+                    or row.get("roster_no") != no
+                    or row.get("sha256") != digest
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != byte_count
+                    or row.get("source_status") != expected_source
+                    or row.get("v3_status") != expected_status
+                    or row.get("full_transcript_reviewed") is not True):
+                raise ValueError("BATCH_191_195_PINNED_SOURCE_MISMATCH")
+            # Only claimed finance education receives pilot/canonical gate.
+            if educational:
+                registry[vid] = {"sha256": digest, "cue_count": cues}
     return registry
 
 
