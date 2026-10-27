@@ -572,6 +572,44 @@ def registered_sources(root):
             # Only claimed finance education receives pilot/canonical gate.
             if educational:
                 registry[vid] = {"sha256": digest, "cue_count": cues}
+    # 2026-10-27 source integrity pinned for privately received Korean SRT #196-200.
+    # Source content is never uploaded; V3 approval still requires claim evidence.
+    batch_196_200 = root / "data/subtitles/registry_196_200_20261027.json"
+    if batch_196_200.is_file():
+        batch = load(batch_196_200)
+        expected = {
+            "rwhkajfIneo": (196, "3ee6b0f0a0e087237ef7b109f3298d9fc6a63363f54d356491237ba4188db29c", 549, 43164),
+            "0dfyVZLpMFY": (197, "70393339f8ff2f57206f21b7da19b74ab21ec29de94c80def5af72f0f3c469c8", 941, 73766),
+            "LHy5UbdIAcs": (198, "0a0267f1423961d8446af952c86e7df70d728971f281e98069dfa0187fede6c7", 530, 43060),
+            "OOC5OUZNGvI": (199, "3502152da6a91ce2a68897b14746ba2cf048d061337a0bcd0b52eca2a934d016", 957, 76461),
+            "8ssrk2_5u5s": (200, "9482eb555f00f2059c6a9c9e361782eae87e82ab9d6680e3769a1ccdc5ea01d4", 877, 67200),
+        }
+        items = batch.get("items", [])
+        if (batch.get("archive_sha256") != "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e"
+                or batch.get("archive_raw_bytes") != 2273410
+                or batch.get("total_videos") != 5
+                or batch.get("v3_approval_count") != 5
+                or batch.get("event_non_educational_excluded_count") != 0
+                or batch.get("total_original_cues") != 3854
+                or batch.get("total_raw_bytes") != 303651
+                or len(items) != 5
+                or {x.get("video_id") for x in items} != set(expected)
+                or sum(x.get("cue_count", 0) for x in items) != 3854
+                or sum(x.get("raw_srt_bytes", 0) for x in items) != 303651):
+            raise ValueError("BATCH_196_200_SOURCE_INTEGRITY_INVALID")
+        for row in items:
+            vid = row["video_id"]
+            no, digest, cues, rawbytes = expected[vid]
+            if (vid in registry or roster.get(vid) != no
+                    or row.get("roster_no") != no
+                    or row.get("sha256") != digest
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != rawbytes
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED"
+                    or row.get("full_transcript_reviewed") is not True):
+                raise ValueError("BATCH_196_200_PINNED_SOURCE_MISMATCH")
+            registry[vid] = {"sha256": digest, "cue_count": cues}
     return registry
 
 
