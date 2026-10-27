@@ -891,6 +891,43 @@ def registered_sources(root):
                     or vid in registry):
                 raise ValueError("BATCH_231_235_PROMOTION_INTEGRITY_INVALID")
             registry[vid] = {"sha256": sha, "cue_count": cues}
+
+    # 2026-10-28: source-pinned V3 #236-240. Created alongside pilot and
+    # canonical files in ONE atomic branch commit after local staging checks.
+    batch = root / "data/subtitles/registry_236_240_20261028.json"
+    if batch.is_file():
+        data = load(batch)
+        pinned = {
+            "VU-lUsP_N3w": (236, "64fc5d46474a0dda59d96b1329e064269a88c90c81bcca267f7047e71c3146b9", 896, 69262),
+            "tDD5GzvDYq8": (237, "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643", 498, 38793),
+            "574Oi3Jn_KQ": (238, "c4c1ce56769d82613669520d9032a841fd0808d64363ab36d64e83d828f8e11f", 632, 50394),
+            "swuHTDAGgeE": (239, "6244537daac0dc2179211773f94de24e681f09afbd21e86ac7aa1fa946886711", 843, 64633),
+            "ATAECPP6MJA": (240, "1da1b943f995f737914bffd6921b521e2ac4370437edf80e69534af3165ebc8d", 33, 2564),
+        }
+        records = data.get("items", [])
+        if (data.get("archive_sha256") != "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10"
+                or data.get("archive_raw_bytes") != 2913470
+                or data.get("archive_raw_srt_count") != 99
+                or data.get("total_original_cues") != 2902
+                or data.get("total_raw_bytes") != 225646
+                or data.get("v3_approval_count") != 5
+                or len(records) != 5
+                or {entry.get("video_id") for entry in records} != set(pinned)):
+            raise ValueError("BATCH_236_240_SOURCE_INTEGRITY_INVALID")
+        for row in records:
+            vid = row.get("video_id")
+            number, digest, count, nbytes = pinned[vid]
+            if (row.get("roster_no") != number
+                    or roster.get(vid) != number
+                    or row.get("sha256") != digest
+                    or row.get("cue_count") != count
+                    or row.get("raw_srt_bytes") != nbytes
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED"
+                    or row.get("full_transcript_reviewed") is not True
+                    or vid in registry):
+                raise ValueError("BATCH_236_240_PINNED_SRT_INVALID")
+            registry[vid] = {"sha256": digest, "cue_count": count}
     return registry
 
 
