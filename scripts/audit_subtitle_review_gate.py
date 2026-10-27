@@ -928,6 +928,49 @@ def registered_sources(root):
                     or vid in registry):
                 raise ValueError("BATCH_236_240_PINNED_SRT_INVALID")
             registry[vid] = {"sha256": digest, "cue_count": count}
+
+    # 2026-10-28: #241 government consumer coupon non-investment exclusion;
+    # four claim-reviewed finance videos #242-245 source-pin as one atomic gate.
+    next_five = root / "data/subtitles/registry_241_245_20261028.json"
+    if next_five.is_file():
+        batch = load(next_five)
+        pinned = {
+            "gU0hTONWEPI": (241, "4ed970c3bf490379fd4c9e21cc9ae931c27546cdb8fd89c0e71c163d12f5f099", 1008, 78164),
+            "Sx2wvsksK9A": (242, "eff38a2072c97179543d99bb5d7c063d008031e7639304c0857c9a452c128cf3", 879, 68183),
+            "PshvFd-zwuM": (243, "0880c05c490128ed69c688319cb763a83c81863ad41235504db86005ef00f723", 870, 65813),
+            "-ZPj8LqCts0": (244, "e6f9efe6dff8d9c01e9010f6c5f3c4e8334c9d5882738d54a7a62a3e00194246", 892, 71341),
+            "kU2Cknb8T3I": (245, "27fd290c8e06b348ca5f7dfe1077fbea64a1f715206f3aa713cbd61f7cc1b2bb", 832, 66035),
+        }
+        records = batch.get("items", [])
+        if (batch.get("archive_sha256") != "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10"
+                or batch.get("archive_raw_bytes") != 2913470
+                or batch.get("archive_raw_srt_count") != 99
+                or batch.get("total_original_cues") != 4481
+                or batch.get("total_raw_bytes") != 349536
+                or batch.get("v3_approval_count") != 4
+                or batch.get("noninvestment_scope_excluded") != 1
+                or len(records) != 5
+                or {r.get("video_id") for r in records} != set(pinned)):
+            raise ValueError("BATCH_241_245_SOURCE_INTEGRITY_INVALID")
+        for row in records:
+            vid = row.get("video_id")
+            n, digest, cues, nbytes = pinned[vid]
+            if (row.get("roster_no") != n or roster.get(vid) != n
+                    or row.get("sha256") != digest
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != nbytes
+                    or row.get("full_transcript_reviewed") is not True):
+                raise ValueError("BATCH_241_245_SRT_PIN_MISMATCH")
+            if n == 241:
+                if (row.get("v3_status") != "EXCLUDED_NON_INVESTMENT_GOVERNMENT_CONSUMER_COUPON"
+                        or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_EXCLUDED_NON_INVESTMENT"
+                        or not row.get("exclusion_reason")):
+                    raise ValueError("VIDEO241_NON_INVESTMENT_SCOPE_INVALID")
+                continue
+            if (row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED" or vid in registry):
+                raise ValueError("BATCH_242_245_APPROVAL_PROVENANCE_INVALID")
+            registry[vid] = {"sha256": digest, "cue_count": cues}
     return registry
 
 
