@@ -810,6 +810,45 @@ def registered_sources(root):
                     or vid in registry):
                 raise ValueError("BATCH_221_225_PINNED_SOURCE_MISMATCH")
             registry[vid] = {"sha256": sha, "cue_count": cues}
+
+    # 2026-10-28: #226-230 original SRTs pinned to private Google Drive source.
+    batch226 = root / "data/subtitles/registry_226_230_20261028.json"
+    if batch226.is_file():
+        a = load(batch226)
+        pinned = {
+            "GtMa-bEFJa8": (226, "9c2be34a3c5a307cec90073ca25e699228a8efff278d068e7289fe3a4975941d", 1008, 80639),
+            "koN6tXbpb_s": (227, "261b5859367b50bbcc8eabf67aa31d98843503ada1be774dfb5f5c47910ba96b", 26, 2083),
+            "p94_t07GTKA": (228, "7e194fb3dec01dba26d246a48fa85c2dde4d0419a24b66269d1aab2972334e47", 283, 22643),
+            "z1oZOJ3_uIk": (229, "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a", 891, 65762),
+            "9T_72qyO1Dk": (230, "3e694a9f110d65ff3de0bfe6a5c892deb97ada77bc005c1b64414b81c70677fe", 28, 2220),
+        }
+        items = a.get("items", [])
+        if (a.get("archive_sha256") != "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10"
+                or a.get("archive_raw_bytes") != 2913470
+                or a.get("archive_raw_srt_count") != 99
+                or a.get("total_original_cues") != 2236
+                or a.get("total_raw_bytes") != 173347
+                or len(items) != 5
+                or {row.get("video_id") for row in items} != set(pinned)):
+            raise ValueError("BATCH_226_230_SOURCE_INTEGRITY_INVALID")
+        for row in items:
+            vid = row["video_id"]
+            no, sha, cues, bytes_size = pinned[vid]
+            if (row.get("roster_no") != no or roster.get(vid) != no
+                    or row.get("sha256") != sha
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != bytes_size):
+                raise ValueError("BATCH_226_230_RAW_SRT_INTEGRITY_INVALID")
+            if a.get("v3_approval_count") == 0:
+                if row.get("v3_status") != "EVIDENCE_REVIEW_PENDING":
+                    raise ValueError("BATCH_226_230_PENDING_STATE_INVALID")
+                continue
+            if (a.get("v3_approval_count") != 5
+                    or row.get("full_transcript_reviewed") is not True
+                    or row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED" or vid in registry):
+                raise ValueError("BATCH_226_230_APPROVAL_INTEGRITY_INVALID")
+            registry[vid] = {"sha256": sha, "cue_count": cues}
     return registry
 
 
