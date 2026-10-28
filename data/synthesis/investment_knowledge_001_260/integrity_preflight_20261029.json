@@ -1,0 +1,36 @@
+{
+  "validated_at": "2026-10-29",
+  "result": "PASS",
+  "errors": [],
+  "stats": {
+    "n": 4120,
+    "videoIds": 253,
+    "first": 3224,
+    "second": 896,
+    "high": 363,
+    "flag72": 72,
+    "pendingOther": 574,
+    "priorVerdicts": {
+      "QUALIFIED": 2324,
+      "HYPOTHETICAL": 455,
+      "CONTRADICTED": 205,
+      "PRIMARY_CONFIRMED": 1084,
+      "SPEAKER_OPINION": 52
+    }
+  },
+  "checks": [
+    "unique_claim_id",
+    "canonical_and_pilot_path_sha",
+    "39 family counts",
+    "16 curated edges",
+    "no contradicted used as affirmative support",
+    "legacy_116_mapping",
+    "crosswalk_for_all_260_roster",
+    "201-260 audit overlay 363/72",
+    "no auto merge",
+    "source files unchanged"
+  ],
+  "full_original_video_audio_reviewed": false,
+  "individual_first_party_claims_all_reverified": false,
+  "branch_main_mutated": false
+}
