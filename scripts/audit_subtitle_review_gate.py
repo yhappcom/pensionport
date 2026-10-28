@@ -1007,6 +1007,54 @@ def registered_sources(root):
                     or vid in registry):
                 raise ValueError("BATCH_246_250_PINNED_SOURCE_OR_APPROVAL_INVALID")
             registry[vid] = {"sha256": shasum, "cue_count": cues}
+
+    # 2026-10-28: #251-255 private SRTs registered atomically.
+    # 253 Buffett Omaha travel and 254 Seoul rent assistance are not V3 investment material.
+    p251 = root / "data/subtitles/registry_251_255_20261028.json"
+    if p251.is_file():
+        batch = load(p251)
+        pinned = {
+            "i9fXr3U-ReA": (251, "45579b8372e0292b85742bd71466a63ffa6a45cd1616446c245fb1270bab1c1c", 1181, 95322),
+            "H9KS0VTw8Mg": (252, "7394c281e71d7decaa035909b4dc6524a2cac5f4935b0a5618fd291b938c46c0", 417, 33181),
+            "SEq0DpsLrn8": (253, "a53ce4372a00dc26b853ab774bae79f48edf8f8bdf4d1a84a4cf2bc985e2a6e3", 298, 22277),
+            "TXwtgDR38Bw": (254, "9eb9e43f0ba6f92d8b357fcdc6c842ea490a634b75afac20b5214351a3b1fbd9", 916, 73202),
+            "7p3p7TKcdqY": (255, "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2", 839, 66159),
+        }
+        excluded = {
+            "SEq0DpsLrn8": "EXCLUDED_BERKSHIRE_MEETING_TRAVEL_DOCUMENTARY",
+            "TXwtgDR38Bw": "EXCLUDED_GOVERNMENT_YOUTH_RENT_ASSISTANCE",
+        }
+        rows = batch.get("items", [])
+        if (batch.get("archive_sha256") != "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10"
+                or batch.get("archive_raw_bytes") != 2913470
+                or batch.get("archive_raw_srt_count") != 99
+                or batch.get("total_original_cues") != 3651
+                or batch.get("total_raw_bytes") != 290141
+                or batch.get("v3_approval_count") != 3
+                or batch.get("noninvestment_scope_excluded") != 2
+                or len(rows) != 5
+                or {row.get("video_id") for row in rows} != set(pinned)):
+            raise ValueError("BATCH_251_255_SOURCE_INTEGRITY_INVALID")
+        for row in rows:
+            vid = row.get("video_id")
+            number, sha, cues, count_bytes = pinned[vid]
+            if (row.get("roster_no") != number or roster.get(vid) != number
+                    or row.get("sha256") != sha
+                    or row.get("cue_count") != cues
+                    or row.get("raw_srt_bytes") != count_bytes
+                    or row.get("full_transcript_reviewed") is not True):
+                raise ValueError("BATCH_251_255_SRT_PIN_INVALID")
+            if vid in excluded:
+                if (row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_EXCLUDED_NON_INVESTMENT"
+                        or row.get("v3_status") != excluded[vid]
+                        or not row.get("exclusion_reason")
+                        or vid in registry):
+                    raise ValueError("BATCH_251_255_EXCLUSION_SCOPE_INVALID")
+                continue
+            if (row.get("source_status") != "PRIVATE_SRT_SHA_MATCHED_CLAIM_SCOPED_V3"
+                    or row.get("v3_status") != "APPROVED" or vid in registry):
+                raise ValueError("BATCH_251_255_APPROVAL_PROVENANCE_INVALID")
+            registry[vid] = {"sha256": sha, "cue_count": cues}
     return registry
 
 
