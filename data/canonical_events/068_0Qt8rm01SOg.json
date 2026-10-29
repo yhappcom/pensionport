@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 68,
+  "video_id": "0Qt8rm01SOg",
+  "published_at": "2025-11-27",
+  "title": "👩🏻‍🔧 2000만원으로 ISA 월배당 포트폴리오 따라하기 | 월배당 포트폴리오ㅣ깻포트 점검 | 깻잎일기",
+  "source_doc": "videos/2025/0Qt8rm01SOg.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 68
+  },
+  "topics": [
+    "isa",
+    "monthly_distribution",
+    "dividend_portfolio",
+    "covered_call",
+    "reit",
+    "portfolio_feedback"
+  ],
+  "knowledge_change": [
+    "EXTEND",
+    "REINFORCE",
+    "TIME_SENSITIVE"
+  ],
+  "verification_status": "historical_distribution_metrics_time_sensitive_current_ISA_rules_reused",
+  "claim_delta": {
+    "claim_id": "GOMHEE-C34",
+    "topic": "income_portfolio",
+    "claim": "월배당 포트폴리오는 높은 분배율 자체보다 목표 현금흐름·분배원천·집중위험·총수익·세금·실제 수령액을 함께 기록하고 재점검하는 피드백 루프로 관리한다",
+    "supporting_videos": [
+      "0Qt8rm01SOg"
+    ],
+    "status": "supported",
+    "confidence": "high"
+  },
+  "framework_delta": "ISA wrapper → 목표 현금흐름 → 분배원천 다변화 → 기대분배율/총수익 → 세금 → 실제 수령액 기록 → 포트폴리오 재점검",
+  "created_at": "2026-10-05T15:15:00+09:00"
+}

@@ -1,0 +1,25 @@
+# sx5blWMu0J4 — 연금저축 사용설명서 | ver.2024
+
+- type: long_form
+- source_status: detailed timestamped public transcript/notes available
+- knowledge_change: REINFORCE, EXTEND, TIME_SENSITIVE
+
+## 핵심 주장
+노후준비를 의지에 맡기지 말고 연금저축펀드라는 제도적 장치와 자동납입으로 습관화한다. 영상은 세액공제, 과세이연, 연금수령 시 저율과세를 연금저축의 핵심 세제구조로 묶고, 계좌 개설→납입→MMF/TDF/ETF 운용→장기 유지→연금수령의 행동 흐름으로 설명한다.
+
+## 정량정보와 조건
+영상에는 월급의 약 10% 자동저축 예시, 연금저축 연 1,800만원 납입한도, 당시 세액공제 대상 600만원 및 IRP와 합산한 900만원, 55세 이후·가입기간 요건, 연금수령세율 3.3~5.5%, 비정상 인출 시 16.5% 과세 등의 수치가 등장한다. 세법 수치는 TIME_SENSITIVE로 현행 공식자료와 분리한다.
+
+## 전략
+초보자는 현금성/MMF→TDF→ETF 자산배분으로 운용 난도를 단계적으로 높일 수 있다. 입금만으로 세제혜택 요건을 충족하는 것과 실제 노후자산을 운용하는 것은 다른 문제다.
+
+## 위험·예외
+중도해지/연금외수령은 세제상 불이익을 만들 수 있다. 연금저축을 단순 '환급 상품'으로 보면 장기 유동성 제약을 놓친다.
+
+## 프레임워크
+행동자동화 → tax wrapper → 장기운용 → 인출규칙을 하나의 lifecycle로 연결한다. 초기 연금저축 영상의 주장을 2024 버전에서 REINFORCE/EXTEND한다.
+
+## Canonicalization
+- canonical_sequence: 113
+- canonicalized_at: 2026-10-06
+- sync_mode: backlog_compaction_without_reanalysis

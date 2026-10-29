@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-29",
+  "project": "박곰희TV 투자 지식 연구",
+  "scope": "roster #1-260",
+  "source_branch": "feat/subtitles-incremental-registry-20261009",
+  "roster_count": 260,
+  "v3_video_count": 253,
+  "no_analyses": [
+    172,
+    191,
+    204,
+    219,
+    241,
+    253,
+    254
+  ],
+  "no_srt": [
+    204
+  ],
+  "noninvestment_exclusions": [
+    172,
+    191,
+    219,
+    241,
+    253,
+    254
+  ],
+  "unique_original_claim_ids": 4120,
+  "legacy_core_principles": 116,
+  "keyword_topic_families": 39,
+  "topic_families_unclassified_other_claims": 574,
+  "curated_recurring_investment_concepts": 16,
+  "manual_curated_concept_evidence_unique_claim_ids": 55,
+  "lexical_duplicate_pairs_unverified": 1,
+  "merged_or_deleted_original_claims": 0,
+  "investable_strategy_approvals": 0,
+  "v3_research_vs_investment_ready": "Existing educational V3 may have QUALIFIED/HYPOTHETICAL/CONTRADICTED, so do not auto-use for personal investment",
+  "open_24_cases_preserved": true,
+  "high_impact_review_201_260_claims": 363,
+  "qualified_wording_context_reviews_201_260": 72,
+  "claim_count_reconciliation": {
+    "previous_reported_total": 4117,
+    "actual_current_pilot_count": 4120,
+    "delta": 3,
+    "status": "OPEN_RECONCILE_LEGACY_PROGRESS_COUNTING"
+  },
+  "files": {
+    "source_manifest": "data/synthesis/investment_knowledge_001_260/source_manifest.json",
+    "claims_crosswalk_part1": "data/synthesis/investment_knowledge_001_260/claims_crosswalk_001_130.json",
+    "claims_crosswalk_part2": "data/synthesis/investment_knowledge_001_260/claims_crosswalk_131_260.json",
+    "concept_families": "data/synthesis/investment_knowledge_001_260/concept_families.json",
+    "curated_recurring_concepts": "data/synthesis/investment_knowledge_001_260/curated_recurring_concepts_16.json",
+    "legacy_principles": "data/synthesis/investment_knowledge_001_260/legacy_principles_116_crosswalk.json",
+    "lexical_overlap_candidates": "data/synthesis/investment_knowledge_001_260/lexical_overlap_candidates.json",
+    "integrity_preflight": "data/synthesis/investment_knowledge_001_260/integrity_preflight_20261029.json",
+    "report": "knowledge/INVESTMENT_KNOWLEDGE_SYNTHESIS_001_260_20261029.md",
+    "readme": "knowledge/README.md"
+  },
+  "source_permissions": "Do not upload complete private ZIP/SRT, claim summaries are selective and cite original IDs/hashes",
+  "integrity": "PASS at staging; GitHub workflow check to follow",
+  "limitations": [
+    "39 topic assignments are keyword heuristics and not proof of semantic equivalence",
+    "Curated 16 concepts have limited manual claim reference sets; most 4120 still await cross-video semantics and up-to-date source verification",
+    "Historical primary citations may not represent current law or product availability",
+    "Early original SRT source SHA may be unknown in pilot records; do not fabricate fingerprints"
+  ]
+}

@@ -1,0 +1,595 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-27",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "roster_no": 194,
+  "video_id": "IfpexqB1IGA",
+  "title": "주택연금 총정리 ver.2025 — 가입·보증료·수령·상속·중도인출",
+  "source_url": "https://www.youtube.com/watch?v=IfpexqB1IGA",
+  "duration": "00:39:03",
+  "source_kind": "USER_PRIVATE_SRT_ZIP_101_200",
+  "source_level": "PRIVATE_KOREAN_ORIGINAL_SRT_HF_FSC_PRIMARY",
+  "subtitle_sha256": "0c7c014714223abe9450741074664ac3fa88b2a15bdf9c8851e844a2033d3eae",
+  "existing_registry_srt": {
+    "sha256": "0c7c014714223abe9450741074664ac3fa88b2a15bdf9c8851e844a2033d3eae",
+    "cue_count": 1258,
+    "raw_srt_bytes": 98058
+  },
+  "cue_count": 1258,
+  "source_audit": {
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "original_srt_sha256": "0c7c014714223abe9450741074664ac3fa88b2a15bdf9c8851e844a2033d3eae",
+    "cue_count": 1258,
+    "raw_bytes": 98058,
+    "original_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_full_ko_transcript_checked": false,
+    "limitations": "2025 on-screen individual monthly pension and property valuation unverified; 2026 HF fee changes and conditional ownership rights must not be used to retroactively rewrite 2025 offer.",
+    "evidence_reference": "All 1258 Korean SRT cues parsed; 29 material housing-pension legal/payout/risk statements sourced and checked against HF first-party beneficiary, calculator, FAQ and 2026 FSC policy changes."
+  },
+  "core_message": "2025 vs 2026 주택연금 가입비·연보증료 변화를 적용시점별로 구분, 인출한도는 주택시가 아닌 대출한도 기준, 평생지급·상속 비소구와 신탁 구조 명시",
+  "claims": [
+    {
+      "claim_id": "IfpexqB1IGA-01",
+      "source_cue_index": 135,
+      "timecode": "00:04:16.239",
+      "source_paraphrase": "주택연금은 주택을 담보로 제공하고 집에서 계속 살며 정기 지급을 받는 제도",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "국가보증 역모기지 형태의 담보대출이며 월지급금·이자·보증료가 대출잔액에 누적된다.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "국가보증 역모기지 형태의 담보대출이며 월지급금·이자·보증료가 대출잔액에 누적된다.",
+        "disposition": "국가보증 역모기지 형태의 담보대출이며 월지급금·이자·보증료가 대출잔액에 누적된다.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-02",
+      "source_cue_index": 180,
+      "timecode": "00:05:36.039",
+      "source_paraphrase": "주택연금 이용 중 은행에 매월 원리금을 상환하지 않는다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "일반형은 생전 정기 원리금 현금 상환의무 없이 사후/종료 정산하지만 대출이자와 보증료는 부채에 누적.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "일반형은 생전 정기 원리금 현금 상환의무 없이 사후/종료 정산하지만 대출이자와 보증료는 부채에 누적.",
+        "disposition": "일반형은 생전 정기 원리금 현금 상환의무 없이 사후/종료 정산하지만 대출이자와 보증료는 부채에 누적.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-03",
+      "source_cue_index": 205,
+      "timecode": "00:06:22.880",
+      "source_paraphrase": "주택가격 4억원이 시간이 흘러도 일정하게 유지된다는 가정",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "담보주택 시장가격·유지보수·지역거래환경은 변하며 집값 4억원 고정은 시나리오.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "담보주택 시장가격·유지보수·지역거래환경은 변하며 집값 4억원 고정은 시나리오.",
+        "disposition": "담보주택 시장가격·유지보수·지역거래환경은 변하며 집값 4억원 고정은 시나리오.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "basis": "담보주택 시장가격·유지보수·지역거래환경은 변하며 집값 4억원 고정은 시나리오."
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-04",
+      "source_cue_index": 240,
+      "timecode": "00:07:26.800",
+      "source_paraphrase": "집값을 쪼개어 평생 월연금으로 지급하는 구조",
+      "assessment": "QUALIFIED",
+      "independent_check": "월지급금은 단순 집값/기대생존개월 산술이 아니라 담보평가액·연소자 나이·금리·보증료·연금모형에 따라 산정.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "월지급금은 단순 집값/기대생존개월 산술이 아니라 담보평가액·연소자 나이·금리·보증료·연금모형에 따라 산정.",
+        "disposition": "월지급금은 단순 집값/기대생존개월 산술이 아니라 담보평가액·연소자 나이·금리·보증료·연금모형에 따라 산정.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-05",
+      "source_cue_index": 280,
+      "timecode": "00:08:44.920",
+      "source_paraphrase": "주택연금 지급액에는 대출이자가 더해져 복리로 부채가 커질 수 있다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "지급금·수시인출금·초기/연 보증료와 이자 누적이 주택연금 대출잔액을 구성.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_05.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "지급금·수시인출금·초기/연 보증료와 이자 누적이 주택연금 대출잔액을 구성.",
+        "disposition": "지급금·수시인출금·초기/연 보증료와 이자 누적이 주택연금 대출잔액을 구성.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_05.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-06",
+      "source_cue_index": 320,
+      "timecode": "00:09:53.079",
+      "source_paraphrase": "집값이 올라 주택연금을 중도 해지하면 언제나 자유롭게 다시 가입할 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "중도해지 시 대출잔액 상환이 필요하며 같은 집의 3년 내 재가입은 원칙적으로 제한되고 예외 조건만 인정.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_02_05_04.do?mode=list&pager.offset=20&pagerLimit=10"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "중도해지 시 대출잔액 상환이 필요하며 같은 집의 3년 내 재가입은 원칙적으로 제한되고 예외 조건만 인정.",
+        "disposition": "중도해지 시 대출잔액 상환이 필요하며 같은 집의 3년 내 재가입은 원칙적으로 제한되고 예외 조건만 인정.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_02_05_04.do?mode=list&pager.offset=20&pagerLimit=10"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-07",
+      "source_cue_index": 345,
+      "timecode": "00:10:41.639",
+      "source_paraphrase": "부부 중 어린 사람의 나이를 기준으로 주택연금 월지급액을 산정",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "신청 자격은 부부 중 한 명 55세 이상, 월지급금은 부부 중 연소자 연령을 기준으로 평가.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "신청 자격은 부부 중 한 명 55세 이상, 월지급금은 부부 중 연소자 연령을 기준으로 평가.",
+        "disposition": "신청 자격은 부부 중 한 명 55세 이상, 월지급금은 부부 중 연소자 연령을 기준으로 평가.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-08",
+      "source_cue_index": 395,
+      "timecode": "00:12:11.800",
+      "source_paraphrase": "지급 누적 원리금이 최종 주택처분대금보다 클 수 있다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "오랜 생존 및 이자/보증료 적립으로 최종 대출잔액이 담보가치보다 커질 수 있음.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_05.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "오랜 생존 및 이자/보증료 적립으로 최종 대출잔액이 담보가치보다 커질 수 있음.",
+        "disposition": "오랜 생존 및 이자/보증료 적립으로 최종 대출잔액이 담보가치보다 커질 수 있음.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_05.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-09",
+      "source_cue_index": 415,
+      "timecode": "00:12:52.720",
+      "source_paraphrase": "주택연금 가입자·상속인은 사망 후 집값을 넘는 부족금 전액을 추가 납부해야 한다는 오해",
+      "assessment": "QUALIFIED",
+      "independent_check": "국가보증 비소구 대출로 부족분을 상속인에게 추가 청구하지 않음; 반대로 잔여처분대금은 상속인에게 돌아감.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_05.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "국가보증 비소구 대출로 부족분을 상속인에게 추가 청구하지 않음; 반대로 잔여처분대금은 상속인에게 돌아감.",
+        "disposition": "국가보증 비소구 대출로 부족분을 상속인에게 추가 청구하지 않음; 반대로 잔여처분대금은 상속인에게 돌아감.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_05.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-10",
+      "source_cue_index": 450,
+      "timecode": "00:13:49.440",
+      "source_paraphrase": "담보권 설정형 주택연금은 집 소유권을 그대로 유지한다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "근저당권 방식은 명의를 유지하지만 담보권 및 거주요건 등이 부과되며 매각시 상환 필요.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "근저당권 방식은 명의를 유지하지만 담보권 및 거주요건 등이 부과되며 매각시 상환 필요.",
+        "disposition": "근저당권 방식은 명의를 유지하지만 담보권 및 거주요건 등이 부과되며 매각시 상환 필요.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-11",
+      "source_cue_index": 475,
+      "timecode": "00:14:35.959",
+      "source_paraphrase": "주택연금 대출 기준금리는 CD 또는 COFIX 등을 사용하고 가산금리 부과",
+      "assessment": "QUALIFIED",
+      "independent_check": "2025 영상 상품과 현재 공사 고시의 기준금리 선택·가산금리 조건 차이를 반영해야 하며 금리가 변동될 수 있음.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "2025 영상 상품과 현재 공사 고시의 기준금리 선택·가산금리 조건 차이를 반영해야 하며 금리가 변동될 수 있음.",
+        "disposition": "2025 영상 상품과 현재 공사 고시의 기준금리 선택·가산금리 조건 차이를 반영해야 하며 금리가 변동될 수 있음.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-12",
+      "source_cue_index": 500,
+      "timecode": "00:15:24.480",
+      "source_paraphrase": "과거 금리 추이만 비교하면 앞으로의 주택연금 유리한 기준금리를 알 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "미래 CD·COFIX 금리는 확정되지 않아 과거 평균만으로 최적선택 보장 불가.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "미래 CD·COFIX 금리는 확정되지 않아 과거 평균만으로 최적선택 보장 불가.",
+        "disposition": "미래 CD·COFIX 금리는 확정되지 않아 과거 평균만으로 최적선택 보장 불가.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-13",
+      "source_cue_index": 523,
+      "timecode": "00:16:10.480",
+      "source_paraphrase": "월 주택연금 지급액과 누적 이자·보증료를 최종 담보청산에서 비교",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "주택처분가액과 연금지급금 누계·인출금·보증료·이자 누적액을 정산한다.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_05.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "주택처분가액과 연금지급금 누계·인출금·보증료·이자 누적액을 정산한다.",
+        "disposition": "주택처분가액과 연금지급금 누계·인출금·보증료·이자 누적액을 정산한다.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_05.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-14",
+      "source_cue_index": 545,
+      "timecode": "00:16:53.319",
+      "source_paraphrase": "2025년 주택연금 연보증료율 0.75%로 소개",
+      "assessment": "QUALIFIED",
+      "independent_check": "2025 당시 일반형 연보증료 0.75%는 기간 귀속으로 유효하지만 2026-03-01 신규 신청부터 0.95%로 상향, 초기보증료는 1.5%에서 1.0%로 하향.",
+      "official_sources": [
+        "https://www.fsc.go.kr/po010106/86211"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "2025 당시 일반형 연보증료 0.75%는 기간 귀속으로 유효하지만 2026-03-01 신규 신청부터 0.95%로 상향, 초기보증료는 1.5%에서 1.0%로 하향.",
+        "disposition": "2025 당시 일반형 연보증료 0.75%는 기간 귀속으로 유효하지만 2026-03-01 신규 신청부터 0.95%로 상향, 초기보증료는 1.5%에서 1.0%로 하향.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.fsc.go.kr/po010106/86211"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-15",
+      "source_cue_index": 563,
+      "timecode": "00:17:28.480",
+      "source_paraphrase": "주택연금 근저당형과 신탁형은 소유권·배우자 승계 절차가 다르다",
+      "assessment": "QUALIFIED",
+      "independent_check": "근저당 방식은 소유자 명의 유지, 신탁은 명의 공사 이전 및 수익권 보전; 배우자 승계/채무인수 등 절차가 달라 계약별 확인 필요.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "근저당 방식은 소유자 명의 유지, 신탁은 명의 공사 이전 및 수익권 보전; 배우자 승계/채무인수 등 절차가 달라 계약별 확인 필요.",
+        "disposition": "근저당 방식은 소유자 명의 유지, 신탁은 명의 공사 이전 및 수익권 보전; 배우자 승계/채무인수 등 절차가 달라 계약별 확인 필요.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-16",
+      "source_cue_index": 575,
+      "timecode": "00:17:47.919",
+      "source_paraphrase": "근저당형을 선택하면 모든 주택 소유권 제한·추가 비용이 사라진다",
+      "assessment": "QUALIFIED",
+      "independent_check": "근저당권 설정·부기등기·상환의무, 초기/연 보증료 및 유지 비용은 존재. 신탁형 대비 대리권·상속 절차상 유불리 다름.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "근저당권 설정·부기등기·상환의무, 초기/연 보증료 및 유지 비용은 존재. 신탁형 대비 대리권·상속 절차상 유불리 다름.",
+        "disposition": "근저당권 설정·부기등기·상환의무, 초기/연 보증료 및 유지 비용은 존재. 신탁형 대비 대리권·상속 절차상 유불리 다름.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-17",
+      "source_cue_index": 690,
+      "timecode": "00:21:26.600",
+      "source_paraphrase": "주택연금 종신지급과 확정기간방식을 선택할 수 있다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "종신지급은 생존기간 동안 지급되며 확정기간 지급은 정해진 기간 종료 후에도 적격 거주가 유지될 수 있음.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "종신지급은 생존기간 동안 지급되며 확정기간 지급은 정해진 기간 종료 후에도 적격 거주가 유지될 수 있음.",
+        "disposition": "종신지급은 생존기간 동안 지급되며 확정기간 지급은 정해진 기간 종료 후에도 적격 거주가 유지될 수 있음.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-18",
+      "source_cue_index": 704,
+      "timecode": "00:21:53.279",
+      "source_paraphrase": "확정기간 방식의 지급기간은 가입연령에 따른 제한을 받는다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "연소자 연령별 선택 가능한 확정기간이 다르고 무제한 단축해 주택가치를 전액 선취할 수는 없음.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "연소자 연령별 선택 가능한 확정기간이 다르고 무제한 단축해 주택가치를 전액 선취할 수는 없음.",
+        "disposition": "연소자 연령별 선택 가능한 확정기간이 다르고 무제한 단축해 주택가치를 전액 선취할 수는 없음.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-19",
+      "source_cue_index": 729,
+      "timecode": "00:22:43.080",
+      "source_paraphrase": "확정기간 지급 종료 후에도 담보주택 계속 거주가 가능하다",
+      "assessment": "QUALIFIED",
+      "independent_check": "확정기간 지급은 종료돼도 주택연금 조건·실거주 및 담보대출의 정상 상태를 유지해야 거주 지속이 가능.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "확정기간 지급은 종료돼도 주택연금 조건·실거주 및 담보대출의 정상 상태를 유지해야 거주 지속이 가능.",
+        "disposition": "확정기간 지급은 종료돼도 주택연금 조건·실거주 및 담보대출의 정상 상태를 유지해야 거주 지속이 가능.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-20",
+      "source_cue_index": 761,
+      "timecode": "00:23:39.919",
+      "source_paraphrase": "주택연금 정액형은 매월 같은 금액을 지급하므로 물가상승에 따른 실질구매력 감소 가능",
+      "assessment": "QUALIFIED",
+      "independent_check": "이 대화는 정액형의 명목 고정금액 설명에 한정해야 함. 영상 후반에서 초기증액형/정기증가형을 직접 소개하므로 모든 주택연금이 고정이라는 독립 주장은 성립하지 않음.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "이 대화는 정액형의 명목 고정금액 설명에 한정해야 함. 영상 후반에서 초기증액형/정기증가형을 직접 소개하므로 모든 주택연금이 고정이라는 독립 주장은 성립하지 않음.",
+        "disposition": "이 대화는 정액형의 명목 고정금액 설명에 한정해야 함. 영상 후반에서 초기증액형/정기증가형을 직접 소개하므로 모든 주택연금이 고정이라는 독립 주장은 성립하지 않음.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-21",
+      "source_cue_index": 770,
+      "timecode": "00:23:55.600",
+      "source_paraphrase": "종신지급방식에는 정액형·초기증액형·정기증가형이 있다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "HF 공식 지급유형표에 세 가지 지급유형이 기재돼 있다.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "HF 공식 지급유형표에 세 가지 지급유형이 기재돼 있다.",
+        "disposition": "HF 공식 지급유형표에 세 가지 지급유형이 기재돼 있다.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-22",
+      "source_cue_index": 775,
+      "timecode": "00:24:06.520",
+      "source_paraphrase": "가입자 중 70%가 정액형을 택한다는 영상 통계",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "2025 신청자 구성비 70% 원표·모집단·집계시점 미확인. 제도 일반원리와 별도로 미확정 유지.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do?tlink=vtab02"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "2025 신청자 구성비 70% 원표·모집단·집계시점 미확인. 제도 일반원리와 별도로 미확정 유지.",
+        "disposition": "2025 신청자 구성비 70% 원표·모집단·집계시점 미확인. 제도 일반원리와 별도로 미확정 유지.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "basis": "2025 신청자 구성비 70% 원표·모집단·집계시점 미확인. 제도 일반원리와 별도로 미확정 유지."
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-23",
+      "source_cue_index": 813,
+      "timecode": "00:25:13.200",
+      "source_paraphrase": "60세·주택가격 5억원으로 월지급금 100만원대라는 추정",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "개별 2025 월지급액 공식표·부부 연소자/감정가/지급형태 원표 없이 영상 수치 재확정 불가, 2026 지급표는 변경됨.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "개별 2025 월지급액 공식표·부부 연소자/감정가/지급형태 원표 없이 영상 수치 재확정 불가, 2026 지급표는 변경됨.",
+        "disposition": "개별 2025 월지급액 공식표·부부 연소자/감정가/지급형태 원표 없이 영상 수치 재확정 불가, 2026 지급표는 변경됨.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "basis": "개별 2025 월지급액 공식표·부부 연소자/감정가/지급형태 원표 없이 영상 수치 재확정 불가, 2026 지급표는 변경됨."
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-24",
+      "source_cue_index": 870,
+      "timecode": "00:27:00.399",
+      "source_paraphrase": "집값과 가입연령이 월지급금의 핵심 결정요인",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "HF 산식상 부부 중 연소자 나이와 인정되는 주택가격, 지급방식에 따라 차등.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "HF 산식상 부부 중 연소자 나이와 인정되는 주택가격, 지급방식에 따라 차등.",
+        "disposition": "HF 산식상 부부 중 연소자 나이와 인정되는 주택가격, 지급방식에 따라 차등.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-25",
+      "source_cue_index": 891,
+      "timecode": "00:27:42.799",
+      "source_paraphrase": "주택연금의 지급산정 주택가격은 한국부동산원·KB 시세·감정평가 순으로 확인",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "공사 예상연금 조회 공시는 한국부동산원 인터넷시세, 국민은행 시세, 공시가격, 감정평가의 순서를 명시.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "공사 예상연금 조회 공시는 한국부동산원 인터넷시세, 국민은행 시세, 공시가격, 감정평가의 순서를 명시.",
+        "disposition": "공사 예상연금 조회 공시는 한국부동산원 인터넷시세, 국민은행 시세, 공시가격, 감정평가의 순서를 명시.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-26",
+      "source_cue_index": 910,
+      "timecode": "00:28:14.600",
+      "source_paraphrase": "부부 중 연소자 연령 기준으로 월지급액 결정",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "가입기준과 별개로 월지급금은 연소자 연령에 따른 공식표로 결정.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "가입기준과 별개로 월지급금은 연소자 연령에 따른 공식표로 결정.",
+        "disposition": "가입기준과 별개로 월지급금은 연소자 연령에 따른 공식표로 결정.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-27",
+      "source_cue_index": 945,
+      "timecode": "00:29:17.760",
+      "source_paraphrase": "HF 공식 홈페이지에서 예상지급액 조회·온라인 가입신청 가능",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "한국주택금융공사에서 예정 금액 산정/신청 후 보증심사·담보설정·은행 대출취급을 진행.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "한국주택금융공사에서 예정 금액 산정/신청 후 보증심사·담보설정·은행 대출취급을 진행.",
+        "disposition": "한국주택금융공사에서 예정 금액 산정/신청 후 보증심사·담보설정·은행 대출취급을 진행.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_02_02.do"
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-28",
+      "source_cue_index": 1065,
+      "timecode": "00:32:43.960",
+      "source_paraphrase": "4억원짜리 집은 주택연금 혼합 방식으로 주택가격 절반 2억원을 즉시 인출할 수 있다",
+      "assessment": "CONTRADICTED",
+      "independent_check": "인출한도 50%는 통상 주택 '시가'의 절반이 아니라 공사가 산정한 '대출한도'의 50%를 기준으로 하므로 4억원 주택=2억원 인출 공식은 오류.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_04.do"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-27",
+        "source_finding": "인출한도 50%는 통상 주택 '시가'의 절반이 아니라 공사가 산정한 '대출한도'의 50%를 기준으로 하므로 4억원 주택=2억원 인출 공식은 오류.",
+        "disposition": "인출한도 50%는 통상 주택 '시가'의 절반이 아니라 공사가 산정한 '대출한도'의 50%를 기준으로 하므로 4억원 주택=2억원 인출 공식은 오류.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_04.do",
+        "correction": "인출한도 50%는 통상 주택 '시가'의 절반이 아니라 공사가 산정한 '대출한도'의 50%를 기준으로 하므로 4억원 주택=2억원 인출 공식은 오류."
+      }
+    },
+    {
+      "claim_id": "IfpexqB1IGA-29",
+      "source_cue_index": 1125,
+      "timecode": "00:34:38.200",
+      "source_paraphrase": "집값이 오르지 않을 것 같으면 주택연금에 무조건 가입해야 한다",
+      "assessment": "QUALIFIED",
+      "independent_check": "현금흐름·수명·비소구 보호 외에도 보증료, 대출이자, 거주/상속 계획, 중도해지 비용, 재가입 제한을 비교해야 하며 가격 전망만으로 무조건 결론 불가.",
+      "official_sources": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "현금흐름·수명·비소구 보호 외에도 보증료, 대출이자, 거주/상속 계획, 중도해지 비용, 재가입 제한을 비교해야 하며 가격 전망만으로 무조건 결론 불가.",
+        "disposition": "현금흐름·수명·비소구 보호 외에도 보증료, 대출이자, 거주/상속 계획, 중도해지 비용, 재가입 제한을 비교해야 하며 가격 전망만으로 무조건 결론 불가.",
+        "effective_date_or_scope": "Historical video 2025-10-23. New 2026-03-01 HF fees and monthly rate table not retroactively attributed to video.",
+        "primary_url": "https://www.hf.go.kr/ko/sub03/sub03_01_01_06.do"
+      }
+    }
+  ],
+  "claim_classification_tally": {
+    "PRIMARY_CONFIRMED": 14,
+    "HYPOTHETICAL": 3,
+    "QUALIFIED": 11,
+    "CONTRADICTED": 1
+  }
+}

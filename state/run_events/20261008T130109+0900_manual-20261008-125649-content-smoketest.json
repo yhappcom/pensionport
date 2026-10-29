@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "run_id": "manual-20261008-125649-content-smoketest",
+  "source": "manual",
+  "started_at": "2026-10-08T12:56:49+09:00",
+  "finished_at": "2026-10-08T13:01:09+09:00",
+  "run_result": "operational_smoketest_and_workflow_reconciliation_success_source_caption_blocked",
+  "initial_effective_canonical": 226,
+  "final_effective_canonical": 226,
+  "newly_analyzed_count": 0,
+  "source_scan": {
+    "tested_exact_video_ids": [
+      "axkP0idg-kA",
+      "09R29vsv6to",
+      "2GjGjwkHrMA",
+      "eTOOtll0VPc",
+      "PW1EuMtw18o"
+    ],
+    "provenance": "official exact YouTube watch pages; original descriptions/chapters were accessible through page render",
+    "direct_caption_status": "timedtext URL present in first video's raw HTML but direct caption fetch blocked; live transcript interaction timed out; none of the five yielded verified complete captions",
+    "source_status": "description_and_chapters_only_not_enough_to_claim_full_content_analysis",
+    "automatically_generated_caption_numbers_verified": false
+  },
+  "repair_commits": {
+    "workflow": "385b31a3ac680901fc1ab5674a2be2a9249f2f96",
+    "progress": "c3645999942afb6e80d1beac1df5bc9f85aec4e4"
+  },
+  "verified_baseline": {
+    "effective_canonical": 226,
+    "roster_canonical": 214,
+    "roster_long_form_total": 703,
+    "roster_remaining": 489,
+    "max_event_sequence": 228,
+    "next_event_sequence": 229,
+    "next_checkpoint": 230
+  },
+  "state_notes": [
+    "lock acquire through standard update_file succeeded after earlier safety-check failures",
+    "WORKFLOW now lock-first and frozen aggregate",
+    "progress summary corrected from 163 to 226",
+    "stale reanalysis_required SjKNXdqCXqc cleared because event 206 exists"
+  ],
+  "durable_analysis_artifacts_created": 0,
+  "canonical_events_created": 0
+}

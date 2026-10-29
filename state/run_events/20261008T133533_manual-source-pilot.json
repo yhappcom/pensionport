@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "run_id": "manual-20261008-133533-source-pilot",
+  "source": "manual",
+  "run_result": "source_acquisition_pilot_success",
+  "source_provider": "Firecrawl Alexandria youtube/read",
+  "transcript_verified_count": 7,
+  "transcript_tested_count": 7,
+  "video_ids": [
+    "axkP0idg-kA",
+    "09R29vsv6to",
+    "2GjGjwkHrMA",
+    "eTOOtll0VPc",
+    "PW1EuMtw18o",
+    "BUWE1hTr8K0",
+    "fnLgP_KCv8A"
+  ],
+  "source_registry": "data/source_acquisition/youtube_read_pilot_20261008.json",
+  "new_canonical_video_ids": [
+    "BUWE1hTr8K0"
+  ],
+  "newly_analyzed_count": 1,
+  "canonical_event": "data/canonical_events/229_BUWE1hTr8K0.json",
+  "analysis_artifact": "data/analysis_events/BUWE1hTr8K0.json",
+  "effective_canonical_after": 227,
+  "roster_canonical_long_form_after": 215,
+  "roster_remaining": 488,
+  "caveats": [
+    "selected sample 7/7 is not representative of 703",
+    "transcripts are noisy Korean automatic speech recognition and need numeric official validation",
+    "no video frame analysis",
+    "large aggregate cache not rewritten",
+    "full transcript not copied to public GitHub"
+  ]
+}

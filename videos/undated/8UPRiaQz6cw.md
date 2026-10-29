@@ -1,0 +1,22 @@
+# 8UPRiaQz6cw — 연금저축 계좌 어디서 열어요? | 연금시리즈 14편
+
+- type: long_form
+- source_status: detailed public transcript
+- knowledge_change: EXTEND, TIME_SENSITIVE
+
+## 핵심 분석
+연금저축의 제도적 장점을 이해한 다음 실제 증권사 선택·계좌개설·ETF 매수까지 연결하는 실행편이다. 증권사 비교축은 수수료, 신규개설 혜택, 입금액 조건, 타사이전 혜택, ETF 매수 이벤트다.
+
+## 영상 당시 사례
+600만원 입금 시 특정 증권사의 2만원 상품권, 목돈 이전 시 다른 증권사의 최대 200만원 혜택 등이 사례로 등장한다. 이는 당시 이벤트이며 현재 추천으로 재사용하지 않는다.
+
+## 전략
+장기 연금계좌에서는 일시적 이벤트보다 거래 가능 상품, 지속 비용, 앱/관리 편의, 이전 가능성 등이 우선이다. 초기 600만원을 5개 ETF에 20%씩 나누는 실습은 '진입가격 예측보다 분산·적립식 습관'을 가르치는 사례다.
+
+## 프레임워크
+연금제도 이해 → 증권사 실행인프라 → 계좌개설 → 자산배분 → ETF 매수 → 장기관리. 증권사 프로모션은 마지막 보조조건이다.
+
+## Canonicalization
+- canonical_sequence: 108
+- canonicalized_at: 2026-10-06
+- sync_mode: backlog_compaction_without_reanalysis

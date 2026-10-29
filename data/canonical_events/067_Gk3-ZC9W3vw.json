@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 67,
+  "video_id": "Gk3-ZC9W3vw",
+  "title": "ISA에서 미국배당주 사면 손해인가요? | 그럼에도 ISA를 해야 하는 이유 | 외국납부세액공제",
+  "published_at": "2026-04-08",
+  "source_doc": "videos/pending/Gk3-ZC9W3vw.md",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "analysis_status": "source_backed_analysis_canonicalized",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 67
+  },
+  "claim_delta": {
+    "claim_id": "GOMHEE-C33",
+    "topic": "isa_tax_location",
+    "claim": "ISA의 세후효과는 계좌명만으로 판단하지 않고 기초자산의 소득원천과 외국 원천세·국내 과세·비과세/분리과세·과세이연을 함께 비교한다",
+    "supporting_videos": [
+      "Gk3-ZC9W3vw"
+    ],
+    "status": "supported",
+    "confidence": "medium"
+  },
+  "framework_delta": "계좌 wrapper → 기초자산의 소득원천 → 외국 원천세 → 국내 세제 → 이연/비과세/분리과세 → 실효세후수익",
+  "created_at": "2026-10-05T15:12:46+09:00"
+}

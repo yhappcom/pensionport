@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-27",
+  "prior_baseline": {
+    "approved_v3_videos": 189,
+    "reviewed_material_and_editorial_claims": 3039
+  },
+  "batch": {
+    "roster_range": "191-195",
+    "private_source_videos_reviewed": 5,
+    "educational_v3_approved": 4,
+    "non_educational_excluded": 1,
+    "longform_educational": 4,
+    "promotional_short": 1,
+    "source_original_cues": 3264,
+    "source_raw_bytes": 254723,
+    "source_zip": "101-200.zip",
+    "source_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
+    "claim_count": 87,
+    "tally": {
+      "PRIMARY_CONFIRMED": 33,
+      "QUALIFIED": 44,
+      "CONTRADICTED": 1,
+      "HYPOTHETICAL": 8,
+      "SPEAKER_OPINION": 1
+    },
+    "per_video": [
+      {
+        "no": 191,
+        "id": "h1VSdD5XeO4",
+        "claims": 0,
+        "cues": 20,
+        "status": "EXCLUDED_NON_EDUCATIONAL_EVENT",
+        "source_kind": "PUBLIC_FINTECH_SERVICE_PROMOTION",
+        "sha256": "ba89b381afbd90b2ea52472b556a21cbb3f5828563307ea8882719e0d3a60d30"
+      },
+      {
+        "no": 192,
+        "id": "iy7_HMMSLGc",
+        "claims": 20,
+        "cues": 784,
+        "status": "APPROVED"
+      },
+      {
+        "no": 193,
+        "id": "KgiwKdha6F4",
+        "claims": 18,
+        "cues": 868,
+        "status": "APPROVED"
+      },
+      {
+        "no": 194,
+        "id": "IfpexqB1IGA",
+        "claims": 29,
+        "cues": 1258,
+        "status": "APPROVED"
+      },
+      {
+        "no": 195,
+        "id": "pbDPZUwogeQ",
+        "claims": 20,
+        "cues": 334,
+        "status": "APPROVED"
+      }
+    ]
+  },
+  "current_cumulative": {
+    "approved_v3_videos": 193,
+    "reviewed_material_and_editorial_claims": 3126,
+    "total_roster_videos": 791,
+    "remaining_v3_roster_videos": 598
+  },
+  "legacy_optional_verification": {
+    "total": 38,
+    "resolved": 14,
+    "open": 24,
+    "unchanged": true
+  },
+  "source_integrity": {
+    "registry": "data/subtitles/registry_191_195_20261027.json",
+    "archive_sha256_recomputed": true,
+    "five_original_srt_sha256_recomputed": true,
+    "all_cues_numbered_and_timed": true,
+    "private_zip_or_srt_not_published": true,
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_full_korean_transcript_independent_match": false
+  },
+  "secondary_verification": {
+    "claims_triaged": 87,
+    "primary_confirmed": 33,
+    "qualified": 44,
+    "contradicted": 1,
+    "hypothetical": 8,
+    "speaker_opinion": 1,
+    "report": "knowledge/VIDEO191_195_FULL_V3_SECOND_PASS_EVIDENCE_REVIEW_20261027.md"
+  },
+  "highest_priority_fixes": [
+    {
+      "video_no": 191,
+      "issue": "Shorts promotes public 5-year asset forecasting app and does not provide investment-method education",
+      "classification": "EXCLUDED_NON_EDUCATIONAL_EVENT",
+      "scope": "2025 service announcement; forecast not actual future asset guarantee"
+    },
+    {
+      "video_no": 194,
+      "issue": "Housing annuity mixed-mode draw 50% of loan limit, not 50% of the home value",
+      "classification": "CONTRADICTED",
+      "claim_id": "IfpexqB1IGA-28"
+    },
+    {
+      "video_no": 194,
+      "issue": "2026-03-01 changed initial fee 1.5% to 1.0% and annual guarantee fee 0.75% to 0.95% for new applications",
+      "classification": "QUALIFIED",
+      "claim_id": "IfpexqB1IGA-14"
+    },
+    {
+      "video_no": 195,
+      "issue": "ISA 300만원 is additional deductible contribution base, not cash refund; no taxable liability means no real refund",
+      "classification": "QUALIFIED",
+      "claim_id": "pbDPZUwogeQ-09"
+    }
+  ],
+  "followup_limitations": [
+    "#191 historic service presence was independently confirmed by KB; no investment claims verified from short",
+    "#192 actual ISA brokerage screen and transfer completion unverified",
+    "#193 personal retirement account/fund return records and first edition book manuscript unverified",
+    "#194 2025 illustrated exact annuity rate table and private residence valuation unverified",
+    "#195 individual pension tax-paid/tax-excluded contribution history and broker submission not verified"
+  ],
+  "notes": [
+    "#191 source custody archived but NOT added to V3 approval gate; 4 others approved via pilot and canonical evidence.",
+    "V3 approval covers triaged claims and limitations, not an independent original audiovisual certification.",
+    "Existing OPEN 24 remain unchanged; main branch untouched; one atomic Git tree update, Push and PR CI required before final approval reporting."
+  ]
+}

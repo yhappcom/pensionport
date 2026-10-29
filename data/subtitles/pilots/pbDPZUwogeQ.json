@@ -1,0 +1,422 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-27",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "roster_no": 195,
+  "video_id": "pbDPZUwogeQ",
+  "title": "연금저축 세액공제 이월 — 미공제 납입액 전환·ISA 만기전환·공제확인서",
+  "source_url": "https://www.youtube.com/watch?v=pbDPZUwogeQ",
+  "duration": "00:12:32",
+  "source_kind": "USER_PRIVATE_SRT_ZIP_101_200",
+  "source_level": "USER_ORIGINAL_KOREAN_SRT_NTS_TAX_DECISION_AND_STATUTE",
+  "subtitle_sha256": "893492c4c57925802fb3a1cc92b0a5051cd30553cbb9cb7377f50d1be42ad4d6",
+  "existing_registry_srt": {
+    "sha256": "893492c4c57925802fb3a1cc92b0a5051cd30553cbb9cb7377f50d1be42ad4d6",
+    "cue_count": 334,
+    "raw_srt_bytes": 26609
+  },
+  "cue_count": 334,
+  "source_audit": {
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "original_srt_sha256": "893492c4c57925802fb3a1cc92b0a5051cd30553cbb9cb7377f50d1be42ad4d6",
+    "cue_count": 334,
+    "raw_bytes": 26609,
+    "original_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_full_ko_transcript_checked": false,
+    "limitations": "Taxpayer actual filing, past deductible contribution evidence, securities company rollover application and eligibility not verified; 2025 subtitle speech-to-text is not certified by original audio.",
+    "evidence_reference": "334 original Korean SRT cues read completely; 20 material transfer rollover/tax credit claims each time-coded and compared to NTS legal interpretation, Article 118-3 and ISA-to-pension issuer terms."
+  },
+  "core_message": "미공제 납입액은 법정 요건·본인 신청으로 다음연도 공제대상으로 전환 가능하나 납부세액 없으면 현금환급 없고, ISA 300만원은 추가 공제대상액 한도이지 환급세액 아님",
+  "claims": [
+    {
+      "claim_id": "pbDPZUwogeQ-01",
+      "source_cue_index": 9,
+      "timecode": "00:00:23.640",
+      "source_paraphrase": "과거 연금저축 미공제 납입액을 올해 공제대상 납입액으로 전환할 수 있다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "소득세법 시행령 제118조의3은 적격 미공제 연금보험료를 전환 신청하는 특례를 명시한다.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "소득세법 시행령 제118조의3은 적격 미공제 연금보험료를 전환 신청하는 특례를 명시한다.",
+        "disposition": "소득세법 시행령 제118조의3은 적격 미공제 연금보험료를 전환 신청하는 특례를 명시한다.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-02",
+      "source_cue_index": 22,
+      "timecode": "00:00:48.360",
+      "source_paraphrase": "연금저축 단독 세액공제 대상 납입한도 600만원, IRP 포함 900만원",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "총급여·납부세액 등에 따라 적용세율 12% 또는 15%(지방세 별도), 실제 세액공제는 연금저축 600만원/합산 900만원 한도.",
+      "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2238"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "총급여·납부세액 등에 따라 적용세율 12% 또는 15%(지방세 별도), 실제 세액공제는 연금저축 600만원/합산 900만원 한도.",
+        "disposition": "총급여·납부세액 등에 따라 적용세율 12% 또는 15%(지방세 별도), 실제 세액공제는 연금저축 600만원/합산 900만원 한도.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2238"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-03",
+      "source_cue_index": 29,
+      "timecode": "00:01:04.280",
+      "source_paraphrase": "연금계좌 납입 가능액 1800만원과 세액공제 900만원 한도는 다르다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "일반 연금저축/IRP 통합 연 납입한도 1800만원은 세액공제대상액 한도와 다르고 ISA 만기전환은 별도 요건.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126655"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "일반 연금저축/IRP 통합 연 납입한도 1800만원은 세액공제대상액 한도와 다르고 ISA 만기전환은 별도 요건.",
+        "disposition": "일반 연금저축/IRP 통합 연 납입한도 1800만원은 세액공제대상액 한도와 다르고 ISA 만기전환은 별도 요건.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126655"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-04",
+      "source_cue_index": 36,
+      "timecode": "00:01:19.040",
+      "source_paraphrase": "연900만원 납입한도 초과액은 세액공제 미사용 원금으로 계좌에 남을 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "연금계좌 세액공제받지 않은 개인 납입원금이 과세제외액으로 분류되는 조건이 있고 소득공제 이력의 입증이 필요.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "연금계좌 세액공제받지 않은 개인 납입원금이 과세제외액으로 분류되는 조건이 있고 소득공제 이력의 입증이 필요.",
+        "disposition": "연금계좌 세액공제받지 않은 개인 납입원금이 과세제외액으로 분류되는 조건이 있고 소득공제 이력의 입증이 필요.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-05",
+      "source_cue_index": 57,
+      "timecode": "00:02:07.960",
+      "source_paraphrase": "2025년 소득 없이 연금저축에 돈을 넣지 않았어도 과거 미공제 잔액이 있으면 누구나 환급받을 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "전환 신청으로 당해 연도 적격 납입으로 볼 수 있으나 최종 결정세액이 없으면 세액공제를 적용해도 실제 환급이 발생하지 않을 수 있다.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "전환 신청으로 당해 연도 적격 납입으로 볼 수 있으나 최종 결정세액이 없으면 세액공제를 적용해도 실제 환급이 발생하지 않을 수 있다.",
+        "disposition": "전환 신청으로 당해 연도 적격 납입으로 볼 수 있으나 최종 결정세액이 없으면 세액공제를 적용해도 실제 환급이 발생하지 않을 수 있다.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-06",
+      "source_cue_index": 64,
+      "timecode": "00:02:24.959",
+      "source_paraphrase": "전년도 공제를 못 받은 원금 900만원을 2025년 공제대상으로 전환",
+      "assessment": "QUALIFIED",
+      "independent_check": "전년도 미공제 원금의 적격 납입금 전환은 가능하지만 연금저축 단독 한도는 600만원, IRP 포함 900만원·결정세액과 요건에 맞게 분할해야 한다.",
+      "official_sources": [
+        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=010000000000515824&wnkey=faec7a02-7c00-4925-b0c4-40c16397f6db"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "전년도 미공제 원금의 적격 납입금 전환은 가능하지만 연금저축 단독 한도는 600만원, IRP 포함 900만원·결정세액과 요건에 맞게 분할해야 한다.",
+        "disposition": "전년도 미공제 원금의 적격 납입금 전환은 가능하지만 연금저축 단독 한도는 600만원, IRP 포함 900만원·결정세액과 요건에 맞게 분할해야 한다.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=010000000000515824&wnkey=faec7a02-7c00-4925-b0c4-40c16397f6db"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-07",
+      "source_cue_index": 71,
+      "timecode": "00:02:44.400",
+      "source_paraphrase": "이전 과세기간의 미공제 납입금을 현재 연도 납입처럼 취급",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "취급자에 신청하고 법정 요건 충족시 신청일에 해당 연도 연금보험료로 재납입한 것으로 봄.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "취급자에 신청하고 법정 요건 충족시 신청일에 해당 연도 연금보험료로 재납입한 것으로 봄.",
+        "disposition": "취급자에 신청하고 법정 요건 충족시 신청일에 해당 연도 연금보험료로 재납입한 것으로 봄.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-08",
+      "source_cue_index": 78,
+      "timecode": "00:02:59.560",
+      "source_paraphrase": "세액공제 이월은 무기한이므로 앞으로 어떤 해에나 세금환급이 보장",
+      "assessment": "QUALIFIED",
+      "independent_check": "현행 제도상 이전 과세기간 미공제분의 전환특례가 있지만 장래 개정 가능성과 연도별 공제한도·납세세액 조건 때문에 무조건 환급 아님.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "현행 제도상 이전 과세기간 미공제분의 전환특례가 있지만 장래 개정 가능성과 연도별 공제한도·납세세액 조건 때문에 무조건 환급 아님.",
+        "disposition": "현행 제도상 이전 과세기간 미공제분의 전환특례가 있지만 장래 개정 가능성과 연도별 공제한도·납세세액 조건 때문에 무조건 환급 아님.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-09",
+      "source_cue_index": 99,
+      "timecode": "00:03:48.120",
+      "source_paraphrase": "ISA 만기 연금전환금액의 10% 최대 300만원을 추가로 세액공제 받는다",
+      "assessment": "QUALIFIED",
+      "independent_check": "300만원은 추가 '세액공제 대상 납입액 한도'이지 세금 300만원 직접 환급이 아니다. 적격 ISA 계약만료 후 60일 이내 연금납입 및 연도별 소득세 요건 확인.",
+      "official_sources": [
+        "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "300만원은 추가 '세액공제 대상 납입액 한도'이지 세금 300만원 직접 환급이 아니다. 적격 ISA 계약만료 후 60일 이내 연금납입 및 연도별 소득세 요건 확인.",
+        "disposition": "300만원은 추가 '세액공제 대상 납입액 한도'이지 세금 300만원 직접 환급이 아니다. 적격 ISA 계약만료 후 60일 이내 연금납입 및 연도별 소득세 요건 확인.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-10",
+      "source_cue_index": 118,
+      "timecode": "00:04:33.360",
+      "source_paraphrase": "ISA 만기금액이 연금계좌로 넘어오면 300만원 공제대상액 외 잔액은 과세제외 원금",
+      "assessment": "QUALIFIED",
+      "independent_check": "세액공제를 받지 않은 적격 개인납입금과 ISA 전환금의 원천, 실제 전환공제 대상액 및 기존 납입이력에 따라 계좌 과세재원 구분 필요.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "세액공제를 받지 않은 적격 개인납입금과 ISA 전환금의 원천, 실제 전환공제 대상액 및 기존 납입이력에 따라 계좌 과세재원 구분 필요.",
+        "disposition": "세액공제를 받지 않은 적격 개인납입금과 ISA 전환금의 원천, 실제 전환공제 대상액 및 기존 납입이력에 따라 계좌 과세재원 구분 필요.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-11",
+      "source_cue_index": 128,
+      "timecode": "00:04:54.880",
+      "source_paraphrase": "ISA 만기전환금액은 연금계좌 연1800만원 한도를 넘어 납입할 수 있다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "ISA 만기 전환은 일반 연1800만원 납입한도와 별도 적격 납입특례이되 만기일·60일·잔액 한도 조건 충족.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126655"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "ISA 만기 전환은 일반 연1800만원 납입한도와 별도 적격 납입특례이되 만기일·60일·잔액 한도 조건 충족.",
+        "disposition": "ISA 만기 전환은 일반 연1800만원 납입한도와 별도 적격 납입특례이되 만기일·60일·잔액 한도 조건 충족.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126655"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-12",
+      "source_cue_index": 144,
+      "timecode": "00:05:27.880",
+      "source_paraphrase": "ISA 만기금 전액 연금전환 후 매년 미공제 원금을 납입으로 전환하는 전략",
+      "assessment": "QUALIFIED",
+      "independent_check": "과거 ISA 전환 잔액에 대한 특례 대상성은 국세청 유권해석이 확인하지만 계좌별 세무자료·전환자격·공제 한도 및 수령시 과세를 확인.",
+      "official_sources": [
+        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=010000000000515824&wnkey=faec7a02-7c00-4925-b0c4-40c16397f6db"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "과거 ISA 전환 잔액에 대한 특례 대상성은 국세청 유권해석이 확인하지만 계좌별 세무자료·전환자격·공제 한도 및 수령시 과세를 확인.",
+        "disposition": "과거 ISA 전환 잔액에 대한 특례 대상성은 국세청 유권해석이 확인하지만 계좌별 세무자료·전환자격·공제 한도 및 수령시 과세를 확인.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=010000000000515824&wnkey=faec7a02-7c00-4925-b0c4-40c16397f6db"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-13",
+      "source_cue_index": 155,
+      "timecode": "00:05:52.960",
+      "source_paraphrase": "ISA 만기자금 1억원 이전·300만원 공제대상 처리 후 미공제 원금 9700만원 예시",
+      "assessment": "QUALIFIED",
+      "independent_check": "1억원-300만원=9700만원은 조건부 장부상 예시. 실제 300만원 공제대상 여부는 전환 특례와 사용한 공제액·계좌별 과세재원 확인 필요.",
+      "official_sources": [
+        "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "1억원-300만원=9700만원은 조건부 장부상 예시. 실제 300만원 공제대상 여부는 전환 특례와 사용한 공제액·계좌별 과세재원 확인 필요.",
+        "disposition": "1억원-300만원=9700만원은 조건부 장부상 예시. 실제 300만원 공제대상 여부는 전환 특례와 사용한 공제액·계좌별 과세재원 확인 필요.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-14",
+      "source_cue_index": 161,
+      "timecode": "00:06:05.880",
+      "source_paraphrase": "9700만원을 연600만원씩 세액공제 전환하면 16년 넘게 공제 가능",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "9700÷600=16.17년 산술상 가능액이나 매년 소득·결정세액·개인계좌 잔액·법령이 동일하다는 가정이 필요.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "9700÷600=16.17년 산술상 가능액이나 매년 소득·결정세액·개인계좌 잔액·법령이 동일하다는 가정이 필요.",
+        "disposition": "9700÷600=16.17년 산술상 가능액이나 매년 소득·결정세액·개인계좌 잔액·법령이 동일하다는 가정이 필요.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "basis": "9700÷600=16.17년 산술상 가능액이나 매년 소득·결정세액·개인계좌 잔액·법령이 동일하다는 가정이 필요."
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-15",
+      "source_cue_index": 168,
+      "timecode": "00:06:22.800",
+      "source_paraphrase": "세액공제 안 받은 연금저축 납입원금은 언제든 인출할 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "적격 미공제원금은 연금저축 인출시 원칙 과세제외지만 인출순서·원천증빙·계좌상품 환매제한·인출 후 공제가능 잔액 감소 등을 확인.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "적격 미공제원금은 연금저축 인출시 원칙 과세제외지만 인출순서·원천증빙·계좌상품 환매제한·인출 후 공제가능 잔액 감소 등을 확인.",
+        "disposition": "적격 미공제원금은 연금저축 인출시 원칙 과세제외지만 인출순서·원천증빙·계좌상품 환매제한·인출 후 공제가능 잔액 감소 등을 확인.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-16",
+      "source_cue_index": 176,
+      "timecode": "00:06:39.680",
+      "source_paraphrase": "연금계좌에 과세제외 원금을 보유하면 운용수익에 과세이연을 받을 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "계좌내 운용수익은 인출시 과세분류와 세액공제 이력에 따라 과세, 연금외 수령 시 기타소득세 등 불이익이 생길 수 있음.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126655"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "계좌내 운용수익은 인출시 과세분류와 세액공제 이력에 따라 과세, 연금외 수령 시 기타소득세 등 불이익이 생길 수 있음.",
+        "disposition": "계좌내 운용수익은 인출시 과세분류와 세액공제 이력에 따라 과세, 연금외 수령 시 기타소득세 등 불이익이 생길 수 있음.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126655"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-17",
+      "source_cue_index": 218,
+      "timecode": "00:08:07.639",
+      "source_paraphrase": "증권사마다 앱에서 세액공제 전환 신청을 지원하는지는 다르다",
+      "assessment": "QUALIFIED",
+      "independent_check": "앱 메뉴·지원 화면은 2025 당시 회사별로 다르며 최신 금융사 정책/이용약관 확인 필요.",
+      "official_sources": [
+        "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "앱 메뉴·지원 화면은 2025 당시 회사별로 다르며 최신 금융사 정책/이용약관 확인 필요.",
+        "disposition": "앱 메뉴·지원 화면은 2025 당시 회사별로 다르며 최신 금융사 정책/이용약관 확인 필요.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://advisor.koreainvestment.com/pension/nwInvestment/_static/Product_A_NW_32770.jsp?type=target"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-18",
+      "source_cue_index": 244,
+      "timecode": "00:09:04.320",
+      "source_paraphrase": "전환 가능 금액은 신청계좌 과세제외 원금·과거 공제내역으로 확인",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "전환액은 과거 미공제 납입원금을 입증해 취급기관에 신청하는 적격 금액으로 판단.",
+      "official_sources": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "전환액은 과거 미공제 납입원금을 입증해 취급기관에 신청하는 적격 금액으로 판단.",
+        "disposition": "전환액은 과거 미공제 납입원금을 입증해 취급기관에 신청하는 적격 금액으로 판단.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1024234167"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-19",
+      "source_cue_index": 268,
+      "timecode": "00:10:00.360",
+      "source_paraphrase": "연금보험료 등 소득·세액공제 확인서 제출을 통해 과거 공제 여부 확인",
+      "assessment": "QUALIFIED",
+      "independent_check": "국세청 공제확인서로 과거 납입·공제 내역을 입증할 수 있고 증권사별 구비서류·처리시점이 다름. 매년 7월 이후 확정이라는 보편 규칙은 아님.",
+      "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2238"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "국세청 공제확인서로 과거 납입·공제 내역을 입증할 수 있고 증권사별 구비서류·처리시점이 다름. 매년 7월 이후 확정이라는 보편 규칙은 아님.",
+        "disposition": "국세청 공제확인서로 과거 납입·공제 내역을 입증할 수 있고 증권사별 구비서류·처리시점이 다름. 매년 7월 이후 확정이라는 보편 규칙은 아님.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2238"
+      }
+    },
+    {
+      "claim_id": "pbDPZUwogeQ-20",
+      "source_cue_index": 301,
+      "timecode": "00:11:13.839",
+      "source_paraphrase": "전년도 미공제 연금저축 납입액을 본인이 신청해 올해 공제대상으로 처리",
+      "assessment": "QUALIFIED",
+      "independent_check": "본인 신청과 금융사 승인, 적격 금액, 연도별 결정세액을 충족해야 세액공제 실익이 발생하며 자동 적용되지 않음.",
+      "official_sources": [
+        "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=010000000000515824&wnkey=faec7a02-7c00-4925-b0c4-40c16397f6db"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "본인 신청과 금융사 승인, 적격 금액, 연도별 결정세액을 충족해야 세액공제 실익이 발생하며 자동 적용되지 않음.",
+        "disposition": "본인 신청과 금융사 승인, 적격 금액, 연도별 결정세액을 충족해야 세액공제 실익이 발생하며 자동 적용되지 않음.",
+        "effective_date_or_scope": "2025-10-21 video; 2025/2026 income tax code and individual taxation facts separately scoped",
+        "primary_url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=010000000000515824&wnkey=faec7a02-7c00-4925-b0c4-40c16397f6db"
+      }
+    }
+  ],
+  "claim_classification_tally": {
+    "PRIMARY_CONFIRMED": 6,
+    "QUALIFIED": 13,
+    "HYPOTHETICAL": 1
+  }
+}

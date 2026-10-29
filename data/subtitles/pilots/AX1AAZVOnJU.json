@@ -1,0 +1,143 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-18",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "roster_no": 108,
+  "video_id": "AX1AAZVOnJU",
+  "title": "디폴트 옵션, 도대체 그게 뭔데?",
+  "source_url": "https://www.youtube.com/watch?v=AX1AAZVOnJU",
+  "video_published_date": "2026-04-06",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "subtitle_sha256": "06a8106a387eeb5125195e85cbb4983ac49d051966fdc1e4a2d5313461c532bd",
+  "cue_count": 29,
+  "existing_registry_srt": {
+    "sha256": "06a8106a387eeb5125195e85cbb4983ac49d051966fdc1e4a2d5313461c532bd",
+    "cue_count": 29,
+    "raw_bytes": 2356,
+    "source_archive_sha256": "3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951"
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "06a8106a387eeb5125195e85cbb4983ac49d051966fdc1e4a2d5313461c532bd",
+    "original_zip_sha256": "3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951",
+    "cue_count": 29,
+    "raw_bytes": 2356,
+    "final_srt_end": "00:01:10,400",
+    "crc_verified": true,
+    "all_cues_numbered_and_monotonic": true,
+    "evidence_reference": "Original private 101-129.zip with SHA/CRC checked, entire short original cue bodies directly reviewed and anchored to actual SRT start times; official source-level scope verified.",
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "No independently heard audio or examined original video screen; private auto captions can share ASR mistakes with public counterparts. Source SRT timestamps only.",
+    "public_full_text_source_url": "https://www.youtube.com/watch?v=AX1AAZVOnJU",
+    "public_full_text_acquired_from_same_video": true,
+    "public_full_text_type": "YOUTUBE_WATCH_PAGE_KO_AUTO_ASR",
+    "private_full_text_whitespace_normalized_chars": 435,
+    "private_full_text_whitespace_normalized_sha256": "e5ace9c51bad3be3cca5121e43c6cfb708491a88e1a6f2caa7ee73a2a456e578",
+    "public_full_text_whitespace_normalized_chars": 435,
+    "public_full_text_whitespace_normalized_sha256": "e5ace9c51bad3be3cca5121e43c6cfb708491a88e1a6f2caa7ee73a2a456e578",
+    "public_private_fulltext_sha_exact_match": true,
+    "independent_spoken_audio_audited": false,
+    "public_fulltext_checked_at": "2026-10-18",
+    "public_source_transcript_caveat": "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
+  },
+  "claims": [
+    {
+      "claim_id": "AX1AAZVOnJU-01",
+      "timecode": "00:00:08",
+      "source_cue_index": 5,
+      "source_cue_start": "00:00:08.840",
+      "source_paraphrase": "퇴직연금 계좌 내 미운용 자금은 단순 입금만으로 항상 자동투자되지 않으며 사전지정 운용방식 필요",
+      "independent_check": "고용노동부는 사전지정운용(디폴트옵션)을 법정 퇴직연금 운용제도로 공식 공시한다. 근로자 가입계좌 유형과 통지·대기기간 및 적용절차를 구분해야 한다.",
+      "assessment": "QUALIFIED",
+      "official_sources": [
+        "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260701088"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-18",
+        "primary_url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260701088",
+        "source_finding": "고용노동부는 사전지정운용(디폴트옵션)을 법정 퇴직연금 운용제도로 공식 공시한다. 근로자 가입계좌 유형과 통지·대기기간 및 적용절차를 구분해야 한다.",
+        "effective_date_or_scope": "2026_Q2_KOREAN_DEFAULT_PENSION_PUBLICATION",
+        "disposition": "고용노동부는 사전지정운용(디폴트옵션)을 법정 퇴직연금 운용제도로 공식 공시한다. 근로자 가입계좌 유형과 통지·대기기간 및 적용절차를 구분해야 한다."
+      }
+    },
+    {
+      "claim_id": "AX1AAZVOnJU-02",
+      "timecode": "00:00:18",
+      "source_cue_index": 9,
+      "source_cue_start": "00:00:18.199",
+      "source_paraphrase": "상품을 선택하지 않은 경우 미리 지정한 기본 투자방법으로 운용",
+      "independent_check": "디폴트옵션은 적법하게 사전에 지정한 운용방법이 적용조건을 충족할 때만 작동한다. 모든 퇴직연금 계좌에 자동 일임되는 것을 의미하지 않음.",
+      "assessment": "QUALIFIED",
+      "official_sources": [
+        "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260701088"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-18",
+        "primary_url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260701088",
+        "source_finding": "디폴트옵션은 적법하게 사전에 지정한 운용방법이 적용조건을 충족할 때만 작동한다. 모든 퇴직연금 계좌에 자동 일임되는 것을 의미하지 않음.",
+        "effective_date_or_scope": "2026_Q2_KOREAN_DEFAULT_PENSION_PUBLICATION",
+        "disposition": "디폴트옵션은 적법하게 사전에 지정한 운용방법이 적용조건을 충족할 때만 작동한다. 모든 퇴직연금 계좌에 자동 일임되는 것을 의미하지 않음."
+      }
+    },
+    {
+      "claim_id": "AX1AAZVOnJU-03",
+      "timecode": "00:00:27",
+      "source_cue_index": 13,
+      "source_cue_start": "00:00:27.960",
+      "source_paraphrase": "TDF는 은퇴 목표연도에 가까워지며 주식·채권 비중을 바꾸는 투자상품",
+      "independent_check": "미국 SEC TDF 교육자료는 목표연도와 글라이드패스에 따른 자산배분변화 및 펀드별 차이를 확인한다. TDF도 원금손실 가능.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-18",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin",
+        "source_finding": "미국 SEC TDF 교육자료는 목표연도와 글라이드패스에 따른 자산배분변화 및 펀드별 차이를 확인한다. TDF도 원금손실 가능.",
+        "effective_date_or_scope": "GENERAL_INVESTOR_EDUCATION_REVIEWED_2026_10_18",
+        "disposition": "미국 SEC TDF 교육자료는 목표연도와 글라이드패스에 따른 자산배분변화 및 펀드별 차이를 확인한다. TDF도 원금손실 가능."
+      }
+    },
+    {
+      "claim_id": "AX1AAZVOnJU-04",
+      "timecode": "00:00:49",
+      "source_cue_index": 22,
+      "source_cue_start": "00:00:49.079",
+      "source_paraphrase": "출생연도+65를 TDF 연도선택의 보편적 계산법으로 권유",
+      "independent_check": "목표연도는 개인의 실제 은퇴 예상연도와 소득/위험허용도에 달린다. 출생연도+65는 일률적 법정 선택기준이 아니고 펀드별 주식비중·보수도 상이.",
+      "assessment": "QUALIFIED",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-18",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin",
+        "source_finding": "목표연도는 개인의 실제 은퇴 예상연도와 소득/위험허용도에 달린다. 출생연도+65는 일률적 법정 선택기준이 아니고 펀드별 주식비중·보수도 상이.",
+        "effective_date_or_scope": "GENERAL_INVESTOR_EDUCATION_REVIEWED_2026_10_18",
+        "disposition": "목표연도는 개인의 실제 은퇴 예상연도와 소득/위험허용도에 달린다. 출생연도+65는 일률적 법정 선택기준이 아니고 펀드별 주식비중·보수도 상이."
+      }
+    }
+  ],
+  "claim_count": 4,
+  "claim_classification_tally": {
+    "QUALIFIED": 3,
+    "PRIMARY_CONFIRMED": 1
+  },
+  "core_message": "디폴트 옵션, 도대체 그게 뭔데?",
+  "limitations": [
+    "No audio/video frame verification or personal financial advice.",
+    "Video SRT contents kept private; original source SHA and cue anchors are sufficient public provenance.",
+    "Generalized financial guarantees, TDF retirement ages, US-only equity concentration and dividends are not guaranteed.",
+    "Official evidence only validates separately specified material facts and date conditions.",
+    "Full body ASR text matched the private uploaded SRT after removing whitespace, with independently downloaded same-video YouTube transcript. These may share one ASR engine; no independent audible verification or timing alignment."
+  ]
+}

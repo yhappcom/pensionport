@@ -1,0 +1,407 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-18",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "roster_no": 111,
+  "video_id": "zDcF_zPTSYE",
+  "title": "ETF 자동매수 방법: 자동이체·주문유형·분할매수",
+  "source_url": "https://www.youtube.com/watch?v=zDcF_zPTSYE",
+  "video_published_date": "2026-04 (exact YouTube upload day not independently verified)",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "subtitle_sha256": "fc54c5435784ce95c402d5f30b5027ec328d85b0842dec28ed0e922f2048e99b",
+  "cue_count": 923,
+  "existing_registry_srt": {
+    "sha256": "fc54c5435784ce95c402d5f30b5027ec328d85b0842dec28ed0e922f2048e99b",
+    "cue_count": 923,
+    "raw_bytes": 69695,
+    "source_archive_sha256": "3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951"
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "fc54c5435784ce95c402d5f30b5027ec328d85b0842dec28ed0e922f2048e99b",
+    "original_zip_sha256": "3e3e7cbbccd95262ba43506ac642ff78d78afeb54de718bf574b4f78cb650951",
+    "cue_count": 923,
+    "raw_bytes": 69695,
+    "final_srt_end": "00:30:11,840",
+    "crc_verified": true,
+    "all_cues_numbered_and_monotonic": true,
+    "evidence_reference": "Source 101-129.zip raw SRT 923 cues all text checked; recorded SHA and CRC, manual cue-area source review crosschecked with SEC investment and trade order guidance, Korean stock exchange order type terminology separately caveated.",
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_auto_asr_exact_body_compared": true,
+    "limitations": "Original video trading-app visual frames not examined, exact current broker UI/auto order options not certified; some '최우선/최유리' auto-caption confusion possible.",
+    "youtube_public_source_url": "https://www.youtube.com/watch?v=zDcF_zPTSYE",
+    "private_full_text_normalized_chars": 12112,
+    "private_full_text_normalized_sha256": "d209c8973d4700307d65a0dcb0607f89d93bcf10e78e563b104a0f8113b637ef",
+    "public_full_text_normalized_chars": 12104,
+    "public_full_text_normalized_sha256": "b066a5edd4f44d70c42408a1c6739dad83c5c6bcddf84b6689c5fd3515cf2326",
+    "public_source_language": "ko",
+    "public_private_fullbody_status": "EXACT_KOREAN_NORMALIZED_AFTER_DUPLICATE_CUE_COLLAPSE",
+    "independent_audio_checked": false,
+    "reaudit_at": "2026-10-20",
+    "reaudit_limitation": "Uploaded original SRT file raw SHA equals prior registered source SHA; live same-video Korean public normalized transcript hash differs solely due to omitted duplicate overlapping cues. After excluding only identified duplicate cue(s) in a comparison copy, full normalized text SHA exactly equals published public transcript SHA. Retain original SRT and historical raw mismatching SHA evidence; source audio, subtitle timing and actual video frames have NOT been independently checked.",
+    "previous_public_private_fullbody_status_20261018": "DIFFERENT_KOREAN_ASR",
+    "korean_transcript_reconciliation_20261020": {
+      "status": "RESOLVED_EXACT_KOREAN_FULL_BODY_AFTER_DUPLICATE_CUE_COLLAPSE",
+      "source_reuploaded": true,
+      "reuploaded_bytes": 69695,
+      "reuploaded_cues": 923,
+      "reuploaded_raw_srt_sha256": "fc54c5435784ce95c402d5f30b5027ec328d85b0842dec28ed0e922f2048e99b",
+      "raw_srt_hash_matches_prior_20261018": true,
+      "private_whitespace_normalized_chars": 12112,
+      "private_whitespace_normalized_sha256": "d209c8973d4700307d65a0dcb0607f89d93bcf10e78e563b104a0f8113b637ef",
+      "public_whitespace_normalized_chars": 12104,
+      "public_whitespace_normalized_sha256": "b066a5edd4f44d70c42408a1c6739dad83c5c6bcddf84b6689c5fd3515cf2326",
+      "comparison_excluded_original_duplicate_cues": [
+        {
+          "index": 442,
+          "duplicate_of": 441,
+          "original_start": "00:14:33,399",
+          "text_normalized_length": 8
+        }
+      ],
+      "normalized_deduplicated_original_chars": 12104,
+      "normalized_deduplicated_original_sha256": "b066a5edd4f44d70c42408a1c6739dad83c5c6bcddf84b6689c5fd3515cf2326",
+      "matches_public_fulltext_exact_sha256": true,
+      "raw_fullbody_strings_identical_without_dedupe": false,
+      "original_srt_is_modified": false,
+      "source_audio_verified": false,
+      "source_frames_verified": false,
+      "timestamps_verified": false,
+      "source": "Public same-video YouTube Korean transcript re-fetched 2026-10-20 KR/ko; matched reuploaded individual raw SRT; Unicode whitespace removed before hash.",
+      "report": "knowledge/VIDEO111_115_DUPLICATE_SRT_CUE_FULLTEXT_RECONCILIATION_20261020.md"
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "zDcF_zPTSYE-01",
+      "timecode": "00:02:51",
+      "source_cue_index": 85,
+      "source_cue_start": "00:02:51.000",
+      "source_paraphrase": "ETF 자동매수는 시장에서 미리 정한 금액으로 주문하는 것이므로 체결가격이 달라질 수 있음",
+      "assessment": "QUALIFIED",
+      "independent_check": "자동매수 약정은 지정 시점의 지정 유형으로 주문되며 매수체결 시의 가격을 미리 보장하지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "자동매수 약정은 지정 시점의 지정 유형으로 주문되며 매수체결 시의 가격을 미리 보장하지 않는다.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+        "checked_at": "2026-10-18",
+        "source_finding": "자동매수 약정은 지정 시점의 지정 유형으로 주문되며 매수체결 시의 가격을 미리 보장하지 않는다.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-02",
+      "timecode": "00:03:29",
+      "source_cue_index": 103,
+      "source_cue_start": "00:03:29.000",
+      "source_paraphrase": "펀드 기준가 산정과 실시간 ETF 매수 가격의 차이",
+      "assessment": "QUALIFIED",
+      "independent_check": "일반 공모펀드 순자산가치 산정 및 매입 신청과 상장 ETF의 실시간 시장체결 방식은 구분해야 한다. 펀드 종류마다 기준가 적용시점은 다를 수 있다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "일반 공모펀드 순자산가치 산정 및 매입 신청과 상장 ETF의 실시간 시장체결 방식은 구분해야 한다. 펀드 종류마다 기준가 적용시점은 다를 수 있다.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+        "checked_at": "2026-10-18",
+        "source_finding": "일반 공모펀드 순자산가치 산정 및 매입 신청과 상장 ETF의 실시간 시장체결 방식은 구분해야 한다. 펀드 종류마다 기준가 적용시점은 다를 수 있다.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-03",
+      "timecode": "00:05:46",
+      "source_cue_index": 172,
+      "source_cue_start": "00:05:46.000",
+      "source_paraphrase": "과거 장기 적립식 펀드 투자자는 대체로 좋은 수익을 얻었다는 개인 경험",
+      "assessment": "QUALIFIED",
+      "independent_check": "화자 개인의 장기적 관찰만으로 모든 적립식 펀드의 실현 성과나 미래 우월성이 확인된 것은 아니다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "화자 개인의 장기적 관찰만으로 모든 적립식 펀드의 실현 성과나 미래 우월성이 확인된 것은 아니다.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "checked_at": "2026-10-18",
+        "source_finding": "화자 개인의 장기적 관찰만으로 모든 적립식 펀드의 실현 성과나 미래 우월성이 확인된 것은 아니다.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-04",
+      "timecode": "00:09:35",
+      "source_cue_index": 285,
+      "source_cue_start": "00:09:35.000",
+      "source_paraphrase": "자동이체는 은행·CMA 등의 금액을 지정일에 증권계좌로 이동하는 기능",
+      "assessment": "QUALIFIED",
+      "independent_check": "계좌 간 송금 자동화만으로 지정 상품 ETF를 사는 주문 체결까지 보장하지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "계좌 간 송금 자동화만으로 지정 상품 ETF를 사는 주문 체결까지 보장하지 않는다.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing",
+        "checked_at": "2026-10-18",
+        "source_finding": "계좌 간 송금 자동화만으로 지정 상품 ETF를 사는 주문 체결까지 보장하지 않는다.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-05",
+      "timecode": "00:10:36",
+      "source_cue_index": 315,
+      "source_cue_start": "00:10:36.000",
+      "source_paraphrase": "증권 일반위탁·ISA·연금저축·IRP 등의 상품별 운용 계좌 구분",
+      "assessment": "QUALIFIED",
+      "independent_check": "계좌별 가입·위험자산 한도·공제/수령·적격상품 범위가 다르며 동일한 자동매수 주문 가능여부도 증권사와 상품마다 다름.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "계좌별 가입·위험자산 한도·공제/수령·적격상품 범위가 다르며 동일한 자동매수 주문 가능여부도 증권사와 상품마다 다름.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "checked_at": "2026-10-18",
+        "source_finding": "계좌별 가입·위험자산 한도·공제/수령·적격상품 범위가 다르며 동일한 자동매수 주문 가능여부도 증권사와 상품마다 다름.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-06",
+      "timecode": "00:11:57",
+      "source_cue_index": 354,
+      "source_cue_start": "00:11:57.000",
+      "source_paraphrase": "자동이체와 자동매수 약정을 결합하면 계좌입금과 자산매입을 구분하여 자동화할 수 있음",
+      "assessment": "QUALIFIED",
+      "independent_check": "자동입금과 주문예약은 다른 기능. 잔고부족·상품제한·시장휴장·주문 미체결 등을 점검해야 한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "자동입금과 주문예약은 다른 기능. 잔고부족·상품제한·시장휴장·주문 미체결 등을 점검해야 한다.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing",
+        "checked_at": "2026-10-18",
+        "source_finding": "자동입금과 주문예약은 다른 기능. 잔고부족·상품제한·시장휴장·주문 미체결 등을 점검해야 한다.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-07",
+      "timecode": "00:12:52",
+      "source_cue_index": 384,
+      "source_cue_start": "00:12:52.000",
+      "source_paraphrase": "자동매수 신청 이전에 포트폴리오와 투자대상부터 선정하는 단계",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "SEC 투자자교육은 투자목표·기간·위험감수도에 맞춘 자산배분·투자대상 선택을 장기 포트폴리오 설계 기본으로 설명한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "SEC 투자자교육은 투자목표·기간·위험감수도에 맞춘 자산배분·투자대상 선택을 장기 포트폴리오 설계 기본으로 설명한다.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "checked_at": "2026-10-18",
+        "source_finding": "SEC 투자자교육은 투자목표·기간·위험감수도에 맞춘 자산배분·투자대상 선택을 장기 포트폴리오 설계 기본으로 설명한다.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-08",
+      "timecode": "00:14:02",
+      "source_cue_index": 420,
+      "source_cue_start": "00:14:02.000",
+      "source_paraphrase": "증권사별 자동 ETF 매입 서비스의 메뉴명·구동 방식이 다름",
+      "assessment": "QUALIFIED",
+      "independent_check": "영상 발언 시점의 개별 앱 메뉴 명칭은 원본 영상 화면 미확인. 서비스 존재 여부·상품 목록·최신 메뉴는 금융사 공식 매뉴얼 확인 필요.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "영상 발언 시점의 개별 앱 메뉴 명칭은 원본 영상 화면 미확인. 서비스 존재 여부·상품 목록·최신 메뉴는 금융사 공식 매뉴얼 확인 필요.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/investing-your-own/online-investing",
+        "checked_at": "2026-10-18",
+        "source_finding": "영상 발언 시점의 개별 앱 메뉴 명칭은 원본 영상 화면 미확인. 서비스 존재 여부·상품 목록·최신 메뉴는 금융사 공식 매뉴얼 확인 필요.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-09",
+      "timecode": "00:17:10",
+      "source_cue_index": 520,
+      "source_cue_start": "00:17:10.000",
+      "source_paraphrase": "자동 ETF 거래의 주문가격·체결 여부는 시장가·지정가 등 유형별 차이",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "SEC는 시장가는 체결가격이 사전 보장되지 않고, 지정가는 지정가격이 보호되지만 미체결 위험이 존재함을 설명한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "SEC는 시장가는 체결가격이 사전 보장되지 않고, 지정가는 지정가격이 보호되지만 미체결 위험이 존재함을 설명한다.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+        "checked_at": "2026-10-18",
+        "source_finding": "SEC는 시장가는 체결가격이 사전 보장되지 않고, 지정가는 지정가격이 보호되지만 미체결 위험이 존재함을 설명한다.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-10",
+      "timecode": "00:17:56",
+      "source_cue_index": 544,
+      "source_cue_start": "00:17:56.000",
+      "source_paraphrase": "최우선·최유리 지정가·시장가 주문은 호가가격/체결방식이 다르다",
+      "assessment": "QUALIFIED",
+      "independent_check": "한국거래소 공식 현물 주문유형: 매수 최유리지정가는 주문시점 상대편 최우선 매도호가, 매수 최우선지정가는 같은 편 최우선 매수호가, 시장가는 가격 제한 없이 현재 반대호가와 순차 체결을 추구한다. 가격보호와 미체결 위험 및 지정 호가 기반 가격을 명확히 구분해야 한다. 앱 화면 원본은 보지 못했다.",
+      "official_sources": [
+        "https://global.krx.co.kr/contents/GLB/06/0602/0602010201/GLB0602010201T2.jsp",
+        "https://regulation.krx.co.kr/contents/RGL/03/03050100/RGL03050100T1.jsp"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "한국거래소 공식 현물 주문유형: 매수 최유리지정가는 주문시점 상대편 최우선 매도호가, 매수 최우선지정가는 같은 편 최우선 매수호가, 시장가는 가격 제한 없이 현재 반대호가와 순차 체결을 추구한다. 가격보호와 미체결 위험 및 지정 호가 기반 가격을 명확히 구분해야 한다. 앱 화면 원본은 보지 못했다.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://global.krx.co.kr/contents/GLB/06/0602/0602010201/GLB0602010201T2.jsp",
+        "checked_at": "2026-10-18",
+        "source_finding": "한국거래소 공식 현물 주문유형: 매수 최유리지정가는 주문시점 상대편 최우선 매도호가, 매수 최우선지정가는 같은 편 최우선 매수호가, 시장가는 가격 제한 없이 현재 반대호가와 순차 체결을 추구한다. 가격보호와 미체결 위험 및 지정 호가 기반 가격을 명확히 구분해야 한다. 앱 화면 원본은 보지 못했다.",
+        "effective_date_or_scope": "KOREAN_EXCHANGE_ORDER_TYPE_TERMINOLOGY_DERIVATIVES_REFERENCE_ONLY"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-11",
+      "timecode": "00:20:03",
+      "source_cue_index": 614,
+      "source_cue_start": "00:20:03.000",
+      "source_paraphrase": "하루 한 주씩 매수하면 영업일 수에 비례한 ETF 좌수를 적립한다는 계산 예시",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "연 220영업일/거래한도/1주 가격/매수수수료 등의 영상 예시이며 휴장·가격변동·주문 실패를 제외한 단순 누적 계산; 1주×220회=220주.",
+      "official_sources": [],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "disposition": "연 220영업일/거래한도/1주 가격/매수수수료 등의 영상 예시이며 휴장·가격변동·주문 실패를 제외한 단순 누적 계산; 1주×220회=220주.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-12",
+      "timecode": "00:25:56",
+      "source_cue_index": 797,
+      "source_cue_start": "00:25:56.000",
+      "source_paraphrase": "매수제한가격을 두고 자동매수를 진행해 고가매수 위험을 조절하는 예시",
+      "assessment": "QUALIFIED",
+      "independent_check": "가격상한을 지정하면 해당 가격 이상 체결을 억제할 수 있으나 거래 미체결·시장 급상승 시 기회상실 가능.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "가격상한을 지정하면 해당 가격 이상 체결을 억제할 수 있으나 거래 미체결·시장 급상승 시 기회상실 가능.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+        "checked_at": "2026-10-18",
+        "source_finding": "가격상한을 지정하면 해당 가격 이상 체결을 억제할 수 있으나 거래 미체결·시장 급상승 시 기회상실 가능.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-13",
+      "timecode": "00:27:37",
+      "source_cue_index": 847,
+      "source_cue_start": "00:27:37.000",
+      "source_paraphrase": "정액 적립식 투자로 저가에 더 많은 ETF 좌수를 매입하는 효과",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "SEC DCA 용어집은 동일 금액 정기매수의 매입좌수 변화 원리를 설명한다. 특정 주가·ETF 성과 보장과는 별도.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "disposition": "SEC DCA 용어집은 동일 금액 정기매수의 매입좌수 변화 원리를 설명한다. 특정 주가·ETF 성과 보장과는 별도.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+        "checked_at": "2026-10-18",
+        "source_finding": "SEC DCA 용어집은 동일 금액 정기매수의 매입좌수 변화 원리를 설명한다. 특정 주가·ETF 성과 보장과는 별도.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-14",
+      "timecode": "00:29:14",
+      "source_cue_index": 896,
+      "source_cue_start": "00:29:14.000",
+      "source_paraphrase": "자동매수를 걸어놓고 계좌를 확인하지 않아도 장기 성과가 양호할 것이라는 비유",
+      "assessment": "QUALIFIED",
+      "independent_check": "자동매수는 본인 투자원칙과 정기 점검을 대체하지 않는다. 금융시장/개인 현금흐름·상품폐지·수수료·낙폭 위험으로 손실 가능.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "disposition": "자동매수는 본인 투자원칙과 정기 점검을 대체하지 않는다. 금융시장/개인 현금흐름·상품폐지·수수료·낙폭 위험으로 손실 가능.",
+        "basis": "Uploaded user source SRT full-cue review and relevant official regulator/general order type evidence",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "checked_at": "2026-10-18",
+        "source_finding": "자동매수는 본인 투자원칙과 정기 점검을 대체하지 않는다. 금융시장/개인 현금흐름·상품폐지·수수료·낙폭 위험으로 손실 가능.",
+        "effective_date_or_scope": "SEC_EDUCATION_AS_OF_2026_10_18"
+      }
+    },
+    {
+      "claim_id": "zDcF_zPTSYE-15",
+      "timecode": "00:18:15",
+      "source_cue_index": 555,
+      "source_cue_start": "00:18:15.480",
+      "source_paraphrase": "시장가 주문은 호가를 먹으면서 비싸게라도 '무조건' 전량 체결된다는 화자의 단정",
+      "independent_check": "한국거래소의 시장가 주문은 가격을 정하지 않고 반대편 호가와 체결을 우선 시도하지만, 거래정지·반대호가 부족·가격제한·장마감·잔량 및 거래가능시간 제약으로 **무조건 전량 체결되는 것은 아니다**. 체결 지시와 체결 보장은 다르고 지정가/최유리지정가 주문과 같은 동작이 아니다. 영상에서 '무조건'에 해당하는 구간은 00:18:14~00:18:19의 자동 SRT cue 554~558. 해당 음성을 직접 재생 검증하지 않았음.",
+      "assessment": "CONTRADICTED",
+      "official_sources": [
+        "https://global.krx.co.kr/contents/GLB/06/0602/0602010201/GLB0602010201T2.jsp",
+        "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-18",
+        "primary_url": "https://global.krx.co.kr/contents/GLB/06/0602/0602010201/GLB0602010201T2.jsp",
+        "source_finding": "한국거래소의 시장가 주문은 가격을 정하지 않고 반대편 호가와 체결을 우선 시도하지만, 거래정지·반대호가 부족·가격제한·장마감·잔량 및 거래가능시간 제약으로 **무조건 전량 체결되는 것은 아니다**. 체결 지시와 체결 보장은 다르고 지정가/최유리지정가 주문과 같은 동작이 아니다. 영상에서 '무조건'에 해당하는 구간은 00:18:14~00:18:19의 자동 SRT cue 554~558. 해당 음성을 직접 재생 검증하지 않았음.",
+        "effective_date_or_scope": "KRX_KOSPI_KOSDAQ_ETF_ORDER_EXECUTION_SCOPE_AUTOMATIC_ASR",
+        "disposition": "한국거래소의 시장가 주문은 가격을 정하지 않고 반대편 호가와 체결을 우선 시도하지만, 거래정지·반대호가 부족·가격제한·장마감·잔량 및 거래가능시간 제약으로 **무조건 전량 체결되는 것은 아니다**. 체결 지시와 체결 보장은 다르고 지정가/최유리지정가 주문과 같은 동작이 아니다. 영상에서 '무조건'에 해당하는 구간은 00:18:14~00:18:19의 자동 SRT cue 554~558. 해당 음성을 직접 재생 검증하지 않았음.",
+        "correction": "시장가 주문은 주문가격을 지정하지 않아 즉시 체결을 추구하되, 반대호가 부족·거래정지·가격제한·마감 및 주문 잔량 등 조건으로 일부 또는 전량 미체결이 가능하다. 최유리지정가/최우선지정가도 시장가와 동일한 주문 방식이 아니다."
+      }
+    }
+  ],
+  "claim_count": 15,
+  "claim_classification_tally": {
+    "QUALIFIED": 10,
+    "PRIMARY_CONFIRMED": 3,
+    "HYPOTHETICAL": 1,
+    "CONTRADICTED": 1
+  },
+  "core_message": "ETF 자동매수의 편의성은 자동이체/증권 자동주문/시장가·지정가 체결위험을 구분해 활용해야 하며, 정액 매수는 손실과 수수료/미체결 위험을 없애지 않는다.",
+  "limitations": [
+    "증권사 앱/자동주문 UI 2026년 현재 실제 화면 미확인.",
+    "ETF와 일반 펀드 기준가격 산정은 다르며 자동자막 용어가 흔들릴 수 있음.",
+    "연 220영업일·1주 매입·30만원 예시는 가정이지 특정 가격·수수료의 실제 수익률이 아님.",
+    "저작권 비공개 원본 전문 GitHub 업로드하지 않음.",
+    "2026-10-18 #111 신규 필수 위험 주장: '시장가 무조건 전량 체결'은 잘못된 일반화; 거래정지·상대호가·장 종료 시 미체결 가능. 원본 거래앱/영상 음성 미검증.",
+    "2026-10-20 public Korean full transcript difference resolved as only overlapping duplicate source SRT cues; original cues preserved. Original audio/frame validation remains unperformed."
+  ]
+}

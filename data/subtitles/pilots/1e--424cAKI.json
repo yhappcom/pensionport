@@ -1,0 +1,555 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-14",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "source_kind": "PRIVATE_ORIGINAL_KOREAN_TIMECODED_AUTO_SRT",
+  "roster_no": 90,
+  "video_id": "1e--424cAKI",
+  "title": "ISA에서 미국배당주 투자 vs 일반계좌 — 외국납부세액공제 한도",
+  "source_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+  "video_published_date": "2026-04-30",
+  "recording_date": null,
+  "duration": "01:21",
+  "source_level": "ORIGINAL_USER_38_CUE_RAW_SHA_AND_PUBLIC_FULL_KOREAN_542_NORMALIZED_CHAR_SHA_EQUAL_10_VIDEO_7_RESEARCHER_CLAIMS",
+  "subtitle_sha256": "f17154adb3a341e9a1bda77d809f2bfdc6619dec7363e10660bf90cd80c555d0",
+  "cue_count": null,
+  "registered_private_srt_metadata_only": {
+    "sha256": "f17154adb3a341e9a1bda77d809f2bfdc6619dec7363e10660bf90cd80c555d0",
+    "cue_count": 38,
+    "raw_srt_bytes": 2927,
+    "verified_same_bytes_this_review": false
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha_recomputed": true,
+    "original_sha_byte_compare": true,
+    "original_srt_full_cues_reviewed": true,
+    "original_srt_sha256": "f17154adb3a341e9a1bda77d809f2bfdc6619dec7363e10660bf90cd80c555d0",
+    "original_zip_sha256": "69be8639162f8e00bfa09f0d4b8a6fe95db0a07054ad370709ce0d4e53628b5f",
+    "source_archive_crc": "PASS",
+    "original_cue_count": 38,
+    "original_srt_bytes": 2927,
+    "original_srt_last_end": "00:01:22.479",
+    "private_cue_body_normalized_sha256": "a98b2feb08320f58c85492999efc9bb3f228ca5d7f525dcf22aa7dbf267c8577",
+    "public_full_transcript_normalized_sha256": "a98b2feb08320f58c85492999efc9bb3f228ca5d7f525dcf22aa7dbf267c8577",
+    "normalized_characters": 542,
+    "public_to_private_transcript_exact_diff": "ALL_542_CHARACTERS_FULL_PUBLIC_KOREAN_AUTO_ASR_EQUAL_PRIVATE_AFTER_WHITESPACE_STRIP",
+    "claim_to_original_cue_timestamp_reconciled": true,
+    "claim_evidence_per_claim_source_finding_completed": true,
+    "source_attributed_speaker_claims_with_private_cue_anchor": 10,
+    "independently_added_researcher_items_without_video_cue": 7,
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "limitations": "Full private Korean auto SRT 38 cues and separately fetched full public Korean transcript all 542 normalized chars same SHA. Both may share speech recognition errors. Seven nuanced ISA foreign-tax law/individual suitability explanations are researcher-only and NOT spoken. Original audio/video frames and taxpayer individual records not separately checked.",
+    "evidence_reference": "Original user ZIP 517466 bytes CRC PASS; 38 cues/2927 bytes raw SHA f17154adb3a341e9a1bda77d809f2bfdc6619dec7363e10660bf90cd80c555d0; full public/private Korean normalized 542 chars SHA a98b2feb08320f58c85492999efc9bb3f228ca5d7f525dcf22aa7dbf267c8577."
+  },
+  "core_message": "US dividend fund within Korean ISA faces foreign source withholding even while ISA domestic tax is deferred. Since 2025-07-01, foreign tax credit applied at ISA closure only for qualifying taxable dividends after ISA exemption, capped to domestic final tax. Domestic-listed US-investing ETFs may fit ISA, direct US listed stocks/ETFs not. 'ISA always best' is conditional.",
+  "claims": [
+    {
+      "claim_id": "1e--424cAKI-01",
+      "timecode": "00:00:14",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "국내 배당주 세전 100만원→배당원천징수 15.4%, 세후 84.6만원 일반계좌 예시",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "100만원×(1−0.154)=846000원; 개인의 금융소득종합과세/특례·계좌유형에 따라 최종 세부담 차이",
+      "official_sources": [
+        "https://securities.miraeasset.com/mw/mks/mks4659/n01.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/mw/mks/mks4659/n01.do",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #9 00:00:14.960. Audio/frames and taxpayer details not checked.",
+        "disposition": "100만원×(1−0.154)=846000원; 개인의 금융소득종합과세/특례·계좌유형에 따라 최종 세부담 차이",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #7~10 국내 배당 100만원의 15.4% 원천세를 846,000원 세후액으로 단순 계산. 금융소득종합과세 등 개별 상황은 별도."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": 9,
+      "source_cue_start": "00:00:14.960",
+      "source_anchor_sec": 14,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 9,
+        "start_time": "00:00:14.960",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-02",
+      "timecode": "00:00:21",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "미국상장 배당주 일반계좌의 미국 배당원천세 약 15%",
+      "assessment": "QUALIFIED",
+      "independent_check": "한미조세조약 적격 세율 15% 일반예시, 거주·서류·국내 추가납세/외국납부세액 처리 다른 경우 가능",
+      "official_sources": [
+        "https://securities.miraeasset.com/mw/mks/mks4659/n01.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/mw/mks/mks4659/n01.do",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #12 00:00:21.359. Audio/frames and taxpayer details not checked.",
+        "disposition": "한미조세조약 적격 세율 15% 일반예시, 거주·서류·국내 추가납세/외국납부세액 처리 다른 경우 가능",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #11~13 미국 배당은 미국에서 일반적으로 15% 원천징수. 조세조약 거주자조건·원천징수/국내세액 적격성 별도."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": 12,
+      "source_cue_start": "00:00:21.359",
+      "source_anchor_sec": 21,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 12,
+        "start_time": "00:00:21.359",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-03",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "연구자 주의: 중개형 ISA에서 미국 상장 개별 배당주를 직접 매수할 수 없으며 국내상장 미국투자 ETF/펀드를 이용해야 한다(원본 화자가 직접 매수 가능하다고 단정한 것은 아님)",
+      "assessment": "QUALIFIED",
+      "independent_check": "한국 중개형 ISA는 미국상장 개별주식/미국상장 ETF 직접 매수가 아니라 국내상장 미국투자 펀드/ETF 편입 방식. 영상의 '미국 배당주'는 상품종류가 모호해 정확 발언매칭 OPEN",
+      "official_sources": [
+        "https://securities.miraeasset.com/mw/mks/mks4659/n01.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/mw/mks/mks4659/n01.do",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Researcher-only OFF-VIDEO policy detail. Audio/frames and taxpayer details not checked.",
+        "disposition": "한국 중개형 ISA는 미국상장 개별주식/미국상장 ETF 직접 매수가 아니라 국내상장 미국투자 펀드/ETF 편입 방식. 영상의 '미국 배당주'는 상품종류가 모호해 정확 발언매칭 OPEN",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "**연구자 보충(영상에서 직접 주장한 내용이 아님)** 한국 중개형 ISA에서 미국상장 주식·ETF를 직접 주문하는 것이 아니라 국내상장 미국주식형 ETF/펀드 편입한다. '미국 배당주'란 영상 표현은 종목 구분 모호."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_OFFICIAL_TAX_GUIDANCE_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
+    },
+    {
+      "claim_id": "1e--424cAKI-04",
+      "timecode": "00:00:41",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "일반형 ISA에 손익 통산 후 투자수익 일반200만원·서민농어민400만원 비과세",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "ISA 과세대상과 손익통산 범위 및 계좌유형 구분. 직접 국내주식 매매차익은 계좌 내 과세대상에서 제외되는 일반 규칙",
+      "official_sources": [
+        "https://securities.miraeasset.com/mw/mks/mks4659/n01.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/mw/mks/mks4659/n01.do",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #21 00:00:41.440. Audio/frames and taxpayer details not checked.",
+        "disposition": "ISA 과세대상과 손익통산 범위 및 계좌유형 구분. 직접 국내주식 매매차익은 계좌 내 과세대상에서 제외되는 일반 규칙",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #20~22 ISA 순수익 비과세 기본 200만원, 서민형/농어민형 400만원은 영상 언급이 아니라 연구자 유형별 보충. 세제 적용범위와 가입자격 분리."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": 21,
+      "source_cue_start": "00:00:41.440",
+      "source_anchor_sec": 41,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 21,
+        "start_time": "00:00:41.440",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-05",
+      "timecode": "00:00:43",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "ISA 만기시 과세대상 순수익 중 비과세 초과금액에 분리과세 국세9%+지방세 포함9.9%",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "ISA 만기정산 세율 설명, 외국납부세액공제 등 특례조정 반영 후 실제 세액 달라짐",
+      "official_sources": [
+        "https://securities.miraeasset.com/mw/mks/mks4659/n01.do"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/mw/mks/mks4659/n01.do",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #22 00:00:43.280. Audio/frames and taxpayer details not checked.",
+        "disposition": "ISA 만기정산 세율 설명, 외국납부세액공제 등 특례조정 반영 후 실제 세액 달라짐",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #22 비과세 초과분 국세9%+지방세포함9.9% 과세 설명(음성 ASR이 중복 숫자 오류). 계산 기준은 과세대상 순수익."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": 22,
+      "source_cue_start": "00:00:43.280",
+      "source_anchor_sec": 43,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 22,
+        "start_time": "00:00:43.280",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-06",
+      "timecode": "00:00:32",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "ISA 일반적으로 만기정산 과세이연을 적용하는 구조",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "일반적 국내원천 배당/일부 투자차익은 만기정산, 해외펀드 해외 원천세까지 ISA가 무조건 미룰 수는 없음",
+      "official_sources": [
+        "https://www.korea.kr/briefing/actuallyView.do?newsId=148939233"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://www.korea.kr/briefing/actuallyView.do?newsId=148939233",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #17 00:00:32.360. Audio/frames and taxpayer details not checked.",
+        "disposition": "일반적 국내원천 배당/일부 투자차익은 만기정산, 해외펀드 해외 원천세까지 ISA가 무조건 미룰 수는 없음",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #17~20 ISA 내 국내 원천 과세 항목은 계좌 종기 시 손익정산·분리과세함. 해외 원천세 자체까지 무조건 무과세인 것은 아님."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": 17,
+      "source_cue_start": "00:00:32.360",
+      "source_anchor_sec": 32,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 17,
+        "start_time": "00:00:32.360",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-07",
+      "timecode": "00:00:49",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "국내 배당주 배당은 ISA 내에서 모든 국내 주식종목에서 세금이 영원히 0원",
+      "assessment": "QUALIFIED",
+      "independent_check": "ISA 내 과세이연은 만기 정산 이전의 성격, 이후 ISA 계좌 순소득에 따라 비과세/분리과세 처리. 보편 영구면제 아님",
+      "official_sources": [
+        "https://securities.miraeasset.com/mw/mks/mks4659/n01.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/mw/mks/mks4659/n01.do",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #25 00:00:49.719. Audio/frames and taxpayer details not checked.",
+        "disposition": "ISA 내 과세이연은 만기 정산 이전의 성격, 이후 ISA 계좌 순소득에 따라 비과세/분리과세 처리. 보편 영구면제 아님",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #23~26 ISA 국내 배당은 중간 과세이연 가능하나 만기까지 최종 세액 영구 면제는 아님. 주식 매매차익과 배당 구분."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": 25,
+      "source_cue_start": "00:00:49.719",
+      "source_anchor_sec": 49,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 25,
+        "start_time": "00:00:49.719",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-08",
+      "timecode": "00:00:56",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "국내상장 해외배당 ETF/펀드에는 외국 기초자산에서 원천징수되는 세금이 있을 수 있음",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "2025 시행 외국납부세액제 개편에서 외국세액이 기초펀드 수익으로부터 우선 차감, ISA 보유 중에도 존재",
+      "official_sources": [
+        "https://www.korea.kr/briefing/actuallyView.do?newsId=148939233"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://www.korea.kr/briefing/actuallyView.do?newsId=148939233",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #28 00:00:56.000. Audio/frames and taxpayer details not checked.",
+        "disposition": "2025 시행 외국납부세액제 개편에서 외국세액이 기초펀드 수익으로부터 우선 차감, ISA 보유 중에도 존재",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #27~29 국내상장 미국배당 투자기초자산 외국세액이 발생할 수 있음. 직접 미국 상장 개별주식 매수와 혼동 금지."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": 28,
+      "source_cue_start": "00:00:56.000",
+      "source_anchor_sec": 56,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 28,
+        "start_time": "00:00:56.000",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-09",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "2025년 1월1일부터 외국납부세액 선환급 방식이 바뀌었다는 제도적 경위",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "정부 기재부 2025-02-04 설명에 과거 국세청 선환급·후원천 방식에서 수익자 소득 지급시 공제 방식으로 개편 명시",
+      "official_sources": [
+        "https://www.korea.kr/briefing/actuallyView.do?newsId=148939233"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://www.korea.kr/briefing/actuallyView.do?newsId=148939233",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Researcher-only OFF-VIDEO policy detail. Audio/frames and taxpayer details not checked.",
+        "disposition": "정부 기재부 2025-02-04 설명에 과거 국세청 선환급·후원천 방식에서 수익자 소득 지급시 공제 방식으로 개편 명시",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "**연구자 보충(영상 미발언)** 2025-01-01 외국납부세액 선환급 방식 변경·정부 설명 원자료. 화자가 그 날짜를 언급하지 않음."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_OFFICIAL_TAX_GUIDANCE_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
+    },
+    {
+      "claim_id": "1e--424cAKI-10",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "2025년 7월1일부터 ISA 해지시 해당일 이후 발생한 외국납부세액에 공제 적용",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "미래에셋증권 법령설명(시행령 §189의2③), 이전 외국납부세액 소급적용 제외",
+      "official_sources": [
+        "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Researcher-only OFF-VIDEO policy detail. Audio/frames and taxpayer details not checked.",
+        "disposition": "미래에셋증권 법령설명(시행령 §189의2③), 이전 외국납부세액 소급적용 제외",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "**연구자 보충(영상 미발언)** 2025-07-01 시행 ISA 외국납부세액공제 소급 적용 제한. 시행일 이후 발생분·계좌 만기해지 과세기준과 한도 확인."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_OFFICIAL_TAX_GUIDANCE_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
+    },
+    {
+      "claim_id": "1e--424cAKI-11",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "비과세 초과 배당소득에 대해 국내 분리과세 세액 한도 내 외국납부세액을 차감할 수 있음",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "비과세 한도 적용 순서는 이자→배당, 공제는 비과세 초과 배당소득의 국내 세액을 한도로 함",
+      "official_sources": [
+        "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Researcher-only OFF-VIDEO policy detail. Audio/frames and taxpayer details not checked.",
+        "disposition": "비과세 한도 적용 순서는 이자→배당, 공제는 비과세 초과 배당소득의 국내 세액을 한도로 함",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "**연구자 보충(영상 미발언)** 이자소득 먼저 ISA 비과세공제 적용 후 배당소득 중 과세대상 세액 한도 내 외국납부세액공제. 과세 한도 0원이면 크레딧 잔여환급 보장 아님."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_OFFICIAL_TAX_GUIDANCE_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
+    },
+    {
+      "claim_id": "1e--424cAKI-12",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "둘 이상의 간접투자 펀드·ETF에서 외국납부세액 발생시 외국세율 14% 간주 공제 처리",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "증권사 2025-07 제도 안내: 둘 이상 펀드 등의 외국원천징수세율 14%로 적용. 개별 단일 펀드와 구별",
+      "official_sources": [
+        "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Researcher-only OFF-VIDEO policy detail. Audio/frames and taxpayer details not checked.",
+        "disposition": "증권사 2025-07 제도 안내: 둘 이상 펀드 등의 외국원천징수세율 14%로 적용. 개별 단일 펀드와 구별",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "**연구자 보충(영상 미발언)** 둘 이상의 간접투자기구 외국 원천세율 14% 적용 특수 계산 규정은 증권사 2025년 세무제도 공식 설명. 전체 미국배당 원천세가 14%라는 뜻은 아님."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_OFFICIAL_TAX_GUIDANCE_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
+    },
+    {
+      "claim_id": "1e--424cAKI-13",
+      "timecode": "00:01:02",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "화자는 미국 배당 원천세15%와 ISA 만기 분리과세를 합산해 '무조건 이중과세'라고 보는 오해를 크레딧 공제로 설명한다",
+      "assessment": "QUALIFIED",
+      "independent_check": "영상 화자는 이중 과세가 곧바로 누적된다는 오해를 스스로 정정. 2025-07-01 이후 국내 세액 한도 외국납부세액공제 규정을 상품별로 확인",
+      "official_sources": [
+        "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #31 00:01:02.399. Audio/frames and taxpayer details not checked.",
+        "disposition": "영상 화자는 이중 과세가 곧바로 누적된다는 오해를 스스로 정정. 2025-07-01 이후 국내 세액 한도 외국납부세액공제 규정을 상품별로 확인",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #29~32 미국 배당 원천세와 ISA 만기과세가 그대로 누적돼 무조건 이중과세가 되는 듯한 우려를 '크레딧 보정'으로 설명. 실제 적용한도 및 개별 과표 확인."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "previous_thought_experiment_assessment": "CONTRADICTED",
+      "source_cue_index": 31,
+      "source_cue_start": "00:01:02.399",
+      "source_anchor_sec": 62,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 31,
+        "start_time": "00:01:02.399",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-14",
+      "timecode": "00:01:07",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "화자는 외국에 먼저 낸 세금으로 ISA 계좌 과세이연 효과가 국내 배당보다 제한된다고 설명한다",
+      "assessment": "QUALIFIED",
+      "independent_check": "외국세액은 만기 국내 분리과세 범위에서 공제되며 외국 원천세 전액이 상품에 반환되는 구조가 아님. 영상 화자가 전액 환급을 약속한 적 없음",
+      "official_sources": [
+        "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2332964",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #33 00:01:07.680. Audio/frames and taxpayer details not checked.",
+        "disposition": "외국세액은 만기 국내 분리과세 범위에서 공제되며 외국 원천세 전액이 상품에 반환되는 구조가 아님. 영상 화자가 전액 환급을 약속한 적 없음",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #33~35 외국세액은 국내배당에 비해 ISA 과세이연을 제한. 외국세액 전액의 현금 환급 약속은 아님."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "previous_thought_experiment_assessment": "CONTRADICTED",
+      "source_cue_index": 33,
+      "source_cue_start": "00:01:07.680",
+      "source_anchor_sec": 67,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 33,
+        "start_time": "00:01:07.680",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-15",
+      "timecode": "00:01:18",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "같은 투자금·상품에서 일반계좌보다 ISA가 언제나 절세효과 우월하다",
+      "assessment": "QUALIFIED",
+      "independent_check": "투자상품, 외국납부세액공제 제한, 기타 과세소득, 비과세 한도 사용액, 인출시점·기존 손익 통산 등 달라 개별 세액표 필요. 영상의 '여전히 가장 유리'는 전략적 의견",
+      "official_sources": [
+        "https://securities.miraeasset.com/mw/mks/mks4659/n01.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://securities.miraeasset.com/mw/mks/mks4659/n01.do",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Original SRT cue #38 00:01:18.600. Audio/frames and taxpayer details not checked.",
+        "disposition": "투자상품, 외국납부세액공제 제한, 기타 과세소득, 비과세 한도 사용액, 인출시점·기존 손익 통산 등 달라 개별 세액표 필요. 영상의 '여전히 가장 유리'는 전략적 의견",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "원본 #36~38 '여전히 ISA가 가장 유리'라는 강사 의견. 손익통산, 상품유형, 원천세공제한도, 자금인출·계좌비용에 따른 개별 비교 없이 항상 우월하다고 할 수 없음."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": 38,
+      "source_cue_start": "00:01:18.600",
+      "source_anchor_sec": 78,
+      "claim_role": "SPEAKER_VIDEO_WITH_PRIMARY_TAX_LAW_QUALIFICATION",
+      "private_srt_cue_anchor": {
+        "cue_index": 38,
+        "start_time": "00:01:18.600",
+        "source_precision": "ORIGINAL_AUTO_SRT_CUE_START"
+      }
+    },
+    {
+      "claim_id": "1e--424cAKI-16",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "국내상장 해외 ETF의 분배금과 투자자 손익·원금은 시장변동 및 환율위험을 받는다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "단기 세제 우위도 절대 투자수익·환차손·분배지속성을 보장하지 않는다",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Researcher-only OFF-VIDEO policy detail. Audio/frames and taxpayer details not checked.",
+        "disposition": "단기 세제 우위도 절대 투자수익·환차손·분배지속성을 보장하지 않는다",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "**연구자 보충(영상 미발언)** 국내상장 해외주식 ETF는 시장가격/환율/배당정책에 따른 원금손실 가능. 화자가 원금보장을 말하지 않음."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_OFFICIAL_TAX_GUIDANCE_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
+    },
+    {
+      "claim_id": "1e--424cAKI-17",
+      "timecode": "RESEARCHER_CONTEXT_NOT_IN_VIDEO",
+      "watch_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+      "source_paraphrase": "연구자 한계: 영상에서 미국 배당주 관련 국내상장 ETF 티커와 개별 원천세액이 제시되지 않아 실제 개인 외국납부세액공제 계산은 보류",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "영상 1분21초 자막에서 구체 ETF 종목번호/외국세액 내역 미제시. 직접미국주식은 ISA에서 불가, 국내상장 미국투자ETF를 가정해서만 적합",
+      "official_sources": [
+        "https://www.youtube.com/watch?v=1e--424cAKI"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-15",
+        "primary_url": "https://www.youtube.com/watch?v=1e--424cAKI",
+        "basis": "Original user private 38 cue 2927 bytes raw SHA validated, independently retrieved Korean public full ASR 542 normalized chars matches. Researcher-only OFF-VIDEO policy detail. Audio/frames and taxpayer details not checked.",
+        "disposition": "영상 1분21초 자막에서 구체 ETF 종목번호/외국세액 내역 미제시. 직접미국주식은 ISA에서 불가, 국내상장 미국투자ETF를 가정해서만 적합",
+        "effective_date_or_scope": "Video 2026-04-30; Korean intermediary ISA and foreign tax credit amended 2025-07-01, official 2026 tax guidance scoped to eligible products and individuals",
+        "source_finding": "**연구자 보충(영상 미발언)** 해당 1분 영상은 국내상장 ETF의 정확한 티커/증빙별 외국납부세액을 제시하지 않아 인별 세액계산·상품종류 확정 불가."
+      },
+      "timecode_precision": "VIDEO_START_ONLY_NO_CHAPTERS_NO_PRIVATE_SRT",
+      "source_cue_index": null,
+      "source_cue_start": null,
+      "source_anchor_sec": null,
+      "claim_role": "RESEARCHER_OFFICIAL_TAX_GUIDANCE_NOT_SPOKEN",
+      "private_srt_cue_anchor": null
+    }
+  ],
+  "claim_classification_tally": {
+    "PRIMARY_CONFIRMED": 10,
+    "QUALIFIED": 6,
+    "CONTRADICTED": 0,
+    "HYPOTHETICAL": 1
+  },
+  "verification_status": "V3_ELIGIBLE_KOREAN_PRIVATE_38_CUES_PUBLIC_FULL_542CHAR_SHA_EQUAL_17_ITEMS_10_VIDEO_AND_7_RESEARCHER_TAX_BOUNDARY",
+  "chapters": [
+    "00:00 쇼츠"
+  ],
+  "limitations": [
+    "Original private Korean 38-cue SRT unavailable, SHA from registry not recomputed.",
+    "Do not conflate original US-listed stocks with Korean-listed US-investment ETF.",
+    "Foreign withholding tax vs later ISA termination credit are separate events.",
+    "Items -13,-14 are misconceptions explicitly rejected by speaker, not his asserted incorrect positions.",
+    "Private original 38 cues and public full Korean ASR SHA matched after whitespace normalization, original audio/frames not checked.",
+    "Seven highly specific ISA overseas ETF/foreign tax rules are researcher additions, not falsely attributed to 1-minute speaker.",
+    "ISA foreign tax credit deductible only up to taxable domestic dividend tax; actual refund/individual tax outcome not guaranteed."
+  ]
+}

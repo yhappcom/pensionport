@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 101,
+  "video_id": "4v8m0NOvAic",
+  "published_at": null,
+  "title": "[계좌개설] CMA의 종류&금리 (ft. 이정도면 CMA는 끝난 듯)",
+  "source_doc": "videos/undated/4v8m0NOvAic.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 101
+  },
+  "topics": [
+    "cash_management"
+  ],
+  "knowledge_change": [
+    "BACKLOG_COMPACTION"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C65",
+    "topic": "cash_management",
+    "claim": "CMA는 하나의 고정 상품이 아니라 증권사가 고객의 대기자금을 RP, MMF, MMW, 발행어음 등 서로 다른 구조로 운용하는 현금관리 계좌다. 핵심 효용은 투자 전 대기자금 보관, 자동이체/결제 등 현금흐름 관리, 증권투자로의 연결이다.",
+    "supporting_videos": [
+      "4v8m0NOvAic"
+    ],
+    "status": "supported",
+    "confidence": "source_backed"
+  },
+  "framework_delta": "생활비/비상금/투자대기자금 목적 → 필요한 유동성 → CMA 내부 운용구조 → 위험·보호장치 → 금리/편의성 순으로 판단한다. 기존 cash-management 원칙을 강화한다.",
+  "created_at": "2026-10-06T08:24:00+09:00"
+}

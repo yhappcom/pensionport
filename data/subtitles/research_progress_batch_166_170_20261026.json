@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-26",
+  "prior_baseline": {
+    "approved_v3_videos": 165,
+    "reviewed_material_and_editorial_claims": 2625
+  },
+  "batch": {
+    "roster_range": "166-170",
+    "videos": 5,
+    "longform": 3,
+    "shorts": 2,
+    "source_srt_cues": 3161,
+    "source_raw_bytes": 246943,
+    "source_zip": "101-200.zip",
+    "source_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
+    "claim_count": 86,
+    "tally": {
+      "PRIMARY_CONFIRMED": 24,
+      "QUALIFIED": 44,
+      "CONTRADICTED": 11,
+      "HYPOTHETICAL": 7,
+      "SPEAKER_OPINION": 0
+    },
+    "per_video": [
+      {
+        "no": 166,
+        "id": "3jtBJc17ZHw",
+        "claims": 29,
+        "cues": 886,
+        "status": "APPROVED"
+      },
+      {
+        "no": 167,
+        "id": "OiWlknxQZrI",
+        "claims": 16,
+        "cues": 806,
+        "status": "APPROVED"
+      },
+      {
+        "no": 168,
+        "id": "E7VrikrhCbQ",
+        "claims": 28,
+        "cues": 1397,
+        "status": "APPROVED"
+      },
+      {
+        "no": 169,
+        "id": "9xjns0clsmY",
+        "claims": 7,
+        "cues": 41,
+        "status": "APPROVED"
+      },
+      {
+        "no": 170,
+        "id": "HT5KD-SZYq4",
+        "claims": 6,
+        "cues": 31,
+        "status": "APPROVED"
+      }
+    ]
+  },
+  "current_cumulative": {
+    "approved_v3_videos": 170,
+    "reviewed_material_and_editorial_claims": 2711,
+    "total_roster_videos": 791,
+    "remaining_v3_roster_videos": 621
+  },
+  "legacy_optional_verification": {
+    "total": 38,
+    "resolved": 14,
+    "open": 24,
+    "unchanged": true
+  },
+  "source_integrity": {
+    "registry": "data/subtitles/registry_166_170_20261026.json",
+    "five_original_sha256_matched": true,
+    "all_cues_numbered": true,
+    "raw_SRT_or_zip_publicly_uploaded": false,
+    "actual_video_audio_inspected": false,
+    "video_frames_inspected": false,
+    "public_ko_second_transcript_fullbody_verified": false
+  },
+  "secondary_verification": {
+    "contradicted_claims_corrected": 11,
+    "independent_financial_source_claims_confirmed_or_qualified": 68,
+    "hypothetical_only": 7,
+    "untriaged_material_claims": 0,
+    "report": "knowledge/VIDEO166_170_FULL_V3_SECOND_PASS_EVIDENCE_REVIEW_20261026.md"
+  },
+  "notes": [
+    "Pilot analysis fields retain NOT_APPROVED by source audit workflow convention; canonical analysis_events files are APPROVED.",
+    "2025 source rules distinguished from 2026 current implementation.",
+    "Batch includes 3 longform educational videos and 2 shortform clips; video roster approvals count both.",
+    "Source privacy preserved; no original subtitle body copied to GitHub."
+  ]
+}

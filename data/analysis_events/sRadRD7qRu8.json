@@ -1,0 +1,403 @@
+{
+  "schema_version": 3,
+  "analysis_status": "COMPLETE",
+  "approval": "APPROVED",
+  "reviewed_at": "2026-10-26",
+  "video_id": "sRadRD7qRu8",
+  "roster_no": 145,
+  "title": "원금이 줄어들지 않는 '4%의 룰' | 연금부자수업 EP.08",
+  "channel": "박곰희TV",
+  "source_url": "https://www.youtube.com/watch?v=sRadRD7qRu8",
+  "published_at": "2026-02-01",
+  "duration": "00:26:16",
+  "pilot_video_id": "sRadRD7qRu8",
+  "source_level": "DIRECT_ZIP_RAW_SHA256_5_VIDEO_ENTIRE_SRT_AND_INDEPENDENT_FINANCIAL_PRIMARY_SOURCES",
+  "source_provider": "Original user ZIP SRT; Korean financial institutions/regulatory publications; Bengen's first-party history and Nobel Foundation charter",
+  "scope": "16 materially distinct educational or sponsored claims from 745 source SRT cues. Primary-sourced numerical rules and false absolute guarantees separately audited.",
+  "core_message": "벤젠 4% 초기 은퇴인출 규칙과 영구 원금 보존의 혼동, 25배 은퇴비용·6% 인출 제안의 위험, 노벨재단 설명과 복리 계산 분리",
+  "core_claims": [
+    {
+      "claim_id": "sRadRD7qRu8-01",
+      "timecode": "00:00:25",
+      "source_cue_index": 12,
+      "claim": "노벨재단이 120년간 원금을 전혀 쓰지 않고 상금만 지급했다",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.nobelprize.org/statutes-of-the-nobel-foundation/"
+      ],
+      "disposition": "노벨 유언은 투자된 자본의 이자를 상금 재원으로 쓰라는 원칙을 포함하나 재단 운영규정은 자산매각 수익을 지출에 사용할 수 있다. 120년 동안 원금을 전혀 건드리지 않았다는 전수 회계검증은 이 자료만으로 불가.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    },
+    {
+      "claim_id": "sRadRD7qRu8-02",
+      "timecode": "00:00:41",
+      "source_cue_index": 18,
+      "claim": "'노벨의 유언에는 투자수익의 67.5%를 상금으로 지급하라고 명시'라는 출처 서술",
+      "verification": "CONTRADICTED",
+      "sources": [
+        "https://www.nobelpeaceprize.org/nobel-peace-prize/history/alfred-nobel-s-will",
+        "https://www.nobelprize.org/statutes-of-the-nobel-foundation/",
+        "https://v.daum.net/v/BhZxOdJqOR"
+      ],
+      "disposition": "SRT cue16~20은 실제로 67.5%를 노벨 유언에 '명시'했다고 말한다. 1895년 노벨 유언장 영문 전문은 원본 기금수익(interest)을 다섯 분야 상금으로 나눈다고 지시할 뿐 '67.5%'는 쓰지 않았다. 여러 한국 언론 보도에는 노벨재단의 수익배분 규칙/관행으로 67.5%가 등장하므로 숫자가 전적으로 허구라고 단정해서는 안 된다. 그러나 이를 노벨의 1895년 유언 문구 자체라고 직접 인용한 것은 잘못된 출처 귀속이므로 CONTRADICTED 유지. 현재 공개된 노벨재단 헌장 페이지에서도 67.5% 직접 확인 불가; 비율의 재단 1차 규정·원년도는 OPEN/미확인.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE",
+      "context_second_pass_20261026": {
+        "before": {
+          "status": "CONTRADICTED",
+          "phrase": "노벨의 원문 유언에 '투자 수익의 67.5%를 상금으로 지급'한다고 명시돼 있다",
+          "finding": "노벨재단이 게시한 알프레드 노벨 원문 유언은 상금을 위해 투자수익을 분배하라는 지시를 하지만 '67.5%'라는 수치는 나타나지 않는다. 이 특정 비율을 유언의 직인용처럼 제시한 것은 원출처와 불일치.",
+          "urls": [
+            "https://www.nobelprize.org/statutes-of-the-nobel-foundation/"
+          ],
+          "source_cue": 18
+        },
+        "after_verdict": "CONTRADICTED",
+        "reference_cue": 18,
+        "reviewed_adjacent_source_SRT": true,
+        "independent_citation_support_only_for_scope_as_reported": true,
+        "detail_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+      }
+    },
+    {
+      "claim_id": "sRadRD7qRu8-03",
+      "timecode": "00:00:59",
+      "source_cue_index": 25,
+      "claim": "1994년 벤젠이 미국 역사적 수익률로 4% 인출 규칙을 연구",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.bengenfs.com/the-4-percent-rule/"
+      ],
+      "disposition": "William Bengen이 1994년 발표한 'Determining Withdrawal Rates Using Historical Data'에서 미국 역사적 주식/채권수익과 물가를 분석. 초기 약4%를 인출 후 매년 물가 조정한 금액으로 지출하는 30년 은퇴기간 생존 여부를 관찰.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    },
+    {
+      "claim_id": "sRadRD7qRu8-04",
+      "timecode": "00:01:11",
+      "source_cue_index": 29,
+      "claim": "연금 운영자산에서 매년 4%를 인출하면 원금이 줄지 않고 평생 사용할 수 있다는 설명",
+      "verification": "CONTRADICTED",
+      "sources": [
+        "https://obj.portfolioconstructionforum.edu.au/articles_perspectives/retailinvestor.org_pdf_Bengen1.pdf",
+        "https://www.bengenfs.com/the-4-percent-rule/"
+      ],
+      "disposition": "SRT cue29~32에서 '4%만 매년 인출한다면 원금이 줄지 않고 평생 사용할 수 있다'고 단정한다. William Bengen, 1994, Determining Withdrawal Rates Using Historical Data (Journal of Financial Planning pp171-180)의 4%는 첫해 시작자산의 4%를 인출한 후 다음 해부터 전년도 인출액을 물가변동에 따라 수정해 최대 30년 고갈 없이 지속되는지 본 미국 1926~1992년 주식·채권 시계열의 역사적 결과다. 원금 금액이나 구매력 영구 보전은 보증하지 않는다. '매년 잔액의 4%'와도 다른 방식.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE",
+      "context_second_pass_20261026": {
+        "before": {
+          "status": "CONTRADICTED",
+          "phrase": "자산의 4%를 매년 인출하면 원금이 줄지 않고 평생 보존된다",
+          "finding": "원래 벤젠 연구는 약30년간 자금이 바닥나지 않는지 분석한 것일 뿐 원금 평가액이 매년 유지되거나 영원히 지속된다는 조건·보장이 아니다. 매년 잔액4%와 첫해 잔액4% 후 물가조정은 서로 다른 규칙.",
+          "urls": [
+            "https://www.bengenfs.com/the-4-percent-rule/"
+          ],
+          "source_cue": 29
+        },
+        "after_verdict": "CONTRADICTED",
+        "reference_cue": 29,
+        "reviewed_adjacent_source_SRT": true,
+        "independent_citation_support_only_for_scope_as_reported": true,
+        "detail_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+      }
+    },
+    {
+      "claim_id": "sRadRD7qRu8-05",
+      "timecode": "00:01:31",
+      "source_cue_index": 38,
+      "claim": "4%를 인출하면 은퇴자산을 무한히 계속 사용할 수 있다는 설명",
+      "verification": "CONTRADICTED",
+      "sources": [
+        "https://obj.portfolioconstructionforum.edu.au/articles_perspectives/retailinvestor.org_pdf_Bengen1.pdf"
+      ],
+      "disposition": "SRT cue34~39은 포트폴리오 고갈 가능성을 인정하지 않고 4%씩 쓰면 '무한히 쓸 수 있다'고 표현한다. Bengen의 1994년 원논문은 최소 목표 30년, 특정 미국 역사적 시작시점의 자료를 평가하며 일련의 위험요인을 지적한다. '30년 역사적 지속 가능성'을 무기한 원금보전으로 일반화한 것은 자료와 상충.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE",
+      "context_second_pass_20261026": {
+        "before": {
+          "status": "CONTRADICTED",
+          "phrase": "4%만 인출하면 무한히 연금처럼 쓸 수 있다",
+          "finding": "'30년 지속 가능성'을 무한 원금 보전 규칙으로 바꾸는 것은 위험한 일반화. 주식·채권의 시퀀스위험, 수수료·물가·수명·세금이 4% 전략 성공에 영향.",
+          "urls": [
+            "https://www.morningstar.com/retirement/morningstars-retirement-income-research-reevaluating-4-withdrawal-rule"
+          ],
+          "source_cue": 38
+        },
+        "after_verdict": "CONTRADICTED",
+        "reference_cue": 38,
+        "reviewed_adjacent_source_SRT": true,
+        "independent_citation_support_only_for_scope_as_reported": true,
+        "detail_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+      }
+    },
+    {
+      "claim_id": "sRadRD7qRu8-06",
+      "timecode": "00:02:14",
+      "source_cue_index": 57,
+      "claim": "현금성 파킹 또는 보수적 운용만으로도 4% 안팎 수익이 상당히 높은 확률로 가능하다는 당시 전망",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/save-and-invest/save-rainy-day",
+        "https://www.bengenfs.com/the-4-percent-rule/"
+      ],
+      "disposition": "SRT cue48~65에서 화자는 주식 수익의 연간 변동성을 인식하고도 '높은 확률로 4%가 매년', '사실상 안전하게 파킹해도 4%'라고 기대를 설명한다. 기존 판정은 '현금성 자산 4% 무조건 확정 보장'이라고 확대 요약해 과도했다. 특정 금리일·시점·기관·한도·세후수익의 증빙이 없으므로 위험자산보다 확실하다는 보장성 일반화는 금지하고, 2026-02 당시 예치/금융상품 근거 없는 가정은 QUALIFIED로 제한한다. Bengen 4% 인출안전률을 현금금리4% 확정과 연결하는 것은 별개의 오류.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE",
+      "context_second_pass_20261026": {
+        "before": {
+          "status": "CONTRADICTED",
+          "phrase": "현금성 안전자산만으로도 4%를 거의 확실히 매년 벌 수 있다",
+          "finding": "현금 파킹금리는 경기·중앙은행금리·상품·기간별로 변하며 4% 확정수익을 보장하지 않음. 실질수익은 물가/세후 하락 가능.",
+          "urls": [
+            "https://www.investor.gov/introduction-investing/investing-basics/save-and-invest/save-rainy-day"
+          ],
+          "source_cue": 57
+        },
+        "after_verdict": "QUALIFIED",
+        "reference_cue": 57,
+        "reviewed_adjacent_source_SRT": true,
+        "independent_citation_support_only_for_scope_as_reported": true,
+        "detail_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+      }
+    },
+    {
+      "claim_id": "sRadRD7qRu8-07",
+      "timecode": "00:04:30",
+      "source_cue_index": 121,
+      "claim": "월생활비 200만원을 4%의 룰로 계산하면 필요자산 6억원",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.bengenfs.com/the-4-percent-rule/"
+      ],
+      "disposition": "연간 필요자금200만원×12=2400만원; 이를 0.04로 나눈 초기 자금6억원은 정확한 산술. 세금·인플레·수익률위험·현금예비비 별도.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    },
+    {
+      "claim_id": "sRadRD7qRu8-08",
+      "timecode": "00:06:47",
+      "source_cue_index": 188,
+      "claim": "월급 550만원의 25배 연소득을 필요자산으로 가정하면 16.5억원",
+      "verification": "HYPOTHETICAL",
+      "sources": [],
+      "disposition": "550만원×12×25=16억5000만원은 산술적 사례이나 노후 실지출과 현재 총급여는 다를 수 있고 목표는 개인별로 조정.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    },
+    {
+      "claim_id": "sRadRD7qRu8-09",
+      "timecode": "00:12:20",
+      "source_cue_index": 353,
+      "claim": "연7%로 복리투자하면 월100만원 미만 적립만으로 6억원 마련 가능",
+      "verification": "HYPOTHETICAL",
+      "sources": [],
+      "disposition": "필요 기간과 초기 자산이 생략된 시나리오여서 목표 달성 검증 불가. 7% 주식시장 미래수익도 보장되지 않는다.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    },
+    {
+      "claim_id": "sRadRD7qRu8-10",
+      "timecode": "00:12:48",
+      "source_cue_index": 366,
+      "claim": "현재 금리를 근거로 초기 은퇴인출률을 4%에서 6%로 높여도 무리 없고 4억원에서 매년 2400만원을 찾아도 원금이 거의 유지된다는 설명",
+      "verification": "CONTRADICTED",
+      "sources": [
+        "https://obj.portfolioconstructionforum.edu.au/articles_perspectives/retailinvestor.org_pdf_Bengen1.pdf",
+        "https://www.bengenfs.com/the-4-percent-rule/"
+      ],
+      "disposition": "SRT cue364~376은 6% 인출의 산술뿐 아니라 4억원 원금의 거의 보전을 명시한다. 원논문 Bengen 1994 p179는 연금 첫해 인출률5%가 위험하고 6% 이상은 강한 경고 대상이라고 평가했다. 특정 연도의 이자·배당률이 6%라고 30년 생활비 인출을 원금보전할 수는 없다. 4억원×0.06=연2400만원·월200만원 산술만 정확하며 인플레이션·시장조정·수수료·인출순서 위험에 따른 지속가능성은 별도.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE",
+      "context_second_pass_20261026": {
+        "before": {
+          "status": "CONTRADICTED",
+          "phrase": "현 금리 상황에서는 4% 은퇴 인출률을 6%로 높여도 무리 없다",
+          "finding": "6%는 4%보다 자금소진 위험이 큰 별도 장기 은퇴 인출 전략이다. 특정 금리 시점이나 현재 배당수익률만으로 은퇴기간 영구 안전을 주장할 수 없다.",
+          "urls": [
+            "https://www.morningstar.com/retirement/morningstars-retirement-income-research-reevaluating-4-withdrawal-rule"
+          ],
+          "source_cue": 366
+        },
+        "after_verdict": "CONTRADICTED",
+        "reference_cue": 366,
+        "reviewed_adjacent_source_SRT": true,
+        "independent_citation_support_only_for_scope_as_reported": true,
+        "detail_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+      }
+    },
+    {
+      "claim_id": "sRadRD7qRu8-11",
+      "timecode": "00:12:54",
+      "source_cue_index": 368,
+      "claim": "4억원에서 6%를 인출하면 연2400만원/월200만원",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.bengenfs.com/the-4-percent-rule/"
+      ],
+      "disposition": "4억원×0.06=2400만원/년=200만원/월이라는 단순 수식만 검증. 이 속도로 원금이 보존된다는 추가 추정은 별개이고 사실확정 아님.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    },
+    {
+      "claim_id": "sRadRD7qRu8-12",
+      "timecode": "00:15:21",
+      "source_cue_index": 433,
+      "claim": "과거 SK텔레콤 20~25만원 주가에 연1만원 배당이면 4~5% 배당수익",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.sktelecom.com/img/eng/audit/20220311/SKT2021YESeparate.pdf"
+      ],
+      "disposition": "배당금1만원/가격20~25만원이면 수학적으로 4~5%이지만 영상 회고의 실제 주가·배당금·배당기준일과 과거 주식분할·당시 세금은 별도 원표 미대조.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    },
+    {
+      "claim_id": "sRadRD7qRu8-13",
+      "timecode": "00:17:00",
+      "source_cue_index": 482,
+      "claim": "주식 기대수익률이 상대적으로 높으므로 혼합 포트폴리오는 장기적으로 4%를 하회하지 않을 수 있다고 기대",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/save-and-invest/save-rainy-day",
+        "https://obj.portfolioconstructionforum.edu.au/articles_perspectives/retailinvestor.org_pdf_Bengen1.pdf"
+      ],
+      "disposition": "SRT cue482~495에서 화자는 '4% 밑으로는 가지 않겠구나라고 생각해볼 수 있는 거죠'라고 기대·의견형으로 설명한다. 기존 조사에서 '연4% 밑의 수익률은 발생하지 않는다'는 절대 확정수익률로 요약한 것은 문맥보다 강했다. 실제로 주식·채권 혼합에서도 연간 평가손실 및 장기 기대수익 미달은 가능하므로 '최저 수익률 4%'라는 지식으로 사용 금지. 단, 연4% 바닥을 보장한 명제가 아닌 시나리오/기대 추정이므로 QUALIFIED로 정정한다.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE",
+      "context_second_pass_20261026": {
+        "before": {
+          "status": "CONTRADICTED",
+          "phrase": "주식·채권을 섞으면 장기적으로 연4% 밑의 투자수익은 발생하지 않는다",
+          "finding": "금리·주식수익은 모두 확률적으로 변하며 주식채권 혼합도 0% 이하 손실연도가 발생할 수 있다. 과거/예상 평균수익을 연간 바닥 수익률로 바꿀 수 없다.",
+          "urls": [
+            "https://www.investor.gov/introduction-investing"
+          ],
+          "source_cue": 482
+        },
+        "after_verdict": "QUALIFIED",
+        "reference_cue": 482,
+        "reviewed_adjacent_source_SRT": true,
+        "independent_citation_support_only_for_scope_as_reported": true,
+        "detail_report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md"
+      }
+    },
+    {
+      "claim_id": "sRadRD7qRu8-14",
+      "timecode": "00:17:37",
+      "source_cue_index": 500,
+      "claim": "은퇴 인출률 5~6%도 매우 보수적이므로 지속 가능하다",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.morningstar.com/retirement/morningstars-retirement-income-research-reevaluating-4-withdrawal-rule"
+      ],
+      "disposition": "발언은 실현 가능한 목표라는 화자 제안이지만 30년·물가 조정 인출의 6%는 상당한 소진위험. 사용자 인출예산 기준으로 무조건 안전하다는 결론은 반증; 제한된 가정으로만 사용.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    },
+    {
+      "claim_id": "sRadRD7qRu8-15",
+      "timecode": "00:20:43",
+      "source_cue_index": 593,
+      "claim": "연복리 5%일 때 10/30/50/100년 자산배수 1.6/4.3/11.5/131",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.investor.gov/introduction-investing"
+      ],
+      "disposition": "1.05^10=1.629, ^30=4.322, ^50=11.467, ^100=131.501. 반올림 값 정확하나 비용·물가·원금 추가납입·중도인출 없는 일정 연5% 가정.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    },
+    {
+      "claim_id": "sRadRD7qRu8-16",
+      "timecode": "00:22:07",
+      "source_cue_index": 629,
+      "claim": "연금저축·IRP·ISA 등을 장기적으로 쓰면 노벨재단처럼 소득이 영원히 발생한다",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.kiwoom.com/wm/rtp/pst/ri010/retireIntroMainView"
+      ],
+      "disposition": "절세계좌의 과세이연과 위험자산 운용은 원금보존/평생수익을 보장하지 않는다. 세법·인출규칙·포트폴리오 자산별 현금흐름 조건을 확인해야 한다.",
+      "source_precision": "KOREAN_AUTO_SRT_SOURCE_CUE_START_APPROXIMATE"
+    }
+  ],
+  "claim_classification_tally": {
+    "QUALIFIED": 6,
+    "CONTRADICTED": 4,
+    "PRIMARY_CONFIRMED": 4,
+    "HYPOTHETICAL": 2
+  },
+  "actionable_guidance": [
+    "sRadRD7qRu8-01: 노벨 유언은 투자된 자본의 이자를 상금 재원으로 쓰라는 원칙을 포함하나 재단 운영규정은 자산매각 수익을 지출에 사용할 수 있다. 120년 동안 원금을 전혀 건드리지 않았다는 전수 회계검증은 이 자료만으로 불가.",
+    "sRadRD7qRu8-02: 노벨재단이 게시한 알프레드 노벨 원문 유언은 상금을 위해 투자수익을 분배하라는 지시를 하지만 '67.5%'라는 수치는 나타나지 않는다. 이 특정 비율을 유언의 직인용처럼 제시한 것은 원출처와 불일치.",
+    "sRadRD7qRu8-03: William Bengen이 1994년 발표한 'Determining Withdrawal Rates Using Historical Data'에서 미국 역사적 주식/채권수익과 물가를 분석. 초기 약4%를 인출 후 매년 물가 조정한 금액으로 지출하는 30년 은퇴기간 생존 여부를 관찰.",
+    "sRadRD7qRu8-04: 원래 벤젠 연구는 약30년간 자금이 바닥나지 않는지 분석한 것일 뿐 원금 평가액이 매년 유지되거나 영원히 지속된다는 조건·보장이 아니다. 매년 잔액4%와 첫해 잔액4% 후 물가조정은 서로 다른 규칙.",
+    "sRadRD7qRu8-05: '30년 지속 가능성'을 무한 원금 보전 규칙으로 바꾸는 것은 위험한 일반화. 주식·채권의 시퀀스위험, 수수료·물가·수명·세금이 4% 전략 성공에 영향.",
+    "sRadRD7qRu8-06: 현금 파킹금리는 경기·중앙은행금리·상품·기간별로 변하며 4% 확정수익을 보장하지 않음. 실질수익은 물가/세후 하락 가능.",
+    "sRadRD7qRu8-07: 연간 필요자금200만원×12=2400만원; 이를 0.04로 나눈 초기 자금6억원은 정확한 산술. 세금·인플레·수익률위험·현금예비비 별도.",
+    "sRadRD7qRu8-10: 6%는 4%보다 자금소진 위험이 큰 별도 장기 은퇴 인출 전략이다. 특정 금리 시점이나 현재 배당수익률만으로 은퇴기간 영구 안전을 주장할 수 없다.",
+    "sRadRD7qRu8-11: 4억원×0.06=2400만원/년=200만원/월이라는 단순 수식만 검증. 이 속도로 원금이 보존된다는 추가 추정은 별개이고 사실확정 아님."
+  ],
+  "assumptions": [
+    "Original as-of 2026-02-01; current issuer and tax regulations must not be retroactively assumed to match marketing snapshots.",
+    "User-provided Korean auto SRT is direct textual source, not an authenticated audio/video track.",
+    "Individual private subscriber brokerage returns/positions are outside requested scope."
+  ],
+  "risks_and_exceptions": [
+    "sRadRD7qRu8-02: SRT cue16~20은 실제로 67.5%를 노벨 유언에 '명시'했다고 말한다. 1895년 노벨 유언장 영문 전문은 원본 기금수익(interest)을 다섯 분야 상금으로 나눈다고 지시할 뿐 '67.5%'는 쓰지 않았다. 여러 한국 언론 보도에는 노벨재단의 수익배분 규칙/관행으로 67.5%가 등장하므로 숫자가 전적으로 허구라고 단정해서는 안 된다. 그러나 이를 노벨의 1895년 유언 문구 자체라고 직접 인용한 것은 잘못된 출처 귀속이므로 CONTRADICTED 유지. 현재 공개된 노벨재단 헌장 페이지에서도 67.5% 직접 확인 불가; 비율의 재단 1차 규정·원년도는 OPEN/미확인.",
+    "sRadRD7qRu8-04: SRT cue29~32에서 '4%만 매년 인출한다면 원금이 줄지 않고 평생 사용할 수 있다'고 단정한다. William Bengen, 1994, Determining Withdrawal Rates Using Historical Data (Journal of Financial Planning pp171-180)의 4%는 첫해 시작자산의 4%를 인출한 후 다음 해부터 전년도 인출액을 물가변동에 따라 수정해 최대 30년 고갈 없이 지속되는지 본 미국 1926~1992년 주식·채권 시계열의 역사적 결과다. 원금 금액이나 구매력 영구 보전은 보증하지 않는다. '매년 잔액의 4%'와도 다른 방식.",
+    "sRadRD7qRu8-05: SRT cue34~39은 포트폴리오 고갈 가능성을 인정하지 않고 4%씩 쓰면 '무한히 쓸 수 있다'고 표현한다. Bengen의 1994년 원논문은 최소 목표 30년, 특정 미국 역사적 시작시점의 자료를 평가하며 일련의 위험요인을 지적한다. '30년 역사적 지속 가능성'을 무기한 원금보전으로 일반화한 것은 자료와 상충.",
+    "sRadRD7qRu8-10: SRT cue364~376은 6% 인출의 산술뿐 아니라 4억원 원금의 거의 보전을 명시한다. 원논문 Bengen 1994 p179는 연금 첫해 인출률5%가 위험하고 6% 이상은 강한 경고 대상이라고 평가했다. 특정 연도의 이자·배당률이 6%라고 30년 생활비 인출을 원금보전할 수는 없다. 4억원×0.06=연2400만원·월200만원 산술만 정확하며 인플레이션·시장조정·수수료·인출순서 위험에 따른 지속가능성은 별도."
+  ],
+  "quantitative_claims": [
+    {
+      "metric": "ORIGINAL_SRT",
+      "sha256": "615ba53ec075ef2e19ed4f7cf4fe6cfb3ad0b32457bfc66ee01fa56297284562",
+      "raw_bytes": 57458,
+      "cues": 745
+    },
+    {
+      "metric": "EVIDENCE_CLAIMS",
+      "count": 16,
+      "verdicts": {
+        "QUALIFIED": 4,
+        "CONTRADICTED": 6,
+        "PRIMARY_CONFIRMED": 4,
+        "HYPOTHETICAL": 2
+      }
+    }
+  ],
+  "relations": [
+    {
+      "related_roster_no": 140,
+      "relation": "preceding approved V3 research retained unmodified"
+    }
+  ],
+  "verification_status": "V3_APPROVED_PRIORITY_4_AREA_AUDITED_20261026",
+  "evidence_gate": {
+    "version": 1,
+    "source_checked": true,
+    "all_material_claims_triaged": true,
+    "source_audit_reference": "data/subtitles/pilots/sRadRD7qRu8.json#source_audit",
+    "claim_evidence_reference": "data/subtitles/pilots/sRadRD7qRu8.json#claims[*].verification_evidence",
+    "source_fingerprint": "615ba53ec075ef2e19ed4f7cf4fe6cfb3ad0b32457bfc66ee01fa56297284562",
+    "source_cue_count": 745,
+    "source_byte_size": 57458,
+    "original_srt_sha_recomputed": true,
+    "original_cues_read": true,
+    "original_audio_verified": false,
+    "original_frames_verified": false,
+    "public_korean_fullbody_match_unverified": true,
+    "source_registry": "data/subtitles/registry_141_145_20261026.json",
+    "subscriber_private_account_return_proof": "EXCLUDED_BY_USER_REQUEST",
+    "sponsored_ad_segment_present": false,
+    "video_screen_only_interest_rates_verified": false,
+    "pilot_is_review_draft_not_independent_approval": true,
+    "priority_4_area_reaudit_20261026": {
+      "status": "COMPLETE_SRT_INDEPENDENT_EVIDENCE_SCOPED",
+      "reviewed_claim_ids": [
+        "sRadRD7qRu8-02",
+        "sRadRD7qRu8-04",
+        "sRadRD7qRu8-05",
+        "sRadRD7qRu8-06",
+        "sRadRD7qRu8-10",
+        "sRadRD7qRu8-13"
+      ],
+      "report": "knowledge/VIDEO142_143_145_PRIORITY_REAUDIT_20261026.md",
+      "source_file_sha_verified_again": true,
+      "source_audio_frames_verified": false,
+      "subscriber_private_account_performance_excluded": true
+    }
+  },
+  "limitations": [
+    "All video-derived wording comes from user's uploaded Korean original SRT; no word-for-word verification against acoustic video.",
+    "Independent outside publications validate rules/constraints but do not certify private promotional display rates.",
+    "User excluded individual subscriber private returns/holdings from required evidence gate."
+  ]
+}

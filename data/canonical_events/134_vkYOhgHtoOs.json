@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 134,
+  "video_id": "vkYOhgHtoOs",
+  "published_at": null,
+  "title": "🧑🏻‍🏫 35강 - 서킷브레이커ㅣ쌩초보반 무료공유ㅣ🏫곰희스쿨",
+  "source_doc": "videos/undated/vkYOhgHtoOs.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 134
+  },
+  "topics": [
+    "market_stress"
+  ],
+  "knowledge_change": [
+    "BACKLOG_COMPACTION"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C98",
+    "topic": "market_stress",
+    "claim": "서킷브레이커는 급격한 시장 변동 때 거래를 일시 중단해 과도한 주문 쏠림과 패닉을 완화하기 위한 시장안정장치다. 장기 투자자에게 중요한 점은 '서킷브레이커 발생=투자전략 변경 신호'가 아니라는 것이다.",
+    "supporting_videos": [
+      "vkYOhgHtoOs"
+    ],
+    "status": "supported",
+    "confidence": "source_backed"
+  },
+  "framework_delta": "시장 이벤트 → 거래소 안정장치 → 개인 포트폴리오 위험예산 → 사전 리밸런싱 규칙으로 분리한다.",
+  "created_at": "2026-10-06T08:36:00+09:00"
+}

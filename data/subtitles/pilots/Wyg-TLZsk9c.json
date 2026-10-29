@@ -1,0 +1,194 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-26",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "roster_no": 180,
+  "video_id": "Wyg-TLZsk9c",
+  "title": "5000만원으로 투자 시작 — CMA·ISA 60:40 적립식 (Shorts)",
+  "source_url": "https://www.youtube.com/watch?v=Wyg-TLZsk9c",
+  "duration": "00:01:30",
+  "source_kind": "USER_PRIVATE_SRT_ZIP_101_200",
+  "source_level": "PRIVATE_SOURCE_SHORT_SEC_ISA_CMA_FIRST_PARTY",
+  "subtitle_sha256": "008ecbdca9cf3288e81d45da4c22414c361b94bbc7fdb330c927540f00b8216d",
+  "existing_registry_srt": {
+    "sha256": "008ecbdca9cf3288e81d45da4c22414c361b94bbc7fdb330c927540f00b8216d",
+    "cue_count": 40,
+    "raw_srt_bytes": 3068
+  },
+  "cue_count": 40,
+  "source_audit": {
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "original_srt_sha256": "008ecbdca9cf3288e81d45da4c22414c361b94bbc7fdb330c927540f00b8216d",
+    "cue_count": 40,
+    "raw_bytes": 3068,
+    "original_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_full_ko_transcript_checked": false,
+    "limitations": "Shorts do not provide full securities suitability, exact product terms, tax, account ownership or future rate evidence; no audio/frames checked.",
+    "evidence_reference": "All 40 original private Korean timed cues checked; 8 material CMA/ISA/asset-allocation claims mapped to cue timestamps and SEC/issuer first-party terms, with indicative rate and loss risk classified."
+  },
+  "core_message": "CMA 예금자보호와 시점별 금리, ISA 주식60 채권40 위험 및 분할매수·리밸런싱 원리를 분리",
+  "claims": [
+    {
+      "claim_id": "Wyg-TLZsk9c-01",
+      "source_cue_index": 7,
+      "timecode": "00:00:12.960",
+      "source_paraphrase": "5000만원 목돈을 은행에 그대로 두면 기회비용이 항상 너무 크다는 조언",
+      "assessment": "QUALIFIED",
+      "independent_check": "예금금리·예금자보호·사용기한에 따라 은행예금이 적합할 수 있다. 일괄 투자 전환은 손실가능성을 포함한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "예금금리·예금자보호·사용기한에 따라 은행예금이 적합할 수 있다. 일괄 투자 전환은 손실가능성을 포함한다.",
+        "disposition": "예금금리·예금자보호·사용기한에 따라 은행예금이 적합할 수 있다. 일괄 투자 전환은 손실가능성을 포함한다.",
+        "effective_date_or_scope": "2025-11-20 educational Short; financial product rates and eligible allocations not universal",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "Wyg-TLZsk9c-02",
+      "source_cue_index": 13,
+      "timecode": "00:00:25.119",
+      "source_paraphrase": "5000만원을 CMA에 넣으면 월7~8만원 이자를 기대",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "5000만원 기준 세전 월7~8만원은 연단리 환산 약1.68~1.92%; 실제 지급률·세금·수수료·CMA 유형별로 달라지며 예금자보호가 자동 적용되지 않음.",
+      "official_sources": [
+        "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-26",
+        "source_finding": "5000만원 기준 세전 월7~8만원은 연단리 환산 약1.68~1.92%; 실제 지급률·세금·수수료·CMA 유형별로 달라지며 예금자보호가 자동 적용되지 않음.",
+        "disposition": "5000만원 기준 세전 월7~8만원은 연단리 환산 약1.68~1.92%; 실제 지급률·세금·수수료·CMA 유형별로 달라지며 예금자보호가 자동 적용되지 않음.",
+        "effective_date_or_scope": "2025-11-20 educational Short; financial product rates and eligible allocations not universal",
+        "basis": "5000만원 기준 세전 월7~8만원은 연단리 환산 약1.68~1.92%; 실제 지급률·세금·수수료·CMA 유형별로 달라지며 예금자보호가 자동 적용되지 않음."
+      }
+    },
+    {
+      "claim_id": "Wyg-TLZsk9c-03",
+      "source_cue_index": 16,
+      "timecode": "00:00:31.359",
+      "source_paraphrase": "ISA 계좌에 주식 60%, 채권 40% 비중으로 포트 구성",
+      "assessment": "QUALIFIED",
+      "independent_check": "60:40 합계100%의 예시 자산배분은 손실을 방지하는 보증이 아니며 ISA 적격 국내상장 편입상품·가입한도·위험성향에 따라 달라짐.",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/pension/isa.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "60:40 합계100%의 예시 자산배분은 손실을 방지하는 보증이 아니며 ISA 적격 국내상장 편입상품·가입한도·위험성향에 따라 달라짐.",
+        "disposition": "60:40 합계100%의 예시 자산배분은 손실을 방지하는 보증이 아니며 ISA 적격 국내상장 편입상품·가입한도·위험성향에 따라 달라짐.",
+        "effective_date_or_scope": "2025-11-20 educational Short; financial product rates and eligible allocations not universal",
+        "primary_url": "https://www.samsungfund.com/etf/pension/isa.do"
+      }
+    },
+    {
+      "claim_id": "Wyg-TLZsk9c-04",
+      "source_cue_index": 18,
+      "timecode": "00:00:37.399",
+      "source_paraphrase": "미국 S&P500과 나스닥100 ETF를 주식 핵심으로 활용하고 성장 테마 소액 편입",
+      "assessment": "QUALIFIED",
+      "independent_check": "기초지수 ETF가 분산 효과를 줄 수 있으나 나스닥 기술주 편중 및 개별 테슬라·양자 테마 변동성/환율이 위험에 추가된다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "기초지수 ETF가 분산 효과를 줄 수 있으나 나스닥 기술주 편중 및 개별 테슬라·양자 테마 변동성/환율이 위험에 추가된다.",
+        "disposition": "기초지수 ETF가 분산 효과를 줄 수 있으나 나스닥 기술주 편중 및 개별 테슬라·양자 테마 변동성/환율이 위험에 추가된다.",
+        "effective_date_or_scope": "2025-11-20 educational Short; financial product rates and eligible allocations not universal",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "Wyg-TLZsk9c-05",
+      "source_cue_index": 22,
+      "timecode": "00:00:47.559",
+      "source_paraphrase": "미국채 ETF·국내 종합채권 ETF 조합을 채권 40%에 편입",
+      "assessment": "QUALIFIED",
+      "independent_check": "채권 ETF는 금리상승·듀레이션·신용 및 환율 위험을 포함, 채권 비중 40%로 원금보장되는 것은 아님.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "채권 ETF는 금리상승·듀레이션·신용 및 환율 위험을 포함, 채권 비중 40%로 원금보장되는 것은 아님.",
+        "disposition": "채권 ETF는 금리상승·듀레이션·신용 및 환율 위험을 포함, 채권 비중 40%로 원금보장되는 것은 아님.",
+        "effective_date_or_scope": "2025-11-20 educational Short; financial product rates and eligible allocations not universal",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "Wyg-TLZsk9c-06",
+      "source_cue_index": 25,
+      "timecode": "00:00:54.359",
+      "source_paraphrase": "5000만원을 한 번에 넣지 않고 매월100만~150만원 적립식 투자",
+      "assessment": "QUALIFIED",
+      "independent_check": "정액분할매수는 가격시점 분산이지만 미래 하락을 막거나 일괄 투자보다 우월한 수익을 보장하지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "정액분할매수는 가격시점 분산이지만 미래 하락을 막거나 일괄 투자보다 우월한 수익을 보장하지 않는다.",
+        "disposition": "정액분할매수는 가격시점 분산이지만 미래 하락을 막거나 일괄 투자보다 우월한 수익을 보장하지 않는다.",
+        "effective_date_or_scope": "2025-11-20 educational Short; financial product rates and eligible allocations not universal",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "Wyg-TLZsk9c-07",
+      "source_cue_index": 29,
+      "timecode": "00:01:04.159",
+      "source_paraphrase": "목표 자산배분과 어긋나면 1년에 한 번 리밸런싱",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "리밸런싱은 목표비중으로 되돌리는 일반적 관리기법. 매도세금·거래비용·최소 단위·ISA 한도와 개인 투자기간 확인 필요.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-26",
+        "source_finding": "리밸런싱은 목표비중으로 되돌리는 일반적 관리기법. 매도세금·거래비용·최소 단위·ISA 한도와 개인 투자기간 확인 필요.",
+        "disposition": "리밸런싱은 목표비중으로 되돌리는 일반적 관리기법. 매도세금·거래비용·최소 단위·ISA 한도와 개인 투자기간 확인 필요.",
+        "effective_date_or_scope": "2025-11-20 educational Short; financial product rates and eligible allocations not universal",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "Wyg-TLZsk9c-08",
+      "source_cue_index": 32,
+      "timecode": "00:01:10.520",
+      "source_paraphrase": "이미 많이 오른 자산 일부를 팔고 덜 오른 자산을 사는 방식으로 비중 조정",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "매도/매수 방식의 정기 리밸런싱이 가능하지만 수익률 보장·손실 회피가 아님. 자산군 동반하락 가능.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-26",
+        "source_finding": "매도/매수 방식의 정기 리밸런싱이 가능하지만 수익률 보장·손실 회피가 아님. 자산군 동반하락 가능.",
+        "disposition": "매도/매수 방식의 정기 리밸런싱이 가능하지만 수익률 보장·손실 회피가 아님. 자산군 동반하락 가능.",
+        "effective_date_or_scope": "2025-11-20 educational Short; financial product rates and eligible allocations not universal",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    }
+  ],
+  "claim_classification_tally": {
+    "QUALIFIED": 5,
+    "HYPOTHETICAL": 1,
+    "PRIMARY_CONFIRMED": 2
+  }
+}

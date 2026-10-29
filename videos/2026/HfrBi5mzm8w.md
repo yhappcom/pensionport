@@ -1,0 +1,31 @@
+# HfrBi5mzm8w — 노후에 가장 하고 싶은 일은? | 박곰희 연금부자수업 EP.19
+
+- published_at: 2026-09-16
+- recorded_at: 2026-09-10
+- type: long_form
+- content_tag: book_explanation / subscriber_comments
+- source_status: exact official metadata/chapters; detailed transcript unavailable
+- knowledge_change: EXTEND, REINFORCE
+
+## 확인된 구조
+공식 설명에 따르면 『박곰희 연금 부자 수업』 내용을 해설하는 EP.19이며, 본편의 중심 장은 '노후에 가장 하고 싶은 일'이다. 영상은 안정적 노후준비에 도움을 주는 것을 목적으로 하고 후반에 구독자 댓글을 읽는다.
+
+## 핵심 분석
+은퇴설계는 '얼마를 모아야 하는가'라는 숫자부터 시작하기보다 은퇴 후 어떤 삶과 활동을 원하는지 정의하는 것이 먼저라는 목표기반 접근을 강화한다. 원하는 활동이 여행·취미·가족지원·주거·의료 등 무엇인지에 따라 필요한 생활비와 현금흐름이 달라지기 때문이다.
+
+## 실행
+원하는 은퇴생활 → 필수/선택지출 구분 → 월/연간 필요현금흐름 → 공적연금/퇴직연금 등 확정·준확정 수입 → 부족액 → 사적연금·금융자산 목표 → 저축률/자산배분으로 역산한다.
+
+## 행동적 의미
+막연히 '노후가 불안하다'는 감정은 목표액을 끝없이 키우게 만들 수 있다. 구체적인 삶의 목표를 먼저 정하면 현재 소비와 저축의 균형, 필요한 위험수준을 더 현실적으로 정할 수 있다.
+
+## 제한
+전체 원문이 확보되지 않았으므로 영상에서 구독자가 제시한 구체 희망활동이나 숫자를 임의로 재구성하지 않는다.
+
+## 프레임워크
+은퇴자산 목표의 앞단에 삶의 목표 → 필요지출 → 필요소득 → 자산목표를 놓는 goals-based retirement planning layer를 강화한다.
+
+## Canonicalization
+- canonical_sequence: 94
+- canonicalized_at: 2026-10-06
+- sync_mode: backlog_compaction_without_reanalysis

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "event_type": "canonical_sequence_correction",
+  "run_id": "manual-analysis-20261007T064756+0900",
+  "video_id": "LHy5UbdIAcs",
+  "from_sequence": 142,
+  "to_sequence": 149,
+  "conflicting_video_id": "giJLCf3ed_s",
+  "conflicting_sequence": 142,
+  "resolution": "Compacted LHy5UbdIAcs into data/videos.jsonl at sequence 149 and updated learning_queue. Immutable 142 event retained as audit evidence and is ignored by effective overlay because the video_id now exists in the base aggregate.",
+  "reason": "duplicate canonical sequence created by overlapping writer runs",
+  "created_at": "2026-10-07T06:47:56+09:00"
+}
