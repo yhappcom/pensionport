@@ -1,0 +1,25 @@
+# yNLB4NHFxoc — 월급 200만원, 현실적인 투자계획 짜주세요 | ASK곰희 ver.2025
+
+- type: long_form
+- source_status: public indexed detailed summary
+- knowledge_change: EXTEND, REINFORCE, TIME_SENSITIVE
+
+## 핵심 분석
+낮거나 보통 수준의 월급에서도 투자계획의 출발점은 종목선정이 아니라 월 현금흐름이다. 고정지출·비상자금·단기목표를 분리한 뒤 남는 저축가능액을 절세계좌와 장기 자산배분에 배치한다.
+
+## 논리
+소득이 제한될수록 높은 수익률로 부족한 원금을 만회하려는 접근보다 저축률, 투자기간, 비용통제가 결과에 미치는 영향이 크다. 초기에는 투자원금 확대와 지속성이 핵심이다.
+
+## 실행
+월급 → 필수지출 → 비상자금 → 단기목표자금 → 장기 투자금 → 연금/ISA 등 wrapper → 자산배분 순으로 계획한다.
+
+## 위험
+생활비까지 투자하거나 비상자금 없이 장기계좌에 과도하게 묶으면 시장하락 때 강제매도 위험이 커진다. 계좌 한도·세제는 TIME_SENSITIVE다.
+
+## 프레임워크
+소득기반 cash-flow planning을 기존 투자계좌·자산배분 프레임의 앞단에 명시적으로 추가한다.
+
+## Canonicalization
+- canonical_sequence: 112
+- canonicalized_at: 2026-10-06
+- sync_mode: backlog_compaction_without_reanalysis

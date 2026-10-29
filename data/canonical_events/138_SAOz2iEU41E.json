@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 138,
+  "video_id": "SAOz2iEU41E",
+  "published_at": null,
+  "title": "나의 생애주기에 따른 ETF포트폴리오ㅣ김수정 작가님ㅣ특별한 만남ㅣ3편",
+  "source_doc": "videos/undated/SAOz2iEU41E.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 138
+  },
+  "topics": [
+    "etf",
+    "asset_allocation"
+  ],
+  "knowledge_change": [
+    "BACKLOG_COMPACTION"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C102",
+    "topic": "etf",
+    "claim": "ETF 포트폴리오는 모든 연령에 동일한 정답비중을 적용하는 것이 아니라 투자자의 생애주기, 소득안정성, 투자기간, 인출시점에 맞춰 위험자산 비중을 조절해야 한다.",
+    "supporting_videos": [
+      "SAOz2iEU41E"
+    ],
+    "status": "supported",
+    "confidence": "source_backed"
+  },
+  "framework_delta": "생애주기 → human capital/소득 → 인출시점 → risk budget → ETF 자산배분 → 리밸런싱으로 확장한다.",
+  "created_at": "2026-10-06T08:38:00+09:00"
+}

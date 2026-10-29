@@ -1,0 +1,24 @@
+# uGINO10KikM — 산업을 잘 골라야 연금을 오래오래~ 섹터 ETF 총정리 | 연금시리즈 12편
+
+- published_at: 2024-08-26
+- recording_date: 2024-08-21
+- type: long_form
+- source_status: official YouTube metadata/description
+- knowledge_change: EXTEND, REINFORCE
+
+## 핵심 분석
+연금계좌의 주식투자를 ETF로 구현할 때 시장 전체 지수보다 적극적인 노출을 원하는 투자자에게 산업별 섹터 ETF라는 선택지를 설명한다. 공식 설명은 10개 산업 구분에 따라 섹터 ETF를 정리하는 것이 영상 목적임을 명시한다.
+
+## 논리와 조건
+섹터 ETF는 개별 종목을 고르는 부담을 줄이면서 특정 산업에 대한 전망을 포트폴리오에 반영할 수 있다. 그러나 광범위 시장 ETF보다 산업집중도가 높으므로 'ETF=충분히 분산'으로 간주하면 안 된다. 연금의 장기 코어 자산과 적극적 위성자산 역할을 분리하는 것이 중요하다.
+
+## 위험
+산업 사이클, 밸류에이션, 구성종목 집중도와 지수방법론에 따라 결과가 크게 달라진다. 장기 연금계좌라는 wrapper가 섹터 집중위험을 제거하지 않는다.
+
+## 프레임워크
+연금계좌 → 목표 자산배분 → 코어 시장지수 → 필요 시 섹터 satellite → 구성종목/집중도/비용 점검으로 확장한다.
+
+## Canonicalization
+- canonical_sequence: 105
+- canonicalized_at: 2026-10-06
+- sync_mode: backlog_compaction_without_reanalysis

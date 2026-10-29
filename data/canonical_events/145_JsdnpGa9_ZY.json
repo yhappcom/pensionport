@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 145,
+  "video_id": "JsdnpGa9_ZY",
+  "published_at": null,
+  "title": "2024년 개정 ISA 바뀐점",
+  "source_doc": "videos/undated/JsdnpGa9_ZY.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 145
+  },
+  "topics": [
+    "isa",
+    "tax",
+    "policy_change"
+  ],
+  "knowledge_change": [
+    "CHANGE",
+    "CONFLICT",
+    "TIME_SENSITIVE"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C109",
+    "topic": "isa",
+    "claim": "ISA 등 세제개편 영상은 발표안과 실제 시행법을 분리해 관리해야 하며, 현재 한도와 세율은 실행 시점의 시행 법령으로 재검증해야 한다.",
+    "supporting_videos": [
+      "JsdnpGa9_ZY"
+    ],
+    "status": "supported",
+    "confidence": "source_backed_officially_verified"
+  },
+  "framework_delta": "세제 지식을 발표안·예정안과 시행법으로 분리하고 정책 제안의 역사정보가 현재 실행값을 덮어쓰지 않도록 한다.",
+  "created_at": "2026-10-07T05:17:00+09:00"
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 114,
+  "video_id": "83bitOQD8e0",
+  "published_at": null,
+  "title": "👯 연금계좌는 2개 만들어야 된다던데요? ㅣASK곰희",
+  "source_doc": "videos/undated/83bitOQD8e0.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 114
+  },
+  "topics": [
+    "retirement"
+  ],
+  "knowledge_change": [
+    "BACKLOG_COMPACTION"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C78",
+    "topic": "retirement",
+    "claim": "연금저축계좌를 둘로 나누는 전략의 본질은 '계좌 수'가 아니라 세액공제 받은 납입원금과 받지 않은 납입원금의 세무속성을 관리하고 향후 인출 유연성을 높이는 데 있다.",
+    "supporting_videos": [
+      "83bitOQD8e0"
+    ],
+    "status": "supported",
+    "confidence": "source_backed"
+  },
+  "framework_delta": "납입 → 세액공제 적용여부 → 세무속성 기록 → 계좌분리 여부 → 운용 → 인출전략으로 pension tax-basis layer를 확장한다.",
+  "created_at": "2026-10-06T08:28:00+09:00"
+}
