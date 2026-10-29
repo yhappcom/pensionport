@@ -1,0 +1,627 @@
+{
+  "schema_version": "V4_002_005_DECISION_EVIDENCE_DELTA_1.0",
+  "date": "2026-10-29",
+  "canonical_standard": "https://github.com/yhappcom/pensionport/blob/main/docs/RESEARCH_DECISION_USE_STANDARD_20261029.md",
+  "scope": "Source-based supplemental review of studies 002-005; previous V3 outputs retained",
+  "controls": {
+    "previously_approved_videos": 4,
+    "new_video_completions": 0,
+    "reused_legacy_claims": 39,
+    "new_video_claims": 0,
+    "prior_verdict_counts": {
+      "QUALIFIED": 24,
+      "PRIMARY_CONFIRMED": 6,
+      "HYPOTHETICAL": 8,
+      "CONTRADICTED": 1
+    },
+    "all_39_independently_revalidated_in_this_pass": false,
+    "full_audio_video_verified": false,
+    "personalized_L3_models": 0,
+    "action_ready_L4_models": 0,
+    "formal_research_maturity_scores": "NOT_REASSESSED",
+    "note": "All findings are non-destructive overlays. Never add 39 reused claims to the existing 4,120-claim count; no original V3, pilot, or curated principle changed."
+  },
+  "cross_video_links": [
+    {
+      "a": "6VEfKF7BzZU-01",
+      "b": "qtluAViPpsQ-01",
+      "family": "MULTIPLE_ACCOUNTS_LIQUIDITY",
+      "relationship": "REINFORCE_WITH_PERSONAL_CONDITIONS"
+    },
+    {
+      "a": "6VEfKF7BzZU-03",
+      "b": "qtluAViPpsQ-06",
+      "family": "PENSION_TAX_CREDIT_CAP",
+      "relationship": "REINFORCE_TAX_RULE_SCOPE"
+    },
+    {
+      "a": "OiDTNstaSpM-13",
+      "b": "sz5N9WJS310-15",
+      "family": "DIVIDEND_TOTAL_RETURN",
+      "relationship": "REINFORCE_SOURCE_VS_DISTRIBUTION"
+    },
+    {
+      "a": "aNfGrcO6WPI-03",
+      "b": "6VEfKF7BzZU-09",
+      "family": "ETF_HOLDING_DIVERSIFICATION",
+      "relationship": "QUALIFY_RISK_MONITORING"
+    },
+    {
+      "a": "qtluAViPpsQ-05",
+      "b": "OiDTNstaSpM-04",
+      "family": "REBALANCING_RULES",
+      "relationship": "LIFECYCLE_RISK_LINK"
+    }
+  ],
+  "studies": [
+    {
+      "no": 2,
+      "id": "6VEfKF7BzZU",
+      "hash": "a59b2fd424011c3f572aa52404411ff4ea435f6dd1e7e27e4f5c9e11f7218b72",
+      "cues": 1347,
+      "bytes": 103453,
+      "subject": "Investment start, account priorities and CMA",
+      "families": [
+        "MULTIPLE_ACCOUNTS_LIQUIDITY",
+        "PENSION_TAX_CREDIT_CAP",
+        "CASH_DEALER_CREDIT",
+        "ETF_HOLDING_DIVERSIFICATION"
+      ],
+      "level": "L1 screening; L2 hypothetical comparison",
+      "findings": [
+        {
+          "key": "R02-A",
+          "claim_ids": [
+            "6VEfKF7BzZU-03"
+          ],
+          "class": "PRIMARY_SCOPE_RECHECKED",
+          "text": "NTS eligible annual contributions: pension savings KRW6m, including eligible retirement accounts total KRW9m; tax refund amount is not contribution limit.",
+          "urls": [
+            "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+          ]
+        },
+        {
+          "key": "R02-B",
+          "claim_ids": [
+            "6VEfKF7BzZU-04"
+          ],
+          "class": "PRIMARY_SCOPE_RECHECKED",
+          "text": "KRX gold trading is not the same tax event as taking physical delivery, which is subject to 10% VAT.",
+          "urls": [
+            "https://regulation.krx.co.kr/contents/RGL/04/04010201/RGL04010201.jsp"
+          ]
+        },
+        {
+          "key": "R02-C",
+          "claim_ids": [
+            "6VEfKF7BzZU-05"
+          ],
+          "class": "HISTORICAL_RATE_RECHECKED",
+          "text": "BoK base-rate history records 3.00% effective 2026-08-27, not a forecast or any specific CMA yield.",
+          "urls": [
+            "https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=20064"
+          ]
+        },
+        {
+          "key": "R02-D",
+          "claim_ids": [
+            "6VEfKF7BzZU-06",
+            "6VEfKF7BzZU-07",
+            "6VEfKF7BzZU-09"
+          ],
+          "class": "CONDITIONAL",
+          "text": "CMA deposit-protection status, issuer risk, liquidity, fees and a passive/active 50:50 example require instrument-specific, investor-specific evidence; no blanket change instruction.",
+          "urls": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ]
+        }
+      ],
+      "stop": "No actual account ranking without income, debt, cash buffer, provider terms and tax eligibility.",
+      "orig": {
+        "path": "data/analysis_events/6VEfKF7BzZU.json",
+        "sha": "cb9827570e78684f678030ca220b56190a2cef1a",
+        "claim_count": 9,
+        "status": "COMPLETE_APPROVED"
+      },
+      "draft": {
+        "path": "data/subtitles/pilots/6VEfKF7BzZU.json",
+        "sha": "e3361e6ab117181faa1d5092a006608f5a4f68b7",
+        "status": "EVIDENCE_REVIEW_DRAFT_NOT_APPROVED"
+      },
+      "source": {
+        "archive": "1-100.zip",
+        "archive_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+        "original_srt_sha256": "a59b2fd424011c3f572aa52404411ff4ea435f6dd1e7e27e4f5c9e11f7218b72",
+        "cue_count": 1347,
+        "bytes": 103453,
+        "audio_checked": false,
+        "frames_checked": false,
+        "review_scope": "archive hash/size/cue verification, selected SRT source passages; full new semantic reread not performed"
+      },
+      "prior_claims": [
+        {
+          "claim_id": "6VEfKF7BzZU-01",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:04:56"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-02",
+          "existing_verdict": "PRIMARY_CONFIRMED",
+          "existing_timecode": "00:05:27"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-03",
+          "existing_verdict": "PRIMARY_CONFIRMED",
+          "existing_timecode": "00:06:00"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-04",
+          "existing_verdict": "PRIMARY_CONFIRMED",
+          "existing_timecode": "00:09:26"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-05",
+          "existing_verdict": "PRIMARY_CONFIRMED",
+          "existing_timecode": "00:10:50"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-06",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:12:48"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-07",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:16:58"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-08",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:20:17"
+        },
+        {
+          "claim_id": "6VEfKF7BzZU-09",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:27:41"
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "id": "OiDTNstaSpM",
+      "hash": "e94b12a1084a8b57c3b9c2a630e27f840ae5a827b3a71c62526e15380a7c57bd",
+      "cues": 785,
+      "bytes": 60710,
+      "subject": "Retirement IRP, staged lump-sum deployment and retirement income",
+      "families": [
+        "IRP_WITHDRAWAL_EXCEPTION",
+        "MULTIPLE_ACCOUNTS_LIQUIDITY",
+        "DIVIDEND_TOTAL_RETURN",
+        "FORECAST_COMPOUND_RETURN"
+      ],
+      "level": "L1 pension/contract screening; L2 deployment arithmetic",
+      "findings": [
+        {
+          "key": "R03-A",
+          "claim_ids": [
+            "OiDTNstaSpM-06"
+          ],
+          "class": "ADDITIONAL_QUANTITATIVE_SCOPE_CORRECTION",
+          "time": "00:10:13-00:10:43",
+          "text": "SRT juxtaposes KRW200m / KRW70m annual salary = 2.857y, called about three years, with KRW4.5m monthly purchases. At KRW4.5m/month KRW200m takes 44.444 months (~3.70y), or 45 instalments with a partial last one. After 36 months only KRW162m is deployed and KRW38m remains. These are different pacing proxies; original audio/slides not independently validated.",
+          "math": {
+            "annual_salary_proxy_years": 2.857142857,
+            "monthly_investment_krw": 4500000,
+            "full_lump_krw": 200000000,
+            "monthly_pace_months": 44.444444444,
+            "whole_calendar_instalments": 45,
+            "invested_36months_krw": 162000000,
+            "uninvested_36months_krw": 38000000
+          },
+          "urls": [
+            "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+          ]
+        },
+        {
+          "key": "R03-B",
+          "claim_ids": [
+            "OiDTNstaSpM-01",
+            "OiDTNstaSpM-14"
+          ],
+          "class": "PRIMARY_SCOPE_RECHECKED",
+          "text": "The Ministry of Employment and Labor's 2026-09-01 transfer-exception amendment retains the KRW3m-or-less exception; a retirement age 55+ exception also exists. IRP transfer is not without exceptions.",
+          "urls": [
+            "https://www.moel.go.kr/info/lawinfo/instruction/view.do?bbs_seq=20260900094",
+            "https://1350.moel.go.kr/rtmview.do?id=1000317131"
+          ]
+        },
+        {
+          "key": "R03-C",
+          "claim_ids": [
+            "OiDTNstaSpM-03",
+            "OiDTNstaSpM-14"
+          ],
+          "class": "PERSONAL_TAX_OPEN",
+          "text": "KRW10k annuity commencement application is not verified as an automatic favorable tax strategy: actual withdrawal, years, pension allowance and provider terms must be confirmed.",
+          "urls": [
+            "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507"
+          ]
+        },
+        {
+          "key": "R03-D",
+          "claim_ids": [
+            "OiDTNstaSpM-07",
+            "OiDTNstaSpM-08",
+            "OiDTNstaSpM-10",
+            "OiDTNstaSpM-13"
+          ],
+          "class": "HYPOTHETICAL_AND_RISK",
+          "text": "KRW300m / KRW5m per month = 60 months (five years) before returns and costs. Parking ETF interest, covered-call distributions and legacy insurance termination are not guaranteed retirement income.",
+          "math": {
+            "lump_krw": 300000000,
+            "monthly_krw": 5000000,
+            "months": 60
+          },
+          "urls": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ]
+        }
+      ],
+      "stop": "Do not activate pension payout, transfer/surrender insurance, or rank DCA versus lump-sum without personal documents, fees, taxes and sequence-risk model.",
+      "orig": {
+        "path": "data/analysis_events/OiDTNstaSpM.json",
+        "sha": "53281c9bc9ce85692267d6ff7e00ebaf5b4ecc27",
+        "claim_count": 15,
+        "status": "COMPLETE_APPROVED"
+      },
+      "draft": {
+        "path": "data/subtitles/pilots/OiDTNstaSpM.json",
+        "sha": "af9410466e7e9c8d2e87088bb152d3b18064ca6e",
+        "status": "EVIDENCE_REVIEW_DRAFT_NOT_APPROVED"
+      },
+      "source": {
+        "archive": "1-100.zip",
+        "archive_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+        "original_srt_sha256": "e94b12a1084a8b57c3b9c2a630e27f840ae5a827b3a71c62526e15380a7c57bd",
+        "cue_count": 785,
+        "bytes": 60710,
+        "audio_checked": false,
+        "frames_checked": false,
+        "review_scope": "archive hash/size/cue verification, selected SRT source passages; full new semantic reread not performed"
+      },
+      "prior_claims": [
+        {
+          "claim_id": "OiDTNstaSpM-01",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:00:01"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-02",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:04:08"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-03",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:04:08"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-04",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:06:10"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-05",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:08:12"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-06",
+          "existing_verdict": "HYPOTHETICAL",
+          "existing_timecode": "00:10:13"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-07",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:12:15"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-08",
+          "existing_verdict": "HYPOTHETICAL",
+          "existing_timecode": "00:12:15"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-09",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:14:16"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-10",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:16:17"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-11",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:18:20"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-12",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:20:21"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-13",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:20:21"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-14",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:24:27"
+        },
+        {
+          "claim_id": "OiDTNstaSpM-15",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:26:30"
+        }
+      ]
+    },
+    {
+      "no": 4,
+      "id": "aNfGrcO6WPI",
+      "hash": "853db2d4f01ab71bbc4f86b46714f4341aa32aa2bc07416f705a937b620ea12b",
+      "cues": 758,
+      "bytes": 59083,
+      "subject": "Unrealized stock losses and behavioral risk",
+      "families": [
+        "VALUE_INVESTING_CAVEATS",
+        "THEMATIC_ETF_LOSS",
+        "ETF_HOLDING_DIVERSIFICATION",
+        "DIVIDEND_TOTAL_RETURN"
+      ],
+      "level": "L1 stock-decision screening; L2 arithmetic illustration only",
+      "findings": [
+        {
+          "key": "R04-A",
+          "claim_ids": [
+            "aNfGrcO6WPI-03"
+          ],
+          "class": "RETAIN_EXISTING_CONTRADICTED_STATUS",
+          "time": "00:06:01-00:06:10",
+          "text": "Original SRT suggests deleting the app instead of impulsive disposal. Avoiding panic selling can be educational, but disabling monitoring cannot be a universal instruction.",
+          "urls": [
+            "https://www.investor.gov/additional-resources/spotlight/formerdirectorlorischock-directors-take/dont-panic-plan-it"
+          ]
+        },
+        {
+          "key": "R04-B",
+          "claim_ids": [
+            "aNfGrcO6WPI-05"
+          ],
+          "class": "UNSUPPORTED_UNIVERSAL_HEURISTIC",
+          "time": "00:11:40-00:12:00",
+          "text": "The suggested three-year stock-market cycle is a speaker heuristic with no reproducible universe, backtest or security-specific recovery guarantee.",
+          "urls": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ]
+        },
+        {
+          "key": "R04-C",
+          "claim_ids": [
+            "aNfGrcO6WPI-02",
+            "aNfGrcO6WPI-06"
+          ],
+          "class": "INDEPENDENT_HYPOTHETICAL_MATH_NOT_VIDEO_QUOTE",
+          "text": "A 40% capital loss requires a 66.67% gain to break even; a 50% loss requires 100%. Mathematical identity, not any security's recovery prediction. High distribution yield also cannot guarantee restoration.",
+          "math": {
+            "loss_40pct_recovery_gain_percent": 66.666666667,
+            "loss_50pct_recovery_gain_percent": 100,
+            "formula": "loss/(1-loss)"
+          },
+          "urls": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ]
+        }
+      ],
+      "stop": "Do not recommend holding or selling without updated issuer data, thesis, tax basis, concentration, risk limit and liquidity.",
+      "orig": {
+        "path": "data/analysis_events/aNfGrcO6WPI.json",
+        "sha": "b551925f3e823b4f46e3e1aebaa6cd2e5ae802af",
+        "claim_count": 6,
+        "status": "COMPLETE_APPROVED"
+      },
+      "draft": {
+        "path": "data/subtitles/pilots/aNfGrcO6WPI.json",
+        "sha": "1299c396da46f0d46c44841871e4d07368c065f8",
+        "status": "EVIDENCE_REVIEW_DRAFT_NOT_APPROVED"
+      },
+      "source": {
+        "archive": "1-100.zip",
+        "archive_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+        "original_srt_sha256": "853db2d4f01ab71bbc4f86b46714f4341aa32aa2bc07416f705a937b620ea12b",
+        "cue_count": 758,
+        "bytes": 59083,
+        "audio_checked": false,
+        "frames_checked": false,
+        "review_scope": "archive hash/size/cue verification, selected SRT source passages; full new semantic reread not performed"
+      },
+      "prior_claims": [
+        {
+          "claim_id": "aNfGrcO6WPI-01",
+          "existing_verdict": "HYPOTHETICAL",
+          "existing_timecode": "00:02:16"
+        },
+        {
+          "claim_id": "aNfGrcO6WPI-02",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:04:13"
+        },
+        {
+          "claim_id": "aNfGrcO6WPI-03",
+          "existing_verdict": "CONTRADICTED",
+          "existing_timecode": "00:06:01"
+        },
+        {
+          "claim_id": "aNfGrcO6WPI-04",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:09:26"
+        },
+        {
+          "claim_id": "aNfGrcO6WPI-05",
+          "existing_verdict": "HYPOTHETICAL",
+          "existing_timecode": "00:11:52"
+        },
+        {
+          "claim_id": "aNfGrcO6WPI-06",
+          "existing_verdict": "HYPOTHETICAL",
+          "existing_timecode": "00:14:56"
+        }
+      ]
+    },
+    {
+      "no": 5,
+      "id": "qtluAViPpsQ",
+      "hash": "af4fb6b702c5497e5c17bc7b9a3e87855a5488dd263cded32be9a09cec67a543",
+      "cues": 1044,
+      "bytes": 78723,
+      "subject": "New employee: budgeting, ISA, pension savings and target date funds",
+      "families": [
+        "MULTIPLE_ACCOUNTS_LIQUIDITY",
+        "PENSION_TAX_CREDIT_CAP",
+        "ETF_HOLDING_DIVERSIFICATION",
+        "FORECAST_COMPOUND_RETURN"
+      ],
+      "level": "L1 eligibility/product screen; L2 hypothetical savings allocation math",
+      "findings": [
+        {
+          "key": "R05-A",
+          "claim_ids": [
+            "qtluAViPpsQ-03"
+          ],
+          "class": "HYPOTHETICAL_BUDGET",
+          "time": "00:08:50-00:09:10",
+          "text": "Example KRW1m/month = KRW500k youth savings + KRW400k ISA + KRW100k pension (50/40/10). This arithmetic does not establish an optimal budget or product eligibility.",
+          "math": {
+            "total_krw": 1000000,
+            "youth_savings_krw": 500000,
+            "isa_krw": 400000,
+            "pension_krw": 100000
+          },
+          "urls": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ]
+        },
+        {
+          "key": "R05-B",
+          "claim_ids": [
+            "qtluAViPpsQ-05"
+          ],
+          "class": "TDF_TARGET_YEAR_CONDITIONAL",
+          "time": "00:12:00-00:12:20",
+          "text": "Someone age 30 in 2026 reaches age 65 around 2061. A TDF 2060 label is approximate, not a guaranteed retirement value or suitable product; fees and glide paths differ.",
+          "math": {
+            "age_now": 30,
+            "age_target": 65,
+            "retirement_year_approx": 2061,
+            "tdf_year": 2060
+          },
+          "urls": [
+            "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin"
+          ]
+        },
+        {
+          "key": "R05-C",
+          "claim_ids": [
+            "qtluAViPpsQ-04"
+          ],
+          "class": "CONCENTRATION_RISK",
+          "text": "Employer shares can concentrate employment income and investments in the same issuer or sector; studying an employer does not require buying its stock.",
+          "urls": [
+            "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+          ]
+        },
+        {
+          "key": "R05-D",
+          "claim_ids": [
+            "qtluAViPpsQ-06"
+          ],
+          "class": "TAX_RULE_CONDITIONAL",
+          "text": "Year-end settlement and pension deductions depend on individual income, eligibility, tax year and substantiation. Eligible contribution ceiling is not tax refunded.",
+          "urls": [
+            "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+          ]
+        }
+      ],
+      "stop": "No default 50/40/10 allocation, employer share purchase or TDF selection without cash buffer, debt, tax eligibility, time horizon, fund holdings and fees.",
+      "orig": {
+        "path": "data/analysis_events/qtluAViPpsQ.json",
+        "sha": "a845a8e3d8a463035900c376187250adc76a5e12",
+        "claim_count": 9,
+        "status": "COMPLETE_APPROVED"
+      },
+      "draft": {
+        "path": "data/subtitles/pilots/qtluAViPpsQ.json",
+        "sha": "fd28fbaf0108a56f831fea56a0d531ae9a9a67ee",
+        "status": "EVIDENCE_REVIEW_DRAFT_NOT_APPROVED"
+      },
+      "source": {
+        "archive": "1-100.zip",
+        "archive_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+        "original_srt_sha256": "af4fb6b702c5497e5c17bc7b9a3e87855a5488dd263cded32be9a09cec67a543",
+        "cue_count": 1044,
+        "bytes": 78723,
+        "audio_checked": false,
+        "frames_checked": false,
+        "review_scope": "archive hash/size/cue verification, selected SRT source passages; full new semantic reread not performed"
+      },
+      "prior_claims": [
+        {
+          "claim_id": "qtluAViPpsQ-01",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:06:35"
+        },
+        {
+          "claim_id": "qtluAViPpsQ-02",
+          "existing_verdict": "HYPOTHETICAL",
+          "existing_timecode": "00:07:14"
+        },
+        {
+          "claim_id": "qtluAViPpsQ-03",
+          "existing_verdict": "HYPOTHETICAL",
+          "existing_timecode": "00:09:02"
+        },
+        {
+          "claim_id": "qtluAViPpsQ-04",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:09:25"
+        },
+        {
+          "claim_id": "qtluAViPpsQ-05",
+          "existing_verdict": "PRIMARY_CONFIRMED",
+          "existing_timecode": "00:12:02"
+        },
+        {
+          "claim_id": "qtluAViPpsQ-06",
+          "existing_verdict": "PRIMARY_CONFIRMED",
+          "existing_timecode": "00:16:00"
+        },
+        {
+          "claim_id": "qtluAViPpsQ-07",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:18:00"
+        },
+        {
+          "claim_id": "qtluAViPpsQ-08",
+          "existing_verdict": "QUALIFIED",
+          "existing_timecode": "00:21:00"
+        },
+        {
+          "claim_id": "qtluAViPpsQ-09",
+          "existing_verdict": "HYPOTHETICAL",
+          "existing_timecode": "00:29:58"
+        }
+      ]
+    }
+  ]
+}
