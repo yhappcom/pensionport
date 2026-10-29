@@ -1,0 +1,95 @@
+{
+  "schema_version": "V4_005_010_V4_MANIFEST_1.0",
+  "as_of": "2026-10-30",
+  "prior_005_review": "data/synthesis/investment_knowledge_v4/reviews/v4_005_deep_quantitative_review_20261030.json",
+  "new_v4_videos": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "original_V3_claims_reused": 60,
+  "new_V3_approvals": 0,
+  "new_V3_claims": 0,
+  "model_count": 9,
+  "old_V4_001_005_models_unchanged": true,
+  "original_private_zip": "1-100.zip",
+  "private_zip_checked_metadata_only": true,
+  "review_files": [
+    {
+      "roster_no": 6,
+      "id": "3MyhYE2jmuE",
+      "path": "data/synthesis/investment_knowledge_v4/reviews/v4_006_deep_decision_review_20261030.json",
+      "claim_count": 14,
+      "model_ids": [
+        "V4_006_GIFT_ANNUITY_PV",
+        "V4_006_GIFT_SCHEDULE_SUM"
+      ],
+      "open_count": 3,
+      "status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN"
+    },
+    {
+      "roster_no": 7,
+      "id": "4CQ4FjGT2gA",
+      "path": "data/synthesis/investment_knowledge_v4/reviews/v4_007_deep_decision_review_20261030.json",
+      "claim_count": 14,
+      "model_ids": [
+        "V4_007_WEALTH_ATTRIBUTION",
+        "V4_007_LEVERAGE_RISK"
+      ],
+      "open_count": 3,
+      "status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN"
+    },
+    {
+      "roster_no": 8,
+      "id": "OfkY343OaNs",
+      "path": "data/synthesis/investment_knowledge_v4/reviews/v4_008_deep_decision_review_20261030.json",
+      "claim_count": 12,
+      "model_ids": [
+        "V4_008_JPY_ETF_FX_FEE",
+        "V4_008_CROSS_FX_US_EQUITY"
+      ],
+      "open_count": 3,
+      "status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN"
+    },
+    {
+      "roster_no": 9,
+      "id": "YNOSY15ppf8",
+      "path": "data/synthesis/investment_knowledge_v4/reviews/v4_009_deep_decision_review_20261030.json",
+      "claim_count": 12,
+      "model_ids": [
+        "V4_009_SPOT_FX_SPREAD"
+      ],
+      "open_count": 2,
+      "status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN"
+    },
+    {
+      "roster_no": 10,
+      "id": "VKr060rIirM",
+      "path": "data/synthesis/investment_knowledge_v4/reviews/v4_010_deep_decision_review_20261030.json",
+      "claim_count": 8,
+      "model_ids": [
+        "V4_010_PENSION_SOURCE",
+        "V4_010_ORDINARY_PENSION_TAX"
+      ],
+      "open_count": 3,
+      "status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN"
+    }
+  ],
+  "verdict_counts": {
+    "QUALIFIED": 40,
+    "PRIMARY_CONFIRMED": 7,
+    "HYPOTHETICAL": 12,
+    "CONTRADICTED": 1
+  },
+  "critical_limitations": [
+    "No fresh byte-level original ZIP/SRT hash this run; V3 source SHA fingerprints inherited.",
+    "Video 007 is a 5h44 earlier-interview compilation; historic account performance cannot be independently verified.",
+    "Video 010 is missing direct user-original SRT hash, uses public Korean full ASR.",
+    "All 60 prior claims not independently re-verified; claims marked review status.",
+    "No personalized investor L3 ranking or L4 execution approved."
+  ],
+  "decision_usage": "L1 conditional screening and L2 synthetic scenario only",
+  "terminal_classification": "V4_SOURCE_LIMITED_EDUCATIONAL_CLOSURE_WITH_EXTERNAL_OPEN"
+}

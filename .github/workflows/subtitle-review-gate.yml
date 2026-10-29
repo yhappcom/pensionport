@@ -22,6 +22,7 @@ on:
       - "scripts/verify_v4_quant_models.py"
       - "scripts/verify_v4_closure_addendum.py"
       - "scripts/verify_v4_cross_layer_audit.py"
+      - "scripts/verify_v4_006_010_models.py"
       - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
@@ -44,6 +45,7 @@ on:
       - "scripts/verify_v4_quant_models.py"
       - "scripts/verify_v4_closure_addendum.py"
       - "scripts/verify_v4_cross_layer_audit.py"
+      - "scripts/verify_v4_006_010_models.py"
       - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
@@ -91,6 +93,10 @@ jobs:
         run: |
           python -B scripts/verify_v4_cross_layer_audit.py --self-test
           python -B scripts/verify_v4_cross_layer_audit.py --root .
+      - name: Validate V4 videos 006-010 numerical research and provenance
+        run: |
+          python -B scripts/verify_v4_006_010_models.py --self-test
+          python -B scripts/verify_v4_006_010_models.py --root .
       - name: Validate 70-source extension records and selective verification policy
         run: |
           python - <<'PY'

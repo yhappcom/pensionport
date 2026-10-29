@@ -1,0 +1,209 @@
+{
+  "schema_version": "V4_006_010_MODELS_1.0",
+  "as_of": "2026-10-30",
+  "statement": "All numerical models are researcher-constructed illustrative calculations, not video transcript content, historic returns or personal advice.",
+  "models": [
+    {
+      "id": "V4_006_GIFT_ANNUITY_PV",
+      "video": 6,
+      "inputs": {
+        "monthly_krw": 189000,
+        "months": 120,
+        "statutory_annual_rate": 0.03
+      },
+      "result": {
+        "nominal_paid_krw": 22680000,
+        "annual_entitlement_krw": 2268000,
+        "year_end_pv_krw": 19346500,
+        "year_start_pv_krw": 19926895,
+        "twenty_times_annual_krw": 45360000
+      },
+      "formula": "10-year annual end payment PV=sum annual/(1+.03)^year, annual start payment PV=sum annual/(1+.03)^(year-1)",
+      "limits": "Actual legal annual-right timing, signed contract, early cancellation and family past gifts are NOT established."
+    },
+    {
+      "id": "V4_006_GIFT_SCHEDULE_SUM",
+      "video": 6,
+      "inputs": {
+        "gift_events_krw": [
+          20000000,
+          20000000,
+          50000000,
+          50000000,
+          100000000
+        ]
+      },
+      "result": {
+        "all_events_krw": 240000000,
+        "first_four_krw": 140000000
+      },
+      "formula": "Add five source hypothetical gift amounts, separate last conditional event",
+      "limits": "Not automatic tax-free allowance; marriage/birth 100m requires timing and combined limit; source 35y performance not reproduced."
+    },
+    {
+      "id": "V4_007_WEALTH_ATTRIBUTION",
+      "video": 7,
+      "inputs": {
+        "beginning_krw": 400000000,
+        "ending_krw": 700000000,
+        "net_contributions_krw": [
+          0,
+          120000000,
+          300000000
+        ]
+      },
+      "result": {
+        "gross_change_krw": 300000000,
+        "net_gain_by_contribution_krw": {
+          "0": 300000000,
+          "120000000": 180000000,
+          "300000000": 0
+        }
+      },
+      "formula": "ending-beginning-net contribution, not time-weighted return",
+      "limits": "Old subscriber account ledger absent; investment return cannot be determined."
+    },
+    {
+      "id": "V4_007_LEVERAGE_RISK",
+      "video": 7,
+      "inputs": {
+        "gross_assets_krw": 200000000,
+        "debt_krw": 100000000,
+        "asset_drawdown": 0.2
+      },
+      "result": {
+        "initial_equity_krw": 100000000,
+        "after_drawdown_equity_krw": 60000000,
+        "equity_drawdown_fraction": 0.4
+      },
+      "formula": "Equity=asset value minus debt",
+      "limits": "Hypothetical simplified fixed debt with no margin calls or rollover fees."
+    },
+    {
+      "id": "V4_008_JPY_ETF_FX_FEE",
+      "video": 8,
+      "inputs": {
+        "initial_krw": 10000000,
+        "assumed_local_bond_return": 0.01,
+        "issuer_stated_fee": 0.0019,
+        "jpy_to_krw_change": [
+          -0.1,
+          0.1
+        ]
+      },
+      "result": {
+        "-0.1": {
+          "terminal_krw": 9072729,
+          "return_percent": -9.27271
+        },
+        "0.1": {
+          "terminal_krw": 11088891,
+          "return_percent": 10.88891
+        }
+      },
+      "formula": "capital*(1+local bond return)*(1+JPY return)*(1-fee proxy)",
+      "limits": "Does not reflect actual PLUS ETF NAV, tracking, swap counterparties, broker fees or taxes."
+    },
+    {
+      "id": "V4_008_CROSS_FX_US_EQUITY",
+      "video": 8,
+      "inputs": {
+        "usdkrw_t0": 1300,
+        "usdkrw_t1": 1400,
+        "usdjpy_t0": 150,
+        "usdjpy_t1": 160,
+        "unchanged_usd_stock": 100
+      },
+      "result": {
+        "krw_per_100jpy_t0": 866.666667,
+        "krw_per_100jpy_t1": 875,
+        "jpy_value_t0": 15000,
+        "jpy_value_t1": 16000,
+        "krw_return_pct": 7.692308
+      },
+      "formula": "KRW/100JPY=100*(KRW/USD)/(JPY/USD), USD stock translated to JPY and KRW",
+      "limits": "No ETF price, hedge costs or dividend tax; assumes unchanged USD underlying."
+    },
+    {
+      "id": "V4_009_SPOT_FX_SPREAD",
+      "video": 9,
+      "inputs": {
+        "dealer_spread_each_leg": 0.0175,
+        "preferential_discounts": [
+          0,
+          0.9,
+          1
+        ]
+      },
+      "result": {
+        "0": {
+          "effective_spread": 0.0175,
+          "minimum_mid_appreciation_fraction": 0.03562341
+        },
+        "1": {
+          "effective_spread": 0,
+          "minimum_mid_appreciation_fraction": 0
+        },
+        "0.9": {
+          "effective_spread": 0.00175,
+          "minimum_mid_appreciation_fraction": 0.003506136
+        }
+      },
+      "formula": "Ask=mid*(1+s), bid=mid*(1-s), net breakeven mid factor=(1+s)/(1-s)",
+      "limits": "Source 1.75% is historical example, not institution's 2026 quote; other foreign transfer and cash fees excluded."
+    },
+    {
+      "id": "V4_010_PENSION_SOURCE",
+      "video": 10,
+      "inputs": {
+        "properly_evidenced_noncredited_principal_krw": 10000000,
+        "credited_principal_krw": 5000000,
+        "investment_gain_krw": 3000000,
+        "hypothetical_withdrawal_krw": 12000000,
+        "eligible_taxable_pension_withholding_example": 0.055
+      },
+      "result": {
+        "account_value_krw": 18000000,
+        "tax_excluded_withdrawal_krw": 10000000,
+        "taxable_withdrawal_krw": 2000000,
+        "tax_illustration_krw": 110000
+      },
+      "formula": "Withdraw from documented tax-excluded contribution first, then taxable source where no deferred retirement income; apply illustrative tax rate on taxable part only",
+      "limits": "Not a person-specific pension withdrawal right, tax ledger or complete annuity tax result."
+    },
+    {
+      "id": "V4_010_ORDINARY_PENSION_TAX",
+      "video": 10,
+      "inputs": {
+        "principal_krw": 10000000,
+        "gross_annual_return": 0.05,
+        "years": 15,
+        "ordinary_gain_tax_scenarios": [
+          0,
+          0.154
+        ],
+        "pension_gain_tax_scenarios": [
+          0.055,
+          0.165
+        ]
+      },
+      "result": {
+        "terminal_pretax_krw": 20789282,
+        "gain_krw": 10789282,
+        "ordinary_net_krw": {
+          "0": 20789282,
+          "0.154": 19127732
+        },
+        "pension_net_krw": {
+          "0.055": 20195871,
+          "0.165": 19009050
+        }
+      },
+      "formula": "FV=P*(1+r)^n, net principal plus taxable gains*(1-proxy rate)",
+      "limits": "All statutory scopes, domestic equity exemption, source order and cross-border withholding vary by instrument and investor; these are NOT universal tax rates."
+    }
+  ],
+  "source_status": "Previously approved V3 claims only; private original ZIP has not been freshly downloaded this turn.",
+  "L3_approved": false,
+  "L4_approved": false
+}

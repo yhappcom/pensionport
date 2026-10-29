@@ -1,0 +1,151 @@
+{
+  "schema_version": "V4_006_010_DECISION_REVIEW_1.0",
+  "as_of": "2026-10-30",
+  "roster_no": 10,
+  "video_id": "VKr060rIirM",
+  "topic": "Noncredited pension savings, taxable versus excluded contributions",
+  "historical_source": {
+    "v3_status": "COMPLETE_APPROVED",
+    "v3_claim_count": 8,
+    "v3_path": "data/analysis_events/VKr060rIirM.json",
+    "v3_blob_sha": "232c20eb18ce68579da697f2c0f7f1c32db9bc2d",
+    "pilot_path": "data/subtitles/pilots/VKr060rIirM.json",
+    "pilot_blob_sha": "6911bc5d6123a3a13274c72826adb2fec6bc10aa",
+    "source_audit_stage": "INDEPENDENT_FULL_KOREAN_TRANSCRIPT",
+    "original_srt_sha256": null,
+    "registered_source_cue_count": 34,
+    "public_transcript_alignment": "PUBLIC_KOREAN_FULL_ASR_NO_ORIGINAL_USER_SRT_HASH",
+    "private_zip_archive_metadata": "1-100.zip PRIVATE_CONFIRMED",
+    "raw_zip_downloaded_and_sha_recomputed_this_turn": false,
+    "audio_or_frames_checked_this_turn": false,
+    "scope_note": "Historical V3 whole-source transcription and claim triage reused; targeted material legal/product comparison and numerical models added. Not a new complete 5-hour audiovisual review."
+  },
+  "claims": [
+    {
+      "id": "VKr060rIirM-01",
+      "timecode": "00:00:02",
+      "legacy_verdict": "QUALIFIED",
+      "current_review": "RECHECKED_MATERIAL_PRIMARY_OR_MATH",
+      "unchanged_historical_claim": true
+    },
+    {
+      "id": "VKr060rIirM-02",
+      "timecode": "00:00:02",
+      "legacy_verdict": "QUALIFIED",
+      "current_review": "RECHECKED_MATERIAL_PRIMARY_OR_MATH",
+      "unchanged_historical_claim": true
+    },
+    {
+      "id": "VKr060rIirM-03",
+      "timecode": "00:00:32",
+      "legacy_verdict": "PRIMARY_CONFIRMED",
+      "current_review": "RECHECKED_MATERIAL_PRIMARY_OR_MATH",
+      "unchanged_historical_claim": true
+    },
+    {
+      "id": "VKr060rIirM-04",
+      "timecode": "00:00:32",
+      "legacy_verdict": "QUALIFIED",
+      "current_review": "RECHECKED_MATERIAL_PRIMARY_OR_MATH",
+      "unchanged_historical_claim": true
+    },
+    {
+      "id": "VKr060rIirM-05",
+      "timecode": "00:00:32",
+      "legacy_verdict": "CONTRADICTED",
+      "current_review": "RECHECKED_MATERIAL_PRIMARY_OR_MATH",
+      "unchanged_historical_claim": true
+    },
+    {
+      "id": "VKr060rIirM-06",
+      "timecode": "00:01:03",
+      "legacy_verdict": "QUALIFIED",
+      "current_review": "RECHECKED_MATERIAL_PRIMARY_OR_MATH",
+      "unchanged_historical_claim": true
+    },
+    {
+      "id": "VKr060rIirM-07",
+      "timecode": "00:01:03",
+      "legacy_verdict": "QUALIFIED",
+      "current_review": "RECHECKED_MATERIAL_PRIMARY_OR_MATH",
+      "unchanged_historical_claim": true
+    },
+    {
+      "id": "VKr060rIirM-08",
+      "timecode": "00:00:32",
+      "legacy_verdict": "QUALIFIED",
+      "current_review": "RECHECKED_MATERIAL_PRIMARY_OR_MATH",
+      "unchanged_historical_claim": true
+    }
+  ],
+  "official_reference_urls": {
+    "DECREE_40_3": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+    "DECREE_40_2": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507",
+    "RETIREMENT_ELIGIBLE_ETF": "https://develop.investments.miraeasset.com/tigeretf/ko/pension/investment/list.do"
+  },
+  "new_material_findings": [
+    {
+      "ids": [
+        "VKr060rIirM-03",
+        "VKr060rIirM-06",
+        "VKr060rIirM-07"
+      ],
+      "finding": "2026 Income Tax Decree art40-3: documented tax-excluded pension source is first in statutory withdrawal order, then deferred retirement income, then other taxable source; actual withdrawal eligibility is separate and proof of credit use matters.",
+      "quality": "PRIMARY_LAW_CONFIRMED"
+    },
+    {
+      "ids": [
+        "VKr060rIirM-02",
+        "VKr060rIirM-04",
+        "VKr060rIirM-05"
+      ],
+      "finding": "Unqualified universal 15.4% ordinary versus 3.3-5.5% pension tax is invalid across products and source types. Foreign withholding, retirement-year, contribution and product rules affect results.",
+      "quality": "TAX_REGIME_DISTINCTION"
+    },
+    {
+      "ids": [
+        "VKr060rIirM-08"
+      ],
+      "finding": "US direct stock/US-exchange ETFs cannot be assumed eligible for Korean pension savings just because video cites USD equity; original private 34-cue SRT was not available and full Korean public ASR is only text-source evidence.",
+      "quality": "SOURCE_LIMIT_AND_PRODUCT_SCOPE"
+    }
+  ],
+  "existing_concepts": [
+    "PENSION_TAX_CREDIT_CAP",
+    "PENSION_PRIVATE_1500",
+    "MULTIPLE_ACCOUNTS_LIQUIDITY"
+  ],
+  "models": [
+    "V4_010_PENSION_SOURCE",
+    "V4_010_ORDINARY_PENSION_TAX"
+  ],
+  "external_open": [
+    {
+      "id": "10-ORIGINAL",
+      "missing": "private originally registered SRT 34 cues or actual original audio",
+      "blocked": "private source ASR exact match"
+    },
+    {
+      "id": "10-TAXLEDGER",
+      "missing": "personal year-by-year paid/credited tax pension ledger and tax confirmation certificate",
+      "blocked": "eligible tax-excluded principal"
+    },
+    {
+      "id": "10-PRODUCT",
+      "missing": "eligible ETF/provider documents and foreign withholding costs",
+      "blocked": "specific pension product recommendation"
+    }
+  ],
+  "status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+  "status_qualification": "Bounded research based on approved transcript and available official/product evidence. External source/personal data OPEN, no full audio verification or person-specific L3/L4.",
+  "decision_readiness": {
+    "L1": "conditional screening",
+    "L2": "synthetic arithmetic",
+    "L3_approved": false,
+    "L4_approved": false,
+    "personal_action_count": 0,
+    "quality_score": null,
+    "score_reason": "No independent rubric-scored full-source/multi-discipline audit for this V4 video"
+  },
+  "approved_new_V3_claims": 0
+}
