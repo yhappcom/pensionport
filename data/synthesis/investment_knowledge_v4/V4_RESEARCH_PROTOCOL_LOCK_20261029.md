@@ -30,13 +30,13 @@
 - 월30만원 7% 월복리: 7년 약3,240만원, 10년 약5,193만원. 영상의 7년과 약5,100만원 표현을 화면/오디오 재확인할 때까지 숫자 오류 후보로 기록.
 - ISA 이전 10% 한도 최대300만원은 추가 **세액공제 대상 납입액**이지 환급세액이 아니다.
 - 연금저축보험 계좌이전은 중도해약과 달라, 오래된 보증조건과 이전제한은 실제 계약 근거 필요.
-- ISA 국내주식 양도차손의 손익통산 설명은 자료 간 차이가 있으므로 정확한 상품·시행일을 확정하기 전 OPEN.
+- **ISA 손익통산 범위 재확인**: 국회예산정책처 2026-04-30 보고서, 신한·IBK투자증권 안내에 따르면 중개형 ISA의 적격한 국내상장주식 *실현 양도차손*은 손익통산할 수 있다. 국내주식 양도차익, 미실현 평가손실, 국내주식형 펀드의 과표손실, 대주주 관련 제외는 구분한다. 일부 판매사 안내에는 이 분류가 충분히 반영되지 않았을 수 있다.
 
 ## #1의 최종 판정
 - SRT 전수확인, 원장 연결, 숫자 검산: **PASS**.
 - 모든 영상 화면/음성의 결론 영향 수치 대조: **HOLD**.
 - 개인 추납 견적·고금리 보험 보증계약: **OPEN_EXTERNAL_PERSONAL_RECORD**.
-- ISA 손실 포함범위: **OPEN_SOURCE_CONFLICT**.
+- ISA 적격 국내상장주식 실현 양도차손: **2026 공신력 자료로 보완, 상품·거래별 적격성은 별도**.
 - 개인 투자전략 승인: **0건**.
 - **#2 연구 착수 승인: NO**. #1의 결론 영향 고위험 자료 검증이 충족될 때까지 영상별 완료 판정 금지.
 
@@ -48,6 +48,9 @@
 ISA 과세특례: https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1018255825
 금융위원회 계약이전: https://www.fsc.go.kr/po010105/87144
 KRX ETF 세금: https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp
+2026 국회예산정책처 ISA 제156호: https://nabo.go.kr/board/file/down.do?fid=33319223
+신한투자증권 ISA 분류: https://m.shinhansec.com/mweb/fnin/fisa/ffisa1001
+IBK투자증권 ISA 분류: https://www.ibks.com/fundproduct/isa/isa_02.jsp
 SEC 분배금: https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin
 
 *사적 원본 SRT 전문은 공개 GitHub에 업로드하지 않는다.*
