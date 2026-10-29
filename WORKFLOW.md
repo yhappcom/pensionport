@@ -1,5 +1,10 @@
 # 박곰희TV 영상 학습 워크플로 — V3 단일 저장 (2026-10-08)
 
+## 2026-10-30 V4 연구 품질·반박 차단 우선규칙
+
+**#11 이후 신규 V4 연구 시작 전 필수:** [V4 연구 시스템 품질·의사결정 활용 게이트](docs/V4_RESEARCH_SYSTEM_QUALITY_GATE_20261030.md)를 읽고 적용한다. 신규 심층 리뷰에는 `quality_gate` 근거/재검증 vs V3 재사용/세제원금 분리/지식 충돌·반박 전파/OPEN 차단/L1-L4 분리 기록을 추가한다. #1~#10은 소급 변경 없이 별도 [품질·반박 차단 원장](data/synthesis/investment_knowledge_v4/research_quality_controls_20261030.json)으로 보호한다. `CONTRADICTED` 원문 주장과 검증된 정정 원칙을 혼동하지 않는다. `V4_010_ORDINARY_PENSION_TAX`는 L2 가상 민감도 외 사용 금지. `python -B scripts/verify_v4_research_governance.py --self-test` / `--root .`를 CI와 함께 통과해야 한다. 이 규정은 원본 SRT 근거 및 V3/CI 안전 기준을 완화하지 않는다.
+
+
 > **2026-10-29 research completion / decision-use reference:** Before reopening a studied source, applying a principle, or building a decision model, consult the [canonical completion and decision-use standard](https://github.com/yhappcom/pensionport/blob/main/docs/RESEARCH_DECISION_USE_STANDARD_20261029.md). Reuse existing verified claims and record only evidence-based changes. This reference does **not** weaken the V3 source requirements, the independent evidence policy, or the final CI gate.
 
 ## 2026-10-29 end-to-end deep research completion gate

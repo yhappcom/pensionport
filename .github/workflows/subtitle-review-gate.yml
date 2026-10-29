@@ -23,6 +23,8 @@ on:
       - "scripts/verify_v4_closure_addendum.py"
       - "scripts/verify_v4_cross_layer_audit.py"
       - "scripts/verify_v4_006_010_models.py"
+      - "scripts/verify_v4_research_governance.py"
+      - "docs/V4_RESEARCH_SYSTEM_QUALITY_GATE_20261030.md"
       - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
@@ -46,6 +48,8 @@ on:
       - "scripts/verify_v4_closure_addendum.py"
       - "scripts/verify_v4_cross_layer_audit.py"
       - "scripts/verify_v4_006_010_models.py"
+      - "scripts/verify_v4_research_governance.py"
+      - "docs/V4_RESEARCH_SYSTEM_QUALITY_GATE_20261030.md"
       - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
@@ -97,6 +101,10 @@ jobs:
         run: |
           python -B scripts/verify_v4_006_010_models.py --self-test
           python -B scripts/verify_v4_006_010_models.py --root .
+      - name: Validate V4 research governance and quarantined corrections
+        run: |
+          python -B scripts/verify_v4_research_governance.py --self-test
+          python -B scripts/verify_v4_research_governance.py --root .
       - name: Validate 70-source extension records and selective verification policy
         run: |
           python - <<'PY'

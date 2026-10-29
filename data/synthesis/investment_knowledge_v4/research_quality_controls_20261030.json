@@ -1,0 +1,78 @@
+{
+  "schema_version": "V4_RESEARCH_GOVERNANCE_20261030",
+  "as_of": "2026-10-30",
+  "policy_document": "docs/V4_RESEARCH_SYSTEM_QUALITY_GATE_20261030.md",
+  "scope": "NON_DESTRUCTIVE_V4_SYSTEM_CONTROL_NO_V3_APPROVAL_CHANGE",
+  "legacy_006_010": {
+    "videos": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ids": [
+      "3MyhYE2jmuE",
+      "4CQ4FjGT2gA",
+      "OfkY343OaNs",
+      "YNOSY15ppf8",
+      "VKr060rIirM"
+    ],
+    "reviewed_v3_claims": 60,
+    "rechecked_v4": 35,
+    "retained_v3_not_independently_rechecked": 25,
+    "external_open": 14,
+    "new_v3_approvals": 0,
+    "synthetic_models": 9
+  },
+  "blocked_positive_claims": [
+    {
+      "claim_id": "VKr060rIirM-05",
+      "video_id": "VKr060rIirM",
+      "historical_verdict": "CONTRADICTED",
+      "invalid_proposition": "All ordinary-account investment returns are always taxed at 15.4% and all pension proceeds always at 3.3-5.5%, hence pensions always dominate.",
+      "corrected_scope": "Taxation varies by income type, instrument, credited/noncredited principal, statutory source ordering, payout eligibility and timing, and foreign withholding. Separate historical video statement from researcher correction.",
+      "status": "BLOCKED_AS_POSITIVE_PRINCIPLE",
+      "knowledge_use": "CORRECTION_ONLY_NOT_SOURCE_OF_RECOMMENDATION",
+      "source_v3": "data/analysis_events/VKr060rIirM.json",
+      "review_v4": "data/synthesis/investment_knowledge_v4/reviews/v4_010_deep_decision_review_20261030.json",
+      "release_trigger": "Independent official applicability and corrected source-ledger model, dated and reviewed; do not modify original V3 verdict."
+    }
+  ],
+  "restricted_models": [
+    {
+      "id": "V4_010_ORDINARY_PENSION_TAX",
+      "scope": "L2_SYNTHETIC_SENSITIVITY_ONLY",
+      "reason": "Current simplified net-result formula applies tax to gains only and does not model taxation of credited contribution principal; ordinary-account tax treatment also varies by product.",
+      "blocked_conclusions": [
+        "UNIVERSAL_PENSION_TAX_SUPERIORITY",
+        "INDIVIDUAL_AFTER_TAX_ACCOUNT_RANKING",
+        "L3",
+        "L4"
+      ],
+      "required_on_revision": [
+        "contribution_tax_credit_history",
+        "documented_tax_excluded_principal",
+        "deferred_retirement_income_if_any",
+        "withdrawal_eligibility_and_order",
+        "account_and_instrument_tax_regime",
+        "foreign_withholding_and_effective_date"
+      ]
+    }
+  ],
+  "known_source_limits": [
+    {
+      "video": 8,
+      "limit": "Public ASR lacks 2 of 1039 original cues; no audio review this run."
+    },
+    {
+      "video": 10,
+      "limit": "Private original 34-cue SRT SHA unavailable; public Korean ASR only."
+    }
+  ],
+  "current_max_use": "L2_SYNTHETIC",
+  "L3_approved": false,
+  "L4_approved": false,
+  "validation_scope": "STRUCTURE_ARITHMETIC_PROVENANCE_NOT_EXTERNAL_LEGAL_CERTIFICATION",
+  "future_quality_gate_min_video": 11
+}

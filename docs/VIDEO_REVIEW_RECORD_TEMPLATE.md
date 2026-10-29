@@ -39,3 +39,16 @@
 5. **진척 변경** → 누적 상태는 GitHub 감사 CLI의 최신 집계를 기준으로 갱신하고, 옛 진행 수치는 당시 스냅샷으로 명시한다.
 
 **영향 범위 밖:** 이 연구의 어떤 자동 문서 기록도 실제 투자 주문, 계좌 자금 이동, KIS 동기화, 사용자 세금 신고를 실행하지 않는다.
+
+## D. 2026-10-30 신규 V4 심층 연구 전용 추가 필드 (기존 V3 불변)
+
+[품질·의사결정 게이트](V4_RESEARCH_SYSTEM_QUALITY_GATE_20261030.md)를 우선 참조한다. #11 이후 신규 `v4_NNN_*deep/decision/quantitative*review*.json` 작성 시 `quality_gate`에 다음을 별도 저장한다.
+
+- `policy_version=V4_RESEARCH_GOVERNANCE_20261030`; `source_provenance={source_kind, scope_note, raw_hash_recomputed_this_cycle:bool, audio_checked:bool, frames_checked:bool}`. 등록 SHA를 읽기만 하고 원본 파일을 재검증하지 않았으면 bool=false.
+- `claim_coverage={rechecked_ids:[], reused_ids:[], contradicted_ids:[]}`. 각 ID는 정확히 한 번 포함하며 반박된 주장 ID는 반드시 정정 전파에 연결한다.
+- `model_scope={model_ids:[], arithmetic_status:PASS|OPEN|NOT_APPLICABLE, semantic_status:PASS|OPEN|NOT_APPLICABLE, legal_product_status:PASS|OPEN|NOT_APPLICABLE, tax_basis:SEGREGATED|OPEN|NOT_APPLICABLE, limits:설명}`. 세제·수익률 가정의 실제 타당성과 산술 검사를 구별한다.
+- `knowledge_integration={relation:NEW|REINFORCE|EXTEND|CHANGE|CONFLICT|CORRECT|NONE, conflict_ids:[], correction_ids:[], contradicted_blocked:true}`.
+- `decision_status={research_status:IN_PROGRESS|CLOSED_WITH_SOURCE_LIMITATIONS|EVIDENCE_BLOCKED, evidence_status:VERIFIED|QUALIFIED|OPEN, max_use:L1|L2, L3_approved:false, L4_approved:false}`.
+- `open_blockers=[{id, claim_ids:[], needed, blocked_use, reopen_trigger}]`. 기존 `external_open`가 있으면 각각의 ID와 정확히 연결. 확인할 자료와 해제조건 없는 OPEN은 금지.
+
+신규 리뷰마다 기존 계보/모형 검증 외에 `scripts/verify_v4_research_governance.py` 자동검사를 실행한다. 통과는 구조·상태 차단 확인일 뿐 공식 법령 해석·개인 적합성 승인이 아니다.
