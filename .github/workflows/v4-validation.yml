@@ -1,0 +1,35 @@
+name: V4 evidence-contract validation
+on:
+  push:
+    branches: [main, "v4/**"]
+    paths:
+      - "schemas/v4_*.json"
+      - "data/v4/**"
+      - "scripts/validate_v4.py"
+      - "tests/test_v4.py"
+      - "VIDEO_INVENTORY_2026-10-07.md"
+      - ".github/workflows/v4-validation.yml"
+  pull_request:
+    paths:
+      - "schemas/v4_*.json"
+      - "data/v4/**"
+      - "scripts/validate_v4.py"
+      - "tests/test_v4.py"
+      - "VIDEO_INVENTORY_2026-10-07.md"
+      - ".github/workflows/v4-validation.yml"
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validator
+        run: python -m pip install "jsonschema==4.26.0"
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p "test_v4.py" -v
+      - name: Validate V4 data
+        run: python scripts/validate_v4.py

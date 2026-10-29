@@ -1,0 +1,1 @@
+V4 individual video analyses are placed here as <video_id>.json AFTER reviewing the original video source. Pilot manifest entries are not analyses. Every file must pass scripts/validate_v4.py and have linked evidence.
