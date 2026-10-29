@@ -18,6 +18,9 @@ on:
       - "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md"
       - "docs/VIDEO_REVIEW_RECORD_TEMPLATE.md"
       - "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md"
+      - "data/synthesis/investment_knowledge_v4/**"
+      - "scripts/verify_v4_quant_models.py"
+      - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
   pull_request:
@@ -35,6 +38,9 @@ on:
       - "docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md"
       - "docs/VIDEO_REVIEW_RECORD_TEMPLATE.md"
       - "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md"
+      - "data/synthesis/investment_knowledge_v4/**"
+      - "scripts/verify_v4_quant_models.py"
+      - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
 
@@ -69,6 +75,10 @@ jobs:
             echo "ERROR: backtest unexpectedly ran without source data"; exit 1
           fi
           python -c 'import json; d=json.load(open("/tmp/all-weather-source-gate.json")); assert d["status"]=="BLOCKED_MISSING_SOURCE_RETURNS"'
+      - name: Enforce V4 quantitative model arithmetic and source integrity
+        run: |
+          python -B scripts/verify_v4_quant_models.py --self-test
+          python -B scripts/verify_v4_quant_models.py --root .
       - name: Validate 70-source extension records and selective verification policy
         run: |
           python - <<'PY'

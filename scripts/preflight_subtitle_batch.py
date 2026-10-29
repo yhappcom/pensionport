@@ -68,7 +68,8 @@ def preflight(root: Path) -> int:
 
     for name in ("scripts/audit_subtitle_review_gate.py",
                  "scripts/ingest_subtitle_zip.py",
-                 "scripts/recover_subtitle_sources.py"):
+                 "scripts/recover_subtitle_sources.py",
+                 "scripts/verify_v4_quant_models.py"):
         try:
             ast.parse((root / name).read_text(encoding="utf-8"), filename=name)
         except (SyntaxError, OSError, UnicodeError) as exc:
@@ -82,6 +83,19 @@ def preflight(root: Path) -> int:
     except (KeyError, ValueError, OSError, TypeError) as exc:
         errors.append(f"SOURCE_REGISTRY_OR_QUEUE: {type(exc).__name__}: {exc}")
         roster, registry = {}, {}
+
+    # V4 updates must not reach GitHub without the same deterministic model gate.
+    # Unrelated V3-only batches keep their existing approval flow.
+    if any(p.startswith("data/synthesis/investment_knowledge_v4/")
+           or p == "scripts/verify_v4_quant_models.py" for p in staged):
+        model_check = subprocess.run(
+            [sys.executable, "-B", "scripts/verify_v4_quant_models.py",
+             "--root", str(root)],
+            cwd=root, capture_output=True, text=True, check=False,
+        )
+        if model_check.returncode:
+            errors.append("V4_QUANT_MODEL_GATE_FAIL: "
+                          + (model_check.stdout + model_check.stderr).strip()[-2000:])
 
     review_ids = set()
     for path in staged:
