@@ -1,5 +1,7 @@
 # 박곰희TV 영상 학습 워크플로 — V3 단일 저장 (2026-10-08)
 
+> **2026-10-29 research completion / decision-use reference:** Before reopening a studied source, applying a principle, or building a decision model, consult the [canonical completion and decision-use standard](https://github.com/yhappcom/pensionport/blob/main/docs/RESEARCH_DECISION_USE_STANDARD_20261029.md). Reuse existing verified claims and record only evidence-based changes. This reference does **not** weaken the V3 source requirements, the independent evidence policy, or the final CI gate.
+
 ## 2026-10-26 우선규칙: GitHub CI 실패 알림 예방과 승인 배치 원자적 저장
 
 **[자막 연구 CI·일괄 저장 운영 기준](docs/SUBTITLE_CI_PUSH_POLICY_20261026.md)**을 신규/수정 V3 배치의 GitHub 저장 절차에 우선 적용한다.

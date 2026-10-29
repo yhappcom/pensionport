@@ -6,6 +6,7 @@ An evidence-based investment research project that builds a knowledge base from 
 
 - [Verified Video Inventory](VIDEO_INVENTORY_2026-10-07.md): 791 videos in the roster, including 703 long-form videos in the primary research scope.
 - [V3 Single-Record Research Workflow](WORKFLOW.md): prioritize source-based analysis and write one final analysis record per newly reviewed video.
+- [Research Completion and Investment Decision-Use Standard](https://github.com/yhappcom/pensionport/blob/main/docs/RESEARCH_DECISION_USE_STANDARD_20261029.md): canonical shared rules for study closure, duplicate-work prevention, and decision-use levels.
 - `data/videos.jsonl` and `data/canonical_events/`: preserved legacy registry records (read-only during routine research).
 - `data/analysis_events/<video_id>.json`: the final V3 research record for each newly reviewed video, including sources, claims, risks, and independent verification.
 - `knowledge/` and `synthesis/`: consolidated investment knowledge organized by topic.
