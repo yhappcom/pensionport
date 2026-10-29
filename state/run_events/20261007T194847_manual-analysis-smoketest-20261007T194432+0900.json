@@ -1,0 +1,39 @@
+{
+  "run_id": "manual-analysis-smoketest-20261007T194432+0900",
+  "source": "manual",
+  "started_at": "2026-10-07T19:44:32+09:00",
+  "finished_at": "2026-10-07T19:48:47+09:00",
+  "start_effective_canonical": 154,
+  "end_effective_canonical": 156,
+  "newly_analyzed_count": 2,
+  "newly_analyzed": [
+    {
+      "sequence": 155,
+      "video_id": "GAXeom_eF6I",
+      "title": "[인사말] 자산관리사 박곰희가 재테크 유튜브를 시작했어요!"
+    },
+    {
+      "sequence": 156,
+      "video_id": "SJ_0Za3YxcA",
+      "title": "[상품지식] 설마 CMA 없이 재테크 한다고 하는 건 아니쥬??"
+    }
+  ],
+  "sync_only_count": 0,
+  "pending_sync_count": 0,
+  "verification_needed_count": 13,
+  "discovery_checked_at": "2026-10-07T19:45:40+09:00",
+  "source_acquisition_result": "original YouTube pages exposed matching metadata, descriptions, and transcripts",
+  "roster_long_form_total": 703,
+  "roster_long_form_processed": 144,
+  "roster_long_form_remaining": 559,
+  "legacy_canonical_outside_roster": 12,
+  "last_run_result": "success",
+  "write_failure": false,
+  "heartbeat_location": "state/progress.json",
+  "next_checkpoint": 160,
+  "notes": [
+    "Retired 794-baseline discovery did not block analysis.",
+    "Fresh-SHA serial aggregate writes succeeded.",
+    "CMA 2019 risk/rate claims were preserved as historical and current product-risk context was checked."
+  ]
+}

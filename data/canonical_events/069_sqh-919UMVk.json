@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 69,
+  "video_id": "sqh-919UMVk",
+  "published_at": "2026-06-08",
+  "title": "🚨 써킷브레이커 걸릴 정도로 하락한다는 건?ㅣ긴급점검ㅣ역대 서킷브레이커 점검",
+  "source_doc": "videos/2026/sqh-919UMVk.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 69
+  },
+  "topics": [
+    "market_crash",
+    "circuit_breaker",
+    "behavior",
+    "risk_budget",
+    "rebalancing"
+  ],
+  "knowledge_change": [
+    "REINFORCE",
+    "TIME_SENSITIVE"
+  ],
+  "verification_status": "KRX_current_circuit_breaker_rules_verified",
+  "claim_delta": {
+    "claim_id": "GOMHEE-C35",
+    "topic": "market_stress",
+    "claim": "서킷브레이커는 시장 급락 시 거래를 일시 중단하는 시장안정장치이며 장기 투자자는 그 발생 자체를 방향예측 신호로 삼기보다 사전 위험예산과 리밸런싱 규칙을 적용한다",
+    "supporting_videos": [
+      "sqh-919UMVk"
+    ],
+    "status": "supported",
+    "confidence": "high"
+  },
+  "framework_delta": "시장충격 → 거래소 안정장치 → 투자자 심리 → 위험예산 → 사전 리밸런싱 규칙",
+  "official_verification": {
+    "krx": "KOSPI/KOSDAQ circuit breakers use 8%/15%/20% phases; phase 1 and 2 halt trading for 20 minutes subject to detailed current KRX conditions."
+  },
+  "created_at": "2026-10-05T15:15:00+09:00"
+}

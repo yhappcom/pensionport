@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "event_type": "canonicalized_video",
+  "sequence": 108,
+  "video_id": "8UPRiaQz6cw",
+  "published_at": null,
+  "title": "☂️ 연금저축 계좌 어디서 열어요?ㅣ연금시리즈 14편",
+  "source_doc": "videos/undated/8UPRiaQz6cw.md",
+  "analysis_status": "source_backed_analysis_canonicalized",
+  "queue_effect": {
+    "inventory_status": "processed",
+    "canonical_sync_status": "synced",
+    "canonical_sequence": 108
+  },
+  "topics": [
+    "pension_savings",
+    "retirement"
+  ],
+  "knowledge_change": [
+    "BACKLOG_COMPACTION"
+  ],
+  "claim_delta": {
+    "claim_id": "GOMHEE-C72",
+    "topic": "pension_savings",
+    "claim": "연금저축의 제도적 장점을 이해한 다음 실제 증권사 선택·계좌개설·ETF 매수까지 연결하는 실행편이다. 증권사 비교축은 수수료, 신규개설 혜택, 입금액 조건, 타사이전 혜택, ETF 매수 이벤트다.",
+    "supporting_videos": [
+      "8UPRiaQz6cw"
+    ],
+    "status": "supported",
+    "confidence": "source_backed"
+  },
+  "framework_delta": "연금제도 이해 → 증권사 실행인프라 → 계좌개설 → 자산배분 → ETF 매수 → 장기관리. 증권사 프로모션은 마지막 보조조건이다.",
+  "created_at": "2026-10-06T08:26:00+09:00"
+}

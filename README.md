@@ -1,13 +1,22 @@
 # pensionport
 
-A public-safe overview of an investment research methodology.
+박곰희TV 영상의 **실제 발언과 공식자료를 바탕으로 투자 지식을 축적**하는 프로젝트.
 
-The original source collection, media metadata, research citations tied to specific content creators, and detailed working files are **not hosted in the public working tree**. The publicly visible repository is not the complete research archive.
+## 핵심 자료
+- [확정 영상 목록](VIDEO_INVENTORY_2026-10-07.md): 791편, 기본 학습 대상 롱폼 703편
+- [단일 학습 워크플로 V3](WORKFLOW.md): 영상 분석 우선 및 신규 영상별 **단일 쓰기** 원칙
+- `data/videos.jsonl` 및 `data/canonical_events/`: 보존하는 레거시 등록 기록 (일반 실행에서 읽기 전용)
+- `data/analysis_events/<video_id>.json`: V3 신규 영상의 **최종 학습 기록** 및 출처·주장·위험·교차검증
+- `knowledge/`, `synthesis/`: 주제별 통합 지식
 
-## Available material
-- [Research quality assessment](research/001_research_maturity.md)
-- [Privacy boundary](PRIVACY.md)
+## 운영
+매 실행은 **미완료 롱폼 선택 → 정확한 영상의 원문 확보 → 내용·검증 분석 → 단일 JSON 저장 → 재조회·검증**으로 진행한다.
 
-The framework distinguishes source coverage, independent factual verification, scenario analysis, personal suitability, and actual investment implementation. No individual investment recommendations or automated trades are provided here.
+- 신규 분석 파일을 검증하면 완료 기록으로 인정한다. **별도 `data/canonical_events/` 등록을 새로 요구하거나 생성하지 않는다.**
+- 완료 건수는 레거시(base + 기존 event) 및 유효한 신규 분석 파일의 **고유 video_id 합집합**과 로스터 롱폼의 교집합으로 계산한다. 같은 영상은 하나로 센다.
+- 충분한 본문 없이 작성한 PARTIAL은 새로운 완료 건수에 넣지 않는다. 전사 기반 학습과 화면 검토 완료는 별도로 표시한다.
+- GitHub 안전 검사 차단은 우회하지 않는다. 차단 시 그 실행의 추가 쓰기를 중단하고 저장된 파일만 완료로 보고한다.
+- 목록 재수집, writer lock 갱신, 매회 aggregate 갱신은 하지 않는다. `state/progress.json`은 참고용 과거 스냅샷이다.
+- 연금·ISA·세금 등 시점 의존 정보는 당시 주장과 현재 공식자료를 구별한다.
 
-**Important:** Deleting public files from a new commit does **not** erase them from previous Git history, pull-request diffs, public clones, or search caches. Change this repository to **private** before treating its contents as confidential.
+역사적 canonical 이벤트는 보존한다. 이전에 분석 파일만 저장된 `09R29vsv6to`는 V3 데이터 요건 충족 여부를 확인해 신규 분석 완료로 인정하며, 차단된 event #232를 재생성할 필요는 없다.

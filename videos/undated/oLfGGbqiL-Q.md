@@ -1,0 +1,22 @@
+# oLfGGbqiL-Q — 투자자가 활용하기 좋은 앱 | 투자어플 추천
+
+- type: long_form
+- source_status: indexed public metadata/summary
+- knowledge_change: EXTEND, TIME_SENSITIVE
+
+## 핵심 분석
+투자 앱은 투자전략 그 자체가 아니라 정보수집·포트폴리오 확인·공시/시장데이터 접근을 돕는 도구다. 앱의 편리함을 매매빈도 증가로 연결하지 않고 자신의 투자프로세스에서 필요한 기능을 선택한다.
+
+## 판단
+공시/재무정보, 포트폴리오 통합, 시장데이터, 알림 등 기능별로 목적을 정하고 데이터 출처·업데이트 주기·비용·개인정보 권한을 확인한다.
+
+## 위험
+앱 추천과 서비스 기능은 TIME_SENSITIVE이며 서비스 종료/유료화/데이터 변경이 가능하다. 푸시 알림은 행동편향을 키울 수 있다.
+
+## 프레임워크
+투자원칙 → 필요한 정보 → 도구 선택 → 데이터 검증 → 의사결정으로 tool layer를 분리한다.
+
+## Canonicalization
+- canonical_sequence: 122
+- canonicalized_at: 2026-10-06
+- sync_mode: backlog_compaction_without_reanalysis
