@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-27",
+  "prior_baseline": {
+    "approved_v3_videos": 198,
+    "reviewed_material_and_editorial_claims": 3221
+  },
+  "batch": {
+    "roster_range": "201-205",
+    "videos_in_roster": 5,
+    "private_original_srt_present": 4,
+    "missing_srt_user_exception": 1,
+    "educational_v3_approved": 4,
+    "excluded_from_v3": 1,
+    "edited_compilations_reviewed": 4,
+    "original_korean_srt_cues": 33642,
+    "original_source_bytes": 2647452,
+    "source_zip": "201-300.zip",
+    "source_zip_sha256": "b5674d1a3e07b3ab40d4ca9b548dd6378916105bfb91f287247d4dd85242832d",
+    "claim_count": 102,
+    "tally": {
+      "PRIMARY_CONFIRMED": 40,
+      "QUALIFIED": 54,
+      "CONTRADICTED": 0,
+      "HYPOTHETICAL": 8,
+      "SPEAKER_OPINION": 0
+    },
+    "per_video": [
+      {
+        "no": 201,
+        "id": "ATMJeH2TyxE",
+        "cues": 3393,
+        "claims": 22,
+        "status": "APPROVED",
+        "reuses_prior_lecture_content": true
+      },
+      {
+        "no": 202,
+        "id": "sUtOQJH-wgc",
+        "cues": 5000,
+        "claims": 25,
+        "status": "APPROVED",
+        "reuses_prior_lecture_content": true
+      },
+      {
+        "no": 203,
+        "id": "CFZNyQ8pRUE",
+        "cues": 3507,
+        "claims": 21,
+        "status": "APPROVED",
+        "reuses_prior_lecture_content": true
+      },
+      {
+        "no": 204,
+        "id": "yl0UyfkvaHs",
+        "cues": null,
+        "claims": 0,
+        "status": "EXCLUDED_SOURCE_ABSENCE_USER_APPROVED"
+      },
+      {
+        "no": 205,
+        "id": "EdRzQmddbHE",
+        "cues": 21742,
+        "claims": 34,
+        "status": "APPROVED",
+        "reuses_prior_lecture_content": true
+      }
+    ]
+  },
+  "current_cumulative": {
+    "approved_v3_videos": 202,
+    "reviewed_material_and_editorial_claims": 3323,
+    "total_roster_videos": 791,
+    "remaining_v3_roster_videos": 589
+  },
+  "legacy_optional_verification": {
+    "total": 38,
+    "resolved": 14,
+    "open": 24,
+    "unchanged": true
+  },
+  "source_integrity": {
+    "registry": "data/subtitles/registry_201_205_20261027.json",
+    "source_intake_201_230": "data/subtitles/intake_201_230_20261027.json",
+    "archive_sha_recomputed": true,
+    "source_sha256_recomputed_for_four": true,
+    "all_source_cues_parsed_and_topic_scanned": true,
+    "missing204_retrieval_waived": true,
+    "private_zip_and_srt_not_published": true,
+    "google_drive_writes": false,
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "independent_public_full_ko_transcript_checked": false
+  },
+  "secondary_verification": {
+    "claim_count": 102,
+    "tally": {
+      "PRIMARY_CONFIRMED": 40,
+      "QUALIFIED": 54,
+      "CONTRADICTED": 0,
+      "HYPOTHETICAL": 8,
+      "SPEAKER_OPINION": 0
+    },
+    "untriaged_in_selected_material_claims": 0,
+    "report": "knowledge/VIDEO201_205_FULL_V3_CLAIM_SCOPE_REVIEW_20261027.md"
+  },
+  "duplication_policy": {
+    "four_compilation_edits": true,
+    "extra_video_level_v3_records": 4,
+    "all_102_are_timecoded_claim_checks_not_102_novel_financial_principles": true,
+    "unique_original_lecture_sources_definitively_mapped": false,
+    "unique_new_knowledge_count": null,
+    "review_scope_note": "Compiled lecture origin mapping not exhaustive; #205 34 selected priority claims are not exhaustive verification of all video utterances."
+  },
+  "material_updates": [
+    {
+      "video_no": 201,
+      "issue": "Pension annual withdrawal limit and taxable private pension income 1500만원 are different legal thresholds",
+      "status": "QUALIFIED",
+      "reference_claim_id": "ATMJeH2TyxE-16"
+    },
+    {
+      "video_no": 202,
+      "issue": "ELB/ELS issuer insolvency and knock-in conditions not equivalent to bank deposit protection",
+      "status": "PRIMARY_CONFIRMED_AND_QUALIFIED",
+      "reference_claim_id": "sUtOQJH-wgc-09"
+    },
+    {
+      "video_no": 203,
+      "issue": "Hedged versus unhedged ETF also driven by FX carrying/hedging cost and domiciled tax",
+      "status": "PRIMARY_CONFIRMED_AND_QUALIFIED",
+      "reference_claim_id": "CFZNyQ8pRUE-15"
+    },
+    {
+      "video_no": 205,
+      "issue": "2025 financial investment income tax repealed; historic tax, legacy pension accounts, 2026 updates separated",
+      "status": "QUALIFIED",
+      "reference_claim_id": "EdRzQmddbHE-10"
+    }
+  ],
+  "case_limitations": [
+    "#201-205 holiday videos re-edit older lectures; precise original episode mapping remains unverified",
+    "#202 2025 quoted ELS/ELB rate product terms and investor screens not independently reviewed",
+    "#205 older statistics, private insurance contracts, promotional rates and particular investor portfolio not verified",
+    "#205 original 11h SRT parsed; 34 key claims selected, not every education utterance independently validated"
+  ],
+  "notes": [
+    "#204 source absence user exception is not authorization to invent missing subtitle claims.",
+    "Original 201-300.zip remains in conversation only; never send to Drive or GitHub.",
+    "main and existing approved videos left unchanged.",
+    "Approval cumulative counts refer to source-video claim-scope records; duplicated underlying lecture themes are not separately certified unique."
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-26",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "roster_no": 178,
+  "video_id": "g330zWXv6iA",
+  "title": "연금부자수업 EP.03 — 장수위험·25년 적립과 인출 계산",
+  "source_url": "https://www.youtube.com/watch?v=g330zWXv6iA",
+  "duration": "00:14:05",
+  "source_kind": "USER_PRIVATE_SRT_ZIP_101_200",
+  "source_level": "DIRECT_PRIVATE_SRT_OFFICIAL_INVESTOR_MATH_AND_RETIREMENT_SURVEY",
+  "subtitle_sha256": "94f10d1a24b0c3833da6bdfab8ab463e469c683e0b2835e1dfe84996e224afff",
+  "existing_registry_srt": {
+    "sha256": "94f10d1a24b0c3833da6bdfab8ab463e469c683e0b2835e1dfe84996e224afff",
+    "cue_count": 385,
+    "raw_srt_bytes": 29421
+  },
+  "cue_count": 385,
+  "source_audit": {
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "original_srt_sha256": "94f10d1a24b0c3833da6bdfab8ab463e469c683e0b2835e1dfe84996e224afff",
+    "cue_count": 385,
+    "raw_bytes": 29421,
+    "original_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_full_ko_transcript_checked": false,
+    "limitations": "Speaker examples and statistical 2030 future longevity claim not confirmed by actual official future-projection table; personal spending and lifespan not verified.",
+    "evidence_reference": "All 385 timed Korean SRT cues read in entirety; 14 material retirement life-cycle and math claims individually traced; $500,000 KRW monthly 25 year 7%/12 growth and 300만원 withdrawal scenarios independently recalculated; survey figures qualified."
+  },
+  "core_message": "장수위험 대비 적립기간·정기납입·인출기간을 구분하고 복리 7%와 월300만원은 수익 보장이 아닌 가정",
+  "claims": [
+    {
+      "claim_id": "g330zWXv6iA-01",
+      "source_cue_index": 95,
+      "timecode": "00:03:19.080",
+      "source_paraphrase": "수명 연장과 개인의 노후준비 부족이 동시에 나타날 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "장수로 은퇴 기간이 길어지면 자금고갈 위험이 커질 수 있지만 개인별 수명·근로기간·국민연금 여부는 달라 일반화 금지.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "장수로 은퇴 기간이 길어지면 자금고갈 위험이 커질 수 있지만 개인별 수명·근로기간·국민연금 여부는 달라 일반화 금지.",
+        "disposition": "장수로 은퇴 기간이 길어지면 자금고갈 위험이 커질 수 있지만 개인별 수명·근로기간·국민연금 여부는 달라 일반화 금지.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-02",
+      "source_cue_index": 104,
+      "timecode": "00:03:40.920",
+      "source_paraphrase": "개인연금은 국가 세제혜택과 복리가 결합된 가장 확실하고 안정적인 준비 수단",
+      "assessment": "QUALIFIED",
+      "independent_check": "세제혜택·장기 적립 원리는 있지만 연금저축의 주식·채권 ETF는 원금손실 가능. 예측가능 수익 또는 확정적 안전자산으로 단정 불가.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "세제혜택·장기 적립 원리는 있지만 연금저축의 주식·채권 ETF는 원금손실 가능. 예측가능 수익 또는 확정적 안전자산으로 단정 불가.",
+        "disposition": "세제혜택·장기 적립 원리는 있지만 연금저축의 주식·채권 ETF는 원금손실 가능. 예측가능 수익 또는 확정적 안전자산으로 단정 불가.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-03",
+      "source_cue_index": 126,
+      "timecode": "00:04:34.840",
+      "source_paraphrase": "2030년 한국 여성 기대수명 90세 초과라는 언론 인용 전망",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "2030년 출생여성 기간기대수명/코호트 전망과 90세 상회 시점을 공식 통계 원표로 대조하지 못함. 구체 숫자는 통계확정 사실로 사용 금지.",
+      "official_sources": [
+        "https://www.yna.co.kr/view/AKR20260522058200530"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-26",
+        "source_finding": "2030년 출생여성 기간기대수명/코호트 전망과 90세 상회 시점을 공식 통계 원표로 대조하지 못함. 구체 숫자는 통계확정 사실로 사용 금지.",
+        "disposition": "2030년 출생여성 기간기대수명/코호트 전망과 90세 상회 시점을 공식 통계 원표로 대조하지 못함. 구체 숫자는 통계확정 사실로 사용 금지.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "basis": "2030년 출생여성 기간기대수명/코호트 전망과 90세 상회 시점을 공식 통계 원표로 대조하지 못함. 구체 숫자는 통계확정 사실로 사용 금지."
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-04",
+      "source_cue_index": 206,
+      "timecode": "00:07:22.840",
+      "source_paraphrase": "30세 취업·55세 은퇴시 경제활동기간 25년 가정",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "55-30=25년이지만 취업·퇴직 나이는 개인별 다르다. 노후기간45년 역시 100세까지 생존하는 시나리오.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-26",
+        "source_finding": "55-30=25년이지만 취업·퇴직 나이는 개인별 다르다. 노후기간45년 역시 100세까지 생존하는 시나리오.",
+        "disposition": "55-30=25년이지만 취업·퇴직 나이는 개인별 다르다. 노후기간45년 역시 100세까지 생존하는 시나리오.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "basis": "55-30=25년이지만 취업·퇴직 나이는 개인별 다르다. 노후기간45년 역시 100세까지 생존하는 시나리오."
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-05",
+      "source_cue_index": 241,
+      "timecode": "00:08:39.240",
+      "source_paraphrase": "수입 25년과 55~100세 소비 기간45년 비교",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "제시된 생애주기는 가정이며 실제 55세 이후 근로소득/공적연금/건강 및 기대수명에 따라 달라진다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-26",
+        "source_finding": "제시된 생애주기는 가정이며 실제 55세 이후 근로소득/공적연금/건강 및 기대수명에 따라 달라진다.",
+        "disposition": "제시된 생애주기는 가정이며 실제 55세 이후 근로소득/공적연금/건강 및 기대수명에 따라 달라진다.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "basis": "제시된 생애주기는 가정이며 실제 55세 이후 근로소득/공적연금/건강 및 기대수명에 따라 달라진다."
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-06",
+      "source_cue_index": 255,
+      "timecode": "00:09:08.560",
+      "source_paraphrase": "매월 50만원을 30~55세 25년 적립하면 납입원금 1억5000만원",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "50만원×12개월×25년=1억5000만원 정확한 단순 산술. 물가·이자·세금 별도.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-26",
+        "source_finding": "50만원×12개월×25년=1억5000만원 정확한 단순 산술. 물가·이자·세금 별도.",
+        "disposition": "50만원×12개월×25년=1억5000만원 정확한 단순 산술. 물가·이자·세금 별도.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-07",
+      "source_cue_index": 261,
+      "timecode": "00:09:24.519",
+      "source_paraphrase": "같은 월 50만원을 연7% 월복리로 25년 운용하면 약4억원",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "월말 50만원 납입, 매월 7%/12 재투자를 가정하면 미래가치 약4억503만원. 7% 세후 고정수익률 보장 아님; 실제 자산 위험.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-26",
+        "source_finding": "월말 50만원 납입, 매월 7%/12 재투자를 가정하면 미래가치 약4억503만원. 7% 세후 고정수익률 보장 아님; 실제 자산 위험.",
+        "disposition": "월말 50만원 납입, 매월 7%/12 재투자를 가정하면 미래가치 약4억503만원. 7% 세후 고정수익률 보장 아님; 실제 자산 위험.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "basis": "월말 50만원 납입, 매월 7%/12 재투자를 가정하면 미래가치 약4억503만원. 7% 세후 고정수익률 보장 아님; 실제 자산 위험."
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-08",
+      "source_cue_index": 268,
+      "timecode": "00:09:40.959",
+      "source_paraphrase": "1억5000만원을 월300만원씩 지출하면 약4년2개월 소진",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "1억5000만원÷월300만원=50개월=4년2개월(운용수익·인플레이션·세금 배제).",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-26",
+        "source_finding": "1억5000만원÷월300만원=50개월=4년2개월(운용수익·인플레이션·세금 배제).",
+        "disposition": "1억5000만원÷월300만원=50개월=4년2개월(운용수익·인플레이션·세금 배제).",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-09",
+      "source_cue_index": 275,
+      "timecode": "00:09:58.279",
+      "source_paraphrase": "4억원 원금을 연7%로 투자하면 월300만원 노후생활비를 지속적으로 확보",
+      "assessment": "QUALIFIED",
+      "independent_check": "4억원×7%/12=약233만원 세전이며 월300만원보다 작음. 국민연금·퇴직연금 추가소득을 명시해야 가능; 7% 달성도 불확실.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "4억원×7%/12=약233만원 세전이며 월300만원보다 작음. 국민연금·퇴직연금 추가소득을 명시해야 가능; 7% 달성도 불확실.",
+        "disposition": "4억원×7%/12=약233만원 세전이며 월300만원보다 작음. 국민연금·퇴직연금 추가소득을 명시해야 가능; 7% 달성도 불확실.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-10",
+      "source_cue_index": 300,
+      "timecode": "00:10:48.360",
+      "source_paraphrase": "부부 적정 노후생활비 월300만원을 가구별 계획의 출발점으로 사용",
+      "assessment": "QUALIFIED",
+      "independent_check": "국민노후보장패널 2024 조사에 부부 적정생활비 약298.1만원(발표 2026); 이는 응답자의 평균 인식이며 개인별 필수금액·지역·주택 조건 다름.",
+      "official_sources": [
+        "https://www.yna.co.kr/view/AKR20260522058200530"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "국민노후보장패널 2024 조사에 부부 적정생활비 약298.1만원(발표 2026); 이는 응답자의 평균 인식이며 개인별 필수금액·지역·주택 조건 다름.",
+        "disposition": "국민노후보장패널 2024 조사에 부부 적정생활비 약298.1만원(발표 2026); 이는 응답자의 평균 인식이며 개인별 필수금액·지역·주택 조건 다름.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.yna.co.kr/view/AKR20260522058200530"
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-11",
+      "source_cue_index": 327,
+      "timecode": "00:11:50.800",
+      "source_paraphrase": "국민연금·퇴직연금과 사적연금을 결합해 노후 생활비 계획",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "노후 현금흐름을 공적·퇴직·사적 연금으로 분산해 추정하는 다층 준비는 합리적. 실제 지급액·개시일·세금을 개별 확인.",
+      "official_sources": [
+        "https://www.ssa.gov/retirement"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-26",
+        "source_finding": "노후 현금흐름을 공적·퇴직·사적 연금으로 분산해 추정하는 다층 준비는 합리적. 실제 지급액·개시일·세금을 개별 확인.",
+        "disposition": "노후 현금흐름을 공적·퇴직·사적 연금으로 분산해 추정하는 다층 준비는 합리적. 실제 지급액·개시일·세금을 개별 확인.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.ssa.gov/retirement"
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-12",
+      "source_cue_index": 346,
+      "timecode": "00:12:34.160",
+      "source_paraphrase": "인출기에는 복리의 축적효과와 반대로 자산 감소·변동성 영향을 고려",
+      "assessment": "QUALIFIED",
+      "independent_check": "은퇴 초기 급락 및 지속 인출은 자산고갈을 앞당길 수 있지만 시장 수익·인출률·현금완충재에 따라 자산 경로 다름.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "은퇴 초기 급락 및 지속 인출은 자산고갈을 앞당길 수 있지만 시장 수익·인출률·현금완충재에 따라 자산 경로 다름.",
+        "disposition": "은퇴 초기 급락 및 지속 인출은 자산고갈을 앞당길 수 있지만 시장 수익·인출률·현금완충재에 따라 자산 경로 다름.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-13",
+      "source_cue_index": 362,
+      "timecode": "00:13:09.839",
+      "source_paraphrase": "소득 없이 매달 300만원을 쓰면 잔액이 계속 줄 수 있다는 체험적 설명",
+      "assessment": "QUALIFIED",
+      "independent_check": "현금흐름이 없고 시장수익률 0이면 월300만원씩 차감되나 연금수령/운용수익/물가에 따라 감소속도 달라짐.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "현금흐름이 없고 시장수익률 0이면 월300만원씩 차감되나 연금수령/운용수익/물가에 따라 감소속도 달라짐.",
+        "disposition": "현금흐름이 없고 시장수익률 0이면 월300만원씩 차감되나 연금수령/운용수익/물가에 따라 감소속도 달라짐.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "g330zWXv6iA-14",
+      "source_cue_index": 372,
+      "timecode": "00:13:30.639",
+      "source_paraphrase": "어떤 금액을 모아도 원금 인출방식으로는 어떤 기대수명도 충족할 수 없다",
+      "assessment": "CONTRADICTED",
+      "independent_check": "한정된 기간·확정 지출액과 충분한 원금이라면 인출방식으로 생활비 충당 가능. 위험은 인출률·투자수익·생존기간의 불확실성이며 절대 불가능 명제는 거짓.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-26",
+        "source_finding": "한정된 기간·확정 지출액과 충분한 원금이라면 인출방식으로 생활비 충당 가능. 위험은 인출률·투자수익·생존기간의 불확실성이며 절대 불가능 명제는 거짓.",
+        "disposition": "한정된 기간·확정 지출액과 충분한 원금이라면 인출방식으로 생활비 충당 가능. 위험은 인출률·투자수익·생존기간의 불확실성이며 절대 불가능 명제는 거짓.",
+        "effective_date_or_scope": "Video 2025-11-23; 2024 survey retrospective and hypothetical retirement arithmetic",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "correction": "한정된 기간·확정 지출액과 충분한 원금이라면 인출방식으로 생활비 충당 가능. 위험은 인출률·투자수익·생존기간의 불확실성이며 절대 불가능 명제는 거짓."
+      }
+    }
+  ],
+  "claim_classification_tally": {
+    "QUALIFIED": 6,
+    "HYPOTHETICAL": 4,
+    "PRIMARY_CONFIRMED": 3,
+    "CONTRADICTED": 1
+  }
+}

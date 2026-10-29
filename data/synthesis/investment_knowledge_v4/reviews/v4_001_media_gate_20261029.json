@@ -1,0 +1,111 @@
+{
+  "schema_version": "V4_MEDIA_GATE_1.0",
+  "as_of": "2026-10-29",
+  "video_id": "sz5N9WJS310",
+  "video_url": "https://www.youtube.com/watch?v=sz5N9WJS310",
+  "original_srt": {
+    "source": "Google Drive 1-100.zip",
+    "srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+    "cue_count": 1195,
+    "source_integrity": "PASS"
+  },
+  "media_access_attempts": [
+    {
+      "path": "public Youtube watch via web",
+      "result": "Failed to retrieve playable video"
+    },
+    {
+      "path": "connected Firecrawl media scrape",
+      "result": "Account out of credits; not executed"
+    },
+    {
+      "path": "Browser context",
+      "result": "No originating browser session"
+    },
+    {
+      "path": "Google Drive video search",
+      "result": "SRT archive found; no matching video file"
+    },
+    {
+      "path": "container Youtube download",
+      "result": "DNS/no external access"
+    }
+  ],
+  "requires_media": [
+    {
+      "gate": "V01",
+      "segment": "00:07:35–00:08:12",
+      "srt_read": "10yr monthly 300k at 7% and 7yr value about 51m",
+      "verify": "Independent oral '7yrs' vs on-screen duration/formula, monthly timing",
+      "frame_verified": false,
+      "audio_verified": false,
+      "sha256": null
+    },
+    {
+      "gate": "V02",
+      "segment": "00:17:40–00:19:10",
+      "srt_read": "Tax-excluded principal and ISA transfer 300만원",
+      "verify": "Account tax-source split, distinction of ISA credit-eligible base vs actual credit",
+      "frame_verified": false,
+      "audio_verified": false,
+      "sha256": null
+    },
+    {
+      "gate": "V03",
+      "segment": "00:22:35–00:24:50",
+      "srt_read": "8e8 value, 4m monthly, 16 years",
+      "verify": "Exact displayed 8e8 composition, tax-excluded principal, 16yr formula, 6% yield assumptions",
+      "frame_verified": false,
+      "audio_verified": false,
+      "sha256": null
+    },
+    {
+      "gate": "V04",
+      "segment": "00:24:45–00:26:35",
+      "srt_read": "15m annual taxable pension threshold and 16.5% option",
+      "verify": "Display/talk distinguishes taxable component, other pension sources and full account withdrawals",
+      "frame_verified": false,
+      "audio_verified": false,
+      "sha256": null
+    }
+  ],
+  "arithmetical_regression": {
+    "monthly_300k_7pct_7years": 32399694.21,
+    "monthly_300k_7pct_10years": 51925442.23,
+    "monthly_750k_7pct_20years": 390694994.87,
+    "pension_deposits_won": 180000000,
+    "four_isa_transfers_won": 400000000,
+    "max_basis_before_credits_if_no_other_inputs_won": 580000000,
+    "monthly_dividend_from_800m_at_6pct_won": 4000000,
+    "withdrawals_4m_month_16years_won": 768000000,
+    "upper_bound_years_if_basis_580m_no_additional_contrib": 12.0833,
+    "note": "All are conditional on explicitly stated nominal annual rate/month-end deposits, no fees, and no additional contributions/taxes. The first three figures are FV only. Fund NAV is not tax-excluded principal."
+  },
+  "statutory_sources": [
+    "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+    "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507",
+    "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2394",
+    "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+  ],
+  "validation_controls": {
+    "closure_requirements": [
+      "Media asset hash recorded",
+      "Video frames for all four segments independently inspected",
+      "Audio for all four segments independently heard",
+      "SRT-to-frame-to-audio consistency checked",
+      "Any contradictory arithmetic kept separate from original claim and marked corrected",
+      "Only then consider VIDEO_QA_PASS with source and legal scope"
+    ],
+    "assert_no_false_pass": true,
+    "final_status": "HOLD_MEDIA_EVIDENCE_UNAVAILABLE",
+    "allow_next_video": false,
+    "portfolio_trade_approval_count": 0
+  },
+  "artifacts_local": {
+    "report": "v4_001_final_media_gate_report_20261029.md",
+    "report_sha256": "d0b0c5b66093c0d862d3a30878b9912bf081c87bcc558bdd2583c52a7f6cf197",
+    "gate_json": "v4_001_final_media_evidence_gate_20261029.json",
+    "gate_json_sha256": "9818be6dffa0427bd4d084415201630f8721dfad2ce4c9cf558399f0389165f6"
+  },
+  "preservation": "No changes to existing V3, first video pilot V4 or main; this is a separate review/hold record. Do not upload private video or original SRT to public GitHub."
+}

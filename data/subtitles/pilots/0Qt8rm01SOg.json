@@ -1,0 +1,385 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-26",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "roster_no": 176,
+  "video_id": "0Qt8rm01SOg",
+  "title": "ISA 2000만원 월배당 포트폴리오 재구성 — 깻잎일기",
+  "source_url": "https://www.youtube.com/watch?v=0Qt8rm01SOg",
+  "duration": "00:33:54",
+  "source_kind": "USER_PRIVATE_SRT_ZIP_101_200",
+  "source_level": "DIRECT_PRIVATE_ORIGINAL_SRT_AND_ISA_ISSUER_SEC_FIRST_PARTY",
+  "subtitle_sha256": "ed6fe8a9d9db4497f1135087b17aeb4b0bb753df8e9e28ccb7054e48f11818a6",
+  "existing_registry_srt": {
+    "sha256": "ed6fe8a9d9db4497f1135087b17aeb4b0bb753df8e9e28ccb7054e48f11818a6",
+    "cue_count": 1111,
+    "raw_srt_bytes": 83320
+  },
+  "cue_count": 1111,
+  "source_audit": {
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "original_srt_sha256": "ed6fe8a9d9db4497f1135087b17aeb4b0bb753df8e9e28ccb7054e48f11818a6",
+    "cue_count": 1111,
+    "raw_bytes": 83320,
+    "original_zip_sha256": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_full_ko_transcript_checked": false,
+    "limitations": "User provided original automatic Korean timed subtitles reviewed; actual private brokerage screens, claims of realized returns and monthly dividend history are not independently authenticated.",
+    "evidence_reference": "All 1111 original Korean SRT cues parsed sequentially and source digest recomputed; 18 source-cued ISA/ETF/tax/investor education claims compared to ISA issuer disclosure, SEC investor education and distributions; actual account transactions excluded."
+  },
+  "core_message": "ISA 만기·연금전환 및 재가입은 법정 조건을 확인하고 월분배율과 총수익률/원금위험을 구분",
+  "claims": [
+    {
+      "claim_id": "0Qt8rm01SOg-01",
+      "source_cue_index": 33,
+      "timecode": "00:01:00.079",
+      "source_paraphrase": "ISA 만기자금 일부를 연금계좌로 옮긴 뒤 신규 ISA 개설",
+      "assessment": "QUALIFIED",
+      "independent_check": "ISA 만기 후 연금계좌 전환은 세제상 별도 요건 및 60일 내 이체 조건이 있다. 모든 자금 인출이 무과세이거나 언제나 추가 세액공제를 받는 것은 아님.",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/pension/isa.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "ISA 만기 후 연금계좌 전환은 세제상 별도 요건 및 60일 내 이체 조건이 있다. 모든 자금 인출이 무과세이거나 언제나 추가 세액공제를 받는 것은 아님.",
+        "disposition": "ISA 만기 후 연금계좌 전환은 세제상 별도 요건 및 60일 내 이체 조건이 있다. 모든 자금 인출이 무과세이거나 언제나 추가 세액공제를 받는 것은 아님.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.samsungfund.com/etf/pension/isa.do"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-02",
+      "source_cue_index": 79,
+      "timecode": "00:02:28.720",
+      "source_paraphrase": "포트폴리오 가치가 시장지수 대비 상대적으로 정체한 개인 사례",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "개인 계좌의 9~10월 수익·주식 지수 비교는 영상 내 당사자 주장으로, 비공개 계좌 원장과 KRX 종가표를 확인하지 못함.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-26",
+        "source_finding": "개인 계좌의 9~10월 수익·주식 지수 비교는 영상 내 당사자 주장으로, 비공개 계좌 원장과 KRX 종가표를 확인하지 못함.",
+        "disposition": "개인 계좌의 9~10월 수익·주식 지수 비교는 영상 내 당사자 주장으로, 비공개 계좌 원장과 KRX 종가표를 확인하지 못함.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "basis": "개인 계좌의 9~10월 수익·주식 지수 비교는 영상 내 당사자 주장으로, 비공개 계좌 원장과 KRX 종가표를 확인하지 못함."
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-03",
+      "source_cue_index": 124,
+      "timecode": "00:03:59.000",
+      "source_paraphrase": "급등하는 종목에 투자하지 못해 FOMO를 느끼는 투자심리 대화",
+      "assessment": "SPEAKER_OPINION",
+      "independent_check": "개인적 심리·시장추격 경험은 일반 수익률 증거가 아니며 그대로 개별 투자 지침이 될 수 없음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "SPEAKER_OPINION",
+        "checked_at": "2026-10-26",
+        "source_finding": "개인적 심리·시장추격 경험은 일반 수익률 증거가 아니며 그대로 개별 투자 지침이 될 수 없음.",
+        "disposition": "개인적 심리·시장추격 경험은 일반 수익률 증거가 아니며 그대로 개별 투자 지침이 될 수 없음.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "basis": "개인적 심리·시장추격 경험은 일반 수익률 증거가 아니며 그대로 개별 투자 지침이 될 수 없음."
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-04",
+      "source_cue_index": 150,
+      "timecode": "00:04:49.479",
+      "source_paraphrase": "지수 상승과 달리 가치주 중심 개인 포트폴리오 수익률은 저조했다는 설명",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "당사자 투자실적·종목별 거래원장 미검증; 특정 가치주 투자법의 보편적 실패로 일반화하지 않음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-26",
+        "source_finding": "당사자 투자실적·종목별 거래원장 미검증; 특정 가치주 투자법의 보편적 실패로 일반화하지 않음.",
+        "disposition": "당사자 투자실적·종목별 거래원장 미검증; 특정 가치주 투자법의 보편적 실패로 일반화하지 않음.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "basis": "당사자 투자실적·종목별 거래원장 미검증; 특정 가치주 투자법의 보편적 실패로 일반화하지 않음."
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-05",
+      "source_cue_index": 201,
+      "timecode": "00:06:26.880",
+      "source_paraphrase": "같은 시장에서도 개인 위험성향에 따라 적절한 투자법이 다르다",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "투자기간·위험허용도·재무목표에 따라 자산배분과 전략 적합성이 달라진다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-26",
+        "source_finding": "투자기간·위험허용도·재무목표에 따라 자산배분과 전략 적합성이 달라진다.",
+        "disposition": "투자기간·위험허용도·재무목표에 따라 자산배분과 전략 적합성이 달라진다.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-06",
+      "source_cue_index": 235,
+      "timecode": "00:07:37.759",
+      "source_paraphrase": "기업 가치 중심 투자와 지수 추종은 서로 다른 성과 경로를 가질 수 있다",
+      "assessment": "QUALIFIED",
+      "independent_check": "기업 집중/가치 전략은 벤치마크보다 장기간 부진할 수 있으며 지수보다 높은 수익률을 보장하지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "기업 집중/가치 전략은 벤치마크보다 장기간 부진할 수 있으며 지수보다 높은 수익률을 보장하지 않는다.",
+        "disposition": "기업 집중/가치 전략은 벤치마크보다 장기간 부진할 수 있으며 지수보다 높은 수익률을 보장하지 않는다.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-07",
+      "source_cue_index": 338,
+      "timecode": "00:11:00.320",
+      "source_paraphrase": "연금저축 내 개별 테마 ETF 수익률이 자주 크게 변동",
+      "assessment": "QUALIFIED",
+      "independent_check": "2차전지·기술주와 주식 ETF는 시장손실 위험이 크며 연금계좌 세제우대가 투자 원금보장은 아님.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "2차전지·기술주와 주식 ETF는 시장손실 위험이 크며 연금계좌 세제우대가 투자 원금보장은 아님.",
+        "disposition": "2차전지·기술주와 주식 ETF는 시장손실 위험이 크며 연금계좌 세제우대가 투자 원금보장은 아님.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-08",
+      "source_cue_index": 387,
+      "timecode": "00:12:31.399",
+      "source_paraphrase": "연금저축 ETF를 매년 종목·비중 변경하며 관리하는 부담",
+      "assessment": "QUALIFIED",
+      "independent_check": "연 1회 혹은 필요 시 재조정은 가능하지만 빈번한 매매가 필수·우월 전략은 아니며 비용·세제·목표 위험비중 점검 필요.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "연 1회 혹은 필요 시 재조정은 가능하지만 빈번한 매매가 필수·우월 전략은 아니며 비용·세제·목표 위험비중 점검 필요.",
+        "disposition": "연 1회 혹은 필요 시 재조정은 가능하지만 빈번한 매매가 필수·우월 전략은 아니며 비용·세제·목표 위험비중 점검 필요.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-09",
+      "source_cue_index": 414,
+      "timecode": "00:13:16.360",
+      "source_paraphrase": "연금 투자 방식을 테마주 중심에서 분산 자산배분으로 복귀한 사례",
+      "assessment": "QUALIFIED",
+      "independent_check": "계좌 내 분산은 위험을 줄일 수 있으나 자산배분 후에도 손실 가능. 이는 개인 사례이며 실제 주문·비중 화면은 미인증.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "계좌 내 분산은 위험을 줄일 수 있으나 자산배분 후에도 손실 가능. 이는 개인 사례이며 실제 주문·비중 화면은 미인증.",
+        "disposition": "계좌 내 분산은 위험을 줄일 수 있으나 자산배분 후에도 손실 가능. 이는 개인 사례이며 실제 주문·비중 화면은 미인증.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-10",
+      "source_cue_index": 441,
+      "timecode": "00:14:00.199",
+      "source_paraphrase": "연금계좌는 장기목표에 맞춰 자산배분하고 직접주식은 별도 성향에 따라 관리",
+      "assessment": "QUALIFIED",
+      "independent_check": "장기 목표 자산배분은 합리적일 수 있지만 현금 수요·나이·IRP 위험자산 규제를 함께 고려해야 한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "장기 목표 자산배분은 합리적일 수 있지만 현금 수요·나이·IRP 위험자산 규제를 함께 고려해야 한다.",
+        "disposition": "장기 목표 자산배분은 합리적일 수 있지만 현금 수요·나이·IRP 위험자산 규제를 함께 고려해야 한다.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-11",
+      "source_cue_index": 755,
+      "timecode": "00:22:41.320",
+      "source_paraphrase": "ISA 월분배금을 인출하지 않고 다시 투자한다는 개인 운영 방식",
+      "assessment": "QUALIFIED",
+      "independent_check": "분배금 재투자는 투자수량 확대에 도움이 될 수 있으나 재투자가 반드시 총수익률을 높이는 건 아니고 지급액·세금·가격 변동이 존재.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "분배금 재투자는 투자수량 확대에 도움이 될 수 있으나 재투자가 반드시 총수익률을 높이는 건 아니고 지급액·세금·가격 변동이 존재.",
+        "disposition": "분배금 재투자는 투자수량 확대에 도움이 될 수 있으나 재투자가 반드시 총수익률을 높이는 건 아니고 지급액·세금·가격 변동이 존재.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-12",
+      "source_cue_index": 796,
+      "timecode": "00:23:57.440",
+      "source_paraphrase": "ISA 만기 이후 연금 전환을 마치고 다시 ISA를 시작",
+      "assessment": "QUALIFIED",
+      "independent_check": "ISA 3년 의무기간·만기·재가입·연금전환 규정은 계좌별 상태에 따름. 개인 전환 완료는 자막 진술만으로 실증되지 않음.",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/pension/isa.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "ISA 3년 의무기간·만기·재가입·연금전환 규정은 계좌별 상태에 따름. 개인 전환 완료는 자막 진술만으로 실증되지 않음.",
+        "disposition": "ISA 3년 의무기간·만기·재가입·연금전환 규정은 계좌별 상태에 따름. 개인 전환 완료는 자막 진술만으로 실증되지 않음.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.samsungfund.com/etf/pension/isa.do"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-13",
+      "source_cue_index": 827,
+      "timecode": "00:24:56.760",
+      "source_paraphrase": "ISA 월배당 포트 목표 연 6.8% 분배율을 설정",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "목표 연분배율 6.8%는 투자자 설정 기대치로 계약상 수익률 보증이 아니다. 실제 상품 구성 및 시점별 분배율 필요.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-26",
+        "source_finding": "목표 연분배율 6.8%는 투자자 설정 기대치로 계약상 수익률 보증이 아니다. 실제 상품 구성 및 시점별 분배율 필요.",
+        "disposition": "목표 연분배율 6.8%는 투자자 설정 기대치로 계약상 수익률 보증이 아니다. 실제 상품 구성 및 시점별 분배율 필요.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "basis": "목표 연분배율 6.8%는 투자자 설정 기대치로 계약상 수익률 보증이 아니다. 실제 상품 구성 및 시점별 분배율 필요."
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-14",
+      "source_cue_index": 841,
+      "timecode": "00:25:25.600",
+      "source_paraphrase": "월배당 ETF 구성에 따라 당시 연환산 분배율이 7~9%대까지 올라갔다는 사례",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "영상 내 화면 수치·월별 분배내역 미확인. 분배율은 자본반환/옵션 프리미엄 포함 가능하며 총수익률과 다름.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-26",
+        "source_finding": "영상 내 화면 수치·월별 분배내역 미확인. 분배율은 자본반환/옵션 프리미엄 포함 가능하며 총수익률과 다름.",
+        "disposition": "영상 내 화면 수치·월별 분배내역 미확인. 분배율은 자본반환/옵션 프리미엄 포함 가능하며 총수익률과 다름.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "basis": "영상 내 화면 수치·월별 분배내역 미확인. 분배율은 자본반환/옵션 프리미엄 포함 가능하며 총수익률과 다름."
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-15",
+      "source_cue_index": 876,
+      "timecode": "00:26:40.480",
+      "source_paraphrase": "단기 ETF 가격 움직임에 지나치게 반응하지 않고 장기 보유하는 조언",
+      "assessment": "QUALIFIED",
+      "independent_check": "장기투자 규율이 유익할 수 있지만 상품 구조가 부적합해지거나 현금수요·위험이 커지면 재점검 필요.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "장기투자 규율이 유익할 수 있지만 상품 구조가 부적합해지거나 현금수요·위험이 커지면 재점검 필요.",
+        "disposition": "장기투자 규율이 유익할 수 있지만 상품 구조가 부적합해지거나 현금수요·위험이 커지면 재점검 필요.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-16",
+      "source_cue_index": 932,
+      "timecode": "00:28:26.559",
+      "source_paraphrase": "ISA 만기 해지 후 다시 가입하면 수익률 기록상 기준점이 초기화된다",
+      "assessment": "QUALIFIED",
+      "independent_check": "계좌별 누적수익률 표시 기준이 새로 시작할 수 있지만 경제적 과거 실현손익·납입총액 자체가 없어지지는 않는다.",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/pension/isa.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "계좌별 누적수익률 표시 기준이 새로 시작할 수 있지만 경제적 과거 실현손익·납입총액 자체가 없어지지는 않는다.",
+        "disposition": "계좌별 누적수익률 표시 기준이 새로 시작할 수 있지만 경제적 과거 실현손익·납입총액 자체가 없어지지는 않는다.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.samsungfund.com/etf/pension/isa.do"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-17",
+      "source_cue_index": 945,
+      "timecode": "00:28:55.039",
+      "source_paraphrase": "이전 자금 중 일부를 별도로 보관하고 새 ISA를 다시 시작하는 사례",
+      "assessment": "QUALIFIED",
+      "independent_check": "ISA 연간 납입한도·미사용 한도 이월·납입원금 중도인출·만기/재가입 요건을 구분; 원본 사적 입출금은 인증하지 않음.",
+      "official_sources": [
+        "https://www.samsungfund.com/etf/pension/isa.do"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "ISA 연간 납입한도·미사용 한도 이월·납입원금 중도인출·만기/재가입 요건을 구분; 원본 사적 입출금은 인증하지 않음.",
+        "disposition": "ISA 연간 납입한도·미사용 한도 이월·납입원금 중도인출·만기/재가입 요건을 구분; 원본 사적 입출금은 인증하지 않음.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.samsungfund.com/etf/pension/isa.do"
+      }
+    },
+    {
+      "claim_id": "0Qt8rm01SOg-18",
+      "source_cue_index": 966,
+      "timecode": "00:29:34.559",
+      "source_paraphrase": "높은 분배율 상품을 줄여 월배당 예상 현금흐름이 줄어든다는 대화",
+      "assessment": "QUALIFIED",
+      "independent_check": "투자원금·기초자산 NAV·분배율에 따라 세전 지급액 변동. 낮은 현금 분배만으로 총수익률 열위를 뜻하지 않음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-26",
+        "source_finding": "투자원금·기초자산 NAV·분배율에 따라 세전 지급액 변동. 낮은 현금 분배만으로 총수익률 열위를 뜻하지 않음.",
+        "disposition": "투자원금·기초자산 NAV·분배율에 따라 세전 지급액 변동. 낮은 현금 분배만으로 총수익률 열위를 뜻하지 않음.",
+        "effective_date_or_scope": "2025-11-27 historical individual ISA demonstration; 2025/2026 product law separately interpreted",
+        "primary_url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      }
+    }
+  ],
+  "claim_classification_tally": {
+    "QUALIFIED": 12,
+    "HYPOTHETICAL": 4,
+    "SPEAKER_OPINION": 1,
+    "PRIMARY_CONFIRMED": 1
+  }
+}

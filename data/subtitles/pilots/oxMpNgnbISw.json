@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-12",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "audio_checked": false,
+  "frames_checked": false,
+  "raw_transcript_publicly_stored": false,
+  "roster_no": 28,
+  "video_id": "oxMpNgnbISw",
+  "title": "마켓타이밍 필요없는 마음 편히 할 수 있는 투자 | 자산배분 사용설명서 ver2026",
+  "source_url": "https://www.youtube.com/watch?v=oxMpNgnbISw",
+  "subtitle_sha256": "2b4d97cb9f3de56ad1807aec695d271dff08f2ebd405e6a2f725a1cb55de2ac9",
+  "cue_count": 686,
+  "core_message": "여러 자산군의 목표 비중과 리밸런싱을 활용해 변동성을 관리하고 장기투자를 이어가는 접근을 설명한다.",
+  "claims": [
+    {
+      "timecode": "00:02:39",
+      "source_paraphrase": "주식·채권·금·달러 등 서로 다른 자산군을 일정 비중으로 보유하는 자산배분을 정의한다.",
+      "assessment": "BASIC_CONCEPT_SUPPORTED",
+      "independent_check": "자산배분은 위험을 완화할 수 있으나 손실을 제거하거나 양의 수익을 보장하지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "claim_id": "oxMpNgnbISw-01",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-12",
+        "disposition": "자산배분은 위험을 완화할 수 있으나 손실을 제거하거나 양의 수익을 보장하지 않는다.",
+        "source_finding": "SEC defines asset allocation as combining different asset types based on risk/time horizon; no guaranteed positive return.",
+        "effective_date_or_scope": "Asset allocation principles and May 2026 NPS fund snapshot; no exact on-screen mix/backtest reproduction",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "basis": "Verified independent original user SRT and 2026 official/primary research. SEC defines asset allocation as combining different asset types based on risk/time horizon; no guaranteed positive return."
+      },
+      "original_srt_anchor_start_sec": 159.28,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
+    },
+    {
+      "timecode": "00:03:46",
+      "source_paraphrase": "브린슨 연구를 인용하며 자산배분이 투자 결과의 90% 이상을 결정하고 종목선택·매수시점은 불필요하다는 취지로 설명한다.",
+      "assessment": "OVERGENERALIZED",
+      "independent_check": "연구의 약 90%는 주로 시간 경과에 따른 포트폴리오 수익률 변동의 설명력으로, 최종 수익의 90%가 배분에서 발생한다는 뜻은 아님.",
+      "official_sources": [
+        "https://www.tandfonline.com/doi/abs/10.2469/faj.v42.n4.39",
+        "https://corporate.vanguard.com/content/dam/corp/research/pdf/time_varying_asset_allocation_vanguards_approach_to_dynamic_portfolios.pdf"
+      ],
+      "claim_id": "oxMpNgnbISw-02",
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-12",
+        "disposition": "연구의 약 90%는 주로 시간 경과에 따른 포트폴리오 수익률 변동의 설명력으로, 최종 수익의 90%가 배분에서 발생한다는 뜻은 아님.",
+        "source_finding": "Brinson/Hood/Beebower 1986 reports asset allocation policy explains 93.6% of the VARIANCE OF PLAN RETURNS ACROSS TIME, not 93.6% of level of total realized return; stock selection and timing are not universally useless.",
+        "effective_date_or_scope": "Asset allocation principles and May 2026 NPS fund snapshot; no exact on-screen mix/backtest reproduction",
+        "primary_url": "https://www.tandfonline.com/doi/abs/10.2469/faj.v42.n4.39",
+        "basis": "Verified independent original user SRT and 2026 official/primary research. Brinson/Hood/Beebower 1986 reports asset allocation policy explains 93.6% of the VARIANCE OF PLAN RETURNS ACROSS TIME, not 93.6% of level of total realized return; stock selection and timing are not universally useless.",
+        "correction": "'자산배분이 수익의 90%를 결정'은 원 논문의 93.6% 시계열 수익률 변동 설명력을 최종 성과 귀속으로 오인한 표현이다."
+      },
+      "original_srt_anchor_start_sec": 226.28,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
+    },
+    {
+      "timecode": "00:06:02",
+      "source_paraphrase": "2026년 5월 말 국민연금기금 규모가 1,800조원을 넘고 여러 자산에 분산돼 있다고 설명한다.",
+      "assessment": "AS_OF_FACT_CONFIRMED",
+      "independent_check": "국민연금 기금운용본부 2026-05 말 적립금 1,848.7조원, 해외주식 35.2%, 국내주식 29.4%, 국내채권 15.7%, 해외채권 5.8%로 확인.",
+      "official_sources": [
+        "https://fund.nps.or.kr/"
+      ],
+      "claim_id": "oxMpNgnbISw-03",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-12",
+        "disposition": "국민연금 기금운용본부 2026-05 말 적립금 1,848.7조원, 해외주식 35.2%, 국내주식 29.4%, 국내채권 15.7%, 해외채권 5.8%로 확인.",
+        "source_finding": "NPS fund investment official report gives KRW 1,848.7 trillion as of 2026-05-31; a dated stock/flow figure, not 2026 October balance.",
+        "effective_date_or_scope": "Asset allocation principles and May 2026 NPS fund snapshot; no exact on-screen mix/backtest reproduction",
+        "primary_url": "https://fund.nps.or.kr/",
+        "basis": "Verified independent original user SRT and 2026 official/primary research. NPS fund investment official report gives KRW 1,848.7 trillion as of 2026-05-31; a dated stock/flow figure, not 2026 October balance."
+      },
+      "original_srt_anchor_start_sec": 362.68,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
+    },
+    {
+      "timecode": "00:10:00",
+      "source_paraphrase": "자산배분하면 극심한 주식 하락장에서 낙폭이 더 작을 것이라 전망한다.",
+      "assessment": "CONDITIONAL_NOT_GUARANTEED",
+      "independent_check": "자산 조합·기간·상관관계·금리 등에 의존. 미래 낙폭을 보장하는 규칙으로 저장하지 않음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "claim_id": "oxMpNgnbISw-04",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-12",
+        "disposition": "자산 조합·기간·상관관계·금리 등에 의존. 미래 낙폭을 보장하는 규칙으로 저장하지 않음.",
+        "source_finding": "SEC cautions diversification helps manage risk but does not eliminate losses; correlation and liquidity vary in crises.",
+        "effective_date_or_scope": "Asset allocation principles and May 2026 NPS fund snapshot; no exact on-screen mix/backtest reproduction",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "basis": "Verified independent original user SRT and 2026 official/primary research. SEC cautions diversification helps manage risk but does not eliminate losses; correlation and liquidity vary in crises."
+      },
+      "original_srt_anchor_start_sec": 599.36,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
+    },
+    {
+      "timecode": "00:12:38",
+      "source_paraphrase": "미국 주식지수 장기투자의 손실 확률이 거의 0으로 수렴한다고 설명한다.",
+      "assessment": "OVERCONFIDENT",
+      "independent_check": "장기투자에도 손실 가능성과 통화·평가시점 위험이 남으며 과거 성과는 미래를 보장하지 않음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "claim_id": "oxMpNgnbISw-05",
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-12",
+        "disposition": "장기투자에도 손실 가능성과 통화·평가시점 위험이 남으며 과거 성과는 미래를 보장하지 않음.",
+        "source_finding": "SEC does not support zero probability of loss or guaranteed >10% annual US equity returns with longer horizons; price/currency/valuation and start dates matter.",
+        "effective_date_or_scope": "Asset allocation principles and May 2026 NPS fund snapshot; no exact on-screen mix/backtest reproduction",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "basis": "Verified independent original user SRT and 2026 official/primary research. SEC does not support zero probability of loss or guaranteed >10% annual US equity returns with longer horizons; price/currency/valuation and start dates matter.",
+        "correction": "'장기 미국주식 손실확률 거의 0'을 보장·일반법칙으로 승인하지 않는다."
+      },
+      "original_srt_anchor_start_sec": 758.24,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
+    },
+    {
+      "timecode": "00:15:00",
+      "source_paraphrase": "60/40, 영구(Permanent), 올시즌, 국민연금 모방, 제작자 포트폴리오를 소개한다.",
+      "assessment": "ILLUSTRATIVE_PORTFOLIOS",
+      "independent_check": "비중·기초자산·대체 ETF 차이 및 세금·비용·환 위험을 확인해야 함. 공식적으로 유일한 최적 배분은 없음.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "claim_id": "oxMpNgnbISw-06",
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-12",
+        "disposition": "비중·기초자산·대체 ETF 차이 및 세금·비용·환 위험을 확인해야 함. 공식적으로 유일한 최적 배분은 없음.",
+        "source_finding": "SEC recognizes mix/rebalancing tailored to time horizon/risk tolerance, not any singular guaranteed optimal 60/40 or All Weather mix.",
+        "effective_date_or_scope": "Asset allocation principles and May 2026 NPS fund snapshot; no exact on-screen mix/backtest reproduction",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "basis": "Verified independent original user SRT and 2026 official/primary research. SEC recognizes mix/rebalancing tailored to time horizon/risk tolerance, not any singular guaranteed optimal 60/40 or All Weather mix."
+      },
+      "original_srt_anchor_start_sec": 900.56,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
+    },
+    {
+      "timecode": "00:24:25",
+      "source_paraphrase": "목표 비중에서 벗어난 자산을 매매해 되돌리는 리밸런싱과 연 1회 실천을 권한다.",
+      "assessment": "GENERAL_CONCEPT_SUPPORTED_FREQUENCY_OPTIONAL",
+      "independent_check": "리밸런싱 필요성 자체는 뒷받침. 매 6~12개월 또는 목표비중 이탈 기준도 존재하며 거래비용·세금 고려 필요.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "claim_id": "oxMpNgnbISw-07",
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-12",
+        "disposition": "리밸런싱 필요성 자체는 뒷받침. 매 6~12개월 또는 목표비중 이탈 기준도 존재하며 거래비용·세금 고려 필요.",
+        "source_finding": "SEC supports calendar or deviation rebalancing, e.g. every 6–12 months or threshold, while considering taxes/fees.",
+        "effective_date_or_scope": "Asset allocation principles and May 2026 NPS fund snapshot; no exact on-screen mix/backtest reproduction",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "basis": "Verified independent original user SRT and 2026 official/primary research. SEC supports calendar or deviation rebalancing, e.g. every 6–12 months or threshold, while considering taxes/fees."
+      },
+      "original_srt_anchor_start_sec": 1465.399,
+      "timecode_precision": "ORIGINAL_USER_SRT_CUE_START_NOT_AUDIO_VERIFIED",
+      "verification_checked_on": "2026-10-12"
+    }
+  ],
+  "limitations": [
+    "올시즌 과거 수익률·최대낙폭 등 개별 역사 수치 검증 미완료",
+    "영상 화면의 도표 및 ETF 종목명 확인 미완료",
+    "국민연금 규모 수치는 2026년 5월 말 과거 스냅샷",
+    "2026-10-12 source SHA and all 686 original cue rows checked; 55198 bytes; audio/frames and separate public ASR not checked.",
+    "시장 위기에서 자산 간 상관관계가 바뀌어 분산효과가 약해질 수 있다.",
+    "USD·KRW 수익률/금리/세금/거래비용/비교기간 차이.",
+    "영상 도표의 과거 수익률과 MDD는 원자료 없이 독립 확정하지 않는다."
+  ],
+  "existing_registry_srt": {
+    "sha256": "2b4d97cb9f3de56ad1807aec695d271dff08f2ebd405e6a2f725a1cb55de2ac9",
+    "cue_count": 686,
+    "last_sec": 1614,
+    "raw_srt_bytes": 55198,
+    "verified_same_bytes": true,
+    "original_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd"
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "2b4d97cb9f3de56ad1807aec695d271dff08f2ebd405e6a2f725a1cb55de2ac9",
+    "original_cue_count": 686,
+    "original_srt_bytes": 55198,
+    "original_end_seconds": 1614,
+    "evidence_reference": "Private user original 1-70.zip, 1-70/youtube-transcript-oxMpNgnbISw.srt; all 686 cue records parsed/inspected and SHA-256 reconciled with committed data/subtitles/registry.json at 2026-10-12",
+    "public_transcript_full_comparison": "NOT_PERFORMED_NONBLOCKING",
+    "actual_audio_checked": false,
+    "frames_checked": false,
+    "timestamps_approximate": true,
+    "precise_timing_verified": false,
+    "limitations": "Original cue times and normalized content used, not acoustic verification or any video chart/slide audit. Historically quoted figures not current market figures. Public counterpart not independently requested."
+  },
+  "verification_status": "7_CLAIMS_SOURCED_USER_ORIGINAL_686_CUES_SRT_HASH_VERIFIED_AUDIO_FRAMES_OPEN",
+  "relations": [
+    {
+      "type": "EXTEND",
+      "related_video_id": "uiauof6tOFk",
+      "theme": "올웨더 개념과 실제 데이터 미검증 성과를 분리"
+    },
+    {
+      "type": "REINFORCE",
+      "related_video_id": "LVE7XN_esTc",
+      "theme": "자산배분 실행 전에 ETF 상품비용과 추적차이 검토"
+    }
+  ]
+}

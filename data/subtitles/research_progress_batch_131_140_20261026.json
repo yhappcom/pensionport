@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-26",
+  "baseline": {
+    "approved_v3_videos": 130,
+    "reviewed_education_or_marketing_claims": 2124,
+    "roster_total": 791
+  },
+  "batch_scope": "131-140",
+  "new_approved_v3_videos": 10,
+  "new_claims_triaged": 100,
+  "totals": {
+    "approved_v3_videos": 140,
+    "reviewed_material_claims": 2224,
+    "not_yet_v3_approved": 651,
+    "roster_total": 791
+  },
+  "new_claim_categories": {
+    "PRIMARY_CONFIRMED": 22,
+    "QUALIFIED": 62,
+    "CONTRADICTED": 4,
+    "HYPOTHETICAL": 11,
+    "SPEAKER_OPINION": 1
+  },
+  "source_integrity": {
+    "original_SRT_files": 10,
+    "cues_reviewed": 16411,
+    "raw_bytes": 1224188,
+    "all_video_ids_match_roster": true,
+    "all_raw_SRT_SHA256_recomputed": true,
+    "full_public_Korean_text_comparison_verified": false,
+    "original_audio_verified": false,
+    "video_frames_verified": false
+  },
+  "per_video": [
+    {
+      "number": 131,
+      "id": "AWULeF_xzFc",
+      "claim_count": 8,
+      "source_cues": 377,
+      "tally": {
+        "PRIMARY_CONFIRMED": 3,
+        "QUALIFIED": 4,
+        "CONTRADICTED": 1
+      }
+    },
+    {
+      "number": 132,
+      "id": "S9W_Qe9JrlI",
+      "claim_count": 9,
+      "source_cues": 1673,
+      "tally": {
+        "PRIMARY_CONFIRMED": 1,
+        "QUALIFIED": 4,
+        "CONTRADICTED": 1,
+        "HYPOTHETICAL": 3
+      }
+    },
+    {
+      "number": 133,
+      "id": "fhh23gVq4I0",
+      "claim_count": 10,
+      "source_cues": 1369,
+      "tally": {
+        "QUALIFIED": 9,
+        "HYPOTHETICAL": 1
+      }
+    },
+    {
+      "number": 134,
+      "id": "xKMPTIdMgI4",
+      "claim_count": 11,
+      "source_cues": 1573,
+      "tally": {
+        "PRIMARY_CONFIRMED": 4,
+        "CONTRADICTED": 3,
+        "QUALIFIED": 4
+      }
+    },
+    {
+      "number": 135,
+      "id": "GmwmPKFY4PY",
+      "claim_count": 9,
+      "source_cues": 1907,
+      "tally": {
+        "PRIMARY_CONFIRMED": 1,
+        "CONTRADICTED": 1,
+        "QUALIFIED": 4,
+        "HYPOTHETICAL": 2,
+        "SPEAKER_OPINION": 1
+      }
+    },
+    {
+      "number": 136,
+      "id": "-71DQQIcTlc",
+      "claim_count": 11,
+      "source_cues": 1423,
+      "tally": {
+        "PRIMARY_CONFIRMED": 2,
+        "QUALIFIED": 7,
+        "HYPOTHETICAL": 2
+      }
+    },
+    {
+      "number": 137,
+      "id": "wnDrGtqH-yE",
+      "claim_count": 10,
+      "source_cues": 1229,
+      "tally": {
+        "QUALIFIED": 8,
+        "CONTRADICTED": 2
+      }
+    },
+    {
+      "number": 138,
+      "id": "ex2wK2N_9uo",
+      "claim_count": 13,
+      "source_cues": 4569,
+      "tally": {
+        "QUALIFIED": 4,
+        "PRIMARY_CONFIRMED": 9
+      }
+    },
+    {
+      "number": 139,
+      "id": "h3_r0ZKykYY",
+      "claim_count": 8,
+      "source_cues": 788,
+      "tally": {
+        "PRIMARY_CONFIRMED": 2,
+        "QUALIFIED": 5,
+        "CONTRADICTED": 1
+      }
+    },
+    {
+      "number": 140,
+      "id": "jMJbEelMgLA",
+      "claim_count": 11,
+      "source_cues": 1503,
+      "tally": {
+        "QUALIFIED": 6,
+        "HYPOTHETICAL": 3,
+        "CONTRADICTED": 2
+      }
+    }
+  ],
+  "non_investment_sponsored_video": {
+    "video_no": 139,
+    "claims": 8,
+    "handling": "V3 source and commercial claim classification only; label PAID PROMOTION and do NOT promote as independent investment education."
+  },
+  "legacy_optional_verification": {
+    "total_items": 38,
+    "resolved": 14,
+    "open": 24,
+    "unchanged": true
+  },
+  "source_accuracy_limits": [
+    "Video screenshots/audio not obtained and must not be claimed verified.",
+    "2026-10-26 second-pass confirms published video screenshots/audio not verified; private original SRT textual context only.",
+    "2026-10-26 second-pass confirms published video screenshots/audio not verified; private original SRT textual context only.",
+    "2026-10-26 second-pass confirms published video screenshots/audio not verified; private original SRT textual context only.",
+    "2026-10-26 second-pass confirms published video screenshots/audio not verified; private original SRT textual context only."
+  ],
+  "prior_research_unchanged": true,
+  "main_branch_unchanged": true,
+  "files": {
+    "batch_registry": "data/subtitles/registry_131_140_20261026.json",
+    "report": "knowledge/VIDEO131_140_V3_CLAIM_EVIDENCE_REVIEW_20261026.md"
+  },
+  "approval_note": "Approval is educational source/evidence triage of claims, NOT acceptance of all statements as true; unconfirmed reports remain excluded from use. Second-pass verdicts supersede first-pass claim_categories: QUALIFIED62, CONTRADICTED4, original recorded as first_pass_claim_categories_20261026.",
+  "first_pass_claim_categories_20261026": {
+    "PRIMARY_CONFIRMED": 22,
+    "CONTRADICTED": 11,
+    "QUALIFIED": 55,
+    "HYPOTHETICAL": 11,
+    "SPEAKER_OPINION": 1
+  },
+  "second_pass_source_context_regulatory_and_media_audit_20261026": {
+    "audit_at": "2026-10-26",
+    "original_private_srt_files_accessible_and_rehashed": true,
+    "source_srt_files": 10,
+    "source_srt_cues": 16411,
+    "raw_bytes": 1224188,
+    "all_sha256_match_registered": true,
+    "contradicted_claims_reviewed": 11,
+    "contradicted_remained": 4,
+    "overbroad_source_paraphrase_corrections_to_qualified": 7,
+    "reclassified_claims": [
+      "xKMPTIdMgI4-02",
+      "xKMPTIdMgI4-03",
+      "GmwmPKFY4PY-02",
+      "wnDrGtqH-yE-07",
+      "h3_r0ZKykYY-06",
+      "jMJbEelMgLA-09",
+      "jMJbEelMgLA-10"
+    ],
+    "still_contradicted": [
+      "AWULeF_xzFc-02",
+      "S9W_Qe9JrlI-03",
+      "xKMPTIdMgI4-10",
+      "wnDrGtqH-yE-05"
+    ],
+    "new_tally": {
+      "PRIMARY_CONFIRMED": 22,
+      "QUALIFIED": 62,
+      "CONTRADICTED": 4,
+      "HYPOTHETICAL": 11,
+      "SPEAKER_OPINION": 1
+    },
+    "retirement_SRT_and_legal_evidence_second_pass": true,
+    "IRP_DC_general_risk_limit_70_percent_verified": true,
+    "qualified_TDF_100_percent_exemption_verified": true,
+    "pension_savings_600_and_combined_900_tax_credit_verified": true,
+    "private_pension_1500_income_tax_threshold_is_not_withdrawal_ban": true,
+    "gift_tax_generation_skip_surcharge_basis_verified": true,
+    "rental_principal_interest_deduction_40_percent_combined_4million_won_verified": true,
+    "NPS_2026_A_value_3193511_krw_and_definition_verified": true,
+    "same_video_public_korean_fullbody_retrieved": false,
+    "video_original_audio_or_frames_verified": false,
+    "reason_media_limitations": "Third-party YouTube Korean transcript pages inaccessible by web interface; independent public transcript scraping provider reported insufficient credits; original audio/video sampled media not accessible. No spoofed verification.",
+    "sponsor_video139_8_claims_not_neutral_investor_instruction": true,
+    "subscribers_personal_actual_account_proof_excluded": true,
+    "claim_count_unchanged": 100,
+    "approved_videos_unchanged": 140,
+    "legacy_optional_verification_open24_unchanged": true,
+    "main_unchanged": true,
+    "report": "knowledge/VIDEO131_140_SECOND_PASS_SOURCE_CONTEXT_REGULATORY_MEDIA_AUDIT_20261026.md"
+  }
+}

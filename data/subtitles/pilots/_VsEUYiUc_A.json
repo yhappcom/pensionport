@@ -1,0 +1,331 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-13",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "source_kind": "USER_SUPPLIED_TIMECODED_AUTOMATIC_SRT",
+  "roster_no": 52,
+  "video_id": "_VsEUYiUc_A",
+  "title": "목돈 1억원 투자 — ISA 3년 분할매수와 발행어음 파킹의 조건",
+  "source_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A",
+  "video_published_date": "NOT_INDEPENDENTLY_VERIFIED",
+  "subtitle_sha256": "32a618e29fb5f8e5b31031afb2fe602b0dfd79ebe81ea80f81a8b8e5baa8ebe1",
+  "cue_count": 28,
+  "raw_transcript_publicly_stored": false,
+  "audio_checked": false,
+  "frames_checked": false,
+  "core_message": "ISA 계좌를 활용한 분할매수는 행동관리와 절세 측면에서 조건부 유용하지만 3년간 부부 1.6억원은 4개 과세연도에 걸쳐 한도를 채우는 경우에 한정된다. 파킹 발행어음 신용/예금보호 부재, 배당ETF 원금손실과 분할매수 비보장성을 명시한다.",
+  "limitations": [
+    "28 cues/2203 original SRT bytes/01:03 video complete parsed and hash matched; not acoustically/visually validated.",
+    "3 calendar contribution years for two ISA accounts = 1.2억원; four tax years straddling a 3-year term may permit 1.6억원 depending on subscription and actual deposits.",
+    "Original caption says '발행업' 'IS/ISL' etc likely automatic transcription errors for 발행어음/ISA; direct audio unconfirmed.",
+    "Dollar amounts not relevant; this is domestic KRW ISA securities and issuer-credit risk, not insured bank deposits.",
+    "Actual household eligibility, investment horizon, financial product approval, cashflow, brokerage fees and actual investor declarations not checked.",
+    "No audio or video frame, independent public ASR full-text comparison or original private SRT published.",
+    "초기 초안의 절대 보장·원달러1:1 UUP 표현 등은 실제 사용자 자동 SRT 발화와 혼동을 줄이기 위해 '화자의 설명'과 '연구자가 경고하는 조건'을 별개 문장으로 수정했다."
+  ],
+  "existing_registry_srt": {
+    "sha256": "32a618e29fb5f8e5b31031afb2fe602b0dfd79ebe81ea80f81a8b8e5baa8ebe1",
+    "cue_count": 28,
+    "last_sec": 63,
+    "raw_srt_bytes": 2203,
+    "verified_same_bytes": true,
+    "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd"
+  },
+  "source_audit": {
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "original_srt_sha256": "32a618e29fb5f8e5b31031afb2fe602b0dfd79ebe81ea80f81a8b8e5baa8ebe1",
+    "original_cue_count": 28,
+    "original_raw_bytes": 2203,
+    "original_srt_end_sec": 63,
+    "evidence_reference": "User private ZIP 1-70.zip / 1-70/youtube-transcript-_VsEUYiUc_A.srt, 28 cues, 2203 raw bytes, exact SHA256 match with historic GitHub registry.",
+    "limitations": "All original automated subtitle text read. Original soundtrack, displayed visuals and independent published ASR full matching not verified.",
+    "audio_checked": false,
+    "frames_checked": false,
+    "public_transcript_text_exact_match": "NOT_TESTED_NONBLOCKING",
+    "precise_timing_verified": false
+  },
+  "verification_status": "EDUCATIONAL_12_CLAIM_VIDEO52_SRT_HASH_MATCHED_ISA_TAX_YEAR_BOUNDARY_AUDIO_FRAMES_UNVERIFIED",
+  "relations": [
+    {
+      "type": "REINFORCE",
+      "related_video_id": "sTKJve59KGQ",
+      "theme": "ISA annual 2000만원 limit, maturity pension transfer conditions"
+    },
+    {
+      "type": "REINFORCE",
+      "related_video_id": "SBzSmA_vvPE",
+      "theme": "Lump-sum versus dollar-cost averaging and investment-risk capacity"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "_VsEUYiUc_A-01",
+      "timecode": "00:00:00",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=0s",
+      "source_paraphrase": "40대 시청자가 1억원 목돈이 있고 시장이 고점 같아 투자법을 묻는다.",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "시청자 사연 원장/보유액과 당시의 시장가격 정의는 독립 확인되지 않은 사례.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "시청자 사연 원장/보유액과 당시의 시장가격 정의는 독립 확인되지 않은 사례."
+      },
+      "original_srt_anchor_start_sec": 0,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-02",
+      "timecode": "00:00:09",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=9s",
+      "source_paraphrase": "일시에 투자할지 나누어 매수할지 선택해야 한다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "일시 투자와 정액 적립은 서로 다른 투자 타이밍/위험감내 전략이며 개인의 자금사용시점에 따라 선택한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "일시 투자와 정액 적립은 서로 다른 투자 타이밍/위험감내 전략이며 개인의 자금사용시점에 따라 선택한다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+        "source_finding": "일시 투자와 정액 적립은 서로 다른 투자 타이밍/위험감내 전략이며 개인의 자금사용시점에 따라 선택한다.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 9,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-03",
+      "timecode": "00:00:13",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=13s",
+      "source_paraphrase": "장기시장 전체는 언제나 우상향하므로 고점 진입은 잠깐의 손실일 뿐이다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "자막은 조건부 시장 가정을 제시할 뿐 전체 세계 지수·모든 상품이 반드시 장기 상승한다는 실증 주장이 아니다. 손실 가능성을 남겨야 한다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "자막은 조건부 시장 가정을 제시할 뿐 전체 세계 지수·모든 상품이 반드시 장기 상승한다는 실증 주장이 아니다. 손실 가능성을 남겨야 한다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "자막은 조건부 시장 가정을 제시할 뿐 전체 세계 지수·모든 상품이 반드시 장기 상승한다는 실증 주장이 아니다. 손실 가능성을 남겨야 한다.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 13,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-04",
+      "timecode": "00:00:16",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=16s",
+      "source_paraphrase": "고점 일시투자 후 손실을 보면 초보 투자자가 버티기 어렵다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "시장 하락 후 매매행동·손실 감내가 어려울 수 있으나 특정 초보 전체의 행동양식을 1차 집계한 자료는 아니다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "시장 하락 후 매매행동·손실 감내가 어려울 수 있으나 특정 초보 전체의 행동양식을 1차 집계한 자료는 아니다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "source_finding": "시장 하락 후 매매행동·손실 감내가 어려울 수 있으나 특정 초보 전체의 행동양식을 1차 집계한 자료는 아니다.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 16,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-05",
+      "timecode": "00:00:23",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=23s",
+      "source_paraphrase": "초보자라면 ISA에서 3년 분할매수가 가장 좋은 방법이다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "ISA 3년 의무가입과 세제혜택 장점 및 분할매수의 행동관리 이점은 있으나 적립이 일시투자보다 수익률이 항상 높거나 모든 사람에게 최선은 아니다.",
+      "official_sources": [
+        "https://blog.kbsec.com/isa/%EC%9D%98%EB%AC%B4%EA%B0%80%EC%9E%85-3%EB%85%84-%EC%A4%91%EB%8F%84%EC%9D%B8%EC%B6%9C/",
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "ISA 3년 의무가입과 세제혜택 장점 및 분할매수의 행동관리 이점은 있으나 적립이 일시투자보다 수익률이 항상 높거나 모든 사람에게 최선은 아니다.",
+        "primary_url": "https://blog.kbsec.com/isa/%EC%9D%98%EB%AC%B4%EA%B0%80%EC%9E%85-3%EB%85%84-%EC%A4%91%EB%8F%84%EC%9D%B8%EC%B6%9C/",
+        "source_finding": "ISA 3년 의무가입과 세제혜택 장점 및 분할매수의 행동관리 이점은 있으나 적립이 일시투자보다 수익률이 항상 높거나 모든 사람에게 최선은 아니다.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 23,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-06",
+      "timecode": "00:00:27",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=27s",
+      "source_paraphrase": "ISA에 최초 2천만원을 넣는 제안은 연 납입한도와 부합한다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "2026년 중개형 ISA 연간 기본 납입한도 2천만원이며 총1억원; 개인의 남은 이월한도·가입자격을 확인해야 한다.",
+      "official_sources": [
+        "https://blog.kbsec.com/isa/%EC%9D%98%EB%AC%B4%EA%B0%80%EC%9E%85-3%EB%85%84-%EC%A4%91%EB%8F%84%EC%9D%B8%EC%B6%9C/"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "2026년 중개형 ISA 연간 기본 납입한도 2천만원이며 총1억원; 개인의 남은 이월한도·가입자격을 확인해야 한다.",
+        "primary_url": "https://blog.kbsec.com/isa/%EC%9D%98%EB%AC%B4%EA%B0%80%EC%9E%85-3%EB%85%84-%EC%A4%91%EB%8F%84%EC%9D%B8%EC%B6%9C/",
+        "source_finding": "2026년 중개형 ISA 연간 기본 납입한도 2천만원이며 총1억원; 개인의 남은 이월한도·가입자격을 확인해야 한다.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 27,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-07",
+      "timecode": "00:00:30",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=30s",
+      "source_paraphrase": "남은 목돈을 발행어음으로 파킹해두면서 ISA로 옮긴다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "증권사 발행어음은 예금자보호 대상이 아니며 증권사 발행인 신용위험, 약정/중도환매, 원화환산·수익 차이가 있다. 안전한 은행예금과 같은 것으로 표현 불가.",
+      "official_sources": [
+        "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "증권사 발행어음은 예금자보호 대상이 아니며 증권사 발행인 신용위험, 약정/중도환매, 원화환산·수익 차이가 있다. 안전한 은행예금과 같은 것으로 표현 불가.",
+        "primary_url": "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/",
+        "source_finding": "증권사 발행어음은 예금자보호 대상이 아니며 증권사 발행인 신용위험, 약정/중도환매, 원화환산·수익 차이가 있다. 안전한 은행예금과 같은 것으로 표현 불가.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 30,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-08",
+      "timecode": "00:00:33",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=33s",
+      "source_paraphrase": "매월 일정금액 ISA에 옮겨 배당 ETF를 적립한다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "정기매수는 타이밍 분산과 자동화 효과가 있으나 배당 ETF의 가격하락·분배감소·수수료·중복투자 위험과 ISA 편입 가능성은 상품별 검토 필요.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "정기매수는 타이밍 분산과 자동화 효과가 있으나 배당 ETF의 가격하락·분배감소·수수료·중복투자 위험과 ISA 편입 가능성은 상품별 검토 필요.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+        "source_finding": "정기매수는 타이밍 분산과 자동화 효과가 있으나 배당 ETF의 가격하락·분배감소·수수료·중복투자 위험과 ISA 편입 가능성은 상품별 검토 필요.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 33,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-09",
+      "timecode": "00:00:38",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=38s",
+      "source_paraphrase": "비쌀 때 적게 사고 쌀 때 많이 사서 평균 단가가 조절된다.",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "동일 금액 DCA는 ETF 가격이 낮으면 단위수가 늘고 높으면 줄어드는 수량효과가 있다. 순이익·수익률 보장과는 별개.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "동일 금액 DCA는 ETF 가격이 낮으면 단위수가 늘고 높으면 줄어드는 수량효과가 있다. 순이익·수익률 보장과는 별개.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+        "source_finding": "동일 금액 DCA는 ETF 가격이 낮으면 단위수가 늘고 높으면 줄어드는 수량효과가 있다. 순이익·수익률 보장과는 별개.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 38,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-10",
+      "timecode": "00:00:45",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=45s",
+      "source_paraphrase": "부부 각자의 ISA를 3년 활용하면 최대 1억6천만원을 넣을 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "연2천만원×2인×3개 과세연도=1억2천만원. 가입한 3년 기간에 4개의 과세연도가 포함돼 각 연도 납입한도를 모두 활용하면 2천만원×2인×4개 연도=1억6천만원 가능. 가입일·연도 경계와 누적한도·실제 인출 상황의 전제를 명시해야 한다.",
+      "official_sources": [
+        "https://blog.kbsec.com/isa/%EC%9D%98%EB%AC%B4%EA%B0%80%EC%9E%85-3%EB%85%84-%EC%A4%91%EB%8F%84%EC%9D%B8%EC%B6%9C/"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "연2천만원×2인×3개 과세연도=1억2천만원. 가입한 3년 기간에 4개의 과세연도가 포함돼 각 연도 납입한도를 모두 활용하면 2천만원×2인×4개 연도=1억6천만원 가능. 가입일·연도 경계와 누적한도·실제 인출 상황의 전제를 명시해야 한다.",
+        "primary_url": "https://blog.kbsec.com/isa/%EC%9D%98%EB%AC%B4%EA%B0%80%EC%9E%85-3%EB%85%84-%EC%A4%91%EB%8F%84%EC%9D%B8%EC%B6%9C/",
+        "source_finding": "연2천만원×2인×3개 과세연도=1억2천만원. 가입한 3년 기간에 4개의 과세연도가 포함돼 각 연도 납입한도를 모두 활용하면 2천만원×2인×4개 연도=1억6천만원 가능. 가입일·연도 경계와 누적한도·실제 인출 상황의 전제를 명시해야 한다.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 45,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-11",
+      "timecode": "00:00:51",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=51s",
+      "source_paraphrase": "ISA 3년 후 주택자금으로 꺼내거나 연금저축에 전환할 수 있다.",
+      "assessment": "QUALIFIED",
+      "independent_check": "의무가입기간 3년 후 만기해지/매각 시 손익·환매·출금 제약 점검, ISA 만기자금의 적격 연금계좌 이체는 만기일부터 60일 내 절차와 추가 세액공제 한도 및 상품 유형을 지켜야 한다.",
+      "official_sources": [
+        "https://blog.kbsec.com/isa/%EC%9D%98%EB%AC%B4%EA%B0%80%EC%9E%85-3%EB%85%84-%EC%A4%91%EB%8F%84%EC%9D%B8%EC%B6%9C/"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "의무가입기간 3년 후 만기해지/매각 시 손익·환매·출금 제약 점검, ISA 만기자금의 적격 연금계좌 이체는 만기일부터 60일 내 절차와 추가 세액공제 한도 및 상품 유형을 지켜야 한다.",
+        "primary_url": "https://blog.kbsec.com/isa/%EC%9D%98%EB%AC%B4%EA%B0%80%EC%9E%85-3%EB%85%84-%EC%A4%91%EB%8F%84%EC%9D%B8%EC%B6%9C/",
+        "source_finding": "의무가입기간 3년 후 만기해지/매각 시 손익·환매·출금 제약 점검, ISA 만기자금의 적격 연금계좌 이체는 만기일부터 60일 내 절차와 추가 세액공제 한도 및 상품 유형을 지켜야 한다.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 51,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    },
+    {
+      "claim_id": "_VsEUYiUc_A-12",
+      "timecode": "00:00:55",
+      "watch_url": "https://www.youtube.com/watch?v=_VsEUYiUc_A&t=55s",
+      "source_paraphrase": "분할매수가 목돈을 지키면서 불리는 실천 방법이 될 수 있다는 마무리 권고.",
+      "assessment": "QUALIFIED",
+      "independent_check": "분할매수는 변동성의 구매시점 분산·행동관리 수단이지만 최종 원금 및 수익을 보장하지 않는다. 화자가 투자원금 절대보장 계약을 했다는 뜻으로 판정하지 않는다.",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "https://blog.kbsec.com/cma/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-13",
+        "basis": "28 raw private original SRT cues, matched SHA256 to registered bytes; KB 2026 ISA and RP primary issuer docs plus SEC DCA investor guidance. Audio/screens/public ASR not checked.",
+        "disposition": "분할매수는 변동성의 구매시점 분산·행동관리 수단이지만 최종 원금 및 수익을 보장하지 않는다. 화자가 투자원금 절대보장 계약을 했다는 뜻으로 판정하지 않는다.",
+        "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+        "source_finding": "분할매수는 변동성의 구매시점 분산·행동관리 수단이지만 최종 원금 및 수익을 보장하지 않는다. 화자가 투자원금 절대보장 계약을 했다는 뜻으로 판정하지 않는다.",
+        "effective_date_or_scope": "2026-09-14 issuer ISA rules and 2026-09 product disclosure; 3-year ISA may touch four calendar contribution years, not always three."
+      },
+      "original_srt_anchor_start_sec": 55,
+      "timecode_precision": "ORIGINAL_SRT_NEARBY_CUE_NOT_ACOUSTICALLY_VERIFIED"
+    }
+  ],
+  "claim_count": 12
+}

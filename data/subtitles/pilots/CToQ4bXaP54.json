@@ -1,0 +1,408 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-27",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "roster_no": 208,
+  "video_id": "CToQ4bXaP54",
+  "title": "추석특집 투자 사용설명서 — CMA·ISA·연금·TDF·금·채권",
+  "source_url": "https://www.youtube.com/watch?v=CToQ4bXaP54",
+  "duration": "02:02:05",
+  "source_kind": "USER_PRIVATE_SRT_ZIP_201_300",
+  "source_level": "USER_PRIVATE_KOREAN_SRT_CMA_ISA_NTS_KRX_PRIMARY",
+  "subtitle_sha256": "11b65791af65f9463878aa60f9e85291c2e8de498e522617bfe3387566060874",
+  "existing_registry_srt": {
+    "sha256": "11b65791af65f9463878aa60f9e85291c2e8de498e522617bfe3387566060874",
+    "cue_count": 3507,
+    "raw_srt_bytes": 282393
+  },
+  "cue_count": 3507,
+  "source_audit": {
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "original_srt_sha256": "11b65791af65f9463878aa60f9e85291c2e8de498e522617bfe3387566060874",
+    "cue_count": 3507,
+    "raw_bytes": 282393,
+    "original_zip_sha256": "b5674d1a3e07b3ab40d4ca9b548dd6378916105bfb91f287247d4dd85242832d",
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_full_ko_transcript_checked": false,
+    "limitations": "2-hour edited compilation mixes CMA, ISA, retirement, bonds and gold; source subvideo exact linkage and 2025 rates cannot independently authenticate. Audio/frame comparison not completed.",
+    "evidence_reference": "All 3507 private SRT cues parsed and section-scanned; 19 priority claims linked to cue/time and Korean NTS, first-party CMA and KRX investor guidance."
+  },
+  "core_message": "CMA 예탁금 보호와 RP/MMF 손실위험을 구분하고 ISA·IRP 적격세제·TDF/금 ETF 원금위험을 정정",
+  "claims": [
+    {
+      "claim_id": "CToQ4bXaP54-01",
+      "source_cue_index": 100,
+      "timecode": "00:03:21.239",
+      "source_paraphrase": "증권사 예탁금 분리보관 구조 때문에 CMA와 모든 투자자금은 위험하지 않다는 일반화",
+      "assessment": "CONTRADICTED",
+      "independent_check": "예탁금 별도 예치와 RP·MMF·발행어음 CMA 투자재원은 다른 계약, 후자는 예금자보호 대상이 아니며 손실 가능",
+      "official_sources": [
+        "https://file.truefriend.com/Storage/customer/guide/regards/cma_instruction.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "CONTRADICTED",
+        "checked_at": "2026-10-27",
+        "source_finding": "예탁금 별도 예치와 RP·MMF·발행어음 CMA 투자재원은 다른 계약, 후자는 예금자보호 대상이 아니며 손실 가능",
+        "disposition": "예탁금 별도 예치와 RP·MMF·발행어음 CMA 투자재원은 다른 계약, 후자는 예금자보호 대상이 아니며 손실 가능",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://file.truefriend.com/Storage/customer/guide/regards/cma_instruction.htm",
+        "correction": "예탁금 별도 예치와 RP·MMF·발행어음 CMA 투자재원은 다른 계약, 후자는 예금자보호 대상이 아니며 손실 가능"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-02",
+      "source_cue_index": 220,
+      "timecode": "00:07:14.479",
+      "source_paraphrase": "2025년 CMA 종류별 금리가 2.0~2.82%라는 비교",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "당시 회사별 우대 조건·세전금리·일자 원표 미확인, 2026 현재 확정 금리 또는 모든 CMA 수익률로 사용 금지",
+      "official_sources": [
+        "https://file.truefriend.com/Storage/customer/guide/regards/cma_instruction.htm"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "당시 회사별 우대 조건·세전금리·일자 원표 미확인, 2026 현재 확정 금리 또는 모든 CMA 수익률로 사용 금지",
+        "disposition": "당시 회사별 우대 조건·세전금리·일자 원표 미확인, 2026 현재 확정 금리 또는 모든 CMA 수익률로 사용 금지",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "basis": "당시 회사별 우대 조건·세전금리·일자 원표 미확인, 2026 현재 확정 금리 또는 모든 CMA 수익률로 사용 금지"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-03",
+      "source_cue_index": 350,
+      "timecode": "00:11:43.480",
+      "source_paraphrase": "ISA 적격 순이익 일반형200만원·서민형400만원 비과세 후 초과9.9% 분리과세",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "2025 중개형 ISA 적격 과세대상 손익통산 기준, 국내주식 비과세 손실 등 항목별 차이",
+      "official_sources": [
+        "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "2025 중개형 ISA 적격 과세대상 손익통산 기준, 국내주식 비과세 손실 등 항목별 차이",
+        "disposition": "2025 중개형 ISA 적격 과세대상 손익통산 기준, 국내주식 비과세 손실 등 항목별 차이",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-04",
+      "source_cue_index": 470,
+      "timecode": "00:16:04.319",
+      "source_paraphrase": "ISA를 조기에 개설하면 미사용 한도를 이월할 수 있다는 전략",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "일반적 연2000만원, 총1억원 납입한도 이월은 가능하나 계약기간/개정·상품 적격 확인",
+      "official_sources": [
+        "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "일반적 연2000만원, 총1억원 납입한도 이월은 가능하나 계약기간/개정·상품 적격 확인",
+        "disposition": "일반적 연2000만원, 총1억원 납입한도 이월은 가능하나 계약기간/개정·상품 적격 확인",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-05",
+      "source_cue_index": 580,
+      "timecode": "00:20:05.559",
+      "source_paraphrase": "ISA 원금 중도인출과 세제혜택 관계",
+      "assessment": "QUALIFIED",
+      "independent_check": "납입원금 범위 내 적격 인출과 해지·초과인출은 다르며 중도인출 한도는 원상회복되지 않음",
+      "official_sources": [
+        "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "납입원금 범위 내 적격 인출과 해지·초과인출은 다르며 중도인출 한도는 원상회복되지 않음",
+        "disposition": "납입원금 범위 내 적격 인출과 해지·초과인출은 다르며 중도인출 한도는 원상회복되지 않음",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-06",
+      "source_cue_index": 720,
+      "timecode": "00:25:08.080",
+      "source_paraphrase": "ISA는 모든 투자 손실을 합산해 공제 가능한 계좌라는 인상",
+      "assessment": "QUALIFIED",
+      "independent_check": "적격 과세대상 손익 통산은 가능하나 국내주식 직접매매 비과세 차손 등 일부 비대상",
+      "official_sources": [
+        "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "적격 과세대상 손익 통산은 가능하나 국내주식 직접매매 비과세 차손 등 일부 비대상",
+        "disposition": "적격 과세대상 손익 통산은 가능하나 국내주식 직접매매 비과세 차손 등 일부 비대상",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-07",
+      "source_cue_index": 900,
+      "timecode": "00:31:23.480",
+      "source_paraphrase": "개인연금 적립으로 평생 연금처럼 현금흐름을 만들 수 있다는 권유",
+      "assessment": "QUALIFIED",
+      "independent_check": "연금저축펀드 잔고가 부족하면 지급 종료 가능하고 장수·수익률/물가 위험 존재, 종신보장 계약과 구별",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "연금저축펀드 잔고가 부족하면 지급 종료 가능하고 장수·수익률/물가 위험 존재, 종신보장 계약과 구별",
+        "disposition": "연금저축펀드 잔고가 부족하면 지급 종료 가능하고 장수·수익률/물가 위험 존재, 종신보장 계약과 구별",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-08",
+      "source_cue_index": 1100,
+      "timecode": "00:38:10.200",
+      "source_paraphrase": "연금저축 세액공제 납입이 곧 동일한 현금환급이 된다는 인상",
+      "assessment": "QUALIFIED",
+      "independent_check": "납입한도와 실제 공제율·납부/결정세액을 구분해야 환급액 확정 가능",
+      "official_sources": [
+        "https://t.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "납입한도와 실제 공제율·납부/결정세액을 구분해야 환급액 확정 가능",
+        "disposition": "납입한도와 실제 공제율·납부/결정세액을 구분해야 환급액 확정 가능",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://t.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-09",
+      "source_cue_index": 1320,
+      "timecode": "00:45:40.319",
+      "source_paraphrase": "연금저축의 법정 연금수령한도와 사적연금 1500만원 기준",
+      "assessment": "QUALIFIED",
+      "independent_check": "수령연차 기반 연금수령한도와 과세대상 사적연금소득 연1500만원 분리과세 판단기준 별개",
+      "official_sources": [
+        "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "수령연차 기반 연금수령한도와 과세대상 사적연금소득 연1500만원 분리과세 판단기준 별개",
+        "disposition": "수령연차 기반 연금수령한도와 과세대상 사적연금소득 연1500만원 분리과세 판단기준 별개",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-10",
+      "source_cue_index": 1480,
+      "timecode": "00:51:18.280",
+      "source_paraphrase": "IRP는 연900만원 세액공제한도까지 적격 납입 가능",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "연금저축 단독 최대600만원·IRP 합산 최대900만원 공제대상, 실제결정세액 제한",
+      "official_sources": [
+        "https://t.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "연금저축 단독 최대600만원·IRP 합산 최대900만원 공제대상, 실제결정세액 제한",
+        "disposition": "연금저축 단독 최대600만원·IRP 합산 최대900만원 공제대상, 실제결정세액 제한",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://t.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-11",
+      "source_cue_index": 1620,
+      "timecode": "00:56:07.720",
+      "source_paraphrase": "IRP 퇴직금 수령계좌와 개인저축계좌의 자금원천이 다름",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "이연퇴직소득·공제납입금·미공제 원금은 원천과세 및 인출 순서가 달라진다",
+      "official_sources": [
+        "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "이연퇴직소득·공제납입금·미공제 원금은 원천과세 및 인출 순서가 달라진다",
+        "disposition": "이연퇴직소득·공제납입금·미공제 원금은 원천과세 및 인출 순서가 달라진다",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-12",
+      "source_cue_index": 1770,
+      "timecode": "01:01:24.760",
+      "source_paraphrase": "연금/IRP 계좌 내 운용수익은 일반계좌 과세와 달리 과세이연",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "계좌내 거래수익이 적격 수령시까지 과세이연되며 인출조건 따라 연금외수령세 가능",
+      "official_sources": [
+        "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "계좌내 거래수익이 적격 수령시까지 과세이연되며 인출조건 따라 연금외수령세 가능",
+        "disposition": "계좌내 거래수익이 적격 수령시까지 과세이연되며 인출조건 따라 연금외수령세 가능",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-13",
+      "source_cue_index": 1970,
+      "timecode": "01:08:33.799",
+      "source_paraphrase": "연금저축 vs IRP의 적격 원리금보장상품·인출제약 차이",
+      "assessment": "QUALIFIED",
+      "independent_check": "IRP 위험자산비율과 안전자산 정의/연금저축 펀드 투자상품 범위는 별도, 모든 IRP가 예금자보호되는 것 아님",
+      "official_sources": [
+        "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "IRP 위험자산비율과 안전자산 정의/연금저축 펀드 투자상품 범위는 별도, 모든 IRP가 예금자보호되는 것 아님",
+        "disposition": "IRP 위험자산비율과 안전자산 정의/연금저축 펀드 투자상품 범위는 별도, 모든 IRP가 예금자보호되는 것 아님",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-14",
+      "source_cue_index": 2180,
+      "timecode": "01:15:57.440",
+      "source_paraphrase": "TDF는 해외자산 분산 및 은퇴예정연도별 주식비중 조정 가능",
+      "assessment": "QUALIFIED",
+      "independent_check": "TDF 글라이드패스는 상품별 상이하고 시장손실·환매기간·운용보수 존재",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "TDF 글라이드패스는 상품별 상이하고 시장손실·환매기간·운용보수 존재",
+        "disposition": "TDF 글라이드패스는 상품별 상이하고 시장손실·환매기간·운용보수 존재",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-15",
+      "source_cue_index": 2400,
+      "timecode": "01:23:08.040",
+      "source_paraphrase": "TDF도 투자손실·환매결제 시간·상품폐지 위험 존재",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "타깃데이트펀드는 예금이 아니며 미래 연금지급액이나 원금보장 안 됨",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "타깃데이트펀드는 예금이 아니며 미래 연금지급액이나 원금보장 안 됨",
+        "disposition": "타깃데이트펀드는 예금이 아니며 미래 연금지급액이나 원금보장 안 됨",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-16",
+      "source_cue_index": 2600,
+      "timecode": "01:30:06.760",
+      "source_paraphrase": "CD금리와 KOFR ETF는 단기 운용에 활용 가능",
+      "assessment": "QUALIFIED",
+      "independent_check": "CD·KOFR 추종 ETF는 예금자보호되지 않고 가격·추적오차·운용사 및 상품수수료 위험이 남음",
+      "official_sources": [
+        "https://m.krx.co.kr/contents/06/0609/060901/JHPETP060901M01.jsp"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "CD·KOFR 추종 ETF는 예금자보호되지 않고 가격·추적오차·운용사 및 상품수수료 위험이 남음",
+        "disposition": "CD·KOFR 추종 ETF는 예금자보호되지 않고 가격·추적오차·운용사 및 상품수수료 위험이 남음",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://m.krx.co.kr/contents/06/0609/060901/JHPETP060901M01.jsp"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-17",
+      "source_cue_index": 2900,
+      "timecode": "01:40:21.400",
+      "source_paraphrase": "주식·채권·금 등 자산배분/리밸런싱이 집중위험 완화",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "자산 간 상관이 국면별로 바뀌어 분산투자도 원금손실 가능",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "자산 간 상관이 국면별로 바뀌어 분산투자도 원금손실 가능",
+        "disposition": "자산 간 상관이 국면별로 바뀌어 분산투자도 원금손실 가능",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-18",
+      "source_cue_index": 3200,
+      "timecode": "01:50:37.800",
+      "source_paraphrase": "금 펀드는 계좌별 투자가 가능하다는 소개",
+      "assessment": "QUALIFIED",
+      "independent_check": "펀드/ETF의 연금·ISA 편입상품 적격과 금현물 직접 보유 여부, 환헤지와 세제는 상품별 상이",
+      "official_sources": [
+        "https://m.krx.co.kr/contents/06/0609/060901/JHPETP060901M01.jsp"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "펀드/ETF의 연금·ISA 편입상품 적격과 금현물 직접 보유 여부, 환헤지와 세제는 상품별 상이",
+        "disposition": "펀드/ETF의 연금·ISA 편입상품 적격과 금현물 직접 보유 여부, 환헤지와 세제는 상품별 상이",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://m.krx.co.kr/contents/06/0609/060901/JHPETP060901M01.jsp"
+      }
+    },
+    {
+      "claim_id": "CToQ4bXaP54-19",
+      "source_cue_index": 3440,
+      "timecode": "01:59:24.599",
+      "source_paraphrase": "KRX 금현물 ETF는 연금계좌에서 금투자 대안",
+      "assessment": "QUALIFIED",
+      "independent_check": "금현물 계좌와 KRX금현물 ETF 과세형태가 다르며 금값 하락·ETF 수수료를 반영",
+      "official_sources": [
+        "https://m.krx.co.kr/contents/06/0609/060901/JHPETP060901M01.jsp"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "금현물 계좌와 KRX금현물 ETF 과세형태가 다르며 금값 하락·ETF 수수료를 반영",
+        "disposition": "금현물 계좌와 KRX금현물 ETF 과세형태가 다르며 금값 하락·ETF 수수료를 반영",
+        "effective_date_or_scope": "Edited 2025-10-02 instruction compilation includes older source tutorials; issuer terms may be historical",
+        "primary_url": "https://m.krx.co.kr/contents/06/0609/060901/JHPETP060901M01.jsp"
+      }
+    }
+  ],
+  "claim_classification_tally": {
+    "PRIMARY_CONFIRMED": 7,
+    "QUALIFIED": 10,
+    "CONTRADICTED": 1,
+    "HYPOTHETICAL": 1,
+    "SPEAKER_OPINION": 0
+  },
+  "compilation_reuse": true,
+  "unique_new_educational_propositions_not_asserted": true
+}

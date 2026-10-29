@@ -1,38 +1,322 @@
 {
-  "schema_version": 1,
+  "schema_version": 3,
+  "analysis_status": "COMPLETE",
+  "approval": "APPROVED",
+  "reviewed_at": "2026-10-27",
   "video_id": "4TFtEQxSM38",
-  "title": "🙋 ETF 어떻게 사면 되나요?ㅣETF 매수하기 | 주식 사는 방법",
+  "roster_no": 212,
+  "title": "ETF 매수 주문방법 — 호가·지정가·미체결 정정·T+2 결제",
+  "channel": "박곰희TV",
+  "source_url": "https://www.youtube.com/watch?v=4TFtEQxSM38",
   "published_at": "2025-09-22",
-  "analysis_status": "content_analyzed",
-  "source_level": "full_transcript_exact_id_verified_via_lilys_page_youtube_link",
-  "knowledge_relation": [
+  "duration": "00:10:26",
+  "pilot_video_id": "4TFtEQxSM38",
+  "source_level": "ORIGINAL_PRIVATE_KO_SRT_BROKER_ETF_TRADING_GUIDES",
+  "source_provider": "Original complete user Korean SRT and Korea Investment/Samsung? no, broker ETF order manuals",
+  "scope": "303 timed cues with 17 order and settlement mechanics",
+  "core_message": "주문접수·미체결·실제 체결 및 잔고·T+2 현금결제 구별, 2025 NXT 주식/ETF 대상과 증권사 앱 차이 주의",
+  "core_claims": [
+    {
+      "claim_id": "4TFtEQxSM38-01",
+      "timecode": "00:00:46.559",
+      "source_cue_index": 25,
+      "claim": "ETF매수에는 현재가·주문·잔고 화면 세 가지가 유용",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "현재가/주문/체결·잔고가 핵심이나 사용앱 UI/메뉴명은 회사별로 다름",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-02",
+      "timecode": "00:01:07.439",
+      "source_cue_index": 35,
+      "claim": "주문 내역과 체결 잔고는 다르다",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://m.eugenefn.com/ig91r.do"
+      ],
+      "disposition": "주문 접수는 체결이 아님. 체결시 수량·가격을 별도 확인",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-03",
+      "timecode": "00:02:07.799",
+      "source_cue_index": 65,
+      "claim": "국내상장 ETF는 국내주식 매매 방식으로 매수",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "정규 KRX 시장에서 실시간 호가·수량 지정 거래 가능. 거래소별 시간외 제도는 별도",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-04",
+      "timecode": "00:02:50.319",
+      "source_cue_index": 87,
+      "claim": "모든 증권사의 거래주문창이 사실상 동일한 화면",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://m.eugenefn.com/ig91r.do"
+      ],
+      "disposition": "호가·수량 등 기본원리는 같지만 앱버전/증권사별 버튼·주문유형/서비스가 달라 화면 완전 동일 아님",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-05",
+      "timecode": "00:03:23.920",
+      "source_cue_index": 104,
+      "claim": "매수와 매도 호가 및 대기수량 확인",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "최우선매수/최우선매도 호가가 다를 수 있고 주문호가와 실제 체결가가 달라질 수 있음",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-06",
+      "timecode": "00:04:00.439",
+      "source_cue_index": 123,
+      "claim": "최우선매도호가 이상 가격으로 지정가 매수하면 즉시 체결될 수 있다",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://m.eugenefn.com/ig91r.do"
+      ],
+      "disposition": "반대쪽 잔량/호가/주문량 및 가격변동에 따라 부분체결·미체결 가능하므로 즉시 체결 보장 아님",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-07",
+      "timecode": "00:04:14.959",
+      "source_cue_index": 130,
+      "claim": "지정가 매수를 낮게 입력하면 호가잔량 뒤에서 대기",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "동일 호가 가격·시간우선에 따라 대기하며 체결을 보장하지 않음",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-08",
+      "timecode": "00:04:37.880",
+      "source_cue_index": 141,
+      "claim": "높은 매수 가격은 더 빨리 체결되지만 비용 커질 수 있음",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "상대 매도호가까지 가격조건을 높이면 체결 가능성 증가, 실제 체결은 주문 당시 호가 상태와 유동성에 좌우",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-09",
+      "timecode": "00:05:02.560",
+      "source_cue_index": 154,
+      "claim": "주문완료 후 실제 미체결 여부를 확인해야 한다",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://m.eugenefn.com/ig91r.do"
+      ],
+      "disposition": "영상에서 주문완료 화면 뒤 미체결 상태를 직접 보여준다. 주문접수=보유라는 해석은 오해이며, 체결·미체결을 별도 확인해야 한다.",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-10",
+      "timecode": "00:05:19.280",
+      "source_cue_index": 162,
+      "claim": "미체결 주문을 확인해야 한다",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "거래화면의 체결·미체결과 잔고를 분리해 확인",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-11",
+      "timecode": "00:06:02.080",
+      "source_cue_index": 183,
+      "claim": "기존 미체결 지정가 주문 가격을 정정할 수 있다",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://m.eugenefn.com/ig91r.do"
+      ],
+      "disposition": "정정/취소 주문 허용과 수량/우선순위는 증권사/거래소 주문규칙에 따름",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-12",
+      "timecode": "00:06:44.720",
+      "source_cue_index": 203,
+      "claim": "2025 대체거래소 NXT 시간대에도 모든 ETF가 거래 가능하다는 오해",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://advisor.koreainvestment.com/main/customer/tradetransfer/_static/TF04da010000.jsp"
+      ],
+      "disposition": "당시 한국상장 ETF의 정규거래는 KRX에서 처리; NXT 주식 선정 종목과 ETF 거래대상 차이, 2026 시장제도 재확인",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-13",
+      "timecode": "00:07:02.240",
+      "source_cue_index": 212,
+      "claim": "지정한 매수가보다 낮게 매수 체결될 수 있다",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://m.eugenefn.com/ig91r.do"
+      ],
+      "disposition": "지정가 상한가격보다 유리한 반대호가로 체결 가능, 실제 화면 예시는 독립 인증 안 됨",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-14",
+      "timecode": "00:07:29.160",
+      "source_cue_index": 225,
+      "claim": "당일 남은 미체결 주문은 일반적으로 장 종료시 소멸",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "일반 당일주문은 장종료 후 유효하지 않으나 주문유형/대체시장 연결/시간외 예약주문 조건은 별도",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-15",
+      "timecode": "00:08:06.479",
+      "source_cue_index": 244,
+      "claim": "한국상장 ETF 결제 T+2 영업일",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "정규 한국상장 ETF의 국내 증권시장 결제는 통상 거래일+2영업일이며 휴일 제외",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-16",
+      "timecode": "00:08:53.640",
+      "source_cue_index": 266,
+      "claim": "보유잔고 표시와 D+2 결제예수금은 일자가 다를 수 있다",
+      "verification": "PRIMARY_CONFIRMED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "체결 후 반영되는 평가잔고와 가용예수금·현금결제는 회사 서비스/미결제 내역에 따라 다름",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    },
+    {
+      "claim_id": "4TFtEQxSM38-17",
+      "timecode": "00:09:27.360",
+      "source_cue_index": 282,
+      "claim": "D+2 예수금 만큼만 추가주문하면 결제부족 위험 줄임",
+      "verification": "QUALIFIED",
+      "sources": [
+        "https://www.truefriend.com/main/customer/tradetransfer/_static/TF04da070000.jsp"
+      ],
+      "disposition": "추정예수금은 다른 미체결주문·수수료·제외상품 등 고려하고 현금증거금·계좌 유형별 실제 주문가능액 확인",
+      "source_precision": "ORIGINAL_PRIVATE_AUTOCAPTIONS_NO_SCREEN_AUTH"
+    }
+  ],
+  "claim_classification_tally": {
+    "PRIMARY_CONFIRMED": 10,
+    "QUALIFIED": 7,
+    "CONTRADICTED": 0,
+    "HYPOTHETICAL": 0,
+    "SPEAKER_OPINION": 0
+  },
+  "actionable_guidance": [
+    "현재가/주문/체결·잔고가 핵심이나 사용앱 UI/메뉴명은 회사별로 다름",
+    "주문 접수는 체결이 아님. 체결시 수량·가격을 별도 확인",
+    "정규 KRX 시장에서 실시간 호가·수량 지정 거래 가능. 거래소별 시간외 제도는 별도",
+    "호가·수량 등 기본원리는 같지만 앱버전/증권사별 버튼·주문유형/서비스가 달라 화면 완전 동일 아님",
+    "최우선매수/최우선매도 호가가 다를 수 있고 주문호가와 실제 체결가가 달라질 수 있음",
+    "반대쪽 잔량/호가/주문량 및 가격변동에 따라 부분체결·미체결 가능하므로 즉시 체결 보장 아님",
+    "동일 호가 가격·시간우선에 따라 대기하며 체결을 보장하지 않음",
+    "상대 매도호가까지 가격조건을 높이면 체결 가능성 증가, 실제 체결은 주문 당시 호가 상태와 유동성에 좌우",
+    "영상 직후 실제 미체결 주문을 확인한다. 주문접수=체결=보유로 단정하면 오류",
+    "거래화면의 체결·미체결과 잔고를 분리해 확인",
+    "정정/취소 주문 허용과 수량/우선순위는 증권사/거래소 주문규칙에 따름",
+    "당시 한국상장 ETF의 정규거래는 KRX에서 처리; NXT 주식 선정 종목과 ETF 거래대상 차이, 2026 시장제도 재확인",
+    "지정가 상한가격보다 유리한 반대호가로 체결 가능, 실제 화면 예시는 독립 인증 안 됨",
+    "일반 당일주문은 장종료 후 유효하지 않으나 주문유형/대체시장 연결/시간외 예약주문 조건은 별도",
+    "정규 한국상장 ETF의 국내 증권시장 결제는 통상 거래일+2영업일이며 휴일 제외",
+    "체결 후 반영되는 평가잔고와 가용예수금·현금결제는 회사 서비스/미결제 내역에 따라 다름",
+    "추정예수금은 다른 미체결주문·수수료·제외상품 등 고려하고 현금증거금·계좌 유형별 실제 주문가능액 확인"
+  ],
+  "assumptions": [
+    "Sample 22,720 won ETF transaction is private app demonstration not authenticated trade.",
+    "Broker app menus and NXT security eligibility can change."
+  ],
+  "risks_and_exceptions": [
+    "Order acceptance not execution",
+    "Limit buy priority and price-slippage risks",
+    "ETF settlement T+2 Korean business days",
+    "ETF market access differs NXT versus KRX"
+  ],
+  "quantitative_claims": [
+    {
+      "metric": "SOURCE",
+      "sha256": "3dec05dbf3314c659b07f73a087a699e6968391a4999d16fcf2f4227b0e5d776",
+      "cue_count": 303,
+      "raw_srt_bytes": 23889
+    },
+    {
+      "metric": "KOREA_DOMESTIC_ETF_SETTLEMENT_BUSINESS_DAYS",
+      "T_plus": 2
+    },
+    {
+      "metric": "CLAIMS",
+      "count": 17,
+      "tally": {
+        "PRIMARY_CONFIRMED": 9,
+        "QUALIFIED": 7,
+        "CONTRADICTED": 1,
+        "HYPOTHETICAL": 0,
+        "SPEAKER_OPINION": 0
+      }
+    }
+  ],
+  "relations": [
+    {
+      "related_roster_no": 207,
+      "relation": "ETF purchase execution guidance"
+    },
+    {
+      "related_roster_no": 208,
+      "relation": "CMA brokerage account and ETF orders"
+    }
+  ],
+  "verification_status": "V3_CLAIM_SCOPED_DOMESTIC_ETF_ORDER_SETTLEMENT",
+  "evidence_gate": {
+    "version": 1,
+    "source_checked": true,
+    "all_material_claims_triaged": true,
+    "source_audit_reference": "data/subtitles/pilots/4TFtEQxSM38.json#source_audit",
+    "claim_evidence_reference": "data/subtitles/pilots/4TFtEQxSM38.json#claims[*].verification_evidence",
+    "source_registry": "data/subtitles/registry_211_215_20261027.json",
+    "source_fingerprint": "3dec05dbf3314c659b07f73a087a699e6968391a4999d16fcf2f4227b0e5d776",
+    "source_cue_count": 303,
+    "source_byte_size": 23889,
+    "original_srt_sha_recomputed": true,
+    "original_cues_read": true,
+    "original_audio_verified": false,
+    "original_frames_verified": false,
+    "public_korean_fullbody_match_unverified": true,
+    "source_context_second_pass_completed": true
+  },
+  "limitations": [
+    "The private original trading app screens and actual fill could not be externally confirmed; audio/video unverified."
+  ],
+  "legacy_analysis_snapshot_path": "knowledge/legacy_pre_v3/4TFtEQxSM38_20261027.json",
+  "previous_analysis_status": "content_analyzed",
+  "previous_analysis_source_level": "full_transcript_exact_id_verified_via_lilys_page_youtube_link",
+  "legacy_knowledge_relation_preserved": [
     "REINFORCE",
     "EXTEND",
     "TIME_SENSITIVE"
-  ],
-  "core_conclusions": [
-    "ETF 모바일 매수의 핵심 화면은 현재가(종목·호가 확인), 주문(가격·수량 지정 및 체결상태), 잔고(실제 보유수량 확인)의 세 단계다.",
-    "지정가 주문은 제출 즉시 체결을 보장하지 않으며, 매도호가와 매수호가·잔량에 따라 미체결이 발생한다. 주문 정정·취소와 체결 여부 확인이 필요하다.",
-    "매수주문 접수와 매수 체결은 다른 상태이므로 최종 보유 여부는 체결내역 및 잔고에서 확인한다."
-  ],
-  "implementation": [
-    "계좌 개설 후 입금 및 거래 가능한 ETF 종목·티커 확인",
-    "호가창에서 매수/매도 가격과 수량을 확인하고 매수 지정가·수량 입력",
-    "주문 전 총금액·종목명 재확인, 제출 후 체결/미체결 확인",
-    "미체결 시 가격 정정·취소 여부 판단하고 체결 후 잔고 확인"
-  ],
-  "quantitative_and_time_sensitive": [
-    "영상 예시 TIGER 미국S&P500 ETF 1주 가격 22,715~22,740원은 2025년 9월 촬영 당시 호가 사례이며 현재 가격으로 사용하지 않는다.",
-    "영상의 거래소 시간·장마감 동시호가·NXT ETF 거래가능 여부는 2025년 시점 설명이며 2026년 시장제도 변경 가능성으로 별도 검증이 필요하다."
-  ],
-  "risks_and_cautions": [
-    "지정가를 높이면 체결 가능성은 올라갈 수 있지만 비싼 가격에 체결될 위험도 커진다.",
-    "장마감 동시호가의 체결가격은 주문 시점 예상과 다를 수 있다.",
-    "앱 UI 및 증권사 주문 메뉴는 수시 변경되므로 화면위치와 거래시간을 고정 매뉴얼로 사용하지 않는다."
-  ],
-  "source_references": [
-    "https://www.youtube.com/watch?v=4TFtEQxSM38",
-    "https://lilys.ai/ko/notes/etf-investment-20251028/etf-buying-guide-stock-purchase"
-  ],
-  "official_verification": "ETF 매매 메커니즘은 원문 기반으로 확인. 거래시간·NXT/KRX 연장거래 세부 운영은 2026년 제도변경이 있으므로 현재 규정으로 승격하지 않음."
+  ]
 }

@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-27",
+  "prior_baseline": {
+    "approved_v3_videos": 202,
+    "reviewed_material_and_editorial_claims": 3323
+  },
+  "batch": {
+    "roster_range": "206-210",
+    "videos_in_roster": 5,
+    "private_original_srt_present": 5,
+    "educational_v3_approved": 5,
+    "compilation_edited_videos": 3,
+    "standalone_case_videos": 2,
+    "original_korean_srt_cues": 17780,
+    "original_srt_bytes": 1389821,
+    "source_zip": "201-300.zip",
+    "source_zip_sha256": "b5674d1a3e07b3ab40d4ca9b548dd6378916105bfb91f287247d4dd85242832d",
+    "claim_count": 77,
+    "tally": {
+      "PRIMARY_CONFIRMED": 20,
+      "QUALIFIED": 41,
+      "CONTRADICTED": 3,
+      "HYPOTHETICAL": 13,
+      "SPEAKER_OPINION": 0
+    },
+    "per_video": [
+      {
+        "no": 206,
+        "id": "qabOz6b9hlg",
+        "cues": 9302,
+        "claims": 15,
+        "status": "APPROVED",
+        "compilation": true
+      },
+      {
+        "no": 207,
+        "id": "05JCQ8-v6zc",
+        "cues": 2591,
+        "claims": 16,
+        "status": "APPROVED",
+        "compilation": true
+      },
+      {
+        "no": 208,
+        "id": "CToQ4bXaP54",
+        "cues": 3507,
+        "claims": 19,
+        "status": "APPROVED",
+        "compilation": true
+      },
+      {
+        "no": 209,
+        "id": "gxzKfJ6e1j0",
+        "cues": 1221,
+        "claims": 12,
+        "status": "APPROVED",
+        "compilation": false
+      },
+      {
+        "no": 210,
+        "id": "NJbzYMXw6Eg",
+        "cues": 1159,
+        "claims": 15,
+        "status": "APPROVED",
+        "compilation": false
+      }
+    ]
+  },
+  "current_cumulative": {
+    "approved_v3_videos": 207,
+    "reviewed_material_and_editorial_claims": 3400,
+    "total_roster_videos": 791,
+    "remaining_v3_roster_videos": 584
+  },
+  "legacy_optional_verification": {
+    "total": 38,
+    "resolved": 14,
+    "open": 24,
+    "unchanged": true
+  },
+  "source_integrity": {
+    "registry": "data/subtitles/registry_206_210_20261027.json",
+    "all_original_srt_sha256_verified": true,
+    "all_original_cues_structurally_parsed": true,
+    "private_srt_or_zip_published": false,
+    "google_drive_upload": false,
+    "original_audio_checked": false,
+    "original_frames_checked": false,
+    "independent_public_full_ko_transcript_match": false
+  },
+  "secondary_verification": {
+    "reviewed_material_claims": 77,
+    "tally": {
+      "PRIMARY_CONFIRMED": 20,
+      "QUALIFIED": 41,
+      "CONTRADICTED": 3,
+      "HYPOTHETICAL": 13,
+      "SPEAKER_OPINION": 0
+    },
+    "report": "knowledge/VIDEO206_210_FULL_V3_CLAIM_SCOPE_REVIEW_20261027.md",
+    "untriaged_selected_material_claims": 0
+  },
+  "compilation_policy": {
+    "videos": [
+      206,
+      207,
+      208
+    ],
+    "underlying_source_episode_1_to_1_matches_proven": false,
+    "unique_new_education_principles_not_inferred": true,
+    "claim_reviewed_in_reused_video_not_new_unique_claim": true
+  },
+  "important_corrections": [
+    {
+      "no": 207,
+      "claim_id": "05JCQ8-v6zc-07",
+      "status": "CONTRADICTED",
+      "issue": "2025-07 ETF income distribution rule makes old never-distribute TR tax-defer statement obsolete"
+    },
+    {
+      "no": 208,
+      "claim_id": "CToQ4bXaP54-01",
+      "status": "CONTRADICTED",
+      "issue": "CMA RP/MMF investor risk separate from custody of client cash deposits"
+    },
+    {
+      "no": 210,
+      "claim_id": "NJbzYMXw6Eg-15",
+      "status": "CONTRADICTED",
+      "issue": "Retirement saving assets not guaranteed to keep growing; market and withdrawals can reduce account values"
+    }
+  ],
+  "financial_stats_date_separation": {
+    "pension_2024_krw_trillion": 178.9,
+    "pension_2025_krw_trillion": 198.2,
+    "pension_fund_2024_krw_trillion": 40.7,
+    "pension_fund_2025_krw_trillion": 61.3,
+    "statistical_2025_quarter4_return_method_changed": true
+  },
+  "limitations": [
+    "#206-208 edited compilations, each claim is a review event and may duplicate older education lessons",
+    "#209 individual payout, portfolio and salary not authenticated",
+    "#210 original 2024 pension annual source table not independently held; retrospective 2025 FSC report provides comparable 2024 figures",
+    "#206 lifestyle content excluded; selected 15 finance claims not every utterance",
+    "#208 source product promotion rates historical and current brokerage UI not verified"
+  ],
+  "notes": [
+    "Preserve main and 24 legacy OPEN.",
+    "No Drive upload or original private SRT/ZIP commit.",
+    "CI success required before claiming final V3 approval."
+  ]
+}

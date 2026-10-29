@@ -1,5 +1,29 @@
 # 박곰희TV 영상 학습 워크플로 — V3 단일 저장 (2026-10-08)
 
+## 2026-10-26 우선규칙: GitHub CI 실패 알림 예방과 승인 배치 원자적 저장
+
+**[자막 연구 CI·일괄 저장 운영 기준](docs/SUBTITLE_CI_PUSH_POLICY_20261026.md)**을 신규/수정 V3 배치의 GitHub 저장 절차에 우선 적용한다.
+
+- **원격 중간 상태를 승인하지 않는다.** 원본 해시/로스터·전체 SRT와 핵심 주장·공식 출처/발효일/정정·pilot·정식 analysis_event·누적 원장·지식 문서를 동일 배치에서 완성한다.
+- 연구용 Git 복제본에서 **모든 해당 파일을 명시적으로 stage한 후** `python -B scripts/preflight_subtitle_batch.py`를 실행한다. PASS 이전에는 새 V3 정식 승인과 원격 push를 하지 않는다.
+- GitHub API 도구로 원격 작업 시에도 동등한 사전 근거검사 후 **가능하면 한 커밋/한 push**로 묶는다. 개별 파일 저장 API는 매번 커밋과 CI 실행을 발생시킬 수 있으므로 원본/증빙/정식 승인 파일을 미완성으로 순차 push하지 않는다.
+- GitHub Actions 중복 실행은 `.github/workflows/subtitle-review-gate.yml`의 `concurrency`로 최신 브랜치 검사 중심으로 정리한다. **취소·실패·실행중은 통과가 아니다.** 최종 해당 커밋의 성공과 파일 재조회 후에만 완료 건수 반영.
+- **보안·근거 검사는 절대로 비활성화/완화하지 않는다.** 특히 원본 SRT/ZIP 비공개 보관, 누락된 1차자료·정정·등록 해시 차단, 2025 발표와 2026 실제 제도 구분을 유지한다. 이 규칙은 Gmail/GitHub 계정 이메일 알림 수신 설정을 변경하지 않는다.
+- `main` 및 기존 V3 승인 파일은 보존한다. 사용자의 명시적 병합 요청 없이 PR을 병합하지 않는다.
+
+## 2026-10-12 우선규칙: 선택적 정밀검증과 원본 70편 확대
+
+**[최신 근거 검증 운영 기준](docs/INVESTMENT_RESEARCH_VERIFICATION_POLICY_20261012.md)**은 아래 2026-10-08 일반 절차보다 우선한다.
+
+- 확정 로스터 791편 중 사용자 SRT/해시 확보 70편을 먼저 실제 분석한다. 파일럿 집중 10편이 완료된 뒤 원음·모든 화면·책 백테스트 원본이 없다는 이유만으로 전체 연구를 중단하지 않는다.
+- 필수: 전체 원본 SRT와 등록 SHA 확인, 주요 주장·원본 시간, 수치 검산, 현행 공식 1차자료/적용시점, 예외와 위험, 확정/조건부/정정/미검증 분리, GitHub 읽기 재검증 및 CI.
+- 원음·화면: ASR 혼동이 중요한 수치나 결론을 바꿀 때, 화면의 표/수식 자체가 핵심 증거일 때만 추가한다. 비핵심 자막 누락은 항목별로 기록하고 다음 영상으로 진행할 수 있다.
+- 원본 백테스트: 특정 원본 책의 과거 성과 숫자를 검증 완료로 주장할 때만 정확한 원시자료를 요구한다. 결핍하면 BOOK_CLAIM_UNREPRODUCED로 남긴다. 독립 모델의 유사 수익률을 원본 재현이라 부르지 않는다.
+- 완료/승인은 교육적 근거 검토에 한정하며 음성·프레임·개별 투자 적합성 인증이 아니다. 주장별 PRIMARY_CONFIRMED, QUALIFIED, HYPOTHETICAL, CONTRADICTED와 후속확인 OPEN을 분리한다.
+- 기록 경로: data/subtitles/pilots/<ID>.json → data/analysis_events/<ID>.json → 필요할 때 data/subtitles/optional_verification_register_20261012.json → docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md 최신 섹션. 법령/개념의 중요 정정은 해당 knowledge/ 및 synthesis/에도 출처·유효일자와 함께 기록한다.
+- 등록 원본 ZIP/SRT 전문, 포트폴리오 계좌 및 자금흐름 데이터는 공개 연구 GitHub에 게시하지 않는다. KIS/Apps Script/재무 원장 변경 및 main 병합은 연구 자동 권한 밖이다.
+
+
 ## 목적 및 확정 범위
 박곰희TV 원본 콘텐츠를 근거 기반으로 분석하고 장기 투자 지식을 축적한다. 목표는 인프라 기록이 아니라 실제 영상 분석이다.
 - 확정 로스터 `VIDEO_INVENTORY_2026-10-07.md`: 791개 고유 영상, 롱폼 703개, Shorts 88개. 별도 지시 없으면 재수집하지 않는다.
@@ -15,7 +39,7 @@
 
 ## 실행 절차 — 영상 분석 중심
 1. 최신 `main`에서 확정 로스터와 기존 L 및 유효 A를 조회해 미완료 롱폼 video_id를 정한다. 재분석/중복 생성 금지. 다음 우선 후보는 `PW1EuMtw18o`, `2GjGjwkHrMA`, `fnLgP_KCv8A` 등 실제 미완료 ID.
-2. 정확한 원본 YouTube URL에 대해 정상 제공되는 Firecrawl Alexandria `youtube/read`의 한국어 전사를 우선 확인한다. 얻은 원문 전체를 살펴 주제, 원리, 핵심 주장, 근거, 실행 조건·예외·위험, 수치, 다른 지식과의 관계(NEW/REINFORCE/EXTEND/CHANGE/CONFLICT/TIME_SENSITIVE)를 분석한다. 영상 프레임을 보지 않았으면 보았다고 주장하지 않는다.
+2. **첫 70편은 보관된 사용자 원본 SRT의 전체 구간 및 등록 SHA-256을 먼저 확인한다.** 원본이 없는 나머지는 정확한 원본 YouTube URL에 대해 제공 가능한 한국어 전사를 확인한다. 독립 공개 자동전사·원음 검토는 주장 의미가 달라질 가능성이 있는 구간에서 추가한다. 얻은 원문 전체를 살펴 주제, 원리, 핵심 주장, 근거, 실행 조건·예외·위험, 수치, 다른 지식과의 관계(NEW/REINFORCE/EXTEND/CHANGE/CONFLICT/TIME_SENSITIVE)를 분석한다. 영상 프레임을 보지 않았으면 보았다고 주장하지 않는다.
 3. ISA·연금·세법·건강보험·증권 거래 규정 등 시점 의존 내용은 가능한 한 최신 공식 1차자료와 교차 검증한다. 영상 발행 당시 주장과 현재 유효한 사실을 구분한다. 자동 자막의 의심스러운 이름·수치는 추측하지 않고 OPEN/미확인으로 표시한다. 공개 저장소에 전체 전사를 복제하지 않는다.
 4. **영상별 단 한 번 쓰기**: 생성 전에 파일 존재 여부 확인 → `data/analysis_events/<video_id>.json`을 완전한 분석과 품질 메타데이터로 신규 생성 → 파일 재조회 → JSON 및 ID/출처/내용 검증. 이 파일의 재조회와 필수 항목 검증이 성공하면 V3 신규 학습 완료 1편이다. 새 canonical event/전역 상태/작업 잠금 파일은 작성하지 않는다.
 5. 필수 데이터: `schema_version`, `video_id`, `source_url`, `source_level`, `title`, `core_claims`, `actionable_guidance`, `assumptions`, `risks_and_exceptions`, `quantitative_claims`, `relations`, `verification_status`, `limitations`. 신규 파일에는 `analysis_status: "COMPLETE"` 또는 `"PARTIAL"`을 명시한다. 기존 V2 파일의 analysis_status 부재만으로 부적격 처리하지 않고 실제 내용·출처·검증 정보를 확인한다.

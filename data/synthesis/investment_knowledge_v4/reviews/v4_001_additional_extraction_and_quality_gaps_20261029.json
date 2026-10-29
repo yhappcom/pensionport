@@ -1,0 +1,301 @@
+{
+  "schema_version": "V4_1.0_SUPPLEMENT_AUDIT",
+  "as_of": "2026-10-29",
+  "video_id": "sz5N9WJS310",
+  "parent_file": "data/synthesis/investment_knowledge_v4/videos/v4_001_sz5N9WJS310_20261029.json",
+  "parent_claims": 23,
+  "parent_principles": 9,
+  "source_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b352dcb3fe9a0f",
+  "source_provenance": "Direct SRT text; auto-transcribed Korean could have recognition errors; original frame/audio reread pending for disputed numeric slips",
+  "review_status": "FIRST_VIDEO_NEEDS_MATERIAL_SUPPLEMENT_BEFORE_FINAL_KNOWLEDGE_APPROVAL",
+  "counts": {
+    "material_gaps": 9,
+    "proposed_additional_principles": 5,
+    "critical_P0": 3,
+    "open_account_or_contract_data": true,
+    "personal_investment_approvals": 0
+  },
+  "sources": {
+    "SRT": "Google Drive 1-100.zip / 1-100/youtube-transcript-sz5N9WJS310.srt; matching registered SHA256 2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b352dcb3fe9a0f",
+    "NTS_PENSION": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312",
+    "LAW_40_2": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507",
+    "LAW_40_3": "https://lawtrack.kr/law/003956/004003",
+    "NTS_CREDIT": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2343",
+    "NTS_ISA_CREDIT_QA": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000006505",
+    "NPS_DELAY": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do",
+    "NPS_ESTIMATE": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0095M0.do",
+    "FSC_PENSION_TRANSFER": "https://www.fsc.go.kr/po010106/87144?curPage=22&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=&srchText=",
+    "ISA_2026": "https://consumer.kiwoom.com/mobwm/isa/ia010/MobISAInfoView",
+    "SEC_DISTRIBUTIONS": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+  },
+  "findings": [
+    {
+      "id": "V4-001-A01",
+      "risk": "P0",
+      "srt_cues": [
+        514,
+        572,
+        563,
+        608,
+        649,
+        658,
+        688,
+        735,
+        755,
+        808
+      ],
+      "at": "00:17:00–00:26:30",
+      "legacy_claims": [
+        "sz5N9WJS310-13",
+        "sz5N9WJS310-14",
+        "sz5N9WJS310-15",
+        "sz5N9WJS310-16"
+      ],
+      "finding": "Tax-excluded basis is not whole asset value. SRT models 20y pension2 KRW750k/month (deposits 180m), ISA KRW100m transferred 4 times (400m), with assumed investment gain raising total to ~800m; spending 4m monthly for ~16 years implicitly treats whole asset balance as non-taxable basis.",
+      "computed_example": {
+        "total_contribution_and_ISA_transfer": 580000000,
+        "claim_total_balance_approx": 800000000,
+        "tax_excluded_basis_ceiling_before_claimed_credit": 580000000,
+        "illustrative_credited_ISA_amount_if_four_years_each_full_3000000": 12000000,
+        "tax_excluded_basis_if_full_special_credit_claimed": 568000000,
+        "months_if_no_further_contributions_and_fixed_4m_without_credit": 145,
+        "months_if_full_special_credit_claimed": 142,
+        "year_count_if_full_special_credit_claimed": 11.8333
+      },
+      "disposition": "HIGH_PRIORITY_NUMERIC_AND_TAX_SOURCE_ERROR_CANDIDATE",
+      "primary": [
+        "LAW_40_3",
+        "NTS_CREDIT",
+        "NTS_ISA_CREDIT_QA"
+      ],
+      "remaining": "Need original visual chart, actual tax-basis ledger and confirmation of credit application. This is an illustrative contradiction in assumptions, not a verified account-level withdrawal model."
+    },
+    {
+      "id": "V4-001-A02",
+      "risk": "P0",
+      "srt_cues": [
+        375,
+        412,
+        787,
+        808
+      ],
+      "at": "00:12:30–00:13:50; 00:25:45–00:26:30",
+      "legacy_claims": [
+        "sz5N9WJS310-09",
+        "sz5N9WJS310-10",
+        "sz5N9WJS310-16"
+      ],
+      "finding": "Video uses 15m private pension tax-choice threshold alongside 'all at 16.5%' for 100-억 distributions; sources of pension wealth and pension withdrawal cap must be separated. Statements implying 16.5% taxation of all pension cash or universal income tax maximum are materially overbroad.",
+      "disposition": "SCOPE_CORRECTION_REQUIRED",
+      "primary": [
+        "NTS_PENSION",
+        "LAW_40_2",
+        "LAW_40_3"
+      ],
+      "remaining": "Classify exempt contributions, deferred retirement income, credited contributions, investment gains and outside-pension withdrawals with hypothetical cash flow."
+    },
+    {
+      "id": "V4-001-A03",
+      "risk": "P0",
+      "srt_cues": [
+        535,
+        574,
+        693,
+        699
+      ],
+      "at": "00:17:40–00:19:10; 00:22:45–00:23:00",
+      "legacy_claims": [
+        "sz5N9WJS310-13",
+        "sz5N9WJS310-14"
+      ],
+      "finding": "SRT calls 'ISA transfer 300만원 세액공제': 300m won is max additional credit-eligible contribution base, NOT tax refunded; 실제 세액공제 적용 원금 must be established individually. Distinguish recurring transfers from yearly ISA limits.",
+      "disposition": "TERMINOLOGY_TAX_CREDIT_BASE_CORRECTION",
+      "primary": [
+        "NTS_CREDIT",
+        "NTS_ISA_CREDIT_QA"
+      ],
+      "remaining": "Recheck individual credit statement for actual taxable vs excluded amount."
+    },
+    {
+      "id": "V4-001-A04",
+      "risk": "P1",
+      "srt_cues": [
+        135,
+        155
+      ],
+      "at": "00:04:20–00:05:20",
+      "legacy_claims": [
+        "sz5N9WJS310-01",
+        "sz5N9WJS310-03",
+        "sz5N9WJS310-04"
+      ],
+      "finding": "Video cites 'KRW18m top-up paid back in six years' from KRW250k monthly extra ×72; this is an undiscounted nominal recovery ratio (18m / (250k×12)=6 years) after benefit starts, not a 6-year investment payback from age 53. Starts pension age approx 65; time-value and mortality missing.",
+      "disposition": "ADDITIONAL_INVESTMENT_MODEL_REQUIRED",
+      "primary": [
+        "NPS_ESTIMATE"
+      ],
+      "remaining": "Need personal confirmed NPS estimate, start-age, tax, benefits, survivor effects, capital alternatives and inflation indexed cashflows."
+    },
+    {
+      "id": "V4-001-A05",
+      "risk": "P1",
+      "srt_cues": [
+        220,
+        230,
+        249,
+        342
+      ],
+      "at": "00:07:30–00:11:45",
+      "legacy_claims": [
+        "sz5N9WJS310-05",
+        "sz5N9WJS310-06",
+        "sz5N9WJS310-07",
+        "sz5N9WJS310-08"
+      ],
+      "finding": "SRT asserts ~KRW51m at year 7 at KRW300k/mo 7%; monthly-compound result 7yrs ~KRW32.4m, 10yrs ~KRW51.93m. NPS pension-deferral case also compares dissimilar cumulative payment horizons and omits partial deferral options, tax, health premiums and missed cash flows.",
+      "disposition": "NUMERIC_ERRATUM_AND_MODEL_ENHANCEMENT",
+      "primary": [
+        "NPS_DELAY",
+        "SEC_DISTRIBUTIONS"
+      ],
+      "remaining": "Check original audio/frame for 7-year slip and compare full year-by-year after-tax real cash flows; NPS monthly 0.6% is noncompound pension benefit accrual, not 7.2% market return."
+    },
+    {
+      "id": "V4-001-A06",
+      "risk": "P1",
+      "srt_cues": [
+        1001,
+        1106
+      ],
+      "at": "00:33:00–00:36:50",
+      "legacy_claims": [
+        "sz5N9WJS310-19",
+        "sz5N9WJS310-20"
+      ],
+      "finding": "Existing V4 mentions surrender costs but not distinct tax-neutral annuity savings account transfer. Official FSC explicitly distinguishes account transfer preserving enrolment date from contract liquidation, while guarantee credit rate may not carry over.",
+      "disposition": "ADD_ACCOUNT_TRANSFER_DECISION_RULE",
+      "primary": [
+        "FSC_PENSION_TRANSFER"
+      ],
+      "remaining": "Need actual insurance policy rate floor, current declared rate, transfer/surrender values, legacy annuitization options, commissions and security."
+    },
+    {
+      "id": "V4-001-A07",
+      "risk": "P1",
+      "srt_cues": [
+        1116,
+        1195
+      ],
+      "at": "00:37:10–00:39:30",
+      "legacy_claims": [
+        "sz5N9WJS310-21",
+        "sz5N9WJS310-22",
+        "sz5N9WJS310-23"
+      ],
+      "finding": "'Long-term negative principal balance permanently offsets future earnings' conflates valuation decline with realized eligible gains/losses and account-level net tax computation. ISA after 3 years can extend and reopen, but not universally preferable to extend/roll every 3 years.",
+      "disposition": "OPEN_GAIN_LOSS_RECOGNITION_RULE",
+      "primary": [
+        "ISA_2026"
+      ],
+      "remaining": "Verify transaction settlement and taxable instrument categories; check losses realized vs unrealized with specific provider ledger and current law."
+    },
+    {
+      "id": "V4-001-A08",
+      "risk": "P1",
+      "srt_cues": [
+        637,
+        658,
+        709,
+        771,
+        809,
+        821
+      ],
+      "at": "00:20:30–00:27:00",
+      "legacy_claims": [
+        "sz5N9WJS310-15",
+        "sz5N9WJS310-16"
+      ],
+      "finding": "'Dividends only preserve principal forever' and 'KRW1bn solves all retirement concerns' are illustrative speaker confidence, not proven retirement drawdown safety. Inflation, volatility, yield reduction, NAV depletion, sequence of returns and coverage all remain.",
+      "disposition": "SAFETY_UNQUALIFIED_PROMISE_MUST_BE_BLOCKED",
+      "primary": [
+        "SEC_DISTRIBUTIONS"
+      ],
+      "remaining": "Build stress tests on portfolio total returns, withdrawals and lifespan before any investment use."
+    },
+    {
+      "id": "V4-001-A09",
+      "risk": "P2",
+      "srt_cues": [
+        839,
+        912,
+        917,
+        954
+      ],
+      "at": "00:28:00–00:32:00",
+      "legacy_claims": [
+        "sz5N9WJS310-17",
+        "sz5N9WJS310-18"
+      ],
+      "finding": "Asset-location advice combines domestic equity ETF capital-gains exemption vs account-level pension taxation with ETF structure variation, account eligibility, deferred retirement income sourcing and ISA netting; candidate for fee-tax-liquidity multiaccount matrix.",
+      "disposition": "STRUCTURED_COMPARISON_EXPANSION",
+      "primary": [
+        "NTS_PENSION"
+      ],
+      "remaining": "Verify ETF kind, domestic equity vs derivatives/foreign investment, account fund sources, taxes and annual rules."
+    }
+  ],
+  "additional_principle_candidates": [
+    {
+      "id": "V4-001-P10-CANDIDATE",
+      "name": "추납의 명목회수기간과 할인현금흐름·생존확률을 분리",
+      "cues": [
+        135,
+        155
+      ],
+      "status": "ADDITIONAL_NOT_YET_APPROVED"
+    },
+    {
+      "id": "V4-001-P11-CANDIDATE",
+      "name": "과세제외 원금의 실제 장부와 순서에 따라 연금 인출가능기간 계산",
+      "cues": [
+        514,
+        808
+      ],
+      "status": "ADDITIONAL_REQUIRES_TAX_BASIS_LEDGER"
+    },
+    {
+      "id": "V4-001-P12-CANDIDATE",
+      "name": "ISA 만기 연금이전의 공제 대상 한도와 실제 공제 받은 원금을 분리",
+      "cues": [
+        535,
+        574
+      ],
+      "status": "ADDITIONAL_CONDITIONALLY_GROUNDED"
+    },
+    {
+      "id": "V4-001-P13-CANDIDATE",
+      "name": "연금저축보험은 세제 유지 계좌이전과 계약 해지의 결과가 다름",
+      "cues": [
+        1001,
+        1106
+      ],
+      "status": "ADDITIONAL_OFFICIAL_RULE_WITH_POLICY_OPEN"
+    },
+    {
+      "id": "V4-001-P14-CANDIDATE",
+      "name": "은퇴기 분배금 목표는 원금 고갈·인플레이션·세금 스트레스 테스트로 보완",
+      "cues": [
+        637,
+        821
+      ],
+      "status": "ADDITIONAL_RISK_CONTROL"
+    }
+  ],
+  "controls": [
+    "Do not overwrite original V3 or V4 parent",
+    "This is a source-specific follow-up audit, not a full legal opinion or verified lifetime return forecast",
+    "Numeric example taxes depend on actual claim of pension tax credit and provider transaction records",
+    "No automatic promotion to completed usable personal investment advice without appropriate source verification",
+    "2026-10-29 legal sources; reverify upon changes"
+  ]
+}

@@ -1,0 +1,569 @@
+{
+  "schema_version": "V4_1.0",
+  "created_at": "2026-10-29",
+  "project": "박곰희TV 791편 투자 활용 근거 연구",
+  "research_protocol": {
+    "starting_point": "Video-original-SRT -> investment principles -> official source corroboration -> limits/conflicts -> reuse classification -> cumulative principles ledger",
+    "acceptance_gates": [
+      "All video-level original SRT and SHA256 verified",
+      "All legacy claims mapped without original verdict mutation",
+      "Primary fact and timing checked at research date, else OPEN",
+      "Numerical models checked with explicit assumptions",
+      "No speaker preference promoted to universal investment principle",
+      "Claim-to-principle mapping explicit",
+      "Only conditional educational reuse; no individual allocation/order approval",
+      "OPEN does not block video-level archive if limitations explicit",
+      "main and V3 do not change"
+    ]
+  },
+  "pilot": {
+    "roster_no": 1,
+    "video_id": "sz5N9WJS310",
+    "video_url": "https://www.youtube.com/watch?v=sz5N9WJS310",
+    "original_srt": {
+      "source_drive_archive": "1-100.zip",
+      "source_drive_id": "1sSHXfWHbzoG5ZT4t0Hc47Jd7SXG_D0OX",
+      "file_in_archive": "1-100/youtube-transcript-sz5N9WJS310.srt",
+      "sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b352dcb3fe9a0f",
+      "cue_count": 1195,
+      "duration_approx": "39m34s",
+      "privacy": "Do not upload whole private original SRT"
+    },
+    "legacy": {
+      "source_pilot_sha": "ff140dddcbee9bb0a27889a3ebc831ee4ac3f30b",
+      "source_canonical_sha": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+      "claims": 23,
+      "original_claim_verdicts_changed": 0
+    },
+    "claims_mapped": 23,
+    "principles_count": 9,
+    "claim_type_counts": {
+      "CASE_PERSON_SPECIFIC": 1,
+      "SCENARIO_ONLY": 2,
+      "SPEAKER_PREFERENCE": 3,
+      "PERSONAL_SCENARIO": 1,
+      "ARITHMETIC_ERROR_IN_SRT": 1,
+      "CURRENT_RULE_VERIFIED": 3,
+      "CURRENT_RULE_WITH_LIMITS": 5,
+      "SPEAKER_PHILOSOPHY": 2,
+      "SCENARIO_WITH_TAX_OVERGENERALIZATION": 1,
+      "PRODUCT_CONTRACT_OPEN": 2,
+      "CONDITIONAL_SCOPE_OPEN": 1,
+      "CURRENT_RULE_VERIFIED_WITH_STRATEGY_OPEN": 1
+    },
+    "official_sources": {
+      "NPS_TOPUP": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do",
+      "NPS_DELAY": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do",
+      "NTS_PENSION": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+      "NTS_WITHHOLD": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6434",
+      "LAW_PENSION_CAP": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1032953507",
+      "LAW_WITHDRAW_ORDER": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+      "KRX_ETF_TAX": "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+      "LAW_ISA": "https://law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1018255825",
+      "ISA_PROVIDER": "https://spot.wooribank.com/pot/Dream?withyou=IMISA0045",
+      "SEC_DISTRIBUTIONS": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+      "SEC_ALLOCATION": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+    },
+    "claims": [
+      {
+        "claim_id": "sz5N9WJS310-01",
+        "original_timecode": "00:01:03",
+        "srt_cue_range": [
+          24,
+          37
+        ],
+        "v4_type": "CASE_PERSON_SPECIFIC",
+        "source_interpretation": "Subscriber states KRW18m top-up may raise pension KRW250k/month; no NPS individual estimate document.",
+        "v4_verification_note": "NPS top-up eligibility and 119-month maximum supported; projected increase remains case only.",
+        "official_source_keys": [
+          "NPS_TOPUP"
+        ],
+        "reuse_status": "OPEN_PERSONAL_ESTIMATE",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-02",
+        "original_timecode": "00:02:04",
+        "srt_cue_range": [
+          51,
+          80
+        ],
+        "v4_type": "SCENARIO_ONLY",
+        "source_interpretation": "KRW18m grown over 12 years to KRW40m needs annualized ~6.88% CAGR; 6%-8% distributions imply KRW200k-267k/month gross.",
+        "v4_verification_note": "Illustrative return and future distribution rates are not promised; compare total return and longevity.",
+        "official_source_keys": [
+          "SEC_DISTRIBUTIONS"
+        ],
+        "reuse_status": "NO_DIRECT_TRADE",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-03",
+        "original_timecode": "00:04:09",
+        "srt_cue_range": [
+          112,
+          140
+        ],
+        "v4_type": "SPEAKER_PREFERENCE",
+        "source_interpretation": "Speaker prefers NPS top-up in sample but acknowledges higher private-investment return possibility.",
+        "v4_verification_note": "Consider guaranteed income vs volatility, liquidity, mortality, benefit rules, personal NPS estimate.",
+        "official_source_keys": [
+          "NPS_TOPUP",
+          "SEC_ALLOCATION"
+        ],
+        "reuse_status": "CONDITIONAL_ONLY",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-04",
+        "original_timecode": "00:06:12",
+        "srt_cue_range": [
+          172,
+          189
+        ],
+        "v4_type": "SPEAKER_PREFERENCE",
+        "source_interpretation": "Speaker proposes top-up first with existing lump sum and invest later surplus.",
+        "v4_verification_note": "Not a universal optimal order; emergency cash, expected pension, liquidity, and eligibility matter.",
+        "official_source_keys": [
+          "NPS_TOPUP"
+        ],
+        "reuse_status": "CONDITIONAL_ONLY",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-05",
+        "original_timecode": "00:06:42",
+        "srt_cue_range": [
+          195,
+          214
+        ],
+        "v4_type": "PERSONAL_SCENARIO",
+        "source_interpretation": "Subscriber plans to reinvest KRW300k monthly pension in pension funds for ten years.",
+        "v4_verification_note": "Personal case, no general recommendation to defer consumption.",
+        "official_source_keys": [],
+        "reuse_status": "SCENARIO_ONLY",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-06",
+        "original_timecode": "00:07:43",
+        "srt_cue_range": [
+          220,
+          228
+        ],
+        "v4_type": "ARITHMETIC_ERROR_IN_SRT",
+        "source_interpretation": "Video says ten years of KRW300k/month at 7%, then calls KRW51m the year-seven value.",
+        "v4_verification_note": "At 7% nominal annual with monthly compounding: 7 years≈KRW32.40m; 10 years≈KRW51.93m. Correct duration label; risk not guaranteed.",
+        "official_source_keys": [
+          "SEC_DISTRIBUTIONS"
+        ],
+        "reuse_status": "CORRECTION_REQUIRED",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-07",
+        "original_timecode": "00:08:44",
+        "srt_cue_range": [
+          249,
+          262
+        ],
+        "v4_type": "CURRENT_RULE_VERIFIED",
+        "source_interpretation": "NPS deferral adds 0.6%/month, 7.2%/year, max 36% at five years.",
+        "v4_verification_note": "Applicable to eligible pension deferral; not equivalent to 7.2% invested return; tax, health contribution, survivor, inflation and missed payments matter.",
+        "official_source_keys": [
+          "NPS_DELAY"
+        ],
+        "reuse_status": "EDUCATIONAL_RULE",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-08",
+        "original_timecode": "00:09:46",
+        "srt_cue_range": [
+          278,
+          312
+        ],
+        "v4_type": "SCENARIO_ONLY",
+        "source_interpretation": "Speaker compares delayed NPS payment with reinvestment across five to ten years.",
+        "v4_verification_note": "Needs lifetime cash flow, survival, discount rate, taxes and year-by-year timing before choosing.",
+        "official_source_keys": [
+          "NPS_DELAY"
+        ],
+        "reuse_status": "CONDITIONAL_ONLY",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-09",
+        "original_timecode": "00:11:48",
+        "srt_cue_range": [
+          345,
+          381
+        ],
+        "v4_type": "CURRENT_RULE_VERIFIED",
+        "source_interpretation": "KRW15m private pension taxable-income threshold is not the statutory maximum account withdrawal.",
+        "v4_verification_note": "Separate flat KRW15m tax-choice threshold from account's formulaic pension-withdrawal limit and outside-pension treatment.",
+        "official_source_keys": [
+          "NTS_PENSION",
+          "LAW_PENSION_CAP"
+        ],
+        "reuse_status": "EDUCATIONAL_RULE",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-10",
+        "original_timecode": "00:12:50",
+        "srt_cue_range": [
+          382,
+          412
+        ],
+        "v4_type": "CURRENT_RULE_WITH_LIMITS",
+        "source_interpretation": "For eligible taxable private pension income above KRW15m, aggregated income treatment or 15% national flat tax option (typically 16.5% with local tax) may apply.",
+        "v4_verification_note": "Does not apply identically to all pension payments, tax-excluded basis, deferred retirement income; simplistic total 16.5% cap is not universal.",
+        "official_source_keys": [
+          "NTS_PENSION",
+          "NTS_WITHHOLD"
+        ],
+        "reuse_status": "EDUCATIONAL_RULE_LIMITED",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-11",
+        "original_timecode": "00:13:51",
+        "srt_cue_range": [
+          413,
+          448
+        ],
+        "v4_type": "SPEAKER_PHILOSOPHY",
+        "source_interpretation": "Compare after-tax usable cash flow rather than the absolute tax bill.",
+        "v4_verification_note": "Decision principle is plausible but must include market risk, withdrawal sustainability and marginal tax interactions.",
+        "official_source_keys": [
+          "SEC_ALLOCATION"
+        ],
+        "reuse_status": "CONDITIONAL_FRAMEWORK",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-12",
+        "original_timecode": "00:15:52",
+        "srt_cue_range": [
+          478,
+          487
+        ],
+        "v4_type": "SPEAKER_PHILOSOPHY",
+        "source_interpretation": "Do not abandon all investment solely from fear of tax.",
+        "v4_verification_note": "Not a recommendation to maximize returns irrespective of risk; compare risk-adjusted after-tax outcomes.",
+        "official_source_keys": [
+          "SEC_ALLOCATION"
+        ],
+        "reuse_status": "CONDITIONAL_FRAMEWORK",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-13",
+        "original_timecode": "00:17:42",
+        "srt_cue_range": [
+          535,
+          563
+        ],
+        "v4_type": "CURRENT_RULE_VERIFIED",
+        "source_interpretation": "Separate contributions with tax credit from tax-uncredited contributions and gains.",
+        "v4_verification_note": "Documentation of tax-excluded basis is necessary; use current law and provider account ledger.",
+        "official_source_keys": [
+          "LAW_WITHDRAW_ORDER",
+          "NTS_WITHHOLD"
+        ],
+        "reuse_status": "EDUCATIONAL_RULE",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-14",
+        "original_timecode": "00:21:33",
+        "srt_cue_range": [
+          652,
+          683
+        ],
+        "v4_type": "CURRENT_RULE_WITH_LIMITS",
+        "source_interpretation": "Model withdrawals based on tax-excluded basis and other taxable pension sources.",
+        "v4_verification_note": "Statutory order: tax-excluded first, deferred retirement income next, other taxable amounts thereafter; ISA transfers require individual tax-credit checks.",
+        "official_source_keys": [
+          "LAW_WITHDRAW_ORDER"
+        ],
+        "reuse_status": "EDUCATIONAL_RULE_LIMITED",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-15",
+        "original_timecode": "00:23:36",
+        "srt_cue_range": [
+          714,
+          749
+        ],
+        "v4_type": "SCENARIO_WITH_TAX_OVERGENERALIZATION",
+        "source_interpretation": "KRW800m x assumed 6% yield /12 = KRW4m monthly is mathematically correct; claims about zero tax and constant balance are not proven.",
+        "v4_verification_note": "A distribution reduces NAV; 6% is not a guaranteed total return, and tax-free draw only while confirmed tax-excluded source remains.",
+        "official_source_keys": [
+          "SEC_DISTRIBUTIONS",
+          "LAW_WITHDRAW_ORDER"
+        ],
+        "reuse_status": "BLOCK_DIRECT_USE",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-16",
+        "original_timecode": "00:25:38",
+        "srt_cue_range": [
+          776,
+          808
+        ],
+        "v4_type": "CURRENT_RULE_WITH_LIMITS",
+        "source_interpretation": "Tax-excluded basis can be deemed withdrawn first before taxable contributions/profits.",
+        "v4_verification_note": "Not all future distributions remain tax-free indefinitely; must track remaining source basis and account statement.",
+        "official_source_keys": [
+          "LAW_WITHDRAW_ORDER"
+        ],
+        "reuse_status": "EDUCATIONAL_RULE_LIMITED",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-17",
+        "original_timecode": "00:27:09",
+        "srt_cue_range": [
+          823,
+          855
+        ],
+        "v4_type": "CURRENT_RULE_WITH_LIMITS",
+        "source_interpretation": "Domestic equity ETF in general account may enjoy capital gains exemption but pension account gains taxed on pension withdrawal.",
+        "v4_verification_note": "ETF legal subtype, derivatives, distribution, pension account source and timing change result; avoid treating every ETF identically.",
+        "official_source_keys": [
+          "KRX_ETF_TAX",
+          "NTS_WITHHOLD"
+        ],
+        "reuse_status": "EDUCATIONAL_RULE_LIMITED",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-18",
+        "original_timecode": "00:30:11",
+        "srt_cue_range": [
+          917,
+          935
+        ],
+        "v4_type": "SPEAKER_PREFERENCE",
+        "source_interpretation": "Foreign-asset ETF in pension account may create tax efficiencies; speaker says tax is only one consideration.",
+        "v4_verification_note": "Account-location choice conditional on asset mix, available products, liquidity, loss offset, costs and constraints.",
+        "official_source_keys": [
+          "KRX_ETF_TAX",
+          "SEC_ALLOCATION"
+        ],
+        "reuse_status": "CONDITIONAL_FRAMEWORK",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-19",
+        "original_timecode": "00:32:45",
+        "srt_cue_range": [
+          1002,
+          1026
+        ],
+        "v4_type": "PRODUCT_CONTRACT_OPEN",
+        "source_interpretation": "Legacy high-crediting-rate annuity insurance may deserve retention.",
+        "v4_verification_note": "A cited 6.5%-7.5% guaranteed rate cannot be inferred for any actual contract; verify coverage, credited rate, surrender schedule, insurer risk.",
+        "official_source_keys": [],
+        "reuse_status": "OPEN_CONTRACT",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-20",
+        "original_timecode": "00:35:48",
+        "srt_cue_range": [
+          1085,
+          1105
+        ],
+        "v4_type": "PRODUCT_CONTRACT_OPEN",
+        "source_interpretation": "Compare guaranteed legacy insurance against pension funds and asset-allocation objectives.",
+        "v4_verification_note": "A hypothetical 5% insurance guarantee is not universal and 10% equity return is not assured; obtain contract and fee facts.",
+        "official_source_keys": [
+          "SEC_ALLOCATION"
+        ],
+        "reuse_status": "OPEN_CONTRACT",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-21",
+        "original_timecode": "00:36:50",
+        "srt_cue_range": [
+          1116,
+          1147
+        ],
+        "v4_type": "CURRENT_RULE_WITH_LIMITS",
+        "source_interpretation": "ISA can be kept beyond three-year minimum or closed/reopened to potentially reuse tax preferences.",
+        "v4_verification_note": "Eligibility at reopening/extension, transaction friction, asset sale, tax timing, future law and client objectives matter.",
+        "official_source_keys": [
+          "LAW_ISA",
+          "ISA_PROVIDER"
+        ],
+        "reuse_status": "CONDITIONAL_FRAMEWORK",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-22",
+        "original_timecode": "00:37:51",
+        "srt_cue_range": [
+          1146,
+          1174
+        ],
+        "v4_type": "CONDITIONAL_SCOPE_OPEN",
+        "source_interpretation": "Speaker describes using ISA gains/loss offsets in prolonged negative cases.",
+        "v4_verification_note": "Tax netting applies to eligible ISA profits/losses; account type and applicable nettable instruments should be checked, no general forever-loss carryforward claim.",
+        "official_source_keys": [
+          "LAW_ISA"
+        ],
+        "reuse_status": "OPEN_SCOPE",
+        "original_verdict_unchanged": true
+      },
+      {
+        "claim_id": "sz5N9WJS310-23",
+        "original_timecode": "00:38:53",
+        "srt_cue_range": [
+          1175,
+          1195
+        ],
+        "v4_type": "CURRENT_RULE_VERIFIED_WITH_STRATEGY_OPEN",
+        "source_interpretation": "2026 ISA base exemptions KRW2m ordinary and KRW4m qualified groups; speaker prefers periodic use of tax benefit.",
+        "v4_verification_note": "Law confirms thresholds; frequency of renewal depends on eligibility, account return profile and transfer friction; do not force three-year rollover.",
+        "official_source_keys": [
+          "LAW_ISA",
+          "ISA_PROVIDER"
+        ],
+        "reuse_status": "EDUCATIONAL_RULE_LIMITED",
+        "original_verdict_unchanged": true
+      }
+    ],
+    "principles": [
+      {
+        "principle_id": "V4-001-P01",
+        "title": "국민연금 추납은 개인별 추가 연금액과 가입 자격을 먼저 확인한다",
+        "claim_ids": [
+          "sz5N9WJS310-01",
+          "sz5N9WJS310-03",
+          "sz5N9WJS310-04"
+        ],
+        "type": "CONDITIONAL_DECISION_RULE",
+        "evidence": "NPS_TOPUP",
+        "limitation": "KRW18m/250k/month is subscriber account, not reproducible for others.",
+        "application": "Compare NPS written projection, break-even lifespan, cash reserve, survivor benefit, tax and investable alternative."
+      },
+      {
+        "principle_id": "V4-001-P02",
+        "title": "연기연금 가산율은 확정 규정이나 투자 수익률과 동일하지 않다",
+        "claim_ids": [
+          "sz5N9WJS310-05",
+          "sz5N9WJS310-07",
+          "sz5N9WJS310-08"
+        ],
+        "type": "PRIMARY_FACT_PLUS_CONDITIONAL_STRATEGY",
+        "evidence": "NPS_DELAY",
+        "limitation": "Eligibility, foregone payments, taxes, life expectancy and household cashflow.",
+        "application": "Compare lifetime post-tax present values of immediate vs partial vs delayed pension."
+      },
+      {
+        "principle_id": "V4-001-P03",
+        "title": "사적연금 1500만원 과세기준과 법정 연금수령한도를 분리한다",
+        "claim_ids": [
+          "sz5N9WJS310-09",
+          "sz5N9WJS310-10"
+        ],
+        "type": "VERIFIED_TAX_RULE",
+        "evidence": "NTS_PENSION",
+        "limitation": "Different funding sources are treated differently; a 16.5% upper bound across all retirement income is false.",
+        "application": "Classify withdrawals by origin before calculating marginal and separate taxes."
+      },
+      {
+        "principle_id": "V4-001-P04",
+        "title": "연금계좌 과세제외 원금과 과세대상 수익을 나눠 기록한다",
+        "claim_ids": [
+          "sz5N9WJS310-13",
+          "sz5N9WJS310-14",
+          "sz5N9WJS310-16"
+        ],
+        "type": "VERIFIED_TAX_RULE",
+        "evidence": "LAW_WITHDRAW_ORDER",
+        "limitation": "Basis confirmation and ISA transfer credit status are account-specific.",
+        "application": "Obtain tax credit use / noncredit records and apply statutory withdrawal-source ordering."
+      },
+      {
+        "principle_id": "V4-001-P05",
+        "title": "월분배액은 수익률·잔고보전·비과세의 보장이 아니다",
+        "claim_ids": [
+          "sz5N9WJS310-02",
+          "sz5N9WJS310-06",
+          "sz5N9WJS310-15"
+        ],
+        "type": "RISK_CONTROL_WITH_CORRECTION",
+        "evidence": "SEC_DISTRIBUTIONS",
+        "limitation": "7% assumed and 6% distributions; video year-seven 51m arithmetic contradicts 7-year compounding.",
+        "application": "Compare total return, NAV erosion, dividend source, tax and withdrawal sustainability; correct horizon."
+      },
+      {
+        "principle_id": "V4-001-P06",
+        "title": "ETF 세후 성과는 ETF 유형과 계좌 종류에 따라 비교한다",
+        "claim_ids": [
+          "sz5N9WJS310-17",
+          "sz5N9WJS310-18"
+        ],
+        "type": "CONDITIONAL_ACCOUNT_LOCATION",
+        "evidence": "KRX_ETF_TAX",
+        "limitation": "Do not infer all ETFs are tax-free in standard accounts or that pension ETFs always dominate.",
+        "application": "Compare realized gains tax, pension payout tax, fees, liquidity and strategic asset mix."
+      },
+      {
+        "principle_id": "V4-001-P07",
+        "title": "오래된 연금저축보험을 이전하기 전 실제 보증금리와 해약조건을 확인한다",
+        "claim_ids": [
+          "sz5N9WJS310-19",
+          "sz5N9WJS310-20"
+        ],
+        "type": "CONTRACT_SPECIFIC_OPEN",
+        "evidence": "SEC_ALLOCATION",
+        "limitation": "No policy schedule, credited rate or surrender terms in original transcript.",
+        "application": "Obtain guarantee schedule, insurer, fees, tax consequences and surrender value before decision."
+      },
+      {
+        "principle_id": "V4-001-P08",
+        "title": "ISA 만기 연장과 재가입은 손익통산·비과세 재활용·적격성을 함께 비교한다",
+        "claim_ids": [
+          "sz5N9WJS310-21",
+          "sz5N9WJS310-22",
+          "sz5N9WJS310-23"
+        ],
+        "type": "VERIFIED_RULE_WITH_STRATEGY_OPEN",
+        "evidence": "LAW_ISA",
+        "limitation": "2026 thresholds verified; long-term loss/carryover and individual re-entry must be validated.",
+        "application": "Before expiry, calculate realized net P/L, account and eligibility, transfer benefit and costs."
+      },
+      {
+        "principle_id": "V4-001-P09",
+        "title": "세금 절감보다 위험을 반영한 세후 소비·투자 성과를 종합 비교한다",
+        "claim_ids": [
+          "sz5N9WJS310-11",
+          "sz5N9WJS310-12"
+        ],
+        "type": "INVESTMENT_FRAMEWORK_NOT_LAW",
+        "evidence": "SEC_ALLOCATION",
+        "limitation": "Speaker philosophy, not a guaranteed outcome or directive to chase returns.",
+        "application": "Assess after-tax cashflow, volatility, horizon, liquidity and sequence risk."
+      }
+    ],
+    "blocking_items": [
+      "Subscriber-specific NPS estimate must remain unverified case",
+      "SRT example labels year seven yet uses approximately ten years' compounding; requires preserved erratum",
+      "Historical 6%-8% distribution scenario has no independent future price/yield validation",
+      "Legacy annuity insurance contracts lack verified guarantees or surrender schedule",
+      "ISA loss netting and tax choice must be account-specific",
+      "V4 principles are reusable educational knowledge, not approved personal investments"
+    ],
+    "investable_personal_strategy_approvals": 0,
+    "status": "V4_VIDEO_001_PILOT_RESEARCH_COMPLETE_WITH_OPEN_LIMITATIONS",
+    "quality_notes": "Independent web research confirms cited normative rules as of 2026-10-29; no individual financial suitability review or account authentication."
+  }
+}

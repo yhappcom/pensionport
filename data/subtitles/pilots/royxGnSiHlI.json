@@ -1,0 +1,386 @@
+{
+  "schema_version": 3,
+  "review_date": "2026-10-27",
+  "stage": "EVIDENCE_REVIEW_DRAFT",
+  "approval": "NOT_APPROVED",
+  "roster_no": 214,
+  "video_id": "royxGnSiHlI",
+  "title": "50세 이후 연금저축·IRP 시작 — 55세 수령·세액공제·배당 시나리오",
+  "source_url": "https://www.youtube.com/watch?v=royxGnSiHlI",
+  "duration": "00:26:14",
+  "source_kind": "USER_PRIVATE_SRT_ZIP_201_300",
+  "source_level": "PRIVATE_ORIGINAL_KOREAN_SRT_NTS_PENSION_TAX_ISA_FIRST_PARTY",
+  "subtitle_sha256": "dd158d8f2eb51880304f5d0d2161448ea2bc002f02e8e79081c5c991cee84755",
+  "existing_registry_srt": {
+    "sha256": "dd158d8f2eb51880304f5d0d2161448ea2bc002f02e8e79081c5c991cee84755",
+    "cue_count": 870,
+    "raw_srt_bytes": 67030
+  },
+  "cue_count": 870,
+  "source_audit": {
+    "source_kind": "ORIGINAL_SRT_RECONCILED",
+    "full_transcript_reviewed": true,
+    "video_id_matched": true,
+    "original_srt_sha256": "dd158d8f2eb51880304f5d0d2161448ea2bc002f02e8e79081c5c991cee84755",
+    "cue_count": 870,
+    "raw_bytes": 67030,
+    "original_zip_sha256": "b5674d1a3e07b3ab40d4ca9b548dd6378916105bfb91f287247d4dd85242832d",
+    "original_audio_checked": false,
+    "frames_checked": false,
+    "public_full_ko_transcript_checked": false,
+    "limitations": "Subscriber fictional 50/57/65 age projections use hypothetical savings and payout assumptions; personal plans and original audio/video not independently checked.",
+    "evidence_reference": "870 source cues parsed, 18 timecoded age, pension deduction and return assumptions checked against NTS and ISA legal product guidance."
+  },
+  "core_message": "50세 이상에도 가입 가능하나 1800만원 납입과 900만원 세액공제는 별개; 투자원금·연4~10% 배당과 65세 후 종신수급은 가정",
+  "claims": [
+    {
+      "claim_id": "royxGnSiHlI-01",
+      "source_cue_index": 20,
+      "timecode": "00:00:38.920",
+      "source_paraphrase": "50세 이상이어도 연금저축 시작은 가능",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "연금계좌 신규 개설과 공제 가능성은 특정 연령 이전에 한정되지 않음. 개인 납부세액과 수령요건은 별도",
+      "official_sources": [
+        "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "연금계좌 신규 개설과 공제 가능성은 특정 연령 이전에 한정되지 않음. 개인 납부세액과 수령요건은 별도",
+        "disposition": "연금계좌 신규 개설과 공제 가능성은 특정 연령 이전에 한정되지 않음. 개인 납부세액과 수령요건은 별도",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-02",
+      "source_cue_index": 61,
+      "timecode": "00:01:57.759",
+      "source_paraphrase": "연금저축과 IRP의 일반적 55세·5년 적립 수령요건",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "55세 이상 및 일반 가입기간5년 조건. 이연퇴직소득 기반 IRP 특례 등 상품유형에 따라 예외",
+      "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "55세 이상 및 일반 가입기간5년 조건. 이연퇴직소득 기반 IRP 특례 등 상품유형에 따라 예외",
+        "disposition": "55세 이상 및 일반 가입기간5년 조건. 이연퇴직소득 기반 IRP 특례 등 상품유형에 따라 예외",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-03",
+      "source_cue_index": 72,
+      "timecode": "00:02:18.040",
+      "source_paraphrase": "50세 시작 시 65세까지 15년 복리 운용기간",
+      "assessment": "QUALIFIED",
+      "independent_check": "기간 15년 산술 가능하지만 연금수령 시작은 본인이 선택하며 매년 정액 수익/수령기간이 보장되는 것은 아님",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "기간 15년 산술 가능하지만 연금수령 시작은 본인이 선택하며 매년 정액 수익/수령기간이 보장되는 것은 아님",
+        "disposition": "기간 15년 산술 가능하지만 연금수령 시작은 본인이 선택하며 매년 정액 수익/수령기간이 보장되는 것은 아님",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-04",
+      "source_cue_index": 101,
+      "timecode": "00:03:09.560",
+      "source_paraphrase": "늦게 시작하므로 장기 납입액을 최대치까지 해야만 연금 효용 존재",
+      "assessment": "QUALIFIED",
+      "independent_check": "저축 여력·생활비/부채와 수령시점을 비교; 연 납입상한만큼 의무납입할 필요는 없음",
+      "official_sources": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "저축 여력·생활비/부채와 수령시점을 비교; 연 납입상한만큼 의무납입할 필요는 없음",
+        "disposition": "저축 여력·생활비/부채와 수령시점을 비교; 연 납입상한만큼 의무납입할 필요는 없음",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-05",
+      "source_cue_index": 148,
+      "timecode": "00:04:41.520",
+      "source_paraphrase": "연금계좌 세액공제·과세이연 효과",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "적격 납입·금융소득과 연금수령 세제조건별로 적용되며 운용손실과 연금외수령 세금 가능",
+      "official_sources": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "적격 납입·금융소득과 연금수령 세제조건별로 적용되며 운용손실과 연금외수령 세금 가능",
+        "disposition": "적격 납입·금융소득과 연금수령 세제조건별로 적용되며 운용손실과 연금외수령 세금 가능",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-06",
+      "source_cue_index": 192,
+      "timecode": "00:05:54.199",
+      "source_paraphrase": "57세가 연금저축·IRP에 연 1800만원씩 3년 적립 가정",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "연1800만원 × 3년=5400만원 납입 원금 예시, 납입금 확보·투자 수익률 보장 아님",
+      "official_sources": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "연1800만원 × 3년=5400만원 납입 원금 예시, 납입금 확보·투자 수익률 보장 아님",
+        "disposition": "연1800만원 × 3년=5400만원 납입 원금 예시, 납입금 확보·투자 수익률 보장 아님",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "basis": "연1800만원 × 3년=5400만원 납입 원금 예시, 납입금 확보·투자 수익률 보장 아님"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-07",
+      "source_cue_index": 205,
+      "timecode": "00:06:16.960",
+      "source_paraphrase": "57세 납입 1800만원 중 900만원에 13.2% 공제받는다는 예시",
+      "assessment": "QUALIFIED",
+      "independent_check": "연금저축 단독600만원·IRP합산900만원 공제대상이며 세율/결정세액을 충족할 때만 효과",
+      "official_sources": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "연금저축 단독600만원·IRP합산900만원 공제대상이며 세율/결정세액을 충족할 때만 효과",
+        "disposition": "연금저축 단독600만원·IRP합산900만원 공제대상이며 세율/결정세액을 충족할 때만 효과",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-08",
+      "source_cue_index": 265,
+      "timecode": "00:08:04.800",
+      "source_paraphrase": "퇴직 후 월30만원씩 5년 납입으로 1800만원 증가",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "월30만원 ×12×5=1800만원 단순 산술, 5년간 연금계좌 추가납입이 가능한 계좌 상태·수급계획별 확인",
+      "official_sources": [
+        "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "월30만원 ×12×5=1800만원 단순 산술, 5년간 연금계좌 추가납입이 가능한 계좌 상태·수급계획별 확인",
+        "disposition": "월30만원 ×12×5=1800만원 단순 산술, 5년간 연금계좌 추가납입이 가능한 계좌 상태·수급계획별 확인",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "basis": "월30만원 ×12×5=1800만원 단순 산술, 5년간 연금계좌 추가납입이 가능한 계좌 상태·수급계획별 확인"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-09",
+      "source_cue_index": 300,
+      "timecode": "00:09:09.240",
+      "source_paraphrase": "65세에 원금1억원을 마련해 4~9% 분배로 생활비 수령",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "원금 1억원 축적·연4~9% 분배는 가정. 분배액, NAV, 자산변동 및 세금 확인해야 지속소득 보장 불가",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "원금 1억원 축적·연4~9% 분배는 가정. 분배액, NAV, 자산변동 및 세금 확인해야 지속소득 보장 불가",
+        "disposition": "원금 1억원 축적·연4~9% 분배는 가정. 분배액, NAV, 자산변동 및 세금 확인해야 지속소득 보장 불가",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "basis": "원금 1억원 축적·연4~9% 분배는 가정. 분배액, NAV, 자산변동 및 세금 확인해야 지속소득 보장 불가"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-10",
+      "source_cue_index": 336,
+      "timecode": "00:10:12.720",
+      "source_paraphrase": "10% 배당수익률로 원금 1억원에서 월80만원 이상 수령 가능",
+      "assessment": "QUALIFIED",
+      "independent_check": "연1000만원÷12=83.3만원 세전 산술만 유효. 10% 분배와 원금보장은 없음",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "연1000만원÷12=83.3만원 세전 산술만 유효. 10% 분배와 원금보장은 없음",
+        "disposition": "연1000만원÷12=83.3만원 세전 산술만 유효. 10% 분배와 원금보장은 없음",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-11",
+      "source_cue_index": 359,
+      "timecode": "00:10:53.760",
+      "source_paraphrase": "세액공제를 안 받은 원금은 세금 없이 적격 인출 가능",
+      "assessment": "QUALIFIED",
+      "independent_check": "원천증빙·법정 인출우선순위·연금상품 환매/거래 조건 필요; 운용수익은 미공제 원금과 다름",
+      "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "원천증빙·법정 인출우선순위·연금상품 환매/거래 조건 필요; 운용수익은 미공제 원금과 다름",
+        "disposition": "원천증빙·법정 인출우선순위·연금상품 환매/거래 조건 필요; 운용수익은 미공제 원금과 다름",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-12",
+      "source_cue_index": 378,
+      "timecode": "00:11:29.360",
+      "source_paraphrase": "국민연금 A값과 평균 근로소득을 비교",
+      "assessment": "QUALIFIED",
+      "independent_check": "A값은 국민연금 가입자 최근 기간 소득수준 지표이고 개인 월급·가구소득/국민연금 예상급여와 다름",
+      "official_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "A값은 국민연금 가입자 최근 기간 소득수준 지표이고 개인 월급·가구소득/국민연금 예상급여와 다름",
+        "disposition": "A값은 국민연금 가입자 최근 기간 소득수준 지표이고 개인 월급·가구소득/국민연금 예상급여와 다름",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-13",
+      "source_cue_index": 449,
+      "timecode": "00:13:28.000",
+      "source_paraphrase": "ISA는 가입3년이면 8000만원 납입이 누구에게나 가능",
+      "assessment": "QUALIFIED",
+      "independent_check": "3년 의무가입과 4개 역년 연2천만원 한도가 겹치는 예시 가능하나 가입시점·역년 경계·한도이월 확인해야 8000만원이 항상 보장되는 것은 아님",
+      "official_sources": [
+        "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "3년 의무가입과 4개 역년 연2천만원 한도가 겹치는 예시 가능하나 가입시점·역년 경계·한도이월 확인해야 8000만원이 항상 보장되는 것은 아님",
+        "disposition": "3년 의무가입과 4개 역년 연2천만원 한도가 겹치는 예시 가능하나 가입시점·역년 경계·한도이월 확인해야 8000만원이 항상 보장되는 것은 아님",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-14",
+      "source_cue_index": 577,
+      "timecode": "00:17:05.959",
+      "source_paraphrase": "57~65세 8년 투자시 4천만원이 될 수 있다는 추정",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "예상 수익률을 전제로 한 계산이며 시장하락·인출/보수/물가로 결과 변화",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "예상 수익률을 전제로 한 계산이며 시장하락·인출/보수/물가로 결과 변화",
+        "disposition": "예상 수익률을 전제로 한 계산이며 시장하락·인출/보수/물가로 결과 변화",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "basis": "예상 수익률을 전제로 한 계산이며 시장하락·인출/보수/물가로 결과 변화"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-15",
+      "source_cue_index": 637,
+      "timecode": "00:18:50.400",
+      "source_paraphrase": "월20~30만원의 종신 수익처럼 개인연금 포트 운영 가능",
+      "assessment": "QUALIFIED",
+      "independent_check": "연금저축펀드/ETF 인출은 기초자산 고갈과 가격손실 위험으로 원칙적 종신 지급보장이 아니며 공적연금과 구별",
+      "official_sources": [
+        "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "연금저축펀드/ETF 인출은 기초자산 고갈과 가격손실 위험으로 원칙적 종신 지급보장이 아니며 공적연금과 구별",
+        "disposition": "연금저축펀드/ETF 인출은 기초자산 고갈과 가격손실 위험으로 원칙적 종신 지급보장이 아니며 공적연금과 구별",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-16",
+      "source_cue_index": 686,
+      "timecode": "00:20:23.840",
+      "source_paraphrase": "5년간 4000만원 적립금이 5000만원이 된다는 사례",
+      "assessment": "HYPOTHETICAL",
+      "independent_check": "5년간 누적25% 가정이며 각년 수익률·납입시점/세금에 좌우, 무조건 달성 보장 아님",
+      "official_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "verification_evidence": {
+        "verdict": "HYPOTHETICAL",
+        "checked_at": "2026-10-27",
+        "source_finding": "5년간 누적25% 가정이며 각년 수익률·납입시점/세금에 좌우, 무조건 달성 보장 아님",
+        "disposition": "5년간 누적25% 가정이며 각년 수익률·납입시점/세금에 좌우, 무조건 달성 보장 아님",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "basis": "5년간 누적25% 가정이며 각년 수익률·납입시점/세금에 좌우, 무조건 달성 보장 아님"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-17",
+      "source_cue_index": 803,
+      "timecode": "00:24:03.760",
+      "source_paraphrase": "구형 연금보험을 해지하기 전 해약환급금 확인",
+      "assessment": "PRIMARY_CONFIRMED",
+      "independent_check": "보험의 가입 연도·상품보증·수수료·해지환급금·세제적격성 확인해야 이전/해약 비교 가능",
+      "official_sources": [
+        "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      ],
+      "verification_evidence": {
+        "verdict": "PRIMARY_CONFIRMED",
+        "checked_at": "2026-10-27",
+        "source_finding": "보험의 가입 연도·상품보증·수수료·해지환급금·세제적격성 확인해야 이전/해약 비교 가능",
+        "disposition": "보험의 가입 연도·상품보증·수수료·해지환급금·세제적격성 확인해야 이전/해약 비교 가능",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop"
+      }
+    },
+    {
+      "claim_id": "royxGnSiHlI-18",
+      "source_cue_index": 861,
+      "timecode": "00:25:45.399",
+      "source_paraphrase": "ISA로 비공제 연금자산을 쌓으면 절세계좌가 모든 수령문제 해결",
+      "assessment": "QUALIFIED",
+      "independent_check": "ISA 만기·한도·세제 및 연금이체요건이 달라 ISA와 연금저축의 유동성·수령세제 혼동 금지",
+      "official_sources": [
+        "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      ],
+      "verification_evidence": {
+        "verdict": "QUALIFIED",
+        "checked_at": "2026-10-27",
+        "source_finding": "ISA 만기·한도·세제 및 연금이체요건이 달라 ISA와 연금저축의 유동성·수령세제 혼동 금지",
+        "disposition": "ISA 만기·한도·세제 및 연금이체요건이 달라 ISA와 연금저축의 유동성·수령세제 혼동 금지",
+        "effective_date_or_scope": "2025-09-14 age 50+ pension case; portfolio projections are hypothetical",
+        "primary_url": "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      }
+    }
+  ],
+  "claim_classification_tally": {
+    "PRIMARY_CONFIRMED": 4,
+    "QUALIFIED": 9,
+    "CONTRADICTED": 0,
+    "HYPOTHETICAL": 5,
+    "SPEAKER_OPINION": 0
+  }
+}
