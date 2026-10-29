@@ -1,0 +1,262 @@
+{
+  "schema_version": "V4_DEEP_CORRECTION_MODELS_001_010_20261030_1.0",
+  "as_of": "2026-10-30",
+  "status": "HYPOTHETICAL_DECISION_RESEARCH_L2_ONLY",
+  "source_limit": "No fresh raw private ZIP bytes, live executable personal tax ledger or ETF trading quotes reviewed in this cycle; official statute/product page and existing V3/V4 source records checked.",
+  "preserve": [
+    "data/synthesis/investment_knowledge_v4/models/decision_models_001_005_20261030.json",
+    "data/synthesis/investment_knowledge_v4/models/decision_models_001_005_closure_addendum_20261030.json",
+    "data/synthesis/investment_knowledge_v4/models/decision_models_006_010_20261030.json"
+  ],
+  "models": [
+    {
+      "id": "R10_PENSION_WITHDRAWAL_SOURCE_ORDER",
+      "videos": [
+        10,
+        1
+      ],
+      "inputs": {
+        "tax_excluded_verified_krw": 10000000,
+        "credited_principal_krw": 5000000,
+        "investment_growth_krw": 3000000,
+        "deferred_retirement_income_krw": 0,
+        "withdrawal_krw": 12000000,
+        "example_rates": [
+          0.055,
+          0.165
+        ]
+      },
+      "result": {
+        "total_balance_krw": 18000000,
+        "withdrawn_tax_excluded_krw": 10000000,
+        "withdrawn_deferred_retirement_income_krw": 0,
+        "withdrawn_other_taxable_source_krw": 2000000,
+        "illustrative_tax_5_5pct_krw": 110000,
+        "illustrative_tax_16_5pct_krw": 330000
+      },
+      "formula": "Tax-excluded amount first, then deferred retirement income, then other taxable source. Rates used only as mutually exclusive conditional examples.",
+      "legal_evidence": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+        "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7703&mi=2415"
+      ],
+      "limits": "Only properly established tax-excluded contributions; eligible annuity status and other payouts differ. No real one-time withdrawal entitlement, personal tax amount or deferred retirement income modeled."
+    },
+    {
+      "id": "R10_PENSION_CONTRIBUTION_BASIS_SENSITIVITY",
+      "videos": [
+        10,
+        1,
+        3
+      ],
+      "inputs": {
+        "initial_principal_krw": 10000000,
+        "annual_growth": 0.05,
+        "years": 15,
+        "credited_fractions": [
+          0,
+          0.5,
+          1
+        ],
+        "tax_example_rates": [
+          0.055,
+          0.165
+        ]
+      },
+      "result": {
+        "reference_pre_tax_balance_krw": 20789282,
+        "reference_growth_krw": 10789282,
+        "scenarios": [
+          {
+            "credited_fraction": 0,
+            "credited_principal_krw": 0,
+            "documented_noncredited_principal_krw": 10000000,
+            "growth_krw": 10789282,
+            "reference_taxable_bases_krw": 10789282,
+            "annualized_illustrative_net_5_5pct_krw": 20195871,
+            "nonqualified_illustrative_net_16_5pct_krw": 19009050
+          },
+          {
+            "credited_fraction": 0.5,
+            "credited_principal_krw": 5000000,
+            "documented_noncredited_principal_krw": 5000000,
+            "growth_krw": 10789282,
+            "reference_taxable_bases_krw": 15789282,
+            "annualized_illustrative_net_5_5pct_krw": 19920871,
+            "nonqualified_illustrative_net_16_5pct_krw": 18184050
+          },
+          {
+            "credited_fraction": 1,
+            "credited_principal_krw": 10000000,
+            "documented_noncredited_principal_krw": 0,
+            "growth_krw": 10789282,
+            "reference_taxable_bases_krw": 20789282,
+            "annualized_illustrative_net_5_5pct_krw": 19645871,
+            "nonqualified_illustrative_net_16_5pct_krw": 17359050
+          }
+        ]
+      },
+      "formula": "FV=P*(1+r)^n; conditional taxable-source reference=credited principal+gain. Net if that base were subject to the selected tax proxy=FV-base*rate.",
+      "legal_evidence": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+        "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507"
+      ],
+      "limits": "Full-balance arithmetic tax-base sensitivity ONLY; a lump-sum full withdrawal generally cannot simply be labeled 5.5% eligible pension. Timing, annual annuity limits, age, other pension income, deferred retirement assets, net foreign tax and historical tax credits not established. Ordinary account 15.4% is not universal."
+    },
+    {
+      "id": "R06_GIFT_ANNUITY_PAYMENT_TIMING",
+      "videos": [
+        6
+      ],
+      "inputs": {
+        "monthly_payment_krw": 189000,
+        "months": 120,
+        "statutory_annual_discount_rate": 0.03
+      },
+      "result": {
+        "nominal_total_krw": 22680000,
+        "annual_end_krw": 19346500,
+        "annual_start_krw": 19926895,
+        "monthly_end_economic_krw": 19611095,
+        "monthly_start_economic_krw": 19659461
+      },
+      "formula": "Annual 10-period PV is sum(12*payment/(1+.03)^year); monthly illustrative PV uses fractional year exponent, not claimed statutory schedule valuation.",
+      "legal_evidence": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032487389",
+        "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0019&lsiSeq=284609&urlMode=lsScJoRltInfoR"
+      ],
+      "limits": "Actual gifted right, calendar of legally receivable annual amounts, initial entitlement dates, irrevocability and termination clause unknown. Monthly PV is solely economic sensitivity, not statutory replacement."
+    },
+    {
+      "id": "R06_GIFT_CANCEL_FLOOR_AND_FAMILY_HISTORY",
+      "videos": [
+        6
+      ],
+      "inputs": {
+        "nominal_10year_minor_allowance_krw": 20000000,
+        "annual_end_pv_krw": 19346500,
+        "cancellation_lump_sum_examples_krw": [
+          0,
+          18000000,
+          21000000
+        ],
+        "prior_10year_ascendant_deductions_krw": [
+          0,
+          5000000
+        ]
+      },
+      "result": {
+        "cancellation_floor_cases": [
+          {
+            "cancellation_lump_sum_krw": 0,
+            "valuation_floor_example_krw": 19346500
+          },
+          {
+            "cancellation_lump_sum_krw": 18000000,
+            "valuation_floor_example_krw": 19346500
+          },
+          {
+            "cancellation_lump_sum_krw": 21000000,
+            "valuation_floor_example_krw": 21000000
+          }
+        ],
+        "prior_deduction_cases": [
+          {
+            "prior_deducted_10y_krw": 0,
+            "remaining_example_allowance_krw": 20000000,
+            "excess_over_remaining_if_value_eq_annuity_krw": 0
+          },
+          {
+            "prior_deducted_10y_krw": 5000000,
+            "remaining_example_allowance_krw": 15000000,
+            "excess_over_remaining_if_value_eq_annuity_krw": 4346500
+          }
+        ]
+      },
+      "formula": "Illustrative valuation=max(annual PV, contract cancellation lump-sum) if legal facts warrant; remaining allowance=max(0,20m-prior deduction).",
+      "legal_evidence": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032487389",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7960&mi=2762"
+      ],
+      "limits": "Valuation floor is legally conditional; 20m allowance only eligible resident minor and grouped direct ascendant deductions in 10 years. Not full gift tax liability; actual contract, same-donor tax aggregation and past gifts require independent records."
+    },
+    {
+      "id": "R08_09_COMMON_KRW_PRETAX_SCENARIOS",
+      "videos": [
+        8,
+        9
+      ],
+      "inputs": {
+        "capital_krw": 10000000,
+        "jpykrw_changes": [
+          -0.1,
+          0,
+          0.1
+        ],
+        "cash_spread_each_side": 0.0175,
+        "cash_spread_preference": 0.9,
+        "etf_local_jpy_bond_return": 0.01,
+        "etf_annual_stated_fee": 0.0019,
+        "etf_synthetic_tracking_drag": 0.003,
+        "etf_trade_friction_each_side": 0.0015
+      },
+      "result": {
+        "scenarios": [
+          {
+            "jpykrw_change": -0.1,
+            "direct_without_preference_krw": 8690418,
+            "direct_90pct_preference_krw": 8968555,
+            "synthetic_unhedged_jpy_bond_etf_krw": 9018395
+          },
+          {
+            "jpykrw_change": 0,
+            "direct_without_preference_krw": 9656020,
+            "direct_90pct_preference_krw": 9965061,
+            "synthetic_unhedged_jpy_bond_etf_krw": 10020438
+          },
+          {
+            "jpykrw_change": 0.1,
+            "direct_without_preference_krw": 10621622,
+            "direct_90pct_preference_krw": 10961567,
+            "synthetic_unhedged_jpy_bond_etf_krw": 11022482
+          }
+        ]
+      },
+      "formula": "Direct JPY: P*(1+FX)*(1-s_sell)/(1+s_buy). ETF: P*(1+FX)*(1+JPY bond)*(1-fee)*(1-tracking drag)*(1-trade friction)^2.",
+      "legal_evidence": [
+        "https://www.plusetf.co.kr/product/detail?n=006369"
+      ],
+      "limits": "One-year purely synthetic BEFORE TAX scenario. Bank spread, ETF tracking drag, trade friction and future bond return are hypothetical not bank/issuer current quotes. Tracking drag may already incorporate certain issuer fees in reported NAV; assumptions must not be double-counted in actual backtesting. Cannot decide after-tax investment superiority."
+    },
+    {
+      "id": "R08_09_USD_ASSET_JPY_DENOMINATION",
+      "videos": [
+        8,
+        9
+      ],
+      "inputs": {
+        "usd_stock_price": 100,
+        "usdkrw_t0": 1300,
+        "usdkrw_t1": 1400,
+        "usdjpy_t0": 150,
+        "usdjpy_t1": 160
+      },
+      "result": {
+        "jpy_asset_value_t0": 15000,
+        "jpy_asset_value_t1": 16000,
+        "krw_asset_value_t0": 130000,
+        "krw_asset_value_t1": 140000,
+        "krw_return_percent": 7.6923,
+        "jpy_return_percent": 6.6667
+      },
+      "formula": "JPY amount=USD stock price * JPY/USD; KRW amount=USD stock price * KRW/USD. JPY venue alone does not create JPY economic exposure to unchanged USD underlying.",
+      "limits": "Not a specific exchange-listed Japanese ETF; hedge overlay, dividends, funds, taxes and execution prices absent; no real investable ranking."
+    }
+  ],
+  "integrity": {
+    "model_count": 6,
+    "no_new_v3_claims": true,
+    "L3_approved": false,
+    "L4_approved": false
+  }
+}
