@@ -1,0 +1,376 @@
+{
+  "schema_version": "V4_001_005_NUMERIC_MODEL_1.0",
+  "date": "2026-10-30",
+  "rule": "All rates, market paths, death ages, incomes and prices below are hypothetical; historical audiovisual claims remain source-limited; real post-tax ranking blocked without investor tax basis.",
+  "models": [
+    {
+      "id": "M01_ACCUMULATION",
+      "source_video": 1,
+      "formula": "FV=P*((1+annual/12)^n-1)/(annual/12)",
+      "inputs": {
+        "monthly_krw": 300000,
+        "nominal_annual_rate": 0.07,
+        "months": [
+          84,
+          120
+        ]
+      },
+      "result_krw": {
+        "84": 32399694,
+        "120": 51925442
+      },
+      "checks": [
+        "formula independently recalculated",
+        "correction versus 7-year 51m SRT"
+      ]
+    },
+    {
+      "id": "M01_NPS_TOPUP",
+      "source_video": 1,
+      "formula": "PV(age53)=sum(extra pension at monthly age>=65)/(1+annual_discount)^(months_from_53/12) -18000000",
+      "inputs": {
+        "investment_age": 53,
+        "start_age": 65,
+        "paid_now_krw": 18000000,
+        "extra_monthly_krw": 250000,
+        "death_ages": [
+          75,
+          85,
+          95
+        ],
+        "annual_discount": [
+          0,
+          0.02,
+          0.04
+        ]
+      },
+      "npv_krw": {
+        "75": {
+          "0": 12000000,
+          "0.02": 3477612,
+          "0.04": -2474556
+        },
+        "85": {
+          "0": 42000000,
+          "0.02": 21096735,
+          "0.04": 8013878
+        },
+        "95": {
+          "0": 72000000,
+          "0.02": 35550553,
+          "0.04": 15099488
+        }
+      },
+      "limitation": "Case-specific incremental pension amount is unverified, mortality probabilities/taxes/benefit offsets absent."
+    },
+    {
+      "id": "M01_NPS_DELAY",
+      "source_video": 1,
+      "formula": "PV(immediate 1m monthly from 65) minus PV(delayed 1.36m monthly from 70) valued at 65",
+      "inputs": {
+        "immediate_monthly_krw": 1000000,
+        "delayed_monthly_krw": 1360000,
+        "delay_months": 60,
+        "death_ages": [
+          80,
+          85,
+          90,
+          95
+        ],
+        "discount": [
+          0,
+          0.02,
+          0.04
+        ]
+      },
+      "pv_difference_immediate_minus_delayed_krw": {
+        "80": {
+          "0": 16800000,
+          "0.02": 21610442,
+          "0.04": 25070519
+        },
+        "85": {
+          "0": -4800000,
+          "0.02": 6342878,
+          "0.04": 14197352
+        },
+        "90": {
+          "0": -26400000,
+          "0.02": -7485425,
+          "0.04": 5260401
+        },
+        "95": {
+          "0": -48000000,
+          "0.02": -20010145,
+          "0.04": -2085121
+        }
+      },
+      "nominal_break_even_age": 83.8889,
+      "limitation": "Real pension taxation and individual benefit adjustment not applied."
+    },
+    {
+      "id": "M01_WITHDRAWAL",
+      "source_video": 1,
+      "formula": "monthly b=(b*(1+annual_net_return/12))-4m; separately divide qualifying tax-excluded basis by 4m as arithmetic illustration",
+      "inputs": {
+        "opening_balance_krw": 800000000,
+        "monthly_cash_krw": 4000000,
+        "net_return_assumptions": [
+          -0.02,
+          0,
+          0.03,
+          0.05,
+          0.06
+        ],
+        "hypothetical_deposits_krw": 180000000,
+        "isa_rollovers_krw": 400000000
+      },
+      "results": {
+        "depletion_months": {
+          "0": 200,
+          "-0.02": 173,
+          "0.03": 278,
+          "0.05": 431,
+          "0.06": null
+        },
+        "nominal_tax_basis_max_before_credits_krw": 580000000,
+        "months_if_all_580m_qualify": 145,
+        "months_if_12m_credited": 142,
+        "srt_16yr_4m_withdrawal_krw": 768000000
+      },
+      "limitation": "Not a genuine tax-ledger simulation; regulatory withdrawal ceilings, market paths and actual source basis missing."
+    },
+    {
+      "id": "M01_ISA_TAX",
+      "source_video": 1,
+      "reused_by": 2,
+      "formula": "ISA=9.9%*(6m-eligible allowance); comparison ordinary proxy 15.4%*6m",
+      "inputs": {
+        "eligible_net_gain_krw": 6000000,
+        "ordinary_allowance_krw": 2000000,
+        "preferential_allowance_krw": 4000000,
+        "tax_including_local": 0.099,
+        "comparison_tax_including_local": 0.154
+      },
+      "results_tax_krw": {
+        "ordinary_taxable_proxy": 924000,
+        "isa_ordinary": 396000,
+        "isa_preferential": 198000
+      },
+      "limitation": "Only applicable to comparable eligible taxable income types, not identical market products by default; investor status and product class unverified."
+    },
+    {
+      "id": "M02_DCA_PRICE_PATH",
+      "source_video": 2,
+      "formula": "Immediate 100m*P12/P0 vs 12 equal monthly stock purchases at P0-P11 plus uninvested cash 2% nominal annual interest until purchased; P12 terminal",
+      "inputs": {
+        "initial_krw": 100000000,
+        "monthly_purchases": 12,
+        "nominal_cash_yield": 0.02,
+        "synthetic_price_paths": {
+          "decline_recover": [
+            100,
+            95,
+            90,
+            85,
+            80,
+            75,
+            80,
+            85,
+            90,
+            95,
+            100,
+            105,
+            110
+          ],
+          "rise_then_fall": [
+            100,
+            105,
+            110,
+            115,
+            120,
+            125,
+            120,
+            115,
+            110,
+            105,
+            100,
+            95,
+            90
+          ],
+          "steady_rise": [
+            100,
+            102,
+            104,
+            106,
+            108,
+            110,
+            112,
+            114,
+            116,
+            118,
+            120,
+            122,
+            124
+          ],
+          "steady_decline": [
+            100,
+            98,
+            96,
+            94,
+            92,
+            90,
+            88,
+            86,
+            84,
+            82,
+            80,
+            78,
+            76
+          ]
+        }
+      },
+      "returns_percent": {
+        "decline_recover": {
+          "immediate": 10,
+          "staged": 24.37
+        },
+        "rise_then_fall": {
+          "immediate": -10,
+          "staged": -16.71
+        },
+        "steady_rise": {
+          "immediate": 24,
+          "staged": 13.07
+        },
+        "steady_decline": {
+          "immediate": -24,
+          "staged": -13.16
+        }
+      },
+      "limitation": "No historical return forecast, taxes, volatility/fee path or proper suitability data."
+    },
+    {
+      "id": "M03_DEPLOYMENT",
+      "source_video": 3,
+      "formula": "200m principal at t=0, staged buys at start of month, remaining cash earns nominal 2%/12 and stock grows per synthetic monthly path; end-of-month value after 60 months.",
+      "inputs": {
+        "principal_krw": 200000000,
+        "horizon_months": 60,
+        "cash_rate": 0.02,
+        "staged_monthly_krw": 4500000
+      },
+      "source_pacing_reconciliation": {
+        "salary_proxy_years": 2.857143,
+        "monthly_pace_months": 44.444444,
+        "calendar_months_with_partial_last": 45,
+        "invested_in_36months_krw": 162000000,
+        "left_in_36months_krw": 38000000
+      },
+      "results_after_60months_krw": {
+        "equity_up_7pct": {
+          "immediate": 280510346,
+          "staged_36m": 261535920,
+          "staged_4_5m": 257113358,
+          "staged_60m": 249169034
+        },
+        "equity_down_7pct": {
+          "immediate": 139137674,
+          "staged_36m": 160227776,
+          "staged_4_5m": 166089910,
+          "staged_60m": 177733515
+        },
+        "flat": {
+          "immediate": 200000000,
+          "staged_36m": 206069266,
+          "staged_4_5m": 207608687,
+          "staged_60m": 210507669
+        },
+        "first_year_down25_then_up7": {
+          "immediate": 196619402,
+          "staged_36m": 245903810,
+          "staged_4_5m": 244451349,
+          "staged_60m": 239789768
+        }
+      },
+      "limitation": "Synthetic deterministic paths, no income withdrawal, taxes, investable product costs or investor lifetime plan."
+    },
+    {
+      "id": "M04_LOSS_RECOVERY",
+      "source_video": 4,
+      "formula": "required percentage gain from reduced basis=L/(1-L)",
+      "inputs": {
+        "loss_fraction": [
+          0.2,
+          0.4,
+          0.5,
+          0.7
+        ]
+      },
+      "results_percent": {
+        "0.2": 25,
+        "0.4": 66.666667,
+        "0.5": 100,
+        "0.7": 233.333333
+      },
+      "limitation": "No single-stock recovery rate or expected return implied."
+    },
+    {
+      "id": "M05_BUDGET_TDF_FEES",
+      "source_video": 5,
+      "formula": "Disposable=income-fixed_cost-debt; TDF FV=P*((1+(gross_return-fee)/12)^360-1)/((gross_return-fee)/12)",
+      "inputs": {
+        "source_allocation_krw": [
+          500000,
+          400000,
+          100000
+        ],
+        "hypothetical_net_income_krw": 3000000,
+        "hypothetical_fixed_costs_krw": 2000000,
+        "hypothetical_monthly_debt_krw": 400000,
+        "tdf_monthly_krw": 100000,
+        "tdf_gross_assumed_return": 0.06,
+        "tdf_fee_assumptions": [
+          0.003,
+          0.01
+        ],
+        "months": 360
+      },
+      "results": {
+        "source_total_krw": 1000000,
+        "hypothetical_disposable_krw": 600000,
+        "tdf_fee_0_3pct_fv_krw": 94876275,
+        "tdf_fee_1pct_fv_krw": 83225864,
+        "gap_krw": 11650412
+      },
+      "limitation": "Pure fee sensitivity with identical assumed gross returns and smooth monthly compounding; taxes, returns and real product selection may dominate."
+    }
+  ],
+  "primary_sources": {
+    "nps": "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do?menuId=MN24001116",
+    "delay": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do",
+    "tax": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+    "taxbase": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+    "withdrawal": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507",
+    "credit": "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596",
+    "isa": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024359131",
+    "gold": "https://regulation.krx.co.kr/contents/RGL/04/04010201/RGL04010201.jsp",
+    "etf": "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+    "irp": "https://moel.go.kr/info/lawinfo/instruction/view.do?bbs_seq=20260900094",
+    "labor": "https://www.moel.go.kr/retirementpay.do",
+    "bok": "https://www.bok.or.kr/portal/singl/baseRate/list.do?menuNo=200643",
+    "sec": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+    "tdf": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin",
+    "asset": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset",
+    "investor": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000758419",
+    "cfpb": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/",
+    "mofe": "https://mofe.go.kr/nw/mosfnw/detailInfograpView.do?menuNo=4040500&searchNttId1=MOSF_000000000078573"
+  },
+  "verification": {
+    "local_independent_recalculation": "PASS",
+    "independent_backtest": "NOT_PERFORMED",
+    "input_market_data": "SYNTHETIC",
+    "actual_client_after_tax_ranking": "BLOCKED",
+    "CI_numeric_assertions_automated": false
+  }
+}

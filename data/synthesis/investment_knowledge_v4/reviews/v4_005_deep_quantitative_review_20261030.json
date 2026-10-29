@@ -1,0 +1,155 @@
+{
+  "schema_version": "V4_001_005_SOURCE_LIMITED_STUDY_1.0",
+  "as_of": "2026-10-30",
+  "roster_no": 5,
+  "video_id": "qtluAViPpsQ",
+  "subject": "Early-career accounts, budget, tax, employer-stock risk, TDF",
+  "source": {
+    "private_original_archive": "1-100.zip",
+    "original_SRT_SHA256": "af4fb6b702c5497e5c17bc7b9a3e87855a5488dd263cded32be9a09cec67a543",
+    "original_cues": 1044,
+    "original_bytes": 78723,
+    "SRT_hash_and_cues_rechecked": true,
+    "original_audio_verified": false,
+    "onscreen_frames_verified": false,
+    "source_review_scope": "Complete-file archive hash/cue audit, existing V3 full-source review, material passages re-examined from original SRT. No new assertion that every statement independently verified."
+  },
+  "existing_evidence": {
+    "v3_path": "data/analysis_events/qtluAViPpsQ.json",
+    "v3_blob_sha": "a845a8e3d8a463035900c376187250adc76a5e12",
+    "pilot_path": "data/subtitles/pilots/qtluAViPpsQ.json",
+    "pilot_blob_sha": "fd28fbaf0108a56f831fea56a0d531ae9a9a67ee",
+    "v3_status": "COMPLETE_APPROVED",
+    "claim_count": 9
+  },
+  "claim_triage": [
+    {
+      "claim_id": "qtluAViPpsQ-01",
+      "timecode": "00:06:35",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "HISTORICAL_REVIEW_RETAINED_NOT_FULLY_REVERIFIED",
+      "original_disposition": "계좌 다수 개설은 법적 의무나 보편적 최적해가 아니다. 고정비·소득·비상자금 상황별 접근이 필요하다."
+    },
+    {
+      "claim_id": "qtluAViPpsQ-02",
+      "timecode": "00:07:14",
+      "legacy_verdict": "HYPOTHETICAL",
+      "scope": "HISTORICAL_REVIEW_RETAINED_NOT_FULLY_REVERIFIED",
+      "original_disposition": "초기 소비 적응 전략으로 소개하되 '세 달 모두 써야 한다'는 보편적 예산 원칙은 아니다."
+    },
+    {
+      "claim_id": "qtluAViPpsQ-03",
+      "timecode": "00:09:02",
+      "legacy_verdict": "HYPOTHETICAL",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "개인의 세후소득·고정지출·부채·세액공제 자격에 달린 가정형 예시. 투자상품의 위험과 현금유동성 별도 검토."
+    },
+    {
+      "claim_id": "qtluAViPpsQ-04",
+      "timecode": "00:09:25",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "고용소득과 금융자산이 동일 기업/산업에 집중될 위험이 있다. 근무 기업 투자 의무화나 집중매수 조언으로 사용 금지."
+    },
+    {
+      "claim_id": "qtluAViPpsQ-05",
+      "timecode": "00:12:02",
+      "legacy_verdict": "PRIMARY_CONFIRMED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "2060은 은퇴 목표연도 관련 상품명이지만 TDF2060 상품마다 글라이드패스·보수·위험수준이 다르고 노후소득이 보장되지 않는다."
+    },
+    {
+      "claim_id": "qtluAViPpsQ-06",
+      "timecode": "00:16:00",
+      "legacy_verdict": "PRIMARY_CONFIRMED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "세제 공부는 유용하지만 실제 공제자격·증빙·한도는 해당 연도의 국세청 안내로 확인해야 한다."
+    },
+    {
+      "claim_id": "qtluAViPpsQ-07",
+      "timecode": "00:18:00",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "HISTORICAL_REVIEW_RETAINED_NOT_FULLY_REVERIFIED",
+      "original_disposition": "신용카드 이용 방식에 관한 개인적 조언. 신용카드 자체가 모든 투자자에게 위험하거나 이로운 것은 아니다."
+    },
+    {
+      "claim_id": "qtluAViPpsQ-08",
+      "timecode": "00:21:00",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "HISTORICAL_REVIEW_RETAINED_NOT_FULLY_REVERIFIED",
+      "original_disposition": "기록과 소비 피드백이라는 일반적인 재무관리 방법으로 활용 가능."
+    },
+    {
+      "claim_id": "qtluAViPpsQ-09",
+      "timecode": "00:29:58",
+      "legacy_verdict": "HYPOTHETICAL",
+      "scope": "HISTORICAL_REVIEW_RETAINED_NOT_FULLY_REVERIFIED",
+      "original_disposition": "개인적 생애설계 철학이며 파이어 전략이 모든 젊은 층에 부적합하다는 객관적 증거는 아니다."
+    }
+  ],
+  "material_findings": [
+    {
+      "type": "BUDGET_CONTEXT",
+      "text": "SRT 50/40/10 allocates KRW1m per month, sums correctly, but ignores debt, emergency buffer and product eligibility. A hypothetical monthly free-cashflow of KRW600k cannot support it."
+    },
+    {
+      "type": "PRODUCT_SELECTION_BLOCK",
+      "text": "TDF 2060 roughly corresponds to 2061 retirement for a hypothetical 30-year-old in 2026; target-date labels do not fix fees/glide path or return guarantee."
+    },
+    {
+      "type": "CORRELATED_RISK",
+      "text": "Employee purchase of employer/industry stocks can correlate job income and financial-asset downside; no mandate to buy employer shares."
+    }
+  ],
+  "official_sources": [
+    {
+      "key": "credit",
+      "url": "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+    },
+    {
+      "key": "isa",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024359131"
+    },
+    {
+      "key": "tdf",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin"
+    },
+    {
+      "key": "cfpb",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "key": "asset",
+      "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+    }
+  ],
+  "model_ids": [
+    "M05_BUDGET_TDF_FEES"
+  ],
+  "unresolved": [
+    {
+      "kind": "EXTERNAL_BUDGET",
+      "required": "actual pay, rent, debt costs, emergency reserves and tax-liability information",
+      "blocks": "precise monthly account allocation"
+    },
+    {
+      "kind": "EXTERNAL_PRODUCT",
+      "required": "actual eligible youth-savings offering and specific TDF prospectus/fees/glide path",
+      "blocks": "specific account, TDF and youth product purchase"
+    }
+  ],
+  "decision_use": {
+    "supported_levels": [
+      "L1",
+      "L2_HYPOTHETICAL"
+    ],
+    "L3_approved": false,
+    "L4_approved": false,
+    "action_approval_count": 0,
+    "quality_score": null,
+    "quality_score_note": "No independent end-to-end numeric score certification; retain unscored instead of inventing precise score"
+  },
+  "outcome": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+  "outcome_caveat": "Source-limited educational V4 closure. Material feasible rule/math analyses in this report completed; personal proof and unavailable original audio/frames remain OPEN; not blanket fact certification of all source statements or actionable investment suitability.",
+  "original_evidence_files_preserved": true
+}

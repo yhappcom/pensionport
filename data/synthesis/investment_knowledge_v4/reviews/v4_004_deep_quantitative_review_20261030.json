@@ -1,0 +1,130 @@
+{
+  "schema_version": "V4_001_005_SOURCE_LIMITED_STUDY_1.0",
+  "as_of": "2026-10-30",
+  "roster_no": 4,
+  "video_id": "aNfGrcO6WPI",
+  "subject": "Underwater equities, issuer risk and behavioral rules",
+  "source": {
+    "private_original_archive": "1-100.zip",
+    "original_SRT_SHA256": "853db2d4f01ab71bbc4f86b46714f4341aa32aa2bc07416f705a937b620ea12b",
+    "original_cues": 758,
+    "original_bytes": 59083,
+    "SRT_hash_and_cues_rechecked": true,
+    "original_audio_verified": false,
+    "onscreen_frames_verified": false,
+    "source_review_scope": "Complete-file archive hash/cue audit, existing V3 full-source review, material passages re-examined from original SRT. No new assertion that every statement independently verified."
+  },
+  "existing_evidence": {
+    "v3_path": "data/analysis_events/aNfGrcO6WPI.json",
+    "v3_blob_sha": "b551925f3e823b4f46e3e1aebaa6cd2e5ae802af",
+    "pilot_path": "data/subtitles/pilots/aNfGrcO6WPI.json",
+    "pilot_blob_sha": "1299c396da46f0d46c44841871e4d07368c065f8",
+    "v3_status": "COMPLETE_APPROVED",
+    "claim_count": 6
+  },
+  "claim_triage": [
+    {
+      "claim_id": "aNfGrcO6WPI-01",
+      "timecode": "00:02:16",
+      "legacy_verdict": "HYPOTHETICAL",
+      "scope": "HISTORICAL_REVIEW_RETAINED_NOT_FULLY_REVERIFIED",
+      "original_disposition": "해당 매수의 적절성은 당시 기업가치·가격·분석 시점의 검증 없이는 판단할 수 없다."
+    },
+    {
+      "claim_id": "aNfGrcO6WPI-02",
+      "timecode": "00:04:13",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "매수 가설 점검은 유용하나 투자목표·위험한도·비중 조절 등 다른 합리적 매도 사유도 존재한다."
+    },
+    {
+      "claim_id": "aNfGrcO6WPI-03",
+      "timecode": "00:06:01",
+      "legacy_verdict": "CONTRADICTED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "'앱 삭제·매도 금지'는 범용 투자지침으로 승인할 수 없다. 정기 점검·손절 기준·유동성 수요를 무시하면 위험하다."
+    },
+    {
+      "claim_id": "aNfGrcO6WPI-04",
+      "timecode": "00:09:26",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "시장 추격·과민 매매 위험 경고는 투자자교육과 방향이 맞는다. 기존 종목을 반드시 보유해야 한다는 뜻은 아니다."
+    },
+    {
+      "claim_id": "aNfGrcO6WPI-05",
+      "timecode": "00:11:52",
+      "legacy_verdict": "HYPOTHETICAL",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "3년 주기 규칙은 공식적으로 검증된 보편 법칙이 아니다. 기업과 업종에 따라 회복하지 못할 수 있다."
+    },
+    {
+      "claim_id": "aNfGrcO6WPI-06",
+      "timecode": "00:14:56",
+      "legacy_verdict": "HYPOTHETICAL",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "현금흐름과 자산배분 관점의 예시. 연 8~9% 배당이 지속되거나 손실을 반드시 상쇄한다는 보장은 없다."
+    }
+  ],
+  "material_findings": [
+    {
+      "type": "RETAIN_CONTRADICTION",
+      "text": "Deleting brokerage app and assuming a three-year recovery cycle is not a generally safe hold recommendation; active monitoring and risk constraints still needed."
+    },
+    {
+      "type": "ADDITIONAL_UNVERIFIED_SOURCE_NUMERIC",
+      "text": "SRT around 19-22m invokes current-account surplus/GDP near 20% to support holding, but definition, date and denominator are not independently established. Government 2026 GDP growth forecast does not establish individual firm recovery."
+    },
+    {
+      "type": "MATHEMATICAL_COUNTEREXAMPLE",
+      "text": "40% drawdown requires a 66.67% return to cost, 50% requires 100%. No historical recovery probability implied; high payouts do not remove stock loss."
+    }
+  ],
+  "official_sources": [
+    {
+      "key": "asset",
+      "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+    },
+    {
+      "key": "sec",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+    },
+    {
+      "key": "bok",
+      "url": "https://www.bok.or.kr/portal/singl/baseRate/list.do?menuNo=200643"
+    },
+    {
+      "key": "mofe",
+      "url": "https://mofe.go.kr/nw/mosfnw/detailInfograpView.do?menuNo=4040500&searchNttId1=MOSF_000000000078573"
+    }
+  ],
+  "model_ids": [
+    "M04_LOSS_RECOVERY"
+  ],
+  "unresolved": [
+    {
+      "kind": "UNVERIFIED_SOURCE_RATIO",
+      "required": "dated exact current-account/GDP ratio and definition plus original audiovisual wording",
+      "blocks": "using 20% ratio as a verified market signal"
+    },
+    {
+      "kind": "EXTERNAL_ISSUER_PORTFOLIO",
+      "required": "actual ticker, financial statements, valuation, position sizing, tax and cash needs",
+      "blocks": "personal hold/sell/replace"
+    }
+  ],
+  "decision_use": {
+    "supported_levels": [
+      "L1",
+      "L2_HYPOTHETICAL"
+    ],
+    "L3_approved": false,
+    "L4_approved": false,
+    "action_approval_count": 0,
+    "quality_score": null,
+    "quality_score_note": "No independent end-to-end numeric score certification; retain unscored instead of inventing precise score"
+  },
+  "outcome": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+  "outcome_caveat": "Source-limited educational V4 closure. Material feasible rule/math analyses in this report completed; personal proof and unavailable original audio/frames remain OPEN; not blanket fact certification of all source statements or actionable investment suitability.",
+  "original_evidence_files_preserved": true
+}

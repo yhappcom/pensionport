@@ -1,0 +1,160 @@
+{
+  "schema_version": "V4_001_005_SOURCE_LIMITED_STUDY_1.0",
+  "as_of": "2026-10-30",
+  "roster_no": 2,
+  "video_id": "6VEfKF7BzZU",
+  "subject": "Beginner accounts, CMA, investment pacing and allocation",
+  "source": {
+    "private_original_archive": "1-100.zip",
+    "original_SRT_SHA256": "a59b2fd424011c3f572aa52404411ff4ea435f6dd1e7e27e4f5c9e11f7218b72",
+    "original_cues": 1347,
+    "original_bytes": 103453,
+    "SRT_hash_and_cues_rechecked": true,
+    "original_audio_verified": false,
+    "onscreen_frames_verified": false,
+    "source_review_scope": "Complete-file archive hash/cue audit, existing V3 full-source review, material passages re-examined from original SRT. No new assertion that every statement independently verified."
+  },
+  "existing_evidence": {
+    "v3_path": "data/analysis_events/6VEfKF7BzZU.json",
+    "v3_blob_sha": "cb9827570e78684f678030ca220b56190a2cef1a",
+    "pilot_path": "data/subtitles/pilots/6VEfKF7BzZU.json",
+    "pilot_blob_sha": "e3361e6ab117181faa1d5092a006608f5a4f68b7",
+    "v3_status": "COMPLETE_APPROVED",
+    "claim_count": 9
+  },
+  "claim_triage": [
+    {
+      "claim_id": "6VEfKF7BzZU-01",
+      "timecode": "00:04:56",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "HISTORICAL_REVIEW_RETAINED_NOT_FULLY_REVERIFIED",
+      "original_disposition": "생활비·비상자금·직업·소득·연금 세액공제 자격에 따라 적합성이 달라진다."
+    },
+    {
+      "claim_id": "6VEfKF7BzZU-02",
+      "timecode": "00:05:27",
+      "legacy_verdict": "PRIMARY_CONFIRMED",
+      "scope": "HISTORICAL_REVIEW_RETAINED_NOT_FULLY_REVERIFIED",
+      "original_disposition": "중개형 ISA 세제혜택을 위한 의무기간 3년은 공식 설명서에서 확인. ISA 내부 투자상품은 손실 가능; 3~5년 이내 손실 회피 보장은 아님."
+    },
+    {
+      "claim_id": "6VEfKF7BzZU-03",
+      "timecode": "00:06:00",
+      "legacy_verdict": "PRIMARY_CONFIRMED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "국세청의 연금저축 세액공제 대상 납입한도 600만원, 퇴직연금 포함 합산 900만원을 확인. 개별 세액공제액은 소득·납입조건 등으로 결정."
+    },
+    {
+      "claim_id": "6VEfKF7BzZU-04",
+      "timecode": "00:09:26",
+      "legacy_verdict": "PRIMARY_CONFIRMED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "KRX 장내 매매차익은 양도·배당소득세 비과세. 금 실물 인출시 부가가치세 10%와 수수료 발생."
+    },
+    {
+      "claim_id": "6VEfKF7BzZU-05",
+      "timecode": "00:10:50",
+      "legacy_verdict": "PRIMARY_CONFIRMED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "한국은행의 2026-08-27 기준금리 3.00% 결정과 부합. 이후 금리 변경 가능."
+    },
+    {
+      "claim_id": "6VEfKF7BzZU-06",
+      "timecode": "00:12:48",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "일반 증권사 RP/MMF/MMW/발행어음형 CMA는 통상 예금자보호 대상 아님. 예외적으로 보호되는 종금형은 별도 확인."
+    },
+    {
+      "claim_id": "6VEfKF7BzZU-07",
+      "timecode": "00:16:58",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "금리만으로 우열이 결정되지 않고 원금손실·발행사 신용·실적배당·이체·상품별 차이가 있다. 무조건 변경 권고로 전환 금지."
+    },
+    {
+      "claim_id": "6VEfKF7BzZU-08",
+      "timecode": "00:20:17",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "적립식은 매수 시점 분산 전략이지 원금 또는 수익 보장이 아니다."
+    },
+    {
+      "claim_id": "6VEfKF7BzZU-09",
+      "timecode": "00:27:41",
+      "legacy_verdict": "QUALIFIED",
+      "scope": "REEXAMINED_FOR_MATERIAL_RULE_OR_MODEL",
+      "original_disposition": "투자 목적·위험감수능력·수익 필요기간에 관계없이 5:5 비중이나 최대 10종목을 일반 규칙으로 승인하지 않음."
+    }
+  ],
+  "material_findings": [
+    {
+      "type": "RESEARCH_SCOPE_CORRECTION",
+      "text": "The SRT around 22-26m makes a nearly risk-free CMA parking claim; existing V3 qualification must prevail: CMA protection and issuer risk depend on concrete product type."
+    },
+    {
+      "type": "RESEARCH_SCOPE_CORRECTION",
+      "text": "Later 50:50 passive/active and 5+5 stock-count illustrations are speaker preferences, not validated risk-optimal allocations."
+    },
+    {
+      "type": "OFFICIAL_RULE_RECONFIRMED",
+      "text": "NTS tax-credit eligible pension contributions 6m/9m are bases not automatic refunds; KRX gold physical delivery pays 10% VAT; BoK 2026-08-27 base rate 3.00% is not a specific CMA yield."
+    }
+  ],
+  "official_sources": [
+    {
+      "key": "credit",
+      "url": "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596"
+    },
+    {
+      "key": "isa",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024359131"
+    },
+    {
+      "key": "gold",
+      "url": "https://regulation.krx.co.kr/contents/RGL/04/04010201/RGL04010201.jsp"
+    },
+    {
+      "key": "bok",
+      "url": "https://www.bok.or.kr/portal/singl/baseRate/list.do?menuNo=200643"
+    },
+    {
+      "key": "asset",
+      "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+    },
+    {
+      "key": "cfpb",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    }
+  ],
+  "model_ids": [
+    "M02_DCA_PRICE_PATH",
+    "M01_ISA_TAX"
+  ],
+  "unresolved": [
+    {
+      "kind": "EXTERNAL_PRODUCT",
+      "required": "actual CMA provider terms, instrument type, quoted rate, protection and fees",
+      "blocks": "universally safe cash account assertion"
+    },
+    {
+      "kind": "EXTERNAL_CLIENT",
+      "required": "income, debt, liquidity, tax credit capacity and actual funds",
+      "blocks": "account-funding priority and optimal allocations"
+    }
+  ],
+  "decision_use": {
+    "supported_levels": [
+      "L1",
+      "L2_HYPOTHETICAL"
+    ],
+    "L3_approved": false,
+    "L4_approved": false,
+    "action_approval_count": 0,
+    "quality_score": null,
+    "quality_score_note": "No independent end-to-end numeric score certification; retain unscored instead of inventing precise score"
+  },
+  "outcome": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+  "outcome_caveat": "Source-limited educational V4 closure. Material feasible rule/math analyses in this report completed; personal proof and unavailable original audio/frames remain OPEN; not blanket fact certification of all source statements or actionable investment suitability.",
+  "original_evidence_files_preserved": true
+}
