@@ -21,6 +21,7 @@ on:
       - "data/synthesis/investment_knowledge_v4/**"
       - "scripts/verify_v4_quant_models.py"
       - "scripts/verify_v4_closure_addendum.py"
+      - "scripts/verify_v4_cross_layer_audit.py"
       - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
@@ -42,6 +43,7 @@ on:
       - "data/synthesis/investment_knowledge_v4/**"
       - "scripts/verify_v4_quant_models.py"
       - "scripts/verify_v4_closure_addendum.py"
+      - "scripts/verify_v4_cross_layer_audit.py"
       - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
@@ -85,6 +87,10 @@ jobs:
         run: |
           python -B scripts/verify_v4_closure_addendum.py --self-test
           python -B scripts/verify_v4_closure_addendum.py --root .
+      - name: Verify V4 cross-layer source conventions and bond-risk scope
+        run: |
+          python -B scripts/verify_v4_cross_layer_audit.py --self-test
+          python -B scripts/verify_v4_cross_layer_audit.py --root .
       - name: Validate 70-source extension records and selective verification policy
         run: |
           python - <<'PY'

@@ -1,0 +1,122 @@
+{
+  "schema_version": "V4_001_005_CROSS_LAYER_REREVIEW_1.0",
+  "date": "2026-10-30",
+  "scope": "Retrospective cross-layer audit of existing studies 001-005; no new V3 video claim or personal decision approval",
+  "source_layers": [
+    "V3 approved Korean claim text",
+    "V4 educational reviews",
+    "V4 numerical model file",
+    "V4 five-case closure addendum",
+    "public regulator primary references"
+  ],
+  "checks": {
+    "originals_unchanged": true,
+    "prior_claims": 62,
+    "prior_model_count": 9,
+    "extra_model_count": 5,
+    "source_audio_and_frames_newly_reviewed": false,
+    "all_62_independently_reverified_against_current_primary_sources": false,
+    "unique_video_approvals_added": 0,
+    "new_canonical_claims_added": 0,
+    "personal_action_approvals": 0
+  },
+  "findings": [
+    {
+      "finding_id": "CROSS-001-RATE-BASIS",
+      "video_id": "sz5N9WJS310",
+      "prior_claim_id": "sz5N9WJS310-06",
+      "classification": "MATERIAL_CROSS_LAYER_ASSUMPTION_MISMATCH",
+      "evidence_layers": {
+        "v3_original": {
+          "rate_language": "effective annual 7% (실효 연7%)",
+          "claim_id": "sz5N9WJS310-06",
+          "approx_7year_krw": 32140000,
+          "approx_10year_krw": 51320000
+        },
+        "v4_model": {
+          "model_id": "M01_ACCUMULATION",
+          "rate_language": "nominal 7% annual with monthly compounding",
+          "annual_nominal_rate": 0.07
+        }
+      },
+      "independent_recalculation": {
+        "formula_nominal": "P*((1+i/12)^n-1)/(i/12)",
+        "formula_effective": "P*((1+i)^(n/12)-1)/((1+i)^(1/12)-1)",
+        "monthly_payment_krw": 300000,
+        "annual_rate": 0.07,
+        "output_krw": {
+          "84": {
+            "effective_annual": 32141806,
+            "nominal_annual_monthly_compounded": 32399694,
+            "difference_nominal_minus_effective": 257888
+          },
+          "120": {
+            "effective_annual": 51315519,
+            "nominal_annual_monthly_compounded": 51925442,
+            "difference_nominal_minus_effective": 609923
+          }
+        }
+      },
+      "disposition": "Both calculations can be correct under distinct conventions; the V3 approximate figures match effective-year conversion and the V4 figures match nominal-rate monthly compounding. The 7y-to-51m duration discrepancy remains under either assumption. Do not label one convention a corrected version of the other.",
+      "closed_in_this_review": true,
+      "source_kind": "CROSS_LAYER_INTERNAL_AND_INDEPENDENT_MATH",
+      "source_linked_caveat": "Actual video sound/slides not reverified; cannot assign blame to speaker."
+    },
+    {
+      "finding_id": "CROSS-003-BOND-RETURN",
+      "video_id": "OiDTNstaSpM",
+      "prior_claim_id": "OiDTNstaSpM-05",
+      "classification": "EXPLICIT_RISK_QUALIFICATION_OF_EXISTING_V3",
+      "evidence_layers": {
+        "v3_original_status": "QUALIFIED",
+        "original_meaning": "Holding a long-duration individual bond to maturity may return face value, subject to issuer and contract."
+      },
+      "independent_primary_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+        "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+      ],
+      "disposition": "Distinguish a specific nondefaulting bond with contractual redemption from a bond mutual fund/ETF NAV. Principal is not guaranteed merely by maturity: issuer default, call/prepayment, inflation, purchase price relative to face value, and liquidation before maturity matter. Bond funds commonly lack the identical fixed redemption date.",
+      "decision_use": "L1 risk/contract classification only; never certify a par-value or capital return on an unspecified bond product.",
+      "closed_in_this_review": true,
+      "source_kind": "V3_RETAINED_OFFICIAL_RISK_SCOPE"
+    },
+    {
+      "finding_id": "CROSS-003-IRP-TAX",
+      "video_id": "OiDTNstaSpM",
+      "prior_claim_id": "OiDTNstaSpM-03",
+      "classification": "PRIMARY_EFFECTIVE_DATE_RECONFIRMED",
+      "independent_primary_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6605"
+      ],
+      "disposition": "2026-01-01 onward: deferred-retirement income pension withholding 70% through actual years 1–10, 60% years 11–20, and 50% from year 21. Tax fraction applies to the corresponding income-source tax, NOT the entire account. An application to receive KRW10k alone does not prove an actual statutory pension receipt year.",
+      "decision_use": "L2 demonstration with actual receipt proof still required",
+      "source_kind": "OFFICIAL_REGULATOR_CURRENT"
+    },
+    {
+      "finding_id": "CROSS-004-MACRO",
+      "video_id": "aNfGrcO6WPI",
+      "prior_claim_id": "aNfGrcO6WPI-05",
+      "classification": "UNREPRODUCED_SOURCE_RATIO_RETAINED_OPEN",
+      "disposition": "Prior SRT-derived current-account/GDP approximately 20% lacks exact observed date, measure, and denominator. No unrelated historical statistic or updated GDP forecast should be substituted to claim independent verification.",
+      "decision_use": "Exclude macro ratio and fixed-three-year recovery from sell/hold forecasts",
+      "source_kind": "SOURCE_UNVERIFIED"
+    },
+    {
+      "finding_id": "CROSS-002-005-SUITABILITY",
+      "video_id": "6VEfKF7BzZU",
+      "also_video_id": "qtluAViPpsQ",
+      "classification": "CONDITIONAL_EXISTING_LIMITS_RETAINED",
+      "disposition": "Keep conditional CMA issuer/protection and 50:50 allocation limits for 002; keep income, debt, youth-savings eligibility, employer concentration and TDF term limits for 005. Hypothetical financial arithmetic does not establish personalized account/product fit.",
+      "decision_use": "L1/L2 only",
+      "source_kind": "RETAINED_EXISTING_EVIDENCE"
+    }
+  ],
+  "overall_status": "CROSS_LAYER_REVIEW_COMPLETED_WITH_EXISTING_EXTERNAL_OPEN",
+  "v4_study_status_after_review": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+  "decision_levels_approved": [
+    "L1",
+    "L2_HYPOTHETICAL"
+  ],
+  "followup_trigger": "Only reopen affected claim for material new original audio/slide, bond term sheet, verified original current-account statistic, new regulation, or investor-specific document.",
+  "quality_score_update": "NONE; #001 retains approximate historical 75/100 and #002-005 remain unscored"
+}
