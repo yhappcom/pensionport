@@ -85,6 +85,35 @@ Do not create a global duplicated ledger simply to document this policy. A machi
 6. **Save only justified deltas.** Follow the existing V3 single validated analysis record and the research branch's preflight/batch rules. Reference existing source and knowledge artifacts; amend central knowledge only for genuinely changed/verified information, not for every episode or run.
 7. **Verify and report.** Read the saved record back, confirm actual final CI outcome, list newly verified records separately from existing/partial/registered items, report new or strengthened principles, changes in L-level, and unresolved blockers. Never count a documentation-only commit as a newly completed video.
 
+### 6.1. End-to-end deep-research closure gate (mandatory for new and resumed studies)
+
+**Principle:** A researcher should carry out **all reasonably obtainable, decision-relevant follow-up research within the same study cycle**, rather than declaring V4 research complete as soon as the transcript is summarized, the old claims are linked, or a short incremental overlay is saved. Use this gate for study 006 onward **and for resumed V4 work on studies 002–005**. It does not retroactively erase V3 approvals or reopen study 001 without a material trigger.
+
+**Required sequence before a V4 deep-research closure claim:**
+
+1. **Provenance and coverage:** Check the complete available original SRT (video ID, source hash, all material sections, timecodes), distinguish independent public transcription from original audio/frames, and identify any decision-critical passage where these disagree or remain inaccessible.
+2. **Exhaustive relevant-claim triage:** Reuse previously registered claim IDs, review material omissions and conflicts in all financially relevant sections, and classify each claim as supported, conditional, hypothetical, contradicted, opinion, or `OPEN`. A historical `V3 COMPLETE` is not proof that this V4 triage has been done.
+3. **Complete feasible independent verification *now*:** Obtain applicable primary statutes, regulator material, product terms, effective dates and sources; independently reproduce calculations, tax-base/source distinctions and important counterexamples. Do not defer tasks that can actually be checked merely to move to the next video.
+4. **Build or reuse meaningful decision models:** For every material, decision-changing question where a model is reasonably feasible, specify input schema, baseline/alternatives, after-tax/after-fee cashflows, uncertainty and downside cases, sensitivity/break-even, reproducible test outputs and stop rules. If a numeric model is immaterial or cannot be justified, document **why**; never create meaningless scores or forecast certainty. Reuse existing models where applicable.
+5. **Integrate without double counting:** Link the evidence to existing cross-video concepts and earlier evidence; record `NEW / REINFORCE / EXTEND / CHANGE / CONFLICT / TIME_SENSITIVE`. Update only real deltas; do not silently replace historical V3/V4 judgments or inflate unique-video/claim/principle counts.
+6. **Close and independently quality-check:** Assess educational source quality and decision usefulness **separately**; assign a defensible study maturity estimate only with an auditable rubric, retain actual L1–L4 boundaries, list each unresolved point with missing evidence, impact, owner/source to request and reopening trigger. Store only justified source-linked changes, read them back and confirm the **final relevant GitHub CI success** before reporting closure.
+
+**Feasibility exception — not permission to skip research:** An item that truly requires an unavailable person-specific NPS estimate, insurance contract, tax-basis/transaction ledger, original audio/frame, unavailable primary dataset, or another externally controlled record may be quarantined as `OPEN_EXTERNAL_EVIDENCE`, with a reason, specific missing artifact, materiality, stop condition and permitted educational reuse. This allows a **source-limited deep-research closure only after all other feasible substantive checks and decision models are completed**. Critical unresolved evidence must still block the affected model, personal ranking and transaction advice. A GitHub/tool timeout or unfinished model is **`V4_DEEP_RESEARCH_IN_PROGRESS`**, not evidence that the task is intrinsically impossible.
+
+**Use distinct completion labels in the per-video review and final report (descriptive reporting labels; not automatic changes to existing V3 schema):**
+
+| Label | When it applies | May be reported as full V4 review? |
+|---|---|---|
+| `V3_EDUCATIONAL_APPROVED` | Pre-existing source-based V3 study was approved | **No** — historical education layer only |
+| `V4_DEEP_RESEARCH_IN_PROGRESS` | Follow-up verification, meaningful models, full claim triage or final checks remain feasible but undone | **No** |
+| `V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN` | All feasible steps completed, only precisely identified externally inaccessible evidence remains | **Qualified educational closure only**, no blocked decision-use approval |
+| `V4_DEEP_RESEARCH_COMPLETE` | All material accessible source, independent checks, appropriate models and closure verification completed | **Yes, within documented source scope**, never automatic L3/L4 |
+| `V4_EVIDENCE_BLOCKED` | A missing/conflicting critical source prevents even a bounded educational conclusion | **No**; quarantine affected study/conclusion |
+
+**Study-specific backlog at adoption:** Studies **002–005** each retain V3 `COMPLETE / APPROVED`, and their shared [supplemental decision-use overlay](https://github.com/yhappcom/pensionport/blob/feat/subtitles-incremental-registry-20261009/data/synthesis/investment_knowledge_v4/reviews/v4_002_005_incremental_decision_review_20261029.json) reuses 39 original claims and documents selected findings. It **explicitly does not independently revalidate all 39 claims, finish the relevant quantitative models or assign per-study maturity scores**. Classify their **V4 deep-research work as `V4_DEEP_RESEARCH_IN_PROGRESS`**, rather than calling the four fully completed. Prioritize material retirement/IRP (#003) and single-equity sell/hold (#004) decision gaps without ignoring the feasible eligibility/product comparison work for #002 and #005. This policy change creates no new approved video count.
+
+**Exit report:** For each video give (a) V3 historical status, (b) V4 deep-research status, (c) source and verification coverage, (d) new/reused claims and cross-video relations, (e) validated or unbuilt decision models and L-level, (f) solved issues and remaining `OPEN`, (g) quality estimate with rubric or explicit "not scored", and (h) saved paths, commit SHA, readback and final CI result. **Never describe an unfinished supplement as fully researched.**
+
 ## 7. Rework triggers and stop conditions
 
 | Event | Action |
