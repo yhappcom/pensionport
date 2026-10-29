@@ -1,25 +1,27 @@
 # pensionport
 
-박곰희TV 영상의 **실제 발언과 공식자료를 바탕으로 투자 지식을 축적**하는 프로젝트.
+An evidence-based investment research project that builds a knowledge base from educational video content and authoritative primary sources.
 
-## 핵심 자료
-- [확정 영상 목록](VIDEO_INVENTORY_2026-10-07.md): 791편, 기본 학습 대상 롱폼 703편
-- [단일 학습 워크플로 V3](WORKFLOW.md): 영상 분석 우선 및 신규 영상별 **단일 쓰기** 원칙
-- `data/videos.jsonl` 및 `data/canonical_events/`: 보존하는 레거시 등록 기록 (일반 실행에서 읽기 전용)
-- `data/analysis_events/<video_id>.json`: V3 신규 영상의 **최종 학습 기록** 및 출처·주장·위험·교차검증
-- `knowledge/`, `synthesis/`: 주제별 통합 지식
+## Core Resources
 
-## 운영
+- [Verified Video Inventory](VIDEO_INVENTORY_2026-10-07.md): 791 videos in the roster, including 703 long-form videos in the primary research scope.
+- [V3 Single-Record Research Workflow](WORKFLOW.md): prioritize source-based analysis and write one final analysis record per newly reviewed video.
+- `data/videos.jsonl` and `data/canonical_events/`: preserved legacy registry records (read-only during routine research).
+- `data/analysis_events/<video_id>.json`: the final V3 research record for each newly reviewed video, including sources, claims, risks, and independent verification.
+- `knowledge/` and `synthesis/`: consolidated investment knowledge organized by topic.
 
-- [자막 연구 CI 실패 알림 예방 및 안전한 배치 저장 지침](docs/SUBTITLE_CI_PUSH_POLICY_20261026.md): 중간 불완전 커밋을 줄이기 위한 사전검사, 일괄 push, 중복 실행 취소와 최종 CI 승인을 규정한다.
-- 새 배치 승인 이전에 `python -B scripts/preflight_subtitle_batch.py`로 **staged 파일 전체**를 점검한다. GitHub의 증빙 게이트 통과와 저장 파일 재조회도 별도로 필요하다.
-매 실행은 **미완료 롱폼 선택 → 정확한 영상의 원문 확보 → 내용·검증 분석 → 단일 JSON 저장 → 재조회·검증**으로 진행한다.
+## Operations
 
-- 신규 분석 파일을 검증하면 완료 기록으로 인정한다. **별도 `data/canonical_events/` 등록을 새로 요구하거나 생성하지 않는다.**
-- 완료 건수는 레거시(base + 기존 event) 및 유효한 신규 분석 파일의 **고유 video_id 합집합**과 로스터 롱폼의 교집합으로 계산한다. 같은 영상은 하나로 센다.
-- 충분한 본문 없이 작성한 PARTIAL은 새로운 완료 건수에 넣지 않는다. 전사 기반 학습과 화면 검토 완료는 별도로 표시한다.
-- GitHub 안전 검사 차단은 우회하지 않는다. 차단 시 그 실행의 추가 쓰기를 중단하고 저장된 파일만 완료로 보고한다.
-- 목록 재수집, writer lock 갱신, 매회 aggregate 갱신은 하지 않는다. `state/progress.json`은 참고용 과거 스냅샷이다.
-- 연금·ISA·세금 등 시점 의존 정보는 당시 주장과 현재 공식자료를 구별한다.
+- [Subtitle Research CI and Safe Batch-Push Policy](docs/SUBTITLE_CI_PUSH_POLICY_20261026.md): preflight checks, batched updates, duplicate-run handling, and final CI confirmation to reduce incomplete commits and unnecessary failure notifications.
+- Before approving a new batch, run `python -B scripts/preflight_subtitle_batch.py` against **all staged files**. Verify the GitHub evidence gate and read back the saved files as separate checks.
 
-역사적 canonical 이벤트는 보존한다. 이전에 분석 파일만 저장된 `09R29vsv6to`는 V3 데이터 요건 충족 여부를 확인해 신규 분석 완료로 인정하며, 차단된 event #232를 재생성할 필요는 없다.
+Each research cycle follows **select an unfinished long-form video → obtain the correct source text → analyze and verify its content → save one JSON record → read it back and validate it**.
+
+- A new analysis is counted as complete only after its saved file passes validation. Do **not** create or require a separate new `data/canonical_events/` entry.
+- Completion counts use the union of unique video IDs in the legacy registry and valid new analysis records, intersected with the long-form roster. Count each video only once.
+- A `PARTIAL` record without sufficient source content does not count as a newly completed review. Distinguish transcript-based research from review of audiovisual material.
+- Never bypass GitHub safety checks. If a write is blocked, stop further writes for that run and report only verified saved results.
+- Do not repeatedly recollect the inventory, refresh writer locks, or rebuild aggregates on every run. `state/progress.json` is a historical reference snapshot.
+- For time-sensitive matters such as pensions, ISA accounts, and taxation, distinguish historical statements from current rules verified against official sources.
+
+Preserve historical canonical events. An earlier analysis-only record for `09R29vsv6to` may count as a V3 completion if it satisfies the V3 data requirements. Do not recreate the previously blocked canonical event #232.
