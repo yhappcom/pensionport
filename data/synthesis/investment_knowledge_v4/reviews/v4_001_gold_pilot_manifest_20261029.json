@@ -17,8 +17,10 @@
   },
   "full_local_evidence_artifact": {
     "name": "v4_001_gold_pilot_20261029.json",
-    "sha256": "c7e6115a0b2692641c5f794cd83ccfbd403edcbf7869263dac429cbb11e37f6a",
-    "description": "Contains 40-minute coverage map, 42 individually audited financial assertions, 23 legacy links, 12 principles and formula regression. Conversation deliverable; not publicly mirrored here."
+    "sha256": "51a6b8602a6a18476d73b060491c68d6c1ae85db9997ff810951597b61b57285",
+    "description": "Contains 40-minute coverage map, 42 individually audited financial assertions, 23 legacy links, 12 principles and formula regression. Conversation deliverable; not publicly mirrored here.",
+    "report": "v4_001_gold_pilot_report_20261029.md",
+    "package_sha256": "1b6695430cef8402ba7d269958549a20985927d2b2902827dc45e511a8011195"
   },
   "source_integrity": {
     "srt_hash_match": true,
@@ -422,13 +424,32 @@
       "type": "OPEN_PERSONAL_INSURANCE",
       "affected": "5%/6.5-7.5% guarantee and transfer",
       "effect": "Contract-specific value not provable from SRT"
-    },
-    {
-      "type": "OPEN_ISA_NETTING_LAW_SCOPE",
-      "affected": "domestic-listing stock capital-loss eligibility",
-      "effect": "2026 NABO statement conflicts with some issuer literature; hold instrument-level rule"
     }
   ],
   "decision": "VIDEO_001_FINAL_HOLD; 002_NOT_STARTED; METHODOLOGY_PILOT_LOCKED_FOR_NO_NEW_BATCH",
-  "evidence_privacy": "No full private SRT content uploaded; only hashes and analysis."
+  "evidence_privacy": "No full private SRT content uploaded; only hashes and analysis.",
+  "resolved_source_conflicts": [
+    {
+      "type": "ISA_TAX_OFFSET",
+      "date": "2026-10-29",
+      "status": "SUPPORTED_FOR_ELIGIBLE_REALIZED_KRX_LISTED_STOCK_LOSSES",
+      "notes": "2026 NABO report p2, Shinhan Securities ISA, IBK Securities ISA support listed stock realized losses in netting. Unlike gains and unsettled unrealized declines. Some financial-institution boilerplate specifically treats domestic equity funds differently, not identical to individual listed stock losses.",
+      "sources": [
+        "https://nabo.go.kr/board/file/down.do?fid=33319223",
+        "https://m.shinhansec.com/mweb/fnin/fisa/ffisa1001",
+        "https://www.ibks.com/fundproduct/isa/isa_02.jsp"
+      ]
+    }
+  ],
+  "qa_status": {
+    "source_integrity": "PASS",
+    "all_40_minutes": "PASS",
+    "claim_id_23": "PASS",
+    "atomic_42": "PASS",
+    "arithmetic": "PASS",
+    "isa_loss_scope": "PASS_WITH_REALIZATION_AND_SECURITY_TYPE_LIMITS",
+    "video_visual_audio": "HOLD",
+    "personal_estimate_and_insurance_contract": "OPEN_EXTERNAL",
+    "personal_investment_approvals": 0
+  }
 }
