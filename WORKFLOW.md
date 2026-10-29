@@ -2,6 +2,15 @@
 
 > **2026-10-29 research completion / decision-use reference:** Before reopening a studied source, applying a principle, or building a decision model, consult the [canonical completion and decision-use standard](https://github.com/yhappcom/pensionport/blob/main/docs/RESEARCH_DECISION_USE_STANDARD_20261029.md). Reuse existing verified claims and record only evidence-based changes. This reference does **not** weaken the V3 source requirements, the independent evidence policy, or the final CI gate.
 
+## 2026-10-29 end-to-end deep research completion gate
+
+**Mandatory V4 completion rule:** Apply [canonical section 6.1 — deep-research closure gate](https://github.com/yhappcom/pensionport/blob/main/docs/RESEARCH_DECISION_USE_STANDARD_20261029.md) before claiming a video's V4 study is complete. After the full original-source review, perform every *feasible* material independent primary-source check, necessary calculation, meaningful quantitative decision-model test, cross-video integration, and audited closeout **in the same video-study cycle**. Do not silently defer feasible work to later videos or close a V4 study after mere V3 claim reuse.
+
+- Keep the existing V3 `COMPLETE/APPROVED` registry separate from `V4_DEEP_RESEARCH_IN_PROGRESS`, `V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN`, `V4_DEEP_RESEARCH_COMPLETE`, and `V4_EVIDENCE_BLOCKED`. These labels report V4 state; they do not modify the existing V3 schema or historical approvals.
+- True external blockers (private NPS estimates, individual tax-basis ledgers, insurance contracts, required unavailable footage or data) need `OPEN` with evidence requested, impact, claim-level scope, and stop conditions. Missing access does not justify skipping other feasible analyses.
+- The 002–005 V3 education reviews are already approved; their [39-claim incremental overlay](data/synthesis/investment_knowledge_v4/reviews/v4_002_005_incremental_decision_review_20261029.json) is **not** an end-to-end V4 research completion. Retain V4 `IN_PROGRESS` until these steps are genuinely completed or a bounded source-limited closure is justified.
+- Preserve existing V3/V4 original records; add non-destructive evidence and model deltas only. Read back files and require the latest relevant CI success before any new V4 closure claim. No personal trade suitability is implied.
+
 ## 2026-10-26 우선규칙: GitHub CI 실패 알림 예방과 승인 배치 원자적 저장
 
 **[자막 연구 CI·일괄 저장 운영 기준](docs/SUBTITLE_CI_PUSH_POLICY_20261026.md)**을 신규/수정 V3 배치의 GitHub 저장 절차에 우선 적용한다.

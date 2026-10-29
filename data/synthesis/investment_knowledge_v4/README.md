@@ -4,6 +4,8 @@
 작업 브랜치: `feat/subtitles-incremental-registry-20261009`  
 전체 연구 목표: 791편
 
+> **2026-10-29 V4 end-to-end closure clarification:** The [canonical research and decision-use standard, section 6.1](https://github.com/yhappcom/pensionport/blob/main/docs/RESEARCH_DECISION_USE_STANDARD_20261029.md) now requires **feasible follow-up verification and meaningful decision-model research during each video cycle** before claiming V4 deep-research completion. V3 approval, claim-index integration or a short supplemental overlay alone is insufficient. Studies 002–005 retain V3 approval, but their deep V4 work remains `V4_DEEP_RESEARCH_IN_PROGRESS` pending full material claim verification, model work, and bounded closure. External evidence gaps remain `OPEN` and block the relevant investment action. Preserve historical records and CI/evidence safeguards.
+
 ## V4의 목적
 V3의 영상별 교육 주장과 영상 요약을 그대로 유지하면서, 실제 투자 의사결정 시 **검증 가능한 투자 원칙·적용 조건·반례·실행 전 확인사항**을 조회할 수 있는 별도 지식 원장을 구축한다.
 
