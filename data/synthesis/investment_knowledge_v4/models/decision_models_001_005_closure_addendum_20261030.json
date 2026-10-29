@@ -1,0 +1,300 @@
+{
+  "schema_version": "V4_001_005_BOUNDED_CLOSURE_ADDENDUM_1.0",
+  "date": "2026-10-30",
+  "source_evidence_basis": "Prior V3 full-SRT analyses and 2026-10-30 source-limited V4 rechecks; no new original audio/video performed.",
+  "model_boundary": "All five calculations are explicitly synthetic, educational L2, and must not be treated as personal advice or empirical probabilities.",
+  "historical_model_file": "data/synthesis/investment_knowledge_v4/models/decision_models_001_005_20261030.json",
+  "historical_model_count": 9,
+  "new_closure_cases": [
+    {
+      "id": "F001_SEQUENCE_RISK",
+      "roster_no": 1,
+      "kind": "SYNTHETIC_RETIREMENT_SEQUENCE",
+      "linked_existing_models": [
+        "M01_WITHDRAWAL",
+        "M03_DEPLOYMENT"
+      ],
+      "question": "Does the timing of a large loss change withdrawal sustainability even with the same annual return multiset?",
+      "inputs": {
+        "initial_portfolio_krw": 800000000,
+        "annual_fixed_draw_start_of_year_krw": 48000000,
+        "years": 20,
+        "regular_year_return": 0.06,
+        "one_loss_year_return": -0.3,
+        "negative_year_counts": 1,
+        "taxes_fees_and_inflation": "EXCLUDED"
+      },
+      "method": "For each year: first subtract KRW48m from positive remaining balance, then multiply by 1+that year's return. If start balance < draw, mark that year as exhaustion. No borrowing or tax computation.",
+      "hypothetical_paths": {
+        "early_loss": [
+          -0.3,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06
+        ],
+        "late_loss": [
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          -0.3
+        ]
+      },
+      "outputs": {
+        "early_loss": {
+          "year_exhausted": 18,
+          "ending_balance_krw": 0,
+          "balances_krw": [
+            526400000,
+            507104000,
+            486650240,
+            464969254,
+            441987410,
+            417626654,
+            391804253,
+            364432509,
+            335418459,
+            304663567,
+            272063381,
+            237507184,
+            200877615,
+            162050272,
+            120893288,
+            77266885,
+            31022898,
+            0,
+            0,
+            0
+          ]
+        },
+        "late_loss": {
+          "year_exhausted": null,
+          "ending_balance_krw": 458339857,
+          "balances_krw": [
+            797120000,
+            794067200,
+            790831232,
+            787401106,
+            783765172,
+            779911083,
+            775825748,
+            771495292,
+            766905010,
+            762039311,
+            756881669,
+            751414569,
+            745619444,
+            739476610,
+            732965207,
+            726063119,
+            718746906,
+            710991721,
+            702771224,
+            458339857
+          ]
+        }
+      },
+      "external_primary_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "limits": [
+        "Different order of identical yearly returns creates different cashflows when funds are withdrawn.",
+        "Yearly withdrawal differs from historic M01 monthly withdrawals and must not be presented as a correction of that model.",
+        "Actual asset allocation, pension taxes, inflation, health expenses, volatility and personal withdrawals not verified."
+      ],
+      "decision_cap": "L2 hypothetical only; no withdrawal rate recommendation"
+    },
+    {
+      "id": "F002_DEBT_VS_INVEST",
+      "roster_no": 2,
+      "kind": "HYPOTHETICAL_AFTER_TAX_OPPORTUNITY_COST",
+      "question": "For one year, what is the simple interest avoided by fully reducing a hypothetical high-interest debt versus investing the same principal?",
+      "inputs": {
+        "allocation_krw": 20000000,
+        "debt_simple_annual_rate": 0.12,
+        "investment_gross_return_assumption": 0.07,
+        "positive_investment_gain_tax_proxy": 0.154,
+        "one_year": true
+      },
+      "method": "Debt avoided = principal * loan APR; investing net gain = principal * gross return * (1 - gain tax proxy). Flat principal, no amortization, capital-loss risk or tax deductibility.",
+      "outputs": {
+        "debt_interest_avoided_krw": 2400000,
+        "investment_after_tax_gain_krw": 1184400,
+        "debt_minus_investment_net_benefit_krw": 1215600,
+        "breakeven_gross_investment_return": 0.14184397163120568
+      },
+      "external_primary_sources": [
+        "https://www.investor.gov/introduction-investing/investing-basics/save-and-invest/pay-credit-cards-or-other-high-interest",
+        "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+      ],
+      "limits": [
+        "12% debt is a fictional loan rate, not a current contract quote; loan fees, prepayment penalties and amortization ignored.",
+        "15.4% is a scenario gain-tax proxy, not an assertion that every ETF, ISA or pension gain bears this rate.",
+        "Employer match, account tax advantages, liquidity and emergency savings may change priority."
+      ],
+      "decision_cap": "L2 conditional arithmetic only; no automatic debt repayment order"
+    },
+    {
+      "id": "F003_IRP_DEFERRED_TAX_YEAR",
+      "roster_no": 3,
+      "kind": "PRIMARY_RULE_NORMALIZED_TAX_EXAMPLE",
+      "question": "How do applicable deferred retirement income tax fractions vary with actual pension receipt year from 2026-01-01?",
+      "inputs": {
+        "hypothetical_outside_pension_tax_on_same_payment_krw": 10000000,
+        "actual_pension_receipt_years": [
+          9,
+          11,
+          20,
+          21
+        ],
+        "effective_from": "2026-01-01"
+      },
+      "method": "Apply 70% (receipt years 1-10), 60% (11-20), or 50% (>20) to a fixed hypothetical tax assessment of the same eligible deferred-retirement-income amount. Not a forecast of a total account's taxes.",
+      "outputs": {
+        "9": {
+          "tax_fraction": 0.7,
+          "illustrative_tax_krw": 7000000
+        },
+        "11": {
+          "tax_fraction": 0.6,
+          "illustrative_tax_krw": 6000000
+        },
+        "20": {
+          "tax_fraction": 0.6,
+          "illustrative_tax_krw": 6000000
+        },
+        "21": {
+          "tax_fraction": 0.5,
+          "illustrative_tax_krw": 5000000
+        }
+      },
+      "external_primary_sources": [
+        "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6608"
+      ],
+      "limits": [
+        "Actual receipt year is not automatically established by merely submitting a nominal KRW10,000 start request.",
+        "Do not use aggregate year counts as a statement of tax due on unchanged whole withdrawal; actual payment-specific deferred tax allocation, minimum age, withdrawal limits and account records are required.",
+        "Rules verified as of research date; effective 2026-01-01 per NTS, tax law changes require recheck."
+      ],
+      "decision_cap": "L2 eligible tax-fraction demonstration; personal IRP start blocked"
+    },
+    {
+      "id": "F004_HOLD_VS_REPLACE",
+      "roster_no": 4,
+      "kind": "SYNTHETIC_EQUITY_SWITCH_BREAK_EVEN",
+      "question": "What one-year gain is needed to justify holding a loss-making equity versus switching into a hypothetical alternative, ignoring the historical cost basis?",
+      "inputs": {
+        "current_liquidation_value_krw": 60000000,
+        "illustrative_historical_cost_basis_krw": 100000000,
+        "alternative_future_return": 0.05,
+        "switch_one_way_cost_fraction": 0.003,
+        "old_equity_future_returns": [
+          -0.1,
+          0.05,
+          0.1
+        ],
+        "tax_and_transaction_impact_excluded": true
+      },
+      "method": "Hold=present value*(1+old future return). Replace=present value*(1-switch cost)*(1+alternative future return). Break-even hold return=(1-fee)*(1+alternative return)-1; past cost is sunk for future return comparison.",
+      "outputs": {
+        "breakeven_old_equity_future_return": 0.04685000000000006,
+        "replacement_terminal_krw": 62811000,
+        "hold_terminals_krw": {
+          "-0.1": 54000000,
+          "0.05": 63000000,
+          "0.1": 66000000
+        }
+      },
+      "external_primary_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+        "https://www.investor.gov/additional-resources/spotlight/formerdirectorlorischock-directors-take/dont-panic-plan-it"
+      ],
+      "limits": [
+        "None of the assumed future returns are forecasts, and replacement is not universally preferable.",
+        "Cost basis still matters for actual capital-gains tax, tax loss harvesting, diversification, dividend policy, market liquidity and legal constraints.",
+        "Issuer fundamentals and actual ticker remain unavailable, so no L3 ranking."
+      ],
+      "decision_cap": "L2 future opportunity cost only"
+    },
+    {
+      "id": "F005_EMERGENCY_RESERVE",
+      "roster_no": 5,
+      "kind": "SYNTHETIC_CASH_RESERVE_AFFORDABILITY",
+      "question": "How long would a fictional new employee take to build a 3- or 6-month minimum expense reserve before adding locked-up investment commitments?",
+      "inputs": {
+        "monthly_take_home_krw": 3000000,
+        "monthly_essential_expenses_krw": 2000000,
+        "monthly_debt_payment_krw": 400000,
+        "monthly_emergency_fund_savings_krw": 300000,
+        "initial_reserve_krw": 0,
+        "expense_months": [
+          3,
+          6
+        ],
+        "assumed_reserve_interest": 0
+      },
+      "method": "Target = (essential expenses + debt payments)*number of months; time to target = ceiling((target-initial reserve)/monthly emergency contribution); check cash-flow feasibility against take-home pay.",
+      "outputs": {
+        "monthly_available_cash_krw": 600000,
+        "monthly_uncommitted_after_reserve_savings_krw": 300000,
+        "targets": {
+          "3": {
+            "target_krw": 7200000,
+            "months_to_build": 24
+          },
+          "6": {
+            "target_krw": 14400000,
+            "months_to_build": 48
+          }
+        }
+      },
+      "external_primary_sources": [
+        "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/",
+        "https://www.investor.gov/build-wealth-over-time-through-saving-and-investing"
+      ],
+      "limits": [
+        "Three to six months is a scenario planning range, not a mandated reserve for every investor.",
+        "No reserve interest/inflation, existing savings, irregular income, employer benefits or new emergency events modeled.",
+        "Specific youth savings product, ISA pension tax preference and actual salary/debt remain unverified."
+      ],
+      "decision_cap": "L2 affordability calculation only"
+    }
+  ],
+  "external_validation": {
+    "source_audio_unverified": true,
+    "individual_tax_and_product_contracts_unavailable": true,
+    "actual_client_decisions_approved": 0
+  },
+  "note": "Appends five independently testable scenarios without changing prior 9 model results or 62 V3 claim identifiers."
+}

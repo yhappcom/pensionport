@@ -20,6 +20,7 @@ on:
       - "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md"
       - "data/synthesis/investment_knowledge_v4/**"
       - "scripts/verify_v4_quant_models.py"
+      - "scripts/verify_v4_closure_addendum.py"
       - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
@@ -40,6 +41,7 @@ on:
       - "docs/SUBTITLE_VERIFICATION_QUEUE_20261010.md"
       - "data/synthesis/investment_knowledge_v4/**"
       - "scripts/verify_v4_quant_models.py"
+      - "scripts/verify_v4_closure_addendum.py"
       - "docs/V4_QUANTITATIVE_CI_GATE_20261030.md"
       - "knowledge/**"
       - "synthesis/**"
@@ -79,6 +81,10 @@ jobs:
         run: |
           python -B scripts/verify_v4_quant_models.py --self-test
           python -B scripts/verify_v4_quant_models.py --root .
+      - name: Verify V4 studies 001-005 bounded closure models and manifest
+        run: |
+          python -B scripts/verify_v4_closure_addendum.py --self-test
+          python -B scripts/verify_v4_closure_addendum.py --root .
       - name: Validate 70-source extension records and selective verification policy
         run: |
           python - <<'PY'

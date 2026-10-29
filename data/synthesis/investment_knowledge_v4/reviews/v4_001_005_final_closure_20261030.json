@@ -1,0 +1,100 @@
+{
+  "schema_version": "V4_001_005_FINAL_BOUNDED_CLOSEOUT_1.0",
+  "as_of": "2026-10-30",
+  "parent_manifest": "data/synthesis/investment_knowledge_v4/reviews/v4_001_005_deep_research_manifest_20261030.json",
+  "historical_evidence": {
+    "original_v3_approved_videos": 5,
+    "original_v3_claims": 62,
+    "original_first_video_atomic_review_items": 42,
+    "existing_9_numeric_models_preserved": true,
+    "baseline_first_video_maturity_estimate": 75
+  },
+  "addendum_model_file": "data/synthesis/investment_knowledge_v4/models/decision_models_001_005_closure_addendum_20261030.json",
+  "addendum_model_count": 5,
+  "prior_model_count": 9,
+  "research_completion": "SOURCE_LIMITED_EDUCATIONAL_V4_CLOSED_WITH_EXTERNAL_OPEN",
+  "claim_verification_limit": "Original audio/frame not inspected. All 62 historical claims were NOT individually independently reverified in this final cycle.",
+  "scope_results": [
+    {
+      "no": 1,
+      "items": [
+        "original screen/audio for 7y-vs-10y and 16y example",
+        "personal NPS top-up estimate",
+        "pension account taxable-source, credit and insurance ledger"
+      ],
+      "allow": "general calculation and tax-source screening",
+      "block": "individual after-tax NPS, pension or insurance election",
+      "review_status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+      "new_case_id": "F001_SEQUENCE_RISK",
+      "missing_proof_impact": "INVESTOR_ACTION_BLOCKED"
+    },
+    {
+      "no": 2,
+      "items": [
+        "specific CMA provider/protection/liquidity terms",
+        "investor debt, ISA qualification and emergency cash"
+      ],
+      "allow": "generic tax/credit eligibility screen and hypothetical DCA",
+      "block": "account funding or cash parking recommendation",
+      "review_status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+      "new_case_id": "F002_DEBT_VS_INVEST",
+      "missing_proof_impact": "INVESTOR_ACTION_BLOCKED"
+    },
+    {
+      "no": 3,
+      "items": [
+        "IRP actual pension receipt commencement and benefit statement",
+        "legacy insurance contract and surrender costs",
+        "original audio/slide for salary-versus-monthly investment pacing"
+      ],
+      "allow": "year-based normalized taxation, deployment scenario",
+      "block": "KRW10k IRP annuity activation and contract replacement",
+      "review_status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+      "new_case_id": "F003_IRP_DEFERRED_TAX_YEAR",
+      "missing_proof_impact": "INVESTOR_ACTION_BLOCKED"
+    },
+    {
+      "no": 4,
+      "items": [
+        "historical video source date and definition of current-account-to-GDP near 20%",
+        "specific issuer financial statements and individual position/tax basis"
+      ],
+      "allow": "loss arithmetic and hypothetical switching break-even",
+      "block": "specific buy/hold/sell action or forecast based on unverified macro ratio",
+      "review_status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+      "new_case_id": "F004_HOLD_VS_REPLACE",
+      "missing_proof_impact": "INVESTOR_ACTION_BLOCKED"
+    },
+    {
+      "no": 5,
+      "items": [
+        "actual youth savings offer and eligibility",
+        "individual take-home pay/debt/expenses",
+        "specific TDF fees, glide path and investment plan"
+      ],
+      "allow": "budget constraints and emergency reserve illustration",
+      "block": "personal account split or TDF purchase",
+      "review_status": "V4_DEEP_RESEARCH_COMPLETE_WITH_EXTERNAL_OPEN",
+      "new_case_id": "F005_EMERGENCY_RESERVE",
+      "missing_proof_impact": "INVESTOR_ACTION_BLOCKED"
+    }
+  ],
+  "unresolved_count": 13,
+  "new_claims_added_to_original_ledger": 0,
+  "new_video_approvals": 0,
+  "personalized_L3_approvals": 0,
+  "implementation_L4_approvals": 0,
+  "score_policy": {
+    "item_001": "Retain historical approximate 75/100; deeper models do not automatically revise this score.",
+    "items_002_005": "Not independently rescored. Neither arithmetic coverage nor CI success establishes a 90/100 research grade."
+  },
+  "reopen_only_if": "New specific source, relevant legal amendment, independent model regression failure, materially changed claim, or investor-specific documents supplied.",
+  "CI_gate": "scripts/verify_v4_closure_addendum.py",
+  "status_before_CI": "PENDING_FINAL_GITHUB_CI_SUCCESS",
+  "notes": [
+    "No claim of complete primary-video audiovisual verification.",
+    "No real-world backtest or probabilistic forecast.",
+    "Existing V3/V4 original files immutable; historical statuses retained as history.",
+    "Cannot certify the unsourced GDP ratio from the historical video by substituting later statistics."
+  ]
+}
