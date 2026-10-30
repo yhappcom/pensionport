@@ -17,6 +17,8 @@ on:
       - "scripts/verify_v5_knowledge_integration.py"
       - "scripts/evaluate_v5_001_010_synthesis.py"
       - "scripts/evaluate_v5_011_012_holdout.py"
+      - "scripts/v5_candidate_engine_v2.py"
+      - "scripts/evaluate_v5_candidate_v2.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -32,6 +34,8 @@ on:
       - "scripts/verify_v5_knowledge_integration.py"
       - "scripts/evaluate_v5_001_010_synthesis.py"
       - "scripts/evaluate_v5_011_012_holdout.py"
+      - "scripts/v5_candidate_engine_v2.py"
+      - "scripts/evaluate_v5_candidate_v2.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -86,6 +90,10 @@ jobs:
         run: |
           python -m py_compile scripts/evaluate_v5_011_012_holdout.py
           python -B scripts/evaluate_v5_011_012_holdout.py --root . --self-test --show-pairs
+      - name: V2 candidate retrieval - full #1-#12 development regression, no auto merges
+        run: |
+          python -m py_compile scripts/v5_candidate_engine_v2.py scripts/evaluate_v5_candidate_v2.py
+          python -B scripts/evaluate_v5_candidate_v2.py --root . --show-pairs
       - name: Reject private asset files in V5
         shell: bash
         run: |
