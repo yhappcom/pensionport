@@ -31,3 +31,5 @@
 - #11 이후의 `v5/videos/v5_NNN_<id>_advisory_review.json`은 `v5/completion/v5_NNN_<id>_certificate.json`과 쌍을 이루어야 하며, 원문 연구 결과 SHA256과 주장 ID 전체를 검증한다.
 - `RESEARCH_COMPLETE`는 4대 검증영역 모두 통과·중요 미해결 0건·실제 전략 실증·별도 출처심사 조건을 만족할 때만 가능. `RESEARCH_BLOCKED`의 CI 통과는 연구 완료가 아니다.
 - 원문·공식자료의 실질적 참·거짓은 GitHub Actions의 구조 검사만으로 인증되지 않는다. 최종 연구 승인 시에는 비판적 독립 근거 심사를 추가 수행해야 한다.
+
+연구 신규 실행 시에는 저장소 최상위 `WORKFLOW.md`의 완결성 사전의무 원장 규칙을 먼저 적용한다.
