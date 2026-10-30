@@ -73,6 +73,15 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
         if pure_contribution(a_text,fa) or pure_contribution(b_text,fb):
             blocks.append("contribution_limit_vs_pension_income_tax_threshold")
 
+    # A purely personal hobby list cannot act as a financial cashflow
+    # proposition merely because both records contain "retirement".
+    def hobby_only(t):
+        return bool(re.search(r"마라톤|박물관|취미|테마여행|책방|기부",t)) and not bool(
+            re.search(r"단독주택|주거|금융|지출|생활비|자금|수익|세후",t))
+    if ((hobby_only(a_text) and "retirement_cashflow" in fb) or
+        (hobby_only(b_text) and "retirement_cashflow" in fa)):
+        blocks.append("personal_retirement_hobby_vs_budget_calculation")
+
     # Fund manager discretion versus cross-asset allocation is a distinct
     # axis. But the earlier #2 passive-vs-active discussion also expressly
     # proposed an allocation, so avoid vetoing that separate bridge.
@@ -96,7 +105,7 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     # Numeric assumptions are only reviewed together when their model
     # dimensions overlap (annual contributions, compound return or payout).
     if ("numeric_projection" in common and
-        ("future_duration" in common or bool(PERCENT7.search(a_text) and PERCENT7.search(b_text)))):
+        PERCENT7.search(a_text) and PERCENT7.search(b_text)):
         bridges.append("compound_projection_shared_assumptions")
     if ("numeric_error" in common and
         "future_duration" in common and
@@ -117,6 +126,10 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
         "distribution_guarantee" in fb and "distribution" in fa and
         "retirement_cashflow" in fa):
         bridges.append("payout_guarantee_conditions")
+    if ("retirement_cashflow" in common and
+        "pension_timing" in (fa|fb) and
+        re.search(r"국민연금|수급자격",a_text+b_text)):
+        bridges.append("national_pension_claiming_timing_vs_income_projection")
     if ("pension_timing" in fa and "retirement_cashflow" in fb and
         "retirement_plan" in (fa|fb)) or (
         "pension_timing" in fb and "retirement_cashflow" in fa and
@@ -151,6 +164,11 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
         "discipline" in fb and "guarantee_limit" in fa and
         "financial_risk" in (fa|fb)):
         bridges.append("hold_unconditionally_vs_drawdown_risk")
+    if ("retirement_cashflow" in common and
+        "financial_risk" in common and
+        "investment_principle" in (fa|fb) and
+        "distribution" in (fa|fb)):
+        bridges.append("retirement_distribution_risk_management")
     if ("investment_principle" in fa and "financial_risk" in fb and
         "retirement_plan" in fb) or (
         "investment_principle" in fb and "financial_risk" in fa and
@@ -160,9 +178,10 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
         "retirement_cashflow" in (fa|fb) and
         "financial_risk" in (fa|fb)):
         bridges.append("sustainable_cashflow_risk_principle")
-    if ("etf" in common and
-        ("etf_fee" in fa and "etf_due_diligence" in fb or
-         "etf_fee" in fb and "etf_due_diligence" in fa)):
+    if ("etf_fee" in common and "etf_due_diligence" in common and
+        ("etf" in (fa|fb)) and
+        (re.search(r"추종지수|기초자산|투자설명서|괴리",a_text+b_text) or
+         "etf" in common)):
         bridges.append("etf_fee_vs_investor_cost_disclosure")
 
     # No positive "support" relation may be assigned here, even when the
