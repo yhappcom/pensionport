@@ -1,0 +1,620 @@
+{
+  "schema": "V5_001_010_SYNTHESIS_PERFORMANCE_BENCHMARK_V1",
+  "benchmark_date": "2026-10-30",
+  "intent": "MEASURE_ENGINE_NOT_CERTIFY_INVESTMENT_RESEARCH",
+  "labels": "Analyst-diagnostic, hand-selected targeted comparison sample; no independent blinded adjudication",
+  "sampling_warning": "Pair precision/recall computed on targeted sample only, not 7,381 all possible pairs; thematic coverage on all 122 claims",
+  "video_sources": [
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "claim_count": 23,
+      "v3_git_blob_sha": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+      "v5_git_blob_sha": "01a22c68052e574c99379e838241bb09094d9334"
+    },
+    {
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "claim_count": 9,
+      "v3_git_blob_sha": "cb9827570e78684f678030ca220b56190a2cef1a",
+      "v5_git_blob_sha": "e2ec708800f0985b9a1ac77c36dfe23ca909e043"
+    },
+    {
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "claim_count": 15,
+      "v3_git_blob_sha": "53281c9bc9ce85692267d6ff7e00ebaf5b4ecc27",
+      "v5_git_blob_sha": "b8a4359e894b7649ea57aef63e3496650932072b"
+    },
+    {
+      "video_number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "claim_count": 6,
+      "v3_git_blob_sha": "b551925f3e823b4f46e3e1aebaa6cd2e5ae802af",
+      "v5_git_blob_sha": "12b3bc97e2244fe1d1896ce9841193797bf58762"
+    },
+    {
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "claim_count": 9,
+      "v3_git_blob_sha": "a845a8e3d8a463035900c376187250adc76a5e12",
+      "v5_git_blob_sha": "868cd64b8476e60cb054aceae0dd899085eb10eb"
+    },
+    {
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "claim_count": 14,
+      "v3_git_blob_sha": "5997722a8795ce91f39b523acb981cc1b6f8dc48",
+      "v5_git_blob_sha": "e09220a7cf43aed3794b66cd594ac603449b28d2"
+    },
+    {
+      "video_number": 7,
+      "video_id": "4CQ4FjGT2gA",
+      "claim_count": 14,
+      "v3_git_blob_sha": "23f9c913cec47502e554493dd2b34e1c3270a288",
+      "v5_git_blob_sha": "c25dda8598f988e99850de8cfc74f46739d8bcdd"
+    },
+    {
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "claim_count": 12,
+      "v3_git_blob_sha": "1007a833dae967ff13722242c104a2a6de9bc9b2",
+      "v5_git_blob_sha": "8fca883e50511322b90d2e63791db6a25a226c1b"
+    },
+    {
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "claim_count": 12,
+      "v3_git_blob_sha": "8798dda3eb02bf6caf01b5d7913a0a9ea57a0685",
+      "v5_git_blob_sha": "35ff3cbe4ac5c9e43ad30e78eb360ff5d64ba9b8"
+    },
+    {
+      "video_number": 10,
+      "video_id": "VKr060rIirM",
+      "claim_count": 8,
+      "v3_git_blob_sha": "232c20eb18ce68579da697f2c0f7f1c32db9bc2d",
+      "v5_git_blob_sha": "4907749daedf9f98f9476f99db4c94823614fdc9"
+    }
+  ],
+  "claim_count": 122,
+  "expected_verdict_counts": {
+    "CONTRADICTED": 4
+  },
+  "known_blocked_claim_ids": [
+    "sz5N9WJS310-06",
+    "sz5N9WJS310-15",
+    "aNfGrcO6WPI-03",
+    "VKr060rIirM-05"
+  ],
+  "historic_open_count": 26,
+  "unreconciled_1_to_5_open_delta": 1,
+  "tests": [
+    {
+      "id": "PAIR-01",
+      "left": "sz5N9WJS310-13",
+      "right": "VKr060rIirM-03",
+      "analyst_label": "SUPPORT",
+      "reason": "과세제외 원금 조건",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-02",
+      "left": "sz5N9WJS310-14",
+      "right": "VKr060rIirM-07",
+      "analyst_label": "SUPPORT",
+      "reason": "연금 인출 과세재원과 순서",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-03",
+      "left": "sz5N9WJS310-09",
+      "right": "VKr060rIirM-04",
+      "analyst_label": "QUALIFY",
+      "reason": "과세기준 대 연금수령 자격",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-04",
+      "left": "sz5N9WJS310-10",
+      "right": "VKr060rIirM-05",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "일률 세율 오류와 조건부 세금",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-05",
+      "left": "sz5N9WJS310-15",
+      "right": "VKr060rIirM-03",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "장기 전액 비과세 오류와 과세제외 원금",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-06",
+      "left": "sz5N9WJS310-18",
+      "right": "VKr060rIirM-02",
+      "analyst_label": "QUALIFY",
+      "reason": "연금계좌 해외자산 ETF와 외국세액",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-07",
+      "left": "sz5N9WJS310-21",
+      "right": "6VEfKF7BzZU-02",
+      "analyst_label": "QUALIFY",
+      "reason": "ISA 만기/의무 기간과 목적",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-08",
+      "left": "sz5N9WJS310-23",
+      "right": "6VEfKF7BzZU-02",
+      "analyst_label": "QUALIFY",
+      "reason": "ISA 비과세 한도와 재가입 선택",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-09",
+      "left": "6VEfKF7BzZU-03",
+      "right": "qtluAViPpsQ-06",
+      "analyst_label": "QUALIFY",
+      "reason": "연금계좌 공제 구조와 연말정산",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-10",
+      "left": "6VEfKF7BzZU-08",
+      "right": "OiDTNstaSpM-06",
+      "analyst_label": "SUPPORT",
+      "reason": "시간 분할 투자 원리와 은퇴 목돈",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-11",
+      "left": "6VEfKF7BzZU-08",
+      "right": "qtluAViPpsQ-05",
+      "analyst_label": "QUALIFY",
+      "reason": "정기 ETF 매수와 TDF 은퇴 시점",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-12",
+      "left": "6VEfKF7BzZU-09",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "패시브 비중과 자산배분 위험",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-13",
+      "left": "6VEfKF7BzZU-06",
+      "right": "OiDTNstaSpM-07",
+      "analyst_label": "QUALIFY",
+      "reason": "단기 현금 관리와 파킹 ETF 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-14",
+      "left": "OiDTNstaSpM-10",
+      "right": "sz5N9WJS310-19",
+      "analyst_label": "SUPPORT",
+      "reason": "오래된 보험 해지 전 계약 점검",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-15",
+      "left": "OiDTNstaSpM-02",
+      "right": "sz5N9WJS310-08",
+      "analyst_label": "QUALIFY",
+      "reason": "은퇴 현금흐름과 국민연금 연기 선택",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-16",
+      "left": "OiDTNstaSpM-13",
+      "right": "sz5N9WJS310-15",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "분배 현금흐름과 비과세 오인",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-17",
+      "left": "aNfGrcO6WPI-02",
+      "right": "4CQ4FjGT2gA-14",
+      "analyst_label": "QUALIFY",
+      "reason": "투자 논리와 위험사건 변화",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-18",
+      "left": "aNfGrcO6WPI-04",
+      "right": "4CQ4FjGT2gA-14",
+      "analyst_label": "QUALIFY",
+      "reason": "감정 거래 방지와 신약 실패 위험",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-19",
+      "left": "qtluAViPpsQ-03",
+      "right": "6VEfKF7BzZU-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "가상 월 예산과 일반 공제 제도의 상이한 명제",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-20",
+      "left": "3MyhYE2jmuE-10",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "자녀 자산배분과 성인 자산배분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-21",
+      "left": "3MyhYE2jmuE-14",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "장기 복리 일반론과 정정된 기간 계산",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-22",
+      "left": "4CQ4FjGT2gA-12",
+      "right": "YNOSY15ppf8-01",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "달러 강세 사례와 엔화 약세 가격 예시",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-23",
+      "left": "OfkY343OaNs-01",
+      "right": "YNOSY15ppf8-09",
+      "analyst_label": "SUPPORT",
+      "reason": "엔화 ETF는 엔 투자 방법 2",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-24",
+      "left": "OfkY343OaNs-06",
+      "right": "YNOSY15ppf8-04",
+      "analyst_label": "QUALIFY",
+      "reason": "엔 현금 보유와 엔화 표시 주식의 노출 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-25",
+      "left": "OfkY343OaNs-07",
+      "right": "YNOSY15ppf8-07",
+      "analyst_label": "QUALIFY",
+      "reason": "헤지 여부와 환율 표기의 범위",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-26",
+      "left": "OfkY343OaNs-12",
+      "right": "YNOSY15ppf8-03",
+      "analyst_label": "SUPPORT",
+      "reason": "환율 저점 예측 회피",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-27",
+      "left": "OfkY343OaNs-08",
+      "right": "YNOSY15ppf8-09",
+      "analyst_label": "SUPPORT",
+      "reason": "일본 거래소의 미국지수 ETF 매수 경로",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-28",
+      "left": "OfkY343OaNs-10",
+      "right": "YNOSY15ppf8-07",
+      "analyst_label": "QUALIFY",
+      "reason": "JPY/USD 교차 환율 민감도",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-29",
+      "left": "OfkY343OaNs-11",
+      "right": "YNOSY15ppf8-09",
+      "analyst_label": "SUPPORT",
+      "reason": "엔화 일본 개별주식 매수 경로",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-30",
+      "left": "OfkY343OaNs-03",
+      "right": "YNOSY15ppf8-12",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "일본 초단기국채 ETF와 은행 환전 스프레드",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-31",
+      "left": "aNfGrcO6WPI-03",
+      "right": "4CQ4FjGT2gA-13",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "전면 매도금지 오류와 집중투자 성공 일화",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-32",
+      "left": "3MyhYE2jmuE-03",
+      "right": "6VEfKF7BzZU-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "증여세 공제와 연금세액공제 다른 제도",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-33",
+      "left": "sz5N9WJS310-21",
+      "right": "OfkY343OaNs-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "ISA 만기와 IRP 매수 가능 상품 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-34",
+      "left": "sz5N9WJS310-01",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "QUALIFY",
+      "reason": "국민연금 추납 추정치와 은퇴 현금흐름",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-35",
+      "left": "aNfGrcO6WPI-03",
+      "right": "aNfGrcO6WPI-02",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "매도 규칙과 무조건 보유 충돌",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-36",
+      "left": "VKr060rIirM-05",
+      "right": "VKr060rIirM-03",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "모든 계좌의 무조건 세제 우위 오류",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-37",
+      "left": "sz5N9WJS310-15",
+      "right": "sz5N9WJS310-13",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "과세제외원금 구별과 전액 비과세 오류",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "PAIR-38",
+      "left": "sz5N9WJS310-06",
+      "right": "sz5N9WJS310-08",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "복리 적립기간 오류와 즉시 수령/연기 판단",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    }
+  ],
+  "theme_proposals": [
+    {
+      "theme_id": "PENSION_TAX_SOURCE",
+      "title": "연금 인출 재원·과세제외 원금",
+      "seed_claim_ids": [
+        "sz5N9WJS310-09",
+        "sz5N9WJS310-10",
+        "sz5N9WJS310-13",
+        "sz5N9WJS310-14",
+        "sz5N9WJS310-15",
+        "sz5N9WJS310-16",
+        "VKr060rIirM-03",
+        "VKr060rIirM-04",
+        "VKr060rIirM-05",
+        "VKr060rIirM-06",
+        "VKr060rIirM-07"
+      ],
+      "research_conditions": "공제확인, 적격인출, 연금소득 한도 분리",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "NPS_DEFERRAL_RETIREMENT",
+      "title": "국민연금 추납·연기·은퇴 현금흐름",
+      "seed_claim_ids": [
+        "sz5N9WJS310-01",
+        "sz5N9WJS310-03",
+        "sz5N9WJS310-07",
+        "sz5N9WJS310-08",
+        "OiDTNstaSpM-02",
+        "OiDTNstaSpM-12"
+      ],
+      "research_conditions": "개별 증액 추정과 일반 규칙 구별",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "ISA_TAX_AND_ACCOUNT",
+      "title": "ISA 만기·손익통산·세액공제 계좌",
+      "seed_claim_ids": [
+        "sz5N9WJS310-21",
+        "sz5N9WJS310-22",
+        "sz5N9WJS310-23",
+        "6VEfKF7BzZU-02",
+        "6VEfKF7BzZU-03",
+        "qtluAViPpsQ-03",
+        "qtluAViPpsQ-06"
+      ],
+      "research_conditions": "ISA와 연금 세제의 적용 기간·세원 분리",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "DCA_LIQUIDITY",
+      "title": "정기 매수·목돈 분할·유동성",
+      "seed_claim_ids": [
+        "6VEfKF7BzZU-06",
+        "6VEfKF7BzZU-07",
+        "6VEfKF7BzZU-08",
+        "OiDTNstaSpM-06",
+        "OiDTNstaSpM-07",
+        "qtluAViPpsQ-03"
+      ],
+      "research_conditions": "위험대응과 기회비용·NO_CHANGE 비교",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "ASSET_RISK",
+      "title": "분산투자·투자논리·행동위험",
+      "seed_claim_ids": [
+        "6VEfKF7BzZU-09",
+        "aNfGrcO6WPI-02",
+        "aNfGrcO6WPI-03",
+        "aNfGrcO6WPI-04",
+        "4CQ4FjGT2gA-07",
+        "4CQ4FjGT2gA-14"
+      ],
+      "research_conditions": "무조건 보유 금지, 손절 vs 대응 조건",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "RETIREMENT_CONTRACT",
+      "title": "퇴직/보험 해지·보증·소득",
+      "seed_claim_ids": [
+        "sz5N9WJS310-19",
+        "sz5N9WJS310-20",
+        "OiDTNstaSpM-01",
+        "OiDTNstaSpM-10",
+        "OiDTNstaSpM-13",
+        "OiDTNstaSpM-14"
+      ],
+      "research_conditions": "보험 원래 약관·환급비용·IRP 수령요건",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "CHILD_GIFT",
+      "title": "자녀 증여·장기 자산운용",
+      "seed_claim_ids": [
+        "3MyhYE2jmuE-01",
+        "3MyhYE2jmuE-03",
+        "3MyhYE2jmuE-04",
+        "3MyhYE2jmuE-07",
+        "3MyhYE2jmuE-10",
+        "3MyhYE2jmuE-11",
+        "3MyhYE2jmuE-13"
+      ],
+      "research_conditions": "증여 공제/정기금 평가/사전 증여 합산",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "CASE_PERFORMANCE",
+      "title": "사례 성과의 기여도·비교 기준",
+      "seed_claim_ids": [
+        "aNfGrcO6WPI-01",
+        "aNfGrcO6WPI-05",
+        "4CQ4FjGT2gA-03",
+        "4CQ4FjGT2gA-05",
+        "4CQ4FjGT2gA-06",
+        "4CQ4FjGT2gA-12",
+        "4CQ4FjGT2gA-13"
+      ],
+      "research_conditions": "현금흐름 원장 없이 알파·수익 우수성 입증 불가",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "JPY_METHODS",
+      "title": "원화/엔화 환전 및 상품별 노출",
+      "seed_claim_ids": [
+        "OfkY343OaNs-01",
+        "OfkY343OaNs-06",
+        "OfkY343OaNs-08",
+        "OfkY343OaNs-11",
+        "YNOSY15ppf8-04",
+        "YNOSY15ppf8-05",
+        "YNOSY15ppf8-09",
+        "YNOSY15ppf8-10"
+      ],
+      "research_conditions": "환전 스프레드와 상품 가격변동 분리",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "FX_HEDGE",
+      "title": "엔·달러·원화 환헤지 구조",
+      "seed_claim_ids": [
+        "OfkY343OaNs-05",
+        "OfkY343OaNs-07",
+        "OfkY343OaNs-10",
+        "OfkY343OaNs-12",
+        "YNOSY15ppf8-01",
+        "YNOSY15ppf8-03",
+        "YNOSY15ppf8-07"
+      ],
+      "research_conditions": "표시통화와 실제 기초자산 및 헤지 구별",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "DISTRIBUTION_TOTAL_RETURN",
+      "title": "월분배·NAV·총수익",
+      "seed_claim_ids": [
+        "sz5N9WJS310-02",
+        "sz5N9WJS310-15",
+        "OiDTNstaSpM-13",
+        "4CQ4FjGT2gA-10"
+      ],
+      "research_conditions": "원금환급·분배율과 지속 수익 혼동 금지",
+      "independent_semantic_approval": false
+    },
+    {
+      "theme_id": "CAREER_CASHFLOW",
+      "title": "사회초년생 지출관리·소득 설계",
+      "seed_claim_ids": [
+        "6VEfKF7BzZU-01",
+        "qtluAViPpsQ-01",
+        "qtluAViPpsQ-02",
+        "qtluAViPpsQ-07",
+        "qtluAViPpsQ-08",
+        "qtluAViPpsQ-09"
+      ],
+      "research_conditions": "개별 예산/목표와 생애주기 조건",
+      "independent_semantic_approval": false
+    }
+  ],
+  "goal": {
+    "no_private_data": true,
+    "no_new_fact_certification": true,
+    "no_positive_use_of_refuted_claims": true,
+    "no_auto_semantic_merge": true
+  }
+}
