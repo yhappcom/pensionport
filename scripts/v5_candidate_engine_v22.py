@@ -187,8 +187,8 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     if _cross(fa,fb,"dividend_reinvest","return_measure") and (
         "long_horizon" in fa|fb):
         edges.append("dividend_reinvestment_compounding_vs_return_assumption")
-    if _both(fa,fb,"dividend_frequency") and
-        ("dividend_cashflow" in fa|fb):
+    if (_both(fa,fb,"dividend_frequency") and
+        "dividend_cashflow" in (fa|fb)):
         edges.append("monthly_vs_quarterly_distribution_cadence")
     if _cross(fa,fb,"dividend_frequency","dividend_cashflow") and (
         "dividend_sustainability" in fa|fb):
