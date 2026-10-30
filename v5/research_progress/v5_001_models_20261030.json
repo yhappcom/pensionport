@@ -1,0 +1,152 @@
+{
+  "schema": "V5_001_RESEARCH_EXECUTABLE_MODELS_V1",
+  "date": "2026-10-30",
+  "video_id": "sz5N9WJS310",
+  "all_models_hypothetical_and_non_empirical": true,
+  "model_count": 5,
+  "scenarios": 6,
+  "models": [
+    {
+      "id": "V5_001_SAVINGS_EFFECTIVE_ANNUAL",
+      "type": "MONTHLY_SAVINGS_EFFECTIVE",
+      "claim_ids": [
+        "sz5N9WJS310-02",
+        "sz5N9WJS310-06"
+      ],
+      "source_pedigree": "reproduced original V5 monthly savings model; independent computation in CI",
+      "assumptions": "300k deposited at month end, 7% effective annual hypothetical constant rate, no tax/fee",
+      "scenarios": [
+        {
+          "label": "7Y",
+          "inputs": {
+            "monthly": 300000,
+            "annual_effective": 0.07,
+            "months": 84
+          },
+          "expected": 32141805.78878394
+        },
+        {
+          "label": "10Y",
+          "inputs": {
+            "monthly": 300000,
+            "annual_effective": 0.07,
+            "months": 120
+          },
+          "expected": 51315519.37684062
+        }
+      ],
+      "empirical": false
+    },
+    {
+      "id": "V5_001_NPS_FIVE_YEAR_DEFERRAL_BREAK_EVEN",
+      "type": "PENSION_DEFERRAL_STATIC",
+      "claim_ids": [
+        "sz5N9WJS310-07",
+        "sz5N9WJS310-08"
+      ],
+      "source_pedigree": "NPS 0.6pct per deferred month: official page; break-even is pure analytic simplification",
+      "assumptions": "100 nominal monthly benefit, 60-month 100% deferral, delayed monthly benefit=136, no indexed benefit/tax/health/lifespan/investment, payment starts next month",
+      "scenarios": [
+        {
+          "label": "FIVE_YEAR",
+          "inputs": {
+            "base_monthly": 100,
+            "months_deferred": 60,
+            "rate_per_month": 0.006
+          },
+          "expected": {
+            "delayed_monthly": 136,
+            "foregone_months_equivalent": 60,
+            "catch_up_months_after_restart": 166.66666666666669
+          }
+        }
+      ],
+      "empirical": false
+    },
+    {
+      "id": "V5_001_TAX_EXCLUDED_BASIS_BOUND",
+      "type": "PENSION_BASIS_CEILING",
+      "claim_ids": [
+        "sz5N9WJS310-13",
+        "sz5N9WJS310-14",
+        "sz5N9WJS310-15",
+        "sz5N9WJS310-16"
+      ],
+      "source_pedigree": "V4 original example 0.75m*240 contributions + four 100m assumed transfers; section 40-3 distinguishes taxable and tax-excluded sources",
+      "assumptions": "all contribution and ISA rollover money treated as maximum possible excluded candidate before proof of tax credit, fixed 4m per month, zero gains/losses/future transfers/fees; NOT certified tax-excluded balance",
+      "scenarios": [
+        {
+          "label": "CANDIDATE_BASIS_BEFORE_CREDIT",
+          "inputs": {
+            "monthly_contribution": 750000,
+            "contribution_months": 240,
+            "isa_transfers": 4,
+            "isa_each": 100000000,
+            "withdrawal_monthly": 4000000,
+            "total_valuation": 800000000
+          },
+          "expected": {
+            "possible_basis_upper_bound": 580000000,
+            "valuation_excess": 220000000,
+            "basis_only_months": 145,
+            "claimed_16_year_months": 192,
+            "withdraw_16y": 768000000,
+            "basis_shortfall_for_16y": 188000000
+          }
+        }
+      ],
+      "empirical": false
+    },
+    {
+      "id": "V5_001_TOPUP_SIMPLE_RECOVERY",
+      "type": "TOPUP_NOMINAL_RECOVERY",
+      "claim_ids": [
+        "sz5N9WJS310-01",
+        "sz5N9WJS310-03"
+      ],
+      "source_pedigree": "V3 historical speaker hypothetical; no NPS case-level evidence",
+      "assumptions": "18m lump sum vs 250k/month benefit increment, not discounted; starts after actual pension commencement unknown, no time value/tax/mortality",
+      "scenarios": [
+        {
+          "label": "SPEAKER_SIMPLE_RATIO",
+          "inputs": {
+            "topup_amount": 18000000,
+            "incremental_monthly": 250000
+          },
+          "expected": {
+            "undiscounted_months_after_benefit_start": 72
+          }
+        }
+      ],
+      "empirical": false
+    },
+    {
+      "id": "V5_001_DISTRIBUTION_NAV_NEUTRAL",
+      "type": "DISTRIBUTION_NAV_IDENTITY",
+      "claim_ids": [
+        "sz5N9WJS310-02",
+        "sz5N9WJS310-15"
+      ],
+      "source_pedigree": "SEC investor education distribution vs NAV; illustrative arithmetic",
+      "assumptions": "100 pre-distribution NAV, 6 return-of-capital/distribution, no market move, no tax; accounting identity, not actual NAV path",
+      "scenarios": [
+        {
+          "label": "NEUTRAL_TRANSFER",
+          "inputs": {
+            "nav_before": 100,
+            "distribution": 6
+          },
+          "expected": {
+            "nav_after": 94,
+            "combined_nav_plus_cash": 100
+          }
+        }
+      ],
+      "empirical": false
+    }
+  ],
+  "empirical_dataset_records": [],
+  "empirical_explanation": "No real market time series or insured-contract-specific experience was ingested; do not assert strategic alpha, comparative superiority or sustainable distribution. NPS and tax rules are primary legal/administrative facts, not market backtests.",
+  "research_use": "BOUNDED_MECHANICAL_FACT_CHECK_ONLY",
+  "personal_data_used": false
+}
