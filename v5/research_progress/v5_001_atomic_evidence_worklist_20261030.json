@@ -921,7 +921,13 @@
       ],
       "actual_section_read_on": "2026-10-30",
       "support_type": "NARROW_SCOPE_FACT_ONLY",
-      "certifies_full_claim": false
+      "certifies_full_claim": false,
+      "section": "국민연금 추납(추후 납부)이 뭔가요? / 최대 119개월",
+      "excerpt": "최대 119개월까지 추납을 신청할 수 있습니다.",
+      "scope_note": "Does not verify 18m->250k per month actual subscriber estimate.",
+      "live_read_recorded_on": "2026-10-30",
+      "reviewed_by": "ChatGPT web official page",
+      "independent_full_claim_approval": false
     },
     {
       "id": "NPS_DELAY",
@@ -936,7 +942,13 @@
       ],
       "actual_section_read_on": "2026-10-30",
       "support_type": "NARROW_SCOPE_FACT_ONLY",
-      "certifies_full_claim": false
+      "certifies_full_claim": false,
+      "section": "연기연금 신청 / 1개월 0.6%, 최대 5년",
+      "excerpt": "최대 5년까지 연기하되 연기 1개월마다 0.6% 더하여 지급",
+      "scope_note": "Tax, longevity and forgone pension payments must be modeled.",
+      "live_read_recorded_on": "2026-10-30",
+      "reviewed_by": "ChatGPT web official page",
+      "independent_full_claim_approval": false
     },
     {
       "id": "NTS_PENSION",
@@ -950,7 +962,13 @@
       ],
       "actual_section_read_on": "2026-10-30",
       "support_type": "NARROW_SCOPE_FACT_ONLY",
-      "certifies_full_claim": false
+      "certifies_full_claim": false,
+      "section": "연금소득 과세표준 확정신고 / 사적연금 분리과세",
+      "excerpt": "연 1천500만원을 초과하는 경우에도",
+      "scope_note": "Taxable funding source, income threshold and election matter.",
+      "live_read_recorded_on": "2026-10-30",
+      "reviewed_by": "ChatGPT web official page",
+      "independent_full_claim_approval": false
     },
     {
       "id": "LAW_PENSION_ORDER",
@@ -966,7 +984,13 @@
       ],
       "actual_section_read_on": "2026-10-30",
       "support_type": "NARROW_SCOPE_FACT_ONLY",
-      "certifies_full_claim": false
+      "certifies_full_claim": false,
+      "section": "소득세법 시행령 제40조의3 제1항 / 일부 인출 순서",
+      "excerpt": "과세제외금액",
+      "scope_note": "The actual excluded basis requires verified tax records; does not equal account valuation.",
+      "live_read_recorded_on": "2026-10-30",
+      "reviewed_by": "ChatGPT web official page",
+      "independent_full_claim_approval": false
     },
     {
       "id": "LAW_PENSION_ELIGIBILITY",
@@ -982,7 +1006,13 @@
       ],
       "actual_section_read_on": "2026-10-30",
       "support_type": "NARROW_SCOPE_FACT_ONLY",
-      "certifies_full_claim": false
+      "certifies_full_claim": false,
+      "section": "소득세법 시행령 제40조의2 제3항 / 연금수령 요건",
+      "excerpt": "가입자가 55세 이후",
+      "scope_note": "Eligibility, 5-year condition with exceptions and annual pension withdrawal cap separate from 15m taxation threshold.",
+      "live_read_recorded_on": "2026-10-30",
+      "reviewed_by": "ChatGPT web official page",
+      "independent_full_claim_approval": false
     },
     {
       "id": "LAW_ISA",
@@ -997,7 +1027,13 @@
       ],
       "actual_section_read_on": "2026-10-30",
       "support_type": "NARROW_SCOPE_FACT_ONLY",
-      "certifies_full_claim": false
+      "certifies_full_claim": false,
+      "section": "조세특례제한법 제91조의18 제2항 / 비과세 한도",
+      "excerpt": "400만원",
+      "scope_note": "Eligibility can differ on opening/extension; not proof of a universal three-year rollover advantage.",
+      "live_read_recorded_on": "2026-10-30",
+      "reviewed_by": "ChatGPT web official page",
+      "independent_full_claim_approval": false
     },
     {
       "id": "SEC_DISTRIBUTION",
@@ -1013,10 +1049,17 @@
       ],
       "actual_section_read_on": "2026-10-30",
       "support_type": "NARROW_SCOPE_FACT_ONLY",
-      "certifies_full_claim": false
+      "certifies_full_claim": false,
+      "section": "SEC Investor Bulletin Fund Distributions / NAV and return of capital",
+      "excerpt": "A fund can perform poorly and still make distributions.",
+      "scope_note": "General disclosure / US investor education only, not statutory authority for Korean tax.",
+      "live_read_recorded_on": "2026-10-30",
+      "reviewed_by": "ChatGPT web official page",
+      "independent_full_claim_approval": false
     }
   ],
   "release_status": "RESEARCH_BLOCKED",
   "certified_claims_from_this_file": 0,
-  "personal_data_used": false
+  "personal_data_used": false,
+  "status_note": "Official source text was read and scoped to legal/administrative or distribution mechanics. No private SRT text was reopened, so atom-level verification remains blocked."
 }
