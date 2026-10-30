@@ -13,6 +13,7 @@ on:
       - "scripts/verify_v5_research_completion.py"
       - "scripts/verify_v5_research_pilot_001.py"
       - "scripts/verify_v5_001_research_progress.py"
+      - "scripts/verify_v5_001_private_srt.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -24,6 +25,7 @@ on:
       - "scripts/verify_v5_research_completion.py"
       - "scripts/verify_v5_research_pilot_001.py"
       - "scripts/verify_v5_001_research_progress.py"
+      - "scripts/verify_v5_001_private_srt.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -62,6 +64,10 @@ jobs:
         run: |
           python -m py_compile scripts/verify_v5_001_research_progress.py
           python -B scripts/verify_v5_001_research_progress.py --root . --self-test --plan
+      - name: Video 001 - verify raw source provenance hashes and core cue ranges (no private ZIP)
+        run: |
+          python -m py_compile scripts/verify_v5_001_private_srt.py
+          python -B scripts/verify_v5_001_private_srt.py --root . --self-test
       - name: Reject private asset files in V5
         shell: bash
         run: |
