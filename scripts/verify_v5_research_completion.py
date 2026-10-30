@@ -202,6 +202,15 @@ def verify(record, review, policy, review_digest, root=None):
                 need(refs and unit["evidence_refs"] and
                      unit["review_verdict"] in ("VERIFIED", "REFUTED"),
                      "unresolved material atomic statement")
+                real_evidence_ids = set(primary) | set(models) | set(empirical)
+                need(set(unit["evidence_refs"]) <= real_evidence_ids,
+                     "atomic evidence identifier does not exist")
+                for sid in unit["evidence_refs"]:
+                    evidence_claim_ids = (primary[sid]["claim_ids"] if sid in primary
+                                          else models[sid]["claim_ids"] if sid in models
+                                          else empirical[sid]["claim_ids"])
+                    need(set(refs) & set(evidence_claim_ids),
+                         "atomic evidence not linked to same core claim")
                 start, end = unit["source_cue_range"]
                 need(type(start) is int and type(end) is int and
                      0 <= start <= end < source_cue_count,
@@ -359,12 +368,13 @@ def self_test(root):
     good["release"].update(status="RESEARCH_COMPLETE",approved=True)
     need(verify(good,passed_review,policy,sha,root) == "RESEARCH_COMPLETE",
          "fictional valid completion structure rejected")
-    for mutation in ("missing_atomic", "missing_unit", "unmapped", "cue_gap", "unreviewed"):
+    for mutation in ("missing_atomic", "missing_unit", "unmapped", "cue_gap", "unreviewed", "orphan_evidence"):
         x = copy.deepcopy(good)
         if mutation == "missing_atomic": x.pop("atomic_coverage")
         elif mutation == "missing_unit": x["atomic_coverage"]["statements"] = []
         elif mutation == "unmapped": x["atomic_coverage"]["unmapped_material_statement_count"] = 1
         elif mutation == "cue_gap": x["atomic_coverage"]["statements"][0]["source_cue_range"] = [0,1]
+        elif mutation == "orphan_evidence": x["atomic_coverage"]["statements"][0]["evidence_refs"]=["NOT_REAL"]
         else: x["atomic_coverage"]["statements"][0]["review_verdict"] = "BLOCKED"
         try:
             verify(x,passed_review,policy,sha,root)
@@ -410,7 +420,7 @@ def self_test(root):
         else:
             raise ValueError("invalid research accepted in mutation " + str(i))
     return {"fictional_blocked_positive_test": 1, "fictional_complete_structure_test": 1,
-            "additional_positive_mutations_rejected": 8,
+            "additional_positive_mutations_rejected": 9,
             "negative_mutations_rejected": len(trials),
             "real_research_completed_by_test": 0}
 
