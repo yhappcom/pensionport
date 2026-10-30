@@ -78,14 +78,18 @@ def validate(a,p,b,root):
              "v5/templates/v5_one_turn_synthetic_example.json",
              "v5/evidence/V5_PUBLIC_EVIDENCE_20261030.json",
              "v5/policy/v5_private_suitability_contract_20261030.json",
-             "v5/ADVISORY_PUBLIC_EVIDENCE_AND_PRIVATE_GATE_20261030.md"}
+             "v5/ADVISORY_PUBLIC_EVIDENCE_AND_PRIVATE_GATE_20261030.md",
+             "v5/policy/research_completion_gate_v1.json",
+             "v5/RESEARCH_COMPLETION_GATE.md",
+             "v5/research_completion_001_010.json"}
     tracked={f.relative_to(root).as_posix() for f in (root/"v5").rglob("*") if f.is_file()}
     module_pattern=re.compile(r"v5/videos/v5_\d{3}_[A-Za-z0-9_-]{11}_advisory_review\.json$")
     extras=tracked-allowed
     retrofit_pattern=re.compile(r"v5/retrofit/v5_(00[1-9]|010)_[A-Za-z0-9_-]{11}_bounded_closeout\.json$")
     static_retrofit={"v5/retrofit/V5_001_010_CLOSEOUT_20261030.md",
                      "v5/retrofit/summary_20261030.json","v5/retrofit/policy_20261030.json"}
-    require(all(module_pattern.fullmatch(x) or retrofit_pattern.fullmatch(x) or x in static_retrofit for x in extras),
+    certificate_pattern=re.compile(r"v5/completion/v5_\\d{3}_[A-Za-z0-9_-]{11}_certificate\\.json$")
+    require(all(module_pattern.fullmatch(x) or certificate_pattern.fullmatch(x) or retrofit_pattern.fullmatch(x) or x in static_retrofit for x in extras),
             "unexpected V5 file; reject unreviewed private artifacts")
     require(allowed<=tracked,"required protected V5 policy or reports missing")
     for f in (root/"v5").rglob("*"):
