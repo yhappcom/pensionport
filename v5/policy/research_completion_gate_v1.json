@@ -1,0 +1,37 @@
+{
+  "schema": "RESEARCH_COMPLETENESS_V1",
+  "scope": "nonpersonal_public_research",
+  "effective_date": "2026-10-30",
+  "four_domains": [
+    "SOURCE_AND_CLAIMS",
+    "PRIMARY_EVIDENCE",
+    "QUANT_AND_EMPIRICAL",
+    "GENERAL_DECISION"
+  ],
+  "claim_types": [
+    "LEGAL_OR_PRODUCT",
+    "NUMERIC",
+    "STRATEGY_OR_PERFORMANCE",
+    "QUALITATIVE"
+  ],
+  "required_for_complete": [
+    "source_full_review",
+    "all_claim_ids_mapped",
+    "all_material_obligations_resolved",
+    "primary_source_provenance",
+    "required_quant_reproduced",
+    "strategy_empirical_provenance",
+    "counterexamples_and_comparators",
+    "independent_review",
+    "zero_material_blockers"
+  ],
+  "status_values": [
+    "RESEARCH_COMPLETE",
+    "RESEARCH_BLOCKED"
+  ],
+  "historical_001_010_certified": false,
+  "l3_personal_advice_approved": false,
+  "trade_execution_approved": false,
+  "private_data_allowed": false,
+  "notes": "CI structural verification is not independent fact checking. Published research requires actual evidence review."
+}
