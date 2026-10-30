@@ -29,6 +29,8 @@ on:
       - "scripts/v5_candidate_engine_v22_guarded.py"
       - "scripts/verify_v5_candidate_v22_guarded.py"
       - "scripts/evaluate_v5_candidate_v22_017_018.py"
+      - "scripts/v5_candidate_engine_v23.py"
+      - "scripts/evaluate_v5_candidate_v23.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -56,6 +58,8 @@ on:
       - "scripts/v5_candidate_engine_v22_guarded.py"
       - "scripts/verify_v5_candidate_v22_guarded.py"
       - "scripts/evaluate_v5_candidate_v22_017_018.py"
+      - "scripts/v5_candidate_engine_v23.py"
+      - "scripts/evaluate_v5_candidate_v23.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -142,6 +146,10 @@ jobs:
         run: |
           python -m py_compile scripts/evaluate_v5_candidate_v22_017_018.py
           python -B scripts/evaluate_v5_candidate_v22_017_018.py --root . --show-cases --self-test --assert-snapshot
+      - name: V2.3 full 344-case development regression, 18721 pairs and source integrity
+        run: |
+          python -m py_compile scripts/v5_candidate_engine_v23.py scripts/evaluate_v5_candidate_v23.py
+          python -B scripts/evaluate_v5_candidate_v23.py --root . --self-test --show-cases
       - name: Reject private asset files in V5
         shell: bash
         run: |
