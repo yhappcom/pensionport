@@ -133,7 +133,7 @@ def seed_state(seed, policy,root):
 
 def load_families(root):
     registry=read(root/FAMILIES)
-    names={x["id"] for x in registry["concept_families"]}
+    names={x["concept_id"] for x in registry["concept_families"]}
     need(len(names)==39,"historical 39 family taxonomy changed")
     return names
 
