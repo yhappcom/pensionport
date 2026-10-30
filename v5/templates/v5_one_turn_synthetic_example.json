@@ -1,0 +1,112 @@
+{
+  "schema_version": "V5_ONE_TURN_VIDEO_REVIEW_1.0",
+  "synthetic_example": true,
+  "video_number": 999,
+  "video_id": "ZZsynthetic",
+  "source": {
+    "kind": "SYNTHETIC_EXAMPLE_NO_ORIGINAL",
+    "archive_stored_privately": true,
+    "source_sha256": null,
+    "source_cue_count": null,
+    "raw_srt_read_and_hash_verified_this_turn": false,
+    "full_cue_review_this_turn": false,
+    "audio_checked": false,
+    "frames_checked": false,
+    "evidence_note": "Example only; no real private SRT or audio used."
+  },
+  "claims": [
+    {
+      "id": "ZZsynthetic-01",
+      "timecode": "00:00:00",
+      "legacy_verdict": "HYPOTHETICAL",
+      "current_review": "BLOCKED",
+      "independently_checked_this_turn": false,
+      "material": true,
+      "primary_source_ids": [],
+      "math_model_ids": [],
+      "positive_principle_allowed": false,
+      "scope_note": "Fictional demonstration claim with no source; never use as investment research."
+    }
+  ],
+  "primary_sources": [],
+  "primary_not_applicable_reason": "No actual video; this is only a schema fixture.",
+  "models": [],
+  "no_numeric_model_reason": "No actual investment subject or original source in this example.",
+  "decision_logic": {
+    "question": "Can a missing source ever support a recommendation?",
+    "owner_facts_needed": [
+      "investment_horizon"
+    ],
+    "no_action_if": "Always, while primary source is missing.",
+    "consider_alternative_if": "Only after objective proof becomes available, in a separately approved confidential review.",
+    "alternatives": [
+      {
+        "id": "NO_CHANGE",
+        "assumptions": "No action because no verified data.",
+        "risks": "Opportunity costs are not quantified.",
+        "costs": "Unverified.",
+        "taxes": "Unknown.",
+        "liquidity": "Unknown.",
+        "downside": "Unknown.",
+        "eligibility": "Not established."
+      },
+      {
+        "id": "ALTERNATIVE",
+        "assumptions": "Purely conceptual comparison, not recommended.",
+        "risks": "Unknown return process.",
+        "costs": "Unknown.",
+        "taxes": "Unknown.",
+        "liquidity": "Unknown.",
+        "downside": "Unknown.",
+        "eligibility": "Unverified."
+      }
+    ],
+    "counterexample": "A plausible-looking calculation can still use the wrong tax law or instrument.",
+    "decision_flip_conditions": "No change until evidence proves applicability.",
+    "baseline_is_same_horizon_and_currency": false
+  },
+  "cross_video": {
+    "related_claim_ids": [],
+    "known_blocked_ids": [],
+    "contradiction_checked": true,
+    "new_correction_required": false,
+    "correction_path": null
+  },
+  "empirical_validation": {
+    "historical_performance_claimed": false,
+    "market_data_provenance": "NONE",
+    "out_of_sample_tested": false,
+    "selection_bias_assessed": false,
+    "limitations": "No empirical forecast or performance certification."
+  },
+  "open_blockers": [
+    {
+      "id": "ZZsynthetic-SOURCE",
+      "claim_ids": [
+        "ZZsynthetic-01"
+      ],
+      "needed": "The real original media, if it existed.",
+      "blocks": "Any decision scenario or positive recommendation.",
+      "reopen_trigger": "New privately verified raw source becomes available."
+    }
+  ],
+  "one_turn_closeout": {
+    "all_feasible_work_done_this_turn": true,
+    "external_blockers_remaining": 1,
+    "result": "EVIDENCE_BLOCKED",
+    "max_use": "L1",
+    "generic_module_not_personalized": true,
+    "L3_approved": false,
+    "L4_approved": false,
+    "personal_facts_read": false,
+    "personal_facts_committed": false,
+    "unperformed_work_disclosed": [
+      "No source-backed claim exists in this synthetic schema example."
+    ],
+    "validation_status": "PENDING_CI"
+  },
+  "source_reference_paths": {
+    "prior_V3_analysis_event": null,
+    "prior_V4_research": null
+  }
+}

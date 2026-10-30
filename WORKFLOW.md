@@ -1,5 +1,9 @@
 # 박곰희TV 영상 학습 워크플로 — V3 단일 저장 (2026-10-08)
 
+## 2026-10-30 신규 V5 한 영상=한 턴 자문활용성 연구 계약
+
+본 프로젝트의 앞으로 신규 개별 영상 연구에서 [V5 한 턴 완결 연구 프로토콜](v5/ADVISORY_GRADE_ONE_TURN_PROTOCOL_20261030.md)을 반드시 수행한다. 원본 자료, 주장 전수, 실제 독립 공식 출처, 정량 계산 및 반례, 매수하지 않는 경우를 포함한 대안, 최신 적용 조건, 교차 영상 반박 및 OPEN 근거를 **가능한 한 모두 같은 한 턴에서 완료**한다. 비공개 외부 근거가 확보 불가능하면 해당 투자행동은 차단하고 연구/증거 보류를 정식 결과로 남긴다. 신규 영상은 V3/V4 기존 정책을 그대로 지키면서 별도 `v5/videos/v5_NNN_<video_id>_advisory_review.json`을 추가한다. **GitHub 개인 실제 데이터 업로드·개인 L3 투자추천 승인·주문/송금 기능 금지**. V5 신규 자동검사 `python -B scripts/verify_v5_one_turn_advisory_gate.py --root . --self-test`를 통과해야 한다. 기존 #1~#10 감사와 원본 기록은 소급 변경하지 않는다.
+
 ## 2026-10-30 V4 연구 품질·반박 차단 우선규칙
 
 **#11 이후 신규 V4 연구 시작 전 필수:** [V4 연구 시스템 품질·의사결정 활용 게이트](docs/V4_RESEARCH_SYSTEM_QUALITY_GATE_20261030.md)를 읽고 적용한다. 신규 심층 리뷰에는 `quality_gate` 근거/재검증 vs V3 재사용/세제원금 분리/지식 충돌·반박 전파/OPEN 차단/L1-L4 분리 기록을 추가한다. #1~#10은 소급 변경 없이 별도 [품질·반박 차단 원장](data/synthesis/investment_knowledge_v4/research_quality_controls_20261030.json)으로 보호한다. `CONTRADICTED` 원문 주장과 검증된 정정 원칙을 혼동하지 않는다. `V4_010_ORDINARY_PENSION_TAX`는 L2 가상 민감도 외 사용 금지. `python -B scripts/verify_v4_research_governance.py --self-test` / `--root .`를 CI와 함께 통과해야 한다. 이 규정은 원본 SRT 근거 및 V3/CI 안전 기준을 완화하지 않는다.

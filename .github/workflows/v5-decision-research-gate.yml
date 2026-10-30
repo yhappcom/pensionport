@@ -7,11 +7,13 @@ on:
     paths:
       - "v5/**"
       - "scripts/verify_v5_reaudit.py"
+      - "scripts/verify_v5_one_turn_advisory_gate.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
       - "v5/**"
       - "scripts/verify_v5_reaudit.py"
+      - "scripts/verify_v5_one_turn_advisory_gate.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -26,6 +28,10 @@ jobs:
         run: |
           python -m py_compile scripts/verify_v5_reaudit.py
           python -B scripts/verify_v5_reaudit.py --root . --self-test
+      - name: Validate mandatory one-turn research modules and adversarial cases
+        run: |
+          python -m py_compile scripts/verify_v5_one_turn_advisory_gate.py
+          python -B scripts/verify_v5_one_turn_advisory_gate.py --root . --self-test
       - name: Reject private asset files in V5
         shell: bash
         run: |

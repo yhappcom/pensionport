@@ -1,0 +1,79 @@
+{
+  "schema_version": "V5_ONE_TURN_ADVISORY_RESEARCH_POLICY_1.0",
+  "effective_date": "2026-10-30",
+  "scope": "NONPERSONAL_VIDEO_DECISION_MODULES_ONLY",
+  "minimum_video_number": 11,
+  "source_of_truth": "prior V3/V4 immutable; original SRT/private archive never committed",
+  "one_turn_contract": [
+    "Retrieve the exact private original SRT when accessible, hash raw bytes and map every material cue",
+    "Reconcile all V3 claim IDs with approved, qualified, hypothetical, contradicted or blocked statuses",
+    "Independently read relevant current primary sources, effective dates and exceptions; document material contradictions",
+    "Compute and independently verify all material numbers with semantic/legal suitability and counterfactuals; do not substitute pure arithmetic for economics",
+    "Use a common baseline and NO_CHANGE comparator, include costs, tax, liquidity, downside and change-of-decision conditions",
+    "Check cross-video contradictions and update only nonpersonal V5 derivatives; block inherited CONTRADICTED claims",
+    "Perform feasible follow-up evidence work in the SAME research turn; label third-party/private truly inaccessible evidence with proof category and exact decision block",
+    "Finish report, atomic Git commit, readback and CI for that exact commit; state outcome not action permission"
+  ],
+  "module_release_levels": {
+    "DECISION_MODULE_READY_L2": "All material video-claim evidence and numeric calculations scoped; scenario-ready generic advice logic, NOT client recommendation",
+    "DECISION_MODULE_LIMITED_L2": "Generic conditional logic only; external/empirical gaps explicitly block affected actions",
+    "EVIDENCE_BLOCKED": "No material decision rule approved; inability to verify primary source or contradiction prevents hypothetical guidance"
+  },
+  "allowed_model_types": [
+    "DRAWDOWN_RECOVERY",
+    "COMPOUND_FV",
+    "FX_ROUND_TRIP",
+    "CASH_RESERVE"
+  ],
+  "required_scenario_labels": [
+    "BASE",
+    "ADVERSE"
+  ],
+  "required_decision_comparison": [
+    "NO_CHANGE",
+    "ALTERNATIVE"
+  ],
+  "mandatory_domains": [
+    "costs",
+    "taxes",
+    "liquidity",
+    "downside",
+    "eligibility"
+  ],
+  "test_input": "No numerical private user data; models use synthetic assumptions or public independently sourced data only",
+  "mandatory_methods": [
+    "PRIMARY_SOURCE_CHECK",
+    "MODEL_ARITHMETIC_REPRODUCTION",
+    "SEMANTIC_VALIDITY",
+    "CONTRADICTION_GATE",
+    "COUNTEREXAMPLE",
+    "NO_CHANGE_COMPARATOR",
+    "EVIDENCE_LIMITS",
+    "PRIVACY_FILTER",
+    "FINAL_CI"
+  ],
+  "invalid_success_claims": [
+    "VIDEO_ANALYSIS_COMPLETE_EQUALS_PERSONAL_ADVICE",
+    "MATH_PASS_EQUALS_L3",
+    "SOURCE_LINK_WITHOUT_READ_EQUALS_PRIMARY",
+    "HISTORICAL_CLAIM_EQUALS_CURRENT_TAX",
+    "GITHUB_CI_EQUALS_SUITABILITY",
+    "PENDING_CI_EQUALS_PUBLISHED"
+  ],
+  "personal_owner_inputs": [
+    "investment_horizon",
+    "risk_capacity_and_tolerance",
+    "emergency_reserve",
+    "debt_and_liquidity",
+    "account_eligibility",
+    "tax_basis",
+    "position_lookthrough_and_cost"
+  ],
+  "personal_inputs_storage": "OUTSIDE_GITHUB_ONLY",
+  "L3_approved": false,
+  "L4_approved": false,
+  "auto_trade": false,
+  "auto_portfolio_read": false,
+  "future_new_video_module_glob": "v5/videos/v5_NNN_YOUTUBEID_advisory_review.json",
+  "examples_are_synthetic_and_not_research_reviews": true
+}

@@ -72,9 +72,16 @@ def validate(a,p,b,root):
     require(all(not e["can_be_positive_basis"] and e["verdict"]=="CONTRADICTED" for e in p["blocked_source_claims"]),"blocked statuses")
     require(inv["blocked_contradicted_ids"]==len(bad) and len(seen)==122,"tallies")
     sensitive_walk(a);sensitive_walk(p)
-    allowed={"v5/README.md","v5/V5_REVIEW_001_010_20261030.md",NEW,POL}
+    allowed={"v5/README.md","v5/V5_REVIEW_001_010_20261030.md",NEW,POL,
+             "v5/ADVISORY_GRADE_ONE_TURN_PROTOCOL_20261030.md",
+             "v5/policy/v5_one_turn_advisory_research_policy_20261030.json",
+             "v5/templates/v5_one_turn_synthetic_example.json"}
     tracked={f.relative_to(root).as_posix() for f in (root/"v5").rglob("*") if f.is_file()}
-    require(tracked==allowed,"unexpected V5 file; reject unreviewed private artifacts")
+    module_pattern=re.compile(r"v5/videos/v5_\\d{3}_[A-Za-z0-9_-]{11}_advisory_review\\.json$")
+    extras=tracked-allowed
+    require(all(module_pattern.fullmatch(x) for x in extras),
+            "unexpected V5 file; reject unreviewed private artifacts")
+    require(allowed<=tracked,"required protected V5 policy or reports missing")
     for f in (root/"v5").rglob("*"):
         if f.is_file():
             require(f.suffix in (".md",".json"),"no binary/private file formats")
