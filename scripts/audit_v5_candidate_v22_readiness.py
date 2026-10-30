@@ -250,6 +250,15 @@ def main():
     args=p.parse_args()
     r=audit(args.root.resolve())
     if args.assert_snapshot:
+        gate=read(args.root/"v5/integration/v22_pre_new_video_gate_v1.json")
+        need(gate["schema"]=="V5_V22_PRE_NEW_VIDEO_FROZEN_CODE_GATE_V1" and
+             gate["proceed_to_unseen_video_eval_only"] is True and
+             gate["automatic_knowledge_approval"] is False and
+             gate["engine_retraining_allowed_on_unseen"] is False,
+             "frozen pre-unseen candidate research gate corrupted")
+        for p,sha in gate["protected_blobs"].items():
+            need(git_blob_sha(args.root/p)==sha,
+                 "review-controlled pre-unseen protected code or evidence changed: "+p)
         prior=read(args.root/AUDIT)
         # Never allow the audit to silently rewrite evidence of failures.
         need(prior==r,"frozen independent V2.2 pre-video audit changed")
