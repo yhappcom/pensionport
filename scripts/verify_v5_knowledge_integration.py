@@ -370,6 +370,12 @@ def load_legacy_claim_index(root):
     need(len(all_rows)==4120 and
          len({row["video_id"] for row in all_rows.values()})==253,
          "253 video/4,120 claim historical baseline mismatch")
+    need(len(irregular)==13 and
+         {x["claim_id"] for x in irregular}==
+         {f"71-PUBLIC-{i:02d}" for i in range(1,14)}
+         and all(x["roster_no"]==71 and
+                 x["video_id"]=="4vNF2fui5jc" for x in irregular),
+         "nonstandard historical claim IDs differ from documented #71 public proxy")
     # This is an original-v3 crosswalk. The curated 16 are only a sampled,
     # high-stakes synthesis of some of these immutable source events.
     return all_rows,parts,irregular
