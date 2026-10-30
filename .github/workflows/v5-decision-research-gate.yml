@@ -25,6 +25,7 @@ on:
       - "scripts/evaluate_v5_candidate_v21_015_016.py"
       - "scripts/v5_candidate_engine_v22.py"
       - "scripts/evaluate_v5_candidate_v22.py"
+      - "scripts/audit_v5_candidate_v22_readiness.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -48,6 +49,7 @@ on:
       - "scripts/evaluate_v5_candidate_v21_015_016.py"
       - "scripts/v5_candidate_engine_v22.py"
       - "scripts/evaluate_v5_candidate_v22.py"
+      - "scripts/audit_v5_candidate_v22_readiness.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -122,6 +124,10 @@ jobs:
         run: |
           python -m py_compile scripts/v5_candidate_engine_v22.py scripts/evaluate_v5_candidate_v22.py
           python -B scripts/evaluate_v5_candidate_v22.py --root . --show-cases --self-test --assert-snapshot
+      - name: Pre-new-video independent V2.2 audit - 22 synthetic probes and all 16110 pairs
+        run: |
+          python -m py_compile scripts/audit_v5_candidate_v22_readiness.py
+          python -B scripts/audit_v5_candidate_v22_readiness.py --root .
       - name: Reject private asset files in V5
         shell: bash
         run: |
