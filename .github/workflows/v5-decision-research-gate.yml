@@ -155,7 +155,7 @@ jobs:
       - name: Frozen V2.3 first-use #19-20 with 125 preregistered diagnostic cases, 22366 pairs
         run: |
           python -m py_compile scripts/evaluate_v5_candidate_v23_019_020.py
-          python -B scripts/evaluate_v5_candidate_v23_019_020.py --root . --show-cases --self-test
+          python -B scripts/evaluate_v5_candidate_v23_019_020.py --root . --show-cases --self-test --assert-snapshot
       - name: Reject private asset files in V5
         shell: bash
         run: |
