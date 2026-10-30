@@ -140,7 +140,7 @@ def load_families(root):
 def event_check(event,concepts,policy,root,source_cache,known_families,synthetic=False):
     required={"event_id","source_path","source_blob_sha","source_claim_id",
               "target_concept_id","relation","review_state","assessment",
-              "evidence_refs","blocked_reason","reopen_trigger",
+              "evidence_refs","evidence_blob_shas","blocked_reason","reopen_trigger",
               "supersedes_claim_id","certificate_path"}
     need(set(event)>=required and
          set(event)<=required|{"semantic_review","new_concept"},
@@ -186,8 +186,14 @@ def event_check(event,concepts,policy,root,source_cache,known_families,synthetic
     need(isinstance(event["evidence_refs"],list) and
          len(set(event["evidence_refs"]))==len(event["evidence_refs"]),
          "duplicated evidence reference")
-    need(all(x.startswith("v5/") and check_path(x,root)
-             for x in event["evidence_refs"]),"missing evidence link")
+    pins=event["evidence_blob_shas"]
+    need(isinstance(pins,dict) and
+         set(pins)==set(event["evidence_refs"]),
+         "all evidence references need immutable content SHA")
+    for ref in event["evidence_refs"]:
+        need(ref.startswith("v5/") and SHA1.fullmatch(pins[ref]) and
+             git_blob_sha(check_path(ref,root))==pins[ref],
+             "independent evidence artifact altered: "+ref)
     refid=event["supersedes_claim_id"]
     if event["relation"]=="SUPERSEDES":
         need(CLAIM.fullmatch(refid or "") is not None and
@@ -215,6 +221,16 @@ def event_check(event,concepts,policy,root,source_cache,known_families,synthetic
              (synthetic and cp=="v5/completion/SYNTHETIC_ONLY.json"
               or check_path(cp,root)),
              "trusted completion certificate path required")
+        if not synthetic:
+            cert=read(root/cp)
+            need(cert["video_id"]==vid and
+                 cert["release"]["status"]=="RESEARCH_COMPLETE" and
+                 cert["release"]["approved"] is True and
+                 claimid in {x["claim_id"] for x in cert["obligations"]},
+                 "completed certificate does not certify this exact source claim")
+        if synthetic:
+            need(cp=="v5/completion/SYNTHETIC_ONLY.json",
+                 "synthetic completion tests cannot use real file references")
     return source,verdict
 
 def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=False):
@@ -478,8 +494,10 @@ def synthetic_tests(root):
     x=copy.deepcopy(events);x[7]["relation"]="NEW_CONCEPT";changes.append(x)
     x=copy.deepcopy(events);x.append(copy.deepcopy(events[0]));x[-1]["event_id"]="V5-COMP-200";x[-1]["relation"]="QUALIFIES_SCOPE";changes.append(x)
     x=copy.deepcopy(events);x[1]["evidence_refs"]=["v5/nonexistent_proof.json"];changes.append(x)
+    x=copy.deepcopy(events);x[4]["evidence_blob_shas"]["v5/research_progress/v5_001_models_20261030.json"]="0"*40;changes.append(x)
+    x=copy.deepcopy(events);x[4]["evidence_blob_shas"]={};changes.append(x)
     for x in changes:no(x)
-    need(rejects==14,"negative mutations incomplete")
+    need(rejects==16,"negative mutations incomplete")
     # Fictional user-accepted review/synthetic certificate authorization ONLY in memory.
     x=copy.deepcopy(events)
     approved=x[7]
