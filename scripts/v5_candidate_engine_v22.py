@@ -107,6 +107,20 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
          "dividend_reinvest" in fa and "dividend_cashflow" not in fb)):
         veto.append("national_pension_numeric_example_vs_equity_dividend_reinvestment")
 
+    # A deterministic monthly-contribution compound-interest arithmetic
+    # correction is not itself an equity-dividend-reinvestment claim.
+    def fixed_contribution_arithmetic(t):
+        return bool(re.search(r"월\s*[\d,]+\s*만원",t) and
+                    re.search(r"\d+년",t) and
+                    re.search(r"연\s*\d+\s*%",t) and
+                    re.search(r"불일치|오류|잘못|계산",t) and
+                    "배당" not in t and "분배" not in t)
+    if ((fixed_contribution_arithmetic(a_text) and
+         "dividend_reinvest" in fb) or
+        (fixed_contribution_arithmetic(b_text) and
+         "dividend_reinvest" in fa)):
+        veto.append("fixed_monthly_contribution_arithmetic_vs_dividend_reinvestment")
+
     # Typed scope boundaries: same ETF or same recurring-buy words do not
     # imply the same economic action, eligibility, accounting or exposure.
     if _cross(fa,fb,"dividend_reinvest","pension_lump") and (
