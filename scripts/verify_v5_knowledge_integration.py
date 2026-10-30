@@ -360,7 +360,41 @@ def validate_repository(root):
          "real contradictions disappeared from review queue")
     need(v["approved_new_distinct_evidence_claim_ids"]==[],
          "unverified knowledge integrated into canonical view")
-    return v
+    # Future user-command-driven research must arrive WITH an explicit comparison
+    # package. CI never accepts a newly created review without its claim intake.
+    inbox=root/"v5/integration/incoming"
+    incoming=[]
+    if inbox.is_dir():
+        files=sorted(x for x in inbox.iterdir() if x.is_file())
+        need(all(x.suffix==".json" for x in files),
+             "unreviewed integration files in incoming queue")
+        for file in files:
+            data=read(file)
+            need(data["schema"]=="V5_INCREMENTAL_KNOWLEDGE_QUEUE_V1"
+                 and data["baseline_blob_sha"]==p["baseline_git_blob_sha"]
+                 and data["no_personal_data"] is True,
+                 "integration import is not based on immutable canonical schema")
+            need(len(data["events"])>0,"no empty integration event packages")
+            need(data["final_knowledge_approval_count"]==
+                 sum(x["review_state"]=="APPROVED" for x in data["events"]),
+                 "integration approvals count mismatches actual reviewed events")
+            privacy_guard(data)
+            incoming.extend(data["events"])
+    all_events=q["events"]+incoming
+    combined=compare_and_integrate(all_events,seed,p,root)
+    reviews_dir=root/"v5/videos"
+    reviews=sorted(reviews_dir.glob("v5_*_advisory_review.json")) if reviews_dir.is_dir() else []
+    if reviews:
+        seen={x["source_claim_id"] for x in all_events}
+        for path in reviews:
+            data=read(path)
+            expected={x["id"] for x in data["claims"]}
+            need(expected<=seen,
+                 "new research lacks historical integration proposal for claims: "+
+                 ",".join(sorted(expected-seen)[:8]))
+    combined["incoming_event_count"]=len(incoming)
+    combined["new_review_claims_covered"]=sum(len(read(p)["claims"]) for p in reviews)
+    return combined
 
 def synthetic_tests(root):
     """All simulated APPROVED items below have NO real completion certificate."""
@@ -463,6 +497,8 @@ def main():
     view=validate_repository(root)
     result={"gate":"PASS_STRUCTURAL_ONLY","baseline_concepts":view["baseline_concepts"],
             "baseline_distinct_claims":view["baseline_distinct_evidence_claims"],
+            "incoming_event_count":view["incoming_event_count"],
+            "new_review_claims_covered":view["new_review_claims_covered"],
             "statistics":view["statistics"],
             "unresolved_conflicts":view["active_unreviewed_conflicts"],
             "real_research_approvals":0}
