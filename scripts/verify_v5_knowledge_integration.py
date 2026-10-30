@@ -440,8 +440,14 @@ def synthetic_tests(root):
         "equivalence_reason":"Synthetic exercise of scoped tax-basis qualifier",
         "scope_conditions":"No claim about an actual legal interpretation",
         "counterevidence_checked":"This is never a legal approval"}
-    # Missing certificate file must still block on disk (even simulated).
-    no(x,{"sz5N9WJS310-13"})
+    # The production path must reject an invented certificate even if a tester
+    # supplies an otherwise plausible human-review assertion.
+    try:
+        compare_and_integrate(x,seed,policy,root)
+    except (ValueError,KeyError,TypeError):
+        rejects+=1
+    else:
+        raise ValueError("nonexistent real research completion certificate accepted")
     # To exercise the approved merge algorithm without an on-disk certificate,
     # inject a test-only read shim by creating fake in-memory approval path?
     # Do not bypass the file verifier for production. Instead build a
