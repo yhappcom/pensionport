@@ -48,11 +48,9 @@ def validate_bench(b,root):
     need(b["old_videos"]==14 and b["old_claims"]==155 and
          b["new_videos"]==2 and b["new_claims"]==25 and
          b["all_claims"]==180 and b["all_pairs"]==16110 and
-         b["new_involving_pairs"]==4175 and
-         b["baseline_refuted_claims"]==sorted(b["baseline_refuted_claims"]) if False else True,
+         b["new_involving_pairs"]==4175,
          "unexpected benchmark universe")
-    need(b["baseline_refuted_claims"]==list(BASE_REFUTED) if False else
-         set(b["baseline_refuted_claims"])==BASE_REFUTED,
+    need(set(b["baseline_refuted_claims"])==BASE_REFUTED,
          "historically contradicted claims changed")
     need(b["automatic_semantic_approval"] is False and
          b["labels_independently_adjudicated"] is False and
@@ -63,6 +61,20 @@ def validate_bench(b,root):
          [x["source_cues"] for x in b["source_videos"]]==[650,34] and
          all(x["refuted_claims"]==[] for x in b["source_videos"]),
          "unauthorized claim promotion or source provenance")
+    # Validate pinned original text ancestry even when validating mutated
+    # input, rather than trusting caller-supplied fingerprints.
+    index=read(root/"data/subtitles/content_index_001_070.json")["items"]
+    expected_blobs={
+        "uiauof6tOFk":"4845d61ee0d70fc45754d4ffa50a2ae02a8cd36c",
+        "Nueoi-_PH6o":"87ecf6b874e3cb15218b13da000ad787cffe2235",
+    }
+    for src in b["source_videos"]:
+        vid=src["video_id"];p=src["v3_path"]
+        need(p==f"data/analysis_events/{vid}.json" and
+             git_blob_sha(root/p)==src["v3_git_blob_sha"]==expected_blobs[vid] and
+             index[vid]["subtitle_sha256"]==src["registered_srt_sha256"] and
+             index[vid]["cue_count"]==src["source_cues"],
+             "V3 source or SRT fingerprint was modified")
     tests=b["tests"]
     need(len(tests)==89 and len({t["id"] for t in tests})==89,
          "holdout pair count/uniqueness corrupted")
