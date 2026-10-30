@@ -1,0 +1,623 @@
+{
+  "schema": "V5_CANDIDATE_V2_013_014_FIRST_USE_HOLDOUT_V1",
+  "created": "2026-10-30",
+  "evaluation_design": "Pre-specified manual targeted cross-video tests after freezing V2; neither randomly sampled nor independently blinded",
+  "basis": "FROZEN_V2_BEFORE_ANY_TEST_ON_13_14",
+  "engine_path": "scripts/v5_candidate_engine_v2.py",
+  "engine_git_blob_sha": "f37a84b832c6db085f0be2345094aad4a78f93f7",
+  "development_baseline_path": "v5/integration/v2_development_001_012_v1.json",
+  "old_claim_count": 137,
+  "new_claim_count": 18,
+  "total_claim_count": 155,
+  "old_pair_universe": 9316,
+  "new_pair_universe": 2619,
+  "total_pair_universe": 11935,
+  "new_video_sources": [
+    {
+      "video_number": 13,
+      "video_id": "keu5SvpD7KE",
+      "v3_path": "data/analysis_events/keu5SvpD7KE.json",
+      "v3_git_blob_sha": "7411c676af2ef83a0bb86a570981df6d85d4d0bb",
+      "claim_count": 9,
+      "registered_srt_sha256": "0c721cfabf019d565e3d0254c08c6bacabbf6fb41542df34fedd47f5e96e7f89",
+      "provenance": "registered 27 SRT cues match public transcript; audio numeric ambiguous, no independent audio",
+      "corrected_only_claim_ids": [
+        "keu5SvpD7KE-04",
+        "keu5SvpD7KE-06"
+      ]
+    },
+    {
+      "video_number": 14,
+      "video_id": "IMJfPgmnFwc",
+      "v3_path": "data/analysis_events/IMJfPgmnFwc.json",
+      "v3_git_blob_sha": "073ec0dc00311008ba87f49ee3aca9a9749edb91",
+      "claim_count": 9,
+      "registered_srt_sha256": "293f358e43a344a602869fef397bb58ddd0e10d83a906a14e8aff1e0bca40dd6",
+      "provenance": "49-cue user SRT unmatched to public Korean ASR; audio and frames not checked",
+      "corrected_only_claim_ids": [
+        "IMJfPgmnFwc-01",
+        "IMJfPgmnFwc-07"
+      ]
+    }
+  ],
+  "new_video_diags": [
+    {
+      "id": "NEW13-01",
+      "left": "keu5SvpD7KE-01",
+      "right": "OiDTNstaSpM-02",
+      "analyst_label": "QUALIFY",
+      "reason": "50세 이후 은퇴준비 시작과 은퇴 현금흐름 설계의 관계",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-02",
+      "left": "keu5SvpD7KE-01",
+      "right": "qtluAViPpsQ-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "50세 시작 가능성 대 청년 FIRE 직업능력 조언은 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-03",
+      "left": "keu5SvpD7KE-01",
+      "right": "6VEfKF7BzZU-01",
+      "analyst_label": "QUALIFY",
+      "reason": "ISA·연금저축을 재무계획 계좌로 선택하는 목적",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-04",
+      "left": "keu5SvpD7KE-01",
+      "right": "YNOSY15ppf8-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "은퇴 준비 계좌와 엔화 현금 보유는 다른 투자행위",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-05",
+      "left": "keu5SvpD7KE-02",
+      "right": "sz5N9WJS310-21",
+      "analyst_label": "QUALIFY",
+      "reason": "ISA 납입한도와 만기/연장 선택의 결합조건",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-06",
+      "left": "keu5SvpD7KE-02",
+      "right": "sz5N9WJS310-23",
+      "analyst_label": "QUALIFY",
+      "reason": "ISA 납입한도와 비과세 한도는 다른 계좌규칙",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-07",
+      "left": "keu5SvpD7KE-02",
+      "right": "6VEfKF7BzZU-02",
+      "analyst_label": "QUALIFY",
+      "reason": "ISA 목돈 목표와 실무 납입한도",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-08",
+      "left": "keu5SvpD7KE-02",
+      "right": "sz5N9WJS310-13",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "ISA 한도와 연금 공제원금 인출세제는 다른 제도",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-09",
+      "left": "keu5SvpD7KE-03",
+      "right": "6VEfKF7BzZU-03",
+      "analyst_label": "QUALIFY",
+      "reason": "연금저축·IRP 생애주기와 공제한도 구조",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-10",
+      "left": "keu5SvpD7KE-03",
+      "right": "VKr060rIirM-03",
+      "analyst_label": "QUALIFY",
+      "reason": "연금저축 세액공제 한도와 미공제 원금 과세제외 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-11",
+      "left": "keu5SvpD7KE-03",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "연금계좌 납입한도와 연금소득 과세기준은 별도 규칙",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-12",
+      "left": "keu5SvpD7KE-03",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "증여세 공제한도와 연금계좌 납입 공제의 법적 근거 다름",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-13",
+      "left": "keu5SvpD7KE-04",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "QUALIFY",
+      "reason": "원금 5년 합산 오류와 복리기간 오류는 정량모형 오류 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-14",
+      "left": "keu5SvpD7KE-04",
+      "right": "OfkY343OaNs-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "기여원금 합산의 계산과 엔화ETF 세금·배당은 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-15",
+      "left": "keu5SvpD7KE-05",
+      "right": "sz5N9WJS310-02",
+      "analyst_label": "QUALIFY",
+      "reason": "복리 7% 장기 적립/거치 결과는 초기원금·기간 조건에 종속",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-16",
+      "left": "keu5SvpD7KE-05",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "QUALIFY",
+      "reason": "복리 7년/10년 기초계산 오류와 10년 운용 가정 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-17",
+      "left": "keu5SvpD7KE-05",
+      "right": "OiDTNstaSpM-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "거치 복리 시나리오와 퇴직금 정액 분할투자는 서로 다른 방법",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-18",
+      "left": "keu5SvpD7KE-06",
+      "right": "sz5N9WJS310-15",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "월분배 원금·수익 보장 과장 사례의 정정관계",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-19",
+      "left": "keu5SvpD7KE-06",
+      "right": "OiDTNstaSpM-13",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "월배당 현금흐름 도구와 배당지속성 위험 검토",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-20",
+      "left": "keu5SvpD7KE-06",
+      "right": "sz5N9WJS310-16",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "월분배 세후·원금 잠식과 과세제외 원금 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-21",
+      "left": "keu5SvpD7KE-06",
+      "right": "4CQ4FjGT2gA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "과거 개인자산 증가 사례와 미래 분배수익 보장은 무관",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-22",
+      "left": "keu5SvpD7KE-07",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "QUALIFY",
+      "reason": "국민연금·위험자산 분배를 은퇴 현금흐름에 합산할 때 조건 분리",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-23",
+      "left": "keu5SvpD7KE-07",
+      "right": "sz5N9WJS310-08",
+      "analyst_label": "QUALIFY",
+      "reason": "국민연금 수령시점과 투자배당 비교의 세금·시간차",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-24",
+      "left": "keu5SvpD7KE-07",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "QUALIFY",
+      "reason": "법정 국민연금 연기 가산과 분배 투자수익률의 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-25",
+      "left": "keu5SvpD7KE-07",
+      "right": "6VEfKF7BzZU-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "CMA 보호와 국민연금 급여/분배금 계획은 서로 다른 주제",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-26",
+      "left": "keu5SvpD7KE-08",
+      "right": "OiDTNstaSpM-15",
+      "analyst_label": "QUALIFY",
+      "reason": "적립기 목표수익률과 은퇴기 현금흐름의 지속위험 관리",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-27",
+      "left": "keu5SvpD7KE-08",
+      "right": "sz5N9WJS310-15",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "월배당이 원금 보장·비과세가 아니라는 정정과 연계",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-28",
+      "left": "keu5SvpD7KE-08",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "자산배분으로 은퇴기 위험을 관리하는 필요조건",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-29",
+      "left": "keu5SvpD7KE-09",
+      "right": "aNfGrcO6WPI-02",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "일반적 격려와 개별 주식 매도조건은 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW13-30",
+      "left": "keu5SvpD7KE-09",
+      "right": "qtluAViPpsQ-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "50세 은퇴준비 격려와 청년 FIRE 가치관은 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-01",
+      "left": "IMJfPgmnFwc-01",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "가격 변동성과 영구손실 등 여러 위험을 자산배분 설명과 대조",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-02",
+      "left": "IMJfPgmnFwc-01",
+      "right": "3_9IXnycZ3s-04",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "ETF의 잔존 분산위험에 관한 별도 정정주장 연결",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-03",
+      "left": "IMJfPgmnFwc-01",
+      "right": "OfkY343OaNs-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "엔화 현금성 보유와 일본주식 신용·가격위험 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-04",
+      "left": "IMJfPgmnFwc-01",
+      "right": "YNOSY15ppf8-12",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "금융상품 변동성 위험과 엔화 환전 스프레드는 다른 명제",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-05",
+      "left": "IMJfPgmnFwc-02",
+      "right": "aNfGrcO6WPI-03",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "시세 앱 삭제/무조건 보유 주장과 조건부 점검·리밸런싱",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-06",
+      "left": "IMJfPgmnFwc-02",
+      "right": "aNfGrcO6WPI-02",
+      "analyst_label": "QUALIFY",
+      "reason": "투자 포인트 기반 매도판단과 리밸런싱 검사",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-07",
+      "left": "IMJfPgmnFwc-02",
+      "right": "aNfGrcO6WPI-04",
+      "analyst_label": "QUALIFY",
+      "reason": "감정적 매매 방지와 정기적 원칙 관리",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-08",
+      "left": "IMJfPgmnFwc-02",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "복리 기간 계산 오류와 매일 주가보기 문제는 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-09",
+      "left": "IMJfPgmnFwc-03",
+      "right": "aNfGrcO6WPI-05",
+      "analyst_label": "QUALIFY",
+      "reason": "3년 시장 사이클 일반화와 장기보유 수익 비보장",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-10",
+      "left": "IMJfPgmnFwc-03",
+      "right": "3_9IXnycZ3s-06",
+      "analyst_label": "QUALIFY",
+      "reason": "장기 과거지수 성과와 미래 ETF 성과 비보장",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-11",
+      "left": "IMJfPgmnFwc-03",
+      "right": "aNfGrcO6WPI-03",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "무조건 장기보유와 원금회복이 보장되지 않는 위험",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-12",
+      "left": "IMJfPgmnFwc-03",
+      "right": "4CQ4FjGT2gA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "과거 구독자 금융재산 성과와 시장 전체 보장 명제 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-13",
+      "left": "IMJfPgmnFwc-04",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "주식 채권 금 등의 분산과 남는 시장 위험",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-14",
+      "left": "IMJfPgmnFwc-04",
+      "right": "3MyhYE2jmuE-10",
+      "analyst_label": "QUALIFY",
+      "reason": "자녀 6:4 포트폴리오와 자산군별 상관·손실제약",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-15",
+      "left": "IMJfPgmnFwc-04",
+      "right": "3_9IXnycZ3s-04",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "S&P500 하나의 내부 종목 분산과 자산군 분산은 다름",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-16",
+      "left": "IMJfPgmnFwc-04",
+      "right": "qtluAViPpsQ-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "예산계좌 배분과 실제 주식·채권 투자위험 분산은 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-17",
+      "left": "IMJfPgmnFwc-05",
+      "right": "4CQ4FjGT2gA-13",
+      "analyst_label": "QUALIFY",
+      "reason": "집중매수 성공 일화와 단일기업 집중위험은 별도 평가",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-18",
+      "left": "IMJfPgmnFwc-05",
+      "right": "3_9IXnycZ3s-04",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "대형주 ETF의 섹터상위기업 집중과 개별 기업 집중위험",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-19",
+      "left": "IMJfPgmnFwc-05",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "집중투자와 다자산 분산의 손실위험 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-20",
+      "left": "IMJfPgmnFwc-05",
+      "right": "OiDTNstaSpM-10",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "오래된 보험계약 해지와 단일주식 집중위험은 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-21",
+      "left": "IMJfPgmnFwc-06",
+      "right": "3_9IXnycZ3s-07",
+      "analyst_label": "QUALIFY",
+      "reason": "ETF 투자설명서 및 거래비용/운용보수 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-22",
+      "left": "IMJfPgmnFwc-06",
+      "right": "3_9IXnycZ3s-06",
+      "analyst_label": "QUALIFY",
+      "reason": "ETF 총수익 계산에서 보수와 비용 누적 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-23",
+      "left": "IMJfPgmnFwc-06",
+      "right": "sz5N9WJS310-18",
+      "analyst_label": "QUALIFY",
+      "reason": "연금계좌 해외ETF 세제·거래비용과 운용보수 영향",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-24",
+      "left": "IMJfPgmnFwc-06",
+      "right": "YNOSY15ppf8-12",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "엔화 환전 우대 스프레드와 ETF 장기 운용보수는 다른 비용",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-25",
+      "left": "IMJfPgmnFwc-07",
+      "right": "6VEfKF7BzZU-09",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "ETF 패시브·액티브 구분에 관한 잘못된 전제 정정",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-26",
+      "left": "IMJfPgmnFwc-07",
+      "right": "3_9IXnycZ3s-02",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "S&P500 지수편입기준과 패시브 ETF 운용구조",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-27",
+      "left": "IMJfPgmnFwc-07",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "패시브/액티브 구분과 다자산 배분위험은 서로 다른 구조",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-28",
+      "left": "IMJfPgmnFwc-08",
+      "right": "3_9IXnycZ3s-04",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "ETF 내부 다수 보유 종목과 잔존 집중위험 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-29",
+      "left": "IMJfPgmnFwc-08",
+      "right": "6VEfKF7BzZU-08",
+      "analyst_label": "QUALIFY",
+      "reason": "대표지수 ETF 적립과 실제 ETF 분산 제약",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-30",
+      "left": "IMJfPgmnFwc-08",
+      "right": "OfkY343OaNs-02",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "일본 엔선물/국채 ETF 구조와 미국주식 ETF 분산효과 다름",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-31",
+      "left": "IMJfPgmnFwc-09",
+      "right": "OiDTNstaSpM-15",
+      "analyst_label": "QUALIFY",
+      "reason": "장기투자·저비용·분산 원칙을 은퇴기 위험관리와 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-32",
+      "left": "IMJfPgmnFwc-09",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "분산·자산배분 원칙과 투자위험 교육",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-33",
+      "left": "IMJfPgmnFwc-09",
+      "right": "qtluAViPpsQ-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "개별가계 계좌 납입 예산과 보편적 자산배분 원칙 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW14-34",
+      "left": "IMJfPgmnFwc-09",
+      "right": "3_9IXnycZ3s-06",
+      "analyst_label": "QUALIFY",
+      "reason": "장기투자/저비용 원칙과 과거수익률 미래보장 불가",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    }
+  ],
+  "auto_knowledge_approval": false,
+  "independent_gold": false
+}
