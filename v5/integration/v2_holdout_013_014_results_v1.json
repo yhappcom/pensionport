@@ -1,0 +1,1799 @@
+{
+  "approved_knowledge_merges": 0,
+  "auto_relation_labels": 0,
+  "cases": [
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "isa",
+          "market_risk",
+          "private_pension",
+          "retire"
+        ],
+        "facets_right": [
+          "benefit_timing",
+          "cashflow",
+          "retire"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-01",
+      "left": "keu5SvpD7KE-01",
+      "prediction": false,
+      "right": "OiDTNstaSpM-02",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "isa",
+          "market_risk",
+          "private_pension",
+          "retire"
+        ],
+        "facets_right": [
+          "retire"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-02",
+      "left": "keu5SvpD7KE-01",
+      "prediction": false,
+      "right": "qtluAViPpsQ-09",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "direct:isa"
+        ],
+        "facets_left": [
+          "isa",
+          "market_risk",
+          "private_pension",
+          "retire"
+        ],
+        "facets_right": [
+          "isa",
+          "liquidity",
+          "private_pension"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-03",
+      "left": "keu5SvpD7KE-01",
+      "prediction": true,
+      "right": "6VEfKF7BzZU-01",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "isa",
+          "market_risk",
+          "private_pension",
+          "retire"
+        ],
+        "facets_right": [
+          "fx",
+          "liquidity",
+          "yen",
+          "yen_route"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-04",
+      "left": "keu5SvpD7KE-01",
+      "prediction": false,
+      "right": "YNOSY15ppf8-04",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "direct:isa",
+          "isa_tax_benefit_vs_maturity_planning"
+        ],
+        "facets_left": [
+          "isa"
+        ],
+        "facets_right": [
+          "insurance_contract",
+          "isa",
+          "isa_benefit"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-05",
+      "left": "keu5SvpD7KE-02",
+      "prediction": true,
+      "right": "sz5N9WJS310-21",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "isa_tax_benefit_vs_maturity_planning"
+        ],
+        "facets_left": [
+          "isa"
+        ],
+        "facets_right": [
+          "isa_benefit",
+          "tax"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-06",
+      "left": "keu5SvpD7KE-02",
+      "prediction": true,
+      "right": "sz5N9WJS310-23",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "direct:isa"
+        ],
+        "facets_left": [
+          "isa"
+        ],
+        "facets_right": [
+          "isa"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-07",
+      "left": "keu5SvpD7KE-02",
+      "prediction": true,
+      "right": "6VEfKF7BzZU-02",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "isa"
+        ],
+        "facets_right": [
+          "pension_tax",
+          "tax",
+          "tax_education",
+          "tax_principal"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-08",
+      "left": "keu5SvpD7KE-02",
+      "prediction": false,
+      "right": "sz5N9WJS310-13",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "direct:pension_tax",
+          "pension_account_tax_link",
+          "pension_tax_explanation_to_year_end_tax"
+        ],
+        "facets_left": [
+          "pension_tax",
+          "private_pension",
+          "retire",
+          "tax",
+          "tax_education"
+        ],
+        "facets_right": [
+          "lifecycle",
+          "pension_tax",
+          "private_pension",
+          "tax",
+          "tax_education"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-09",
+      "left": "keu5SvpD7KE-03",
+      "prediction": true,
+      "right": "6VEfKF7BzZU-03",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "direct:pension_tax",
+          "pension_account_tax_link",
+          "pension_tax_explanation_to_year_end_tax"
+        ],
+        "facets_left": [
+          "pension_tax",
+          "private_pension",
+          "retire",
+          "tax",
+          "tax_education"
+        ],
+        "facets_right": [
+          "insurance_contract",
+          "pension_tax",
+          "private_pension",
+          "tax",
+          "tax_education",
+          "tax_principal"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-10",
+      "left": "keu5SvpD7KE-03",
+      "prediction": true,
+      "right": "VKr060rIirM-03",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "FP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "direct:pension_tax",
+          "pension_account_tax_link",
+          "pension_tax_explanation_to_year_end_tax"
+        ],
+        "facets_left": [
+          "pension_tax",
+          "private_pension",
+          "retire",
+          "tax",
+          "tax_education"
+        ],
+        "facets_right": [
+          "cashflow",
+          "pension_tax",
+          "private_pension",
+          "tax"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-11",
+      "left": "keu5SvpD7KE-03",
+      "prediction": true,
+      "right": "sz5N9WJS310-09",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "pension_tax",
+          "private_pension",
+          "retire",
+          "tax",
+          "tax_education"
+        ],
+        "facets_right": [
+          "child",
+          "gift",
+          "tax"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [
+          "gift_tax_vs_pension_tax"
+        ],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-12",
+      "left": "keu5SvpD7KE-03",
+      "prediction": false,
+      "right": "3MyhYE2jmuE-03",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-13",
+      "left": "keu5SvpD7KE-04",
+      "prediction": false,
+      "right": "sz5N9WJS310-06",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "asset_mix",
+          "equity_index",
+          "etf",
+          "etf_cost",
+          "tax"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-14",
+      "left": "keu5SvpD7KE-04",
+      "prediction": false,
+      "right": "OfkY343OaNs-09",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-15",
+      "left": "keu5SvpD7KE-05",
+      "prediction": false,
+      "right": "sz5N9WJS310-02",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-16",
+      "left": "keu5SvpD7KE-05",
+      "prediction": false,
+      "right": "sz5N9WJS310-06",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "cashflow",
+          "periodic_buy",
+          "retire"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-17",
+      "left": "keu5SvpD7KE-05",
+      "prediction": false,
+      "right": "OiDTNstaSpM-06",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "payout",
+          "tax",
+          "tax_principal"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-18",
+      "left": "keu5SvpD7KE-06",
+      "prediction": false,
+      "right": "sz5N9WJS310-15",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "cashflow",
+          "payout",
+          "retire"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-19",
+      "left": "keu5SvpD7KE-06",
+      "prediction": false,
+      "right": "OiDTNstaSpM-13",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "pension_tax",
+          "tax",
+          "tax_principal"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-20",
+      "left": "keu5SvpD7KE-06",
+      "prediction": false,
+      "right": "sz5N9WJS310-16",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-21",
+      "left": "keu5SvpD7KE-06",
+      "prediction": false,
+      "right": "4CQ4FjGT2gA-03",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "direct:national_pension",
+          "national_pension_retirement_income"
+        ],
+        "facets_left": [
+          "cashflow",
+          "market_risk",
+          "national_pension"
+        ],
+        "facets_right": [
+          "cashflow",
+          "national_pension",
+          "private_pension",
+          "retire"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-22",
+      "left": "keu5SvpD7KE-07",
+      "prediction": true,
+      "right": "OiDTNstaSpM-12",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "cashflow",
+          "market_risk",
+          "national_pension"
+        ],
+        "facets_right": [
+          "benefit_timing",
+          "cashflow",
+          "equity_risk",
+          "market_risk",
+          "tax"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-23",
+      "left": "keu5SvpD7KE-07",
+      "prediction": false,
+      "right": "sz5N9WJS310-08",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "direct:national_pension"
+        ],
+        "facets_left": [
+          "cashflow",
+          "market_risk",
+          "national_pension"
+        ],
+        "facets_right": [
+          "national_pension",
+          "return_quality"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-24",
+      "left": "keu5SvpD7KE-07",
+      "prediction": true,
+      "right": "sz5N9WJS310-07",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "cashflow",
+          "market_risk",
+          "national_pension"
+        ],
+        "facets_right": [
+          "liquidity"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-25",
+      "left": "keu5SvpD7KE-07",
+      "prediction": false,
+      "right": "6VEfKF7BzZU-06",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "market_risk",
+          "retire"
+        ],
+        "facets_right": [
+          "cashflow",
+          "market_risk",
+          "retire"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-26",
+      "left": "keu5SvpD7KE-08",
+      "prediction": false,
+      "right": "OiDTNstaSpM-15",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [
+          "market_risk",
+          "retire"
+        ],
+        "facets_right": [
+          "payout",
+          "tax",
+          "tax_principal"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-27",
+      "left": "keu5SvpD7KE-08",
+      "prediction": false,
+      "right": "sz5N9WJS310-15",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "market_risk",
+          "retire"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "equity_risk",
+          "etf",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-28",
+      "left": "keu5SvpD7KE-08",
+      "prediction": false,
+      "right": "4CQ4FjGT2gA-07",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "risk_discipline"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-29",
+      "left": "keu5SvpD7KE-09",
+      "prediction": false,
+      "right": "aNfGrcO6WPI-02",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "retire"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW13-30",
+      "left": "keu5SvpD7KE-09",
+      "prediction": false,
+      "right": "qtluAViPpsQ-09",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [
+          "account_limit",
+          "equity_risk",
+          "liquidity",
+          "market_risk"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "equity_risk",
+          "etf",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-01",
+      "left": "IMJfPgmnFwc-01",
+      "prediction": false,
+      "right": "4CQ4FjGT2gA-07",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [
+          "account_limit",
+          "equity_risk",
+          "liquidity",
+          "market_risk"
+        ],
+        "facets_right": [
+          "equity_index",
+          "equity_risk",
+          "etf",
+          "fx",
+          "fx_hedge",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-02",
+      "left": "IMJfPgmnFwc-01",
+      "prediction": false,
+      "right": "3_9IXnycZ3s-04",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [
+          "direct:liquidity"
+        ],
+        "facets_left": [
+          "account_limit",
+          "equity_risk",
+          "liquidity",
+          "market_risk"
+        ],
+        "facets_right": [
+          "fx",
+          "liquidity",
+          "market_risk",
+          "yen",
+          "yen_route"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-03",
+      "left": "IMJfPgmnFwc-01",
+      "prediction": true,
+      "right": "OfkY343OaNs-06",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [
+          "account_limit",
+          "equity_risk",
+          "liquidity",
+          "market_risk"
+        ],
+        "facets_right": [
+          "fx",
+          "yen"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-04",
+      "left": "IMJfPgmnFwc-01",
+      "prediction": false,
+      "right": "YNOSY15ppf8-12",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "market_risk",
+          "risk_discipline"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-05",
+      "left": "IMJfPgmnFwc-02",
+      "prediction": false,
+      "right": "aNfGrcO6WPI-03",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "risk_discipline"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-06",
+      "left": "IMJfPgmnFwc-02",
+      "prediction": false,
+      "right": "aNfGrcO6WPI-02",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [
+          "fx_timing",
+          "market_risk",
+          "risk_discipline"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-07",
+      "left": "IMJfPgmnFwc-02",
+      "prediction": false,
+      "right": "aNfGrcO6WPI-04",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [],
+        "facets_right": [],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-08",
+      "left": "IMJfPgmnFwc-02",
+      "prediction": false,
+      "right": "sz5N9WJS310-06",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "account_limit"
+        ],
+        "facets_right": [],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-09",
+      "left": "IMJfPgmnFwc-03",
+      "prediction": false,
+      "right": "aNfGrcO6WPI-05",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "account_limit"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "etf",
+          "etf_cost",
+          "fx",
+          "fx_hedge",
+          "market_risk",
+          "return_quality",
+          "tax"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-10",
+      "left": "IMJfPgmnFwc-03",
+      "prediction": false,
+      "right": "3_9IXnycZ3s-06",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [
+          "account_limit"
+        ],
+        "facets_right": [
+          "market_risk",
+          "risk_discipline"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-11",
+      "left": "IMJfPgmnFwc-03",
+      "prediction": false,
+      "right": "aNfGrcO6WPI-03",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "account_limit"
+        ],
+        "facets_right": [],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-12",
+      "left": "IMJfPgmnFwc-03",
+      "prediction": false,
+      "right": "4CQ4FjGT2gA-03",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "allocation_risk_context"
+        ],
+        "facets_left": [
+          "asset_mix",
+          "equity_risk",
+          "market_risk"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "equity_risk",
+          "etf",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-13",
+      "left": "IMJfPgmnFwc-04",
+      "prediction": true,
+      "right": "4CQ4FjGT2gA-07",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "allocation_risk_context"
+        ],
+        "facets_left": [
+          "asset_mix",
+          "equity_risk",
+          "market_risk"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "child",
+          "child_finance",
+          "equity_index",
+          "etf",
+          "lifecycle"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-14",
+      "left": "IMJfPgmnFwc-04",
+      "prediction": true,
+      "right": "3MyhYE2jmuE-10",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [
+          "asset_mix",
+          "equity_risk",
+          "market_risk"
+        ],
+        "facets_right": [
+          "equity_index",
+          "equity_risk",
+          "etf",
+          "fx",
+          "fx_hedge",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-15",
+      "left": "IMJfPgmnFwc-04",
+      "prediction": false,
+      "right": "3_9IXnycZ3s-04",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "asset_mix",
+          "equity_risk",
+          "market_risk"
+        ],
+        "facets_right": [
+          "isa",
+          "private_pension"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-16",
+      "left": "IMJfPgmnFwc-04",
+      "prediction": false,
+      "right": "qtluAViPpsQ-03",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "equity_risk",
+          "market_risk"
+        ],
+        "facets_right": [
+          "equity_risk",
+          "performance_story"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-17",
+      "left": "IMJfPgmnFwc-05",
+      "prediction": false,
+      "right": "4CQ4FjGT2gA-13",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [],
+        "facets_left": [
+          "equity_risk",
+          "market_risk"
+        ],
+        "facets_right": [
+          "equity_index",
+          "equity_risk",
+          "etf",
+          "fx",
+          "fx_hedge",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-18",
+      "left": "IMJfPgmnFwc-05",
+      "prediction": false,
+      "right": "3_9IXnycZ3s-04",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "equity_risk",
+          "market_risk"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "equity_risk",
+          "etf",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-19",
+      "left": "IMJfPgmnFwc-05",
+      "prediction": false,
+      "right": "4CQ4FjGT2gA-07",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "equity_risk",
+          "market_risk"
+        ],
+        "facets_right": [
+          "insurance_contract",
+          "payout"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-20",
+      "left": "IMJfPgmnFwc-05",
+      "prediction": false,
+      "right": "OiDTNstaSpM-10",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "etf",
+          "etf_cost"
+        ],
+        "facets_right": [
+          "account_limit",
+          "equity_index",
+          "equity_index_method",
+          "etf_cost",
+          "liquidity"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-21",
+      "left": "IMJfPgmnFwc-06",
+      "prediction": false,
+      "right": "3_9IXnycZ3s-07",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "etf_vehicle_cost_and_scope"
+        ],
+        "facets_left": [
+          "etf",
+          "etf_cost"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "etf",
+          "etf_cost",
+          "fx",
+          "fx_hedge",
+          "market_risk",
+          "return_quality",
+          "tax"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-22",
+      "left": "IMJfPgmnFwc-06",
+      "prediction": true,
+      "right": "3_9IXnycZ3s-06",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "etf_vehicle_cost_and_scope"
+        ],
+        "facets_left": [
+          "etf",
+          "etf_cost"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "equity_index",
+          "equity_risk",
+          "etf",
+          "etf_cost",
+          "liquidity",
+          "private_pension"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-23",
+      "left": "IMJfPgmnFwc-06",
+      "prediction": true,
+      "right": "sz5N9WJS310-18",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "etf",
+          "etf_cost"
+        ],
+        "facets_right": [
+          "fx",
+          "yen"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-24",
+      "left": "IMJfPgmnFwc-06",
+      "prediction": false,
+      "right": "YNOSY15ppf8-12",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [
+          "direct:equity_index",
+          "direct:equity_index_method",
+          "index_construction_vs_passive",
+          "index_methodology_scope"
+        ],
+        "facets_left": [
+          "equity_index",
+          "equity_index_method",
+          "etf"
+        ],
+        "facets_right": [
+          "equity_index",
+          "equity_index_method"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-25",
+      "left": "IMJfPgmnFwc-07",
+      "prediction": true,
+      "right": "6VEfKF7BzZU-09",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [
+          "direct:equity_index",
+          "direct:equity_index_method",
+          "index_construction_vs_passive",
+          "index_methodology_scope"
+        ],
+        "facets_left": [
+          "equity_index",
+          "equity_index_method",
+          "etf"
+        ],
+        "facets_right": [
+          "equity_index",
+          "equity_index_method"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-26",
+      "left": "IMJfPgmnFwc-07",
+      "prediction": true,
+      "right": "3_9IXnycZ3s-02",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "FP",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [
+          "index_exposure_vs_diversification"
+        ],
+        "facets_left": [
+          "equity_index",
+          "equity_index_method",
+          "etf"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "equity_risk",
+          "etf",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-27",
+      "left": "IMJfPgmnFwc-07",
+      "prediction": true,
+      "right": "4CQ4FjGT2gA-07",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "CORRECTION_REVIEW",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": true,
+        "evidence": [
+          "diversification_residual_risk",
+          "index_exposure_vs_diversification"
+        ],
+        "facets_left": [
+          "equity_risk",
+          "etf"
+        ],
+        "facets_right": [
+          "equity_index",
+          "equity_risk",
+          "etf",
+          "fx",
+          "fx_hedge",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-28",
+      "left": "IMJfPgmnFwc-08",
+      "prediction": true,
+      "right": "3_9IXnycZ3s-04",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "index_exposure_vs_diversification"
+        ],
+        "facets_left": [
+          "equity_risk",
+          "etf"
+        ],
+        "facets_right": [
+          "equity_index",
+          "etf",
+          "lifecycle",
+          "periodic_buy"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-29",
+      "left": "IMJfPgmnFwc-08",
+      "prediction": true,
+      "right": "6VEfKF7BzZU-08",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "equity_risk",
+          "etf"
+        ],
+        "facets_right": [
+          "fx",
+          "yen"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-30",
+      "left": "IMJfPgmnFwc-08",
+      "prediction": false,
+      "right": "OfkY343OaNs-02",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "FN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "asset_mix",
+          "equity_risk"
+        ],
+        "facets_right": [
+          "cashflow",
+          "market_risk",
+          "retire"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-31",
+      "left": "IMJfPgmnFwc-09",
+      "prediction": false,
+      "right": "OiDTNstaSpM-15",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "allocation_risk_context"
+        ],
+        "facets_left": [
+          "asset_mix",
+          "equity_risk"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "equity_risk",
+          "etf",
+          "market_risk"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-32",
+      "left": "IMJfPgmnFwc-09",
+      "prediction": true,
+      "right": "4CQ4FjGT2gA-07",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "TOPIC_ONLY",
+      "confusion": "TN",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [],
+        "facets_left": [
+          "asset_mix",
+          "equity_risk"
+        ],
+        "facets_right": [
+          "isa",
+          "private_pension"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-33",
+      "left": "IMJfPgmnFwc-09",
+      "prediction": false,
+      "right": "qtluAViPpsQ-03",
+      "semantic_merge_approved": false
+    },
+    {
+      "analyst_label": "QUALIFY",
+      "confusion": "TP",
+      "explanation": {
+        "correction_only": false,
+        "evidence": [
+          "allocation_risk_context"
+        ],
+        "facets_left": [
+          "asset_mix",
+          "equity_risk"
+        ],
+        "facets_right": [
+          "asset_mix",
+          "etf",
+          "etf_cost",
+          "fx",
+          "fx_hedge",
+          "market_risk",
+          "return_quality",
+          "tax"
+        ],
+        "legacy_was_candidate": false,
+        "review_only": true,
+        "scope_blocks": [],
+        "v2_version": "2.0.0"
+      },
+      "id": "NEW14-34",
+      "left": "IMJfPgmnFwc-09",
+      "prediction": true,
+      "right": "3_9IXnycZ3s-06",
+      "semantic_merge_approved": false
+    }
+  ],
+  "claims": 155,
+  "confusion": {
+    "FN": 25,
+    "FP": 2,
+    "TN": 18,
+    "TP": 19
+  },
+  "engine_frozen": true,
+  "existing_1_12_development_replay": {
+    "added_60": {
+      "confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 31,
+        "TP": 29
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    },
+    "old_38": {
+      "confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 8,
+        "TP": 30
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    }
+  },
+  "independently_generalizable": false,
+  "labels_independently_blinded": false,
+  "new_claims": 18,
+  "new_crosswalk_verdict_discrepancies": [],
+  "new_refuted_ids": [
+    "IMJfPgmnFwc-01",
+    "IMJfPgmnFwc-07",
+    "keu5SvpD7KE-04",
+    "keu5SvpD7KE-06"
+  ],
+  "new_research_complete_certificates": 0,
+  "pairs": {
+    "all": 11935,
+    "candidate_all": 876,
+    "candidate_new_involving": 133,
+    "new_involving": 2619
+  },
+  "per_video": {
+    "13": {
+      "FN": 11,
+      "FP": 1,
+      "TN": 10,
+      "TP": 8
+    },
+    "14": {
+      "FN": 14,
+      "FP": 1,
+      "TN": 8,
+      "TP": 11
+    }
+  },
+  "precision": 0.9047619047619048,
+  "recall": 0.4318181818181818,
+  "regression": {
+    "exact_deterministic_replay": true,
+    "negative_mutations_rejected": 9
+  },
+  "sample_size": 64,
+  "schema": "V5_CANDIDATE_V2_013_014_FIRST_USE_RESULT_V1",
+  "specificity": 0.9,
+  "videos": 14,
+  "benchmark_phase": "FIRST_USE_UNSEEN_VIDEO_DIAGNOSTIC_NO_ENGINE_RETUNING",
+  "captured_from": "https://github.com/yhappcom/pensionport/actions/runs/41027341332",
+  "assessment": "HOLDOUT_CANDIDATE_RETRIEVAL_FAIL_RECALL_43_2_PERCENT",
+  "frozen_engine_blob": "f37a84b832c6db085f0be2345094aad4a78f93f7",
+  "source_analysis_not_recertified": true,
+  "readiness_for_automatic_semantic_integration": false
+}
