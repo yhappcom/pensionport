@@ -1,7 +1,7 @@
 {
   "schema": "V5_INCREMENTAL_KNOWLEDGE_QUEUE_V1",
   "as_of": "2026-10-30",
-  "purpose": "Actual V3 #1/#205 regression of incremental comparison; these are candidate links, not new independent fact approvals",
+  "purpose": "Real V3 #1/#205 and exceptional #71 public-proxy historical reconciliation without claim rewrites",
   "baseline_blob_sha": "a8ff1e39ea803c8cdeec08a1b1d876bce91c4278",
   "events": [
     {
@@ -143,6 +143,22 @@
       "evidence_blob_shas": {
         "v5/research_progress/v5_001_models_20261030.json": "26c0a1bedb7ccb53ea2a65a05b26f2f7b2d34937"
       }
+    },
+    {
+      "event_id": "V5-COMP-009",
+      "source_path": "data/analysis_events/4vNF2fui5jc.json",
+      "source_blob_sha": "d78eb9626dc7cb1e11db2bfa93479c3b50b12972",
+      "source_claim_id": "71-PUBLIC-01",
+      "target_concept_id": "FORECAST_COMPOUND_RETURN",
+      "relation": "TOPIC_ONLY",
+      "review_state": "PENDING_REVIEW",
+      "assessment": "#71 public-caption proxy discusses avoiding forecast reliance; it is not automatically the same proposition as investment return forecast compounding, and original SRT/audio have source limits",
+      "evidence_refs": [],
+      "evidence_blob_shas": {},
+      "blocked_reason": "Legacy nonstandard source ID must remain intact; semantic equivalence and original media are not independently confirmed",
+      "reopen_trigger": "Independent cue/meaning review, not keyword overlap alone",
+      "supersedes_claim_id": null,
+      "certificate_path": null
     }
   ],
   "all_entries_research_complete": false,
