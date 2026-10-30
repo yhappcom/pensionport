@@ -8,12 +8,14 @@ on:
       - "v5/**"
       - "scripts/verify_v5_reaudit.py"
       - "scripts/verify_v5_one_turn_advisory_gate.py"
+      - "scripts/verify_v5_legacy_closeout.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
       - "v5/**"
       - "scripts/verify_v5_reaudit.py"
       - "scripts/verify_v5_one_turn_advisory_gate.py"
+      - "scripts/verify_v5_legacy_closeout.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -32,6 +34,10 @@ jobs:
         run: |
           python -m py_compile scripts/verify_v5_one_turn_advisory_gate.py
           python -B scripts/verify_v5_one_turn_advisory_gate.py --root . --self-test
+      - name: V5 001-010 original source, arithmetic and evidence limitations
+        run: |
+          python -m py_compile scripts/verify_v5_legacy_closeout.py
+          python -B scripts/verify_v5_legacy_closeout.py --root . --self-test
       - name: Reject private asset files in V5
         shell: bash
         run: |

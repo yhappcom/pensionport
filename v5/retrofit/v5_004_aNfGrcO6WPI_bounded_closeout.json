@@ -1,0 +1,185 @@
+{
+  "schema_version": "V5_001_010_BOUND_CLOSEOUT_1.0",
+  "review_date": "2026-10-30",
+  "video_number": 4,
+  "video_id": "aNfGrcO6WPI",
+  "source": {
+    "private_archive_location": "PRIVATE_GOOGLE_DRIVE_ONLY",
+    "raw_srt_reopened_and_sha256_recomputed_this_turn": true,
+    "source_sha256": "853db2d4f01ab71bbc4f86b46714f4341aa32aa2bc07416f705a937b620ea12b",
+    "cue_count": 758,
+    "cues_parsed_this_turn": true,
+    "all_cues_manually_understood": false,
+    "full_human_semantic_review_completed": false,
+    "original_audio_verified": false,
+    "original_video_frames_verified": false,
+    "source_cue_contexts_read": 3
+  },
+  "claim_coverage": {
+    "expected_legacy_claim_count": 6,
+    "claims": [
+      {
+        "id": "aNfGrcO6WPI-01",
+        "timecode": "00:02:16",
+        "verdict": "HYPOTHETICAL",
+        "srt_context_read_this_turn": false,
+        "new_independent_factual_truth_proven": false,
+        "primary_scope_refs": [],
+        "use": "L1_L2_CONDITIONAL_ONLY",
+        "personal_advice_approved": false
+      },
+      {
+        "id": "aNfGrcO6WPI-02",
+        "timecode": "00:04:13",
+        "verdict": "QUALIFIED",
+        "srt_context_read_this_turn": false,
+        "new_independent_factual_truth_proven": false,
+        "primary_scope_refs": [],
+        "use": "L1_L2_CONDITIONAL_ONLY",
+        "personal_advice_approved": false
+      },
+      {
+        "id": "aNfGrcO6WPI-03",
+        "timecode": "00:06:01",
+        "verdict": "CONTRADICTED",
+        "srt_context_read_this_turn": true,
+        "new_independent_factual_truth_proven": false,
+        "primary_scope_refs": [
+          "SEC_PERFORMANCE"
+        ],
+        "use": "CORRECTION_ONLY_NOT_POSITIVE",
+        "personal_advice_approved": false
+      },
+      {
+        "id": "aNfGrcO6WPI-04",
+        "timecode": "00:09:26",
+        "verdict": "QUALIFIED",
+        "srt_context_read_this_turn": false,
+        "new_independent_factual_truth_proven": false,
+        "primary_scope_refs": [],
+        "use": "L1_L2_CONDITIONAL_ONLY",
+        "personal_advice_approved": false
+      },
+      {
+        "id": "aNfGrcO6WPI-05",
+        "timecode": "00:11:52",
+        "verdict": "HYPOTHETICAL",
+        "srt_context_read_this_turn": true,
+        "new_independent_factual_truth_proven": false,
+        "primary_scope_refs": [
+          "SEC_PERFORMANCE"
+        ],
+        "use": "L1_L2_CONDITIONAL_ONLY",
+        "personal_advice_approved": false
+      },
+      {
+        "id": "aNfGrcO6WPI-06",
+        "timecode": "00:14:56",
+        "verdict": "HYPOTHETICAL",
+        "srt_context_read_this_turn": true,
+        "new_independent_factual_truth_proven": false,
+        "primary_scope_refs": [],
+        "use": "L1_L2_CONDITIONAL_ONLY",
+        "personal_advice_approved": false
+      }
+    ],
+    "source_truth_independently_reverified_claim_count": 0,
+    "prior_V4_rechecked": 5,
+    "reused_V3_without_new_V4_check": 1
+  },
+  "primary_checks": [
+    {
+      "ref_id": "SEC_PERFORMANCE",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47",
+      "actual_page_read_this_turn": true,
+      "checked_on": "2026-10-30",
+      "condition": "Applies only to the stated official law/product/factual scope, not automatic personal suitability",
+      "supported_claim_ids": [
+        "aNfGrcO6WPI-03",
+        "aNfGrcO6WPI-05"
+      ]
+    }
+  ],
+  "decision_model": {
+    "id": "V5_CLOSEOUT_004",
+    "type": "DRAWDOWN_RECOVERY",
+    "units": "fraction",
+    "synthetic_only": true,
+    "scenarios": [
+      {
+        "label": "BASE",
+        "inputs": [
+          0.4
+        ],
+        "expected": 0.6666666666666667
+      },
+      {
+        "label": "ADVERSE",
+        "inputs": [
+          0.6
+        ],
+        "expected": 1.4999999999999998
+      }
+    ],
+    "semantics": "Arithmetic validated in CI independently; scenario comparison is NOT forecast, historical model, legal tax calculation or owner-specific recommendation",
+    "model_limit": "-40% 회복 필요 +66.7%, -60% 회복 +150%; 앱 삭제·3년 회복신념은 자문 근거 아님"
+  },
+  "decision_context": {
+    "topic": "물린 주식·손실회복·보유/매도",
+    "core_risk_or_counterexample": "-40% 회복 필요 +66.7%, -60% 회복 +150%; 앱 삭제·3년 회복신념은 자문 근거 아님",
+    "NO_CHANGE": {
+      "description": "No product/portfolio change; opportunity cost, existing risks and tax unknown",
+      "costs": "UNKNOWN",
+      "taxes": "UNKNOWN",
+      "liquidity": "UNKNOWN",
+      "downside": "UNKNOWN",
+      "eligibility": "UNKNOWN"
+    },
+    "ALTERNATIVE": {
+      "description": "Illustrative action category, never personal execution; compare same initial currency, holding period, risk and total cost",
+      "costs": "REAL_SPREAD_AND_FEES_MISSING",
+      "taxes": "REAL_APPLICABILITY_MISSING",
+      "liquidity": "REAL_OWNER_HORIZON_MISSING",
+      "downside": "ADVERSE_MODEL_IS_NOT_PROBABILISTIC",
+      "eligibility": "ACTUAL_ACCOUNT_AND_CONTRACT_NOT_VERIFIED"
+    },
+    "private_proof_needed": "발행사 실적·부도위험·매매세금·유동성·감내손실",
+    "blocked_investor_action": "실제 종목 무조건 홀딩·손절·교체",
+    "flip_condition": "Only if independent issuer/legal/product verification, costs, owner suitability and comparable scenarios change the conditional conclusion"
+  },
+  "cross_video": {
+    "related_video_ids": [
+      2,
+      5,
+      7
+    ],
+    "blocked_legacy_claim_ids": [
+      "aNfGrcO6WPI-03"
+    ],
+    "contradicted_positive_reuse": false
+  },
+  "external_blockers": [
+    {
+      "id": "4-OPEN-1",
+      "status": "EXTERNAL_OPEN",
+      "required_source": "See immutable V4 individual deep review; obtain item-specific audiovisual/contract/tax/market evidence",
+      "reopen": "Actual independent original audio or legal/economic proof obtained",
+      "personal_decision_blocked": true
+    },
+    {
+      "id": "4-OPEN-2",
+      "status": "EXTERNAL_OPEN",
+      "required_source": "See immutable V4 individual deep review; obtain item-specific audiovisual/contract/tax/market evidence",
+      "reopen": "Actual independent original audio or legal/economic proof obtained",
+      "personal_decision_blocked": true
+    }
+  ],
+  "evidence_status": "V5_SOURCE_HASH_CONFIRMED_WITH_LIMITED_SEMANTIC_REVIEW",
+  "decision_status": "DECISION_MODULE_LIMITED_L2",
+  "generic_research_turn_closed_with_limitations": true,
+  "L3_personalized_approved": false,
+  "L4_execution_approved": false,
+  "personal_input_read": false,
+  "personal_data_in_github": false,
+  "original_V3_V4_files_unchanged": true
+}
