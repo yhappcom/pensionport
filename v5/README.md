@@ -21,3 +21,13 @@
 
 ## 외부근거와 비공개 개인 적합성 분리
 [공개 근거 검증 및 실제 자문 차단조건](ADVISORY_PUBLIC_EVIDENCE_AND_PRIVATE_GATE_20261030.md) / [공개 출처 원장](evidence/V5_PUBLIC_EVIDENCE_20261030.json) / [개인자료 없는 적합성 입력 규약](policy/v5_private_suitability_contract_20261030.json). 외부 개인 자료와 판단 결과는 GitHub에 절대 저장하지 않는다.
+
+## 새 필수 완료 승인 엔진 — 2026-10-30
+
+- [완결성 계약·운영 지침](RESEARCH_COMPLETION_GATE.md)
+- [판정 정책](policy/research_completion_gate_v1.json)
+- [#1~#10 미승인 상태 기록](research_completion_001_010.json)
+- 실행: `python -B scripts/verify_v5_research_completion.py --root . --self-test`
+- #11 이후의 `v5/videos/v5_NNN_<id>_advisory_review.json`은 `v5/completion/v5_NNN_<id>_certificate.json`과 쌍을 이루어야 하며, 원문 연구 결과 SHA256과 주장 ID 전체를 검증한다.
+- `RESEARCH_COMPLETE`는 4대 검증영역 모두 통과·중요 미해결 0건·실제 전략 실증·별도 출처심사 조건을 만족할 때만 가능. `RESEARCH_BLOCKED`의 CI 통과는 연구 완료가 아니다.
+- 원문·공식자료의 실질적 참·거짓은 GitHub Actions의 구조 검사만으로 인증되지 않는다. 최종 연구 승인 시에는 비판적 독립 근거 심사를 추가 수행해야 한다.
