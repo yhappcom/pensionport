@@ -26,6 +26,8 @@ on:
       - "scripts/v5_candidate_engine_v22.py"
       - "scripts/evaluate_v5_candidate_v22.py"
       - "scripts/audit_v5_candidate_v22_readiness.py"
+      - "scripts/v5_candidate_engine_v22_guarded.py"
+      - "scripts/verify_v5_candidate_v22_guarded.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -50,6 +52,8 @@ on:
       - "scripts/v5_candidate_engine_v22.py"
       - "scripts/evaluate_v5_candidate_v22.py"
       - "scripts/audit_v5_candidate_v22_readiness.py"
+      - "scripts/v5_candidate_engine_v22_guarded.py"
+      - "scripts/verify_v5_candidate_v22_guarded.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -128,6 +132,10 @@ jobs:
         run: |
           python -m py_compile scripts/audit_v5_candidate_v22_readiness.py
           python -B scripts/audit_v5_candidate_v22_readiness.py --root .
+      - name: V2.2 guarded provenance required - all 16110 candidates, twelve invalid source mutations
+        run: |
+          python -m py_compile scripts/v5_candidate_engine_v22_guarded.py scripts/verify_v5_candidate_v22_guarded.py
+          python -B scripts/verify_v5_candidate_v22_guarded.py --root .
       - name: Reject private asset files in V5
         shell: bash
         run: |
