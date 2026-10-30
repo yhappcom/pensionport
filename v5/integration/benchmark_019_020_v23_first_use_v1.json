@@ -1,0 +1,1181 @@
+{
+  "schema": "V5_CANDIDATE_V23_FIRST_USE_019_020_PREREGISTERED_DIAGNOSTIC_V1",
+  "preregistration_date": "2026-10-31",
+  "policy": "COMMIT_BEFORE_FIRST_EXECUTION_OF_FROZEN_V23_ON_19_20_AND_KEEP_IMMUTABLE",
+  "risk": "Analyst-selected diagnostic cases; no independently blinded adjudicators, no probability sampling; rates not population generalizable.",
+  "engine_path": "scripts/v5_candidate_engine_v23.py",
+  "frozen_engine_git_blob_sha": "be73e778b7851ba440e40c85629f2f89b6da3648",
+  "frozen_evaluator_git_blob_sha": "c4fe1df36c8dc8ed59003a1d1ad23c27f959bb5c",
+  "dev_snapshot": "v5/integration/v23_development_001_018_v1.json",
+  "frozen_v22_first_use_path": "v5/integration/v22_first_use_017_018_results_v1.json",
+  "prior_video_count": 18,
+  "prior_claim_count": 194,
+  "new_video_count": 2,
+  "new_claim_count": 18,
+  "total_video_count": 20,
+  "total_claim_count": 212,
+  "possible_pairs": 22366,
+  "new_involving_pairs": 3645,
+  "primary_audio_checked_during_this_test": false,
+  "new_video_sources": [
+    {
+      "number": 19,
+      "id": "zi9x_q2fYoc",
+      "event_path": "data/analysis_events/zi9x_q2fYoc.json",
+      "event_git_blob_sha": "8fbb48dbff06389f69223fdcbdc94241b960d3e4",
+      "registered_srt_sha256": "e7284caf3d5cee58a202ad29e88a39c57973d5f181dda018f47852a9f23200f3",
+      "srt_cues": 1134,
+      "claim_count": 12,
+      "contradicted_claim_ids": [
+        "zi9x_q2fYoc-12"
+      ],
+      "limits": "Original historical private SRT SHA checked in prior research; full audio/frame not checked; credit-union/cooperative product tax and 30 year 2.13m payout remain unverified/contradictory arithmetic."
+    },
+    {
+      "number": 20,
+      "id": "inLlZgtS7qs",
+      "event_path": "data/analysis_events/inLlZgtS7qs.json",
+      "event_git_blob_sha": "2f4970972f3dc8a9144c001f4e1a8c3a18e553fa",
+      "registered_srt_sha256": "c563107dd5479eba7b36e3b7ead388ed74d8ef5bb2c4207e616396749c9d5b77",
+      "srt_cues": 31,
+      "claim_count": 6,
+      "contradicted_claim_ids": [],
+      "limits": "Prior registered user SRT checksum confirmed historically; audio and frames not independently checked; tax deduction amount depends on personal tax liability and applicable law."
+    }
+  ],
+  "diagnostic_count": 125,
+  "group_sizes": {
+    "NEW19": 60,
+    "NEW20": 40,
+    "CROSS19-20": 25
+  },
+  "positive_expected": 69,
+  "negative_expected": 56,
+  "tests": [
+    {
+      "id": "NEW19-001",
+      "left": "zi9x_q2fYoc-01",
+      "right": "4CQ4FjGT2gA-01",
+      "analyst_label": "QUALIFY",
+      "rationale": "공무원 부부가 연금·ISA 등 여러 금융계좌를 함께 관리하는 가구 재무 구조 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-002",
+      "left": "zi9x_q2fYoc-01",
+      "right": "3MyhYE2jmuE-11",
+      "analyst_label": "QUALIFY",
+      "rationale": "부부공무원 자녀증여 사연과 자녀 장기 증여 설계의 관련성 검토",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-003",
+      "left": "zi9x_q2fYoc-01",
+      "right": "sz5N9WJS310-04",
+      "analyst_label": "QUALIFY",
+      "rationale": "연금·ISA 복합 가계설계의 은퇴기·저축기 목표를 구분",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-004",
+      "left": "zi9x_q2fYoc-01",
+      "right": "YNOSY15ppf8-05",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원 연금과 자녀계좌 사연은 엔화 현찰 환전 수수료와 무관",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-005",
+      "left": "zi9x_q2fYoc-01",
+      "right": "IMJfPgmnFwc-07",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원 부부 종합상담과 ETF 패시브·액티브 지수 방법론은 다른 명제",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-006",
+      "left": "zi9x_q2fYoc-02",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 공무원·정부 부담률 9%와 국민연금 연기 수령 가산율 7.2%는 다른 제도",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-007",
+      "left": "zi9x_q2fYoc-02",
+      "right": "keu5SvpD7KE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 9% 기여율과 개인 연금계좌 연 1800만원 납입 한도는 별도 규칙",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-008",
+      "left": "zi9x_q2fYoc-02",
+      "right": "VKr060rIirM-04",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 기여율과 사적연금 수령 시 3/4/5% 과세율은 다른 비율",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-009",
+      "left": "zi9x_q2fYoc-02",
+      "right": "nCXWFko0TaA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공적연금 납부율과 퇴직연금 5~7% 투자 기대수익률은 분리",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-010",
+      "left": "zi9x_q2fYoc-02",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 기여율과 사적연금 인출 1500만원 세법은 다르다",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-011",
+      "left": "zi9x_q2fYoc-03",
+      "right": "OiDTNstaSpM-02",
+      "analyst_label": "QUALIFY",
+      "rationale": "공무원 퇴직 시 연금 수령까지 소득공백에 대응한 생활비 시점 설계",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-012",
+      "left": "zi9x_q2fYoc-03",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "QUALIFY",
+      "rationale": "공무원연금 수급시점과 은퇴 후 공적·사적연금 현금흐름 합산",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-013",
+      "left": "zi9x_q2fYoc-03",
+      "right": "sz5N9WJS310-08",
+      "analyst_label": "QUALIFY",
+      "rationale": "국민연금 즉시수령·연기수령 선택과 공무원연금 개시시점 차이 검토",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-014",
+      "left": "zi9x_q2fYoc-03",
+      "right": "nCXWFko0TaA-07",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 개시연령 65세와 사적연금 연1500만원 과세판정은 다른 제도",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-015",
+      "left": "zi9x_q2fYoc-03",
+      "right": "CvM8Os4ltfE-05",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 소득공백과 만기매칭 채권ETF 최소거래금액은 무관",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-016",
+      "left": "zi9x_q2fYoc-04",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 지급률 1.9→1.7과 국민연금 연기연금 7.2% 가산은 다른 산식",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-017",
+      "left": "zi9x_q2fYoc-04",
+      "right": "keu5SvpD7KE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 개혁 기여율과 개인연금 일반 납입한도 구분",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-018",
+      "left": "zi9x_q2fYoc-04",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "2015 공무원연금 지급률 변화와 사적연금 소득세 과세기준은 별개의 법",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-019",
+      "left": "zi9x_q2fYoc-04",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 개혁과 미성년 자녀 증여공제는 무관",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-020",
+      "left": "zi9x_q2fYoc-04",
+      "right": "VKr060rIirM-05",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 지급률 변화와 일반계좌 과세율 비교 오류는 다른 영역",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-021",
+      "left": "zi9x_q2fYoc-05",
+      "right": "3MyhYE2jmuE-12",
+      "analyst_label": "QUALIFY",
+      "rationale": "매월 저축금 적립의 장기 복리 미래잔고 모델을 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-022",
+      "left": "zi9x_q2fYoc-05",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "월적립과 기간·복리 잔액의 산식 검증을 반박된 원금·수익 오류와 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-023",
+      "left": "zi9x_q2fYoc-05",
+      "right": "nCXWFko0TaA-04",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "연4% 25년 적립 모형과 5~7% 10년 두배 오류의 수치 가정 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-024",
+      "left": "zi9x_q2fYoc-05",
+      "right": "qtluAViPpsQ-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "월60만원 적립의 미래가치 계산과 월100만원 계좌예산 배분은 다른 문제",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-025",
+      "left": "zi9x_q2fYoc-05",
+      "right": "YNOSY15ppf8-12",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공제회 연4% 적립과 엔화 현찰 환전 스프레드 1.75%는 다르다",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-026",
+      "left": "zi9x_q2fYoc-06",
+      "right": "nCXWFko0TaA-05",
+      "analyst_label": "QUALIFY",
+      "rationale": "3억원 공제회 30년 월지급 추정과 연6% 월220만원 ETF 분배가정의 지속성·계산 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-027",
+      "left": "zi9x_q2fYoc-06",
+      "right": "keu5SvpD7KE-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "원금·지속성 보장 없이 가정 분배율을 월액으로 환산한 사례 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-028",
+      "left": "zi9x_q2fYoc-06",
+      "right": "sz5N9WJS310-15",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "장기 월지급액 계산과 원금 무손실·장기 무과세 단정 오류 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-029",
+      "left": "zi9x_q2fYoc-06",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "QUALIFY",
+      "rationale": "공제회 월지급액 포함 공적·사적연금의 노후 총현금흐름 산정",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-030",
+      "left": "zi9x_q2fYoc-06",
+      "right": "CvM8Os4ltfE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "30년 공제회 월지급 추정치와 S&P500 ETF 소수점 주문은 무관",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-031",
+      "left": "zi9x_q2fYoc-07",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "연7% 월적립 미래잔고와 잘못된 7년 월적립 계산의 검증",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-032",
+      "left": "zi9x_q2fYoc-07",
+      "right": "3MyhYE2jmuE-12",
+      "analyst_label": "QUALIFY",
+      "rationale": "장기 복리 투자 미래가치 모델과 실제 납입기간·세금 한계 검토",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-033",
+      "left": "zi9x_q2fYoc-07",
+      "right": "nCXWFko0TaA-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "퇴직연금 5~7% 10년 가정과 개인연금 7% 25년 수익률 불확실성 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-034",
+      "left": "zi9x_q2fYoc-07",
+      "right": "keu5SvpD7KE-05",
+      "analyst_label": "QUALIFY",
+      "rationale": "연7% 10년 복리와 연7% 25년 월적립 결과의 가정 차이 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-035",
+      "left": "zi9x_q2fYoc-07",
+      "right": "3_9IXnycZ3s-08",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "월95만원 25년 연금 적립 미래가치와 ETF 한주 만원가격은 다른 계산",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-036",
+      "left": "zi9x_q2fYoc-08",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "QUALIFY",
+      "rationale": "사적연금 1500만원 과세기준과 법정 연금수령한도 구별",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-037",
+      "left": "zi9x_q2fYoc-08",
+      "right": "sz5N9WJS310-10",
+      "analyst_label": "QUALIFY",
+      "rationale": "사적연금 1500만원 초과의 별도 과세 선택 및 대상소득 분리",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-038",
+      "left": "zi9x_q2fYoc-08",
+      "right": "nCXWFko0TaA-07",
+      "analyst_label": "QUALIFY",
+      "rationale": "공적연금·퇴직소득·사적연금의 1500만원 과세범위 구분",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-039",
+      "left": "zi9x_q2fYoc-08",
+      "right": "VKr060rIirM-04",
+      "analyst_label": "QUALIFY",
+      "rationale": "적격 연금 수령 세율과 사적연금 1500만원 초과 과세의 관계",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-040",
+      "left": "zi9x_q2fYoc-08",
+      "right": "keu5SvpD7KE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "사적연금 인출 소득세 기준 1500만원과 연간 연금계좌 납입한도 1800만원은 다른 규칙",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-041",
+      "left": "zi9x_q2fYoc-09",
+      "right": "VKr060rIirM-07",
+      "analyst_label": "QUALIFY",
+      "rationale": "공제회 지급 관련 과세와 사적연금 과세이연의 제도차이 검토",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-042",
+      "left": "zi9x_q2fYoc-09",
+      "right": "sz5N9WJS310-17",
+      "analyst_label": "QUALIFY",
+      "rationale": "공제회 인출 저율과세와 국내ETF 일반계좌 분배금 과세를 구별",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-043",
+      "left": "zi9x_q2fYoc-09",
+      "right": "nCXWFko0TaA-07",
+      "analyst_label": "QUALIFY",
+      "rationale": "공제회 저율과세·건보료 논점과 공적연금·퇴직연금 과세재원을 분리",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-044",
+      "left": "zi9x_q2fYoc-09",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공제회 세율·건보료 제도와 국민연금 연기 7.2% 인상은 무관",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-045",
+      "left": "zi9x_q2fYoc-09",
+      "right": "CvM8Os4ltfE-05",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공제회 세율/보험료 적용과 채권 ETF 한주 가격은 별도 문제",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-046",
+      "left": "zi9x_q2fYoc-10",
+      "right": "OiDTNstaSpM-02",
+      "analyst_label": "QUALIFY",
+      "rationale": "60세 은퇴 후 공적연금 개시까지 생활비 재원 설계",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-047",
+      "left": "zi9x_q2fYoc-10",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "QUALIFY",
+      "rationale": "노후 공적·사적연금 합산 시점을 고려한 지출 계획",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-048",
+      "left": "zi9x_q2fYoc-10",
+      "right": "sz5N9WJS310-08",
+      "analyst_label": "QUALIFY",
+      "rationale": "국민연금 지급 개시/연기와 사적연금 인출 시점의 상호대조",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-049",
+      "left": "zi9x_q2fYoc-10",
+      "right": "nCXWFko0TaA-06",
+      "analyst_label": "QUALIFY",
+      "rationale": "국민연금과 사적ETF 배당을 합산한 은퇴 현금흐름 조건",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-050",
+      "left": "zi9x_q2fYoc-10",
+      "right": "keu5SvpD7KE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공적연금 소득공백 메우기와 사적연금 연간 납입한도 1800만원은 다른 제약",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-051",
+      "left": "zi9x_q2fYoc-11",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "미성년 자녀 증여재산공제 2000만원 10년 단위의 동일 규칙",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-052",
+      "left": "zi9x_q2fYoc-11",
+      "right": "3MyhYE2jmuE-11",
+      "analyst_label": "QUALIFY",
+      "rationale": "출생/10세 증여 스케줄과 10년 단위 2000만원 공제한도 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-053",
+      "left": "zi9x_q2fYoc-11",
+      "right": "3MyhYE2jmuE-13",
+      "analyst_label": "QUALIFY",
+      "rationale": "직계존속 증여 공제와 기타친족 증여 공제의 한도 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-054",
+      "left": "zi9x_q2fYoc-11",
+      "right": "VKr060rIirM-04",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "미성년 증여 2000만원 공제와 연금 수령 나이별 소득세율 3·4·5%는 다르다",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-055",
+      "left": "zi9x_q2fYoc-11",
+      "right": "sz5N9WJS310-23",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "미성년 증여공제와 ISA 만기 비과세 200만원은 다른 세금특례",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-056",
+      "left": "zi9x_q2fYoc-12",
+      "right": "nCXWFko0TaA-05",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "6~8% 원금보전 가정의 반박과 월220만원 ETF 분배의 지급지속성 대조",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-057",
+      "left": "zi9x_q2fYoc-12",
+      "right": "nCXWFko0TaA-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "은퇴기 현금흐름 안정성 오해와 원금불변 무기한 월분배 반박",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-058",
+      "left": "zi9x_q2fYoc-12",
+      "right": "keu5SvpD7KE-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "연6% 월분배를 안정적으로 영구수령한다는 과장과 관련 반박",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-059",
+      "left": "zi9x_q2fYoc-12",
+      "right": "sz5N9WJS310-15",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "분배금의 장기 무세금·무손실 단정과 원금영구유지 단정의 위험 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW19-060",
+      "left": "zi9x_q2fYoc-12",
+      "right": "OfkY343OaNs-11",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "원금 유지 무기한 분배 주장과 엔화로 일본 개별주식 주문하는 경로는 별개",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-001",
+      "left": "inLlZgtS7qs-01",
+      "right": "sz5N9WJS310-23",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 세제특례와 만기재가입/연금전환의 세액공제 조건 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-002",
+      "left": "inLlZgtS7qs-01",
+      "right": "6VEfKF7BzZU-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "연금저축과 IRP 세액공제 제도에서 ISA 전환 추가 특례의 성격",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-003",
+      "left": "inLlZgtS7qs-01",
+      "right": "VKr060rIirM-07",
+      "analyst_label": "QUALIFY",
+      "rationale": "연금의 미공제 원금·과세이연·세액공제 메커니즘 차이",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-004",
+      "left": "inLlZgtS7qs-01",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 만기 전환 세액공제 추가 300만원과 사적연금 인출과세 1500만원은 다르다",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-005",
+      "left": "inLlZgtS7qs-01",
+      "right": "keu5SvpD7KE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 전환 10% 추가공제와 일반 연금계좌 연1800만원 납입한도는 별도 규칙",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-006",
+      "left": "inLlZgtS7qs-01",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 전환 특례와 국민연금 법정 연기율은 독립",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-007",
+      "left": "inLlZgtS7qs-01",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 전환 세액공제와 미성년 증여 공제는 서로 다른 세법 목적",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-008",
+      "left": "inLlZgtS7qs-02",
+      "right": "sz5N9WJS310-23",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 만기 재가입과 비과세 재활용 조건 검토",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-009",
+      "left": "inLlZgtS7qs-02",
+      "right": "sz5N9WJS310-22",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 중도해지·만기정산 시점과 과세손익 처리방식 검토",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-010",
+      "left": "inLlZgtS7qs-02",
+      "right": "6VEfKF7BzZU-01",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA·연금저축 계좌를 함께 활용하는 금융자금 분배 설계",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-011",
+      "left": "inLlZgtS7qs-02",
+      "right": "qtluAViPpsQ-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 만기 5000만원 중 전환액 선택과 월100만원 가구 저축예산은 별개",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-012",
+      "left": "inLlZgtS7qs-02",
+      "right": "nCXWFko0TaA-02",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 만기 이전 3000만원과 은퇴자의 퇴직·개인연금 합산원금은 서로 다른 자금원천",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-013",
+      "left": "inLlZgtS7qs-02",
+      "right": "YNOSY15ppf8-04",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 만기자금 이전과 은행 직접 엔화 환전은 다른 현금흐름",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-014",
+      "left": "inLlZgtS7qs-02",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 재가입/연금이전과 미성년 증여공제는 무관",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-015",
+      "left": "inLlZgtS7qs-03",
+      "right": "keu5SvpD7KE-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "연금계좌 세액공제 기준과 일반납입 한도 간 구분 및 ISA 추가공제",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-016",
+      "left": "inLlZgtS7qs-03",
+      "right": "6VEfKF7BzZU-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "연금저축·IRP 합산 세액공제에 ISA 전환 추가공제 연결",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-017",
+      "left": "inLlZgtS7qs-03",
+      "right": "VKr060rIirM-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "연금저축 세액공제/미공제 원금의 과세재원 구분",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-018",
+      "left": "inLlZgtS7qs-03",
+      "right": "sz5N9WJS310-13",
+      "analyst_label": "QUALIFY",
+      "rationale": "공제받은 납입원금과 미공제 원금 분리 요건",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-019",
+      "left": "inLlZgtS7qs-03",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 추가 세액공제 1200만원과 연금소득 1500만원 인출과세는 별개",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-020",
+      "left": "inLlZgtS7qs-03",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "연금 공제대상 1200만원과 자녀 증여공제 2000만원은 다른 세제",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-021",
+      "left": "inLlZgtS7qs-04",
+      "right": "6VEfKF7BzZU-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "연금계좌 공제와 근로자 실제 결정세액에 따른 환급가능액 관련",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-022",
+      "left": "inLlZgtS7qs-04",
+      "right": "VKr060rIirM-01",
+      "analyst_label": "QUALIFY",
+      "rationale": "공제 대상 근로소득 유무와 연금저축 가입·세액공제 활용 조건",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-023",
+      "left": "inLlZgtS7qs-04",
+      "right": "VKr060rIirM-07",
+      "analyst_label": "QUALIFY",
+      "rationale": "기본 연금 공제 메커니즘과 16.5% 소득조건별 공제율 적용",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-024",
+      "left": "inLlZgtS7qs-04",
+      "right": "sz5N9WJS310-10",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "납입액 세액공제율 16.5%와 사적연금 인출초과 별도과세율 논의는 별개",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-025",
+      "left": "inLlZgtS7qs-04",
+      "right": "VKr060rIirM-04",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "연금저축 세액공제율 16.5%와 연금 수령 시 3~5% 소득세율은 다른 시점",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-026",
+      "left": "inLlZgtS7qs-04",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 전환 세액공제율과 국민연금 연기연금 7.2%는 별도",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-027",
+      "left": "inLlZgtS7qs-04",
+      "right": "nCXWFko0TaA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "연금 세액공제 198만원과 은퇴자금 가정 투자수익률 5~7%는 다르다",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-028",
+      "left": "inLlZgtS7qs-05",
+      "right": "sz5N9WJS310-22",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 만기·해지 기준의 손익통산 및 정산시점 조건",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-029",
+      "left": "inLlZgtS7qs-05",
+      "right": "sz5N9WJS310-23",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 반복재가입과 세제혜택 기회가 계약 만기와 결합되는 조건",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-030",
+      "left": "inLlZgtS7qs-05",
+      "right": "6VEfKF7BzZU-01",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 활용 기본 교육과 실제 만기 후 연금전환 경로의 조건",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-031",
+      "left": "inLlZgtS7qs-05",
+      "right": "keu5SvpD7KE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 만기 후 전환 신청 기한과 연금계좌 일반 납입한도는 다른 규칙",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-032",
+      "left": "inLlZgtS7qs-05",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 전환 신청 기한과 사적연금 인출과세 1500만원은 무관",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-033",
+      "left": "inLlZgtS7qs-05",
+      "right": "OfkY343OaNs-09",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 만기 연금전환 신청기간과 일본상장 미국ETF 배당 과세는 별도",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-034",
+      "left": "inLlZgtS7qs-05",
+      "right": "3MyhYE2jmuE-11",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 전환 시한과 자녀 증여 10년 스케줄은 무관",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-035",
+      "left": "inLlZgtS7qs-06",
+      "right": "VKr060rIirM-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "세액공제받지 않은 연금 납입원금은 과세제외 재원이라는 원칙",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-036",
+      "left": "inLlZgtS7qs-06",
+      "right": "VKr060rIirM-07",
+      "analyst_label": "QUALIFY",
+      "rationale": "연금세액공제 및 미공제납입금 세무취급 간 차이",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-037",
+      "left": "inLlZgtS7qs-06",
+      "right": "sz5N9WJS310-13",
+      "analyst_label": "QUALIFY",
+      "rationale": "연금계좌 과세제외원금 확인 및 공제받은 원금 기록의 필요성",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-038",
+      "left": "inLlZgtS7qs-06",
+      "right": "VKr060rIirM-01",
+      "analyst_label": "QUALIFY",
+      "rationale": "납입자 세액공제 활용은 해당 연도 세금의 존재를 전제로 함",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-039",
+      "left": "inLlZgtS7qs-06",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "ISA 이전금액 원금별 세액공제 여부와 사적연금 1500만원 인출과세 임계값은 별개",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "NEW20-040",
+      "left": "inLlZgtS7qs-06",
+      "right": "3MyhYE2jmuE-11",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "미공제 연금원금과 미성년 증여 10년 공제는 다른 재원",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-001",
+      "left": "zi9x_q2fYoc-02",
+      "right": "zi9x_q2fYoc-04",
+      "analyst_label": "QUALIFY",
+      "rationale": "같은 공무원연금의 납부 기여율 9%와 2015년 기여율 개혁·지급률 경로 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-002",
+      "left": "zi9x_q2fYoc-03",
+      "right": "zi9x_q2fYoc-10",
+      "analyst_label": "QUALIFY",
+      "rationale": "공무원연금 수령 개시 전 소득공백과 사적연금으로 그 공백을 대비하는 전략",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-003",
+      "left": "zi9x_q2fYoc-05",
+      "right": "zi9x_q2fYoc-07",
+      "analyst_label": "QUALIFY",
+      "rationale": "25년간 적립한 공제회 월60만원 4%와 개인연금 월95만원 7% 복리 모델 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-004",
+      "left": "zi9x_q2fYoc-05",
+      "right": "zi9x_q2fYoc-06",
+      "analyst_label": "QUALIFY",
+      "rationale": "공제회 적립액 3억원과 이를 30년 연금으로 인출할 때의 현금흐름",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-005",
+      "left": "zi9x_q2fYoc-06",
+      "right": "zi9x_q2fYoc-12",
+      "analyst_label": "CORRECTION_REVIEW",
+      "rationale": "공제회 30년 월지급액 추정과 원금유지 무기한 분배 단정의 충돌",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-006",
+      "left": "zi9x_q2fYoc-08",
+      "right": "zi9x_q2fYoc-09",
+      "analyst_label": "QUALIFY",
+      "rationale": "공제회와 일반 사적연금 수령 과세·소득분류의 차이 검토",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-007",
+      "left": "zi9x_q2fYoc-11",
+      "right": "zi9x_q2fYoc-08",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "미성년 자녀 증여공제와 사적연금 1500만원 과세는 무관",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-008",
+      "left": "zi9x_q2fYoc-04",
+      "right": "zi9x_q2fYoc-12",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "2015년 공무원연금 지급률 개혁과 고배당 투자 원금보전 보장은 별개",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-009",
+      "left": "inLlZgtS7qs-01",
+      "right": "inLlZgtS7qs-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 연금전환 10% 300만원 특례와 기존 900만원 공제 합산",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-010",
+      "left": "inLlZgtS7qs-01",
+      "right": "inLlZgtS7qs-05",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 만기 연금전환 세액공제 특례와 전환 시한",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-011",
+      "left": "inLlZgtS7qs-02",
+      "right": "inLlZgtS7qs-03",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 3000만원 연금이전 선택을 세액공제 1200만원 계산에 적용",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-012",
+      "left": "inLlZgtS7qs-03",
+      "right": "inLlZgtS7qs-04",
+      "analyst_label": "QUALIFY",
+      "rationale": "공제대상 1200만원과 근로소득세액 공제율 16.5%의 세액계산",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-013",
+      "left": "inLlZgtS7qs-04",
+      "right": "inLlZgtS7qs-06",
+      "analyst_label": "QUALIFY",
+      "rationale": "198만원 추정 혜택과 실제 결정세액·미공제 원금 한계",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-014",
+      "left": "inLlZgtS7qs-05",
+      "right": "inLlZgtS7qs-06",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 만기 전환 시한과 전환금 전액 세액공제 대상이 아닌 조건 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-015",
+      "left": "inLlZgtS7qs-01",
+      "right": "inLlZgtS7qs-06",
+      "analyst_label": "QUALIFY",
+      "rationale": "ISA 전환 특례의 추가 공제상한과 원금 과세재원 분리",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-016",
+      "left": "zi9x_q2fYoc-01",
+      "right": "inLlZgtS7qs-02",
+      "analyst_label": "QUALIFY",
+      "rationale": "부부 공무원의 복합 ISA·연금계좌 상담과 ISA 만기 연금계좌 이전 설계 비교",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-017",
+      "left": "zi9x_q2fYoc-08",
+      "right": "inLlZgtS7qs-06",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "사적연금 인출 1500만원 소득세 기준과 ISA 이전금액 세액공제 원금범위는 다른 시점",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-018",
+      "left": "zi9x_q2fYoc-09",
+      "right": "inLlZgtS7qs-04",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공제회 인출 저율과세·건보료와 근로자 ISA전환 세액공제는 별개",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-019",
+      "left": "zi9x_q2fYoc-11",
+      "right": "inLlZgtS7qs-05",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "자녀 증여 2000만원 10년과 ISA 만기 60일 기한은 다르다",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-020",
+      "left": "zi9x_q2fYoc-12",
+      "right": "inLlZgtS7qs-01",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "분배금 영구 원금보전 단정과 ISA 만기 세액공제 특례는 다른 경제명제",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-021",
+      "left": "zi9x_q2fYoc-02",
+      "right": "inLlZgtS7qs-04",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 기여율 9%와 ISA 세액공제 16.5%는 서로 다른 법적 비율",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-022",
+      "left": "zi9x_q2fYoc-07",
+      "right": "inLlZgtS7qs-03",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "연7% 25년 미래가치와 ISA 연금이전 공제대상 1200만원 합계는 다른 수식",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-023",
+      "left": "zi9x_q2fYoc-03",
+      "right": "inLlZgtS7qs-05",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "공무원연금 수급 개시연령과 ISA 만기 연금전환 신청기간은 다른 시간조건",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-024",
+      "left": "inLlZgtS7qs-03",
+      "right": "zi9x_q2fYoc-02",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "연금저축·IRP 900만원 공제 합계와 공무원연금 본인 9% 기여율은 별개",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    },
+    {
+      "id": "CROSS19-20-025",
+      "left": "inLlZgtS7qs-06",
+      "right": "zi9x_q2fYoc-09",
+      "analyst_label": "TOPIC_ONLY",
+      "rationale": "연금전환 미공제 원금과 공제회 건강보험·세무 산정은 별도 법적 자금유형",
+      "independent_blinded_gold": false,
+      "automatic_approval": false
+    }
+  ]
+}
