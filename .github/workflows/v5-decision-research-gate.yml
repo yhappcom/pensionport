@@ -28,6 +28,7 @@ on:
       - "scripts/audit_v5_candidate_v22_readiness.py"
       - "scripts/v5_candidate_engine_v22_guarded.py"
       - "scripts/verify_v5_candidate_v22_guarded.py"
+      - "scripts/evaluate_v5_candidate_v22_017_018.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -54,6 +55,7 @@ on:
       - "scripts/audit_v5_candidate_v22_readiness.py"
       - "scripts/v5_candidate_engine_v22_guarded.py"
       - "scripts/verify_v5_candidate_v22_guarded.py"
+      - "scripts/evaluate_v5_candidate_v22_017_018.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -136,6 +138,10 @@ jobs:
         run: |
           python -m py_compile scripts/v5_candidate_engine_v22_guarded.py scripts/verify_v5_candidate_v22_guarded.py
           python -B scripts/verify_v5_candidate_v22_guarded.py --root .
+      - name: V2.2 original #17-18 first-use 93 preregistered diagnostic cases
+        run: |
+          python -m py_compile scripts/evaluate_v5_candidate_v22_017_018.py
+          python -B scripts/evaluate_v5_candidate_v22_017_018.py --root . --show-cases --self-test
       - name: Reject private asset files in V5
         shell: bash
         run: |
