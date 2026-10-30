@@ -1,0 +1,585 @@
+{
+  "schema": "V5_011_012_OUT_OF_SAMPLE_DIAGNOSTIC_V1",
+  "benchmark_date": "2026-10-30",
+  "intent": "FROZEN_ENGINE_HOLDOUT_NOT_FINANCIAL_RESEARCH_CERTIFICATION",
+  "evaluation_design": "Manual targeted new-video pairs; labels selected BEFORE evaluator execution; not an independent blinded or probabilistic random audit; no engine tuning permitted",
+  "frozen_engine_path": "scripts/evaluate_v5_001_010_synthesis.py",
+  "frozen_engine_git_blob_sha": "3243e215075d13c44d2c0d727bdc2c5bfedd3d3a",
+  "frozen_original_benchmark_path": "v5/integration/benchmark_001_010_v1.json",
+  "frozen_original_benchmark_git_blob_sha": "da87ed4855db1331dbaccf58d961a9b96a90ca0b",
+  "source_videos": [
+    {
+      "video_number": 11,
+      "video_id": "HfrBi5mzm8w",
+      "title": "노후에 가장 하고 싶은 일은? / 구독자 댓글, EP.19",
+      "v3_path": "data/analysis_events/HfrBi5mzm8w.json",
+      "v3_git_blob_sha": "f65d574089a8bc750e2e1da9a08fb493abdf4adc",
+      "claim_count": 7,
+      "private_srt_sha256_registered": "344d81dabdb994e8bbef1ec10baf95ec4c677ec653f9efc50737f6d1a1350774",
+      "source_limitation": "1294 cues historically structurally parsed; audio, individual stories unverified; mostly lifestyle, not externally verifiable investing assertions"
+    },
+    {
+      "video_number": 12,
+      "video_id": "3_9IXnycZ3s",
+      "title": "만 원으로 미국 주식 사는 법 / S&P500 shorts",
+      "v3_path": "data/analysis_events/3_9IXnycZ3s.json",
+      "v3_git_blob_sha": "c6a9c1116c02783225a40b9f527633a464f30702",
+      "claim_count": 8,
+      "private_srt_sha256_registered": "378490512b42c70edba13facda1002aef625039d86dc213b0148becc9589d5c6",
+      "source_limitation": "public Korean ASR; private 28-cue original SRT not reconciled, original audio and frames unverified; two CONTRADICTED as correction-only"
+    }
+  ],
+  "new_original_claim_count": 15,
+  "source_blocked_correction_only_ids": [
+    "3_9IXnycZ3s-04",
+    "3_9IXnycZ3s-05"
+  ],
+  "old_001_010_claim_count": 122,
+  "all_001_012_claim_count": 137,
+  "all_pair_universe": 9316,
+  "new_involving_pair_universe": 1935,
+  "holdout_tests": [
+    {
+      "id": "H11-01",
+      "left": "HfrBi5mzm8w-01",
+      "right": "OiDTNstaSpM-02",
+      "analyst_label": "QUALIFY",
+      "reason": "노후 목표 정의와 은퇴급여 현금흐름 설계의 조건 연결",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-02",
+      "left": "HfrBi5mzm8w-01",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "QUALIFY",
+      "reason": "원하는 은퇴생활을 월 생활비 계획에 반영",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-03",
+      "left": "HfrBi5mzm8w-02",
+      "right": "OiDTNstaSpM-11",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "단독주택 희망과 주택 축소 매각은 다른 주거 방향",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-04",
+      "left": "HfrBi5mzm8w-02",
+      "right": "YNOSY15ppf8-02",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "뉴욕 여행 희망과 엔화 여행 환전은 다른 실무명제",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-05",
+      "left": "HfrBi5mzm8w-03",
+      "right": "OiDTNstaSpM-15",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "건강 자립에 관한 개인 의견과 투자 위험관리 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-06",
+      "left": "HfrBi5mzm8w-03",
+      "right": "OiDTNstaSpM-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "건강 독립성 의견과 보험계약/재산 점검은 다른 조치",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-07",
+      "left": "HfrBi5mzm8w-04",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "책방 취미 목표와 실제 연금현금흐름 계산 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-08",
+      "left": "HfrBi5mzm8w-04",
+      "right": "sz5N9WJS310-15",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "은퇴 취미와 월분배금 비과세 오류 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-09",
+      "left": "HfrBi5mzm8w-05",
+      "right": "4CQ4FjGT2gA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "기부 커뮤니티 행사와 개인 수익·자산달성 사례 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-10",
+      "left": "HfrBi5mzm8w-05",
+      "right": "qtluAViPpsQ-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "기부 활동과 기업 공부용 소액주식 매수 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-11",
+      "left": "HfrBi5mzm8w-06",
+      "right": "3MyhYE2jmuE-01",
+      "analyst_label": "QUALIFY",
+      "reason": "자녀 장기 재무 지원과 미성년 연금저축 적립의 연결",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-12",
+      "left": "HfrBi5mzm8w-06",
+      "right": "3MyhYE2jmuE-08",
+      "analyst_label": "QUALIFY",
+      "reason": "자녀 투자용 지속 적립과 증여/정기납입 방식의 적용조건",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-13",
+      "left": "HfrBi5mzm8w-06",
+      "right": "3MyhYE2jmuE-09",
+      "analyst_label": "QUALIFY",
+      "reason": "자녀 명의 투자와 자녀 성장 후 소유권 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-14",
+      "left": "HfrBi5mzm8w-06",
+      "right": "3MyhYE2jmuE-10",
+      "analyst_label": "QUALIFY",
+      "reason": "자녀 장기 ETF 자산운용과 연금계좌 적립 대상",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-15",
+      "left": "HfrBi5mzm8w-06",
+      "right": "6VEfKF7BzZU-08",
+      "analyst_label": "QUALIFY",
+      "reason": "정기 ETF 적립행위와 미성년자 연금계좌 적립",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-16",
+      "left": "HfrBi5mzm8w-06",
+      "right": "VKr060rIirM-01",
+      "analyst_label": "QUALIFY",
+      "reason": "공제소득 없는 자의 연금저축과 미성년 납입·유동성 조건",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-17",
+      "left": "HfrBi5mzm8w-06",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "미성년 증여 공제액과 연금계좌 적립 방법은 별개 제도",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-18",
+      "left": "HfrBi5mzm8w-06",
+      "right": "3MyhYE2jmuE-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "정기금 증여계약/현재가치 할인과 연금저축 매수 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-19",
+      "left": "HfrBi5mzm8w-06",
+      "right": "qtluAViPpsQ-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "사회초년생 가계예산 배분과 미성년 계좌 사용 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-20",
+      "left": "HfrBi5mzm8w-06",
+      "right": "sz5N9WJS310-19",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "과거 보험 최저보증이율과 미성년 연금저축 투자는 별도",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-21",
+      "left": "HfrBi5mzm8w-06",
+      "right": "OiDTNstaSpM-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "퇴직금 분할 매수와 미성년 연금 계좌 적립은 목적·재원 다름",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-22",
+      "left": "HfrBi5mzm8w-06",
+      "right": "6VEfKF7BzZU-03",
+      "analyst_label": "QUALIFY",
+      "reason": "연금저축의 생애주기·공제구조를 미성년 계좌와 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-23",
+      "left": "HfrBi5mzm8w-07",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "마라톤 등 취향 목록과 현금흐름 산정은 다른 명제",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-24",
+      "left": "HfrBi5mzm8w-07",
+      "right": "YNOSY15ppf8-02",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "자동차 박물관 여행과 엔화 환전 목적 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-25",
+      "left": "HfrBi5mzm8w-07",
+      "right": "qtluAViPpsQ-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "은퇴 취미 목록과 조기은퇴/직업능력 조언 분리",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-26",
+      "left": "HfrBi5mzm8w-01",
+      "right": "qtluAViPpsQ-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "은퇴후 꿈 정하기와 청년 FIRE 의사결정 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-27",
+      "left": "HfrBi5mzm8w-02",
+      "right": "OiDTNstaSpM-02",
+      "analyst_label": "QUALIFY",
+      "reason": "장래 주거·여행 지출 목표가 은퇴 현금흐름에 미치는 영향",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H11-28",
+      "left": "HfrBi5mzm8w-03",
+      "right": "sz5N9WJS310-08",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "자립 건강 의견과 국민연금 수급시점 경제성 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-01",
+      "left": "3_9IXnycZ3s-01",
+      "right": "6VEfKF7BzZU-08",
+      "analyst_label": "QUALIFY",
+      "reason": "미국 대형주 지수 ETF 설명과 대표지수 적립식 투자",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-02",
+      "left": "3_9IXnycZ3s-01",
+      "right": "3MyhYE2jmuE-10",
+      "analyst_label": "QUALIFY",
+      "reason": "S&P500 ETF를 통한 자녀 장기투자의 미국 대형주 노출",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-03",
+      "left": "3_9IXnycZ3s-01",
+      "right": "OfkY343OaNs-08",
+      "analyst_label": "QUALIFY",
+      "reason": "일본 상장 미국지수 ETF를 통한 미국시장 간접노출",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-04",
+      "left": "3_9IXnycZ3s-01",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "미국주식 단일지수와 다자산 분산의 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-05",
+      "left": "3_9IXnycZ3s-01",
+      "right": "YNOSY15ppf8-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "일본 엔화 현금 보유와 미국 대형주 지수는 관련명제 아님",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-06",
+      "left": "3_9IXnycZ3s-02",
+      "right": "6VEfKF7BzZU-09",
+      "analyst_label": "QUALIFY",
+      "reason": "패시브 지수 추종과 편입방법론 및 액티브 투자 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-07",
+      "left": "3_9IXnycZ3s-02",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "S&P500 구성기업 수와 전체 자산배분 방법은 다른 사실",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-08",
+      "left": "3_9IXnycZ3s-02",
+      "right": "6VEfKF7BzZU-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "주가지수 구성기준과 한국 기준금리는 관련없음",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-09",
+      "left": "3_9IXnycZ3s-03",
+      "right": "aNfGrcO6WPI-14",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "지수 대표 편입기업 변동과 임상 사례는 다른 사실",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-10",
+      "left": "3_9IXnycZ3s-03",
+      "right": "OfkY343OaNs-11",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "미국 지수 편입기업과 일본 개별주식 매수 경로 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-11",
+      "left": "3_9IXnycZ3s-04",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "분산과 잔존 집중위험을 과장한 지수 만능론의 정정",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-12",
+      "left": "3_9IXnycZ3s-04",
+      "right": "sz5N9WJS310-18",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "해외지수 ETF의 환위험·자산배분 예외 정정",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-13",
+      "left": "3_9IXnycZ3s-04",
+      "right": "4CQ4FjGT2gA-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "ETF 분산의 잔존위험과 연금담보대출 레버리지 다른 주제",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-14",
+      "left": "3_9IXnycZ3s-05",
+      "right": "6VEfKF7BzZU-09",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "단순 시총 상위 500 자동 편입 오류를 패시브 정의로 검토",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-15",
+      "left": "3_9IXnycZ3s-05",
+      "right": "3MyhYE2jmuE-10",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "자녀 S&P500 ETF 선택 시 지수구성 자동편입 오류 정정",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-16",
+      "left": "3_9IXnycZ3s-05",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "지수 편입규칙과 복리기간 계산 오류는 서로 무관",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-17",
+      "left": "3_9IXnycZ3s-06",
+      "right": "sz5N9WJS310-18",
+      "analyst_label": "QUALIFY",
+      "reason": "미국 지수ETF 수익과 연금계좌 세제·해외원천세 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-18",
+      "left": "3_9IXnycZ3s-06",
+      "right": "VKr060rIirM-02",
+      "analyst_label": "QUALIFY",
+      "reason": "해외 ETF의 외국원천세·과세이연·추적성과 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-19",
+      "left": "3_9IXnycZ3s-06",
+      "right": "6VEfKF7BzZU-08",
+      "analyst_label": "QUALIFY",
+      "reason": "대표지수 매수와 과거지수 수익/실제ETF 수익 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-20",
+      "left": "3_9IXnycZ3s-06",
+      "right": "4CQ4FjGT2gA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "구독자 과거 자산증가 사례와 지수 미래성과 근거 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-21",
+      "left": "3_9IXnycZ3s-06",
+      "right": "OfkY343OaNs-10",
+      "analyst_label": "QUALIFY",
+      "reason": "미국지수 ETF의 상장시장별 환헤지와 환차손익 조건",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-22",
+      "left": "3_9IXnycZ3s-07",
+      "right": "6VEfKF7BzZU-08",
+      "analyst_label": "QUALIFY",
+      "reason": "대표지수 ETF 적립 시 투자설명서·보수·유동성 검토",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-23",
+      "left": "3_9IXnycZ3s-07",
+      "right": "VKr060rIirM-08",
+      "analyst_label": "QUALIFY",
+      "reason": "해외 ETF의 연금계좌 실제 구매 가능 상품범위 검토",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-24",
+      "left": "3_9IXnycZ3s-07",
+      "right": "OfkY343OaNs-08",
+      "analyst_label": "QUALIFY",
+      "reason": "일본 상장 미국지수 ETF 매수 전 ETF 유형/상품정보 확인",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-25",
+      "left": "3_9IXnycZ3s-07",
+      "right": "OfkY343OaNs-02",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "일본 엔선물/초단기국채 ETF 구조와 미국 대형주 ETF 설명 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-26",
+      "left": "3_9IXnycZ3s-08",
+      "right": "6VEfKF7BzZU-08",
+      "analyst_label": "QUALIFY",
+      "reason": "지수ETF 적립식 투자에 필요한 최소 1주 단위·가격 제한",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-27",
+      "left": "3_9IXnycZ3s-08",
+      "right": "qtluAViPpsQ-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "월100만원 예산배분과 미국ETF 현재 최소 거래가격 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-28",
+      "left": "3_9IXnycZ3s-08",
+      "right": "YNOSY15ppf8-12",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "미국 ETF 가격과 엔화 환전 스프레드 비교 불가",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-29",
+      "left": "3_9IXnycZ3s-08",
+      "right": "sz5N9WJS310-17",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "국내주식 ETF 매매차익 과세와 미국ETF 1주 매수가격 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-30",
+      "left": "3_9IXnycZ3s-07",
+      "right": "4CQ4FjGT2gA-11",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "ETF 보수/괴리와 채권 신용등급 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-31",
+      "left": "3_9IXnycZ3s-03",
+      "right": "6VEfKF7BzZU-09",
+      "analyst_label": "QUALIFY",
+      "reason": "미국 주가지수 편입/가중치 변경과 패시브 투자 역할",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "H12-32",
+      "left": "3_9IXnycZ3s-04",
+      "right": "3MyhYE2jmuE-10",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "자녀 S&P500 ETF를 전체 시장 무위험 분산으로 오해 방지",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    }
+  ],
+  "original_38_tests_untouched": true,
+  "approval": false
+}
