@@ -12,7 +12,7 @@ from functools import lru_cache
 # Facets represent different aspects of a proposition; product mention alone
 # must not be regarded as a verified relationship.
 FACETS={
- "isa":r"\bISA\b",
+ "isa":r"ISA",
  "private_pension":r"연금저축|연금계좌|연금보험|연금수령|IRP|퇴직연금",
  "national_pension":r"국민연금|추납|연기연금",
  "child":r"자녀|미성년|출생|태어난|갓 태어난",
@@ -20,9 +20,9 @@ FACETS={
  "gift":r"증여|증여세|유기정기금",
  "periodic_buy":r"적립식|정기.{0,7}매수|분할.{0,8}(?:투자|매수)|정액 적립|월별 정기",
  "liquidity":r"CMA|파킹형|보통예금|현금성|유동성|단기 현금",
- "equity_index":r"S&P\s*500|KOSPI\s*200|나스닥|대표지수|주가지수|미국지수|지수\s*추종|미국 대형주|패시브|추종지수|지수\s*구성|지수\s*편입|시가총액",
+ "equity_index":r"S&P\s*500|KOSPI\s*200|나스닥|대표지수|주가지수|미국지수|해외지수|지수\s*추종|미국 대형주|패시브|추종지수|지수\s*구성|지수\s*편입|시가총액",
  "equity_index_method":r"시가총액|방법론|편입|가중치|구성기업|추종지수|선도 기업|패시브|액티브",
- "etf":r"\bETF\b",
+ "etf":r"ETF",
  "equity_risk":r"자산배분|분산|주식.{0,8}집중|집중투자|위험수준|투자위험|환율위험|위험.{0,6}분산",
  "market_risk":r"손실|위험|추적오차|보장하지|보증이 아니|과거.{0,9}성과|미래.{0,8}보증",
  "etf_cost":r"보수|추적오차|괴리|거래비용|거래가격|기초자산|투자설명서|상장|계좌.{0,8}매수|허용상품",
@@ -38,6 +38,15 @@ FACETS={
  "performance_story":r"개인 사례|개인.{0,8}성공|구독자.{0,18}(?:자산|수입|사례)|성공 회고|자산 규모가 증가",
  "return_quality":r"과거.{0,12}성과|미래.{0,8}보증|추적오차|세후수익|투자수익률|운용수익",
  "account_limit":r"계좌개설|개설|가능.{0,4}계좌|허용상품|매수 가능|거래단위|1주|주당|가격",
+ "insurance_contract":r"보험|해약|해지|보증이율|최저보증|환급금",
+ "payout":r"월분배|분배금|분배형|세전 분배|월.{0,4}만원.{0,8}분배",
+ "tax_principal":r"과세제외|공제.{0,8}원금|미공제|비과세 인출|장기간 세금 없이|전액.{0,8}세금 없이",
+ "tax_education":r"연말정산|세액공제|소득공제",
+ "benefit_timing":r"수령 시점|언제 쓸 돈|즉시 수령|연기 후|퇴직급여 수령|퇴직금.{0,8}언제",
+ "yen":r"엔화|원엔|달러엔|엔투자",
+ "fx_timing":r"바닥|저점|더 약세|약세.{0,5}이어|분할매수|환율.{0,8}예측",
+ "yen_route":r"(?:방법\s*[1-5]|다섯 경로)|엔화.{0,18}(?:매수|구매|주식)|원화로.{0,15}엔화",
+ "lifecycle":r"생애주기|은퇴 시점|은퇴 가정|장기 납입|적립식 투자|TDF",
  "asset_mix":r"주식.{0,6}채권|채권.{0,6}금|자산배분|ETF.{0,8}(?:금|채권)|분산투자",
 }
 FACET_PATTERNS={name:re.compile(expr,re.IGNORECASE) for name,expr in FACETS.items()}
@@ -83,6 +92,18 @@ def explanatory_blocks(a,b,fa,fb):
     if (("private_pension" in fa and re.search(r"보험.{0,6}보증|보증이율|오래된 보험",a) and "child_finance" in fb)
         or ("private_pension" in fb and re.search(r"보험.{0,6}보증|보증이율|오래된 보험",b) and "child_finance" in fa)):
         veto.append("historic_insurance_contract_vs_minor_savings")
+    # Minor account strategies are not the same proposition as a general
+    # first-salary hypothetical budget allocation.
+    if (("child_finance" in fa and re.search(r"월\\s*100만원|청년 저축",b))
+        or ("child_finance" in fb and re.search(r"월\\s*100만원|청년 저축",a))):
+        veto.append("minor_retirement_account_vs_first_salary_budget")
+    # Index construction methodology and the mechanics of portfolio
+    # allocation address different propositions even if both mention equities.
+    if (("equity_index_method" in fa and "equity_risk" not in fa
+         and "asset_mix" in fb and "equity_index_method" not in fb)
+        or ("equity_index_method" in fb and "equity_risk" not in fb
+         and "asset_mix" in fa and "equity_index_method" not in fa)):
+        veto.append("index_constituents_vs_multiasset_allocation")
     if ("etf" in fa and "etf" in fb and
         ("fx" in fa) != ("fx" in fb) and
         ("etf_cost" in fa) != ("etf_cost" in fb)):
@@ -116,18 +137,45 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     # reference index; 'retire'/'etf'/'tax' alone are intentionally too broad.
     concrete={
       "isa","national_pension","pension_tax","equity_index","fx_hedge",
+      "insurance_contract","payout","tax_principal",
       "child_finance","risk_discipline","periodic_buy",
       "liquidity","equity_index_method","return_quality","account_limit",
     }
     strong=shared & concrete
     if strong:
         evidence.extend("direct:"+x for x in sorted(strong))
+    if "tax_education" in fa and "tax" in fb and "private_pension" in fb:
+        evidence.append("pension_tax_explanation_to_year_end_tax")
+    if "tax_education" in fb and "tax" in fa and "private_pension" in fa:
+        evidence.append("pension_tax_explanation_to_year_end_tax")
+    if "etf" in shared and "account_limit" in fa and "periodic_buy" in fb:
+        evidence.append("etf_minimum_lot_vs_accumulation")
+    if "etf" in shared and "account_limit" in fb and "periodic_buy" in fa:
+        evidence.append("etf_minimum_lot_vs_accumulation")
+    if "retire" in shared and "cashflow" in fa and "benefit_timing" in fb:
+        evidence.append("retirement_cashflow_vs_benefit_claim_timing")
+    if "retire" in shared and "cashflow" in fb and "benefit_timing" in fa:
+        evidence.append("retirement_cashflow_vs_benefit_claim_timing")
+    if "lifecycle" in fa and "periodic_buy" in fb and "etf" in fb:
+        evidence.append("lifecycle_fund_horizon_vs_periodic_investing")
+    if "lifecycle" in fb and "periodic_buy" in fa and "etf" in fa:
+        evidence.append("lifecycle_fund_horizon_vs_periodic_investing")
+    if "yen" in shared and "fx_timing" in fa and "fx_timing" in fb:
+        evidence.append("yen_market_timing_uncertainty")
+    if "yen" in shared and "yen_route" in fa and "yen_route" in fb:
+        evidence.append("yen_investment_implementation_routes")
     if "private_pension" in shared:
         if "tax" in fa and "tax" in fb: evidence.append("pension_account_tax_link")
         if "child_finance" in fa and ("child_finance" in fb or "retire" not in fb):
             evidence.append("minor_pension_account_scope")
         if "child_finance" in fb and ("child_finance" in fa or "retire" not in fa):
             evidence.append("minor_pension_account_scope")
+    if "tax_principal" in fa and "tax" in fb and "payout" in fb:
+        evidence.append("tax_exempt_principal_vs_distribution")
+    if "tax_principal" in fb and "tax" in fa and "payout" in fa:
+        evidence.append("tax_exempt_principal_vs_distribution")
+    if "payout" in fa and "payout" in fb:
+        evidence.append("distribution_income_vs_tax_scope")
     if "fx" in shared and ("etf" in shared or "fx_hedge" in fa or "fx_hedge" in fb):
         evidence.append("shared_currency_exposure")
     if "child_finance" in fa and "child_finance" in fb and (
