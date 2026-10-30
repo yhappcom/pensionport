@@ -1,0 +1,31 @@
+{
+  "schema": "V5_INCREMENTAL_KNOWLEDGE_INTEGRATION_V1",
+  "baseline": "data/synthesis/investment_knowledge_001_260/curated_recurring_concepts_16.json",
+  "baseline_git_blob_sha": "a8ff1e39ea803c8cdeec08a1b1d876bce91c4278",
+  "concept_family_registry": "data/synthesis/investment_knowledge_001_260/concept_families.json",
+  "migration_preserves_legacy_principles": true,
+  "immutable_v3_v4_v5": true,
+  "allowed_relations": [
+    "SUPPORTS_UNDER_CONDITIONS",
+    "QUALIFIES_SCOPE",
+    "CONTRADICTS",
+    "CORRECTION_ONLY",
+    "SUPERSEDES",
+    "TOPIC_ONLY",
+    "NEW_CONCEPT"
+  ],
+  "review_states": [
+    "PENDING_REVIEW",
+    "APPROVED"
+  ],
+  "approval_requires_research_complete": true,
+  "no_positive_reuse_of_contradicted_source": true,
+  "previously_indexed_is_idempotent": true,
+  "same_claim_different_relation_conflict": true,
+  "no_automatic_semantic_equivalence": true,
+  "no_automatic_knowledge_deletion": true,
+  "supersession_is_overlay_not_rewrite": true,
+  "public_nonpersonal_only": true,
+  "source_integrity": "pin source to immutable Git blob SHA and exact claim ID",
+  "limitations": "CI validates provenance, distinctness, consistency and review/certificate state. It cannot independently prove a semantic equivalence, human-review identity or current legal truth."
+}
