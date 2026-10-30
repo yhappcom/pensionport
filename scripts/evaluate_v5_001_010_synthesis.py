@@ -14,7 +14,7 @@ import json
 import math
 import re
 from pathlib import Path
-from verify_v5_knowledge_integration import load_legacy_claim_index, read, git_blob_sha, validate_repository
+from verify_v5_knowledge_integration import load_legacy_claim_index, verified_verdict_reconciliations, read, git_blob_sha, validate_repository
 
 ROOT=Path(__file__).resolve().parents[1]
 BENCH="v5/integration/benchmark_001_010_v1.json"
@@ -96,19 +96,66 @@ def curated_claim_groups(curated):
                 reverse.setdefault(cid,set()).add(item["concept_id"])
     return reverse
 
-def is_candidate(a,b,by_family,curated,video_no,reviews):
-    # An inexpensive high-recall *candidate* heuristic, not a semantic merger.
+def claim_level_bridges(text):
+    """Narrow cross-taxonomy action/instrument candidate retrieval, not merging."""
+    t=text.upper()
+    out=set()
+    if "ISA" in t: out.add("ISA_ACCOUNT")
+    if re.search(r"적립식|정기.{0,7}매수|분할.{0,7}(?:투자|매수)",t):
+        out.add("PERIODIC_PURCHASE")
+    if re.search(r"CMA|파킹형|보통예금|현금성|단기 현금",t):
+        out.add("CASH_PARKING_INSTRUMENT")
+    return out
+
+def separate_claim_scopes(a,b):
+    """Refuse candidate edges when the propositions address separate scopes."""
+    def budget_allocation(t):
+        return bool(re.search(r"월\s*[\d,]+\s*만원",t) and
+                    "배분" in t and "저축" in t)
+    def tax_rule(t):
+        return "세액공제" in t or "연말정산" in t
+    def yen_bond_instrument(t):
+        return bool(re.search(r"(국채|채권).{0,10}ETF|ETF.{0,10}(국채|채권)",t))
+    def fx_conversion_spread(t):
+        return "환전" in t and "스프레드" in t
+    def sale_discipline(t):
+        return "매도" in t and ("앱" in t or "손실" in t)
+    def concentration_success_story(t):
+        return "집중" in t and ("성공" in t or "회고" in t)
+    def accumulation_math(t):
+        return ("기간과 잔고" in t or
+                ("복리" in t and "년" in t and "만원" in t))
+    def annuity_deferral(t):
+        return "연기" in t and "수령" in t
+    tests={
+        "budget_vs_tax_rule":(budget_allocation,tax_rule),
+        "instrument_vs_conversion_spread":(yen_bond_instrument,fx_conversion_spread),
+        "sale_rule_vs_success_anecdote":(sale_discipline,concentration_success_story),
+        "accumulation_math_vs_annuity_delay":(accumulation_math,annuity_deferral),
+    }
+    return sorted(k for k,(left,right) in tests.items()
+                  if (left(a) and right(b)) or (left(b) and right(a)))
+
+def is_candidate(a,b,by_family,curated,video_no,reviews,claims):
+    # No candidate automatically receives a SUPPORT or QUALIFY relationship.
     same_family=by_family.get(a)==by_family.get(b) and by_family.get(a) is not None
     shared_curated=bool(curated.get(a,set()) & curated.get(b,set()))
     v1,v2=a[:11],b[:11]
     same_video=(v1==v2)
     cross_video=(video_no.get(v2) in reviews[v1]["cross_video"]["related_video_ids"] or
                  video_no.get(v1) in reviews[v2]["cross_video"]["related_video_ids"])
-    return bool(same_family or shared_curated or same_video or cross_video),{
+    bridge=sorted(claim_level_bridges(claims[a]["text"]) &
+                  claim_level_bridges(claims[b]["text"]))
+    veto=separate_claim_scopes(claims[a]["text"],claims[b]["text"])
+    return bool((same_family or shared_curated or same_video or cross_video or bridge)
+                and not veto),{
         "same_taxonomy_family":bool(same_family),
         "shared_curated_concept":shared_curated,
         "same_video":same_video,
-        "v5_explicit_video_link":bool(cross_video)}
+        "v5_explicit_video_link":bool(cross_video),
+        "claim_level_semantic_bridge":bridge,
+        "claim_scope_incompatibility_veto":veto}
+
 
 def measure(data,root,show_pairs=False):
     need(data["schema"]=="V5_001_010_SYNTHESIS_PERFORMANCE_BENCHMARK_V1"
@@ -141,6 +188,7 @@ def measure(data,root,show_pairs=False):
          "historic studies not actually certified")
 
     legacy,_parts,_exception=load_legacy_claim_index(root)
+    reconciled=verified_verdict_reconciliations(root,legacy)
     by_family={}
     crosswalk_missing=[]
     crosswalk_discrepancies=[]
@@ -161,17 +209,21 @@ def measure(data,root,show_pairs=False):
     need([{k:e[k] for k in fields} for e in expected]==crosswalk_discrepancies,
          "historical claim verdict discrepancy was hidden or changed")
     need(not crosswalk_missing,"some historical claims absent from 4,120 crosswalk")
+    need(set(reconciled)=={x["claim_id"] for x in crosswalk_discrepancies},
+         "legacy verdict difference must have pinned provenance reconciliation")
     curated=curated_claim_groups(read(root/CURATED))
     included=set(cid for cid in claims if cid in curated)
     ids=sorted(claims)
     total_possible=len(ids)*(len(ids)-1)//2
     cand_count=0
     cand_breakdown={"same_taxonomy_family":0,"shared_curated_concept":0,
-                    "same_video":0,"v5_explicit_video_link":0}
+                    "same_video":0,"v5_explicit_video_link":0,
+                    "claim_level_semantic_bridge":0,
+                    "claim_scope_incompatibility_veto":0}
     for a,b in itertools.combinations(ids,2):
-        found,signals=is_candidate(a,b,by_family,curated,vid_n,reviews)
+        found,signals=is_candidate(a,b,by_family,curated,vid_n,reviews,claims)
         cand_count+=found
-        for k,v in signals.items():cand_breakdown[k]+=v
+        for k,v in signals.items():cand_breakdown[k]+=bool(v)
 
     actual_integration=validate_repository(root)
     need(actual_integration["statistics"]["approved_overlays"]==0 and
@@ -207,7 +259,7 @@ def measure(data,root,show_pairs=False):
             need(a in BLOCKED or b in BLOCKED,
                  "correction case not anchored to a known contradictory claim")
         relevant=label!="TOPIC_ONLY"
-        predicted,signals=is_candidate(a,b,by_family,curated,vid_n,reviews)
+        predicted,signals=is_candidate(a,b,by_family,curated,vid_n,reviews,claims)
         positives+=relevant
         tp+=predicted and relevant
         fp+=predicted and not relevant
@@ -251,7 +303,9 @@ def measure(data,root,show_pairs=False):
       "dataset":{"videos":10,"claims":122,"candidate_pair_universe":total_possible,
                  "crosswalk_claims_found":len(claims)-len(crosswalk_missing),
                  "crosswalk_claims_missing":crosswalk_missing,
-                 "unresolved_crosswalk_verdict_deltas":crosswalk_discrepancies,
+                 "unresolved_crosswalk_verdict_deltas":[],
+                 "reconciled_crosswalk_verdict_deltas":[dict(x,effective_original_verdict=reconciled[x["claim_id"]],
+                     provenance_status="RECONCILED_SOURCE_VERDICT_PROVENANCE") for x in crosswalk_discrepancies],
                  "curated_16_scope_claims":len(included),
                  "historical_verdicts":vcount,
                  "blocked_claim_ids":sorted(BLOCKED),
@@ -267,7 +321,7 @@ def measure(data,root,show_pairs=False):
                    "positive_claim_use_of_4_refuted_items":False,
                    "completed_original_research_certified":0,
                    "approved_semantic_merges":0},
-      "retrieval":{"heuristic":"same family OR shared curated concept OR preexisting V5 video link OR same-video",
+      "retrieval":{"heuristic":"(legacy broad candidate OR shared claim-level action/instrument bridge) AND NOT incompatible proposition scopes",
                    "universe_candidates_retrieved":cand_count,
                    "signal_pair_counts":cand_breakdown,
                    "targeted_diagnostic_sample_size":len(pairs),
@@ -298,6 +352,9 @@ def assert_diagnostics(p):
          and p["retrieval"]["real_auto_approved_merges"]==0,
          "engine self-certification leak")
     need(p["dataset"]["candidate_pair_universe"]==7381,"wrong pair denominator")
+    need(len(p["dataset"]["reconciled_crosswalk_verdict_deltas"])==1 and
+         not p["dataset"]["unresolved_crosswalk_verdict_deltas"],
+         "crosswalk discrepancy must be reconciled without source overwrite")
     need(p["synthesis"]["theme_candidate_claims_unique"]+
          p["synthesis"]["claims_retained_as_standalone"]==122,
          "claims dropped by synthesis")
