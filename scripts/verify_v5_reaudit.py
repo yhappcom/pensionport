@@ -91,7 +91,8 @@ def validate(a,p,b,root):
              "v5/integration/integration_policy_v1.json",
              "v5/integration/pilot_001_205_candidate_queue.json",
              "v5/integration/README.md",
-             "v5/integration/benchmark_001_010_v1.json"}
+             "v5/integration/benchmark_001_010_v1.json",
+             "v5/integration/SYNTHESIS_001_010_PERFORMANCE_20261030.md"}
     tracked={f.relative_to(root).as_posix() for f in (root/"v5").rglob("*") if f.is_file()}
     module_pattern=re.compile(r"v5/videos/v5_\d{3}_[A-Za-z0-9_-]{11}_advisory_review\.json$")
     extras=tracked-allowed
