@@ -95,7 +95,7 @@ def verify_model(model,claim_ids):
                 "scenario calculation mismatch: "+s["label"])
         require(s["interpretation"] and s["limitations"],"scenario assumptions missing")
 
-def verify(doc,policy,legacy_ids=None,is_example=False):
+def verify(doc,policy,legacy_ids=None,is_example=False,canonical_blocked=None):
     require(policy["schema_version"]=="V5_ONE_TURN_ADVISORY_RESEARCH_POLICY_1.0","policy schema")
     require(policy["scope"]=="NONPERSONAL_VIDEO_DECISION_MODULES_ONLY","nonpersonal scope")
     require(policy["L3_approved"] is False and policy["L4_approved"] is False
@@ -194,7 +194,11 @@ def verify(doc,policy,legacy_ids=None,is_example=False):
     if x["new_correction_required"]:
         require(x["correction_path"],"contradiction correction unavailable")
     all_blocked=set(x["known_blocked_ids"])
-    require(all(not c["positive_principle_allowed"] for c in claims if c["id"] in all_blocked),
+    canonical_blocked=set(canonical_blocked or [])
+    require(canonical_blocked.intersection(x["related_claim_ids"])<=all_blocked,
+            "known historical CONTRADICTED claim omitted from the block list")
+    require(all(not c["positive_principle_allowed"] for c in claims
+                if c["id"] in (all_blocked|canonical_blocked)),
             "blocked historical positive principle")
     empirical=doc["empirical_validation"]
     require(empirical["limitations"],"missing empirical limits")
@@ -254,10 +258,13 @@ def verify(doc,policy,legacy_ids=None,is_example=False):
 
 def validate_repo(root):
     policy=source_file(root/POLICY)
+    historical_policy=source_file(root/"v5/policy/v5_review_policy_20261030.json")
+    canonical_blocked={c["id"] for c in historical_policy["blocked_source_claims"]}
+    require(len(canonical_blocked)==4,"historical contradiction policy not intact")
     require(policy["scope"]=="NONPERSONAL_VIDEO_DECISION_MODULES_ONLY","scope")
     fixture=source_file(root/TEMPLATE)
     require(fixture["synthetic_example"] is True,"fixture is never real data")
-    test=verify(fixture,policy,is_example=True)
+    test=verify(fixture,policy,is_example=True,canonical_blocked=canonical_blocked)
     found=list((root/REVIEW_DIR).glob("*.json")) if (root/REVIEW_DIR).is_dir() else []
     for f in found:
         match=VIDEO_FILE.fullmatch(f.name)
@@ -270,7 +277,7 @@ def validate_repo(root):
         v3=source_file(legacy)
         require(v3["video_id"]==obj["video_id"],"V3 video mismatch")
         ids={c["claim_id"] for c in v3["core_claims"]}
-        verify(obj,policy,legacy_ids=ids)
+        verify(obj,policy,legacy_ids=ids,canonical_blocked=canonical_blocked)
         for claim in obj["claims"]:
             old=next(c for c in v3["core_claims"] if c["claim_id"]==claim["id"])
             require(old["verification"]==claim["legacy_verdict"],
@@ -284,13 +291,15 @@ def validate_repo(root):
 
 def self_test(root):
     policy=source_file(root/POLICY)
+    historical_policy=source_file(root/"v5/policy/v5_review_policy_20261030.json")
+    canonical_blocked={c["id"] for c in historical_policy["blocked_source_claims"]}
     sample=source_file(root/TEMPLATE)
-    verify(sample,policy,is_example=True)
+    verify(sample,policy,is_example=True,canonical_blocked=canonical_blocked)
     checked=0
     def rejects(doc,pol=policy):
         nonlocal checked
         try:
-            verify(doc,pol,is_example=True)
+            verify(doc,pol,is_example=True,canonical_blocked=canonical_blocked)
         except (ValueError, KeyError, TypeError, ZeroDivisionError, OverflowError):
             checked+=1
         else:
@@ -317,7 +326,57 @@ def self_test(root):
              "interpretation":"stress","limitations":"hypothetical"}
         ]}];rejects(x)
     require(checked==11,"self-test incomplete")
-    return checked
+    # These synthetic positive paths validate structure only, not real law/source evidence.
+    ready=copy.deepcopy(sample)
+    ready["source"].update({
+        "kind":"SYNTHETIC_STRUCTURAL_TEST","source_sha256":"a"*64,
+        "source_cue_count":1,
+        "raw_srt_read_and_hash_verified_this_turn":True,
+        "full_cue_review_this_turn":True})
+    ready["claims"][0].update({
+        "legacy_verdict":"PRIMARY_CONFIRMED","current_review":"CHECKED",
+        "independently_checked_this_turn":True,
+        "positive_principle_allowed":True,"primary_source_ids":["SYNTH_SOURCE"]})
+    ready["primary_sources"]=[{
+        "id":"SYNTH_SOURCE","publisher":"SYNTHETIC_TEST_ONLY",
+        "url":"https://example.org/nonexistent-test-source",
+        "checked_on":"2026-10-30","effective_date":"SYNTHETIC_TEST_DATE",
+        "scope_and_exceptions":"Structural test; NOT a real primary source.",
+        "actual_text_checked":True,"claim_ids":["ZZsynthetic-01"]}]
+    ready["open_blockers"]=[]
+    ready["decision_logic"]["baseline_is_same_horizon_and_currency"]=True
+    ready["no_numeric_model_reason"]="QUALITATIVE_ONLY: no numeric research in test."
+    ready["one_turn_closeout"].update({
+        "result":"DECISION_MODULE_READY_L2","max_use":"L2",
+        "external_blockers_remaining":0})
+    verify(ready,policy,is_example=True,canonical_blocked=canonical_blocked)
+    positive_paths=1
+    # Deterministic, independently calculated base and adverse drawdown cases.
+    numeric=copy.deepcopy(ready)
+    numeric["claims"][0]["math_model_ids"]=["TEST_DRAW"]
+    numeric["models"]=[{
+        "id":"TEST_DRAW","type":"DRAWDOWN_RECOVERY",
+        "synthetic_only":True,"arithmetic_verified":True,"semantic_verified":True,
+        "formula":"d/(1-d)","limitations":"Illustrative, not a return distribution.",
+        "claim_ids":["ZZsynthetic-01"],"scenarios":[
+            {"label":"BASE","inputs":{"loss_fraction":0.4},
+             "expected_result":0.6666666666666666,"interpretation":"reference",
+             "limitations":"hypothetical"},
+            {"label":"ADVERSE","inputs":{"loss_fraction":0.5},
+             "expected_result":1.0,"interpretation":"stress",
+             "limitations":"hypothetical"}]}]
+    verify(numeric,policy,is_example=True,canonical_blocked=canonical_blocked)
+    positive_paths+=1
+    x=copy.deepcopy(numeric);x["models"][0]["scenarios"][0]["expected_result"]=0.5;rejects(x)
+    x=copy.deepcopy(numeric);x["models"][0]["semantic_verified"]=False;rejects(x)
+    x=copy.deepcopy(numeric);x["models"][0]["scenarios"].pop();rejects(x)
+    x=copy.deepcopy(ready);x["primary_sources"][0]["actual_text_checked"]=False;rejects(x)
+    x=copy.deepcopy(ready);x["source"]["source_sha256"]=None;rejects(x)
+    x=copy.deepcopy(ready);x["decision_logic"]["baseline_is_same_horizon_and_currency"]=False;rejects(x)
+    x=copy.deepcopy(ready);x["cross_video"]["related_claim_ids"]=["VKr060rIirM-05"];rejects(x)
+    require(checked==18 and positive_paths==2,"self-test coverage")
+    return {"negative_mutations_rejected":checked,
+            "synthetic_positive_structure_paths":positive_paths}
 
 def main():
     p=argparse.ArgumentParser()
@@ -326,7 +385,7 @@ def main():
     opt=p.parse_args()
     root=opt.root.resolve()
     result=validate_repo(root)
-    if opt.self_test: result["negative_mutations_rejected"]=self_test(root)
+    if opt.self_test: result["self_test"]=self_test(root)
     print(json.dumps(result,ensure_ascii=False,sort_keys=True))
 if __name__=="__main__":
     try:

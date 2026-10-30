@@ -77,7 +77,7 @@ def validate(a,p,b,root):
              "v5/policy/v5_one_turn_advisory_research_policy_20261030.json",
              "v5/templates/v5_one_turn_synthetic_example.json"}
     tracked={f.relative_to(root).as_posix() for f in (root/"v5").rglob("*") if f.is_file()}
-    module_pattern=re.compile(r"v5/videos/v5_\\d{3}_[A-Za-z0-9_-]{11}_advisory_review\\.json$")
+    module_pattern=re.compile(r"v5/videos/v5_\d{3}_[A-Za-z0-9_-]{11}_advisory_review\.json$")
     extras=tracked-allowed
     require(all(module_pattern.fullmatch(x) for x in extras),
             "unexpected V5 file; reject unreviewed private artifacts")
