@@ -11,6 +11,7 @@ on:
       - "scripts/verify_v5_legacy_closeout.py"
       - "scripts/verify_v5_public_evidence_suitability_gate.py"
       - "scripts/verify_v5_research_completion.py"
+      - "scripts/verify_v5_research_pilot_001.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -20,6 +21,7 @@ on:
       - "scripts/verify_v5_legacy_closeout.py"
       - "scripts/verify_v5_public_evidence_suitability_gate.py"
       - "scripts/verify_v5_research_completion.py"
+      - "scripts/verify_v5_research_pilot_001.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -50,6 +52,10 @@ jobs:
         run: |
           python -m py_compile scripts/verify_v5_research_completion.py
           python -B scripts/verify_v5_research_completion.py --root . --self-test
+      - name: Real video 001 - verify 23 legacy claims, 42 atomic items and adverse mutations
+        run: |
+          python -m py_compile scripts/verify_v5_research_pilot_001.py
+          python -B scripts/verify_v5_research_pilot_001.py --root . --self-test
       - name: Reject private asset files in V5
         shell: bash
         run: |
