@@ -17,7 +17,8 @@
       "blocked_reason": "Already historically indexed; no new independent proof should be counted",
       "reopen_trigger": "Only if an independent material correction alters old conclusion",
       "supersedes_claim_id": null,
-      "certificate_path": null
+      "certificate_path": null,
+      "evidence_blob_shas": {}
     },
     {
       "event_id": "V5-COMP-002",
@@ -32,7 +33,8 @@
       "blocked_reason": "Existing historical citation is not new verification",
       "reopen_trigger": "Material change to pension tax law or source applicability",
       "supersedes_claim_id": null,
-      "certificate_path": null
+      "certificate_path": null,
+      "evidence_blob_shas": {}
     },
     {
       "event_id": "V5-COMP-003",
@@ -47,7 +49,8 @@
       "blocked_reason": "Actual NPS estimate not independently available",
       "reopen_trigger": "Independent source, not an assumed personal NPS amount",
       "supersedes_claim_id": null,
-      "certificate_path": null
+      "certificate_path": null,
+      "evidence_blob_shas": {}
     },
     {
       "event_id": "V5-COMP-004",
@@ -62,7 +65,8 @@
       "blocked_reason": "Reference only: no new research performed",
       "reopen_trigger": "Documented change in tax legislation",
       "supersedes_claim_id": null,
-      "certificate_path": null
+      "certificate_path": null,
+      "evidence_blob_shas": {}
     },
     {
       "event_id": "V5-COMP-005",
@@ -79,7 +83,10 @@
       "blocked_reason": "Requires a reviewed one-to-one semantic relation and an eligible completion certificate; video #1 incomplete",
       "reopen_trigger": "Independent material fact review and certificate",
       "supersedes_claim_id": null,
-      "certificate_path": null
+      "certificate_path": null,
+      "evidence_blob_shas": {
+        "v5/research_progress/v5_001_models_20261030.json": "26c0a1bedb7ccb53ea2a65a05b26f2f7b2d34937"
+      }
     },
     {
       "event_id": "V5-COMP-006",
@@ -96,7 +103,10 @@
       "blocked_reason": "Source tax and distribution scope must be independently adjudicated; do not overrule previous principle",
       "reopen_trigger": "Audited proposition match and current tax basis/legal proof",
       "supersedes_claim_id": null,
-      "certificate_path": null
+      "certificate_path": null,
+      "evidence_blob_shas": {
+        "v5/pilots/v5_001_sz5N9WJS310_completion_probe.json": "e36b9484647e6075bf8e47bef7386fe74438355e"
+      }
     },
     {
       "event_id": "V5-COMP-007",
@@ -111,7 +121,8 @@
       "blocked_reason": "Topic overlap only. Need separately scoped claim about pension transfer to link concept.",
       "reopen_trigger": "An exact proposition and independently reviewed ISA pension-transfer claim",
       "supersedes_claim_id": null,
-      "certificate_path": null
+      "certificate_path": null,
+      "evidence_blob_shas": {}
     },
     {
       "event_id": "V5-COMP-008",
@@ -128,7 +139,10 @@
       "blocked_reason": "No 42-atom final evidence or complete V5 certificate; linking to threshold may be too broad",
       "reopen_trigger": "Exact claim-level law source and independent semantic approval",
       "supersedes_claim_id": null,
-      "certificate_path": null
+      "certificate_path": null,
+      "evidence_blob_shas": {
+        "v5/research_progress/v5_001_models_20261030.json": "26c0a1bedb7ccb53ea2a65a05b26f2f7b2d34937"
+      }
     }
   ],
   "all_entries_research_complete": false,
