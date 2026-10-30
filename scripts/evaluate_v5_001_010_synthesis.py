@@ -271,6 +271,14 @@ def measure(data,root,show_pairs=False):
                              "retrieved_as_candidate":predicted,"signals":signals,
                              "correct_retrieval":predicted==relevant})
     need(len(seen)==len(pairs),"pair ID collisions")
+    expected_targeted_retrieval={"PAIR-07":True,"PAIR-10":True,"PAIR-13":True,
+                                 "PAIR-19":False,"PAIR-30":False,"PAIR-31":False,
+                                 "PAIR-38":False}
+    observed_targeted={p["pair_id"]:p["retrieved_as_candidate"]
+                       for p in pair_results if p["pair_id"] in expected_targeted_retrieval}
+    need(observed_targeted==expected_targeted_retrieval,
+         "regression in three missed links or four overbroad legacy links")
+
 
     themes=data["theme_proposals"]
     need(len(themes)==12 and
@@ -326,6 +334,7 @@ def measure(data,root,show_pairs=False):
                    "signal_pair_counts":cand_breakdown,
                    "targeted_diagnostic_sample_size":len(pairs),
                    "targeted_analyst_label_counts":labels,
+                   "seven_targeted_regressions_passed":len(expected_targeted_retrieval),
                    "sample_true_positive":tp,"sample_false_positive":fp,
                    "sample_false_negative":fn,"sample_true_negative":tn,
                    "sample_candidate_precision":tp/(tp+fp) if tp+fp else None,
