@@ -38,3 +38,12 @@
 
 [실제 #1 완결성 게이트 보고서](PILOT_001_ACTUAL_GATE_REVIEW_20261030.md) / [판정 입력](pilots/v5_001_sz5N9WJS310_completion_probe.json) / [검증 코드](../scripts/verify_v5_research_pilot_001.py).
 과거 핵심 주장 23건과 V4 원자 금융 발언 42건을 따로 점검하고, 실제 과거 V3/V4/V5 근거 파일 Git blob SHA를 고정하며, 고의적인 20개 오류 변형을 거부한다. 기존 V5 3개 미해결 항목과 실증·공식근거 한계를 그대로 보존하므로 #1은 `RESEARCH_BLOCKED`이다. 신규 영상의 `RESEARCH_COMPLETE`에는 전체 원자 발언의 cue 범위·근거·원장 ID 연결 인증이 추가로 요구된다.
+
+## 누적 지식의 비파괴 비교·통합 엔진
+
+- [연구 이력 비교·통합 운영 규약](integration/README.md)
+- [비개인화 누적 통합 정책](integration/integration_policy_v1.json)
+- [실제 #1/#205/#71 충돌·중복 회귀검사](integration/pilot_001_205_candidate_queue.json)
+- [Python 통합 검증기](../scripts/verify_v5_knowledge_integration.py): `python -B scripts/verify_v5_knowledge_integration.py --root . --self-test --preview`
+
+향후 모든 신규 연구 영상은 **기존 4,120개 원장 주장 전수 ID 비교 → 39개 주제군 후보 → 16개 대표 지식 개념에 대한 독립 의미심사 → 심사·완결된 새로운 관계만 overlay 추가** 절차를 적용한다. 이미 색인된 원본 4건을 중복계산하지 않도록 실제 #1/#205로 검증했다. 실제 승인된 새로운 의미 병합은 아직 0건이며, 합성 승인 시험은 금융·세법의 실물 승인이 아니다.
