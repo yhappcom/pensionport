@@ -229,8 +229,14 @@ def self_test(h,root):
         else:raise ValueError("unsafe holdout mutation accepted")
     a=evaluate(h,root);b=evaluate(h,root)
     need(a==b,"frozen heldout engine is not deterministic")
+    archived=read(root/"v5/integration/holdout_011_012_case_results_v1.json")
+    full=evaluate(h,root,include_pairs=True)
+    for field in ("retrieval","universe","source_claims","safety","original_38_case_retest","case_results"):
+        need(archived[field]==full[field],
+             "published holdout result snapshot drift: "+field)
     return {"negative_contract_mutations_rejected":rejected,
             "deterministic_holdout_replay":True,
+            "archived_case_level_predictions_replay":True,
             "semantic_gold_independently_adjudicated":False}
 
 def main():
