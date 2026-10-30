@@ -107,7 +107,7 @@ jobs:
       - name: V2.1 claim-level engine development regression - 162 annotated pairs
         run: |
           python -m py_compile scripts/v5_candidate_engine_v21.py scripts/evaluate_v5_candidate_v21.py
-          python -B scripts/evaluate_v5_candidate_v21.py --root . --self-test --show-cases
+          python -B scripts/evaluate_v5_candidate_v21.py --root . --self-test --show-cases --require-snapshot
       - name: Reject private asset files in V5
         shell: bash
         run: |
