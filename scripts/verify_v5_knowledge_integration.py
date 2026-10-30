@@ -340,9 +340,8 @@ def crosswalk_schema(root):
         obj=read(path)
         columns=({k:len(v) for k,v in obj.items() if isinstance(v,list)}
                  if isinstance(obj,dict) else {"root":len(obj)})
-        sample=(next((v[0] for v in obj.values()
-                       if isinstance(v,list) and v),{})
-                if isinstance(obj,dict) else obj[0])
+        sample=(obj["records"][0] if isinstance(obj,dict) and obj.get("records")
+                else obj[0] if isinstance(obj,list) and obj else {})
         out.append({"file":name,"fields":list(obj)[:15] if isinstance(obj,dict) else [],
                     "list_lengths":columns,
                     "sample_keys":list(sample)[:15] if isinstance(sample,dict) else []})
