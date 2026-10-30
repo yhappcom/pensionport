@@ -1,0 +1,985 @@
+{
+  "schema": "V5_CANDIDATE_V22_FIRST_USE_017_018_PREREGISTERED_BENCHMARK_V1",
+  "created_date": "2026-10-31",
+  "original_holdout_policy": "Benchmark labels and relationship hypotheses committed before V2.2 retrieval is invoked; no post hoc changes for first-use scoring",
+  "not_independently_blind": true,
+  "sample_selection": "Hand-selected purposeful positive, negative and near-miss financial scope pairs; not probability random sample; gold labels not third-party adjudicated",
+  "evaluation_engine": "scripts/v5_candidate_engine_v22.py",
+  "engine_blob_sha": "c0608b316c446c8391d68e9fc25d6173ceba971a",
+  "guarded_engine": "scripts/v5_candidate_engine_v22_guarded.py",
+  "guarded_blob_sha": "2b4d1dae6040ede0db5d0fc8adc281efe888ab1f",
+  "frozen_pre_new_video_gate": "v5/integration/v22_pre_new_video_gate_v1.json",
+  "baseline_claims": 180,
+  "baseline_videos": 16,
+  "new_claims": 14,
+  "new_videos": 2,
+  "all_claims": 194,
+  "all_pairs": 18721,
+  "new_involving_pairs": 2611,
+  "new_video_sources": [
+    {
+      "roster_number": 17,
+      "video_id": "nCXWFko0TaA",
+      "original_v3_source": "data/analysis_events/nCXWFko0TaA.json",
+      "original_v3_blob_sha": "9a73352debf6f787dede0d7049b5f47ef99a2590",
+      "registered_subtitle_sha256": "b3182276d3dab45372252712ef9e671dda961278c6eebf3bc2c4e77e2048464f",
+      "registered_cues": 37,
+      "claim_count": 7,
+      "refuted_claim_ids": [
+        "nCXWFko0TaA-04"
+      ],
+      "source_limits": "Original user SRT SHA historically matched; audio/frames not checked; 5-7% 10-year doubles claim is incorrect; 6% monthly wording unverified audio"
+    },
+    {
+      "roster_number": 18,
+      "video_id": "CvM8Os4ltfE",
+      "original_v3_source": "data/analysis_events/CvM8Os4ltfE.json",
+      "original_v3_blob_sha": "64476de471224e2895595ac213074200afafc9f0",
+      "registered_subtitle_sha256": "fd147eb6b765e2d7de7bc86839a8be0fbb2856fe1975571c1cdaec94477d6589",
+      "registered_cues": 51,
+      "claim_count": 7,
+      "refuted_claim_ids": [],
+      "source_limits": "Original user SRT SHA historically matched; audio/frames not checked; not every ETF 1-lot is under KRW 10,000; fractional US ETF trading broker-dependent"
+    }
+  ],
+  "case_count": 93,
+  "case_split": {
+    "new_17_vs_older": 41,
+    "new_18_vs_older": 42,
+    "new_17_vs_new_18": 10
+  },
+  "positive_expected": 55,
+  "negative_expected": 38,
+  "tests": [
+    {
+      "id": "NEW17-01",
+      "left": "nCXWFko0TaA-01",
+      "right": "OiDTNstaSpM-02",
+      "analyst_label": "QUALIFY",
+      "reason": "은퇴·재취업·현금흐름 제약에 따라 퇴직급여 사용시점 결정",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-02",
+      "left": "nCXWFko0TaA-01",
+      "right": "OiDTNstaSpM-09",
+      "analyst_label": "QUALIFY",
+      "reason": "은퇴자의 자산과 지출 검토·납입불가 현금흐름 조정",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-03",
+      "left": "nCXWFko0TaA-01",
+      "right": "qtluAViPpsQ-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "50대 배우자 건강·은퇴 제약과 청년 FIRE 인생목표는 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-04",
+      "left": "nCXWFko0TaA-01",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배우자 퇴직 상담과 미성년 증여공제 법규는 무관",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-05",
+      "left": "nCXWFko0TaA-01",
+      "right": "YNOSY15ppf8-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배우자 건강에 따른 은퇴와 단순 엔화 현금보유는 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-06",
+      "left": "nCXWFko0TaA-01",
+      "right": "OiDTNstaSpM-10",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "추가 연금납입 불가 상황과 오래된 보험 해약 제안은 다른 사안",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-07",
+      "left": "nCXWFko0TaA-02",
+      "right": "OiDTNstaSpM-04",
+      "analyst_label": "QUALIFY",
+      "reason": "퇴직 목돈을 바탕으로 향후 손실감내와 거치기간을 설계",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-08",
+      "left": "nCXWFko0TaA-02",
+      "right": "OiDTNstaSpM-07",
+      "analyst_label": "QUALIFY",
+      "reason": "퇴직 초기 자본 가정을 달리한 분할투자·거치 모델 비교",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-09",
+      "left": "nCXWFko0TaA-02",
+      "right": "3MyhYE2jmuE-11",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "퇴직연금 합산 초기자본과 자녀 증여 30년 스케줄은 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-10",
+      "left": "nCXWFko0TaA-02",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "은퇴 자본 2.2억원의 단순 합산과 1500만원 소득과세 법규는 독립",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-11",
+      "left": "nCXWFko0TaA-02",
+      "right": "4CQ4FjGT2gA-12",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "은퇴 모형 초기원금과 달러 RP 과거 환율 수익 일화는 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-12",
+      "left": "nCXWFko0TaA-03",
+      "right": "keu5SvpD7KE-05",
+      "analyst_label": "QUALIFY",
+      "reason": "10년 복리 투자에서 연 7% 및 2배에 필요한 수익률 조건",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-13",
+      "left": "nCXWFko0TaA-03",
+      "right": "OiDTNstaSpM-14",
+      "analyst_label": "QUALIFY",
+      "reason": "퇴직자 5~7% 장기 목표수익률과 자산배분 제안",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-14",
+      "left": "nCXWFko0TaA-03",
+      "right": "sz5N9WJS310-02",
+      "analyst_label": "QUALIFY",
+      "reason": "연 7% 가정 복리와 은퇴 후 분배 가능액의 조건",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-15",
+      "left": "nCXWFko0TaA-03",
+      "right": "uiauof6tOFk-08",
+      "analyst_label": "QUALIFY",
+      "reason": "장기 연평균 가정 수익률과 실제 투자자 보유기간 실현수익 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-16",
+      "left": "nCXWFko0TaA-03",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "투자수익률 5~7% 목표와 법정 국민연금 연기연금 7.2%는 서로 다른 기제",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-17",
+      "left": "nCXWFko0TaA-03",
+      "right": "VKr060rIirM-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "장기복리 수익목표와 연금저축 일반계좌 획일적 세율 단정은 무관",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-18",
+      "left": "nCXWFko0TaA-04",
+      "right": "keu5SvpD7KE-05",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "10년 2배에 필요한 약 7.18% 수익률·누적연산 오류를 대조",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-19",
+      "left": "nCXWFko0TaA-04",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "기간·복리 잔고 수치 오류가 미래 계좌잔고 해석에 미치는 영향",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-20",
+      "left": "nCXWFko0TaA-04",
+      "right": "sz5N9WJS310-02",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "7% 12년 복리 사례와 5~7% 10년 두배 주장 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-21",
+      "left": "nCXWFko0TaA-04",
+      "right": "OiDTNstaSpM-08",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "10년 수익률 두배 오류와 파킹형 ETF 연3% 추정은 다른 모델",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-22",
+      "left": "nCXWFko0TaA-04",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "장기 자산복리 수치오류와 과세 임계값은 별도 규칙",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-23",
+      "left": "nCXWFko0TaA-04",
+      "right": "YNOSY15ppf8-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "연금 복리 성과오류와 원엔/달러엔 환율 호가법은 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-24",
+      "left": "nCXWFko0TaA-05",
+      "right": "keu5SvpD7KE-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "연 6% 배분 세전 월 분배액과 지급지속성의 동일 수학적 가정",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-25",
+      "left": "nCXWFko0TaA-05",
+      "right": "sz5N9WJS310-15",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "6% 연분배율의 세전 월액 계산과 세금 제외 오해",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-26",
+      "left": "nCXWFko0TaA-05",
+      "right": "sz5N9WJS310-02",
+      "analyst_label": "QUALIFY",
+      "reason": "연 6~8% 분배율로 추정한 월별 현금흐름의 비보장성",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-27",
+      "left": "nCXWFko0TaA-05",
+      "right": "OiDTNstaSpM-13",
+      "analyst_label": "QUALIFY",
+      "reason": "커버드콜·분배형 자산 활용한 은퇴 월 현금흐름 모델",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-28",
+      "left": "nCXWFko0TaA-05",
+      "right": "YNOSY15ppf8-12",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "월 6% 추정 ETF 분배와 현찰 환전 스프레드 1.75%는 무관",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-29",
+      "left": "nCXWFko0TaA-05",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "ETF 인출 분배계산과 미성년 증여공제액은 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-30",
+      "left": "nCXWFko0TaA-06",
+      "right": "keu5SvpD7KE-07",
+      "analyst_label": "QUALIFY",
+      "reason": "국민연금과 가상 ETF 분배액의 수급 자격·세후현금흐름 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-31",
+      "left": "nCXWFko0TaA-06",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "QUALIFY",
+      "reason": "국민연금 퇴직연금 개인연금으로 노후 생활비 계획",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-32",
+      "left": "nCXWFko0TaA-06",
+      "right": "sz5N9WJS310-08",
+      "analyst_label": "QUALIFY",
+      "reason": "수령시점·연금소득과 재투자 현금흐름에 따른 비교",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-33",
+      "left": "nCXWFko0TaA-06",
+      "right": "Nueoi-_PH6o-01",
+      "analyst_label": "QUALIFY",
+      "reason": "배당·분배금 수령을 안정적인 생활비로 오해하는 위험",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-34",
+      "left": "nCXWFko0TaA-06",
+      "right": "keu5SvpD7KE-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "월분배액을 확정 연금처럼 계산할 때 지급원금 위험",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-35",
+      "left": "nCXWFko0TaA-06",
+      "right": "OfkY343OaNs-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "은퇴 노후현금흐름과 엔화 노출 일본지수 ETF 매수경로는 무관",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-36",
+      "left": "nCXWFko0TaA-07",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "QUALIFY",
+      "reason": "공적연금·이연퇴직소득과 사적연금 1500만원 과세기준 분리",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-37",
+      "left": "nCXWFko0TaA-07",
+      "right": "sz5N9WJS310-10",
+      "analyst_label": "QUALIFY",
+      "reason": "연금소득 1500만원 기준의 과세 재원과 선택과세 범위",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-38",
+      "left": "nCXWFko0TaA-07",
+      "right": "sz5N9WJS310-14",
+      "analyst_label": "QUALIFY",
+      "reason": "연금 인출 순서에 따른 이연퇴직소득과 과세제외원금 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-39",
+      "left": "nCXWFko0TaA-07",
+      "right": "VKr060rIirM-04",
+      "analyst_label": "QUALIFY",
+      "reason": "연금계좌 인출 세율 및 과세대상 재원의 상이함",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-40",
+      "left": "nCXWFko0TaA-07",
+      "right": "keu5SvpD7KE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "연금 사적소득 과세 1500만원과 연간 납입공제 한도는 다른 법규",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW17-41",
+      "left": "nCXWFko0TaA-07",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "연금소득 과세 임계값과 국민연금 연기율은 다른 제도",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-01",
+      "left": "CvM8Os4ltfE-01",
+      "right": "3_9IXnycZ3s-08",
+      "analyst_label": "QUALIFY",
+      "reason": "ETF 한 주 가격과 만원 소액 투자 가능성의 동일 접근성 조건",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-02",
+      "left": "CvM8Os4ltfE-01",
+      "right": "Nueoi-_PH6o-04",
+      "analyst_label": "QUALIFY",
+      "reason": "미국배당 ETF 만원대 가격과 주식형 위험을 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-03",
+      "left": "CvM8Os4ltfE-01",
+      "right": "6VEfKF7BzZU-08",
+      "analyst_label": "QUALIFY",
+      "reason": "대표지수 ETF 적립매수와 소액 접근성의 실제 제한 검토",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-04",
+      "left": "CvM8Os4ltfE-01",
+      "right": "qtluAViPpsQ-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "한 번의 ETF 소액 매수와 월 100만원 계좌 저축배분 예산은 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-05",
+      "left": "CvM8Os4ltfE-01",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "만원 투자 접근성과 연금소득 1500만원 과세기준은 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-06",
+      "left": "CvM8Os4ltfE-01",
+      "right": "3MyhYE2jmuE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "1만원 ETF 최소주문가와 미성년 증여공제 한도는 다른 수치",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-07",
+      "left": "CvM8Os4ltfE-02",
+      "right": "3MyhYE2jmuE-10",
+      "analyst_label": "QUALIFY",
+      "reason": "국내 코스피200 지수와 S&P500 지수 분산방식의 대조",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-08",
+      "left": "CvM8Os4ltfE-02",
+      "right": "3_9IXnycZ3s-01",
+      "analyst_label": "QUALIFY",
+      "reason": "KOSPI200과 S&P500 지수형 펀드의 국가·지수 구성 차이",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-09",
+      "left": "CvM8Os4ltfE-02",
+      "right": "IMJfPgmnFwc-08",
+      "analyst_label": "QUALIFY",
+      "reason": "지수형 펀드 다수종목 분산의 잔존 집중·손실 위험",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-10",
+      "left": "CvM8Os4ltfE-02",
+      "right": "IMJfPgmnFwc-05",
+      "analyst_label": "QUALIFY",
+      "reason": "국내 대형주 지수 분산과 단일 기업·섹터 집중위험",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-11",
+      "left": "CvM8Os4ltfE-02",
+      "right": "VKr060rIirM-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "코스피200 펀드 소액투자와 연금 인출 저율과세는 다른 문제",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-12",
+      "left": "CvM8Os4ltfE-02",
+      "right": "YNOSY15ppf8-02",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "KOSPI200 지수형펀드와 일본 여행 환전 목적은 무관",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-13",
+      "left": "CvM8Os4ltfE-03",
+      "right": "3_9IXnycZ3s-01",
+      "analyst_label": "QUALIFY",
+      "reason": "S&P500 ETF의 미국대형주 지수 노출·500개 구성 해석",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-14",
+      "left": "CvM8Os4ltfE-03",
+      "right": "3_9IXnycZ3s-08",
+      "analyst_label": "QUALIFY",
+      "reason": "미국 ETF 소수점매매와 거래소 1주 주문 가능성의 차이",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-15",
+      "left": "CvM8Os4ltfE-03",
+      "right": "IMJfPgmnFwc-08",
+      "analyst_label": "QUALIFY",
+      "reason": "미국 대형주 ETF 500종목 보유와 시장·업종 위험의 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-16",
+      "left": "CvM8Os4ltfE-03",
+      "right": "Nueoi-_PH6o-04",
+      "analyst_label": "QUALIFY",
+      "reason": "미국지수 ETF 소수점 투자의 접근성과 국내상장 ETF 1주 소액 매수 차이",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-17",
+      "left": "CvM8Os4ltfE-03",
+      "right": "OfkY343OaNs-08",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "미국 ETF 소수점 주문 서비스와 엔화 환전 후 일본 상장ETF 매수는 다른 실행경로",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-18",
+      "left": "CvM8Os4ltfE-03",
+      "right": "OiDTNstaSpM-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "S&P500 소수점 매수와 장기채권 만기보유 원금회수는 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-19",
+      "left": "CvM8Os4ltfE-04",
+      "right": "IMJfPgmnFwc-05",
+      "analyst_label": "QUALIFY",
+      "reason": "기업집단 펀드 여러 업종 보유와 단일기업 지배구조의 집중위험",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-20",
+      "left": "CvM8Os4ltfE-04",
+      "right": "IMJfPgmnFwc-08",
+      "analyst_label": "QUALIFY",
+      "reason": "한 그룹 펀드의 다종목 보유와 실질 분산수준의 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-21",
+      "left": "CvM8Os4ltfE-04",
+      "right": "3_9IXnycZ3s-04",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "대형주 ETF 종목분산에도 국가·섹터·공통 위험이 남는다는 원칙",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-22",
+      "left": "CvM8Os4ltfE-04",
+      "right": "4CQ4FjGT2gA-13",
+      "analyst_label": "QUALIFY",
+      "reason": "한 기업의 집중 매수 사례와 기업집단 전용 펀드 집중위험 비교",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-23",
+      "left": "CvM8Os4ltfE-04",
+      "right": "qtluAViPpsQ-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "근무기업 주식 소액 투자로 기업공부와 그룹펀드 분산위험은 다른 명제",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-24",
+      "left": "CvM8Os4ltfE-04",
+      "right": "YNOSY15ppf8-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "삼성·SK 그룹펀드의 산업집중 위험과 환전 스프레드는 무관",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-25",
+      "left": "CvM8Os4ltfE-05",
+      "right": "OiDTNstaSpM-05",
+      "analyst_label": "QUALIFY",
+      "reason": "개별 장기채 만기보유와 만기매칭형 채권 ETF의 신용·가격 위험",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-26",
+      "left": "CvM8Os4ltfE-05",
+      "right": "OfkY343OaNs-03",
+      "analyst_label": "QUALIFY",
+      "reason": "초단기 국채 ETF와 만기매칭 채권 ETF의 듀레이션·원금위험 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-27",
+      "left": "CvM8Os4ltfE-05",
+      "right": "3_9IXnycZ3s-08",
+      "analyst_label": "QUALIFY",
+      "reason": "채권 ETF 1좌 가격을 만원으로 일반화할 수 없는 접근 제한",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-28",
+      "left": "CvM8Os4ltfE-05",
+      "right": "Nueoi-_PH6o-04",
+      "analyst_label": "QUALIFY",
+      "reason": "주식형 배당 ETF와 채권 ETF의 공통 최소매수가격·상이한 위험",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-29",
+      "left": "CvM8Os4ltfE-05",
+      "right": "OfkY343OaNs-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "퇴직연금에서 선물상품 매수규제와 만기매칭형 ETF 현금매수는 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-30",
+      "left": "CvM8Os4ltfE-05",
+      "right": "sz5N9WJS310-19",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "채권ETF의 1주 가격·금리 위험과 보험의 보증이율 계약은 다른 제도",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-31",
+      "left": "CvM8Os4ltfE-06",
+      "right": "Nueoi-_PH6o-01",
+      "analyst_label": "QUALIFY",
+      "reason": "배당 ETF 현금흐름을 안정적 급여처럼 기대할 때 분배금 비보장",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-32",
+      "left": "CvM8Os4ltfE-06",
+      "right": "Nueoi-_PH6o-03",
+      "analyst_label": "QUALIFY",
+      "reason": "미국배당다우존스 ETF 지수·분배기업 구성과 월분배 구조",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-33",
+      "left": "CvM8Os4ltfE-06",
+      "right": "Nueoi-_PH6o-04",
+      "analyst_label": "QUALIFY",
+      "reason": "국내상장 배당 ETF의 소액 접근성과 주식위험",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-34",
+      "left": "CvM8Os4ltfE-06",
+      "right": "Nueoi-_PH6o-05",
+      "analyst_label": "QUALIFY",
+      "reason": "미국배당 ETF의 국내 월분배 vs SCHD 분기 분배",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-35",
+      "left": "CvM8Os4ltfE-06",
+      "right": "keu5SvpD7KE-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "소액월배당 ETF의 실제 지급액 비보장과 원금 잠식 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-36",
+      "left": "CvM8Os4ltfE-06",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배당 ETF 월분배 여부와 연금 1500만원 과세기준은 다른 차원",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-37",
+      "left": "CvM8Os4ltfE-07",
+      "right": "OfkY343OaNs-12",
+      "analyst_label": "QUALIFY",
+      "reason": "환율변동을 예측하기 어려워 적정비중·과도한 금액 경계",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-38",
+      "left": "CvM8Os4ltfE-07",
+      "right": "OfkY343OaNs-07",
+      "analyst_label": "QUALIFY",
+      "reason": "환헤지/환노출 ETF의 환율에 따른 성과와 투자위험 학습",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-39",
+      "left": "CvM8Os4ltfE-07",
+      "right": "YNOSY15ppf8-05",
+      "analyst_label": "QUALIFY",
+      "reason": "환율 변동 및 환전비용이 투자 학습에 미치는 영향을 비교",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-40",
+      "left": "CvM8Os4ltfE-07",
+      "right": "OiDTNstaSpM-05",
+      "analyst_label": "QUALIFY",
+      "reason": "채권 ETF 투자에서 금리·만기 효과와 원금위험의 차이",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-41",
+      "left": "CvM8Os4ltfE-07",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "소액 외환·금리상품 학습과 국민연금 법정 연기율 7.2%는 무관",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "NEW18-42",
+      "left": "CvM8Os4ltfE-07",
+      "right": "aNfGrcO6WPI-04",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "환율 금리 투자상품 학습과 주식 고점저점 충동매매는 다른 행위",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-01",
+      "left": "nCXWFko0TaA-05",
+      "right": "CvM8Os4ltfE-06",
+      "analyst_label": "QUALIFY",
+      "reason": "은퇴 ETF 분배금 월220만원 시나리오와 소액배당 ETF 월분배의 같은 지급비보장 특성",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-02",
+      "left": "nCXWFko0TaA-06",
+      "right": "CvM8Os4ltfE-06",
+      "analyst_label": "QUALIFY",
+      "reason": "은퇴기 국민연금 합산 ETF 분배수익과 소액 배당 ETF의 현금흐름 불확실성",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-03",
+      "left": "nCXWFko0TaA-03",
+      "right": "CvM8Os4ltfE-02",
+      "analyst_label": "QUALIFY",
+      "reason": "퇴직연금 장기 자산배분과 지수형 펀드의 자산군/집중 위험을 비교",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-04",
+      "left": "nCXWFko0TaA-04",
+      "right": "CvM8Os4ltfE-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "10년 복리 수치오류와 S&P500 ETF 소수점 매매의 기술적 조건은 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-05",
+      "left": "nCXWFko0TaA-07",
+      "right": "CvM8Os4ltfE-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "연금계좌 과세대상 판정과 만기매칭 채권 ETF 최소매수가는 무관",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-06",
+      "left": "nCXWFko0TaA-01",
+      "right": "CvM8Os4ltfE-01",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배우자 건강상 퇴직 사례와 1만원으로 투자하는 상품 접근성은 구분",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-07",
+      "left": "nCXWFko0TaA-02",
+      "right": "CvM8Os4ltfE-01",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "2.2억 은퇴자금 합산과 1만원 투자 가능 상품 가격은 서로 다른 금액명제",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-08",
+      "left": "nCXWFko0TaA-07",
+      "right": "CvM8Os4ltfE-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "연금재원별 1500만원 과세판정과 소액 ETF 월배당의 상품 지급규칙은 별개",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-09",
+      "left": "nCXWFko0TaA-05",
+      "right": "CvM8Os4ltfE-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "220만원 월분배액 산식과 FX·금리 상품 소액투자 학습은 다른 주제",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    },
+    {
+      "id": "CROSS17-18-10",
+      "left": "nCXWFko0TaA-03",
+      "right": "CvM8Os4ltfE-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "은퇴 10년 복리 목표와 FX/금리상품 소액학습은 시나리오 목적이 다름",
+      "independent_blind_gold": false,
+      "approved_merge": false,
+      "source_status": "V3_HISTORICAL_NOT_NEWLY_REVERIFIED"
+    }
+  ]
+}
