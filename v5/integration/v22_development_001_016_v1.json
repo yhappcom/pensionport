@@ -1,0 +1,88 @@
+{
+  "schema": "V5_CANDIDATE_V22_FROZEN_DEVELOPMENT_BASELINE_V1",
+  "date": "2026-10-30",
+  "engine_version": "2.2.0",
+  "engine_path": "scripts/v5_candidate_engine_v22.py",
+  "engine_git_blob_sha": "c0608b316c446c8391d68e9fc25d6173ceba971a",
+  "evaluator_path": "scripts/evaluate_v5_candidate_v22.py",
+  "evaluator_git_blob_sha": "289c82be46333d7739b0b9c8fac24965c8bbf852",
+  "prior_failed_holdout_path": "v5/integration/v21_first_use_015_016_results_v1.json",
+  "prior_failed_holdout_git_blob_sha": "c2c88422ea218d96660ed858bd0dc9d682f19711",
+  "prior_15_16_preregistered_labels_path": "v5/integration/benchmark_015_016_v21_holdout_v1.json",
+  "prior_15_16_labels_git_blob_sha": "8f1a8a4803498c455915303242c21db59e627aea",
+  "previous_v21_engine_git_blob_sha": "60a02bc9a0cd6181db37fcba94d9aa12271c6dc5",
+  "measured_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/41031969429",
+  "assessment_kind": "IN_SAMPLE_RETROSPECTIVE_DEVELOPMENT_REPLAY_NOT_INDEPENDENT_HOLDOUT",
+  "videos": 16,
+  "claims": 180,
+  "possible_pairs": 16110,
+  "group_results": {
+    "dev_15_16_89": {
+      "confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 28,
+        "TP": 61
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    },
+    "legacy_38": {
+      "confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 8,
+        "TP": 30
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    },
+    "new_13_14_64": {
+      "confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 20,
+        "TP": 44
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    },
+    "next_60": {
+      "confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 31,
+        "TP": 29
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    }
+  },
+  "total_confusion": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 87,
+    "TP": 164
+  },
+  "candidate_pairs_all": 2211,
+  "candidate_pairs_involving_15_16": 754,
+  "case_count": 251,
+  "baseline_retesting_status": "DEVELOPMENT_REGRESSION_PASS_NOT_GENERALIZABLE",
+  "negative_tests": {
+    "full_universe_replay_deterministic": true,
+    "pair_order_symmetry_tests": 251,
+    "refuted_claims_quarantined": 10,
+    "scope_confusion_mutations_rejected": 3
+  },
+  "independently_blinded_gold": false,
+  "new_unseen_video_evaluation_completed": false,
+  "automatic_semantic_claim_judgments": 0,
+  "knowledge_auto_merges": 0,
+  "trade_advice_approvals": 0,
+  "release_gate": "BLOCKED_UNTIL_17_PLUS_UNSEEN_HOLDOUT_AND_INDEPENDENT_REVIEW",
+  "next_unseen_video_number": 17
+}
