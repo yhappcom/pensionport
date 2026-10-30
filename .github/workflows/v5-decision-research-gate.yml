@@ -149,7 +149,7 @@ jobs:
       - name: V2.3 full 344-case development regression, 18721 pairs and source integrity
         run: |
           python -m py_compile scripts/v5_candidate_engine_v23.py scripts/evaluate_v5_candidate_v23.py
-          python -B scripts/evaluate_v5_candidate_v23.py --root . --self-test --show-cases
+          python -B scripts/evaluate_v5_candidate_v23.py --root . --self-test --show-cases --assert-snapshot
       - name: Reject private asset files in V5
         shell: bash
         run: |
