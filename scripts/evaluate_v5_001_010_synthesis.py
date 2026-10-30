@@ -143,15 +143,24 @@ def measure(data,root,show_pairs=False):
     legacy,_parts,_exception=load_legacy_claim_index(root)
     by_family={}
     crosswalk_missing=[]
+    crosswalk_discrepancies=[]
     for cid in claims:
         if cid not in legacy:
             crosswalk_missing.append(cid)
         else:
-            need(legacy[cid]["original_verdict"]==claims[cid]["verdict"],
-                 "wrong original verdict in 4120 crosswalk: "+cid)
+            if legacy[cid]["original_verdict"]!=claims[cid]["verdict"]:
+                crosswalk_discrepancies.append({"claim_id":cid,
+                    "v3_verdict":claims[cid]["verdict"],
+                    "legacy_crosswalk_verdict":legacy[cid]["original_verdict"],
+                    "resolution":"OPEN_RECONCILIATION_NOT_MERGED"})
             need(legacy[cid]["video_id"]==claims[cid]["video_id"],
                  "wrong original video in crosswalk")
             by_family[cid]=legacy[cid]["primary_concept_id"]
+    expected=data["expected_crosswalk_discrepancies"]
+    fields=("claim_id","v3_verdict","legacy_crosswalk_verdict","resolution")
+    need([{k:e[k] for k in fields} for e in expected]==crosswalk_discrepancies,
+         "historical claim verdict discrepancy was hidden or changed")
+    need(not crosswalk_missing,"some historical claims absent from 4,120 crosswalk")
     curated=curated_claim_groups(read(root/CURATED))
     included=set(cid for cid in claims if cid in curated)
     ids=sorted(claims)
@@ -236,6 +245,7 @@ def measure(data,root,show_pairs=False):
       "dataset":{"videos":10,"claims":122,"candidate_pair_universe":total_possible,
                  "crosswalk_claims_found":len(claims)-len(crosswalk_missing),
                  "crosswalk_claims_missing":crosswalk_missing,
+                 "unresolved_crosswalk_verdict_deltas":crosswalk_discrepancies,
                  "curated_16_scope_claims":len(included),
                  "historical_verdicts":vcount,
                  "blocked_claim_ids":sorted(BLOCKED),
