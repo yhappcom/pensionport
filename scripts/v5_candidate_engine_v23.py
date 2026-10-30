@@ -37,7 +37,7 @@ PATTERNS={
     "fixed_income_risk":r"원금.{0,5}(?:회수|위험|손실)|금리.{0,8}(?:위험|민감도)|신용.{0,8}위험|채권|국채|만기|듀레이션",
     "fx_and_rate_learning":r"환율.{0,12}금리|금리.{0,12}환율|환율.{0,18}(?:학습|경험|변화)|금리.{0,18}(?:학습|경험|변화)",
     "fx_scope":r"환율|환전|엔화|달러|통화|환헤지|환노출|외환",
-    "fx_risk_action":r"환율.{0,12}(?:예측|비중|위험)|스프레드|환전 비용|환전.{0,6}스프레드|환헤지|환노출|환율변동",
+    "fx_risk_action":r"환율.{0,45}(?:예측|비중|위험)|스프레드|환전 비용|환전.{0,6}스프레드|환헤지|환노출|환율변동",
     "yield_learning":r"금리|채권|만기|듀레이션",
     "monthly_distribution_model":r"월\s*[\d,]+\s*만원|월배당|월분배|매달.{0,8}분배|월급처럼",
     "distribution_product":r"ETF.{0,15}분배|분배.{0,12}ETF|미국배당다우존스|분배금|월배당|월분배|배당주",
@@ -98,6 +98,19 @@ def retrieve_claims(left,right,legacy_signals=None):
          "pension_deferral_bonus" not in fb)):
         veto.append("private_pension_tax_treatment_vs_national_pension_deferral_bonus")
 
+    # Separate pension-account eligibility (IRP, futures restrictions)
+    # from a bond ETF's retail lot price or maturity-risk assessment.
+    def pension_product_eligibility(t):
+        return bool(re.search(r"IRP|퇴직연금|연금계좌",t) and
+                    re.search(r"선물투자|투자 가능|매수 가능|매수할 수 없",t) and
+                    not re.search(r"원금 회수|금리 위험|금리 민감도",t))
+    def retail_minimum_ticket(t):
+        return bool(re.search(r"만원으로|1주|1좌|최소.{0,7}가격|소액매수",t) and
+                    not re.search(r"IRP|퇴직연금|연금계좌",t))
+    if ((pension_product_eligibility(a) and retail_minimum_ticket(b)) or
+        (pension_product_eligibility(b) and retail_minimum_ticket(a))):
+        veto.append("pension_product_eligibility_vs_retail_minimum_order")
+
     # A household retrospective/hypothetical financial situation and a
     # general plan may deserve comparison, not evidence of personal identity.
     if (_cross(fa,fb,"retirement_constraint","retirement_strategy") and
@@ -113,7 +126,7 @@ def retrieve_claims(left,right,legacy_signals=None):
         bridges.append("retirement_initial_capital_vs_lump_sum_investment_plan")
     if (_both(fa,fb,"retirement_target") and
         "retirement_account" in union and
-        _both(fa,fb,"retirement_planning")):
+        ("retirement_planning" in union or "multi_asset" in union)):
         bridges.append("retirement_return_assumption_vs_account_accumulation_plan")
 
     # Beginner's money threshold is a transaction minimum/market price
@@ -160,9 +173,14 @@ def retrieve_claims(left,right,legacy_signals=None):
         "monthly_distribution_model" in common and
         "distribution_assumption" in union):
         bridges.append("monthly_etf_payout_assumption_vs_small_lot_income_etf")
+    if (_both(fa,fb,"monthly_distribution_model") and
+        _both(fa,fb,"distribution_assumption") and
+        "분배" in a and "분배" in b and
+        "distribution_product" in union):
+        bridges.append("retiree_hypothetical_monthly_payout_vs_small_etf_distribution")
     if (_cross(fa,fb,"multi_asset","indexed_diversification") and
         "retirement_target" in union and
-        "retirement_planning" in union):
+        "자산배분" in a+b and "분산" in a+b):
         bridges.append("retirement_asset_allocation_vs_index_fund_security_diversification")
 
     # Enforce historical V2/V2.1/V2.2 negative scopes, not just V2.2 bool.
