@@ -141,7 +141,7 @@ jobs:
       - name: V2.2 original #17-18 first-use 93 preregistered diagnostic cases
         run: |
           python -m py_compile scripts/evaluate_v5_candidate_v22_017_018.py
-          python -B scripts/evaluate_v5_candidate_v22_017_018.py --root . --show-cases --self-test
+          python -B scripts/evaluate_v5_candidate_v22_017_018.py --root . --show-cases --self-test --assert-snapshot
       - name: Reject private asset files in V5
         shell: bash
         run: |
