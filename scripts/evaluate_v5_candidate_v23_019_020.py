@@ -335,7 +335,8 @@ def main():
         freeze=read(root/SNAPSHOT)
         for key in ("diagnostic","universe","development_baseline_1_to_18",
                     "new_refuted_correction_only_claims","release_gate"):
-            need(freeze[key]==res[key],"frozen V2.3 first-use output changed: "+key)
+            need(freeze[key]==json.loads(json.dumps(res[key])),
+                 "frozen V2.3 first-use output changed: "+key)
         rows=res["case_results"] if args.show_cases else run(root,True)["case_results"]
         need(freeze["case_results"]==rows and
              freeze["automatic_knowledge_merges"]==0,
