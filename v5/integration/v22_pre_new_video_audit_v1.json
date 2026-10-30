@@ -1,0 +1,549 @@
+{
+  "api_contract_probe": {
+    "explicit_contradicted_correction_only": true,
+    "missing_verdict_correction_only": false,
+    "required_future_control": "upstream must supply verified original source verdict"
+  },
+  "automatic_merges": 0,
+  "baseline_confusion": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 87,
+    "TP": 164
+  },
+  "baseline_development_cases": 251,
+  "engine_sha": "c0608b316c446c8391d68e9fc25d6173ceba971a",
+  "external_blind_gold": false,
+  "files_verified": [
+    {
+      "git_blob_sha": "c0608b316c446c8391d68e9fc25d6173ceba971a",
+      "matched": true,
+      "name": "V22 engine",
+      "path": "scripts/v5_candidate_engine_v22.py"
+    },
+    {
+      "git_blob_sha": "289c82be46333d7739b0b9c8fac24965c8bbf852",
+      "matched": true,
+      "name": "V22 evaluator",
+      "path": "scripts/evaluate_v5_candidate_v22.py"
+    },
+    {
+      "git_blob_sha": "60a02bc9a0cd6181db37fcba94d9aa12271c6dc5",
+      "matched": true,
+      "name": "V21 engine",
+      "path": "scripts/v5_candidate_engine_v21.py"
+    },
+    {
+      "git_blob_sha": "bd484398b86601a751609bcaf4572166ea857636",
+      "matched": true,
+      "name": "V21 evaluator",
+      "path": "scripts/evaluate_v5_candidate_v21.py"
+    },
+    {
+      "git_blob_sha": "8f1a8a4803498c455915303242c21db59e627aea",
+      "matched": true,
+      "name": "V21 15-16 labels",
+      "path": "v5/integration/benchmark_015_016_v21_holdout_v1.json"
+    },
+    {
+      "git_blob_sha": "c2c88422ea218d96660ed858bd0dc9d682f19711",
+      "matched": true,
+      "name": "V21 15-16 first-use outcomes",
+      "path": "v5/integration/v21_first_use_015_016_results_v1.json"
+    },
+    {
+      "git_blob_sha": "da87ed4855db1331dbaccf58d961a9b96a90ca0b",
+      "matched": true,
+      "name": "baseline_001_010",
+      "path": "v5/integration/benchmark_001_010_v1.json"
+    },
+    {
+      "git_blob_sha": "58dc9edc5948a6ae94807b2ffd6525398bf405a5",
+      "matched": true,
+      "name": "baseline_011_012",
+      "path": "v5/integration/benchmark_011_012_holdout_v1.json"
+    },
+    {
+      "git_blob_sha": "7ca161ca38422f7c256422c4edd5e1bb76264b7a",
+      "matched": true,
+      "name": "baseline_013_014",
+      "path": "v5/integration/benchmark_013_014_v2_holdout_v1.json"
+    }
+  ],
+  "new_videos_used": 0,
+  "readiness": "BLOCKED_FOR_UNSEEN_VIDEO_DEPLOYMENT_PENDING_AUDIT_REVIEW",
+  "schema": "V5_V22_PRE_NEW_VIDEO_INDEPENDENT_CODE_REAUDIT_V1",
+  "scope": "ONLY_FROZEN_1_TO_16_AND_SYNTHETIC_TEXT__NO_17_PLUS_ACCESS",
+  "semantic_approvals": 0,
+  "synthetic_probe_cases": [
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N01_contribution_vs_income_tax",
+      "inherited_scope_blocks": [
+        "contribution_limit_vs_pension_income_tax_threshold"
+      ],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N02_account_budget_vs_asset_allocation",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": [
+        "household_account_budget_vs_market_asset_allocation"
+      ]
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N03_dividend_vs_retirement_lump",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": true,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": [
+        "dividend_recycling_vs_retirement_lump_sum_scheduling"
+      ]
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N04_dividend_cadence_vs_japan_tax",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "dividend_funding_vs_payment_sustainability",
+        "index_rule_vs_etf_vehicle"
+      ],
+      "v22_scope_blocks": [
+        "distribution_cadence_vs_foreign_tax_jurisdiction"
+      ]
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N05_index_membership_vs_yen_fx_route",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N06_loan_rollover_vs_equity_concentration",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": [
+        "collateral_loan_vs_underlying_asset_concentration"
+      ]
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N07_fixed_contribution_vs_equity_dividend",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "dividend_reinvestment_compounding_vs_return_assumption",
+        "return_measurement_vs_reinvested_cash"
+      ],
+      "v22_scope_blocks": [
+        "fixed_monthly_contribution_arithmetic_vs_dividend_reinvestment"
+      ]
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N08_unrelated_cash_products",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N09_bond_etf_vs_fx_spread",
+      "inherited_scope_blocks": [
+        "bond_etf_vs_conversion_spread"
+      ],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N10_dividend_tax_vs_ordinary_pension_tax",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N11_household_wages_vs_stock_distribution",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": [
+        "wage_contribution_budget_vs_dividend_income"
+      ]
+    },
+    {
+      "actual_candidate": false,
+      "expected_candidate": false,
+      "id": "N12_share_vs_monthly_contributions",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P01_all_weather_vs_allocation",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": true,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "all_weather_macro_risk_vs_general_diversification_principles",
+        "all_weather_risk_objective_vs_allocation_education",
+        "asset_class_risk_roles",
+        "different_weight_schemes_same_asset_mixture",
+        "growth_inflation_regime_vs_allocation",
+        "multiasset_portfolio_construction"
+      ],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P02_equity_vs_cash_currency",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": true,
+      "matches_expectation": true,
+      "v22_bridges": [],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P03_dividend_vs_cashflow",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "dividend_etf_income_vs_retirement_spending",
+        "dividend_funding_vs_payment_sustainability",
+        "dividend_payout_not_guaranteed"
+      ],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P04_dividend_reinvest_vs_dca",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "dividend_funding_vs_payment_sustainability",
+        "dividend_recycling_vs_new_contributions",
+        "reinvested_distributions_accumulation"
+      ],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P05_ETF_overlap",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": true,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "stock_sector_overlap_concentration"
+      ],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P06_historical_average_vs_reality",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": false,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "average_historical_vs_realized_performance",
+        "historical_average_vs_hypothetical_growth_model",
+        "horizon_and_past_results_are_conditional",
+        "investor_holding_period_vs_compound_assumptions"
+      ],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P07_dividend_cadence_vs_income",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": true,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "dividend_etf_income_vs_retirement_spending",
+        "dividend_funding_vs_payment_sustainability"
+      ],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P08_drawdown_and_panic_sell",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": true,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "drawdown_recovery_vs_investment_time",
+        "severe_market_drawdowns_vs_holding_behavior"
+      ],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P09_index_construction",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": true,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "equity_index_construction_comparison",
+        "index_rule_vs_etf_vehicle"
+      ],
+      "v22_scope_blocks": []
+    },
+    {
+      "actual_candidate": true,
+      "expected_candidate": true,
+      "id": "P10_rebalance_vs_risk",
+      "inherited_scope_blocks": [],
+      "inherited_v21_positive": true,
+      "matches_expectation": true,
+      "v22_bridges": [
+        "different_weight_schemes_same_asset_mixture",
+        "multiasset_portfolio_construction"
+      ],
+      "v22_scope_blocks": []
+    }
+  ],
+  "synthetic_probe_count": 22,
+  "synthetic_probe_error_cases": [],
+  "synthetic_probe_failures": 0,
+  "synthetic_probe_negative_expected": 12,
+  "synthetic_probe_positive_expected": 10,
+  "universe_census": {
+    "candidate_count": 2211,
+    "candidate_pairs_not_individually_adjudicated_at_least": 2047,
+    "edge_origin_counts": {
+      "both": 402,
+      "inherited_only": 1021,
+      "v22_only": 788
+    },
+    "inherited_v21_candidate_count": 1423,
+    "no_evidence_code_count": 0,
+    "small_example_id_pairs": {
+      "no_explanation": [],
+      "risk_positive": [
+        [
+          "3MyhYE2jmuE-01",
+          "3MyhYE2jmuE-11"
+        ],
+        [
+          "3MyhYE2jmuE-01",
+          "uiauof6tOFk-04"
+        ],
+        [
+          "3MyhYE2jmuE-03",
+          "uiauof6tOFk-04"
+        ],
+        [
+          "3MyhYE2jmuE-07",
+          "3_9IXnycZ3s-01"
+        ],
+        [
+          "3MyhYE2jmuE-07",
+          "3_9IXnycZ3s-06"
+        ],
+        [
+          "3MyhYE2jmuE-07",
+          "IMJfPgmnFwc-03"
+        ],
+        [
+          "3MyhYE2jmuE-07",
+          "uiauof6tOFk-04"
+        ],
+        [
+          "3MyhYE2jmuE-07",
+          "uiauof6tOFk-07"
+        ]
+      ]
+    },
+    "source_contradicted_involved_count": 313,
+    "source_hypothetical_involved_count": 596,
+    "top_hubs": [
+      {
+        "candidate_edges": 97,
+        "claim_id": "3_9IXnycZ3s-04"
+      },
+      {
+        "candidate_edges": 94,
+        "claim_id": "3_9IXnycZ3s-06"
+      },
+      {
+        "candidate_edges": 78,
+        "claim_id": "IMJfPgmnFwc-03"
+      },
+      {
+        "candidate_edges": 77,
+        "claim_id": "3_9IXnycZ3s-01"
+      },
+      {
+        "candidate_edges": 77,
+        "claim_id": "4CQ4FjGT2gA-07"
+      },
+      {
+        "candidate_edges": 77,
+        "claim_id": "IMJfPgmnFwc-04"
+      },
+      {
+        "candidate_edges": 73,
+        "claim_id": "sz5N9WJS310-18"
+      },
+      {
+        "candidate_edges": 71,
+        "claim_id": "IMJfPgmnFwc-05"
+      },
+      {
+        "candidate_edges": 70,
+        "claim_id": "uiauof6tOFk-04"
+      },
+      {
+        "candidate_edges": 69,
+        "claim_id": "Nueoi-_PH6o-06"
+      },
+      {
+        "candidate_edges": 64,
+        "claim_id": "3MyhYE2jmuE-10"
+      },
+      {
+        "candidate_edges": 61,
+        "claim_id": "IMJfPgmnFwc-09"
+      }
+    ],
+    "top_v22_bridges": [
+      {
+        "candidate_edges": 263,
+        "code": "asset_class_risk_roles"
+      },
+      {
+        "candidate_edges": 179,
+        "code": "index_rule_vs_etf_vehicle"
+      },
+      {
+        "candidate_edges": 173,
+        "code": "historical_average_vs_hypothetical_growth_model"
+      },
+      {
+        "candidate_edges": 154,
+        "code": "multiasset_portfolio_construction"
+      },
+      {
+        "candidate_edges": 153,
+        "code": "dividend_funding_vs_payment_sustainability"
+      },
+      {
+        "candidate_edges": 91,
+        "code": "horizon_and_past_results_are_conditional"
+      },
+      {
+        "candidate_edges": 76,
+        "code": "dividend_payout_not_guaranteed"
+      },
+      {
+        "candidate_edges": 70,
+        "code": "different_weight_schemes_same_asset_mixture"
+      },
+      {
+        "candidate_edges": 69,
+        "code": "correlation_asset_vs_security_level"
+      },
+      {
+        "candidate_edges": 66,
+        "code": "index_constituent_overlap_vs_concentration"
+      },
+      {
+        "candidate_edges": 64,
+        "code": "dividend_income_vs_hypothetical_monthly_payment"
+      },
+      {
+        "candidate_edges": 59,
+        "code": "equity_etfs_internal_vs_multiasset_diversification"
+      },
+      {
+        "candidate_edges": 58,
+        "code": "dividend_etf_income_vs_retirement_spending"
+      },
+      {
+        "candidate_edges": 57,
+        "code": "asset_class_diversification_vs_index_overlap"
+      },
+      {
+        "candidate_edges": 52,
+        "code": "average_historical_vs_realized_performance"
+      },
+      {
+        "candidate_edges": 40,
+        "code": "growth_inflation_regime_vs_allocation"
+      },
+      {
+        "candidate_edges": 38,
+        "code": "investor_holding_period_vs_compound_assumptions"
+      },
+      {
+        "candidate_edges": 37,
+        "code": "return_measurement_vs_reinvested_cash"
+      }
+    ],
+    "verdict_pair_distribution": {
+      "CONTRADICTED": 15,
+      "CONTRADICTED+HYPOTHETICAL": 42,
+      "CONTRADICTED+PRIMARY_CONFIRMED": 25,
+      "CONTRADICTED+QUALIFIED": 231,
+      "HYPOTHETICAL": 50,
+      "HYPOTHETICAL+PRIMARY_CONFIRMED": 31,
+      "HYPOTHETICAL+QUALIFIED": 471,
+      "HYPOTHETICAL+SPEAKER_OPINION": 2,
+      "PRIMARY_CONFIRMED": 19,
+      "PRIMARY_CONFIRMED+QUALIFIED": 241,
+      "QUALIFIED": 1077,
+      "QUALIFIED+SPEAKER_OPINION": 7
+    }
+  }
+}
