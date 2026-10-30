@@ -1,0 +1,508 @@
+{
+  "schema": "V5_REAL_VIDEO_COMPLETENESS_PILOT_001_1.0",
+  "as_of": "2026-10-30",
+  "real_source_record_not_fixture": true,
+  "video_number": 1,
+  "video_id": "sz5N9WJS310",
+  "source_paths": {
+    "v3": "data/analysis_events/sz5N9WJS310.json",
+    "v4_gold": "data/synthesis/investment_knowledge_v4/reviews/v4_001_gold_pilot_manifest_20261029.json",
+    "v4_signoff": "data/synthesis/investment_knowledge_v4/reviews/v4_001_final_srt_review_signoff_20261029.json",
+    "v5_closeout": "v5/retrofit/v5_001_sz5N9WJS310_bounded_closeout.json"
+  },
+  "legacy_git_blob_shas": {
+    "v3": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+    "v4_gold": "07a21338faaa50c55d0d77a51eac134101c562e5",
+    "v4_signoff": "3fb6d403a74c936232b03b78073778396ee44338",
+    "v5_closeout": "01a22c68052e574c99379e838241bb09094d9334"
+  },
+  "source_boundaries": {
+    "historical_private_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+    "historical_srt_cues": 1195,
+    "complete_audio_and_frame_verification": false,
+    "full_semantic_review_in_v5": false,
+    "independent_raw_srt_rehashed_in_this_pilot": false,
+    "v5_selected_source_contexts": 3,
+    "private_raw_srt_in_repository": false
+  },
+  "denominator": {
+    "v3_core_claim_ids": 23,
+    "v4_atomic_financial_statements": 42,
+    "v4_all_42_atomic_statements_independently_fact_verified": false,
+    "v5_legacy_external_open": 3,
+    "new_completed_independent_claims_certified": 0
+  },
+  "claims": [
+    {
+      "claim_id": "sz5N9WJS310-01",
+      "timecode": "00:01:03",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT",
+        "NUMERIC"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-02",
+      "timecode": "00:02:04",
+      "claim_type_obligations": [
+        "NUMERIC",
+        "STRATEGY_OR_PERFORMANCE"
+      ],
+      "historic_verdict": "HYPOTHETICAL",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-03",
+      "timecode": "00:04:09",
+      "claim_type_obligations": [
+        "QUALITATIVE",
+        "STRATEGY_OR_PERFORMANCE"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-04",
+      "timecode": "00:06:12",
+      "claim_type_obligations": [
+        "QUALITATIVE",
+        "STRATEGY_OR_PERFORMANCE"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-05",
+      "timecode": "00:06:42",
+      "claim_type_obligations": [
+        "NUMERIC",
+        "STRATEGY_OR_PERFORMANCE"
+      ],
+      "historic_verdict": "HYPOTHETICAL",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-06",
+      "timecode": "00:07:43",
+      "claim_type_obligations": [
+        "NUMERIC"
+      ],
+      "historic_verdict": "CONTRADICTED",
+      "v5_direct_context_reexamined": true,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [
+        "V5_CLOSEOUT_001"
+      ],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "CORRECTION_QUARANTINED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-07",
+      "timecode": "00:08:44",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT",
+        "NUMERIC"
+      ],
+      "historic_verdict": "PRIMARY_CONFIRMED",
+      "v5_direct_context_reexamined": true,
+      "v5_primary_scope_refs": [
+        "NPS"
+      ],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-08",
+      "timecode": "00:09:46",
+      "claim_type_obligations": [
+        "NUMERIC",
+        "STRATEGY_OR_PERFORMANCE"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-09",
+      "timecode": "00:11:48",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT",
+        "NUMERIC"
+      ],
+      "historic_verdict": "PRIMARY_CONFIRMED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-10",
+      "timecode": "00:12:50",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT",
+        "NUMERIC"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-11",
+      "timecode": "00:13:51",
+      "claim_type_obligations": [
+        "QUALITATIVE"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-12",
+      "timecode": "00:15:52",
+      "claim_type_obligations": [
+        "QUALITATIVE"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-13",
+      "timecode": "00:17:42",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT"
+      ],
+      "historic_verdict": "PRIMARY_CONFIRMED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [
+        "PENSION_ORDER"
+      ],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-14",
+      "timecode": "00:21:33",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [
+        "PENSION_ORDER"
+      ],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-15",
+      "timecode": "00:23:36",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT",
+        "NUMERIC",
+        "STRATEGY_OR_PERFORMANCE"
+      ],
+      "historic_verdict": "CONTRADICTED",
+      "v5_direct_context_reexamined": true,
+      "v5_primary_scope_refs": [
+        "PENSION_ORDER",
+        "FUND_PAYOUT"
+      ],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "CORRECTION_QUARANTINED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-16",
+      "timecode": "00:25:38",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT",
+        "NUMERIC"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-17",
+      "timecode": "00:27:09",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-18",
+      "timecode": "00:30:11",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT",
+        "STRATEGY_OR_PERFORMANCE"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-19",
+      "timecode": "00:32:45",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-20",
+      "timecode": "00:35:48",
+      "claim_type_obligations": [
+        "NUMERIC",
+        "STRATEGY_OR_PERFORMANCE"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-21",
+      "timecode": "00:36:50",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-22",
+      "timecode": "00:37:51",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT",
+        "NUMERIC"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    },
+    {
+      "claim_id": "sz5N9WJS310-23",
+      "timecode": "00:38:53",
+      "claim_type_obligations": [
+        "LEGAL_OR_PRODUCT",
+        "NUMERIC"
+      ],
+      "historic_verdict": "QUALIFIED",
+      "v5_direct_context_reexamined": false,
+      "v5_primary_scope_refs": [],
+      "v5_quantitative_model_refs": [],
+      "v5_strategy_empirical_dataset_ids": [],
+      "pilot_outcome": "EVIDENCE_LIMITED",
+      "positive_advice_permitted": false
+    }
+  ],
+  "official_source_scope": [
+    {
+      "id": "NPS",
+      "scope_claim_ids": [
+        "sz5N9WJS310-07"
+      ],
+      "source_read_in_existing_v5": true
+    },
+    {
+      "id": "PENSION_ORDER",
+      "scope_claim_ids": [
+        "sz5N9WJS310-13",
+        "sz5N9WJS310-14",
+        "sz5N9WJS310-15"
+      ],
+      "source_read_in_existing_v5": true
+    },
+    {
+      "id": "FUND_PAYOUT",
+      "scope_claim_ids": [
+        "sz5N9WJS310-15"
+      ],
+      "source_read_in_existing_v5": true
+    }
+  ],
+  "verified_numerical_models_from_existing_v5": [
+    {
+      "id": "V5_CLOSEOUT_001",
+      "type": "MONTHLY_SAVINGS",
+      "tested_scenario_count": 2,
+      "linked_claim_ids": [
+        "sz5N9WJS310-06"
+      ],
+      "status": "SYNTHETIC_ARITHMETIC_ONLY"
+    }
+  ],
+  "correction_quarantine_claim_ids": [
+    "sz5N9WJS310-06",
+    "sz5N9WJS310-15"
+  ],
+  "historical_open_unmapped_ids": [
+    "1-OPEN-1",
+    "1-OPEN-2",
+    "1-OPEN-3"
+  ],
+  "current_pilot_unresolved": [
+    {
+      "id": "P001-SOURCE",
+      "claim_ids": [
+        "sz5N9WJS310-06",
+        "sz5N9WJS310-15"
+      ],
+      "missing_evidence": "Original sound and chart/frames for material disputed statements; previous V5 full-semantic-source review was false",
+      "decision_blocked": "Attributing wording or plotted numbers to audiovisual source and finalizing unqualified video claim certification",
+      "reopen_when": "Original licensed audiovisual evidence checked against exact timecodes"
+    },
+    {
+      "id": "P001-CLAIM",
+      "claim_ids": [
+        "sz5N9WJS310-01",
+        "sz5N9WJS310-02",
+        "sz5N9WJS310-03",
+        "sz5N9WJS310-04",
+        "sz5N9WJS310-05",
+        "sz5N9WJS310-08",
+        "sz5N9WJS310-09",
+        "sz5N9WJS310-10",
+        "sz5N9WJS310-11",
+        "sz5N9WJS310-12",
+        "sz5N9WJS310-13",
+        "sz5N9WJS310-14",
+        "sz5N9WJS310-16",
+        "sz5N9WJS310-17",
+        "sz5N9WJS310-18",
+        "sz5N9WJS310-19",
+        "sz5N9WJS310-20",
+        "sz5N9WJS310-21",
+        "sz5N9WJS310-22",
+        "sz5N9WJS310-23"
+      ],
+      "missing_evidence": "Independent per-claim verification and full V4 atomic-statement evidence provenance; V5 directly revisited 3 of 23 core contexts",
+      "decision_blocked": "Blanket confirmation of all 23 core and all 42 atomic investment statements",
+      "reopen_when": "Material claim/atomic coverage and corroboration independently documented"
+    },
+    {
+      "id": "P001-MATH",
+      "claim_ids": [
+        "sz5N9WJS310-02",
+        "sz5N9WJS310-08",
+        "sz5N9WJS310-15",
+        "sz5N9WJS310-16"
+      ],
+      "missing_evidence": "Additional tax-basis and pension delay comparators, model assumptions, actual legal exceptions; existing one model proves savings arithmetic only",
+      "decision_blocked": "Generic claim of optimal pension top-up, deferral or 16-year tax-free withdrawal",
+      "reopen_when": "Separate validated sources, numerically reproducible cashflow comparison and tax basis classes"
+    },
+    {
+      "id": "P001-EMPIRICAL",
+      "claim_ids": [
+        "sz5N9WJS310-02",
+        "sz5N9WJS310-03",
+        "sz5N9WJS310-04",
+        "sz5N9WJS310-08",
+        "sz5N9WJS310-18",
+        "sz5N9WJS310-20"
+      ],
+      "missing_evidence": "Where strategic/performance superiority is asserted, matched return-risk baseline, public source series or independently justified non-market cashflow assumptions, downside and bias review",
+      "decision_blocked": "Universal strategy superiority or quantitative performance promise",
+      "reopen_when": "Reproducible comparable evidence and independent method review"
+    }
+  ],
+  "research_domains": {
+    "SOURCE_AND_CLAIMS": "BLOCKED",
+    "PRIMARY_EVIDENCE": "BLOCKED",
+    "QUANT_AND_EMPIRICAL": "BLOCKED",
+    "GENERAL_DECISION": "BLOCKED"
+  },
+  "result": "RESEARCH_BLOCKED",
+  "certified_complete": false,
+  "personal_advice_approved": false,
+  "historical_research_preserved": true,
+  "caveat": "A real-source-backed structural pilot; it verifies reuse of prior records and fail-closed classification. It does not re-open original SRT/media or certify the prior factual claims."
+}
