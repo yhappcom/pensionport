@@ -137,12 +137,13 @@ def load_families(root):
     need(len(names)==39,"historical 39 family taxonomy changed")
     return names
 
-def event_check(event,concepts,policy,root,source_cache,known_families):
+def event_check(event,concepts,policy,root,source_cache,known_families,synthetic=False):
     required={"event_id","source_path","source_blob_sha","source_claim_id",
               "target_concept_id","relation","review_state","assessment",
               "evidence_refs","blocked_reason","reopen_trigger",
               "supersedes_claim_id","certificate_path"}
-    need(set(event)==required or set(event)==required|{"semantic_review","new_concept"},
+    need(set(event)>=required and
+         set(event)<=required|{"semantic_review","new_concept"},
          "unexpected or missing fields in integration event")
     for k in ("event_id","target_concept_id","assessment","blocked_reason",
               "reopen_trigger"):
@@ -209,8 +210,10 @@ def event_check(event,concepts,policy,root,source_cache,known_families):
                  "semantic reviewer proof missing: "+k)
         need(reviewer["reviewer_reference"]!="CHATGPT_ONLY",
              "no self-attested semantic approval from AI alone")
-        need(event["certificate_path"].startswith("v5/completion/") and
-             check_path(event["certificate_path"],root),
+        cp=event["certificate_path"]
+        need(cp.startswith("v5/completion/") and
+             (synthetic and cp=="v5/completion/SYNTHETIC_ONLY.json"
+              or check_path(cp,root)),
              "trusted completion certificate path required")
     return source,verdict
 
@@ -234,7 +237,7 @@ def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=
         eid=ev["event_id"]
         need(eid not in known_events,"duplicate event_id")
         known_events.add(eid)
-        source,verdict=event_check(ev,concepts,policy,root,source_cache,known_families)
+        source,verdict=event_check(ev,concepts,policy,root,source_cache,known_families,allow_synthetic)
         claimid=ev["source_claim_id"];target=ev["target_concept_id"]
         rel=ev["relation"]; status=ev["review_state"]
         old=concepts[target]["original_relation_ids"].get(claimid,set()) if target in concepts else set()
@@ -411,6 +414,33 @@ def synthetic_tests(root):
     # controlled view with the actual registered path once a real certificate exists.
     need(baseline["statistics"]["approved_overlays"]==0,
          "synthetic test accidentally published knowledge")
+    successful=compare_and_integrate(x,seed,policy,root,
+        eligible={"sz5N9WJS310-13"},allow_synthetic=True)
+    need(successful["statistics"]["approved_overlays"]==1
+         and successful["approved_new_distinct_evidence_claim_ids"]==
+             ["sz5N9WJS310-13"]
+         and successful["original_claims_overwritten"]==0
+         and successful["canonical_baseline_mutated"] is False,
+         "synthetic approved overlay did not safely accumulate knowledge")
+    # Reviewed correction for known contradicted statement may be added ONLY
+    # as correction-only link, never as positive financial advice.
+    corrected=copy.deepcopy(events)
+    ce=corrected[4]
+    ce["review_state"]="APPROVED"
+    ce["certificate_path"]="v5/completion/SYNTHETIC_ONLY.json"
+    ce["semantic_review"]={
+        "reviewer_reference":"SYNTHETIC_INDEPENDENT_REVIEW_TEST",
+        "review_date":"2026-10-30",
+        "equivalence_reason":"Simulation of correction-only, not actual academic validation",
+        "scope_conditions":"No positive investment principle, synthetic test only",
+        "counterevidence_checked":"Synthetic test fixture"}
+    good=compare_and_integrate(corrected,seed,policy,root,
+        eligible={"sz5N9WJS310-06"},allow_synthetic=True)
+    row=next(v for v in good["decisions"] if v["event_id"]=="V5-COMP-005")
+    need(row["state"]=="APPROVED_OVERLAY"
+         and row["positive_knowledge_allowed"] is False
+         and "V5-COMP-005" in good["concept_impact_flags"]["FORECAST_COMPOUND_RETURN"],
+         "synthetic correction was promoted or lost impact dependency")
     # Existing claim replays remain idempotent.
     repeated=compare_and_integrate(events[:4],seed,policy,root)
     need(repeated["statistics"]["already_indexed"]==4 and
@@ -420,6 +450,7 @@ def synthetic_tests(root):
             "real_historical_duplicate_replays":4,
             "real_pending_semantic_or_conflict_reviews":4,
             "synthetic_approval_without_real_completion_rejected":True,
+            "synthetic_approved_overlay_and_correction_tested":2,
             "real_approved_knowledge_added":0}
 
 def main():
