@@ -1,0 +1,49 @@
+{
+  "schema": "V5_CANDIDATE_V2_FROZEN_DEVELOPMENT_BASELINE_V1",
+  "frozen_on": "2026-10-30",
+  "engine_path": "scripts/v5_candidate_engine_v2.py",
+  "engine_git_blob_sha": "f37a84b832c6db085f0be2345094aad4a78f93f7",
+  "evaluator_path": "scripts/evaluate_v5_candidate_v2.py",
+  "evaluator_git_blob_sha": "5d86106df11dac0f9242a4b08fb1b3d256cfd9cd",
+  "frozen_1_to_12_claim_count": 137,
+  "frozen_1_to_12_video_count": 12,
+  "preexisting_diagnostic_sample": 98,
+  "training_used_to_implement_v2": true,
+  "meaning_accuracy_independently_tested": false,
+  "engine_version": "2.0.0",
+  "overall_diagnostic_confusion": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 39,
+    "TP": 59
+  },
+  "test_sets": {
+    "added_60": {
+      "confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 31,
+        "TP": 29
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    },
+    "old_38": {
+      "confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 8,
+        "TP": 30
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    }
+  },
+  "total_candidates": 743,
+  "new_involving_candidates": 198,
+  "freeze_trigger": "DO_NOT_RETUNE_BEFORE_V2_013_014_FIRST_EVALUATION",
+  "v5_complete_research_certifications": 0,
+  "automatic_semantic_merges": 0
+}
