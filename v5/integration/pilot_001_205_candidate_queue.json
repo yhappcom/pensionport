@@ -1,0 +1,137 @@
+{
+  "schema": "V5_INCREMENTAL_KNOWLEDGE_QUEUE_V1",
+  "as_of": "2026-10-30",
+  "purpose": "Actual V3 #1/#205 regression of incremental comparison; these are candidate links, not new independent fact approvals",
+  "baseline_blob_sha": "a8ff1e39ea803c8cdeec08a1b1d876bce91c4278",
+  "events": [
+    {
+      "event_id": "V5-COMP-001",
+      "source_path": "data/analysis_events/sz5N9WJS310.json",
+      "source_blob_sha": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+      "source_claim_id": "sz5N9WJS310-09",
+      "target_concept_id": "PENSION_PRIVATE_1500",
+      "relation": "SUPPORTS_UNDER_CONDITIONS",
+      "review_state": "PENDING_REVIEW",
+      "assessment": "Existing evidence ID in V3 and curated 16; re-ingestion must be idempotent",
+      "evidence_refs": [],
+      "blocked_reason": "Already historically indexed; no new independent proof should be counted",
+      "reopen_trigger": "Only if an independent material correction alters old conclusion",
+      "supersedes_claim_id": null,
+      "certificate_path": null
+    },
+    {
+      "event_id": "V5-COMP-002",
+      "source_path": "data/analysis_events/sz5N9WJS310.json",
+      "source_blob_sha": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+      "source_claim_id": "sz5N9WJS310-10",
+      "target_concept_id": "PENSION_PRIVATE_1500",
+      "relation": "SUPPORTS_UNDER_CONDITIONS",
+      "review_state": "PENDING_REVIEW",
+      "assessment": "Same claim+concept+relation historically recorded; don't double count",
+      "evidence_refs": [],
+      "blocked_reason": "Existing historical citation is not new verification",
+      "reopen_trigger": "Material change to pension tax law or source applicability",
+      "supersedes_claim_id": null,
+      "certificate_path": null
+    },
+    {
+      "event_id": "V5-COMP-003",
+      "source_path": "data/analysis_events/sz5N9WJS310.json",
+      "source_blob_sha": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+      "source_claim_id": "sz5N9WJS310-01",
+      "target_concept_id": "NPS_CATCHUP_ESTIMATES",
+      "relation": "SUPPORTS_UNDER_CONDITIONS",
+      "review_state": "PENDING_REVIEW",
+      "assessment": "Historical person-specific estimate, existing conditionally curated; do not turn into universal investment rule",
+      "evidence_refs": [],
+      "blocked_reason": "Actual NPS estimate not independently available",
+      "reopen_trigger": "Independent source, not an assumed personal NPS amount",
+      "supersedes_claim_id": null,
+      "certificate_path": null
+    },
+    {
+      "event_id": "V5-COMP-004",
+      "source_path": "data/analysis_events/EdRzQmddbHE.json",
+      "source_blob_sha": "7b0cc098d99616efea722e35e7dfc3c395166775",
+      "source_claim_id": "EdRzQmddbHE-13",
+      "target_concept_id": "PENSION_PRIVATE_1500",
+      "relation": "SUPPORTS_UNDER_CONDITIONS",
+      "review_state": "PENDING_REVIEW",
+      "assessment": "Cross-video #205 existing support relation; avoid counting again",
+      "evidence_refs": [],
+      "blocked_reason": "Reference only: no new research performed",
+      "reopen_trigger": "Documented change in tax legislation",
+      "supersedes_claim_id": null,
+      "certificate_path": null
+    },
+    {
+      "event_id": "V5-COMP-005",
+      "source_path": "data/analysis_events/sz5N9WJS310.json",
+      "source_blob_sha": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+      "source_claim_id": "sz5N9WJS310-06",
+      "target_concept_id": "FORECAST_COMPOUND_RETURN",
+      "relation": "CORRECTION_ONLY",
+      "review_state": "PENDING_REVIEW",
+      "assessment": "7 years versus 10 years arithmetic inconsistency; only correction may be reused, not a positive investment rule",
+      "evidence_refs": [
+        "v5/research_progress/v5_001_models_20261030.json"
+      ],
+      "blocked_reason": "Requires a reviewed one-to-one semantic relation and an eligible completion certificate; video #1 incomplete",
+      "reopen_trigger": "Independent material fact review and certificate",
+      "supersedes_claim_id": null,
+      "certificate_path": null
+    },
+    {
+      "event_id": "V5-COMP-006",
+      "source_path": "data/analysis_events/sz5N9WJS310.json",
+      "source_blob_sha": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+      "source_claim_id": "sz5N9WJS310-15",
+      "target_concept_id": "DIVIDEND_TOTAL_RETURN",
+      "relation": "CONTRADICTS",
+      "review_state": "PENDING_REVIEW",
+      "assessment": "8억원에서 월400만원 분배를 비과세 일반화하는 설명은 분배금과 총수익/원본 원금 구분을 요구한다. Candidate conflict, not confirmed equivalence.",
+      "evidence_refs": [
+        "v5/pilots/v5_001_sz5N9WJS310_completion_probe.json"
+      ],
+      "blocked_reason": "Source tax and distribution scope must be independently adjudicated; do not overrule previous principle",
+      "reopen_trigger": "Audited proposition match and current tax basis/legal proof",
+      "supersedes_claim_id": null,
+      "certificate_path": null
+    },
+    {
+      "event_id": "V5-COMP-007",
+      "source_path": "data/analysis_events/sz5N9WJS310.json",
+      "source_blob_sha": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+      "source_claim_id": "sz5N9WJS310-23",
+      "target_concept_id": "ISA_PENSION_MATURITY",
+      "relation": "TOPIC_ONLY",
+      "review_state": "PENDING_REVIEW",
+      "assessment": "ISA closure/re-enrollment tax threshold is NOT automatically ISA maturity pension-account rollover; shared ISA keyword is not semantic equivalence",
+      "evidence_refs": [],
+      "blocked_reason": "Topic overlap only. Need separately scoped claim about pension transfer to link concept.",
+      "reopen_trigger": "An exact proposition and independently reviewed ISA pension-transfer claim",
+      "supersedes_claim_id": null,
+      "certificate_path": null
+    },
+    {
+      "event_id": "V5-COMP-008",
+      "source_path": "data/analysis_events/sz5N9WJS310.json",
+      "source_blob_sha": "5bd8c20cff81446fb5fe058f92953f6ce4457962",
+      "source_claim_id": "sz5N9WJS310-13",
+      "target_concept_id": "PENSION_PRIVATE_1500",
+      "relation": "QUALIFIES_SCOPE",
+      "review_state": "PENDING_REVIEW",
+      "assessment": "Tax-excluded contribution basis is relevant to taxation but not identical to the KRW15m pension tax election; require expert scope reconciliation",
+      "evidence_refs": [
+        "v5/research_progress/v5_001_models_20261030.json"
+      ],
+      "blocked_reason": "No 42-atom final evidence or complete V5 certificate; linking to threshold may be too broad",
+      "reopen_trigger": "Exact claim-level law source and independent semantic approval",
+      "supersedes_claim_id": null,
+      "certificate_path": null
+    }
+  ],
+  "all_entries_research_complete": false,
+  "final_knowledge_approval_count": 0,
+  "no_personal_data": true
+}
