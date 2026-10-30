@@ -44,9 +44,9 @@ def main():
              a["verdict"] in ("CONTRADICTED","HYPOTHETICAL") or
              b["verdict"] in ("CONTRADICTED","HYPOTHETICAL")):
             raise ValueError("LIMITED_SOURCE_PROMOTED")
-        if why["automatic_merge_permitted"] or
-           why["investment_trade_instruction_permitted"] or
-           why["research_completion_certificate_permitted"]:
+        if (why["automatic_merge_permitted"] or
+            why["investment_trade_instruction_permitted"] or
+            why["research_completion_certificate_permitted"]):
             raise ValueError("UNSAFE_AUTO_APPROVAL")
         total+=1;candidates+=int(new)
     if total!=16110 or candidates!=2211 or quarantined!=313 or hypothetical>596:
