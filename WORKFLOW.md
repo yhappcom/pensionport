@@ -1,3 +1,12 @@
+## 신규 영상 연구는 기존 4,120건과 비교·통합 단계까지 종료한다 (2026-10-30)
+
+- 새 연구 시작 전: 기존 `data/synthesis/investment_knowledge_001_260`의 4,120건·39개 주제군, `curated_recurring_concepts_16.json`의 대표 16개 지식 원칙을 조회한다. **기존 연구를 덮어쓰지 않는다.**
+- 주장 전체를 검증 후 `v5/videos/v5_NNN_VIDEOID_advisory_review.json` 및 `v5/completion/v5_NNN_VIDEOID_certificate.json`로 저장하고, 같은 연구 명령에서 `v5/integration/incoming/*.json`에 **주장 전수의 과거 기록 비교 결과**를 제출한다.
+- 비교 판정: `ALREADY_INDEXED`는 기존 지식 재사용, `PENDING_REVIEW`는 새 근거 검토, `CONFLICT_REVIEW_REQUIRED`는 수정·상충, `TOPIC_ONLY`는 키워드 일치로 자동병합 금지. 주제 일치만으로 동일한 투자원칙으로 취급하지 않는다.
+- 실제 `RESEARCH_COMPLETE` 인증·개별 claim ID 근거·별도 의미 심사를 충족한 연결만 `APPROVED_OVERLAY`로 누적한다. 원본 주장/기존 verdict/법령 당시판정은 보존하고, 정정·이전판정 대체는 변경 이력과 영향을 받는 기존 claim 전체를 연결한다.
+- 새 영상의 연구 기록만 있거나 비교·통합 제안이 일부라도 누락된 경우 GitHub Actions는 차단한다. [누적 통합 엔진 상세](v5/integration/README.md) / [검증 스크립트](scripts/verify_v5_knowledge_integration.py).
+- 공개 GitHub에는 개인 금융자료나 비공개 SRT 본문을 저장하지 않는다. 실제 의미 동일성·공식자료의 적용 범위는 독립 비판 검토 후 승인한다.
+
 ## 필수: V5 연구 최초 실행과 완결성 승인 (2026-10-30)
 
 - 연구를 시작할 때 **원본의 원자 금융 발언 전체 목록(atomic_coverage)**을 먼저 확보하고 실제 cue 범위·원장 ID·근거 연결을 만든다. 과거 V3 핵심 주장 ID만 일치한다고 원본 전체를 검증한 것은 아니다. #1에서 **23개 핵심 주장과 42개 원자 금융 발언**이 구분됐다. 전체 발언 검토가 완료되지 않았으면 최종 완료 승인을 거부한다.
