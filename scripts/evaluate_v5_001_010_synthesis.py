@@ -14,7 +14,7 @@ import json
 import math
 import re
 from pathlib import Path
-from verify_v5_knowledge_integration import load_legacy_claim_index, read, git_blob_sha
+from verify_v5_knowledge_integration import load_legacy_claim_index, read, git_blob_sha, validate_repository
 
 ROOT=Path(__file__).resolve().parents[1]
 BENCH="v5/integration/benchmark_001_010_v1.json"
@@ -173,6 +173,12 @@ def measure(data,root,show_pairs=False):
         cand_count+=found
         for k,v in signals.items():cand_breakdown[k]+=v
 
+    actual_integration=validate_repository(root)
+    need(actual_integration["statistics"]["approved_overlays"]==0 and
+         actual_integration["statistics"]["already_indexed"]==4 and
+         actual_integration["statistics"]["conflict_review"]==2 and
+         len(actual_integration["active_unreviewed_conflicts"])==2,
+         "historical comparison unexpectedly approved unverified relationships")
     pairs=data["tests"]
     need(len(pairs)>=25 and len(pairs)==len({p["id"] for p in pairs}),
          "insufficient or duplicate diagnostic cases")
@@ -275,6 +281,11 @@ def measure(data,root,show_pairs=False):
                    "semantic_auto_classification_abstention":len(pairs),
                    "real_auto_approved_merges":0,
                    "metrics_not_generalizable_beyond_selected_sample":True},
+      "actual_integration_gate":{
+                    "historical_reingest_idempotent":actual_integration["statistics"]["already_indexed"],
+                    "conflicts_blocked":actual_integration["statistics"]["conflict_review"],
+                    "topic_only_nonmerges":actual_integration["statistics"]["topic_only"],
+                    "new_approved_overlays":actual_integration["statistics"]["approved_overlays"]},
       "provenance":{"all_original_claims_preserved":True,
                     "legacy_v3_v4_v5_files_written":False,
                     "raw_private_srt_loaded_for_this_test":False,
@@ -317,6 +328,7 @@ def adversarial_tests(root,base):
     x=copy.deepcopy(base);x["theme_proposals"].pop();trials.append(x)
     x=copy.deepcopy(base);x["goal"]["no_auto_semantic_merge"]=False;trials.append(x)
     x=copy.deepcopy(base);x["video_sources"][0]["video_id"]="DIFFERENT11";trials.append(x)
+    x=copy.deepcopy(base);x["expected_crosswalk_discrepancies"]=[];trials.append(x)
     rejected=0
     for i,test in enumerate(trials):
         try:assert_diagnostics(measure(test,root))
