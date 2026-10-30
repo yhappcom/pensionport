@@ -109,7 +109,7 @@ def source_freeze(root):
        ("V21 15-16 first-use outcomes",snap["prior_failed_holdout_path"],
                              snap["prior_failed_holdout_git_blob_sha"]),
     ]
-    for k,p,v in prior["benchmark_blobs"].items():
+    for k,v in prior["benchmark_blobs"].items():
         maps={"baseline_001_010":"benchmark_001_010_v1.json",
               "baseline_011_012":"benchmark_011_012_holdout_v1.json",
               "baseline_013_014":"benchmark_013_014_v2_holdout_v1.json"}
