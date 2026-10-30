@@ -1,5 +1,8 @@
 # 박곰희TV 영상 학습 워크플로 — V3 단일 저장 (2026-10-08)
 
+## 2026-10-30 외부 근거·비공개 적합성 검증 분리
+[V5 공개 1차자료 및 비공개 적합성 게이트](v5/ADVISORY_PUBLIC_EVIDENCE_AND_PRIVATE_GATE_20261030.md)는 실제 계좌자료·투자성향·개인결과를 GitHub에 저장하지 않는다. #1~#10 원본 26 OPEN은 별도 유지. 공개 지식 검증 성공 또는 합성 CI 성공은 L3 자문 권고나 L4 매매 승인이 아니다. `python -B scripts/verify_v5_public_evidence_suitability_gate.py --root . --self-test` 실행 필수.
+
 ## 2026-10-30 V5 기존 #1~#10 소급 심층 연구 종료 규칙
 기존 교육 연구의 V5 재검토는 [별도 bounded closeout](v5/retrofit/V5_001_010_CLOSEOUT_20261030.md)을 참조한다. 원본 ZIP 해시 재대사, 주요 발화, 일부 공식근거, 10개 수치모형·대안, 26개 외부 OPEN을 원장에 연결. 개인별 자문 준비 승인 아님. 과거 V3/V4 원본은 수정하지 않으며 비공개 SRT 및 개인 계좌정보는 GitHub에 저장 금지. `python -B scripts/verify_v5_legacy_closeout.py --root . --self-test` 필수.
 

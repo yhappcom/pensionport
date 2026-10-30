@@ -75,7 +75,10 @@ def validate(a,p,b,root):
     allowed={"v5/README.md","v5/V5_REVIEW_001_010_20261030.md",NEW,POL,
              "v5/ADVISORY_GRADE_ONE_TURN_PROTOCOL_20261030.md",
              "v5/policy/v5_one_turn_advisory_research_policy_20261030.json",
-             "v5/templates/v5_one_turn_synthetic_example.json"}
+             "v5/templates/v5_one_turn_synthetic_example.json",
+             "v5/evidence/V5_PUBLIC_EVIDENCE_20261030.json",
+             "v5/policy/v5_private_suitability_contract_20261030.json",
+             "v5/ADVISORY_PUBLIC_EVIDENCE_AND_PRIVATE_GATE_20261030.md"}
     tracked={f.relative_to(root).as_posix() for f in (root/"v5").rglob("*") if f.is_file()}
     module_pattern=re.compile(r"v5/videos/v5_\d{3}_[A-Za-z0-9_-]{11}_advisory_review\.json$")
     extras=tracked-allowed

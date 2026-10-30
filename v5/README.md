@@ -18,3 +18,6 @@
 
 ## #1~#10 V5 근거 제한 연구 마감
 [원본 ZIP 재해시·공식자료·10개 정량모형 및 20개 시나리오·미해결 사항 보고서](retrofit/V5_001_010_CLOSEOUT_20261030.md) / [기계 판독 요약](retrofit/summary_20261030.json). 원본 SRT/개인재무자료는 저장하지 않는다. 영상 연구 마감은 실제 개인자문 준비완료를 뜻하지 않는다.
+
+## 외부근거와 비공개 개인 적합성 분리
+[공개 근거 검증 및 실제 자문 차단조건](ADVISORY_PUBLIC_EVIDENCE_AND_PRIVATE_GATE_20261030.md) / [공개 출처 원장](evidence/V5_PUBLIC_EVIDENCE_20261030.json) / [개인자료 없는 적합성 입력 규약](policy/v5_private_suitability_contract_20261030.json). 외부 개인 자료와 판단 결과는 GitHub에 절대 저장하지 않는다.

@@ -1,0 +1,159 @@
+{
+  "schema_version": "V5_PUBLIC_EVIDENCE_AND_SUITABILITY_GATE_20261030",
+  "as_of": "2026-10-30",
+  "data_classification": "PUBLIC_VIDEO_RESEARCH_ONLY",
+  "no_personal_profile_or_positions": true,
+  "public_evidence": [
+    {
+      "id": "E_NPS_DELAY",
+      "videos": [
+        1
+      ],
+      "url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do",
+      "publisher": "National Pension Service",
+      "rule": "Deferred pension increase is 0.6 percent per month, max 5 years 36 percent; not investment return",
+      "source_as_of": "2026-10-30",
+      "status": "BOUND_RULE_CONFIRMED",
+      "private_dependency": "Individual benefit estimate and pension schedule not available"
+    },
+    {
+      "id": "E_PENSION_SOURCE",
+      "videos": [
+        1,
+        3,
+        10
+      ],
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+      "publisher": "National Law Information Center",
+      "rule": "Income Tax Decree Art 40-3: tax-excluded pension source, deferred retirement income, then other sources; legal pension eligibility separate",
+      "source_as_of": "2026-10-01",
+      "status": "BOUND_RULE_CONFIRMED",
+      "private_dependency": "Verified per-year tax-credit ledger and actual eligible withdrawals not provided"
+    },
+    {
+      "id": "E_GIFT_ANNUITY",
+      "videos": [
+        6
+      ],
+      "url": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000087162",
+      "publisher": "National Law Information Center",
+      "rule": "Gift-tax decree Art 62 fixed annuity right requires statutory present valuation, cancellation lump-sum may set floor",
+      "source_as_of": "2026-10-01",
+      "status": "BOUND_RULE_CONFIRMED",
+      "private_dependency": "Signed gifting contract and prior related-party gift amounts not provided"
+    },
+    {
+      "id": "E_GIFT_ALLOWANCE",
+      "videos": [
+        6
+      ],
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7960&mi=6532",
+      "publisher": "National Tax Service",
+      "rule": "Minor child direct ascendant gift allowance aggregated over ten years, 20 million KRW under stated eligibility",
+      "source_as_of": "2026-10-30",
+      "status": "BOUND_RULE_CONFIRMED",
+      "private_dependency": "Recipient relationship and ten-year gift history not available"
+    },
+    {
+      "id": "E_JPY_PRODUCT",
+      "videos": [
+        8
+      ],
+      "url": "https://www.plusetf.co.kr/product/detail?n=006369",
+      "publisher": "PLUS ETF issuer",
+      "rule": "Example JPY short-maturity synthetic ETF 489000 lists annual disclosed management cost 0.19 percent and swap exposure, not entire trading cost or guarantee",
+      "source_as_of": "2026-09-10",
+      "status": "PRODUCT_DOCUMENT_SPOT_CHECK",
+      "private_dependency": "Actual target ETF terms, current quotes and legal account eligibility not verified"
+    },
+    {
+      "id": "E_SUITABILITY_LAW",
+      "videos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1010081863",
+      "publisher": "National Law Information Center",
+      "rule": "Financial Consumer Protection Act Art 17 calls for investment purpose, financial circumstances and investment experience for specified regulated investment advice; research and self-directed assistance are not licensed advice",
+      "source_as_of": "2026-01-02",
+      "status": "LEGAL_SCOPE_REFERENCE",
+      "private_dependency": "Actual owner suitability profile must remain off GitHub"
+    }
+  ],
+  "video_specific_unresolved": [
+    {
+      "id": "U_CMA_CONTRACT",
+      "videos": [
+        2
+      ],
+      "reason": "No issuer and exact CMA contract protection / redemption terms"
+    },
+    {
+      "id": "U_IRP_CONTRACT",
+      "videos": [
+        1,
+        3,
+        10
+      ],
+      "reason": "Pension commencement, credited tax basis and account confirmation documents not verified"
+    },
+    {
+      "id": "U_MACRO_AND_ISSUER",
+      "videos": [
+        4
+      ],
+      "reason": "Unverified historic GDP ratio, issuer fundamentals and fair execution costs"
+    },
+    {
+      "id": "U_BUDGET",
+      "videos": [
+        5
+      ],
+      "reason": "Owner external assets, liabilities and cashflow suitability missing; no product selection"
+    },
+    {
+      "id": "U_GIFT_CONTRACT",
+      "videos": [
+        6
+      ],
+      "reason": "No private gift annuity contract or ten-year family ledger"
+    },
+    {
+      "id": "U_INTERVIEW_RETURNS",
+      "videos": [
+        7
+      ],
+      "reason": "No independently audited investor flows/statements and survivor bias controls"
+    },
+    {
+      "id": "U_JPY_FX_QUOTES",
+      "videos": [
+        8,
+        9
+      ],
+      "reason": "No actual bank/exchange bid and ask, product tax and current hedging/trading cost comparison"
+    },
+    {
+      "id": "U_AUDIO_SOURCE",
+      "videos": [
+        1,
+        3,
+        8,
+        10
+      ],
+      "reason": "Selected source audio and exact original slides/public ASR mismatches not independently resolved"
+    }
+  ],
+  "conclusion": "PUBLIC_SOURCE_SPOT_CHECK_ONLY_NONPERSONAL_ADVICE_NOT_APPROVED",
+  "all_26_legacy_open_resolved": false,
+  "client_suitability_approved": false,
+  "trade_execution_approved": false
+}

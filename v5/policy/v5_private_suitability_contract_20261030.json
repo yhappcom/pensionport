@@ -1,0 +1,34 @@
+{
+  "schema_version": "V5_PRIVATE_SUITABILITY_CONTRACT_1.0",
+  "as_of": "2026-10-30",
+  "purpose": "Self-directed decision-support screening; never claim licensed advisory authorization",
+  "repo_permitted": "Only this abstract field schema and synthetic tests",
+  "repo_forbidden": [
+    "Owner actual portfolio / account labels / holdings",
+    "Investment balances or income and living costs",
+    "Personally tailored opinions, risk score or profile",
+    "Actual investor tax ledger / trade history / dates of birth",
+    "Raw private subtitles, statement files, credentials"
+  ],
+  "required_private_checks": [
+    "decision_objective_and_withdrawal_horizon",
+    "investment_experience_and_product_understanding",
+    "risk_tolerance_drawdown_limit",
+    "risk_capacity_income_expenses_and_debts",
+    "outside_portfolio_emergency_liquidity",
+    "account_tax_basis_and_age_eligibility",
+    "issuer_instrument_terms_and_total_costs",
+    "complete_external_cashflow_and_returns_if_performance_used",
+    "portfolio_lookthrough_and_correlated_exposures",
+    "no_change_vs_alternative_risk_tax_liquidity_comparison"
+  ],
+  "return_contract": "PRIVATE_READINESS_AND_MISSING_CATEGORIES_ONLY; NEVER OUTPUT OR LOG ACTUAL INPUTS IN PUBLIC CI",
+  "decision_policy": {
+    "not_all_checks_complete": "PERSONAL_ADVICE_BLOCKED",
+    "all_checks_complete": "REQUIRE_MANUAL_PRIVATE_REVIEW_NOT_AUTOMATIC_L3",
+    "trade_execution": "ALWAYS_DISABLED"
+  },
+  "L3_approved": false,
+  "L4_approved": false,
+  "current_owner_fields_collected": false
+}
