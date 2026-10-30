@@ -253,6 +253,7 @@ def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=
            "new_concepts_created":0}
     source_cache={}
     legacy_claims,parts,irregular=load_legacy_claim_index(root)
+    effective_verdicts=verified_verdict_reconciliations(root,legacy_claims)
     for ev in events:
         # Validate every event at the entry point, including programmatic callers.
         privacy_guard(ev)
@@ -263,7 +264,7 @@ def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=
         claimid=ev["source_claim_id"];target=ev["target_concept_id"]
         row=legacy_claims.get(claimid)
         if row:
-            need(row["original_verdict"]==verdict and
+            need(effective_verdicts.get(claimid,row["original_verdict"])==verdict and
                  row["video_id"]==vid,
                  "new evidence falsifies original crosswalk verdict or provenance")
         rel=ev["relation"]; status=ev["review_state"]
@@ -398,6 +399,53 @@ def load_legacy_claim_index(root):
     # This is an original-v3 crosswalk. The curated 16 are only a sampled,
     # high-stakes synthesis of some of these immutable source events.
     return all_rows,parts,irregular
+
+def verified_verdict_reconciliations(root,legacy_claims):
+    """Immutable source-verdict corrections; historical crosswalk stays unchanged.
+
+    This is provenance reconciliation, NOT independent financial/tax validation.
+    Each effective verdict must be re-derived from the frozen V3 and V5 files.
+    """
+    path=root/"v5/integration/verdict_reconciliation_001_010_v1.json"
+    doc=read(path)
+    need(doc["schema"]=="V5_HISTORICAL_CROSSWALK_VERDICT_RECONCILIATION_V1"
+         and doc["scope"]=="PROVENANCE_ONLY_NO_SEMANTIC_APPROVAL"
+         and doc["research_complete_certifications_issued"]==0
+         and doc["approved_semantic_merges"]==0
+         and len(doc["items"])==1,
+         "unapproved or incorrectly scoped crosswalk reconciliation")
+    effective={}
+    for entry in doc["items"]:
+        cid=entry["claim_id"]
+        need(cid=="3MyhYE2jmuE-07"
+             and cid in legacy_claims and cid not in effective
+             and entry["video_id"]==legacy_claims[cid]["video_id"]
+             and entry["historical_crosswalk_original_verdict"]=="QUALIFIED"
+             and legacy_claims[cid]["original_verdict"]=="QUALIFIED"
+             and entry["effective_original_verdict"]=="HYPOTHETICAL"
+             and entry["disposition"]=="RECONCILED_SOURCE_VERDICT_PROVENANCE"
+             and entry["original_crosswalk_overwritten"] is False
+             and entry["independent_factual_truth_proven"] is False
+             and isinstance(entry["explanation"],str)
+             and len(entry["explanation"])>=80,
+             "source-verdict reconciliation cannot alter historic evidence")
+        v3p="data/analysis_events/3MyhYE2jmuE.json"
+        v5p="v5/retrofit/v5_006_3MyhYE2jmuE_bounded_closeout.json"
+        need(entry["v3_path"]==v3p and entry["v5_path"]==v5p
+             and git_blob_sha(root/v3p)==entry["v3_git_blob_sha"]
+             and git_blob_sha(root/v5p)==entry["v5_git_blob_sha"],
+             "reconciliation must cite unchanged historical file blobs")
+        v3=read(root/v3p);v5=read(root/v5p)
+        c3=[x for x in v3["core_claims"] if x["claim_id"]==cid]
+        c5=[x for x in v5["claim_coverage"]["claims"] if x["id"]==cid]
+        need(len(c3)==len(c5)==1 and
+             c3[0]["verification"]==c5[0]["verdict"]==
+             entry["effective_original_verdict"] and
+             c3[0]["timecode"]==c5[0]["timecode"],
+             "effective verdict must match original V3 and V5")
+        effective[cid]=entry["effective_original_verdict"]
+    return effective
+
 
 def validate_repository(root):
     p=read(root/POLICY)
