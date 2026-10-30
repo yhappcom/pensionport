@@ -162,13 +162,13 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     if _cross(fa,fb,"macro_regime","retirement_sustainability") and (
         "risk_management" in shared):
         edges.append("all_weather_risk_stability_vs_retiree_drawdown_survivability")
-    if _both(fa,fb,"risk_management") and
-        "macro_regime" in fa|fb and "etf_product" in fa|fb:
+    if (_both(fa,fb,"risk_management") and
+        "macro_regime" in (fa|fb) and "etf_product" in (fa|fb)):
         edges.append("all_weather_vs_single_equity_etf_stability_assumptions")
-    if _both(fa,fb,"multiasset_exposure") and
-        ("macro_regime" in fa|fb) and
+    if (_both(fa,fb,"multiasset_exposure") and
+        "macro_regime" in (fa|fb) and
         ("현금성" in a_text+b_text or "엔화" in a_text+b_text) and
-        ("주식" in a_text and "주식" in b_text):
+        ("주식" in a_text and "주식" in b_text)):
         edges.append("currency_cash_vs_equity_risk_role")
 
     # Macro/risk-parity and asset-allocation are connected at asset-class
