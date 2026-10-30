@@ -151,11 +151,36 @@ def inspect(atomic,model,v3,gold,signoff,v5):
         need(set(u["candidate_core_claim_ids"])<=claims,
              "atomic linked to unknown V3 claim")
         need(u["source_provenance"]=="V4_SIGNOFF_ATOMIC_ID_TO_PRINCIPLE_ONLY"
-             and u["status"]=="BLOCKED_ATOMIC_EVIDENCE_GRANULARITY"
-             and u["exact_atomic_wording_verified_in_this_cycle"] is False
-             and u["source_cue_range_verified_in_this_cycle"] is False
              and u["may_upgrade_to_complete"] is False,
-             "historical atomic source silently upgraded "+aid)
+             "historical atomic claim prematurely certified "+aid)
+        if u["status"]=="BLOCKED_ATOMIC_EVIDENCE_GRANULARITY":
+            need(u["exact_atomic_wording_verified_in_this_cycle"] is False and
+                 u["source_cue_range_verified_in_this_cycle"] is False and
+                 not u.get("source_anchor"),
+                 "source proof without required independently reviewed anchor: "+aid)
+        elif u["status"]=="SOURCE_ANCHORED_AUDIT_REQUIRED":
+            anchor=u.get("source_anchor")
+            need(isinstance(anchor,dict) and
+                 u["exact_atomic_wording_verified_in_this_cycle"] is True and
+                 u["source_cue_range_verified_in_this_cycle"] is True,
+                 "partial source evidence cannot be upgraded without metadata: "+aid)
+            need(anchor.get("private_original_srt_sha256")==
+                 atomic["source"]["private_original_srt_sha256"] and
+                 type(anchor.get("first_cue")) is int and
+                 type(anchor.get("last_cue")) is int and
+                 0<=anchor["first_cue"]<=anchor["last_cue"]<1195 and
+                 type(anchor.get("atomic_text_sha256")) is str and
+                 len(anchor["atomic_text_sha256"])==64 and
+                 all(c in "0123456789abcdef" for c in anchor["atomic_text_sha256"]),
+                 "invalid private source anchor: "+aid)
+            for key in ("review_session_reference","reviewed_on","independent_audit_pending_reason"):
+                must_str(anchor,key)
+            need(anchor["reviewed_on"]>="2026-10-30" and
+                 "PRIVATE" not in anchor["review_session_reference"].upper(),
+                 "unusable source anchor tracking: "+aid)
+            # CI cannot inspect private original; recorded hash is NOT independent fact proof.
+        else:
+            raise ValueError("unknown or premature atomic completion state "+aid)
         need(set(u["official_source_ids"])<=SRC_IDS and
              set(u["quantitative_model_ids"])==set() and
              u["empirical_dataset_ids"]==[],"fake atomic-level proof "+aid)
@@ -189,6 +214,10 @@ def inspect(atomic,model,v3,gold,signoff,v5):
     need(known=={"sz5N9WJS310-06","sz5N9WJS310-15"},
          "historical contradiction set altered")
     return { "atomic_count":42, "core_claim_count":23, "principle_groups":12,
+             "pending_source_atoms":sum(x["status"]=="BLOCKED_ATOMIC_EVIDENCE_GRANULARITY"
+                                        for x in atoms),
+             "source_anchored_pending_independent_audit":sum(x["status"]=="SOURCE_ANCHORED_AUDIT_REQUIRED"
+                                                             for x in atoms),
              "bounded_public_evidence":7, "dated_official_source_scopes":7,
              "reproduced_models":5, "reproduced_scenarios":6,
              "actual_empirical_datasets":0,
@@ -200,21 +229,39 @@ def work_plan(atomic, model):
     """Deterministic actionable followup queue, grouped to avoid 42 repeated AI sessions."""
     catalog={x["id"]:x for x in atomic["official_source_catalog"]}
     work=[]
-    for i in range(1,13):
-        k=f"V4-001-K{i:02d}"
-        units=[x for x in atomic["atomic"] if k in x["principle_ids"]]
-        if any(x["status"]!="BLOCKED_ATOMIC_EVIDENCE_GRANULARITY" for x in units):
-            continue  # only verified atomic evidence should remove this job
-        reusable=sorted(set(s for x in units for s in x["official_source_ids"]))
-        claims=sorted(set(c for x in units for c in x["candidate_core_claim_ids"]))
-        work.append({"task_id":f"REOPEN-{k}",
-                     "priority":"P0" if i in (3,4,5,7,11) else "P1",
-                     "atomic_ids":sorted(x["atomic_id"] for x in units),
-                     "related_core_claim_ids":claims,
-                     "reusable_scoped_public_evidence":reusable,
-                     "why_blocked":"Exact 42-item atomic statement artifact and cue-specific truth review not loaded; existing K-to-core mapping is only a candidate.",
-                     "next_proof":"Read private original atomic audit or SRT; identify precise quote/cue, verify each atomic financial statement using its applicable independent evidence.",
-                     "estimated_external_dependency":"PRIVATE_ATOMIC_PROVENANCE"})
+    # Each original A-ID is scheduled ONCE, despite its links to several K principles.
+    assigned={}
+    for unit in atomic["atomic"]:
+        canonical=sorted(unit["principle_ids"])[0]
+        assigned.setdefault(canonical,[]).append(unit)
+    for k, units in sorted(assigned.items()):
+        i=int(k[-2:])
+        unresolved=[x for x in units if x["status"]=="BLOCKED_ATOMIC_EVIDENCE_GRANULARITY"]
+        anchored=[x for x in units if x["status"]=="SOURCE_ANCHORED_AUDIT_REQUIRED"]
+        for subset, prefix, msg, ask in (
+            (unresolved,"REOPEN",
+             "Original atom-specific words and cue positions are not yet available in the public research record.",
+             "Locate private source, verify exact atomic text and cue range; save non-textual source hash and audit reference."),
+            (anchored,"AUDIT",
+             "Private source anchor metadata exists, but CI cannot independently read the private source and claim evidence is not certified.",
+             "Independently check the private source anchor, match claim meaning, research actual law/model/empirical scope, and preserve review evidence.")
+        ):
+            if not subset: continue
+            reusable=sorted(set(s for x in subset for s in x["official_source_ids"]))
+            claims=sorted(set(c for x in subset for c in x["candidate_core_claim_ids"]))
+            work.append({"task_id":f"{prefix}-{k}",
+                         "priority":"P0" if i in (3,4,5,7,11) else "P1",
+                         "atomic_ids":sorted(x["atomic_id"] for x in subset),
+                         "principle_alias_refs":sorted(set(p for x in subset for p in x["principle_ids"])),
+                         "related_core_claim_ids":claims,
+                         "reusable_scoped_public_evidence":reusable,
+                         "why_blocked":msg,
+                         "next_proof":ask,
+                         "estimated_external_dependency":"PRIVATE_ATOMIC_PROVENANCE"})
+    # A task is unique per atomic ID and stage; never duplicate work across K labels.
+    atomic_in_tasks=[a for t in work for a in t["atomic_ids"]]
+    need(len(atomic_in_tasks)==len(set(atomic_in_tasks))==42,
+         "duplicate or missing atomic work tasks")
     work.append({"task_id":"PUBLIC_LEGAL_EVIDENCE_SCOPE",
                  "priority":"P0",
                  "reusable_scoped_public_evidence":sorted(catalog),
@@ -252,12 +299,44 @@ def mutation_tests(a,m,v3,g,s,v5):
     x=copy.deepcopy(m);x["models"][0]["scenarios"][0]["expected"]+=12345;tests.append((a,x))
     x=copy.deepcopy(m);x["models"][1]["scenarios"][0]["inputs"]["rate_per_month"]=0.07;tests.append((a,x))
     x=copy.deepcopy(m);x["models"][2]["claim_ids"]=["sz5N9WJS310-02"];tests.append((a,x))
+    # A fake partial source promotion without provenance must still be rejected.
+    x=copy.deepcopy(a);x["atomic"][0]["status"]="SOURCE_ANCHORED_AUDIT_REQUIRED";tests.append((x,m))
+    x=copy.deepcopy(a);x["atomic"][0]["status"]="SOURCE_ANCHORED_AUDIT_REQUIRED"
+    x["atomic"][0]["exact_atomic_wording_verified_in_this_cycle"]=True
+    x["atomic"][0]["source_cue_range_verified_in_this_cycle"]=True
+    x["atomic"][0]["source_anchor"]={"private_original_srt_sha256":"0"*64,
+        "first_cue":0,"last_cue":2,"atomic_text_sha256":"a"*64,
+        "review_session_reference":"DEMO-ONLY","reviewed_on":"2026-10-30",
+        "independent_audit_pending_reason":"Synthetic test not a real source"}
+    tests.append((x,m))
     for i,(t,u) in enumerate(tests):
         try:inspect(t,u,v3,g,s,v5)
         except (ValueError,KeyError,TypeError,IndexError,ZeroDivisionError):
             continue
         raise ValueError("unsafe evidence mutation passed "+str(i))
-    return len(tests)
+    # Synthetic *progression* proves that the scheduler advances rather than only rejects.
+    anchored=copy.deepcopy(a)
+    unit=anchored["atomic"][0]
+    unit["status"]="SOURCE_ANCHORED_AUDIT_REQUIRED"
+    unit["exact_atomic_wording_verified_in_this_cycle"]=True
+    unit["source_cue_range_verified_in_this_cycle"]=True
+    unit["source_anchor"]={
+        "private_original_srt_sha256":anchored["source"]["private_original_srt_sha256"],
+        "first_cue":24,"last_cue":37,"atomic_text_sha256":"a"*64,
+        "review_session_reference":"SYNTHETIC-ANCHOR-TEST",
+        "reviewed_on":"2026-10-30",
+        "independent_audit_pending_reason":"No actual SRT inspected by CI; must independently audit"}
+    inspect(anchored,m,v3,g,s,v5)
+    planned=work_plan(anchored,m)
+    need(sum(x["task_id"].startswith("AUDIT-") for x in planned)==1 and
+         sum(len(x["atomic_ids"]) for x in planned
+             if x["task_id"].startswith("REOPEN-"))==41 and
+         sum(len(x["atomic_ids"]) for x in planned
+             if x["task_id"].startswith("AUDIT-"))==1,
+         "valid partial proof does not advance queue while preserving review gate")
+    return {"negative_mutations_rejected":len(tests),
+            "synthetic_progression_test":"ONE_ATOM_SOURCE_ANCHORED_41_PENDING_1_AUDIT",
+            "real_atoms_fully_certified_by_test":0}
 
 def main():
     p=argparse.ArgumentParser()
@@ -272,7 +351,7 @@ def main():
     result["open_research_work_groups"]=len(work)
     result["source_reopen_groups"]=len([x for x in work if x["task_id"].startswith("REOPEN-")])
     result["workflow_finds_next_research_tasks"]=True
-    if args.self_test:result["negative_mutations_rejected"]=mutation_tests(a,m,v3,g,s,v5)
+    if args.self_test:result["tests"]=mutation_tests(a,m,v3,g,s,v5)
     if args.plan:result["next_tasks"]=work
     print(json.dumps(result,ensure_ascii=False,sort_keys=True))
 if __name__=="__main__":
