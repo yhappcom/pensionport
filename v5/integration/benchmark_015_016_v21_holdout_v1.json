@@ -1,0 +1,857 @@
+{
+  "schema": "V5_CANDIDATE_V21_015_016_FIRST_USE_BENCHMARK_V1",
+  "benchmark_date": "2026-10-30",
+  "design": "Targeted semantic diagnostic set selected from source claims before first frozen-engine execution; analyst-labels not independent or random",
+  "baseline_path": "v5/integration/v21_development_001_014_v1.json",
+  "frozen_engine_path": "scripts/v5_candidate_engine_v21.py",
+  "frozen_engine_git_blob_sha": "60a02bc9a0cd6181db37fcba94d9aa12271c6dc5",
+  "old_videos": 14,
+  "old_claims": 155,
+  "new_videos": 2,
+  "new_claims": 25,
+  "all_claims": 180,
+  "all_pairs": 16110,
+  "new_involving_pairs": 4175,
+  "source_videos": [
+    {
+      "video_number": 15,
+      "video_id": "uiauof6tOFk",
+      "v3_path": "data/analysis_events/uiauof6tOFk.json",
+      "v3_git_blob_sha": "4845d61ee0d70fc45754d4ffa50a2ae02a8cd36c",
+      "registered_srt_sha256": "577bef626ef289a67c9c50f2ef6d7d1548ac66040bbda1a451a62ff06f7d9998",
+      "source_cues": 650,
+      "claim_count": 19,
+      "source_limits": "649 spoken lines match public transcript; extra original music cue, original sound and frames unchecked; 1972-2022 backtest return tables unreplicated",
+      "refuted_claims": []
+    },
+    {
+      "video_number": 16,
+      "video_id": "Nueoi-_PH6o",
+      "v3_path": "data/analysis_events/Nueoi-_PH6o.json",
+      "v3_git_blob_sha": "87ecf6b874e3cb15218b13da000ad787cffe2235",
+      "registered_srt_sha256": "ce3f4ef4f72233e588fddcaf2b948656758a17bf2fa329f05792d1da5caa4ff1",
+      "source_cues": 34,
+      "claim_count": 6,
+      "source_limits": "original SRT hash matched, sound and frames not checked, product ETF yields and constituents date-dependent",
+      "refuted_claims": []
+    }
+  ],
+  "baseline_refuted_claims": [
+    "sz5N9WJS310-06",
+    "sz5N9WJS310-15",
+    "aNfGrcO6WPI-03",
+    "VKr060rIirM-05",
+    "3_9IXnycZ3s-04",
+    "3_9IXnycZ3s-05",
+    "keu5SvpD7KE-04",
+    "keu5SvpD7KE-06",
+    "IMJfPgmnFwc-01",
+    "IMJfPgmnFwc-07"
+  ],
+  "labels_independently_adjudicated": false,
+  "baseline_162_preserved": true,
+  "automatic_semantic_approval": false,
+  "tests": [
+    {
+      "id": "NEW15-01",
+      "left": "uiauof6tOFk-02",
+      "right": "4CQ4FjGT2gA-13",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "작가 가족의 시장 위기 일화와 다른 구독자의 인생주식 성공담은 상호 검증되지 않음",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-02",
+      "left": "uiauof6tOFk-02",
+      "right": "aNfGrcO6WPI-01",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "일본버블 가족 일화와 반도체 대형주 고점매수 판단은 별도 사례",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-03",
+      "left": "uiauof6tOFk-03",
+      "right": "IMJfPgmnFwc-03",
+      "analyst_label": "QUALIFY",
+      "reason": "장기 보유라도 수익과 원금 회복은 보장되지 않는다는 원칙",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-04",
+      "left": "uiauof6tOFk-03",
+      "right": "3_9IXnycZ3s-06",
+      "analyst_label": "QUALIFY",
+      "reason": "과거 장기 주가지수 수익과 미래 수익 비보장의 대응",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-05",
+      "left": "uiauof6tOFk-03",
+      "right": "aNfGrcO6WPI-05",
+      "analyst_label": "QUALIFY",
+      "reason": "3년 시장 사이클 일반론과 장기보유 비보장 검토",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-06",
+      "left": "uiauof6tOFk-03",
+      "right": "OiDTNstaSpM-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "장기 주식 보유의 위험과 장기채 만기상환은 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-07",
+      "left": "uiauof6tOFk-04",
+      "right": "IMJfPgmnFwc-01",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "주가 최대낙폭과 영구손실·시장가격 변동의 위험 개념",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-08",
+      "left": "uiauof6tOFk-04",
+      "right": "IMJfPgmnFwc-03",
+      "analyst_label": "QUALIFY",
+      "reason": "장기 주가지수 하락·회복 불확실성이 장기투자 조건에 미침",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-09",
+      "left": "uiauof6tOFk-04",
+      "right": "4CQ4FjGT2gA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "책의 역사적 최대낙폭과 구독자 자산증가 일화는 독립",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-10",
+      "left": "uiauof6tOFk-05",
+      "right": "3_9IXnycZ3s-06",
+      "analyst_label": "QUALIFY",
+      "reason": "역사적 지수 회복시점과 과거 성과 미래 보장 불가",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-11",
+      "left": "uiauof6tOFk-05",
+      "right": "sz5N9WJS310-07",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "1929년 주식 가격회복 사례와 법정 국민연금 연기율은 다른 메커니즘",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-12",
+      "left": "uiauof6tOFk-06",
+      "right": "aNfGrcO6WPI-04",
+      "analyst_label": "QUALIFY",
+      "reason": "급락장 조기매도 후 반등 소외 위험과 감정적 추격 매매",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-13",
+      "left": "uiauof6tOFk-06",
+      "right": "IMJfPgmnFwc-02",
+      "analyst_label": "QUALIFY",
+      "reason": "급락장에서 시세 감시·매도규칙과 리밸런싱 원칙 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-14",
+      "left": "uiauof6tOFk-06",
+      "right": "aNfGrcO6WPI-03",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "급락 시 팔지 말라는 의견과 계좌앱 삭제·무조건 보유 문제",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-15",
+      "left": "uiauof6tOFk-07",
+      "right": "aNfGrcO6WPI-05",
+      "analyst_label": "QUALIFY",
+      "reason": "침체 5~10년과 3년 사이클이 단정적 주장이 될 수 없는 점",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-16",
+      "left": "uiauof6tOFk-07",
+      "right": "IMJfPgmnFwc-03",
+      "analyst_label": "QUALIFY",
+      "reason": "시장 침체·회복 불확실성과 투자기간의 조건",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-17",
+      "left": "uiauof6tOFk-07",
+      "right": "OiDTNstaSpM-07",
+      "analyst_label": "QUALIFY",
+      "reason": "장기 침체 시 유동성 대비와 파킹형ETF 분할매수 계획",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-18",
+      "left": "uiauof6tOFk-08",
+      "right": "3_9IXnycZ3s-06",
+      "analyst_label": "QUALIFY",
+      "reason": "장기 평균수익과 실제 ETF 실현성과 및 기간 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-19",
+      "left": "uiauof6tOFk-08",
+      "right": "sz5N9WJS310-02",
+      "analyst_label": "QUALIFY",
+      "reason": "연평균 가정수익률과 개별 운용기간 실현수익의 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-20",
+      "left": "uiauof6tOFk-08",
+      "right": "4CQ4FjGT2gA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "개별 구독자 계좌자산 증식과 장기 통계 평균수익은 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-21",
+      "left": "uiauof6tOFk-09",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "올웨더 경제국면별 위험배분과 다자산 자산배분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-22",
+      "left": "uiauof6tOFk-09",
+      "right": "IMJfPgmnFwc-09",
+      "analyst_label": "QUALIFY",
+      "reason": "올웨더 분산투자 원칙과 장기·저비용 투자 교육원칙",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-23",
+      "left": "uiauof6tOFk-09",
+      "right": "6VEfKF7BzZU-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "올웨더 거시경제위험 관리와 2026년 특정 기준금리 수치는 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-24",
+      "left": "uiauof6tOFk-10",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "경기/물가 국면별 주식 채권 금 위험배분과 다자산 배분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-25",
+      "left": "uiauof6tOFk-10",
+      "right": "IMJfPgmnFwc-04",
+      "analyst_label": "QUALIFY",
+      "reason": "경제국면 따라 주식·채권의 상관관계가 달라질 수 있음",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-26",
+      "left": "uiauof6tOFk-10",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "성장률/물가 4국면과 사적연금 과세 1500만원은 다른 규칙",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-27",
+      "left": "uiauof6tOFk-11",
+      "right": "IMJfPgmnFwc-04",
+      "analyst_label": "QUALIFY",
+      "reason": "주식 채권 동반하락 가능성과 경제상황별 자산군 위험",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-28",
+      "left": "uiauof6tOFk-11",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "금 채권 달러 등 자산별 특성과 분산투자",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-29",
+      "left": "uiauof6tOFk-11",
+      "right": "OfkY343OaNs-06",
+      "analyst_label": "QUALIFY",
+      "reason": "주식과 통화성 자산 역할 차이 및 위험 노출",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-30",
+      "left": "uiauof6tOFk-12",
+      "right": "3MyhYE2jmuE-10",
+      "analyst_label": "QUALIFY",
+      "reason": "책의 26/34/20/20 포트폴리오와 자녀 투자 6:4 배분 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-31",
+      "left": "uiauof6tOFk-12",
+      "right": "4CQ4FjGT2gA-10",
+      "analyst_label": "QUALIFY",
+      "reason": "다자산 포트폴리오 사례의 자산군·비중 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-32",
+      "left": "uiauof6tOFk-12",
+      "right": "6VEfKF7BzZU-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "책의 사자산 가중치와 개인 패시브/액티브 반반 제안은 다른 축",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-33",
+      "left": "uiauof6tOFk-13",
+      "right": "IMJfPgmnFwc-01",
+      "analyst_label": "QUALIFY",
+      "reason": "변동성·위험률의 정의와 상품별 위험 측정",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-34",
+      "left": "uiauof6tOFk-13",
+      "right": "4CQ4FjGT2gA-11",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "1972~2022 자산군 변동성과 개인의 채권 신용등급 기준은 다른 위험지표",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-35",
+      "left": "uiauof6tOFk-14",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "리스크패리티 위험기여 배분과 일반 다자산 배분 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-36",
+      "left": "uiauof6tOFk-14",
+      "right": "IMJfPgmnFwc-04",
+      "analyst_label": "QUALIFY",
+      "reason": "비중 동일분할 대비 분산의 위험관계",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-37",
+      "left": "uiauof6tOFk-14",
+      "right": "qtluAViPpsQ-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "자산의 위험기여도 배분과 사회초년생 가계예산 배분은 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-38",
+      "left": "uiauof6tOFk-15",
+      "right": "IMJfPgmnFwc-04",
+      "analyst_label": "QUALIFY",
+      "reason": "낮은 자산상관과 포트폴리오 위험분산 원리",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-39",
+      "left": "uiauof6tOFk-15",
+      "right": "3_9IXnycZ3s-04",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "ETF 내부 종목분산과 비상관 자산군 분산의 다른 수준",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-40",
+      "left": "uiauof6tOFk-15",
+      "right": "OiDTNstaSpM-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "자산 상관에 따른 포트폴리오 변동성과 개별 채권 만기 보유는 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-41",
+      "left": "uiauof6tOFk-16",
+      "right": "IMJfPgmnFwc-02",
+      "analyst_label": "QUALIFY",
+      "reason": "연 1회 리밸런싱 모형과 정기적 포트폴리오 관리",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-42",
+      "left": "uiauof6tOFk-16",
+      "right": "3_9IXnycZ3s-06",
+      "analyst_label": "QUALIFY",
+      "reason": "백테스트 배당 재투자·수수료 가정과 실제 ETF 장기 성과 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-43",
+      "left": "uiauof6tOFk-16",
+      "right": "4CQ4FjGT2gA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "가상 50년 지수 백테스트와 실재 개인 투자성과 사례는 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-44",
+      "left": "uiauof6tOFk-17",
+      "right": "3MyhYE2jmuE-10",
+      "analyst_label": "QUALIFY",
+      "reason": "주식/금/채권 대체구성 비교와 주식채권 6:4 예시",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-45",
+      "left": "uiauof6tOFk-17",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "복수 자산군 비중과 대안 자산배분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-46",
+      "left": "uiauof6tOFk-17",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배분비중 실험의 수익 비교와 월복리 수치기간 계산 오류는 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-47",
+      "left": "uiauof6tOFk-18",
+      "right": "IMJfPgmnFwc-03",
+      "analyst_label": "QUALIFY",
+      "reason": "성과 백테스트 우위와 실제 장기수익 비보장",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-48",
+      "left": "uiauof6tOFk-18",
+      "right": "3_9IXnycZ3s-06",
+      "analyst_label": "QUALIFY",
+      "reason": "동일 조건 아닌 과거 성과 우위 비교와 ETF 실현수익 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-49",
+      "left": "uiauof6tOFk-18",
+      "right": "4CQ4FjGT2gA-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "모형 포트폴리오 수익률과 개인 구독자 자산증가 사례 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-50",
+      "left": "uiauof6tOFk-19",
+      "right": "IMJfPgmnFwc-04",
+      "analyst_label": "QUALIFY",
+      "reason": "올웨더 심리적 안정과 분산투자의 지속적 위험",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-51",
+      "left": "uiauof6tOFk-19",
+      "right": "OiDTNstaSpM-15",
+      "analyst_label": "QUALIFY",
+      "reason": "올웨더 안정성 주장과 은퇴기 지속가능한 위험관리",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW15-52",
+      "left": "uiauof6tOFk-19",
+      "right": "6VEfKF7BzZU-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "올웨더 포트폴리오 손실위험과 보통예금 예금자보호는 다른 제도",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-01",
+      "left": "Nueoi-_PH6o-01",
+      "right": "OiDTNstaSpM-12",
+      "analyst_label": "QUALIFY",
+      "reason": "미국 배당투자 현금흐름 목표와 전체 연금현금흐름 수립",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-02",
+      "left": "Nueoi-_PH6o-01",
+      "right": "OiDTNstaSpM-13",
+      "analyst_label": "QUALIFY",
+      "reason": "배당주 현금흐름과 은퇴기 분배형 자산의 지속성",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-03",
+      "left": "Nueoi-_PH6o-01",
+      "right": "sz5N9WJS310-15",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "매월 안정적 배당수익 목표와 분배금의 과세·비보장 정정",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-04",
+      "left": "Nueoi-_PH6o-01",
+      "right": "keu5SvpD7KE-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "배당현금흐름 가정과 원금 및 분배 지속성 비보장",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-05",
+      "left": "Nueoi-_PH6o-01",
+      "right": "qtluAViPpsQ-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배당수익 현금흐름과 청년 월100만원 적립계좌 예산은 다른 흐름",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-06",
+      "left": "Nueoi-_PH6o-02",
+      "right": "6VEfKF7BzZU-08",
+      "analyst_label": "QUALIFY",
+      "reason": "배당주 정기매수와 대표지수 ETF 적립식 투자 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-07",
+      "left": "Nueoi-_PH6o-02",
+      "right": "sz5N9WJS310-02",
+      "analyst_label": "QUALIFY",
+      "reason": "현금배당 재투자와 복리 수익률 예시 간 조건비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-08",
+      "left": "Nueoi-_PH6o-02",
+      "right": "sz5N9WJS310-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배당 재투자 일반론과 국민연금 월30만원 7년 계산 오류는 다른 수치",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-09",
+      "left": "Nueoi-_PH6o-02",
+      "right": "aNfGrcO6WPI-06",
+      "analyst_label": "QUALIFY",
+      "reason": "배당금으로 신규 자산을 축적하는 전략과 재투자",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-10",
+      "left": "Nueoi-_PH6o-02",
+      "right": "3MyhYE2jmuE-08",
+      "analyst_label": "QUALIFY",
+      "reason": "자녀 장기 정기증여 투자와 배당정기매수는 투자방식 유사·계좌조건 다름",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-11",
+      "left": "Nueoi-_PH6o-02",
+      "right": "OiDTNstaSpM-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배당 재투자와 퇴직금 목돈을 3년 분할매수하는 계획은 자금원천 다름",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-12",
+      "left": "Nueoi-_PH6o-03",
+      "right": "3_9IXnycZ3s-02",
+      "analyst_label": "QUALIFY",
+      "reason": "미국 배당100지수와 S&P500 지수 방법론의 지수편입 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-13",
+      "left": "Nueoi-_PH6o-03",
+      "right": "6VEfKF7BzZU-08",
+      "analyst_label": "QUALIFY",
+      "reason": "미국배당다우존스100 ETF 상품구조와 대표지수ETF 활용",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-14",
+      "left": "Nueoi-_PH6o-03",
+      "right": "IMJfPgmnFwc-07",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "미국배당100 지수선정 규칙과 패시브 ETF 운용방식 정정",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-15",
+      "left": "Nueoi-_PH6o-03",
+      "right": "sz5N9WJS310-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배당100지수 구성기준과 연금소득 1500만원 과세기준 다른 규칙",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-16",
+      "left": "Nueoi-_PH6o-03",
+      "right": "YNOSY15ppf8-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "미국 배당지수 ETF 편입기준과 엔화 투자경로는 다른 상품구조",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-17",
+      "left": "Nueoi-_PH6o-04",
+      "right": "3_9IXnycZ3s-08",
+      "analyst_label": "QUALIFY",
+      "reason": "만원대 ETF 매수접근성은 종목별 가격과 최소거래수량 조건",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-18",
+      "left": "Nueoi-_PH6o-04",
+      "right": "3_9IXnycZ3s-04",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "배당ETF 안정성 주장과 미 대형주 ETF 내부 집중·환율위험",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-19",
+      "left": "Nueoi-_PH6o-04",
+      "right": "IMJfPgmnFwc-08",
+      "analyst_label": "QUALIFY",
+      "reason": "소액 ETF 매수와 ETF 내부 종목·테마집중 분산여부",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-20",
+      "left": "Nueoi-_PH6o-04",
+      "right": "6VEfKF7BzZU-06",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "미국배당 ETF의 가격변동과 은행 보통예금 보호는 다른 원리",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-21",
+      "left": "Nueoi-_PH6o-05",
+      "right": "OiDTNstaSpM-13",
+      "analyst_label": "QUALIFY",
+      "reason": "분기와 월 분배 주기를 현금흐름 계획에 반영",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-22",
+      "left": "Nueoi-_PH6o-05",
+      "right": "sz5N9WJS310-15",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "월분배 지급주기와 실제 지속수익·과세 여부 구별",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-23",
+      "left": "Nueoi-_PH6o-05",
+      "right": "keu5SvpD7KE-06",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "월분배 일정과 자본지속성은 별도의 문제",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-24",
+      "left": "Nueoi-_PH6o-05",
+      "right": "OfkY343OaNs-09",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "미국배당 ETF 월분배 관행과 일본상장 미국ETF 현지/국내 과세 경로는 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-25",
+      "left": "Nueoi-_PH6o-05",
+      "right": "YNOSY15ppf8-12",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "배당 지급 주기와 엔화환전 스프레드 비용은 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-26",
+      "left": "Nueoi-_PH6o-06",
+      "right": "3_9IXnycZ3s-04",
+      "analyst_label": "CORRECTION_REVIEW",
+      "reason": "나스닥100/SCHD 중복 낮아도 자산군·섹터 집중위험 남음",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-27",
+      "left": "Nueoi-_PH6o-06",
+      "right": "IMJfPgmnFwc-05",
+      "analyst_label": "QUALIFY",
+      "reason": "종목 중복 및 특정 기업·섹터 위험이 실질 분산에 미치는 영향",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-28",
+      "left": "Nueoi-_PH6o-06",
+      "right": "IMJfPgmnFwc-08",
+      "analyst_label": "QUALIFY",
+      "reason": "서로 다른 ETF의 종목 중복과 내부 분산/집중 평가",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-29",
+      "left": "Nueoi-_PH6o-06",
+      "right": "4CQ4FjGT2gA-07",
+      "analyst_label": "QUALIFY",
+      "reason": "성장배당ETF 혼합과 실제 다자산 배분의 차이",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-30",
+      "left": "Nueoi-_PH6o-06",
+      "right": "OfkY343OaNs-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "나스닥 배당지수 중복과 일본 초단기국채 ETF 위험은 다름",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "NEW16-31",
+      "left": "Nueoi-_PH6o-06",
+      "right": "VKr060rIirM-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "ETF 종목중복 위험과 일반계좌/연금계좌 획일적 세율 오류는 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "CROSS15-16-01",
+      "left": "uiauof6tOFk-08",
+      "right": "Nueoi-_PH6o-02",
+      "analyst_label": "QUALIFY",
+      "reason": "장기 수익률과 배당 재투자 성과 측정·기간조건의 관계",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "CROSS15-16-02",
+      "left": "uiauof6tOFk-16",
+      "right": "Nueoi-_PH6o-02",
+      "analyst_label": "QUALIFY",
+      "reason": "과거 가상백테스트의 배당 재투자 가정과 실제 현금배당 재투자",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "CROSS15-16-03",
+      "left": "uiauof6tOFk-19",
+      "right": "Nueoi-_PH6o-04",
+      "analyst_label": "QUALIFY",
+      "reason": "올웨더 안정성 주장과 미국배당ETF 안정성 주장을 위험기준으로 비교",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "CROSS15-16-04",
+      "left": "uiauof6tOFk-12",
+      "right": "Nueoi-_PH6o-03",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "올웨더 주식채권금원자재 자산비중과 미국배당100 지수편입 규칙은 구분",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "CROSS15-16-05",
+      "left": "uiauof6tOFk-14",
+      "right": "Nueoi-_PH6o-05",
+      "analyst_label": "TOPIC_ONLY",
+      "reason": "리스크패리티 위험기여도와 분기·월 배당주기 상품운영은 별개",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    },
+    {
+      "id": "CROSS15-16-06",
+      "left": "uiauof6tOFk-15",
+      "right": "Nueoi-_PH6o-06",
+      "analyst_label": "QUALIFY",
+      "reason": "비상관 자산군 분산과 성장/배당ETF 중복도는 다른 분산층위",
+      "adjudication": "ANALYST_DIAGNOSTIC_NOT_INDEPENDENT",
+      "certified_merge": false
+    }
+  ]
+}
