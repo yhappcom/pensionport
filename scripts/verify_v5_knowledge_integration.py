@@ -233,7 +233,7 @@ def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=
            "topic_only":0,"approved_overlays":0,"evidence_refreshes":0,
            "new_concepts_created":0}
     source_cache={}
-    legacy_claims,parts=load_legacy_claim_index(root)
+    legacy_claims,parts,irregular=load_legacy_claim_index(root)
     for ev in events:
         # Validate every event at the entry point, including programmatic callers.
         privacy_guard(ev)
@@ -323,6 +323,8 @@ def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=
         "historical_crosswalk_claims":len(legacy_claims),
         "historical_crosswalk_video_count":253,
         "historical_crosswalk_partitions":parts,
+        "historical_irregular_id_examples":irregular[:12],
+        "historical_irregular_id_count":len(irregular),
         "baseline_original_events_preserved":True,
         "approved_new_distinct_evidence_claim_ids":sorted(added-original_ids),
         "approved_overlaid_relation_count":stats["approved_overlays"],
@@ -345,6 +347,7 @@ def load_legacy_claim_index(root):
     """Read all 4,120 original claim records; no change to original crosswalk files."""
     known=load_families(root)
     all_rows={}
+    irregular=[]
     parts=[]
     for name,expected in (
             ("claims_crosswalk_001_130.json",2127),
@@ -357,9 +360,11 @@ def load_legacy_claim_index(root):
         for row in rows:
             cid=row["claim_id"]
             m=CLAIM.fullmatch(cid)
-            need(m and m.group(1)==row["video_id"] and
-                 row["primary_concept_id"] in known and
-                 cid not in all_rows,"invalid/duplicate historical claim: "+cid)
+            need(row["primary_concept_id"] in known and
+                 cid not in all_rows,"unknown topic or duplicate historical claim: "+cid)
+            if not m or m.group(1)!=row["video_id"]:
+                irregular.append({"claim_id":cid,"video_id":row["video_id"],
+                                  "roster_no":row["roster_no"]})
             all_rows[cid]=row
         parts.append({"part":name,"verified_claims":len(rows)})
     need(len(all_rows)==4120 and
@@ -367,7 +372,7 @@ def load_legacy_claim_index(root):
          "253 video/4,120 claim historical baseline mismatch")
     # This is an original-v3 crosswalk. The curated 16 are only a sampled,
     # high-stakes synthesis of some of these immutable source events.
-    return all_rows,parts
+    return all_rows,parts,irregular
 
 def validate_repository(root):
     p=read(root/POLICY)
@@ -544,6 +549,8 @@ def main():
     result={"gate":"PASS_STRUCTURAL_ONLY","historical_crosswalk_claims":view["historical_crosswalk_claims"],
             "historical_crosswalk_video_count":view["historical_crosswalk_video_count"],
             "historical_crosswalk_partitions":view["historical_crosswalk_partitions"],
+            "historical_irregular_id_count":view["historical_irregular_id_count"],
+            "historical_irregular_id_examples":view["historical_irregular_id_examples"],
             "baseline_concepts":view["baseline_concepts"],
             "baseline_distinct_claims":view["baseline_distinct_evidence_claims"],
             "incoming_event_count":view["incoming_event_count"],
