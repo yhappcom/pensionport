@@ -20,6 +20,8 @@ on:
       - "scripts/v5_candidate_engine_v2.py"
       - "scripts/evaluate_v5_candidate_v2.py"
       - "scripts/evaluate_v5_candidate_v2_013_014.py"
+      - "scripts/v5_candidate_engine_v21.py"
+      - "scripts/evaluate_v5_candidate_v21.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -38,6 +40,8 @@ on:
       - "scripts/v5_candidate_engine_v2.py"
       - "scripts/evaluate_v5_candidate_v2.py"
       - "scripts/evaluate_v5_candidate_v2_013_014.py"
+      - "scripts/v5_candidate_engine_v21.py"
+      - "scripts/evaluate_v5_candidate_v21.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -100,6 +104,10 @@ jobs:
         run: |
           python -m py_compile scripts/evaluate_v5_candidate_v2_013_014.py
           python -B scripts/evaluate_v5_candidate_v2_013_014.py --root . --self-test --show-cases
+      - name: V2.1 claim-level engine development regression - 162 annotated pairs
+        run: |
+          python -m py_compile scripts/v5_candidate_engine_v21.py scripts/evaluate_v5_candidate_v21.py
+          python -B scripts/evaluate_v5_candidate_v21.py --root . --self-test --show-cases
       - name: Reject private asset files in V5
         shell: bash
         run: |
