@@ -1,0 +1,149 @@
+{
+  "schema": "V5_CANDIDATE_V23_FROZEN_RETROSPECTIVE_DEVELOPMENT_V1",
+  "date": "2026-10-31",
+  "engine_path": "scripts/v5_candidate_engine_v23.py",
+  "engine_git_blob_sha": "be73e778b7851ba440e40c85629f2f89b6da3648",
+  "evaluator_path": "scripts/evaluate_v5_candidate_v23.py",
+  "evaluator_git_blob_sha": "c4fe1df36c8dc8ed59003a1d1ad23c27f959bb5c",
+  "inherited_v22_original_engine_git_blob_sha": "c0608b316c446c8391d68e9fc25d6173ceba971a",
+  "original_17_18_first_use_git_blob_sha": "95da7fc873734a91f6c9f18340925f18e2a53de3",
+  "original_17_18_preregistered_benchmark_git_blob_sha": "86d12168b229c7b497adfb5bb450f7b066fc467e",
+  "measured_ci": "https://github.com/yhappcom/pensionport/actions/runs/41143529045",
+  "classification": "ALL_344_POST_HOC_DEVELOPMENT_NOT_FRESH_BLIND_EVALUATION",
+  "videos": 18,
+  "claims": 194,
+  "case_count": 344,
+  "development": {
+    "by_group": {
+      "dev_15_16_89": {
+        "confusion": {
+          "FN": 0,
+          "FP": 0,
+          "TN": 28,
+          "TP": 61
+        },
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1
+      },
+      "dev_17_18_93": {
+        "confusion": {
+          "FN": 0,
+          "FP": 0,
+          "TN": 38,
+          "TP": 55
+        },
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1
+      },
+      "legacy_38": {
+        "confusion": {
+          "FN": 0,
+          "FP": 0,
+          "TN": 8,
+          "TP": 30
+        },
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1
+      },
+      "new_13_14_64": {
+        "confusion": {
+          "FN": 0,
+          "FP": 0,
+          "TN": 20,
+          "TP": 44
+        },
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1
+      },
+      "next_60": {
+        "confusion": {
+          "FN": 0,
+          "FP": 0,
+          "TN": 31,
+          "TP": 29
+        },
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1
+      }
+    },
+    "by_label_confusion": {
+      "CORRECTION_REVIEW_TP": 43,
+      "QUALIFY_TP": 168,
+      "SUPPORT_TP": 8,
+      "TOPIC_ONLY_TN": 125
+    },
+    "case_count": 344,
+    "precision": 1,
+    "recall": 1,
+    "specificity": 1,
+    "total_confusion": {
+      "FN": 0,
+      "FP": 0,
+      "TN": 125,
+      "TP": 219
+    }
+  },
+  "universe": {
+    "added_candidates_vs_v22": 104,
+    "all_possible_pairs": 18721,
+    "candidates_involving_hypothetical_claims_review_only": 631,
+    "candidates_involving_refuted_claims_correction_only": 365,
+    "new_video_candidate_degree": {
+      "CvM8Os4ltfE-01": 13,
+      "CvM8Os4ltfE-02": 31,
+      "CvM8Os4ltfE-03": 40,
+      "CvM8Os4ltfE-04": 25,
+      "CvM8Os4ltfE-05": 27,
+      "CvM8Os4ltfE-06": 54,
+      "CvM8Os4ltfE-07": 15,
+      "nCXWFko0TaA-01": 13,
+      "nCXWFko0TaA-02": 4,
+      "nCXWFko0TaA-03": 46,
+      "nCXWFko0TaA-04": 21,
+      "nCXWFko0TaA-05": 35,
+      "nCXWFko0TaA-06": 76,
+      "nCXWFko0TaA-07": 45
+    },
+    "new_videos_involving_possible_pairs": 2611,
+    "suppressed_candidates_vs_v22": 3,
+    "v22_baseline_candidate_pairs": 2574,
+    "v23_bridge_frequency": {
+      "bond_etf_duration_vs_held_to_maturity_bond": 11,
+      "conglomerate_fund_multiple_sectors_vs_controller_concentration": 8,
+      "corporate_group_holdings_vs_equity_diversification": 8,
+      "fx_risk_education_vs_currency_conversion_cost": 21,
+      "individual_bond_maturity_vs_maturity_target_etf": 9,
+      "interest_rate_learning_vs_bond_duration_risk": 9,
+      "monthly_etf_payout_assumption_vs_small_lot_income_etf": 5,
+      "retiree_hypothetical_monthly_payout_vs_small_etf_distribution": 5,
+      "retirement_asset_allocation_vs_index_fund_security_diversification": 2,
+      "retirement_case_constraints_vs_general_cashflow": 46,
+      "retirement_income_constraints_vs_spending_and_withdrawal_plan": 53,
+      "retirement_initial_capital_vs_lump_sum_investment_plan": 12,
+      "retirement_return_assumption_vs_account_accumulation_plan": 7,
+      "small_ticket_access_vs_index_savings_education": 10,
+      "small_ticket_investing_vs_minimum_trade_lot": 7
+    },
+    "v23_candidate_pairs": 2675,
+    "v23_candidates_involving_17_18": 418
+  },
+  "negative_tests": {
+    "automatic_merges": 0,
+    "contradicted_claims_total": 11,
+    "full_18721_pair_double_replay_deterministic": true,
+    "pair_order_symmetry_cases": 344,
+    "source_mutations_rejected": 8
+  },
+  "production_release": "BLOCKED_PENDING_19_PLUS_UNSEEN_INDEPENDENT_EVALUATION",
+  "new_unseen_videos_since_v23_freeze": 0,
+  "independent_blinded_test_completed": false,
+  "next_unseen_validation_video_number": 19,
+  "original_srt_audio_or_frames_reverified_during_v23": false,
+  "knowledge_auto_merges": 0,
+  "automatic_trade_instructions": 0
+}
