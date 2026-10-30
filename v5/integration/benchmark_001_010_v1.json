@@ -616,5 +616,14 @@
     "no_new_fact_certification": true,
     "no_positive_use_of_refuted_claims": true,
     "no_auto_semantic_merge": true
-  }
+  },
+  "expected_crosswalk_discrepancies": [
+    {
+      "claim_id": "3MyhYE2jmuE-07",
+      "v3_verdict": "HYPOTHETICAL",
+      "legacy_crosswalk_verdict": "QUALIFIED",
+      "resolution": "OPEN_RECONCILIATION_NOT_MERGED",
+      "reason": "Historical crosswalk applied qualified risk classification to a hypothetical annuity gift example; both reference the same V3 file hash. Approval requires a separately recorded change rationale."
+    }
+  ]
 }
