@@ -1,0 +1,1423 @@
+{
+  "schema_version": "V5_REAUDIT_001_010_1.0",
+  "date": "2026-10-30",
+  "base_audit_path": "data/synthesis/investment_knowledge_v4/reviews/v4_001_010_cross_video_final_audit_20261030.json",
+  "policy_path": "v5/policy/v5_review_policy_20261030.json",
+  "method": "Existing V3/V4 claim-by-claim scope and contradiction re-audit, linked to contemporary law/product primary-source spot checks. Not a new raw-SRT, audio, slide or personal suitability verification.",
+  "source_status": "HISTORICAL_HASH_ONLY_IN_V5",
+  "official_spot_check_refs": [
+    {
+      "video_numbers": [
+        1,
+        3,
+        10
+      ],
+      "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507",
+      "topic": "Annuity eligibility, 2026-10-01 effective decree"
+    },
+    {
+      "video_numbers": [
+        1,
+        10
+      ],
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+      "topic": "Pension source withdrawal ordering, 2026-10-01"
+    },
+    {
+      "video_numbers": [
+        6
+      ],
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031199475",
+      "topic": "Fixed-term right termination lump-sum floor, 2026-10-01"
+    },
+    {
+      "video_numbers": [
+        6
+      ],
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7960&mi=6532",
+      "topic": "Ten-year grouped gift deduction"
+    },
+    {
+      "video_numbers": [
+        8
+      ],
+      "url": "https://www.plusetf.co.kr/product/detail?n=006369",
+      "topic": "ETF 489000 issuer stated fee versus total costs"
+    }
+  ],
+  "inventory": {
+    "video_count": 10,
+    "claim_ids": 122,
+    "previous_v4_material_rechecked": 69,
+    "previous_v3_retained": 53,
+    "v5_raw_srt_independent_checks": 0,
+    "open_evidence_items": 26,
+    "historical_001_005_final_count": 13,
+    "individual_001_005_open_count": 12,
+    "unreconciled_count_delta": 1,
+    "blocked_contradicted_ids": 4,
+    "L3_approved": 0,
+    "L4_approved": 0
+  },
+  "videos": [
+    {
+      "number": 1,
+      "video_id": "sz5N9WJS310",
+      "historical_source_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "source_cues_historical": 1195,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 23,
+      "historical_v4_material_rechecked": 9,
+      "historical_retained_without_v4_recheck": 14,
+      "decision_domain": "RETIREMENT_SOURCE",
+      "v5_reassessment": "국민연금 예상액·연금 인출·과세제외 원금은 서로 다르다",
+      "private_evidence_needed_categories": "연금 재원·세액공제 내역·연금수령 요건·국민연금 추산액",
+      "positive_recommendation_prohibited": "총 계좌평가액을 장기 비과세 원금으로 간주하거나 7년·10년 적립액을 혼동해서는 안 된다",
+      "model_dependency": "R10_PENSION_WITHDRAWAL_SOURCE_ORDER",
+      "open_evidence": [
+        {
+          "id": "1-OPEN-1",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "1-OPEN-2",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "1-OPEN-3",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "sz5N9WJS310-01",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-02",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-03",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-04",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-05",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-06",
+          "legacy_verdict": "CONTRADICTED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "CORRECTION_ONLY_NO_POSITIVE_USE",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-07",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-08",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-09",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-10",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-11",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-12",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-13",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-14",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-15",
+          "legacy_verdict": "CONTRADICTED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "CORRECTION_ONLY_NO_POSITIVE_USE",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-16",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-17",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-18",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-19",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-20",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-21",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-22",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "sz5N9WJS310-23",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    },
+    {
+      "number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "historical_source_sha256": "a59b2fd424011c3f572aa52404411ff4ea435f6dd1e7e27e4f5c9e11f7218b72",
+      "source_cues_historical": 1347,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 9,
+      "historical_v4_material_rechecked": 7,
+      "historical_retained_without_v4_recheck": 2,
+      "decision_domain": "CMA_AND_DEBT",
+      "v5_reassessment": "CMA는 상품 유형마다 보호·신용위험이 다르다",
+      "private_evidence_needed_categories": "상품 약관·발행자·유동성 요건·부채 금리·현금흐름",
+      "positive_recommendation_prohibited": "무조건 안전한 CMA나 50:50 보편 최적 배분을 추천해서는 안 된다",
+      "model_dependency": null,
+      "open_evidence": [
+        {
+          "id": "2-OPEN-1",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "2-OPEN-2",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "6VEfKF7BzZU-01",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "6VEfKF7BzZU-02",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "6VEfKF7BzZU-03",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "6VEfKF7BzZU-04",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "6VEfKF7BzZU-05",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "6VEfKF7BzZU-06",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "6VEfKF7BzZU-07",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "6VEfKF7BzZU-08",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "6VEfKF7BzZU-09",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    },
+    {
+      "number": 3,
+      "video_id": "OiDTNstaSpM",
+      "historical_source_sha256": "e94b12a1084a8b57c3b9c2a630e27f840ae5a827b3a71c62526e15380a7c57bd",
+      "source_cues_historical": 785,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 15,
+      "historical_v4_material_rechecked": 9,
+      "historical_retained_without_v4_recheck": 6,
+      "decision_domain": "IRP_TIMING",
+      "v5_reassessment": "IRP 연금수령 개시·인출 한도와 분할투자 기간을 구분한다",
+      "private_evidence_needed_categories": "연금 수령 자격·연차·세제 원금·보험 해지 비용·현금투입기간",
+      "positive_recommendation_prohibited": "소액 인출만으로 연금수령 조건을 충족했다고 해석하면 안 된다",
+      "model_dependency": "R10_PENSION_CONTRIBUTION_BASIS_SENSITIVITY",
+      "open_evidence": [
+        {
+          "id": "3-OPEN-1",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "3-OPEN-2",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "3-OPEN-3",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "OiDTNstaSpM-01",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-02",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-03",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-04",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-05",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-06",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-07",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-08",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-09",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-10",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-11",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-12",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-13",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-14",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OiDTNstaSpM-15",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    },
+    {
+      "number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "historical_source_sha256": "853db2d4f01ab71bbc4f86b46714f4341aa32aa2bc07416f705a937b620ea12b",
+      "source_cues_historical": 758,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 6,
+      "historical_v4_material_rechecked": 5,
+      "historical_retained_without_v4_recheck": 1,
+      "decision_domain": "DRAWDOWN_HOLD",
+      "v5_reassessment": "손실 회복 산술과 기업 실질 위험을 동시에 본다",
+      "private_evidence_needed_categories": "재무제표·유동성·기초자산 위험·손실 감내 한도",
+      "positive_recommendation_prohibited": "앱 삭제 후 무조건 보유하거나 검증되지 않은 거시비율로 판단하지 않는다",
+      "model_dependency": null,
+      "open_evidence": [
+        {
+          "id": "4-OPEN-1",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "4-OPEN-2",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "aNfGrcO6WPI-01",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "aNfGrcO6WPI-02",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "aNfGrcO6WPI-03",
+          "legacy_verdict": "CONTRADICTED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "CORRECTION_ONLY_NO_POSITIVE_USE",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "aNfGrcO6WPI-04",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "aNfGrcO6WPI-05",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "aNfGrcO6WPI-06",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    },
+    {
+      "number": 5,
+      "video_id": "qtluAViPpsQ",
+      "historical_source_sha256": "af4fb6b702c5497e5c17bc7b9a3e87855a5488dd263cded32be9a09cec67a543",
+      "source_cues_historical": 1044,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 9,
+      "historical_v4_material_rechecked": 4,
+      "historical_retained_without_v4_recheck": 5,
+      "decision_domain": "BUDGET_TDF",
+      "v5_reassessment": "생활비·부채·비상자금 이후 투자가능 현금을 산정한다",
+      "private_evidence_needed_categories": "실제 잉여현금·목표기간·TDF 글라이드패스·비용·자격조건",
+      "positive_recommendation_prohibited": "가상 50:40:10 저축비율을 누구에게나 그대로 적용하지 않는다",
+      "model_dependency": null,
+      "open_evidence": [
+        {
+          "id": "5-OPEN-1",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "5-OPEN-2",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "qtluAViPpsQ-01",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "qtluAViPpsQ-02",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "qtluAViPpsQ-03",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "qtluAViPpsQ-04",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "qtluAViPpsQ-05",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "qtluAViPpsQ-06",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "qtluAViPpsQ-07",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "qtluAViPpsQ-08",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "qtluAViPpsQ-09",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    },
+    {
+      "number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "historical_source_sha256": "493c52ea3e56cb9be756d70f4de90d3b069c40dff5743d69bd8a8770f32c1bcc",
+      "source_cues_historical": 807,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 14,
+      "historical_v4_material_rechecked": 6,
+      "historical_retained_without_v4_recheck": 8,
+      "decision_domain": "GIFT_PRESENT_VALUE",
+      "v5_reassessment": "정기금 증여의 지급시점·해지 일시금과 과거 증여를 반영한다",
+      "private_evidence_needed_categories": "계약서·지급일·철회권·10년 증여 이력·수증자 조건",
+      "positive_recommendation_prohibited": "월별 경제적 현재가치를 그대로 법정 증여가액이라 단정하지 않는다",
+      "model_dependency": "R06_GIFT_ANNUITY_PAYMENT_TIMING",
+      "open_evidence": [
+        {
+          "id": "6-CONTRACT",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "6-LEDGER",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "6-SCREEN",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "3MyhYE2jmuE-01",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-02",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-03",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-04",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-05",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-06",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-07",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-08",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-09",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-10",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-11",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-12",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-13",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "3MyhYE2jmuE-14",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    },
+    {
+      "number": 7,
+      "video_id": "4CQ4FjGT2gA",
+      "historical_source_sha256": "70a4fab14f26618780fa1fc9b1473df829c851d06125ae3745ecc3b6eadc79ca",
+      "source_cues_historical": 10728,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 14,
+      "historical_v4_material_rechecked": 8,
+      "historical_retained_without_v4_recheck": 6,
+      "decision_domain": "RETURN_ATTRIBUTION",
+      "v5_reassessment": "사례의 자산증가와 운용수익률을 구분한다",
+      "private_evidence_needed_categories": "개별 시점별 평가액·입출금·레버리지·원본 증빙",
+      "positive_recommendation_prohibited": "인터뷰 두 시점 금액만으로 투자 IRR을 산출하지 않는다",
+      "model_dependency": null,
+      "open_evidence": [
+        {
+          "id": "7-LEDGER",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "7-FOOTAGE",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "7-LIMIT",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "4CQ4FjGT2gA-01",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-02",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-03",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-04",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-05",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-06",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-07",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-08",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-09",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-10",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-11",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-12",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-13",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "4CQ4FjGT2gA-14",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    },
+    {
+      "number": 8,
+      "video_id": "OfkY343OaNs",
+      "historical_source_sha256": "d97852825e0b09d58eb76957e22cd7ef41f5d8a59013795bc4c949c1e651c921",
+      "source_cues_historical": 1039,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 12,
+      "historical_v4_material_rechecked": 7,
+      "historical_retained_without_v4_recheck": 5,
+      "decision_domain": "JPY_ETF_RISK",
+      "v5_reassessment": "엔화 결제통화와 기초자산 환노출을 분리한다",
+      "private_evidence_needed_categories": "실제 ETF 구성·환헤지·스왑위험·총비용·과세",
+      "positive_recommendation_prohibited": "JPY 상장·결제라는 이유만으로 순수 엔화 투자를 보장하지 않는다",
+      "model_dependency": "R08_09_USD_ASSET_JPY_DENOMINATION",
+      "open_evidence": [
+        {
+          "id": "8-PRODUCT",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "8-TAX",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "8-ALIGNMENT",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "OfkY343OaNs-01",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-02",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-03",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-04",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-05",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-06",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-07",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-08",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-09",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-10",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-11",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "OfkY343OaNs-12",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    },
+    {
+      "number": 9,
+      "video_id": "YNOSY15ppf8",
+      "historical_source_sha256": "b48c51ac62ddf27a0d667e018ad1fbf3717e2bb447a66d9c48ed114eeeb6c2ce",
+      "source_cues_historical": 1277,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 12,
+      "historical_v4_material_rechecked": 6,
+      "historical_retained_without_v4_recheck": 6,
+      "decision_domain": "JPY_CONVERSION",
+      "v5_reassessment": "왕복 환전의 매수·매도 스프레드와 우대 적용 범위를 분리한다",
+      "private_evidence_needed_categories": "실제 시각별 bid/ask·우대조건·송금비용·세금",
+      "positive_recommendation_prohibited": "영상의 환전 우대 예시를 현재 은행 실행 호가로 쓰지 않는다",
+      "model_dependency": "R08_09_COMMON_KRW_PRETAX_SCENARIOS",
+      "open_evidence": [
+        {
+          "id": "9-QUOTE",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "9-TAX",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "YNOSY15ppf8-01",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-02",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-03",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-04",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-05",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-06",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-07",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-08",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-09",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": false,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-10",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-11",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "YNOSY15ppf8-12",
+          "legacy_verdict": "HYPOTHETICAL",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    },
+    {
+      "number": 10,
+      "video_id": "VKr060rIirM",
+      "historical_source_sha256": null,
+      "source_cues_historical": 34,
+      "original_srt_rehashed_in_v5": false,
+      "original_audio_checked_in_v5": false,
+      "original_frames_checked_in_v5": false,
+      "historical_v3_claims": 8,
+      "historical_v4_material_rechecked": 8,
+      "historical_retained_without_v4_recheck": 0,
+      "decision_domain": "PENSION_TAX_ORDER",
+      "v5_reassessment": "세액공제·미공제 원금, 이연퇴직소득 및 운용이익의 인출순서를 반영한다",
+      "private_evidence_needed_categories": "세액공제 확인원장·적격 연금수령 조건·상품 및 세법",
+      "positive_recommendation_prohibited": "일반계좌 15.4% 대 연금 3.3~5.5%라는 일률적 우열을 사용하지 않는다",
+      "model_dependency": "R10_PENSION_WITHDRAWAL_SOURCE_ORDER",
+      "open_evidence": [
+        {
+          "id": "10-ORIGINAL",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "10-TAXLEDGER",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        },
+        {
+          "id": "10-PRODUCT",
+          "status": "UNRESOLVED",
+          "newly_resolved": false
+        }
+      ],
+      "claims": [
+        {
+          "id": "VKr060rIirM-01",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "VKr060rIirM-02",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "VKr060rIirM-03",
+          "legacy_verdict": "PRIMARY_CONFIRMED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "VKr060rIirM-04",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "VKr060rIirM-05",
+          "legacy_verdict": "CONTRADICTED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "CORRECTION_ONLY_NO_POSITIVE_USE",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "VKr060rIirM-06",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "VKr060rIirM-07",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        },
+        {
+          "id": "VKr060rIirM-08",
+          "legacy_verdict": "QUALIFIED",
+          "previous_v4_material_rechecked": true,
+          "new_independent_primary_verification": false,
+          "v5_use": "L1_L2_CONDITIONAL_RESEARCH",
+          "personal_recommendation_approved": false
+        }
+      ],
+      "L3_approved": false,
+      "L4_approved": false,
+      "completion": "EVIDENCE_LIMITED_DECISION_REREVIEW"
+    }
+  ],
+  "blocked_claim_ids": [
+    "VKr060rIirM-05",
+    "aNfGrcO6WPI-03",
+    "sz5N9WJS310-06",
+    "sz5N9WJS310-15"
+  ],
+  "personal_data_read_for_review": false,
+  "personal_data_committed": false,
+  "existing_V3_V4_rewritten": false,
+  "L3_approved": false,
+  "L4_approved": false,
+  "trade_instructions_generated": false,
+  "CI_status": "PENDING"
+}

@@ -1,0 +1,38 @@
+name: V5 research provenance and privacy gate
+
+on:
+  push:
+    branches:
+      - feat/v5-personal-investment-advisor-20261030
+    paths:
+      - "v5/**"
+      - "scripts/verify_v5_reaudit.py"
+      - ".github/workflows/v5-decision-research-gate.yml"
+  pull_request:
+    paths:
+      - "v5/**"
+      - "scripts/verify_v5_reaudit.py"
+      - ".github/workflows/v5-decision-research-gate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate 122 source claims, four contradictions, zero user records
+        run: |
+          python -m py_compile scripts/verify_v5_reaudit.py
+          python -B scripts/verify_v5_reaudit.py --root . --self-test
+      - name: Reject private asset files in V5
+        shell: bash
+        run: |
+          if git ls-files -- 'v5/**' | grep -Ei '\.(csv|xlsx|xls|zip|srt|pdf|sqlite|db|pem)$'; then
+            echo "ERROR: forbidden data file in v5"; exit 1
+          fi
+          if git ls-files -- 'v5/private/**' 'v5/actual/**' 'v5/output/**' 'v5/accounts/**'; then
+            echo "ERROR: forbidden private data path"; exit 1
+          fi
+          echo "PASS: no private file types or folders in V5"

@@ -1,0 +1,56 @@
+{
+  "schema_version": "V5_NONPERSONAL_REVIEW_POLICY_1.0",
+  "date": "2026-10-30",
+  "single_owner_educational_decision_support": true,
+  "public_git_data_policy": "NO_PRIVATE_INVESTMENT_DATA",
+  "may_commit": [
+    "video claim IDs and historical public research findings",
+    "abstract proof categories",
+    "general rules and examples without any actual person",
+    "public regulatory and product-source references"
+  ],
+  "must_not_commit": [
+    "actual owner holdings or holdings quantities",
+    "account codes, numbers or broker exports",
+    "private portfolio value, cash flows, tax basis or dividend receipts",
+    "salary, expenses, dates of birth, gifts or risk tolerance",
+    "personally tailored decision report",
+    "private SRT/ZIP and transaction originals",
+    "credentials, tokens and account statements"
+  ],
+  "blocked_source_claims": [
+    {
+      "id": "VKr060rIirM-05",
+      "reason": "일반계좌·연금계좌의 세율을 일률적으로 비교하여 연금 우월을 단정할 수 없다.",
+      "verdict": "CONTRADICTED",
+      "can_be_positive_basis": false
+    },
+    {
+      "id": "aNfGrcO6WPI-03",
+      "reason": "계좌 앱 삭제 및 무조건 보유는 범용 위험관리 지침이 아니다.",
+      "verdict": "CONTRADICTED",
+      "can_be_positive_basis": false
+    },
+    {
+      "id": "sz5N9WJS310-06",
+      "reason": "7년·10년 적립 금액과 복리 가정을 혼동한 원문 계산은 긍정 근거가 아니다.",
+      "verdict": "CONTRADICTED",
+      "can_be_positive_basis": false
+    },
+    {
+      "id": "sz5N9WJS310-15",
+      "reason": "계좌 전체 잔고가 장기간 과세제외 연금원금이라는 주장은 긍정 근거가 아니다.",
+      "verdict": "CONTRADICTED",
+      "can_be_positive_basis": false
+    }
+  ],
+  "allowed_levels": [
+    "L1_EXPLANATION",
+    "L2_HYPOTHETICAL_SCREEN"
+  ],
+  "L3_approved": false,
+  "L4_approved": false,
+  "trade_execution_enabled": false,
+  "data_ingestion_policy": "NO_OWNER_DATA_INGESTION_OR_TRANSMISSION_IN_REPOSITORY",
+  "nonpersonal_only": true
+}
