@@ -180,6 +180,36 @@ def verify(record, review, policy, review_digest, root=None):
     need(release["personal_advice"] is False and release["trading"] is False,
          "cannot authorize personal investment advice or trading")
     if release["status"] == "RESEARCH_COMPLETE":
+        atomic = record.get("atomic_coverage")
+        need(isinstance(atomic, dict) and
+             atomic.get("full_srt_material_claim_inventory_completed") is True,
+             "atomic financial statements not fully inventoried")
+        source_cue_count = review["source"].get("source_cue_count")
+        need(type(source_cue_count) is int and source_cue_count > 0 and
+             atomic.get("source_cue_count") == source_cue_count,
+             "atomic claim inventory not tied to original source cues")
+        units = atomic.get("statements")
+        need(isinstance(units, list) and len(units) >= len(claims),
+             "only a core claim subset was reviewed")
+        unit_ids = [u["atomic_id"] for u in units]
+        need(len(unit_ids) == len(set(unit_ids)), "duplicate atomic ID")
+        mapped_core = set()
+        for unit in units:
+            refs = unit["linked_core_claim_ids"]
+            need(isinstance(refs, list) and set(refs) <= set(claim_by_id),
+                 "atomic claim links nonexistent core claim")
+            if unit["material"]:
+                need(refs and unit["evidence_refs"] and
+                     unit["review_verdict"] in ("VERIFIED", "REFUTED"),
+                     "unresolved material atomic statement")
+                start, end = unit["source_cue_range"]
+                need(type(start) is int and type(end) is int and
+                     0 <= start <= end < source_cue_count,
+                     "atomic source cue range invalid")
+            mapped_core.update(refs)
+        need(mapped_core == set(claim_by_id), "not all core claims traced to atomic statements")
+        need(atomic.get("unmapped_material_statement_count") == 0,
+             "remaining material statements outside core claim registry")
         need(all(d["status"] == "PASS" for d in domains.values()), "domain not passed")
         need(not blockers and not review["open_blockers"], "OPEN evidence cannot be concealed")
         need(all(o["status"] != "BLOCKED" for o in obligations),
@@ -291,7 +321,8 @@ def self_test(root):
     # A fictional positive path exercises the *logic*, not independent truth.
     passed_review = copy.deepcopy(review)
     passed_review["source"].update(raw_srt_read_and_hash_verified_this_turn=True,
-                                   full_cue_review_this_turn=True)
+                                   full_cue_review_this_turn=True,
+                                   source_cue_count=1)
     passed_review["claims"][0].update(current_review="CHECKED",
                                       independently_checked_this_turn=True,
                                       positive_principle_allowed=True)
@@ -317,9 +348,30 @@ def self_test(root):
         for x in DOMAINS}
     good["independent_audit"].update(human_or_separately_appointed_reviewer=True,
                                       source_and_method_checked=True)
+    good["atomic_coverage"] = {
+        "full_srt_material_claim_inventory_completed":True,
+        "source_cue_count":1,
+        "unmapped_material_statement_count":0,
+        "statements":[{
+            "atomic_id":"DEMO-A01","material":True,"source_cue_range":[0,0],
+            "linked_core_claim_ids":[claim["id"]],
+            "evidence_refs":["MOCK_PRIMARY"],"review_verdict":"VERIFIED"}]}
     good["release"].update(status="RESEARCH_COMPLETE",approved=True)
     need(verify(good,passed_review,policy,sha,root) == "RESEARCH_COMPLETE",
          "fictional valid completion structure rejected")
+    for mutation in ("missing_atomic", "missing_unit", "unmapped", "cue_gap", "unreviewed"):
+        x = copy.deepcopy(good)
+        if mutation == "missing_atomic": x.pop("atomic_coverage")
+        elif mutation == "missing_unit": x["atomic_coverage"]["statements"] = []
+        elif mutation == "unmapped": x["atomic_coverage"]["unmapped_material_statement_count"] = 1
+        elif mutation == "cue_gap": x["atomic_coverage"]["statements"][0]["source_cue_range"] = [0,1]
+        else: x["atomic_coverage"]["statements"][0]["review_verdict"] = "BLOCKED"
+        try:
+            verify(x,passed_review,policy,sha,root)
+        except (ValueError,TypeError,KeyError,IndexError):
+            pass
+        else:
+            raise ValueError("atomic inventory mutation passed: "+mutation)
     trials = []
     x = copy.deepcopy(cert); x["release"].update(status="RESEARCH_COMPLETE",approved=True); trials.append(x)
     x = copy.deepcopy(cert); x["obligations"] = []; trials.append(x)
@@ -358,7 +410,7 @@ def self_test(root):
         else:
             raise ValueError("invalid research accepted in mutation " + str(i))
     return {"fictional_blocked_positive_test": 1, "fictional_complete_structure_test": 1,
-            "additional_positive_mutations_rejected": 3,
+            "additional_positive_mutations_rejected": 8,
             "negative_mutations_rejected": len(trials),
             "real_research_completed_by_test": 0}
 
