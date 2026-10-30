@@ -51,6 +51,10 @@ def private_check(obj):
 
 def verify(record, review, policy, review_digest, root=None):
     need(policy["schema"] == "RESEARCH_COMPLETENESS_V1", "policy version")
+    need(set(policy["four_domains"]) == DOMAINS and
+         policy["historical_001_010_certified"] is False and
+         policy["private_data_allowed"] is False,
+         "research policy was weakened")
     need(record["schema"] == "RESEARCH_CERTIFICATE_V1", "certificate version")
     need(record["video_number"] == review["video_number"] and
          record["video_id"] == review["video_id"], "video identity")
@@ -69,6 +73,15 @@ def verify(record, review, policy, review_digest, root=None):
          {x["claim_id"] for x in obligations} == set(claim_by_id),
          "all claim IDs must have a research obligation")
     primary = {x["id"]: x for x in review["primary_sources"]}
+    source_audits = record.get("source_audits", {})
+    need(isinstance(source_audits, dict), "independent primary source audits absent")
+    for sid, audit in source_audits.items():
+        need(sid in primary, "source audit without original reference")
+        for name in ("location_in_original", "scope_and_exception_review",
+                     "competing_evidence_or_limitation", "reviewed_on"):
+            text_field(audit, name)
+        need(audit["verdict"] in ("SUPPORTS", "REFUTES", "LIMITS"),
+             "unsupported source audit disposition")
     models = {x["id"]: x for x in review["models"]}
     empirical = {x["id"]: x for x in record["empirical_evidence"]}
     need(len(empirical) == len(record["empirical_evidence"]), "duplicate empirical IDs")
@@ -174,6 +187,15 @@ def verify(record, review, policy, review_digest, root=None):
         need(review["source"]["raw_srt_read_and_hash_verified_this_turn"] is True and
              review["source"]["full_cue_review_this_turn"] is True,
              "original source not fully reviewed")
+        need(all(isinstance(d.get("proof_ids"), list) and d["proof_ids"]
+                 for d in domains.values()),
+             "four domains require concrete proof IDs")
+        need(all(sid in source_audits for o in obligations
+                 if o["status"] in ("VERIFIED", "REFUTED") and o["material"]
+                 for sid in o["primary_source_ids"]),
+             "material primary source lacks contextual audit")
+        need(all(e["public_dataset_path"] for e in empirical.values()),
+             "nonpublic empirical data cannot be independently replayed in CI")
         need(review["one_turn_closeout"]["result"] == "DECISION_MODULE_READY_L2",
              "legacy limited decision module cannot be research complete")
         need(review["decision_logic"]["baseline_is_same_horizon_and_currency"] is True,
@@ -261,10 +283,43 @@ def self_test(root):
                          "reopen_when":"authentic sources become available"}],
             "release":{"status":"RESEARCH_BLOCKED","approved":False,
                        "personal_advice":False,"trading":False},
+            "source_audits":{},
             "independent_audit":{"human_or_separately_appointed_reviewer":False,
                                  "source_and_method_checked":False,"limitations":"fictional"}}
     need(verify(cert,review,policy,sha,root) == "RESEARCH_BLOCKED",
          "valid blocked example rejected")
+    # A fictional positive path exercises the *logic*, not independent truth.
+    passed_review = copy.deepcopy(review)
+    passed_review["source"].update(raw_srt_read_and_hash_verified_this_turn=True,
+                                   full_cue_review_this_turn=True)
+    passed_review["claims"][0].update(current_review="CHECKED",
+                                      independently_checked_this_turn=True,
+                                      positive_principle_allowed=True)
+    passed_review["primary_sources"] = [{
+        "id":"MOCK_PRIMARY", "actual_text_checked":True,
+        "claim_ids":[claim["id"]]}]
+    passed_review["one_turn_closeout"]["result"] = "DECISION_MODULE_READY_L2"
+    passed_review["decision_logic"]["baseline_is_same_horizon_and_currency"] = True
+    good = copy.deepcopy(cert)
+    good["obligations"][0].update(claim_type="LEGAL_OR_PRODUCT",
+                                  status="VERIFIED",
+                                  primary_source_ids=["MOCK_PRIMARY"],
+                                  empirical_not_applicable_reason="A fictional legal-fact example")
+    good["source_audits"] = {"MOCK_PRIMARY":{
+        "location_in_original":"Synthetic clause 1",
+        "scope_and_exception_review":"Synthetic fact, no real legal effect",
+        "competing_evidence_or_limitation":"Never use as actual evidence",
+        "reviewed_on":"2026-10-30","verdict":"SUPPORTS"}}
+    good["blockers"] = []
+    good["domains"] = {
+        x:{"status":"PASS","reason":"Fictional structural test",
+           "proof_ids":["MOCK_PRIMARY" if x == "PRIMARY_EVIDENCE" else "SYNTHETIC_ONLY"]}
+        for x in DOMAINS}
+    good["independent_audit"].update(human_or_separately_appointed_reviewer=True,
+                                      source_and_method_checked=True)
+    good["release"].update(status="RESEARCH_COMPLETE",approved=True)
+    need(verify(good,passed_review,policy,sha,root) == "RESEARCH_COMPLETE",
+         "fictional valid completion structure rejected")
     trials = []
     x = copy.deepcopy(cert); x["release"].update(status="RESEARCH_COMPLETE",approved=True); trials.append(x)
     x = copy.deepcopy(cert); x["obligations"] = []; trials.append(x)
@@ -277,6 +332,24 @@ def self_test(root):
     x = copy.deepcopy(cert); x["preflight"]["expected_claim_count"] = 2; trials.append(x)
     x = copy.deepcopy(cert); x["release"]["approved"] = True; trials.append(x)
     x = copy.deepcopy(cert); x["obligations"][0]["claim_type"]="INVALID"; trials.append(x)
+    # The above successful structure must fail if source audit or method coverage disappears.
+    for f in ("source_audits", "empirical_evidence"):
+        x = copy.deepcopy(good)
+        x.pop(f)
+        try:
+            verify(x, passed_review, policy, sha, root)
+        except (ValueError, KeyError, TypeError):
+            pass
+        else:
+            raise ValueError("fictional completion missing " + f + " passed")
+    x = copy.deepcopy(good)
+    x["domains"]["PRIMARY_EVIDENCE"]["proof_ids"] = []
+    try:
+        verify(x, passed_review, policy, sha, root)
+    except (ValueError, TypeError, KeyError):
+        pass
+    else:
+        raise ValueError("unproven primary evidence accepted")
     for i, x in enumerate(trials):
         try:
             verify(x,review,policy,sha,root)
@@ -284,7 +357,8 @@ def self_test(root):
             pass
         else:
             raise ValueError("invalid research accepted in mutation " + str(i))
-    return {"fictional_blocked_positive_test": 1,
+    return {"fictional_blocked_positive_test": 1, "fictional_complete_structure_test": 1,
+            "additional_positive_mutations_rejected": 3,
             "negative_mutations_rejected": len(trials),
             "real_research_completed_by_test": 0}
 
