@@ -332,6 +332,22 @@ def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=
     privacy_guard(view)
     return view
 
+def crosswalk_schema(root):
+    """Inspect legacy #1-260 claim crosswalk structure without altering the 4,120 claims."""
+    out=[]
+    for name in ("claims_crosswalk_001_130.json","claims_crosswalk_131_260.json"):
+        path=root/"data/synthesis/investment_knowledge_001_260"/name
+        obj=read(path)
+        columns=({k:len(v) for k,v in obj.items() if isinstance(v,list)}
+                 if isinstance(obj,dict) else {"root":len(obj)})
+        sample=(next((v[0] for v in obj.values()
+                       if isinstance(v,list) and v),{})
+                if isinstance(obj,dict) else obj[0])
+        out.append({"file":name,"fields":list(obj)[:15] if isinstance(obj,dict) else [],
+                    "list_lengths":columns,
+                    "sample_keys":list(sample)[:15] if isinstance(sample,dict) else []})
+    return out
+
 def validate_repository(root):
     p=read(root/POLICY)
     q=read(root/QUEUE)
@@ -503,7 +519,8 @@ def main():
     args=ap.parse_args()
     root=args.root.resolve()
     view=validate_repository(root)
-    result={"gate":"PASS_STRUCTURAL_ONLY","baseline_concepts":view["baseline_concepts"],
+    result={"gate":"PASS_STRUCTURAL_ONLY","crosswalk_schema":crosswalk_schema(root),
+            "baseline_concepts":view["baseline_concepts"],
             "baseline_distinct_claims":view["baseline_distinct_evidence_claims"],
             "incoming_event_count":view["incoming_event_count"],
             "new_review_claims_covered":view["new_review_claims_covered"],
