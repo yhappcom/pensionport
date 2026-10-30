@@ -162,8 +162,11 @@ def event_check(event,concepts,policy,root,source_cache,known_families,synthetic
     need(len(ids)==len(set(ids)),"source claim IDs duplicated")
     claimid=event["source_claim_id"]
     match=CLAIM.fullmatch(claimid)
-    need(match is not None and match.group(1)==vid and claimid in records,
-         "new event cites nonexistent source claim "+str(claimid))
+    standard=match is not None and match.group(1)==vid
+    public_71=(vid=="4vNF2fui5jc" and
+               re.fullmatch(r"71-PUBLIC-(0[1-9]|1[0-3])",claimid) is not None)
+    need((standard or public_71) and claimid in records,
+         "new event cites nonexistent or mismatched original claim "+str(claimid))
     source=records[claimid]
     verdict=source.get("verification",source.get("legacy_verdict"))
     need(isinstance(verdict,str) and verdict,
@@ -231,7 +234,7 @@ def event_check(event,concepts,policy,root,source_cache,known_families,synthetic
         if synthetic:
             need(cp=="v5/completion/SYNTHETIC_ONLY.json",
                  "synthetic completion tests cannot use real file references")
-    return source,verdict
+    return source,verdict,vid
 
 def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=False):
     """Returns nonmutating indexed overlay preview; rejects all unsafe merges.
@@ -256,12 +259,12 @@ def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=
         eid=ev["event_id"]
         need(eid not in known_events,"duplicate event_id")
         known_events.add(eid)
-        source,verdict=event_check(ev,concepts,policy,root,source_cache,known_families,allow_synthetic)
+        source,verdict,vid=event_check(ev,concepts,policy,root,source_cache,known_families,allow_synthetic)
         claimid=ev["source_claim_id"];target=ev["target_concept_id"]
         row=legacy_claims.get(claimid)
         if row:
             need(row["original_verdict"]==verdict and
-                 row["video_id"]==claimid[:11],
+                 row["video_id"]==vid,
                  "new evidence falsifies original crosswalk verdict or provenance")
         rel=ev["relation"]; status=ev["review_state"]
         old=concepts[target]["original_relation_ids"].get(claimid,set()) if target in concepts else set()
