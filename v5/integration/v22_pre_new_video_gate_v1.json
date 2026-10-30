@@ -1,0 +1,31 @@
+{
+  "schema": "V5_V22_PRE_NEW_VIDEO_FROZEN_CODE_GATE_V1",
+  "audit_date": "2026-10-30",
+  "scope": "FROZEN_001_016_ONLY_NO_017_PLUS_USED",
+  "engine_version": "2.2.0",
+  "audited_claims": 180,
+  "audited_pair_universe": 16110,
+  "audited_candidate_count": 2211,
+  "development_diagnostic_cases": 251,
+  "synthetic_adversarial_probes": 22,
+  "invalid_source_metadata_mutations_blocked": 12,
+  "safeguarded_original_verdict_claim_pairs": 16110,
+  "previous_audit": "v5/integration/v22_pre_new_video_audit_v1.json",
+  "protected_blobs": {
+    "scripts/v5_candidate_engine_v22.py": "c0608b316c446c8391d68e9fc25d6173ceba971a",
+    "scripts/evaluate_v5_candidate_v22.py": "289c82be46333d7739b0b9c8fac24965c8bbf852",
+    "scripts/audit_v5_candidate_v22_readiness.py": "b67649b5ad668768707a7b44f210e9ff4b29b75e",
+    "scripts/v5_candidate_engine_v22_guarded.py": "2b4d1dae6040ede0db5d0fc8adc281efe888ab1f",
+    "scripts/verify_v5_candidate_v22_guarded.py": "4b1f7ac63b1b127dd94c3427ebc228e42370d57e",
+    "v5/integration/v22_pre_new_video_audit_v1.json": "6d56b0831235633c111eb05d71af64df74a79890"
+  },
+  "ready_for_source_checked_unseen_holdout": true,
+  "proceed_to_unseen_video_eval_only": true,
+  "engine_retraining_allowed_on_unseen": false,
+  "source_approved_without_independent_verification": false,
+  "independent_holdout_completed": false,
+  "automatic_knowledge_approval": false,
+  "production_release_status": "BLOCKED",
+  "limitation": "Historical 251 diagnostics are in-sample; 2047/2211 candidate edges unadjudicated; source labels require verified claim provenance and protected adapter",
+  "next_evaluation_eligible_video_number": 17
+}
