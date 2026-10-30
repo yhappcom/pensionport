@@ -88,7 +88,7 @@ def validate(a,p,b,root):
     retrofit_pattern=re.compile(r"v5/retrofit/v5_(00[1-9]|010)_[A-Za-z0-9_-]{11}_bounded_closeout\.json$")
     static_retrofit={"v5/retrofit/V5_001_010_CLOSEOUT_20261030.md",
                      "v5/retrofit/summary_20261030.json","v5/retrofit/policy_20261030.json"}
-    certificate_pattern=re.compile(r"v5/completion/v5_\\d{3}_[A-Za-z0-9_-]{11}_certificate\\.json$")
+    certificate_pattern=re.compile(r"v5/completion/v5_\d{3}_[A-Za-z0-9_-]{11}_certificate\.json$")
     require(all(module_pattern.fullmatch(x) or certificate_pattern.fullmatch(x) or retrofit_pattern.fullmatch(x) or x in static_retrofit for x in extras),
             "unexpected V5 file; reject unreviewed private artifacts")
     require(allowed<=tracked,"required protected V5 policy or reports missing")
