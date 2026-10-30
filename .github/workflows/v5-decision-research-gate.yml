@@ -31,6 +31,7 @@ on:
       - "scripts/evaluate_v5_candidate_v22_017_018.py"
       - "scripts/v5_candidate_engine_v23.py"
       - "scripts/evaluate_v5_candidate_v23.py"
+      - "scripts/evaluate_v5_candidate_v23_019_020.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -60,6 +61,7 @@ on:
       - "scripts/evaluate_v5_candidate_v22_017_018.py"
       - "scripts/v5_candidate_engine_v23.py"
       - "scripts/evaluate_v5_candidate_v23.py"
+      - "scripts/evaluate_v5_candidate_v23_019_020.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -150,6 +152,10 @@ jobs:
         run: |
           python -m py_compile scripts/v5_candidate_engine_v23.py scripts/evaluate_v5_candidate_v23.py
           python -B scripts/evaluate_v5_candidate_v23.py --root . --self-test --show-cases --assert-snapshot
+      - name: Frozen V2.3 first-use #19-20 with 125 preregistered diagnostic cases, 22366 pairs
+        run: |
+          python -m py_compile scripts/evaluate_v5_candidate_v23_019_020.py
+          python -B scripts/evaluate_v5_candidate_v23_019_020.py --root . --show-cases --self-test
       - name: Reject private asset files in V5
         shell: bash
         run: |
