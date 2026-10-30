@@ -19,6 +19,7 @@ on:
       - "scripts/evaluate_v5_011_012_holdout.py"
       - "scripts/v5_candidate_engine_v2.py"
       - "scripts/evaluate_v5_candidate_v2.py"
+      - "scripts/evaluate_v5_candidate_v2_013_014.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -36,6 +37,7 @@ on:
       - "scripts/evaluate_v5_011_012_holdout.py"
       - "scripts/v5_candidate_engine_v2.py"
       - "scripts/evaluate_v5_candidate_v2.py"
+      - "scripts/evaluate_v5_candidate_v2_013_014.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -94,6 +96,10 @@ jobs:
         run: |
           python -m py_compile scripts/v5_candidate_engine_v2.py scripts/evaluate_v5_candidate_v2.py
           python -B scripts/evaluate_v5_candidate_v2.py --root . --show-pairs
+      - name: V2 candidate first-use holdout - original #13-14 and fixed 64 diagnostics
+        run: |
+          python -m py_compile scripts/evaluate_v5_candidate_v2_013_014.py
+          python -B scripts/evaluate_v5_candidate_v2_013_014.py --root . --self-test --show-cases
       - name: Reject private asset files in V5
         shell: bash
         run: |
