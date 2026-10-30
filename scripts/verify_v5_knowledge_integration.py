@@ -234,6 +234,8 @@ def compare_and_integrate(events,seed,policy,root,eligible=None,allow_synthetic=
            "new_concepts_created":0}
     source_cache={}
     for ev in events:
+        # Validate every event at the entry point, including programmatic callers.
+        privacy_guard(ev)
         eid=ev["event_id"]
         need(eid not in known_events,"duplicate event_id")
         known_events.add(eid)
