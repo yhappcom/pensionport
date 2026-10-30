@@ -150,10 +150,17 @@ def mutation_tests(root):
        "채권 금 달러 ETF 등을 자산배분하여 위험수준을 관리한다",
        "etf_manager_discretion_vs_multiasset_allocation"),
     ]
+    negative.append((
+      "엔화로 표시되는 일본 초단기국채 ETF는 환율위험과 채권 민감도를 가진다",
+      "원화를 일본 엔화로 직접 환전할 때 스프레드와 현찰 취급 비용을 검토한다",
+      "bond_etf_vs_conversion_spread"
+    ))
     guarded=0
     for a,b,code in negative:
         yes,ex=retrieve(a,b)
-        need(not yes and code in ex["v21_scope_blocks"],
+        need(not yes and
+             (code in ex["v21_scope_blocks"] or
+              code in ex["inherited_v2_scope_blocks"]),
              "scope anti-conflation corruption failed")
         guarded+=1
     # Symmetry checks hold for all diagnostic comparisons in the absence of
@@ -184,9 +191,18 @@ def main():
     if args.self_test:ans["negative_tests"]=mutation_tests(root)
     if args.require_snapshot:
         saved=read(root/"v5/integration/v21_development_001_014_v1.json")
+        need(saved["source_engine_git_blob_sha"]==
+             git_blob_sha(root/"scripts/v5_candidate_engine_v21.py") and
+             saved["release_gate"].startswith("BLOCKED_PENDING_"),
+             "V2.1 source was modified after frozen development run")
         for field in ("test_sets","total_confusion","candidate_pairs",
                       "candidate_pairs_involving_13_14"):
             need(saved[field]==ans[field],"V2.1 baseline has changed: "+field)
+        archived=read(root/"v5/integration/v21_case_results_001_014_v1.json")
+        full=ans["cases"] if args.show_cases else evaluate(root,with_cases=True)["cases"]
+        need(archived["engine_git_blob_sha"]==saved["source_engine_git_blob_sha"]
+             and archived["case_count"]==162 and archived["cases"]==full,
+             "162-case V2.1 exact replay differs from archived predictions")
     print(json.dumps(ans,ensure_ascii=False,sort_keys=True))
 
 if __name__=="__main__":
