@@ -32,7 +32,7 @@ jobs:
           if git ls-files -- 'v5/**' | grep -Ei '\.(csv|xlsx|xls|zip|srt|pdf|sqlite|db|pem)$'; then
             echo "ERROR: forbidden data file in v5"; exit 1
           fi
-          if git ls-files -- 'v5/private/**' 'v5/actual/**' 'v5/output/**' 'v5/accounts/**'; then
+          if git ls-files -- 'v5/private/**' 'v5/actual/**' 'v5/output/**' 'v5/accounts/**' | grep -q .; then
             echo "ERROR: forbidden private data path"; exit 1
           fi
           echo "PASS: no private file types or folders in V5"
