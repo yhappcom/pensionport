@@ -1,0 +1,23 @@
+{
+  "schema": "V5_HISTORICAL_CROSSWALK_VERDICT_RECONCILIATION_V1",
+  "scope": "PROVENANCE_ONLY_NO_SEMANTIC_APPROVAL",
+  "source_of_truth": "IMMUTABLE_V3_AND_V5_SOURCE_CLAIM_VERDICTS",
+  "research_complete_certifications_issued": 0,
+  "approved_semantic_merges": 0,
+  "items": [
+    {
+      "claim_id": "3MyhYE2jmuE-07",
+      "video_id": "3MyhYE2jmuE",
+      "v3_path": "data/analysis_events/3MyhYE2jmuE.json",
+      "v3_git_blob_sha": "5997722a8795ce91f39b523acb981cc1b6f8dc48",
+      "v5_path": "v5/retrofit/v5_006_3MyhYE2jmuE_bounded_closeout.json",
+      "v5_git_blob_sha": "e09220a7cf43aed3794b66cd594ac603449b28d2",
+      "historical_crosswalk_original_verdict": "QUALIFIED",
+      "effective_original_verdict": "HYPOTHETICAL",
+      "disposition": "RECONCILED_SOURCE_VERDICT_PROVENANCE",
+      "original_crosswalk_overwritten": false,
+      "independent_factual_truth_proven": false,
+      "explanation": "The historical crosswalk's QUALIFIED field is not the original V3 verification. Immutable V3 claim 07 and V5 bounded closeout both read HYPOTHETICAL. Preserve the legacy entry, use HYPOTHETICAL only as the effective source-verdict for comparisons. No new validation of the proposed scheduled-gift tax economics, contract or payment evidence."
+    }
+  ]
+}
