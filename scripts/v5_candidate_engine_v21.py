@@ -186,7 +186,10 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
 
     # No positive "support" relation may be assigned here, even when the
     # source prose is the corrected explanation of a contradicted video quote.
-    result=bool(old or bridges) and not blocks
+    # V2.1 cannot bypass an existing V2 scope incompatibility veto simply
+    # by discovering a more generic new bridge.
+    inherited_blocks=detail.get("scope_blocks",[])
+    result=bool(old or bridges) and not blocks and not inherited_blocks
     d=dict(detail)
     d.update({
        "engine_version":VERSION,"review_only":True,
@@ -196,6 +199,7 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
        "v21_proposition_right":sorted(fb),
        "v21_bridges":sorted(set(bridges)),
        "v21_scope_blocks":sorted(set(blocks)),
+       "inherited_v2_scope_blocks":list(inherited_blocks),
        "v21_raw_v2_candidate":bool(old),
        "automatic_knowledge_approval":False,
        "semantic_relation_prediction":None,
