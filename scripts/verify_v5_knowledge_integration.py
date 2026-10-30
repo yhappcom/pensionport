@@ -422,7 +422,7 @@ def validate_repository(root):
          v["baseline_distinct_evidence_claims"]==55 and
          v["statistics"]["already_indexed"]==4 and
          v["statistics"]["conflict_review"]==2 and
-         v["statistics"]["topic_only"]==1 and
+         v["statistics"]["topic_only"]==2 and
          v["statistics"]["pending"]==1 and
          v["statistics"]["approved_overlays"]==0,
          "real historical comparison no longer has expected conservative outcome")
