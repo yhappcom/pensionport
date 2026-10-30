@@ -33,3 +33,8 @@
 - 원문·공식자료의 실질적 참·거짓은 GitHub Actions의 구조 검사만으로 인증되지 않는다. 최종 연구 승인 시에는 비판적 독립 근거 심사를 추가 수행해야 한다.
 
 연구 신규 실행 시에는 저장소 최상위 `WORKFLOW.md`의 완결성 사전의무 원장 규칙을 먼저 적용한다.
+
+## #1 실물 회귀검증 결과
+
+[실제 #1 완결성 게이트 보고서](PILOT_001_ACTUAL_GATE_REVIEW_20261030.md) / [판정 입력](pilots/v5_001_sz5N9WJS310_completion_probe.json) / [검증 코드](../scripts/verify_v5_research_pilot_001.py).
+과거 핵심 주장 23건과 V4 원자 금융 발언 42건을 따로 점검하고, 실제 과거 V3/V4/V5 근거 파일 Git blob SHA를 고정하며, 고의적인 20개 오류 변형을 거부한다. 기존 V5 3개 미해결 항목과 실증·공식근거 한계를 그대로 보존하므로 #1은 `RESEARCH_BLOCKED`이다. 신규 영상의 `RESEARCH_COMPLETE`에는 전체 원자 발언의 cue 범위·근거·원장 ID 연결 인증이 추가로 요구된다.
