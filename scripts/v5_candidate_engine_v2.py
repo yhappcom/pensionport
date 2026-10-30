@@ -13,6 +13,7 @@ from functools import lru_cache
 # must not be regarded as a verified relationship.
 FACETS={
  "isa":r"ISA",
+ "isa_benefit":r"서민형.{0,16}비과세|일반형.{0,16}비과세|의무기간.{0,12}재가입|ISA.{0,20}만기|비과세.{0,14}재가입",
  "private_pension":r"연금저축|연금계좌|연금보험|연금수령|IRP|퇴직연금",
  "national_pension":r"국민연금|추납|연기연금",
  "child":r"자녀|미성년|출생|태어난|갓 태어난",
@@ -100,9 +101,13 @@ def explanatory_blocks(a,b,fa,fb):
     # Index construction methodology and the mechanics of portfolio
     # allocation address different propositions even if both mention equities.
     if (("equity_index_method" in fa and "equity_risk" not in fa
-         and "asset_mix" in fb and "equity_index_method" not in fb)
+         and not re.search(r"패시브|액티브",a)
+         and "asset_mix" in fb and "equity_index_method" not in fb
+         and "equity_index" not in fb)
         or ("equity_index_method" in fb and "equity_risk" not in fb
-         and "asset_mix" in fa and "equity_index_method" not in fa)):
+         and not re.search(r"패시브|액티브",b)
+         and "asset_mix" in fa and "equity_index_method" not in fa
+         and "equity_index" not in fa)):
         veto.append("index_constituents_vs_multiasset_allocation")
     if ("etf" in fa and "etf" in fb and
         ("fx" in fa) != ("fx" in fb) and
@@ -137,6 +142,7 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     # reference index; 'retire'/'etf'/'tax' alone are intentionally too broad.
     concrete={
       "isa","national_pension","pension_tax","equity_index","fx_hedge",
+      "benefit_timing",
       "insurance_contract","payout","tax_principal",
       "child_finance","risk_discipline","periodic_buy",
       "liquidity","equity_index_method","return_quality","account_limit",
@@ -144,6 +150,10 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     strong=shared & concrete
     if strong:
         evidence.extend("direct:"+x for x in sorted(strong))
+    if ("isa_benefit" in fa and "isa" in fb) or ("isa_benefit" in fb and "isa" in fa):
+        evidence.append("isa_tax_benefit_vs_maturity_planning")
+    if "fx_timing" in shared and "fx" in shared:
+        evidence.append("fx_market_timing_uncertainty")
     if "tax_education" in fa and "tax" in fb and "private_pension" in fb:
         evidence.append("pension_tax_explanation_to_year_end_tax")
     if "tax_education" in fb and "tax" in fa and "private_pension" in fa:
