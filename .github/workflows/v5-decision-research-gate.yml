@@ -14,6 +14,7 @@ on:
       - "scripts/verify_v5_research_pilot_001.py"
       - "scripts/verify_v5_001_research_progress.py"
       - "scripts/verify_v5_001_private_srt.py"
+      - "scripts/verify_v5_knowledge_integration.py"
       - ".github/workflows/v5-decision-research-gate.yml"
   pull_request:
     paths:
@@ -26,6 +27,7 @@ on:
       - "scripts/verify_v5_research_pilot_001.py"
       - "scripts/verify_v5_001_research_progress.py"
       - "scripts/verify_v5_001_private_srt.py"
+      - "scripts/verify_v5_knowledge_integration.py"
       - ".github/workflows/v5-decision-research-gate.yml"
 
 permissions:
@@ -68,6 +70,10 @@ jobs:
         run: |
           python -m py_compile scripts/verify_v5_001_private_srt.py
           python -B scripts/verify_v5_001_private_srt.py --root . --self-test
+      - name: Compare incremental claims to 16 canonical concepts; reject unreviewed merges and overwrites
+        run: |
+          python -m py_compile scripts/verify_v5_knowledge_integration.py
+          python -B scripts/verify_v5_knowledge_integration.py --root . --self-test --preview
       - name: Reject private asset files in V5
         shell: bash
         run: |
