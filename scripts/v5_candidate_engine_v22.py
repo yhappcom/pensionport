@@ -19,7 +19,7 @@ VERSION="2.2.0"
 # human review; no authoritative finance facts are inferred by matching them.
 CONCEPTS={
  "history_vs_future":r"과거.{0,12}(?:수익|성과|회복)|미래.{0,12}(?:보장|보증)|역사적.{0,12}(?:수익|낙폭)|장기.{0,14}(?:수익|침체|횡보|회복)|실제.{0,9}(?:수익|보유)|손실.{0,5}확률|수익.{0,5}보장|원금 회복",
- "return_measure":r"평균.{0,5}수익|연평균|실현수익|보유기간.{0,5}수익|수익률|총수익|성과|배당 재투자|복리|배당재투자",
+ "return_measure":r"평균.{0,5}수익|연평균|실현수익|보유기간.{0,5}수익|수익률|총수익|성과|배당 재투자|복리|배당재투자|연\s*7\s*%|분배율",
  "backtest_model":r"백테스트|지수.{0,12}(?:성과|수익률)|1972.{0,8}2022|월별 수익률|역사적.{0,9}최대낙폭|모형.{0,12}수익|가상.{0,9}수익|성과표",
  "return_provenance":r"실제 ETF|실제.{0,9}보유|실현수익|기대.{0,7}수익|세금|비용|추적오차|환율.{0,4}차이|시작.종료시점|배당 재투자|수익률.*가정",
  "long_horizon":r"장기|오래 보유|5.10년|10년|20년|25년|보유기간|침체|회복기간|수익률.{0,6}기간|시장 사이클",
@@ -29,7 +29,7 @@ CONCEPTS={
  "liquidity_buffer":r"현금유동성|현금성|파킹형|분할투자|분할매수|필수지출|지출 분리|여유자금",
  "asset_allocation":r"자산배분|자산군|채권.{0,8}금|금.{0,8}채권|주식.{0,12}채권|비중|리스크 패리티|포트폴리오|분산투자|위험 기여도|구성 실험",
  "portfolio_weights":r"\d+\s*[%％].{0,10}(?:금|채권|주식|원자재)|\d+\s*:\s*\d+|6\s*[:：]\s*4|리스크 패리티|위험 기여도|원금 비중|구성 비율|중간 구성|주식.{0,8}금|주식.{0,12}채권",
- "multiasset_exposure":r"미국주식|주식|장기국채|국채|금|원자재|채권|자산군|달러|현금성|일본주식",
+ "multiasset_exposure":r"미국주식|주식|장기국채|국채|(?<![가-힣])금(?![가-힣])|원자재|채권|자산군|달러|현금성|일본주식",
  "macro_regime":r"올웨더|거시환경|경기.{0,8}물가|성장률|인플레이션|경제환경|경제상황|경기 국면|경기.물가",
  "risk_management":r"위험 관리|위험관리|위험수준|분산|손실|포트폴리오.{0,12}위험|심리적 안정|안정적|안정성|주식.{0,8}위험|주가 변동",
  "risk_correlation":r"상관|동반 하락|비상관|분산 효과|서로 다른.{0,5}자산|종목.{0,7}겹|중복|편입종목",
@@ -39,7 +39,7 @@ CONCEPTS={
  "etf_product":r"ETF|상장지수|펀드|SCHD|나스닥100|S&P\s*500|미국배당다우존스",
  "etf_index_rules":r"지수.{0,9}(?:구성|편입|선별|추종|방법론)|S&P\s*500|배당다우존스|배당기업|시가총액|재무 지표|100개|500개|선도 기업|패시브",
  "entry_lot":r"만원대|만원|1주|한 주|매수 가능|매수접근|거래단위|ETF 가격|개별 ETF 가격|소액",
- "dividend_cashflow":r"배당|분배금|월분배|월배당|커버드콜|분배형|분배수익",
+ "dividend_cashflow":r"배당|분배|월배당|커버드콜",
  "dividend_frequency":r"분기|월 분배|월분배|매달.{0,5}분배|월별 지급|월배당|매월.{0,5}(?:배당|분배)",
  "dividend_sustainability":r"안정적|안정성|지속성|감소|중단|비보장|지급액|원금.{0,8}잠식|원금.{0,8}보장|세전|배당수익|분배금.{0,5}보장",
  "dividend_reinvest":r"배당.{0,8}재투자|배당금.{0,6}(?:재투자|축적)|현금배당 재투자|배당재투자|배당금으로|배당주.{0,7}정기매수",
@@ -49,6 +49,11 @@ CONCEPTS={
  "tax_route":r"과세|세금|국내.{0,9}과세|현지.{0,9}과세|일본.{0,9}상장|원엔|달러엔|엔화|환전",
  "product_access":r"ETF.{0,12}(?:가격|1주|만원)|소액|만원대|1주|한 주|거래단위|허용상품|매수 가능",
  "product_diversification":r"ETF.{0,12}(?:다수|분산|집중|종목)|단일.{0,8}ETF|분산 효과|다수 종목|테마.{0,5}ETF",
+ "investor_principle":r"투자.{0,5}원칙|자산배분|장기투자|저비용|분산투자|투자 교육|위험 관리",
+ "retirement_sustainability":r"은퇴기|지속 가능한 현금흐름|현금흐름.{0,8}위험|일확천금",
+ "income_projection":r"월\s*[\d,]+\s*만원|연\s*6\s*%|월분배|월배당|지급액|세전.{0,7}분배",
+ "index_us_exposure":r"미국.{0,12}(?:주가지수|지수|대형주)|S&P\s*500|미국지수",
+ "fx_execution":r"엔화로.{0,18}(?:ETF|주식)|원화로.{0,18}(?:ETF|엔화)|환전.{0,12}(?:매수|후)|방법\s*[1-5]",
 }
 RX={k:re.compile(v,re.I) for k,v in CONCEPTS.items()}
 @lru_cache(maxsize=16384)
@@ -71,6 +76,23 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     edges=[]
     veto=[]
 
+    # A high-level investment risk term cannot transform loan rollover or
+    # a monthly bank-account budget into the same proposition as asset risk.
+    if ((re.search(r"연금담보대출|상환.재대출",a_text) and
+         re.search(r"섹터|시총기업|분산|자산군",b_text) and
+         "대출" not in b_text) or
+        (re.search(r"연금담보대출|상환.재대출",b_text) and
+         re.search(r"섹터|시총기업|분산|자산군",a_text) and
+         "대출" not in a_text)):
+        veto.append("collateral_loan_vs_underlying_asset_concentration")
+    if ((re.search(r"청년 저축|ISA.{0,16}연금저축",a_text) and
+         re.search(r"자산군|주식.채권|특정 자산",b_text) and
+         "자산군" not in a_text) or
+        (re.search(r"청년 저축|ISA.{0,16}연금저축",b_text) and
+         re.search(r"자산군|주식.채권|특정 자산",a_text) and
+         "자산군" not in b_text)):
+        veto.append("household_account_budget_vs_market_asset_allocation")
+
     # Typed scope boundaries: same ETF or same recurring-buy words do not
     # imply the same economic action, eligibility, accounting or exposure.
     if _cross(fa,fb,"dividend_reinvest","pension_lump") and (
@@ -79,7 +101,10 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     if (_cross(fa,fb,"etf_index_rules","tax_route") and
         (("엔화" in a_text or "환전" in a_text or "엔화" in b_text or "환전" in b_text)) and
         ("etf_index_rules" in fa or "etf_index_rules" in fb) and
-        not ("etf_index_rules" in shared)):
+        not ("etf_index_rules" in shared) and not (
+          "index_us_exposure" in fa and "index_us_exposure" in fb and
+          "ETF" in a_text.upper() and "ETF" in b_text.upper() and
+          "지수" in a_text and "지수" in b_text)):
         veto.append("index_constituent_selection_vs_fx_execution_routes")
     if (_cross(fa,fb,"dividend_frequency","tax_route") and
         ("일본" in a_text+b_text or "엔화" in a_text+b_text) and
@@ -101,6 +126,9 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     if _cross(fa,fb,"drawdown","volatility") and (
         "risk_management" in fa|fb or "long_horizon" in fa|fb):
         edges.append("price_drawdown_vs_broader_investment_risk")
+    if _cross(fa,fb,"return_measure","long_horizon") and (
+        "history_vs_future" in fa|fb and "return_measure" in fa|fb):
+        edges.append("historical_average_vs_hypothetical_growth_model")
     if _both(fa,fb,"return_measure") and (
         ("backtest_model" in fa|fb and "return_provenance" in fa|fb) or
         ("history_vs_future" in fa|fb and
@@ -124,6 +152,24 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
     if _cross(fa,fb,"drawdown","liquidity_buffer") and (
         "long_horizon" in fa|fb):
         edges.append("bear_market_liquidity_and_staged_entry")
+
+    # Macro risk explanations can inform asset-allocation principles even
+    # when the speaker omits the literal term 'portfolio'.
+    if _cross(fa,fb,"macro_regime","investor_principle") and (
+        "risk_management" in fa|fb and
+        ("asset_allocation" in (fa|fb) or "investor_principle" in shared)):
+        edges.append("all_weather_macro_risk_vs_general_diversification_principles")
+    if _cross(fa,fb,"macro_regime","retirement_sustainability") and (
+        "risk_management" in shared):
+        edges.append("all_weather_risk_stability_vs_retiree_drawdown_survivability")
+    if _both(fa,fb,"risk_management") and
+        "macro_regime" in fa|fb and "etf_product" in fa|fb:
+        edges.append("all_weather_vs_single_equity_etf_stability_assumptions")
+    if _both(fa,fb,"multiasset_exposure") and
+        ("macro_regime" in fa|fb) and
+        ("현금성" in a_text+b_text or "엔화" in a_text+b_text) and
+        ("주식" in a_text and "주식" in b_text):
+        edges.append("currency_cash_vs_equity_risk_role")
 
     # Macro/risk-parity and asset-allocation are connected at asset-class
     # exposure level, not because "growth" predicts next period's returns.
@@ -171,6 +217,10 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
         "dividend_sustainability" in fa|fb or
         "dividend_reinvest" in fa|fb):
         edges.append("dividend_funding_vs_payment_sustainability")
+    if _cross(fa,fb,"dividend_cashflow","income_projection") and (
+        "dividend_sustainability" in fa|fb and
+        re.search(r"월\s*\d+\s*만원|세전|지급액",a_text+b_text)):
+        edges.append("dividend_income_vs_hypothetical_monthly_payment")
     if _cross(fa,fb,"dividend_cashflow","retirement_income") and (
         "dividend_sustainability" in fa|fb or
         "dividend_frequency" in fa|fb):
