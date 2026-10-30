@@ -118,6 +118,9 @@ def verify(record, review, policy, review_digest, root=None):
             need(cid in models[id]["claim_ids"], "math model back-link " + cid)
         for id in es:
             need(cid in empirical[id]["claim_ids"], "empirical back-link " + cid)
+        if kind == "STRATEGY_OR_PERFORMANCE":
+            need(not o.get("empirical_not_applicable_reason"),
+                 "strategy cannot waive empirical study " + cid)
         if c["legacy_verdict"] == "CONTRADICTED":
             need(o["status"] != "VERIFIED" and c["positive_principle_allowed"] is False,
                  "contradicted principle promoted " + cid)
