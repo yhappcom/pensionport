@@ -121,7 +121,7 @@ jobs:
       - name: V2.2 claim-level development regression - 251 cases, no automatic approvals
         run: |
           python -m py_compile scripts/v5_candidate_engine_v22.py scripts/evaluate_v5_candidate_v22.py
-          python -B scripts/evaluate_v5_candidate_v22.py --root . --show-cases --self-test
+          python -B scripts/evaluate_v5_candidate_v22.py --root . --show-cases --self-test --assert-snapshot
       - name: Reject private asset files in V5
         shell: bash
         run: |
