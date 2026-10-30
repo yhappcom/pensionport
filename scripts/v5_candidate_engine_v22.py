@@ -93,6 +93,20 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
          "자산군" not in b_text)):
         veto.append("household_account_budget_vs_market_asset_allocation")
 
+    # Distinguish cash-flow RECEIPTS from allocation of earned wages;
+    # distinguish a statutory pension timing/arithmetic example from
+    # reinvestment of equity dividends.
+    if ((re.search(r"청년 저축|월\s*100만원.{0,45}ISA",a_text) and
+         "dividend_cashflow" in fb and "dividend_cashflow" not in fa) or
+        (re.search(r"청년 저축|월\s*100만원.{0,45}ISA",b_text) and
+         "dividend_cashflow" in fa and "dividend_cashflow" not in fb)):
+        veto.append("wage_contribution_budget_vs_dividend_income")
+    if ((re.search(r"국민연금.{0,40}(?:월\s*30만원|7년|복리)",a_text) and
+         "dividend_reinvest" in fb and "dividend_cashflow" not in fa) or
+        (re.search(r"국민연금.{0,40}(?:월\s*30만원|7년|복리)",b_text) and
+         "dividend_reinvest" in fa and "dividend_cashflow" not in fb)):
+        veto.append("national_pension_numeric_example_vs_equity_dividend_reinvestment")
+
     # Typed scope boundaries: same ETF or same recurring-buy words do not
     # imply the same economic action, eligibility, accounting or exposure.
     if _cross(fa,fb,"dividend_reinvest","pension_lump") and (
@@ -155,6 +169,10 @@ def retrieve(a_text,b_text,legacy_signals=None,left_verdict=None,right_verdict=N
 
     # Macro risk explanations can inform asset-allocation principles even
     # when the speaker omits the literal term 'portfolio'.
+    if (_cross(fa,fb,"macro_regime","investor_principle") and
+        "위험" in a_text+b_text and
+        "자산배분" in a_text+b_text):
+        edges.append("all_weather_risk_objective_vs_allocation_education")
     if _cross(fa,fb,"macro_regime","investor_principle") and (
         "risk_management" in fa|fb and
         ("asset_allocation" in (fa|fb) or "investor_principle" in shared)):
