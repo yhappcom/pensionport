@@ -1,0 +1,76 @@
+{
+  "schema": "V5_CANDIDATE_V21_FROZEN_DEVELOPMENT_BASELINE_V1",
+  "benchmark_date": "2026-10-30",
+  "intent": "FREEZE_1_TO_14_DEVELOPMENT_AND_PROTECT_15_PLUS_NEW_VIDEO_VALIDATION",
+  "engine_version": "2.1.0",
+  "source_engine_path": "scripts/v5_candidate_engine_v21.py",
+  "source_engine_git_blob_sha": "60a02bc9a0cd6181db37fcba94d9aa12271c6dc5",
+  "evaluator_path": "scripts/evaluate_v5_candidate_v21.py",
+  "evaluator_git_blob_sha": "34bcfb9dfed5757153f42f137e585565fce7b668",
+  "benchmark_blobs": {
+    "baseline_001_010": "da87ed4855db1331dbaccf58d961a9b96a90ca0b",
+    "baseline_011_012": "58dc9edc5948a6ae94807b2ffd6525398bf405a5",
+    "baseline_013_014": "7ca161ca38422f7c256422c4edd5e1bb76264b7a"
+  },
+  "measured_in_git_actions": "https://github.com/yhappcom/pensionport/actions/runs/41028426033",
+  "benchmark_scope": "162 diagnostic pairs drawn from 14 previously reviewed videos; 98 earlier regression cases plus 64 V2 first-use cases; all now V2.1 development data, not blinded holdout",
+  "test_sets": {
+    "legacy_38": {
+      "counts": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 8,
+        "TP": 30
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    },
+    "new_13_14_64": {
+      "counts": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 20,
+        "TP": 44
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    },
+    "next_60": {
+      "counts": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 31,
+        "TP": 29
+      },
+      "precision": 1,
+      "recall": 1,
+      "specificity": 1
+    }
+  },
+  "total_confusion": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 59,
+    "TP": 103
+  },
+  "candidate_pairs": 1216,
+  "candidate_pairs_involving_13_14": 357,
+  "possible_pairs": 11935,
+  "source_claim_count": 155,
+  "source_video_count": 14,
+  "source_refuted_claim_count": 10,
+  "negative_tests": {
+    "candidate_order_symmetry_cases": 162,
+    "full_replay_deterministic": true,
+    "negative_scope_mutations_blocked": 2,
+    "refuted_cases_approval_blocked": 10
+  },
+  "independent_new_video_test_completed": false,
+  "automated_semantic_approval": false,
+  "automatic_knowledge_merges": 0,
+  "release_gate": "BLOCKED_PENDING_NEW_VIDEO_UNSEEN_HOLDOUT_AND_INDEPENDENT_REVIEW",
+  "interpretation": "100% DEVELOPMENT REPLAY IS NOT OUT-OF-SAMPLE ACCURACY",
+  "next_unseen_scope": "#15 onward; freeze engine and evaluator before first prediction"
+}
