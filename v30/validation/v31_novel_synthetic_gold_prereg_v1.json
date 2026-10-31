@@ -1,0 +1,934 @@
+{
+  "schema": "V31_NOVEL_SYNTHETIC_FIRST_USE_GOLD_V1",
+  "dataset_origin": "NEW_MANUALLY_AUTHORED_SYNTHETIC_FINANCIAL_PAIR_CASES_AFTER_FROZEN_ENGINE_COMMIT",
+  "first_use_gold_independent_external_human": false,
+  "first_use_gold_prior_engine_outputs_seen": false,
+  "real_youtube_video_claims_in_dataset": 0,
+  "preexisting_historical_4120_claims_reused": 0,
+  "case_labeler": "SAME_DEVELOPMENT_ASSISTANT_NONBLIND_HUMAN_NOT_CLAIMED",
+  "independent_external_adjudication": false,
+  "code_freeze_commit": "49d28d41c815ec9aa3c9ff0bf634533c70d7fcfd",
+  "frozen_semantic_sha": "939e11d169355748b92dd81c855bc0d91070f7ba",
+  "frozen_math_sha": "d24b28f69e0fa292c736506b038aff1a674b0d24",
+  "corpus_test_flag": "test_fixture true; #801 and #802 are invented non-video IDs, not historical videos",
+  "labels_chosen_before_any_first_use_model_predictions": true,
+  "measure": "paired review relevance, not truth of financial statements",
+  "expected_positive": 24,
+  "expected_negative": 24,
+  "sampling_limitation": "Nonrandom authored near-miss examples, small size, no statistical independence or original audio",
+  "release_decision_locked": "BLOCKED",
+  "cases": [
+    {
+      "id": "P01",
+      "label": true,
+      "pair_topic": "FOREX",
+      "left": {
+        "claim_id": "HOUTA000001-01",
+        "video_number": 801,
+        "text": "은행에서 달러를 환전할 때 매매기준율과 환전 수수료를 함께 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-01",
+        "video_number": 802,
+        "text": "외화 환전 시 은행 우대율과 실제 적용 환율을 비교한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P02",
+      "label": true,
+      "pair_topic": "PENSION_PAYOUT",
+      "left": {
+        "claim_id": "HOUTA000001-02",
+        "video_number": 801,
+        "text": "IRP에서 연금수령 신청 전에 세제와 인출 조건을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-02",
+        "video_number": 802,
+        "text": "퇴직연금 IRP 연금 개시 뒤 월별 수령액을 계획한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P03",
+      "label": true,
+      "pair_topic": "DISTRIBUTION",
+      "left": {
+        "claim_id": "HOUTA000001-03",
+        "video_number": 801,
+        "text": "주식 배당금 지급액을 주식 총수익률과 혼동하지 않는다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-03",
+        "video_number": 802,
+        "text": "커버드콜 ETF의 월분배금이 전체 투자수익을 보장하지 않는다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P04",
+      "label": true,
+      "pair_topic": "GOLD_SPOT",
+      "left": {
+        "claim_id": "HOUTA000001-04",
+        "video_number": 801,
+        "text": "KRX 금현물 계좌의 거래 수수료와 보관 규칙을 살핀다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-04",
+        "video_number": 802,
+        "text": "금 현물 매매 비용과 거래소 계좌 조건을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P05",
+      "label": true,
+      "pair_topic": "ETF_PERIODIC",
+      "left": {
+        "claim_id": "HOUTA000001-05",
+        "video_number": 801,
+        "text": "적립식 대표지수 ETF를 정기적으로 매수하며 비용을 점검한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-05",
+        "video_number": 802,
+        "text": "지수 ETF를 매월 분할투자해 매수 시점을 분산한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P06",
+      "label": true,
+      "pair_topic": "HOUSEHOLD",
+      "left": {
+        "claim_id": "HOUTA000001-06",
+        "video_number": 801,
+        "text": "신용카드 할부는 월별 지출 계획을 어렵게 할 수 있다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-06",
+        "video_number": 802,
+        "text": "월별 소비 지출과 카드 결제액을 가계 예산에서 조정한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P07",
+      "label": true,
+      "pair_topic": "PENSION_DEFERRAL",
+      "left": {
+        "claim_id": "HOUTA000001-07",
+        "video_number": 801,
+        "text": "공적연금 연기 수령 시 지급액 가산조건을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-07",
+        "video_number": 802,
+        "text": "국민연금 연기연금의 수령 시점과 가산규칙을 살핀다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P08",
+      "label": true,
+      "pair_topic": "BOND_MATURITY",
+      "left": {
+        "claim_id": "HOUTA000001-08",
+        "video_number": 801,
+        "text": "국채를 만기까지 보유할 경우 상환 구조와 발행자 위험을 고려한다",
+        "legacy_verdict": "HYPOTHETICAL",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-08",
+        "video_number": 802,
+        "text": "채권 만기 원금 회수는 발행자의 지급 능력과 관련된다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P09",
+      "label": true,
+      "pair_topic": "ISA_MATURITY",
+      "left": {
+        "claim_id": "HOUTA000001-09",
+        "video_number": 801,
+        "text": "ISA 계좌 의무기간 종료 시 만기 연장과 해지를 비교한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-09",
+        "video_number": 802,
+        "text": "중개형 ISA 만기 뒤 재가입 가능 조건을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P10",
+      "label": true,
+      "pair_topic": "LABOR_TAX",
+      "left": {
+        "claim_id": "HOUTA000001-10",
+        "video_number": 801,
+        "text": "연말정산에서 소득공제 항목을 증빙자료와 함께 점검한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-10",
+        "video_number": 802,
+        "text": "근로소득 연말정산에서 소득공제 누락 여부를 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P11",
+      "label": true,
+      "pair_topic": "RETIREMENT_LUMP",
+      "left": {
+        "claim_id": "HOUTA000001-11",
+        "video_number": 801,
+        "text": "퇴직금 목돈을 한꺼번에 투자하기보다 분할투자 기간을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-11",
+        "video_number": 802,
+        "text": "퇴직 후 목돈 운용 시 분할투자 규모를 나눌 수 있다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P12",
+      "label": true,
+      "pair_topic": "STOCK_DECISION",
+      "left": {
+        "claim_id": "HOUTA000001-12",
+        "video_number": 801,
+        "text": "매도 판단에 앞서 주식 투자 포인트가 훼손됐는지 점검한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-12",
+        "video_number": 802,
+        "text": "손실 종목 매도 전에 기업 투자 가설을 다시 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P13",
+      "label": true,
+      "pair_topic": "INSURANCE",
+      "left": {
+        "claim_id": "HOUTA000001-13",
+        "video_number": 801,
+        "text": "오래된 보험 계약의 해약 전에 보증이율을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-13",
+        "video_number": 802,
+        "text": "연금저축보험의 최저보증이율과 보험 해약환급을 점검한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P14",
+      "label": true,
+      "pair_topic": "TDF",
+      "left": {
+        "claim_id": "HOUTA000001-14",
+        "video_number": 801,
+        "text": "TDF 2045의 목표 은퇴 시점을 고려하여 상품을 고른다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-14",
+        "video_number": 802,
+        "text": "타깃데이트 펀드 TDF의 목표연도와 자산배분을 비교한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P15",
+      "label": true,
+      "pair_topic": "FOREX",
+      "left": {
+        "claim_id": "HOUTA000001-15",
+        "video_number": 801,
+        "text": "외화로 환전해 보유한 돈은 환율 변동 영향을 받는다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-15",
+        "video_number": 802,
+        "text": "달러 환전 이후 원화 환산 금액은 환율에 따라 바뀐다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P16",
+      "label": true,
+      "pair_topic": "RETIREMENT_CASH",
+      "left": {
+        "claim_id": "HOUTA000001-16",
+        "video_number": 801,
+        "text": "은퇴 이후 생활비 현금흐름에 국민연금 수령액을 포함한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-16",
+        "video_number": 802,
+        "text": "노후 생활비 산정 시 연금 현금흐름과 지출을 비교한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P17",
+      "label": true,
+      "pair_topic": "CONTRIBUTION_CREDIT",
+      "left": {
+        "claim_id": "HOUTA000001-17",
+        "video_number": 801,
+        "text": "연금저축 납입 시 세액공제 한도와 공제 자격을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-17",
+        "video_number": 802,
+        "text": "IRP 연금계좌 납입으로 세액공제를 받는 조건을 비교한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P18",
+      "label": true,
+      "pair_topic": "EQUITY",
+      "left": {
+        "claim_id": "HOUTA000001-18",
+        "video_number": 801,
+        "text": "개별 기업의 주식 투자에 앞서 재무제표를 공부한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-18",
+        "video_number": 802,
+        "text": "상장회사 주식 종목 분석에서 매출과 이익을 살핀다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P19",
+      "label": true,
+      "pair_topic": "ALLOCATION",
+      "left": {
+        "claim_id": "HOUTA000001-19",
+        "video_number": 801,
+        "text": "자산배분에서 주식과 채권의 투자 위험 비중을 점검한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-19",
+        "video_number": 802,
+        "text": "포트폴리오 리밸런싱을 통해 주식 투자 위험을 조절한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P20",
+      "label": true,
+      "pair_topic": "CASH_PARKING",
+      "left": {
+        "claim_id": "HOUTA000001-20",
+        "video_number": 801,
+        "text": "퇴직금 투자 대기자금을 파킹형 ETF에서 관리한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-20",
+        "video_number": 802,
+        "text": "CMA에 단기 현금을 보유하며 유동성을 관리한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P21",
+      "label": true,
+      "pair_topic": "PAYOUT_TAX",
+      "left": {
+        "claim_id": "HOUTA000001-21",
+        "video_number": 801,
+        "text": "연금계좌 과세제외 원금을 인출할 때 인출 순서를 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-21",
+        "video_number": 802,
+        "text": "사적연금 인출 시 과세재원에 따른 세금을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P22",
+      "label": true,
+      "pair_topic": "YOUTH_ACCOUNTS",
+      "left": {
+        "claim_id": "HOUTA000001-22",
+        "video_number": 801,
+        "text": "사회초년생은 목적별 금융계좌와 청년 저축을 준비한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-22",
+        "video_number": 802,
+        "text": "취업 직후 재무 계획에서 목적별 계좌 개설을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P23",
+      "label": true,
+      "pair_topic": "PENSION_BUYBACK",
+      "left": {
+        "claim_id": "HOUTA000001-23",
+        "video_number": 801,
+        "text": "국민연금 추납 금액과 미래 연금액 변화를 비교한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-23",
+        "video_number": 802,
+        "text": "추후납부를 하면 국민연금 예상수령액이 달라질 수 있다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "P24",
+      "label": true,
+      "pair_topic": "DIVIDEND",
+      "left": {
+        "claim_id": "HOUTA000001-24",
+        "video_number": 801,
+        "text": "월분배 커버드콜 ETF의 분배율과 원금 변동을 구분한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-24",
+        "video_number": 802,
+        "text": "상장 ETF의 배당금 지급과 투자 성과를 구별한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N01",
+      "label": false,
+      "pair_topic": "ISA_VS_BOND_MATURITY",
+      "left": {
+        "claim_id": "HOUTA000001-25",
+        "video_number": 801,
+        "text": "ISA 계좌의 의무기간 만기 3년 요건을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-25",
+        "video_number": 802,
+        "text": "국채 만기 상환 시 원금 지급 조건을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N02",
+      "label": false,
+      "pair_topic": "PAYOUT_VS_CONTRIBUTION",
+      "left": {
+        "claim_id": "HOUTA000001-26",
+        "video_number": 801,
+        "text": "연금소득 과세제외 원금의 인출 세금을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-26",
+        "video_number": 802,
+        "text": "IRP 납입 세액공제 한도와 자격을 비교한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N03",
+      "label": false,
+      "pair_topic": "POLICY_VS_PRODUCT_YIELD",
+      "left": {
+        "claim_id": "HOUTA000001-27",
+        "video_number": 801,
+        "text": "한국은행의 기준금리 3%라는 통화정책 발표를 설명한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-27",
+        "video_number": 802,
+        "text": "파킹형 ETF가 연 3%를 벌 것으로 기대하는 투자 시나리오",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N04",
+      "label": false,
+      "pair_topic": "GOLD_TAX_VS_LABOR_TAX",
+      "left": {
+        "claim_id": "HOUTA000001-28",
+        "video_number": 801,
+        "text": "KRX 금현물 거래에서 비과세 적용 요건을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-28",
+        "video_number": 802,
+        "text": "근로소득 연말정산에서 소득공제를 신청한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N05",
+      "label": false,
+      "pair_topic": "RETIREMENT_VS_YOUTH_BUDGET",
+      "left": {
+        "claim_id": "HOUTA000001-29",
+        "video_number": 801,
+        "text": "퇴직금 목돈을 3년 동안 분할투자하는 기간을 정한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-29",
+        "video_number": 802,
+        "text": "사회초년생 월급으로 한 달 생활비 예산을 짠다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N06",
+      "label": false,
+      "pair_topic": "SPENDING_VS_HOUSING",
+      "left": {
+        "claim_id": "HOUTA000001-30",
+        "video_number": 801,
+        "text": "신용카드 할부와 일상 소비 지출을 관리한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-30",
+        "video_number": 802,
+        "text": "주택 규모를 줄여 은퇴기 자산을 현금화한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N07",
+      "label": false,
+      "pair_topic": "FOREX_VS_INSURANCE",
+      "left": {
+        "claim_id": "HOUTA000001-31",
+        "video_number": 801,
+        "text": "달러 환전 비용과 우대환율을 비교한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-31",
+        "video_number": 802,
+        "text": "연금저축보험의 최저보증이율을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N08",
+      "label": false,
+      "pair_topic": "TDF_VS_GOLD",
+      "left": {
+        "claim_id": "HOUTA000001-32",
+        "video_number": 801,
+        "text": "TDF 2055 목표 은퇴연도를 고른다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-32",
+        "video_number": 802,
+        "text": "KRX 금현물 계좌 거래 수수료를 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N09",
+      "label": false,
+      "pair_topic": "PENSION_VS_ISA",
+      "left": {
+        "claim_id": "HOUTA000001-33",
+        "video_number": 801,
+        "text": "국민연금 연기연금 수령 시점을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-33",
+        "video_number": 802,
+        "text": "ISA 만기 계좌 재가입 조건을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N10",
+      "label": false,
+      "pair_topic": "STOCK_VS_LABOR_TAX",
+      "left": {
+        "claim_id": "HOUTA000001-34",
+        "video_number": 801,
+        "text": "주식 손실 종목을 매도할지 투자 가설을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-34",
+        "video_number": 802,
+        "text": "연말정산의 근로소득 소득공제 서류를 챙긴다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N11",
+      "label": false,
+      "pair_topic": "DIVIDEND_VS_POLICY",
+      "left": {
+        "claim_id": "HOUTA000001-35",
+        "video_number": 801,
+        "text": "ETF 배당금 분배와 원금의 차이를 살핀다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-35",
+        "video_number": 802,
+        "text": "한국은행 기준금리 결정을 설명한다",
+        "legacy_verdict": "CONTRADICTED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N12",
+      "label": false,
+      "pair_topic": "PENSION_VS_GIFT",
+      "left": {
+        "claim_id": "HOUTA000001-36",
+        "video_number": 801,
+        "text": "퇴직연금 IRP에서 연금수령 신청을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-36",
+        "video_number": 802,
+        "text": "자녀 증여에 따른 증여재산공제 조건을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N13",
+      "label": false,
+      "pair_topic": "BOND_VS_BUDGET",
+      "left": {
+        "claim_id": "HOUTA000001-37",
+        "video_number": 801,
+        "text": "채권 만기 원금 상환 가능성을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-37",
+        "video_number": 802,
+        "text": "소비 지출을 줄이고 신용카드 할부를 제한한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N14",
+      "label": false,
+      "pair_topic": "CONTRIBUTION_VS_PAYOUT",
+      "left": {
+        "claim_id": "HOUTA000001-38",
+        "video_number": 801,
+        "text": "연금저축 납입 세액공제 혜택을 계산한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-38",
+        "video_number": 802,
+        "text": "사적연금 소득 과세제외 원금 인출을 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N15",
+      "label": false,
+      "pair_topic": "FOREX_VS_DURATION",
+      "left": {
+        "claim_id": "HOUTA000001-39",
+        "video_number": 801,
+        "text": "달러 환전 수수료를 줄이는 방법을 살핀다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-39",
+        "video_number": 802,
+        "text": "채권 ETF 듀레이션이 금리 민감도에 미치는 영향을 설명한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N16",
+      "label": false,
+      "pair_topic": "CASH_VS_GOLD",
+      "left": {
+        "claim_id": "HOUTA000001-40",
+        "video_number": 801,
+        "text": "CMA 계좌의 예금자보호 여부를 비교한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-40",
+        "video_number": 802,
+        "text": "KRX 금현물 매매 시 수수료를 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N17",
+      "label": false,
+      "pair_topic": "ETF_VS_HOUSEHOLD",
+      "left": {
+        "claim_id": "HOUTA000001-41",
+        "video_number": 801,
+        "text": "주가지수 ETF를 정기 적립식으로 매수한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-41",
+        "video_number": 802,
+        "text": "신용카드 할부 결제액을 예산에서 조절한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N18",
+      "label": false,
+      "pair_topic": "EQUITY_VS_HOUSING",
+      "left": {
+        "claim_id": "HOUTA000001-42",
+        "video_number": 801,
+        "text": "반도체 회사 주식의 종목 집중을 경계한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-42",
+        "video_number": 802,
+        "text": "주택 다운사이징으로 은퇴 현금을 확보한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N19",
+      "label": false,
+      "pair_topic": "YOUTH_VS_RETIREMENT",
+      "left": {
+        "claim_id": "HOUTA000001-43",
+        "video_number": 801,
+        "text": "청년 취업 초기 목적별 계좌를 만든다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-43",
+        "video_number": 802,
+        "text": "은퇴 생활비 현금흐름에서 연금 수령액을 합산한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N20",
+      "label": false,
+      "pair_topic": "INSURANCE_VS_CENTRAL_BANK",
+      "left": {
+        "claim_id": "HOUTA000001-44",
+        "video_number": 801,
+        "text": "연금저축보험의 계약 보증이율을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-44",
+        "video_number": 802,
+        "text": "한국은행 기준금리의 향후 경로를 살핀다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N21",
+      "label": false,
+      "pair_topic": "PENSION_VS_STOCK",
+      "left": {
+        "claim_id": "HOUTA000001-45",
+        "video_number": 801,
+        "text": "국민연금 추납으로 기대 연금액을 분석한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-45",
+        "video_number": 802,
+        "text": "개별 기업 주식의 매도 근거를 검토한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N22",
+      "label": false,
+      "pair_topic": "ISA_VS_LABOR",
+      "left": {
+        "claim_id": "HOUTA000001-46",
+        "video_number": 801,
+        "text": "ISA 계좌 손익통산 기준을 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-46",
+        "video_number": 802,
+        "text": "연말정산 근로소득 소득공제 항목을 살핀다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N23",
+      "label": false,
+      "pair_topic": "STOCK_VS_GOLD",
+      "left": {
+        "claim_id": "HOUTA000001-47",
+        "video_number": 801,
+        "text": "주식 매도 판단 시 손실 회피 심리를 점검한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-47",
+        "video_number": 802,
+        "text": "금현물 계좌에 적용되는 거래소 세제를 살핀다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    },
+    {
+      "id": "N24",
+      "label": false,
+      "pair_topic": "PENSION_VS_DEPOSIT",
+      "left": {
+        "claim_id": "HOUTA000001-48",
+        "video_number": 801,
+        "text": "연금수령한도 내 인출 시 소득세 재원을 구분한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      },
+      "right": {
+        "claim_id": "HOUTB000001-48",
+        "video_number": 802,
+        "text": "은행 보통예금의 예금자보호 한도를 확인한다",
+        "legacy_verdict": "QUALIFIED",
+        "test_fixture": true
+      }
+    }
+  ]
+}
