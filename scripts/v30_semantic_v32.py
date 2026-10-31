@@ -21,7 +21,7 @@ V32_EXTRA_PATTERNS={
  "ETF_MARKET_LIQUIDITY":r"거래량|호가|매수.{0,10}매도.{0,14}차이",
  "ETF_PRICE_NAV_DISCOUNT":r"괴리율|NAV.{0,24}(?:시장.?가격|거래가격)|(?:시장.?가격|거래가격).{0,24}NAV",
  "ETF_TRACKING_ERROR":r"추적오차|ETF.{0,16}지수.*수익률.*차이|지수.{0,12}ETF.*수익률.*차이",
- "ETF_EXPENSE_RATIO":r"운용보수|ETF.{0,35}보수|보수.{0,30}ETF|보수율",
+ "ETF_EXPENSE_RATIO":r"운용보수|ETF.{0,35}보수|보수.{0,30}ETF|보수율|보수[·(\s]",
  "ETF_INDEX_METHOD":r"패시브|액티브|TR\s*지수|PR\s*지수|지수.*재투자",
  "ETF_DISTRIBUTION_MECHANISM":r"ETF.*분배|분배금|분배락|배당금.*ETF",
  "PENSION_LATE_START":r"55세.{0,50}연금|연금.{0,40}55세|늦지.*연금",
@@ -33,7 +33,7 @@ V32_EXTRA_PATTERNS={
  "YOUTH_SAVINGS_BANK_INTEREST":r"은행금리|기본금리|우대.{0,18}(?:금리|포인트)|금리.{0,8}이자",
  "MONTHLY_SAVINGS_CONTRIBUTION_SCHEDULE":r"월.{0,15}만원.{0,20}(?:납입|적금)|36개월.{0,20}(?:원금|납입)|납입원금|적금.{0,12}3년",
  "YOUTH_SAVINGS_ELIGIBILITY":r"가구.?중위소득|총급여.{0,18}기여금|청년미래적금.*가입|재직.{0,18}우대형",
- "PENSION_SAVINGS_CONTRIBUTION_LIMITS":r"(?:IRP|ISA|연금계좌|연금저축).{0,45}(?:납입|한도|연.{0,7}만원)|부부.{0,24}계좌",
+ "PENSION_SAVINGS_CONTRIBUTION_LIMITS":r"(?:IRP|ISA|연금계좌|연금저축).{0,45}(?:납입한도|일반납입|납입할|연간.*(?:납입|한도))|부부.{0,24}계좌",
  "HOUSING_DOWNSIZE_CASH":r"주택.{0,28}(?:축소|다운사이징|현금화)|다운사이징",
  "INSURANCE_CONTRACT_REDEMPTION":r"보험.{0,26}(?:해약|해지|보증|환급)|(?:해약|해지).*보험",
 }
@@ -63,6 +63,16 @@ def pair_review_v32(left,right):
         if ((a in tags_a and b in tags_b) or
             (b in tags_a and a in tags_b)):
             if not overlap:other.append("+".join(sorted(kinds)))
+    # Generic account identity cannot turn a withdrawal-tax regulation
+    # into a contribution or household-budget fact.
+    narrow_tax={"PENSION_WITHDRAWAL_TAX","PENSION_CONTRIBUTION_CREDIT"}
+    distinct_tax=(("PENSION_WITHDRAWAL_TAX" in tags_a) !=
+                  ("PENSION_WITHDRAWAL_TAX" in tags_b)) and not (
+                   narrow_tax & set(overlap))
+    if distinct_tax and set(overlap)<={
+         "PENSION_ACCOUNT_LIFECYCLE",
+         "PENSION_SAVINGS_CONTRIBUTION_LIMITS"}:
+        other.append("PENSION_WITHDRAWAL_VS_UNLINKED_ACCOUNT_SCOPE")
     conflicts=sorted(set(original["conflicting_cross_scope_types"]+other))
     typed=bool(overlap) and not conflicts
     return {
