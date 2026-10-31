@@ -1,0 +1,24 @@
+{
+  "schema": "V31_FROZEN_FIRST_USE_RESEARCH_ENGINE_V1",
+  "date": "2026-10-31",
+  "branch": "feat/v30-integrated-research-engine-20261031",
+  "parent_original_V30_frozen": true,
+  "semantic_retriever_git_blob_sha": "939e11d169355748b92dd81c855bc0d91070f7ba",
+  "rate_math_git_blob_sha": "d24b28f69e0fa292c736506b038aff1a674b0d24",
+  "dev_verifier_git_blob_sha": "c62982fbd4e68d79b549886caea3f6fe82f9a687",
+  "v30_verified_core_git_blob_sha": "724a9c9531b4594c3d8bee94e9ab59e6d54e93ee",
+  "v30_legacy_search_blob_sha": "ee1e759912bd92905511f095aabaa5e12839b8ec",
+  "historical_diagnostic_gold_git_blob_sha": "6e2f5b304db2ebb92873ec4cbfcf7c23a9fc79aa",
+  "development_history": "44 old #1-5 claim pairs were explicitly used to expand rules; 44/44 correct in seen development only; NEVER independent first-use accuracy",
+  "development_modes": [
+    "HISTORICAL_DEVELOPMENT_1_20_ONLY",
+    "SEALED_NOVEL_SYNTHETIC_800_PLUS_ONLY"
+  ],
+  "holdout_input_inspected_before_freeze": false,
+  "true_real_new_video_source_available": false,
+  "production_approval": false,
+  "automatic_research_certificate": false,
+  "knowledge_merges_approved": 0,
+  "target_unseen_gold_commit_after_this_freeze": true,
+  "cannot_retrain_on_holdout_for_this_first_use": true
+}
