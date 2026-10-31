@@ -21,6 +21,7 @@ import hmac
 import json
 import re
 import subprocess
+import secrets
 
 from v30_verified_core import (
  guard,sha256,canonical,HASH_RE,verify_attestation
@@ -34,6 +35,7 @@ PACKET_SCHEMA="V33_BLINDED_FULL_PAIR_CENSUS_V1"
 GOLD_SCHEMA="V33_TWO_REVIEWER_SEALED_RELATION_GOLD_V1"
 PRED_SCHEMA="V33_FROZEN_ENGINE_CENSUS_PREDICTIONS_V1"
 KINDS=frozenset(("RELATED","UNRELATED","UNRESOLVED"))
+_GIT_PROOF_SECRET=secrets.token_bytes(32)
 RELATION_TYPES=frozenset((
  "SAME_FINANCIAL_EVENT","QUALIFIES_OR_EXCEPTS",
  "CONTRADICTS_OR_CORRECTS","CALCULATION_DEPENDENCY",
@@ -196,13 +198,17 @@ def check_chronological_git_precommit(root,gold_file,prediction_file,
                          cwd=root,capture_output=True)
         guard(p.returncode==0,
               "BLIND_GOLD_WAS_NOT_PUBLISHED_BEFORE_MODEL_PREDICTION")
-    return {
+    result={
         "engine_freeze_commit":pinned[0],
         "gold_label_commit":pinned[1],
         "prediction_commit":pinned[2],
         "chronologically_precommitted":True,
         "reviewer_blindness_not_proven_by_git":True,
+        "proof_type":"VERIFIED_IN_LOCAL_GIT_PROCESS",
     }
+    result["git_proof_seal"]=hmac.new(
+        _GIT_PROOF_SECRET,canonical(result),hashlib.sha256).hexdigest()
+    return result
 
 def evaluate_blind(packet,gold,predictions,authorities,
                    verified_git_order=None):
@@ -271,6 +277,16 @@ def evaluate_blind(packet,gold,predictions,authorities,
     guard(type(verified_git_order) is dict
           and verified_git_order.get("chronologically_precommitted") is True,
           "NO_GIT_ORDER_NO_BLIND_PERFORMANCE_CLAIM")
+    if packet["cohort_kind"]=="REAL_UNSEEN_261_PLUS":
+        proof={k:v for k,v in verified_git_order.items()
+               if k!="git_proof_seal"}
+        expected=hmac.new(_GIT_PROOF_SECRET,canonical(proof),
+                          hashlib.sha256).hexdigest()
+        guard(verified_git_order.get("proof_type")==
+                "VERIFIED_IN_LOCAL_GIT_PROCESS"
+              and hmac.compare_digest(
+                  expected,str(verified_git_order.get("git_proof_seal",""))),
+              "REAL_BLIND_GIT_CHRONOLOGY_CANNOT_BE_SELF_ASSERTED")
     pm={x["case_id"]:x["candidate"] for x in p}
     counts=Counter();by=defaultdict(Counter);errors=[]
     for row in packet["cases"]:
