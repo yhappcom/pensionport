@@ -46,7 +46,8 @@ def make_record(claim_id,text,video_number,source_sha256,verdict="UNREVIEWED",
           and type(text) is str and text.strip() and len(text)<=16000,
           "V34_SEARCH_RECORD_MUST_HAVE_TRACEABLE_SOURCE")
     if source_sha256 is None:
-        guard(provenance_state=="HISTORIC_ORIGINAL_SHA_MISSING"
+        guard(provenance_state in ("HISTORIC_ORIGINAL_SHA_MISSING",
+              "HISTORIC_ORIGINAL_SHA_MALFORMED")
               and type(source_record_digest) is str and HASH_RE.fullmatch(source_record_digest),
               "V34_HISTORICAL_MISSING_ORIGINAL_MUST_REMAIN_UNVERIFIED")
     else:
@@ -244,13 +245,19 @@ def history_record(x):
     return {
         "claim_id":x["claim_id"],"text":x["text"],
         "video_number":x["roster_no"],
-        "source_sha256":x.get("source_srt_sha"),
+        "source_sha256":(x.get("source_srt_sha") if type(x.get("source_srt_sha")) is str
+                          and HASH_RE.fullmatch(x["source_srt_sha"]) else None),
         "source_record_digest":sha256(canonical({
             "claim_id":x["claim_id"],"text":x["text"],
             "source_canonical_sha":x.get("source_canonical_sha"),
-            "source_pilot_sha":x.get("source_pilot_sha")})),
-        "provenance_state":("ORIGINAL_SHA_VERIFIED" if x.get("source_srt_sha")
-                            else "HISTORIC_ORIGINAL_SHA_MISSING"),
+            "source_pilot_sha":x.get("source_pilot_sha"),
+            "original_srt_sha_as_recorded":x.get("source_srt_sha")})),
+        "provenance_state":(
+            "HISTORIC_ORIGINAL_SHA_MISSING" if x.get("source_srt_sha") is None
+            else "ORIGINAL_SHA_VERIFIED" if
+                type(x.get("source_srt_sha")) is str and
+                HASH_RE.fullmatch(x["source_srt_sha"])
+            else "HISTORIC_ORIGINAL_SHA_MALFORMED"),
         "verdict":x.get("original_verdict","UNREVIEWED")
     }
 
