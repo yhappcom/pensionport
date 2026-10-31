@@ -309,14 +309,22 @@ class BoundClaim:
     frame:dict
     _seal:str
 
-def bind_reviewed_claim(atom,original_srt_sha256,ledger_sha256,
-                        source_review_confirmed=False):
-    """Only call after full cue mapping and signed external source review."""
-    guard(source_review_confirmed is True,
-          "SOURCE_REVIEWER_SIGNATURE_REQUIRED_FOR_BOUND_CLAIM")
+def bind_reviewed_claim(atom,binding,attestation,authorities):
+    """Bind to actual original SRT and source-reviewer signed whole ledger."""
+    guard(isinstance(binding,dict)
+          and binding.get("video_id")
+          and binding.get("cue_count")
+          and binding.get("ledger_sha256")
+          and binding.get("srt_sha256"),
+          "COMPLETE_SOURCE_BINDING_REQUIRED")
+    reviewer_id=verify_attestation(
+        attestation,binding,"source_reviewer",authorities)
+    original_srt_sha256=binding["srt_sha256"]
+    ledger_sha256=binding["ledger_sha256"]
     guard(isinstance(atom,dict) and
           isinstance(atom.get("claim_id"),str) and
           CLAIM_RE.fullmatch(atom["claim_id"]) and
+          atom["claim_id"].startswith(binding["video_id"]+"-") and
           atom.get("legacy_verdict") in VERDICTS,
           "UNVERIFIED_BOUND_CLAIM_OR_VERDICT")
     frame=frame_check(atom.get("frame"),atom.get("claim_types",()))
