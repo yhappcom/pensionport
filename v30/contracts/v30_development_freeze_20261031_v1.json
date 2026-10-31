@@ -1,0 +1,38 @@
+{
+  "schema": "V30_ENGINE_IMPLEMENTATION_DEVELOPMENT_FREEZE_V1",
+  "date": "2026-10-31",
+  "target_repository": "yhappcom/pensionport",
+  "branch": "feat/v30-integrated-research-engine-20261031",
+  "prior_frozen_parent_commit": "f978f5e70b166d4da6663566251aaa0084534932",
+  "parent_v23_engine_sha": "be73e778b7851ba440e40c85629f2f89b6da3648",
+  "historical_v30_bootstrap_sha": "7924ad51058abc1129eef2ec91df97589b412f63",
+  "module_git_blobs": {
+    "scripts/v30_verified_core.py": "724a9c9531b4594c3d8bee94e9ab59e6d54e93ee",
+    "scripts/v30_claim_extraction.py": "54eace28c3596a46fb1bc4b0516f4fa8ebff5684",
+    "scripts/v30_evidence_services.py": "bfb179776b385a0ebce76a321118f41a54a6cdcf",
+    "scripts/v30_hybrid_search.py": "ee1e759912bd92905511f095aabaa5e12839b8ec",
+    "scripts/v30_state_machine.py": "4c9aced162a84353b35f0ffee4ee6d543942368f",
+    "scripts/v30_research_pipeline.py": "0a125b1f411bf0b810dfeab60ac0126a5efef002",
+    "scripts/v30_v5_bridge.py": "742449adce9712d0103d5d32678b6aa61cebeb8a",
+    "scripts/v30_independent_evaluator.py": "abd29b189a28b42ce0b9e895de6d9d5841873c97",
+    "scripts/verify_v30_full_research.py": "d662ca74345f2dec3963cf70c4563179e4c5518f",
+    "scripts/verify_v30_repository_safety.py": "a2f74cabcf0bfbbbbfe5000ee6188a712a767318",
+    "v30/contracts/integrated_engine_v1.json": "ce60a16c86d6c79a5f8d63503a1c27a943deb91b",
+    "v30/contracts/evaluation_protocol_v1.json": "641b2e200223a72723a55ab5672a90b5e0e6199c"
+  },
+  "development_gate": {
+    "synthetic_original_srt_cues": 3,
+    "synthetic_atomic_claims": 2,
+    "adversarial_scenarios_pass": 47,
+    "existing_v5_source_and_pending_overlay_preview_pass": true,
+    "external_source_legality_independently_verified": 0,
+    "real_human_identity_externally_verified": 0,
+    "real_research_complete_certificates": 0,
+    "unseen_video_21_plus_used": 0,
+    "automatic_knowledge_merges": 0,
+    "personal_trades": 0
+  },
+  "release": "BLOCKED_NEEDS_REAL_SOURCE_INDEPENDENT_HUMAN_AND_UNSEEN_BLIND_BENCHMARK",
+  "readiness_statement": "All eight stages have executable research infrastructure, but actual original source/official factual truth/independent semantic and out-of-sample model performance remain outside synthetic CI.",
+  "not_a_production_model_fingerprint_without_external_signed_release": true
+}
