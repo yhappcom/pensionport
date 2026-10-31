@@ -10,6 +10,7 @@ import hashlib
 import hmac
 import json
 import re
+import secrets
 from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal, InvalidOperation
@@ -293,6 +294,71 @@ def evidence_requirements(claim_types):
         requirements.add("REPRODUCED_REAL_EMPIRICAL_STUDY")
     return sorted(requirements)
 
+# Ephemeral per-process seal defeats accidental or trivial dictionary
+# substitution. It is not an OS sandbox; the original ledger attestation is
+# still the real source authority, never the seal alone.
+_PROCESS_SEAL=secrets.token_bytes(32)
+
+@dataclass(frozen=True)
+class BoundClaim:
+    claim_id:str
+    original_srt_sha256:str
+    ledger_sha256:str
+    legacy_verdict:str
+    claim_types:tuple
+    frame:dict
+    _seal:str
+
+def bind_reviewed_claim(atom,original_srt_sha256,ledger_sha256,
+                        source_review_confirmed=False):
+    """Only call after full cue mapping and signed external source review."""
+    guard(source_review_confirmed is True,
+          "SOURCE_REVIEWER_SIGNATURE_REQUIRED_FOR_BOUND_CLAIM")
+    guard(isinstance(atom,dict) and
+          isinstance(atom.get("claim_id"),str) and
+          CLAIM_RE.fullmatch(atom["claim_id"]) and
+          atom.get("legacy_verdict") in VERDICTS,
+          "UNVERIFIED_BOUND_CLAIM_OR_VERDICT")
+    frame=frame_check(atom.get("frame"),atom.get("claim_types",()))
+    guard(HASH_RE.fullmatch(original_srt_sha256 or "") and
+          HASH_RE.fullmatch(ledger_sha256 or ""),
+          "VERIFIED_ORIGINAL_AND_LEDGER_HASHES_REQUIRED")
+    fields={
+        "claim_id":atom["claim_id"],
+        "original_srt_sha256":original_srt_sha256,
+        "ledger_sha256":ledger_sha256,
+        "legacy_verdict":atom["legacy_verdict"],
+        "claim_types":tuple(atom["claim_types"]),
+        "frame":frame,
+    }
+    seal=hmac.new(_PROCESS_SEAL,canonical(fields),
+                  hashlib.sha256).hexdigest()
+    return BoundClaim(**fields,_seal=seal)
+
+def verify_bound_claim(bound):
+    guard(isinstance(bound,BoundClaim),"CANNOT_FORGE_VERIFIED_CLAIM_WITH_DICT")
+    payload={k:getattr(bound,k) for k in
+             ("claim_id","original_srt_sha256","ledger_sha256",
+              "legacy_verdict","claim_types","frame")}
+    expected=hmac.new(_PROCESS_SEAL,canonical(payload),
+                      hashlib.sha256).hexdigest()
+    guard(hmac.compare_digest(expected,bound._seal),
+          "TAMPERED_OR_EXTERNALLY_CONSTRUCTED_CLAIM")
+    return True
+
+def relation_for_bound_claims(a,b):
+    verify_bound_claim(a);verify_bound_claim(b)
+    return typed_relation(
+        {"claim_id":a.claim_id,"frame":a.frame,
+         "claim_types":list(a.claim_types),
+         "legacy_verdict":a.legacy_verdict,
+         "source_bound":True,"review_binding_checked":True},
+        {"claim_id":b.claim_id,"frame":b.frame,
+         "claim_types":list(b.claim_types),
+         "legacy_verdict":b.legacy_verdict,
+         "source_bound":True,"review_binding_checked":True},
+    )
+
 def typed_relation(left,right):
     """Typed candidate only, never a verdict about financial truth.
 
@@ -302,6 +368,9 @@ def typed_relation(left,right):
               x.get("source_bound") is True and
               x.get("review_binding_checked") is True
               for x in (left,right)),"VERIFIED_SOURCE_AND_FRAME_REVIEW_REQUIRED")
+    # Internal helper only. Public callers MUST use relation_for_bound_claims
+    # with an authenticated process-sealed original claim; never use boolean
+    # wrappers as an approval authority.
     guard(left["claim_id"]!=right["claim_id"],"SELF_PAIR")
     fl=frame_check(left["frame"],left["claim_types"])
     fr=frame_check(right["frame"],right["claim_types"])
