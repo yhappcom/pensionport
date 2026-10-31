@@ -106,6 +106,7 @@ def synthetic():
     }
     manifest={
       "schema":"V30_FULL_SOURCE_MANIFEST_V1",
+      "test_fixture":True,
       "video_id":video,"video_number":19,
       "srt_sha256":binding["srt_sha256"],
       "original_cue_count":3,
@@ -202,6 +203,11 @@ def run(root=ROOT):
           old_guard["binding"]==binding and
           old_guard["source_digest_checked_from_actual_bytes"],
           "SIGNED_FULL_SOURCE_REVIEW_NOT_BOUND")
+    cases+=1
+    untrusted_video=copy.deepcopy(manifest)
+    untrusted_video["test_fixture"]=False
+    fail(lambda:scan_source_state(root,untrusted_video,data,ledger,authority),
+         "NONEXISTENT_VIDEO_WITH_FALSIFIED_REAL_SOURCE")
     cases+=1
     bad=copy.deepcopy(manifest)
     bad["source_review_attestation"]["mac"]="0"*64
