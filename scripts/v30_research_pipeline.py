@@ -362,6 +362,41 @@ def complete_with_preexisting_v5_certificate(root,certificate_path,review_path):
         "automatic_knowledge_merge":False,
     }
 
+def authority_registry_from_environment(repo_root):
+    """Load noncommitted reviewer HMAC credentials from external 0600 file.
+
+    HMAC possession is a credential, not independently proof of humanity.
+    Establish human identity externally before issuing production credentials.
+    """
+    filename=os.environ.get("V30_REVIEWER_REGISTRY_PATH")
+    if not filename:return None
+    path=Path(filename).resolve()
+    repo=Path(repo_root).resolve()
+    guard(path.is_file() and
+          not path.is_relative_to(repo) and
+          (path.stat().st_mode & 0o077)==0,
+          "REVIEWER_KEY_FILE_MUST_BE_OUTSIDE_REPO_AND_0600")
+    src=json.loads(path.read_text(encoding="utf-8"))
+    guard(isinstance(src,dict) and bool(src),
+          "EMPTY_EXTERNAL_REVIEWER_REGISTRY")
+    authorities={}
+    identities=set()
+    for role,entry in src.items():
+        guard(isinstance(entry,dict) and
+              entry.get("credential_type")=="HMAC_SHA256" and
+              entry.get("test_fixture") is False and
+              isinstance(entry.get("reviewer_id"),str)
+              and len(entry["reviewer_id"])>=8 and
+              isinstance(entry.get("secret_hex"),str),
+              "INSECURE_REVIEWER_CREDENTIAL_REGISTRY")
+        key=bytes.fromhex(entry["secret_hex"])
+        guard(len(key)>=32 and entry["reviewer_id"] not in identities,
+              "REVIEWER_SECRET_TOO_SHORT_OR_ROLES_SHARE_IDENTITY")
+        identities.add(entry["reviewer_id"])
+        authorities[role]={"reviewer_id":entry["reviewer_id"],
+                           "secret":key,"test_fixture":False}
+    return authorities
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--root",type=Path,default=Path(__file__).resolve().parents[1])
@@ -370,6 +405,8 @@ def main():
     p.add_argument("--atomic-ledger",type=Path)
     p.add_argument("--evidence-package",type=Path)
     p.add_argument("--search-bank",type=Path)
+    p.add_argument("--independent-review",type=Path)
+    p.add_argument("--export-blocked-preview",type=Path)
     args=p.parse_args()
     root=args.root.resolve()
     policy_gate(root)
@@ -393,13 +430,30 @@ def main():
     def read_pack(arr):
         return [dict(x,bytes=Path(x["content_path"]).read_bytes())
                 for x in arr]
+    authority=authority_registry_from_environment(root)
+    independent=(json.loads(args.independent_review.read_text())
+                 if args.independent_review else None)
     report=research_run(
         root,manifest,args.original_srt.read_bytes(),ledger,
         documents=read_pack(evidence.get("primary_sources",[])),
         empirical=[{"metadata":x,"bytes":Path(x["content_path"]).read_bytes()}
                    for x in evidence.get("empirical_studies",[])],
         models=evidence.get("math_models",[]),search_bank=index,
-        authorities=None,independent_review=None)
+        authorities=authority,independent_review=independent)
+    if args.export_blocked_preview:
+        from v30_v5_bridge import blocked_v5_package
+        guard(report["research_status"]=="RESEARCH_BLOCKED",
+              "CANNOT_AUTOGENERATE_APPROVED_CERTIFICATE")
+        folder=args.export_blocked_preview.resolve()
+        guard(not folder.is_relative_to(root),
+              "BLOCKED_EXPORT_MUST_NOT_AUTO_COMMIT_TO_REPOSITORY")
+        folder.mkdir(parents=True,exist_ok=True)
+        pkg=blocked_v5_package(report,root)
+        (folder/"v5_blocked_review.json").write_text(
+            json.dumps(pkg["review"],ensure_ascii=False,indent=2)+"\n")
+        (folder/"v5_blocked_certificate.json").write_text(
+            json.dumps(pkg["certificate"],ensure_ascii=False,indent=2)+"\n")
+        report["blocked_v5_package_preview_validated"]=True
     print(json.dumps(report,ensure_ascii=False,sort_keys=True))
 
 if __name__=="__main__":
