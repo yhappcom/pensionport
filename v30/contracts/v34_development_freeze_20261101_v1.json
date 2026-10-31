@@ -1,0 +1,51 @@
+{
+  "schema": "V34_INTEGRATED_ATOMIC_SEMANTIC_RETRIEVAL_DEVELOPMENT_FREEZE_V1",
+  "date": "2026-11-01",
+  "branch": "feat/v34-integrated-atomic-semantic-retrieval-20261101",
+  "base_branch": "feat/v33-holdout-overlap-preflight-20261031",
+  "original_v33_base_commit": "dd458b2eec39391b1df62e47cd60404879d68873",
+  "frozen_code_git_blobs": {
+    "scripts/v30_v34_atomic_semantics.py": "7904f812ae839b4b4b200020c588df672d6ab9e2",
+    "scripts/v30_v34_model_bridge.py": "e654f0e787f40d28ad947da61588d3eedfdc5d38",
+    "scripts/v30_v34_retrieval.py": "bbeefaf1b154a990beb88888ca6490780e1c94d6",
+    "scripts/v30_v34_pipeline.py": "7e74ff6c9903f0854d997f513eb90d31e197680a",
+    "scripts/verify_v30_v34_integrated.py": "8e5eb4c7d36e3148c507e2e5e0099944f47a47d2",
+    "scripts/verify_v30_v34_retro.py": "fb7a66ba7209d1c94a9faf5f304759e64a96be65"
+  },
+  "test": {
+    "synthetic_integration": "PASS",
+    "model_anchoring_adversarial": "PASS",
+    "synthetic_cues_above_v33_80_limit": 121,
+    "historic_4120_index": "PASS",
+    "historic_video_count": 253,
+    "historic_original_srt_sha_absent": 38,
+    "historic_original_srt_sha_malformed": 17,
+    "historical_noncanonical_public_71_ids": 13,
+    "historical_diagnostic": "EXPOSED_66_70_ONLY",
+    "historical_positive_pairs": 24,
+    "historical_negative_pairs": 24,
+    "historical_tp": 20,
+    "historical_fn": 4,
+    "historical_fp": 2,
+    "historical_tn": 22,
+    "historical_top10_sample_recall": 0.8333333333333334,
+    "historical_top10_sample_precision": 0.9090909090909091,
+    "v32_original_firstuse_top10_recall": 0.20833333333333334,
+    "v34_actual_unseen_recall": null,
+    "v34_actual_unseen_precision": null,
+    "independent_blind_gold_count": 0,
+    "automatic_knowledge_approvals": 0,
+    "research_complete_certificates": 0
+  },
+  "disclosures": [
+    "Retro benchmark reuses previously exposed 66-70 claims and gold; it is not independent first-use.",
+    "External model SHA proves packet consistency only, not that a particular model actually executed.",
+    "Cue coverage does not prove complete financial-claim atomization.",
+    "Original audio, actual evidence, human semantic review, blind gold and production release are absent.",
+    "V3.3 full pair blind evaluator capacity 80 remains unchanged."
+  ],
+  "original_engine_frozen": true,
+  "original_evaluation_results_unmodified": true,
+  "main_modified": false,
+  "release": "BLOCKED_UNVERIFIED_FINANCIAL_SEMANTIC_AND_REAL_UNSEEN_BLIND_PERFORMANCE"
+}
