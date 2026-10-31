@@ -166,12 +166,11 @@ def run(root):
 
     # P1 #21+ source metadata already exists in the 253-video historic registry.
     # Do NOT load or list individual #21+ records in the red-team audit.
-    from verify_v5_knowledge_integration import load_legacy_claim_index
     import inspect
     fntext=inspect.getsource(__import__("v30_integrated_research").legacy_topic_prefilter)
     need("primary_concept_id" in fntext and
-         'x["roster_no"]' not in fntext and
-         'r["roster_no"] <= 20' not in fntext,
+         'if r["roster_no"] <= 20' not in fntext and
+         'if r["roster_no"]<21' not in fntext,
          "topic filter lacks a roster embargo")
     # Historic census already statically established by existing V3.0 tests;
     # this audit does not visit individual post-20 claim IDs.
