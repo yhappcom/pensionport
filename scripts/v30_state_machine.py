@@ -101,8 +101,8 @@ class ResearchState:
           "historical_claims_overwritten":0,
         }
 
-def journal_from_report(report):
-    """Conservative monotone gate. Diagnostics never grant missing approvals."""
+def journal_from_report(report,root):
+    """Monotone gate; independently recheck actual V5 certificate if provided."""
     guard(report.get("schema")=="V30_END_TO_END_RESEARCH_WORK_PRODUCT_V1",
           "ONLY_VERIFIED_RESEARCH_REPORTS_CAN_CREATE_GATES")
     state=ResearchState(report["video_id"],report["input_srt_sha256"])
@@ -121,8 +121,29 @@ def journal_from_report(report):
     for stage in WORKFLOW_STAGES:
         assessment=report["stages"].get(stage,"BLOCKED")
         if stage=="COMPLETION_AND_APPEND_ONLY_INTEGRATION":
-            state.append(stage,"BLOCKED",
-                         reason="Actual V5 independently approved certificate is absent")
+            if (assessment=="PASSED_EXISTING_V5_CERTIFICATE" and
+                report.get("v5_certificate_status")==
+                  "V5_RESEARCH_COMPLETE_EXTERNALLY_VALIDATED" and
+                report.get("v5_existing_certificate_paths")):
+                from v30_research_pipeline import (
+                    complete_with_preexisting_v5_certificate,)
+                from v30_verified_core import sha256
+                from pathlib import Path
+                p=report["v5_existing_certificate_paths"]
+                evidence=complete_with_preexisting_v5_certificate(
+                    root,p["certificate_path"],p["review_path"])
+                path=Path(root)/p["certificate_path"]
+                digest=sha256(path.read_bytes())
+                guard(evidence["existing_v5_certificate_verdict"]==
+                      "RESEARCH_COMPLETE" and
+                      digest==report["v5_external_certificate_sha256"],
+                      "EXTERNAL_V5_CERTIFICATE_DIGEST_DRIFT")
+                state.append(stage,"PASSED",
+                             proof_ids=("actual_v5_cert_sha256:"+digest,),
+                             v5_approved=True)
+            else:
+                state.append(stage,"BLOCKED",
+                             reason="Actual V5 independently approved certificate is absent")
             break
         if assessment not in ("PASSED","REVIEW_ONLY"):
             state.append(stage,"BLOCKED",reason=(
@@ -134,6 +155,10 @@ def journal_from_report(report):
             break
         state.append(stage,"PASSED",proof_ids=evidences[stage])
     result=state.preview()
-    guard(result["status"]!="RESEARCH_COMPLETE",
-          "V3_BOOTSTRAP_PIPELINE_CANNOT_SELF_ISSUE_RESEARCH_COMPLETE")
+    if result["status"]=="RESEARCH_COMPLETE":
+        guard(report.get("v5_certificate_status")==
+              "V5_RESEARCH_COMPLETE_EXTERNALLY_VALIDATED" and
+              report.get("automatic_research_completion_certificates")==0 and
+              report.get("automatic_knowledge_approvals")==0,
+              "V3_PIPELINE_CANNOT_SELF_ISSUE_RESEARCH_COMPLETE")
     return result
