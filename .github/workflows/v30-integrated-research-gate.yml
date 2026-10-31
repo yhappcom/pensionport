@@ -166,6 +166,39 @@ jobs:
           assert g["unseen_video_21_plus_used"]==0
           print("PASS: 12 frozen V3.0 files, 47 development tests, zero automatic approvals")
           PY
+      - name: Enforce immutable V3.1/V3.2 first-use failure and BLOCKED release
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          gate=json.loads(Path("v30/contracts/v32_release_gate_after_66_70_v1.json").read_text())
+          assert gate["schema"]=="V32_RELEASE_BLOCKED_AFTER_SEPARATE_REAL_FIRST_USE_V1"
+          assert gate["status"]=="RESEARCH_BLOCKED_PRODUCTION_BLOCKED" and not gate["criteria_met"]
+          assert not gate["release_criteria"]["independent_blind_gold_required"] is False
+          assert gate["research_complete_certificates_generated"]==0
+          assert gate["knowledge_auto_merge_approvals"]==0 and gate["personal_trade_orders"]==0
+          paths={
+            "semantic_v31":"scripts/v30_semantic_v31.py",
+            "math_v31":"scripts/v30_finance_math_v31.py",
+            "semantic_v32":"scripts/v30_semantic_v32.py",
+            "verdict_compat_v32":"scripts/v30_legacy_verdict_v32.py"
+          }
+          def blob(path):
+              b=Path(path).read_bytes()
+              return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
+          for key,path in paths.items():
+              assert gate["exact_frozen_code_git_blobs"][key]==blob(path),path
+          first=json.loads(Path("v30/validation/v31_061_065_realcohort_result_v1.json").read_text())
+          second=json.loads(Path("v30/validation/v32_066_070_real_firstuse_result_v1.json").read_text())
+          assert gate["v31_real_first_use"]["result_git_blob"]==blob("v30/validation/v31_061_065_realcohort_result_v1.json")
+          assert gate["v32_real_first_use"]["result_git_blob"]==blob("v30/validation/v32_066_070_real_firstuse_result_v1.json")
+          assert first["direct_typed_relation_diagnostic"]["counts"]=={"TP":8,"FN":16,"FP":0,"TN":24}
+          assert second["typed_top10_either_direction_diagnostic"]["counts"]=={"TP":5,"FN":19,"FP":0,"TN":24}
+          assert gate["v32_real_first_use"]["top10"]["recall"]==5/24
+          assert not first["independent_blinded_human_labeling"]
+          assert second["source_and_gold_not_annotated_by_external_independent_human"]
+          print("PASS V3.1/V3.2 frozen source and failure snapshots; production BLOCKED")
+          PY
       - name: Verify all changed files against immutable research baseline and scan public privacy leaks
         run: |
           python -m py_compile scripts/verify_v30_repository_safety.py
