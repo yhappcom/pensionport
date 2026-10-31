@@ -1,0 +1,92 @@
+{
+  "schema": "V32_RELEASE_BLOCKED_AFTER_SEPARATE_REAL_FIRST_USE_V1",
+  "date": "2026-10-31",
+  "repository": "yhappcom/pensionport",
+  "branch": "feat/v30-integrated-research-engine-20261031",
+  "dev_reference_pairs": {
+    "group_001_005": 44,
+    "group_061_065": 48,
+    "matching_after_development": 92,
+    "only_development_fit": true
+  },
+  "novel_synthetic_v31": {
+    "gold_cases": 48,
+    "correct": 48,
+    "author_independent": false,
+    "real_videos": false,
+    "result_git_blob": "84469bc36f89a31a03e76f349b9945c85f0ad541"
+  },
+  "v31_real_first_use": {
+    "videos": [
+      61,
+      62,
+      63,
+      64,
+      65
+    ],
+    "claims": 106,
+    "source_srt_cues": 4194,
+    "labels": 48,
+    "tp": 8,
+    "fn": 16,
+    "fp": 0,
+    "tn": 24,
+    "recall": 0.3333333333333333,
+    "unmatched_financial_event_facets": 70,
+    "preexisting_project_metadata_exposure": true,
+    "independent_external_blind_gold": false,
+    "result_git_blob": "0bbbd2e9e9d585fd56f2755d1e437204e1f59e08"
+  },
+  "v32_real_first_use": {
+    "videos": [
+      66,
+      67,
+      68,
+      69,
+      70
+    ],
+    "claims": 108,
+    "source_srt_cues": 3092,
+    "labels": 48,
+    "direct": {
+      "tp": 6,
+      "fn": 18,
+      "fp": 0,
+      "tn": 24
+    },
+    "top10": {
+      "tp": 5,
+      "fn": 19,
+      "fp": 0,
+      "tn": 24,
+      "precision": 1,
+      "recall": 0.20833333333333334,
+      "wilson_95_recall_lower": 0.092448,
+      "wilson_95_recall_upper": 0.404705
+    },
+    "unmatched_financial_event_facets": 65,
+    "preexisting_project_metadata_exposure": true,
+    "independent_external_blind_gold": false,
+    "result_git_blob": "1c732376fdad90f80e1f3768aced5bdcf339dccf"
+  },
+  "exact_frozen_code_git_blobs": {
+    "semantic_v31": "939e11d169355748b92dd81c855bc0d91070f7ba",
+    "math_v31": "d24b28f69e0fa292c736506b038aff1a674b0d24",
+    "semantic_v32": "36a74e8d31180283a0c68f618acae716ac935ac8",
+    "verdict_compat_v32": "9ced4d65d037ac29ae8249759d609bf7adb7d433"
+  },
+  "release_criteria": {
+    "recall_wilson_95_lower_required_at_least": 0.95,
+    "precision_wilson_95_lower_required_at_least": 0.85,
+    "independent_blind_gold_required": true,
+    "real_source_provenance_required": true
+  },
+  "criteria_met": false,
+  "first_use_failure_source_artifacts_mutated": false,
+  "recommendation": "STOP_AUTOMATED_NEW_VIDEO_RESEARCH_ENGINE_USE_DESIGN_NEW_VERSION_WITH_INDEPENDENT_SEMANTIC_EXTRACTOR",
+  "research_complete_certificates_generated": 0,
+  "knowledge_auto_merge_approvals": 0,
+  "personal_trade_orders": 0,
+  "main_modified": false,
+  "status": "RESEARCH_BLOCKED_PRODUCTION_BLOCKED"
+}
