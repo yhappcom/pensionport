@@ -55,3 +55,10 @@ python -B scripts/verify_v30_integrated_research.py --root .
 
 
 **코드·계약 동결:** [V3.0 전체 12개 소스/계약 Git blob 고정 원장](contracts/v30_development_freeze_20261031_v1.json). GitHub CI에서 47개 개발 시험과 이 원장을 함께 검사한다. 외부 독립 블라인드 시험을 통과하기 전 신규 원본 동영상 분석·운영 승인은 계속 금지한다.
+
+
+## #1~#5 실제 SRT·기존 V3/V5 독립 재실행 (2026-10-31)
+
+[재실행 종합 보고](validation/V30_001_005_INDEPENDENT_REPLAY_20261031.md) · [원본 SRT 바이트를 제외한 로컬 원본 검증](validation/retro_001_005_local_source_replay_v1.json) · [예측 전 등록 44개 관계 평가쌍](validation/retro_001_005_diagnostic_cases_v1.json) · [V2.3/V3.0 비교 전체 예측](validation/retro_001_005_replay_result_v1.json).
+
+실제 #1~#5 SRT 5,129구간과 기존 62개 핵심 주장의 계보가 일치하고 V3.0 원자 후보가 7,054건 생성되었으나, 의미 검토는 완료되지 않았다. 두 검색기의 44쌍 개발 진단에서 V3.0 정밀도·재현율 모두 75%, 기존 V2.3은 정밀도 94.4%·재현율 70.8%. 이 결과는 비블라인드 후향적 진단이며 V3.0 의미 검색 개선 또는 신규 실전 성능의 증거가 아니다. 명목 연이율과 실효 연이율 모델 차이도 별도 결함으로 기록했다. **운영 BLOCKED 유지**.
