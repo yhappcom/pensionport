@@ -279,7 +279,13 @@ def compare_explicit_frames(left,right):
     )
     same_rules=(fa["effective_date"]==fb["effective_date"]
                 and fa["conditions"]==fb["conditions"])
-    if a!=b:
+    essential=("subject_type","subject_id","object_type","object_id",
+               "jurisdiction","effective_date")
+    if a==b and any(fa[key]=="UNKNOWN" or fb[key]=="UNKNOWN"
+                    for key in essential):
+        relation="UNRESOLVED_AMBIGUOUS"
+        why="MISSING_MATERIAL_SCOPE_OR_EFFECTIVE_DATE"
+    elif a!=b:
         if frozenset((a,b)) in RELATED_ROLES:
             relation="QUALIFIES_SCOPE_CANDIDATE"
             why="EXPLICIT_ONTOLOGY_RELATED_DIFFERENT_FINANCIAL_ROLES"
