@@ -216,9 +216,9 @@ def retrieve(query, corpus, top_k=10, audit_count=20, reviewed_graph_edges=None)
         })
     remaining=ranked_ids[top_k:]
     # Deterministic audit sampling is diagnostic, NOT unbiased human gold.
-    audit_ids=[r["claim_id"] for r in
-       sorted(remaining,key=lambda r:sha256(canonical(
-           [query["claim_id"],r["claim_id"])))[:audit_count]]
+    audit_candidates=sorted(remaining,key=lambda r:sha256(canonical(
+        [query["claim_id"],r["claim_id"]])))
+    audit_ids=[r["claim_id"] for r in audit_candidates[:audit_count]]
     return {
         "schema":RELATION_SCHEMA,
         "query_claim_id":query["claim_id"],
