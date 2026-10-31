@@ -16,7 +16,7 @@ from pathlib import Path
 from v30_verified_core import (
     guard,policy_gate,parse_srt,verify_ledger,sha256,canonical,
     check_privacy,frame_check,evidence_requirements,verify_attestation,
-    VERDICTS,ROLES,
+    VERDICTS,ROLES,bind_reviewed_claim,relation_for_bound_claims,
 )
 from v30_evidence_services import (
     review_primary_evidence,math_reproduce,empirical_reproduce,
@@ -248,6 +248,20 @@ def research_run(root,manifest,raw_srt,ledger,
                       "INDEPENDENT_REVIEWER_CANNOT_SELF_REVIEW")
             except (ValueError,KeyError,TypeError):
                 review_id=None
+    # A relation may be computed only from independently source-signed,
+    # process-sealed claim objects. Typed relations remain review candidates.
+    bound=[]
+    if x["source_reviewer_authenticated"] and authorities:
+        for atom in ledger["claims"]:
+            try:
+                bound.append(bind_reviewed_claim(
+                    atom,binding,manifest["source_review_attestation"],authorities))
+            except (ValueError,TypeError,KeyError):
+                pass
+    intra=[]
+    for i,a in enumerate(bound):
+        for b in bound[i+1:]:
+            intra.append(relation_for_bound_claims(a,b))
     pending=sum(bool(r["blockers"]) for r in rows)
     reviewer_block=(None if review_id else
                     "INDEPENDENT_REVIEW_SIGNED_ATTESTATION_MISSING")
@@ -281,6 +295,9 @@ def research_run(root,manifest,raw_srt,ledger,
         "claims_processed":len(rows),
         "claims_with_open_blockers":pending,
         "independent_review_authenticated":bool(review_id),
+        "source_sealed_claim_count":len(bound),
+        "intra_video_typed_relation_candidates":intra,
+        "typed_relation_accuracy_independently_verified":False,
         "stages":stages,
         "claim_results":rows,
         "reviewer_blocker":reviewer_block,
