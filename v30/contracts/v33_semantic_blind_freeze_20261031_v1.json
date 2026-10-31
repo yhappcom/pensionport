@@ -6,7 +6,7 @@
   "frozen_git_blobs": {
     "scripts/v30_semantic_frame_v33.py": "1c29532dc9f770a3f89e13d8b2c7852506a30c3b",
     "scripts/v30_semantic_extraction_v33.py": "faf8d5bfb332921ac659af46fb2b6a62abf65ebe",
-    "scripts/v30_blind_recall_v33.py": "8223e345eb9045ee07c647d0f16aecd0b0321223",
+    "scripts/v30_blind_recall_v33.py": "1c631aab07b2cb312e77f1f85e63ca818d7ab7df",
     "scripts/verify_v30_v33_semantics.py": "05a9afb219b8f1b13610fd6a223b05023116331c",
     "scripts/verify_v30_v33_blind.py": "4aa489ca4c8047b6f39c660e473b73f856f7ba67",
     "scripts/verify_v30_v33_intake.py": "1d204d3ad01e71a51a00d871be7a0c5bec5d913f",
@@ -56,5 +56,14 @@
     "Only new independent review on actual originals can establish semantic labeling accuracy",
     "Synthetic test TP/FN/FP/TN are not real-video performance",
     "No externally audited primary financial facts or V5 research complete certificates"
-  ]
+  ],
+  "security_review_amendment": {
+    "reason": "Pre-first-use failure mode review: real 261+ evaluation must require sealed in-process actual Git commitment chronology, not an untrusted boolean.",
+    "prior_freeze_commit": "5aaa05e06ab0f4977aad42383e0f5f67b91a6d94",
+    "prior_source_blob": "8223e345eb9045ee07c647d0f16aecd0b0321223",
+    "new_source_blob": "1c631aab07b2cb312e77f1f85e63ca818d7ab7df",
+    "actual_261_plus_holdout_predictions_seen": false,
+    "real_gold_present": false,
+    "no_real_first_use_affected": true
+  }
 }
