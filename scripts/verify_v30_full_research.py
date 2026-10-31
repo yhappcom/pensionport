@@ -24,6 +24,7 @@ from v30_evidence_services import (
     safe_public_url,
 )
 from v30_hybrid_search import make_index,search,build_development_history
+from v30_claim_extraction import propose_atomic_draft
 from v30_research_pipeline import (
     scan_source_state,research_run,authority_registry_from_environment,
     v5_append_only_preview,complete_with_preexisting_v5_certificate,
@@ -167,6 +168,16 @@ def run(root=ROOT):
           c["justified_nonmaterial_cues"]==1 and
           c["source_material_statement_completeness_audited_by_human"] is False,
           "NONMATERIAL_AND_ATOMIC_CUE_ACCOUNTING")
+    cases+=1
+    draft=propose_atomic_draft(cues,manifest["video_id"])
+    guard(draft["total_source_cues"]==3
+          and draft["generated_atomic_proposals"]==3
+          and draft["human_approved_claims"]==0
+          and not draft["completed_full_statement_coverage"]
+          and all(x["review_status"]=="UNREVIEWED" for x in draft["proposals"]),
+          "FULL_SRT_ATOMIC_EXTRACTION_MUST_REQUIRE_INDEPENDENT_REVIEW")
+    guard(draft["proposals"][0]["proposed_atomic_id"]==
+          "DEMO0000001-A00001","LONG_ATOMIC_ID_NOT_SUPPORTED")
     cases+=1
     bad=copy.deepcopy(ledger);bad["cues"].pop()
     fail(lambda:verify_ledger(cues,bad,manifest["video_id"]),
@@ -373,6 +384,31 @@ def run(root=ROOT):
           and lookup["candidate_recall_claimed"] is None
           and not lookup["automatic_knowledge_merge"],
           "HYBRID_SEARCH_OR_NONCANDIDATE_AUDIT_BROKEN")
+    cases+=1
+    vector_bank=copy.deepcopy(bank)
+    vector_bank[0].update(embedding=[1.0,0.0],
+                          embedding_model_sha256="b"*64)
+    vector_bank[1].update(embedding=[0.0,1.0],
+                          embedding_model_sha256="b"*64)
+    vector_index=make_index(vector_bank)
+    vector_result=search({
+         "claim_id":"DEMO0000001-01",
+         "text":"ISA 이전 세액공제",
+         "financial_role":"ISA_TRANSFER_TAX_CREDIT",
+         "topic_families":["ISA_PENSION_TRANSFER"],
+         "embedding":[1.0,0.0],"embedding_model_sha256":"b"*64
+    },vector_index,limit=1)
+    guard("PINNED_MODEL_VECTOR_COSINE" in vector_result["search_lanes"]
+          and vector_result["review_candidates"][0]["claim_id"]==
+               "DEMO0000002-01"
+          and not vector_result["external_embedding_model_semantic_accuracy_proven"],
+          "OPTIONAL_PINNED_VECTOR_SEARCH_LANE_FAILED")
+    cases+=1
+    fail(lambda:search({
+         "text":"ISA 이전","financial_role":"ISA_TRANSFER_TAX_CREDIT",
+         "embedding":[1.0,0.0,0.0],
+         "embedding_model_sha256":"b"*64
+    },vector_index,limit=1),"VECTOR_DIMENSION_MISMATCH")
     cases+=1
     bad=copy.deepcopy(bank);bad[0]["video_number"]=21
     fail(lambda:make_index(bad),"POST20_CORPUS_LEAK")
