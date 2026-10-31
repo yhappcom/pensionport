@@ -1,0 +1,60 @@
+{
+  "schema": "V33_INDEPENDENT_SEMANTIC_FRAME_AND_REAL_UNSEEN_BLIND_FREEZE_V1",
+  "date": "2026-10-31",
+  "branch": "feat/v30-integrated-research-engine-20261031",
+  "baseline_previous_engines": "V2.3, V3.0, V3.1, V3.2 frozen unmodified",
+  "frozen_git_blobs": {
+    "scripts/v30_semantic_frame_v33.py": "1c29532dc9f770a3f89e13d8b2c7852506a30c3b",
+    "scripts/v30_semantic_extraction_v33.py": "faf8d5bfb332921ac659af46fb2b6a62abf65ebe",
+    "scripts/v30_blind_recall_v33.py": "8223e345eb9045ee07c647d0f16aecd0b0321223",
+    "scripts/verify_v30_v33_semantics.py": "05a9afb219b8f1b13610fd6a223b05023116331c",
+    "scripts/verify_v30_v33_blind.py": "4aa489ca4c8047b6f39c660e473b73f856f7ba67",
+    "scripts/verify_v30_v33_intake.py": "1d204d3ad01e71a51a00d871be7a0c5bec5d913f",
+    "scripts/v30_verified_core.py": "724a9c9531b4594c3d8bee94e9ab59e6d54e93ee",
+    "scripts/v30_research_pipeline.py": "0a125b1f411bf0b810dfeab60ac0126a5efef002"
+  },
+  "unseen_intake_blob_sha": "4d00a2db860ce43de67a8d1958bd37f8bdf023bc",
+  "test_execution": {
+    "synthetic_source_cues": 3,
+    "synthetic_atomic_claims": 3,
+    "full_cue_to_atom_hash_bound": true,
+    "new_real_world_source_original_unevaluated_support": true,
+    "new_source_test_only": true,
+    "synthetic_blind_pair_census": 3,
+    "synthetic_dual_signed_gold_test": true,
+    "original_261_264_SRT_bytes_available": 0,
+    "independently_signed_real_gold_sets": 0,
+    "actual_unseen_recall": null,
+    "actual_unseen_precision": null,
+    "external_identity_verified": false,
+    "automatic_knowledge_merges": 0,
+    "automatic_approved_research_certificates": 0,
+    "main_modified": false
+  },
+  "real_unseen_plan": {
+    "target_roster_ids": {
+      "261": "Iee-BKqc_po",
+      "262": "bRc7ai7bQy8",
+      "263": "xwkP_bpKE-M",
+      "264": "TPf0I7tRak8"
+    },
+    "prior_001_260_exposed": true,
+    "actual_261_plus_source_verification_required": true,
+    "actual_independent_double_human_review_required": true,
+    "no_training_on_real_261_plus_test_set": true,
+    "original_srt_and_secrets_must_not_be_committed": true,
+    "gold_committed_before_engine_predictions": true,
+    "full_pair_census_not_candidate_only": true,
+    "precision_ci_lower_required": 0.85,
+    "recall_ci_lower_required": 0.95
+  },
+  "result": "ENGINE_STRUCTURAL_VALIDATION_TESTED; NEW_REAL_BLIND_RECALL_NOT_PROVEN",
+  "release": "BLOCKED_MISSING_REAL_ORIGINAL_SRT_AND_EXTERNAL_BLIND_GOLD",
+  "limitations": [
+    "HMAC verifies credential possession, not real reviewer organizational independence",
+    "Source-supplied custody flags alone do not prove true 261+ nonexposure",
+    "Only new independent review on actual originals can establish semantic labeling accuracy",
+    "Synthetic test TP/FN/FP/TN are not real-video performance",
+    "No externally audited primary financial facts or V5 research complete certificates"
+  ]
+}
