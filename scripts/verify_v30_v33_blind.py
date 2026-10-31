@@ -189,6 +189,30 @@ def run(root=ROOT):
     forged["cases"][0]["model_prediction"]=True
     reject(lambda:evaluate_blind(forged,gold,predictions,keys,
                                  simulated_git),"MODEL_LEAKAGE_IN_GOLD_PACKET")
+    # A serialized fixture packet and self-asserted commit boolean cannot
+    # impersonate an actual Git-chronological real 261+ first-use evaluation.
+    false_real=copy.deepcopy(packet)
+    false_real["cohort_kind"]="REAL_UNSEEN_261_PLUS"
+    false_real_digest=blind_packet_digest(false_real)
+    fake_gold=copy.deepcopy(gold)
+    fake_pred=copy.deepcopy(predictions)
+    fake_gold["packet_sha256"]=false_real_digest
+    fake_pred["packet_sha256"]=false_real_digest
+    for field,role in (("reviewer_a","blind_gold_reviewer_a"),
+                       ("reviewer_b","blind_gold_reviewer_b")):
+        review=fake_gold[field]
+        review["packet_sha256"]=false_real_digest
+        p={
+            "schema":"V33_SIGNED_BLIND_LABEL_SET_V1",
+            "packet_sha256":false_real_digest,
+            "labels_sha256":sha256(canonical(review["labels"])),
+            "blind_to_model_predictions":True,
+            "did_not_develop_engine":True,
+        }
+        review["attestation"]=sign(role,p)
+    reject(lambda:evaluate_blind(false_real,fake_gold,fake_pred,
+                                 keys,simulated_git),
+           "FORGED_GIT_CHRONOLOGY_FOR_REAL_COHORT")
     # Synthetic credential reuse cannot pass the real unexposed video gate.
     reject(lambda:make_blind_census(
              bound,roster,"REAL_UNSEEN_261_PLUS"),
