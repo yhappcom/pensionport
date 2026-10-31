@@ -230,6 +230,24 @@ def run(root=ROOT):
             compare["research_completion_certificate"] is False and
             compare["independent_external_reviewer_identity_proven_by_code"] is False,
             "STRUCTURAL_REVIEW_MUST_NOT_CLAIM_EVIDENCE_OR_HUMAN_IDENTITY")
+    # A truly new source must remain explicitly unevaluated; V3's immutable
+    # older verdict checker must never force a fabricated QUALIFIED verdict.
+    novel=copy.deepcopy(ledger)
+    novel["claims"][0]["legacy_verdict"]="ORIGINAL_UNEVALUATED"
+    from v30_semantic_frame_v33 import NEW_SOURCE_VERDICT
+    new_result=extract_from_original(data,manifest,novel)
+    require(new_result["frames"][0]["legacy_verdict"]==NEW_SOURCE_VERDICT
+            and new_result["frames"][0]["evidence_state"]=="NOT_RESEARCHED"
+            and new_result["automatic_approval"] is False,
+            "NEW_SOURCE_MUST_STAY_ORIGINAL_UNEVALUATED")
+    # Existing historical corrections are never silently rehabilitated.
+    ledger_modified=copy.deepcopy(ledger)
+    ledger_modified["claims"][0]["quote"]="Original quote rewritten without SRT"
+    bad=copy.deepcopy(frames[0])
+    bad["source_atomic_ledger_sha256"]=sha256(canonical(ledger_modified))
+    must_reject(lambda:check_actual_cue_provenance(
+                    bad,data,ledger_modified),
+                "SOURCE_LEDGER_CLAIM_QUOTE_TAMPERED")
     # Real #261 attempt cannot reuse fake synthetic provenance.
     forged_manifest=dict(manifest)
     forged_manifest.update({"source_class":"REAL_ORIGINAL",
