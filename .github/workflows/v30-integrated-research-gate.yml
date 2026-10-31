@@ -124,19 +124,19 @@ jobs:
       - name: V3.1 protected post-freeze 48-case novel synthetic first-use
         run: |
           python -m py_compile scripts/verify_v30_v31_firstuse.py
-          python -B scripts/verify_v30_v31_firstuse.py --root .
+          python -B scripts/verify_v30_v31_firstuse.py --root . --assert-snapshot
       - name: V3.1 #61-65 separate real historical-cohort relation first use
         run: |
           python -m py_compile scripts/verify_v30_v31_realcohort.py
-          python -B scripts/verify_v30_v31_realcohort.py --root .
+          python -B scripts/verify_v30_v31_realcohort.py --root . --assert-snapshot
       - name: V3.2 general financial taxonomy regression on two development cohorts
         run: |
           python -m py_compile scripts/v30_semantic_v32.py scripts/verify_v30_v32_development.py
-          python -B scripts/verify_v30_v32_development.py --root .
+          python -B scripts/verify_v30_v32_development.py --root . --assert-snapshot
       - name: V3.2 first use on #66-70 source-pinned 108 actual historical claims
         run: |
           python -m py_compile scripts/v30_legacy_verdict_v32.py scripts/verify_v30_v32_firstuse.py
-          python -B scripts/verify_v30_v32_firstuse.py --root .
+          python -B scripts/verify_v30_v32_firstuse.py --root . --assert-snapshot
       - name: V3.0 production CLI preflight remains evidence BLOCKED
         run: |
           python -B scripts/v30_research_pipeline.py --root .
