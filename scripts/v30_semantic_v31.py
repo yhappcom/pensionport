@@ -141,18 +141,36 @@ def make_v31_index(records):
         item["provisional_financial_facets"]=sorted(facets)
         item["facets_review_state"]="UNREVIEWED_RULE_BASED"
         item["financial_role"]=r.get("financial_role")
-        pair_review(item,{**item,"claim_id":"REVIEWTEST1-99"}) if False else None
         guard(item["legacy_verdict"] in VERDICTS and
               CLAIM_RE.fullmatch(item["claim_id"]),
               "MALFORMED_HISTORY_CLAIM")
         out.append(item)
     return tuple(sorted(out,key=lambda x:x["claim_id"]))
 
-def search_v31(query,corpus,top_k=10,noncandidate_audit=10):
+def search_v31(query,corpus,top_k=10,noncandidate_audit=10,
+               evaluation_mode="HISTORICAL_DEVELOPMENT"):
     guard(type(query) is dict and query.get("claim_id") and
-          type(corpus) in (list,tuple) and
-          type(top_k) is int and 1<=top_k<=100,
+          type(corpus) in (list,tuple) and bool(corpus) and
+          type(top_k) is int and 1<=top_k<=100 and
+          type(noncandidate_audit) is int and 0<=noncandidate_audit<=100 and
+          evaluation_mode in ("HISTORICAL_DEVELOPMENT",
+                              "SEALED_NOVEL_SYNTHETIC"),
           "V31_SEARCH_INPUT_INVALID")
+    if evaluation_mode=="HISTORICAL_DEVELOPMENT":
+        guard(all(type(r.get("video_number")) is int
+                  and 1<=r["video_number"]<=20 for r in corpus)
+              and type(query.get("video_number")) is int
+              and 1<=query["video_number"]<=20,
+              "POST20_VIDEO_NOT_PERMITTED_AS_DEVELOPMENT_INPUT")
+    else:
+        guard(all(type(r.get("video_number")) is int
+                  and r["video_number"]>=800 and
+                  r.get("test_fixture") is True for r in corpus)
+              and type(query.get("video_number")) is int
+              and query["video_number"]>=800
+              and query.get("test_fixture") is True,
+              "SYNTHETIC_HOLDOUT_REQUIRES_EXPLICIT_NONREAL_TEST_FIXTURE")
+
     ranked=[]
     queryfac=derive_facets(query["text"])
     words=normalized_text_words(query["text"])
@@ -196,7 +214,10 @@ def search_v31(query,corpus,top_k=10,noncandidate_audit=10):
        "relation_auto_approval":False,
        "review_burden_unrestricted_broad_queue":len(broad),
        "review_burden_typed_queue":len(typed_hits),
+       "evaluation_mode":evaluation_mode,
        "development_input_max_video":20,
+       "real_original_claim_provenance_verified":False,
+       "first_use_retrieval_accuracy_claimed":None,
     }
 
 def development_from_original_history(root,roster):
