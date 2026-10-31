@@ -14,6 +14,8 @@ from v30_verified_core import sha256
 from v30_v34_atomic_semantics import make_draft, attach_frames, validate_draft, infer_frame
 from v30_v34_retrieval import make_record, index_records, retrieve, relation_triage, features
 from v30_v34_pipeline import read_historical, historical_index, run_development, private_export
+from v30_v34_model_bridge import apply_model_atomization,apply_model_semantics,ATOM_SCHEMA,SEMANTIC_SCHEMA
+from v30_v34_atomic_semantics import normalize
 
 ROOT=Path(__file__).resolve().parents[1]
 VIDEO="abcdefghijk"
@@ -163,6 +165,86 @@ def test_integrated_and_scale():
     assert big["semantics"]["total_proposals"]==121
     assert big["index"]["all_atomic_queries_processed"] is False
 
+
+def test_model_bridge():
+    raw,digest=fixture([
+        "IRP 납입 금액의 세액공제가 가능합니다. 연금 수령 시 과세가 있습니다.",
+        "이 문장은 두 번째 구간입니다."
+    ])
+    pin=sha256(b"model-params-and-version")
+    prompt=sha256(b"model-instructions-frozen")
+    model={
+        "schema":ATOM_SCHEMA,"source_srt_sha256":digest,
+        "video_id":VIDEO,"model_sha256":pin,"prompt_sha256":prompt,
+        "source_cue_count":2,
+        "atoms":[
+            {"cue_index":1,"source_quote":"IRP 납입 금액의 세액공제가 가능합니다."},
+            {"cue_index":1,"source_quote":"연금 수령 시 과세가 있습니다."},
+            {"cue_index":2,"source_quote":"이 문장은 두 번째 구간입니다."}
+        ]
+    }
+    draft=apply_model_atomization(raw,digest,VIDEO,model,pin,prompt)
+    assert draft["proposed_claim_count"]==3
+    assert draft["atomization_origin"]=="PINNED_EXTERNAL_MODEL_UNREVIEWED"
+    assert validate_draft(draft,raw,digest)
+    missing=json.loads(json.dumps(model,ensure_ascii=False))
+    missing["atoms"]=missing["atoms"][:2]
+    expect_fail("MODEL_CUE_OMISSION",lambda:apply_model_atomization(
+        raw,digest,VIDEO,missing,pin,prompt))
+    forged=json.loads(json.dumps(model,ensure_ascii=False))
+    forged["atoms"][0]["source_quote"]="IRP 투자 수익이 보장됩니다."
+    expect_fail("MODEL_HALLUCINATED_QUOTE",lambda:apply_model_atomization(
+        raw,digest,VIDEO,forged,pin,prompt))
+    partial=json.loads(json.dumps(model,ensure_ascii=False))
+    partial["atoms"][1]["source_quote"]="연금 수령 시"
+    expect_fail("MODEL_OMITTED_TEXT",lambda:apply_model_atomization(
+        raw,digest,VIDEO,partial,pin,prompt))
+    expect_fail("MODEL_VERSION_MISMATCH",lambda:apply_model_atomization(
+        raw,digest,VIDEO,model,sha256(b"different-model"),prompt))
+    semantic=attach_frames(draft)
+    ann=[]
+    for atom in draft["claims"]:
+        event=["PENSION_TAX_CONTRIBUTION"] if atom["claim_id"].endswith("00001") else (
+              ["PENSION_TAX_WITHDRAWAL"] if atom["claim_id"].endswith("00002") else [])
+        ann.append({
+            "claim_id":atom["claim_id"],"quote_sha256":atom["quote_sha256"],
+            "source_evidence_quote":atom["source_quote"],
+            "entity_ids":["IRP"] if event else [],
+            "event_candidates":event,
+            "action_candidates":["TAX"] if event else [],
+            "modality":"ASSERTED_PROVISIONAL","has_condition":False
+        })
+    semantic_packet={
+        "schema":SEMANTIC_SCHEMA,"source_srt_sha256":digest,"video_id":VIDEO,
+        "model_sha256":pin,"prompt_sha256":prompt,"annotations":ann
+    }
+    enhanced=apply_model_semantics(draft,semantic,semantic_packet,pin,prompt)
+    assert enhanced["frames"][0]["event_kind"]=="PENSION_TAX_CONTRIBUTION"
+    assert enhanced["frames"][1]["event_kind"]=="PENSION_TAX_WITHDRAWAL"
+    assert enhanced["human_semantic_accuracy_proven"] is False
+    assert all(x["annotation_status"]=="PROPOSED_UNREVIEWED" for x in enhanced["frames"])
+    bad=json.loads(json.dumps(semantic_packet,ensure_ascii=False))
+    bad["annotations"][0]["event_candidates"]=["NON_EXISTENT_EVENT"]
+    expect_fail("MODEL_EVENT_OUTSIDE_ONTOLOGY",lambda:apply_model_semantics(
+        draft,semantic,bad,pin,prompt))
+    bad=json.loads(json.dumps(semantic_packet,ensure_ascii=False))
+    bad["annotations"][0]["source_evidence_quote"]="없는 출처 내용"
+    expect_fail("MODEL_UNGROUNDED_EVIDENCE",lambda:apply_model_semantics(
+        draft,semantic,bad,pin,prompt))
+    bad=json.loads(json.dumps(semantic_packet,ensure_ascii=False))
+    bad["annotations"].pop()
+    expect_fail("MODEL_MISSING_SEMANTIC_CLAIM",lambda:apply_model_semantics(
+        draft,semantic,bad,pin,prompt))
+    combined=run_development(raw,digest,VIDEO,19,[
+        history(H1+"-01","IRP 납입 세액공제"),
+        history(H2+"-01","IRP 수령 과세")
+    ],atomic_packet=model,semantic_packet=semantic_packet,
+      model_sha=pin,prompt_sha=prompt,synthetic_fixture=True)
+    assert combined["external_model_proposals_used"] is True
+    assert len(combined["relations"])==3
+    assert combined["release"].startswith("BLOCKED")
+    return True
+
 def test_history_census():
     rows=read_historical(ROOT)
     idx=historical_index(rows)
@@ -185,6 +267,7 @@ if __name__=="__main__":
     test_atomic_source_and_semantics()
     test_relation_search()
     test_integrated_and_scale()
+    test_model_bridge()
     test_history_census()
     print(json.dumps({
         "schema":"V34_SYNTHETIC_ADVERSARIAL_AND_HISTORY_CENSUS_TEST_V1",
