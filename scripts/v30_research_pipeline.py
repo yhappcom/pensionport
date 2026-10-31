@@ -68,6 +68,8 @@ def scan_source_state(root,manifest,raw_srt,ledger,authorities=None):
         "video_id":video_id,"video_number":number,
         "srt_sha256":expected,"cue_count":len(cues),
         "ledger_sha256":sha256(canonical(ledger)),
+        "claim_digests":{c["claim_id"]:sha256(canonical(c))
+                         for c in ledger["claims"]},
     }
     review=False
     review_identity=None
