@@ -160,7 +160,7 @@ jobs:
       - name: V3.3 real unseen source intake and nonfabricated performance metric gate
         run: |
           python -m py_compile scripts/verify_v30_v33_intake.py
-          python -B scripts/verify_v30_v33_intake.py
+          python -B scripts/verify_v30_v33_intake.py --assert-snapshot
       - name: V3.0 production CLI preflight remains evidence BLOCKED
         run: |
           python -B scripts/v30_research_pipeline.py --root .
@@ -222,6 +222,32 @@ jobs:
           assert not first["independent_blinded_human_labeling"]
           assert second["source_and_gold_not_annotated_by_external_independent_human"]
           print("PASS V3.1/V3.2 frozen source and failure snapshots; production BLOCKED")
+          PY
+      - name: Freeze exact V3.3 audited semantic and blind protocol sources and pending outcome
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          root=Path(".")
+          j=json.loads((root/"v30/contracts/v33_semantic_blind_freeze_20261031_v1.json").read_text())
+          assert j["schema"]=="V33_INDEPENDENT_SEMANTIC_FRAME_AND_REAL_UNSEEN_BLIND_FREEZE_V1"
+          assert j["release"]=="BLOCKED_MISSING_REAL_ORIGINAL_SRT_AND_EXTERNAL_BLIND_GOLD"
+          assert j["test_execution"]["actual_unseen_recall"] is None
+          assert j["test_execution"]["actual_unseen_precision"] is None
+          assert j["test_execution"]["original_261_264_SRT_bytes_available"]==0
+          assert j["test_execution"]["independently_signed_real_gold_sets"]==0
+          assert j["test_execution"]["automatic_knowledge_merges"]==0
+          def blob(path):
+              raw=path.read_bytes()
+              return hashlib.sha1(
+                  b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()
+          for relative,sha in sorted(j["frozen_git_blobs"].items()):
+              assert blob(root/relative)==sha, "V33_SENSITIVE_CODE_CHANGED_"+relative
+          assert blob(root/"v30/holdout/v33_261_264_unseen_intake_v1.json")==j["unseen_intake_blob_sha"]
+          state=json.loads((root/"v30/holdout/v33_pre_eval_snapshot_v1.json").read_text())
+          assert state["actual_recall"] is None and state["actual_precision"] is None
+          assert state["preconditions"]["release_status"]=="BLOCKED_NO_AUTHENTICATED_REAL_UNSEEN_GOLD"
+          print("PASS: V3.3 frozen provenance+review+blind code, actual unseen score NULL, release BLOCKED")
           PY
       - name: Verify all changed files against immutable research baseline and scan public privacy leaks
         run: |
