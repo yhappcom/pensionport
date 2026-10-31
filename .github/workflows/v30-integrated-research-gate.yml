@@ -32,6 +32,7 @@ on:
       - "scripts/v30_v33_source_overlap_gate.py"
       - "scripts/verify_v30_v33_source_overlap_gate.py"
       - "scripts/v30_v34_atomic_semantics.py"
+      - "scripts/v30_v34_model_bridge.py"
       - "scripts/v30_v34_retrieval.py"
       - "scripts/v30_v34_pipeline.py"
       - "scripts/verify_v30_v34_integrated.py"
@@ -72,6 +73,7 @@ on:
       - "scripts/v30_v33_source_overlap_gate.py"
       - "scripts/verify_v30_v33_source_overlap_gate.py"
       - "scripts/v30_v34_atomic_semantics.py"
+      - "scripts/v30_v34_model_bridge.py"
       - "scripts/v30_v34_retrieval.py"
       - "scripts/v30_v34_pipeline.py"
       - "scripts/verify_v30_v34_integrated.py"
@@ -268,7 +270,7 @@ jobs:
           python -B scripts/verify_v30_v33_source_overlap_gate.py
       - name: V3.4 integrated atomic semantics retrieval adversarial and 4120-claim census
         run: |
-          python -m py_compile scripts/v30_v34_atomic_semantics.py scripts/v30_v34_retrieval.py scripts/v30_v34_pipeline.py scripts/verify_v30_v34_integrated.py
+          python -m py_compile scripts/v30_v34_atomic_semantics.py scripts/v30_v34_model_bridge.py scripts/v30_v34_retrieval.py scripts/v30_v34_pipeline.py scripts/verify_v30_v34_integrated.py
           python -B scripts/verify_v30_v34_integrated.py
           python -B scripts/v30_v34_pipeline.py --root . --historical-index-check
       - name: Verify all changed files against immutable research baseline and scan public privacy leaks
