@@ -45,6 +45,26 @@ jobs:
         run: |
           python -m py_compile scripts/audit_v30_deep_readonly.py
           python -B scripts/audit_v30_deep_readonly.py --root .
+      - name: Recheck frozen V3.0 security audit evidence against exact source blobs
+        run: |
+          python -B scripts/audit_v30_deep_readonly.py --root . > /tmp/v30_audit_replayed.json
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          snap=json.loads(Path("v30/audits/v30_deep_findings_v1.json").read_text(encoding="utf-8"))
+          actual=json.loads(Path("/tmp/v30_audit_replayed.json").read_text(encoding="utf-8"))
+          def git_blob_sha(path):
+              b=Path(path).read_bytes()
+              return hashlib.sha1(b"blob " + str(len(b)).encode() + b"\0" + b).hexdigest()
+          assert snap["schema"]=="V30_ENGINE_READ_ONLY_DEEP_AUDIT_SNAPSHOT_V1"
+          assert snap["audit_runner_git_blob_sha"]==git_blob_sha("scripts/audit_v30_deep_readonly.py")
+          assert snap["audited_engine_git_blob_sha"]==git_blob_sha("scripts/v30_integrated_research.py")
+          assert snap["proof"]==actual
+          assert snap["issue_counts"]=={"P0_architectural":3,"P1_high":7,"total":10}
+          assert snap["release_decision"].startswith("BLOCKED_")
+          print("PASS: 10 original audit weaknesses reproduced without source modifications")
+          PY
       - name: Preserve existing research completion policy and empirical fact gates
         run: |
           python -B scripts/verify_v5_research_completion.py --root . --self-test
