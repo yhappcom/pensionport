@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "V3.0 integrated nonpersonal investment research engine contract",
+  "schema": "V30_INTEGRATED_RESEARCH_ENGINE_CONTRACT_V1",
+  "as_of": "2026-10-31",
+  "release_stage": "ARCHITECTURE_AND_EXECUTABLE_PILOT_ONLY",
+  "parent_branch": "feat/v5-personal-investment-advisor-20261030",
+  "frozen_parent_commit": "f978f5e70b166d4da6663566251aaa0084534932",
+  "frozen_v23_engine_git_blob_sha": "be73e778b7851ba440e40c85629f2f89b6da3648",
+  "frozen_existing_policy_files": {
+    "v5/policy/research_completion_gate_v1.json": "de602c45572c047170c3fc81a7a16431305a5386",
+    "v5/integration/integration_policy_v1.json": "09b7234523ed4f0ea339c59669450f43bd40e51f",
+    "v5/integration/v23_first_use_019_020_results_v1.json": "00b6972368e782665156314c6a6d31ff5bf542da"
+  },
+  "source_of_truth": {
+    "legacy_analysis_event_pattern": "data/analysis_events/<video_id>.json",
+    "registered_subtitle_index": "data/subtitles/content_index_001_070.json",
+    "historical_claims": "data/synthesis/investment_knowledge_001_260/",
+    "legacy_claim_count": 4120,
+    "legacy_topic_families": 39,
+    "status": "HISTORICAL_EVIDENCE_NOT_INDEPENDENTLY_REVERIFIED",
+    "raw_user_srt_must_not_be_committed": true,
+    "source_github_blob_sha_required": true,
+    "srt_sha256_history_does_not_certify_audio": true,
+    "legacy_approved_does_not_mean_research_complete": true
+  },
+  "atomic_claim_contract": {
+    "required": [
+      "claim_id",
+      "video_id",
+      "video_number",
+      "source_git_blob_sha",
+      "text",
+      "legacy_verdict",
+      "frame",
+      "source_cue_range",
+      "extraction_review_status",
+      "materiality"
+    ],
+    "frame_required": [
+      "subject_type",
+      "subject_id",
+      "action",
+      "object_type",
+      "object_id",
+      "financial_role",
+      "jurisdiction",
+      "effective_date",
+      "conditions",
+      "units"
+    ],
+    "materiality_values": [
+      "MATERIAL",
+      "NON_MATERIAL",
+      "UNCLASSIFIED"
+    ],
+    "extraction_review_values": [
+      "HUMAN_REVIEWED",
+      "UNREVIEWED",
+      "BLOCKED"
+    ],
+    "claim_type_values": [
+      "LEGAL_OR_PRODUCT",
+      "NUMERIC",
+      "STRATEGY_OR_PERFORMANCE",
+      "QUALITATIVE",
+      "UNCLASSIFIED"
+    ],
+    "legacy_verdict_values": [
+      "PRIMARY_CONFIRMED",
+      "QUALIFIED",
+      "HYPOTHETICAL",
+      "CONTRADICTED",
+      "SPEAKER_OPINION"
+    ],
+    "source_cue_range_may_be_null_only_if_blocked": true,
+    "effective_date_may_be_unknown_but_is_not_approval": true
+  },
+  "workflow_stages": [
+    "SOURCE_PROVENANCE",
+    "ATOMIC_COVERAGE",
+    "CLAIM_FRAME_AND_OBLIGATIONS",
+    "PRIMARY_EVIDENCE",
+    "QUANT_AND_EMPIRICAL",
+    "RELATION_CANDIDATES",
+    "INDEPENDENT_REVIEW",
+    "COMPLETION_AND_APPEND_ONLY_INTEGRATION"
+  ],
+  "evidence_obligations": {
+    "domains": [
+      "SOURCE_AND_CLAIMS",
+      "PRIMARY_EVIDENCE",
+      "QUANT_AND_EMPIRICAL",
+      "GENERAL_DECISION"
+    ],
+    "primary_source_requires": [
+      "source_url_or_canonical_locator",
+      "source_document_sha256",
+      "exact_location",
+      "effective_date",
+      "scope_and_exceptions",
+      "reviewed_on",
+      "auditor_identity"
+    ],
+    "numeric_requires": [
+      "formula",
+      "units",
+      "timing",
+      "inputs",
+      "reproduced_value",
+      "tolerance",
+      "independent_result"
+    ],
+    "strategy_requires": [
+      "public_real_data",
+      "reproducible_dataset_hash",
+      "benchmark",
+      "costs_and_taxes",
+      "risk",
+      "out_of_sample"
+    ],
+    "research_is_complete_only_with_independently_audited_certificate": true,
+    "source_missing_must_be_blocked": true,
+    "no_auto_primary_source_truth_from_synthetic_or_url": true
+  },
+  "relation_types": [
+    "SAME_PROPOSITION_CANDIDATE",
+    "SUPPORTS_UNDER_CONDITIONS_CANDIDATE",
+    "QUALIFIES_SCOPE_CANDIDATE",
+    "CONTRADICTION_REVIEW",
+    "CALCULATION_DEPENDENCY_REVIEW",
+    "SCOPE_DIFFERENT",
+    "TOPIC_ONLY",
+    "NEW_CONCEPT_REVIEW",
+    "UNRESOLVED_AMBIGUOUS"
+  ],
+  "relation_output": {
+    "always_review_only": true,
+    "claim_truth_inferred_from_similarity": false,
+    "cross_claim_relation_never_enough_for_knowledge_approval": true,
+    "contradicted_claims_correction_only": true,
+    "hypothetical_claims_unreplicated_review_only": true,
+    "append_only_with_human_semantic_review_and_v5_research_complete": true
+  },
+  "hard_safety": {
+    "production_release": "BLOCKED",
+    "personal_investment_advice": false,
+    "trade_execution": false,
+    "automatic_knowledge_merge": false,
+    "automatic_research_completion_certificate": false,
+    "no_deletion_or_rewrite_of_v1_v2_v3_legacy": true,
+    "no_unseen_video_21_plus_read_during_bootstrap": true
+  },
+  "implementation_currently": {
+    "implemented": [
+      "canonical_source_provenance_read",
+      "claim_level_obligation_planning",
+      "typed_relation_triage_on_explicit_frames",
+      "deterministic_compound_arithmetic",
+      "fail_closed_release",
+      "legacy_4120_metadata_reconciliation"
+    ],
+    "not_yet_implemented": [
+      "full_raw_srt_ingestion_and_atomic_coverage",
+      "automated_primary_source_retrieval_and_semantic_verification",
+      "empirical_backtest_runner",
+      "model_assisted_multistage_semantic_candidate_retrieval",
+      "human_independent_adjudication",
+      "production_knowledge_overlay_approval"
+    ],
+    "claim_frame_population": "EXPLICIT_ANNOTATION_REQUIRED_NOT_INFERRED_FROM_LEGACY_SHORT_TEXT",
+    "testing_scope": "DEVELOPMENT_FIXTURES_ONLY_NOT_UNSEEN_EVALUATION"
+  }
+}
