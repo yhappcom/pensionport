@@ -14,6 +14,7 @@ on:
       - "scripts/v30_hybrid_search.py"
       - "scripts/v30_claim_extraction.py"
       - "scripts/v30_research_pipeline.py"
+      - "scripts/v30_state_machine.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
       - "scripts/verify_v30_repository_safety.py"
@@ -29,6 +30,7 @@ on:
       - "scripts/v30_hybrid_search.py"
       - "scripts/v30_claim_extraction.py"
       - "scripts/v30_research_pipeline.py"
+      - "scripts/v30_state_machine.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
       - "scripts/verify_v30_repository_safety.py"
@@ -85,7 +87,7 @@ jobs:
           PY
       - name: V3.0 complete eight-stage offline pipeline, source/authenticity and V5 bridge adversarial suite
         run: |
-          python -m py_compile scripts/v30_verified_core.py scripts/v30_evidence_services.py scripts/v30_hybrid_search.py scripts/v30_research_pipeline.py scripts/verify_v30_full_research.py scripts/v30_v5_bridge.py scripts/v30_claim_extraction.py
+          python -m py_compile scripts/v30_verified_core.py scripts/v30_evidence_services.py scripts/v30_hybrid_search.py scripts/v30_research_pipeline.py scripts/verify_v30_full_research.py scripts/v30_v5_bridge.py scripts/v30_claim_extraction.py scripts/v30_state_machine.py
           python -B scripts/verify_v30_full_research.py
       - name: V3.0 production CLI preflight remains evidence BLOCKED
         run: |
