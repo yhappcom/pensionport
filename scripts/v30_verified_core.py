@@ -348,7 +348,7 @@ def verify_bound_claim(bound):
 
 def relation_for_bound_claims(a,b):
     verify_bound_claim(a);verify_bound_claim(b)
-    return typed_relation(
+    return _typed_relation_internal(
         {"claim_id":a.claim_id,"frame":a.frame,
          "claim_types":list(a.claim_types),
          "legacy_verdict":a.legacy_verdict,
@@ -359,7 +359,7 @@ def relation_for_bound_claims(a,b):
          "source_bound":True,"review_binding_checked":True},
     )
 
-def typed_relation(left,right):
+def _typed_relation_internal(left,right):
     """Typed candidate only, never a verdict about financial truth.
 
     Requires source-authenticated wrapper from the higher-level pipeline.
@@ -399,6 +399,10 @@ def typed_relation(left,right):
         "relation_is_human_review_only":True,
         "requires_independent_evidence":True,
     }
+
+def typed_relation(left,right):
+    """Public typed comparison only accepts authenticated in-process claims."""
+    return relation_for_bound_claims(left,right)
 
 def verify_attestation(attestation,payload,role,authorities):
     """HMAC tests role-specific issuer keys supplied OUTSIDE the repository.
