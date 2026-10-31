@@ -17,7 +17,7 @@ import re
 import secrets
 
 from v30_verified_core import (
-    parse_srt,sha256,canonical,guard,CLAIM_RE,HASH_RE,VERDICTS,decimal,
+    parse_srt,verify_ledger,sha256,canonical,guard,CLAIM_RE,HASH_RE,VERDICTS,decimal,
     verify_attestation,
 )
 
@@ -58,6 +58,8 @@ RATE_BASES=frozenset((
 ))
 SOURCE_CLASSES=frozenset(("REAL_ORIGINAL","SYNTHETIC_FIXTURE"))
 REVIEW_STATUS=frozenset(("PROPOSED","STRUCTURE_REVIEWED"))
+NEW_SOURCE_VERDICT="ORIGINAL_UNEVALUATED"
+ALL_VERDICTS=VERDICTS|{NEW_SOURCE_VERDICT}
 _SEAL=secrets.token_bytes(32)
 
 def validate_entity(value):
@@ -100,6 +102,7 @@ def validate_financial_frame(frame):
           "V33_FRAME_SCHEMA_REQUIRED")
     required={
       "schema","claim_id","source_video_id","source_srt_sha256",
+      "source_atomic_ledger_sha256",
       "claim_text","claim_text_sha256","cue_indices","source_quote",
       "subject","object","action","event_kind","modality",
       "jurisdiction","effective_date","conditions","measurement",
@@ -113,6 +116,8 @@ def validate_financial_frame(frame):
           "FRAME_CLAIM_NOT_BOUND_TO_SOURCE_VIDEO")
     guard(type(frame["source_srt_sha256"]) is str and
           HASH_RE.fullmatch(frame["source_srt_sha256"]) and
+          type(frame["source_atomic_ledger_sha256"]) is str and
+          HASH_RE.fullmatch(frame["source_atomic_ledger_sha256"]) and
           isinstance(frame["claim_text"],str)
           and 5<=len(frame["claim_text"])<=5000 and
           frame["claim_text_sha256"]==
@@ -129,7 +134,7 @@ def validate_financial_frame(frame):
     guard(frame["action"] in ACTIONS and frame["event_kind"] in EVENTS
           and frame["modality"] in MODALITY and
           frame["source_class"] in SOURCE_CLASSES
-          and frame["legacy_verdict"] in VERDICTS,
+          and frame["legacy_verdict"] in ALL_VERDICTS,
           "FINANCIAL_EVENT_ACTION_MODES_OR_VERDICT_INVALID")
     d=frame["effective_date"]
     guard(d=="UNRESOLVED" or (
@@ -161,22 +166,61 @@ def validate_financial_frame(frame):
     if frame["legacy_verdict"]=="CONTRADICTED":
         guard(frame["evidence_state"]=="CORRECTION_ONLY",
               "REFUTED_HISTORICAL_CLAIM_CANNOT_BE_POSITIVELY_PROMOTED")
+    if frame["legacy_verdict"]==NEW_SOURCE_VERDICT:
+        guard(frame["evidence_state"]=="NOT_RESEARCHED",
+              "NEW_FINANCIAL_CLAIM_CANNOT_HAVE_HISTORICAL_APPROVED_VERDICT")
     return True
 
-def check_actual_cue_provenance(frame,raw_srt):
-    """Exact physical bytes + quote in source; no metadata-only trust."""
+def validate_atomic_ledger_for_v33(cues,ledger,video_id):
+    """Read-only structural V3 ledger check with a *new-source* sentinel.
+
+    Only for verification: substitute SPEAKER_OPINION in a temporary copy
+    because V3.0's frozen ledger checker predates ORIGINAL_UNEVALUATED.
+    Never persist the substituted verdict or claim it was original speech.
+    """
+    import copy
+    guard(type(ledger) is dict and
+          ledger.get("schema")=="V30_ATOMIC_LEDGER_V2",
+          "FULL_ORIGINAL_ATOMIC_LEDGER_REQUIRED")
+    tmp=copy.deepcopy(ledger)
+    for atom in tmp["claims"]:
+        if atom.get("legacy_verdict")==NEW_SOURCE_VERDICT:
+            atom["legacy_verdict"]="SPEAKER_OPINION"
+    report=verify_ledger(cues,tmp,video_id)
+    return report
+
+def check_actual_cue_provenance(frame,raw_srt,reviewed_ledger=None):
+    """Exact original bytes + complete original atomic ledger and quote."""
     validate_financial_frame(frame)
     cues=parse_srt(raw_srt,frame["source_srt_sha256"])
+    guard(type(reviewed_ledger) is dict
+          and sha256(canonical(reviewed_ledger))==
+              frame["source_atomic_ledger_sha256"],
+          "ATOMIC_FRAME_UNBOUND_TO_COMPLETE_ORIGINAL_LEDGER")
+    coverage=validate_atomic_ledger_for_v33(
+        cues,reviewed_ledger,frame["source_video_id"])
+    atoms={a["claim_id"]:a for a in reviewed_ledger["claims"]}
+    guard(frame["claim_id"] in atoms,
+          "SOURCE_FRAME_REFERENCES_NONEXISTENT_ATOMIC_LEDGER_CLAIM")
+    atom=atoms[frame["claim_id"]]
+    guard(atom["cue_indices"]==frame["cue_indices"]
+          and atom["quote"]==frame["source_quote"]
+          and atom.get("claim_text",atom["quote"])==frame["claim_text"]
+          and atom["legacy_verdict"]==frame["legacy_verdict"],
+          "SOURCE_FRAME_CONTENT_DOES_NOT_MATCH_ATOMIC_LEDGER")
     guard(all(i<=len(cues) for i in frame["cue_indices"]),
           "FINANCIAL_ATOM_CUE_OUTSIDE_ORIGINAL")
     text="\n".join(cues[i-1].text for i in frame["cue_indices"])
     guard(frame["source_quote"].strip() in text,
           "FINANCIAL_ATOM_QUOTE_NOT_IN_ACTUAL_SRT")
+    guard(coverage["missing_or_unmapped_cues"]==0,
+          "ORIGINAL_SOURCE_CUE_CENSUS_INCOMPLETE")
     return {
        "schema":"V33_ORIGINAL_SOURCE_ATOMIC_CUE_PROVENANCE_V1",
        "claim_id":frame["claim_id"],
        "source_video_id":frame["source_video_id"],
        "source_srt_sha256":frame["source_srt_sha256"],
+       "source_atomic_ledger_sha256":frame["source_atomic_ledger_sha256"],
        "claim_text_sha256":frame["claim_text_sha256"],
        "frame_sha256":sha256(canonical(frame)),
        "cue_indices":frame["cue_indices"],
@@ -198,8 +242,9 @@ class BoundSemanticFrame:
     _seal:str
 
 def verify_independent_frame(frame,raw_srt,source_attestation,
-                             semantic_attestation,authorities):
-    proof=check_actual_cue_provenance(frame,raw_srt)
+                             semantic_attestation,authorities,
+                             reviewed_ledger=None):
+    proof=check_actual_cue_provenance(frame,raw_srt,reviewed_ledger)
     guard(frame["annotation_review_status"]=="STRUCTURE_REVIEWED",
           "SUGGESTED_UNREVIEWED_SEMANTICS_NOT_SEARCH_AUTHORITY")
     guard(type(authorities) is dict and
@@ -209,6 +254,7 @@ def verify_independent_frame(frame,raw_srt,source_attestation,
     source_payload={
         "video_id":frame["source_video_id"],
         "srt_sha256":frame["source_srt_sha256"],
+        "atomic_ledger_sha256":frame["source_atomic_ledger_sha256"],
         "claim_id":frame["claim_id"],
         "claim_text_sha256":frame["claim_text_sha256"],
         "cue_indices":frame["cue_indices"],
@@ -258,6 +304,8 @@ def semantic_relation_for_review(a,b):
           "SAME_FINANCIAL_ATOM_CANNOT_BE_A_RELATION")
     risk=("CORRECTION_ONLY" if "CONTRADICTED" in
           (left["legacy_verdict"],right["legacy_verdict"]) else
+          "UNVERIFIED_NEW_SOURCE_ONLY" if NEW_SOURCE_VERDICT in
+          (left["legacy_verdict"],right["legacy_verdict"]) else
           "UNREPLICATED_HYPOTHETICAL_SOURCE" if "HYPOTHETICAL" in
           (left["legacy_verdict"],right["legacy_verdict"]) else
           "HUMAN_REVIEW_ONLY")
@@ -299,9 +347,9 @@ def semantic_relation_for_review(a,b):
       "investment_instruction_permitted":False,
     }
 
-def frame_proposal_summary(frame,raw_srt):
+def frame_proposal_summary(frame,raw_srt,reviewed_ledger=None):
     """Unreviewed proposal returns blockers, never a knowledge candidate."""
-    proof=check_actual_cue_provenance(frame,raw_srt)
+    proof=check_actual_cue_provenance(frame,raw_srt,reviewed_ledger)
     return {
       "schema":"V33_FINANCIAL_FRAME_PROPOSAL_GATE_V1",
       "source_claim_sha256":proof["claim_text_sha256"],
