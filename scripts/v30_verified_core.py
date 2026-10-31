@@ -26,7 +26,7 @@ TRUST_PINS={
  "v5/integration/v23_first_use_019_020_results_v1.json":"00b6972368e782665156314c6a6d31ff5bf542da",
 }
 VID_RE=re.compile(r"^[A-Za-z0-9_-]{11}$")
-CLAIM_RE=re.compile(r"^[A-Za-z0-9_-]{11}-(?:\d{2,3})$")
+CLAIM_RE=re.compile(r"^[A-Za-z0-9_-]{11}-(?:\d{2,5}|A\d{5})$")
 HASH_RE=re.compile(r"^[0-9a-f]{64}$")
 TIMECODE_RE=re.compile(r"^(\d{2}):(\d{2}):(\d{2})[,.](\d{3})$")
 VERDICTS=frozenset(("PRIMARY_CONFIRMED","QUALIFIED","HYPOTHETICAL",
