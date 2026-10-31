@@ -36,6 +36,7 @@ on:
       - "scripts/v30_v34_retrieval.py"
       - "scripts/v30_v34_pipeline.py"
       - "scripts/verify_v30_v34_integrated.py"
+      - "scripts/verify_v30_v34_retro.py"
       - "scripts/verify_v30_v32_development.py"
       - "scripts/v30_legacy_verdict_v32.py"
       - "scripts/verify_v30_v32_firstuse.py"
@@ -77,6 +78,7 @@ on:
       - "scripts/v30_v34_retrieval.py"
       - "scripts/v30_v34_pipeline.py"
       - "scripts/verify_v30_v34_integrated.py"
+      - "scripts/verify_v30_v34_retro.py"
       - "scripts/verify_v30_v32_development.py"
       - "scripts/v30_legacy_verdict_v32.py"
       - "scripts/verify_v30_v32_firstuse.py"
@@ -273,6 +275,10 @@ jobs:
           python -m py_compile scripts/v30_v34_atomic_semantics.py scripts/v30_v34_model_bridge.py scripts/v30_v34_retrieval.py scripts/v30_v34_pipeline.py scripts/verify_v30_v34_integrated.py
           python -B scripts/verify_v30_v34_integrated.py
           python -B scripts/v30_v34_pipeline.py --root . --historical-index-check
+      - name: V3.4 exposed historical first-use corpus retrospective top10 diagnostic (NOT blind)
+        run: |
+          python -m py_compile scripts/verify_v30_v34_retro.py
+          python -B scripts/verify_v30_v34_retro.py
       - name: Verify all changed files against immutable research baseline and scan public privacy leaks
         run: |
           python -m py_compile scripts/verify_v30_repository_safety.py
