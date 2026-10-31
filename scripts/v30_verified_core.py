@@ -319,6 +319,11 @@ def bind_reviewed_claim(atom,binding,attestation,authorities):
           "COMPLETE_SOURCE_BINDING_REQUIRED")
     reviewer_id=verify_attestation(
         attestation,binding,"source_reviewer",authorities)
+    guard(type(binding.get("claim_digests")) is dict
+          and isinstance(atom,dict)
+          and sha256(canonical(atom))==
+              binding["claim_digests"].get(atom.get("claim_id")),
+          "SIGNED_LEDGER_DOES_NOT_CONTAIN_THIS_EXACT_CLAIM")
     original_srt_sha256=binding["srt_sha256"]
     ledger_sha256=binding["ledger_sha256"]
     guard(isinstance(atom,dict) and
