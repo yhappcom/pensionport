@@ -60,10 +60,11 @@ def run(root=ROOT):
                         hashlib.sha256).hexdigest()
         }
     def bind(frame):
-        proof=check_actual_cue_provenance(frame,data)
+        proof=check_actual_cue_provenance(frame,data,ledger)
         source_payload={
             "video_id":frame["source_video_id"],
             "srt_sha256":frame["source_srt_sha256"],
+            "atomic_ledger_sha256":frame["source_atomic_ledger_sha256"],
             "claim_id":frame["claim_id"],
             "claim_text_sha256":frame["claim_text_sha256"],
             "cue_indices":frame["cue_indices"],
@@ -76,7 +77,8 @@ def run(root=ROOT):
         }
         return verify_independent_frame(
             frame,data,sign("source_reviewer",source_payload),
-            sign("semantic_reviewer",sem_payload),keys)
+            sign("semantic_reviewer",sem_payload),keys,
+            reviewed_ledger=ledger)
     bound=[bind(frame) for frame in f]
     roster={
         manifest["video_id"]:{
