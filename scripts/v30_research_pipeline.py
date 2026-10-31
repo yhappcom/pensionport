@@ -340,6 +340,8 @@ def research_run(root,manifest,raw_srt,ledger,
         "independent_review_authenticated":bool(review_id),
         "relation_reviewer_authenticated":bool(relation_reviewer_id),
         "v5_external_certificate_sha256":v5_certificate_sha,
+        "v5_existing_certificate_paths":(
+            v5_certificate_paths if verified_v5 else None),
         "source_sealed_claim_count":len(bound),
         "intra_video_typed_relation_candidates":intra,
         "typed_relation_accuracy_independently_verified":False,
