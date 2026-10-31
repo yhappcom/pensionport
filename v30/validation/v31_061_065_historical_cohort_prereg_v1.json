@@ -1,0 +1,384 @@
+{
+  "schema": "V31_ACTUAL_HISTORICAL_SEPARATE_COHORT_061_065_GOLD_V1",
+  "date": "2026-10-31",
+  "video_numbers": [
+    61,
+    62,
+    63,
+    64,
+    65
+  ],
+  "video_ids": [
+    "7RRWNL0V6As",
+    "w1ZgJwm-_KU",
+    "LVE7XN_esTc",
+    "aUW6waebLl8",
+    "NOl9u50dgao"
+  ],
+  "gold_defined_after_engine_code_freeze": true,
+  "freeze_commit": "49d28d41c815ec9aa3c9ff0bf634533c70d7fcfd",
+  "engine_sha": "939e11d169355748b92dd81c855bc0d91070f7ba",
+  "gold_before_first_model_predictions_on_this_cohort": true,
+  "source_origins": {
+    "private_zip": "Google Drive 1-100.zip",
+    "zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+    "registered_srt_sha256": [
+      "4515d3446c4874d3a376d86b1dd46ab89446e992911b0d42b52aa0df5ffb3c83",
+      "3d19d3b8d994c73272ea346f0a3eba5df099cfd4228cb87226fede4d5593b034",
+      "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+      "2c9aa58df2bd41fe9b314d69df0fe6c1d3594acbab2cdcb3f1efa58d010d47b9",
+      "ef073f005610eae9444c1c371aae894ebba7418d5e1f96017ba2bd359bf1aec0"
+    ]
+  },
+  "historical_index_exposure": "PREVIOUSLY_INCLUDED_IN_PROJECT_001_260_METADATA",
+  "first_use_for_frozen_V31_dev": false,
+  "first_use_for_frozen_V31_evaluation": true,
+  "external_blind_human_gold": false,
+  "labelers": "SAME_ASSISTANT_READING_OLDER_V3_SUMMARY_AND_NO_ENGINE_PREDICTIONS",
+  "independence_claim": "SEPARATE_VIDEO_COHORT_WITH_PREVIOUS_PROJECT_EXPOSURE_NOT_FULLY_UNSEEN",
+  "labeled_definition": "Directly overlapping or qualifying financial event (not simply sharing words such as tax, rate or ETF); labels are reviewer proposals, not independent adjudication",
+  "source_audio_authenticated": false,
+  "actual_original_SRT_sha_verified_locally": true,
+  "original_claims_from_legacy_v3_never_independently_truth_assured": true,
+  "positive_count": 24,
+  "negative_count": 24,
+  "cases": [
+    {
+      "id": "P01",
+      "left": "7RRWNL0V6As-01",
+      "right": "7RRWNL0V6As-02",
+      "review_relevant": true,
+      "rationale": "ETF 분배와 기업배당의 상이한 지급 구조"
+    },
+    {
+      "id": "P02",
+      "left": "7RRWNL0V6As-01",
+      "right": "7RRWNL0V6As-05",
+      "review_relevant": true,
+      "rationale": "ETF 분배금 지급과 지급 주기"
+    },
+    {
+      "id": "P03",
+      "left": "7RRWNL0V6As-05",
+      "right": "7RRWNL0V6As-06",
+      "review_relevant": true,
+      "rationale": "ETF 분배금 지급 빈도 및 변동"
+    },
+    {
+      "id": "P04",
+      "left": "7RRWNL0V6As-03",
+      "right": "7RRWNL0V6As-04",
+      "review_relevant": true,
+      "rationale": "TR/PR 재투자 및 NAV 반영 - 원본 반박 위험 포함"
+    },
+    {
+      "id": "P05",
+      "left": "7RRWNL0V6As-08",
+      "right": "LVE7XN_esTc-03",
+      "review_relevant": true,
+      "rationale": "ETF 단가·순자산 비교의 범위"
+    },
+    {
+      "id": "P06",
+      "left": "LVE7XN_esTc-02",
+      "right": "LVE7XN_esTc-03",
+      "review_relevant": true,
+      "rationale": "ETF 비교 6요소 중 순자산"
+    },
+    {
+      "id": "P07",
+      "left": "LVE7XN_esTc-02",
+      "right": "LVE7XN_esTc-04",
+      "review_relevant": true,
+      "rationale": "ETF 비교 6요소 중 거래량·스프레드"
+    },
+    {
+      "id": "P08",
+      "left": "LVE7XN_esTc-02",
+      "right": "LVE7XN_esTc-06",
+      "review_relevant": true,
+      "rationale": "ETF 비교 6요소 중 괴리율"
+    },
+    {
+      "id": "P09",
+      "left": "LVE7XN_esTc-02",
+      "right": "LVE7XN_esTc-07",
+      "review_relevant": true,
+      "rationale": "ETF 비교 6요소 중 추적오차"
+    },
+    {
+      "id": "P10",
+      "left": "LVE7XN_esTc-02",
+      "right": "LVE7XN_esTc-08",
+      "review_relevant": true,
+      "rationale": "ETF 비교 6요소 중 운용보수"
+    },
+    {
+      "id": "P11",
+      "left": "LVE7XN_esTc-06",
+      "right": "LVE7XN_esTc-09",
+      "review_relevant": true,
+      "rationale": "ETF NAV·시장가격 실례"
+    },
+    {
+      "id": "P12",
+      "left": "w1ZgJwm-_KU-01",
+      "right": "w1ZgJwm-_KU-09",
+      "review_relevant": true,
+      "rationale": "55세 이후 연금 준비"
+    },
+    {
+      "id": "P13",
+      "left": "w1ZgJwm-_KU-10",
+      "right": "w1ZgJwm-_KU-14",
+      "review_relevant": true,
+      "rationale": "연금 운용 및 55세 이후 투자"
+    },
+    {
+      "id": "P14",
+      "left": "w1ZgJwm-_KU-16",
+      "right": "w1ZgJwm-_KU-17",
+      "review_relevant": true,
+      "rationale": "연금/ISA 납입 한도와 부부 합산"
+    },
+    {
+      "id": "P15",
+      "left": "w1ZgJwm-_KU-17",
+      "right": "w1ZgJwm-_KU-18",
+      "review_relevant": true,
+      "rationale": "계좌 납입 합계와 신규자산 오해"
+    },
+    {
+      "id": "P16",
+      "left": "w1ZgJwm-_KU-20",
+      "right": "w1ZgJwm-_KU-21",
+      "review_relevant": true,
+      "rationale": "기존 연금저축보험 해약의 조건"
+    },
+    {
+      "id": "P17",
+      "left": "w1ZgJwm-_KU-22",
+      "right": "w1ZgJwm-_KU-23",
+      "review_relevant": true,
+      "rationale": "주택 다운사이징 및 계좌 납입"
+    },
+    {
+      "id": "P18",
+      "left": "aUW6waebLl8-08",
+      "right": "aUW6waebLl8-16",
+      "review_relevant": true,
+      "rationale": "개별주 위험 분산"
+    },
+    {
+      "id": "P19",
+      "left": "aUW6waebLl8-16",
+      "right": "aUW6waebLl8-18",
+      "review_relevant": true,
+      "rationale": "고위험 투자와 비상자금의 분리"
+    },
+    {
+      "id": "P20",
+      "left": "aUW6waebLl8-14",
+      "right": "aUW6waebLl8-15",
+      "review_relevant": true,
+      "rationale": "지수 장기투자와 추격매수 리스크"
+    },
+    {
+      "id": "P21",
+      "left": "NOl9u50dgao-02",
+      "right": "NOl9u50dgao-03",
+      "review_relevant": true,
+      "rationale": "월 50만원 36개월 납입의 총원금"
+    },
+    {
+      "id": "P22",
+      "left": "NOl9u50dgao-04",
+      "right": "NOl9u50dgao-18",
+      "review_relevant": true,
+      "rationale": "정책 적금 일반형 6% 기여금"
+    },
+    {
+      "id": "P23",
+      "left": "NOl9u50dgao-04",
+      "right": "NOl9u50dgao-19",
+      "review_relevant": true,
+      "rationale": "정책 적금 우대형 12% 기여금"
+    },
+    {
+      "id": "P24",
+      "left": "NOl9u50dgao-06",
+      "right": "NOl9u50dgao-20",
+      "review_relevant": true,
+      "rationale": "정책 적금 예시의 금리 가정과 계산"
+    },
+    {
+      "id": "N01",
+      "left": "7RRWNL0V6As-03",
+      "right": "NOl9u50dgao-04",
+      "review_relevant": false,
+      "rationale": "TR/PR 재투자와 정부기여금의 다른 구조"
+    },
+    {
+      "id": "N02",
+      "left": "7RRWNL0V6As-05",
+      "right": "NOl9u50dgao-02",
+      "review_relevant": false,
+      "rationale": "ETF 분배주기와 정책적금 납입기간 구분"
+    },
+    {
+      "id": "N03",
+      "left": "7RRWNL0V6As-06",
+      "right": "w1ZgJwm-_KU-05",
+      "review_relevant": false,
+      "rationale": "ETF 분배액 변동과 기업채권 평균금리"
+    },
+    {
+      "id": "N04",
+      "left": "7RRWNL0V6As-07",
+      "right": "LVE7XN_esTc-07",
+      "review_relevant": false,
+      "rationale": "ETF 분배락과 추적오차의 서로 다른 사건"
+    },
+    {
+      "id": "N05",
+      "left": "LVE7XN_esTc-06",
+      "right": "LVE7XN_esTc-07",
+      "review_relevant": false,
+      "rationale": "ETF 괴리율과 추적오차는 다른 측정량"
+    },
+    {
+      "id": "N06",
+      "left": "LVE7XN_esTc-08",
+      "right": "NOl9u50dgao-12",
+      "review_relevant": false,
+      "rationale": "ETF 운용보수와 예금 우대금리 구별"
+    },
+    {
+      "id": "N07",
+      "left": "LVE7XN_esTc-05",
+      "right": "w1ZgJwm-_KU-07",
+      "review_relevant": false,
+      "rationale": "ETF 장기성과 비교와 주식 100% 승률 단정"
+    },
+    {
+      "id": "N08",
+      "left": "w1ZgJwm-_KU-16",
+      "right": "NOl9u50dgao-17",
+      "review_relevant": false,
+      "rationale": "IRP/ISA 납입한도와 청년적금 재직조건"
+    },
+    {
+      "id": "N09",
+      "left": "w1ZgJwm-_KU-19",
+      "right": "NOl9u50dgao-07",
+      "review_relevant": false,
+      "rationale": "연금계좌 과세와 청년정책적금 이자 비과세"
+    },
+    {
+      "id": "N10",
+      "left": "w1ZgJwm-_KU-05",
+      "right": "NOl9u50dgao-06",
+      "review_relevant": false,
+      "rationale": "채권 수익률과 청년적금 은행금리"
+    },
+    {
+      "id": "N11",
+      "left": "w1ZgJwm-_KU-22",
+      "right": "NOl9u50dgao-03",
+      "review_relevant": false,
+      "rationale": "주택 다운사이징 현금과 청년적금 36개월 원금"
+    },
+    {
+      "id": "N12",
+      "left": "aUW6waebLl8-04",
+      "right": "NOl9u50dgao-10",
+      "review_relevant": false,
+      "rationale": "반도체주 경험담과 신용평점 제도"
+    },
+    {
+      "id": "N13",
+      "left": "aUW6waebLl8-12",
+      "right": "7RRWNL0V6As-05",
+      "review_relevant": false,
+      "rationale": "IRP ISA 납입한도와 ETF 분배주기"
+    },
+    {
+      "id": "N14",
+      "left": "aUW6waebLl8-24",
+      "right": "NOl9u50dgao-04",
+      "review_relevant": false,
+      "rationale": "패시브/액티브 비중과 청년적금 기여금"
+    },
+    {
+      "id": "N15",
+      "left": "NOl9u50dgao-20",
+      "right": "7RRWNL0V6As-06",
+      "review_relevant": false,
+      "rationale": "정책적금 금리 시나리오와 ETF 분배액 변동"
+    },
+    {
+      "id": "N16",
+      "left": "NOl9u50dgao-05",
+      "right": "7RRWNL0V6As-01",
+      "review_relevant": false,
+      "rationale": "정책적금 정부기여금과 ETF 기업배당"
+    },
+    {
+      "id": "N17",
+      "left": "NOl9u50dgao-14",
+      "right": "w1ZgJwm-_KU-17",
+      "review_relevant": false,
+      "rationale": "청년적금 가입 소득조건과 부부 연금계좌 합산"
+    },
+    {
+      "id": "N18",
+      "left": "LVE7XN_esTc-04",
+      "right": "w1ZgJwm-_KU-04",
+      "review_relevant": false,
+      "rationale": "ETF 매수매도 스프레드와 사내대출 채권투자"
+    },
+    {
+      "id": "N19",
+      "left": "LVE7XN_esTc-09",
+      "right": "NOl9u50dgao-18",
+      "review_relevant": false,
+      "rationale": "ETF 화면 NAV 사례와 청년적금 기여금 계산"
+    },
+    {
+      "id": "N20",
+      "left": "aUW6waebLl8-11",
+      "right": "NOl9u50dgao-09",
+      "review_relevant": false,
+      "rationale": "개별주 최대손실 단정과 주식 상승기회 회귀"
+    },
+    {
+      "id": "N21",
+      "left": "w1ZgJwm-_KU-20",
+      "right": "7RRWNL0V6As-03",
+      "review_relevant": false,
+      "rationale": "연금저축보험 이전과 PR/TR 지수분배"
+    },
+    {
+      "id": "N22",
+      "left": "w1ZgJwm-_KU-11",
+      "right": "NOl9u50dgao-21",
+      "review_relevant": false,
+      "rationale": "장수 확정성 주장과 청년적금 연령 요건"
+    },
+    {
+      "id": "N23",
+      "left": "w1ZgJwm-_KU-18",
+      "right": "NOl9u50dgao-03",
+      "review_relevant": false,
+      "rationale": "계좌 이체 재산증가 오해와 청년적금 원금"
+    },
+    {
+      "id": "N24",
+      "left": "aUW6waebLl8-23",
+      "right": "NOl9u50dgao-07",
+      "review_relevant": false,
+      "rationale": "분산자산배분 독서와 청년적금 비과세"
+    }
+  ],
+  "release": "BLOCKED"
+}
