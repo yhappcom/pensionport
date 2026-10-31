@@ -9,6 +9,11 @@ on:
       - "scripts/v30_integrated_research.py"
       - "scripts/verify_v30_integrated_research.py"
       - "scripts/audit_v30_deep_readonly.py"
+      - "scripts/v30_verified_core.py"
+      - "scripts/v30_evidence_services.py"
+      - "scripts/v30_hybrid_search.py"
+      - "scripts/v30_research_pipeline.py"
+      - "scripts/verify_v30_full_research.py"
       - ".github/workflows/v30-integrated-research-gate.yml"
   pull_request:
     paths:
@@ -16,6 +21,11 @@ on:
       - "scripts/v30_integrated_research.py"
       - "scripts/verify_v30_integrated_research.py"
       - "scripts/audit_v30_deep_readonly.py"
+      - "scripts/v30_verified_core.py"
+      - "scripts/v30_evidence_services.py"
+      - "scripts/v30_hybrid_search.py"
+      - "scripts/v30_research_pipeline.py"
+      - "scripts/verify_v30_full_research.py"
       - ".github/workflows/v30-integrated-research-gate.yml"
 
 permissions:
@@ -65,6 +75,13 @@ jobs:
           assert snap["release_decision"].startswith("BLOCKED_")
           print("PASS: 10 original audit weaknesses reproduced without source modifications")
           PY
+      - name: V3.0 complete eight-stage offline pipeline, source/authenticity and V5 bridge adversarial suite
+        run: |
+          python -m py_compile scripts/v30_verified_core.py scripts/v30_evidence_services.py scripts/v30_hybrid_search.py scripts/v30_research_pipeline.py scripts/verify_v30_full_research.py
+          python -B scripts/verify_v30_full_research.py
+      - name: V3.0 production CLI preflight remains evidence BLOCKED
+        run: |
+          python -B scripts/v30_research_pipeline.py --root .
       - name: Preserve existing research completion policy and empirical fact gates
         run: |
           python -B scripts/verify_v5_research_completion.py --root . --self-test
