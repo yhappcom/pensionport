@@ -169,7 +169,11 @@ def test_history_census():
     assert len(idx)==4120
     assert sum(x["source_srt_sha256"] is None for x in idx)==55
     assert len([x for x in idx if x["claim_id"].startswith("71-PUBLIC-")])==13
-    assert all(x["provenance_state"]=="HISTORIC_ORIGINAL_SHA_MISSING"
+    assert sum(x["provenance_state"]=="HISTORIC_ORIGINAL_SHA_MISSING"
+               for x in idx)==38
+    assert sum(x["provenance_state"]=="HISTORIC_ORIGINAL_SHA_MALFORMED"
+               for x in idx)==17
+    assert all(x["provenance_state"]!="ORIGINAL_SHA_VERIFIED"
                for x in idx if x["source_srt_sha256"] is None)
     # Unknown original SHA is never replaced by a synthetic "verified" SHA.
     sampled=next(x for x in idx if x["claim_id"]=="71-PUBLIC-01")
@@ -185,7 +189,9 @@ if __name__=="__main__":
     print(json.dumps({
         "schema":"V34_SYNTHETIC_ADVERSARIAL_AND_HISTORY_CENSUS_TEST_V1",
         "tests":"PASS", "historical_claim_count":4120,
-        "legacy_missing_original_sha_count":55,
+        "legacy_unusable_original_sha_count":55,
+        "legacy_absent_original_sha_count":38,
+        "legacy_malformed_original_sha_count":17,
         "legacy_noncanonical_public_71_ids":13,
         "large_synthetic_cue_census":121,
         "source_reviewer_human_confirmed":False,
