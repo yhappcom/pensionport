@@ -142,7 +142,7 @@ jobs:
         run: |
           tar -czf "${RUNNER_TEMP}/v30-public-replay-sources.tar.gz" \
             scripts/*.py v30 \
-            v5/policy v5/integration v5/retrofit v5/videos v5/completion \
+            v5/policy v5/integration v5/retrofit \
             data/analysis_events data/subtitles/content_index_001_070.json \
             data/synthesis/investment_knowledge_001_260
           test -s "${RUNNER_TEMP}/v30-public-replay-sources.tar.gz"
