@@ -38,12 +38,21 @@ def _vector(vector,model_sha):
     return tuple(float(v)/math.sqrt(sq) for v in vector)
 
 def make_record(claim_id,text,video_number,source_sha256,verdict="UNREVIEWED",
-                frame=None,embedding=None,embedding_model_sha256=None):
-    guard(type(claim_id) is str and CLAIM_RE.fullmatch(claim_id)
+                frame=None,embedding=None,embedding_model_sha256=None,
+                provenance_state="ORIGINAL_SHA_VERIFIED",source_record_digest=None):
+    legacy_71 = (video_number==71 and re.fullmatch(r"71-PUBLIC-(?:0[1-9]|1[0-3])",str(claim_id)) is not None)
+    guard(type(claim_id) is str and (CLAIM_RE.fullmatch(claim_id) or legacy_71)
           and type(video_number) is int and 1<=video_number<=791
-          and type(source_sha256) is str and HASH_RE.fullmatch(source_sha256)
           and type(text) is str and text.strip() and len(text)<=16000,
           "V34_SEARCH_RECORD_MUST_HAVE_TRACEABLE_SOURCE")
+    if source_sha256 is None:
+        guard(provenance_state=="HISTORIC_ORIGINAL_SHA_MISSING"
+              and type(source_record_digest) is str and HASH_RE.fullmatch(source_record_digest),
+              "V34_HISTORICAL_MISSING_ORIGINAL_MUST_REMAIN_UNVERIFIED")
+    else:
+        guard(type(source_sha256) is str and HASH_RE.fullmatch(source_sha256)
+              and provenance_state=="ORIGINAL_SHA_VERIFIED",
+              "V34_ORIGINAL_HASH_OR_STATE_INVALID")
     # A historical claim's annotation is a proposal, not an independently
     # verified statement. Preserve original verdict even when vocab differs.
     if frame is None:
@@ -66,7 +75,8 @@ def make_record(claim_id,text,video_number,source_sha256,verdict="UNREVIEWED",
               "V34_ORPHAN_EMBEDDING_VERSION")
     words,chars=features(text)
     return {"claim_id":claim_id, "text":text, "video_number":video_number,
-            "source_srt_sha256":source_sha256, "original_verdict":verdict,
+            "source_srt_sha256":source_sha256, "source_record_digest":source_record_digest,
+            "provenance_state":provenance_state, "original_verdict":verdict,
             "frame":frame, "words":words, "chars":chars,
             "embedding":vector, "embedding_model_sha256":embedding_model_sha256}
 
@@ -199,6 +209,8 @@ def retrieve(query, corpus, top_k=10, audit_count=20, reviewed_graph_edges=None)
             "score_rrf":round(fused.get(r["claim_id"],0.0),9),
             "video_number":r["video_number"],
             "source_srt_sha256":r["source_srt_sha256"],
+            "source_record_digest":r["source_record_digest"],
+            "provenance_state":r["provenance_state"],
             "relation":relation_triage(query,r),
             "review_required":True
         })
@@ -226,16 +238,25 @@ def history_record(x):
     """Read-only adapter for frozen 4,120-claim historical crosswalk."""
     guard(type(x) is dict and type(x.get("roster_no")) is int
           and 1<=x["roster_no"]<=260 and type(x.get("claim_id")) is str
-          and x.get("video_id")==x["claim_id"][:11],
+          and (x.get("video_id")==x["claim_id"][:11] or
+               (x["roster_no"]==71 and x["claim_id"].startswith("71-PUBLIC-"))),
           "V34_HISTORICAL_SOURCE_CROSSWALK_INVALID")
     return {
         "claim_id":x["claim_id"],"text":x["text"],
         "video_number":x["roster_no"],
-        "source_sha256":x["source_srt_sha"],
+        "source_sha256":x.get("source_srt_sha"),
+        "source_record_digest":sha256(canonical({
+            "claim_id":x["claim_id"],"text":x["text"],
+            "source_canonical_sha":x.get("source_canonical_sha"),
+            "source_pilot_sha":x.get("source_pilot_sha")})),
+        "provenance_state":("ORIGINAL_SHA_VERIFIED" if x.get("source_srt_sha")
+                            else "HISTORIC_ORIGINAL_SHA_MISSING"),
         "verdict":x.get("original_verdict","UNREVIEWED")
     }
 
 def indexed_historical_claim(x):
     r=history_record(x)
     return make_record(r["claim_id"],r["text"],r["video_number"],
-                       r["source_sha256"],r["verdict"])
+                       r["source_sha256"],r["verdict"],
+                       provenance_state=r["provenance_state"],
+                       source_record_digest=r["source_record_digest"])
