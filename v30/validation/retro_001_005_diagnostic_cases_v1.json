@@ -1,0 +1,337 @@
+{
+  "schema": "V30_001_005_RETROSPECTIVE_DIAGNOSTIC_CASES_V1",
+  "date": "2026-10-31",
+  "evaluation_class": "NONBLIND_DEVELOPMENT_REGRESSION_NOT_INDEPENDENT_HOLDOUT",
+  "labeling": "Manual relevance triage derived from previously exposed V3 titles/claim summaries; no V3.0 or V2.3 predictions examined before this case manifest was committed.",
+  "sources": {
+    "original_srt_archive_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+    "original_srt_archive_location": "PRIVATE_GOOGLE_DRIVE_1-100_ZIP",
+    "video_ids": [
+      "sz5N9WJS310",
+      "6VEfKF7BzZU",
+      "OiDTNstaSpM",
+      "aNfGrcO6WPI",
+      "qtluAViPpsQ"
+    ]
+  },
+  "freeze": {
+    "v30_hybrid_search_git_blob_sha": "ee1e759912bd92905511f095aabaa5e12839b8ec",
+    "v23_engine_git_blob_sha": "be73e778b7851ba440e40c85629f2f89b6da3648",
+    "v30_source_contract_snapshot": "v30/contracts/v30_development_freeze_20261031_v1.json"
+  },
+  "evaluated_relation": "REVIEW_CANDIDATE_NOT_SEMANTIC_ENTAILMENT",
+  "v30_decision_rule": "Either direction ranks other ID within top 10 among original 62; original study claims read from Git-pinned V3 files.",
+  "v23_decision_rule": "Original protected V2.3 source-aware candidate boolean",
+  "positive_cases": 24,
+  "negative_cases": 20,
+  "cases": [
+    {
+      "id": "P001",
+      "left": "sz5N9WJS310-09",
+      "right": "sz5N9WJS310-10",
+      "review_relevant": true,
+      "review_reason": "연금소득 과세기준과 실제 과세 선택"
+    },
+    {
+      "id": "P002",
+      "left": "sz5N9WJS310-07",
+      "right": "sz5N9WJS310-08",
+      "review_relevant": true,
+      "review_reason": "국민연금 수령 연기와 재투자 대안 비교"
+    },
+    {
+      "id": "P003",
+      "left": "sz5N9WJS310-13",
+      "right": "sz5N9WJS310-14",
+      "review_relevant": true,
+      "review_reason": "연금 과세재원 분류와 출금 순서"
+    },
+    {
+      "id": "P004",
+      "left": "sz5N9WJS310-13",
+      "right": "sz5N9WJS310-16",
+      "review_relevant": true,
+      "review_reason": "과세제외 원금과 실제 비과세 인출"
+    },
+    {
+      "id": "P005",
+      "left": "sz5N9WJS310-15",
+      "right": "sz5N9WJS310-16",
+      "review_relevant": true,
+      "review_reason": "월분배액과 과세제외 원금 지속성"
+    },
+    {
+      "id": "P006",
+      "left": "sz5N9WJS310-21",
+      "right": "sz5N9WJS310-22",
+      "review_relevant": true,
+      "review_reason": "ISA 만기·해지와 손익통산"
+    },
+    {
+      "id": "P007",
+      "left": "sz5N9WJS310-21",
+      "right": "6VEfKF7BzZU-02",
+      "review_relevant": true,
+      "review_reason": "ISA 의무기간과 목돈 마련 계좌 설계"
+    },
+    {
+      "id": "P008",
+      "left": "sz5N9WJS310-04",
+      "right": "6VEfKF7BzZU-03",
+      "review_relevant": true,
+      "review_reason": "연금저축 추가 납입과 세액공제용 IRP"
+    },
+    {
+      "id": "P009",
+      "left": "sz5N9WJS310-15",
+      "right": "OiDTNstaSpM-13",
+      "review_relevant": true,
+      "review_reason": "분배형 상품의 은퇴 현금흐름과 지급 가정"
+    },
+    {
+      "id": "P010",
+      "left": "sz5N9WJS310-19",
+      "right": "OiDTNstaSpM-10",
+      "review_relevant": true,
+      "review_reason": "오래된 연금보험·보험 해약 전 계약조건 평가"
+    },
+    {
+      "id": "P011",
+      "left": "sz5N9WJS310-08",
+      "right": "OiDTNstaSpM-12",
+      "review_relevant": true,
+      "review_reason": "은퇴 연금 재투자와 생활비 현금흐름"
+    },
+    {
+      "id": "P012",
+      "left": "6VEfKF7BzZU-01",
+      "right": "qtluAViPpsQ-01",
+      "review_relevant": true,
+      "review_reason": "사회초년생 목적별 계좌 구성"
+    },
+    {
+      "id": "P013",
+      "left": "6VEfKF7BzZU-01",
+      "right": "qtluAViPpsQ-03",
+      "review_relevant": true,
+      "review_reason": "초기 소득 분할과 ISA·연금계좌"
+    },
+    {
+      "id": "P014",
+      "left": "6VEfKF7BzZU-03",
+      "right": "OiDTNstaSpM-01",
+      "review_relevant": true,
+      "review_reason": "IRP 사업자와 연금저축 병행"
+    },
+    {
+      "id": "P015",
+      "left": "6VEfKF7BzZU-08",
+      "right": "OiDTNstaSpM-06",
+      "review_relevant": true,
+      "review_reason": "적립식 ETF 매수와 퇴직금 분할투자"
+    },
+    {
+      "id": "P016",
+      "left": "6VEfKF7BzZU-08",
+      "right": "OiDTNstaSpM-07",
+      "review_relevant": true,
+      "review_reason": "대표지수 적립식과 파킹 ETF 분할투자"
+    },
+    {
+      "id": "P017",
+      "left": "6VEfKF7BzZU-07",
+      "right": "OiDTNstaSpM-07",
+      "review_relevant": true,
+      "review_reason": "CMA 현금 관리와 ETF 파킹 대안"
+    },
+    {
+      "id": "P018",
+      "left": "OiDTNstaSpM-02",
+      "right": "OiDTNstaSpM-12",
+      "review_relevant": true,
+      "review_reason": "은퇴후 생활비 현금흐름 설계"
+    },
+    {
+      "id": "P019",
+      "left": "OiDTNstaSpM-03",
+      "right": "OiDTNstaSpM-14",
+      "review_relevant": true,
+      "review_reason": "IRP 소액 연금개시와 퇴직 전후 총괄 전략"
+    },
+    {
+      "id": "P020",
+      "left": "OiDTNstaSpM-13",
+      "right": "sz5N9WJS310-15",
+      "review_relevant": true,
+      "review_reason": "은퇴 분배상품의 지급액 위험"
+    },
+    {
+      "id": "P021",
+      "left": "aNfGrcO6WPI-02",
+      "right": "aNfGrcO6WPI-04",
+      "review_relevant": true,
+      "review_reason": "매도 투자 근거와 감정적 손실확정"
+    },
+    {
+      "id": "P022",
+      "left": "aNfGrcO6WPI-03",
+      "right": "aNfGrcO6WPI-04",
+      "review_relevant": true,
+      "review_reason": "계좌 삭제 통한 보유와 감정매매 위험"
+    },
+    {
+      "id": "P023",
+      "left": "aNfGrcO6WPI-01",
+      "right": "qtluAViPpsQ-04",
+      "review_relevant": true,
+      "review_reason": "개별 기업에 대한 투자 이해와 업종 집중 위험"
+    },
+    {
+      "id": "P024",
+      "left": "qtluAViPpsQ-07",
+      "right": "qtluAViPpsQ-08",
+      "review_relevant": true,
+      "review_reason": "신용카드 지출 주의와 월별 소비 통제"
+    },
+    {
+      "id": "N001",
+      "left": "sz5N9WJS310-09",
+      "right": "6VEfKF7BzZU-03",
+      "review_relevant": false,
+      "review_reason": "연금 수령과세 기준은 납입 세액공제와 다른 규칙"
+    },
+    {
+      "id": "N002",
+      "left": "sz5N9WJS310-07",
+      "right": "sz5N9WJS310-23",
+      "review_relevant": false,
+      "review_reason": "국민연금 연기 가산과 ISA 비과세 한도는 무관"
+    },
+    {
+      "id": "N003",
+      "left": "sz5N9WJS310-15",
+      "right": "6VEfKF7BzZU-05",
+      "review_relevant": false,
+      "review_reason": "배당 분배율 가정과 한국은행 기준금리 수치"
+    },
+    {
+      "id": "N004",
+      "left": "sz5N9WJS310-21",
+      "right": "OiDTNstaSpM-05",
+      "review_relevant": false,
+      "review_reason": "ISA 의무기간과 채권 만기는 서로 다른 제도"
+    },
+    {
+      "id": "N005",
+      "left": "sz5N9WJS310-13",
+      "right": "6VEfKF7BzZU-04",
+      "review_relevant": false,
+      "review_reason": "연금 재원 인출과 KRX 금현물 거래 과세"
+    },
+    {
+      "id": "N006",
+      "left": "sz5N9WJS310-02",
+      "right": "OiDTNstaSpM-08",
+      "review_relevant": false,
+      "review_reason": "12년 장기복리 분배 가정과 파킹 ETF 3% 수익"
+    },
+    {
+      "id": "N007",
+      "left": "sz5N9WJS310-03",
+      "right": "qtluAViPpsQ-05",
+      "review_relevant": false,
+      "review_reason": "추납 의사결정과 TDF 목표 은퇴 연도"
+    },
+    {
+      "id": "N008",
+      "left": "6VEfKF7BzZU-06",
+      "right": "OiDTNstaSpM-05",
+      "review_relevant": false,
+      "review_reason": "CMA 예금자보호와 개별 채권 만기회수"
+    },
+    {
+      "id": "N009",
+      "left": "6VEfKF7BzZU-05",
+      "right": "OiDTNstaSpM-08",
+      "review_relevant": false,
+      "review_reason": "기준금리 3% 발표와 미래 ETF 3% 기대수익"
+    },
+    {
+      "id": "N010",
+      "left": "6VEfKF7BzZU-04",
+      "right": "qtluAViPpsQ-06",
+      "review_relevant": false,
+      "review_reason": "금현물 과세와 근로소득 연말정산"
+    },
+    {
+      "id": "N011",
+      "left": "6VEfKF7BzZU-09",
+      "right": "OiDTNstaSpM-03",
+      "review_relevant": false,
+      "review_reason": "패시브 액티브 자산배분과 IRP 월 1만원 개시"
+    },
+    {
+      "id": "N012",
+      "left": "OiDTNstaSpM-11",
+      "right": "qtluAViPpsQ-07",
+      "review_relevant": false,
+      "review_reason": "주택 다운사이징과 신용카드 할부 지출"
+    },
+    {
+      "id": "N013",
+      "left": "OiDTNstaSpM-13",
+      "right": "qtluAViPpsQ-05",
+      "review_relevant": false,
+      "review_reason": "커버드콜 월분배와 TDF 2060 생애주기"
+    },
+    {
+      "id": "N014",
+      "left": "OiDTNstaSpM-09",
+      "right": "6VEfKF7BzZU-09",
+      "review_relevant": false,
+      "review_reason": "은퇴자 보험 계약 분석과 액티브/패시브"
+    },
+    {
+      "id": "N015",
+      "left": "aNfGrcO6WPI-05",
+      "right": "sz5N9WJS310-21",
+      "review_relevant": false,
+      "review_reason": "경기 주기 3년 가정과 ISA 3년 의무기간"
+    },
+    {
+      "id": "N016",
+      "left": "aNfGrcO6WPI-02",
+      "right": "qtluAViPpsQ-06",
+      "review_relevant": false,
+      "review_reason": "매도 가설 판단과 소득공제 교육"
+    },
+    {
+      "id": "N017",
+      "left": "qtluAViPpsQ-02",
+      "right": "OiDTNstaSpM-06",
+      "review_relevant": false,
+      "review_reason": "취업 첫 3개월 생활비와 은퇴금 장기 분할"
+    },
+    {
+      "id": "N018",
+      "left": "qtluAViPpsQ-03",
+      "right": "sz5N9WJS310-09",
+      "review_relevant": false,
+      "review_reason": "월 100만원 저축비중과 연금 소득과세 1500만원"
+    },
+    {
+      "id": "N019",
+      "left": "OiDTNstaSpM-05",
+      "right": "qtluAViPpsQ-04",
+      "review_relevant": false,
+      "review_reason": "퇴직자 만기 채권 회수와 회사주식 연구"
+    },
+    {
+      "id": "N020",
+      "left": "aNfGrcO6WPI-03",
+      "right": "6VEfKF7BzZU-04",
+      "review_relevant": false,
+      "review_reason": "손실 종목 앱 삭제 조언과 금현물 계좌 세제"
+    }
+  ]
+}
