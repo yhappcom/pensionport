@@ -1,0 +1,56 @@
+name: V3.0 integrated research architecture and provenance gate
+
+on:
+  push:
+    branches:
+      - feat/v30-integrated-research-engine-20261031
+    paths:
+      - "v30/**"
+      - "scripts/v30_integrated_research.py"
+      - "scripts/verify_v30_integrated_research.py"
+      - ".github/workflows/v30-integrated-research-gate.yml"
+  pull_request:
+    paths:
+      - "v30/**"
+      - "scripts/v30_integrated_research.py"
+      - "scripts/verify_v30_integrated_research.py"
+      - ".github/workflows/v30-integrated-research-gate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  design-and-research-provenance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile V3.0 source and adversarial test suite
+        run: |
+          python -m py_compile scripts/v30_integrated_research.py scripts/verify_v30_integrated_research.py
+      - name: Verify all 4120 historic claims and 39 families without any source rewrite
+        run: |
+          python -B scripts/v30_integrated_research.py --root . --validate-baseline
+      - name: Test structured finance roles, source identity, synthetic numeric models, all safety gates
+        run: |
+          python -B scripts/verify_v30_integrated_research.py --root .
+      - name: Replay existing video 019 as source-locked BLOCKED worklist, not a completed new research
+        run: |
+          python -B scripts/v30_integrated_research.py --root . --plan-development-video 19
+      - name: Replay existing video 020 as source-locked BLOCKED worklist, not a completed new research
+        run: |
+          python -B scripts/v30_integrated_research.py --root . --plan-development-video 20
+      - name: Preserve existing research completion policy and empirical fact gates
+        run: |
+          python -B scripts/verify_v5_research_completion.py --root . --self-test
+      - name: No private original SRT, account data or binary datasets in V3.0
+        shell: bash
+        run: |
+          if git ls-files -- 'v30/**' | grep -Ei '\.(csv|xlsx|xls|zip|srt|pdf|sqlite|db|pem|p12|env)$'; then
+            echo 'ERROR: forbidden file type'; exit 1
+          fi
+          if git ls-files -- 'v30/private/**' 'v30/accounts/**' 'v30/actual/**'; then
+            if git ls-files -- 'v30/private/**' 'v30/accounts/**' 'v30/actual/**' | grep -q .; then
+              echo 'ERROR: private file in V3.0'; exit 1
+            fi
+          fi
+          echo 'PASS: V3.0 artifacts are nonpersonal source/contracts only'
