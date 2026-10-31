@@ -13,10 +13,12 @@ import re
 from pathlib import Path
 
 from v30_verified_core import (
-  parse_srt,verify_ledger,guard,sha256,canonical,HASH_RE,VID_RE,VERDICTS
+  parse_srt,guard,sha256,canonical,HASH_RE,VID_RE
 )
 from v30_semantic_frame_v33 import (
-  SCHEMA,validate_financial_frame,frame_proposal_summary
+  SCHEMA,ALL_VERDICTS,NEW_SOURCE_VERDICT,
+  validate_financial_frame,validate_atomic_ledger_for_v33,
+  frame_proposal_summary
 )
 
 PERCENT=re.compile(r"(?<![\w])(-?\d+(?:\.\d+)?)\s*%")
@@ -54,12 +56,15 @@ def tentative_date(text):
     return "UNRESOLVED"
 
 def make_proposal(atom,video_id,raw_sha,source_class="REAL_ORIGINAL",
-                  extractor_annotation=None,extractor_sha=None):
+                  extractor_annotation=None,extractor_sha=None,
+                  ledger_sha256=None):
     """External model proposal must be bound to exact source atom hash."""
     guard(type(atom) is dict and
           isinstance(atom.get("claim_id"),str)
           and atom["claim_id"].startswith(video_id+"-") and
-          atom.get("legacy_verdict") in VERDICTS,
+          atom.get("legacy_verdict") in ALL_VERDICTS
+          and isinstance(ledger_sha256,str)
+          and HASH_RE.fullmatch(ledger_sha256),
           "EXTRACTOR_ATOM_MUST_BE_IN_VERIFIED_SOURCE_LEDGER")
     quote=atom["quote"]
     text=atom.get("claim_text",quote)
@@ -73,6 +78,7 @@ def make_proposal(atom,video_id,raw_sha,source_class="REAL_ORIGINAL",
         "claim_id":atom["claim_id"],
         "source_video_id":video_id,
         "source_srt_sha256":raw_sha,
+        "source_atomic_ledger_sha256":ledger_sha256,
         "claim_text":text,
         "claim_text_sha256":sha256(text.encode("utf-8")),
         "cue_indices":atom["cue_indices"],
@@ -144,7 +150,8 @@ def extract_from_original(raw_srt,source_manifest,ledger,
     else:
         guard(source_manifest.get("test_fixture") is True,
               "TEST_FIXTURE_MUST_NOT_IMPERSONATE_REAL_ORIGINAL")
-    coverage=verify_ledger(cues,ledger,source_manifest["video_id"])
+    coverage=validate_atomic_ledger_for_v33(
+        cues,ledger,source_manifest["video_id"])
     guard(len(ledger["claims"])>0,
           "NO_ATOMIC_FINANCIAL_CLAIMS_TO_EVALUATE")
     proposals=external_model_proposals or {}
@@ -161,8 +168,9 @@ def extract_from_original(raw_srt,source_manifest,ledger,
             source_manifest["srt_sha256"],
             source_class=source_manifest["source_class"],
             extractor_annotation=proposals.get(atom["claim_id"]),
-            extractor_sha=model_sha256)
-        frame_proposal_summary(proposed,raw_srt)
+            extractor_sha=model_sha256,
+            ledger_sha256=sha256(canonical(ledger)))
+        frame_proposal_summary(proposed,raw_srt,ledger)
         frames.append(proposed)
     return {
       "schema":"V33_SOURCE_CENSUS_SEMANTIC_EXTRACTION_PROPOSALS_V1",
