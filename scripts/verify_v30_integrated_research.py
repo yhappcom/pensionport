@@ -14,6 +14,7 @@ from v30_integrated_research import (
     ROOT, valid_approved_source, check_historical_registry,
     load_development_video, plan_unverified_video, obligatory_evidence,
     compare_explicit_frames, finance_model, validate_frame, risk_for_status,
+    legacy_topic_prefilter,
     require,
 )
 
@@ -54,6 +55,27 @@ def self_test(root):
         "source_verdict_reconciliation_overlays":1,
         "original_claims_modified":0,"meaning_automatically_approved":False,
     },"LEGACY_KNOWLEDGE_CENSUS_DIFFERED")
+    # The read-only topical stage can reach the full 4,120-claim index,
+    # but cannot certify pairwise semantic relationships.
+    candidates=legacy_topic_prefilter(root,"ISA_PENSION_TRANSFER",limit=15)
+    require(candidates["original_claim_index_count"]==4120
+            and candidates["topic_candidates_total"]==143
+            and len(candidates["claim_candidates"])==15
+            and candidates["candidate_type"]==
+                "TOPIC_ONLY_NEEDS_INDEPENDENT_RELATION_REVIEW"
+            and not candidates["guarantees_semantic_recall"]
+            and all(not r["knowledge_approval_permitted"] and
+                    not r["semantic_equivalence_verified"]
+                    for r in candidates["claim_candidates"]),
+            "HISTORICAL_TOPIC_RETRIEVAL_OVERCLAIM_OR_SOURCE_MISMATCH")
+    assert_order=legacy_topic_prefilter(root,"ISA_PENSION_TRANSFER",limit=15)
+    require(candidates==assert_order,"TOPICAL_INDEX_NOT_DETERMINISTIC")
+    must_reject(lambda:legacy_topic_prefilter(root,"INVALID_TOPIC_FAMILY"),
+                "unknown topic family accepted")
+    must_reject(lambda:legacy_topic_prefilter(root,"ISA_PENSION_TRANSFER",limit=0),
+                "unbounded/nonpositive query")
+    must_reject(lambda:legacy_topic_prefilter(root,"ISA_PENSION_TRANSFER",limit=1000),
+                "unbounded query")
     result={}
     for n,expected in ((19,12),(20,6)):
         v=load_development_video(root,n)
@@ -138,6 +160,8 @@ def self_test(root):
                 and not r["automatic_knowledge_merge_permitted"]
                 and not r["research_completion_certificate_permitted"]
                 and not r["investment_trade_instruction_permitted"]
+                and r["source_provenance_independently_verified_by_this_function"] is False
+                and r["frame_reviewer_identity_authenticated_by_this_function"] is False
                 and r["review_only"] is True,
                 "FALSE_SEMANTIC_TRUTH_INFERENCE_OR_SCOPE_ERROR_"+title)
         if title=="refuted_not_positive":
@@ -199,6 +223,12 @@ def self_test(root):
         "schema":"V30_BOOTSTRAP_DEVELOPMENT_SELF_TEST_V1",
         "source_legacy_verified":baseline,
         "historical_dev_video_worklists":result,
+        "historical_topic_prefilter":{
+            "family":"ISA_PENSION_TRANSFER",
+            "family_source_claims":143,
+            "sampled_topic_candidates":15,
+            "semantic_approvals":0,
+        },
         "typed_semantic_scenario_count":len(diverse),
         "typed_semantic_scenarios_pass":len(diverse),
         "bad_or_unseen_video_inputs_rejected":9,
