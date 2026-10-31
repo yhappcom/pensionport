@@ -25,6 +25,7 @@ from v30_evidence_services import (
 )
 from v30_hybrid_search import make_index,search,build_development_history
 from v30_claim_extraction import propose_atomic_draft
+from v30_state_machine import ResearchState
 from v30_research_pipeline import (
     scan_source_state,research_run,authority_registry_from_environment,
     v5_append_only_preview,complete_with_preexisting_v5_certificate,
@@ -423,9 +424,33 @@ def run(root=ROOT):
           and blocked["automatic_research_completion_certificates"]==0
           and blocked["source_sealed_claim_count"]==0,
           "UNATTESTED_FULL_ORIGINAL_MUST_BE_BLOCKED")
+    guard(blocked["stage_journal"]["status"]=="RESEARCH_BLOCKED"
+          and blocked["stage_journal"]["completed_stages"]==0,
+          "UNATTESTED_SOURCE_CANNOT_PASS_STAGE_JOURNAL")
+    state=ResearchState(manifest["video_id"],binding["srt_sha256"])
+    fail(lambda:state.append("ATOMIC_COVERAGE","PASSED",
+             proof_ids=["forged_nonexistent_evidence"]),
+         "SKIP_ORIGINAL_SOURCE_STAGE")
+    first=state.append("SOURCE_PROVENANCE","PASSED",
+                       proof_ids=["original_source_sha256_verified"])
+    guard(first.previous_digest=="GENESIS" and len(first.digest)==64,
+          "BAD_EVENT_HASH_CHAIN")
+    fail(lambda:state.append("SOURCE_PROVENANCE","PASSED",
+                             proof_ids=["malicious_duplicate"]),
+         "DOUBLE_APPROVAL_OF_STAGE")
+    state.append("ATOMIC_COVERAGE","BLOCKED",
+                 reason="full independent claim review is missing")
+    fail(lambda:state.append("CLAIM_FRAME_AND_OBLIGATIONS","PASSED",
+                             proof_ids=["forged_frame_review"]),
+         "ADVANCE_AFTER_BLOCKED_STAGE")
+    guard(state.preview()["status"]=="RESEARCH_BLOCKED",
+          "BLOCKED_STAGE_JOURNAL_WAS_IGNORED")
     cases+=1
     signed_source=research_run(
         root,manifest,data,ledger,search_bank=bank,authorities=authority)
+    guard(signed_source["stage_journal"]["status"]=="RESEARCH_BLOCKED"
+          and signed_source["stage_journal"]["completed_stages"]==3,
+          "SIGNED_SOURCE_MUST_ADVANCE_ONLY_THROUGH_THREE_VERIFIED_STAGES")
     guard(signed_source["source_reviewer_authenticated"]
           and signed_source["source_sealed_claim_count"]==2
           and len(signed_source["intra_video_typed_relation_candidates"])==1
