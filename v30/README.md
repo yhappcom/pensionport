@@ -69,3 +69,11 @@ python -B scripts/verify_v30_integrated_research.py --root .
 [분리 검증 종합 보고](validation/V31_V32_CORRECTIONS_AND_SEPARATE_HOLDOUT_20261031.md) · [실제 #61~#65 첫 사용 실패 결과](validation/v31_061_065_realcohort_result_v1.json) · [실제 #66~#70 첫 사용 실패 결과](validation/v32_066_070_real_firstuse_result_v1.json) · [V3.2 최종 릴리스 차단 원장](contracts/v32_release_gate_after_66_70_v1.json).
 
 기존 92개 관련·무관 쌍을 참고한 개발 검사는 92/92 일치했지만, **이후 분리한 기존 실제 영상**에서 V3.1 재현율은 8/24(33.3%), V3.2 상위10 검색 재현율은 5/24(20.8%)다. 두 실제 집합 모두 프로젝트 역사 지식원장에 이미 포함됐고 외부 블라인드 심사가 없으므로 완전 미노출 성능검증은 아니다. 금융 명제 유형을 아직 충분히 추출하지 못한다. 기존 V3.0/V2.3 및 V5 자동지식통합관문은 동결, **V3.1·V3.2 운영 승인 BLOCKED**, 자동 지식병합 0건. 다음 실제 신규 영상의 자동 연구를 진행하지 않는다.
+
+## V3.3 원자 금융 의미구조 검증 및 실제 미노출 블라인드 관문 (2026-10-31)
+
+[독립 금융 의미구조 검증·블라인드 프로토콜 감사 보고](validation/V33_SEMANTIC_FRAME_AND_BLIND_RECALL_GATE_20261031.md) · [V3.3 실행코드·계약 SHA 동결](contracts/v33_semantic_blind_freeze_20261031_v1.json) · [#261~#264 실제 원본·외부 심사 미확보 관문](holdout/v33_pre_eval_snapshot_v1.json).
+
+- [원자 주장 SRT·전체 장부·금융 의미구조 검증기](../scripts/v30_semantic_frame_v33.py), [외부 모델 SHA 고정 의미구조 초안 추출기](../scripts/v30_semantic_extraction_v33.py), [이중 별도 검토자 라벨/전수 쌍/신뢰구간 검증](../scripts/v30_blind_recall_v33.py).
+- [원본·금리·판정·서명·전체 원자 장부 위조 시험](../scripts/verify_v30_v33_semantics.py), [블라인드 골드 누수/서명 위조/누락 쌍 시험](../scripts/verify_v30_v33_blind.py).
+- **합성 테스트는 통과. 실제 #261~#264 원본 검증 0편·외부 독립 라벨 0건·실제 신규 정밀도 및 재현율 `null`. 운영/지식통합 승인 BLOCKED.** 해당 자료를 확보하기 전 신규 영상 첫 사용 정확도를 주장하지 않는다.
