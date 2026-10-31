@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feat/v30-integrated-research-engine-20261031
+      - feat/v34-integrated-atomic-semantic-retrieval-20261101
     paths:
       - "v30/**"
       - "scripts/v30_integrated_research.py"
@@ -30,6 +31,12 @@ on:
       - "scripts/verify_v30_v33_semantics.py"
       - "scripts/v30_v33_source_overlap_gate.py"
       - "scripts/verify_v30_v33_source_overlap_gate.py"
+      - "scripts/v30_v34_atomic_semantics.py"
+      - "scripts/v30_v34_model_bridge.py"
+      - "scripts/v30_v34_retrieval.py"
+      - "scripts/v30_v34_pipeline.py"
+      - "scripts/verify_v30_v34_integrated.py"
+      - "scripts/verify_v30_v34_retro.py"
       - "scripts/verify_v30_v32_development.py"
       - "scripts/v30_legacy_verdict_v32.py"
       - "scripts/verify_v30_v32_firstuse.py"
@@ -66,6 +73,12 @@ on:
       - "scripts/verify_v30_v33_semantics.py"
       - "scripts/v30_v33_source_overlap_gate.py"
       - "scripts/verify_v30_v33_source_overlap_gate.py"
+      - "scripts/v30_v34_atomic_semantics.py"
+      - "scripts/v30_v34_model_bridge.py"
+      - "scripts/v30_v34_retrieval.py"
+      - "scripts/v30_v34_pipeline.py"
+      - "scripts/verify_v30_v34_integrated.py"
+      - "scripts/verify_v30_v34_retro.py"
       - "scripts/verify_v30_v32_development.py"
       - "scripts/v30_legacy_verdict_v32.py"
       - "scripts/verify_v30_v32_firstuse.py"
@@ -257,6 +270,43 @@ jobs:
         run: |
           python -m py_compile scripts/v30_v33_source_overlap_gate.py scripts/verify_v30_v33_source_overlap_gate.py
           python -B scripts/verify_v30_v33_source_overlap_gate.py
+      - name: V3.4 integrated atomic semantics retrieval adversarial and 4120-claim census
+        run: |
+          python -m py_compile scripts/v30_v34_atomic_semantics.py scripts/v30_v34_model_bridge.py scripts/v30_v34_retrieval.py scripts/v30_v34_pipeline.py scripts/verify_v30_v34_integrated.py
+          python -B scripts/verify_v30_v34_integrated.py
+          python -B scripts/v30_v34_pipeline.py --root . --historical-index-check
+      - name: V3.4 exposed historical first-use corpus retrospective top10 diagnostic (NOT blind)
+        run: |
+          python -m py_compile scripts/verify_v30_v34_retro.py
+          python -B scripts/verify_v30_v34_retro.py
+      - name: V3.4 frozen source blobs and exposed-only metrics must remain sealed
+        run: |
+          python - <<'PY'
+          import hashlib,json,sys
+          from pathlib import Path
+          j=json.loads(Path("v30/contracts/v34_development_freeze_20261101_v1.json").read_text())
+          assert j["schema"]=="V34_INTEGRATED_ATOMIC_SEMANTIC_RETRIEVAL_DEVELOPMENT_FREEZE_V1"
+          assert j["release"].startswith("BLOCKED_")
+          assert j["main_modified"] is False
+          assert j["test"]["v34_actual_unseen_recall"] is None
+          assert j["test"]["v34_actual_unseen_precision"] is None
+          assert j["test"]["independent_blind_gold_count"]==0
+          assert j["test"]["automatic_knowledge_approvals"]==0
+          for relative,expected in j["frozen_code_git_blobs"].items():
+              b=Path(relative).read_bytes()
+              actual=hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
+              assert actual==expected, "V34_DEVELOPMENT_FROZEN_SOURCE_CHANGED_"+relative
+          sys.path.insert(0,"scripts")
+          from verify_v30_v34_retro import compare
+          r=compare()
+          for result,freeze in (("tp","historical_tp"),("fn","historical_fn"),
+                                ("fp","historical_fp"),("tn","historical_tn")):
+              assert r[result]==j["test"][freeze], result
+          assert r["actual_unseen_recall"] is None and r["actual_unseen_precision"] is None
+          assert j["test"]["historic_original_srt_sha_absent"]==38
+          assert j["test"]["historic_original_srt_sha_malformed"]==17
+          print("PASS: six V3.4 frozen blobs, historical exposed metrics and BLOCKED")
+          PY
       - name: Verify all changed files against immutable research baseline and scan public privacy leaks
         run: |
           python -m py_compile scripts/verify_v30_repository_safety.py

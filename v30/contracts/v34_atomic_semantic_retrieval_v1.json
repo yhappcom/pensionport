@@ -1,0 +1,53 @@
+{
+  "schema": "V34_ATOMIC_SEMANTIC_RETRIEVAL_DEVELOPMENT_CONTRACT_V1",
+  "date": "2026-11-01",
+  "branch": "feat/v34-integrated-atomic-semantic-retrieval-20261101",
+  "baseline": "feat/v33-holdout-overlap-preflight-20261031",
+  "protected": ["main", "V2.3", "V3.0", "V3.1", "V3.2", "V3.3", "all historical evidence and first-use snapshots"],
+  "pipeline": [
+    {"stage": "SOURCE_CUE_CENSUS", "inputs": ["bytes", "SHA256", "video_id"], "result": "all SRT cues covered by traceable unreviewed propositions"},
+    {"stage": "FINANCIAL_FRAME_PROPOSAL", "inputs": ["source-bound atomic candidates"], "result": "multiple financial events/entities/actions/measurements with unresolved flags"},
+    {"stage": "HISTORICAL_RETRIEVAL", "inputs": ["frozen 4120-record crosswalk", "source-bound proposals"], "result": "BM25 word and Korean character ngrams + event/entity RRF candidates"},
+    {"stage": "GUARDED_RELATION_TRIAGE", "inputs": ["search hits", "scope and negation proposals"], "result": "review-only typed candidates and complement audit"}
+  ],
+  "historical_compatibility": {
+    "records_total": 4120,
+    "historic_video_count": 253,
+    "missing_historic_original_srt_sha": 55,
+    "noncanonical_public_71_ids": 13,
+    "missing_sources_remain_unverified": true,
+    "historical_claims_cannot_be_silently_dropped": true
+  },
+  "holdout": {
+    "development_input_allowed_video_numbers": [1, 260],
+    "real_video_261_plus_development_forbidden": true,
+    "historical_dev_scores_not_unseen_scores": true,
+    "actual_blind_gold_sets": 0,
+    "measured_recall": null,
+    "measured_precision": null,
+    "human_identity_independence_verified": false,
+    "top_k": 10,
+    "noncandidate_audit_is_not_gold": true
+  },
+  "governance": {
+    "all_cues_auto_reviewed": false,
+    "source_audio_checked": false,
+    "semantic_accuracy_verified": false,
+    "claims_automatically_approved": 0,
+    "relations_automatically_approved": 0,
+    "knowledge_auto_merge": false,
+    "research_complete": false,
+    "trade_execution": false,
+    "production_release": "BLOCKED"
+  },
+  "limitations": [
+    "Deterministic Korean atomic splitting cannot prove complete proposition extraction; all cues require human review.",
+    "Lexical event regex and financial frames are proposals, not a general-purpose language model or legal verifier.",
+    "Crosswalk claims contain historical summaries, not uniformly exact source quotes.",
+    "Some historic SRT SHA values are missing and remain NULL.",
+    "RRF retrieval and review triage are not independently certified as high recall.",
+    "External dense embeddings, real official evidence and human blind adjudication are not supplied.",
+    "V3.3 80-claim blind gold census is unchanged; V3.4 supports larger proposal batches but not yet independently certified full-pair large-scale evaluation."
+  ],
+  "release": "BLOCKED_PENDING_INDEPENDENT_REAL_BLIND_AND_EVIDENCE_VERIFICATION"
+}
