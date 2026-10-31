@@ -55,6 +55,21 @@ def feature_tokens(text):
         lex.update(compact[i:i+n] for i in range(max(0,len(compact)-n+1)))
     return frozenset(lex)
 
+def checked_vector(values,model_sha=None):
+    """Accept independently generated vectors only if model version pinned.
+
+    This never downloads or trains a semantic model from unseen research data.
+    """
+    guard(isinstance(model_sha,str) and
+          re.fullmatch(r"[a-f0-9]{64}",model_sha),
+          "EMBEDDING_MODEL_GIT_OR_CONTENT_HASH_REQUIRED")
+    guard(isinstance(values,list) and 2<=len(values)<=4096
+          and all(type(x) in (float,int) and math.isfinite(x) for x in values),
+          "INVALID_SEMANTIC_EMBEDDING_VECTOR")
+    length=math.sqrt(sum(x*x for x in values))
+    guard(length>0,"ZERO_SEMANTIC_EMBEDDING_VECTOR")
+    return tuple(float(x)/length for x in values)
+
 def make_index(records,development_max_video=20):
     """No #21+ claim body or metadata can enter DEVELOPMENT search index."""
     guard(type(development_max_video) is int
@@ -82,10 +97,14 @@ def make_index(records,development_max_video=20):
               len(family)==len(set(family))
               and all(isinstance(a,str) and a for a in family),
               "INVALID_TOPIC_FAMILY_LIST")
-        check_privacy(r)
+        check_privacy({k:v for k,v in r.items() if k!="embedding"})
+        embedding=(checked_vector(r["embedding"],r.get("embedding_model_sha256"))
+                   if "embedding" in r else None)
         rows.append({k:r[k] for k in ("claim_id","video_number","text","legacy_verdict")}|{
             "financial_role":role,"topic_families":tuple(family),
-            "tokens":feature_tokens(r["text"])})
+            "tokens":feature_tokens(r["text"]),
+            "embedding":embedding,
+            "embedding_model_sha256":r.get("embedding_model_sha256")})
     # Index ordering is independent of input insertion order.
     rows.sort(key=lambda x:x["claim_id"])
     return tuple(rows)
@@ -102,6 +121,15 @@ def search(query,corpus,limit=20,audit_non_candidates=10):
     qt=feature_tokens(query["text"])
     topics=set(query.get("topic_families",[]))
     role=query.get("financial_role")
+    query_emb=(checked_vector(query["embedding"],
+                              query.get("embedding_model_sha256"))
+               if "embedding" in query else None)
+    if query_emb is not None:
+        guard(all(r["embedding"] is not None and
+                  len(r["embedding"])==len(query_emb) and
+                  r["embedding_model_sha256"]==
+                      query["embedding_model_sha256"] for r in corpus),
+              "SEMANTIC_EMBEDDING_MODEL_OR_DIMENSION_DRIFT")
     n=len(corpus)
     termdf=Counter()
     for r in corpus:termdf.update(r["tokens"])
@@ -117,7 +145,9 @@ def search(query,corpus,limit=20,audit_non_candidates=10):
                         in RELATED_ROLE_PAIRS else 0.0)
         families=3.0*len(topics&set(r["topic_families"]))
         # Coverage: no hard filters that prematurely drop near-synonyms.
-        score=round(sparse+ontology+families,6)
+        vector_score=(5*sum(a*b for a,b in zip(query_emb,r["embedding"]))
+                      if query_emb is not None else 0.0)
+        score=round(sparse+ontology+families+vector_score,6)
         ranked.append((score,r))
     ranked.sort(key=lambda x:(-x[0],x[1]["claim_id"]))
     hits=[]
@@ -140,13 +170,18 @@ def search(query,corpus,limit=20,audit_non_candidates=10):
         "schema":"V30_HYBRID_CANDIDATE_REVIEW_QUEUE_V1",
         "search_lanes":["LEXICAL_TFIDF_KOREAN_CHARACTER_NGRAM",
                          "VERSIONED_FINANCIAL_ROLE_ONTOLOGY",
-                         "MULTI_TOPIC_FAMILY"],
+                         "MULTI_TOPIC_FAMILY"]+
+                         (["PINNED_MODEL_VECTOR_COSINE"] if query_emb is not None
+                          else []),
         "eligible_corpus_claims":len(corpus),
         "review_candidates":hits,
         "noncandidate_audit_sample":rest[:audit_non_candidates],
         "candidate_precision_claimed":None,
         "candidate_recall_claimed":None,
         "noncandidate_golden_labels_provided":False,
+        "embedding_backend":"EXTERNALLY_SUPPLIED_VERSIONED_VECTORS"
+                            if query_emb is not None else "NOT_SUPPLIED",
+        "external_embedding_model_semantic_accuracy_proven":False,
         "development_embargo_up_to_video":20,
         "automatic_knowledge_merge":False,
     }
