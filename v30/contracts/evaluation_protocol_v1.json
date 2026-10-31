@@ -1,0 +1,49 @@
+{
+  "schema": "V30_EVALUATION_PROTOCOL_V1",
+  "date": "2026-10-31",
+  "philosophy": "Measure source fidelity, research completeness, retrieval ranking, relation classification, and safety separately; never report posthoc fit as fresh performance.",
+  "development_videos_inclusive": [
+    1,
+    20
+  ],
+  "protected_out_of_sample_videos_begin_at": 21,
+  "bootstrap_may_read_new_video_21_plus": false,
+  "independent_evaluation_requires_commit_before_engine_predictions": true,
+  "independent_blind_labelers_required_for_release": true,
+  "stratification_axes": [
+    "topic_family",
+    "legal_vs_numeric_vs_strategy",
+    "positive_vs_near_miss_negative",
+    "same_video_vs_cross_video",
+    "contradicted_or_hypothetical",
+    "old_vs_new_regime"
+  ],
+  "source_claim_census_required": true,
+  "audit_candidates_and_non_candidates": true,
+  "preserve_first_use_failures_without_relabeling": true,
+  "frozen_code_and_data_shas_required": true,
+  "targets": {
+    "retrieval_recall": 0.95,
+    "retrieval_precision": 0.85,
+    "domain_recall_minimum": 0.9,
+    "material_claim_to_original_cue_traceability": 1,
+    "evidence_or_explicit_blocker_for_all_material_claims": 1,
+    "falsely_approved_knowledge_merges_max": 0,
+    "contradicted_positive_promotions_max": 0,
+    "unauthorized_personal_advice_max": 0
+  },
+  "measurements": [
+    "retrieval_precision_recall_with_confidence_intervals",
+    "relation_confusion_matrix_by_type",
+    "per_video_source_claim_coverage",
+    "material_obligation_coverage_and_open",
+    "risk_aware_candidate_review_burden",
+    "hallucinated_citations",
+    "official_source_applicability_errors",
+    "numeric_arithmetic_deviation",
+    "cost_per_claim"
+  ],
+  "sampling_guidance": "Stratified representative sampling should be evaluated; the old 344 + 125 manually selected pairs are development or historic first-use, not blind population gold.",
+  "evidence_quality_gate": "Public CI authenticates provenance/structure only. Primary legal, scientific, quantitative and empirical truth require distinct independent review.",
+  "release_status": "BLOCKED_UNTIL_SEPARATE_HOLDOUT_AND_COMPLETION_AUDIT"
+}
