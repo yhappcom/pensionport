@@ -62,3 +62,10 @@ python -B scripts/verify_v30_integrated_research.py --root .
 [재실행 종합 보고](validation/V30_001_005_INDEPENDENT_REPLAY_20261031.md) · [원본 SRT 바이트를 제외한 로컬 원본 검증](validation/retro_001_005_local_source_replay_v1.json) · [예측 전 등록 44개 관계 평가쌍](validation/retro_001_005_diagnostic_cases_v1.json) · [V2.3/V3.0 비교 전체 예측](validation/retro_001_005_replay_result_v1.json).
 
 실제 #1~#5 SRT 5,129구간과 기존 62개 핵심 주장의 계보가 일치하고 V3.0 원자 후보가 7,054건 생성되었으나, 의미 검토는 완료되지 않았다. 두 검색기의 44쌍 개발 진단에서 V3.0 정밀도·재현율 모두 75%, 기존 V2.3은 정밀도 94.4%·재현율 70.8%. 이 결과는 비블라인드 후향적 진단이며 V3.0 의미 검색 개선 또는 신규 실전 성능의 증거가 아니다. 명목 연이율과 실효 연이율 모델 차이도 별도 결함으로 기록했다. **운영 BLOCKED 유지**.
+
+
+## V3.1 → V3.2 결함 수정·첫 사용 성능검증 결과 (2026-10-31)
+
+[분리 검증 종합 보고](validation/V31_V32_CORRECTIONS_AND_SEPARATE_HOLDOUT_20261031.md) · [실제 #61~#65 첫 사용 실패 결과](validation/v31_061_065_realcohort_result_v1.json) · [실제 #66~#70 첫 사용 실패 결과](validation/v32_066_070_real_firstuse_result_v1.json) · [V3.2 최종 릴리스 차단 원장](contracts/v32_release_gate_after_66_70_v1.json).
+
+기존 92개 관련·무관 쌍을 참고한 개발 검사는 92/92 일치했지만, **이후 분리한 기존 실제 영상**에서 V3.1 재현율은 8/24(33.3%), V3.2 상위10 검색 재현율은 5/24(20.8%)다. 두 실제 집합 모두 프로젝트 역사 지식원장에 이미 포함됐고 외부 블라인드 심사가 없으므로 완전 미노출 성능검증은 아니다. 금융 명제 유형을 아직 충분히 추출하지 못한다. 기존 V3.0/V2.3 및 V5 자동지식통합관문은 동결, **V3.1·V3.2 운영 승인 BLOCKED**, 자동 지식병합 0건. 다음 실제 신규 영상의 자동 연구를 진행하지 않는다.
