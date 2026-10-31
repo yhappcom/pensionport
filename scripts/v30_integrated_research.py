@@ -118,6 +118,58 @@ def check_historical_registry(root):
         "original_claims_modified":0,"meaning_automatically_approved":False,
     }
 
+def legacy_topic_prefilter(root, topic_family, limit=25, offset=0):
+    """Read-only topical candidate queue over ALL historical 4,120 assertions.
+
+    The topic must be supplied by a separate checked classification workflow.
+    It is NOT inferred from the query, nor is a topic match an entailment.
+    This also preserves contradicted and hypothetical rows for correct review.
+    """
+    require(isinstance(topic_family,str) and topic_family.strip(),
+            "EXPLICIT_TOPIC_FAMILY_REQUIRED")
+    require(type(limit) is int and 1<=limit<=100 and
+            type(offset) is int and 0<=offset<=5000,
+            "BOUNDED_TOPICAL_CANDIDATE_PAGINATION_REQUIRED")
+    from verify_v5_knowledge_integration import (
+        load_legacy_claim_index, verified_verdict_reconciliations,
+    )
+    registry=read(root,"data/synthesis/investment_knowledge_001_260/concept_families.json")
+    names={x["concept_id"] for x in registry["concept_families"]}
+    require(topic_family in names,"UNKNOWN_HISTORICAL_TOPIC_FAMILY")
+    rows,_,_=load_legacy_claim_index(root)
+    overrides=verified_verdict_reconciliations(root,rows)
+    sub=sorted((r for r in rows.values()
+               if r["primary_concept_id"]==topic_family),
+               key=lambda x:(x["roster_no"],x["claim_id"]))
+    hits=[]
+    for rec in sub[offset:offset+limit]:
+        c=rec["claim_id"]
+        status=overrides.get(c,rec["original_verdict"])
+        require(status in STATUS,"UNSUPPORTED_HISTORIC_VERDICT")
+        hits.append({
+            "claim_id":c,"video_id":rec["video_id"],
+            "video_number":rec["roster_no"],
+            "legacy_verdict":status,
+            "source_risk":risk_for_status(status,"QUALIFIED"),
+            "relation_type":"UNRESOLVED_AMBIGUOUS",
+            "semantic_equivalence_verified":False,
+            "official_source_independently_checked_in_v30":False,
+            "knowledge_approval_permitted":False,
+        })
+    return {
+        "schema":"V30_HISTORICAL_TOPIC_PREFILTER_V1",
+        "topic_family":topic_family,
+        "original_claim_index_count":len(rows),
+        "historical_source_video_count":253,
+        "topic_candidates_total":len(sub),
+        "offset":offset,"limit":limit,
+        "returned_count":len(hits),
+        "candidate_type":"TOPIC_ONLY_NEEDS_INDEPENDENT_RELATION_REVIEW",
+        "guarantees_semantic_recall":False,
+        "knowledge_auto_merge_permitted":False,
+        "claim_candidates":hits,
+    }
+
 def load_development_video(root, number):
     """Consume ONLY explicitly pinned historic #19/20 V3 development abstracts.
 
@@ -325,6 +377,8 @@ def compare_explicit_frames(left,right):
         "review_only":True,
         "claimed_semantic_truth":None,
         "official_source_review_reperformed":False,
+        "source_provenance_independently_verified_by_this_function":False,
+        "frame_reviewer_identity_authenticated_by_this_function":False,
         "automatically_approved":False,
         "automatic_knowledge_merge_permitted":False,
         "research_completion_certificate_permitted":False,
@@ -376,6 +430,8 @@ def main():
     p.add_argument("--root",type=Path,default=ROOT)
     p.add_argument("--validate-baseline",action="store_true")
     p.add_argument("--plan-development-video",type=int)
+    p.add_argument("--prefilter-family")
+    p.add_argument("--limit",type=int,default=25)
     p.add_argument("--self-test",action="store_true")
     args=p.parse_args()
     root=args.root.resolve()
@@ -392,6 +448,9 @@ def main():
     if args.validate_baseline:out["legacy_registry"]=check_historical_registry(root)
     if args.plan_development_video is not None:
         out["worklist"]=plan_unverified_video(root,args.plan_development_video)
+    if args.prefilter_family:
+        out["topic_prefilter"]=legacy_topic_prefilter(
+            root,args.prefilter_family,limit=args.limit)
     if args.self_test:
         from verify_v30_integrated_research import self_test
         out["bootstrap_tests"]=self_test(root)
