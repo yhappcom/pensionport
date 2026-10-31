@@ -1,0 +1,83 @@
+{
+  "schema": "V33_HOLDOUT_SOURCE_OVERLAP_AUDIT_V1",
+  "date": "2026-10-31",
+  "reference_commit": "692c61334f1b410eb3daea78f8b3dfce73e13c30",
+  "source_zip_sha256": "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10",
+  "method": "normalized 7-token exact shingle containment, not semantic similarity",
+  "historical_reference_count": 258,
+  "historical_expected_count": 260,
+  "missing_historical_video_numbers": [
+    71,
+    204
+  ],
+  "independent_human_gold_count": 0,
+  "actual_precision": null,
+  "actual_recall": null,
+  "model_predictions_emitted": false,
+  "original_private_srt_committed": false,
+  "excluded": [
+    {
+      "number": 261,
+      "video_id": "Iee-BKqc_po",
+      "srt_sha256": "b5fd707df94f009cbbb05830231d5951d4eef05fb98116ac8713eb61220a1e49",
+      "cues": 29,
+      "prior_approved_video": 206,
+      "exact_7gram_containment": 0.683099
+    },
+    {
+      "number": 262,
+      "video_id": "bRc7ai7bQy8",
+      "srt_sha256": "c52095100087e898664c1bdb3ef407c3e32d253063fb5db1b991924b9600d7d4",
+      "cues": 28,
+      "prior_approved_video": 206,
+      "exact_7gram_containment": 0.654135
+    },
+    {
+      "number": 263,
+      "video_id": "xwkP_bpKE-M",
+      "srt_sha256": "26949eecc22a2b6ad1130b7f628919caebd006b371f29424e2bef6a009e5ebf2",
+      "cues": 1004,
+      "prior_approved_video": 202,
+      "exact_7gram_containment": 0.87809
+    },
+    {
+      "number": 264,
+      "video_id": "TPf0I7tRak8",
+      "srt_sha256": "4db0fb65b0ce8036cf950df80aa2d366dda1014e4b20a03bd24257e8442c86f9",
+      "cues": 30,
+      "prior_approved_video": 205,
+      "exact_7gram_containment": 0.556291
+    }
+  ],
+  "provisional": [
+    {
+      "number": 269,
+      "video_id": "j4i0rrujz3w",
+      "srt_sha256": "73256c743a6ea92b40ce7641d404c0890332fcfe7e063eef3900d00dab5e8ac5",
+      "cues": 571,
+      "max_containment": 0.001054
+    },
+    {
+      "number": 270,
+      "video_id": "Yd5qnDtW2TM",
+      "srt_sha256": "e67be6da14dc6eae2fe8172add56f2c98efb1e6e232587aaa591d8752b043792",
+      "cues": 618,
+      "max_containment": 0.000313
+    },
+    {
+      "number": 271,
+      "video_id": "BXjda2v6e-Q",
+      "srt_sha256": "a2c3017542b2670a39d7fcd796f706e583006a4d0a043d26854f27fc6a1f50e1",
+      "cues": 706,
+      "max_containment": 0.000275
+    },
+    {
+      "number": 279,
+      "video_id": "9pvqNUj8pH4",
+      "srt_sha256": "6bd054ca6ccd759f896d5c156eff9731753bb25820bc655bf8483dda64049204",
+      "cues": 970,
+      "max_containment": 0.000209
+    }
+  ],
+  "release": "BLOCKED_EXTERNAL_CUSTODY_GOLD_AND_NOVELTY_REVIEW"
+}
