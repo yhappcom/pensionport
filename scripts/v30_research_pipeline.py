@@ -149,7 +149,8 @@ def _review_links(claim_id,source,documents,models,empirical,authorities):
 
 def research_run(root,manifest,raw_srt,ledger,
                  documents=(),models=(),empirical=(),search_bank=(),
-                 authorities=None,independent_review=None):
+                 authorities=None,independent_review=None,
+                 relation_review=None,v5_certificate_paths=None):
     """Create a REAL, repeatable research **work product**, not an auto-cert."""
     root=Path(root)
     x=scan_source_state(root,manifest,raw_srt,ledger,authorities)
@@ -246,7 +247,8 @@ def research_run(root,manifest,raw_srt,ledger,
                 review_id=verify_attestation(
                     independent_review,result_payload,
                     "independent_reviewer",authorities)
-                guard(review_id!=x["source_reviewer_id"],
+                guard(review_id!=x["source_reviewer_id"] and
+                      review_id!=relation_reviewer_id,
                       "INDEPENDENT_REVIEWER_CANNOT_SELF_REVIEW")
             except (ValueError,KeyError,TypeError):
                 review_id=None
@@ -264,6 +266,21 @@ def research_run(root,manifest,raw_srt,ledger,
     for i,a in enumerate(bound):
         for b in bound[i+1:]:
             intra.append(relation_for_bound_claims(a,b))
+    relation_reviewer_id=None
+    if relation_review and authorities and x["source_reviewer_authenticated"]:
+        relation_payload={
+          "video_id":binding["video_id"],
+          "ledger_sha256":binding["ledger_sha256"],
+          "relation_candidates_sha256":sha256(canonical(intra)),
+          "signed_relation_candidate_count":len(intra),
+        }
+        try:
+            relation_reviewer_id=verify_attestation(
+                relation_review,relation_payload,"relation_reviewer",authorities)
+            guard(relation_reviewer_id!=x["source_reviewer_id"],
+                  "RELATION_REVIEWER_CANNOT_SIGN_OWN_SOURCE")
+        except (ValueError,KeyError,TypeError):
+            relation_reviewer_id=None
     pending=sum(bool(r["blockers"]) for r in rows)
     reviewer_block=(None if review_id else
                     "INDEPENDENT_REVIEW_SIGNED_ATTESTATION_MISSING")
@@ -282,9 +299,33 @@ def research_run(root,manifest,raw_srt,ledger,
                 b.startswith("REAL_EMPIRICAL_") or
                 b.startswith("NUMERIC_") or b.startswith("EMPIRICAL_")
                 for b in r["blockers"]) for r in rows) else "BLOCKED"
-    stages["RELATION_CANDIDATES"]="REVIEW_ONLY" if index else "BLOCKED"
+    stages["RELATION_CANDIDATES"]=(
+        "PASSED" if relation_reviewer_id and index
+        else "REVIEW_ONLY" if index or intra else "BLOCKED")
     stages["INDEPENDENT_REVIEW"]="PASSED" if review_id else "BLOCKED"
-    stages["COMPLETION_AND_APPEND_ONLY_INTEGRATION"]="BLOCKED_REQUIRES_V5_CERTIFICATE"
+    verified_v5=False
+    v5_certificate_sha=None
+    if v5_certificate_paths is not None:
+        guard(isinstance(v5_certificate_paths,dict)
+              and pending==0 and review_id and relation_reviewer_id,
+              "V5_EXTERNAL_CERTIFICATE_REQUIRES_ALL_PRIOR_STAGE_PROOFS")
+        paths=v5_certificate_paths
+        v=complete_with_preexisting_v5_certificate(
+            root,paths["certificate_path"],paths["review_path"])
+        guard(v["existing_v5_certificate_verdict"]=="RESEARCH_COMPLETE",
+              "V5_BLOCKED_OR_MISSING_COMPLETION_CANNOT_PROMOTE")
+        from verify_v5_research_completion import read as read_v5
+        registered=read_v5(root/paths["review_path"])
+        guard(registered["video_id"]==binding["video_id"]
+              and set(x["id"] for x in registered["claims"])==
+              set(r["claim_id"] for r in rows),
+              "V5_COMPLETION_CERTIFICATE_SOURCE_CLAIM_UNIVERSE_MISMATCH")
+        from v30_verified_core import sha256 as sha
+        v5_certificate_sha=sha((root/paths["certificate_path"]).read_bytes())
+        verified_v5=True
+    stages["COMPLETION_AND_APPEND_ONLY_INTEGRATION"]=(
+        "PASSED_EXISTING_V5_CERTIFICATE" if verified_v5
+        else "BLOCKED_REQUIRES_V5_CERTIFICATE")
     result={
         "schema":"V30_END_TO_END_RESEARCH_WORK_PRODUCT_V1",
         "video_id":binding["video_id"],
@@ -297,20 +338,28 @@ def research_run(root,manifest,raw_srt,ledger,
         "claims_processed":len(rows),
         "claims_with_open_blockers":pending,
         "independent_review_authenticated":bool(review_id),
+        "relation_reviewer_authenticated":bool(relation_reviewer_id),
+        "v5_external_certificate_sha256":v5_certificate_sha,
         "source_sealed_claim_count":len(bound),
         "intra_video_typed_relation_candidates":intra,
         "typed_relation_accuracy_independently_verified":False,
         "stages":stages,
         "claim_results":rows,
         "reviewer_blocker":reviewer_block,
-        "research_status":state,
-        "v5_certificate_status":"NOT_ISSUED",
+        "research_status":(
+            "RESEARCH_COMPLETE_EXTERNALLY_CERTIFIED" if verified_v5
+            else state),
+        "v5_certificate_status":(
+            "V5_RESEARCH_COMPLETE_EXTERNALLY_VALIDATED" if verified_v5
+            else "NOT_ISSUED"),
         "automatic_knowledge_approvals":0,
         "automatic_research_completion_certificates":0,
         "automatic_personal_investment_advice":0,
         "trade_orders":0,
         "immutable_source_cues_persisted_publicly":False,
     }
+    from v30_state_machine import journal_from_report
+    result["stage_journal"]=journal_from_report(result,root)
     check_privacy(result)
     return result
 
@@ -406,6 +455,9 @@ def main():
     p.add_argument("--evidence-package",type=Path)
     p.add_argument("--search-bank",type=Path)
     p.add_argument("--independent-review",type=Path)
+    p.add_argument("--relation-review",type=Path)
+    p.add_argument("--v5-certificate",type=Path)
+    p.add_argument("--v5-review",type=Path)
     p.add_argument("--export-blocked-preview",type=Path)
     args=p.parse_args()
     root=args.root.resolve()
@@ -433,13 +485,19 @@ def main():
     authority=authority_registry_from_environment(root)
     independent=(json.loads(args.independent_review.read_text())
                  if args.independent_review else None)
+    relation_review=(json.loads(args.relation_review.read_text())
+                     if args.relation_review else None)
+    v5paths=({"certificate_path":str(args.v5_certificate),
+              "review_path":str(args.v5_review)}
+             if args.v5_certificate and args.v5_review else None)
     report=research_run(
         root,manifest,args.original_srt.read_bytes(),ledger,
         documents=read_pack(evidence.get("primary_sources",[])),
         empirical=[{"metadata":x,"bytes":Path(x["content_path"]).read_bytes()}
                    for x in evidence.get("empirical_studies",[])],
         models=evidence.get("math_models",[]),search_bank=index,
-        authorities=authority,independent_review=independent)
+        authorities=authority,independent_review=independent,
+        relation_review=relation_review,v5_certificate_paths=v5paths)
     if args.export_blocked_preview:
         from v30_v5_bridge import blocked_v5_package
         guard(report["research_status"]=="RESEARCH_BLOCKED",
