@@ -45,5 +45,18 @@
   ],
   "sampling_guidance": "Stratified representative sampling should be evaluated; the old 344 + 125 manually selected pairs are development or historic first-use, not blind population gold.",
   "evidence_quality_gate": "Public CI authenticates provenance/structure only. Primary legal, scientific, quantitative and empirical truth require distinct independent review.",
-  "release_status": "BLOCKED_UNTIL_SEPARATE_HOLDOUT_AND_COMPLETION_AUDIT"
+  "release_status": "BLOCKED_UNTIL_SEPARATE_HOLDOUT_AND_COMPLETION_AUDIT",
+  "historical_index_exposure_notice": "The legacy 4120-claim index already covers #1-#260 (253 analyzed videos). #21-#260 source IDs or metadata cannot be assumed unseen solely from roster numbering.",
+  "true_unseen_requirement": {
+    "original_claim_text_never_in_development": true,
+    "historical_metadata_not_used_for_rule_development": true,
+    "gold_labels_blind_to_engine_predictions": true,
+    "preregistered_before_first_frozen_predictions": true,
+    "cannot_reuse_error_diagnosis_as_fresh_holdout": true,
+    "independent_reviewer_authentication_required": true,
+    "source_and_model_hashes_frozen": true
+  },
+  "first_use_never_populated_until_separate_trial": true,
+  "evaluator_implementation": "scripts/v30_independent_evaluator.py",
+  "gate_status": "BLOCKED_PENDING_EXTERNAL_GOLD_AND_REAL_FINANCIAL_SOURCE_PROOF"
 }
