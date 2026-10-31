@@ -25,6 +25,7 @@ on:
       - "scripts/v30_semantic_frame_v33.py"
       - "scripts/v30_blind_recall_v33.py"
       - "scripts/verify_v30_v33_blind.py"
+      - "scripts/verify_v30_v33_intake.py"
       - "scripts/v30_semantic_extraction_v33.py"
       - "scripts/verify_v30_v33_semantics.py"
       - "scripts/verify_v30_v32_development.py"
@@ -58,6 +59,7 @@ on:
       - "scripts/v30_semantic_frame_v33.py"
       - "scripts/v30_blind_recall_v33.py"
       - "scripts/verify_v30_v33_blind.py"
+      - "scripts/verify_v30_v33_intake.py"
       - "scripts/v30_semantic_extraction_v33.py"
       - "scripts/verify_v30_v33_semantics.py"
       - "scripts/verify_v30_v32_development.py"
@@ -155,6 +157,10 @@ jobs:
         run: |
           python -m py_compile scripts/v30_blind_recall_v33.py scripts/verify_v30_v33_blind.py
           python -B scripts/verify_v30_v33_blind.py
+      - name: V3.3 real unseen source intake and nonfabricated performance metric gate
+        run: |
+          python -m py_compile scripts/verify_v30_v33_intake.py
+          python -B scripts/verify_v30_v33_intake.py
       - name: V3.0 production CLI preflight remains evidence BLOCKED
         run: |
           python -B scripts/v30_research_pipeline.py --root .
