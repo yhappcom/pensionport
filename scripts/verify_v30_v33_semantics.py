@@ -103,7 +103,7 @@ def run(root=ROOT):
             result["research_completion"] is False,
             "V33_MUST_NOT_PROMOTE_GENERIC_ATOMIC_EXTRACTION")
     proposal=result["frames"][0]
-    require(frame_proposal_summary(proposal,data)["state"]=="RESEARCH_BLOCKED",
+    require(frame_proposal_summary(proposal,data,ledger)["state"]=="RESEARCH_BLOCKED",
             "UNREVIEWED_FINANCIAL_FRAMES_ARE_NEVER_COMPLETED")
     # Explicit external model pinning accepts only source-aligned fields.
     atom=ledger["claims"][0]
@@ -123,7 +123,8 @@ def run(root=ROOT):
     }
     derived=make_proposal(atom,manifest["video_id"],manifest["srt_sha256"],
                           source_class="SYNTHETIC_FIXTURE",
-                          extractor_annotation=m,extractor_sha=digest)
+                          extractor_annotation=m,extractor_sha=digest,
+                          ledger_sha256=sha256(canonical(ledger)))
     require(derived["event_kind"]=="TAX_CONTRIBUTION"
             and derived["annotation_review_status"]=="PROPOSED",
             "MODEL_CANNOT_SELF_APPROVE_FINANCIAL_MEANING")
@@ -131,7 +132,8 @@ def run(root=ROOT):
     tampered["claim_text_sha256"]="0"*64
     must_reject(lambda:make_proposal(atom,manifest["video_id"],
                 manifest["srt_sha256"],extractor_annotation=tampered,
-                extractor_sha=digest),"EXTRACTOR_CLAIM_DIGEST")
+                extractor_sha=digest,
+                ledger_sha256=sha256(canonical(ledger))),"EXTRACTOR_CLAIM_DIGEST")
     frames=[
         reviewed(result["frames"][0],"TAX_CONTRIBUTION","CONTRIBUTE",
                  "KR:PENSION_SAVINGS","DEPOSIT"),
@@ -151,10 +153,11 @@ def run(root=ROOT):
           "secret":secrets.token_bytes(32),"test_fixture":False}
     }
     def signed(frame,authorities=keys,source_reviewer_id=None):
-        proof=check_actual_cue_provenance(frame,data)
+        proof=check_actual_cue_provenance(frame,data,ledger)
         source_payload={
             "video_id":frame["source_video_id"],
             "srt_sha256":frame["source_srt_sha256"],
+            "atomic_ledger_sha256":frame["source_atomic_ledger_sha256"],
             "claim_id":frame["claim_id"],
             "claim_text_sha256":frame["claim_text_sha256"],
             "cue_indices":frame["cue_indices"],
@@ -175,7 +178,8 @@ def run(root=ROOT):
                                hashlib.sha256).hexdigest(),
             }
         return verify_independent_frame(frame,data,attestations["source_reviewer"],
-            attestations["semantic_reviewer"],authorities)
+            attestations["semantic_reviewer"],authorities,
+            reviewed_ledger=ledger)
     first=signed(frames[0]);second=signed(frames[1])
     require(verified_frame(first)["event_kind"]=="TAX_CONTRIBUTION",
             "VERIFIED_FRAME_MUST_BIND_EXACT_SEMANTICS")
@@ -188,29 +192,29 @@ def run(root=ROOT):
     # Source identity, time, amount unit and rate convention are hard barriers.
     bad=copy.deepcopy(frames[0])
     bad["source_quote"]="does not exist in any original cue"
-    must_reject(lambda:check_actual_cue_provenance(bad,data),"FORGED_SOURCE_QUOTE")
+    must_reject(lambda:check_actual_cue_provenance(bad,data,ledger),"FORGED_SOURCE_QUOTE")
     bad=copy.deepcopy(frames[0])
     bad["source_srt_sha256"]="0"*64
-    must_reject(lambda:check_actual_cue_provenance(bad,data),"WRONG_SOURCE_HASH")
+    must_reject(lambda:check_actual_cue_provenance(bad,data,ledger),"WRONG_SOURCE_HASH")
     bad=copy.deepcopy(frames[0])
     bad["cue_indices"]=[5]
-    must_reject(lambda:check_actual_cue_provenance(bad,data),"INVALID_CUE_NUMBER")
+    must_reject(lambda:check_actual_cue_provenance(bad,data,ledger),"INVALID_CUE_NUMBER")
     bad=copy.deepcopy(frames[0])
     bad["measurement"]["rate_basis"]="NOT_APPLICABLE"
-    must_reject(lambda:check_actual_cue_provenance(bad,data),"RATE_BASE_MISSING")
+    must_reject(lambda:check_actual_cue_provenance(bad,data,ledger),"RATE_BASE_MISSING")
     bad=copy.deepcopy(frames[0])
     bad["effective_date"]="2026-02-30"
-    must_reject(lambda:check_actual_cue_provenance(bad,data),"INVALID_CALENDAR_DAY")
+    must_reject(lambda:check_actual_cue_provenance(bad,data,ledger),"INVALID_CALENDAR_DAY")
     bad=copy.deepcopy(frames[0])
     bad["legacy_verdict"]="CONTRADICTED"
-    must_reject(lambda:check_actual_cue_provenance(bad,data),"REFUTED_FALSE_APPROVAL")
+    must_reject(lambda:check_actual_cue_provenance(bad,data,ledger),"REFUTED_FALSE_APPROVAL")
     bad=copy.deepcopy(frames[0])
     bad["annotation_review_status"]="PROPOSED"
     must_reject(lambda:signed(bad),"UNREVIEWED_PROPOSAL_CANNOT_SIGN")
     must_reject(lambda:verified_frame(frames[0]),"BARE_DICT_CANNOT_SIGN")
     bad=copy.deepcopy(frames[0])
     bad["claim_text"]=bad["claim_text"]+" 위조"
-    must_reject(lambda:check_actual_cue_provenance(bad,data),"CLAIM_DIGEST_DRIFT")
+    must_reject(lambda:check_actual_cue_provenance(bad,data,ledger),"CLAIM_DIGEST_DRIFT")
     double=copy.deepcopy(keys)
     double["semantic_reviewer"]["reviewer_id"]=double["source_reviewer"]["reviewer_id"]
     must_reject(lambda:signed(frames[0],double),"SAME_HUMAN_TWO_REVIEW_ROLES")
