@@ -1,0 +1,113 @@
+{
+  "schema": "V30_001_005_PRIVATE_ORIGINAL_SOURCE_LOCAL_EXECUTION_EVIDENCE_V1",
+  "date": "2026-10-31",
+  "origin": "Private Google Drive 1-100.zip downloaded and executed in sandbox using GitHub Actions public source artifact; actual private original bytes never added to GitHub",
+  "original_archive_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "local_execution_entrypoint": "scripts/verify_v30_private_srt_001_005.py",
+  "original_source_verification_level": "REAL_BYTE_SHA256_AND_FULL_CUE_PARSING_NOT_AUDIO_OR_VIDEO",
+  "ci_can_read_user_originals": false,
+  "ci_only_rechecks_public_metadata": true,
+  "results": [
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "original_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "original_srt_bytes": 92252,
+      "full_cues_reparsed": 1195,
+      "legacy_claims_with_matching_v3_v5_verdict": 23,
+      "prior_v5_external_blocker_records": 3,
+      "unreviewed_proposed_atomic_segments": 1639,
+      "unreviewed_keyword_material_candidates": 384,
+      "unreviewed_ambiguous_candidates": 1255,
+      "incomplete_atomic_ledger_rejected": true
+    },
+    {
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "original_srt_sha256": "a59b2fd424011c3f572aa52404411ff4ea435f6dd1e7e27e4f5c9e11f7218b72",
+      "original_srt_bytes": 103453,
+      "full_cues_reparsed": 1347,
+      "legacy_claims_with_matching_v3_v5_verdict": 9,
+      "prior_v5_external_blocker_records": 2,
+      "unreviewed_proposed_atomic_segments": 1908,
+      "unreviewed_keyword_material_candidates": 299,
+      "unreviewed_ambiguous_candidates": 1609,
+      "incomplete_atomic_ledger_rejected": true
+    },
+    {
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "original_srt_sha256": "e94b12a1084a8b57c3b9c2a630e27f840ae5a827b3a71c62526e15380a7c57bd",
+      "original_srt_bytes": 60710,
+      "full_cues_reparsed": 785,
+      "legacy_claims_with_matching_v3_v5_verdict": 15,
+      "prior_v5_external_blocker_records": 3,
+      "unreviewed_proposed_atomic_segments": 1124,
+      "unreviewed_keyword_material_candidates": 163,
+      "unreviewed_ambiguous_candidates": 961,
+      "incomplete_atomic_ledger_rejected": true
+    },
+    {
+      "video_number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "original_srt_sha256": "853db2d4f01ab71bbc4f86b46714f4341aa32aa2bc07416f705a937b620ea12b",
+      "original_srt_bytes": 59083,
+      "full_cues_reparsed": 758,
+      "legacy_claims_with_matching_v3_v5_verdict": 6,
+      "prior_v5_external_blocker_records": 2,
+      "unreviewed_proposed_atomic_segments": 1031,
+      "unreviewed_keyword_material_candidates": 130,
+      "unreviewed_ambiguous_candidates": 901,
+      "incomplete_atomic_ledger_rejected": true
+    },
+    {
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "original_srt_sha256": "af4fb6b702c5497e5c17bc7b9a3e87855a5488dd263cded32be9a09cec67a543",
+      "original_srt_bytes": 78723,
+      "full_cues_reparsed": 1044,
+      "legacy_claims_with_matching_v3_v5_verdict": 9,
+      "prior_v5_external_blocker_records": 2,
+      "unreviewed_proposed_atomic_segments": 1352,
+      "unreviewed_keyword_material_candidates": 124,
+      "unreviewed_ambiguous_candidates": 1228,
+      "incomplete_atomic_ledger_rejected": true
+    }
+  ],
+  "totals": {
+    "videos": 5,
+    "source_cues": 5129,
+    "legacy_core_claims": 62,
+    "v5_unresolved_external_blocker_records": 12,
+    "atomic_unreviewed_proposals": 7054,
+    "keyword_material_candidates": 1100,
+    "ambiguous_candidates": 5954,
+    "declared_full_human_reviews": 0,
+    "incomplete_ledgers_correctly_blocked": 5,
+    "v30_research_complete_certificates": 0
+  },
+  "financial_model_replay": {
+    "claim_id": "sz5N9WJS310-06",
+    "original_rate_convention": "EFFECTIVE_ANNUAL_7_PERCENT",
+    "v30_supported_rate_convention": "NOMINAL_ANNUAL_DIVIDED_BY_12",
+    "monthly_contribution_KRW": 300000,
+    "models": [
+      {
+        "months": 84,
+        "effective_annual_7pct_KRW": "32141805.79",
+        "nominal_annual_7pct_KRW": "32399694.21",
+        "difference_KRW": "257888.42"
+      },
+      {
+        "months": 120,
+        "effective_annual_7pct_KRW": "51315519.38",
+        "nominal_annual_7pct_KRW": "51925442.23",
+        "difference_KRW": "609922.85"
+      }
+    ],
+    "finding": "V30 arithmetic agrees under its declared nominal-rate assumption, but does not reproduce effective annual rate assumed by original V3 claim."
+  },
+  "private_srt_text_in_file": false,
+  "independent_human_source_truth_proven": false,
+  "automatic_knowledge_merge": false
+}
