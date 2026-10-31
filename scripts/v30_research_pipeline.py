@@ -16,7 +16,7 @@ from pathlib import Path
 from v30_verified_core import (
     guard,policy_gate,parse_srt,verify_ledger,sha256,canonical,
     check_privacy,frame_check,evidence_requirements,verify_attestation,
-    VERDICTS,ROLES,bind_reviewed_claim,relation_for_bound_claims,
+    VERDICTS,ROLES,blob_sha,bind_reviewed_claim,relation_for_bound_claims,
 )
 from v30_evidence_services import (
     review_primary_evidence,math_reproduce,empirical_reproduce,
@@ -63,6 +63,36 @@ def scan_source_state(root,manifest,raw_srt,ledger,authorities=None):
     legacy=manifest.get("legacy_verdicts")
     guard(legacy is None or isinstance(legacy,dict),
           "SOURCE_VERDICT_PROVENANCE_INVALID")
+    # For an existing historic video, reconcile each reused claim verdict
+    # against the immutable original V3 source, rather than trusting a new
+    # manifest that might relabel known CONTRADICTED source claims.
+    fixture=manifest.get("test_fixture") is True
+    historic_path=Path(root)/"data/analysis_events"/(video_id+".json")
+    if historic_path.is_file():
+        original_sha=blob_sha(historic_path)
+        guard(manifest.get("historical_event_git_blob_sha")==original_sha,
+              "HISTORICAL_V3_ORIGINAL_GIT_BLOB_MUST_BE_EXACTLY_PINNED")
+        historic=json.loads(historic_path.read_text(encoding="utf-8"))
+        guard(historic["video_id"]==video_id and
+              historic.get("approval")=="APPROVED",
+              "HISTORICAL_V3_STUDY_UNRECONCILED")
+        indexed=root/"data/subtitles/content_index_001_070.json"
+        if indexed.is_file():
+            registry=json.loads(indexed.read_text(encoding="utf-8"))["items"]
+            if video_id in registry:
+                entry=registry[video_id]
+                guard(entry["roster_no"]==number and
+                      entry["subtitle_sha256"]==expected and
+                      entry["cue_count"]==len(cues),
+                      "REGISTERED_HISTORIC_SRT_HASH_OR_CUE_COUNT_CHANGED")
+        prev={r["claim_id"]:r["verification"]
+              for r in historic["core_claims"]}
+        for claim in ledger["claims"]:
+            if claim["claim_id"] in prev:
+                guard(claim["legacy_verdict"]==prev[claim["claim_id"]],
+                      "HISTORICAL_CONTRADICTED_OR_OTHER_VERDICT_SPOOF")
+    else:
+        guard(fixture,"NONREGISTERED_VIDEO_CANNOT_REQUEST_REAL_RESEARCH")
     coverage=verify_ledger(cues,ledger,video_id,legacy)
     binding={
         "video_id":video_id,"video_number":number,
@@ -84,6 +114,7 @@ def scan_source_state(root,manifest,raw_srt,ledger,authorities=None):
       "source_digest_checked_from_actual_bytes":True,
       "original_bytes_saved_in_public_report":False,
       "verified_cues":cues,
+      "test_fixture_source":fixture,
     }
 
 def _review_links(claim_id,source,documents,models,empirical,authorities):
@@ -306,7 +337,8 @@ def research_run(root,manifest,raw_srt,ledger,
     verified_v5=False
     v5_certificate_sha=None
     if v5_certificate_paths is not None:
-        guard(isinstance(v5_certificate_paths,dict)
+        guard(not x["test_fixture_source"] and
+              isinstance(v5_certificate_paths,dict)
               and pending==0 and review_id and relation_reviewer_id,
               "V5_EXTERNAL_CERTIFICATE_REQUIRES_ALL_PRIOR_STAGE_PROOFS")
         paths=v5_certificate_paths
@@ -328,6 +360,7 @@ def research_run(root,manifest,raw_srt,ledger,
         else "BLOCKED_REQUIRES_V5_CERTIFICATE")
     result={
         "schema":"V30_END_TO_END_RESEARCH_WORK_PRODUCT_V1",
+        "synthetic_test_fixture":x["test_fixture_source"],
         "video_id":binding["video_id"],
         "video_number":binding["video_number"],
         "input_srt_sha256":binding["srt_sha256"],
