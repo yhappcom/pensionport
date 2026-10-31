@@ -1,0 +1,111 @@
+{
+  "schema": "V30_ENGINE_READ_ONLY_DEEP_AUDIT_SNAPSHOT_V1",
+  "audit_date": "2026-10-31",
+  "subject_branch": "feat/v30-integrated-research-engine-20261031",
+  "first_audit_ci": "https://github.com/yhappcom/pensionport/actions/runs/41150852410",
+  "audited_engine_git_blob_sha": "7924ad51058abc1129eef2ec91df97589b412f63",
+  "audit_runner_git_blob_sha": "f577e0daf231ffc8927905df40a252e8fb87cc9c",
+  "parent_v23_git_blob_sha": "be73e778b7851ba440e40c85629f2f89b6da3648",
+  "notes": "Audit script tests synthetic inputs and a temporary mutated contract copy, never edits the production engine, originals or main branch. Audit PASS means issues successfully reproduced, not engine production quality.",
+  "issue_counts": {
+    "P0_architectural": 3,
+    "P1_high": 7,
+    "total": 10
+  },
+  "baseline_research_completion": {
+    "legacy_001_010_video_count": 10,
+    "certified_count": 0,
+    "material_open_items": 26
+  },
+  "proof": {
+    "audit_kind": "READ_ONLY_CODE_AND_SYNTHETIC_COUNTEREXAMPLE",
+    "conclusion": "V30_BOOTSTRAP_TEST_PASS_NOT_FINAL_RESEARCH_ENGINE_READY",
+    "engine_files_modified_in_this_audit": false,
+    "engine_git_blob_sha": "7924ad51058abc1129eef2ec91df97589b412f63",
+    "existing_safety_retained": {
+      "candidate_auto_merge_still_disabled": true,
+      "production_release_blocked": true,
+      "quant_contractual_truth_not_inferred": true,
+      "source_hash_checked_19_20_dev": true,
+      "v23_source_sha_enforced": true
+    },
+    "findings": [
+      {
+        "id": "AUD-01",
+        "issue": "MUTABLE_PROTECTED_FILE_MANIFEST_AND_UNCHECKED_POLICY_INVARIANTS",
+        "note": "No repository policy file was modified; temporary synthetic copy only.",
+        "outcome": "REPRODUCED_ACCEPTED_WEAKENED_POLICY_IN_TEMP_ROOT",
+        "protected_paths_bypassed_count": 3,
+        "severity": "P0_ARCHITECTURE_GATE"
+      },
+      {
+        "id": "AUD-02",
+        "issue": "RELATION_FRAME_PROVENANCE_AND_REVIEWER_UNAUTHENTICATED",
+        "mitigation_already_present": "automatic approval and knowledge merge remain forbidden",
+        "outcome": "REPRODUCED_CANDIDATE_FROM_NONEXISTENT_CLAIM_IDS",
+        "severity": "P0_IF_PROMOTED_TO_PUBLIC_OR_APPROVAL_API"
+      },
+      {
+        "example_values": [
+          "15000000",
+          "15000000.00"
+        ],
+        "id": "AUD-03",
+        "issue": "NUMERIC_LEXICAL_INEQUALITY_FALSE_CONTRADICTION",
+        "outcome": "REPRODUCED_CONTRADICTION_CANDIDATE_FOR_SAME_DECIMAL_VALUE",
+        "severity": "P1_SEMANTIC_CORRECTNESS"
+      },
+      {
+        "id": "AUD-04",
+        "issue": "MISSING_NUMERIC_PAYLOAD_DID_NOT_PREVENT_SAME_PROPOSITION",
+        "outcome": "REPRODUCED_SAME_PROPOSITION_CANDIDATE_WITH_ONE_VALUE_ABSENT",
+        "severity": "P1_SEMANTIC_CORRECTNESS"
+      },
+      {
+        "id": "AUD-05",
+        "issue": "ROLE_NOT_ENUMERATED_AND_DATE_NOT_CALENDAR_VALIDATED",
+        "outcome": "REPRODUCED_ACCEPTED_MADE_UP_ROLE_AND_IMPOSSIBLE_DATE",
+        "severity": "P1_CONTRACT_VALIDATION"
+      },
+      {
+        "id": "AUD-06",
+        "issue": "DIFFERENT_ACTIONS_LABELLED_CALCULATION_DEPENDENCY",
+        "outcome": "REPRODUCED_CALCULATION_DEPENDENCY_WITHOUT_FORMULA_OR_GRAPH",
+        "severity": "P1_SEMANTIC_CORRECTNESS"
+      },
+      {
+        "id": "AUD-07",
+        "issue": "SINGLE_CLAIM_TYPE_CAN_OMIT_NUMERIC_OBLIGATION",
+        "outcome": "REPRODUCED_NUMERIC_REQUIREMENT_ABSENT_FROM_LEGAL_ONLY_CLASS",
+        "severity": "P1_OBLIGATION_CLASSIFICATION"
+      },
+      {
+        "id": "AUD-08",
+        "issue": "TOPIC_PREFILTER_LACKS_POST20_EMBARGO_FOR_HISTORICAL_INDEX",
+        "new_video_content_read_for_this_probe": false,
+        "note": "Contrast no raw #21+ SRT with historic post-20 claim metadata exposure.",
+        "outcome": "CONFIRMED_BY_SOURCE_PATH_NO_POST20_ROSTER_FILTER",
+        "severity": "P1_DATA_LEAKAGE_EVALUATION"
+      },
+      {
+        "id": "AUD-09",
+        "issue": "CI_FILE_EXTENSION_CHECK_NOT_CONTENT_PRIVACY_OR_ALL_LEGACY_DIFF_GATE",
+        "note": "No personal or private data was written to repository in this audit.",
+        "outcome": "CONFIRMED_BY_WORKFLOW_SOURCE_REVIEW",
+        "severity": "P1_PRIVACY_AND_IMMUTABILITY"
+      },
+      {
+        "automatic_research_certificates": 0,
+        "id": "AUD-10",
+        "issue": "ORCHESTRATION_MISSING_WORKLIST_ONLY",
+        "outcome": "CONFIRMED_IMPLEMENTATION_RETURNS_ONLY_BLOCKED_OBLIGATION_PLAN",
+        "severity": "P0_FUNCTIONAL_COMPLETENESS"
+      }
+    ],
+    "findings_count": 10,
+    "production_ready": false,
+    "real_unseen_21_plus_claims_examined": false,
+    "schema": "V30_DEEP_SECURITY_SEMANTICS_AUDIT_20261031_V1"
+  },
+  "release_decision": "BLOCKED_RISK_REMEDIATION_AND_FULL_RESEARCH_PIPELINE_NOT_IMPLEMENTED"
+}
