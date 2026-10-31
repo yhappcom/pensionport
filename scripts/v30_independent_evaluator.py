@@ -91,8 +91,8 @@ def evaluate(benchmark,predictions,require_independent=True):
     requirements=benchmark.get("release_thresholds",{})
     precision=score["precision"]
     recall=score["recall"]
-    evaluation_pass=bool(
-        require_independent and precision and recall and
+    numeric_threshold_met=bool(
+        precision and recall and
         recall["lower"]>=requirements.get("recall_lower_bound",0.95) and
         precision["lower"]>=requirements.get("precision_lower_bound",0.85)
     )
@@ -113,7 +113,13 @@ def evaluate(benchmark,predictions,require_independent=True):
        "by_domain":by,
        "false_negative_case_ids":missed,
        "false_positive_case_ids":false,
-       "model_release_threshold_pass":evaluation_pass,
+       "numeric_thresholds_met":numeric_threshold_met,
+       "model_release_threshold_pass":False,
+       "release_blockers":[
+           "EXTERNAL_REVIEWER_IDENTITY_NOT_AUTOMATICALLY_VERIFIED",
+           "GIT_ORDER_ALONE_DOES_NOT_PROVE_BLIND_DATA_NONEXPOSURE",
+           "V5_RESEARCH_COMPLETENESS_AND_EXTERNAL_FINANCIAL_FACTS_PENDING",
+       ],
        "real_source_or_human_reviewer_trust_automatically_proven":False,
        "automatic_research_completion":False,
        "automatic_knowledge_merge":False,
@@ -134,7 +140,6 @@ def validate_prereg_git_history(repo,benchmark_path,predictions_path):
     p=exec_git("log","--format=%H","--",str(predictions_path)).splitlines()
     guard(g and p and g[0]!=p[0],
           "GOLD_AND_PREDICTIONS_MUST_BE_DISTINCT_COMMITS")
-    ancestor=exec_git("merge-base","--is-ancestor",g[0],p[0]) if False else None
     check=subprocess.run(["git","merge-base","--is-ancestor",g[0],p[0]],
                          cwd=repo)
     guard(check.returncode==0,"BENCHMARK_WAS_NOT_COMMITTED_BEFORE_PREDICTIONS")
@@ -147,13 +152,19 @@ if __name__=="__main__":
     p.add_argument("--benchmark",type=Path,required=True)
     p.add_argument("--predictions",type=Path,required=True)
     p.add_argument("--diagnostic-only",action="store_true")
+    p.add_argument("--repo-root",type=Path)
     args=p.parse_args()
     try:
         b=json.loads(args.benchmark.read_text())
         pr=json.loads(args.predictions.read_text())
-        print(json.dumps(evaluate(b,pr,
-             require_independent=not args.diagnostic_only),
-                         sort_keys=True,ensure_ascii=False))
+        result=evaluate(b,pr,
+             require_independent=not args.diagnostic_only)
+        if not args.diagnostic_only:
+            guard(args.repo_root is not None,
+                  "GIT_PREREGISTRATION_IS_REQUIRED_BEFORE_INDEPENDENT_EVALUATION")
+            result["preregistration_git_check"]=validate_prereg_git_history(
+                args.repo_root,args.benchmark,args.predictions)
+        print(json.dumps(result,sort_keys=True,ensure_ascii=False))
     except (ValueError,KeyError,TypeError) as e:
         print(json.dumps({"gate":"FAIL","error":str(e)},ensure_ascii=False))
         raise SystemExit(1)
