@@ -38,3 +38,17 @@ python -B scripts/verify_v30_integrated_research.py --root .
 현재 **P0 구조·운영 차단사항 3건**과 **P1 중요 설계결함 7건**을 확인했다. 시험 성과의 PASS는 취약점 존재를 재현한 감사기가 성공했다는 뜻이며, 프로덕션 연구 엔진 승인 결과가 아니다. 특히 보호 목록 자체를 지울 수 있는 정책검사 허점, 출처 미인증 비교, 수치 문자열 오판, 모든 단계의 실제 증거·통합 실행기 미구현을 기록했다.
 
 감사 동안 V3.0 엔진 원본 Git blob 7924ad51058abc1129eef2ec91df97589b412f63은 수정하지 않았다. 기존 4,120개 연구 원장과 main도 변경하지 않았다. 이 결함을 변경·수정하기 전 G0~G7 수용 기준을 먼저 고정하고, 실제 동결 엔진·검색 인덱스·독립 검증 데이터를 분리해 평가하도록 권고한다. 운영 승인 **BLOCKED** 유지.
+
+## V3.0 실행 파이프라인 보완 — 2026-10-31
+
+[전체 구현 내용·8단계 모듈 대조 및 실제 운영에 필요한 근거](FULL_PIPELINE_IMPLEMENTATION_AND_REMAINING_GATES_20261031.md).
+
+**현재 개발용 실행 진입점:** [v30_research_pipeline.py](../scripts/v30_research_pipeline.py). 최초 [v30_integrated_research.py](../scripts/v30_integrated_research.py)는 기존 취약점 재현·역사 출처 스모크 테스트용 **동결 초기 프로토타입**이며 신규 실제 연구에 단독 적용하지 않는다.
+
+- [원본 SRT·금융 명제·출처 검증](../scripts/v30_verified_core.py), [자막 전구간 원자 주장 후보 추출](../scripts/v30_claim_extraction.py)
+- [공식자료·재무계산·실증 CSV 검증](../scripts/v30_evidence_services.py), [한국어/금융 역할/주제/선택적 임베딩 검색](../scripts/v30_hybrid_search.py)
+- [8단계 승인 불변 상태기계](../scripts/v30_state_machine.py), [V5 BLOCKED 인증·지식통합 검토대기 이벤트](../scripts/v30_v5_bridge.py)
+- [원본·공식자료·의미 검색·V5 통합의 통합 적대적 테스트](../scripts/verify_v30_full_research.py), [외부 블라인드·진단 표본 분리 평가기](../scripts/v30_independent_evaluator.py), [브랜치 원장 보존·개인정보 검증](../scripts/verify_v30_repository_safety.py)
+- [#19 원본 비공개 SRT를 포함하지 않은 역사 출처 manifest](examples/019_readonly_source_manifest.json).
+
+**제한:** 실제 외부 공식 증거·독립 심사자·원본 전체의 최종 검토·진짜 미노출 신규 성능 자료는 이 브랜치에 확보되지 않았다. 따라서 모든 신규 지식/매매 자동 승인은 0건이고 운영은 **BLOCKED**. CI의 합성 테스트 성공은 실제 금융 사실검증 완료가 아니다. #21 이후 신규영상은 개발코드에서 접근을 차단한 상태다.
