@@ -238,8 +238,14 @@ def evaluate_blind(packet,gold,predictions,authorities,
                  c["semantic_reviewer_id"])
               for row in packet["cases"] for c in row["source_claims"]),
           "NOT_INDEPENDENT_FROM_SOURCE_OR_SEMANTIC_ANNOTATOR")
+    # Independent reviewers may write different explanations while agreeing
+    # on labels; only disagreements in relation classification require a third
+    # adjudicator. Both independently signed explanations remain in the audit.
+    def decision(x):
+        return (x["label"],x["relation_type"],x["stratum"])
+    disputed={c for c in ids if decision(a[c])!=decision(b[c])}
     resolutions={}
-    if any(a[c]!=b[c] for c in ids):
+    if disputed:
         review=gold.get("adjudicator")
         guard(review is not None,
               "BLIND_REVIEW_DISAGREEMENT_REQUIRES_THIRD_INDEPENDENT_ADJUDICATION")
@@ -252,7 +258,7 @@ def evaluate_blind(packet,gold,predictions,authorities,
               "ADJUDICATOR_MUST_BE_DISTINCT_FROM_ALL_PRIOR_REVIEWERS")
     final={}
     for i in ids:
-        final[i]=(a[i] if a[i]==b[i] else resolutions[i])
+        final[i]=(a[i] if i not in disputed else resolutions[i])
         guard(final[i]["label"]!="UNRESOLVED",
               "UNRESOLVED_LABEL_CANNOT_ENTER_FINAL_RECALL_DENOMINATOR")
     p=predictions.get("cases")
