@@ -294,7 +294,7 @@ jobs:
           assert j["test"]["automatic_knowledge_approvals"]==0
           for relative,expected in j["frozen_code_git_blobs"].items():
               b=Path(relative).read_bytes()
-              actual=hashlib.sha1(b"blob "+str(len(b)).encode()+b"\\0"+b).hexdigest()
+              actual=hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
               assert actual==expected, "V34_DEVELOPMENT_FROZEN_SOURCE_CHANGED_"+relative
           sys.path.insert(0,"scripts")
           from verify_v30_v34_retro import compare
