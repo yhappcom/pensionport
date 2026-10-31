@@ -160,10 +160,10 @@
     },
     {
       "id": "P020",
-      "left": "OiDTNstaSpM-13",
-      "right": "sz5N9WJS310-15",
+      "left": "sz5N9WJS310-19",
+      "right": "sz5N9WJS310-20",
       "review_relevant": true,
-      "review_reason": "은퇴 분배상품의 지급액 위험"
+      "review_reason": "연금저축보험 계약 보증 및 해약·펀드 수익 비교"
     },
     {
       "id": "P021",
@@ -333,5 +333,12 @@
       "review_relevant": false,
       "review_reason": "손실 종목 앱 삭제 조언과 금현물 계좌 세제"
     }
-  ]
+  ],
+  "preregister_manifest_correction": {
+    "reason": "Pair P020 duplicated P009 in opposite order; replaced before any retriever prediction was produced, after fail-closed case-uniqueness validation.",
+    "invalid_prior_case_commit": "cebc4ca9c4f06a79752d75159c0d4399ac7eedeb",
+    "prior_run_failed_before_retrieval": "https://github.com/yhappcom/pensionport/actions/runs/41185134649",
+    "impacted_case": "P020",
+    "labels_changed_after_predictions": false
+  }
 }
