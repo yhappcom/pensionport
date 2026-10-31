@@ -26,6 +26,7 @@ from v30_evidence_services import (
 from v30_hybrid_search import make_index,search,build_development_history
 from v30_claim_extraction import propose_atomic_draft
 from v30_state_machine import ResearchState
+from v30_independent_evaluator import evaluate,wilson
 from v30_research_pipeline import (
     scan_source_state,research_run,authority_registry_from_environment,
     v5_append_only_preview,complete_with_preexisting_v5_certificate,
@@ -557,6 +558,42 @@ def run(root=ROOT):
          root,"v5/completion/v5_019_zi9x_q2fYoc_certificate.json",
          "v5/videos/v5_019_zi9x_q2fYoc_advisory_review.json"),
          "UNISSUED_V5_CERTIFICATE")
+    cases+=2
+
+    # Diagnostic data are deliberately previously exposed and self-selected.
+    # The quantitative evaluator must never report production release.
+    benchmark={
+        "schema":"V30_PREREGISTERED_RELATION_BENCHMARK_V1",
+        "engine_blob_sha":"a"*40,"index_sha256":"b"*64,
+        "independent_blinded_adjudication":False,
+        "historical_index_exposure":"PREVIOUSLY_EXPOSED_HISTORICAL_INDEX",
+        "committed_before_predictions":True,
+        "sampling_method":"ANALYST_DIAGNOSTIC",
+        "release_thresholds":{"recall_lower_bound":0.95,
+                              "precision_lower_bound":0.85},
+        "cases":[
+            {"id":f"DIAG-{i}","related":i in (1,2),"stratum":"LEGAL",
+             "relation_type":"CONDITIONAL","video_number":19,
+             "independent_reviewer_reference":"FIXTURE_NOT_HUMAN"}
+            for i in range(1,5)],
+    }
+    pred={
+        "schema":"V30_FROZEN_RELATION_PREDICTIONS_V1",
+        "engine_blob_sha":"a"*40,"index_sha256":"b"*64,
+        "cases":[{"id":f"DIAG-{i}","candidate":i in (1,3)}
+                 for i in range(1,5)],
+    }
+    diag=evaluate(benchmark,pred,require_independent=False)
+    guard(diag["total"]["counts"]=={"TP":1,"FN":1,"FP":1,"TN":1}
+          and diag["model_release_threshold_pass"] is False
+          and not diag["independent_blinded"],
+          "HISTORIC_ANALYST_LABELS_FALSELY_APPROVED_AS_UNSEEN_ACCURACY")
+    cases+=1
+    fail(lambda:evaluate(benchmark,pred,require_independent=True),
+         "NONBLIND_HISTORICAL_SAMPLE_AS_INDEPENDENT_HOLDOUT")
+    bad=copy.deepcopy(pred);bad["index_sha256"]="0"*64
+    fail(lambda:evaluate(benchmark,bad,require_independent=False),
+         "INDEX_CHANGED_AFTER_GOLD_REGISTRATION")
     cases+=2
 
     return {
