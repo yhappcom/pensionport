@@ -18,6 +18,7 @@ on:
       - "scripts/v30_independent_evaluator.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
+      - "scripts/verify_v30_001_005_replay.py"
       - "scripts/verify_v30_repository_safety.py"
       - ".github/workflows/v30-integrated-research-gate.yml"
   pull_request:
@@ -35,6 +36,7 @@ on:
       - "scripts/v30_independent_evaluator.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
+      - "scripts/verify_v30_001_005_replay.py"
       - "scripts/verify_v30_repository_safety.py"
       - ".github/workflows/v30-integrated-research-gate.yml"
 
@@ -91,6 +93,9 @@ jobs:
         run: |
           python -m py_compile scripts/v30_verified_core.py scripts/v30_evidence_services.py scripts/v30_hybrid_search.py scripts/v30_research_pipeline.py scripts/verify_v30_full_research.py scripts/v30_v5_bridge.py scripts/v30_claim_extraction.py scripts/v30_state_machine.py scripts/v30_independent_evaluator.py
           python -B scripts/verify_v30_full_research.py
+      - name: Replay unchanged V3.0 and V2.3 retrieval on 1-5 historical core claims
+        run: |
+          python -B scripts/verify_v30_001_005_replay.py --root .
       - name: V3.0 production CLI preflight remains evidence BLOCKED
         run: |
           python -B scripts/v30_research_pipeline.py --root .
