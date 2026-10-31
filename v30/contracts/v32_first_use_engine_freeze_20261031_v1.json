@@ -1,0 +1,32 @@
+{
+  "schema": "V32_FROZEN_SEPARATE_ACTUAL_COHORT_FIRST_USE_V1",
+  "freeze_date": "2026-10-31",
+  "origin": "V3.2 typed financial event supplementary search with historic code preserved",
+  "source_sha": {
+    "scripts/v30_semantic_v32.py": "36a74e8d31180283a0c68f618acae716ac935ac8",
+    "scripts/v30_semantic_v31.py": "939e11d169355748b92dd81c855bc0d91070f7ba",
+    "scripts/v30_finance_math_v31.py": "d24b28f69e0fa292c736506b038aff1a674b0d24",
+    "scripts/verify_v30_v32_development.py": "26cb873e3919164eef0abdfb9e8611ccadd16833",
+    "scripts/v30_verified_core.py": "724a9c9531b4594c3d8bee94e9ab59e6d54e93ee"
+  },
+  "development_cohorts": [
+    "#1-5 previously analyzed 44 manually labeled pairs",
+    "#61-65 previously researched 48 manually labeled pairs"
+  ],
+  "development_accuracy_seen_only": "92/92 labeled development pairs (after addressing V3.1 failures) do not imply population performance",
+  "first_use_cohort_reserved": [
+    66,
+    67,
+    68,
+    69,
+    70
+  ],
+  "source_claim_content_of_reserved_cohort_read_by_V32_developer_before_this_freeze": false,
+  "historical_index_had_metadata_001_260": true,
+  "is_truly_independent_never_exposed_to_prior_project": false,
+  "gold_labels_must_be_committed_before_running_predictons": true,
+  "post_holdout_tuning_of_frozen_V32_forbidden": true,
+  "auto_research_completion": false,
+  "auto_knowledge_merge": false,
+  "release": "BLOCKED"
+}
