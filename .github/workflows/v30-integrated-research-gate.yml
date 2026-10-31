@@ -8,12 +8,14 @@ on:
       - "v30/**"
       - "scripts/v30_integrated_research.py"
       - "scripts/verify_v30_integrated_research.py"
+      - "scripts/audit_v30_deep_readonly.py"
       - ".github/workflows/v30-integrated-research-gate.yml"
   pull_request:
     paths:
       - "v30/**"
       - "scripts/v30_integrated_research.py"
       - "scripts/verify_v30_integrated_research.py"
+      - "scripts/audit_v30_deep_readonly.py"
       - ".github/workflows/v30-integrated-research-gate.yml"
 
 permissions:
@@ -39,6 +41,10 @@ jobs:
       - name: Replay existing video 020 as source-locked BLOCKED worklist, not a completed new research
         run: |
           python -B scripts/v30_integrated_research.py --root . --plan-development-video 20
+      - name: Red-team reproducibility audit of V3.0 bootstrap limitations (no engine changes)
+        run: |
+          python -m py_compile scripts/audit_v30_deep_readonly.py
+          python -B scripts/audit_v30_deep_readonly.py --root .
       - name: Preserve existing research completion policy and empirical fact gates
         run: |
           python -B scripts/verify_v5_research_completion.py --root . --self-test
