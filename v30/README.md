@@ -52,3 +52,6 @@ python -B scripts/verify_v30_integrated_research.py --root .
 - [#19 원본 비공개 SRT를 포함하지 않은 역사 출처 manifest](examples/019_readonly_source_manifest.json).
 
 **제한:** 실제 외부 공식 증거·독립 심사자·원본 전체의 최종 검토·진짜 미노출 신규 성능 자료는 이 브랜치에 확보되지 않았다. 따라서 모든 신규 지식/매매 자동 승인은 0건이고 운영은 **BLOCKED**. CI의 합성 테스트 성공은 실제 금융 사실검증 완료가 아니다. #21 이후 신규영상은 개발코드에서 접근을 차단한 상태다.
+
+
+**코드·계약 동결:** [V3.0 전체 12개 소스/계약 Git blob 고정 원장](contracts/v30_development_freeze_20261031_v1.json). GitHub CI에서 47개 개발 시험과 이 원장을 함께 검사한다. 외부 독립 블라인드 시험을 통과하기 전 신규 원본 동영상 분석·운영 승인은 계속 금지한다.
