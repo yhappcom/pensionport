@@ -19,6 +19,7 @@ on:
       - "scripts/v30_semantic_v31.py"
       - "scripts/v30_finance_math_v31.py"
       - "scripts/verify_v30_v31_development.py"
+      - "scripts/verify_v30_v31_firstuse.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
       - "scripts/verify_v30_001_005_replay.py"
@@ -41,6 +42,7 @@ on:
       - "scripts/v30_semantic_v31.py"
       - "scripts/v30_finance_math_v31.py"
       - "scripts/verify_v30_v31_development.py"
+      - "scripts/verify_v30_v31_firstuse.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
       - "scripts/verify_v30_001_005_replay.py"
@@ -109,6 +111,10 @@ jobs:
         run: |
           python -m py_compile scripts/v30_semantic_v31.py scripts/v30_finance_math_v31.py scripts/verify_v30_v31_development.py
           python -B scripts/verify_v30_v31_development.py --root .
+      - name: V3.1 protected post-freeze 48-case novel synthetic first-use
+        run: |
+          python -m py_compile scripts/verify_v30_v31_firstuse.py
+          python -B scripts/verify_v30_v31_firstuse.py --root .
       - name: V3.0 production CLI preflight remains evidence BLOCKED
         run: |
           python -B scripts/v30_research_pipeline.py --root .
