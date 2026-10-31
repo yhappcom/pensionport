@@ -97,6 +97,29 @@ jobs:
       - name: Preserve existing research completion policy and empirical fact gates
         run: |
           python -B scripts/verify_v5_research_completion.py --root . --self-test
+      - name: Freeze all twelve V3.0 code and policy blobs with zero automatic release
+        run: |
+          python - <<'PY'
+          import json
+          import hashlib
+          from pathlib import Path
+          p=Path("v30/contracts/v30_development_freeze_20261031_v1.json")
+          j=json.loads(p.read_text(encoding="utf-8"))
+          assert j["schema"]=="V30_ENGINE_IMPLEMENTATION_DEVELOPMENT_FREEZE_V1"
+          assert j["release"].startswith("BLOCKED_")
+          assert len(j["module_git_blobs"])==12
+          for relative,sha in j["module_git_blobs"].items():
+              raw=Path(relative).read_bytes()
+              blob=hashlib.sha1(
+                  b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()
+              assert sha==blob, f"frozen implementation drift: {relative}"
+          g=j["development_gate"]
+          assert g["adversarial_scenarios_pass"]==47
+          assert g["real_research_complete_certificates"]==0
+          assert g["automatic_knowledge_merges"]==0
+          assert g["unseen_video_21_plus_used"]==0
+          print("PASS: 12 frozen V3.0 files, 47 development tests, zero automatic approvals")
+          PY
       - name: Verify all changed files against immutable research baseline and scan public privacy leaks
         run: |
           python -m py_compile scripts/verify_v30_repository_safety.py
