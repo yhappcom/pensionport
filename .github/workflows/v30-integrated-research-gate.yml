@@ -22,6 +22,9 @@ on:
       - "scripts/verify_v30_v31_firstuse.py"
       - "scripts/verify_v30_v31_realcohort.py"
       - "scripts/v30_semantic_v32.py"
+      - "scripts/v30_semantic_frame_v33.py"
+      - "scripts/v30_semantic_extraction_v33.py"
+      - "scripts/verify_v30_v33_semantics.py"
       - "scripts/verify_v30_v32_development.py"
       - "scripts/v30_legacy_verdict_v32.py"
       - "scripts/verify_v30_v32_firstuse.py"
@@ -50,6 +53,9 @@ on:
       - "scripts/verify_v30_v31_firstuse.py"
       - "scripts/verify_v30_v31_realcohort.py"
       - "scripts/v30_semantic_v32.py"
+      - "scripts/v30_semantic_frame_v33.py"
+      - "scripts/v30_semantic_extraction_v33.py"
+      - "scripts/verify_v30_v33_semantics.py"
       - "scripts/verify_v30_v32_development.py"
       - "scripts/v30_legacy_verdict_v32.py"
       - "scripts/verify_v30_v32_firstuse.py"
@@ -137,6 +143,10 @@ jobs:
         run: |
           python -m py_compile scripts/v30_legacy_verdict_v32.py scripts/verify_v30_v32_firstuse.py
           python -B scripts/verify_v30_v32_firstuse.py --root . --assert-snapshot
+      - name: V3.3 independent source-bound semantic validation adversarial tests
+        run: |
+          python -m py_compile scripts/v30_semantic_frame_v33.py scripts/v30_semantic_extraction_v33.py scripts/verify_v30_v33_semantics.py
+          python -B scripts/verify_v30_v33_semantics.py
       - name: V3.0 production CLI preflight remains evidence BLOCKED
         run: |
           python -B scripts/v30_research_pipeline.py --root .
