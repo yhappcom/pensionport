@@ -119,7 +119,10 @@ def extract_from_original(raw_srt,source_manifest,ledger,
           and source_manifest.get("source_class") in
               ("REAL_ORIGINAL","SYNTHETIC_FIXTURE")
           and type(source_manifest.get("video_number")) is int
-          and 1<=source_manifest["video_number"]<=791
+          and ((source_manifest.get("source_class")=="SYNTHETIC_FIXTURE"
+                and 800<=source_manifest["video_number"]<=999)
+               or (source_manifest.get("source_class")=="REAL_ORIGINAL"
+                   and 261<=source_manifest["video_number"]<=791))
           and isinstance(source_manifest.get("video_id"),str)
           and VID_RE.fullmatch(source_manifest["video_id"])
           and isinstance(source_manifest.get("srt_sha256"),str)
