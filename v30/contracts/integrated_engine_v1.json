@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "V3.0 integrated nonpersonal investment research engine contract",
   "schema": "V30_INTEGRATED_RESEARCH_ENGINE_CONTRACT_V1",
   "as_of": "2026-10-31",
@@ -158,7 +157,8 @@
       "typed_relation_triage_on_explicit_frames",
       "deterministic_compound_arithmetic",
       "fail_closed_release",
-      "legacy_4120_metadata_reconciliation"
+      "legacy_4120_metadata_reconciliation",
+      "manual_topic_family_prefilter_over_all_4120_claims_no_semantic_certification"
     ],
     "not_yet_implemented": [
       "full_raw_srt_ingestion_and_atomic_coverage",
@@ -170,5 +170,6 @@
     ],
     "claim_frame_population": "EXPLICIT_ANNOTATION_REQUIRED_NOT_INFERRED_FROM_LEGACY_SHORT_TEXT",
     "testing_scope": "DEVELOPMENT_FIXTURES_ONLY_NOT_UNSEEN_EVALUATION"
-  }
+  },
+  "validation_method": "Explicit Python runtime contracts and adversarial tests; this JSON is a configuration specification, not a fully populated JSON Schema validator"
 }
