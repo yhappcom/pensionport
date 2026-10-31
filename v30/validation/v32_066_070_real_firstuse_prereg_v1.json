@@ -1,0 +1,395 @@
+{
+  "schema": "V32_066_070_SEPARATE_ACTUAL_HISTORICAL_FIRSTUSE_GOLD_V1",
+  "date": "2026-10-31",
+  "semantic_engine_sha": "36a74e8d31180283a0c68f618acae716ac935ac8",
+  "verdict_bridge_sha": "9ced4d65d037ac29ae8249759d609bf7adb7d433",
+  "semantic_source_freeze_commit": "dde1adfbbd5af68c131748133e561d27df61ff5a",
+  "input_adapter_freeze_commit": "d2e515e2090c53816d54ee9b58fd2c0ac72ef377",
+  "video_numbers": [
+    66,
+    67,
+    68,
+    69,
+    70
+  ],
+  "video_ids": [
+    "k9O79HeMOp0",
+    "CS00QYw7YbI",
+    "aWBZ3tBuODs",
+    "sqh-919UMVk",
+    "Dde4ogogNEk"
+  ],
+  "source_events_github_blob_shas": {
+    "k9O79HeMOp0": "0f1a18e2afa5df8457ac7bdca7034df9c0897099",
+    "CS00QYw7YbI": "541a7ef26813769ce2822424515a865fe82cc808",
+    "aWBZ3tBuODs": "812100dd2b5f51afdeef6e9169016fc44b42bcff",
+    "sqh-919UMVk": "9f695f802653333eb5b9dc8944cde2b5024bfd02",
+    "Dde4ogogNEk": "8edb959a3395666f659a8f792abd40b5594662f3"
+  },
+  "private_srt_source_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "original_srt_sha256_by_video": {
+    "k9O79HeMOp0": "2ce05daa4dd005b512ff99442de7cb2a172a62bc1a2f3daebb8def8003f623fc",
+    "CS00QYw7YbI": "a1581abe478986dd34153da0b941d6bf1669c92ab9f4ac05ec61ea349fb9e1be",
+    "aWBZ3tBuODs": "44e9b10179a78d4a46e3b31a8f9c4b85094fb300a7d970e2cf9e7dc313b3ebfd",
+    "sqh-919UMVk": "8cf31fcb32b543005f4b809c00ae7e4f1aff4ac1a8d1212c10d162fb8a400097",
+    "Dde4ogogNEk": "81da490d5ccc2494233d9f789367a0bfa026f93833464e0d977087e0d2e58134"
+  },
+  "original_srt_cues_by_video": {
+    "k9O79HeMOp0": 222,
+    "CS00QYw7YbI": 1268,
+    "aWBZ3tBuODs": 434,
+    "sqh-919UMVk": 747,
+    "Dde4ogogNEk": 421
+  },
+  "gold_was_set_before_first_frozen_model_predictions": true,
+  "gold_based_on_earlier_v3_summary_claims": true,
+  "source_audio_and_video_not_independently_audited": true,
+  "historical_001_260_knowledge_index_had_meta_exposure": true,
+  "verdict_adapter_was_informed_by_cohort_status_schema": true,
+  "separate_from_V32_training_cohorts": true,
+  "independent_external_human_labeler": false,
+  "truly_never_exposed_to_any_prior_research": false,
+  "study_class": "SEPARATE_REAL_HISTORICAL_FIRST_USE_NONBLIND_RISK_SENSITIVE",
+  "review_relevance_definition": "Related as candidates for direct financial scope/qualifying/contradictory review, not proof of same fact or approval",
+  "positive_cases": 24,
+  "negative_cases": 24,
+  "cases": [
+    {
+      "id": "P01",
+      "left": "k9O79HeMOp0-05",
+      "right": "k9O79HeMOp0-06",
+      "review_relevant": true,
+      "adjudication_reason": "파생형 ETF 레버리지·인버스와 초보 투자위험"
+    },
+    {
+      "id": "P02",
+      "left": "k9O79HeMOp0-01",
+      "right": "k9O79HeMOp0-02",
+      "review_relevant": true,
+      "adjudication_reason": "ETF 분류에서 지수·섹터 투자대상 구별"
+    },
+    {
+      "id": "P03",
+      "left": "k9O79HeMOp0-03",
+      "right": "k9O79HeMOp0-08",
+      "review_relevant": true,
+      "adjudication_reason": "투자스타일 ETF와 테마 ETF의 분류"
+    },
+    {
+      "id": "P04",
+      "left": "k9O79HeMOp0-09",
+      "right": "aWBZ3tBuODs-02",
+      "review_relevant": true,
+      "adjudication_reason": "커버드콜 ETF 운용전략과 수익위험"
+    },
+    {
+      "id": "P05",
+      "left": "aWBZ3tBuODs-01",
+      "right": "aWBZ3tBuODs-05",
+      "review_relevant": true,
+      "adjudication_reason": "ETF의 주식시장 유사 장중 거래"
+    },
+    {
+      "id": "P06",
+      "left": "aWBZ3tBuODs-06",
+      "right": "aWBZ3tBuODs-07",
+      "review_relevant": true,
+      "adjudication_reason": "ETF NAV·추적오차 공시와 실제 의미 구분"
+    },
+    {
+      "id": "P07",
+      "left": "CS00QYw7YbI-08",
+      "right": "CS00QYw7YbI-09",
+      "review_relevant": true,
+      "adjudication_reason": "연금저축·IRP 세액공제 납입 합계"
+    },
+    {
+      "id": "P08",
+      "left": "CS00QYw7YbI-08",
+      "right": "CS00QYw7YbI-10",
+      "review_relevant": true,
+      "adjudication_reason": "연금계좌 납입 세액공제 한도와 적용율"
+    },
+    {
+      "id": "P09",
+      "left": "CS00QYw7YbI-02",
+      "right": "CS00QYw7YbI-11",
+      "review_relevant": true,
+      "adjudication_reason": "55세 퇴직 65세 국민연금 소득공백 로드맵"
+    },
+    {
+      "id": "P10",
+      "left": "CS00QYw7YbI-11",
+      "right": "CS00QYw7YbI-12",
+      "review_relevant": true,
+      "adjudication_reason": "55~65세 공백기간 연금저축 운용"
+    },
+    {
+      "id": "P11",
+      "left": "CS00QYw7YbI-28",
+      "right": "CS00QYw7YbI-29",
+      "review_relevant": true,
+      "adjudication_reason": "연6% 원금 대비 월분배 및 국민연금 합산"
+    },
+    {
+      "id": "P12",
+      "left": "CS00QYw7YbI-30",
+      "right": "CS00QYw7YbI-31",
+      "review_relevant": true,
+      "adjudication_reason": "월 50만원·75만원 복리 적립기간 모델"
+    },
+    {
+      "id": "P13",
+      "left": "CS00QYw7YbI-13",
+      "right": "CS00QYw7YbI-32",
+      "review_relevant": true,
+      "adjudication_reason": "연7% 가정과 장기자산 보장 오해"
+    },
+    {
+      "id": "P14",
+      "left": "CS00QYw7YbI-17",
+      "right": "CS00QYw7YbI-18",
+      "review_relevant": true,
+      "adjudication_reason": "원금 보전형 소비와 4% 인출 위험"
+    },
+    {
+      "id": "P15",
+      "left": "CS00QYw7YbI-19",
+      "right": "CS00QYw7YbI-20",
+      "review_relevant": true,
+      "adjudication_reason": "연금저축 상속 및 사망 후 과세"
+    },
+    {
+      "id": "P16",
+      "left": "sqh-919UMVk-06",
+      "right": "sqh-919UMVk-08",
+      "review_relevant": true,
+      "adjudication_reason": "서킷브레이커 제도 기본과 1단계 발동"
+    },
+    {
+      "id": "P17",
+      "left": "sqh-919UMVk-08",
+      "right": "sqh-919UMVk-09",
+      "review_relevant": true,
+      "adjudication_reason": "서킷브레이커 1·2단계 임계치 비교"
+    },
+    {
+      "id": "P18",
+      "left": "sqh-919UMVk-08",
+      "right": "sqh-919UMVk-10",
+      "review_relevant": true,
+      "adjudication_reason": "서킷브레이커 1·3단계 임계치 비교"
+    },
+    {
+      "id": "P19",
+      "left": "sqh-919UMVk-12",
+      "right": "sqh-919UMVk-14",
+      "review_relevant": true,
+      "adjudication_reason": "사이드카 선물 거래중단 오인과 실제 프로그램매매 제한"
+    },
+    {
+      "id": "P20",
+      "left": "sqh-919UMVk-07",
+      "right": "sqh-919UMVk-06",
+      "review_relevant": true,
+      "adjudication_reason": "서킷브레이커 발동 방향과 정의"
+    },
+    {
+      "id": "P21",
+      "left": "Dde4ogogNEk-11",
+      "right": "Dde4ogogNEk-14",
+      "review_relevant": true,
+      "adjudication_reason": "매수·매도 근거 투자일지와 근거 훼손 판단"
+    },
+    {
+      "id": "P22",
+      "left": "Dde4ogogNEk-07",
+      "right": "Dde4ogogNEk-08",
+      "review_relevant": true,
+      "adjudication_reason": "강세장 성과 과신과 레버리지·집중 위험"
+    },
+    {
+      "id": "P23",
+      "left": "Dde4ogogNEk-19",
+      "right": "Dde4ogogNEk-20",
+      "review_relevant": true,
+      "adjudication_reason": "확률 기대값과 높은 승률 손실"
+    },
+    {
+      "id": "P24",
+      "left": "Dde4ogogNEk-23",
+      "right": "Dde4ogogNEk-24",
+      "review_relevant": true,
+      "adjudication_reason": "바벨 비중 예시와 손실 불가능 과장"
+    },
+    {
+      "id": "N01",
+      "left": "k9O79HeMOp0-05",
+      "right": "sqh-919UMVk-08",
+      "review_relevant": false,
+      "adjudication_reason": "레버리지·인버스 ETF와 주식시장 CB 임계치"
+    },
+    {
+      "id": "N02",
+      "left": "k9O79HeMOp0-09",
+      "right": "CS00QYw7YbI-16",
+      "review_relevant": false,
+      "adjudication_reason": "커버드콜 분배재원과 연금계좌 80세 과세율"
+    },
+    {
+      "id": "N03",
+      "left": "k9O79HeMOp0-07",
+      "right": "sqh-919UMVk-05",
+      "review_relevant": false,
+      "adjudication_reason": "원자재 ETF와 나스닥 하락 요인"
+    },
+    {
+      "id": "N04",
+      "left": "k9O79HeMOp0-04",
+      "right": "CS00QYw7YbI-08",
+      "review_relevant": false,
+      "adjudication_reason": "채권 ETF 유형과 IRP 세액공제 한도"
+    },
+    {
+      "id": "N05",
+      "left": "k9O79HeMOp0-08",
+      "right": "Dde4ogogNEk-05",
+      "review_relevant": false,
+      "adjudication_reason": "테마 ETF 유행과 투자자의 얼굴 패턴 착시"
+    },
+    {
+      "id": "N06",
+      "left": "CS00QYw7YbI-08",
+      "right": "CS00QYw7YbI-16",
+      "review_relevant": false,
+      "adjudication_reason": "연금 납입 세액공제와 80세 수령세율 구별"
+    },
+    {
+      "id": "N07",
+      "left": "CS00QYw7YbI-14",
+      "right": "sqh-919UMVk-08",
+      "review_relevant": false,
+      "adjudication_reason": "주식 3년 회복 단정과 CB 8% 거래정지 규정"
+    },
+    {
+      "id": "N08",
+      "left": "CS00QYw7YbI-22",
+      "right": "sqh-919UMVk-09",
+      "review_relevant": false,
+      "adjudication_reason": "연금 최소 수령기간과 CB 2단계 정지시간"
+    },
+    {
+      "id": "N09",
+      "left": "CS00QYw7YbI-28",
+      "right": "sqh-919UMVk-02",
+      "review_relevant": false,
+      "adjudication_reason": "연6% 월현금흐름 모델과 코스피·코스닥 하락률"
+    },
+    {
+      "id": "N10",
+      "left": "CS00QYw7YbI-19",
+      "right": "CS00QYw7YbI-30",
+      "review_relevant": false,
+      "adjudication_reason": "연금 상속권과 월적립 복리 모델은 별개"
+    },
+    {
+      "id": "N11",
+      "left": "CS00QYw7YbI-01",
+      "right": "sqh-919UMVk-06",
+      "review_relevant": false,
+      "adjudication_reason": "연금계좌 세제구조와 서킷브레이커 거래정지"
+    },
+    {
+      "id": "N12",
+      "left": "CS00QYw7YbI-32",
+      "right": "Dde4ogogNEk-19",
+      "review_relevant": false,
+      "adjudication_reason": "수익률7% 물가 보장과 승률 기대값의 서로 다른 명제"
+    },
+    {
+      "id": "N13",
+      "left": "aWBZ3tBuODs-07",
+      "right": "sqh-919UMVk-07",
+      "review_relevant": false,
+      "adjudication_reason": "ETF 괴리율·추적오차와 CB 발동 방향"
+    },
+    {
+      "id": "N14",
+      "left": "aWBZ3tBuODs-09",
+      "right": "CS00QYw7YbI-16",
+      "review_relevant": false,
+      "adjudication_reason": "ETF 운용보수 차감과 개인연금 원천징수세율"
+    },
+    {
+      "id": "N15",
+      "left": "aWBZ3tBuODs-05",
+      "right": "sqh-919UMVk-14",
+      "review_relevant": false,
+      "adjudication_reason": "ETF T+2 결제와 사이드카 5분 제한"
+    },
+    {
+      "id": "N16",
+      "left": "aWBZ3tBuODs-08",
+      "right": "sqh-919UMVk-06",
+      "review_relevant": false,
+      "adjudication_reason": "ETF 상장폐지 조건과 주식시장 CB"
+    },
+    {
+      "id": "N17",
+      "left": "sqh-919UMVk-06",
+      "right": "Dde4ogogNEk-12",
+      "review_relevant": false,
+      "adjudication_reason": "시장 전체 거래 일시중지와 자동적립식 매수"
+    },
+    {
+      "id": "N18",
+      "left": "sqh-919UMVk-12",
+      "right": "k9O79HeMOp0-05",
+      "review_relevant": false,
+      "adjudication_reason": "사이드카 선물 거래 규정과 레버리지 ETF 상품"
+    },
+    {
+      "id": "N19",
+      "left": "sqh-919UMVk-23",
+      "right": "Dde4ogogNEk-20",
+      "review_relevant": false,
+      "adjudication_reason": "CB 발동 후 반등 가능성 일반화와 승률 손익"
+    },
+    {
+      "id": "N20",
+      "left": "sqh-919UMVk-24",
+      "right": "Dde4ogogNEk-15",
+      "review_relevant": false,
+      "adjudication_reason": "시장 급락 원인 단정과 포트폴리오 분산 여부"
+    },
+    {
+      "id": "N21",
+      "left": "Dde4ogogNEk-19",
+      "right": "CS00QYw7YbI-28",
+      "review_relevant": false,
+      "adjudication_reason": "확률 기대값과 정액 분배 가정의 차이"
+    },
+    {
+      "id": "N22",
+      "left": "Dde4ogogNEk-23",
+      "right": "CS00QYw7YbI-08",
+      "review_relevant": false,
+      "adjudication_reason": "85·15 바벨 위험배분과 연금 600·300 공제한도"
+    },
+    {
+      "id": "N23",
+      "left": "Dde4ogogNEk-04",
+      "right": "k9O79HeMOp0-04",
+      "review_relevant": false,
+      "adjudication_reason": "인간 투자심리와 채권 ETF 자산유형"
+    },
+    {
+      "id": "N24",
+      "left": "Dde4ogogNEk-01",
+      "right": "CS00QYw7YbI-01",
+      "review_relevant": false,
+      "adjudication_reason": "투자심리 책 개정판과 연금저축 세제 혜택"
+    }
+  ],
+  "production_approval": false
+}
