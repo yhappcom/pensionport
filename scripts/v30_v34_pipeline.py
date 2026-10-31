@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 from v30_verified_core import guard, sha256, canonical, VID_RE
 from v30_v34_atomic_semantics import make_draft, attach_frames
+from v30_v34_model_bridge import apply_model_atomization, apply_model_semantics
 from v30_v34_retrieval import indexed_historical_claim, make_record, retrieve
 
 FILES=(
@@ -44,16 +45,25 @@ def historical_index(rows):
     return index
 
 def run_development(raw_srt,original_sha256,video_id,video_number,
-                    historical,query_limit=None,synthetic_fixture=False):
+                    historical,query_limit=None,synthetic_fixture=False,
+                    atomic_packet=None,semantic_packet=None,
+                    model_sha=None,prompt_sha=None):
     guard(type(video_number) is int and 1<=video_number<=260
           and type(video_id) is str and VID_RE.fullmatch(video_id)
-          and type(query_limit) is int and query_limit>=1
-              if query_limit is not None else
-              type(video_number) is int and 1<=video_number<=260
-              and type(video_id) is str and VID_RE.fullmatch(video_id),
+          and (query_limit is None or
+               (type(query_limit) is int and query_limit>=1)),
           "V34_HOLDOUT_AND_INVALID_DEVELOPMENT_SOURCE_BLOCKED")
-    draft=make_draft(raw_srt,original_sha256,video_id)
+    if atomic_packet is not None or semantic_packet is not None:
+        guard(type(model_sha) is str and type(prompt_sha) is str,
+              "V34_EXTERNAL_MODEL_VERSION_AND_PROMPT_PINS_REQUIRED")
+    draft=(apply_model_atomization(raw_srt,original_sha256,video_id,
+            atomic_packet,model_sha,prompt_sha)
+           if atomic_packet is not None else
+           make_draft(raw_srt,original_sha256,video_id))
     semantics=attach_frames(draft)
+    if semantic_packet is not None:
+        semantics=apply_model_semantics(draft,semantics,semantic_packet,
+                                        model_sha,prompt_sha)
     catalog=historical_index(historical)
     queries=[]
     count=len(draft["claims"]) if query_limit is None else min(
@@ -73,6 +83,7 @@ def run_development(raw_srt,original_sha256,video_id,video_number,
                    "human_cue_audit_completed":False},
         "atomic":draft,
         "semantics":semantics,
+        "external_model_proposals_used":atomic_packet is not None or semantic_packet is not None,
         "relations":queries,
         "index": {
             "historical_claims":len(catalog),
@@ -128,6 +139,10 @@ def main():
     p.add_argument("--video-number",type=int)
     p.add_argument("--private-output")
     p.add_argument("--query-limit",type=int,default=None)
+    p.add_argument("--atomic-model-proposals")
+    p.add_argument("--semantic-model-proposals")
+    p.add_argument("--model-sha256")
+    p.add_argument("--prompt-sha256")
     args=p.parse_args()
     rows=read_historical(args.root)
     if args.historical_index_check:
@@ -141,9 +156,18 @@ def main():
     guard(all((args.original_srt,args.original_sha256,args.video_id,
                args.video_number,args.private_output)),
           "V34_PRIVATE_ORIGINAL_AND_DEVELOPMENT_VIDEO_ARGUMENTS_REQUIRED")
+    def load_private_packet(path):
+        if path is None:return None
+        source=Path(path).expanduser().resolve()
+        guard(not source.is_relative_to(Path(args.root).expanduser().resolve()),
+              "V34_MODEL_PACKET_MUST_REMAIN_PRIVATE_OUTSIDE_REPOSITORY")
+        return json.loads(source.read_text(encoding="utf-8"))
     result=run_development(Path(args.original_srt).read_bytes(),
                            args.original_sha256,args.video_id,
-                           args.video_number,rows,query_limit=args.query_limit)
+                           args.video_number,rows,query_limit=args.query_limit,
+                           atomic_packet=load_private_packet(args.atomic_model_proposals),
+                           semantic_packet=load_private_packet(args.semantic_model_proposals),
+                           model_sha=args.model_sha256,prompt_sha=args.prompt_sha256)
     print(json.dumps(private_export(args.private_output,args.root,result),
                      sort_keys=True,ensure_ascii=False))
 
