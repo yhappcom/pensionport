@@ -23,6 +23,8 @@ on:
       - "scripts/verify_v30_v31_realcohort.py"
       - "scripts/v30_semantic_v32.py"
       - "scripts/verify_v30_v32_development.py"
+      - "scripts/v30_legacy_verdict_v32.py"
+      - "scripts/verify_v30_v32_firstuse.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
       - "scripts/verify_v30_001_005_replay.py"
@@ -49,6 +51,8 @@ on:
       - "scripts/verify_v30_v31_realcohort.py"
       - "scripts/v30_semantic_v32.py"
       - "scripts/verify_v30_v32_development.py"
+      - "scripts/v30_legacy_verdict_v32.py"
+      - "scripts/verify_v30_v32_firstuse.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
       - "scripts/verify_v30_001_005_replay.py"
@@ -129,6 +133,10 @@ jobs:
         run: |
           python -m py_compile scripts/v30_semantic_v32.py scripts/verify_v30_v32_development.py
           python -B scripts/verify_v30_v32_development.py --root .
+      - name: V3.2 first use on #66-70 source-pinned 108 actual historical claims
+        run: |
+          python -m py_compile scripts/v30_legacy_verdict_v32.py scripts/verify_v30_v32_firstuse.py
+          python -B scripts/verify_v30_v32_firstuse.py --root .
       - name: V3.0 production CLI preflight remains evidence BLOCKED
         run: |
           python -B scripts/v30_research_pipeline.py --root .
