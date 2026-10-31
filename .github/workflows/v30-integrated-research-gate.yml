@@ -15,6 +15,7 @@ on:
       - "scripts/v30_research_pipeline.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
+      - "scripts/verify_v30_repository_safety.py"
       - ".github/workflows/v30-integrated-research-gate.yml"
   pull_request:
     paths:
@@ -28,6 +29,7 @@ on:
       - "scripts/v30_research_pipeline.py"
       - "scripts/v30_v5_bridge.py"
       - "scripts/verify_v30_full_research.py"
+      - "scripts/verify_v30_repository_safety.py"
       - ".github/workflows/v30-integrated-research-gate.yml"
 
 permissions:
@@ -38,6 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Compile V3.0 source and adversarial test suite
         run: |
           python -m py_compile scripts/v30_integrated_research.py scripts/verify_v30_integrated_research.py
@@ -87,6 +91,10 @@ jobs:
       - name: Preserve existing research completion policy and empirical fact gates
         run: |
           python -B scripts/verify_v5_research_completion.py --root . --self-test
+      - name: Verify all changed files against immutable research baseline and scan public privacy leaks
+        run: |
+          python -m py_compile scripts/verify_v30_repository_safety.py
+          python -B scripts/verify_v30_repository_safety.py
       - name: No private original SRT, account data or binary datasets in V3.0
         shell: bash
         run: |
