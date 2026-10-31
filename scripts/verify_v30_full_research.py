@@ -25,9 +25,12 @@ from v30_evidence_services import (
 )
 from v30_hybrid_search import make_index,search,build_development_history
 from v30_research_pipeline import (
-    scan_source_state,research_run,
+    scan_source_state,research_run,authority_registry_from_environment,
     v5_append_only_preview,complete_with_preexisting_v5_certificate,
 )
+
+from v30_v5_bridge import blocked_v5_package,pending_knowledge_proposal
+import os
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -429,6 +432,57 @@ def run(root=ROOT):
           and v5["original_claims_overwritten"]==0,
           "V5_REAL_INTEGRATION_GATE_MUST_STAY_UNMODIFIED_AND_PENDING")
     cases+=1
+    pkg=blocked_v5_package(blocked,root)
+    guard(pkg["verified_by_original_v5_gate"]
+          and pkg["status"]=="RESEARCH_BLOCKED"
+          and pkg["certificate"]["release"]["approved"] is False
+          and pkg["certificate"]["preflight"]["expected_claim_count"]==2
+          and all(x["claim_type"] in ("LEGAL_OR_PRODUCT","NUMERIC")
+                  for x in pkg["certificate"]["obligations"]),
+          "V30_TO_V5_BLOCKED_CERTIFICATE_BRIDGE_FAILURE")
+    cases+=1
+    proposal=pending_knowledge_proposal(
+        root,"zi9x_q2fYoc","zi9x_q2fYoc-02",
+        seed["concepts"][0]["concept_id"])
+    guard(proposal["preview"]["statistics"]["topic_only"]==1
+          and not proposal["automatic_merge"] and
+          proposal["event"]["review_state"]=="PENDING_REVIEW",
+          "PENDING_APPEND_ONLY_PROPOSAL_BUILDER_FAILED")
+    cases+=1
+    with tempfile.TemporaryDirectory(prefix="v30_credentials_") as td:
+        credentials=Path(td)/"registry.json"
+        credentials.write_text(json.dumps({
+            "source_reviewer":{
+                "credential_type":"HMAC_SHA256",
+                "reviewer_id":"TEST_ONLY_RUNTIME_SOURCE",
+                "secret_hex":(b"a"*32).hex(),
+                "test_fixture":False
+            },
+            "independent_reviewer":{
+                "credential_type":"HMAC_SHA256",
+                "reviewer_id":"TEST_ONLY_RUNTIME_AUDITOR",
+                "secret_hex":(b"b"*32).hex(),
+                "test_fixture":False
+            }
+        }))
+        credentials.chmod(0o600)
+        old_env=os.environ.get("V30_REVIEWER_REGISTRY_PATH")
+        try:
+            os.environ["V30_REVIEWER_REGISTRY_PATH"]=str(credentials)
+            out=authority_registry_from_environment(root)
+            guard(set(out)=={"source_reviewer","independent_reviewer"}
+                  and out["source_reviewer"]["reviewer_id"]!=
+                      out["independent_reviewer"]["reviewer_id"],
+                  "EXTERNAL_REVIEWER_CREDENTIAL_LOOKUP_FAILED")
+            cases+=1
+            credentials.chmod(0o644)
+            fail(lambda:authority_registry_from_environment(root),
+                 "INSECURE_WORLD_READABLE_REVIEWER_KEY_FILE")
+            cases+=1
+        finally:
+            if old_env is None:
+                os.environ.pop("V30_REVIEWER_REGISTRY_PATH",None)
+            else:os.environ["V30_REVIEWER_REGISTRY_PATH"]=old_env
     bad=copy.deepcopy(ev);bad["review_state"]="APPROVED"
     fail(lambda:v5_append_only_preview(root,bad,ev["source_blob_sha"]),
          "UNAUTHORIZED_SEMANTIC_MERGE")
