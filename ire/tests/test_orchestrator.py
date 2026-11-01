@@ -206,5 +206,85 @@ class OrchestrationIntegrationTests(unittest.TestCase):
             self.assertEqual(len(report["stages"]),8)
 
 
+    def test_multivideo_missing_or_corrupt_original_is_isolated(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            good=root/"original.srt"
+            good.write_bytes(self.raw)
+            bad=root/"modified.srt"
+            bad.write_bytes(self.raw+b"\n\ncorrupted by test")
+            missing=root/"missing.srt"
+            inputs=[
+                {"video_id":"QwErTy12345",
+                 "original_srt_path":str(missing),
+                 "source_sha256":self.digest},
+                {"video_id":"AbCdEf12345",
+                 "original_srt_path":str(bad),
+                 "source_sha256":self.digest},
+                {"video_id":VID,
+                 "original_srt_path":str(good),
+                 "source_sha256":self.digest},
+            ]
+            result=execute_batch(inputs,str(root/"out"),OrchestrationPolicy())
+            self.assertEqual(result["video_count"],3)
+            self.assertEqual(result["private_reports_written"],3)
+            reports=[
+                json.loads(Path(x["report_path"]).read_text())
+                for x in result["entries"]]
+            self.assertEqual(
+                [r["stages"][0]["status"] for r in reports],
+                ["FAILED_CLOSED","FAILED_CLOSED","PASSED"])
+            self.assertIn("ORIGINAL_SOURCE_UNAVAILABLE",reports[0]["blockers"])
+            self.assertIn("SOURCE_SHA256_MISMATCH",reports[1]["blockers"])
+            self.assertIn("SEMANTIC_MODEL_NOT_CONFIGURED",reports[2]["blockers"])
+            self.assertTrue(all(not r["factual_truth_certified"] for r in reports))
+
+    def test_official_discovery_requires_actual_search_and_safe_domain(self):
+        from ire.primary import screen_discovery_response
+        def response(url, searched):
+            search=([{"type":"web_search_call","status":"completed"}]
+                    if searched else [])
+            search.append({"type":"message","content":[{
+                "type":"output_text","annotations":[{
+                    "type":"url_citation","url":url}]}]})
+            return {"status":"completed","output":search}
+        valid=screen_discovery_response(
+            response("https://www.bok.or.kr/portal/main/main.do",True),"C00001")
+        self.assertEqual(valid["candidate_count"],1)
+        self.assertFalse(valid["finance_claim_fact_verified"])
+        nosearch=screen_discovery_response(
+            response("https://www.bok.or.kr/portal/main/main.do",False),"C00001")
+        self.assertFalse(nosearch["search_executed"])
+        self.assertEqual(nosearch["result"],"NO_VERIFIABLE_OFFICIAL_DISCOVERY")
+        untrusted=screen_discovery_response(
+            response("https://bok.or.kr.attacker.example/phishing",True),"C00001")
+        self.assertEqual(untrusted["candidate_count"],0)
+
+    def test_batch_cli_two_originals_one_invocation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            original=root/"fresh.srt"
+            original.write_bytes(self.raw)
+            batch=root/"list.json"
+            batch.write_text(json.dumps({
+                "schema":"IRE_NEW_ORIGINAL_BATCH_V1",
+                "videos":[
+                    {"video_id":VID,"original_srt_path":str(original),
+                     "source_sha256":self.digest},
+                    {"video_id":"AbCdEf12345","original_srt_path":str(root/"gone.srt"),
+                     "source_sha256":self.digest}]
+            }))
+            cmd=[sys.executable,"-m","ire.one_shot",
+                 "--batch-manifest",str(batch),
+                 "--private-output-dir",str(root/"private_results")]
+            proc=subprocess.run(cmd,capture_output=True,text=True,check=False)
+            self.assertEqual(proc.returncode,2,proc.stdout)
+            results=json.loads(proc.stdout)
+            self.assertEqual(results["video_count"],2)
+            self.assertEqual(results["private_reports_written"],2)
+            self.assertTrue(results["single_invocation_completed"])
+            self.assertEqual(results["approved_financial_claims"],0)
+
+
 if __name__=="__main__":
     unittest.main()
