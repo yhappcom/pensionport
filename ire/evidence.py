@@ -10,6 +10,8 @@ from __future__ import annotations
 from datetime import datetime,timezone
 from html.parser import HTMLParser
 import ipaddress
+import os
+from pathlib import Path
 import re
 import socket
 import urllib.error
@@ -17,6 +19,7 @@ import urllib.request
 from urllib.parse import urlsplit
 
 from .source import require,sha256,text_norm
+from .checkpoint import safe_private_directory
 
 # A candidate domain is a network safety *allowlist*, not a legal endorsement.
 # All entries must be independently checked against the issuing institution.
@@ -174,7 +177,8 @@ def _extract(raw: bytes, content_type: str) -> tuple[str,bool]:
 
 
 def independently_fetch_candidate(url: str,read_fn=None,
-                                  fetched_at: str | None = None) -> dict:
+                                  fetched_at: str | None = None,
+                                  private_evidence_dir: str | None = None) -> dict:
     """Live default fetch with injected reader only for synthetic tests.
 
     read_fn(url) returns exactly (raw bytes, MIME, final HTTPS URL).
@@ -192,6 +196,24 @@ def independently_fetch_candidate(url: str,read_fn=None,
             "EVIDENCE_FETCH_REDIRECT_OR_MIME_INVALID")
     visible,truncated=_extract(raw,mime)
     checked_time=fetched_at or datetime.now(timezone.utc).isoformat()
+    snapshot=None
+    if private_evidence_dir is not None:
+        root=safe_private_directory(private_evidence_dir)
+        path=root/(sha256(raw)+".official_source")
+        if path.exists():
+            require(sha256(path.read_bytes())==sha256(raw),
+                    "EVIDENCE_PRIVATE_SNAPSHOT_HASH_CHANGED")
+        else:
+            fd=os.open(path,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
+            try:
+                with os.fdopen(fd,"wb") as stream:
+                    stream.write(raw)
+                    stream.flush()
+                    os.fsync(stream.fileno())
+            except Exception:
+                path.unlink(missing_ok=True)
+                raise
+        snapshot=str(path)
     return {
         "schema":"IRE_INDEPENDENT_DOCUMENT_V1",
         "canonical_url":url,
@@ -207,6 +229,7 @@ def independently_fetch_candidate(url: str,read_fn=None,
         "actual_publisher_identity_cryptographically_verified":False,
         "effective_date_of_rules_verified":False,
         "independent_financial_fact_approved":False,
+        "private_immutable_source_snapshot":snapshot,
         "source_read_mode":"INJECTED_SYNTHETIC_READER" if read_fn
                            else "LIVE_NETWORK_FETCH"
     }
