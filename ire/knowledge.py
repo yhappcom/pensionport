@@ -298,6 +298,62 @@ def ingest_new_video(previous:dict,original_raw:bytes,
     return output
 
 
+def provisional_concept_index(snapshot:dict) -> list[dict]:
+    """Source-attributed topic clusters, not a verified unified conclusion.
+
+    Shares a product/event semantic frame only, preserving temporal, numeric,
+    jurisdictional and exception differences. Unclassified claims are unique.
+    """
+    validate_knowledge(snapshot)
+    groups={}
+    for claim in snapshot["claims"]:
+        frame=claim["frame"]
+        product=text_norm(frame["product"]).lower() if frame["product"] else ""
+        event=text_norm(frame["financial_event"]).lower() if frame["financial_event"] else ""
+        if product or event:
+            basis="|".join((product,event))
+        else:
+            basis=claim["global_claim_id"]
+        topic_id="T"+sha256(basis.encode("utf-8"))[:20]
+        groups.setdefault(topic_id,[]).append(claim)
+    relation_set={}
+    for relation in snapshot["relation_candidates"]:
+        for uid in (relation["old_claim_id"],relation["new_claim_id"]):
+            relation_set.setdefault(uid,[]).append(relation)
+    output=[]
+    for topic_id,items in sorted(groups.items()):
+        cases=sorted(items,key=lambda c:c["global_claim_id"])
+        related_ids={c["global_claim_id"] for c in cases}
+        incident={}
+        for uid in related_ids:
+            for rel in relation_set.get(uid,[]):
+                incident[rel["relation_id"]]=rel
+        numeric_variants={
+            fingerprint(c["frame"]["measurements"]) for c in cases}
+        scope_variants={
+            fingerprint({
+                "jurisdiction":c["frame"]["jurisdiction"],
+                "date":c["frame"]["effective_date"],
+                "conditions":c["frame"]["conditions"],
+                "exceptions":c["frame"]["exceptions"]
+            }) for c in cases}
+        output.append({
+            "topic_id":topic_id,
+            "source_video_count":len({c["video_id"] for c in cases}),
+            "source_claim_ids":[c["global_claim_id"] for c in cases],
+            "distinct_numeric_frames":len(numeric_variants),
+            "distinct_scope_frames":len(scope_variants),
+            "candidate_relation_ids":sorted(incident),
+            "cross_video_topic":len({c["video_id"] for c in cases})>1,
+            "needs_scope_reconciliation":len(scope_variants)>1,
+            "needs_numeric_reconciliation":len(numeric_variants)>1,
+            "status":"UNVERIFIED_TOPIC_CLUSTER_FOR_REVIEW",
+            "canonical_verified_financial_conclusion":None,
+            "automatic_merge":False
+        })
+    return output
+
+
 def advisory_research_context(snapshot:dict,question:str,as_of:str,
                               jurisdiction:str|None=None,
                               investor_profile:dict|None=None,
@@ -354,6 +410,8 @@ def advisory_research_context(snapshot:dict,question:str,as_of:str,
         })
     open_relations=[x for x in snapshot["relation_candidates"]
                     if x["old_claim_id"] in known or x["new_claim_id"] in known]
+    relevant_topics=[t for t in provisional_concept_index(snapshot)
+                     if set(t["source_claim_ids"]) & known]
     return {
         "schema":"IRE_ADVISORY_EVIDENCE_CONTEXT_V1",
         "question":question,
@@ -365,6 +423,7 @@ def advisory_research_context(snapshot:dict,question:str,as_of:str,
         "knowledge_claim_count":len(snapshot["claims"]),
         "unverified_relevant_claims":top,
         "possible_cross_video_conflicts_or_updates":open_relations[:50],
+        "provisional_integrated_topic_clusters":relevant_topics[:LIMIT_QUERY],
         "independent_verified_citable_claim_count":0,
         "actionable_recommendations":[],
         "fresh_official_source_reverification_required":True,
@@ -440,6 +499,7 @@ def main() -> int:
                 "claim_count":len(next_state["claims"]),
                 "cross_video_relation_candidates":len(
                     next_state["relation_candidates"]),
+                "topic_cluster_count":len(provisional_concept_index(next_state)),
                 "automatically_approved_financial_facts":0,
             }
         else:
