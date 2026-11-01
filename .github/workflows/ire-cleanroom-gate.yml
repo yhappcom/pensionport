@@ -7,6 +7,7 @@ on:
       - feat/ire-live-evidence-verification-20261101
       - feat/ire-chat-assisted-noapi-20261101
       - feat/ire-incremental-advisory-20261101
+      - feat/ire-v2-advisory-system-redesign-20261101
     paths:
       - "ire/**"
       - ".github/workflows/ire-cleanroom-gate.yml"
@@ -63,6 +64,17 @@ jobs:
           assert contract["current"]["operational_status"]=="BLOCKED"
           assert contract["current"]["gold_labeled_real_claims"]==0
           assert contract["current"]["auto_knowledge_merges"]==0
+          if pathlib.Path("ire/contracts/research_system_v2.json").exists():
+              v2=json.loads(pathlib.Path("ire/contracts/research_system_v2.json").read_text())
+              assert v2["schema"]=="IRE_INTEGRATED_ADVISORY_RESEARCH_V2"
+              assert v2["selected_model_execution"]=="CURRENT_CHATGPT_CONVERSATION"
+              assert v2["additional_model_api_calls"] is False
+              assert v2["history_policy"]["preserve_main"] is True
+              assert v2["history_policy"]["do_not_import_old_claims_or_conclusions_as_facts"] is True
+              assert len(v2["workflow"])==8
+              assert v2["current"]["production_approved"] is False
+              assert contract.get("legacy_disposition",{}).get("current_default") is False
+              print("PASS: V2 single-request ChatGPT-mode cumulative advisory contract, no model API")
           print("PASS: standalone import boundary, unchanged prior research, release BLOCKED")
           PY
       - name: No original subtitles or private originals tracked in clean-room source

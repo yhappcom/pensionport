@@ -1,0 +1,109 @@
+{
+  "schema": "IRE_V2_FULL_REDESIGN_EVIDENCE_20261101",
+  "date": "2026-11-01",
+  "branch": "feat/ire-v2-advisory-system-redesign-20261101",
+  "baseline": "feat/ire-incremental-advisory-20261101",
+  "protected_main_sha": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+  "objectives": [
+    "Single user request triggers all eligible ChatGPT host-managed source/research/verification/integration/advisory steps",
+    "Additional source videos improve cumulative original-linked knowledge rather than only adding reports",
+    "External model API not used",
+    "Official source quote/scope/date evidence and advisory risk gates separate from human-certified truth",
+    "Historical 260-study claims only quarantined post-seal discrepancy candidates, never source gold"
+  ],
+  "code_modules": {
+    "batch_source_and_knowledge": "ire/v2_run.py",
+    "chat_original_semantic_context": "ire/chat_bridge.py",
+    "cumulative_claim_and_topic_knowledge": "ire/knowledge.py",
+    "primary_text_evidence_and_advisory": "ire/v2_evidence.py",
+    "historical_postseal_review": "ire/v2_legacy_delta.py",
+    "active_contract": "ire/contracts/research_system_v2.json",
+    "architecture": "ire/ARCHITECTURE_V2.md"
+  },
+  "regression": {
+    "synthetic_adversarial_tests_pass": 113,
+    "five_video_synthetic_one_batch": "PASS",
+    "complete_two_video_synthetic_to_advice_evidence": "PASS_WITH_UNVERIFIED_GUARDS",
+    "missing_source_blocks_batch": "PASS",
+    "tampered_final_chat_report_blocks_batch": "PASS",
+    "stale_prior_knowledge_snapshot_rejected": "PASS",
+    "disappearing_prior_evidence_ledger_rejected": "PASS",
+    "official_quote_fabrication_rejected": "PASS",
+    "study_vs_gold_separation": "PASS",
+    "old_historical_claims_not_copied": "PASS"
+  },
+  "real_dev5_preflight": {
+    "source_video_numbers": [
+      266,
+      267,
+      269,
+      270,
+      271
+    ],
+    "source_cues_total": 3600,
+    "source_windows_total": 364,
+    "source_sha256_checks_passing": 5,
+    "current_chat_submitted_windows": 4,
+    "remaining_windows": 360,
+    "all_original_videos_studied_end_to_end": false,
+    "finance_atoms_claimed_complete": false,
+    "new_v2_knowledge_commits": 0,
+    "blocked_audit_written": true,
+    "study_status": "INCOMPLETE_REQUIRES_RESUME",
+    "extra_model_API_calls": 0,
+    "per_video": [
+      {
+        "video_number": 266,
+        "cues": 771,
+        "windows": 78,
+        "accepted": 4,
+        "remaining": 74
+      },
+      {
+        "video_number": 267,
+        "cues": 522,
+        "windows": 54,
+        "accepted": 0,
+        "remaining": 54
+      },
+      {
+        "video_number": 269,
+        "cues": 988,
+        "windows": 99,
+        "accepted": 0,
+        "remaining": 99
+      },
+      {
+        "video_number": 270,
+        "cues": 1036,
+        "windows": 104,
+        "accepted": 0,
+        "remaining": 104
+      },
+      {
+        "video_number": 271,
+        "cues": 283,
+        "windows": 29,
+        "accepted": 0,
+        "remaining": 29
+      }
+    ]
+  },
+  "quality_limits": {
+    "finance_atomic_recall": null,
+    "finance_atomic_precision": null,
+    "crossvideo_relation_recall_at_k": null,
+    "legal_scope_completeness": null,
+    "genuine_external_human_blind_gold": false,
+    "actual_advice_quality_certified": false,
+    "current_chat_is_independent_human_reviewer": false,
+    "official_live_evidence_and_effective_law_full_review_finished": false,
+    "production_ready": false
+  },
+  "preservation": {
+    "previous_studies_modified": false,
+    "private_raw_SRT_committed_to_GitHub": false,
+    "main_modified": false,
+    "draft_only": true
+  }
+}
