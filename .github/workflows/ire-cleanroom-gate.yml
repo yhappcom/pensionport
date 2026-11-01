@@ -80,6 +80,8 @@ jobs:
           assert page["schema"]=="IRE_INDEPENDENT_DOCUMENT_V1"
           assert page["issuer_domain_category"]=="BIS"
           assert len(page["visible_text"])>100
+          assert "central banks" in page["visible_text"].lower()
+          assert "monetary and financial stability" in page["visible_text"].lower()
           assert len(page["raw_sha256"])==64
           assert page["source_read_mode"]=="LIVE_NETWORK_FETCH"
           assert page["independent_financial_fact_approved"] is False
