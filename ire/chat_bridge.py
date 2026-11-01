@@ -354,6 +354,16 @@ class ConversationResearchSession:
                     finished.get("video_id")==self.video_id and
                     finished.get("financial_facts_approved")==0,
                     "CHAT_FINAL_REPORT_IDENTITY_CHANGED")
+            # Reconstruct the source-linked atom manifest from sealed per-window
+            # answers. A modified final report must never enter the knowledge base.
+            expected_ledger=assemble_window(
+                self.original,self.video_id,self.digest,self.windows,
+                [self._answer(w["window_id"]) for w in self.windows],
+                "chatgpt-conversation-no-api")
+            require(finished.get("annotations")==expected_ledger and
+                    finished.get("all_primary_windows_submitted") is True and
+                    finished.get("source_cues")==len(self.cues),
+                    "CHAT_FINAL_REPORT_CONTENT_CHANGED")
             result={
                 "schema":finished["schema"],
                 "video_id":self.video_id,
