@@ -81,5 +81,29 @@ class PrivateResumeTests(unittest.TestCase):
                                private_checkpoint_directory=str(REPOSITORY/"unallowed"))
 
 
+    def test_invalid_semantic_window_is_not_cached(self):
+        from test_engine import synthetic_srt,annotations
+        from test_semantics import synthetic_reply
+        source,digest=synthetic_srt()
+        valid=synthetic_reply(annotations(digest))
+        invalid={"claims":[dict(claim) for claim in valid["claims"]],
+                 "cue_dispositions":[dict(row) for row in valid["cue_dispositions"]]}
+        invalid["claims"][0]["source_refs"]=[
+            {"cue_index":1,"quote":"금융상품의 무조건적 보장 수익률"}]
+        with tempfile.TemporaryDirectory() as temporary:
+            config=InferenceConfig(model="mock-semantic-cache-model")
+            with self.assertRaisesRegex(ValueError,"UNTRACEABLE_QUOTED_SOURCE"):
+                interpret_original(source,VID,config,
+                                   request_fn=lambda _:invalid,
+                                   private_checkpoint_directory=temporary)
+            responses=list(Path(temporary).rglob("W*.json"))
+            self.assertEqual(responses,[])
+            repaired=interpret_original(source,VID,config,
+                request_fn=lambda _:valid,
+                private_checkpoint_directory=temporary)
+            self.assertEqual(repaired["previously_cached_window_count"],0)
+            self.assertEqual(repaired["validation"]["proposed_atomic_claims"],2)
+
+
 if __name__=="__main__":
     unittest.main()
