@@ -134,7 +134,9 @@ class SemanticInferenceTests(unittest.TestCase):
         self.assertEqual(captured["url"],"https://api.openai.com/v1/responses")
         self.assertEqual(captured["auth"],"Bearer development-placeholder-only")
         self.assertFalse(captured["payload"]["store"])
-        self.assertEqual(captured["payload"]["text"]["format"]["type"],"json_object")
+        self.assertEqual(captured["payload"]["text"]["format"]["type"],"json_schema")
+        self.assertTrue(captured["payload"]["text"]["format"]["strict"])
+        self.assertEqual(set(captured["payload"]["text"]["format"]["schema"]["required"]),{"claims","cue_dispositions"})
         self.assertNotIn("development-placeholder-only",json.dumps(captured["payload"]))
 
     def test_actual_http_client_fails_on_incomplete_output_offline(self):
