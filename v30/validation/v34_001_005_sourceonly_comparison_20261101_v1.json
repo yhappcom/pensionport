@@ -1,0 +1,340 @@
+{
+  "schema": "V34_001_005_SOURCE_ONLY_REPLAY_AND_EXISTING_RESEARCH_COMPARISON_V1",
+  "as_of": "2026-11-01",
+  "engine_frozen_dev_commit": "4e31b0b9f2d07ce3bddcb584bdace841d13ac6fd",
+  "source_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "source_only_per_video_metadata": [
+    [
+      "1",
+      "a645a8c66b9fa82d9f567f9575209e7dbfd72ff5e573395b864a94f9154c40f1"
+    ],
+    [
+      "2",
+      "b8714bad55746d369d13dc8cb0ec6824ae340bd171d4a28b8682e8e4f0547ff0"
+    ],
+    [
+      "3",
+      "6edc2f3ff01c218779f0eb61abc6b122c93943f0c32a4d04db4e0242520a5adc"
+    ],
+    [
+      "4",
+      "1aa6303a8a1d6a168431c07865d10119bedc3994b272f7ba106cf730717984e7"
+    ],
+    [
+      "5",
+      "37a3125b236e244683007f324ced61dc0d2fcc6ab3989d6a5076ea161dd6801a"
+    ]
+  ],
+  "precomparison_source_only_manifest_sha256": "b64cd4a9b6cae5e3eea991b0515c497bf5dcfccdd2d67fa71e2f63944b14cdee",
+  "precomparison_frozen_before_prior_claim_read": true,
+  "private_precomparison_full_output_not_published": true,
+  "original_srt_or_raw_cues_committed": false,
+  "precomparison_used_historical_claim_text": false,
+  "independent_external_human_blind_assessor": false,
+  "source_only_engine_had_prior_development_exposure_to_1_5": true,
+  "videos": [
+    {
+      "number": 1,
+      "video_id": "sz5N9WJS310",
+      "original_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "cue_count": 1195,
+      "sentence_fragment_proposals": 1649,
+      "financial_event_unresolved": 1627,
+      "historical_core_claim_count": 23,
+      "same_video_top10_returned_history_claims": 3,
+      "source_fragment_queries_with_same_video_history_hit": 3
+    },
+    {
+      "number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "original_srt_sha256": "a59b2fd424011c3f572aa52404411ff4ea435f6dd1e7e27e4f5c9e11f7218b72",
+      "cue_count": 1347,
+      "sentence_fragment_proposals": 1916,
+      "financial_event_unresolved": 1900,
+      "historical_core_claim_count": 9,
+      "same_video_top10_returned_history_claims": 0,
+      "source_fragment_queries_with_same_video_history_hit": 0
+    },
+    {
+      "number": 3,
+      "video_id": "OiDTNstaSpM",
+      "original_srt_sha256": "e94b12a1084a8b57c3b9c2a630e27f840ae5a827b3a71c62526e15380a7c57bd",
+      "cue_count": 785,
+      "sentence_fragment_proposals": 1128,
+      "financial_event_unresolved": 1114,
+      "historical_core_claim_count": 15,
+      "same_video_top10_returned_history_claims": 2,
+      "source_fragment_queries_with_same_video_history_hit": 2
+    },
+    {
+      "number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "original_srt_sha256": "853db2d4f01ab71bbc4f86b46714f4341aa32aa2bc07416f705a937b620ea12b",
+      "cue_count": 758,
+      "sentence_fragment_proposals": 1034,
+      "financial_event_unresolved": 1026,
+      "historical_core_claim_count": 6,
+      "same_video_top10_returned_history_claims": 0,
+      "source_fragment_queries_with_same_video_history_hit": 0
+    },
+    {
+      "number": 5,
+      "video_id": "qtluAViPpsQ",
+      "original_srt_sha256": "af4fb6b702c5497e5c17bc7b9a3e87855a5488dd263cded32be9a09cec67a543",
+      "cue_count": 1044,
+      "sentence_fragment_proposals": 1365,
+      "financial_event_unresolved": 1365,
+      "historical_core_claim_count": 9,
+      "same_video_top10_returned_history_claims": 3,
+      "source_fragment_queries_with_same_video_history_hit": 2
+    }
+  ],
+  "totals": {
+    "original_cues": 5129,
+    "unreviewed_phrase_proposals": 7092,
+    "single_financial_event_classified_proposals": 60,
+    "unresolved_financial_event_proposals": 7032,
+    "classified_proposal_fraction": 0.008460236886632826,
+    "historical_crosswalk_core_claims": 62,
+    "historical_core_claims_original_srt_sha_matched": 62,
+    "search_index_historical_claims": 4120,
+    "selected_srt_fragment_queries": 80,
+    "selected_fragment_queries_with_same_video_history_candidate": 7,
+    "same_video_history_candidates_returned_in_800_top10_slots": 8,
+    "relatedness_gold_labeled_queries": 0,
+    "actual_recall_at_10": null,
+    "actual_precision_at_10": null
+  },
+  "comparison_private_source_alignment_sha256": "76a8d71397590a0d5eb4cba203d9279e741b4bdb2a01bd2628dc93a1fdeef546",
+  "selected_retrieval_private_sha256": "dd0d9ba7ad99bb444d31d2739ac3cd7092f5c55eaf959d4933bae1e6da558541",
+  "manual_risk_spot_checks": [
+    {
+      "video": 1,
+      "cues": [
+        22,
+        61
+      ],
+      "topic": "NPS additional payment 18m KRW -> pension +250k KRW/month personal example",
+      "verdict": "ORIGINAL_CASE_IDENTIFIED_PERSONAL_AMOUNT_UNVERIFIED",
+      "history_claim": "sz5N9WJS310-01"
+    },
+    {
+      "video": 1,
+      "cues": [
+        217,
+        228
+      ],
+      "topic": "30만원/month, effective 7%, 7 years reported 51m KRW but mathematical 7-year 32.14m",
+      "verdict": "SRT_NUMERIC_PERIOD_CONFLICT_AUDIO_OR_SPEAKER_RECHECK_REQUIRED",
+      "history_claim": "sz5N9WJS310-06"
+    },
+    {
+      "video": 1,
+      "cues": [
+        250,
+        260
+      ],
+      "topic": "NPS pension deferral 7.2% per year / 36% five years",
+      "verdict": "PRIMARY_SCOPED_MATCH",
+      "official": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do",
+      "history_claim": "sz5N9WJS310-07"
+    },
+    {
+      "video": 1,
+      "cues": [
+        373,
+        410
+      ],
+      "topic": "Private pension 15m KRW income tax selection threshold, NOT hard withdrawal cap",
+      "verdict": "PRIMARY_SCOPE_MATCH",
+      "official": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312",
+      "history_claim": "sz5N9WJS310-09"
+    },
+    {
+      "video": 1,
+      "cues": [
+        690,
+        740
+      ],
+      "topic": "8eok capital * 6% yield / 12 = 4m per month hypothetical, income/tax not guaranteed",
+      "verdict": "ARITHMETIC_ONLY_TAX_AND_PRODUCT_SCOPE_UNVERIFIED",
+      "history_claim": "sz5N9WJS310-15"
+    },
+    {
+      "video": 2,
+      "cues": [
+        279,
+        294
+      ],
+      "topic": "KRX gold market internal sale tax exemption vs actual physical withdrawal VAT",
+      "verdict": "PRIMARY_SCOPE_MATCH_NEEDS_PHYSICAL_WITHDRAWAL_EXCEPTION",
+      "official": "https://www.krx.co.kr/contents/OPN/01/01050206/OPN01050206.jsp",
+      "history_claim": "6VEfKF7BzZU-04"
+    },
+    {
+      "video": 2,
+      "cues": [
+        323,
+        341
+      ],
+      "topic": "September 2026 BOK policy rate 3%",
+      "verdict": "PRIMARY_DATE_BOUNDED_MATCH",
+      "official": "https://www.bok.or.kr/portal/singl/baseRate/list.do?menuNo=200761",
+      "history_claim": "6VEfKF7BzZU-05"
+    },
+    {
+      "video": 2,
+      "cues": [
+        380,
+        400
+      ],
+      "topic": "Bank insured deposits vs ordinary broker CMA not insured",
+      "verdict": "PRODUCT_STRUCTURE_SCOPE_MATCH_EXCEPTIONS",
+      "official": "https://blog.kbsec.com/cma/발행어음-rp-cma-예금자보호/",
+      "history_claim": "6VEfKF7BzZU-06"
+    },
+    {
+      "video": 2,
+      "cues": [
+        485,
+        530
+      ],
+      "topic": "Recommendation RP->note/MMW higher rate vs issuer/product risks",
+      "verdict": "INVESTMENT_STRATEGY_NOT_UNIVERSALLY_VERIFIED",
+      "history_claim": "6VEfKF7BzZU-07"
+    },
+    {
+      "video": 3,
+      "cues": [
+        124,
+        151
+      ],
+      "topic": "IRP minimum monthly annuity 10,000 KRW, pension commencement eligibility",
+      "verdict": "UNVERIFIED_PROVIDER_SPECIFIC_ANNUITY_OPERATION",
+      "official": "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop",
+      "history_claim": "OiDTNstaSpM-03"
+    },
+    {
+      "video": 3,
+      "cues": [
+        226,
+        247
+      ],
+      "topic": "Bond held to maturity repayment subject to issuer credit and purchase price",
+      "verdict": "NEEDS_CREDIT_DEFAULT_AND_PRICE_SCOPE",
+      "official": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+      "history_claim": "OiDTNstaSpM-05"
+    },
+    {
+      "video": 3,
+      "cues": [
+        353,
+        385
+      ],
+      "topic": "parking ETF future yield 3% plus implied assurance",
+      "verdict": "PRODUCT_RETURN_UNVERIFIED_AND_MARKET_RISK",
+      "official": "https://www.krx.co.kr/contents/OPN/01/01030205/OPN01030205T4.jsp",
+      "history_claim": "OiDTNstaSpM-08"
+    },
+    {
+      "video": 4,
+      "cues": [
+        166,
+        205
+      ],
+      "topic": "Delete brokerage app and hold loss position till a cycle completes",
+      "verdict": "OPINION_WITH_SIGNIFICANT_MONITORING_RISK",
+      "history_claim": "aNfGrcO6WPI-03"
+    },
+    {
+      "video": 4,
+      "cues": [
+        332,
+        356
+      ],
+      "topic": "Three-year stock market cycle generalization",
+      "verdict": "EMPIRICAL_GENERALIZATION_UNVERIFIED",
+      "history_claim": "aNfGrcO6WPI-05"
+    },
+    {
+      "video": 4,
+      "cues": [
+        655,
+        690
+      ],
+      "topic": "High dividend payout expectation after switching new savings to dividend stocks",
+      "verdict": "DISTRIBUTIONS_NOT_GUARANTEED",
+      "official": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin",
+      "history_claim": "aNfGrcO6WPI-06"
+    },
+    {
+      "video": 5,
+      "cues": [
+        277,
+        306
+      ],
+      "topic": "Income example monthly KRW1m split youth 0.5m ISA 0.4m pension 0.1m",
+      "verdict": "HYPOTHETICAL_BUDGET_ONLY",
+      "history_claim": "qtluAViPpsQ-03"
+    },
+    {
+      "video": 5,
+      "cues": [
+        298,
+        438
+      ],
+      "topic": "Employer/industry stock investing and correlated employment exposure",
+      "verdict": "OPINION_CONCENTRATION_RISK",
+      "official": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+      "history_claim": "qtluAViPpsQ-04"
+    },
+    {
+      "video": 5,
+      "cues": [
+        376,
+        397
+      ],
+      "topic": "TDF2060 approximate retirement year, glide path differs",
+      "verdict": "BASIC_PRINCIPLE_MATCH_WITH_FUND_SPECIFIC_RISK",
+      "official": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin",
+      "history_claim": "qtluAViPpsQ-05"
+    },
+    {
+      "video": 5,
+      "cues": [
+        500,
+        579
+      ],
+      "topic": "Learn tax deductions, credit usage and first wage planning",
+      "verdict": "GENERAL_EDUCATION_NOT_INDIVIDUAL_TAX_APPROVAL",
+      "history_claim": "qtluAViPpsQ-06"
+    }
+  ],
+  "numeric_replay": {
+    "claim": "sz5N9WJS310-06",
+    "amount_krw_month": 300000,
+    "rate_basis": "EFFECTIVE_ANNUAL_7_PERCENT",
+    "period_years_under_dispute": [
+      7,
+      10
+    ],
+    "monthly_end_payment": true,
+    "seven_year_future_value_krw": 32141806,
+    "ten_year_future_value_krw": 51315519,
+    "source_srt_reported_years": 7,
+    "source_srt_reported_krw_approx": 51000000,
+    "audio_rechecked": false
+  },
+  "methodological_warnings": [
+    "V3.4 had prior development exposure to source videos 1-5",
+    "No external identity independent blind review",
+    "7,092 proposal strings are NOT financial atomic claims",
+    "Unresolved event count does not measure extraction recall",
+    "Same-video retrieval hits do not constitute ground truth of relatedness",
+    "Manual spot checks do not independently certify all 62 earlier core claims",
+    "Source SRT text can contain transcription errors"
+  ],
+  "research_complete": false,
+  "automatic_knowledge_merge": false,
+  "release": "BLOCKED_ATOMIC_AND_SEMANTIC_RECONSTRUCTION_DEFECT_AND_MISSING_REAL_BLIND"
+}
