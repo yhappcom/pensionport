@@ -148,3 +148,75 @@ def check_cited_calculation(knowledge: dict, submission: dict) -> dict:
         "financial_truth_certified": False,
         "investment_recommendation_authorized": False,
     }
+
+
+def main() -> int:
+    """Private and immutable arithmetic audit. No personal numbers on stdout."""
+    import argparse
+    import json
+    import os
+    from pathlib import Path
+    from .cli import private_file
+    from .knowledge import read_private_snapshot
+    from .checkpoint import safe_private_directory
+    from .source import sha256
+
+    parser = argparse.ArgumentParser(
+        description="Check quoted financial arithmetic without model API")
+    parser.add_argument("operation", choices=["verify"])
+    parser.add_argument("--private-knowledge-snapshot", required=True)
+    parser.add_argument("--private-calculation", required=True)
+    parser.add_argument("--private-audit-dir", required=True)
+    args = parser.parse_args()
+    try:
+        knowledge = read_private_snapshot(args.private_knowledge_snapshot)
+        submission = json.loads(private_file(
+            args.private_calculation).read_text(encoding="utf-8"))
+        audit = check_cited_calculation(knowledge, submission)
+        body = {
+            **audit, "knowledge_snapshot_sha256": knowledge["snapshot_sha256"],
+            "calculation_submission_sha256": sha256(json.dumps(
+                submission, ensure_ascii=False, sort_keys=True,
+                separators=(",", ":"), allow_nan=False).encode("utf-8")),
+        }
+        encoded = json.dumps(body, ensure_ascii=False, sort_keys=True,
+                             separators=(",", ":"), allow_nan=False).encode("utf-8")
+        digest = sha256(encoded)
+        content = {
+            **body, "audit_sha256": digest,
+        }
+        root = safe_private_directory(args.private_audit_dir)
+        target = root / ("ire_v3_arithmetic_" + digest + ".json")
+        raw = json.dumps(content, ensure_ascii=False, sort_keys=True,
+                         separators=(",", ":"), allow_nan=False).encode("utf-8")
+        fd = os.open(target, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        try:
+            with os.fdopen(fd, "wb") as stream:
+                stream.write(raw)
+                stream.flush()
+                os.fsync(stream.fileno())
+        except Exception:
+            target.unlink(missing_ok=True)
+            raise
+        print(json.dumps({
+            "schema": "IRE_V3_ARITHMETIC_PRIVATE_AUDIT_RECEIPT",
+            "status": ("REVIEW_REQUIRED_DIFFERENCE" if
+                       audit["arithmetic_consistent"] is False else
+                       "CONSISTENT_UNVERIFIED" if
+                       audit["arithmetic_consistent"] is True else
+                       "CALCULATED_WITHOUT_REPORTED_VALUE"),
+            "audit_sha256": digest,
+            "private_audit_path": str(target),
+            "financial_truth_approved": False,
+            "model_api_calls": 0,
+        }, ensure_ascii=False, sort_keys=True))
+        return 2
+    except (ValueError, KeyError, TypeError, OSError, UnicodeError):
+        print(json.dumps({
+            "schema": "IRE_V3_ARITHMETIC_ERROR", "status": "FAILED_CLOSED"
+        }))
+        return 3
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
