@@ -107,5 +107,49 @@ class SemanticInferenceTests(unittest.TestCase):
             interpret_original(self.raw+b"fabrication",VID,self.cfg,lambda _:None) if False else __import__("ire.source",fromlist=["parse_srt"]).parse_srt(self.raw+b"x",self.digest)
 
 
+    def test_actual_http_client_request_contract_offline(self):
+        import json
+        from unittest.mock import patch
+        from ire.semantics import openai_responses_request
+        class MockResponse:
+            def __enter__(self): return self
+            def __exit__(self,*args): return False
+            def read(self,max_bytes):
+                return json.dumps({
+                    "status":"completed",
+                    "output":[{"type":"message","content":[
+                        {"type":"output_text","text":
+                         '{"claims":[],"cue_dispositions":[]}'}]}]
+                }).encode()
+        captured={}
+        def no_network(request,timeout):
+            captured["url"]=request.full_url
+            captured["auth"]=request.get_header("Authorization")
+            captured["payload"]=json.loads(request.data)
+            return MockResponse()
+        with patch("urllib.request.urlopen",side_effect=no_network):
+            result=openai_responses_request(self.cfg,
+                {"video_id":VID,"primary_cues":[]}, "development-placeholder-only")
+        self.assertEqual(result["claims"],[])
+        self.assertEqual(captured["url"],"https://api.openai.com/v1/responses")
+        self.assertEqual(captured["auth"],"Bearer development-placeholder-only")
+        self.assertFalse(captured["payload"]["store"])
+        self.assertEqual(captured["payload"]["text"]["format"]["type"],"json_object")
+        self.assertNotIn("development-placeholder-only",json.dumps(captured["payload"]))
+
+    def test_actual_http_client_fails_on_incomplete_output_offline(self):
+        import json
+        from unittest.mock import patch
+        from ire.semantics import openai_responses_request
+        class MockResponse:
+            def __enter__(self):return self
+            def __exit__(self,*args):return False
+            def read(self,max_bytes):
+                return b'{"status":"incomplete","output":[]}'
+        with patch("urllib.request.urlopen",return_value=MockResponse()):
+            with self.assertRaisesRegex(ValueError,"SEMANTIC_RESPONSE_INVALID_JSON"):
+                openai_responses_request(self.cfg,{"primary_cues":[]}, "test-placeholder")
+
+
 if __name__=="__main__":
     unittest.main()
