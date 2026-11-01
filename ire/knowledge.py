@@ -15,7 +15,7 @@ import os
 from pathlib import Path
 import re
 
-from .source import require,sha256,text_norm,VIDEO,DIGEST
+from .source import require,sha256,text_norm,parse_srt,VIDEO,DIGEST
 from .claims import validate_annotations
 from .checkpoint import safe_private_directory
 from .retrieval import _features
@@ -91,14 +91,17 @@ def validate_knowledge(snapshot: dict) -> None:
     require(snapshot["version"]==len(sources),
             "KNOWLEDGE_INCREMENTAL_SOURCE_VERSION_MISMATCH")
     source_ids=set()
+    source_text_hashes=set()
     for source in sources:
         require(type(source) is dict and set(source)=={
-            "video_id","source_sha256","origin_report_sha256",
+            "video_id","source_sha256","source_text_sha256","origin_report_sha256",
             "unresolved_source_cues","cues","claim_count"
         } and type(source["video_id"]) is str and
                 VIDEO.fullmatch(source["video_id"]) and
                 type(source["source_sha256"]) is str and
                 DIGEST.fullmatch(source["source_sha256"]) and
+                type(source["source_text_sha256"]) is str and
+                DIGEST.fullmatch(source["source_text_sha256"]) and
                 type(source["origin_report_sha256"]) is str and
                 DIGEST.fullmatch(source["origin_report_sha256"]),
                 "KNOWLEDGE_ORIGINAL_SOURCE_INVALID")
@@ -112,6 +115,9 @@ def validate_knowledge(snapshot: dict) -> None:
         key=(source["video_id"],source["source_sha256"])
         require(key not in source_ids,"KNOWLEDGE_SOURCE_ID_DUPLICATE")
         source_ids.add(key)
+        require(source["source_text_sha256"] not in source_text_hashes,
+                "KNOWLEDGE_DUPLICATE_TRANSCRIPT_BODY")
+        source_text_hashes.add(source["source_text_sha256"])
     ids=set()
     count_by_source={}
     for c in claims:
@@ -244,9 +250,13 @@ def ingest_new_video(previous:dict,original_raw:bytes,
             sha256(original_raw)==digest,
             "KNOWLEDGE_ORIGINAL_SHA_MISMATCH")
     audit=validate_annotations(original_raw,digest,vid,proposed)
+    source_body_sha=sha256(" ".join(
+        cue.text for cue in parse_srt(original_raw,digest)).encode("utf-8"))
     for old in previous["source_register"]:
         require(old["source_sha256"]!=digest,
                 "KNOWLEDGE_REUSED_ORIGINAL_BYTES_NO_DOUBLECOUNT")
+        require(old["source_text_sha256"]!=source_body_sha,
+                "KNOWLEDGE_DUPLICATE_TRANSCRIPT_BODY")
         require(old["video_id"]!=vid,
                 "KNOWLEDGE_SOURCE_VIDEO_ID_ALREADY_REGISTERED")
     old_claims=previous["claims"]
@@ -269,6 +279,7 @@ def ingest_new_video(previous:dict,original_raw:bytes,
     rels=_cross_video_candidates(fresh,old_claims,top_k)
     source={
         "video_id":vid,"source_sha256":digest,
+        "source_text_sha256":source_body_sha,
         "origin_report_sha256":fingerprint(new_report),
         "unresolved_source_cues":audit["unresolved_cues"],
         "cues":audit["source_cues"],
