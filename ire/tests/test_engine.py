@@ -63,7 +63,7 @@ def annotations(digest):
              "frame":empty_frame(product="가상의 상품 A",
                  financial_event="계약 비용",action="예시 제시",
                  modality="HYPOTHESIS",
-                 measurements:[{"value_text":"0.3%","unit":"%",
+                 measurements=[{"value_text":"0.3%","unit":"%",
                      "measure_kind":"연간 수수료율","reference_cue":3}]),
              "source_refs":[{"cue_index":3,"quote":"연간 수수료 0.3%는 예시입니다."}],
              "annotation_status":"UNREVIEWED"}
