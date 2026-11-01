@@ -144,6 +144,26 @@ def finalize_batch(manifest:dict,
     plan=inspect_manifest(manifest)
     current=prior_knowledge if prior_knowledge is not None else empty_knowledge()
     validate_knowledge(current)
+    # Reject stale/forked caller state when a newer immutable snapshot exists.
+    knowledge_root=safe_private_directory(private_knowledge_dir)
+    existing=list(knowledge_root.glob("ire_knowledge_v*.json"))
+    if existing:
+        expected_name=("ire_knowledge_v"+str(current["version"]).zfill(6)+
+                       "_"+current["snapshot_sha256"][:16]+".json")
+        require(prior_knowledge is not None and any(
+            p.name==expected_name for p in existing),
+            "V2_BATCH_PRIOR_KNOWLEDGE_VERSION_NOT_CURRENT")
+        require(not any(
+            p.name.startswith("ire_knowledge_v") and
+            p.name[15:21].isdigit() and
+            int(p.name[15:21])>current["version"]
+            for p in existing),
+            "V2_BATCH_STALE_PRIOR_KNOWLEDGE_SNAPSHOT")
+    if private_evidence_dir is not None:
+        ev_root=safe_private_directory(private_evidence_dir)
+        require(prior_evidence is not None or
+                not list(ev_root.glob("ire_evidence_v*.json")),
+                "V2_BATCH_PRIOR_EVIDENCE_SNAPSHOT_REQUIRED")
     base_current=current
     audit={
         "schema":"IRE_V2_STUDY_BATCH_AUDIT",
