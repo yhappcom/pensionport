@@ -16,7 +16,7 @@ import re
 import socket
 import urllib.error
 import urllib.request
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit,urljoin
 
 from .source import require,sha256,text_norm
 from .checkpoint import safe_private_directory
@@ -99,27 +99,38 @@ class _NoRedirect(urllib.request.HTTPRedirectHandler):
 
 
 def _restricted_get(url: str) -> tuple[bytes,str,str]:
-    _check_public_dns(url)
+    """Follow at most 3 same-issuer HTTPS redirects; deny cross-site hops."""
+    original_issuer=issuer_for(url)
+    require(original_issuer is not None,"EVIDENCE_URL_NOT_IN_INSTITUTION_ALLOWLIST")
     opener=urllib.request.build_opener(
         _NoRedirect(),urllib.request.ProxyHandler({}))
-    request=urllib.request.Request(url,
-        headers={"User-Agent":"IRE-IndependentEvidenceVerifier/0.2",
-                 "Accept":"text/html,text/plain;q=0.8",
-                 "Accept-Encoding":"identity"},method="GET")
-    try:
-        with opener.open(request,timeout=20) as response:
-            final=response.geturl()
-            require(final==url,"EVIDENCE_REDIRECT_DENIED")
-            mime=response.headers.get("Content-Type","").lower()
-            raw=response.read(MAX_DOCUMENT_BYTES+1)
-    except urllib.error.HTTPError as exc:
-        if 300<=exc.code<400:
-            raise ValueError("EVIDENCE_REDIRECT_DENIED") from None
-        raise ValueError("EVIDENCE_HTTP_ERROR_"+str(exc.code)) from None
-    except (urllib.error.URLError,TimeoutError,OSError):
-        raise ValueError("EVIDENCE_NETWORK_UNAVAILABLE") from None
-    return raw,mime,final
-
+    current=url
+    for _ in range(4):
+        _check_public_dns(current)
+        request=urllib.request.Request(current,
+            headers={"User-Agent":"IRE-IndependentEvidenceVerifier/0.2",
+                     "Accept":"text/html,text/plain;q=0.8",
+                     "Accept-Encoding":"identity"},method="GET")
+        try:
+            with opener.open(request,timeout=20) as response:
+                final=response.geturl()
+                require(final==current,"EVIDENCE_UNSCREENED_REDIRECT_DENIED")
+                mime=response.headers.get("Content-Type","").lower()
+                raw=response.read(MAX_DOCUMENT_BYTES+1)
+            return raw,mime,current
+        except urllib.error.HTTPError as exc:
+            if exc.code in (301,302,303,307,308):
+                location=exc.headers.get("Location","")
+                target=urljoin(current,location)
+                require(target!=current and
+                        issuer_for(target)==original_issuer,
+                        "EVIDENCE_REDIRECT_CROSS_ISSUER_DENIED")
+                current=target
+                continue
+            raise ValueError("EVIDENCE_HTTP_ERROR_"+str(exc.code)) from None
+        except (urllib.error.URLError,TimeoutError,OSError):
+            raise ValueError("EVIDENCE_NETWORK_UNAVAILABLE") from None
+    raise ValueError("EVIDENCE_TOO_MANY_REDIRECTS")
 
 class _VisibleHTML(HTMLParser):
     def __init__(self):
@@ -192,7 +203,7 @@ def independently_fetch_candidate(url: str,read_fn=None,
     require(type(raw) is bytes and 0<len(raw)<=MAX_DOCUMENT_BYTES,
             "EVIDENCE_SOURCE_BYTES_INVALID_OR_OVERSIZE")
     require(type(mime) is str and isinstance(final,str) and
-            final==url and issuer_for(final)==issuer,
+            issuer_for(final)==issuer,
             "EVIDENCE_FETCH_REDIRECT_OR_MIME_INVALID")
     visible,truncated=_extract(raw,mime)
     checked_time=fetched_at or datetime.now(timezone.utc).isoformat()
@@ -216,7 +227,9 @@ def independently_fetch_candidate(url: str,read_fn=None,
         snapshot=str(path)
     return {
         "schema":"IRE_INDEPENDENT_DOCUMENT_V1",
-        "canonical_url":url,
+        "requested_candidate_url":url,
+        "canonical_url":final,
+        "same_issuer_redirected":final!=url,
         "issuer_domain_category":issuer,
         "raw_sha256":sha256(raw),
         "raw_byte_size":len(raw),
