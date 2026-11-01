@@ -101,3 +101,94 @@ SRT cue → 364개 독립 문맥 윈도 생성과 출처 보존이 확인됐다.
 않았다. 비공개 원본의 재사용·중복과 노출 문제를 적용하면 블라인드 후보는
 현재 잠정 6편만 남아 20~30편 목표를 충족하지 못한다. 독립 검토자의
 블라인드 판정자료도 미확보다. 따라서 단계 3~5는 실행/승인하지 않는다.
+
+
+## IRE 단일 실행 연구 오케스트레이터
+
+새 진입점: python -m ire.one_shot. 사용자는 추가 진행 명령 없이 하나의
+원본 또는 최대 30개 원본의 처리·검증·연구 차단 보고서를 받을 수 있다.
+
+단일 명령은 원본 무결성 검사 → 발언 문맥 구성 → 모델 의미 해석 →
+금융 원자주장 출처 검사 → 독립 공식 사이트 후보 검색 →
+정량 검증 작업표 → 관계 후보 검색 → 독립 심사 게이트 →
+비공개 최종 보고서 저장을 순차 실행한다. 완료되지 않은 단계는
+결과 보고서에 SKIPPED_UPSTREAM_BLOCKED로 남긴다.
+
+실제 모델 호출은 개인 OPENAI_API_KEY와 사용 가능한 모델 및 외부
+API 전송 권한이 있는 환경에서만 이루어진다. 원본과 원자 주장은
+외부 API 제공자에게 전송될 수 있으며 호출 및 검색 비용이 발생한다.
+
+### 개별 원본 단일 실행
+
+~~~bash
+python -m ire.one_shot \
+  --original-srt /private/new_original.srt \
+  --video-id ABCDEFGHIJK \
+  --source-sha256 ACTUAL_64_DIGIT_SHA256 \
+  --semantic-model YOUR_MODEL \
+  --research-model YOUR_WEB_SEARCH_MODEL \
+  --private-semantic-checkpoints /private/ire_checkpoints \
+  --private-output-dir /private/ire_reports
+~~~
+
+### 다섯 편 이상 일괄 실행
+
+기존 연구 자료가 아니라 새 원본의 파일 경로, 영상 ID 및 실제 SRT
+해시만을 포함한 비공개 JSON 매니페스트를 만든다.
+
+~~~json
+{
+  "schema": "IRE_NEW_ORIGINAL_BATCH_V1",
+  "videos": [
+    {
+      "video_id": "ABCDEFGHIJK",
+      "original_srt_path": "/private/A.srt",
+      "source_sha256": "ACTUAL_64_CHAR_SHA256_A"
+    },
+    {
+      "video_id": "LMNOPQRSTUV",
+      "original_srt_path": "/private/B.srt",
+      "source_sha256": "ACTUAL_64_CHAR_SHA256_B"
+    }
+  ]
+}
+~~~
+
+~~~bash
+python -m ire.one_shot \
+  --batch-manifest /private/new_sources.json \
+  --semantic-model YOUR_MODEL \
+  --private-semantic-checkpoints /private/ire_checkpoints \
+  --private-output-dir /private/ire_reports
+~~~
+
+### 자동 실패 복구와 한계
+
+- 모델 일시 장애는 제한 횟수만 재시도한다. 출처에 연결되어 검증된
+  문맥 결과는 원본·모델·프롬프트 해시에 결속해 비공개로 재사용한다.
+- 원본을 조작한 흔적이나 원문에 없는 인용은 중단 사유로 기록한다.
+  모델 응답은 원문 검사를 통과해야 체크포인트에 기록된다.
+- 원본 파일이 없거나 해시가 다르면 영상별 실패 보고서를 만들고
+  나머지 영상은 계속 처리한다.
+- 결과는 개인 디렉터리에 0600 권한으로 저장하고 기존 보고서를
+  덮어쓰지 않는다. 외부 API는 원본 전송 동의를 전제로 한다.
+- 실제 공식 기관 웹 검색으로 발견한 URL은 후보일 뿐이다.
+  공식 자료의 진위, 적용 시점, 예외와 주장의 사실성을 자동 승인하지 않는다.
+- 사람 2인의 독립 블라인드 판정이 확보되지 않은 현재, 전주제
+  투자 사실 검증과 지식 통합 승인은 반드시 BLOCKED로 유지한다.
+
+정상적으로 차단 보고서를 작성한 경우 종료 코드 2다. 파일 접근/
+입력 스키마 등으로 실행 자체가 실패한 경우 종료 코드 3이다.
+연구가 승인됐다는 성공 코드 0은 현재 제공하지 않는다.
+
+### 재실행 검증
+
+개발용 신규 원본 #266·267·269·270·271 총 3,600 SRT cue를 한
+명령으로 다시 실행해 5개 원본 검증과 5개 비공개 실행 보고서 작성에
+성공했다. 금융 모델 호출이 없는 환경에서는 5개 모두
+SEMANTIC_MODEL_NOT_CONFIGURED로 명확하게 차단됐다.
+모델 명칭만 부여하고 키가 없는 추가 시험도
+SEMANTIC_API_KEY_UNAVAILABLE로 차단됐다.
+
+CI 합성·적대적 시험 38건에 통과했으며, 이 결과는 실제 금융
+의미추출 정밀도·재현율 또는 독립 금융 사실 검증 성능을 의미하지 않는다.
