@@ -184,5 +184,26 @@ class IndependentEvidenceTests(unittest.TestCase):
         self.assertEqual(OUT_SCHEMA["properties"]["verdict"]["type"],"string")
 
 
+    def test_private_primary_bytes_snapshot_rejects_mutation(self):
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            folder=str(Path(tmp)/"source_bytes")
+            doc=independently_fetch_candidate(
+                TEST_URL,read_fn=fake_reader,private_evidence_dir=folder)
+            where=Path(doc["private_immutable_source_snapshot"])
+            self.assertTrue(where.is_file())
+            self.assertEqual(where.read_bytes(),RAW_DOCUMENT)
+            self.assertEqual(where.stat().st_mode & 0o077,0)
+            same=independently_fetch_candidate(
+                TEST_URL,read_fn=fake_reader,private_evidence_dir=folder)
+            self.assertEqual(doc["raw_sha256"],same["raw_sha256"])
+            where.write_bytes(b"bad changed document")
+            with self.assertRaisesRegex(ValueError,
+                                        "EVIDENCE_PRIVATE_SNAPSHOT_HASH_CHANGED"):
+                independently_fetch_candidate(
+                    TEST_URL,read_fn=fake_reader,private_evidence_dir=folder)
+
+
+
 if __name__=="__main__":
     unittest.main()
