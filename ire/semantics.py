@@ -19,6 +19,7 @@ from typing import Callable
 from .source import require, sha256, source_record, parse_srt, text_norm
 from .claims import CLAIM_TYPES, MODALITIES, validate_annotations, validate_frame
 from .checkpoint import SemanticCheckpointLedger
+from .semantic_schema import SEMANTIC_SCHEMA
 
 PROMPT_VERSION = "IRE_DISCOURSE_FINANCIAL_SEMANTICS_V1_20261101"
 SYSTEM_PROMPT = """You are a Korean-language finance claim annotation worker.
@@ -104,7 +105,9 @@ def openai_responses_request(config: InferenceConfig, user_json: dict,
         "model":config.model,
         "store":False,
         "max_output_tokens":config.max_output_tokens,
-        "text":{"format":{"type":"json_object"}},
+        "text":{"format":{"type":"json_schema",
+                "name":"ire_financial_semantics_v1",
+                "strict":True,"schema":SEMANTIC_SCHEMA}},
         "input":[
             {"role":"system","content":SYSTEM_PROMPT},
             {"role":"user","content":json.dumps(
