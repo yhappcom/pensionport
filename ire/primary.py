@@ -62,7 +62,7 @@ def screen_discovery_response(result: dict, claim_id: str) -> dict:
                 url=citation.get("url")
                 if is_official_candidate(url):
                     citations.append(url)
-    links=sorted(set(citations))
+    links=sorted(set(citations)) if searches else []
     return {
         "claim_id":claim_id,
         "schema":"IRE_OFFICIAL_DISCOVERY_CANDIDATES_V1",
