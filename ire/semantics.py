@@ -18,6 +18,7 @@ import urllib.request
 from typing import Callable
 from .source import require, sha256, source_record, parse_srt
 from .claims import CLAIM_TYPES, MODALITIES, validate_annotations
+from .checkpoint import SemanticCheckpointLedger
 
 PROMPT_VERSION = "IRE_DISCOURSE_FINANCIAL_SEMANTICS_V1_20261101"
 SYSTEM_PROMPT = """You are a Korean-language finance claim annotation worker.
@@ -241,7 +242,8 @@ def assemble_window(raw: bytes, video_id: str, digest: str,
 def interpret_original(raw: bytes, video_id: str,
                        config: InferenceConfig,
                        request_fn: Callable[[dict],dict] | None = None,
-                       max_total_windows: int = 900) -> dict:
+                       max_total_windows: int = 900,
+                       private_checkpoint_directory: str | None = None) -> dict:
     """Runs the full source, never reports success for partial or missing calls.
 
     request_fn permits a deterministic mock in tests, explicitly not a real run.
@@ -263,9 +265,26 @@ def interpret_original(raw: bytes, video_id: str,
         caller=request_fn
         is_real=False
     private_source={**source,"_raw_srt_internal":raw}
+    checkpoints=(SemanticCheckpointLedger(
+        private_checkpoint_directory,video_id,digest,config.model,
+        sha256(SYSTEM_PROMPT.encode("utf-8")),windows)
+        if private_checkpoint_directory else None)
+    cached_count=0
     for window in windows:
-        package=window_data(private_source,window)
-        replies.append(caller(package))
+        cached=checkpoints.read(window) if checkpoints else None
+        if cached is None:
+            package=window_data(private_source,window)
+            reply=caller(package)
+            # A source cue is never silently dropped from a model response.
+            require(type(reply) is dict and
+                    set(reply)=={"claims","cue_dispositions"},
+                    "SEMANTIC_WINDOW_OUTPUT_SCHEMA_MISMATCH")
+            if checkpoints:
+                checkpoints.save(window,reply)
+            replies.append(reply)
+        else:
+            cached_count+=1
+            replies.append(cached)
     manifest=assemble_window(raw,video_id,digest,windows,replies,config.model)
     audit=validate_annotations(raw,digest,video_id,manifest)
     return {
@@ -275,6 +294,7 @@ def interpret_original(raw: bytes, video_id: str,
         "engine":"DISCOURSE_LEVEL_LLM_WITH_PRIMARY_CUE_TRACEABILITY",
         "window_count":len(windows),
         "completed_window_count":len(replies),
+        "previously_cached_window_count":cached_count,
         "model_name":config.model,
         "inference_mode":"LIVE_EXTERNAL_API" if is_real else "SYNTHETIC_INJECTED_MOCK",
         "annotation_manifest":manifest,
