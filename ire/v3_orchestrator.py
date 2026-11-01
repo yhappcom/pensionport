@@ -18,6 +18,7 @@ from .semantics import verify_window_before_caching
 from .v2_run import inspect_manifest, finalize_batch
 from .knowledge import read_private_snapshot
 from .v2_evidence import validate_evidence_ledger
+from .v3_semantic_audit import window_semantic_audit, review_clusters
 
 SCHEMA = "IRE_V3_CHAT_QUEUE_V1"
 DEFAULT_MAX_PACKETS = 4
@@ -118,6 +119,7 @@ class ChatBatchQueue:
             "max_chars": max_chars,
             "packets": selected,
             "packet_count": len(selected),
+            "adaptive_review_clusters": review_clusters(selected),
             "remaining_before_batch": self.status()["remaining_windows"],
             "model_execution": "CURRENT_CHATGPT_CONVERSATION_ONLY",
             "contains_untrusted_source_text": True,
@@ -139,6 +141,7 @@ class ChatBatchQueue:
                 response["batch_sha256"] == request["batch_sha256"],
                 "V3_BATCH_CHECKPOINT_OR_IDENTITY_MISMATCH")
         sessions = {s.video_id: s for s in self.sessions}
+        warnings = []
         # Complete preflight before any checkpoint is written: one corrupt
         # cue quote or wrong video ID must not partially accept the batch.
         for row, expected in zip(answers, request["packets"]):
@@ -162,6 +165,10 @@ class ChatBatchQueue:
                 session._window(packet["window_id"]),
                 {"claims": submission["claims"],
                  "cue_dispositions": submission["cue_dispositions"]})
+            source_audit = window_semantic_audit(packet, submission)
+            require(not source_audit["critical"],
+                    "V3_HIGH_SIGNAL_SEMANTIC_OMISSION_BLOCKED")
+            warnings.extend(source_audit["warnings"])
         # Each write is O_EXCL and source tied; unexpected IO interruption
         # leaves an honest partial checkpoint, not a false batch commit.
         accepted = []
@@ -173,13 +180,64 @@ class ChatBatchQueue:
         return {
             **self.status(),
             "accepted_in_submission": accepted,
+            "semantic_review_warnings": warnings,
             "status": "V3_SOURCE_LINKED_CHECKPOINTS_ACCEPTED_NOT_FACT_CERTIFIED"
+        }
+
+    def audit_semantic_coverage(self) -> dict:
+        """Recheck all stored V2/V3 responses without changing their bytes.
+
+        Important for V2 legacy checkpoints accepted before V3's strict
+        high-signal omission preflight existed.
+        """
+        critical = []
+        warnings = []
+        checked = 0
+        for session in self.sessions:
+            for window in session.windows:
+                answer = session._answer(window["window_id"])
+                if answer is None:
+                    continue
+                checked += 1
+                packet = session.packet(window["window_id"])
+                result = window_semantic_audit(packet, answer)
+                for item in result["critical"]:
+                    critical.append({"video_id": session.video_id,
+                                     "window_id": window["window_id"],
+                                     **item})
+                for item in result["warnings"]:
+                    warnings.append({"video_id": session.video_id,
+                                     "window_id": window["window_id"],
+                                     **item})
+        return {
+            "schema": "IRE_V3_SEMANTIC_COVERAGE_AUDIT_V1",
+            "checked_windows": checked,
+            "critical_omission_suspicions": critical,
+            "review_warnings": warnings,
+            "critical_count": len(critical),
+            "warning_count": len(warnings),
+            "true_semantic_recall_measured": False,
+            "independent_gold_available": False,
         }
 
     def finalize(self, private_knowledge_dir: str, private_audit_dir: str,
                  prior_knowledge_snapshot: str | None = None,
                  prior_evidence_snapshot: str | None = None,
                  private_evidence_dir: str | None = None) -> dict:
+        audit = self.audit_semantic_coverage()
+        if audit["critical_count"]:
+            return {
+                "schema": "IRE_V3_CHAT_FINALIZATION_V1",
+                "status": "INCOMPLETE_REQUIRES_RESUME",
+                "quality_gate": "V3_HIGH_SIGNAL_SEMANTIC_OMISSION_BLOCKED",
+                "semantic_critical_count": audit["critical_count"],
+                "completed_source_windows": self.status()["accepted_windows"],
+                "requested_source_windows": self.status()["total_windows"],
+                "knowledge_snapshot_sha256": None,
+                "approved_financial_facts": 0,
+                "advisory_ready": False,
+                "audit_path": None,
+            }
         prior = (read_private_snapshot(prior_knowledge_snapshot)
                  if prior_knowledge_snapshot else None)
         evidence = None
@@ -208,7 +266,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Chat-hosted, no-model-API financial research queue")
     parser.add_argument("operation",
-                        choices=["status", "next", "accept", "finalize"])
+                        choices=["status", "next", "accept", "audit", "finalize"])
     parser.add_argument("--private-manifest", required=True)
     parser.add_argument("--private-submission")
     parser.add_argument("--max-packets", type=int, default=DEFAULT_MAX_PACKETS)
@@ -227,6 +285,8 @@ def main() -> int:
             result = queue.status()
         elif args.operation == "next":
             result = queue.next_work(args.max_packets, args.max_chars)
+        elif args.operation == "audit":
+            result = queue.audit_semantic_coverage()
         elif args.operation == "accept":
             require(bool(args.private_submission),
                     "V3_SUBMISSION_FILE_REQUIRED")
