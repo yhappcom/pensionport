@@ -43,7 +43,10 @@ def build_synthetic_numeric_knowledge(root):
     claims = []
     for i, line in enumerate(SENTENCES, 1):
         measurements = [
-            {"value_text": literal, "unit": "원" if "원" in literal else "%",
+            {"value_text": literal,
+             "unit": ("만원" if "만원" in literal else
+                      "개월" if "개월" in literal else
+                      "년" if "년" in literal else "%"),
              "measure_kind": "synthetic cited value", "reference_cue": i}
             for literal in refs[i - 1]
         ]
