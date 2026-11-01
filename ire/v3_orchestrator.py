@@ -46,7 +46,8 @@ class ChatBatchQueue:
             raw = private_file(source["original_srt_path"]).read_bytes()
             session = ConversationResearchSession(
                 raw, source["video_id"], source["source_sha256"],
-                source["private_chat_sessions_path"])
+                source["private_chat_sessions_path"],
+                window_strategy=source.get("window_strategy","V2_COMPAT"))
             self.sessions.append(session)
 
     def status(self) -> dict:
