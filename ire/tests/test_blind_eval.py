@@ -208,5 +208,37 @@ class SyntheticBlindEvaluationTests(unittest.TestCase):
 
 
 
+    def test_blind_cli_accepts_private_one_shot_research_report(self):
+        import json
+        import tempfile
+        import subprocess
+        import sys
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as root:
+            home=Path(root)
+            original=home/"original.srt";original.write_bytes(self.raw)
+            gold=home/"gold.json";gold.write_text(json.dumps(self.gold))
+            report=home/"one_shot.json"
+            report.write_text(json.dumps({
+                "schema":"IRE_ONE_SHOT_RESEARCH_REPORT_V1",
+                "video_id":VID,"source_sha256":self.digest,
+                "private_details":{"provisional_claim_manifest":self.pred}
+            }))
+            matches=home/"matches.json";matches.write_text(json.dumps(self.match))
+            out=home/"score.json"
+            args=[sys.executable,"-m","ire.blind_eval",
+                  "--original-srt",str(original),
+                  "--source-sha256",self.digest,
+                  "--video-id",VID,"--private-blind-gold",str(gold),
+                  "--private-model-proposals",str(report),
+                  "--private-adjudicated-matches",str(matches),
+                  "--private-report",str(out)]
+            cmd=subprocess.run(args,capture_output=True,text=True,check=False)
+            self.assertEqual(cmd.returncode,2,cmd.stdout+cmd.stderr)
+            final=json.loads(out.read_text())
+            self.assertEqual(final["strict_recall"],1.0)
+            self.assertFalse(final["true_blind_independence_proven"])
+
+
 if __name__=="__main__":
     unittest.main()
