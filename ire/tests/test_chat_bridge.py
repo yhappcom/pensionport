@@ -90,9 +90,10 @@ class ChatOnlyResearchIntegrationTests(unittest.TestCase):
         ans["cue_dispositions"].pop()
         with self.assertRaisesRegex(ValueError,"SEMANTIC_WINDOW_OUTPUT_CENSUS_INVALID"):
             self.session.accept(ans)
-        self.session.accept(self.answer())
+        same=self.answer()
+        self.session.accept(same)
         with self.assertRaisesRegex(ValueError,"CHAT_ANSWER_OVERWRITE_FORBIDDEN"):
-            self.session.accept(self.answer())
+            self.session.accept(same)
 
     def test_cached_chat_reply_tampering_blocks_resume(self):
         self.session.accept(self.answer())
