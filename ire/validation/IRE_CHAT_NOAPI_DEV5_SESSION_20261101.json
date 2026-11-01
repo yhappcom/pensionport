@@ -1,0 +1,106 @@
+{
+  "schema": "IRE_CHAT_ASSISTED_DEVELOPMENT_FIVE_20261101_V1",
+  "date": "2026-11-01",
+  "operation_mode": "CURRENT_CHATGPT_CONVERSATION_NO_EXTERNAL_MODEL_API",
+  "repository_branch": "feat/ire-chat-assisted-noapi-20261101",
+  "historical_research_results_quoted": false,
+  "prior_financial_claims_as_gold": false,
+  "previous_engine_imports": false,
+  "originals_committed_to_github": false,
+  "optional_API_modules_inherited_but_not_invoked": true,
+  "chat_bridge_implementation": {
+    "module": "ire/chat_bridge.py",
+    "guide": "ire/CHAT_MODE.md",
+    "source_cue_sha_binding": true,
+    "packet_sha_binding": true,
+    "source_quote_and_number_verification": true,
+    "nonclaim_and_unresolved_cue_census": true,
+    "multiwindow_batch_size_min": 2,
+    "multiwindow_batch_size_max": 12,
+    "private_immutable_checkpoints": true,
+    "fully_unattended_programmatic_chatgpt_invocation": false
+  },
+  "current_chat_original_interpretation": {
+    "original_video_number": 266,
+    "video_id": "-lX8iJd-xDM",
+    "source_sha256": "059484995ba7a84dd5ec21ed682a526b95832f65b56cea1cf48745548c2d8335",
+    "session_id": "18dd747e9985b65b5758b9f31871c00c7bc62475e10aa4369dbe961259626a52",
+    "source_cues": 771,
+    "windows_total": 78,
+    "accepted_windows": [
+      "W00001",
+      "W00002",
+      "W00003",
+      "W00004"
+    ],
+    "accepted_cues": 40,
+    "source_linked_cues": 24,
+    "nonclaim_candidates": 14,
+    "unresolved_in_accepted_cues": 2,
+    "provisional_atomic_financial_claims": 8,
+    "remaining_unprocessed_windows": 74,
+    "unverified_human_review": false,
+    "factual_truth_approved": 0,
+    "measured_semantic_recall": null,
+    "measured_semantic_precision": null
+  },
+  "five_video_registration": {
+    "source_cues_total": 3600,
+    "discourse_windows_total": 364,
+    "accepted_windows_total": 4,
+    "remaining_windows_total": 360,
+    "videos": [
+      {
+        "number": 266,
+        "video_id": "-lX8iJd-xDM",
+        "cue_count": 771,
+        "windows": 78,
+        "submitted_windows": 4
+      },
+      {
+        "number": 267,
+        "video_id": "jgzqPUBFWY8",
+        "cue_count": 522,
+        "windows": 54,
+        "submitted_windows": 0
+      },
+      {
+        "number": 269,
+        "video_id": "loKj0LccKTA",
+        "cue_count": 988,
+        "windows": 99,
+        "submitted_windows": 0
+      },
+      {
+        "number": 270,
+        "video_id": "eEwZi_lweM4",
+        "cue_count": 1036,
+        "windows": 104,
+        "submitted_windows": 0
+      },
+      {
+        "number": 271,
+        "video_id": "p94_t07GTKA",
+        "cue_count": 283,
+        "windows": 29,
+        "submitted_windows": 0
+      }
+    ]
+  },
+  "private_bundle": {
+    "content": "all five original SRTs, source manifests and 4 verified source-only chat answer checkpoints",
+    "committed_to_github": false,
+    "zip_file_sha256": "c5ed17c69663d3d00ac4036cbad2e3b0c8731e181fff8592959ae7484a9ce249",
+    "zip_bytes": 122493
+  },
+  "verification": {
+    "github_CI_latest_test_suite": 80,
+    "prior_CI_failed_test_fixed": true,
+    "actual_llm_api_calls": 0,
+    "true_independent_human_gold_count": 0,
+    "approved_financial_claim_count": 0,
+    "knowledge_merges": 0,
+    "release": "BLOCKED_REQUIRES_COMPLETE_SOURCE_AND_INDEPENDENT_EVIDENCE"
+  },
+  "next_action": "Use next --batch-size 6 on #266 private session, interpret from original primary cues in current chat, accept verified structured results, continue until 78/78 and then independently check primary financial facts"
+}
