@@ -172,5 +172,41 @@ class SyntheticBlindEvaluationTests(unittest.TestCase):
 
 
 
+    def test_private_blind_evaluator_cli_creates_auditable_result(self):
+        import json
+        import tempfile
+        import subprocess
+        import sys
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as root:
+            home=Path(root)
+            source=home/"source.srt"
+            gold=home/"blind_gold.json"
+            prediction=home/"model_proposals.json"
+            matching=home/"human_alignments.json"
+            output=home/"evaluated.json"
+            source.write_bytes(self.raw)
+            gold.write_text(json.dumps(self.gold,ensure_ascii=False))
+            prediction.write_text(json.dumps(self.pred,ensure_ascii=False))
+            matching.write_text(json.dumps(self.match,ensure_ascii=False))
+            args=[sys.executable,"-m","ire.blind_eval",
+                  "--original-srt",str(source),
+                  "--source-sha256",self.digest,
+                  "--video-id",VID,
+                  "--private-blind-gold",str(gold),
+                  "--private-model-proposals",str(prediction),
+                  "--private-adjudicated-matches",str(matching),
+                  "--private-report",str(output)]
+            p=subprocess.run(args,capture_output=True,text=True,check=False)
+            self.assertEqual(p.returncode,2,p.stdout+p.stderr)
+            public=json.loads(p.stdout)
+            self.assertEqual(public["strict_recall"],1.0)
+            self.assertEqual(public["strict_precision"],1.0)
+            self.assertFalse(public["independent_human_identity_proven"])
+            self.assertEqual(output.stat().st_mode & 0o077,0)
+            self.assertNotIn("상품 비용은",p.stdout)
+
+
+
 if __name__=="__main__":
     unittest.main()
