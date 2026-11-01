@@ -1,0 +1,94 @@
+{
+  "schema": "IRE_V3_EVIDENCE_VERIFICATION_CONTRACT_V1",
+  "effective_date": "2026-11-02",
+  "mode": "CURRENT_CHATGPT_CONVERSATION_NO_MODEL_API",
+  "scope": "CLAIM_SPECIFIC_OFFICIAL_DOCUMENT_QUOTE_AND_SCOPE_AUDIT",
+  "original_source_input": "NEW_IRE_KNOWLEDGE_CLAIM_ID_ONLY",
+  "source_document_policy": {
+    "fetch_mode": "INDEPENDENT_LIVE_HTTPS_WHEN_CLI",
+    "allowlist_is_issuer_cryptographic_identity_proof": false,
+    "fetch_support": [
+      "text/html",
+      "text/plain",
+      "application/xhtml+xml"
+    ],
+    "unsupported_document_mime_requires_explicit_unverified_status": true,
+    "raw_bytes_private_immutable_store": true,
+    "source_text_sha256_must_match": true,
+    "institution_allowlist_is_not_legal_attestation": true
+  },
+  "review_schema": "IRE_CHAT_EVIDENCE_REVIEW_V3",
+  "required_fields": [
+    "schema",
+    "global_claim_id",
+    "document_url",
+    "document_sha256",
+    "document_text_sha256",
+    "source_quote",
+    "verdict",
+    "scope",
+    "scope_anchors",
+    "effective_from",
+    "effective_until",
+    "chat_reviewer_mode"
+  ],
+  "scope_fields": [
+    "jurisdiction",
+    "effective_date",
+    "conditions",
+    "exceptions",
+    "numbers"
+  ],
+  "scope_levels": [
+    "MATCH",
+    "CONFLICT",
+    "UNRESOLVED",
+    "NOT_SPECIFIED"
+  ],
+  "scope_anchor_rules": {
+    "matched_or_conflicting_scope_requires_nonempty_exact_primary_document_quote": true,
+    "unresolved_or_not_specified_must_not_claim_quote_match": true,
+    "source_quote_must_be_found_in_document": true,
+    "effective_start_and_end_dates_must_be_visible_in_date_scope_anchor": true,
+    "all_claim_measurement_text_must_appear_in_numeric_scope_anchors_for_MATCH": true,
+    "claim_must_explicitly_contain_subject_field_when_declaring_scope_match": true,
+    "document_content_must_be_independently_fetched_and_hashed": true,
+    "semantic_and_legal_truth_is_not_auto_verified": true
+  },
+  "v3_numeric": {
+    "schema": "IRE_V3_CITED_FINANCE_CALCULATION_V1",
+    "operations": [
+      "NET_AFTER_PERCENT",
+      "REMAINDER_AFTER_PERIODIC",
+      "MULTIPLY_PERIODIC",
+      "PAYBACK_PERIOD"
+    ],
+    "input_type": "EXACT_DECIMAL_STRINGS",
+    "source_claim_quotes_required": true,
+    "source_literal_value_and_unit_match_required": true,
+    "reported_value_optional": true,
+    "valid_arithmetic_is_not_financial_truth": true
+  },
+  "evidence_record_storage": {
+    "old_v2_ledger_append_only": true,
+    "v3_scope_receipt_sealed_sha256": true,
+    "raw_source_and_scope_anchors_private_only": true,
+    "synthetic_test_sources_never_live_verified": true,
+    "verified_financial_facts_auto_approved": 0
+  },
+  "independent_validation": {
+    "test_fixture_gold_is_not_real_human_gold": true,
+    "real_human_gold_available": false,
+    "real_financial_precision_recall_proven": false,
+    "legal_effect_confirmation_proven": false,
+    "advisory_fitness_proven": false
+  },
+  "deployment": {
+    "v3_p0c_software_implemented": true,
+    "v3_p0c_synthetic_adversarial_tests_required": true,
+    "real_1_to_5_originals_replay_pending": true,
+    "official_pdf_verification_pending": true,
+    "production_ready": false,
+    "prior_v2_and_main_preserved": true
+  }
+}
