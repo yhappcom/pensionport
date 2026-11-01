@@ -205,5 +205,59 @@ class IndependentEvidenceTests(unittest.TestCase):
 
 
 
+    def test_real_http_redirect_layer_blocks_cross_issuer_before_follow(self):
+        import io
+        from email.message import Message
+        from unittest.mock import patch
+        from urllib.error import HTTPError
+        from ire.evidence import _restricted_get
+        response_headers=Message()
+        response_headers["Location"]="https://attacker.example/fake"
+        moved=HTTPError(TEST_URL,302,"Found",response_headers,io.BytesIO())
+        calls=[]
+        class FakeOpener:
+            def open(self,req,timeout):
+                calls.append(req.full_url)
+                raise moved
+        with patch("urllib.request.build_opener",return_value=FakeOpener()), \
+             patch("ire.evidence._check_public_dns",return_value=None):
+            with self.assertRaisesRegex(ValueError,
+                                         "EVIDENCE_REDIRECT_CROSS_ISSUER_DENIED"):
+                _restricted_get(TEST_URL)
+        self.assertEqual(calls,[TEST_URL])
+
+    def test_real_http_redirect_layer_accepts_same_issuer_https(self):
+        import io
+        from email.message import Message
+        from unittest.mock import patch
+        from urllib.error import HTTPError
+        from ire.evidence import _restricted_get
+        target="https://www.bok.or.kr/portal/mock-final"
+        hdr=Message();hdr["Location"]=target
+        moved=HTTPError(TEST_URL,302,"Found",hdr,io.BytesIO())
+        calls=[]
+        class MockLiveResponse:
+            def __enter__(self):return self
+            def __exit__(self,*args):return False
+            def geturl(self):return target
+            def read(self,cap):return RAW_DOCUMENT
+            @property
+            def headers(self):
+                h=Message();h["Content-Type"]="text/html;charset=utf-8"
+                return h
+        class FakeOpener:
+            def open(self,req,timeout):
+                calls.append(req.full_url)
+                if req.full_url==TEST_URL:raise moved
+                return MockLiveResponse()
+        with patch("urllib.request.build_opener",return_value=FakeOpener()), \
+             patch("ire.evidence._check_public_dns",return_value=None):
+            raw,mime,final=_restricted_get(TEST_URL)
+        self.assertEqual(calls,[TEST_URL,target])
+        self.assertEqual(raw,RAW_DOCUMENT)
+        self.assertEqual(final,target)
+
+
+
 if __name__=="__main__":
     unittest.main()
