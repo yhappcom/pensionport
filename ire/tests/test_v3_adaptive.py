@@ -155,5 +155,49 @@ class AdaptiveV3SourceTests(unittest.TestCase):
             ChatBatchQueue(m)
 
 
+    def test_long_narrative_carries_unfinished_financial_question(self):
+        # Fresh synthetic example: 14 complete cues, then an unfinished
+        # question fragment spanning the legacy 18-cue boundary.
+        parts = ["오늘 자료를 설명합니다."] * 14 + [
+            "투자 질문을", "다음 항목과", "함께", "검토하려고",
+            "금액을 계산해 보겠습니다.", "이어서 설명합니다."
+        ]
+        cues = tuple(Cue(index=i, start_ms=i*1000,
+                         end_ms=i*1000 + 700, text=line)
+                     for i, line in enumerate(parts, 1))
+        updated = adaptive_discourse_windows(cues)
+        self.assertEqual(updated[0]["source_cue_ids"], list(range(1, 15)))
+        self.assertEqual(updated[1]["source_cue_ids"], list(range(15, 21)))
+        self.assertFalse(updated[0][
+            "continuation_boundary_review_required"])
+        self.assertEqual([x for w in updated for x in w["source_cue_ids"]],
+                         list(range(1, 21)))
+
+    def test_forced_cut_without_finished_clause_is_flagged(self):
+        cues = tuple(Cue(index=i, start_ms=i*1000,
+                         end_ms=i*1000 + 700,
+                         text="아직 끝나지 않은 긴 설명")
+                     for i in range(1, 22))
+        updated = adaptive_discourse_windows(cues)
+        self.assertEqual(updated[0]["source_cue_ids"], list(range(1, 19)))
+        self.assertTrue(updated[0][
+            "continuation_boundary_review_required"])
+        self.assertEqual([x for w in updated for x in w["source_cue_ids"]],
+                         list(range(1, 22)))
+
+    def test_adaptive_planner_identity_is_distinct_from_prior_version(self):
+        from ire.v3_adaptive import PLANNER_VERSION
+        self.assertTrue(PLANNER_VERSION.endswith("_B"))
+        original = self.root/"versioned.srt"
+        original.write_bytes(self.raw)
+        session = ConversationResearchSession(
+            self.raw, VID, self.digest, str(self.root/"window_v3"),
+            window_strategy="V3_ADAPTIVE")
+        packet = session.next_packet()
+        self.assertIn("continuation_boundary_review_required", packet)
+        self.assertIn("planner_version", packet)
+        self.assertEqual(packet["planner_version"], PLANNER_VERSION)
+
+
 if __name__ == "__main__":
     unittest.main()
