@@ -35,8 +35,8 @@ def _read_measure(value: dict, cited_text: str, units: set[str]) -> tuple[Decima
     require(literal in cited_text, "V3_CALC_SOURCE_LITERAL_NOT_CITED")
     unit_re = {
         "원": r"(?<![만억])원",
-        "만원": r"만\\s*원",
-        "억원": r"억\\s*원",
+        "만원": r"만\s*원",
+        "억원": r"억\s*원",
         "%": r"%|퍼센트",
         "개월": r"개월",
         "회": r"회",
