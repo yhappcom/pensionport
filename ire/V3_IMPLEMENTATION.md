@@ -1,4 +1,4 @@
-# IRE V3 P0-A/P0-B/P0-D 구현 명세 — 2026-11-02
+# IRE V3 P0-A/P0-B/P0-C/P0-D 구현 명세 — 2026-11-02
 
 ## 개발 현황
 
@@ -40,6 +40,57 @@ V2 위의 점진적 개선이다. 이 파일은 실제 구현과 미완료 목�
 **중요:** 의미 분석의 실제 누락률과 원자 주장 정답률은 이번
 규칙 기반 검사만으로 인증하지 못한다. 적응형 윈도 수가 줄어드는
 것과 금융 사실이 정확해지는 것은 별개이다.
+
+### P0-C 공식 원문 근거 검증 및 Decimal 검산 (이번 확장)
+
+9. `ire/v3_evidence.py`: 기존 V2 근거 원장의 URL·원문 SHA·인용 검사에
+   더하여, ChatGPT가 주장하는 관할·효력 시점·조건·예외·수치 일치마다
+   **공식 문서에서 찾을 수 있는 정확한 scope anchor 인용**을 요구한다.
+   `MATCH`·`CONFLICT`에는 해당 원문의 근거 문장이 반드시 있어야 하고
+   `UNRESOLVED`·`NOT_SPECIFIED`는 실증했다고 위장할 수 없다.
+   효력 시작·종료일은 문서 안의 해당 연·월·일을 검증하며, `numbers=MATCH`
+   판정에는 원자 주장의 모든 수치 리터럴과 일치하는 근거가 필요하다.
+   일치한 결과는 기존 V2 불변 근거 원장과 별도의 해시 봉인 V3 범위
+   검토 영수증으로 비공개 저장한다.
+10. `ire/v3_numeric.py`: 검증된 신규 IRE 주장에 실제 인용된 숫자와
+    단위만 입력으로 받아 `Decimal`로 세후액, 분할 인출 잔액,
+    기간별 총액 및 명목 회수기간을 독립 산술 검산한다. 발언 속 수치와
+    연산 결과가 다른 경우 차이를 명시하되, 계산이 맞아도 세법 적용
+    타당성이나 투자수익률을 인증하지 않는다. CLI 실행 시 상세 계산과
+    원문은 비공개 감사 파일에 보관하며 공개 출력은 상태만 표시한다.
+
+검증 계약은 `ire/contracts/evidence_v3.json`에 저장한다.
+공식기관 도메인 허용 목록은 출처 후보 필터일 뿐 발행자 진위를
+암호학적으로 인증하지 않는다. 현재 실제 네트워크 취득기는 HTML 및
+일반 텍스트만 지원한다. PDF·동적 페이지·공식 법령의 법적 효력
+최종 확인은 아직 별도 검증 대상이다.
+
+#### 검증 실행 경로
+
+ChatGPT가 공식기관 사이트에서 문서를 검색·검토하고 정확한 범위 인용을
+작성한 뒤, 프로그램이 제출된 URL로 **직접 재취득**해 검증한다.
+자막 전문과 인용된 주장 및 투자조건은 외부 모델 API에 전달하지 않는다.
+
+```bash
+python -m ire.v3_evidence review \
+  --private-knowledge-snapshot /private/ire_kb/LATEST.json \
+  --private-ledger /private/ire_evidence/LATEST.json \
+  --private-chat-review /private/official_scope_review_v3.json \
+  --private-evidence-dir /private/ire_evidence \
+  --private-original-document-dir /private/official_bytes
+
+python -m ire.v3_numeric verify \
+  --private-knowledge-snapshot /private/ire_kb/LATEST.json \
+  --private-calculation /private/source_cited_arithmetic.json \
+  --private-audit-dir /private/ire_numeric_audits
+```
+
+실제 파일 경로는 예시다. `v3_evidence` 검토 입력에는 V2 필드 외에
+`scope_anchors` 객체가 필요하며 5개 범위마다 공식 원문 발췌 배열을
+제출해야 한다. 효과가 확인되지 않은 날짜·수치·예외는 명시적으로
+`UNRESOLVED`로 처리한다. 근거 원문과 인용 문자열이 다른 경우
+결과를 저장하지 않는다.
+
 
 ### ChatGPT 호스트가 수행하는 내부 명령
 
@@ -126,7 +177,10 @@ V2 체크포인트를 그대로 사용할 수 있다.
   V3 적응형 분할 및 고위험 비주장 누락 검사는 구현·합성 검증됐지만,
   실제 영상으로 분할 효율·금융 의미 재현율·복합 주장 완전성을
   측정하는 독립 검증은 아직 필요하다.
-- **P0-C:** 실제 공식 기관 원문 다운로드·적용일·예외·수치 독립 검증.
+- **P0-C:** 공식 HTML/텍스트 원문을 독립 취득하여 인용·날짜·범위·수치를
+  검증하는 코드와 Decimal 검산은 구현·합성 검증한다. 그러나 발행기관
+  게시물 진위·법적 효력·실제 금융 주장 정확성은 별도 확인 필요.
+  공식 PDF·동적 페이지 처리는 아직 지원하지 않는다.
 - **P0-D:** 규칙 기반 후보 검색은 개선했지만, 정량 의미 검색 재현율은
   별도 미노출 원본/독립 심사자 판정 없이는 알 수 없다.
 - **P1:** 실전 누적 주제 통합, 기존 지식과 상충 검토의 독립 정확도 검증.
@@ -144,7 +198,9 @@ V2 체크포인트를 그대로 사용할 수 있다.
 `ire/tests/test_v3_orchestrator.py`,
 `ire/tests/test_v3_semantic_candidates.py`,
 `ire/tests/test_v3_semantic_audit.py`,
-`ire/tests/test_v3_adaptive.py`의 합성 시험은 기능 회귀 시험이다.
+`ire/tests/test_v3_adaptive.py`,
+`ire/tests/test_v3_evidence.py`,
+`ire/tests/test_v3_numeric.py`의 합성 시험은 기능 회귀 시험이다.
 실제 원본/독립 평가자 골드가 없으면 recall·precision 및 금융 자문 신뢰도
 인증을 표시하지 않는다. 모든 의미 관계는
 `PENDING_SEPARATE_ADJUDICATION` 상태에 머문다.
