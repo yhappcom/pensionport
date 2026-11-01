@@ -316,5 +316,17 @@ class NewIreKnowledgeTests(unittest.TestCase):
 
 
 
+    def test_tampered_final_chat_report_cannot_enter_knowledge(self):
+        session=ConversationResearchSession(
+            self.original,VID,self.sha,str(self.root/"video1"))
+        report_file=session.folder/"final_report.json"
+        report=json.loads(report_file.read_text())
+        report["annotations"]["claims"][0]["proposition"]="완전히 변경된 금융 명제"
+        report_file.write_text(json.dumps(report,ensure_ascii=False))
+        with self.assertRaisesRegex(ValueError,"CHAT_FINAL_REPORT_CONTENT_CHANGED"):
+            session.finalize_and_integrate(
+                empty_knowledge(),str(self.root/"private_kb_after_tamper"))
+
+
 if __name__=="__main__":
     unittest.main()
