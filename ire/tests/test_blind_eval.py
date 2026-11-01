@@ -145,5 +145,32 @@ class SyntheticBlindEvaluationTests(unittest.TestCase):
                 self.gold,self.pred,self.match)
 
 
+    def test_zero_predicted_atoms_does_not_become_perfect_score(self):
+        self.pred["claims"]=[]
+        self.pred["cue_dispositions"]=[
+            {"cue_index":index,"status":"NONCLAIM_CANDIDATE",
+             "claim_ids":[],
+             "reason":"합성 예제에서 금융 명제 누락 여부를 독립 검사 중입니다."}
+            for index in range(1,5)]
+        self.match["pairs"]=[]
+        self.match["prediction_manifest_sha256"]=digest_json(self.pred)
+        result=self.measure()
+        self.assertEqual(result["gold_atom_count"],2)
+        self.assertEqual(result["predicted_atom_count"],0)
+        self.assertEqual(result["strict_recall"],0.0)
+        self.assertIsNone(result["strict_precision"])
+        self.assertEqual(result["unmatched_gold_or_nonexact"],2)
+        self.assertFalse(result["research_complete"])
+
+    def test_unadjudicated_guess_match_cannot_be_auto_approved(self):
+        self.match["pairs"][0]["semantic_verdict"]="INCORRECT"
+        result=self.measure()
+        self.assertEqual(result["strict_exact_matches"],1)
+        self.assertEqual(result["strict_recall"],0.5)
+        self.assertEqual(result["strict_precision"],0.5)
+        self.assertEqual(result["critical_recall"],0.0)
+
+
+
 if __name__=="__main__":
     unittest.main()
