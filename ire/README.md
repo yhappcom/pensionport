@@ -264,3 +264,48 @@ SHA-256을 추출하는 경로가 작동함을 확인했다.
 실제 원본에 대한 금융 의미 분석 API 호출은 현재 실행 환경에
 OPENAI_API_KEY가 없어 아직 수행하지 않았다. 추출 재현율,
 의미 정확도 및 공식 사실 승인은 현재 미측정이다.
+
+
+## 신규 원본 5편 실전 연동 재시험 및 독립 성능평가 게이트
+
+2026-11-01 기존 연구 결과를 인용하지 않고 신규 개발용 원본
+#266·267·269·270·271에서 단일 명령을 다시 실행했다.
+원본 5편 합계 3,600 cue, 실행 보고서 5건을 별도 0600
+비공개 영역에 생성했다. 원본 검증·보고서 생성은 모두 PASS다.
+
+외부 모델 이름을 지정하고 실제 모델 호출을 시도했으나, 현
+실행 환경에 OPENAI_API_KEY가 설정되어 있지 않아 5편 모두
+SEMANTIC_API_KEY_UNAVAILABLE를 반환했다. 명시적으로
+진행되지 않은 모델 분석을 실행 완료로 표시하지 않았다.
+**실제 금융 원자 주장 수·Recall·Precision은 여전히 미측정이다.**
+
+새 평가 실행기: ire/blind_eval.py
+
+원본으로 독립 작업한 두 검토자의 파일과 제3자 조정 자료를
+모델 출력과 *사후* 비교하는 기능을 추가했다. 원본 SRT 해시,
+원문 인용, 금융 원자 의미 프레임, 정답 봉인 SHA 및 모델 출력
+SHA에 대한 유효성 검사를 수행한다. 모델 초안을 본 뒤 생성한
+정답은 블라인드 정답으로 사용할 수 없다. 구조화된 파일에서
+서명을 확인해도 **검토자가 실제 사람인지, 독립적으로 심사했는지는
+자동으로 증명되지 않는다.** 관련 부분은 별도 외부 검증이 필요하다.
+
+정답과 대응표가 별도 비공개 파일로 준비됐을 때에만 실행한다.
+
+~~~bash
+python -m ire.blind_eval \
+  --original-srt /private/new_original.srt \
+  --video-id ABCDEFGHIJK \
+  --source-sha256 ACTUAL_SHA256_64_HEX \
+  --private-blind-gold /private/reviewers_adjudicated_gold.json \
+  --private-model-proposals /private/ire_generated_atoms.json \
+  --private-adjudicated-matches /private/blind_pair_adjudication.json \
+  --private-report /private/ire_blind_evaluation.json
+~~~
+
+가동 전 요구사항: 인증된 비공개 외부 모델 실행 환경,
+원본 외부 전송 권한과 처리 비용 확인, 두 독립 검토자의
+원본 우선 주석 및 제3자 이견 조정, 안전한 파일 보관,
+신규 블라인드 평가용 미노출 원본.
+
+**개발/합성 시험 통과를 실제 금융 연구 성능 점수로
+반영하거나 금융 지식을 자동 승인하는 경로는 없다.**
