@@ -80,6 +80,7 @@ class ChatBatchQueue:
                 "V3_PACKET_BUDGET_OUT_OF_RANGE")
         selected = []
         used_chars = 0
+        exhausted_budget = False
         for session in self.sessions:
             for window in session.windows:
                 if session._answer(window["window_id"]) is not None:
@@ -90,14 +91,14 @@ class ChatBatchQueue:
                 if size > max_chars and not selected:
                     raise ValueError("V3_PACKET_BUDGET_TOO_SMALL_FOR_SOURCE")
                 if used_chars + size > max_chars:
+                    exhausted_budget = True
                     break
                 selected.append({"video_id": session.video_id,
                                  "packet": packet})
                 used_chars += size
                 if len(selected) == max_packets:
                     break
-            if len(selected) == max_packets or (
-                    selected and used_chars >= max_chars):
+            if len(selected) == max_packets or exhausted_budget:
                 break
         # The budget must not silently skip an oversized earlier source.
         if not selected and self.status()["remaining_windows"]:
