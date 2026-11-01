@@ -182,5 +182,41 @@ class V3ExactArithmeticTests(unittest.TestCase):
         self.assertFalse(report["investment_recommendation_authorized"])
 
 
+    def test_private_cli_saves_redacted_audit_without_exposing_amounts(self):
+        import subprocess
+        import sys
+        from ire.knowledge import save_private_snapshot
+        folder = Path(tempfile.mkdtemp())
+        self.addCleanup(lambda: __import__("shutil").rmtree(folder))
+        saved = save_private_snapshot(self.kb, str(folder / "knowledge"))
+        payload = self.submit(
+            0, "NET_AFTER_PERCENT",
+            {"gross": operand("100", "만원", "100만원"),
+             "percent": operand("16.5", "%", "16.5%")},
+            operand("84.6", "만원", "84.6만원"))
+        submission = folder / "calculation.json"
+        submission.write_text(json.dumps(payload, ensure_ascii=False))
+        cmd = [sys.executable, "-m", "ire.v3_numeric", "verify",
+               "--private-knowledge-snapshot", saved,
+               "--private-calculation", str(submission),
+               "--private-audit-dir", str(folder / "numeric_audits")]
+        proc = subprocess.run(cmd, text=True, capture_output=True)
+        self.assertEqual(proc.returncode, 2, proc.stdout + proc.stderr)
+        receipt = json.loads(proc.stdout)
+        self.assertEqual(receipt["status"], "REVIEW_REQUIRED_DIFFERENCE")
+        self.assertFalse(receipt["financial_truth_approved"])
+        self.assertNotIn("84.6만원", proc.stdout)
+        self.assertNotIn("16.5%", proc.stdout)
+        private = Path(receipt["private_audit_path"])
+        self.assertTrue(private.is_file())
+        self.assertEqual(private.stat().st_mode & 0o077, 0)
+        self.assertFalse(json.loads(private.read_text())[
+            "financial_truth_certified"])
+        again = subprocess.run(cmd, text=True, capture_output=True)
+        self.assertEqual(again.returncode, 3)
+        self.assertEqual(json.loads(again.stdout)["status"], "FAILED_CLOSED")
+
+
+
 if __name__ == "__main__":
     unittest.main()
