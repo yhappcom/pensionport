@@ -144,7 +144,8 @@ class IntegratedSystemV2Tests(unittest.TestCase):
         self.assertEqual(result["final_research_status"],
                          "INCOMPLETE_REQUIRES_RESUME")
         self.assertIsNone(result["private_knowledge_snapshot_path"])
-        self.assertFalse((self.root/"long_term_knowledge").exists())
+        self.assertEqual(list((self.root/"long_term_knowledge").glob(
+            "ire_knowledge_v*.json")),[])
         self.assertGreater(result["windows_total"],
                            result["windows_accounted_for"])
         self.assertIn("SOURCE_WINDOWS_NOT_ALL_ASSESSED",result["blockers"])
@@ -155,7 +156,8 @@ class IntegratedSystemV2Tests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,
                                     "V2_BATCH_ORIGINAL_SHA_MISMATCH"):
             self.complete(corrupt)
-        self.assertFalse((self.root/"long_term_knowledge").exists())
+        self.assertEqual(list((self.root/"long_term_knowledge").glob(
+            "ire_knowledge_v*.json")),[])
 
     def test_unchanged_snapshot_not_used_as_new_semantic_gold(self):
         first=self.complete(manifest(self.item1))
@@ -177,7 +179,8 @@ class IntegratedSystemV2Tests(unittest.TestCase):
         target.write_text(json.dumps(obj,ensure_ascii=False))
         with self.assertRaisesRegex(ValueError,"V2_SEALED_CHAT_REPORT_CHANGED"):
             self.complete()
-        self.assertFalse((self.root/"long_term_knowledge").exists())
+        self.assertEqual(list((self.root/"long_term_knowledge").glob(
+            "ire_knowledge_v*.json")),[])
 
     def test_evidence_quote_checked_and_financial_truth_not_approved(self):
         outcome=self.complete()
