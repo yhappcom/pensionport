@@ -69,3 +69,15 @@ jobs:
             echo 'ERROR: private or raw research artifact committed'; exit 1
           fi
           echo 'PASS: only public engine sources and synthetic tests'
+
+      - name: Preserve tested public IRE implementation for private original-source replays
+        uses: actions/upload-artifact@v4
+        with:
+          name: ire-tested-sources
+          path: |
+            ire/**/*.py
+            ire/*.py
+            ire/README.md
+            ire/contracts/research_engine_v1.json
+          if-no-files-found: error
+          retention-days: 7
