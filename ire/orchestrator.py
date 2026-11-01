@@ -329,10 +329,16 @@ def execute_independent_research(
     fetch_failures=[]
     evidence_budget=policy.max_evidence_documents
     detail_claims={c["claim_id"]:c for c in manifest["claims"]}
-    discovered_urls=[
-        (entry["claim_id"],url)
-        for entry in candidates
-        for url in entry["official_domain_candidate_urls"]]
+    # Round-robin source candidates across claims, so the first claim cannot
+    # monopolise a limited official evidence budget.
+    discovered_urls=[]
+    maximum=max((len(entry["official_domain_candidate_urls"])
+                 for entry in candidates),default=0)
+    for rank in range(maximum):
+        for entry in candidates:
+            urls=entry["official_domain_candidate_urls"]
+            if rank<len(urls):
+                discovered_urls.append((entry["claim_id"],urls[rank]))
     if not policy.enable_primary_discovery:
         stages.append(_stage("PRIMARY_DOCUMENT_VERIFICATION","SKIPPED_DISCOVERY_DISABLED"))
     elif not discovered_urls:
