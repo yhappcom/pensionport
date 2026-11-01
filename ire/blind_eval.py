@@ -274,6 +274,15 @@ def main() -> int:
         raw=private_file(args.original_srt).read_bytes()
         gold=json.loads(private_file(args.private_blind_gold).read_text(encoding="utf-8"))
         proposed=json.loads(private_file(args.private_model_proposals).read_text(encoding="utf-8"))
+        if type(proposed) is dict and proposed.get("schema")=="IRE_ONE_SHOT_RESEARCH_REPORT_V1":
+            original_report=proposed
+            require(original_report.get("source_sha256")==args.source_sha256
+                    and original_report.get("video_id")==args.video_id,
+                    "BLIND_EVAL_REPORT_SOURCE_MISMATCH")
+            proposed=original_report.get("private_details",{}).get(
+                "provisional_claim_manifest")
+            require(type(proposed) is dict,
+                    "BLIND_EVAL_ONE_SHOT_HAS_NO_PROPOSED_ATOMS")
         matched=json.loads(private_file(args.private_adjudicated_matches).read_text(encoding="utf-8"))
         result=measure_blind_performance(
             raw,args.source_sha256,args.video_id,gold,proposed,matched)
