@@ -1,0 +1,76 @@
+{
+  "schema": "IRE_V3_001_005_REAL_SOURCE_WINDOW_PLAN_DIAGNOSTIC_20261102",
+  "run_date": "2026-11-02",
+  "input_archive_label": "1-100.zip",
+  "original_cue_count": 5129,
+  "source_video_count": 5,
+  "v2_original_windows": 517,
+  "v3_original_window_count_before_boundary_fix": 291,
+  "v3_planner_version": "IRE_V3_ADAPTIVE_CUE_WINDOWS_20261102_B",
+  "v3_adaptive_windows": 346,
+  "window_count_reduction_vs_v2": 0.33075435,
+  "source_cues_assigned_once": 5129,
+  "source_cues_missing": 0,
+  "source_cues_with_duplicate_primary_ownership": 0,
+  "forced_boundary_review_warnings": 26,
+  "verified_against_original_srt_bytes": true,
+  "verified_against_prior_sha256_manifest": true,
+  "tested_engine_method": "PYTHON_EXECUTION_FROM_GITHUB_ACTIONS_TESTED_SOURCE_ARTIFACT_WITH_LOCAL_ORIGINALS",
+  "source_evaluation": [
+    {
+      "number": 1,
+      "video_id": "sz5N9WJS310",
+      "source_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "cues": 1195,
+      "v2_windows": 120,
+      "v3_adaptive_windows": 81,
+      "forced_continuation_boundaries": 7
+    },
+    {
+      "number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "source_sha256": "a59b2fd424011c3f572aa52404411ff4ea435f6dd1e7e27e4f5c9e11f7218b72",
+      "cues": 1347,
+      "v2_windows": 136,
+      "v3_adaptive_windows": 91,
+      "forced_continuation_boundaries": 7
+    },
+    {
+      "number": 3,
+      "video_id": "OiDTNstaSpM",
+      "source_sha256": "e94b12a1084a8b57c3b9c2a630e27f840ae5a827b3a71c62526e15380a7c57bd",
+      "cues": 785,
+      "v2_windows": 79,
+      "v3_adaptive_windows": 53,
+      "forced_continuation_boundaries": 6
+    },
+    {
+      "number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "source_sha256": "853db2d4f01ab71bbc4f86b46714f4341aa32aa2bc07416f705a937b620ea12b",
+      "cues": 758,
+      "v2_windows": 77,
+      "v3_adaptive_windows": 52,
+      "forced_continuation_boundaries": 4
+    },
+    {
+      "number": 5,
+      "video_id": "qtluAViPpsQ",
+      "source_sha256": "af4fb6b702c5497e5c17bc7b9a3e87855a5488dd263cded32be9a09cec67a543",
+      "cues": 1044,
+      "v2_windows": 105,
+      "v3_adaptive_windows": 69,
+      "forced_continuation_boundaries": 2
+    }
+  ],
+  "security_and_research_status": {
+    "original_srt_stored_in_public_repository": false,
+    "raw_subtitle_text_in_diagnostic": false,
+    "full_financial_semantic_claim_analysis_approved": false,
+    "human_blind_semantic_recall_measured": false,
+    "official_financial_truth_approved": 0,
+    "automatic_advisory_release": false,
+    "release": "INCOMPLETE_REQUIRES_RESUME"
+  },
+  "interpretation": "Window size and forced-boundary counts are deterministic source-layout diagnostics, not precision/recall or investment-research approvals."
+}
