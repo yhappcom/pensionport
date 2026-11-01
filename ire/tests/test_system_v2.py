@@ -136,7 +136,8 @@ class IntegratedSystemV2Tests(unittest.TestCase):
     def test_missing_context_blocks_entire_batch_knowledge_commit(self):
         partial=copy.deepcopy(self.batch)
         row=fresh_session(
-            self.raw.replace(b"4\n",b"4\n"),"Zz12345AbCd",
+            self.raw.replace("상품 비용은".encode("utf-8"),
+                             "별도 상품 비용은".encode("utf-8")),"Zz12345AbCd",
             self.root,fully=False)
         partial["videos"].append(row)
         result=self.complete(partial)
