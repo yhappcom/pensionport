@@ -118,6 +118,7 @@ def main():
     p.add_argument("--semantic-model")
     p.add_argument("--research-model")
     p.add_argument("--max-discovery-claims",type=int,default=30)
+    p.add_argument("--max-evidence-documents",type=int,default=8)
     p.add_argument("--max-model-attempts",type=int,default=3)
     p.add_argument("--max-retrieval-claims",type=int,default=4000)
     p.add_argument("--skip-web-discovery",action="store_true")
@@ -127,6 +128,7 @@ def main():
             model=options.semantic_model,
             research_model=options.research_model,
             max_discovery_claims=options.max_discovery_claims,
+            max_evidence_documents=options.max_evidence_documents,
             max_model_attempts=options.max_model_attempts,
             max_retrieval_claims=options.max_retrieval_claims,
             private_checkpoint_directory=options.private_semantic_checkpoints,
