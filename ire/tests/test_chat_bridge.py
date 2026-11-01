@@ -184,5 +184,80 @@ class ChatOnlyResearchIntegrationTests(unittest.TestCase):
             self.session.accept(ans)
 
 
+    def test_multiwindow_chat_batch_prevalidation_and_no_api(self):
+        raw=source_many()
+        session=ConversationResearchSession(
+            raw,VID,sha256(raw),str(self.root/"large_chat"))
+        packets=session.next_batch(3)
+        self.assertEqual(len(packets["packets"]),3)
+        self.assertFalse(packets["model_api_required"])
+        replies=[]
+        for packet in packets["packets"]:
+            answer=nonclaim_response(packet)
+            replies.append({
+                "schema":"IRE_CHAT_WINDOW_ANSWER_V1",
+                "session_id":packet["session_id"],
+                "window_id":packet["window_id"],
+                "packet_sha256":packet["packet_sha256"],
+                "claims":answer["claims"],
+                "cue_dispositions":answer["cue_dispositions"]
+            })
+        submission={
+            "schema":"IRE_CHAT_BATCH_ANSWERS_V1",
+            "session_id":session.session_id,
+            "batch_sha256":packets["batch_sha256"],
+            "answers":replies
+        }
+        bad=copy.deepcopy(submission)
+        bad["answers"][1]["cue_dispositions"][0]["reason"]=None
+        with self.assertRaisesRegex(ValueError,
+                                    "SEMANTIC_NONCLAIM_REASON_REQUIRED"):
+            session.accept_batch(bad)
+        self.assertEqual(session.status()["accepted_windows"],0)
+        saved=session.accept_batch(submission)
+        self.assertEqual(saved["accepted_windows"],3)
+        self.assertEqual(saved["remaining_windows"],1)
+        with self.assertRaisesRegex(ValueError,
+                                    "CHAT_FINALIZE_BLOCKED_UNANNOTATED_WINDOWS"):
+            session.finalize()
+        final_packet=session.next_packet()
+        a=nonclaim_response(final_packet)
+        session.accept({
+            "schema":"IRE_CHAT_WINDOW_ANSWER_V1",
+            "session_id":final_packet["session_id"],
+            "window_id":final_packet["window_id"],
+            "packet_sha256":final_packet["packet_sha256"],
+            "claims":a["claims"],"cue_dispositions":a["cue_dispositions"]
+        })
+        result=session.finalize()
+        self.assertEqual(result["model_api_calls"],0)
+        self.assertEqual(result["proposed_atoms"],0)
+        self.assertEqual(result["source_cues"],31)
+        self.assertEqual(result["release"],"BLOCKED")
+
+    def test_chat_batch_rejects_drift_and_wrong_packet_identity(self):
+        raw=source_many()
+        session=ConversationResearchSession(
+            raw,VID,sha256(raw),str(self.root/"wrong_batch"))
+        packet=session.next_batch(2)
+        replies=[]
+        for x in packet["packets"]:
+            a=nonclaim_response(x)
+            replies.append({
+                "schema":"IRE_CHAT_WINDOW_ANSWER_V1",
+                "session_id":x["session_id"],"window_id":x["window_id"],
+                "packet_sha256":x["packet_sha256"],
+                "claims":a["claims"],"cue_dispositions":a["cue_dispositions"]})
+        bad={"schema":"IRE_CHAT_BATCH_ANSWERS_V1",
+             "session_id":session.session_id,
+             "batch_sha256":sha256(b"different-packet"),"answers":replies}
+        with self.assertRaisesRegex(ValueError,"CHAT_BATCH_IDENTITY_MISMATCH"):
+            session.accept_batch(bad)
+        self.assertEqual(session.status()["remaining_windows"],4)
+        with self.assertRaisesRegex(ValueError,"CHAT_BATCH_SIZE_OUT_OF_RANGE"):
+            session.next_batch(13)
+
+
+
 if __name__=="__main__":
     unittest.main()
