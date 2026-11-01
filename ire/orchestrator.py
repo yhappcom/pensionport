@@ -350,3 +350,16 @@ def execute_independent_research(
     stages.append(_stage("FINAL_PRIVATE_REPORT","COMPLETED_BLOCKED",
                          research_approvals=0,auto_merges=0))
     return _finalize(video_id,original_sha,policy,stages,blockers,details)
+
+
+def unavailable_original_report(video_id: str, original_sha: str,
+                                policy: OrchestrationPolicy) -> dict:
+    """Persist source-file failures instead of losing a whole batch."""
+    policy.validate()
+    stages=[
+        _stage("SOURCE_INTEGRITY","FAILED_CLOSED",
+               error_code="ORIGINAL_SOURCE_UNAVAILABLE"),
+        _stage("FINAL_PRIVATE_REPORT","COMPLETED_BLOCKED")
+    ]
+    return _finalize(video_id,original_sha,policy,stages,
+                     ["ORIGINAL_SOURCE_UNAVAILABLE"],{})
