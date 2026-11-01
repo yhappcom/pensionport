@@ -104,6 +104,24 @@ class PrivateResumeTests(unittest.TestCase):
             self.assertEqual(repaired["previously_cached_window_count"],0)
             self.assertEqual(repaired["validation"]["proposed_atomic_claims"],2)
 
+    def test_checkpoint_key_pins_schema(self):
+        import json
+        from ire.semantics import semantic_contract_sha256, SYSTEM_PROMPT
+        from test_engine import synthetic_srt,annotations
+        from test_semantics import synthetic_reply
+        raw,digest=synthetic_srt()
+        current=semantic_contract_sha256()
+        self.assertNotEqual(current,sha256(SYSTEM_PROMPT.encode("utf-8")))
+        with tempfile.TemporaryDirectory() as folder:
+            output=interpret_original(raw,VID,InferenceConfig(model="mock-with-schema"),
+                lambda _:synthetic_reply(annotations(digest)),
+                private_checkpoint_directory=folder)
+            self.assertEqual(output["annotation_manifest"]["generator"]["prompt_sha256"],current)
+            manifests=list(Path(folder).rglob("manifest.json"))
+            self.assertEqual(len(manifests),1)
+            self.assertEqual(json.loads(manifests[0].read_text())["prompt_sha256"],current)
+
+
 
 if __name__=="__main__":
     unittest.main()
