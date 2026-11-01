@@ -217,5 +217,76 @@ class NewIreKnowledgeTests(unittest.TestCase):
                                       investor_profile={"account_password":"secret"})
 
 
+    def test_chat_finalize_also_incrementally_integrates_knowledge(self):
+        first_session=ConversationResearchSession(
+            self.original,VID,self.sha,str(self.root/"video1"))
+        folder=str(self.root/"long_lived_knowledge")
+        first=first_session.finalize_and_integrate(
+            empty_knowledge(),folder)
+        self.assertEqual(first["knowledge_version"],1)
+        self.assertEqual(first["cumulative_source_videos"],1)
+        self.assertEqual(first["cumulative_unverified_atoms"],2)
+        self.assertEqual(first["knowledge_approved_facts"],0)
+        saved=read_private_snapshot(first["private_knowledge_snapshot_path"])
+        second_session=ConversationResearchSession(
+            self.new_original,OTHER_ID,sha256(self.new_original),
+            str(self.root/"video2"))
+        second=second_session.finalize_and_integrate(saved,folder)
+        self.assertEqual(second["knowledge_version"],2)
+        self.assertEqual(second["cumulative_source_videos"],2)
+        self.assertEqual(second["cumulative_unverified_atoms"],4)
+        self.assertGreaterEqual(second["cross_video_relation_candidates"],2)
+        self.assertGreaterEqual(second["unverified_concept_clusters"],1)
+        self.assertEqual(second["advisory_recommendations_automatically_approved"],0)
+        self.assertTrue(Path(first["private_knowledge_snapshot_path"]).exists())
+        self.assertTrue(Path(second["private_knowledge_snapshot_path"]).exists())
+        self.assertNotEqual(first["private_knowledge_snapshot_path"],
+                            second["private_knowledge_snapshot_path"])
+        # This session is already registered in knowledge snapshot v1.
+        with self.assertRaisesRegex(ValueError,
+                                    "KNOWLEDGE_REUSED_ORIGINAL_BYTES_NO_DOUBLECOUNT"):
+            first_session.finalize_and_integrate(saved,folder)
+
+    def test_concept_topic_cluster_retains_scope_and_numeric_disagreement(self):
+        from ire.knowledge import provisional_concept_index
+        first=ingest_new_video(empty_knowledge(),self.original,self.report1)
+        second=ingest_new_video(first,self.new_original,self.report2)
+        topics=provisional_concept_index(second)
+        shared=[t for t in topics if t["cross_video_topic"]]
+        self.assertTrue(shared)
+        self.assertTrue(all(
+            t["status"]=="UNVERIFIED_TOPIC_CLUSTER_FOR_REVIEW"
+            and t["canonical_verified_financial_conclusion"] is None
+            and t["automatic_merge"] is False for t in shared))
+        self.assertTrue(all(t["source_video_count"]==2 for t in shared))
+        ctx=advisory_research_context(
+            second,"상품의 계약 조건과 수수료는 어떻게 되나요?",
+            "2026-11-01")
+        self.assertTrue(ctx["provisional_integrated_topic_clusters"])
+        self.assertEqual(ctx["actionable_recommendations"],[])
+
+    def test_one_command_chat_finalize_integrates_or_fail_closes_on_prior_gap(self):
+        # Prepare already-completed private chat reports from synthetic SRT.
+        session=ConversationResearchSession(
+            self.original,VID,self.sha,str(self.root/"video1"))
+        original=self.root/"original.srt"
+        original.write_bytes(self.original)
+        folder=self.root/"chat_knowledge"
+        cmd=[sys.executable,"-m","ire.chat_bridge","finalize",
+             "--original-srt",str(original),
+             "--video-id",VID,"--source-sha256",self.sha,
+             "--private-session-dir",str(self.root/"video1"),
+             "--private-knowledge-dir",str(folder)]
+        first=subprocess.run(cmd,capture_output=True,text=True,check=False)
+        self.assertEqual(first.returncode,2,first.stderr+first.stdout)
+        response=json.loads(first.stdout)
+        self.assertEqual(response["knowledge_version"],1)
+        self.assertEqual(response["cumulative_source_videos"],1)
+        no_prior=subprocess.run(cmd,capture_output=True,text=True,check=False)
+        self.assertEqual(no_prior.returncode,3)
+        self.assertEqual(json.loads(no_prior.stdout)["status"],"FAILED_CLOSED")
+
+
+
 if __name__=="__main__":
     unittest.main()
