@@ -337,3 +337,122 @@ def save_private_evidence(ledger:dict,knowledge:dict,directory:str) -> str:
         path.unlink(missing_ok=True)
         raise
     return str(path)
+
+
+def main() -> int:
+    """No model API; current-chat reviews are accepted as explicit files.
+
+    CLI fetches a real primary document independently, checks direct quote and
+    writes an immutable evidence snapshot. Advisory mode never issues orders.
+    """
+    import argparse
+    from .cli import private_file
+    from .knowledge import read_private_snapshot
+    from .evidence import independently_fetch_candidate
+
+    parser=argparse.ArgumentParser(
+        description="Official evidence and guarded finance advisory for current-chat IRE, no model API")
+    parser.add_argument("operation",choices=["init","review","advisory","rebase"])
+    parser.add_argument("--private-knowledge-snapshot",required=True)
+    parser.add_argument("--private-ledger")
+    parser.add_argument("--old-private-knowledge-snapshot")
+    parser.add_argument("--private-evidence-dir")
+    parser.add_argument("--private-original-document-dir")
+    parser.add_argument("--private-chat-review")
+    parser.add_argument("--question")
+    parser.add_argument("--as-of")
+    parser.add_argument("--jurisdiction")
+    args=parser.parse_args()
+    try:
+        knowledge=read_private_snapshot(args.private_knowledge_snapshot)
+        if args.operation=="init":
+            require(args.private_evidence_dir and not args.private_ledger,
+                    "V2_EVIDENCE_INIT_ARGS_INVALID")
+            ledger=empty_evidence_ledger(knowledge)
+            target=save_private_evidence(ledger,knowledge,args.private_evidence_dir)
+            result={
+                "schema":SCHEMA,
+                "knowledge_snapshot_sha256":knowledge["snapshot_sha256"],
+                "evidence_snapshot_sha256":ledger["snapshot_sha256"],
+                "event_count":0,
+                "private_ledger_path":target,
+                "financial_claims_approved":0
+            }
+        else:
+            require(args.private_ledger,"V2_EVIDENCE_LEDGER_REQUIRED")
+            ledger=json.loads(private_file(args.private_ledger).read_text(encoding="utf-8"))
+            if args.operation=="rebase":
+                require(args.old_private_knowledge_snapshot and args.private_evidence_dir,
+                        "V2_EVIDENCE_REBASE_ARGUMENTS_REQUIRED")
+                prior_knowledge=read_private_snapshot(
+                    args.old_private_knowledge_snapshot)
+                rebased=reconcile_ledger_with_updated_knowledge(
+                    ledger,prior_knowledge,knowledge)
+                where=save_private_evidence(
+                    rebased,knowledge,args.private_evidence_dir)
+                result={
+                    "schema":SCHEMA,
+                    "evidence_snapshot_sha256":rebased["snapshot_sha256"],
+                    "knowledge_snapshot_sha256":knowledge["snapshot_sha256"],
+                    "event_count":len(rebased["assessments"]),
+                    "private_ledger_path":where,
+                    "financial_claims_approved":0
+                }
+            elif args.operation=="review":
+                require(args.private_chat_review and args.private_evidence_dir
+                        and args.private_original_document_dir,
+                        "V2_EVIDENCE_REVIEW_ARGUMENTS_REQUIRED")
+                current_review=json.loads(
+                    private_file(args.private_chat_review).read_text(encoding="utf-8"))
+                require(type(current_review) is dict and
+                        type(current_review.get("document_url")) is str,
+                        "V2_EVIDENCE_REVIEW_URL_REQUIRED")
+                doc=independently_fetch_candidate(
+                    current_review["document_url"],
+                    private_evidence_dir=args.private_original_document_dir)
+                updated=apply_chat_evidence(
+                    ledger,knowledge,doc,current_review)
+                where=save_private_evidence(
+                    updated,knowledge,args.private_evidence_dir)
+                result={
+                    "schema":SCHEMA,
+                    "knowledge_snapshot_sha256":knowledge["snapshot_sha256"],
+                    "evidence_snapshot_sha256":updated["snapshot_sha256"],
+                    "event_count":len(updated["assessments"]),
+                    "private_ledger_path":where,
+                    "original_document_sha256":doc["raw_sha256"],
+                    "financial_claims_approved":0,
+                    "reviewer_identity_independently_attested":False
+                }
+            else:
+                require(args.question and args.as_of,
+                        "V2_ADVISORY_QUESTION_DATE_REQUIRED")
+                result=advisory_evidence_context(
+                    knowledge,ledger,args.question,args.as_of,args.jurisdiction)
+        # Public stdout avoids private source quotation and investor input.
+        output={
+            "schema":result["schema"],
+            "evidence_snapshot_sha256":result.get(
+                "evidence_snapshot_sha256"),
+            "knowledge_snapshot_sha256":result.get(
+                "knowledge_snapshot_sha256"),
+            "event_count":result.get("event_count"),
+            "financial_claims_approved":0,
+            "advisory_output_status":result.get(
+                "advisory_output_status"),
+            "relevant_claims":len(result.get(
+                "unverified_relevant_claims",[])),
+            "possible_conflicts":len(result.get(
+                "possible_cross_video_conflicts_or_updates",[])),
+            "private_ledger_path":result.get("private_ledger_path")
+        }
+        print(json.dumps(output,ensure_ascii=False,sort_keys=True))
+        return 2 if args.operation!="init" else 0
+    except (ValueError,KeyError,TypeError,OSError,UnicodeError):
+        print(json.dumps({"schema":"IRE_V2_EVIDENCE_ERROR",
+                          "status":"FAILED_CLOSED"}))
+        return 3
+
+
+if __name__=="__main__":
+    raise SystemExit(main())
