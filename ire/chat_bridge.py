@@ -21,6 +21,7 @@ from .cli import private_file
 from .semantics import assemble_window,verify_window_before_caching
 from .research import pending_research
 from .retrieval import related_proposals
+from .v3_adaptive import adaptive_discourse_windows, PLANNER_VERSION
 
 VERSION="IRE_CONVERSATION_BRIDGE_V1"
 GUIDANCE=(
@@ -60,19 +61,28 @@ def _immutable_json(path: Path,body: dict) -> None:
 
 class ConversationResearchSession:
     def __init__(self, original: bytes, video_id: str, digest: str,
-                 private_directory: str):
+                 private_directory: str, *, window_strategy: str = "V2_COMPAT"):
+        require(window_strategy in ("V2_COMPAT", "V3_ADAPTIVE"),
+                "CHAT_UNKNOWN_WINDOW_STRATEGY")
+        self.window_strategy=window_strategy
         self.source=source_record(original,video_id,digest)
         self.original=original
         self.digest=digest
         self.video_id=video_id
         self.cues=parse_srt(original,digest)
+        if self.window_strategy=="V3_ADAPTIVE":
+            self.source["windows"]=adaptive_discourse_windows(self.cues)
         self.windows=self.source["windows"]
         self.root=safe_private_directory(private_directory)
-        self.session_id=sha256(_serialized({
+        identity={
             "version":VERSION,"video_id":video_id,
             "source_sha256":digest,"prompt_sha256":PROMPT_SHA,
             "window_hashes":[[w["window_id"],w["source_text_sha256"]]
-                             for w in self.windows]}))
+                             for w in self.windows]}
+        if self.window_strategy=="V3_ADAPTIVE":
+            identity["window_strategy"]=self.window_strategy
+            identity["planner_version"]=PLANNER_VERSION
+        self.session_id=sha256(_serialized(identity))
         self.folder=self.root/self.session_id
         if self.folder.exists():
             require(self.folder.is_dir() and
@@ -100,6 +110,10 @@ class ConversationResearchSession:
             "model_api_invocation_count":0,
             "prior_research_used_as_input":False,
         }
+        if self.window_strategy=="V3_ADAPTIVE":
+            expected["schema"]="IRE_CHAT_SESSION_V3_ADAPTIVE"
+            expected["window_strategy"]="V3_ADAPTIVE"
+            expected["planner_version"]=PLANNER_VERSION
         path=self.folder/"session_manifest.json"
         if path.exists():
             require(json.loads(path.read_text(encoding="utf-8"))==expected,
@@ -141,6 +155,9 @@ class ConversationResearchSession:
             "cue_disposition_fields":["cue_index","status","reason"],
             "model_api_required":False,
         }
+        if self.window_strategy=="V3_ADAPTIVE":
+            payload["window_strategy"]="V3_ADAPTIVE"
+            payload["planner_version"]=PLANNER_VERSION
         payload["packet_sha256"]=sha256(_serialized(payload))
         return payload
 
