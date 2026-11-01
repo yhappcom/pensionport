@@ -140,7 +140,7 @@ class V3ChatQueueTests(unittest.TestCase):
         work = self.queue.next_work(max_packets=1, max_chars=30000)
         source = Path(self.files[0]["original_srt_path"])
         source.write_bytes(b"changed source")
-        with self.assertRaisesRegex(ValueError, "SOURCE_SHA256_MISMATCH"):
+        with self.assertRaisesRegex(ValueError, "V2_BATCH_ORIGINAL_SHA_MISMATCH"):
             ChatBatchQueue(self.manifest)
         self.assertEqual(work["packet_count"], 1)
 
