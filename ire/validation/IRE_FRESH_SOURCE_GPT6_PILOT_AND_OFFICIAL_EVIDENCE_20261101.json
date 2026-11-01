@@ -1,0 +1,150 @@
+{
+  "schema": "IRE_FRESH_ORIGINAL_GPT6_INLINE_PILOT_AND_OFFICIAL_EVIDENCE_20261101",
+  "date": "2026-11-01",
+  "policy": {
+    "previous_investment_study_claims_used": false,
+    "historical_gold_used": false,
+    "historical_engine_code_used": false,
+    "actual_source_only_transcript_read": true,
+    "externally_official_sources_newly_searched": true,
+    "chat_model_annotator_is_independent_human": false
+  },
+  "execution": {
+    "assistant_model": "GPT-6_in_chat_direct_source_reasoning",
+    "external_responses_api_executed": false,
+    "reason": "OPENAI_API_KEY_NOT_SET_IN_CURRENT_EXECUTION_ENVIRONMENT",
+    "five_full_videos_automatically_interpreted": false,
+    "number_of_manual_model_proposals": 10,
+    "private_input_source_count": 5,
+    "all_transcript_cues": 3600,
+    "syntactic_validation_source_linkage_passed": true,
+    "certified_atomic_claim_recall": null,
+    "certified_atomic_claim_precision": null,
+    "reviewer_blind_gold_available": false,
+    "model_automatically_approved_finance_facts": 0,
+    "source_only_interpretation_partial": true
+  },
+  "source_pilot": [
+    {
+      "number": 266,
+      "video_id": "-lX8iJd-xDM",
+      "source_cues": 771,
+      "candidate_atoms": 5,
+      "linked_cues": 13,
+      "unreviewed_cues": 758,
+      "source_sha256": "059484995ba7a84dd5ec21ed682a526b95832f65b56cea1cf48745548c2d8335"
+    },
+    {
+      "number": 267,
+      "video_id": "jgzqPUBFWY8",
+      "source_cues": 522,
+      "candidate_atoms": 1,
+      "linked_cues": 7,
+      "unreviewed_cues": 515,
+      "source_sha256": "371a9a1b05efb7f84b439f4c9d134e7ab8c8226130a28b8b322c00709af13557"
+    },
+    {
+      "number": 269,
+      "video_id": "loKj0LccKTA",
+      "source_cues": 988,
+      "candidate_atoms": 1,
+      "linked_cues": 6,
+      "unreviewed_cues": 982,
+      "source_sha256": "3fd357c541f87546c83c6d3e0549c67f8a9f5a01b9fd2026835b4742da0767d4"
+    },
+    {
+      "number": 270,
+      "video_id": "eEwZi_lweM4",
+      "source_cues": 1036,
+      "candidate_atoms": 1,
+      "linked_cues": 16,
+      "unreviewed_cues": 1020,
+      "source_sha256": "6c5826f4b2d839d648a3efedf4419f438c8ba6e7514348fa502c138b075c44d0"
+    },
+    {
+      "number": 271,
+      "video_id": "p94_t07GTKA",
+      "source_cues": 283,
+      "candidate_atoms": 2,
+      "linked_cues": 19,
+      "unreviewed_cues": 264,
+      "source_sha256": "7e194fb3dec01dba26d246a48fa85c2dde4d0419a24b66269d1aab2972334e47"
+    }
+  ],
+  "independent_official_evidence": [
+    {
+      "video": 266,
+      "publisher": "국민연금기금운용본부",
+      "url": "https://fund.nps.or.kr/oprtplcy/astaprtplcy/getOHEC0005M0.do?menuId=MN24000608",
+      "claim_scope": "2025년말 목표 자산배분 비중",
+      "observed_original_planned_values_percent": {
+        "domestic_stocks": 14.9,
+        "foreign_stocks": 35.9,
+        "domestic_bonds": 26.5,
+        "foreign_bonds": 8,
+        "alternatives": 14.7
+      },
+      "target_numerical_comparisons_agree": 5,
+      "not_actual_end_2025_holdings": true,
+      "independent_human_fact_review": false
+    },
+    {
+      "video": 266,
+      "publisher": "고용노동부",
+      "url": "https://www.moel.go.kr/retirementpay.do",
+      "claim_scope": "DB/DC retirement structure, limited institutional definitions",
+      "independent_human_fact_review": false
+    },
+    {
+      "video": 267,
+      "publisher": "한국증권금융",
+      "url": "https://apiportal.ksfc.co.kr/api_service/investors_deposits",
+      "claim_scope": "securities financing/investor deposits",
+      "independent_human_fact_review": false
+    },
+    {
+      "video": 269,
+      "publisher": "한국거래소",
+      "url": "https://data.krx.co.kr/",
+      "claim_scope": "market capitalization and ranking data",
+      "independent_human_fact_review": false
+    },
+    {
+      "video": 270,
+      "publisher": "국세청 국세법령정보시스템",
+      "url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=010000000000424832",
+      "claim_scope": "ISA tax and withholding timing interpretation, original legal effective dates not independently audited",
+      "independent_human_fact_review": false
+    },
+    {
+      "video": 271,
+      "publisher": "한국거래소 규정시스템",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03010100/RGL03010100T1.jsp",
+      "claim_scope": "securities market settlement and trading rules",
+      "independent_human_fact_review": false
+    }
+  ],
+  "fresh_math_test": {
+    "video": 267,
+    "claim_type": "RULE_OF_72_APPROXIMATION",
+    "annual_effective_rate": 0.12,
+    "years": 6,
+    "compounded_multiple": 1.973822685184,
+    "precise_rate_for_double": 0.12246204830937302,
+    "approximate_explanation_only": true
+  },
+  "search_for_true_blind_gold": {
+    "open_web_independent_original_first_two_reviewer_claim_annotations_found": 0,
+    "google_drive_fresh_independent_blind_gold_found": 0,
+    "public_video_recap_is_not_blind_gold": true,
+    "official_fact_document_is_not_claim_extraction_gold": true,
+    "external_blind_reviewers_and_adjudicator_required": true
+  },
+  "output_policy": {
+    "raw_subtitles_private_only": true,
+    "newly_generated_candidate_claim_text_private_only": true,
+    "approved_finance_claims": 0,
+    "knowledge_merged": false,
+    "production_release": "BLOCKED"
+  }
+}
