@@ -15,7 +15,7 @@ import time
 from typing import Callable
 
 from .source import require,sha256,source_record
-from .semantics import InferenceConfig,interpret_original,SYSTEM_PROMPT
+from .semantics import InferenceConfig,interpret_original,semantic_contract_sha256
 from .claims import validate_annotations
 from .research import pending_research
 from .retrieval import related_proposals
@@ -96,7 +96,7 @@ def _fingerprint(video_id: str, digest: str, policy: OrchestrationPolicy) -> str
         "schema":"IRE_ONESHOT_FINGERPRINT_V1",
         "video_id":video_id,"source_sha256":digest,
         "model":policy.model,
-        "prompt_sha256":sha256(SYSTEM_PROMPT.encode("utf-8")),
+        "semantic_contract_sha256":semantic_contract_sha256(),
         "research_model":policy.research_model,
         "max_discovery_claims":policy.max_discovery_claims,
         "max_retrieval_claims":policy.max_retrieval_claims,
