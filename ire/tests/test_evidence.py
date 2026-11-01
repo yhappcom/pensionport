@@ -259,5 +259,37 @@ class IndependentEvidenceTests(unittest.TestCase):
 
 
 
+    def test_bounded_primary_research_is_fair_across_claims(self):
+        first="https://www.bok.or.kr/portal/example"
+        second="https://www.bis.org/mock-other"
+        third="https://www.krx.co.kr/example"
+        def search(claim):
+            urls=([first,second] if claim["claim_id"]=="C00001"
+                  else [third])
+            return {"status":"completed","output":[
+                {"type":"web_search_call","status":"completed"},
+                {"type":"message","content":[{"type":"output_text",
+                   "annotations":[{"type":"url_citation","url":url}
+                                  for url in urls]}]}]}
+        seen=[]
+        def reader(url):
+            seen.append(url)
+            return fake_reader(url)
+        result=execute_independent_research(
+            self.raw,VID,self.digest,
+            OrchestrationPolicy(model="mock-research",max_evidence_documents=2),
+            semantic_request_fn=lambda _:synthetic_reply(self.a),
+            official_response_fn=search,
+            evidence_read_fn=reader,
+            evidence_model_fn=lambda packet:judgment(packet["claim"]))
+        ids=[record["claim_id"] for record in
+             result["private_details"]["evidence_scope_audits"]]
+        self.assertEqual(ids,["C00001","C00002"])
+        self.assertEqual(result["metrics"]["scoped_evidence_audits"],2)
+        self.assertIn("PRIMARY_DOCUMENT_BUDGET_INCOMPLETE",result["blockers"])
+        self.assertEqual(result["approved_claims"],0)
+
+
+
 if __name__=="__main__":
     unittest.main()
