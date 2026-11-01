@@ -7,7 +7,8 @@ from pathlib import Path
 import re
 from .checkpoint import safe_private_directory
 from .cli import private_file,write_new_private_report
-from .orchestrator import OrchestrationPolicy,execute_independent_research
+from .orchestrator import (OrchestrationPolicy,execute_independent_research,
+                           unavailable_original_report)
 from .source import sha256,require,VIDEO,DIGEST
 
 
@@ -38,6 +39,9 @@ def items_from_options(options):
                 item["video_id"] not in seen,
                 "BATCH_VIDEO_ID_INVALID_OR_DUPLICATE")
         seen.add(item["video_id"])
+        require(type(item["original_srt_path"]) is str and
+                bool(item["original_srt_path"]),
+                "BATCH_ORIGINAL_SOURCE_PATH_INVALID")
         require(type(item["source_sha256"]) is str and
                 DIGEST.fullmatch(item["source_sha256"]) is not None,
                 "BATCH_SOURCE_SHA256_INVALID")
@@ -62,13 +66,17 @@ def execute_batch(items, output_dir, policy, semantic_request_fn=None,
     policy.validate()
     entries=[]
     for item in items:
-        source=private_file(item["original_srt_path"]).read_bytes()
-        require(sha256(source)==item["source_sha256"],
-                "ORIGINAL_SOURCE_SHA256_MISMATCH")
-        report=execute_independent_research(
-            source,item["video_id"],item["source_sha256"],policy,
-            semantic_request_fn=semantic_request_fn,
-            official_response_fn=official_response_fn,sleep_fn=sleep_fn)
+        try:
+            source=private_file(item["original_srt_path"]).read_bytes()
+        except (OSError,ValueError,TypeError):
+            report=unavailable_original_report(
+                item["video_id"],item["source_sha256"],policy)
+        else:
+            # Source fingerprint mismatch is recorded as a per-item failure.
+            report=execute_independent_research(
+                source,item["video_id"],item["source_sha256"],policy,
+                semantic_request_fn=semantic_request_fn,
+                official_response_fn=official_response_fn,sleep_fn=sleep_fn)
         report_path=next_path(root,item["video_id"]+"_"+item["source_sha256"][:16])
         write_new_private_report(str(report_path),report)
         entries.append({
