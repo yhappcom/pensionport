@@ -9,6 +9,7 @@ from .source import sha256, source_record, require
 from .claims import validate_annotations
 from .retrieval import related_proposals
 from .research import pending_research
+from .semantics import InferenceConfig, interpret_original
 
 REPOSITORY=Path(__file__).resolve().parents[1]
 
@@ -75,13 +76,37 @@ def main() -> None:
     ap.add_argument("--video-id",required=True)
     ap.add_argument("--private-report",required=True)
     ap.add_argument("--private-annotations")
+    ap.add_argument("--semantic-model",
+                    help="Execute live model inference; requires OPENAI_API_KEY")
     args=ap.parse_args()
     source=private_file(args.original_srt)
+    destination=private_file(args.private_report,read_required=False)
+    require(not destination.exists(), "PRIVATE_REPORT_OVERWRITE_FORBIDDEN")
+    require(not (args.semantic_model and args.private_annotations),
+            "SEMANTIC_MODEL_AND_EXTERNAL_ANNOTATIONS_MUTUALLY_EXCLUSIVE")
+    original=source.read_bytes()
     annotation=None
     if args.private_annotations:
         annotation=json.loads(private_file(
             args.private_annotations).read_text(encoding="utf-8"))
-    result=run(source.read_bytes(),args.source_sha256,args.video_id,annotation)
+    semantic=None
+    if args.semantic_model:
+        require(sha256(original)==args.source_sha256,"SOURCE_SHA256_MISMATCH")
+        semantic=interpret_original(original,args.video_id,
+                                    InferenceConfig(model=args.semantic_model))
+        annotation=semantic["annotation_manifest"]
+    result=run(original,args.source_sha256,args.video_id,annotation)
+    if semantic is not None:
+        result["private_semantic_annotation_manifest"]=semantic["annotation_manifest"]
+        result["semantic_execution"]={
+            "schema":semantic["schema"],
+            "inference_mode":semantic["inference_mode"],
+            "model_name":semantic["model_name"],
+            "completed_window_count":semantic["completed_window_count"],
+            "window_count":semantic["window_count"],
+            "validated_annotated_claims":semantic["validation"]["proposed_atomic_claims"],
+            "research_complete":False
+        }
     write_new_private_report(args.private_report,result)
     # Do not print original subtitles, model output, claim text or personal data.
     preview={
@@ -95,7 +120,8 @@ def main() -> None:
         "all_claims_unreviewed":True,
         "research_complete":False,
         "private_report_written":True,
-        "production_release":result["production_release"]
+        "production_release":result["production_release"],
+        "inference_executed":"semantic_execution" in result
     }
     print(json.dumps(preview,sort_keys=True))
 
