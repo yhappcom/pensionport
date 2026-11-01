@@ -310,5 +310,35 @@ class IntegratedSystemV2Tests(unittest.TestCase):
 
 
 
+    def test_reusing_stale_knowledge_snapshot_fails_before_commit(self):
+        first=self.complete(manifest(self.item1))
+        prior=read_private_snapshot(first["private_knowledge_snapshot_path"])
+        second=self.complete(manifest(self.item2),prior=prior)
+        self.assertEqual(second["knowledge_source_count"],2)
+        previous_count=len(list((self.root/"long_term_knowledge").glob(
+            "ire_knowledge_v*.json")))
+        with self.assertRaisesRegex(ValueError,
+                                    "V2_BATCH_STALE_PRIOR_KNOWLEDGE_SNAPSHOT"):
+            self.complete(manifest(self.item2),prior=prior)
+        self.assertEqual(len(list((self.root/"long_term_knowledge").glob(
+            "ire_knowledge_v*.json"))),previous_count)
+
+    def test_existing_evidence_ledger_cannot_be_silently_discarded(self):
+        first=self.complete(manifest(self.item1))
+        kb=read_private_snapshot(first["private_knowledge_snapshot_path"])
+        empty=empty_evidence_ledger(kb)
+        folder=str(self.root/"source_reviews")
+        save_private_evidence(empty,kb,folder)
+        with self.assertRaisesRegex(ValueError,
+                                    "V2_BATCH_PRIOR_EVIDENCE_SNAPSHOT_REQUIRED"):
+            finalize_batch(
+                manifest(self.item2),kb,
+                str(self.root/"long_term_knowledge"),
+                str(self.root/"batch_audits"),
+                prior_evidence=None,private_evidence_dir=folder)
+        self.assertEqual(len(list((self.root/"long_term_knowledge").glob(
+            "ire_knowledge_v*.json"))),1)
+
+
 if __name__=="__main__":
     unittest.main()
