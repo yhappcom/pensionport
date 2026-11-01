@@ -7,20 +7,12 @@ External research sends claim text to the configured model provider.
 from __future__ import annotations
 
 import json
-import os
 import re
 import urllib.error
 import urllib.request
-from urllib.parse import urlsplit
-from .source import require, sha256
+from .source import require
 from .evidence import issuer_for
 
-OFFICIAL_HOST_SUFFIXES=(
-    "go.kr","or.kr","gov","gov.uk","europa.eu","ecb.europa.eu",
-    "bis.org","oecd.org","imf.org","worldbank.org","sec.gov",
-    "investor.gov","finra.org","irs.gov","treasury.gov",
-    "federalreserve.gov","federalreserve.gov","bankofengland.co.uk",
-)
 MAX_RESEARCH_RESPONSE=5_000_000
 
 
