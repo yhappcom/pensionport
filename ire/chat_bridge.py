@@ -197,6 +197,67 @@ class ConversationResearchSession:
         next_id=self.status()["next_window_id"]
         return self.packet(next_id) if next_id is not None else None
 
+    def next_batch(self,count: int = 6) -> dict:
+        """Several source-only packets in one chat prompt, never model API."""
+        require(type(count) is int and 2<=count<=12,
+                "CHAT_BATCH_SIZE_OUT_OF_RANGE")
+        missing=[w["window_id"] for w in self.windows
+                 if self._answer(w["window_id"]) is None]
+        selected=missing[:count]
+        batch={
+            "schema":"IRE_CHAT_BATCH_PACKET_V1",
+            "session_id":self.session_id,
+            "source_sha256":self.digest,
+            "video_id":self.video_id,
+            "prompt_sha256":PROMPT_SHA,
+            "packets":[self.packet(window_id) for window_id in selected],
+            "not_yet_submitted_windows":len(missing),
+            "separate_original_cue_and_halo_refs_required":True,
+            "model_api_required":False
+        }
+        batch["batch_sha256"]=sha256(_serialized(batch))
+        return batch
+
+    def accept_batch(self,submission: dict) -> dict:
+        """Prevalidate EVERY answer before any write; no partial invalid batch."""
+        require(type(submission) is dict and set(submission)=={
+            "schema","session_id","batch_sha256","answers"},
+            "CHAT_BATCH_ANSWER_SCHEMA_INVALID")
+        answers=submission["answers"]
+        require(type(answers) is list and 2<=len(answers)<=12,
+                "CHAT_BATCH_ANSWER_COUNT_INVALID")
+        expected=self.next_batch(len(answers))
+        require(submission["schema"]=="IRE_CHAT_BATCH_ANSWERS_V1"
+                and submission["session_id"]==self.session_id
+                and submission["batch_sha256"]==expected["batch_sha256"],
+                "CHAT_BATCH_IDENTITY_MISMATCH")
+        require(len(expected["packets"])==len(answers),
+                "CHAT_BATCH_HAS_FEWER_REMAINING_WINDOWS")
+        for packet,answer in zip(expected["packets"],answers):
+            require(type(answer) is dict and set(answer)=={
+                "schema","session_id","window_id","packet_sha256",
+                "claims","cue_dispositions"},
+                "CHAT_BATCH_MEMBER_SCHEMA_INVALID")
+            require(answer["schema"]=="IRE_CHAT_WINDOW_ANSWER_V1"
+                    and answer["session_id"]==self.session_id
+                    and answer["window_id"]==packet["window_id"]
+                    and answer["packet_sha256"]==packet["packet_sha256"],
+                    "CHAT_BATCH_MEMBER_ORDER_OR_ID_MISMATCH")
+            target=self.answers/(answer["window_id"]+".json")
+            require(not target.exists(),
+                    "CHAT_BATCH_ALREADY_SUBMITTED_WINDOW")
+            verify_window_before_caching(
+                self.original,self.digest,self._window(answer["window_id"]),
+                {"claims":answer["claims"],
+                 "cue_dispositions":answer["cue_dispositions"]})
+        for answer in answers:
+            self.accept(answer)
+        response=self.status()
+        response["accepted_batch_window_ids"]=[
+            answer["window_id"] for answer in answers]
+        response["status"]="CHAT_BATCH_ACCEPTED_SOURCE_TRACE_ONLY"
+        return response
+
     def accept(self,submitted: dict) -> dict:
         require(type(submitted) is dict and set(submitted)=={
             "schema","session_id","window_id","packet_sha256",
@@ -284,6 +345,7 @@ def main() -> int:
     parser.add_argument("--source-sha256",required=True)
     parser.add_argument("--private-session-dir",required=True)
     parser.add_argument("--private-reply-file")
+    parser.add_argument("--batch-size",type=int,default=1)
     args=parser.parse_args()
     try:
         raw=private_file(args.original_srt).read_bytes()
@@ -292,13 +354,16 @@ def main() -> int:
         if args.operation=="prepare" or args.operation=="status":
             result=session.status()
         elif args.operation=="next":
-            result=session.next_packet() or session.status()
+            result=(session.next_packet() or session.status()) if args.batch_size==1 else session.next_batch(args.batch_size)
         elif args.operation=="accept":
             require(bool(args.private_reply_file),
                     "CHAT_REPLY_FILE_REQUIRED")
             reply=json.loads(private_file(
                 args.private_reply_file).read_text(encoding="utf-8"))
-            result=session.accept(reply)
+            result=(session.accept_batch(reply)
+                    if type(reply) is dict and
+                    reply.get("schema")=="IRE_CHAT_BATCH_ANSWERS_V1"
+                    else session.accept(reply))
         else:
             result=session.finalize()
         print(json.dumps(result,ensure_ascii=False,sort_keys=True))
