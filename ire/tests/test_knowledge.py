@@ -288,5 +288,33 @@ class NewIreKnowledgeTests(unittest.TestCase):
 
 
 
+    def test_policy_scope_time_changes_are_review_flags_not_automatic_facts(self):
+        old_report=copy.deepcopy(self.report1)
+        new_report=copy.deepcopy(self.report2)
+        old_report["annotations"]["claims"][0]["frame"]["effective_date"]="2026-01-01"
+        new_report["annotations"]["claims"][0]["frame"]["effective_date"]="2027-01-01"
+        first=ingest_new_video(empty_knowledge(),self.original,old_report)
+        second=ingest_new_video(first,self.new_original,new_report)
+        self.assertIn("POSSIBLE_TEMPORAL_RULE_CHANGE",
+                      {x["candidate_type"] for x in second["relation_candidates"]})
+        self.assertTrue(all(x["review_status"]=="PENDING_SEPARATE_ADJUDICATION"
+                            for x in second["relation_candidates"]))
+        self.assertEqual(second["automatic_financial_approvals"],0)
+
+    def test_unreviewed_polarity_difference_never_becomes_verified_conflict(self):
+        old_report=copy.deepcopy(self.report1)
+        new_report=copy.deepcopy(self.report2)
+        new_report["annotations"]["claims"][0]["frame"]["modality"]="NEGATION"
+        first=ingest_new_video(empty_knowledge(),self.original,old_report)
+        second=ingest_new_video(first,self.new_original,new_report)
+        links=[x for x in second["relation_candidates"]
+               if x["candidate_type"]=="POSSIBLE_NEGATION_CONFLICT"]
+        self.assertTrue(links)
+        self.assertTrue(all(not x.get("verified",False) for x in links))
+        self.assertEqual(second["claims"][2]["knowledge_status"],
+                         "UNVERIFIED_REVIEW_REQUIRED")
+
+
+
 if __name__=="__main__":
     unittest.main()
