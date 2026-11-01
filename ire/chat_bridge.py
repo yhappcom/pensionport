@@ -335,6 +335,66 @@ class ConversationResearchSession:
         }
 
 
+
+    def finalize_and_integrate(self, prior_knowledge:dict,
+                               private_knowledge_dir:str) -> dict:
+        """Complete one video AND version its new claims against old new-IRE.
+
+        Does not turn candidate relation into verified investor knowledge.
+        A previous completed report may be safely reloaded after interruption.
+        """
+        from .knowledge import (
+            ingest_new_video,save_private_snapshot,provisional_concept_index)
+        report_file=self.folder/"final_report.json"
+        if report_file.exists():
+            finished=json.loads(report_file.read_text(encoding="utf-8"))
+            require(finished.get("schema")=="IRE_CHAT_RESEARCH_PACKAGE_V1" and
+                    finished.get("session_id")==self.session_id and
+                    finished.get("source_sha256")==self.digest and
+                    finished.get("video_id")==self.video_id and
+                    finished.get("financial_facts_approved")==0,
+                    "CHAT_FINAL_REPORT_IDENTITY_CHANGED")
+            # Reconstruct the source-linked atom manifest from sealed per-window
+            # answers. A modified final report must never enter the knowledge base.
+            expected_ledger=assemble_window(
+                self.original,self.video_id,self.digest,self.windows,
+                [self._answer(w["window_id"]) for w in self.windows],
+                "chatgpt-conversation-no-api")
+            require(finished.get("annotations")==expected_ledger and
+                    finished.get("all_primary_windows_submitted") is True and
+                    finished.get("source_cues")==len(self.cues),
+                    "CHAT_FINAL_REPORT_CONTENT_CHANGED")
+            result={
+                "schema":finished["schema"],
+                "video_id":self.video_id,
+                "private_report_path":str(report_file),
+                "source_cues":len(self.cues),
+                "proposed_atoms":len(finished["annotations"]["claims"]),
+                "approved_claims":0,"model_api_calls":0,"release":"BLOCKED"
+            }
+        else:
+            result=self.finalize()
+            finished=json.loads(report_file.read_text(encoding="utf-8"))
+        integrated=ingest_new_video(prior_knowledge,self.original,finished)
+        knowledge_path=save_private_snapshot(
+            integrated,private_knowledge_dir)
+        return {
+            **result,
+            "knowledge_version":integrated["version"],
+            "knowledge_snapshot_sha256":integrated["snapshot_sha256"],
+            "private_knowledge_snapshot_path":knowledge_path,
+            "cumulative_source_videos":len(integrated["source_register"]),
+            "cumulative_unverified_atoms":len(integrated["claims"]),
+            "cross_video_relation_candidates":len(
+                integrated["relation_candidates"]),
+            "unverified_concept_clusters":len(
+                provisional_concept_index(integrated)),
+            "knowledge_approved_facts":0,
+            "advisory_recommendations_automatically_approved":0,
+            "release":"BLOCKED_REQUIRES_EVIDENCE_AND_INDEPENDENT_REVIEW"
+        }
+
+
 def main() -> int:
     parser=argparse.ArgumentParser(
         description="Chat-assisted finance research: no LLM API calls")
@@ -346,6 +406,8 @@ def main() -> int:
     parser.add_argument("--private-session-dir",required=True)
     parser.add_argument("--private-reply-file")
     parser.add_argument("--batch-size",type=int,default=1)
+    parser.add_argument("--private-knowledge-dir")
+    parser.add_argument("--prior-knowledge-snapshot")
     args=parser.parse_args()
     try:
         raw=private_file(args.original_srt).read_bytes()
@@ -365,7 +427,22 @@ def main() -> int:
                     reply.get("schema")=="IRE_CHAT_BATCH_ANSWERS_V1"
                     else session.accept(reply))
         else:
-            result=session.finalize()
+            if args.private_knowledge_dir:
+                from .knowledge import empty_knowledge,read_private_snapshot
+                from .checkpoint import safe_private_directory
+                knowledge_root=safe_private_directory(args.private_knowledge_dir)
+                if args.prior_knowledge_snapshot:
+                    prior=read_private_snapshot(args.prior_knowledge_snapshot)
+                else:
+                    require(not list(knowledge_root.glob("ire_knowledge_v*.json")),
+                            "CHAT_FINALIZE_REQUIRES_PRIOR_KNOWLEDGE_SNAPSHOT")
+                    prior=empty_knowledge()
+                result=session.finalize_and_integrate(
+                    prior,args.private_knowledge_dir)
+            else:
+                require(not args.prior_knowledge_snapshot,
+                        "CHAT_KNOWLEDGE_SNAPSHOT_REQUIRES_DIRECTORY")
+                result=session.finalize()
         print(json.dumps(result,ensure_ascii=False,sort_keys=True))
         return 2 if args.operation=="finalize" else 0
     except (ValueError,KeyError,TypeError,UnicodeError,OSError):
