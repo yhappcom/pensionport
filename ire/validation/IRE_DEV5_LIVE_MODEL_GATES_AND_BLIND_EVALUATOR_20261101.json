@@ -1,0 +1,95 @@
+{
+  "schema": "IRE_DEV5_LIVE_SEMANTIC_TRIAL_V1",
+  "date": "2026-11-01",
+  "policy": {
+    "legacy_research_claims_loaded": false,
+    "legacy_study_conclusions_cited": false,
+    "original_srt_raw_committed": false,
+    "prior_research_used_as_gold": false
+  },
+  "code": {
+    "head_commit": "16e59aef9365693353a28a5107c86b3eb30854c8",
+    "tested_workflow_run": 41274052539,
+    "ci_synthetic_adversarial_tests_passed": 69,
+    "local_synthetic_adversarial_tests_passed": 69,
+    "public_live_bis_document_fetch": true
+  },
+  "new_original_trial": {
+    "mode": "REAL_ORIGINALS_SINGLE_COMMAND",
+    "one_shot_command_executed": true,
+    "development_original_numbers": [
+      266,
+      267,
+      269,
+      270,
+      271
+    ],
+    "per_video": [
+      {
+        "video_number": 266,
+        "video_id": "-lX8iJd-xDM",
+        "cues": 771
+      },
+      {
+        "video_number": 267,
+        "video_id": "jgzqPUBFWY8",
+        "cues": 522
+      },
+      {
+        "video_number": 269,
+        "video_id": "loKj0LccKTA",
+        "cues": 988
+      },
+      {
+        "video_number": 270,
+        "video_id": "eEwZi_lweM4",
+        "cues": 1036
+      },
+      {
+        "video_number": 271,
+        "video_id": "p94_t07GTKA",
+        "cues": 283
+      }
+    ],
+    "source_cues_total": 3600,
+    "source_sha256_matches": 5,
+    "single_invocation_report_count": 5,
+    "private_report_file_mode_0600_count": 5,
+    "terminal_stage_records_per_video": 9,
+    "terminal_process_exit_code": 2,
+    "release": "BLOCKED",
+    "model_configured_in_command": true,
+    "api_authentication_present": false,
+    "live_semantic_model_calls": 0,
+    "inferred_financial_atoms": null,
+    "official_financial_claim_adjudications": 0,
+    "financial_claims_approved": 0
+  },
+  "blind_evaluation": {
+    "module": "ire/blind_eval.py",
+    "source_only_two_reviewer_gold_and_third_adjudication_contract": "IMPLEMENTED",
+    "prediction_proposal_report_reader": "IMPLEMENTED",
+    "gold_and_predictions_sha256_binding": "IMPLEMENTED",
+    "strict_claim_precision_recall_and_critical_recall": "IMPLEMENTED_SYNTHETIC_TEST_ONLY",
+    "verified_external_human_blind_gold_items": 0,
+    "measured_real_precision": null,
+    "measured_real_recall": null,
+    "real_independent_human_attestation": "MISSING"
+  },
+  "independent_primary": {
+    "live_html_download_smoke": "PASS_BIS_PUBLIC_ABOUT_PAGE",
+    "observed_raw_bytes": 145914,
+    "observed_sha256": "9363d7a49a25cb7e19fe0100a6ab132efb937a6f4d819301fb3561e2f9422da1",
+    "finance_claim_truth_approved": 0
+  },
+  "next_gates": [
+    "USER_OWNED_PRIVATE_MODEL_RUNTIME_WITH_API_AUTHENTICATION",
+    "SECURE_EXTERNAL_ORIGINAL_TRANSCRIPT_PROCESSING_AUTHORIZATION",
+    "LIVE_SEMANTIC_INFERENCE_ON_FIVE_DEVELOPMENT_ORIGINALS",
+    "INDEPENDENT_NEW_SOURCE_FIRST_TWO_ASSESSOR_AND_ADJUDICATED_GOLD",
+    "ACTUAL_OFFICIAL_PRIMARY_SOURCE_EVIDENCE_AUDIT_ACCURACY",
+    "UNSEEN_DATA_BENCHMARK_WITH_NO_LEGACY_RESEARCH_LABELS"
+  ],
+  "full_research_complete": false,
+  "production_release": "BLOCKED"
+}
