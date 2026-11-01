@@ -57,6 +57,20 @@ Unknown fields should be null or empty. Never mark a non-financial fragment
 as a finance claim simply to increase measured coverage."""
 
 
+
+def semantic_contract_sha256() -> str:
+    """Hash both instructions AND strict extraction schema for cache identity."""
+    payload={
+        "prompt_version":PROMPT_VERSION,
+        "system_prompt":SYSTEM_PROMPT,
+        "strict_output_schema":SEMANTIC_SCHEMA,
+    }
+    return sha256(json.dumps(
+        payload,sort_keys=True,ensure_ascii=False,
+        separators=(",",":")).encode("utf-8"))
+
+
+
 @dataclass(frozen=True)
 class InferenceConfig:
     model: str
@@ -230,7 +244,7 @@ def assemble_window(raw: bytes, video_id: str, digest: str,
         "generator":{
             "origin":"EXTERNAL_UNVERIFIED",
             "model_sha256":sha256(model_name.encode("utf-8")),
-            "prompt_sha256":sha256(SYSTEM_PROMPT.encode("utf-8"))
+            "prompt_sha256":semantic_contract_sha256()
         },
         "claims":proposed_claims,
         "cue_dispositions":dispositions
@@ -349,7 +363,7 @@ def interpret_original(raw: bytes, video_id: str,
     private_source={**source,"_raw_srt_internal":raw}
     checkpoints=(SemanticCheckpointLedger(
         private_checkpoint_directory,video_id,digest,config.model,
-        sha256(SYSTEM_PROMPT.encode("utf-8")),windows)
+        semantic_contract_sha256(),windows)
         if private_checkpoint_directory else None)
     cached_count=0
     for window in windows:
