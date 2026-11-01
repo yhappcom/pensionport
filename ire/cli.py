@@ -76,6 +76,8 @@ def main() -> None:
     ap.add_argument("--video-id",required=True)
     ap.add_argument("--private-report",required=True)
     ap.add_argument("--private-annotations")
+    ap.add_argument("--private-semantic-checkpoints",
+                    help="Private resume directory outside repository")
     ap.add_argument("--semantic-model",
                     help="Execute live model inference; requires OPENAI_API_KEY")
     args=ap.parse_args()
@@ -84,6 +86,8 @@ def main() -> None:
     require(not destination.exists(), "PRIVATE_REPORT_OVERWRITE_FORBIDDEN")
     require(not (args.semantic_model and args.private_annotations),
             "SEMANTIC_MODEL_AND_EXTERNAL_ANNOTATIONS_MUTUALLY_EXCLUSIVE")
+    require(not args.private_semantic_checkpoints or args.semantic_model,
+            "CHECKPOINTS_REQUIRE_SEMANTIC_MODEL")
     original=source.read_bytes()
     annotation=None
     if args.private_annotations:
@@ -93,7 +97,8 @@ def main() -> None:
     if args.semantic_model:
         require(sha256(original)==args.source_sha256,"SOURCE_SHA256_MISMATCH")
         semantic=interpret_original(original,args.video_id,
-                                    InferenceConfig(model=args.semantic_model))
+                                    InferenceConfig(model=args.semantic_model),
+                                    private_checkpoint_directory=args.private_semantic_checkpoints)
         annotation=semantic["annotation_manifest"]
     result=run(original,args.source_sha256,args.video_id,annotation)
     if semantic is not None:
@@ -103,6 +108,7 @@ def main() -> None:
             "inference_mode":semantic["inference_mode"],
             "model_name":semantic["model_name"],
             "completed_window_count":semantic["completed_window_count"],
+            "previously_cached_window_count":semantic["previously_cached_window_count"],
             "window_count":semantic["window_count"],
             "validated_annotated_claims":semantic["validation"]["proposed_atomic_claims"],
             "research_complete":False
