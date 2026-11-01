@@ -110,7 +110,7 @@ class IntegratedSystemV2Tests(unittest.TestCase):
         return finalize_batch(
             batch or self.batch,prior,str(self.root/"long_term_knowledge"),
             str(self.root/"batch_audits"),evidence,
-            str(self.root/"source_reviews"))
+            str(self.root/"source_reviews") if evidence is not None else None)
 
     def test_one_request_both_videos_completes_source_join_not_factual_truth(self):
         plan=inspect_manifest(self.batch)
