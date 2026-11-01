@@ -53,6 +53,7 @@ class OrchestrationPolicy:
     max_discovery_claims: int = 30
     max_retrieval_claims: int = 4000
     max_evidence_documents: int = 8
+    private_evidence_dir: str | None = None
     research_model: str | None = None
     # Real primary discovery requires OPENAI_API_KEY and may incur tool costs.
     enable_primary_discovery: bool = True
@@ -100,6 +101,7 @@ def _fingerprint(video_id: str, digest: str, policy: OrchestrationPolicy) -> str
         "max_discovery_claims":policy.max_discovery_claims,
         "max_retrieval_claims":policy.max_retrieval_claims,
         "max_evidence_documents":policy.max_evidence_documents,
+        "evidence_snapshot_enabled":policy.private_evidence_dir is not None,
         "enable_primary_discovery":policy.enable_primary_discovery,
         "engine":"IRE_ONE_SHOT_20261101_V1",
     }
@@ -179,6 +181,7 @@ def execute_independent_research(
         "relation_candidates":None,
         "official_source_candidates":None,
         "evidence_scope_audits":None,
+        "fetched_primary_source_manifests":None,
         "evidence_download_failures":None,
         "real_document_text_fetches":None,
         "scoped_evidence_audits":None,
@@ -356,7 +359,8 @@ def execute_independent_research(
                 continue
             try:
                 document=independently_fetch_candidate(
-                    url,read_fn=evidence_read_fn)
+                    url,read_fn=evidence_read_fn,
+                    private_evidence_dir=policy.private_evidence_dir)
                 verified_texts.append({
                     "claim_id":claim_id,
                     "url":document["canonical_url"],
@@ -367,7 +371,8 @@ def execute_independent_research(
                     "inference_test_reader":document["source_read_mode"]==
                          "INJECTED_SYNTHETIC_READER",
                     "issuer_domain_candidate":document["issuer_domain_category"],
-                    "truncated":document["extracted_text_truncated"]
+                    "truncated":document["extracted_text_truncated"],
+                    "private_snapshot_path":document["private_immutable_source_snapshot"]
                 })
                 audit=compare_to_fetched_evidence(
                     claim,document,policy.research_model or policy.model,
@@ -399,6 +404,7 @@ def execute_independent_research(
             blockers.append("PRIMARY_DOCUMENT_DOWNLOAD_OR_AUDIT_FAILURES")
         if len(discovered_urls)>evidence_budget:
             blockers.append("PRIMARY_DOCUMENT_BUDGET_INCOMPLETE")
+    details["fetched_primary_source_manifests"]=verified_texts
     details["real_document_text_fetches"]=sum(
         not item["inference_test_reader"] for item in verified_texts)
     details["scoped_evidence_audits"]=len(audited)
