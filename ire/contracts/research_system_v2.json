@@ -1,0 +1,135 @@
+{
+  "schema": "IRE_INTEGRATED_ADVISORY_RESEARCH_V2",
+  "effective_date": "2026-11-01",
+  "purpose": "Continuously improve a source-verifiable financial knowledge base and support evidence-aware advisory research; videos are inputs, not the final product",
+  "selected_model_execution": "CURRENT_CHATGPT_CONVERSATION",
+  "additional_model_api_calls": false,
+  "one_user_request": {
+    "goal": "One user instruction initiates all eligible steps without another 'continue' instruction",
+    "orchestrator": "ChatGPT model using available file, search, GitHub and local execution tools",
+    "unattended_repository_program_calls_chat_model": false,
+    "guaranteed_unlimited_single_turn_execution": false,
+    "partial_results_if_limits_reached": "sealed progress checkpoint plus explicit unfinished work, never a fabricated completed study"
+  },
+  "workflow": [
+    {
+      "id": "INGEST",
+      "exit": "Every requested original SRT identified, byte-hashed, deduplicated and ordered",
+      "block_on_failure": true
+    },
+    {
+      "id": "INTERPRET",
+      "exit": "All cues assessed with source references; unresolved meaning is recorded as incomplete",
+      "block_on_failure": true
+    },
+    {
+      "id": "FACT_CHECK",
+      "exit": "Claim-specific official sources searched; exact text, scope, date, exception and numeric proof / justified uncertainty saved",
+      "block_on_failure": false
+    },
+    {
+      "id": "RELATE",
+      "exit": "All new claims compared against current IRE knowledge; duplicate/complement/change/conflict candidates recorded",
+      "block_on_failure": false
+    },
+    {
+      "id": "ADJUDICATE",
+      "exit": "Relation/evidence verdicts distinguish direct source match from independent financial truth review",
+      "block_on_failure": false
+    },
+    {
+      "id": "INTEGRATE",
+      "exit": "Append-only versioned knowledge snapshot with old and new source lineage, conflict candidates and topic clusters",
+      "block_on_failure": true
+    },
+    {
+      "id": "ADVISE",
+      "exit": "For advisory questions retrieve current-time evidence with suitability assumptions, unresolved conflicts and abstention rules",
+      "block_on_failure": false
+    },
+    {
+      "id": "AUDIT",
+      "exit": "Batch-wide report lists completion, unresolved work, immutable snapshot hashes, and appropriate status labels",
+      "block_on_failure": true
+    }
+  ],
+  "data_layers": [
+    {
+      "id": "SOURCE",
+      "authority": "original SRT/audio; provenance only"
+    },
+    {
+      "id": "CLAIM",
+      "authority": "source-linked interpretation in current chat; not a fact certificate"
+    },
+    {
+      "id": "EVIDENCE",
+      "authority": "independently fetched official text, exact quotation, document digest, date/scope"
+    },
+    {
+      "id": "RELATION",
+      "authority": "candidate similarity vs explicitly reviewed relation; no implicit merging"
+    },
+    {
+      "id": "KNOWLEDGE",
+      "authority": "append-only time-indexed claims; preserve provenance and versions"
+    },
+    {
+      "id": "ADVISORY",
+      "authority": "question-specific assembled evidence + current recheck + risk/suitability, not automatic trading"
+    }
+  ],
+  "truth_labels": [
+    "SOURCE_LINKED_UNVERIFIED",
+    "OFFICIAL_TEXT_QUOTE_MATCHED_SCOPE_UNRESOLVED",
+    "OFFICIAL_TEXT_CORROBORATED_UNATTESTED",
+    "INDEPENDENTLY_REVIEWED",
+    "CONTRADICTED",
+    "OUTDATED",
+    "INSUFFICIENT"
+  ],
+  "relation_labels": [
+    "DUPLICATE_CANDIDATE",
+    "COMPLEMENT_CANDIDATE",
+    "CONTRADICTION_CANDIDATE",
+    "TEMPORAL_CHANGE_CANDIDATE",
+    "SCOPE_DIFFERENCE_CANDIDATE",
+    "UNRELATED_CANDIDATE"
+  ],
+  "research_completion": {
+    "COMPLETE_WITH_LIMITATIONS": "All requested sources fully transcribed/meaningfully classified and compared, with explicit unresolved evidence and conflict lists; not accuracy certified",
+    "INCOMPLETE_REQUIRES_RESUME": "Any source, cue, comparison or required final report incomplete",
+    "APPROVED_FOR_ADVISORY": "Only externally validated financial facts with applicable law/date and suitability review; never conferred by unit tests or assistant self-review"
+  },
+  "reviewer_policy": {
+    "current_chat_is_independent_human_reviewer": false,
+    "two_human_blind_reviewers_exist": false,
+    "human_attestation_in_file_is_not_identity_proof": true,
+    "past_research_is_not_gold": true
+  },
+  "history_policy": {
+    "preserve_main": true,
+    "preserve_legacy_study": true,
+    "do_not_import_old_claims_or_conclusions_as_facts": true,
+    "prior_new_ire_claims_may_be_compared_as_candidates": true,
+    "migration": "V1 stored studies remain read-only; V2 overlays must be explicit and immutable"
+  },
+  "numeric_metrics": [
+    "source_cue_coverage",
+    "unresolved_cues",
+    "claim_evidence_coverage",
+    "official_date_scope_review_rate",
+    "relation_recall_at_k_if_blind_gold_available",
+    "knowledge_contradiction_queue_size",
+    "verified_advisory_grounding_rate",
+    "unsafe_unsupported_recommendation_count"
+  ],
+  "current": {
+    "implementation_status": "IN_PROGRESS",
+    "real_video_full_content_end_to_end_passed": false,
+    "automated_unlimited_turn_completed": false,
+    "real_human_blind_gold": false,
+    "advisory_accuracy_certified": false,
+    "production_approved": false
+  }
+}
