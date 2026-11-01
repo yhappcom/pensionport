@@ -1,0 +1,79 @@
+{
+  "schema": "IRE_CLEANROOM_ENGINE_CONTRACT_V1",
+  "established": "2026-11-01",
+  "repo": "yhappcom/pensionport",
+  "branch": "feat/ire-cleanroom-engine-20261101",
+  "base_branch": "main",
+  "base_commit": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+  "policy": {
+    "previous_research_can_inform_failure_modes_only": true,
+    "prior_claims_may_be_copied_or_quoted": false,
+    "prior_study_data_may_be_research_input": false,
+    "prior_engine_code_may_be_imported": false,
+    "prior_gold_labels_may_be_fitted": false,
+    "standalone_source_provenance_required": true,
+    "new_research_conclusions_require_original_and_independent_evidence": true,
+    "development_samples_may_be_blind_evaluation_samples": false
+  },
+  "stages": [
+    {
+      "id": "SOURCE_PROVENANCE",
+      "status": "IMPLEMENTED_SRT_ONLY",
+      "independent_audio_verification": false
+    },
+    {
+      "id": "DISCOURSE_CONTEXT_RECONSTRUCTION",
+      "status": "IMPLEMENTED_CUE_WINDOW_PLANNER"
+    },
+    {
+      "id": "ATOMIC_FINANCIAL_INTERPRETATION",
+      "status": "CONTRACT_IMPLEMENTED_EXTERNAL_SEMANTIC_RUNNER_MISSING"
+    },
+    {
+      "id": "FINANCIAL_STRUCTURE_VALIDATION",
+      "status": "IMPLEMENTED_STRUCTURAL_ONLY"
+    },
+    {
+      "id": "OFFICIAL_NUMERIC_EMPIRICAL_RESEARCH",
+      "status": "PARTIAL_OFFLINE_BYTES_AND_ARITHMETIC_ONLY"
+    },
+    {
+      "id": "WITHIN_NEW_SOURCE_RELATION_RETRIEVAL",
+      "status": "IMPLEMENTED_CANDIDATES_ONLY"
+    },
+    {
+      "id": "DOUBLE_INDEPENDENT_REVIEW",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "SEALED_UNSEEN_EVALUATION",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "REVIEWED_APPEND_ONLY_KNOWLEDGE_INTEGRATION",
+      "status": "NOT_IMPLEMENTED"
+    }
+  ],
+  "required_quality_measurements": [
+    "SOURCE_CUE_CENSUS",
+    "HUMAN_ADJUDICATED_ATOMIC_RECALL_PRECISION",
+    "FINANCIAL_FRAME_CONDITION_SCOPE_POLARITY_ACCURACY",
+    "RETRIEVAL_RECALL_AT_K_AND_NONCANDIDATE_AUDIT",
+    "OFFICIAL_SOURCE_EFFECTIVE_DATE_ACCURACY",
+    "QUANTITATIVE_REPRODUCIBILITY_AND_UNITS",
+    "EMPIRICAL_DATA_OUT_OF_SAMPLE_AND_COST_RISK",
+    "INDEPENDENT_REVIEWER_IDENTITY_AND_SOURCE_REUSE_SCREEN"
+  ],
+  "current": {
+    "independent_real_original_evaluation_runs": 0,
+    "gold_labeled_real_claims": 0,
+    "independently_approved_financial_claims": 0,
+    "certified_financial_claim_precision": null,
+    "certified_financial_claim_recall": null,
+    "certified_relation_recall": null,
+    "research_complete_certificates": 0,
+    "auto_knowledge_merges": 0,
+    "personalized_trade_orders": 0,
+    "operational_status": "BLOCKED"
+  }
+}

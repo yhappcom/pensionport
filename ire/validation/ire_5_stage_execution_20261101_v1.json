@@ -1,0 +1,108 @@
+{
+  "schema": "IRE_SEQUENTIAL_FIVE_STAGE_EXECUTION_20261101_V1",
+  "date": "2026-11-01",
+  "study_policy": {
+    "legacy_study_claims_cited": false,
+    "legacy_study_results_as_gold_labels": false,
+    "legacy_engine_modules_loaded": false,
+    "past_original_transcripts_used_for_hash_only_reuse_preflight": true,
+    "previous_study_or_assessment_judgments_read": false,
+    "new_research_requires_independent_original_and_primary_evidence": true,
+    "model_outputs_automatically_approved": false
+  },
+  "code": {
+    "branch": "feat/ire-cleanroom-engine-20261101",
+    "model_runtime": "OPENAI_RESPONSES_DISCOURSE_PRIMARY_CUE_CONTEXT",
+    "prompt_name": "IRE_DISCOURSE_FINANCIAL_SEMANTICS_V1_20261101",
+    "external_api_integration_implemented": true,
+    "true_model_api_inference_executed": false,
+    "cause": "OPENAI_API_KEY_NOT_CONFIGURED_IN_EXECUTION_ENVIRONMENT",
+    "synthetic_model_injection_tests_only": true,
+    "response_format": "JSON_OBJECT_AND_LOCAL_STRICT_VALIDATION",
+    "resumable_private_source_model_prompt_pinned_checkpoints": true,
+    "original_srt_or_private_model_output_committed_to_github": false
+  },
+  "stages": [
+    {
+      "index": 1,
+      "name": "Finanical semantic engine runner",
+      "code_implemented": true,
+      "ci_synthetic_pass": true,
+      "live_model_execution": false,
+      "status": "PARTIAL_LIVE_MODEL_GATE_BLOCKED"
+    },
+    {
+      "index": 2,
+      "name": "Five development originals",
+      "chosen_source_numbers": [
+        266,
+        267,
+        269,
+        270,
+        271
+      ],
+      "source_srt_count": 5,
+      "original_cue_count": 3600,
+      "discourse_window_count": 364,
+      "source_structural_gate": "PASS",
+      "source_only_cli_execution": true,
+      "independent_financial_claims_extracted": null,
+      "claim_recall": null,
+      "claim_precision": null,
+      "status": "PARTIAL_SOURCE_ONLY_NO_FINANCIAL_SEMANTIC_EXECUTION"
+    },
+    {
+      "index": 3,
+      "name": "Ten separate official finance research evaluations",
+      "original_srt_candidates": 10,
+      "candidate_source_numbers": [
+        272,
+        273,
+        278,
+        279,
+        280,
+        281,
+        282,
+        284,
+        287,
+        288
+      ],
+      "source_content_research_read": false,
+      "official_evidence_comparison_performed": false,
+      "independent_claims_available": false,
+      "status": "NOT_STARTED_BLOCKED_BY_STAGE_2"
+    },
+    {
+      "index": 4,
+      "name": "Independent blind originals",
+      "strict_preproposal_count": 6,
+      "target_minimum": 20,
+      "target_maximum": 30,
+      "missing_minimum": 14,
+      "private_split_manifest_commitment": "315cd179f231e6a7b5b4b36d263dfa2cd0adb2bf8a9a914375bcddff517c0579",
+      "source_body_unrevealed_to_new_semantic_engine": true,
+      "reviewer_2_person_independent_annotations": false,
+      "contamination_screen_only_hashed_original_shingles": true,
+      "extremely_long_source_beyond_current_budget": true,
+      "status": "NOT_STARTED_INSUFFICIENT_SOURCE_AND_REVIEWERS"
+    },
+    {
+      "index": 5,
+      "name": "Full automated research expansion",
+      "merged_knowledge_entries": 0,
+      "automated_approvals": 0,
+      "status": "NOT_STARTED_PRECEDING_GATES_NOT_MET"
+    }
+  ],
+  "selected_dev_source_manifest_sha256": "4011df47540ba33cf92faa3d1101378d80e4138b6d7192a5c7d92798efaba23d",
+  "test_report_metrics": {
+    "model_derived_claims": null,
+    "model_recall": null,
+    "model_precision": null,
+    "finance_frame_accuracy": null,
+    "official_evidence_validation_rate": null,
+    "held_out_recall": null,
+    "automated_claim_approvals": 0
+  },
+  "release": "BLOCKED_NO_UNSEEN_HUMAN_GOLD_AND_LIVE_MODEL_RUN"
+}
