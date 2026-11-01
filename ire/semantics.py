@@ -16,8 +16,8 @@ import re
 import urllib.error
 import urllib.request
 from typing import Callable
-from .source import require, sha256, source_record, parse_srt
-from .claims import CLAIM_TYPES, MODALITIES, validate_annotations
+from .source import require, sha256, source_record, parse_srt, text_norm
+from .claims import CLAIM_TYPES, MODALITIES, validate_annotations, validate_frame
 from .checkpoint import SemanticCheckpointLedger
 
 PROMPT_VERSION = "IRE_DISCOURSE_FINANCIAL_SEMANTICS_V1_20261101"
@@ -239,6 +239,85 @@ def assemble_window(raw: bytes, video_id: str, digest: str,
     return manifest
 
 
+
+
+def verify_window_before_caching(raw: bytes, digest: str,
+                                 window: dict, reply: dict) -> None:
+    """Check each response BEFORE persisting it as a model checkpoint.
+
+    This excludes untraceable quotes, invalid frames and silent omission of
+    primary cues. Full-ledger validation still runs after assembly.
+    """
+    cues={c.index:c for c in parse_srt(raw,digest)}
+    primary=window["source_cue_ids"]
+    require(type(reply) is dict and set(reply)=={"claims","cue_dispositions"},
+            "SEMANTIC_WINDOW_OUTPUT_SCHEMA_MISMATCH")
+    entries=reply["claims"]
+    rows=reply["cue_dispositions"]
+    require(type(entries) is list and type(rows) is list
+            and len(entries)<=1000 and len(rows)==len(primary),
+            "SEMANTIC_WINDOW_OUTPUT_CENSUS_INVALID")
+    source_links={index:0 for index in primary}
+    for claim in entries:
+        require(type(claim) is dict and set(claim)=={
+            "proposition","claim_types","frame","source_refs"},
+            "SEMANTIC_CLAIM_OUTPUT_SCHEMA_MISMATCH")
+        require(type(claim["proposition"]) is str
+                and 0<len(claim["proposition"])<=10000
+                and bool(claim["proposition"].strip()),
+                "SEMANTIC_CLAIM_PROPOSITION_INVALID")
+        types=claim["claim_types"]
+        require(type(types) is list and bool(types)
+                and len(types)==len(set(types))
+                and set(types)<=CLAIM_TYPES,
+                "SEMANTIC_CLAIM_TYPES_INVALID")
+        validate_frame(claim["frame"])
+        refs=claim["source_refs"]
+        require(type(refs) is list and 1<=len(refs)<=80,
+                "SEMANTIC_CLAIM_WITHOUT_EVIDENCE")
+        ids=[]
+        for ref in refs:
+            require(type(ref) is dict and set(ref)=={"cue_index","quote"},
+                    "SEMANTIC_QUOTE_SCHEMA_INVALID")
+            index=ref["cue_index"]
+            require(type(index) is int and index in source_links,
+                    "CLAIM_SOURCE_OUTSIDE_PRIMARY_CUES")
+            quote=ref["quote"]
+            require(type(quote) is str and 0<len(quote)<=2000 and
+                    text_norm(quote) in text_norm(cues[index].text),
+                    "UNTRACEABLE_QUOTED_SOURCE")
+            source_links[index]+=1
+            ids.append(index)
+        require(ids==sorted(set(ids)),
+                "SEMANTIC_SOURCE_REFS_NOT_ORDERED_UNIQUE")
+        for m in claim["frame"]["measurements"]:
+            require(m["reference_cue"] in ids,
+                    "SEMANTIC_NUMBER_SOURCE_LINK_MISSING")
+            require(m["value_text"] in " ".join(cues[i].text for i in ids),
+                    "SEMANTIC_NUMBER_LITERAL_NOT_IN_SOURCE")
+    for pos,row in enumerate(rows):
+        expected=primary[pos]
+        require(type(row) is dict and
+                set(row)=={"cue_index","status","reason"} and
+                type(row["cue_index"]) is int and row["cue_index"]==expected,
+                "SEMANTIC_CUE_DISPOSITION_ORDER_OR_SCHEMA")
+        status=row["status"]
+        reason=row["reason"]
+        require(status in ("LINKED","NONCLAIM_CANDIDATE","UNRESOLVED"),
+                "SEMANTIC_CUE_STATUS_INVALID")
+        require((status=="LINKED")==bool(source_links[expected]),
+                "SEMANTIC_CUE_REVERSE_SOURCE_LINK_MISMATCH")
+        if status=="LINKED":
+            require(reason is None,"SEMANTIC_LINKED_CUE_REASON_INVALID")
+        elif status=="NONCLAIM_CANDIDATE":
+            require(type(reason) is str and 8<=len(reason)<=512,
+                    "SEMANTIC_NONCLAIM_REASON_REQUIRED")
+        else:
+            require(reason is None or
+                    (type(reason) is str and 0<len(reason)<=512),
+                    "SEMANTIC_UNRESOLVED_REASON_INVALID")
+
+
 def interpret_original(raw: bytes, video_id: str,
                        config: InferenceConfig,
                        request_fn: Callable[[dict],dict] | None = None,
@@ -279,10 +358,12 @@ def interpret_original(raw: bytes, video_id: str,
             require(type(reply) is dict and
                     set(reply)=={"claims","cue_dispositions"},
                     "SEMANTIC_WINDOW_OUTPUT_SCHEMA_MISMATCH")
+            verify_window_before_caching(raw,digest,window,reply)
             if checkpoints:
                 checkpoints.save(window,reply)
             replies.append(reply)
         else:
+            verify_window_before_caching(raw,digest,window,cached)
             cached_count+=1
             replies.append(cached)
     manifest=assemble_window(raw,video_id,digest,windows,replies,config.model)
