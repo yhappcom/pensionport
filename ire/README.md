@@ -192,3 +192,120 @@ SEMANTIC_API_KEY_UNAVAILABLE로 차단됐다.
 
 CI 합성·적대적 시험 38건에 통과했으며, 이 결과는 실제 금융
 의미추출 정밀도·재현율 또는 독립 금융 사실 검증 성능을 의미하지 않는다.
+
+
+## 원본 의미 분석 → 실제 공식자료 원문 대조 통합 (IRE evidence v1)
+
+실제 금융 주장을 얻는 단계와 독립 근거를 얻는 단계를 서로 다른 모델
+요청으로 실행한다. 이 엔진에는 **기존 연구의 금융 주장·판정·정답
+자료를 참조하는 코드가 없다.**
+
+단일 명령의 연구 수행 상태는 다음 9단계로 기록한다.
+
+1. 원본 SRT SHA-256 및 누락 구간 검사
+2. 문맥별 실제 금융 의미 분석(Responses API, Structured Outputs strict)
+3. 원자 주장 원문 인용·수치·조건·음성 미검증 상태 검사
+4. 새 주장만 이용한 공식 자료 검색(web_search)
+5. 공식 기관 도메인 제한 → 문서 HTTPS 직접 다운로드 →
+   원본 응답 SHA → HTML/텍스트 추출 → 개별 금융 주장과 적용
+   조건·시점·예외·단위를 별도 모델로 비교 → 정확한 인용문 역검증
+6. 독립 수치 검산 의무와 누락 항목 기록
+7. 이번 신규 원본 주장끼리만 관계 후보 검색
+8. 독립 심사 차단(미검증 금융 사실 자동 승인 불가)
+9. 변경 불가능한 비공개 실행 보고서 보존
+
+### 새 실제 근거 검증 옵션
+
+~~~bash
+python -m ire.one_shot \
+  --batch-manifest /private/ire_new_sources.json \
+  --semantic-model YOUR_RESPONSES_MODEL \
+  --research-model YOUR_SEPARATE_RESEARCH_MODEL \
+  --private-semantic-checkpoints /private/ire_semantic_checkpoints \
+  --private-evidence-dir /private/ire_original_official_bytes \
+  --max-evidence-documents 8 \
+  --private-output-dir /private/ire_reports
+~~~
+
+OPENAI_API_KEY는 사용자 소유의 비공개 실행 환경에서만 설정한다.
+실제 모델과 web_search 호출은 비용이 발생하고, SRT 원문 및 새 주장의
+일부가 API 제공업체로 전송될 수 있다. API 키를 GitHub에
+커밋하거나 대화창으로 전송하지 않는다.
+
+**지원:** 공식기관으로 허용한 HTTPS 도메인 아래 HTML 및 순수 텍스트.
+실제 바이트의 SHA-256, 응답 시각, 문서 URL, 원문 대조 인용문,
+모델 및 프롬프트 해시, 판단 범위가 개인 보고서에 남는다.
+원본 응답 바이트는 private-evidence-dir 설정 시 0600 경로에 저장되며
+변조된 기존 복사본은 재사용하지 않는다. 제한된 동일 기관 HTTPS
+리디렉션은 허용하되 다른 기관으로의 이동, 개인 네트워크 주소,
+과대한 문서 및 비인증 도메인은 차단한다.
+
+**실제 근거 원문과 사실 승인 구별:** 기관 도메인을 검색했다고 발행기관
+신원을 법적으로 입증한 것은 아니다. 기재된 법률의 효력일·적용
+대상·상품 조건·예외·계산 전제는 별도 검토가 필요하다.
+문서에 특정 구절이 존재하거나 LLM이 SUPPORTS라고 응답하더라도
+심사자가 승인한 금융 사실로 승격하지 않는다.
+모델이 INSUFFICIENT / CONTRADICTS / CONDITIONALLY_SUPPORTS를
+판정하면 그 상태와 원문 인용 증거를 검토 대기열에 남긴다.
+
+**현재 미지원 또는 미완성:** PDF 문서 본문 파싱, 웹사이트의
+JavaScript 전용 자료, 모든 발언 의미의 독립 인간 누락 심사,
+공식 문서의 법적 효력 인증, 복합 금융 공식 자동 검산,
+독립 미노출 평가, 자동 최종 승인.
+
+### 연동 시험 기준
+
+GitHub Actions의 외부 공개 페이지 시험에서 국제결제은행(BIS)
+공식 기관 페이지를 **실제로 HTTP 다운로드**해 텍스트와 원본
+SHA-256을 추출하는 경로가 작동함을 확인했다.
+이는 공개 기관 문서 **취득 성능만** 검증한 것이며
+특정 투자 주장을 사실로 인증한 것은 아니다.
+
+실제 원본에 대한 금융 의미 분석 API 호출은 현재 실행 환경에
+OPENAI_API_KEY가 없어 아직 수행하지 않았다. 추출 재현율,
+의미 정확도 및 공식 사실 승인은 현재 미측정이다.
+
+
+## 신규 원본 5편 실전 연동 재시험 및 독립 성능평가 게이트
+
+2026-11-01 기존 연구 결과를 인용하지 않고 신규 개발용 원본
+#266·267·269·270·271에서 단일 명령을 다시 실행했다.
+원본 5편 합계 3,600 cue, 실행 보고서 5건을 별도 0600
+비공개 영역에 생성했다. 원본 검증·보고서 생성은 모두 PASS다.
+
+외부 모델 이름을 지정하고 실제 모델 호출을 시도했으나, 현
+실행 환경에 OPENAI_API_KEY가 설정되어 있지 않아 5편 모두
+SEMANTIC_API_KEY_UNAVAILABLE를 반환했다. 명시적으로
+진행되지 않은 모델 분석을 실행 완료로 표시하지 않았다.
+**실제 금융 원자 주장 수·Recall·Precision은 여전히 미측정이다.**
+
+새 평가 실행기: ire/blind_eval.py
+
+원본으로 독립 작업한 두 검토자의 파일과 제3자 조정 자료를
+모델 출력과 *사후* 비교하는 기능을 추가했다. 원본 SRT 해시,
+원문 인용, 금융 원자 의미 프레임, 정답 봉인 SHA 및 모델 출력
+SHA에 대한 유효성 검사를 수행한다. 모델 초안을 본 뒤 생성한
+정답은 블라인드 정답으로 사용할 수 없다. 구조화된 파일에서
+서명을 확인해도 **검토자가 실제 사람인지, 독립적으로 심사했는지는
+자동으로 증명되지 않는다.** 관련 부분은 별도 외부 검증이 필요하다.
+
+정답과 대응표가 별도 비공개 파일로 준비됐을 때에만 실행한다.
+
+~~~bash
+python -m ire.blind_eval \
+  --original-srt /private/new_original.srt \
+  --video-id ABCDEFGHIJK \
+  --source-sha256 ACTUAL_SHA256_64_HEX \
+  --private-blind-gold /private/reviewers_adjudicated_gold.json \
+  --private-model-proposals /private/ire_generated_atoms.json \
+  --private-adjudicated-matches /private/blind_pair_adjudication.json \
+  --private-report /private/ire_blind_evaluation.json
+~~~
+
+가동 전 요구사항: 인증된 비공개 외부 모델 실행 환경,
+원본 외부 전송 권한과 처리 비용 확인, 두 독립 검토자의
+원본 우선 주석 및 제3자 이견 조정, 안전한 파일 보관,
+신규 블라인드 평가용 미노출 원본.
+
+**개발/합성 시험 통과를 실제 금융 연구 성능 점수로
+반영하거나 금융 지식을 자동 승인하는 경로는 없다.**

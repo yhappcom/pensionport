@@ -7,36 +7,18 @@ External research sends claim text to the configured model provider.
 from __future__ import annotations
 
 import json
-import os
 import re
 import urllib.error
 import urllib.request
-from urllib.parse import urlsplit
-from .source import require, sha256
+from .source import require
+from .evidence import issuer_for
 
-OFFICIAL_HOST_SUFFIXES=(
-    "go.kr","or.kr","gov","gov.uk","europa.eu","ecb.europa.eu",
-    "bis.org","oecd.org","imf.org","worldbank.org","sec.gov",
-    "investor.gov","finra.org","irs.gov","treasury.gov",
-    "federalreserve.gov","federalreserve.gov","bankofengland.co.uk",
-)
 MAX_RESEARCH_RESPONSE=5_000_000
 
 
 def is_official_candidate(url: str) -> bool:
-    if not isinstance(url,str) or len(url)>2048:
-        return False
-    try:
-        parsed=urlsplit(url)
-        host=(parsed.hostname or "").lower().rstrip(".")
-        return (parsed.scheme=="https" and bool(host)
-                and parsed.username is None and parsed.password is None
-                and parsed.port in (None,443)
-                and all(c.isascii() for c in host)
-                and any(host==suffix or host.endswith("."+suffix)
-                        for suffix in OFFICIAL_HOST_SUFFIXES))
-    except ValueError:
-        return False
+    """Candidate for independent source fetching, not a truth certificate."""
+    return issuer_for(url) is not None
 
 
 def screen_discovery_response(result: dict, claim_id: str) -> dict:

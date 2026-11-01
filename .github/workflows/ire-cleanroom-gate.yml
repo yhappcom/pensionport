@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feat/ire-cleanroom-engine-20261101
+      - feat/ire-live-evidence-verification-20261101
     paths:
       - "ire/**"
       - ".github/workflows/ire-cleanroom-gate.yml"
@@ -70,6 +71,24 @@ jobs:
           fi
           echo 'PASS: only public engine sources and synthetic tests'
 
+      - name: Live official financial institution HTML fetch smoke
+        if: github.ref_name == 'feat/ire-live-evidence-verification-20261101'
+        run: |
+          python - <<'PY'
+          from ire.evidence import independently_fetch_candidate
+          page=independently_fetch_candidate("https://www.bis.org/about")
+          assert page["schema"]=="IRE_INDEPENDENT_DOCUMENT_V1"
+          assert page["issuer_domain_category"]=="BIS"
+          assert len(page["visible_text"])>100
+          assert "central banks" in page["visible_text"].lower()
+          assert "monetary and financial stability" in page["visible_text"].lower()
+          assert len(page["raw_sha256"])==64
+          assert page["source_read_mode"]=="LIVE_NETWORK_FETCH"
+          assert page["independent_financial_fact_approved"] is False
+          print("LIVE_OFFICIAL_HTML_FETCH_PASS")
+          print("publisher_candidate=BIS raw_bytes="+str(page["raw_byte_size"]))
+          print("document_sha256="+page["raw_sha256"])
+          PY
       - name: Preserve tested public IRE implementation for private original-source replays
         uses: actions/upload-artifact@v4
         with:

@@ -15,11 +15,13 @@ import time
 from typing import Callable
 
 from .source import require,sha256,source_record
-from .semantics import InferenceConfig,interpret_original,SYSTEM_PROMPT
+from .semantics import InferenceConfig,interpret_original,semantic_contract_sha256
 from .claims import validate_annotations
 from .research import pending_research
 from .retrieval import related_proposals
 from .primary import discover_official_candidates,screen_discovery_response
+from .evidence import independently_fetch_candidate
+from .evidence_audit import compare_to_fetched_evidence
 
 
 STAGE_ORDER=(
@@ -27,6 +29,7 @@ STAGE_ORDER=(
     "FINANCIAL_SEMANTICS",
     "ATOMIC_TRACEABILITY",
     "INDEPENDENT_PRIMARY_DISCOVERY",
+    "PRIMARY_DOCUMENT_VERIFICATION",
     "QUANTITATIVE_OBLIGATIONS",
     "WITHIN_SOURCE_RELATIONS",
     "INDEPENDENT_REVIEW_GATE",
@@ -49,6 +52,8 @@ class OrchestrationPolicy:
     max_model_attempts: int = 3
     max_discovery_claims: int = 30
     max_retrieval_claims: int = 4000
+    max_evidence_documents: int = 8
+    private_evidence_dir: str | None = None
     research_model: str | None = None
     # Real primary discovery requires OPENAI_API_KEY and may incur tool costs.
     enable_primary_discovery: bool = True
@@ -62,6 +67,9 @@ class OrchestrationPolicy:
         require(type(self.max_retrieval_claims) is int and
                 1<=self.max_retrieval_claims<=20000,
                 "INVALID_ORCHESTRATOR_RETRIEVAL_LIMIT")
+        require(type(self.max_evidence_documents) is int and
+                0<=self.max_evidence_documents<=80,
+                "INVALID_ORCHESTRATOR_EVIDENCE_BUDGET")
         require(type(self.enable_primary_discovery) is bool,
                 "INVALID_OFFICIAL_DISCOVERY_SWITCH")
         if self.model is not None:
@@ -88,10 +96,12 @@ def _fingerprint(video_id: str, digest: str, policy: OrchestrationPolicy) -> str
         "schema":"IRE_ONESHOT_FINGERPRINT_V1",
         "video_id":video_id,"source_sha256":digest,
         "model":policy.model,
-        "prompt_sha256":sha256(SYSTEM_PROMPT.encode("utf-8")),
+        "semantic_contract_sha256":semantic_contract_sha256(),
         "research_model":policy.research_model,
         "max_discovery_claims":policy.max_discovery_claims,
         "max_retrieval_claims":policy.max_retrieval_claims,
+        "max_evidence_documents":policy.max_evidence_documents,
+        "evidence_snapshot_enabled":policy.private_evidence_dir is not None,
         "enable_primary_discovery":policy.enable_primary_discovery,
         "engine":"IRE_ONE_SHOT_20261101_V1",
     }
@@ -125,6 +135,8 @@ def _finalize(video_id: str, digest: str, policy: OrchestrationPolicy,
             "independently_verified_financial_claims":0,
             "official_claim_approvals":0,
             "official_search_candidates":details.get("official_search_candidates"),
+            "real_document_text_fetches":details.get("real_document_text_fetches"),
+            "scoped_evidence_audits":details.get("scoped_evidence_audits"),
             "retrieval_candidate_queries":details.get("retrieval_candidate_queries"),
             "measured_real_precision":None,
             "measured_real_recall":None
@@ -145,6 +157,8 @@ def execute_independent_research(
     policy: OrchestrationPolicy,
     semantic_request_fn: Callable[[dict],dict] | None = None,
     official_response_fn: Callable[[dict],dict] | None = None,
+    evidence_read_fn=None,
+    evidence_model_fn=None,
     sleep_fn: Callable[[int],None] | None = None,
 ) -> dict:
     """One call does all eligible work; always produces a terminal audit report.
@@ -166,6 +180,11 @@ def execute_independent_research(
         "semantic_validation":None,
         "relation_candidates":None,
         "official_source_candidates":None,
+        "evidence_scope_audits":None,
+        "fetched_primary_source_manifests":None,
+        "evidence_download_failures":None,
+        "real_document_text_fetches":None,
+        "scoped_evidence_audits":None,
         "numeric_research_obligations":None,
         "semantic_generation_origin":"NOT_EXECUTED",
     }
@@ -302,6 +321,105 @@ def execute_independent_research(
     details["official_source_candidates"]=candidates
     details["official_search_candidates"]=sum(
         e["candidate_count"] for e in candidates)
+
+    # Primary evidence must be independently downloaded and compared with the
+    # NEW claim. A web-search citation alone can never count as verification.
+    verified_texts=[]
+    audited=[]
+    fetch_failures=[]
+    evidence_budget=policy.max_evidence_documents
+    detail_claims={c["claim_id"]:c for c in manifest["claims"]}
+    # Round-robin source candidates across claims, so the first claim cannot
+    # monopolise a limited official evidence budget.
+    discovered_urls=[]
+    maximum=max((len(entry["official_domain_candidate_urls"])
+                 for entry in candidates),default=0)
+    for rank in range(maximum):
+        for entry in candidates:
+            urls=entry["official_domain_candidate_urls"]
+            if rank<len(urls):
+                discovered_urls.append((entry["claim_id"],urls[rank]))
+    if not policy.enable_primary_discovery:
+        stages.append(_stage("PRIMARY_DOCUMENT_VERIFICATION","SKIPPED_DISCOVERY_DISABLED"))
+    elif not discovered_urls:
+        stages.append(_stage("PRIMARY_DOCUMENT_VERIFICATION","BLOCKED_NO_CANDIDATE_DOCUMENTS"))
+        blockers.append("NO_PRIMARY_DOCUMENT_BODY_VERIFIED")
+    elif evidence_budget==0:
+        stages.append(_stage("PRIMARY_DOCUMENT_VERIFICATION","BLOCKED_EVIDENCE_BUDGET_ZERO"))
+        blockers.append("PRIMARY_EVIDENCE_BUDGET_ZERO")
+    elif official_response_fn is not None and evidence_read_fn is None:
+        # Never turn a test-injected fake search result into a real network GET.
+        stages.append(_stage("PRIMARY_DOCUMENT_VERIFICATION",
+                             "BLOCKED_TEST_DISCOVERY_WITHOUT_READER"))
+        blockers.append("MOCK_DISCOVERY_EVIDENCE_FETCH_NOT_EXECUTED")
+    elif evidence_model_fn is None and not os.environ.get("OPENAI_API_KEY"):
+        stages.append(_stage("PRIMARY_DOCUMENT_VERIFICATION","BLOCKED_MODEL_KEY_MISSING"))
+        blockers.append("EVIDENCE_AUDIT_API_KEY_MISSING")
+    else:
+        for claim_id,url in discovered_urls[:evidence_budget]:
+            claim=detail_claims.get(claim_id)
+            if claim is None:
+                fetch_failures.append({
+                    "claim_id":claim_id,"url":url,
+                    "error_code":"EVIDENCE_CLAIM_ID_NOT_IN_NEW_LEDGER"})
+                continue
+            try:
+                document=independently_fetch_candidate(
+                    url,read_fn=evidence_read_fn,
+                    private_evidence_dir=policy.private_evidence_dir)
+                verified_texts.append({
+                    "claim_id":claim_id,
+                    "url":document["canonical_url"],
+                    "document_sha256":document["raw_sha256"],
+                    "text_sha256":document["visible_text_sha256"],
+                    "bytes":document["raw_byte_size"],
+                    "retrieved_at_utc":document["retrieved_at_utc"],
+                    "inference_test_reader":document["source_read_mode"]==
+                         "INJECTED_SYNTHETIC_READER",
+                    "issuer_domain_candidate":document["issuer_domain_category"],
+                    "truncated":document["extracted_text_truncated"],
+                    "private_snapshot_path":document["private_immutable_source_snapshot"]
+                })
+                audit=compare_to_fetched_evidence(
+                    claim,document,policy.research_model or policy.model,
+                    api_key=os.environ.get("OPENAI_API_KEY",""),
+                    model_fn=evidence_model_fn)
+                audited.append(audit)
+            except (ValueError,TypeError,KeyError,OSError) as exc:
+                fetch_failures.append({
+                    "claim_id":claim_id,"url":url,
+                    "error_code":_safe_error(exc)})
+        details["evidence_scope_audits"]=audited
+        details["evidence_download_failures"]=fetch_failures
+        if audited:
+            stages.append(_stage("PRIMARY_DOCUMENT_VERIFICATION",
+                                 "PROVISIONAL_SCOPED_AUDITS_NOT_APPROVED",
+                                 downloaded_text_documents=len(verified_texts),
+                                 scope_model_audits=len(audited),
+                                 retrieval_failures=len(fetch_failures),
+                                 documents_not_attempted=max(
+                                     0,len(discovered_urls)-evidence_budget)))
+        else:
+            stages.append(_stage("PRIMARY_DOCUMENT_VERIFICATION",
+                                 "BLOCKED_NO_AUDIT_COMPLETED",
+                                 downloaded_text_documents=len(verified_texts),
+                                 scope_model_audits=0,
+                                 retrieval_failures=len(fetch_failures)))
+        blockers.append("OFFICIAL_DOCUMENT_COMPARISON_NOT_HUMAN_CERTIFIED")
+        if fetch_failures:
+            blockers.append("PRIMARY_DOCUMENT_DOWNLOAD_OR_AUDIT_FAILURES")
+        if len(discovered_urls)>evidence_budget:
+            blockers.append("PRIMARY_DOCUMENT_BUDGET_INCOMPLETE")
+    details["fetched_primary_source_manifests"]=verified_texts
+    details["real_document_text_fetches"]=sum(
+        not item["inference_test_reader"] for item in verified_texts)
+    details["scoped_evidence_audits"]=len(audited)
+    if details["evidence_scope_audits"] is None:
+        details["evidence_scope_audits"]=[]
+    if details["evidence_download_failures"] is None:
+        details["evidence_download_failures"]=[]
+    # No human reviewer has independently validated this financial fact.
+    # Even 'SUPPORTS' is only an evidence review candidate.
 
     try:
         worklist=pending_research(manifest)
