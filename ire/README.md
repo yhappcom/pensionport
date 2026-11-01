@@ -192,3 +192,75 @@ SEMANTIC_API_KEY_UNAVAILABLE로 차단됐다.
 
 CI 합성·적대적 시험 38건에 통과했으며, 이 결과는 실제 금융
 의미추출 정밀도·재현율 또는 독립 금융 사실 검증 성능을 의미하지 않는다.
+
+
+## 원본 의미 분석 → 실제 공식자료 원문 대조 통합 (IRE evidence v1)
+
+실제 금융 주장을 얻는 단계와 독립 근거를 얻는 단계를 서로 다른 모델
+요청으로 실행한다. 이 엔진에는 **기존 연구의 금융 주장·판정·정답
+자료를 참조하는 코드가 없다.**
+
+단일 명령의 연구 수행 상태는 다음 9단계로 기록한다.
+
+1. 원본 SRT SHA-256 및 누락 구간 검사
+2. 문맥별 실제 금융 의미 분석(Responses API, Structured Outputs strict)
+3. 원자 주장 원문 인용·수치·조건·음성 미검증 상태 검사
+4. 새 주장만 이용한 공식 자료 검색(web_search)
+5. 공식 기관 도메인 제한 → 문서 HTTPS 직접 다운로드 →
+   원본 응답 SHA → HTML/텍스트 추출 → 개별 금융 주장과 적용
+   조건·시점·예외·단위를 별도 모델로 비교 → 정확한 인용문 역검증
+6. 독립 수치 검산 의무와 누락 항목 기록
+7. 이번 신규 원본 주장끼리만 관계 후보 검색
+8. 독립 심사 차단(미검증 금융 사실 자동 승인 불가)
+9. 변경 불가능한 비공개 실행 보고서 보존
+
+### 새 실제 근거 검증 옵션
+
+~~~bash
+python -m ire.one_shot \
+  --batch-manifest /private/ire_new_sources.json \
+  --semantic-model YOUR_RESPONSES_MODEL \
+  --research-model YOUR_SEPARATE_RESEARCH_MODEL \
+  --private-semantic-checkpoints /private/ire_semantic_checkpoints \
+  --private-evidence-dir /private/ire_original_official_bytes \
+  --max-evidence-documents 8 \
+  --private-output-dir /private/ire_reports
+~~~
+
+OPENAI_API_KEY는 사용자 소유의 비공개 실행 환경에서만 설정한다.
+실제 모델과 web_search 호출은 비용이 발생하고, SRT 원문 및 새 주장의
+일부가 API 제공업체로 전송될 수 있다. API 키를 GitHub에
+커밋하거나 대화창으로 전송하지 않는다.
+
+**지원:** 공식기관으로 허용한 HTTPS 도메인 아래 HTML 및 순수 텍스트.
+실제 바이트의 SHA-256, 응답 시각, 문서 URL, 원문 대조 인용문,
+모델 및 프롬프트 해시, 판단 범위가 개인 보고서에 남는다.
+원본 응답 바이트는 private-evidence-dir 설정 시 0600 경로에 저장되며
+변조된 기존 복사본은 재사용하지 않는다. 제한된 동일 기관 HTTPS
+리디렉션은 허용하되 다른 기관으로의 이동, 개인 네트워크 주소,
+과대한 문서 및 비인증 도메인은 차단한다.
+
+**실제 근거 원문과 사실 승인 구별:** 기관 도메인을 검색했다고 발행기관
+신원을 법적으로 입증한 것은 아니다. 기재된 법률의 효력일·적용
+대상·상품 조건·예외·계산 전제는 별도 검토가 필요하다.
+문서에 특정 구절이 존재하거나 LLM이 SUPPORTS라고 응답하더라도
+심사자가 승인한 금융 사실로 승격하지 않는다.
+모델이 INSUFFICIENT / CONTRADICTS / CONDITIONALLY_SUPPORTS를
+판정하면 그 상태와 원문 인용 증거를 검토 대기열에 남긴다.
+
+**현재 미지원 또는 미완성:** PDF 문서 본문 파싱, 웹사이트의
+JavaScript 전용 자료, 모든 발언 의미의 독립 인간 누락 심사,
+공식 문서의 법적 효력 인증, 복합 금융 공식 자동 검산,
+독립 미노출 평가, 자동 최종 승인.
+
+### 연동 시험 기준
+
+GitHub Actions의 외부 공개 페이지 시험에서 국제결제은행(BIS)
+공식 기관 페이지를 **실제로 HTTP 다운로드**해 텍스트와 원본
+SHA-256을 추출하는 경로가 작동함을 확인했다.
+이는 공개 기관 문서 **취득 성능만** 검증한 것이며
+특정 투자 주장을 사실로 인증한 것은 아니다.
+
+실제 원본에 대한 금융 의미 분석 API 호출은 현재 실행 환경에
+OPENAI_API_KEY가 없어 아직 수행하지 않았다. 추출 재현율,
+의미 정확도 및 공식 사실 승인은 현재 미측정이다.
