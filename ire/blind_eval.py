@@ -255,3 +255,48 @@ def measure_blind_performance(
         "research_complete":False,
         "production_release":"BLOCKED_PENDING_EXTERNAL_BLIND_ATTESTATION"
     }
+
+
+def main() -> int:
+    """Offline blind gold evaluation. Operates only on private input paths."""
+    import argparse
+    from .cli import private_file,write_new_private_report
+    parser=argparse.ArgumentParser(description="Independent source-only blind claim evaluation")
+    parser.add_argument("--original-srt",required=True)
+    parser.add_argument("--source-sha256",required=True)
+    parser.add_argument("--video-id",required=True)
+    parser.add_argument("--private-blind-gold",required=True)
+    parser.add_argument("--private-model-proposals",required=True)
+    parser.add_argument("--private-adjudicated-matches",required=True)
+    parser.add_argument("--private-report",required=True)
+    args=parser.parse_args()
+    try:
+        raw=private_file(args.original_srt).read_bytes()
+        gold=json.loads(private_file(args.private_blind_gold).read_text(encoding="utf-8"))
+        proposed=json.loads(private_file(args.private_model_proposals).read_text(encoding="utf-8"))
+        matched=json.loads(private_file(args.private_adjudicated_matches).read_text(encoding="utf-8"))
+        result=measure_blind_performance(
+            raw,args.source_sha256,args.video_id,gold,proposed,matched)
+        write_new_private_report(args.private_report,result)
+    except (ValueError,KeyError,TypeError,OSError,UnicodeError):
+        # A private annotation or parse failure may contain user text: never
+        # echo arbitrary exceptions or text from private assessment files.
+        print(json.dumps({"gate":"FAILED_CLOSED",
+                          "error_code":"BLIND_MEASUREMENT_INPUT_OR_VALIDATION_FAILED"}))
+        return 3
+    print(json.dumps({
+        "schema":result["schema"],
+        "gold_atom_count":result["gold_atom_count"],
+        "predicted_atom_count":result["predicted_atom_count"],
+        "strict_precision":result["strict_precision"],
+        "strict_recall":result["strict_recall"],
+        "critical_recall":result["critical_recall"],
+        "production_release":result["production_release"],
+        "independent_human_identity_proven":False,
+        "private_result_saved":True
+    },ensure_ascii=False,sort_keys=True))
+    return 2
+
+
+if __name__=="__main__":
+    raise SystemExit(main())
