@@ -114,6 +114,8 @@ def main():
     p.add_argument("--video-id")
     p.add_argument("--source-sha256")
     p.add_argument("--private-output-dir",required=True)
+    p.add_argument("--private-evidence-dir",
+                   help="Private immutable bytes from downloaded official documents")
     p.add_argument("--private-semantic-checkpoints")
     p.add_argument("--semantic-model")
     p.add_argument("--research-model")
@@ -132,6 +134,7 @@ def main():
             max_model_attempts=options.max_model_attempts,
             max_retrieval_claims=options.max_retrieval_claims,
             private_checkpoint_directory=options.private_semantic_checkpoints,
+            private_evidence_dir=options.private_evidence_dir,
             enable_primary_discovery=not options.skip_web_discovery)
         outcome=execute_batch(items_from_options(options),
                               options.private_output_dir,policy)
