@@ -33,6 +33,17 @@ def _read_measure(value: dict, cited_text: str, units: set[str]) -> tuple[Decima
             "V3_CALC_MEASURE_SCHEMA_INVALID")
     literal = text_norm(value["source_literal"])
     require(literal in cited_text, "V3_CALC_SOURCE_LITERAL_NOT_CITED")
+    unit_re = {
+        "원": r"(?<![만억])원",
+        "만원": r"만\\s*원",
+        "억원": r"억\\s*원",
+        "%": r"%|퍼센트",
+        "개월": r"개월",
+        "회": r"회",
+        "년": r"년",
+    }[value["unit"]]
+    require(re.search(unit_re, literal) is not None,
+            "V3_CALC_SOURCE_UNIT_NOT_TRACEABLE")
     number = decimal_input(value["value"])
     source_numbers = [Decimal(m.group().replace(",", ""))
                       for m in NUMBER.finditer(literal)]
