@@ -158,6 +158,8 @@ class ConversationResearchSession:
         if self.window_strategy=="V3_ADAPTIVE":
             payload["window_strategy"]="V3_ADAPTIVE"
             payload["planner_version"]=PLANNER_VERSION
+            payload["continuation_boundary_review_required"]=(
+                selected.get("continuation_boundary_review_required",False))
         payload["packet_sha256"]=sha256(_serialized(payload))
         return payload
 
