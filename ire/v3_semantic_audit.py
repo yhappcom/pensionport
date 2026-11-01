@@ -61,6 +61,11 @@ def window_semantic_audit(packet: dict, response: dict) -> dict:
         (packet.get("right_context_cues") or []) + cues)
     critical = []
     warnings = []
+    if packet.get("continuation_boundary_review_required") is True:
+        warnings.append({
+            "cue_index": cues[-1]["cue_index"],
+            "code": "FORCED_WINDOW_BOUNDARY_SEMANTIC_REVIEW"
+        })
     for cue, row in zip(cues, rows):
         if row["status"] != "NONCLAIM_CANDIDATE":
             continue
