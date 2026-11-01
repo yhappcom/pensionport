@@ -11,10 +11,6 @@ import re
 from .source import require, text_norm
 from .v3_semantic_candidates import financial_concepts
 
-MONEY_OR_RATE = re.compile(
-    r"(?<![A-Za-z0-9])\d[\d,.]*(?:\s*)(?:%|퍼센트|"
-    r"억\s*원|만\s*원|천\s*원|조\s*원|원|bp|bps)\b?",
-    re.IGNORECASE)
 # Percent and currency tokens with no word boundary assumption in Korean.
 MONEY_OR_RATE = re.compile(
     r"(?<![A-Za-z0-9])\d[\d,.]*\s*(?:%|퍼센트|"
