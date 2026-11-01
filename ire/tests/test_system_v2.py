@@ -276,5 +276,36 @@ class IntegratedSystemV2Tests(unittest.TestCase):
         self.assertNotIn("상품 비용은",final.stdout)
 
 
+    def test_one_user_batch_five_sources_integrates_all_and_preserves_context(self):
+        originals=[]
+        video_ids=["Aa000000001","Bb000000002","Cc000000003",
+                   "Dd000000004","Ee000000005"]
+        for i,video in enumerate(video_ids):
+            raw=self.raw.replace(
+                "상품 비용은".encode("utf-8"),
+                (f"새로운 사례 {i} 상품 비용은").encode("utf-8"))
+            originals.append(fresh_session(raw,video,self.root))
+        five=manifest(*originals)
+        plan=inspect_manifest(five)
+        self.assertEqual(plan["requested_video_count"],5)
+        self.assertEqual(plan["total_cues"],20)
+        self.assertEqual(plan["remaining_windows"],0)
+        out=self.complete(five)
+        self.assertEqual(out["knowledge_source_count"],5)
+        self.assertEqual(out["new_atomic_claims"],10)
+        self.assertEqual(out["cumulative_unverified_claims"],10)
+        self.assertEqual(out["final_research_status"],
+                         "SOURCE_ANALYSIS_COMPLETE_EVIDENCE_PENDING")
+        self.assertGreater(out["relation_candidates_added"],0)
+        self.assertEqual(out["model_api_calls"],0)
+        self.assertEqual(out["financial_facts_automatically_approved"],0)
+        saved=read_private_snapshot(out["private_knowledge_snapshot_path"])
+        self.assertEqual(saved["version"],5)
+        self.assertEqual({s["video_id"] for s in saved["source_register"]},
+                         set(video_ids))
+        self.assertEqual(len(saved["claims"]),10)
+
+
+
 if __name__=="__main__":
     unittest.main()
