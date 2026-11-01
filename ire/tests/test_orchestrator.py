@@ -77,14 +77,15 @@ class OrchestrationIntegrationTests(unittest.TestCase):
         self.assertEqual(result["metrics"]["source_cue_count"],4)
         self.assertEqual(result["metrics"]["proposed_financial_atoms"],2)
         self.assertEqual(result["metrics"]["official_search_candidates"],2)
+        self.assertEqual(result["stages"][4]["status"],"BLOCKED_TEST_DISCOVERY_WITHOUT_READER")
         self.assertEqual(result["metrics"]["retrieval_candidate_queries"],2)
         self.assertEqual(result["stages"][1]["status"],
                          "PROPOSALS_GENERATED_UNVERIFIED")
         self.assertEqual(result["stages"][3]["status"],
                          "CANDIDATES_ONLY_NOT_VERIFIED")
-        self.assertEqual(result["stages"][4]["status"],
-                         "WORKLIST_BUILT_UNVERIFIED")
         self.assertEqual(result["stages"][5]["status"],
+                         "WORKLIST_BUILT_UNVERIFIED")
+        self.assertEqual(result["stages"][6]["status"],
                          "CANDIDATES_ONLY_NOT_VERIFIED")
         self.assertIn("TWO_INDEPENDENT_BLIND_REVIEWERS_NOT_ATTESTED",
                       result["blockers"])
@@ -203,7 +204,7 @@ class OrchestrationIntegrationTests(unittest.TestCase):
             self.assertEqual(len(summary["entries"]),1)
             report=json.loads(Path(summary["entries"][0]["report_path"]).read_text())
             self.assertTrue(report["single_invocation_execution_finished"])
-            self.assertEqual(len(report["stages"]),8)
+            self.assertEqual(len(report["stages"]),9)
 
 
     def test_multivideo_missing_or_corrupt_original_is_isolated(self):
