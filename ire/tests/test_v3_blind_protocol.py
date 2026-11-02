@@ -8,7 +8,7 @@ import unittest
 
 from ire.source import sha256
 from ire.v3_orchestrator import ChatBatchQueue
-from ire.v3_blind_protocol import plan_blind_review,save_blind_review_plan
+from ire.v3_blind_protocol import plan_blind_review,save_blind_review_plan,audit_blind_review_plan,_serialize
 from test_engine import VID
 
 
@@ -56,6 +56,44 @@ class SourceBlindProtocolTests(unittest.TestCase):
         self.assertEqual(target.stat().st_mode & 0o077,0)
         with self.assertRaises(FileExistsError):
             save_blind_review_plan(plan,str(self.root/'blind'))
+
+    def test_sealed_holdout_source_cues_recheck_and_no_gold_certification(self):
+        plan=plan_blind_review(self.queue,1,"seed"*10)
+        result=audit_blind_review_plan(self.queue,plan)
+        self.assertEqual(result['verified_task_count'],1)
+        self.assertEqual(result['now_has_cached_model_answers_count'],0)
+        self.assertTrue(result['task_source_and_quotes_match'])
+        self.assertFalse(result['certified_real_world_recall'])
+        self.assertFalse(result['prior_chat_model_context_exposure_verified_absent'])
+
+    def test_source_text_tamper_fails_even_with_all_recomputed_self_hashes(self):
+        plan=plan_blind_review(self.queue,1,"seed"*10)
+        task=plan['tasks'][0]
+        task['primary_cues'][0]['text']='Forged model prediction substituted for original'
+        core={k:v for k,v in task.items() if k!='task_sha256'}
+        task['task_sha256']=sha256(_serialize(core))
+        plan['plan_sha256']=sha256(_serialize({k:v for k,v in plan.items() if k!='plan_sha256'}))
+        with self.assertRaisesRegex(ValueError,'SOURCE_DIVERGENCE'):
+            audit_blind_review_plan(self.queue,plan)
+
+    def test_duplicate_task_detected_even_if_plan_self_consistent(self):
+        plan=plan_blind_review(self.queue,1,"seed"*10)
+        plan['tasks'].append(plan['tasks'][0].copy())
+        plan['task_count']=2
+        plan['source_sampling'][0]['selected_unseen_windows']=2
+        plan['plan_sha256']=sha256(_serialize({k:v for k,v in plan.items() if k!='plan_sha256'}))
+        with self.assertRaisesRegex(ValueError,'DUPLICATE_TASK'):
+            audit_blind_review_plan(self.queue,plan)
+
+    def test_existing_model_answer_flags_contamination_not_independent_gold(self):
+        from unittest.mock import patch
+        plan=plan_blind_review(self.queue,1,"seed"*10)
+        session=self.queue.sessions[0]
+        with patch.object(session,'_answer',return_value={'claims':[]}):
+            result=audit_blind_review_plan(self.queue,plan)
+        self.assertEqual(result['now_has_cached_model_answers_count'],1)
+        self.assertFalse(result['no_cached_model_answers_on_selected_windows'])
+        self.assertFalse(result['actual_independent_gold_received'])
 
     def test_forged_completion_flag_is_refused(self):
         plan=plan_blind_review(self.queue,1,"q"*40)
