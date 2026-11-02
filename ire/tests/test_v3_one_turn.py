@@ -10,7 +10,8 @@ import unittest
 
 from ire.source import sha256
 from ire.v3_orchestrator import ChatBatchQueue
-from ire.v3_one_turn import run_one_turn, BUNDLE_SCHEMA
+from ire.v3_one_turn import (run_one_turn, prepare_all_source_packets,
+    compact_source_plan, reconstruct_full_source_plan, BUNDLE_SCHEMA)
 from test_engine import VID, synthetic_srt, annotations
 from test_semantics import synthetic_reply
 from test_checkpoint import source_many, nonclaim_response
@@ -60,6 +61,105 @@ class OneTurnIntegrationTests(unittest.TestCase):
         return {"schema":BUNDLE_SCHEMA,
                 "batch_fingerprint":self.queue.plan["batch_fingerprint"],
                 "answers":answers}
+
+    def test_compact_plan_losslessly_reconstructs_every_packet_and_hash(self):
+        full=prepare_all_source_packets(self.queue,max_packets=2,max_chars=30000)
+        compact=compact_source_plan(full)
+        inflated=reconstruct_full_source_plan(compact)
+        self.assertEqual(inflated,full)
+        self.assertEqual(compact["original_full_plan_sha256"],full["plan_sha256"])
+        self.assertEqual(compact["external_model_api_calls"],0)
+        self.assertFalse(compact["previous_model_answers_included"])
+
+    def test_tampered_compact_cue_even_with_recomputed_outer_hash_is_blocked(self):
+        from ire.v3_one_turn import _canonical
+        compact=compact_source_plan(prepare_all_source_packets(
+            self.queue,max_packets=2,max_chars=30000))
+        damaged=copy.deepcopy(compact)
+        src=damaged["sources"][0]
+        first=next(iter(src["cue_ledger"]))
+        src["cue_ledger"][first]["text"]="THIS SUBTITLE IS AN ATTACK"
+        damaged["plan_sha256"]=sha256(_canonical({k:v for k,v in damaged.items()
+                                                   if k != "plan_sha256"}))
+        with self.assertRaisesRegex(ValueError,"PACKET_HASH_MISMATCH"):
+            reconstruct_full_source_plan(damaged)
+
+    def test_compact_schedule_dropped_window_rejected_even_after_rehash(self):
+        from ire.v3_one_turn import _canonical
+        compact=compact_source_plan(prepare_all_source_packets(
+            self.queue,max_packets=2,max_chars=30000))
+        damaged=copy.deepcopy(compact)
+        damaged["batch_schedule"][0]["window_keys"].pop()
+        damaged["batch_schedule"][0]["packet_count"]-=1
+        damaged["plan_sha256"]=sha256(_canonical({k:v for k,v in damaged.items()
+                                                   if k != "plan_sha256"}))
+        with self.assertRaisesRegex(ValueError,"BATCH_IDENTITY_MISMATCH"):
+            reconstruct_full_source_plan(damaged)
+
+    def test_cli_private_compact_plan_does_not_leak_original_cues_to_stdout(self):
+        path=self.root/"manifest.json";path.write_text(json.dumps(self.manifest))
+        save=self.root/"private_source"/"compact.json"
+        proc=subprocess.run([sys.executable,"-m","ire.v3_one_turn","prepare",
+            "--private-manifest",str(path),"--private-packets-file",str(save),
+            "--compact","--max-packets","2","--max-chars","30000"],
+            capture_output=True,text=True)
+        self.assertEqual(proc.returncode,0,proc.stdout)
+        out=json.loads(proc.stdout)
+        self.assertTrue(out["source_plan_compact"])
+        self.assertEqual(save.stat().st_mode & 0o077,0)
+        self.assertNotIn("synthetic",proc.stdout.lower())
+        self.assertNotIn("primary_cues",proc.stdout)
+        self.assertEqual(reconstruct_full_source_plan(json.loads(save.read_text()))[
+            "pending_windows"],out["pending_windows"])
+
+    def test_one_private_source_plan_contains_every_pending_packet_once(self):
+        source_plan=prepare_all_source_packets(self.queue,max_packets=2,max_chars=30000)
+        identity=[]
+        for batch in source_plan["batches"]:
+            self.assertLessEqual(batch["packet_count"],2)
+            for row in batch["packets"]:
+                identity.append((row["video_id"],row["packet"]["window_id"]))
+        self.assertEqual(source_plan["pending_windows"],
+                         self.queue.status()["total_windows"])
+        self.assertEqual(len(identity),len(set(identity)))
+        self.assertFalse(source_plan["contains_previous_chat_claims_or_results"])
+        self.assertEqual(source_plan["external_model_api_calls"],0)
+        initial=self.queue.next_work(max_packets=2,max_chars=30000)
+        self.assertEqual(source_plan["batches"][0]["batch_sha256"],
+                         initial["batch_sha256"])
+
+    def test_prepare_command_writes_private_plan_not_model_answers(self):
+        path=self.root/"manifest.json";path.write_text(json.dumps(self.manifest))
+        source_plan_dir=self.root/"private_plan"
+        source_plan=source_plan_dir/"source_packets.json"
+        proc=subprocess.run([sys.executable,"-m","ire.v3_one_turn","prepare",
+             "--private-manifest",str(path),"--private-packets-file",
+             str(source_plan),"--max-packets","2","--max-chars","30000"],
+             capture_output=True,text=True)
+        self.assertEqual(proc.returncode,0,proc.stdout)
+        output=json.loads(proc.stdout)
+        self.assertEqual(output["pending_windows"],self.queue.status()["total_windows"])
+        self.assertTrue(source_plan.is_file())
+        self.assertEqual(source_plan.stat().st_mode & 0o077,0)
+        self.assertEqual(source_plan_dir.stat().st_mode & 0o077,0)
+        prepared=json.loads(source_plan.read_text())
+        self.assertEqual(prepared["plan_sha256"],output["plan_sha256"])
+        self.assertFalse(prepared["contains_previous_chat_claims_or_results"])
+
+    def test_source_plan_rejects_budget_instead_of_skipping_cues(self):
+        with self.assertRaisesRegex(ValueError,"OVER_BUDGET"):
+            prepare_all_source_packets(self.queue,max_packets=12,max_chars=1000)
+        self.assertEqual(self.queue.status()["accepted_windows"],0)
+
+    def test_source_plan_after_partial_resume_only_has_pending_windows(self):
+        source=self.bundle()
+        run_one_turn(self.queue,source,max_packets=1,max_chars=30000,max_rounds=1)
+        plan=prepare_all_source_packets(self.queue,max_packets=2,max_chars=30000)
+        self.assertEqual(plan["previously_accepted_windows"],1)
+        self.assertEqual(plan["pending_windows"],self.queue.status()["remaining_windows"])
+        remaining=[row["packet"]["window_id"] for batch in plan["batches"]
+                    for row in batch["packets"] if row["video_id"]==VID]
+        self.assertNotIn("W00001",remaining)
 
     def test_single_command_all_windows_and_cumulative_snapshot(self):
         all_source=self.bundle()
