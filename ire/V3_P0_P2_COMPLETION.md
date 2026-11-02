@@ -135,3 +135,61 @@ python -m ire.v3_release audit \
   W00003 정정 전 위험 2건은 탐지되지만, 정정 후 8개 문맥의
   새 중대 오류는 0건이다. 문맥 재검토 경고 16건은 아직 열려 있으며,
   독립적 인적 블라인드 검증과 실전 금융 사실 승인은 여전히 0이다.
+
+## 2026-11-02 복구 저널·경고 트리아지·블라인드 평가용 소스 패킷 추가
+
+**1. V3 공식 근거 저장 WAL.** `v3_evidence_txn.py`는 두 파일 저장 전에
+SHA-256 봉인된 `.pending` 사전 기록을 0600 모드로 남긴다. 전체 파일과
+부모 디렉터리를 `fsync`하고 `fcntl.flock`으로 같은 폴더의 동시 쓰기를
+직렬화한다. (a) 영수증만 쓰고 프로세스가 종료되면 다음 실행에서 이를
+되돌리고, (b) 원장과 영수증을 모두 쓴 후 종료되면 두 SHA를 검사하고
+`.done` 커밋 기록으로 이행한다. (c) 기록이 변조되거나 승인된 후 일부
+파일이 사라지면 **자동 복구하지 않고 실패**한다. 기존 원장 파일 자체는
+임의 변경하지 않으며, 모든 검토가 금융 사실 승인을 뜻하지 않는다.
+
+```bash
+# 크래시 이후 먼저 실행: 출력은 보안상 해시/개수 중심
+python -m ire.v3_evidence recover \
+  --private-evidence-dir /private/ire_evidence
+```
+
+이 방식은 로컬 POSIX 파일시스템·`fsync`의 내구성을 전제로 한
+**크래시 일관성 복구 프로토콜**이다. 공유 스토리지 전원 차단,
+파일시스템 구현 결함, 전체 데이터와 지문의 동시 악의적 변조를 방어하는
+암호학적 서명이나 DB의 진정한 단일 원자 트랜잭션은 아니다.
+V2 단독 소비자에게 파일 두 개의 동시 출현을 원자적으로 보장하지는 않는다.
+V3 공식 근거 재개 시 반드시 WAL 복구를 선행해야 한다.
+
+**2. 경고 16건을 원문 위치에 연결한 보강 대기열.**
+`v3_warning_triage.py`는 유효한 체크포인트를 다시 읽어, 재검토 경고의
+claim ordinal/문맥 ID/원본 cue 번호/인용 SHA를 비공개 JSON에 저장한다.
+실제 #1~#5 v002에서는 경고 16건 중 7건의 원문 보강 후보가 **동일한
+primary window**에 존재했고, 9건은 **앞 문맥의 별도 source**에 있었다.
+두 부류는 자동으로 해결되거나 해당 주장의 citation 범위를 확장하지 않는다.
+원본을 검토하는 사람이 인용의 연결 타당성을 확인하고 필요한 경우
+기존 캐시를 수정하지 않는 `correct` 이력을 별도로 작성해야 한다.
+
+```bash
+python -m ire.v3_warning_triage inspect \
+ --private-manifest /private/batch.json \
+ --private-report-dir /private/ire_warning_triage
+```
+
+**3. 실제 독립 평가자를 위한 소스 전용 홀드아웃.**
+`v3_blind_protocol.py`는 저장된 잠정 모델 답변이 **없는** 원본 창만
+선택하고, 실제 SRT primary cue와 참고용 주변 cue만 포함한다.
+영상별 3개씩 **총 15개 원본 홀드아웃 패킷**을 비공개로 생성했다.
+모델 주장·기존 연구 지식·관계 검색 순위는 패킷에 넣지 않는다.
+두 명의 실제 독립 검토자는 모델 예측을 보지 않고 별도로 답해야 하며
+제3 조정자의 독립 결과가 확보돼야 골드 품질을 평가할 수 있다.
+패킷 생성 자체가 독립 사람의 검토·골드·Recall/Precision을 인증하지 않는다.
+
+```bash
+python -m ire.v3_blind_protocol prepare \
+ --private-manifest /private/batch.json \
+ --sample-per-video 3 \
+ --private-dir /private/ire_blind_source_only
+```
+
+코드·합성/적대적 테스트만 GitHub에 반영한다. 실제 SRT와 블라인드
+패킷·원자 주장 텍스트는 비공개 보관한다. `main`은 수정하지 않는다.
