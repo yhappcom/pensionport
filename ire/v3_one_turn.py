@@ -170,7 +170,8 @@ def compact_source_plan(plan: dict) -> dict:
     return {**compact,"plan_sha256":sha256(encoded)}
 
 
-def reconstruct_full_source_plan(compact: dict) -> dict:
+def reconstruct_full_source_plan(compact: dict,
+                                 queue: ChatBatchQueue | None = None) -> dict:
     """Verify byte-preserving reconstruction of source-cited packets.
 
     Intended for the ChatGPT host to expand just the next batch without
@@ -227,6 +228,14 @@ def reconstruct_full_source_plan(compact: dict) -> dict:
     require(sha256(_canonical({k:v for k,v in full.items()
                               if k != "plan_sha256"}))==full["plan_sha256"],
             "V3_ONE_TURN_RECONSTRUCTED_FULL_PLAN_MISMATCH")
+    # Self-declared hashes alone are not source authentication: an adversary
+    # could rewrite cue text and recompute the entire unsigned hash chain.
+    # Replay against the independently hashed ORIGINAL and effective checkpoint.
+    if queue is not None:
+        require(full == prepare_all_source_packets(
+            queue,max_packets=full["max_packets"],
+            max_chars=full["max_chars"]),
+            "V3_ONE_TURN_COMPACT_NOT_REPRODUCIBLE_FROM_ORIGINAL_SOURCE")
     return full
 
 
@@ -455,7 +464,7 @@ def main() -> int:
                 prepared = compact_source_plan(prepared)
                 # Verify every cue packet and each scheduled batch before
                 # the sole private write, preventing silent context loss.
-                reconstruct_full_source_plan(prepared)
+                reconstruct_full_source_plan(prepared, queue)
             write_new_private_report(str(file),prepared)
             print(json.dumps({
                 "schema":prepared["schema"],
