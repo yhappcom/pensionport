@@ -7,6 +7,34 @@
 기존에 독립적으로 생성한 IRE 지식과 비교하여 새 근거·조건·예외·
 시점 변경을 반영하고, 자문 질문에 사용 가능한 근거 체계를 구축한다.
 
+## 한 턴 자동 이어달리기: 검증된 답변 묶음의 단일 명령 처리
+
+사용자에게 반복 진행 지시를 요구하지 않도록 현재 ChatGPT가 같은 대화 내에서
+원문 전용 패킷을 해석·작성하고, 소스/패킷에 연결된 답변들을 비공개로 묶는다.
+`v3_one_turn.py`는 **그 준비된 답변 묶음 전체**를 원본 SHA·인용·
+의미 검사 후 최대 12개 패킷씩 연속 접수하고, 완주된 경우에 한해
+잠정 연구 지식을 통합한다. 남은 데이터가 있으면 다음 창을 반환하며
+미제출 답변을 임의 추론하거나 빈 비주장으로 채우지 않는다.
+
+```bash
+python -m ire.v3_one_turn execute \
+  --private-manifest /private/batch.json \
+  --private-answers /private/cited_answers.json \
+  --private-knowledge-dir /private/kb \
+  --private-audit-dir /private/audit \
+  --max-packets 12 --max-chars 60000
+```
+
+사용자 요청에 1~N편 전체 분석이 포함되면 ChatGPT가 원문 문맥을
+가능한 한 같은 턴에서 순차 처리해야 한다. **단일 명령 실행이 곧
+모델이 분석하지 않은 338개 문맥의 자동 추출을 뜻하지는 않는다.**
+별도 LLM API 없이 Python이 모델을 무인 반복 호출하거나 한 턴 완주를
+무조건 보장하는 기능은 없다. 모든 단계의 실패/보류가 보고서에 표시된다.
+
+완전한 실행 규격·종료코드·잔여 P0~P2 검증 단계는
+[V3_ONE_TURN_EXECUTION.md](V3_ONE_TURN_EXECUTION.md),
+`contracts/research_one_turn_v3.json`을 참조한다.
+
 ## V3 P0~P2 통합 경로 (현재 개발 기준)
 
 전체 기능 설계 및 엄격한 완료/미완료 판정: [V3_P0_P2_COMPLETION.md](V3_P0_P2_COMPLETION.md).
