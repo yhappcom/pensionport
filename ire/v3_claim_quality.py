@@ -155,15 +155,40 @@ def audit_claim_quality(queue):
     return {**body,"report_sha256":sha256(_canon(body))}
 
 
+
+
+def verify_sealed_quality_report(report, queue):
+    """Check a historical report against the *current* corrected chat state.
+
+    Report SHA integrity alone does not mean that this still describes the
+    latest append-only corrections. STALE is a normal research status, not
+    permission to erase the old receipt or to certify an outdated conclusion.
+    """
+    require(type(report) is dict and report.get("schema")==SCHEMA and
+            report.get("report_sha256") == sha256(_canon(
+                {k:v for k,v in report.items() if k!="report_sha256"})),
+            "V3_QUALITY_REPORT_HASH_MISMATCH")
+    current=audit_claim_quality(queue)
+    same=(report==current)
+    return {
+        "schema":"IRE_V3_EFFECTIVE_ANSWER_QUALITY_REPORT_RECHECK_V1",
+        "previous_report_sha256":report["report_sha256"],
+        "current_report_sha256":current["report_sha256"],
+        "current_effective_answer_set_sha256":current["audited_effective_answer_set_sha256"],
+        "historical_report_reproducible_for_current_answers":same,
+        "status":"CURRENT" if same else "STALE_AFTER_SOURCE_OR_ANSWER_CHANGE",
+        "independent_financial_truth_approved":False,
+    }
+
+
 def save_private_quality_report(report, directory, queue):
     require(type(report) is dict and report.get("schema")==SCHEMA and
         report.get("report_sha256")==sha256(_canon({k:v for k,v in report.items() if k!="report_sha256"})),
         "V3_QUALITY_REPORT_HASH_MISMATCH")
-    # A valid self-consistent hash does not prove that this report applies to
-    # the *current* effective answers after an append-only correction. Check
-    # the full deterministic audit again before persisting a quality receipt.
-    live=audit_claim_quality(queue)
-    require(live["report_sha256"]==report["report_sha256"] and live==report,
+    # A valid self-consistent hash does not prove that this report applies
+    # after an append-only correction. Re-run the audit before persisting.
+    verified=verify_sealed_quality_report(report,queue)
+    require(verified["historical_report_reproducible_for_current_answers"],
             "V3_QUALITY_REPORT_STALE_OR_NOT_SOURCE_REPRODUCIBLE")
     root=safe_private_directory(directory)
     path=root/("ire_v3_claim_quality_"+report["report_sha256"][:24]+".json")
@@ -179,12 +204,22 @@ def save_private_quality_report(report, directory, queue):
 def main():
     from .v3_orchestrator import ChatBatchQueue
     parser=argparse.ArgumentParser(description="Audit cited financial causal scope, no auto-certification")
-    parser.add_argument("operation",choices=["audit"])
+    parser.add_argument("operation",choices=["audit","verify"])
     parser.add_argument("--private-manifest",required=True)
-    parser.add_argument("--private-report-dir",required=True)
+    parser.add_argument("--private-report-dir")
+    parser.add_argument("--private-report")
     opts=parser.parse_args()
     try:
         queue=ChatBatchQueue(json.loads(private_file(opts.private_manifest).read_text(encoding="utf-8")))
+        if opts.operation=="verify":
+            require(opts.private_report is not None,
+                    "V3_QUALITY_VERIFY_REQUIRES_PRIOR_REPORT")
+            previous=json.loads(private_file(opts.private_report).read_text(encoding="utf-8"))
+            checked=verify_sealed_quality_report(previous,queue)
+            print(json.dumps(checked,sort_keys=True))
+            return 0 if checked["historical_report_reproducible_for_current_answers"] else 2
+        require(opts.private_report_dir is not None,
+                "V3_QUALITY_AUDIT_REQUIRES_REPORT_DIR")
         report=audit_claim_quality(queue)
         path=save_private_quality_report(report,opts.private_report_dir,queue)
         print(json.dumps({"schema":SCHEMA,"audited_atomic_claims":report["audited_atomic_claims"],
