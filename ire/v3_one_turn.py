@@ -18,14 +18,216 @@ from .source import require, sha256
 from .cli import private_file, write_new_private_report
 from .semantics import verify_window_before_caching
 from .v3_semantic_audit import window_semantic_audit
-from .v3_orchestrator import ChatBatchQueue, _canonical
+from .v3_orchestrator import ChatBatchQueue, _canonical, SCHEMA as QUEUE_SCHEMA
 from .v3_release import completion_gate
 from .knowledge import read_private_snapshot
+from .checkpoint import safe_private_directory
 
 BUNDLE_SCHEMA = "IRE_V3_ONE_TURN_ANSWERS_V1"
 RECEIPT_SCHEMA = "IRE_V3_ONE_TURN_EXECUTION_V1"
+PACKET_PLAN_SCHEMA = "IRE_V3_ONE_TURN_SOURCE_PLAN_V1"
+COMPACT_PLAN_SCHEMA = "IRE_V3_ONE_TURN_DEDUPLICATED_SOURCE_PLAN_V1"
 MAX_BUNDLE_BYTES = 32_000_000
 MAX_ROUNDS = 1000
+
+
+
+def prepare_all_source_packets(queue: ChatBatchQueue, *,
+                               max_packets: int = 12,
+                               max_chars: int = 60000) -> dict:
+    """Assemble all pending original-only source packets in ONE private file.
+
+    This avoids repeated user-facing 'continue' turns. It does not interpret
+    the transcript or expose prior model answers. The current ChatGPT host
+    remains responsible for annotating each packet in the same user turn
+    whenever time and context permit.
+    """
+    require(type(max_packets) is int and 1 <= max_packets <= 12 and
+            type(max_chars) is int and 1000 <= max_chars <= 60000,
+            "V3_ONE_TURN_PLAN_LIMIT_INVALID")
+    batches=[]
+    selected=[]
+    used_chars=0
+    windows_total=0
+    def flush():
+        nonlocal selected, used_chars
+        if not selected:
+            return
+        identity={
+            "schema":QUEUE_SCHEMA,
+            "batch_fingerprint":queue.plan["batch_fingerprint"],
+            "window_identity":[[r["video_id"],r["packet"]["packet_sha256"]]
+                               for r in selected]
+        }
+        batches.append({
+            "schema":QUEUE_SCHEMA,
+            "batch_sha256":sha256(_canonical(identity)),
+            "max_packets":max_packets,
+            "max_chars":max_chars,
+            "packet_count":len(selected),
+            "packets":selected,
+        })
+        selected=[]
+        used_chars=0
+    for session in queue.sessions:
+        for window in session.windows:
+            if session._answer(window["window_id"]) is not None:
+                continue
+            packet=session.packet(window["window_id"])
+            size=len(_canonical(packet).decode("utf-8"))
+            require(size <= max_chars,
+                    "V3_ONE_TURN_SINGLE_SOURCE_PACKET_OVER_BUDGET")
+            if selected and (len(selected)>=max_packets or
+                             used_chars+size>max_chars):
+                flush()
+            selected.append({"video_id":session.video_id,"packet":packet})
+            used_chars+=size
+            windows_total+=1
+    flush()
+    body={
+        "schema":PACKET_PLAN_SCHEMA,
+        "source_batch_fingerprint":queue.plan["batch_fingerprint"],
+        "original_video_count":len(queue.sessions),
+        "original_cues":queue.status()["total_cues"],
+        "previously_accepted_windows":queue.status()["accepted_windows"],
+        "pending_windows":windows_total,
+        "packet_batch_count":len(batches),
+        "max_packets":max_packets,
+        "max_chars":max_chars,
+        "batches":batches,
+        "contains_untrusted_private_original_source_text":True,
+        "contains_previous_chat_claims_or_results":False,
+        "official_financial_truth_approved":False,
+        "independent_human_gold_certified":False,
+        "external_model_api_calls":0,
+    }
+    require(len(_canonical(body)) <= MAX_BUNDLE_BYTES,
+            "V3_ONE_TURN_SOURCE_PLAN_OVERSIZED")
+    return {**body,"plan_sha256":sha256(_canonical(body))}
+
+
+
+def compact_source_plan(plan: dict) -> dict:
+    """Deduplicate source cue text and common packet instructions losslessly.
+
+    This is a storage/context optimization, not semantic extraction. Original
+    packet SHA-256 hashes MUST survive exact reconstruction.
+    """
+    require(type(plan) is dict and plan.get("schema") == PACKET_PLAN_SCHEMA
+            and len(plan.get("plan_sha256", "")) == 64 and
+            sha256(_canonical({k:v for k,v in plan.items()
+                               if k != "plan_sha256"})) == plan["plan_sha256"],
+            "V3_ONE_TURN_SOURCE_PLAN_HASH_MISMATCH")
+    cue_fields=("primary_cues", "left_context_cues", "right_context_cues")
+    specific=("window_id", "packet_sha256", "continuation_boundary_review_required")
+    sources={}
+    order=[]
+    schedules=[]
+    for batch in plan["batches"]:
+        schedule={k:batch[k] for k in ("schema", "batch_sha256", "max_packets",
+                                      "max_chars", "packet_count")}
+        schedule["window_keys"]=[]
+        for row in batch["packets"]:
+            vid,pkt=row["video_id"],row["packet"]
+            common={k:v for k,v in pkt.items()
+                    if k not in cue_fields and k not in specific}
+            if vid not in sources:
+                sources[vid]={"video_id":vid, "common_fields":common,
+                              "cue_ledger":{},"window_records":[]}
+                order.append(vid)
+            entry=sources[vid]
+            require(entry["common_fields"] == common,
+                    "V3_ONE_TURN_PACKET_COMMON_FIELDS_DRIFT")
+            link={"window_id":pkt["window_id"],
+                  "packet_sha256":pkt["packet_sha256"]}
+            if "continuation_boundary_review_required" in pkt:
+                link["continuation_boundary_review_required"] = pkt[
+                    "continuation_boundary_review_required"]
+            for key in cue_fields:
+                link[key+"_indices"]=[row["cue_index"] for row in pkt[key]]
+                for cue in pkt[key]:
+                    idx=cue["cue_index"]
+                    found=entry["cue_ledger"].setdefault(str(idx),cue)
+                    require(found == cue,"V3_ONE_TURN_DUPLICATE_CUE_TEXT_DRIFT")
+            entry["window_records"].append(link)
+            schedule["window_keys"].append([vid,pkt["window_id"]])
+        schedules.append(schedule)
+    compact={
+        "schema":COMPACT_PLAN_SCHEMA,
+        "original_full_plan_sha256":plan["plan_sha256"],
+        "original_plan_header":{k:v for k,v in plan.items()
+            if k not in ("schema","plan_sha256","batches")},
+        "sources":[sources[v] for v in order],
+        "batch_schedule":schedules,
+        "contains_untrusted_private_original_source_text":True,
+        "lossless_packet_reconstruction_required":True,
+        "previous_model_answers_included":False,
+        "external_model_api_calls":0,
+    }
+    encoded=_canonical(compact)
+    require(len(encoded) <= MAX_BUNDLE_BYTES,
+            "V3_ONE_TURN_COMPACT_SOURCE_PLAN_OVERSIZED")
+    return {**compact,"plan_sha256":sha256(encoded)}
+
+
+def reconstruct_full_source_plan(compact: dict) -> dict:
+    """Verify byte-preserving reconstruction of source-cited packets.
+
+    Intended for the ChatGPT host to expand just the next batch without
+    asking the user to resubmit source files. Never print the full plan.
+    """
+    require(type(compact) is dict and compact.get("schema") == COMPACT_PLAN_SCHEMA
+            and sha256(_canonical({k:v for k,v in compact.items()
+                               if k != "plan_sha256"})) == compact.get("plan_sha256"),
+            "V3_ONE_TURN_COMPACT_PLAN_HASH_INVALID")
+    windows={}
+    for src in compact["sources"]:
+        vid=src["video_id"]
+        require(type(src["cue_ledger"]) is dict,
+                "V3_ONE_TURN_COMPACT_CUE_LEDGER_INVALID")
+        for record in src["window_records"]:
+            key=(vid,record["window_id"])
+            require(key not in windows,"V3_ONE_TURN_COMPACT_WINDOW_DUPLICATED")
+            packet=dict(src["common_fields"])
+            packet.update({k:record[k] for k in (
+                "window_id","packet_sha256",
+                "continuation_boundary_review_required") if k in record})
+            for field in ("primary_cues", "left_context_cues", "right_context_cues"):
+                packet[field]=[src["cue_ledger"][str(i)]
+                               for i in record[field+"_indices"]]
+            original_hash=packet.pop("packet_sha256")
+            require(sha256(_canonical(packet))==original_hash,
+                    "V3_ONE_TURN_RECONSTRUCTED_PACKET_HASH_MISMATCH")
+            packet["packet_sha256"]=original_hash
+            windows[key]={"video_id":vid,"packet":packet}
+    batches=[]
+    seen=set()
+    for schedule in compact["batch_schedule"]:
+        rows=[]
+        for keys in schedule["window_keys"]:
+            key=tuple(keys)
+            require(key not in seen and key in windows,
+                    "V3_ONE_TURN_COMPACT_SCHEDULE_MISSING_OR_DUPLICATE_WINDOW")
+            rows.append(windows[key]);seen.add(key)
+        body={k:schedule[k] for k in (
+            "schema","batch_sha256","max_packets","max_chars","packet_count")}
+        require(body["packet_count"]==len(rows),
+                "V3_ONE_TURN_COMPACT_SCHEDULE_COUNT_INVALID")
+        fingerprint=compact["original_plan_header"]["source_batch_fingerprint"]
+        identity={"schema":QUEUE_SCHEMA,"batch_fingerprint":fingerprint,
+                  "window_identity":[[r["video_id"],r["packet"]["packet_sha256"]]
+                                     for r in rows]}
+        require(sha256(_canonical(identity))==body["batch_sha256"],
+                "V3_ONE_TURN_RECONSTRUCTED_BATCH_IDENTITY_MISMATCH")
+        batches.append({**body,"packets":rows})
+    require(len(seen)==len(windows),"V3_ONE_TURN_COMPACT_UNSCHEDULED_WINDOWS")
+    full={"schema":PACKET_PLAN_SCHEMA,
+          **compact["original_plan_header"],"batches":batches,
+          "plan_sha256":compact["original_full_plan_sha256"]}
+    require(sha256(_canonical({k:v for k,v in full.items()
+                              if k != "plan_sha256"}))==full["plan_sha256"],
+            "V3_ONE_TURN_RECONSTRUCTED_FULL_PLAN_MISMATCH")
+    return full
 
 
 def _load_bundle(queue: ChatBatchQueue, bundle: dict | None) -> dict:
@@ -223,10 +425,12 @@ def run_one_turn(queue: ChatBatchQueue, bundle: dict | None = None, *,
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="One-command no-API chat-supplied financial research batch")
-    parser.add_argument("operation", choices=["execute"])
+    parser.add_argument("operation", choices=["prepare", "execute"])
     parser.add_argument("--private-manifest", required=True)
     parser.add_argument("--private-answers")
     parser.add_argument("--private-result")
+    parser.add_argument("--private-packets-file")
+    parser.add_argument("--compact", action="store_true")
     parser.add_argument("--private-knowledge-dir")
     parser.add_argument("--private-audit-dir")
     parser.add_argument("--prior-knowledge-snapshot")
@@ -240,6 +444,36 @@ def main() -> int:
         manifest = json.loads(private_file(
             args.private_manifest).read_text(encoding="utf-8"))
         queue = ChatBatchQueue(manifest)
+        if args.operation == "prepare":
+            require(bool(args.private_packets_file),
+                    "V3_ONE_TURN_SOURCE_PLAN_PATH_REQUIRED")
+            file = private_file(args.private_packets_file, read_required=False)
+            safe_private_directory(str(file.parent))
+            prepared = prepare_all_source_packets(
+                queue,max_packets=args.max_packets,max_chars=args.max_chars)
+            if args.compact:
+                prepared = compact_source_plan(prepared)
+                # Verify every cue packet and each scheduled batch before
+                # the sole private write, preventing silent context loss.
+                reconstruct_full_source_plan(prepared)
+            write_new_private_report(str(file),prepared)
+            print(json.dumps({
+                "schema":prepared["schema"],
+                "plan_sha256":prepared["plan_sha256"],
+                "pending_windows": (prepared["original_plan_header"]["pending_windows"]
+                    if args.compact else prepared["pending_windows"]),
+                "source_plan_compact":args.compact,
+                "packet_batch_count":len(prepared.get("batch_schedule",[]))
+                    if args.compact else prepared["packet_batch_count"],
+                "previously_accepted_windows": (
+                    prepared["original_plan_header"]["previously_accepted_windows"]
+                    if args.compact else prepared["previously_accepted_windows"]),
+                "contains_untrusted_private_source_text":True,
+                "original_source_material_written_only_to_private_file":True,
+                "one_turn_research_snapshot_written":False,
+                "external_model_api_calls":0,
+            },sort_keys=True))
+            return 0
         bundle = None
         if args.private_answers:
             path = private_file(args.private_answers)
