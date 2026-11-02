@@ -86,6 +86,87 @@ def plan_blind_review(queue, sample_per_video=3, private_seed=None):
     return {**body,"plan_sha256":sha256(_serialize(body))}
 
 
+
+
+def audit_blind_review_plan(queue, plan):
+    """Reopen a sealed holdout against live originals and current checkpoints.
+
+    A task hash alone only verifies its *own* bytes. This function also checks
+    that every private quote still matches the exact SRT packet, no duplicate
+    task is counted, and selected windows have not acquired a cached answer.
+    No reviewer identity, human blindness, or semantic accuracy is certified.
+    """
+    require(type(queue).__name__ == "ChatBatchQueue" and
+            type(queue.sessions) is list and type(plan) is dict and
+            plan.get("schema") == SCHEMA and
+            plan.get("actual_human_gold_received") is False and
+            plan.get("financial_semantic_recall_certified") is False and
+            plan.get("model_answers_included") is False and
+            plan.get("plan_sha256") == sha256(_serialize(
+                {k:v for k,v in plan.items() if k!="plan_sha256"})),
+            "V3_BLIND_PLAN_SEAL_INVALID")
+    sessions={s.video_id:s for s in queue.sessions}
+    require(type(plan.get("tasks")) is list and
+            plan.get("task_count") == len(plan["tasks"]) and
+            1 <= len(plan["tasks"]) <= 10000 and
+            plan.get("selected_source_count") == len(plan.get("source_sampling",[])) and
+            set(sessions)=={r.get("video_id") for r in plan["source_sampling"]},
+            "V3_BLIND_TASK_CENSUS_INVALID")
+    counts={vid:0 for vid in sessions}
+    seen=set();contaminated=[]
+    for task in plan["tasks"]:
+        require(type(task) is dict and set(task)=={
+            "video_id","original_sha256","window_id","packet_sha256",
+            "primary_cues","neighbor_context_non_evidentiary","task_sha256"
+        } and task["video_id"] in sessions,
+            "V3_BLIND_TASK_FORMAT_INVALID")
+        vid,window_id=task["video_id"],task["window_id"]
+        require(type(window_id) is str and (vid,window_id) not in seen,
+                "V3_BLIND_DUPLICATE_TASK")
+        seen.add((vid,window_id))
+        core={k:v for k,v in task.items() if k!="task_sha256"}
+        require(task["task_sha256"]==sha256(_serialize(core)),
+                "V3_BLIND_TASK_HASH_INVALID")
+        session=sessions[vid]
+        # packet() raises on an unknown source window; no quiet omission.
+        packet=session.packet(window_id)
+        primary=[{k:c[k] for k in ("cue_index","start_ms","end_ms","text")}
+                 for c in packet["primary_cues"]]
+        context=[{"cue_index":c["cue_index"],"text":c["text"]}
+                 for c in (packet["left_context_cues"]+
+                           packet["right_context_cues"])]
+        require(task["original_sha256"]==session.digest and
+                task["packet_sha256"]==packet["packet_sha256"] and
+                task["primary_cues"]==primary and
+                task["neighbor_context_non_evidentiary"]==context,
+                "V3_BLIND_TASK_SOURCE_DIVERGENCE")
+        counts[vid]+=1
+        if session._answer(window_id) is not None:
+            contaminated.append({"video_id":vid,"window_id":window_id,
+                                 "task_sha256":task["task_sha256"]})
+    for row in plan["source_sampling"]:
+        require(type(row) is dict and
+                row.get("video_id") in counts and
+                row.get("selected_unseen_windows")==counts[row["video_id"]],
+                "V3_BLIND_SOURCE_SELECTION_COUNT_INVALID")
+    report={
+        "schema":"IRE_V3_SOURCE_FIRST_HOLDOUT_RECHECK_V1",
+        "plan_sha256":plan["plan_sha256"],
+        "current_source_batch_fingerprint":queue.status()["batch_fingerprint"],
+        "verified_task_count":len(seen),
+        "task_source_and_quotes_match":True,
+        "now_has_cached_model_answers_count":len(contaminated),
+        "now_has_cached_model_answers":contaminated,
+        "no_cached_model_answers_on_selected_windows":not contaminated,
+        "prior_chat_model_context_exposure_verified_absent":False,
+        "independent_human_reviewer_identity_verified":False,
+        "actual_independent_gold_received":False,
+        "certified_real_world_recall":False,
+        "financial_truth_approved":False,
+    }
+    return {**report,"audit_sha256":sha256(_serialize(report))}
+
+
 def save_blind_review_plan(plan,directory):
     require(type(plan) is dict and plan.get("schema")==SCHEMA and
             sha256(_serialize({k:v for k,v in plan.items()
@@ -108,14 +189,26 @@ def save_blind_review_plan(plan,directory):
 
 def main():
     ap=argparse.ArgumentParser(description="Unseen original-source human-review packet generator")
-    ap.add_argument("operation",choices=["prepare"])
+    ap.add_argument("operation",choices=["prepare","verify"])
     ap.add_argument("--private-manifest",required=True)
-    ap.add_argument("--private-dir",required=True)
+    ap.add_argument("--private-dir")
+    ap.add_argument("--private-plan")
     ap.add_argument("--sample-per-video",type=int,default=3)
     args=ap.parse_args()
     try:
         manifest=json.loads(private_file(args.private_manifest).read_text(encoding="utf-8"))
-        plan=plan_blind_review(ChatBatchQueue(manifest),args.sample_per_video)
+        queue=ChatBatchQueue(manifest)
+        if args.operation=="verify":
+            require(args.private_plan is not None,
+                    "V3_BLIND_VERIFY_REQUIRES_PRIVATE_PLAN")
+            plan=json.loads(private_file(args.private_plan).read_text(encoding="utf-8"))
+            audit=audit_blind_review_plan(queue,plan)
+            print(json.dumps({k:v for k,v in audit.items()
+                              if k!="now_has_cached_model_answers"},sort_keys=True))
+            return 2 if audit["now_has_cached_model_answers_count"] else 0
+        require(args.private_dir is not None,
+                "V3_BLIND_PREPARE_REQUIRES_PRIVATE_DIRECTORY")
+        plan=plan_blind_review(queue,args.sample_per_video)
         saved=save_blind_review_plan(plan,args.private_dir)
         print(json.dumps({"schema":SCHEMA,"plan_sha256":plan["plan_sha256"],
                           "tasks":plan["task_count"],
