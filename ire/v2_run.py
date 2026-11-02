@@ -207,6 +207,21 @@ def finalize_batch(manifest:dict,
             Path(private_audit_dir),"ire_v2_incomplete_batch",audit)
         return audit
 
+    # V3_ADAPTIVE sources must never bypass the stricter V3 cross-window
+    # quality gate by invoking the legacy V2 integration entrypoint directly.
+    # Preserve V2_COMPAT historical behavior and existing sealed records.
+    if any(x.get("window_strategy") == "V3_ADAPTIVE" for x in manifest["videos"]):
+        from .v3_claim_quality import audit_claim_quality
+        from .v3_orchestrator import ChatBatchQueue
+        quality = audit_claim_quality(ChatBatchQueue(manifest))
+        if quality["risk_count"]:
+            audit["blockers"] = ["V3_ADAPTIVE_CROSS_WINDOW_CLAIM_QUALITY_PENDING"]
+            audit["cross_window_quality_risk_count"] = quality["risk_count"]
+            audit["cross_window_quality_report_sha256"] = quality["report_sha256"]
+            audit["audit_path"] = _private_report(
+                Path(private_audit_dir), "ire_v2_v3_quality_blocked", audit)
+            return audit
+
     blockers=[]
     work=[]
     # Validate EVERY answer, report and original BEFORE any knowledge is written.
