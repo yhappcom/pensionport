@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from datetime import datetime,timezone
 from html.parser import HTMLParser
+import io
 import ipaddress
 import os
 from pathlib import Path
@@ -25,6 +26,7 @@ from .checkpoint import safe_private_directory
 # All entries must be independently checked against the issuing institution.
 CANDIDATE_ISSUER_DOMAINS={
     "bok.or.kr":"BANK_OF_KOREA",
+    "law.go.kr":"KR_NATIONAL_LEGISLATION_INFORMATION_CENTER",
     "nps.or.kr":"NATIONAL_PENSION_SERVICE",
     "nts.go.kr":"NATIONAL_TAX_SERVICE",
     "fsc.go.kr":"FINANCIAL_SERVICES_COMMISSION_KR",
@@ -45,7 +47,7 @@ CANDIDATE_ISSUER_DOMAINS={
     "imf.org":"IMF",
     "worldbank.org":"WORLD_BANK",
 }
-MAX_DOCUMENT_BYTES=1_500_000
+MAX_DOCUMENT_BYTES=10_000_000
 MAX_EXTRACTED_TEXT=160_000
 MAX_MODEL_EXCERPT=22_000
 
@@ -109,7 +111,7 @@ def _restricted_get(url: str) -> tuple[bytes,str,str]:
         _check_public_dns(current)
         request=urllib.request.Request(current,
             headers={"User-Agent":"IRE-IndependentEvidenceVerifier/0.2",
-                     "Accept":"text/html,text/plain;q=0.8",
+                     "Accept":"text/html,text/plain,application/pdf;q=0.8",
                      "Accept-Encoding":"identity"},method="GET")
         try:
             with opener.open(request,timeout=20) as response:
@@ -160,8 +162,36 @@ class _VisibleHTML(HTMLParser):
 
 def _extract(raw: bytes, content_type: str) -> tuple[str,bool]:
     mime=content_type.split(";",1)[0].strip().lower()
-    require(mime in ("text/html","text/plain","application/xhtml+xml"),
+    require(mime in ("text/html","text/plain","application/xhtml+xml",
+                     "application/pdf"),
             "EVIDENCE_UNSUPPORTED_DOCUMENT_MIME")
+    if mime=="application/pdf":
+        require(raw.startswith(b"%PDF-") and len(raw)<=MAX_DOCUMENT_BYTES,
+                "EVIDENCE_PDF_MAGIC_OR_SIZE_INVALID")
+        try:
+            from pypdf import PdfReader
+        except ImportError:
+            raise ValueError("EVIDENCE_PDF_PARSER_UNAVAILABLE") from None
+        try:
+            reader=PdfReader(io.BytesIO(raw),strict=True)
+            require(not reader.is_encrypted and 1<=len(reader.pages)<=200,
+                    "EVIDENCE_PDF_ENCRYPTED_OR_PAGE_COUNT_INVALID")
+            pieces=[]
+            size=0
+            for page in reader.pages:
+                segment=page.extract_text() or ""
+                require(len(segment)<=1_000_000,
+                        "EVIDENCE_PDF_PAGE_TEXT_OVERSIZE")
+                size+=len(segment)
+                pieces.append(segment)
+                if size>MAX_EXTRACTED_TEXT:
+                    break
+            text=text_norm(" ".join(pieces))
+            require(len(text)>=20,"EVIDENCE_PDF_SCANNED_OR_EMPTY")
+            was_cut=size>MAX_EXTRACTED_TEXT or len(text)>MAX_EXTRACTED_TEXT
+            return text[:MAX_EXTRACTED_TEXT],was_cut
+        except Exception:
+            raise ValueError("EVIDENCE_PDF_READ_FAILED") from None
     charset="utf-8"
     match=re.search(r"\bcharset\s*=\s*[\"']?([\w-]+)",
                     content_type,re.IGNORECASE)

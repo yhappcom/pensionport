@@ -1,0 +1,40 @@
+{
+  "schema": "IRE_V3_INPUT_BOUND_AUDIT_AND_BLIND_HOLDOUT_TEST_20261102",
+  "as_of": "2026-11-02",
+  "implementation": {
+    "claim_quality_effective_answer_sha256_bound": true,
+    "quality_report_current_queue_replay_before_write": true,
+    "blind_source_packet_and_duplicate_recheck": true,
+    "blind_model_checkpoint_contamination_check": true,
+    "independent_model_context_exposure_verified": false,
+    "sampling_seed_independently_reconstructed": false,
+    "independent_human_gold_received": false,
+    "financial_facts_auto_approved": false
+  },
+  "private_original_replay": {
+    "videos": 5,
+    "original_cues": 5129,
+    "windows": 346,
+    "accepted": 8,
+    "remaining": 338,
+    "provisional_claims": 31,
+    "quality_risks": 3,
+    "causal_basis_risks": 2,
+    "regulatory_unit_risks": 1,
+    "other_context_warnings": 8,
+    "audited_effective_answer_count": 8,
+    "quality_effective_answer_set_sha256": "5c535a6e1d5f37092f1aed628a0b2c9cb351b5064533a51bb9b08fa21333a18e",
+    "quality_report_sha256": "13decb52fb1135293ee51b3af448d8a63f386fc934f95cbd2ca555b0e941051f",
+    "saved_original_checkpoints_rewritten": false
+  },
+  "blind_holdout_recheck": {
+    "existing_task_count": 15,
+    "verified_exact_source_tasks": 15,
+    "current_cached_model_answers_in_selected_windows": 0,
+    "current_holdout_audit_sha256": "cdba7444874d5d32a2af7a7fe44ba300d6cfe750d890008e48c360aa1475e740",
+    "human_blind_certified": false
+  },
+  "new_adversarial_regression_tests": 8,
+  "financial_advice_released": false,
+  "GitHub_merged_to_main": false
+}

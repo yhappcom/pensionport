@@ -1,0 +1,67 @@
+{
+  "schema": "IRE_V3_SOURCE_AUDIT_HARDENING_VALIDATION_20261102",
+  "date": "2026-11-02",
+  "baseline_github_ci_run_id": 41373705940,
+  "baseline_synthetic_test_count": 207,
+  "new_adversarial_test_count": 18,
+  "new_rules": [
+    "STRICT_SOURCE_PERIODICITY_ASSERTION_WITH_CONTEXTUAL_WARNINGS",
+    "SPECIFIC_TAX_ACCOUNT_REQUIRES_CITED_PRODUCT",
+    "ARITHMETIC_EXACT_NUMBER_AND_ADJACENT_UNIT",
+    "PAYBACK_MONTHLY_FREQUENCY_SOURCE_CITATION",
+    "OFFICIAL_NUMERIC_ANCHOR_WHOLE_LITERAL",
+    "TWO_FILE_EVIDENCE_COMPENSATING_ROLLBACK"
+  ],
+  "real_private_replay": {
+    "source_videos": 5,
+    "original_cues": 5129,
+    "v3_windows": 346,
+    "accepted_windows": 8,
+    "remaining_windows": 338,
+    "corrected_window": "sz5N9WJS310/W00003",
+    "uncorrected_window_critical_issues": 2,
+    "corrected_all_eight_windows_critical_issues": 0,
+    "context_review_warnings": 16,
+    "independent_truth_certified": false,
+    "advisory_approved": false
+  },
+  "semantics_limits": [
+    "DIRECT_KOREAN_LANGUAGE_ENTAILMENT_UNPROVEN",
+    "CONTEXT_WARNINGS_REQUIRE_REVIEW",
+    "NO_INDEPENDENT_HUMAN_GOLD"
+  ],
+  "transaction_limits": [
+    "GENERAL_PERSISTENCE_ERRORS_ROLL_BACK_NEW_RECEIPT",
+    "POWER_FAILURE_BETWEEN_TWO_FILES_IS_NOT_ATOMIC"
+  ],
+  "source_code_sha256": {
+    "v3_semantic_audit.py": "512b93003d37d119a70b4d1bc195e43c101fa698bc2439bff25631b87ed03e13",
+    "v3_numeric.py": "35c455a7c7792ec27d90f8aa22e4b756e6d02bf9949f38d02dcd119fb1ecfcfa",
+    "v3_evidence.py": "dc59745bb31d2f0fcfe5554327d2b1ab052479ec4e3034713f325bf7735c248b",
+    "tests/test_v3_source_hardening.py": "a9dd0b393ce74796da882996181cdf4a54b03a7bc62d5f1466a415374049e12f"
+  },
+  "public_original_subtitle_text_included": false,
+  "requested_rollout": "DRAFT_PR_ONLY_NO_MAIN_CHANGES",
+  "github_ci_latest": "VERIFY_BRANCH_ACTIONS_AFTER_INTEGRATION",
+  "integration_resume": {
+    "local_cleanroom_full_regression": {
+      "passed": 225,
+      "failed": 0
+    },
+    "current_private_input_replay": {
+      "original_video_count": 5,
+      "source_cues": 5129,
+      "adaptive_windows": 346,
+      "accepted_windows": 8,
+      "remaining_windows": 338,
+      "next_window": "sz5N9WJS310/W00009",
+      "semantic_critical_issues_in_effective_answers": 0,
+      "contextual_review_warnings": 16,
+      "base_checkpoint_modified": false
+    },
+    "all_four_hardening_sources_in_git_branch": true,
+    "independent_financial_truth_approved": false,
+    "investor_advice_released": false,
+    "implementation_contract_retained": "DRAFT_BRANCH_ONLY_NO_MAIN_CHANGE"
+  }
+}

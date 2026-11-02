@@ -1,0 +1,58 @@
+{
+  "schema": "IRE_V3_NOAPI_ONE_TURN_EXECUTION_CONTRACT_V1",
+  "host": "CURRENT_CHATGPT_CONVERSATION",
+  "external_llm_api_calls": 0,
+  "source_first_cited_answers_required": true,
+  "max_rounds_per_command": 1000,
+  "max_packets_per_round": 12,
+  "max_packet_text_chars": 60000,
+  "max_prepared_answers_file_bytes": 32000000,
+  "full_bundle_preflight_before_any_new_checkpoint": true,
+  "gaps_may_be_silently_skipped": false,
+  "accepted_answers_may_be_overwritten": false,
+  "replay_unchanged_existing_answers_only": true,
+  "source_quote_and_semantic_audit_before_write": true,
+  "cross_window_quality_block_prevents_integration": true,
+  "only_finalized_entire_batch_enters_new_ire_knowledge": true,
+  "p0_to_p2_release_blockers_returned_same_command": true,
+  "unlimited_model_inference_possible_without_api": false,
+  "unbounded_338_windows_guaranteed_in_single_turn": false,
+  "auto_promotion_to_verified_financial_facts": false,
+  "auto_release_personalized_investment_advice": false,
+  "existing_source_checkpoints_modified": false,
+  "public_repo_contains_original_transcripts": false,
+  "return_codes": {
+    "0": "ALL_SOURCE_ANSWERS_AND_PROVISIONAL_KNOWLEDGE_COMMITTED_NOT_FACT_CERTIFIED",
+    "2": "MISSING_SEMANTIC_ANSWERS_OR_PENDING_QUALITY_OR_FINALIZATION",
+    "3": "INPUT_OR_PROVENANCE_VALIDATION_FAILED_CLOSED"
+  },
+  "source_only_plan_compaction": {
+    "supported": true,
+    "cue_text_stored_once_per_original_video": true,
+    "common_packet_guidance_stored_once_per_video": true,
+    "packet_sha256_reconstructed_verbatim": true,
+    "source_window_and_batch_identity_reconstructed_verbatim": true,
+    "private_original_text_never_published_to_github": true,
+    "compact_plan_does_not_call_model": true,
+    "material_model_tokens_reduction_guaranteed": false
+  },
+  "source_cited_compact_answer_exchange": {
+    "schema": "IRE_V3_ONE_TURN_COMPACT_ANSWERS_V1",
+    "enabled": true,
+    "implicit_nonclaim_dispositions_allowed": false,
+    "all_primary_cues_explicit_once": true,
+    "full_frame_required": true,
+    "exact_original_primary_quote_rederived": true,
+    "entire_bundle_preflight_before_checkpoint_write": true,
+    "legacy_v1_answer_format_preserved": true,
+    "independent_financial_truth_approval": false
+  },
+  "source_only_private_batch_renderer": {
+    "enabled": true,
+    "current_original_and_checkpoint_rederived_before_render": true,
+    "rehashed_forged_plan_rejected": true,
+    "stale_plan_rejected_after_new_checkpoint": true,
+    "public_stdout_contains_original_cue_text": false,
+    "model_api_required": false
+  }
+}

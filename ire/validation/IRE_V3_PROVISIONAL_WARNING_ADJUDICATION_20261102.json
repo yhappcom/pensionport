@@ -1,0 +1,51 @@
+{
+  "schema": "IRE_V3_PROVISIONAL_SOURCE_WARNING_ADJUDICATION_20261102",
+  "date": "2026-11-02",
+  "video_id": "sz5N9WJS310",
+  "source_batch_sha256": "e374cc225b254fff1f971d7b912f4ab803edd9aef35fee7245cccbf184962f96",
+  "originals": {
+    "video_count": 5,
+    "cues": 5129,
+    "adaptive_windows": 346,
+    "accepted_windows": 8,
+    "remaining_windows": 338,
+    "provisional_claims": 31,
+    "original_source_text_in_public_repo": false
+  },
+  "review": {
+    "source_specificity_warnings_before": 16,
+    "source_specificity_warnings_after": 8,
+    "direct_primary_quote_repairs": 8,
+    "cross_window_source_context_pending": 8,
+    "corrected_windows": [
+      "W00003",
+      "W00005",
+      "W00008"
+    ],
+    "immutable_new_correction_receipts": [
+      "89bf32e0650fc22ada0dc453f8a0a672b95a44af972dc0b421526e9a07c3fc45",
+      "e0f2b7c485cf69bebff10240ba1bb36d45da79b4f13e8c0a08c6bcbb0003f604",
+      "9fa047e2696812ab7a6673e567a56e8b3ffcf81d990d7cde7d1151b1a36ae782"
+    ],
+    "original_answers_and_v002_checkpoint_intact": true,
+    "adjudication_author": "CURRENT_CHATGPT_CONVERSATION",
+    "independent_human_gold_count": 0,
+    "independent_financial_fact_approval_count": 0,
+    "some_prior_blind_holdout_packet_content_seen_in_tool_inspection": true,
+    "blind_holdout_tasks_remain_unlabeled": true
+  },
+  "checkpoint_v003": {
+    "zip_sha256": "f6749860b1c89a0268cd8ae27e41f6ccdf95f32215595722b7e26a7e864fde10",
+    "bytes": 56362,
+    "private_drive_filename": "IRE_V3_001-005_private_checkpoint_v003_final_20261102.zip",
+    "original_srt_included": false,
+    "independent_cleanroom_restored": true,
+    "unresolved_critical_audit_count": 0
+  },
+  "official_web_candidates_found": 2,
+  "official_raw_document_hashes_sealed": 0,
+  "next_window": "W00009",
+  "research_release": "BLOCKED_INCOMPLETE",
+  "financial_fact_release": "BLOCKED_UNVERIFIED",
+  "advisory_release": "BLOCKED_UNVERIFIED"
+}

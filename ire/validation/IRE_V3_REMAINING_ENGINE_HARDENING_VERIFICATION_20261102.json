@@ -1,0 +1,59 @@
+{
+  "schema": "IRE_V3_REMAINING_ENGINE_HARDENING_VERIFICATION_20261102",
+  "date": "2026-11-02",
+  "scope": [
+    "CRASH_RECONCILABLE_OFFICIAL_EVIDENCE_WAL",
+    "IMMUTABLE_FINANCIAL_SEMANTIC_WARNING_TRIAGE",
+    "BLIND_SOURCE_ONLY_HOLDOUT_TASK_PREPARATION"
+  ],
+  "implementation": {
+    "modules": [
+      "ire/v3_evidence_txn.py",
+      "ire/v3_warning_triage.py",
+      "ire/v3_blind_protocol.py"
+    ],
+    "integration_file": "ire/v3_evidence.py",
+    "new_test_files": [
+      "ire/tests/test_v3_evidence_txn.py",
+      "ire/tests/test_v3_warning_triage.py",
+      "ire/tests/test_v3_blind_protocol.py"
+    ],
+    "legacy_evidence_formats_preserved": true,
+    "private_checkpoint_data_committed_to_public_repo": false
+  },
+  "ci": {
+    "github_actions_run_id": 41395982178,
+    "github_actions_result": "success",
+    "tests_total": 243,
+    "tests_failed": 0,
+    "contains_real_abrupt_os_exit_recovery_tests": true,
+    "existing_research_read_only_boundary": "passed",
+    "public_private_data_tracking_gate": "passed"
+  },
+  "private_original_cleanroom_replay": {
+    "original_video_count": 5,
+    "original_cues": 5129,
+    "adaptive_windows": 346,
+    "accepted_windows": 8,
+    "remaining_windows": 338,
+    "checkpoint_rewritten": false,
+    "warning_count": 16,
+    "primary_window_requote_candidates": 7,
+    "prior_source_context_only_candidates": 9,
+    "warning_receipt_sha256": "12b39050cfdf6292245a3798ef7e7bab1efb4d03cc0cea0ac43c79048ef628b0",
+    "blind_source_only_unseen_task_count": 15,
+    "actual_independent_human_gold_count": 0,
+    "approved_financial_truth_claims": 0
+  },
+  "wal_limits": {
+    "durability": "POSIX_LOCAL_FSYNC_DEPENDENT",
+    "process_crash_between_writes_recoverable": true,
+    "already_committed_file_tamper_rejected": true,
+    "atomic_visibility_to_uninstrumented_V2_READERS": false,
+    "independent_issuer_or_statuory_effect_validation": false
+  },
+  "research_release": "BLOCKED_UNVERIFIED_FINANCIAL_TRUTH",
+  "advisory_release": "BLOCKED_UNVERIFIED_SUITABILITY",
+  "no_model_api_calls": true,
+  "main_branch_untouched": true
+}

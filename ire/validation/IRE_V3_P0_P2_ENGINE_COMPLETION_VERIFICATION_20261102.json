@@ -1,0 +1,57 @@
+{
+  "schema": "IRE_V3_P0_P2_ENGINE_COMPLETION_VERIFICATION_20261102",
+  "as_of": "2026-11-02",
+  "implementation_scope": [
+    "P0_A_CHAT_BATCH_ORCHESTRATION",
+    "P0_B_ADAPTIVE_SEMANTICS_AND_CORRECTIONS",
+    "P0_C_SOURCE_ANCHORED_OFFICIAL_TEXT_PDF_AND_DECIMAL",
+    "P0_D_BLIND_RELATION_RETRIEVAL_EVALUATOR",
+    "P1_INCREMENTAL_RELATION_REVIEW_AND_MISSED_PAIR_DISCOVERY",
+    "P2_QUESTION_SCOPED_ADVISORY_AND_BLIND_CASE_EVALUATION",
+    "P0_P2_OVERALL_RELEASE_GATE"
+  ],
+  "ci": {
+    "workflow_run_id": 41373554016,
+    "conclusion": "success",
+    "tests_total": 207,
+    "failed_tests": 0,
+    "pdf_test_dependencies_installed": true,
+    "private_original_tracking_gate": "passed",
+    "protected_main_gate": "passed"
+  },
+  "private_originals_replay": {
+    "source_video_count": 5,
+    "video_original_cues": 5129,
+    "adaptive_windows": 346,
+    "accepted_source_windows": 8,
+    "unprocessed_source_windows": 338,
+    "source_linked_financial_claims_provisional": 31,
+    "next_window": "sz5N9WJS310/W00009",
+    "raw_original_subtitles_published_to_public_repository": false,
+    "checkpoint_originals_modified": false
+  },
+  "research_quality": {
+    "source_structure_usable": true,
+    "cited_semantic_recall_measured_against_independent_human_gold": false,
+    "financial_official_law_and_scope_independently_verified": false,
+    "cross_video_relations_on_real_5_video_source_independently_adjudicated": false,
+    "real_individualized_advisory_quality_verified": false,
+    "live_official_primary_capture_assessment_count": 0,
+    "independent_gold_certified_count": 0,
+    "approved_financial_facts": 0,
+    "user_trade_advice_released": false
+  },
+  "no_api_chat_runtime": {
+    "selected_model": "CURRENT_CHATGPT_CONVERSATION",
+    "external_model_api_calls": 0,
+    "unlimited_one_turn_complete_execution_possible": false,
+    "background_autonomous_execution_available": false
+  },
+  "safety": {
+    "realtime_business_or_financial_source_unverified_facts_must_not_be_automatically_approved": true,
+    "source_first_historical_claim_import_forbidden": true
+  },
+  "release": "SOFTWARE_PIPELINE_IMPLEMENTED_CI_PASS_REAL_RESEARCH_NOT_COMPLETE",
+  "current_research_gate": "BLOCKED_INCOMPLETE",
+  "current_advisory_gate": "BLOCKED_NO_INDEPENDENT_APPROVAL"
+}

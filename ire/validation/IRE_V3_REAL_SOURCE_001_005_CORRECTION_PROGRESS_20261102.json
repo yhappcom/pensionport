@@ -1,0 +1,79 @@
+{
+  "schema": "IRE_V3_REAL_SOURCE_001_005_CORRECTION_PROGRESS_20261102",
+  "as_of": "2026-11-02",
+  "originals": {
+    "count": 5,
+    "cues": 5129,
+    "prior_v2_windows": 517,
+    "v3_adaptive_windows": 346,
+    "source_reverified_from_private_original_zip": true,
+    "all_source_shas_match_public_diagnostic": true,
+    "raw_srt_published_to_github": false
+  },
+  "research": {
+    "implemented_mode": "CURRENT_CHATGPT_CONVERSATION_NO_API",
+    "video_number": 1,
+    "video_id": "sz5N9WJS310",
+    "completed_source_windows": [
+      "W00001",
+      "W00002",
+      "W00003",
+      "W00004",
+      "W00005",
+      "W00006",
+      "W00007",
+      "W00008"
+    ],
+    "accepted_windows_total": 8,
+    "remaining_windows_total": 338,
+    "provisional_atomic_claims": 31,
+    "newly_analyzed_windows": 5,
+    "newly_extracted_claims": 25,
+    "next_window_id": "W00009",
+    "complete_source_analysis": false,
+    "certified_financial_facts": 0,
+    "independent_semantic_gold_available": false,
+    "trade_or_advisory_approved": false
+  },
+  "corrections": {
+    "window_id": "W00003",
+    "revision_count": 1,
+    "original_checkpoint_sha256": "0c47daf68ef630917996e114dd9637c2f564ae01674b970a43e9455df2437008",
+    "immutable_correction_receipt_sha256": "002ded8cf00d5ff3ffebba81d76df0b1b63a3b1228a598a587c2088094678cb9",
+    "reason_codes": [
+      "UNSUPPORTED_UNIT",
+      "UNCITED_PRODUCT_SCOPE"
+    ],
+    "affected_claim_ordinals": [
+      3,
+      4
+    ],
+    "raw_checkpoint_v001_equals_v002": true,
+    "correction_effective_on_reload": true,
+    "independent_human_review": false,
+    "factual_truth_auto_approved": false
+  },
+  "private_data": {
+    "v001_still_preserved": true,
+    "v002_checkpoint_zip_sha256": "60a403d488c0499ef56dfb123e3610e0e7a21216efc725ce929b679d16d53d17",
+    "v002_restore_test": "PASSED_CLEAN_ENVIRONMENT",
+    "raw_subtitle_archive_bundled": false,
+    "detailed_claims_committed_to_public_repo": false,
+    "original_source_available_only_in_private_storage": true
+  },
+  "research_validation": {
+    "documentary_candidates_found": 4,
+    "downloaded_sealed_official_primary_html_documents": 0,
+    "independent_decimal_sanity_checks": 5,
+    "statutory_scope_and_tax_adjudicated": false,
+    "individual_pension_payment_quote_adjudicated": false,
+    "advisory_precision_and_recall_measured": false
+  },
+  "regressions": {
+    "github_actions_total_synthetic_tests_passed": 174,
+    "new_correction_tests": 9,
+    "source_hash_and_exact_quote_tests": true,
+    "parent_revision_and_rehash_attack_tests": true
+  },
+  "release": "BLOCKED_UNTIL_ALL_ORIGINAL_WINDOWS_AND_PRIMARY_EVIDENCE_INDEPENDENTLY_REVIEWED"
+}

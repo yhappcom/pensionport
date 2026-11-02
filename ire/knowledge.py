@@ -19,6 +19,7 @@ from .source import require,sha256,text_norm,parse_srt,VIDEO,DIGEST
 from .claims import validate_annotations
 from .checkpoint import safe_private_directory
 from .retrieval import _features
+from .v3_semantic_candidates import semantic_candidate_score, advisory_concept_overlap
 
 SCHEMA="IRE_INCREMENTAL_KNOWLEDGE_V1"
 MAX_ITEMS=100_000
@@ -197,7 +198,7 @@ def _overlap_score(a: dict,b: dict) -> float:
         if av[field] is not None and bv[field] is not None and (
                 text_norm(av[field]).lower()==text_norm(bv[field]).lower()):
             result+=weight
-    return round(result,5)
+    return round(max(result, semantic_candidate_score(a,b)),5)
 
 
 def _cross_video_candidates(new_claims:list,old_claims:list,
@@ -382,6 +383,9 @@ def advisory_research_context(snapshot:dict,question:str,as_of:str,
         text=claim["proposition"]
         frame=claim["frame"]
         score=len(_tokens(text)&query_terms)
+        # Financial paraphrases may share concepts without surface tokens.
+        # This increases candidate recall only, never factual certification.
+        score+=3*advisory_concept_overlap(question,claim)
         for item in ("product","financial_event","action"):
             val=frame.get(item)
             if val:

@@ -1,0 +1,46 @@
+{
+  "schema": "IRE_V3_ONE_TURN_EXECUTION_AND_COMPACT_SOURCE_PLAN_VALIDATION_20261102",
+  "date": "2026-11-02",
+  "github_ci": {
+    "run_id": 41473740138,
+    "tests_passed": 290,
+    "tests_failed": 0,
+    "independent_source_and_private_data_guards": "PASS"
+  },
+  "prototype": {
+    "previous_regression_tests": 266,
+    "new_tests": 24,
+    "external_llm_api_calls": 0,
+    "full_bundle_single_command_synthetic_test": "PASS",
+    "incomplete_bundle_no_auto_claim_generation": "PASS",
+    "source_plan_exact_packet_reconstruction": "PASS",
+    "fully_rehashed_source_forgery_with_live_original_check": "BLOCKED"
+  },
+  "real_originals": {
+    "videos": 5,
+    "cues": 5129,
+    "windows_total": 346,
+    "accepted_windows": 8,
+    "pending_windows": 338,
+    "next_video": "sz5N9WJS310",
+    "next_window": "W00009",
+    "cross_window_claim_quality_risks": 3,
+    "release_blockers": 12
+  },
+  "private_source_plan": {
+    "batches": 29,
+    "windows": 338,
+    "full_bytes": 2223034,
+    "compact_bytes": 1168684,
+    "compact_reduction_percent": 47.4284,
+    "plan_sha256": "8fcbc50516b6f025bb6755fbb7213cd2f576b265109da211259a56a9711f6b53",
+    "original_plan_sha256": "b547aeba33584eddc7a6f8be535b983b71b4ebeb118e7a439ebb55bb44cafec1",
+    "private_original_cue_text_in_github": false
+  },
+  "unchanged_v003_checkpoint_sha256": "f6749860b1c89a0268cd8ae27e41f6ccdf95f32215595722b7e26a7e864fde10",
+  "incomplete_model_semantics_not_filled": true,
+  "financial_facts_independently_approved": 0,
+  "investment_advice_released": false,
+  "final_status": "SOFTWARE_ONE_TURN_DETERMINISTIC_EXECUTION_ADDED_REAL_338_WINDOWS_UNANALYZED",
+  "one_turn_unbounded_completion_guaranteed": false
+}

@@ -1,4 +1,4 @@
-# IRE V2 — 누적 투자 지식·자문 연구 엔진
+# IRE V3 — 원본 금융 의미분석·누적 지식·자문 연구 엔진
 
 **현재 사용 모드:** ChatGPT 현재 대화에서 금융 의미를 분석한다.
 별도 모델 API 호출이나 API 키를 요구하지 않는다.
@@ -6,6 +6,70 @@
 **목적:** 영상 5편 분석이 끝이 아니다. 새 원본 영상이 추가될 때마다
 기존에 독립적으로 생성한 IRE 지식과 비교하여 새 근거·조건·예외·
 시점 변경을 반영하고, 자문 질문에 사용 가능한 근거 체계를 구축한다.
+
+## 최신 입력·출력 병목 개선 (2026-11-03)
+
+- `v3_compact_answers.py`: ChatGPT가 반환하는 전체 금융 의미 답변에서
+  cue별 중복 상태·사유와 원문 인용 반복을 줄인다. **모든 primary cue는
+  빠짐없이 명시**하며 완전 복원 후 기존 금융 의미·출처·수치 검사를 한다.
+- `v3_one_turn render`: 준비된 원본 배치를 현재 SRT/체크포인트로 재검증한 뒤
+  cue 텍스트를 배치별 한 번만 표시해 현재 ChatGPT의 읽기 부담을 줄인다.
+- 실제 v003 8창/31개 답변에 적용한 압축 테스트에서 답변 데이터 38.7%
+  감소·100% 의미 구조 왕복 일치. 이는 전체 338창의 자동 완주 보장이 아니다.
+
+자세한 설명: [V3_ONE_TURN_THROUGHPUT_20261103.md](V3_ONE_TURN_THROUGHPUT_20261103.md).
+
+## 한 턴 자동 이어달리기: 검증된 답변 묶음의 단일 명령 처리
+
+사용자에게 반복 진행 지시를 요구하지 않도록 현재 ChatGPT가 같은 대화 내에서
+원문 전용 패킷을 해석·작성하고, 소스/패킷에 연결된 답변들을 비공개로 묶는다.
+`v3_one_turn.py`는 **그 준비된 답변 묶음 전체**를 원본 SHA·인용·
+의미 검사 후 최대 12개 패킷씩 연속 접수하고, 완주된 경우에 한해
+잠정 연구 지식을 통합한다. 남은 데이터가 있으면 다음 창을 반환하며
+미제출 답변을 임의 추론하거나 빈 비주장으로 채우지 않는다.
+
+```bash
+python -m ire.v3_one_turn execute \
+  --private-manifest /private/batch.json \
+  --private-answers /private/cited_answers.json \
+  --private-knowledge-dir /private/kb \
+  --private-audit-dir /private/audit \
+  --max-packets 12 --max-chars 60000
+```
+
+사용자 요청에 1~N편 전체 분석이 포함되면 ChatGPT가 원문 문맥을
+가능한 한 같은 턴에서 순차 처리해야 한다. **단일 명령 실행이 곧
+모델이 분석하지 않은 338개 문맥의 자동 추출을 뜻하지는 않는다.**
+별도 LLM API 없이 Python이 모델을 무인 반복 호출하거나 한 턴 완주를
+무조건 보장하는 기능은 없다. 모든 단계의 실패/보류가 보고서에 표시된다.
+
+완전한 실행 규격·종료코드·잔여 P0~P2 검증 단계는
+[V3_ONE_TURN_EXECUTION.md](V3_ONE_TURN_EXECUTION.md),
+`contracts/research_one_turn_v3.json`을 참조한다.
+
+## V3 P0~P2 통합 경로 (현재 개발 기준)
+
+전체 기능 설계 및 엄격한 완료/미완료 판정: [V3_P0_P2_COMPLETION.md](V3_P0_P2_COMPLETION.md).
+기계 계약: `contracts/research_system_v3_completion.json`. V2는 기존 원본·원장·
+API 없는 ChatGPT 실행 호환 계층으로 보존한다.
+
+- **P0:** `v3_orchestrator.py` (`status,next,accept,correct,audit,gate,finalize`),
+  `v3_adaptive.py`, `v3_semantic_audit.py`, `v3_corrections.py`,
+  `v3_evidence.py`, `v3_numeric.py`.
+- **P0-D:** `v3_relation_eval.py`: 외부 신규 독립 정답이 준비될 경우
+  어휘 기준선과 금융 의미 검색의 Recall@K·Precision@K 측정.
+- **P1:** `v3_relation_review.py`: 새 영상 원자 주장과 기존 지식의
+  관계 검토, 원본 인용, 새 후보 추가, 누적 관계 원장 rebase.
+- **P2:** `v3_advisory.py`, `v3_advisory_eval.py`: 근거 시점·
+  조건/예외·상충·위험·개인 적합성 평가 및 블라인드 시나리오 시험.
+- **출시 판정:** `v3_release.py` 또는 `v3_orchestrator gate`는
+  증거 누락과 독립 평가 미완료를 차단한다.
+
+공식 HTML/텍스트형 PDF 지원은 데이터 추출·출처 대조에 관한
+소프트웨어 기능이다. 스캔본 OCR, 현재 법적 효력,
+실제 금융 사실·자문 적합성의 독립 승인까지 자동화한 것은 아니다.
+2026-11-02 실전 #1~#5 입력은 346문맥 중 8개가 제출됐고 338개가
+남아 있다. 실제 전체 자막 분석이 완료됐다고 표시하지 않는다.
 
 ## V2 우선 문서와 개발 계약
 

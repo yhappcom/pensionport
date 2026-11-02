@@ -8,6 +8,7 @@ on:
       - feat/ire-chat-assisted-noapi-20261101
       - feat/ire-incremental-advisory-20261101
       - feat/ire-v2-advisory-system-redesign-20261101
+      - feat/ire-v3-chat-orchestration-20261102
     paths:
       - "ire/**"
       - ".github/workflows/ire-cleanroom-gate.yml"
@@ -26,6 +27,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Install pinned PDF primary-evidence parser and synthetic fixture tools
+        run: |
+          python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt
       - name: Compile new engine without importing older research modules
         run: |
           python -m compileall -q ire
@@ -74,7 +78,39 @@ jobs:
               assert len(v2["workflow"])==8
               assert v2["current"]["production_approved"] is False
               assert contract.get("legacy_disposition",{}).get("current_default") is False
+              v3=json.loads(pathlib.Path("ire/contracts/research_system_v3_completion.json").read_text())
+              assert v3["schema"]=="IRE_V3_P0_P2_ENGINE_CONTRACT_20261102"
+              assert v3["host"]=="CURRENT_CHATGPT_CONVERSATION"
+              assert v3["external_llm_model_api_calls"]==0
+              assert len(v3["pipeline"])==8
+              assert v3["release_when_unproved"]=="BLOCKED"
+              assert "ACTUAL_INDEPENDENT_HUMAN_BLIND_GOLD_VERIFICATION" in v3["not_yet_implemented_or_proved"]
               print("PASS: V2 single-request ChatGPT-mode cumulative advisory contract, no model API")
+          one_turn=json.loads((root/"ire/contracts/research_one_turn_v3.json").read_text())
+          assert one_turn["schema"]=="IRE_V3_NOAPI_ONE_TURN_EXECUTION_CONTRACT_V1"
+          assert one_turn["host"]=="CURRENT_CHATGPT_CONVERSATION"
+          assert one_turn["external_llm_api_calls"]==0
+          assert one_turn["source_first_cited_answers_required"] is True
+          assert one_turn["full_bundle_preflight_before_any_new_checkpoint"] is True
+          assert one_turn["gaps_may_be_silently_skipped"] is False
+          assert one_turn["accepted_answers_may_be_overwritten"] is False
+          assert one_turn["unbounded_338_windows_guaranteed_in_single_turn"] is False
+          assert one_turn["auto_promotion_to_verified_financial_facts"] is False
+          assert one_turn["auto_release_personalized_investment_advice"] is False
+          compact=one_turn["source_cited_compact_answer_exchange"]
+          assert compact["schema"]=="IRE_V3_ONE_TURN_COMPACT_ANSWERS_V1"
+          assert compact["all_primary_cues_explicit_once"] is True
+          assert compact["implicit_nonclaim_dispositions_allowed"] is False
+          assert compact["exact_original_primary_quote_rederived"] is True
+          assert compact["entire_bundle_preflight_before_checkpoint_write"] is True
+          assert compact["legacy_v1_answer_format_preserved"] is True
+          renderer=one_turn["source_only_private_batch_renderer"]
+          assert renderer["current_original_and_checkpoint_rederived_before_render"] is True
+          assert renderer["rehashed_forged_plan_rejected"] is True
+          assert renderer["stale_plan_rejected_after_new_checkpoint"] is True
+          assert renderer["public_stdout_contains_original_cue_text"] is False
+
+          print("PASS: no-API one-turn deterministic source-linked execution contract")
           print("PASS: standalone import boundary, unchanged prior research, release BLOCKED")
           PY
       - name: No original subtitles or private originals tracked in clean-room source
@@ -111,6 +147,8 @@ jobs:
             ire/**/*.py
             ire/*.py
             ire/README.md
-            ire/contracts/research_engine_v1.json
+            ire/*.md
+            ire/requirements-evidence-ci.txt
+            ire/contracts/*.json
           if-no-files-found: error
           retention-days: 7

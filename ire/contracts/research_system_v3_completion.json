@@ -1,0 +1,98 @@
+{
+  "schema": "IRE_V3_P0_P2_ENGINE_CONTRACT_20261102",
+  "host": "CURRENT_CHATGPT_CONVERSATION",
+  "external_llm_model_api_calls": 0,
+  "pipeline": [
+    {
+      "stage": "ORIGINAL",
+      "required": "SHA256_AND_VIDEO_ID_CUE_CENSUS",
+      "implementation": "v3_orchestrator.py"
+    },
+    {
+      "stage": "FINANCIAL_SEMANTICS",
+      "required": "ALL_WINDOWS_ANNOTATED_AND_ZERO_UNRESOLVED",
+      "implementation": "v3_adaptive.py,chat_bridge.py,v3_semantic_audit.py"
+    },
+    {
+      "stage": "PRIMARY_EVIDENCE",
+      "required": "DIRECT_DOCUMENT_FETCH_QUOTE_EFFECTIVE_SCOPE_AND_DATE",
+      "implementation": "evidence.py,v3_evidence.py,v3_numeric.py"
+    },
+    {
+      "stage": "RETRIEVAL_BLIND",
+      "required": "SOURCE_FIRST_GOLD_AND_RELATION_RECALL_AT_K",
+      "implementation": "v3_relation_eval.py"
+    },
+    {
+      "stage": "CONTINUOUS_KNOWLEDGE",
+      "required": "CUMULATIVE_HASH_CHAIN_AND_SOURCE_BACKED_RELATION_REVIEWS",
+      "implementation": "knowledge.py,v3_relation_review.py"
+    },
+    {
+      "stage": "ADVISORY",
+      "required": "DATE_SCOPE_PROFILE_CONFLICT_AND_OFFICIAL_SOURCE_GATES",
+      "implementation": "v3_advisory.py"
+    },
+    {
+      "stage": "ADVISORY_EVALUATION",
+      "required": "MANUAL_BLINDED_SCENARIOS_WITH_SAFETY_METRICS",
+      "implementation": "v3_advisory_eval.py"
+    },
+    {
+      "stage": "RELEASE",
+      "required": "NO_UNVERIFIED_REAL_WORLD_FINANCIAL_ADVICE_RELEASE",
+      "implementation": "v3_release.py,v3_orchestrator.py gate"
+    }
+  ],
+  "privacy": {
+    "public_srt_or_investor_data": false,
+    "private_immutable_checkpoints": true
+  },
+  "human_review": {
+    "synthetic_reviewer_fields_prove_independence": false,
+    "current_chat_equals_external_independent_judge": false
+  },
+  "not_yet_implemented_or_proved": [
+    "ONE_TURN_UNBOUNDED_REAL_LLM_EXECUTION_WITHOUT_MODEL_API",
+    "WHOLE_346_WINDOW_REAL_SOURCE_SEMANTIC_ANALYSIS",
+    "PDF_SCANS_OCR_AND_LIVE_PDF_LEGAL_EFFECT_CERTIFICATION",
+    "ACTUAL_INDEPENDENT_HUMAN_BLIND_GOLD_VERIFICATION",
+    "OUT_OF_SAMPLE_REAL_WORLD_RELATION_RECALL_CERTIFICATION",
+    "INDIVIDUAL_INVESTOR_SUITABILITY_AND_FINANCIAL_ADVICE_APPROVAL"
+  ],
+  "release_when_unproved": "BLOCKED",
+  "operational_safeguards_20261102": {
+    "wal_local_crash_recovery": "v3_evidence_txn.py",
+    "wal_pending_and_done_receipts_sha256_checked": true,
+    "wal_automated_recovery_scope": "LOCAL_POSIX_FSYNC_FILESYSTEM_ONLY",
+    "cross_process_untrusted_reader_atomic_visibility_proved": false,
+    "semantic_warning_trace_queue": "v3_warning_triage.py",
+    "real_original_warnings_pending": 16,
+    "same_window_requote_candidates": 7,
+    "prior_context_review_candidates": 9,
+    "source_only_unseen_blind_tasks": "v3_blind_protocol.py",
+    "real_original_unseen_blind_task_count": 15,
+    "independent_human_review_labels_collected": 0,
+    "investment_advice_auto_approved": false
+  },
+  "semantic_causal_quality_gate_20261102": {
+    "implementation": "ire/v3_claim_quality.py",
+    "scope": "CROSS_WINDOW_NUMERIC_OUTCOME_CONDITIONS_AND_UNCITED_LEGAL_UNIT",
+    "protect_original_source_checkpoints": true,
+    "cross_window_causes_disambiguated_before_knowledge_finalize": true,
+    "conservative_risk_codes": [
+      "PENSION_INCREMENT_CAUSAL_BASIS_UNSEPARATED",
+      "REGULATORY_NUMERIC_UNIT_UNESTABLISHED"
+    ],
+    "explicit_blocker_on_flagged_real_source_claims": true,
+    "independent_semantic_gold_verified": false,
+    "independent_official_financial_truth_verified": false,
+    "private_detailed_claims_in_public_repo": false,
+    "additional_synthetic_tests": 12,
+    "audited_real_source_claims": 31,
+    "real_source_material_risks": 3,
+    "unique_source_claims_under_semantic_review": 9,
+    "model_api_calls": 0,
+    "cannot_approve_advice_from_unit_tests": true
+  }
+}
