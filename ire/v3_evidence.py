@@ -245,26 +245,33 @@ def save_scope_evidence_pair(ledger: dict, knowledge: dict,
     between filesystem writes still requires external reconciliation; this is
     not a filesystem-level atomic transaction or an independent fact seal.
     """
-    receipt_path = save_v3_scope_receipt(receipt, directory)
-    try:
-        ledger_path = save_private_evidence(ledger, knowledge, directory)
-    except Exception:
-        Path(receipt_path).unlink(missing_ok=True)
-        raise
-    return ledger_path, receipt_path
+    from .v3_evidence_txn import commit_scope_evidence_pair
+    return commit_scope_evidence_pair(
+        ledger, knowledge, receipt, directory,
+        save_v3_scope_receipt, save_private_evidence)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="No-API, original-document-anchored V3 finance evidence")
-    parser.add_argument("operation", choices=["review"])
-    parser.add_argument("--private-knowledge-snapshot", required=True)
-    parser.add_argument("--private-ledger", required=True)
-    parser.add_argument("--private-chat-review", required=True)
+    parser.add_argument("operation", choices=["review", "recover"])
+    parser.add_argument("--private-knowledge-snapshot")
+    parser.add_argument("--private-ledger")
+    parser.add_argument("--private-chat-review")
     parser.add_argument("--private-evidence-dir", required=True)
-    parser.add_argument("--private-original-document-dir", required=True)
+    parser.add_argument("--private-original-document-dir")
     args = parser.parse_args()
     try:
+        from .v3_evidence_txn import recover_scope_evidence_pairs
+        require(args.private_evidence_dir is not None,
+                "V3_SCOPE_PRIVATE_EVIDENCE_DIRECTORY_REQUIRED")
+        recovery = recover_scope_evidence_pairs(args.private_evidence_dir)
+        if args.operation == "recover":
+            print(json.dumps(recovery, sort_keys=True))
+            return 0
+        require(all((args.private_knowledge_snapshot, args.private_ledger,
+                     args.private_chat_review, args.private_original_document_dir)),
+                "V3_SCOPE_REVIEW_INPUT_FILES_REQUIRED")
         knowledge = read_private_snapshot(args.private_knowledge_snapshot)
         ledger = json.loads(private_file(
             args.private_ledger).read_text(encoding="utf-8"))
