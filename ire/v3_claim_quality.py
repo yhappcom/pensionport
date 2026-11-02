@@ -50,10 +50,11 @@ def _claim_outcome_money(claim):
     return benefits
 
 
-def _claim_context(c, video_id,window_id,ordinal,packet_hash):
+def _claim_context(c, video_id,window_id,ordinal,packet_hash,answer_hash):
     quoted=" ".join(x["quote"] for x in c["source_refs"])
     return {"video_id":video_id,"window_id":window_id,
             "claim_ordinal":ordinal,"packet_sha256":packet_hash,
+            "effective_answer_sha256":answer_hash,
             "source_quotes_sha256":sha256(_canon(c["source_refs"])),
             "claim":c,"quoted":quoted,"outcomes":_claim_outcome_money(c)}
 
@@ -63,22 +64,31 @@ def audit_claim_quality(queue):
             callable(getattr(queue,"status",None)),
             "V3_QUALITY_QUEUE_REQUIRED")
     items=[]
+    sealed_answers=[]
     for session in queue.sessions:
         for window in session.windows:
             answer=session._answer(window["window_id"])
             if answer is None:
                 continue
             packet=session.packet(window["window_id"])
+            answer_hash=sha256(_canon(answer))
+            # The immutable source packet alone cannot identify a corrected
+            # interpretation. Bind every effective (possibly revised) window
+            # answer to this report even if the risk count stays unchanged.
+            sealed_answers.append([session.video_id,window["window_id"],
+                                   packet["packet_sha256"],answer_hash])
             for ordinal,claim in enumerate(answer["claims"],1):
                 items.append(_claim_context(claim,session.video_id,
-                    window["window_id"],ordinal,packet["packet_sha256"]))
+                    window["window_id"],ordinal,packet["packet_sha256"],
+                    answer_hash))
     issues=[];seen=set()
     def flag(code, item, upstream=None, severity="REQUIRES_SEPARATE_SOURCE_ADJUDICATION"):
-        evidence={k:item[k] for k in ("video_id","window_id","claim_ordinal","packet_sha256","source_quotes_sha256")}
+        evidence={k:item[k] for k in ("video_id","window_id","claim_ordinal","packet_sha256","source_quotes_sha256","effective_answer_sha256")}
         if upstream is not None:
             evidence["conditional_source_window_id"]=upstream["window_id"]
             evidence["conditional_source_claim_ordinal"]=upstream["claim_ordinal"]
             evidence["conditional_source_quote_sha256"]=upstream["source_quotes_sha256"]
+            evidence["conditional_effective_answer_sha256"]=upstream["effective_answer_sha256"]
         key=(code,item["video_id"],item["window_id"],item["claim_ordinal"])
         if key in seen:return
         seen.add(key)
@@ -130,6 +140,8 @@ def audit_claim_quality(queue):
         "batch_fingerprint":queue.status()["batch_fingerprint"],
         "audited_windows":queue.status()["accepted_windows"],
         "audited_atomic_claims":len(items),
+        "audited_effective_answer_set_sha256":sha256(_canon(sealed_answers)),
+        "audited_effective_answer_count":len(sealed_answers),
         "risk_count":len(issues),
         "material_unresolved_causal_count":sum(x["code"]=="PENSION_INCREMENT_CAUSAL_BASIS_UNSEPARATED" for x in issues),
         "regulatory_missing_unit_count":sum(x["code"]=="REGULATORY_NUMERIC_UNIT_UNESTABLISHED" for x in issues),
@@ -143,10 +155,16 @@ def audit_claim_quality(queue):
     return {**body,"report_sha256":sha256(_canon(body))}
 
 
-def save_private_quality_report(report, directory):
+def save_private_quality_report(report, directory, queue):
     require(type(report) is dict and report.get("schema")==SCHEMA and
         report.get("report_sha256")==sha256(_canon({k:v for k,v in report.items() if k!="report_sha256"})),
         "V3_QUALITY_REPORT_HASH_MISMATCH")
+    # A valid self-consistent hash does not prove that this report applies to
+    # the *current* effective answers after an append-only correction. Check
+    # the full deterministic audit again before persisting a quality receipt.
+    live=audit_claim_quality(queue)
+    require(live["report_sha256"]==report["report_sha256"] and live==report,
+            "V3_QUALITY_REPORT_STALE_OR_NOT_SOURCE_REPRODUCIBLE")
     root=safe_private_directory(directory)
     path=root/("ire_v3_claim_quality_"+report["report_sha256"][:24]+".json")
     fd=os.open(path,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
@@ -168,7 +186,7 @@ def main():
     try:
         queue=ChatBatchQueue(json.loads(private_file(opts.private_manifest).read_text(encoding="utf-8")))
         report=audit_claim_quality(queue)
-        path=save_private_quality_report(report,opts.private_report_dir)
+        path=save_private_quality_report(report,opts.private_report_dir,queue)
         print(json.dumps({"schema":SCHEMA,"audited_atomic_claims":report["audited_atomic_claims"],
                           "risk_count":report["risk_count"],"material_causal_review":report["material_unresolved_causal_count"],
                           "unknown_regulatory_unit":report["regulatory_missing_unit_count"],
