@@ -3,7 +3,7 @@ from __future__ import annotations
 import unittest
 from types import SimpleNamespace
 from ire.source import sha256
-from ire.v3_claim_quality import audit_claim_quality, save_private_quality_report
+from ire.v3_claim_quality import audit_claim_quality, save_private_quality_report,verify_sealed_quality_report
 
 VID='TestVideo07'
 
@@ -195,6 +195,29 @@ class CrossWindowClaimQualityTests(unittest.TestCase):
         b=audit_claim_quality(q)
         self.assertEqual(b['risk_count'],0)
         self.assertNotEqual(a['report_sha256'],b['report_sha256'])
+
+    def test_historical_report_recheck_identifies_current_receipt(self):
+        q=FakeQueue({'W00001':{'claims':[first()]},'W00002':{'claims':[later()]}})
+        report=audit_claim_quality(q)
+        validation=verify_sealed_quality_report(report,q)
+        self.assertEqual(validation['status'],'CURRENT')
+        self.assertTrue(validation['historical_report_reproducible_for_current_answers'])
+        self.assertFalse(validation['independent_financial_truth_approved'])
+
+    def test_historical_report_recheck_marks_stale_without_erasing_receipt(self):
+        c=first();q=FakeQueue({'W00001':{'claims':[c]},'W00002':{'claims':[later()]}})
+        previous=audit_claim_quality(q)
+        c['proposition']='향후 7년 연금보험료 추가 납부하면 증가액이 25만 원'
+        result=verify_sealed_quality_report(previous,q)
+        self.assertEqual(result['status'],'STALE_AFTER_SOURCE_OR_ANSWER_CHANGE')
+        self.assertNotEqual(result['previous_report_sha256'],result['current_report_sha256'])
+        self.assertEqual(previous['risk_count'],audit_claim_quality(q)['risk_count'])
+
+    def test_report_recheck_does_not_accept_forged_integrity_hash(self):
+        q=FakeQueue({'W00001':{'claims':[first()]}})
+        forged=dict(audit_claim_quality(q));forged['risk_count']=0 if forged['risk_count'] else 999
+        with self.assertRaisesRegex(ValueError,'V3_QUALITY_REPORT_HASH_MISMATCH'):
+            verify_sealed_quality_report(forged,q)
 
     def test_immutable_output_receipt_saved_without_source_text(self):
         import tempfile,pathlib,json
