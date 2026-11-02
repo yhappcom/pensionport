@@ -97,6 +97,19 @@ jobs:
           assert one_turn["unbounded_338_windows_guaranteed_in_single_turn"] is False
           assert one_turn["auto_promotion_to_verified_financial_facts"] is False
           assert one_turn["auto_release_personalized_investment_advice"] is False
+          compact=one_turn["source_cited_compact_answer_exchange"]
+          assert compact["schema"]=="IRE_V3_ONE_TURN_COMPACT_ANSWERS_V1"
+          assert compact["all_primary_cues_explicit_once"] is True
+          assert compact["implicit_nonclaim_dispositions_allowed"] is False
+          assert compact["exact_original_primary_quote_rederived"] is True
+          assert compact["entire_bundle_preflight_before_checkpoint_write"] is True
+          assert compact["legacy_v1_answer_format_preserved"] is True
+          renderer=one_turn["source_only_private_batch_renderer"]
+          assert renderer["current_original_and_checkpoint_rederived_before_render"] is True
+          assert renderer["rehashed_forged_plan_rejected"] is True
+          assert renderer["stale_plan_rejected_after_new_checkpoint"] is True
+          assert renderer["public_stdout_contains_original_cue_text"] is False
+
           print("PASS: no-API one-turn deterministic source-linked execution contract")
           print("PASS: standalone import boundary, unchanged prior research, release BLOCKED")
           PY
