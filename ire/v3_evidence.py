@@ -33,6 +33,16 @@ MAX_ANCHOR_CHARS = 1000
 NUMERIC = re.compile(r"(?<![A-Za-z0-9])\d[\d,.]*\s*(?:%|퍼센트|원|억|만|bp|bps)", re.I)
 
 
+def _numeric_literal_occurs_whole(literal: str, text: str) -> bool:
+    """Reject 0.3% appearing only inside 10.3%, or 100만원 in 1100만원.
+
+    This remains lexical evidence only: a number's legal meaning/measurement
+    category must still be independently adjudicated.
+    """
+    return re.search(r"(?<![0-9,.])" + re.escape(literal) +
+                     r"(?![0-9,.])", text) is not None
+
+
 def _canonical(value: dict) -> bytes:
     return json.dumps(value, ensure_ascii=False, sort_keys=True,
                       separators=(",", ":"), allow_nan=False).encode("utf-8")
@@ -126,7 +136,7 @@ def audit_v3_scope(knowledge: dict, document: dict, review: dict) -> dict:
         number_text = text_norm(" ".join(anchors["numbers"]))
         for measurement in measurements:
             value = text_norm(measurement["value_text"])
-            require(value in number_text,
+            require(_numeric_literal_occurs_whole(value, number_text),
                     "V3_SCOPE_NUMBER_NOT_IN_EXACT_DOCUMENT_ANCHOR")
     elif scope["numbers"] == "CONFLICT":
         require(any(NUMERIC.search(x) for x in anchors["numbers"]),
@@ -226,6 +236,24 @@ def save_v3_scope_receipt(receipt: dict, directory: str) -> str:
     return str(target)
 
 
+def save_scope_evidence_pair(ledger: dict, knowledge: dict,
+                             receipt: dict, directory: str) -> tuple[str, str]:
+    """Two-file commit with compensating rollback on ordinary I/O failures.
+
+    The receipt is written first: if the ledger save raises, remove the new
+    receipt, leaving the original evidence history intact. A process crash
+    between filesystem writes still requires external reconciliation; this is
+    not a filesystem-level atomic transaction or an independent fact seal.
+    """
+    receipt_path = save_v3_scope_receipt(receipt, directory)
+    try:
+        ledger_path = save_private_evidence(ledger, knowledge, directory)
+    except Exception:
+        Path(receipt_path).unlink(missing_ok=True)
+        raise
+    return ledger_path, receipt_path
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="No-API, original-document-anchored V3 finance evidence")
@@ -250,10 +278,8 @@ def main() -> int:
             private_evidence_dir=args.private_original_document_dir)
         updated, receipt = apply_v3_scope_evidence(
             ledger, knowledge, doc, review)
-        result_path = save_private_evidence(
-            updated, knowledge, args.private_evidence_dir)
-        receipt_path = save_v3_scope_receipt(
-            receipt, args.private_evidence_dir)
+        result_path, receipt_path = save_scope_evidence_pair(
+            updated, knowledge, receipt, args.private_evidence_dir)
         result = {
             "schema": "IRE_V3_SCOPE_EVIDENCE_REVIEW_RESULT",
             "status": "DOCUMENT_QUOTES_MATCHED_FINANCIAL_TRUTH_UNATTESTED",
