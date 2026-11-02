@@ -194,5 +194,13 @@ class V3ScopedEvidenceTests(unittest.TestCase):
         self.assertEqual(receipt["approved_financial_facts"], 0)
 
 
+    def test_scope_matching_disallowed_when_primary_document_text_truncated(self):
+        doc = copy.deepcopy(self.document)
+        doc["extracted_text_truncated"] = True
+        with self.assertRaisesRegex(
+                ValueError,"V3_SCOPE_TRUNCATED_OFFICIAL_TEXT_CANNOT_JUDGE_FULL_SCOPE"):
+            audit_v3_scope(self.knowledge,doc,self.review())
+
+
 if __name__ == "__main__":
     unittest.main()
