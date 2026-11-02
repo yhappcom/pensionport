@@ -98,7 +98,8 @@ class CrossWindowClaimQualityTests(unittest.TestCase):
                  'research_as_of':'2026-11-02','videos':[{
                  'video_id':VID,'original_srt_path':str(src),
                  'source_sha256':sha256(raw),
-                 'private_chat_sessions_path':str(pathlib.Path(root)/'session')}]})
+                 'private_chat_sessions_path':str(pathlib.Path(root)/'session'),
+                 'window_strategy':'V3_ADAPTIVE'}]})
             packet=q.next_work(max_packets=1,max_chars=18000)
             data=packet['packets'][0]['packet']
             answer={'schema':'IRE_CHAT_WINDOW_ANSWER_V1',
@@ -131,6 +132,18 @@ class CrossWindowClaimQualityTests(unittest.TestCase):
                 self.assertEqual(out['quality_gate'],
                     'V3_CROSS_WINDOW_CAUSAL_AND_REGULATORY_REVIEW_BLOCKED')
                 self.assertFalse((pathlib.Path(root)/'kb').exists())
+                # Legacy V2 CLI must not bypass a V3_ADAPTIVE quality block.
+                from ire.v2_run import finalize_batch
+                with patch('ire.v3_claim_quality.audit_claim_quality',
+                           return_value=fake_quality):
+                    blocked=finalize_batch(q.manifest,None,
+                        str(pathlib.Path(root)/'legacy_kb'),
+                        str(pathlib.Path(root)/'legacy_audit'))
+                self.assertEqual(blocked['final_research_status'],
+                                 'INCOMPLETE_REQUIRES_RESUME')
+                self.assertIn('V3_ADAPTIVE_CROSS_WINDOW_CLAIM_QUALITY_PENDING',
+                              blocked['blockers'])
+                self.assertIsNone(blocked['knowledge_next_snapshot_sha256'])
 
     def test_immutable_output_receipt_saved_without_source_text(self):
         import tempfile,pathlib,json
