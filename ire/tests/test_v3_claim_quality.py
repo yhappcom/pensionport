@@ -85,6 +85,53 @@ class CrossWindowClaimQualityTests(unittest.TestCase):
     def test_bounded_prior_window_prevents_unrelated_distant_match(self):
         q=FakeQueue({'W00001':{'claims':[first()]},'W00030':{'claims':[later()]}})
         self.assertEqual(audit_claim_quality(q)['risk_count'],0)
+    def test_full_queue_audit_exposes_quality_subreport(self):
+        # Integration on a fresh synthetic original, not a fake queue.
+        import tempfile,pathlib,json
+        from ire.v3_orchestrator import ChatBatchQueue
+        from ire.source import sha256
+        with tempfile.TemporaryDirectory() as root:
+            src=pathlib.Path(root)/"source.srt"
+            raw=b"1\n00:00:00,000 --> 00:00:02,000\nHello.\n"
+            src.write_bytes(raw)
+            q=ChatBatchQueue({'schema':'IRE_V2_CHAT_BATCH_V1',
+                 'research_as_of':'2026-11-02','videos':[{
+                 'video_id':VID,'original_srt_path':str(src),
+                 'source_sha256':sha256(raw),
+                 'private_chat_sessions_path':str(pathlib.Path(root)/'session')}]})
+            packet=q.next_work(max_packets=1,max_chars=18000)
+            data=packet['packets'][0]['packet']
+            answer={'schema':'IRE_CHAT_WINDOW_ANSWER_V1',
+              'session_id':data['session_id'],'window_id':data['window_id'],
+              'packet_sha256':data['packet_sha256'],'claims':[],
+              'cue_dispositions':[{'cue_index':1,'status':'NONCLAIM_CANDIDATE',
+                                   'reason':'Synthetic greeting only'}]}
+            q.accept({'schema':'IRE_V3_CHAT_SUBMISSION_V1',
+                      'batch_sha256':packet['batch_sha256'],
+                      'max_packets':1,'max_chars':18000,
+                      'answers':[{'video_id':VID,'submission':answer}]})
+            report=q.audit_semantic_coverage()
+            self.assertEqual(report['cross_window_claim_quality']['risk_count'],0)
+            self.assertEqual(report['checked_windows'],1)
+            from unittest.mock import patch
+            from ire.v3_release import completion_gate
+            fake_quality=dict(report['cross_window_claim_quality'])
+            fake_quality.update(risk_count=2,material_unresolved_causal_count=1,
+                regulatory_missing_unit_count=1)
+            with patch.object(q,'audit_semantic_coverage',return_value={
+                       **report,'cross_window_claim_quality':fake_quality}):
+                gated=completion_gate(q)
+                self.assertFalse(gated['source_semantic_census_complete'])
+                self.assertIn('P0_UNSEPARATED_FINANCIAL_CAUSAL_BASIS',gated['blockers'])
+                self.assertIn('P0_REGULATORY_NUMERIC_UNIT_NOT_SOURCE_ESTABLISHED',gated['blockers'])
+                self.assertEqual(gated['cross_window_financial_causal_review_count'],1)
+                out=q.finalize(str(pathlib.Path(root)/'kb'),
+                               str(pathlib.Path(root)/'audit'))
+                self.assertIsNone(out['knowledge_snapshot_sha256'])
+                self.assertEqual(out['quality_gate'],
+                    'V3_CROSS_WINDOW_CAUSAL_AND_REGULATORY_REVIEW_BLOCKED')
+                self.assertFalse((pathlib.Path(root)/'kb').exists())
+
     def test_immutable_output_receipt_saved_without_source_text(self):
         import tempfile,pathlib,json
         with tempfile.TemporaryDirectory() as root:
