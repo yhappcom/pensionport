@@ -86,6 +86,18 @@ jobs:
               assert v3["release_when_unproved"]=="BLOCKED"
               assert "ACTUAL_INDEPENDENT_HUMAN_BLIND_GOLD_VERIFICATION" in v3["not_yet_implemented_or_proved"]
               print("PASS: V2 single-request ChatGPT-mode cumulative advisory contract, no model API")
+          one_turn=json.loads((root/"ire/contracts/research_one_turn_v3.json").read_text())
+          assert one_turn["schema"]=="IRE_V3_NOAPI_ONE_TURN_EXECUTION_CONTRACT_V1"
+          assert one_turn["host"]=="CURRENT_CHATGPT_CONVERSATION"
+          assert one_turn["external_llm_api_calls"]==0
+          assert one_turn["source_first_cited_answers_required"] is True
+          assert one_turn["full_bundle_preflight_before_any_new_checkpoint"] is True
+          assert one_turn["gaps_may_be_silently_skipped"] is False
+          assert one_turn["accepted_answers_may_be_overwritten"] is False
+          assert one_turn["unbounded_338_windows_guaranteed_in_single_turn"] is False
+          assert one_turn["auto_promotion_to_verified_financial_facts"] is False
+          assert one_turn["auto_release_personalized_investment_advice"] is False
+          print("PASS: no-API one-turn deterministic source-linked execution contract")
           print("PASS: standalone import boundary, unchanged prior research, release BLOCKED")
           PY
       - name: No original subtitles or private originals tracked in clean-room source
