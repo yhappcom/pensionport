@@ -220,9 +220,12 @@ class ChatBatchQueue:
                     warnings.append({"video_id": session.video_id,
                                      "window_id": window["window_id"],
                                      **item})
+        from .v3_claim_quality import audit_claim_quality
+        quality = audit_claim_quality(self)
         return {
             "schema": "IRE_V3_SEMANTIC_COVERAGE_AUDIT_V1",
             "checked_windows": checked,
+            "cross_window_claim_quality": quality,
             "critical_omission_suspicions": critical,
             "review_warnings": warnings,
             "critical_count": len(critical),
@@ -236,12 +239,16 @@ class ChatBatchQueue:
                  prior_evidence_snapshot: str | None = None,
                  private_evidence_dir: str | None = None) -> dict:
         audit = self.audit_semantic_coverage()
-        if audit["critical_count"]:
+        quality = audit["cross_window_claim_quality"]
+        if audit["critical_count"] or quality["risk_count"]:
             return {
                 "schema": "IRE_V3_CHAT_FINALIZATION_V1",
                 "status": "INCOMPLETE_REQUIRES_RESUME",
-                "quality_gate": "V3_HIGH_SIGNAL_SEMANTIC_OMISSION_BLOCKED",
+                "quality_gate": ("V3_CROSS_WINDOW_CAUSAL_AND_REGULATORY_REVIEW_BLOCKED"
+                                 if quality["risk_count"] else
+                                 "V3_HIGH_SIGNAL_SEMANTIC_OMISSION_BLOCKED"),
                 "semantic_critical_count": audit["critical_count"],
+                "material_claim_quality_risks": quality["risk_count"],
                 "completed_source_windows": self.status()["accepted_windows"],
                 "requested_source_windows": self.status()["total_windows"],
                 "knowledge_snapshot_sha256": None,
