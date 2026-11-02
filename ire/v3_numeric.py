@@ -21,7 +21,24 @@ MONEY = {"원": Decimal(1), "만원": Decimal(10000),
          "억원": Decimal(100000000)}
 COUNT = {"개월", "회"}
 TIME = {"개월", "년"}
-NUMBER = re.compile(r"(?<![A-Za-z0-9])\d[\d,]*(?:\.\d+)?(?![A-Za-z0-9])")
+# Match a value and its *adjacent* financial unit as one lexical token.
+# Literal substring membership is insufficient: "100만원" must not match
+# "1100만원", and "100원" must not match "100만원".
+NUMBER_WITH_UNIT = re.compile(
+    r"(?<![0-9,.])(?P<number>\d[\d,]*(?:\.\d+)?)\s*"
+    r"(?P<unit>억\s*원|만\s*원|원|%|퍼센트|개월|회|년)"
+)
+NORMALIZE_UNIT = {"억 원": "억원", "만 원": "만원", "퍼센트": "%"}
+
+
+def _exact_cited_literal(literal: str, cited_text: str) -> bool:
+    # Reject a user-selected numeric substring of a longer financial amount.
+    return re.search(r"(?<![0-9,.])" + re.escape(literal) +
+                     r"(?![0-9,.])", cited_text) is not None
+
+
+def _normalized_money_unit(unit: str) -> str:
+    return NORMALIZE_UNIT.get(re.sub(r"\s+", " ", unit).strip(), unit)
 
 
 def _read_measure(value: dict, cited_text: str, units: set[str]) -> tuple[Decimal, str]:
@@ -32,22 +49,16 @@ def _read_measure(value: dict, cited_text: str, units: set[str]) -> tuple[Decima
             1 <= len(value["source_literal"]) <= 128,
             "V3_CALC_MEASURE_SCHEMA_INVALID")
     literal = text_norm(value["source_literal"])
-    require(literal in cited_text, "V3_CALC_SOURCE_LITERAL_NOT_CITED")
-    unit_re = {
-        "원": r"(?<![만억])원",
-        "만원": r"만\s*원",
-        "억원": r"억\s*원",
-        "%": r"%|퍼센트",
-        "개월": r"개월",
-        "회": r"회",
-        "년": r"년",
-    }[value["unit"]]
-    require(re.search(unit_re, literal) is not None,
+    require(_exact_cited_literal(literal, cited_text),
+            "V3_CALC_SOURCE_LITERAL_NOT_CITED")
+    matches = [(Decimal(m.group("number").replace(",", "")),
+                _normalized_money_unit(m.group("unit")))
+               for m in NUMBER_WITH_UNIT.finditer(literal)]
+    require(any(unit == value["unit"] for _, unit in matches),
             "V3_CALC_SOURCE_UNIT_NOT_TRACEABLE")
     number = decimal_input(value["value"])
-    source_numbers = [Decimal(m.group().replace(",", ""))
-                      for m in NUMBER.finditer(literal)]
-    require(number in source_numbers, "V3_CALC_LITERAL_VALUE_NOT_TRACEABLE")
+    require((number, value["unit"]) in matches,
+            "V3_CALC_LITERAL_VALUE_NOT_TRACEABLE")
     require(abs(number) <= Decimal("1e16"),
             "V3_CALC_VALUE_OUT_OF_RANGE")
     return number, value["unit"]
@@ -112,6 +123,10 @@ def check_cited_calculation(knowledge: dict, submission: dict) -> dict:
         output_unit = currency_unit
         calculated = computed_won / scale
     else:
+        require(re.search(
+            r"매\s*(?:월|달)|(?:한\s*)?달\s*(?:마다|에)|월\s*[0-9]",
+            source) is not None,
+            "V3_CALC_MONTHLY_FREQUENCY_NOT_SOURCE_TRACEABLE")
         require(values["monthly_increase"][0] > 0,
                 "V3_CALC_PAYBACK_DENOMINATOR_ZERO_OR_NEGATIVE")
         calculated = (values["initial_cost"][0] /
