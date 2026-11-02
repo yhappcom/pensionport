@@ -1,0 +1,147 @@
+{
+  "schema": "IRE_V4_EXECUTION_DESIGN_CONTRACT_V1",
+  "status": "DESIGN_ONLY_NOT_PRODUCTION",
+  "as_of": "2026-11-03",
+  "v3_baseline": {
+    "synthetic_tests_locally_reproduced": 310,
+    "actual_video_count": 5,
+    "actual_cues": 5129,
+    "source_windows": 346,
+    "prior_accepted_windows": 8,
+    "unprocessed_windows": 338,
+    "approved_independent_gold_claims": 0
+  },
+  "hard_constraints": {
+    "separate_model_api_calls": 0,
+    "no_automatic_trading": true,
+    "no_public_original_subtitles": true,
+    "no_production_knowledge_write_before_gate": true,
+    "preserve_main": true,
+    "preserve_v3_original_and_checkpoints": true,
+    "no_unverified_factual_promotion": true
+  },
+  "user_experience_contract": {
+    "required": "ONE_USER_REQUEST",
+    "conditional": "ONE_HOST_TASK",
+    "unconditional_one_chat_response_guaranteed": false,
+    "requires_host_capability_probe": true
+  },
+  "candidate_host": {
+    "name": "CHATGPT_WORK",
+    "access_approved": false,
+    "model_repeat_loop_proven": false,
+    "private_source_access_proven": false,
+    "host_task_resume_proven": false,
+    "python_to_work_model_api_assumed": false
+  },
+  "p0": {
+    "status": "NOT_RUN",
+    "new_unanalyzed_source_windows": 12,
+    "must_show_real_model_semantic_work": true,
+    "user_continue_requests_allowed": 0,
+    "external_llm_api_calls_allowed": 0,
+    "required_source_cue_coverage": 1,
+    "mandatory_private_receipt": true,
+    "go_without_successful_real_host_probe": false
+  },
+  "run_states": [
+    "CREATED",
+    "CAPABILITY_CHECK",
+    "SOURCE_LOCKED",
+    "PLANNED",
+    "RUNNING",
+    "CHECKPOINTED",
+    "SOURCE_REVIEW",
+    "EVIDENCE_REVIEW",
+    "RELATION_REVIEW",
+    "REPORT_SEALED",
+    "KNOWLEDGE_PROVISIONAL",
+    "REVIEW_RELEASED",
+    "ADVISORY_ELIGIBLE",
+    "PAUSED_HOST",
+    "PAUSED_APPROVAL",
+    "BLOCKED_HOST",
+    "BLOCKED_INPUT",
+    "BLOCKED_SOURCE",
+    "BLOCKED_SEMANTIC",
+    "REJECTED_TAMPER"
+  ],
+  "research_gates": [
+    "SOURCE_COVERAGE_COMPLETE",
+    "RESEARCH_REPORT_COMPLETE_WITH_OPEN_ITEMS",
+    "FACT_VERIFIED_IN_SCOPE",
+    "ADVISORY_ELIGIBLE"
+  ],
+  "atomic_claim_fields_required": [
+    "video_id",
+    "original_sha256",
+    "cue_ids",
+    "exact_quote",
+    "window_id",
+    "answer_sha256",
+    "claim_id",
+    "time_scope",
+    "jurisdiction",
+    "product",
+    "actor",
+    "action",
+    "condition",
+    "unit",
+    "negation",
+    "exception",
+    "speech_type",
+    "status"
+  ],
+  "event_fields_required": [
+    "run_id",
+    "attempt",
+    "event_sequence",
+    "state_before",
+    "state_after",
+    "source_digest",
+    "code_commit",
+    "actor_type",
+    "input_sha",
+    "output_sha",
+    "error_code",
+    "created_at"
+  ],
+  "relation_status_values": [
+    "SAME",
+    "EXTENDS",
+    "CONFLICTS",
+    "TIME_SUPERSEDED",
+    "DIFFERENT_SCOPE",
+    "UNRELATED",
+    "PENDING"
+  ],
+  "evidence_status_values": [
+    "OPEN",
+    "SOURCE_MATCHED_BUT_APPLICABILITY_PENDING",
+    "FACT_VERIFIED_IN_SCOPE",
+    "CONFLICTING",
+    "REJECTED"
+  ],
+  "milestones": {
+    "P0": "HOST_FEASIBILITY",
+    "P1": "RUN_SUPERVISOR",
+    "P2": "ONE_REAL_VIDEO_SOURCE_COMPLETE",
+    "P3": "FIVE_REAL_VIDEOS_INTEGRATED",
+    "P4": "INDEPENDENT_GOLD_AND_ADVISORY_EVALUATION",
+    "P5": "791_VIDEO_SCALE"
+  },
+  "release_rules": {
+    "synthetic_ci_pass_does_not_prove_financial_semantics": true,
+    "source_complete_does_not_imply_verified_fact": true,
+    "research_complete_with_open_issues_allowed": true,
+    "verified_fact_requires_scope_evidence": true,
+    "advisory_requires_separate_suitability_gate": true,
+    "any_false_completion_claim_is_failure": true
+  },
+  "source_references": [
+    "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+    "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+    "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt"
+  ],
+  "next_action": "P0_LIVE_HOST_PROOF_WITH_PRIVATE_12_WINDOW_COPY"
+}
