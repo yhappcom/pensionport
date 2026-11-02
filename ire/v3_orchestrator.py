@@ -277,7 +277,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Chat-hosted, no-model-API financial research queue")
     parser.add_argument("operation",
-                        choices=["status", "next", "accept", "correct", "audit", "finalize"])
+                        choices=["status", "next", "accept", "correct", "audit", "gate", "finalize"])
     parser.add_argument("--private-manifest", required=True)
     parser.add_argument("--private-submission")
     parser.add_argument("--private-correction")
@@ -287,6 +287,7 @@ def main() -> int:
     parser.add_argument("--private-audit-dir")
     parser.add_argument("--prior-knowledge-snapshot")
     parser.add_argument("--prior-evidence-snapshot")
+    parser.add_argument("--prior-relation-snapshot")
     parser.add_argument("--private-evidence-dir")
     args = parser.parse_args()
     try:
@@ -305,6 +306,15 @@ def main() -> int:
             payload = json.loads(private_file(
                 args.private_correction).read_text(encoding="utf-8"))
             result = queue.correct(payload)
+        elif args.operation == "gate":
+            from .v3_release import completion_gate
+            prior=(read_private_snapshot(args.prior_knowledge_snapshot)
+                   if args.prior_knowledge_snapshot else None)
+            evidence=(json.loads(private_file(args.prior_evidence_snapshot).read_text(encoding="utf-8"))
+                      if args.prior_evidence_snapshot else None)
+            relations=(json.loads(private_file(args.prior_relation_snapshot).read_text(encoding="utf-8"))
+                       if args.prior_relation_snapshot else None)
+            result=completion_gate(queue,prior,evidence,relations)
         elif args.operation == "accept":
             require(bool(args.private_submission),
                     "V3_SUBMISSION_FILE_REQUIRED")
