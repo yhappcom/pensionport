@@ -185,6 +185,16 @@ class ChatBatchQueue:
             "status": "V3_SOURCE_LINKED_CHECKPOINTS_ACCEPTED_NOT_FACT_CERTIFIED"
         }
 
+    def correct(self, response: dict) -> dict:
+        """Append a source-tied corrected answer without altering base checkpoint."""
+        from .v3_corrections import submit_correction
+        require(type(response) is dict and type(response.get("video_id")) is str,
+                "V3_CORRECTION_VIDEO_REQUIRED")
+        matching = [s for s in self.sessions if s.video_id == response["video_id"]]
+        require(len(matching) == 1, "V3_CORRECTION_UNKNOWN_VIDEO")
+        receipt = submit_correction(matching[0], response)
+        return {**receipt, "status": self.status()}
+
     def audit_semantic_coverage(self) -> dict:
         """Recheck all stored V2/V3 responses without changing their bytes.
 
@@ -267,9 +277,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Chat-hosted, no-model-API financial research queue")
     parser.add_argument("operation",
-                        choices=["status", "next", "accept", "audit", "finalize"])
+                        choices=["status", "next", "accept", "correct", "audit", "finalize"])
     parser.add_argument("--private-manifest", required=True)
     parser.add_argument("--private-submission")
+    parser.add_argument("--private-correction")
     parser.add_argument("--max-packets", type=int, default=DEFAULT_MAX_PACKETS)
     parser.add_argument("--max-chars", type=int, default=DEFAULT_MAX_CHARS)
     parser.add_argument("--private-knowledge-dir")
@@ -288,6 +299,12 @@ def main() -> int:
             result = queue.next_work(args.max_packets, args.max_chars)
         elif args.operation == "audit":
             result = queue.audit_semantic_coverage()
+        elif args.operation == "correct":
+            require(bool(args.private_correction),
+                    "V3_CORRECTION_FILE_REQUIRED")
+            payload = json.loads(private_file(
+                args.private_correction).read_text(encoding="utf-8"))
+            result = queue.correct(payload)
         elif args.operation == "accept":
             require(bool(args.private_submission),
                     "V3_SUBMISSION_FILE_REQUIRED")
