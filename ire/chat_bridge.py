@@ -166,7 +166,7 @@ class ConversationResearchSession:
     def _window(self,window_id: str) -> dict:
         return next(w for w in self.windows if w["window_id"]==window_id)
 
-    def _answer(self,window_id: str) -> dict | None:
+    def _answer_original(self,window_id: str) -> dict | None:
         file=self.answers/(window_id+".json")
         if not file.exists():
             return None
@@ -186,6 +186,13 @@ class ConversationResearchSession:
         verify_window_before_caching(
             self.original,self.digest,self._window(window_id),answer)
         return answer
+
+    def _answer(self,window_id: str) -> dict | None:
+        base = self._answer_original(window_id)
+        if base is None:
+            return None
+        from .v3_corrections import effective_reply
+        return effective_reply(self,window_id,base)
 
     def status(self) -> dict:
         have=[]
