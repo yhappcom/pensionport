@@ -35,5 +35,24 @@
     "private_original_text_never_published_to_github": true,
     "compact_plan_does_not_call_model": true,
     "material_model_tokens_reduction_guaranteed": false
+  },
+  "source_cited_compact_answer_exchange": {
+    "schema": "IRE_V3_ONE_TURN_COMPACT_ANSWERS_V1",
+    "enabled": true,
+    "implicit_nonclaim_dispositions_allowed": false,
+    "all_primary_cues_explicit_once": true,
+    "full_frame_required": true,
+    "exact_original_primary_quote_rederived": true,
+    "entire_bundle_preflight_before_checkpoint_write": true,
+    "legacy_v1_answer_format_preserved": true,
+    "independent_financial_truth_approval": false
+  },
+  "source_only_private_batch_renderer": {
+    "enabled": true,
+    "current_original_and_checkpoint_rederived_before_render": true,
+    "rehashed_forged_plan_rejected": true,
+    "stale_plan_rejected_after_new_checkpoint": true,
+    "public_stdout_contains_original_cue_text": false,
+    "model_api_required": false
   }
 }
