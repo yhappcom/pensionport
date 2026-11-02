@@ -37,8 +37,9 @@ def completion_gate(queue,knowledge=None,evidence=None,relations=None,
             if answer is not None:
                 unresolved_cues+=sum(r["status"]=="UNRESOLVED" for r in
                                      answer["cue_dispositions"])
+    quality = semantic["cross_window_claim_quality"]
     source_gate=(source_complete and unresolved_cues==0 and
-                 semantic["critical_count"]==0)
+                 semantic["critical_count"]==0 and quality["risk_count"]==0)
     if knowledge is not None:
         validate_knowledge(knowledge)
     batch_registered=(knowledge is not None and all(
@@ -93,6 +94,10 @@ def completion_gate(queue,knowledge=None,evidence=None,relations=None,
         unresolved.append("P0_UNRESOLVED_PRIMARY_SOURCE_CUES")
     if semantic["warning_count"]:
         unresolved.append("P0_SEMANTIC_BOUNDARY_OR_COMPOUND_REVIEW")
+    if quality["material_unresolved_causal_count"]:
+        unresolved.append("P0_UNSEPARATED_FINANCIAL_CAUSAL_BASIS")
+    if quality["regulatory_missing_unit_count"]:
+        unresolved.append("P0_REGULATORY_NUMERIC_UNIT_NOT_SOURCE_ESTABLISHED")
     if knowledge is None:
         unresolved.append("P1_NEW_IRE_CUMULATIVE_KNOWLEDGE_NOT_FINALIZED")
     elif not batch_registered:
@@ -123,7 +128,8 @@ def completion_gate(queue,knowledge=None,evidence=None,relations=None,
     next_action=("FINISH_SOURCE_WINDOWS" if not source_complete else
                  "RESOLVE_UNRESOLVED_SOURCE_CUES" if unresolved_cues else
                  "RESOLVE_SEMANTIC_QUALITY_WARNINGS" if
-                    semantic["critical_count"] or semantic["warning_count"] else
+                    semantic["critical_count"] or semantic["warning_count"] or
+                    quality["risk_count"] else
                  "INTEGRATE_NEW_IRE_KNOWLEDGE" if not batch_registered else
                  "FETCH_AND_SCOPE_CHECK_OFFICIAL_PRIMARY_SOURCES" if
                     live_evidence==0 else
@@ -143,6 +149,9 @@ def completion_gate(queue,knowledge=None,evidence=None,relations=None,
         "current_batch_in_cumulative_knowledge":batch_registered,
         "semantic_high_signal_omission_count":semantic["critical_count"],
         "semantic_boundary_or_compound_warning_count":semantic["warning_count"],
+        "cross_window_financial_causal_review_count":quality["material_unresolved_causal_count"],
+        "regulatory_unknown_numeric_unit_count":quality["regulatory_missing_unit_count"],
+        "cross_window_claim_quality_report_sha256":quality["report_sha256"],
         "knowledge_snapshot_sha256":knowledge["snapshot_sha256"] if knowledge else None,
         "evidence_snapshot_sha256":evidence["snapshot_sha256"] if evidence else None,
         "live_official_document_assessments":live_evidence,
