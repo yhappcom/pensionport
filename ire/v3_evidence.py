@@ -82,6 +82,8 @@ def audit_v3_scope(knowledge: dict, document: dict, review: dict) -> dict:
             "V3_SCOPE_DOCUMENT_IDENTITY_MISMATCH")
     claim = _claim_with_id(knowledge, review["global_claim_id"])
     scope = review.get("scope")
+    require(document.get("extracted_text_truncated") is not True,
+            "V3_SCOPE_TRUNCATED_OFFICIAL_TEXT_CANNOT_JUDGE_FULL_SCOPE")
     anchors = review.get("scope_anchors")
     require(type(scope) is dict and set(scope) == set(SCOPE_FIELDS) and
             all(x in SCOPE_VALUES for x in scope.values()) and
