@@ -92,6 +92,58 @@ python -m ire.v3_numeric verify \
 결과를 저장하지 않는다.
 
 
+### P0-B 실전 의미 검토 정정: 원본 체크포인트 불변 유지
+
+11. `ire/v3_corrections.py`는 저장된 ChatGPT 금융 주장 중 원문 인용보다
+    뜻이 넓거나 수치 단위를 추정한 부분을 정정할 때 기존
+    `answers/Wxxxxx.json` 파일을 **수정하지 않는다**. 동일 세션의
+    `corrections/Wxxxxx_rev0001_<digest>.json`처럼 버전별 보충 원장을
+    생성하고 최초 체크포인트 전체 바이트 해시, 직전 유효 답변 해시,
+    원본 cue/세션/패킷 SHA-256, 정정 사유를 모두 연결한다.
+12. `ConversationResearchSession._answer()`는 원본 체크포인트를
+    자체 검증한 뒤 존재하는 정정 원장 전체를 순서대로 검증하고
+    마지막의 수정된 답변을 적용한다. 원본이나 수정 원장의 내용 또는
+    부모 해시가 조작되면 즉시 실패하며, 재개·배치·최종 원자 주장
+    조립도 수정된 답변을 참조한다. 수정 이력도 금융 진위 승인이 아니다.
+13. `ire.v3_orchestrator correct`는 비공개 수정안을 검증하고
+    불변 수정 영수증을 저장한다. 수정 전·후의 완전한 창별 응답,
+    그에 대한 원본 인용 검사가 필요하며, 기존 정답을 덮어쓰는
+    임의 패치를 허용하지 않는다.
+
+```bash
+python -m ire.v3_orchestrator correct \
+  --private-manifest /private/batch.json \
+  --private-correction /private/corrected_window_review.json
+```
+
+수정안은 `IRE_V3_CHAT_CORRECTION_SUBMISSION_V1` 스키마이며
+`schema, video_id, session_id, window_id, packet_sha256,
+prior_answer_sha256, reason_codes, affected_claim_ordinals,
+review_note, reviewed_as_of, corrected_answer`가 필수다.
+`corrected_answer`에는 해당 창의 `claims, cue_dispositions`가
+**전체 재제출**되어야 한다.
+
+#### 2026-11-02 #1~#5 원본 재현 시험
+
+- 개인 Google Drive의 `1-100.zip`을 재확보해 원본 SHA-256을
+  기존 공개 진단 해시와 재대조했다. 5편 총 5,129 cue를 재검증했다.
+- V3 적응형 planner B의 문맥은 총 346개다. 기존 V2는 517개이며
+  모든 cue의 primary 소유권은 정확히 1회이다.
+- #1의 W00001~W00008: 8개 창, 잠정 금융/교육 원자 주장 31건을
+  실제 자막을 읽고 작성·저장했다. 나머지 338개 창은 미처리.
+- W00003의 2개 문구 오류를 수정했다. 첫 번째 원문만으로 월 단위를
+  추정하지 않고 W00005 cue 55의 별도 월 단위 설명과 구분했다.
+  개인연금이라는 일반 표현을 그 창만으로 특정 세제계좌로 확대하지 않았다.
+- 원본 W00003 캐시 파일은 v001과 v002의 SHA-256이 같다.
+  정정 영수증 파일만 신규로 추가했다. 모든 수정·신규 응답은
+  비공개 Google Drive `IRE_V3_001-005_private_checkpoint_v002_20261102.zip`
+  에 저장했으며, 새 격리 환경에 재복원해 8개 창·W00009 재개를 검증했다.
+- 국민연금공단 및 현행 소득세법의 공개 문서 후보와 5개 산술 예제를
+  별도 조사했지만 **공식 원문 바이트 재취득·법령 적용범위·인적
+  독립 검증·자문 정확도 승인**을 완료한 것은 아니다.
+- 이번 확장 포함 GitHub Actions 합성 회귀시험 174건 통과.
+  `ire/tests/test_v3_corrections.py` 9건은 수정/사칭/변조/재해시 공격을 검사한다.
+
 ### ChatGPT 호스트가 수행하는 내부 명령
 
 사용자에게 각 단계의 JSON 입력을 요구하지 않는다. 아래는 ChatGPT가 실행할
@@ -189,9 +241,11 @@ V2 체크포인트를 그대로 사용할 수 있다.
   수 없다. 채팅 시간/문맥/도구 제약으로 한 번의 요청에서 반드시 모든
   원본 문맥을 완주한다고 보장하지 않는다. 채팅 종료 후 자동 백그라운드
   실행도 보장하지 않는다.
-- **원본 연구:** #1~#5의 5,129 SRT cue 및 V2 517문맥에 대해 V3
-  전체 의미분석·금융 진위 검증을 실행하거나 승인한 것은 아니다.
-  현재 GitHub에는 해당 비공개 원문이나 공식 검토 증거가 없다.
+- **원본 연구:** #1~#5의 5,129 SRT cue에 V3 planner B 분할을
+  실제 수행했다. 346문맥 중 #1의 8개만 분석·정정 저장하고
+  338문맥은 미처리다. 전체 의미분석·금융 진위 검증/승인은
+  미완료이다. 비공개 원문·원자 주장 상세·공식 검토 영수증은
+  공개 GitHub에 저장하지 않는다.
 
 ## 검증 정책
 
@@ -200,7 +254,8 @@ V2 체크포인트를 그대로 사용할 수 있다.
 `ire/tests/test_v3_semantic_audit.py`,
 `ire/tests/test_v3_adaptive.py`,
 `ire/tests/test_v3_evidence.py`,
-`ire/tests/test_v3_numeric.py`의 합성 시험은 기능 회귀 시험이다.
+`ire/tests/test_v3_numeric.py`,
+`ire/tests/test_v3_corrections.py`의 합성 시험은 기능 회귀 시험이다.
 실제 원본/독립 평가자 골드가 없으면 recall·precision 및 금융 자문 신뢰도
 인증을 표시하지 않는다. 모든 의미 관계는
 `PENDING_SEPARATE_ADJUDICATION` 상태에 머문다.
