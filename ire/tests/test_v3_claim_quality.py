@@ -145,16 +145,67 @@ class CrossWindowClaimQualityTests(unittest.TestCase):
                               blocked['blockers'])
                 self.assertIsNone(blocked['knowledge_next_snapshot_sha256'])
 
+    def test_effective_answer_revision_changes_audit_hash_without_changing_risk(self):
+        c=first();q=FakeQueue({'W00001':{'claims':[c]},'W00002':{'claims':[later()]}})
+        a=audit_claim_quality(q)
+        c['proposition']='향후 7년간 보험료 추가 납부 시 연금 증가분이 25만 원으로 추정'
+        b=audit_claim_quality(q)
+        self.assertEqual((a['risk_count'],b['risk_count']),(1,1))
+        self.assertNotEqual(a['report_sha256'],b['report_sha256'])
+        self.assertNotEqual(a['audited_effective_answer_set_sha256'],
+                            b['audited_effective_answer_set_sha256'])
+        self.assertEqual(a['issues'][0]['source_quotes_sha256'],
+                         b['issues'][0]['source_quotes_sha256'])
+        self.assertNotEqual(a['issues'][0]['conditional_effective_answer_sha256'],
+                            b['issues'][0]['conditional_effective_answer_sha256'])
+        self.assertNotIn('향후 7년',str(b))
+
+    def test_stale_report_cannot_be_sealed_after_corrected_answer(self):
+        import tempfile,pathlib
+        c=first();q=FakeQueue({'W00001':{'claims':[c]},'W00002':{'claims':[later()]}})
+        a=audit_claim_quality(q)
+        c['proposition']='향후 7년 보험료를 추가 납부하면 연금 증가액은 25만 원'
+        with tempfile.TemporaryDirectory() as root:
+            folder=pathlib.Path(root)/'sealed';folder.mkdir(mode=0o700)
+            with self.assertRaisesRegex(ValueError,'STALE_OR_NOT_SOURCE_REPRODUCIBLE'):
+                save_private_quality_report(a,str(folder),q)
+            self.assertEqual(list(folder.iterdir()),[])
+            b=audit_claim_quality(q)
+            self.assertTrue(pathlib.Path(save_private_quality_report(b,str(folder),q)).exists())
+
+    def test_forged_self_consistent_quality_receipt_does_not_pass_source_replay(self):
+        import tempfile,pathlib
+        from ire.v3_claim_quality import _canon
+        q=FakeQueue({'W00001':{'claims':[first()]},'W00002':{'claims':[later()]}})
+        x=audit_claim_quality(q)
+        y=dict(x);y['risk_count']=0;y['issues']=[]
+        y['report_sha256']=sha256(_canon({k:v for k,v in y.items() if k!='report_sha256'}))
+        with tempfile.TemporaryDirectory() as root:
+            folder=pathlib.Path(root)/'sealed';folder.mkdir(mode=0o700)
+            with self.assertRaisesRegex(ValueError,'STALE_OR_NOT_SOURCE_REPRODUCIBLE'):
+                save_private_quality_report(y,str(folder),q)
+            self.assertEqual(list(folder.iterdir()),[])
+
+    def test_nonrisk_answer_revision_also_changes_audit_identity(self):
+        c=claim('해당 영상에서 사례 설명',types=('OPINION',),amount='1만 원')
+        q=FakeQueue({'W00001':{'claims':[c]}})
+        a=audit_claim_quality(q)
+        self.assertEqual(a['risk_count'],0)
+        c['proposition']='해당 영상에서는 다른 사례를 설명'
+        b=audit_claim_quality(q)
+        self.assertEqual(b['risk_count'],0)
+        self.assertNotEqual(a['report_sha256'],b['report_sha256'])
+
     def test_immutable_output_receipt_saved_without_source_text(self):
         import tempfile,pathlib,json
         with tempfile.TemporaryDirectory() as root:
             # The private directory must exist with owner-only permissions.
             path=pathlib.Path(root)/'sealed';path.mkdir(mode=0o700)
             x=self.audit(first(),later())
-            saved=save_private_quality_report(x,str(path))
+            saved=save_private_quality_report(x,str(path),FakeQueue({'W00001':{'claims':[first()]},'W00002':{'claims':[later()]}}))
             self.assertTrue(pathlib.Path(saved).exists())
             self.assertEqual(json.loads(pathlib.Path(saved).read_text())['report_sha256'],x['report_sha256'])
             with self.assertRaises(FileExistsError):
-                save_private_quality_report(x,str(path))
+                save_private_quality_report(x,str(path),FakeQueue({'W00001':{'claims':[first()]},'W00002':{'claims':[later()]}}))
 
 if __name__=='__main__':unittest.main()
