@@ -1,0 +1,29 @@
+{
+  "schema": "IRE_V3_NOAPI_ONE_TURN_EXECUTION_CONTRACT_V1",
+  "host": "CURRENT_CHATGPT_CONVERSATION",
+  "external_llm_api_calls": 0,
+  "source_first_cited_answers_required": true,
+  "max_rounds_per_command": 1000,
+  "max_packets_per_round": 12,
+  "max_packet_text_chars": 60000,
+  "max_prepared_answers_file_bytes": 32000000,
+  "full_bundle_preflight_before_any_new_checkpoint": true,
+  "gaps_may_be_silently_skipped": false,
+  "accepted_answers_may_be_overwritten": false,
+  "replay_unchanged_existing_answers_only": true,
+  "source_quote_and_semantic_audit_before_write": true,
+  "cross_window_quality_block_prevents_integration": true,
+  "only_finalized_entire_batch_enters_new_ire_knowledge": true,
+  "p0_to_p2_release_blockers_returned_same_command": true,
+  "unlimited_model_inference_possible_without_api": false,
+  "unbounded_338_windows_guaranteed_in_single_turn": false,
+  "auto_promotion_to_verified_financial_facts": false,
+  "auto_release_personalized_investment_advice": false,
+  "existing_source_checkpoints_modified": false,
+  "public_repo_contains_original_transcripts": false,
+  "return_codes": {
+    "0": "ALL_SOURCE_ANSWERS_AND_PROVISIONAL_KNOWLEDGE_COMMITTED_NOT_FACT_CERTIFIED",
+    "2": "MISSING_SEMANTIC_ANSWERS_OR_PENDING_QUALITY_OR_FINALIZATION",
+    "3": "INPUT_OR_PROVENANCE_VALIDATION_FAILED_CLOSED"
+  }
+}
