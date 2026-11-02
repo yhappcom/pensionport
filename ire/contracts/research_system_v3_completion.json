@@ -74,5 +74,25 @@
     "real_original_unseen_blind_task_count": 15,
     "independent_human_review_labels_collected": 0,
     "investment_advice_auto_approved": false
+  },
+  "semantic_causal_quality_gate_20261102": {
+    "implementation": "ire/v3_claim_quality.py",
+    "scope": "CROSS_WINDOW_NUMERIC_OUTCOME_CONDITIONS_AND_UNCITED_LEGAL_UNIT",
+    "protect_original_source_checkpoints": true,
+    "cross_window_causes_disambiguated_before_knowledge_finalize": true,
+    "conservative_risk_codes": [
+      "PENSION_INCREMENT_CAUSAL_BASIS_UNSEPARATED",
+      "REGULATORY_NUMERIC_UNIT_UNESTABLISHED"
+    ],
+    "explicit_blocker_on_flagged_real_source_claims": true,
+    "independent_semantic_gold_verified": false,
+    "independent_official_financial_truth_verified": false,
+    "private_detailed_claims_in_public_repo": false,
+    "additional_synthetic_tests": 12,
+    "audited_real_source_claims": 31,
+    "real_source_material_risks": 3,
+    "unique_source_claims_under_semantic_review": 9,
+    "model_api_calls": 0,
+    "cannot_approve_advice_from_unit_tests": true
   }
 }
