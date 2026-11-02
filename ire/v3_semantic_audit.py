@@ -30,6 +30,62 @@ RULE_ASSERTION = re.compile(
 JOINERS = re.compile(r"하지만|반면|그러나|동시에|한편|또한|그리고|반대로")
 NUMERIC_KIND = re.compile(r"\d[\d,.]*\s*(?:%|퍼센트|원)")
 
+# Conservatively check that the *claim's own citations* contain the
+# financial-specific information it asserts. Halo cues do not prove a claim.
+# This prevents the two observed real-source W00003 failure modes without
+# pretending to be a complete Korean-language semantic entailment model.
+PERIODICITY = {
+    "MONTHLY": re.compile(r"매\s*(?:월|달)|(?:한\s*)?달\s*(?:마다|에)|월\s*(?:별|마다|단위|수령|지급|연금|\d[\d,.]*\s*(?:만\s*원|억\s*원|원|까지|정도|씩|쯤|$))"),
+    "ANNUAL": re.compile(r"매\s*년|매\s*해|연\s*(?:간|의\s*수익률|단위)|년\s*(?:마다|별)"),
+}
+PRODUCT_TERMS = {
+    # Transcription ASR often confuses 저/제; this remains a review hint, not
+    # a verified external financial term normalization.
+    "연금저축": (r"연금\s*[저제]\s*축",),
+    "국민연금": (r"국민\s*연금",),
+    "퇴직연금": (r"퇴직\s*연금",),
+    "IRP": (r"(?<![A-Za-z])IRP(?![A-Za-z])", r"개인형\s*퇴직\s*연금"),
+    "ISA": (r"(?<![A-Za-z])ISA(?![A-Za-z])", r"개인\s*종합\s*자산\s*관리\s*계좌"),
+    "ETF": (r"(?<![A-Za-z])ETF(?![A-Za-z])", r"상장\s*지수\s*펀드"),
+}
+
+
+def _unsupported_specificity(proposition: str, cited: str,
+                             surrounding: str) -> list[tuple[str, bool]]:
+    """Return (coded risk, hard failure?) based on source-side certainty.
+
+    Contextual ellipsis and caption typos are warnings. A newly invented
+    payment frequency with no support in the *current* source packet is a
+    hard error. A narrower pension product substituted for a quoted generic
+    pension is a hard error; other unnamed products require human review.
+    Neither category proves full Korean semantic entailment.
+    """
+    issues = []
+    for period, pattern in PERIODICITY.items():
+        if not pattern.search(proposition) or pattern.search(cited):
+            continue
+        direct_context = pattern.search(surrounding) is not None
+        # A source saying "맞추기/앞서/비교" is explicitly referring back
+        # to a previously described case; flag it for human review rather
+        # than silently forbidding legitimate cumulative source context.
+        prior_case_reference = re.search(
+            r"맞추|앞\s*서|앞선|비교|대조", cited) is not None
+        issues.append(("UNSUPPORTED_" + period + "_SOURCE_UNIT",
+                       period == "MONTHLY" and not direct_context and
+                       not prior_case_reference))
+    for product, aliases in PRODUCT_TERMS.items():
+        if not any(re.search(p, proposition, re.I) for p in aliases):
+            continue
+        if any(re.search(p, cited, re.I) for p in aliases):
+            continue
+        # A source quote explicitly saying "개인연금" is not sufficient
+        # evidence for the much narrower "연금저축" tax-account type.
+        narrow_mismatch = (product == "연금저축" and
+                           re.search(r"개인\s*연금", cited) is not None)
+        issues.append(("UNSUPPORTED_SPECIFIC_PRODUCT_" + product,
+                       narrow_mismatch))
+    return issues
+
 
 def _risk_for_nonclaim(text: str, neighbor_text: str) -> str | None:
     if MONEY_OR_RATE.search(text) and FINANCE.search(text):
@@ -82,6 +138,16 @@ def window_semantic_audit(packet: dict, response: dict) -> dict:
             critical.append({
                 "claim_ordinal": n,
                 "code": "NUMERIC_CLAIM_WITHOUT_MEASUREMENT_FRAME"
+            })
+        # A full primary/left context can explain an ellipsis, but is not an
+        # exact quote. Preserve a coded review warning instead of auto-pass.
+        prior_context = " ".join(
+            c["text"] for c in (packet.get("left_context_cues") or []) + cues)
+        for issue, blocking in _unsupported_specificity(
+                claim["proposition"], quoted, prior_context):
+            (critical if blocking else warnings).append({
+                "claim_ordinal": n,
+                "code": issue,
             })
         concepts = financial_concepts(claim["proposition"] + " " + quoted)
         if JOINERS.search(claim["proposition"]) and (
