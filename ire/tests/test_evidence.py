@@ -85,7 +85,7 @@ class IndependentEvidenceTests(unittest.TestCase):
             independently_fetch_candidate(TEST_URL,read_fn=redirect)
         def pdf(url):
             return b"%PDF-1.4"+b"x"*30,"application/pdf",url
-        with self.assertRaisesRegex(ValueError,"EVIDENCE_UNSUPPORTED_DOCUMENT_MIME"):
+        with self.assertRaisesRegex(ValueError,"EVIDENCE_PDF_(READ_FAILED|PARSER_UNAVAILABLE)"):
             independently_fetch_candidate(TEST_URL,read_fn=pdf)
         def too_big(url):
             return b"x"*(MAX_DOCUMENT_BYTES+1),"text/plain",url
