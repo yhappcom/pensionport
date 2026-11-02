@@ -60,5 +60,19 @@
     "OUT_OF_SAMPLE_REAL_WORLD_RELATION_RECALL_CERTIFICATION",
     "INDIVIDUAL_INVESTOR_SUITABILITY_AND_FINANCIAL_ADVICE_APPROVAL"
   ],
-  "release_when_unproved": "BLOCKED"
+  "release_when_unproved": "BLOCKED",
+  "operational_safeguards_20261102": {
+    "wal_local_crash_recovery": "v3_evidence_txn.py",
+    "wal_pending_and_done_receipts_sha256_checked": true,
+    "wal_automated_recovery_scope": "LOCAL_POSIX_FSYNC_FILESYSTEM_ONLY",
+    "cross_process_untrusted_reader_atomic_visibility_proved": false,
+    "semantic_warning_trace_queue": "v3_warning_triage.py",
+    "real_original_warnings_pending": 16,
+    "same_window_requote_candidates": 7,
+    "prior_context_review_candidates": 9,
+    "source_only_unseen_blind_tasks": "v3_blind_protocol.py",
+    "real_original_unseen_blind_task_count": 15,
+    "independent_human_review_labels_collected": 0,
+    "investment_advice_auto_approved": false
+  }
 }
