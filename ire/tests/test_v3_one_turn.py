@@ -62,6 +62,51 @@ class OneTurnIntegrationTests(unittest.TestCase):
                 "batch_fingerprint":self.queue.plan["batch_fingerprint"],
                 "answers":answers}
 
+    def test_full_chain_rehashed_source_forgery_still_fails_original_replay(self):
+        from ire.v3_one_turn import _canonical
+        from ire.v3_orchestrator import SCHEMA as QUEUE_SCHEMA
+        full=prepare_all_source_packets(self.queue,max_packets=2,max_chars=30000)
+        forged=copy.deepcopy(full)
+        target=forged["batches"][0]["packets"][0]
+        vid=target["video_id"]
+        cue_id=target["packet"]["primary_cues"][0]["cue_index"]
+        changes=0
+        for batch in forged["batches"]:
+            for row in batch["packets"]:
+                packet=row["packet"]
+                changed=False
+                for field in ("primary_cues","left_context_cues","right_context_cues"):
+                    for cue in packet[field]:
+                        if row["video_id"]==vid and cue["cue_index"]==cue_id:
+                            cue["text"]="UNTRUSTED ATTACKER REWRITTEN SUBTITLE"
+                            changed=True
+                if changed:
+                    changes+=1
+                    packet["packet_sha256"]=sha256(_canonical({k:v for k,v in
+                        packet.items() if k != "packet_sha256"}))
+            identity={"schema":QUEUE_SCHEMA,
+                "batch_fingerprint":forged["source_batch_fingerprint"],
+                "window_identity":[[r["video_id"],r["packet"]["packet_sha256"]]
+                                   for r in batch["packets"]]}
+            batch["batch_sha256"]=sha256(_canonical(identity))
+        self.assertGreater(changes,0)
+        forged["plan_sha256"]=sha256(_canonical({k:v for k,v in forged.items()
+                                                  if k != "plan_sha256"}))
+        compact=compact_source_plan(forged)
+        # The adversary can make the whole unsigned chain self-consistent.
+        self.assertEqual(reconstruct_full_source_plan(compact),forged)
+        # It still cannot impersonate the separately hashed actual source.
+        with self.assertRaisesRegex(ValueError,"NOT_REPRODUCIBLE_FROM_ORIGINAL_SOURCE"):
+            reconstruct_full_source_plan(compact,self.queue)
+
+    def test_stale_compact_plan_rejected_after_one_answer_is_sealed(self):
+        compact=compact_source_plan(prepare_all_source_packets(
+            self.queue,max_packets=2,max_chars=30000))
+        run_one_turn(self.queue,self.bundle(),max_packets=1,
+                     max_chars=30000,max_rounds=1)
+        with self.assertRaisesRegex(ValueError,"NOT_REPRODUCIBLE_FROM_ORIGINAL_SOURCE"):
+            reconstruct_full_source_plan(compact,self.queue)
+
     def test_compact_plan_losslessly_reconstructs_every_packet_and_hash(self):
         full=prepare_all_source_packets(self.queue,max_packets=2,max_chars=30000)
         compact=compact_source_plan(full)
