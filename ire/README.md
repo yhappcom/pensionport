@@ -1,4 +1,4 @@
-# IRE V2 — 누적 투자 지식·자문 연구 엔진
+# IRE V3 — 원본 금융 의미분석·누적 지식·자문 연구 엔진
 
 **현재 사용 모드:** ChatGPT 현재 대화에서 금융 의미를 분석한다.
 별도 모델 API 호출이나 API 키를 요구하지 않는다.
@@ -6,6 +6,30 @@
 **목적:** 영상 5편 분석이 끝이 아니다. 새 원본 영상이 추가될 때마다
 기존에 독립적으로 생성한 IRE 지식과 비교하여 새 근거·조건·예외·
 시점 변경을 반영하고, 자문 질문에 사용 가능한 근거 체계를 구축한다.
+
+## V3 P0~P2 통합 경로 (현재 개발 기준)
+
+전체 기능 설계 및 엄격한 완료/미완료 판정: [V3_P0_P2_COMPLETION.md](V3_P0_P2_COMPLETION.md).
+기계 계약: `contracts/research_system_v3_completion.json`. V2는 기존 원본·원장·
+API 없는 ChatGPT 실행 호환 계층으로 보존한다.
+
+- **P0:** `v3_orchestrator.py` (`status,next,accept,correct,audit,gate,finalize`),
+  `v3_adaptive.py`, `v3_semantic_audit.py`, `v3_corrections.py`,
+  `v3_evidence.py`, `v3_numeric.py`.
+- **P0-D:** `v3_relation_eval.py`: 외부 신규 독립 정답이 준비될 경우
+  어휘 기준선과 금융 의미 검색의 Recall@K·Precision@K 측정.
+- **P1:** `v3_relation_review.py`: 새 영상 원자 주장과 기존 지식의
+  관계 검토, 원본 인용, 새 후보 추가, 누적 관계 원장 rebase.
+- **P2:** `v3_advisory.py`, `v3_advisory_eval.py`: 근거 시점·
+  조건/예외·상충·위험·개인 적합성 평가 및 블라인드 시나리오 시험.
+- **출시 판정:** `v3_release.py` 또는 `v3_orchestrator gate`는
+  증거 누락과 독립 평가 미완료를 차단한다.
+
+공식 HTML/텍스트형 PDF 지원은 데이터 추출·출처 대조에 관한
+소프트웨어 기능이다. 스캔본 OCR, 현재 법적 효력,
+실제 금융 사실·자문 적합성의 독립 승인까지 자동화한 것은 아니다.
+2026-11-02 실전 #1~#5 입력은 346문맥 중 8개가 제출됐고 338개가
+남아 있다. 실제 전체 자막 분석이 완료됐다고 표시하지 않는다.
 
 ## V2 우선 문서와 개발 계약
 
