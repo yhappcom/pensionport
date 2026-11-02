@@ -1,0 +1,68 @@
+{
+  "schema": "IRE_V3_ONE_TURN_COMPACT_INPUT_OUTPUT_VALIDATION_20261103",
+  "as_of": "2026-11-03",
+  "host": "CURRENT_CHATGPT_CONVERSATION",
+  "external_llm_api_calls": 0,
+  "source_checkpoint": {
+    "v003_sha256": "f6749860b1c89a0268cd8ae27e41f6ccdf95f32215595722b7e26a7e864fde10",
+    "original_and_effective_checkpoints_untouched": true,
+    "videos": 5,
+    "original_cues": 5129,
+    "total_windows": 346,
+    "completed_windows": 8,
+    "remaining_windows": 338,
+    "provisional_source_claims": 31
+  },
+  "compact_answer_exchange": {
+    "full_v1_8_windows_bytes": 39799,
+    "compact_8_windows_bytes": 24395,
+    "reduction_pct": 38.7,
+    "exact_full_v1_roundtrip": true,
+    "all_explicit_cue_dispositions_preserved": true,
+    "no_claims_inferred_by_compressor": true
+  },
+  "private_reading_renderer": {
+    "pending_windows": 338,
+    "group_count": 29,
+    "samples": [
+      {
+        "batch": 1,
+        "full_packet_json_bytes": 46773,
+        "cue_ledger_rendered_bytes": 14665,
+        "reduction_pct": 68.65
+      },
+      {
+        "batch": 2,
+        "full_packet_json_bytes": 46335,
+        "cue_ledger_rendered_bytes": 14286,
+        "reduction_pct": 69.17
+      },
+      {
+        "batch": 15,
+        "full_packet_json_bytes": 47195,
+        "cue_ledger_rendered_bytes": 14797,
+        "reduction_pct": 68.65
+      }
+    ],
+    "same_source_packet_sha_preserved": true,
+    "live_original_rederivation_required": true,
+    "rendered_source_is_private_not_stdout": true
+  },
+  "quality_approvals": {
+    "source_meaning_recall_certified": false,
+    "independent_blind_gold_available": false,
+    "official_financial_claims_approved": 0,
+    "advisory_released": false
+  },
+  "github_ci": {
+    "run_id": 41479419631,
+    "total_tests": 310,
+    "failed_tests": 0,
+    "protected_main_check": "PASS",
+    "private_source_tracking_check": "PASS"
+  },
+  "research_state": "INCOMPLETE_NOT_AUTO_CERTIFIED",
+  "actual_full_one_turn_source_analysis_completed": false,
+  "unlimited_autonomous_ChatGPT_execution_without_API_supported": false,
+  "note": "Measured byte reductions do not demonstrate an equivalent LLM token/time reduction; no unreviewed content is silently completed."
+}
