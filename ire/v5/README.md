@@ -1,6 +1,6 @@
 # IRE V5 — one-command research transaction core (first executable vertical slice)
 
-**Status (2026-11-03):** Three original #1 adaptive windows were actually reviewed by ChatGPT during one user request, official NPS sources were searched, prior-study relation candidates were considered, and 26 source-linked receipts were sealed and reopened. **This does not prove an 81-window fully automatic run** and does not certify investor-specific financial facts or advice.
+**Status (2026-11-03):** Three original #1 adaptive windows were actually reviewed by ChatGPT during one user request, official NPS sources were searched, prior-study relation candidates were considered, and 26 source-linked receipts were sealed and reopened using 26 deterministic `next_task()` host steps. **This does not prove an 81-window fully automatic run** and does not certify investor-specific financial facts or advice.
 
 ## Product architecture: one command, two roles
 
@@ -10,7 +10,7 @@
 
 ## Interface
 
-`ResearchRun(original_srt_bytes, fixed_manifest_dict, private_store_dir)` loads the run and checks its source binding. Use `packet(window_id)` to present exact primary cues to ChatGPT. The *current chat* creates a `MODEL_ANALYSIS` response with every primary cue disposition and direct original quote; `append("MODEL_ANALYSIS", payload)` validates it. Next submit `EVIDENCE_REVIEW` and `PRIOR_RELATION_REVIEW` for each claim. `close()` seals only after all selected windows, claim evidence obligations and relation reviews are represented; `replay()` verifies stored immutable SHA-256 event chains. Every run has a frozen source baseline and exact Git blob pin for prior research.
+`ResearchRun(original_srt_bytes, fixed_manifest_dict, private_store_dir)` loads the run and checks its source binding. Use `packet(window_id)` to present exact primary cues to ChatGPT. The *current chat* creates a `MODEL_ANALYSIS` response with every primary cue disposition and direct original quote; `append("MODEL_ANALYSIS", payload)` validates it. Next submit `EVIDENCE_REVIEW` and `PRIOR_RELATION_REVIEW` for each claim. `next_task()` returns the next required model/evidence/relation/closure step in the same chat request; it does not execute model inference. `close()` seals only after all selected windows, claim evidence obligations and relation reviews are represented; `replay()` verifies stored immutable SHA-256 event chains. Every run has a frozen source baseline and exact Git blob pin for prior research.
 
 **No external LLM API calls, no automatic transcript summarization heuristic, no invented model answers.** The ChatGPT host is a real participant and may be constrained by model/tool execution limits. The project cannot claim that a Python loop provides unattended host inference.
 
@@ -21,11 +21,11 @@
 - Source verification: official National Pension Service FAQ (119-month ceiling and personal eligibility, not a guaranteed benefit projection); personalized KRW18m and KRW250k/month figures remain case-only OPEN.
 - 11 claim evidence decisions (all OPEN/not fact-approved) and 11 prior-reference reviews (no automatic merge). 26 chained receipts, readback verified in a separate `ResearchRun` instance.
 - Runtime outcome: `RESEARCH_REPORT_COMPLETE_WITH_OPEN_ITEMS` **for the three-window pilot scope only**. The other 78/81 windows were deliberately outside this pilot and are *not* completed.
-- Run head for the verified local pilot: `c7e583942dc48866898a5c390e623be35ba503ac8fb248c911a61e3a4cc1c8ff`.
+- Run head for the verified local pilot: `e518a271b5e31a22a2878fa438f9ae22caeda5bef4e731ac7ddfb03fae390b9f`.
 
 ## Tests and safety constraints
 
-`python -m unittest discover -s ire/v5/tests -v` — 15 synthetic regression/negative tests, distinct from the private real-source pilot. Detects source/plan drift, wrong source quote, missing cues, missing claim evidence, missing prior relation, duplicate checkpoint, forged fact approval, stale legacy revision, tampered receipt, and false closure. No synthetic success constitutes an independent semantic accuracy score.
+`python -m unittest discover -s ire/v5/tests -v` — 16 synthetic regression/negative tests, distinct from the private real-source pilot. Detects source/plan drift, wrong source quote, missing cues, missing claim evidence, missing prior relation, duplicate checkpoint, forged fact approval, stale legacy revision, tampered receipt, and false closure. No synthetic success constitutes an independent semantic accuracy score.
 
 ### Next blockers
 
