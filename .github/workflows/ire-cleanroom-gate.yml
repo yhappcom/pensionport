@@ -41,6 +41,9 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check cryptography==46.0.4
           python -m unittest discover -s ire/v5/tests -v
+      - name: Run IRE V5 application and public control worker tests
+        run: |
+          python -m unittest discover -s ire/v5_app/tests -p 'test_*.py' -v
       - name: Enforce prior-research non-citation, no historical import and no protected changes
         run: |
           python - <<'PY'
@@ -53,7 +56,8 @@ jobs:
           assert files, "EMPTY_INDEPENDENT_ENGINE_DIFF"
           assert all(f.startswith("ire/") or
                      f in {".github/workflows/ire-cleanroom-gate.yml",
-                   ".github/workflows/ire-v5-transaction-core.yml"}
+                   ".github/workflows/ire-v5-transaction-core.yml",
+                   ".github/workflows/ire-v5-app-control.yml"}
                      for f in files), "HISTORICAL_OR_OTHER_FILE_MODIFIED"
           forbidden={"scripts","v30","v5","data","synthesis"}
           modules=list(pathlib.Path("ire").rglob("*.py"))
