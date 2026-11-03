@@ -242,6 +242,49 @@ class ResearchRun:
         return {"event_type":kind,"sequence":self.seq,"event_sha256":digest,
                 "status":self.status()}
 
+    def next_task(self) -> dict:
+        """Deterministic HOST task router, not a model inference implementation.
+
+        The active ChatGPT conversation must author the decisions and use tools.
+        No Python API can invoke the model.  This single-turn controller always
+        selects the next unmet obligation from the authenticated live ledger.
+        """
+        self.replay()
+        if self.closure is not None:
+            result={"phase":"DONE", "receipt_chain_head":self.head}
+        else:
+            result=None
+            for wid in self.active:
+                if wid not in self.model:
+                    result={"phase":"MODEL_ANALYSIS_REQUIRED", "window_id":wid,
+                            "packet":self.packet(wid)}
+                    break
+                for claim in self.model[wid]["claims"]:
+                    cid=claim["claim_id"]
+                    if cid not in self.evidence:
+                        result={"phase":"OFFICIAL_EVIDENCE_REVIEW_REQUIRED",
+                                "window_id":wid,"claim_id":cid,
+                                "proposition":claim["proposition"],
+                                "requires_external_verification":claim["requires_external_verification"]}
+                        break
+                    if cid not in self.relations:
+                        result={"phase":"PRIOR_KNOWLEDGE_REVIEW_REQUIRED",
+                                "window_id":wid,"claim_id":cid,
+                                "proposition":claim["proposition"],
+                                "prior_baseline_git_blob_sha":self.manifest["prior_baseline_git_blob_sha"]}
+                        break
+                if result is not None:break
+            if result is None:
+                if self._closure_body()["blockers"]:
+                    result={"phase":"BLOCKED_AUDIT_REVIEW", "blockers":self._closure_body()["blockers"]}
+                else:
+                    result={"phase":"SEAL_RESEARCH_REPORT_REQUIRED",
+                            "source_window_scope":len(self.active),
+                            "total_claims":len(self._claims()),
+                            "open_evidence_cases":self._closure_body()["open_or_unverified_evidence_cases"]}
+        return {**result,"task_sha256":sha256(canonical(result)),
+                "user_continue_requested":False}
+
     def _claims(self)->dict:
         return {c["claim_id"]:c for w in self.model.values() for c in w["claims"]}
 
