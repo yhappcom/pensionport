@@ -30,3 +30,27 @@ Unlike V4 proxy tests, V5 now **enforces a source capture checksum, exact quotat
 - **Future seal**: complete source analysis and every claim-specific source search + OPEN reason + legacy revision + cross-video relation; require immutable readback from persistent storage; keep fact verification and advisory-release grades distinct.
 
 Status: **V5 P0C vertically demonstrated, V5 overall P0 NO-GO**. 
+
+
+## 2026-11-03 follow-up — P0D actual cloud roundtrip and P0E full-scope progression
+
+### P0D — CLOUD ROUNDTRIP VERIFIED FOR THE CURRENT HOST
+The initial connector `upload_file` action rejected a plain local file pathname because it requires an authenticated connector file reference. We switched to **Files personal Library upload to its verified Google Drive folder**, and performed an actual upload → Google Drive API metadata readback → authenticated raw download → SHA-256 exact-byte comparison → **V5 `import_encrypted` → `reopen_private_store` replay**.
+
+- Private research folder: `https://drive.google.com/drive/folders/18GCNmFIinrxInNvfFE9D6tHfggi2kYTh`.
+- P0C W00018 encrypted archive Drive id `1A0tkRqnkM6MQpB6L2vz5xVaywahrsqHc`. Downloaded raw bytes SHA256 `42f104a10727441e83ac7d062b4f71ae44907939c081fecf49a74226a63f263a`, exactly matched upload. V5 decrypted/replayed **6 receipts**, source SHA `2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f`, event head `968a0746fe0cab589be0ec3ee49fb12dea298ea446d68c46e3b30a8bbd139d45`. P0C official text is **a manually transferred contiguous excerpt of a tool-returned NPS page's markdown**, not raw original HTTP bytes and not independently signed by the institution.
+- Actual **P0E full-video-scope** frozen source ledger launched with **81/81 windows in the manifest**, original 1195 cues and exact SHA. ChatGPT read W00001–W00003 primary cues and authored actual source-linked dispositions and five provisional claims. W00002 was episode introduction and classified NONCLAIM; W00003 contained the unverified personal pension top-up scenario. No external LLM API used.
+- Latest P0E V2 encrypted full-scope **IN-PROGRESS** archive Drive id `17of3h3oZ4Ihfme_zP23S_bbj38phOawp`. A second cloud upload→download→SHA match `9a5b4262740749118990a58fd049b0961eee79d5aee4b133a76b884b957183b8` and independent V5 process replay **passed**. It contains **3/81 analyzed source windows, 5 provisional claims, 5 evidence dispositions, 5 prior relation reviews, 13 immutable receipts; next task W00004**. Event head `37018c1d2358ee6c48aeb4d98b27053591b3b270b996f9c679bae424241bffa3`. The new V5 run is **NOT sealed**; 78 windows genuinely remain unprocessed, separate from OPEN factual obligations.
+- No unencrypted originals, claim contents, archive secrets, or private raw data were uploaded to GitHub.
+- The cloud archive is encrypted using a **random recovery secret present only in the current private runtime**. A user-held off-platform key escrow or user-chosen passphrase is necessary to guarantee recovery in a future entirely separate chat. **Never equate same-host independent-process readback with independently demonstrated future-chat recovery.**
+
+### P0C factual caution
+For W00003 the NPS public FAQ confirms a general maximum **119 months** and personal eligibility rules. The episode's user's **KRW18m hypothetical top-up and estimated +KRW250k/month** were kept `OPEN_PERSONAL_DATA`; no personal pension amount was verified. W00018's 5-year 36% rule is an official public general-rule candidate with individualized applicability left OPEN. Official network-origin provenance, effective-law authentication and independent financial factual approval remain unresolved.
+
+### Cumulative gates after this execution
+- **P0C:** strict code path and a real source window demonstrated; original official HTTP bytes / independent audit **not** complete.
+- **P0D:** actual encrypted Google Drive **cloud roundtrip and separate local-process replay PASS** for 6-receipt pilot and 13-receipt full-scope checkpoint; cross-chat user-held-key recovery **not** demonstrated.
+- **P0E:** original #1 **3/81**, 78 unprocessed, 13 event receipts, current next window W00004; final one-command full-video research `NO_GO`.
+- **Release:** no independent facts approved, no personal financial advice authorized; P0 GO remains blocked.
+
+**No additional follow-up or automation is scheduled by this report.**
