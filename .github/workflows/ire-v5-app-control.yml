@@ -5,6 +5,7 @@ on:
       - feat/ire-v5-vertical-slice-20261103
     paths:
       - 'ire/v5_app/requests/**'
+      - 'ire/v5_app/batch_requests/**'
       - '.github/workflows/ire-v5-app-control.yml'
   workflow_dispatch:
 permissions:
@@ -28,11 +29,13 @@ jobs:
         run: python -m unittest discover -s ire/v5_app/tests -p 'test_*.py' -v
       - name: Compute privacy-safe job states from append-only requests
         run: python -m ire.v5_app.worker --requests ire/v5_app/requests --states ire/v5_app/states
+      - name: Compute public five-video batch states
+        run: python -m ire.v5_app.batch_worker --requests ire/v5_app/batch_requests --states ire/v5_app/batch_states
       - name: Persist computed job states on the development branch
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add ire/v5_app/states
+          git add ire/v5_app/states ire/v5_app/batch_states
           if ! git diff --cached --quiet; then
             git commit -m 'chore(v5-app): refresh public job state from checked commands'
             git push origin "HEAD:${GITHUB_REF_NAME}"
