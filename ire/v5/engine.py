@@ -414,14 +414,18 @@ class ResearchRun:
         body=self._closure_body()
         require(not body["blockers"],"RESEARCH_CANNOT_CLOSE:"+",".join(body["blockers"]))
         self.append("RESEARCH_CLOSURE",body)
-        return {**body,"event_chain_head_sha256":self.head,
-                "receipt_count":self.seq}
+        # Derived display fields do not alter the pre-existing immutable event.
+        return self.status()
 
     def status(self)->dict:
-        if self.closure is not None:
-            d=self.closure.copy()
-            return {**d,"sealed":True,"receipt_count":self.seq,
-                    "event_chain_head_sha256":self.head}
-        d=self._closure_body()
-        return {**d,"sealed":False,"receipt_count":self.seq,
-                "event_chain_head_sha256":getattr(self,"head","0"*64)}
+        # Never confuse a bounded pilot with a full video run. These fields
+        # are computed outside the event content so older sealed receipts replay.
+        full_scope=(len(self.active)==len(self.windows))
+        d=self.closure.copy() if self.closure is not None else self._closure_body()
+        return {**d,"sealed":self.closure is not None,
+                "receipt_count":self.seq,
+                "event_chain_head_sha256":getattr(self,"head","0"*64),
+                "video_windows_total":len(self.windows),
+                "scope_kind":"FULL_VIDEO" if full_scope else "PILOT_WINDOW_SCOPE",
+                "full_video_source_scope_sealed":bool(self.closure is not None and full_scope),
+                "p0_one_command_full_research_go":False}
