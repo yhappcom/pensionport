@@ -28,15 +28,17 @@
     "approved_investment_advice": 0,
     "open_or_unverified_financial_evidence_cases": 11,
     "private_event_receipts": 26,
-    "immutable_event_chain_head_sha256": "c7e583942dc48866898a5c390e623be35ba503ac8fb248c911a61e3a4cc1c8ff",
+    "immutable_event_chain_head_sha256": "e518a271b5e31a22a2878fa438f9ae22caeda5bef4e731ac7ddfb03fae390b9f",
     "private_plan_sha256": "c20383f63766a503691b64a884ad5c6423d32a2b82b1ef0cc2f56e87e847bfb2",
     "readback_with_new_python_instance": true,
     "closure_state": "RESEARCH_REPORT_COMPLETE_WITH_OPEN_ITEMS_SCOPE_ONLY",
     "no_external_llm_api_calls": true,
-    "host_continuation_independently_attested": false
+    "host_continuation_independently_attested": false,
+    "host_next_task_steps": 26,
+    "controller_next_task_routed_all_stages": true
   },
   "regression": {
-    "synthetic_tests_passed": 15,
+    "synthetic_tests_passed": 16,
     "synthetic_failures": 0,
     "regression_is_not_semantic_gold": true,
     "github_actions_ci_status_at_submission": "NOT_VERIFIED"
@@ -55,16 +57,18 @@
   ],
   "private_artifacts": {
     "storage": "Personal ChatGPT Library /IRE_V5_20261103 (not GitHub)",
-    "private_zip_sha256": "7c655d9eb785e370b033375c72d9ae284cae4b229f86cbb5e4f7d5db1c1ea577",
+    "private_zip_sha256": "943320d1b1f180d7e8213c16c75c36cb66aad339ce033b6a261c4585ad22434e",
     "source_srt_embedded": false,
-    "public_code_zip_sha256": "7912a084eba896f7d979d7bed1823ecd7b5de25d34fc6c3a57ab035c827a281c"
+    "public_code_zip_sha256": "8d6f57284d1d397095d0b3ab5741cfe3c8361ea9621339d9d3ccd0cfcc6b51a9",
+    "library_persistence_write_and_metadata_readback": true
   },
   "important_limits": [
     "Only 3 of 81 source windows were in this run; remaining 78 are NOT processed in V5.",
     "Full original government page byte hashes and legal effective-date verification not completed; every claim remains OPEN or not approved.",
     "The Python engine never invokes ChatGPT. The chat host genuinely authored the 11 propositions; it did not independently attest its own identity.",
     "The local event chain is verified against the published SHA anchor but durable private cross-session replay and upstream provider attestation still require tests.",
-    "No personalized advice or investment recommendation was approved."
+    "No personalized advice or investment recommendation was approved.",
+    "Task routing is deterministic and works for the scoped pilot, but cannot invoke model inference by itself; ChatGPT host participation is still mandatory."
   ],
   "release": {
     "V5_VERTICAL_SLICE": "COMPLETE_WITH_OPEN",
