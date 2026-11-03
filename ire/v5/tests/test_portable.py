@@ -71,6 +71,9 @@ class SyntheticPortabilityTests(unittest.TestCase):
                          original["event_chain_head_sha256"])
         self.assertTrue(result["verified_by_real_v5_replay"])
         self.assertEqual(reopen_private_store(self.restored).status(),original)
+        self.assertEqual(original["scope_kind"],"FULL_VIDEO")
+        self.assertTrue(original["full_video_source_scope_sealed"])
+        self.assertFalse(original["p0_one_command_full_research_go"])
         self.assertEqual(reopen_private_store(self.restored).next_task()["phase"],"DONE")
         self.assertTrue((self.restored/"private_source.srt").exists())
         self.assertEqual((self.restored/"private_source.srt").stat().st_mode & 0o077,0)
@@ -113,6 +116,10 @@ class PrivateSourcePilotOptionalTests(unittest.TestCase):
         before=run.status()
         self.assertEqual(before["receipt_count"],26)
         self.assertEqual(before["submitted_windows"],3)
+        self.assertEqual(before["scope_kind"],"PILOT_WINDOW_SCOPE")
+        self.assertEqual(before["video_windows_total"],81)
+        self.assertFalse(before["full_video_source_scope_sealed"])
+        self.assertFalse(before["p0_one_command_full_research_go"])
         with tempfile.TemporaryDirectory() as temp:
             archive=Path(temp)/"real.v5enc"
             other=Path(temp)/"new"
