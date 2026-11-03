@@ -75,6 +75,29 @@ class V5ContractTests(unittest.TestCase):
         for n in (1,2,3):self.r.append('MODEL_ANALYSIS',self.model(n))
         for n in (1,2,3):self.r.append('EVIDENCE_REVIEW',self.evidence(n))
         for n in (1,2,3):self.r.append('PRIOR_RELATION_REVIEW',self.relation(n))
+    def test_host_next_task_routes_all_stages_without_continue(self):
+        # A deterministic synthetic host supplies prepared answers. Real model
+        # interpretation still belongs to ChatGPT, not the Python program.
+        trace=[]
+        while True:
+            task=self.r.next_task()
+            self.assertFalse(task["user_continue_requested"])
+            phase=task["phase"];trace.append(phase)
+            if phase=="MODEL_ANALYSIS_REQUIRED":
+                self.r.append("MODEL_ANALYSIS",self.model(int(task["window_id"][-5:])))
+            elif phase=="OFFICIAL_EVIDENCE_REVIEW_REQUIRED":
+                self.r.append("EVIDENCE_REVIEW",self.evidence(int(task["claim_id"][-4:])))
+            elif phase=="PRIOR_KNOWLEDGE_REVIEW_REQUIRED":
+                self.r.append("PRIOR_RELATION_REVIEW",self.relation(int(task["claim_id"][-4:])))
+            elif phase=="SEAL_RESEARCH_REPORT_REQUIRED":
+                self.r.close()
+            elif phase=="DONE":
+                break
+            else:
+                self.fail("Unexpected task: "+str(task))
+        self.assertEqual(len(trace),11)  # 3 x (model,evidence,relation) + seal + done
+        self.assertTrue(self.r.status()["sealed"])
+
     def test_happy_path_reports_open_no_approval_and_reopens(self):
         self.accept_all();out=self.r.close()
         self.assertEqual(out['submitted_windows'],3)
