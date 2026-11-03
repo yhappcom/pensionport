@@ -1,0 +1,25 @@
+name: IRE V5 standalone transaction core
+on:
+  push:
+    branches:
+      - feat/ire-v5-vertical-slice-20261103
+    paths:
+      - 'ire/v5/**'
+      - '.github/workflows/ire-v5-transaction-core.yml'
+  workflow_dispatch:
+jobs:
+  isolated-v5-core:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned crypto dependency
+        run: python -m pip install 'cryptography==46.0.4'
+      - name: Compile isolated V5 modules
+        run: python -m compileall -q ire/v5
+      - name: Execute V5 core and portability tests
+        run: python -m unittest discover -s ire/v5/tests -p 'test_*.py' -v
