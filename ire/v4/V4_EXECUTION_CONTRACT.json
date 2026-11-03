@@ -196,7 +196,7 @@
   },
   "p0_one_command": {
     "goal": "ONE_COMMAND_CLOSED_RESEARCH",
-    "current_status": "DESIGN_COMPLETE_E2E_TEST_PENDING",
+    "current_status": "T1_T8_RETEST_FAIL_CLOSED_13_OF_81_PROVISIONAL_WINDOWS",
     "minimum_real_video": "#1 sz5N9WJS310 adaptive 81 windows; live source integrity recheck required",
     "requires_source_cue_census": true,
     "requires_model_semantics": true,
@@ -214,7 +214,23 @@
     "p0_go_requires_no_unprocessed_cues_or_windows": true,
     "p0_go_requires_no_user_continue_messages": true,
     "unprocessed_is_not_open": true,
-    "failure_outcome": "STOPPED_LIMIT_OR_BLOCKED_WITH_UNPROCESSED_RECEIPT"
+    "failure_outcome": "STOPPED_LIMIT_OR_BLOCKED_WITH_UNPROCESSED_RECEIPT",
+    "latest_retest": {
+      "as_of": "2026-11-03",
+      "source_cues": 1195,
+      "adaptive_windows": 81,
+      "provisional_windows_with_structural_checks": 13,
+      "newly_interpreted_this_turn": 1,
+      "unprocessed_windows": 68,
+      "unprocessed_cues": 995,
+      "provisional_claims": 49,
+      "regression_tests_passed": 13,
+      "formal_v3_accepted_windows_this_retest": 0,
+      "full_research_status": "NO_GO",
+      "evidence_case_full_verification": false,
+      "knowledge_diff_sealed": false,
+      "report": "ire/v4/V4_P0_RETEST_AFTER_INTEGRATED_GATE_20261103.md"
+    }
   },
   "design_baseline": "ire/v4/V4_ONE_COMMAND_MASTER_ARCHITECTURE_20261103.md"
 }
