@@ -25,7 +25,7 @@
 - 기존 Chat이 작성한 잠정 원자 주장 **44건**, 원문 직접 인용 **179건**, LINKED 179 / NONCLAIM_CANDIDATE 3. 모두 미확정이며 의미 정확도 독립 인증 아님.
 - 2026-11-03 독립 작성한 source-and-draft validator: 원본·V3 문맥 경계 재계산, 인용문 원문 포함 여부, 역참조, 숫자 원문 리터럴, 원장 충돌 차단을 재실행.
 - 실제 private ledger 시험: 강제 `os._exit(37)` 후 4개 영수증에서 12개로 재개, 동일 영수증 해시 유지; 위조 인용·잘못된 문맥 경계·cue 누락·역참조 누락·영수증 변조 거절. **7개 로컬 시험 PASS.**
-- 재현용 로컬 검증기 SHA-256 `819a2414aab009fe497ffbc4ccbaaca63a3837f86b2c2224261b0079ec875ad4`, 로컬 시험 코드 SHA-256 `65a13f9f0fee860b35c351adf19520e6fdf1f9630763d9f2b5d4290fed892aa7`. private draft SHA-256 `3c4c4d19a9709d3ac2c1464087355a10a44876fd274aff78fc5654bda55b0101`. 해당 원본/드래프트/영수증 내용은 GitHub 미업로드.
+- 재현용 로컬 검증기 SHA-256 `819a2414aab009fe497ffbc4ccbaaca63a3837f86b2c2224261b0079ec875ad4`, 로컬 시험 코드 SHA-256 `b0054ef17a50fa7c70485a29d43806eb1402fc09bdd57de910a3d0f2512b61bc`. private draft SHA-256 `3c4c4d19a9709d3ac2c1464087355a10a44876fd274aff78fc5654bda55b0101`. 해당 원본/드래프트/영수증 내용은 GitHub 미업로드.
 - **P0-C verdict: GO_BOUNDED_CHAT_TO_P1** — 국소 채팅 분석과 검증 가능한 체크포인트 방식의 실현 가능성만 승인.
 - **P0-R verdict: NOT_PROVEN** — 호스트가 채팅 종료 후 스스로 재시작하는 능력은 시험·인증되지 않았다.
 - 정식 V3 `ConversationResearchSession.accept` 영수증 접수, V3 semantic/quality gate 통합, 기존 v003과의 안전 연결은 아직 미실시. **P1의 필수 실전 수락 조건으로 이동**한다.
