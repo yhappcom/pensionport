@@ -359,6 +359,9 @@ class ResearchRun:
         require(item.get("financial_truth_approved") is False and
                 type(item.get("open_reason")) is str and len(item["open_reason"].strip())>=9,
                 "EVIDENCE_OPEN_REASON_REQUIRED")
+        if self.manifest.get("p0c_policy") == "STRICT_P0C_V1":
+            from .p0c import validate_strict_evidence
+            validate_strict_evidence(item,claim)
 
     def _validate_relation(self,item):
         require(type(item) is dict and item.get("schema")==RELATION_SCHEMA and
@@ -375,6 +378,9 @@ class ResearchRun:
                 "RELATION_SEARCH_NOT_DOCUMENTED")
         require(item.get("prior_claim_ids") is not None and
                 type(item["prior_claim_ids"]) is list,"RELATION_PRIOR_CANDIDATES_UNSPECIFIED")
+        if self.manifest.get("p0c_policy") == "STRICT_P0C_V1":
+            from .p0c import validate_strict_relation
+            validate_strict_relation(item,self.manifest["prior_baseline_git_blob_sha"])
 
     def _closure_body(self)->dict:
         cid_map=self._claims()
