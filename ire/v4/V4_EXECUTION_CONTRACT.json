@@ -1,6 +1,6 @@
 {
   "schema": "IRE_V4_EXECUTION_DESIGN_CONTRACT_V1",
-  "status": "P0_ONE_COMMAND_END_TO_END_UNPROVEN",
+  "status": "DESIGN_REBASELINED_ONE_COMMAND_CLOSED_RESEARCH_NOT_PROVEN",
   "as_of": "2026-11-03",
   "v3_baseline": {
     "synthetic_tests_locally_reproduced": 310,
@@ -21,8 +21,8 @@
     "no_unverified_factual_promotion": true
   },
   "user_experience_contract": {
-    "required": "ONE_USER_REQUEST_END_TO_END_RESEARCH_AND_VERIFICATION",
-    "conditional": "EXECUTION_HOST_WITHIN_SUPPORTED_SESSION_LIMITS",
+    "required": "SINGLE_CHAT_RESEARCH_REQUEST_TO_VERIFIED_CLOSED_REPORT",
+    "conditional": "SUPPORTED_HOST_EXECUTION_AND_TOOL_LIMITS",
     "unconditional_one_chat_response_guaranteed": false,
     "requires_host_capability_probe": true
   },
@@ -35,19 +35,20 @@
     "python_to_work_model_api_assumed": false
   },
   "p0": {
-    "status": "REDEFINED_ONE_COMMAND_CLOSED_RESEARCH_NOT_YET_RUN_END_TO_END",
-    "new_unanalyzed_source_windows": 12,
+    "status": "DESIGN_COMPLETE_REAL_81_WINDOW_INTEGRATED_RUN_NOT_YET_PROVEN",
+    "new_unanalyzed_source_windows": 81,
     "must_show_real_model_semantic_work": true,
     "user_continue_requests_allowed": 0,
     "external_llm_api_calls_allowed": 0,
     "required_source_cue_coverage": 1,
     "mandatory_private_receipt": true,
     "go_without_successful_real_host_probe": false,
-    "policy_revision": "ONE_COMMAND_CLOSED_RESEARCH_20261103",
-    "scope": "FINITE_CHAT_MODEL_WORK_WITH_VERIFIABLE_PRIVATE_RESTART_CHECKPOINTS",
+    "policy_revision": "ONE_COMMAND_CLOSED_RESEARCH_MASTER_20261103",
+    "scope": "ACTUAL_ONE_USER_REQUEST_SOURCE_SEMANTICS_EVIDENCE_RELATIONS_CLOSURE",
     "permanent_host_autorestart_required_for_p1": false,
     "forced_process_recovery_test": "PASS_LOCAL_ONLY",
-    "production_v3_formal_acceptance": "P1_REQUIRED_NOT_YET_DONE"
+    "production_v3_formal_acceptance": "P1_REQUIRED_NOT_YET_DONE",
+    "autonomous_restart_after_chat_end_required": false
   },
   "run_states": [
     "CREATED",
@@ -148,14 +149,19 @@
     "p1_blocked_until_p0_r_go": false,
     "automations_scheduler_not_equivalent_to_HOST_NATIVE_RESUME": true,
     "p0_full_go_requires_real_one_command_closed_research": true,
-    "post_chat_autorestart_not_p0_requirement": true
+    "post_chat_autorestart_not_p0_requirement": true,
+    "p0_go_requires_all_81_windows_true_semantic_and_evidence_cycle": true,
+    "p0_go_requires_completed_research_report_with_actual_diff": true,
+    "p0_go_not_granted_on_12_window_subtest": true,
+    "no_unprocessed_substitution_by_open": true,
+    "no_false_one_turn_unbounded_guarantee": true
   },
   "source_references": [
     "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
     "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
     "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt"
   ],
-  "next_action": "P0_VALIDATE_SINGLE_USER_REQUEST_FULL_81_WINDOW_SOURCE_SEMANTICS_OFFICIAL_EVIDENCE_CROSS_KNOWLEDGE_AND_FINAL_REPORT",
+  "next_action": "IMPLEMENT_MINIMUM_CHAT_CONTROL_PLANE_WITH_V3_ADAPTERS_AND_RUN_REAL_81_WINDOW_END_TO_END_PROOF",
   "p0_chat": {
     "outcome": "SUBTEST_ONLY_12_WINDOWS_NOT_END_TO_END_P0",
     "video_id": "sz5N9WJS310",
@@ -183,15 +189,15 @@
     "approval_level": "PARTIAL_PROOF_NO_P0_FULL_GO"
   },
   "p0_persistent_host": {
-    "requirement": "OPTIONAL_NOT_USER_OBJECTIVE",
-    "status": "NOT_REQUIRED_FOR_P0",
+    "requirement": "NOT_A_USER_REQUIREMENT",
+    "status": "OUT_OF_SCOPE",
     "does_not_block_p1_to_p4_bounded_research": true,
     "no_unattended_completion_claim": true
   },
   "p0_one_command": {
     "goal": "ONE_COMMAND_CLOSED_RESEARCH",
-    "current_status": "NOT_YET_PROVEN",
-    "minimum_real_video": "#1 V3 adaptive 81 windows",
+    "current_status": "DESIGN_COMPLETE_E2E_TEST_PENDING",
+    "minimum_real_video": "#1 sz5N9WJS310 adaptive 81 windows; live source integrity recheck required",
     "requires_source_cue_census": true,
     "requires_model_semantics": true,
     "requires_official_evidence_and_open_queue": true,
@@ -200,6 +206,15 @@
     "requires_no_user_continue_message": true,
     "external_model_api_calls": 0,
     "post_chat_autorestart_required": false,
-    "unbounded_single_response_guaranteed": false
-  }
+    "unbounded_single_response_guaranteed": false,
+    "completed_subtest_windows": 12,
+    "p0_go_requires_actual_full_source_processing": true,
+    "p0_go_requires_formal_v3_accept_and_evidence_attempts": true,
+    "p0_go_requires_prior_knowledge_relation_review": true,
+    "p0_go_requires_no_unprocessed_cues_or_windows": true,
+    "p0_go_requires_no_user_continue_messages": true,
+    "unprocessed_is_not_open": true,
+    "failure_outcome": "STOPPED_LIMIT_OR_BLOCKED_WITH_UNPROCESSED_RECEIPT"
+  },
+  "design_baseline": "ire/v4/V4_ONE_COMMAND_MASTER_ARCHITECTURE_20261103.md"
 }
