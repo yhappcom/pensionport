@@ -26,6 +26,22 @@ class PublicControlTests(unittest.TestCase):
   self.assertFalse(s['private_receipt_chain_verified_by_github'])
   self.assertFalse(s['official_evidence_independently_approved_by_github'])
   self.assertFalse(s['financial_advice_approved'])
+ def test_batch_67_windows_with_11_receipts_is_accepted_as_unverified(self):
+  start=copy.deepcopy(OPEN);start['job_id']='v5-video-001-full67-20261104';start['total_windows']=67
+  x=copy.deepcopy(PROGRESS);x.update({'job_id':start['job_id'],'reported_windows':67,
+   'reported_claims':81,'reported_evidence_reviews':81,'reported_relation_reviews':81,
+   'reported_event_receipts':11,
+   'encrypted_checkpoint_sha256':'de2f5ec71d0c375094be0010cb1b01946be118d89e2fe22b7d0cf553790611ca',
+   'receipt_chain_sha256':'d05ef6c38c9bda57e00bf10997cbb8c1cc93b0cf3f5f50fa75d0f825b8a80660'})
+  state=reduce_commands([start,x])
+  self.assertEqual(state['remaining_windows_reported'],0)
+  self.assertEqual(state['event_receipts_reported'],11)
+  self.assertEqual(state['action_required'],'PRIVATE_REPLAY_AND_RESEARCH_CLOSURE_AUDIT_REQUIRED')
+  self.assertFalse(state['full_video_completed_and_verified'])
+ def test_progress_without_any_receipts_is_denied(self):
+  x=copy.deepcopy(PROGRESS);x['reported_event_receipts']=0
+  with self.assertRaisesRegex(ControlError,'CHECKPOINT_PROCESSED_WINDOWS_WITHOUT_RECEIPTS'):
+   reduce_commands([OPEN,x])
  def test_no_progress_does_not_claim_research(self):
   s=reduce_commands([OPEN]);self.assertEqual(s['remaining_windows_reported'],81)
   self.assertEqual(s['next_expected_window_hint'],'W00001')
