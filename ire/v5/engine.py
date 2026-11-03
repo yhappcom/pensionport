@@ -203,6 +203,23 @@ class ResearchRun:
 
     def _apply(self, kind: str, item: dict) -> None:
         require(self.closure is None,"RUN_ALREADY_CLOSED")
+        if kind=="BATCH_ACCEPT":
+            # One signed/content-addressed event can contain many source-linked
+            # model/evidence/prior review actions. Reject nested batches and
+            # closures. Validation of EVERY subevent precedes any disk write.
+            require(type(item) is dict and
+                    item.get("schema")=="IRE_V5_ACTION_BUNDLE_V1" and
+                    type(item.get("actions")) is list and
+                    1 <= len(item["actions"]) <= 500,
+                    "BATCH_ACTION_BUNDLE_INVALID")
+            for action in item["actions"]:
+                require(type(action) is dict and
+                        set(action)=={"type","payload"} and
+                        action["type"] in {"MODEL_ANALYSIS", "EVIDENCE_REVIEW",
+                                           "PRIOR_RELATION_REVIEW"},
+                        "BATCH_ACTION_TYPE_NOT_ALLOWED")
+                self._apply(action["type"], action["payload"])
+            return
         if kind=="MODEL_ANALYSIS":
             wid=item.get("window_id") if type(item) is dict else None
             require(wid not in self.model,"MODEL_WINDOW_ALREADY_ACCEPTED")
