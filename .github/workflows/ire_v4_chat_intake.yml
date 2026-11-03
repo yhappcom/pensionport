@@ -1,0 +1,22 @@
+name: IRE V4 Chat-to-V3 adapter test
+on:
+  push:
+    branches:
+      - feat/ire-v4-execution-design-20261103
+    paths:
+      - ire/v4_chat_accept.py
+      - tests/test_v4_chat_accept.py
+      - .github/workflows/ire_v4_chat_intake.yml
+  workflow_dispatch:
+jobs:
+  v4-chat-v3-intake:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run V4 adapter tests against the actual V3 code
+        run: python -m unittest discover -s tests -p 'test_v4_chat_accept.py' -v
