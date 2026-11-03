@@ -36,3 +36,25 @@
 5. Distinguish `RESEARCH_REPORT_COMPLETE_WITH_OPEN_ITEMS`, `FACT_VERIFIED_IN_SCOPE`, and question-scoped `ADVISORY_ELIGIBLE` as three independent release grades.
 
 Legacy V3/V4 code and the `main` branch are not modified by the V5 vertical slice. Changes live under `ire/v5/` on an independent V5 development branch.
+## 2026-11-03: V5 private encrypted research transport (implemented and tested)
+
+The standalone `ire/v5/portable.py` implements a **full private transaction archive** with the exact original SRT, frozen adaptive plan, source pins, immutable model/evidence/relation event receipts and the seal. The archive is encrypted using **AES-256-GCM** with a caller-owned secret (12+ characters) derived using **scrypt**. Wrong passwords, corruption, plan drift, replay drift and existing destination overwrites fail closed. Restoration replays the V5 kernel before publishing a new private directory.
+
+```bash
+# Requires: python -m pip install cryptography==46.0.4
+# Set a strong user-owned secret without committing it or recording it in logs.
+export IRE_V5_ARCHIVE_SECRET='A_USER_SUPPLIED_LONG_RANDOM_SECRET'
+python -m ire.v5.portable export --source-srt /private/original.srt \
+  --manifest-json /private/plan.json --store /private/run \
+  --archive /private/IRE_V5_BACKUP.v5enc
+python -m ire.v5.portable restore --archive /private/IRE_V5_BACKUP.v5enc \
+  --store /private/new-run
+python -m ire.v5.portable inspect --store /private/new-run
+unset IRE_V5_ARCHIVE_SECRET
+```
+
+**Actual original-source test:** The already-sealed video #1 3-window/26-event private pilot was exported, restored in a separate directory and reopened through `ResearchRun`. All source and manifest identities, event receipts and the original event-chain head matched. Wrong passphrases, altered ciphertext and overwrites were rejected. **23 local tests passed**, including 7 portability tests; clean public CI is a separate gate.
+
+**Not yet proven:** automatic encrypted Google Drive upload and independent cloud readback in a new chat, full 81-window ChatGPT research closure, external independent financial fact approval and full historical cross-video knowledge merging. Local encrypted export alone is not cloud durability. No external model API is used.
+
+**Privacy:** Do not commit original SRTs, model claim bodies, unencrypted backup files, or secrets. The prior 3-window run is not 81-window completion.
