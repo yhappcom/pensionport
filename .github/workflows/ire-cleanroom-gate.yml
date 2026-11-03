@@ -9,6 +9,7 @@ on:
       - feat/ire-incremental-advisory-20261101
       - feat/ire-v2-advisory-system-redesign-20261101
       - feat/ire-v3-chat-orchestration-20261102
+      - feat/ire-v5-vertical-slice-20261103
     paths:
       - "ire/**"
       - ".github/workflows/ire-cleanroom-gate.yml"
@@ -36,6 +37,9 @@ jobs:
       - name: Run fresh synthetic adversarial research suite
         run: |
           python -m unittest discover -s ire/tests -v
+      - name: Run IRE V5 host task router and receipt safety tests
+        run: |
+          python -m unittest discover -s ire/v5/tests -v
       - name: Enforce prior-research non-citation, no historical import and no protected changes
         run: |
           python - <<'PY'
