@@ -69,7 +69,7 @@ def candidate_crosswalk(draft,index,expected_source_blobs,top_k=3):
             "V4_LEGACY_SOURCE_BOUND_DRAFT_REQUIRED")
     require(type(top_k) is int and 1<=top_k<=12,"V4_LEGACY_TOP_K")
     prior=[(p,financial_concepts(p["candidate_text"])) for p in index["items"]]
-    hits=[];seen=set()
+    hits=[];weak=[];seen=set()
     for w in draft["windows"]:
         wid=w.get("window_id")
         require(type(wid) is str and re.fullmatch(r"W\d{5}",wid),
@@ -91,7 +91,8 @@ def candidate_crosswalk(draft,index,expected_source_blobs,top_k=3):
                 if common:matches.append((len(common),old["legacy_claim_id"],old,common))
             matches.sort(key=lambda x:(-x[0],x[1]))
             for overlap,oldid,old,common in matches[:top_k]:
-                hits.append({
+                destination=hits if overlap>=2 else weak
+                destination.append({
                     "new_claim_id":cid,"new_window_id":wid,
                     "legacy_claim_id":oldid,
                     "legacy_source_paths":sorted({s["path"] for s in old["sources"]}),
@@ -110,6 +111,8 @@ def candidate_crosswalk(draft,index,expected_source_blobs,top_k=3):
         "provisional_claim_count":len(seen),
         "legacy_principle_count":len(index["items"]),
         "relation_candidates":hits,
+        "weak_single_concept_matches":len(weak),
+        "weak_not_advanced_to_relation_review":True,
         "relation_decisions_approved":0,
         "legacy_imported_into_new_ire":False,
         "financial_facts_approved":0}
