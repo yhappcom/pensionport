@@ -1,6 +1,6 @@
 {
   "schema": "IRE_V4_EXECUTION_DESIGN_CONTRACT_V1",
-  "status": "DESIGN_REBASELINED_ONE_COMMAND_CLOSED_RESEARCH_NOT_PROVEN",
+  "status": "P0_T1_T2_REAL_V3_81_OF_81_COMPLETE__T3_T7_PENDING_NO_GO",
   "as_of": "2026-11-03",
   "v3_baseline": {
     "synthetic_tests_locally_reproduced": 310,
@@ -35,8 +35,8 @@
     "python_to_work_model_api_assumed": false
   },
   "p0": {
-    "status": "DESIGN_COMPLETE_REAL_81_WINDOW_INTEGRATED_RUN_NOT_YET_PROVEN",
-    "new_unanalyzed_source_windows": 81,
+    "status": "SOURCE_ANALYSIS_COMPLETE_EVIDENCE_AND_PRIOR_KNOWLEDGE_PENDING",
+    "new_unanalyzed_source_windows": 0,
     "must_show_real_model_semantic_work": true,
     "user_continue_requests_allowed": 0,
     "external_llm_api_calls_allowed": 0,
@@ -47,7 +47,7 @@
     "scope": "ACTUAL_ONE_USER_REQUEST_SOURCE_SEMANTICS_EVIDENCE_RELATIONS_CLOSURE",
     "permanent_host_autorestart_required_for_p1": false,
     "forced_process_recovery_test": "PASS_LOCAL_ONLY",
-    "production_v3_formal_acceptance": "P1_REQUIRED_NOT_YET_DONE",
+    "production_v3_formal_acceptance": "PASSED_ACTUAL_81_OF_81_ISOLATED_PRIVATE",
     "autonomous_restart_after_chat_end_required": false
   },
   "run_states": [
@@ -154,14 +154,16 @@
     "p0_go_requires_completed_research_report_with_actual_diff": true,
     "p0_go_not_granted_on_12_window_subtest": true,
     "no_unprocessed_substitution_by_open": true,
-    "no_false_one_turn_unbounded_guarantee": true
+    "no_false_one_turn_unbounded_guarantee": true,
+    "real_v3_source_coverage_does_not_mean_official_evidence_approved": true,
+    "p0_full_requires_verified_official_scope_and_prior_knowledge_diff": true
   },
   "source_references": [
     "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
     "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
     "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt"
   ],
-  "next_action": "IMPLEMENT_MINIMUM_CHAT_CONTROL_PLANE_WITH_V3_ADAPTERS_AND_RUN_REAL_81_WINDOW_END_TO_END_PROOF",
+  "next_action": "P0_OFFICIAL_EVIDENCE_LEDGER_SCOPE_VERIFICATION_AND_PRIOR_APPROVED_KNOWLEDGE_RELATION_DIFF_FOR_209_ATOMS",
   "p0_chat": {
     "outcome": "SUBTEST_ONLY_12_WINDOWS_NOT_END_TO_END_P0",
     "video_id": "sz5N9WJS310",
@@ -196,7 +198,7 @@
   },
   "p0_one_command": {
     "goal": "ONE_COMMAND_CLOSED_RESEARCH",
-    "current_status": "T1_T8_RETEST_FAIL_CLOSED_13_OF_81_PROVISIONAL_WINDOWS",
+    "current_status": "REAL_V3_ACCEPTED_ALL_81_WINDOWS__EVIDENCE_AND_CROSS_VIDEO_OPEN",
     "minimum_real_video": "#1 sz5N9WJS310 adaptive 81 windows; live source integrity recheck required",
     "requires_source_cue_census": true,
     "requires_model_semantics": true,
@@ -207,7 +209,7 @@
     "external_model_api_calls": 0,
     "post_chat_autorestart_required": false,
     "unbounded_single_response_guaranteed": false,
-    "completed_subtest_windows": 12,
+    "completed_subtest_windows": 81,
     "p0_go_requires_actual_full_source_processing": true,
     "p0_go_requires_formal_v3_accept_and_evidence_attempts": true,
     "p0_go_requires_prior_knowledge_relation_review": true,
@@ -217,19 +219,31 @@
     "failure_outcome": "STOPPED_LIMIT_OR_BLOCKED_WITH_UNPROCESSED_RECEIPT",
     "latest_retest": {
       "as_of": "2026-11-03",
-      "source_cues": 1195,
-      "adaptive_windows": 81,
-      "provisional_windows_with_structural_checks": 13,
-      "newly_interpreted_this_turn": 1,
-      "unprocessed_windows": 68,
-      "unprocessed_cues": 995,
-      "provisional_claims": 49,
-      "regression_tests_passed": 13,
-      "formal_v3_accepted_windows_this_retest": 0,
-      "full_research_status": "NO_GO",
-      "evidence_case_full_verification": false,
-      "knowledge_diff_sealed": false,
-      "report": "ire/v4/V4_P0_RETEST_AFTER_INTEGRATED_GATE_20261103.md"
+      "video_id": "sz5N9WJS310",
+      "actual_source_cues": 1195,
+      "actual_v3_adaptive_windows": 81,
+      "formal_v3_accepted_windows": 81,
+      "unprocessed_windows": 0,
+      "provisional_claims": 209,
+      "nonclaim_candidate_cues": 76,
+      "v3_semantic_critical": 0,
+      "v3_semantic_warnings": 83,
+      "cross_window_quality_risks": 0,
+      "archived_v3_regression_tests_passed": 310,
+      "actual_v3_adapter_local_regression_tests_passed": 9,
+      "idempotent_existing_windows_on_replay": 81,
+      "official_public_web_candidate_cases": 46,
+      "distinct_claims_with_official_source_candidates": 37,
+      "claims_with_official_scope_obligations": 103,
+      "scope_obligation_claims_with_official_candidate": 26,
+      "formal_v3_evidence_ledger_assessments": 0,
+      "prior_approved_knowledge_revision_pinned": false,
+      "isolated_new_ire_provisional_claims": 209,
+      "isolated_knowledge_snapshot_sha256": "c279a3509cabc79c2be84f65597e08b1963dc136abc0f77d78f0a86fec580ad2",
+      "historical_knowledge_cross_video_relation_review": false,
+      "formal_v3_finalization": "SOURCE_ANALYSIS_COMPLETE_EVIDENCE_PENDING",
+      "full_P0_outcome": "NO_GO_RESEARCH_EVIDENCE_AND_CROSS_VIDEO_NOT_FINISHED",
+      "report": "ire/v4/V4_P0_FOCUSED_REAL_V3_FULL_CUE_INTAKE_20261103.md"
     }
   },
   "design_baseline": "ire/v4/V4_ONE_COMMAND_MASTER_ARCHITECTURE_20261103.md"
