@@ -1,6 +1,6 @@
 {
   "schema": "IRE_V4_EXECUTION_DESIGN_CONTRACT_V1",
-  "status": "DESIGN_ONLY_NOT_PRODUCTION",
+  "status": "P0_CHAT_BOUNDED_FEASIBILITY_GO_NOT_PRODUCTION",
   "as_of": "2026-11-03",
   "v3_baseline": {
     "synthetic_tests_locally_reproduced": 310,
@@ -21,10 +21,10 @@
     "no_unverified_factual_promotion": true
   },
   "user_experience_contract": {
-    "required": "ONE_USER_REQUEST",
-    "conditional": "ONE_HOST_TASK",
+    "required": "ONE_USER_REQUEST_BOUNDED_CHAT_WORK",
+    "conditional": "PERSISTENT_HOST_AUTO_RESUME_OPTIONAL_P0_R",
     "unconditional_one_chat_response_guaranteed": false,
-    "requires_host_capability_probe": true
+    "requires_host_capability_probe": false
   },
   "candidate_host": {
     "name": "CHATGPT_WORK",
@@ -35,14 +35,19 @@
     "python_to_work_model_api_assumed": false
   },
   "p0": {
-    "status": "NOT_RUN",
+    "status": "P0_C_GO_BOUNDED_CHAT_TO_P1__P0_R_NOT_PROVEN",
     "new_unanalyzed_source_windows": 12,
     "must_show_real_model_semantic_work": true,
     "user_continue_requests_allowed": 0,
     "external_llm_api_calls_allowed": 0,
     "required_source_cue_coverage": 1,
     "mandatory_private_receipt": true,
-    "go_without_successful_real_host_probe": false
+    "go_without_successful_real_host_probe": false,
+    "policy_revision": "P0_C_AND_P0_R_20261103",
+    "scope": "FINITE_CHAT_MODEL_WORK_WITH_VERIFIABLE_PRIVATE_RESTART_CHECKPOINTS",
+    "permanent_host_autorestart_required_for_p1": false,
+    "forced_process_recovery_test": "PASS_LOCAL_ONLY",
+    "production_v3_formal_acceptance": "P1_REQUIRED_NOT_YET_DONE"
   },
   "run_states": [
     "CREATED",
@@ -123,12 +128,13 @@
     "REJECTED"
   ],
   "milestones": {
-    "P0": "HOST_FEASIBILITY",
+    "P0": "CHAT_BOUNDED_FEASIBILITY_SCOPED_GO",
     "P1": "RUN_SUPERVISOR",
     "P2": "ONE_REAL_VIDEO_SOURCE_COMPLETE",
     "P3": "FIVE_REAL_VIDEOS_INTEGRATED",
     "P4": "INDEPENDENT_GOLD_AND_ADVISORY_EVALUATION",
-    "P5": "791_VIDEO_SCALE"
+    "P5": "791_VIDEO_SCALE",
+    "P0-R": "PERSISTENT_HOST_AUTORESTART_OPTIONAL"
   },
   "release_rules": {
     "synthetic_ci_pass_does_not_prove_financial_semantics": true,
@@ -136,12 +142,46 @@
     "research_complete_with_open_issues_allowed": true,
     "verified_fact_requires_scope_evidence": true,
     "advisory_requires_separate_suitability_gate": true,
-    "any_false_completion_claim_is_failure": true
+    "any_false_completion_claim_is_failure": true,
+    "p0_chat_go_does_not_imply_financial_semantic_truth": true,
+    "host_native_autorestart_not_proven": true
   },
   "source_references": [
     "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
     "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
     "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt"
   ],
-  "next_action": "P0_LIVE_HOST_PROOF_WITH_PRIVATE_12_WINDOW_COPY"
+  "next_action": "P1_CREATE_ISOLATED_V3_ADAPTIVE_SESSION_AND_FORMALLY_VALIDATE_12_CHAT_DRAFT_WINDOWS",
+  "p0_chat": {
+    "outcome": "GO_BOUNDED_CHAT_TO_P1",
+    "video_id": "sz5N9WJS310",
+    "source_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+    "v3_adaptive_total_windows": 81,
+    "selected_window_ids_start": "W00009",
+    "selected_window_ids_end": "W00020",
+    "selected_primary_cues": 182,
+    "primary_start_cue": 114,
+    "primary_end_cue": 295,
+    "provisional_claims": 44,
+    "source_quote_refs": 179,
+    "linked_cues": 179,
+    "nonclaim_cues": 3,
+    "unresolved_cues": 0,
+    "local_adversarial_tests_passed": 7,
+    "source_citation_structural_integrity": "PASS",
+    "financial_meaning_independently_verified": false,
+    "official_fact_approval_count": 0,
+    "advisory_eligibility": false,
+    "external_model_api_calls": 0,
+    "existing_v003_unchanged": true,
+    "v3_formal_gate_acceptance": "NOT_RUN",
+    "persistent_host_recovery_proven": false,
+    "approval_level": "SOFTWARE_FEASIBILITY_ONLY"
+  },
+  "p0_persistent_host": {
+    "requirement": "OPTIONAL_P0_R",
+    "status": "NOT_PROVEN",
+    "does_not_block_p1_to_p4_bounded_research": true,
+    "no_unattended_completion_claim": true
+  }
 }
