@@ -16,7 +16,7 @@ import json
 import re
 
 from .engine import ResearchRun, _private_dir, _exclusive_json, _read_json, canonical, sha256, require
-from .p0c import _official_host
+from .p0c import _host as _official_host
 
 AUDIT_SCHEMA = "IRE_V5_INCREMENTAL_AUDIT_V1"
 DOC_SCHEMA = "IRE_V5_SHARED_OFFICIAL_DOC_V1"
