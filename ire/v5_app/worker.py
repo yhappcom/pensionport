@@ -108,8 +108,10 @@ def reduce_commands(commands: list[dict]) -> dict:
             ("reported_event_receipts", "event_receipts_reported"),
         ):
             check(item[input_key] >= state[state_key], "CHECKPOINT_METRIC_REWIND")
-        check(item["reported_event_receipts"] >= item["reported_windows"],
-              "CHECKPOINT_EVENTS_FEWER_THAN_WINDOWS")
+        # Batch events can represent multiple fully source-linked windows.
+        # Reported progress with zero real receipt events is still rejected.
+        check(item["reported_windows"] == 0 or item["reported_event_receipts"] > 0,
+              "CHECKPOINT_PROCESSED_WINDOWS_WITHOUT_RECEIPTS")
         # Strict read-side, not a claim of independently executed research.
         state.update({
             "processed_windows_reported": item["reported_windows"],
