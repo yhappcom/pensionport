@@ -49,6 +49,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.new_video_batch_gate", "--root", ".")),
     ("unseen_video_incremental_knowledge_reconciliation",
      ("-m", "ire.v5.new_video_merge_gate", "--root", ".")),
+    ("second_unseen_video_full_source_temporal_gate",
+     ("-m", "ire.v5.new_video_followup_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
