@@ -47,6 +47,19 @@ def existing_research(root: Path) -> tuple[set[str],dict[str,set[str]]]:
             obj=json.loads(file.read_text("utf-8"))
             check(obj.get("video_id")==m[1],"EVENT_FILE_ID_MISMATCH")
             ids.add(m[1])
+    # V3 single-file research events are a separate lane from canonical
+    # sequence events. Presence means there is a record to audit, NOT
+    # that the transcript was completely or independently verified.
+    for file in (root/"data/analysis_events").glob("*.json"):
+        obj=json.loads(file.read_text("utf-8"))
+        vid=obj.get("video_id")
+        check(type(vid) is str and VIDEO_ID.fullmatch(vid) is not None,
+              "ANALYSIS_EVENT_VIDEO_ID_INVALID")
+        if file.stem.startswith("video_"):
+            check(file.stem[6:]==vid,"ANALYSIS_EVENT_FILE_ID_MISMATCH")
+        else:
+            check(file.stem==vid,"ANALYSIS_EVENT_FILE_ID_MISMATCH")
+        ids.add(vid)
     backlinks={}
     for line in (root/"data/claims.jsonl").read_text("utf-8").splitlines():
         if line.strip():
