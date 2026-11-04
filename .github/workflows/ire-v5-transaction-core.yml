@@ -7,6 +7,11 @@ on:
       - 'ire/v5/**'
       - '.github/workflows/ire-v5-transaction-core.yml'
   workflow_dispatch:
+# Keep the latest commit's checks; no bypass for actual regressions.
+concurrency:
+  group: ire-v5-standalone-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   isolated-v5-core:
     runs-on: ubuntu-latest
@@ -19,23 +24,5 @@ jobs:
           python-version: '3.11'
       - name: Install pinned crypto dependency
         run: python -m pip install 'cryptography==46.0.4'
-      - name: Compile isolated V5 modules
-        run: python -m compileall -q ire/v5
-      - name: Reconcile current legacy research and incoming SRT by video ID
-        run: python -m ire.v5.continuous_integration --root .
-      - name: Verify pilot research remains non-advisory and source-cited
-        run: python -m ire.v5.review_gate --review ire/v5/reviews/4TFtEQxSM38_20261104.json --prior data/claims.jsonl
-      - name: Replay sourced advisory research questions and fail closed
-        run: python -m ire.v5.advisory_replay --root .
-      - name: Verify original 20-claim evidence candidates and five new source IDs
-        run: python -m ire.v5.knowledge_stage --root .
-      - name: Validate five real SRT source studies and pending knowledge relations
-        run: python -m ire.v5.five_study_gate --root .
-      - name: Verify provisional 20 legacy plus five video evidence integration
-        run: python -m ire.v5.provisional_knowledge_gate --root .
-      - name: Recheck source cue spans against external authority references
-        run: python -m ire.v5.external_authority_recheck --root .
-      - name: Verify deduplicated evidence-scoped education facts, not personalized advice
-        run: python -m ire.v5.education_release_gate --root .
-      - name: Execute V5 core and portability tests
-        run: python -m unittest discover -s ire/v5/tests -p 'test_*.py' -v
+      - name: Execute unified local/CI fail-closed preflight
+        run: python -m ire.v5.preflight --root .

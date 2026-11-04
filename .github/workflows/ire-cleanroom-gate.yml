@@ -9,7 +9,6 @@ on:
       - feat/ire-incremental-advisory-20261101
       - feat/ire-v2-advisory-system-redesign-20261101
       - feat/ire-v3-chat-orchestration-20261102
-      - feat/ire-v5-vertical-slice-20261103
     paths:
       - "ire/**"
       - ".github/workflows/ire-cleanroom-gate.yml"
@@ -20,6 +19,13 @@ on:
 
 permissions:
   contents: read
+
+# Keep PR coverage for V5, but its push is already checked by the V5
+# standalone workflow. This avoids duplicate push failures per commit.
+# Superseded runs are cancelled; neither validation nor PR checks are disabled.
+concurrency:
+  group: ire-cleanroom-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   independent-source-contract:
