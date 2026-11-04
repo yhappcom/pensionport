@@ -49,6 +49,22 @@ class AppCore:
         with self._mutex:
             return self._load().next_task()
 
+    def next_bundle(self) -> dict:
+        """At most 8 source packets; no model calls or automatic answers."""
+        with self._mutex:
+            run=self._load()
+            pending=[wid for wid in run.active if wid not in run.model]
+            task=run.next_task()
+            return {"schema":"IRE_V5_APP_SOURCE_BUNDLE_V1",
+                    "video_id":run.manifest["video_id"],
+                    "packets":[run.packet(wid) for wid in pending[:8]],
+                    "pending_uninterpreted_windows":len(pending),
+                    "expected_chain_head":run.head,
+                    "expected_task_sha256":task["task_sha256"],
+                    "next_phase":task["phase"],
+                    "requires_live_chat_interpretation":True,
+                    "private_source_verified_by_github":False}
+
     def accept(self, submitted: dict) -> dict:
         require(type(submitted) is dict and set(submitted) == {
             "event_type", "payload", "expected_chain_head", "expected_task_sha256"},
@@ -57,8 +73,11 @@ class AppCore:
             run = self._load()
             task = run.next_task()
             expected_kind = KINDS.get(task["phase"])
-            require(expected_kind is not None and submitted["event_type"] == expected_kind,
-                    "V5_APP_WRONG_PHASE")
+            allowed_single=(expected_kind is not None and
+                            submitted["event_type"] == expected_kind)
+            allowed_batch=(expected_kind is not None and
+                           submitted["event_type"]=="BATCH_ACCEPT")
+            require(allowed_single or allowed_batch,"V5_APP_WRONG_PHASE")
             require(submitted["expected_chain_head"] == run.head and
                     submitted["expected_task_sha256"] == task["task_sha256"],
                     "V5_APP_STALE_TASK_OR_HEAD")
@@ -127,6 +146,8 @@ class Handler(BaseHTTPRequestHandler):
                 self._json(200, self.app.state())
             elif self.path == "/v1/next":
                 self._json(200, self.app.next_task())
+            elif self.path == "/v1/next-bundle":
+                self._json(200, self.app.next_bundle())
             else:
                 self._json(404, {"error": "NOT_FOUND"})
         except (RunError, ValueError, OSError) as e:
