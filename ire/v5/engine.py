@@ -18,6 +18,7 @@ import secrets
 
 SOURCE_MANIFEST_SCHEMA = "IRE_V5_SOURCE_PLAN_V1"
 MODEL_SCHEMA = "IRE_V5_MODEL_WINDOW_V1"
+CORRECTION_SCHEMA = "IRE_V5_MODEL_CORRECTION_V1"
 EVIDENCE_SCHEMA = "IRE_V5_EVIDENCE_CASE_V1"
 RELATION_SCHEMA = "IRE_V5_PRIOR_RELATION_V1"
 EVENT_SCHEMA = "IRE_V5_EVENT_V1"
@@ -184,6 +185,7 @@ class ResearchRun:
     def replay(self) -> dict:
         """Verifies content-addressed immutable sequential events and every transition."""
         self.model={};self.evidence={};self.relations={};self.closure=None
+        self.model_corrections={}
         files=sorted(self.events.glob("*.json"))
         expected_prev="0"*64
         for seq,path in enumerate(files,1):
@@ -215,8 +217,8 @@ class ResearchRun:
             for action in item["actions"]:
                 require(type(action) is dict and
                         set(action)=={"type","payload"} and
-                        action["type"] in {"MODEL_ANALYSIS", "EVIDENCE_REVIEW",
-                                           "PRIOR_RELATION_REVIEW"},
+                        action["type"] in {"MODEL_ANALYSIS", "MODEL_CORRECTION",
+                                           "EVIDENCE_REVIEW", "PRIOR_RELATION_REVIEW"},
                         "BATCH_ACTION_TYPE_NOT_ALLOWED")
                 self._apply(action["type"], action["payload"])
             return
@@ -225,6 +227,32 @@ class ResearchRun:
             require(wid not in self.model,"MODEL_WINDOW_ALREADY_ACCEPTED")
             self._validate_model(item)
             self.model[wid]=item
+        elif kind=="MODEL_CORRECTION":
+            # Durable revision: never rewrite an old decision or its evidence.
+            # Any prior reviews of this window's claims must be redone against
+            # the corrected meaning. Historical receipts remain in the chain.
+            require(type(item) is dict and item.get("schema")==CORRECTION_SCHEMA,
+                    "MODEL_CORRECTION_SCHEMA_INVALID")
+            wid=item.get("window_id")
+            require(type(wid) is str and wid in self.model,
+                    "MODEL_CORRECTION_UNKNOWN_WINDOW")
+            previous=self.model[wid]
+            require(item.get("previous_model_sha256")==sha256(canonical(previous)),
+                    "MODEL_CORRECTION_STALE_PREVIOUS_MODEL")
+            require(type(item.get("reason")) is str and len(item["reason"].strip())>=16,
+                    "MODEL_CORRECTION_REASON_REQUIRED")
+            revision=self.model_corrections.get(wid,0)
+            require(revision<16,"MODEL_CORRECTION_REVISION_LIMIT")
+            updated=item.get("corrected_model")
+            require(type(updated) is dict and updated.get("window_id")==wid and
+                    updated!=previous,"MODEL_CORRECTION_SAME_OR_OTHER_WINDOW")
+            self._validate_model(updated, replacing_window=wid)
+            for claim in previous["claims"]:
+                cid=claim["claim_id"]
+                self.evidence.pop(cid,None)
+                self.relations.pop(cid,None)
+            self.model[wid]=updated
+            self.model_corrections[wid]=revision+1
         elif kind=="EVIDENCE_REVIEW":
             self._validate_evidence(item)
             cid=item["claim_id"]
@@ -244,11 +272,12 @@ class ResearchRun:
     def append(self, kind: str, item: dict) -> dict:
         # preflight against live actual state before writing.
         self.replay()
-        old=(self.model.copy(),self.evidence.copy(),self.relations.copy(),self.closure)
+        old=(self.model.copy(),self.evidence.copy(),self.relations.copy(),self.closure,
+             self.model_corrections.copy())
         try:
             self._apply(kind,item)
         except Exception:
-            self.model,self.evidence,self.relations,self.closure=old
+            self.model,self.evidence,self.relations,self.closure,self.model_corrections=old
             raise
         body={"schema":EVENT_SCHEMA,"sequence":self.seq+1,
               "prev_event_sha256":self.head,"type":kind,"payload":item}
@@ -275,6 +304,15 @@ class ResearchRun:
                 if wid not in self.model:
                     result={"phase":"MODEL_ANALYSIS_REQUIRED", "window_id":wid,
                             "packet":self.packet(wid)}
+                    break
+                unresolved_ids=[x["cue_index"] for x in
+                                self.model[wid]["cue_dispositions"]
+                                if x["status"]=="UNRESOLVED"]
+                if unresolved_ids:
+                    result={"phase":"MODEL_CORRECTION_REQUIRED","window_id":wid,
+                            "previous_model_sha256":sha256(canonical(self.model[wid])),
+                            "unresolved_cue_ids":unresolved_ids,
+                            "review_invalidation_on_correction":True}
                     break
                 for claim in self.model[wid]["claims"]:
                     cid=claim["claim_id"]
@@ -305,7 +343,7 @@ class ResearchRun:
     def _claims(self)->dict:
         return {c["claim_id"]:c for w in self.model.values() for c in w["claims"]}
 
-    def _validate_model(self, item: dict)->None:
+    def _validate_model(self, item: dict, replacing_window: str | None = None)->None:
         require(type(item) is dict and item.get("schema")==MODEL_SCHEMA,
                 "MODEL_SCHEMA_INVALID")
         wid=item.get("window_id")
@@ -318,6 +356,11 @@ class ResearchRun:
         claims=item.get("claims");states=item.get("cue_dispositions")
         require(type(claims) is list and type(states) is list,"MODEL_CLAIMS_MISSING")
         all_existing=set(self._claims())
+        if replacing_window is not None:
+            require(item.get("window_id")==replacing_window and
+                    replacing_window in self.model,"MODEL_CORRECTION_BAD_REPLACEMENT")
+            all_existing.difference_update(c["claim_id"] for c in
+                                           self.model[replacing_window]["claims"])
         ref_by_cue={i:set() for i in self.windows[wid]["primary_cue_ids"]}
         seen=set()
         for c in claims:
@@ -447,6 +490,7 @@ class ResearchRun:
         d=self.closure.copy() if self.closure is not None else self._closure_body()
         return {**d,"sealed":self.closure is not None,
                 "receipt_count":self.seq,
+                "model_corrections":sum(self.model_corrections.values()),
                 "event_chain_head_sha256":getattr(self,"head","0"*64),
                 "video_windows_total":len(self.windows),
                 "scope_kind":"FULL_VIDEO" if full_scope else "PILOT_WINDOW_SCOPE",
