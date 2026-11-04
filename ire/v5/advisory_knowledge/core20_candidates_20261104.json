@@ -1,0 +1,694 @@
+{
+  "schema": "IRE_V5_CORE20_EVIDENCE_CANDIDATES_V1",
+  "review_date": "2026-11-04",
+  "time_zone": "Asia/Seoul",
+  "legacy_ledger_path": "data/claims.jsonl",
+  "legacy_ledger_blob_sha1": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "selection_method": "PREDECLARED_4_PER_DOMAIN",
+  "selected_count": 20,
+  "source_count": 11,
+  "attribution_note": "Claim text and video IDs copied from legacy ledger. Scope summaries and official evidence references are new ChatGPT external research, not original video quotations.",
+  "confidence_warning": "Existing legacy confidence is a historical label, not independent fact verification.",
+  "sources": [
+    {
+      "source_id": "ISA-LAW",
+      "issuer": "국가법령정보센터",
+      "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1018255825",
+      "jurisdiction": "KR",
+      "scope": "ISA 과세특례; 비과세 범주 일반형 200만원·조건부 400만원",
+      "kind": "LAW_TEXT",
+      "historical_or_proposed": false,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "ISA-FSC-HISTORY",
+      "issuer": "금융위원회",
+      "url": "https://www.fsc.go.kr/po020201/27339?srchText=ISA",
+      "jurisdiction": "KR",
+      "scope": "ISA 계좌내 손익통산 구조에 관한 과거 정책문답; 현재 세율의 독립 근거가 아님",
+      "kind": "HISTORIC_EXPLANATION",
+      "historical_or_proposed": true,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "PENSION-NTS",
+      "issuer": "국세청",
+      "url": "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596",
+      "jurisdiction": "KR",
+      "scope": "연금계좌 세액공제 대상 납입한도, 공제율, ISA 만기 전환 추가 한도",
+      "kind": "ADMINISTRATIVE_GUIDANCE",
+      "historical_or_proposed": false,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "IRP-LAW",
+      "issuer": "국가법령정보센터",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032589681",
+      "jurisdiction": "KR",
+      "scope": "근로자퇴직급여 보장법 시행령 제18조, 개인형퇴직연금 중도인출 법정 조건",
+      "kind": "LAW_TEXT",
+      "historical_or_proposed": false,
+      "displayed_effective_from": "2026-03-24",
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "IRP-PROPOSAL",
+      "issuer": "고용노동부",
+      "url": "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=20160",
+      "jurisdiction": "KR",
+      "scope": "IRP 위험자산 투자 한도 70% 완화 및 투자상품 확대에 관한 정책 추진 발표; 시행법 아님",
+      "kind": "PROPOSAL_NOT_EFFECTIVE_LAW",
+      "historical_or_proposed": true,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "KRX-ETF",
+      "issuer": "한국거래소",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+      "jurisdiction": "KR",
+      "scope": "국내 상장 ETF 매매제도, 호가 및 시장가격",
+      "kind": "EXCHANGE_RULE_GUIDANCE",
+      "historical_or_proposed": false,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "KRX-RISKS",
+      "issuer": "한국거래소",
+      "url": "https://m.krx.co.kr/contents/06/0609/060901/JHPETP060901M01.jsp",
+      "jurisdiction": "KR",
+      "scope": "ETF 투자 위험, 유동성·추적오차·보수·상품 구조",
+      "kind": "INVESTOR_EDUCATION",
+      "historical_or_proposed": false,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "KRX-CLOSE",
+      "issuer": "한국거래소",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03010301/RGL03010301.jsp",
+      "jurisdiction": "KR",
+      "scope": "ETF 시간외종가 대상, 15:40~16:00 등 거래 세션별 조건",
+      "kind": "EXCHANGE_RULE_GUIDANCE",
+      "historical_or_proposed": false,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "SEC-ETF",
+      "issuer": "미국 증권거래위원회 투자자교육",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+      "jurisdiction": "US_EDUCATIONAL",
+      "scope": "일반 ETF의 분산·비용·손실 위험; 한국 세제 규정과 혼동 금지",
+      "kind": "INVESTOR_EDUCATION",
+      "historical_or_proposed": false,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "SEC-TDF",
+      "issuer": "미국 증권거래위원회 투자자교육",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin",
+      "jurisdiction": "US_EDUCATIONAL",
+      "scope": "타깃데이트펀드의 글라이드패스·위험·보수 일반 원칙",
+      "kind": "INVESTOR_EDUCATION",
+      "historical_or_proposed": false,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    },
+    {
+      "source_id": "SEC-ALLOCATION",
+      "issuer": "미국 증권거래위원회 투자자교육",
+      "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+      "jurisdiction": "US_EDUCATIONAL",
+      "scope": "자산군 분산·목표비중·리밸런싱 원칙; 한국 투자세법과 무관",
+      "kind": "INVESTOR_EDUCATION",
+      "historical_or_proposed": false,
+      "reviewed_in_live_chat_on": "2026-11-04",
+      "immutable_source_snapshot_sha256": null,
+      "independent_attestation": false
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "GOMHEE-C13",
+      "domain": "ISA",
+      "legacy_topic": "isa",
+      "legacy_claim": "ISA는 투자상품이 아니라 세제 래퍼이며 손익통산·비과세·분리과세 구조를 함께 평가한다",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "medium_high",
+      "original_supporting_video_ids": [
+        "X_k682dMXoM"
+      ],
+      "evidence_source_ids": [
+        "ISA-LAW",
+        "ISA-FSC-HISTORY"
+      ],
+      "evidence_relation": "RELEVANT_RULE_SCOPE_CANDIDATE",
+      "candidate_scope_summary": "법·세제 구조 설명 후보",
+      "condition": "계좌 유형 및 계약시점에 따라 과세 특례가 달라짐",
+      "exception_or_risk": "계좌 밖 손실·모든 소득을 통산한다고 해석하면 오류",
+      "verification_gap": "개인 ISA 가입 유형과 계좌 내 과세대상 상품 확정 필요",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C32",
+      "domain": "ISA",
+      "legacy_topic": "isa_lifecycle",
+      "legacy_claim": "ISA 만기는 단순 계좌 종료가 아니라 손익·세제혜택을 확정하고 필요시 연금계좌 전환과 신규 ISA 재개설로 이어지는 계좌 lifecycle event로 본다",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "high",
+      "original_supporting_video_ids": [
+        "iy7_HMMSLGc"
+      ],
+      "evidence_source_ids": [
+        "PENSION-NTS",
+        "ISA-LAW"
+      ],
+      "evidence_relation": "RELEVANT_RULE_SCOPE_CANDIDATE",
+      "candidate_scope_summary": "ISA 만기 연금계좌 전환 부분근거",
+      "condition": "연금계좌 전환 추가 공제는 전환 시점과 요건에 따름",
+      "exception_or_risk": "ISA 재개설 권한과 세부 계약 조건은 별도 확인",
+      "verification_gap": "만기계약·전환 시점·수령계좌 확인 필요",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C33",
+      "domain": "ISA",
+      "legacy_topic": "isa_tax_location",
+      "legacy_claim": "ISA의 세후효과는 계좌명만으로 판단하지 않고 기초자산의 소득원천과 외국 원천세·국내 과세·비과세/분리과세·과세이연을 함께 비교한다",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "medium_high",
+      "original_supporting_video_ids": [
+        "Gk3-ZC9W3vw"
+      ],
+      "evidence_source_ids": [
+        "ISA-LAW",
+        "ISA-FSC-HISTORY"
+      ],
+      "evidence_relation": "PARTIAL_OR_GAP",
+      "candidate_scope_summary": "외국 원천세 개별 적용 근거 부족",
+      "condition": "해외 배당의 원천징수·국내 과세 상호관계는 상품마다 다름",
+      "exception_or_risk": "ISA 전체에서 외국세액 환급이 자동 보장된다고 할 수 없음",
+      "verification_gap": "개별 ETF 운용 구조·해외원천세 경로·해당 연도 법령 추가 검증",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C109",
+      "domain": "ISA",
+      "legacy_topic": "isa",
+      "legacy_claim": "ISA 등 세제개편 영상은 발표안과 실제 시행법을 분리해 관리해야 하며, 현재 한도와 세율은 실행 시점의 시행 법령으로 재검증해야 한다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "source_backed_officially_verified",
+      "original_supporting_video_ids": [
+        "JsdnpGa9_ZY"
+      ],
+      "evidence_source_ids": [
+        "ISA-LAW",
+        "ISA-FSC-HISTORY"
+      ],
+      "evidence_relation": "PARTIAL_OR_GAP",
+      "candidate_scope_summary": "법률과 발표안을 분리하는 절차상 원칙",
+      "condition": "공식 법령의 시행·적용 연도를 먼저 확인해야 함",
+      "exception_or_risk": "과거 발표안의 개정 한도를 현행 한도로 오인 금지",
+      "verification_gap": "2026-11-04 현재 시행법 및 향후 개정 여부 추가 조회",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C07",
+      "domain": "PENSION",
+      "legacy_topic": "pension_savings",
+      "legacy_claim": "연금저축을 장기 노후자산 구축의 기본 세제계좌로 활용한다",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "medium_high",
+      "original_supporting_video_ids": [
+        "4wt9xB9KV6A"
+      ],
+      "evidence_source_ids": [
+        "PENSION-NTS"
+      ],
+      "evidence_relation": "GENERAL_INVESTOR_EDUCATION",
+      "candidate_scope_summary": "연금저축의 세제 기능과 투자 목적",
+      "condition": "적립기간·과세구간·인출제약에 따라 유용성이 다름",
+      "exception_or_risk": "개인 누구에게나 반드시 연금저축 우선이라는 권고는 불가",
+      "verification_gap": "납부세액·유동성·은퇴 시점 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C28",
+      "domain": "PENSION",
+      "legacy_topic": "pension_savings_operation",
+      "legacy_claim": "연금저축에 납입해 세액공제를 받는 것과 계좌 안의 자금을 실제 투자하는 것은 별도 단계이며, 운용 난이도에 따라 MMF 임시대기·TDF 위임·ETF 자기주도로 단계적으로 구현할 수 있다",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "medium_high",
+      "original_supporting_video_ids": [
+        "a-890uldXeo"
+      ],
+      "evidence_source_ids": [
+        "PENSION-NTS",
+        "SEC-ETF"
+      ],
+      "evidence_relation": "PARTIAL_OR_GAP",
+      "candidate_scope_summary": "납입·세액공제와 상품운용 분리",
+      "condition": "계좌 납입만으로 주식·ETF 보유가 자동 발생하지 않음",
+      "exception_or_risk": "MMF·TDF·ETF의 국내 연금계좌 편입 가능 조건은 상품별 상이",
+      "verification_gap": "상품명·운용사·계좌 유형·투자가능 범위 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C42",
+      "domain": "PENSION",
+      "legacy_topic": "pension_tax_basis",
+      "legacy_claim": "연금계좌의 납입한도와 세액공제 한도는 다른 개념이며, 공제한도를 초과한 납입액도 비공제 원금·과세이연·향후 인출설계 관점에서 별도 관리한다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "high",
+      "original_supporting_video_ids": [
+        "ZTlLcC4gE0M"
+      ],
+      "evidence_source_ids": [
+        "PENSION-NTS"
+      ],
+      "evidence_relation": "RELEVANT_RULE_SCOPE_CANDIDATE",
+      "candidate_scope_summary": "세액공제 대상 납입한도와 계좌 납입의 구별",
+      "condition": "연금저축 600만원 및 퇴직연금 합산 900만원 공제 한도",
+      "exception_or_risk": "초과 납입액의 세제 성격을 모든 개인에게 단정 불가",
+      "verification_gap": "비공제 원금 증빙·연간 납입 이력·인출계획 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C71",
+      "domain": "PENSION",
+      "legacy_topic": "pension_savings",
+      "legacy_claim": "연금저축 납입액이 있다고 해서 세액공제를 기계적으로 최대 적용하는 것이 항상 최적은 아니라는 실제 사례다. 월세 등 다른 세액공제로 이미 납부세액을 충분히 환급받을 수 있는 경우 연금저축 납입액을 세액공제 받지 않은 원금으로 남기는 선택을 보여준다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "source_backed",
+      "original_supporting_video_ids": [
+        "x2_oSwvVH8k"
+      ],
+      "evidence_source_ids": [
+        "PENSION-NTS"
+      ],
+      "evidence_relation": "PARTIAL_OR_GAP",
+      "candidate_scope_summary": "납부세액과 세액공제 실익 구별",
+      "condition": "세액공제는 공제대상 납입뿐 아니라 실제 세액과 개인 자격의 제약을 받음",
+      "exception_or_risk": "월세 공제 등 다른 공제가 우선 적용되는 일반적 규칙으로 단정 불가",
+      "verification_gap": "개인 전체 연말정산과 과세연도별 납부세액 시뮬레이션 필요",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C08",
+      "domain": "IRP",
+      "legacy_topic": "irp",
+      "legacy_claim": "IRP는 연금저축과 조합하되 세제혜택뿐 아니라 유동성·운용제약을 함께 평가한다",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "medium_high",
+      "original_supporting_video_ids": [
+        "xqXD9R_3TOI"
+      ],
+      "evidence_source_ids": [
+        "IRP-LAW",
+        "PENSION-NTS"
+      ],
+      "evidence_relation": "RELEVANT_RULE_SCOPE_CANDIDATE",
+      "candidate_scope_summary": "IRP 유동성·법정 인출사유와 세액공제",
+      "condition": "제18조 법정 사유와 요건 충족 여부에 따라 중도인출 제한",
+      "exception_or_risk": "무주택·주거 관련 사유만으로 자동 인출 가능하다고 할 수 없음",
+      "verification_gap": "근로형태·계좌 유형·무주택 사유·증빙 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C43",
+      "domain": "IRP",
+      "legacy_topic": "pension_wrapper_selection",
+      "legacy_claim": "연금저축과 IRP는 어느 하나가 절대 우월한 계좌가 아니라 유동성·투자가능자산·위험자산 한도·퇴직급여 수용 등 기능 차이를 기준으로 조합한다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "high",
+      "original_supporting_video_ids": [
+        "DVEdeOoCtXA"
+      ],
+      "evidence_source_ids": [
+        "IRP-LAW",
+        "IRP-PROPOSAL"
+      ],
+      "evidence_relation": "RELEVANT_RULE_SCOPE_CANDIDATE",
+      "candidate_scope_summary": "연금저축 대 IRP 기능 비교",
+      "condition": "70% 위험자산 한도 완화 추진은 시행 여부 미확정",
+      "exception_or_risk": "2026-10 발표를 이미 시행된 100% 위험자산 허용으로 오인 금지",
+      "verification_gap": "적용 계좌·안전자산 분류·규제 개정 시행일 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C73",
+      "domain": "IRP",
+      "legacy_topic": "pension_savings",
+      "legacy_claim": "연금저축과 IRP는 둘 다 노후용 세제계좌지만 동일하지 않다. 선택은 세액공제만이 아니라 가입자격, 납입/투자 자유도, 위험자산 투자제한, 중도인출 조건, 수수료와 운용상품을 함께 비교해야 한다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "source_backed",
+      "original_supporting_video_ids": [
+        "BVAp7DhBA40"
+      ],
+      "evidence_source_ids": [
+        "IRP-LAW",
+        "PENSION-NTS"
+      ],
+      "evidence_relation": "RELEVANT_RULE_SCOPE_CANDIDATE",
+      "candidate_scope_summary": "가입조건·중도인출·계좌별 상품 비교",
+      "condition": "연금계좌라도 계좌 성격별 인출 제한은 다름",
+      "exception_or_risk": "개인 사유를 묻지 않고 IRP와 연금저축을 동일하게 취급 금지",
+      "verification_gap": "인출 예정시점·계좌상품·세액공제 이력 필요",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C80",
+      "domain": "IRP",
+      "legacy_topic": "irp",
+      "legacy_claim": "TDF의 본질은 은퇴 목표시점에 맞춰 위험자산을 자동 감축하는 glide path와 자산배분이다. 영상의 광고 상품은 이를 ETF·패시브 방식으로 구현하고 S&P500 비중을 높인 특수한 설계다. TDF라는 범주와 특정 상품의 마케팅 주장을 분리해서 읽어야 한다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "source_backed",
+      "original_supporting_video_ids": [
+        "9aQ0u1vGog8"
+      ],
+      "evidence_source_ids": [
+        "SEC-TDF"
+      ],
+      "evidence_relation": "GENERAL_INVESTOR_EDUCATION",
+      "candidate_scope_summary": "TDF 일반 글라이드패스 교육",
+      "condition": "TDF는 펀드별 글라이드패스와 비용이 다름",
+      "exception_or_risk": "영상 특정 광고상품에 동일 수익률이나 안전성을 일반화 금지",
+      "verification_gap": "해당 TDF 실제 투자설명서·투자지역·보수 필요",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C06",
+      "domain": "ETF",
+      "legacy_topic": "etf",
+      "legacy_claim": "ETF는 여러 자산군의 분산 노출을 구현하는 핵심 도구로 활용할 수 있다",
+      "legacy_status": "core",
+      "legacy_confidence_label_unverified": "high",
+      "original_supporting_video_ids": [
+        "okrUVN8l3zk",
+        "UMKf5H9aXqE",
+        "o-q8fjtbSUg",
+        "XlH7yEh3Ym8",
+        "E3tZ6QIpSlg",
+        "QBTq_bu56WU",
+        "lxkPdT5z7yU",
+        "EjrCfxPvHfI"
+      ],
+      "evidence_source_ids": [
+        "KRX-RISKS",
+        "SEC-ETF"
+      ],
+      "evidence_relation": "GENERAL_INVESTOR_EDUCATION",
+      "candidate_scope_summary": "ETF 분산투자의 일반적 가능성",
+      "condition": "집중형·레버리지·파생·특정 산업 투자시 분산효과 감소",
+      "exception_or_risk": "ETF라는 명칭만으로 분산·원금보장 판정 불가",
+      "verification_gap": "지수 구성·추적오차·리스크 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C26",
+      "domain": "ETF",
+      "legacy_topic": "thematic_etf",
+      "legacy_claim": "테마 ETF는 개별 종목 선택을 분산할 수 있지만 테마 집중·고평가 위험을 제거하지 않으므로 추종지수·구성종목·집중도·리밸런싱 규칙을 확인한다",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "medium_high",
+      "original_supporting_video_ids": [
+        "lxkPdT5z7yU"
+      ],
+      "evidence_source_ids": [
+        "KRX-RISKS",
+        "SEC-ALLOCATION"
+      ],
+      "evidence_relation": "GENERAL_INVESTOR_EDUCATION",
+      "candidate_scope_summary": "테마 ETF의 집중도·구성종목 위험",
+      "condition": "한 섹터 중심 ETF는 업종 위험을 제거하지 않음",
+      "exception_or_risk": "여러 ETF 보유라도 동일 종목 중복 가능",
+      "verification_gap": "실제 상품 편입종목·산업 편중·비용 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C97",
+      "domain": "ETF",
+      "legacy_topic": "market_execution",
+      "legacy_claim": "주식시장의 거래가 주문의 우선순위와 체결규칙 위에서 작동한다는 시장 미시구조 기초를 다룬다. 투자자는 '사고 싶다/팔고 싶다'는 의사만으로 원하는 가격에 항상 체결되는 것이 아니라 가격·시간 등 거래소의 우선원칙 아래 주문이 매칭된다는 점을 이해해야 한다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "source_backed",
+      "original_supporting_video_ids": [
+        "I6aV-uhBmnQ"
+      ],
+      "evidence_source_ids": [
+        "KRX-ETF",
+        "KRX-CLOSE"
+      ],
+      "evidence_relation": "RELEVANT_RULE_SCOPE_CANDIDATE",
+      "candidate_scope_summary": "주문 접수와 체결의 구별 및 세션",
+      "condition": "정규장 호가와 시간외종가는 체결 방식이 다름",
+      "exception_or_risk": "지정가 주문 제출 즉시 원하는 가격 체결을 보장하지 않음",
+      "verification_gap": "거래시장·세션·매수 가능 시간·종목별 예외 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C110",
+      "domain": "ETF",
+      "legacy_topic": "dividend_investing",
+      "legacy_claim": "배당 ETF는 현재 분배율보다 배당 성장성·지수구조·총비용·장기 총수익을 함께 평가하고, 연금계좌에서는 계좌 제약에 맞는 상품으로 동일한 투자노출을 구현해야 한다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "source_backed",
+      "original_supporting_video_ids": [
+        "P4ubBFb-3ZQ"
+      ],
+      "evidence_source_ids": [
+        "KRX-RISKS",
+        "SEC-ETF"
+      ],
+      "evidence_relation": "PARTIAL_OR_GAP",
+      "candidate_scope_summary": "배당·분배와 총수익·비용 분석의 일반 원칙",
+      "condition": "분배율은 미래 수익이나 원금 보장 아님",
+      "exception_or_risk": "연금계좌 편입 가능 ETF 및 국내 과세는 미국 교육자료로 검증 안 됨",
+      "verification_gap": "상품 분배재원·보수·배당세제·계좌편입 제한 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C09",
+      "domain": "ALLOCATION",
+      "legacy_topic": "asset_allocation",
+      "legacy_claim": "개별 종목 분산을 넘어 서로 다른 자산군을 목표비율로 배치한다",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "medium_high",
+      "original_supporting_video_ids": [
+        "AzY0FU-HxME",
+        "_gsX0d_f9ew"
+      ],
+      "evidence_source_ids": [
+        "SEC-ALLOCATION"
+      ],
+      "evidence_relation": "GENERAL_INVESTOR_EDUCATION",
+      "candidate_scope_summary": "자산군별 분산의 원칙",
+      "condition": "자산군 간 상관관계는 시기별 변화할 수 있음",
+      "exception_or_risk": "자산군 분산 자체가 손실 방지를 보장하지 않음",
+      "verification_gap": "투자기간·손실 감내·목표비중 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C23",
+      "domain": "ALLOCATION",
+      "legacy_topic": "asset_allocation_etf",
+      "legacy_claim": "목표 자산배분을 직접 여러 상품으로 구현할 수도 있고 하나의 멀티에셋 ETF에 위임할 수도 있으며 내부 배분규칙을 확인해야 한다",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "medium",
+      "original_supporting_video_ids": [
+        "jNWVQgeEwm8"
+      ],
+      "evidence_source_ids": [
+        "SEC-ALLOCATION",
+        "SEC-ETF"
+      ],
+      "evidence_relation": "GENERAL_INVESTOR_EDUCATION",
+      "candidate_scope_summary": "멀티에셋 펀드와 직접 배분 비교",
+      "condition": "단일 ETF 내부 자산배분은 투자설명서 기준으로 결정",
+      "exception_or_risk": "멀티에셋 ETF라는 이름만으로 목표비중이 항상 유지된다고 단정 불가",
+      "verification_gap": "구성자산·내부 리밸런싱 규칙·비용 확인",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C52",
+      "domain": "ALLOCATION",
+      "legacy_topic": "asset_allocation",
+      "legacy_claim": "자산배분은 단기 시장방향을 반복 예측하는 대신 서로 다른 위험요인을 가진 자산을 목표비중으로 보유하고 정기적으로 리밸런싱하는 접근이다. 영상의 핵심 프레임은 '예측보다 구조'다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "source_backed",
+      "original_supporting_video_ids": [
+        "oxMpNgnbISw"
+      ],
+      "evidence_source_ids": [
+        "SEC-ALLOCATION"
+      ],
+      "evidence_relation": "GENERAL_INVESTOR_EDUCATION",
+      "candidate_scope_summary": "재조정과 목표비중 관리 교육",
+      "condition": "정기적 리밸런싱은 위험비중 원상 복원 목적",
+      "exception_or_risk": "리밸런싱이 초과수익을 보장하거나 모든 시장국면 최적이 아님",
+      "verification_gap": "현금흐름·세금·거래비용·적정 주기 평가",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "GOMHEE-C75",
+      "domain": "ALLOCATION",
+      "legacy_topic": "asset_allocation",
+      "legacy_claim": "자산배분의 성패를 특정 시점 수익률 하나로 평가하기보다 처음 정한 자산군·목표비중과 실제 현재비중이 어떻게 달라졌는지 기록하고 점검하는 것이 중요하다. 실전 사례는 자산배분이 한 번 매수하고 끝나는 행위가 아니라 정기 납입·기록·비중관리의 반복 프로세스임을 강화한다.",
+      "legacy_status": "supported",
+      "legacy_confidence_label_unverified": "source_backed",
+      "original_supporting_video_ids": [
+        "cDKaiQWJPZs"
+      ],
+      "evidence_source_ids": [
+        "SEC-ALLOCATION"
+      ],
+      "evidence_relation": "GENERAL_INVESTOR_EDUCATION",
+      "candidate_scope_summary": "목표비중 대비 현재비중 추적",
+      "condition": "자산 편중 확대 시 추가 투자 혹은 일부 조정 가능",
+      "exception_or_risk": "목표 비중의 합리성·사전 적합성을 검증하지 않고 자동 조정 금지",
+      "verification_gap": "투자목표 변경·거래비용·개인 적합성 재검토",
+      "private_original_srt_rechecked_this_turn": false,
+      "source_text_snapshot_sealed": false,
+      "external_blind_human_verified": false,
+      "independent_financial_fact_approved": false,
+      "approved_for_personalized_advice": false,
+      "can_merge_into_approved_knowledge": false,
+      "review_state": "SOURCE_CANDIDATE_REVIEW_REQUIRED"
+    }
+  ],
+  "approved_independent_financial_facts": 0,
+  "approved_personalized_advice_items": 0,
+  "knowledge_rewrite_performed": false,
+  "overall_release": "RESEARCH_CANDIDATES_NO_ADVISORY"
+}
