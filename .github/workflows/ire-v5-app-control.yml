@@ -7,6 +7,7 @@ on:
       - 'ire/v5_app/requests/**'
       - 'ire/v5_app/batch_requests/**'
       - 'ire/v5_app/audit_requests/**'
+      - 'ire/v5_app/focused_requests/**'
       - '.github/workflows/ire-v5-app-control.yml'
   workflow_dispatch:
 permissions:
@@ -34,11 +35,13 @@ jobs:
         run: python -m ire.v5_app.batch_worker --requests ire/v5_app/batch_requests --states ire/v5_app/batch_states
       - name: Compute privacy-safe incremental risk audit state
         run: python -m ire.v5_app.audit_worker --requests ire/v5_app/audit_requests --states ire/v5_app/audit_states
+      - name: Compute 64-case focused risk status without private source
+        run: python -m ire.v5_app.focused_worker --requests ire/v5_app/focused_requests --states ire/v5_app/focused_states
       - name: Persist computed job states on the development branch
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add ire/v5_app/states ire/v5_app/batch_states ire/v5_app/audit_states
+          git add ire/v5_app/states ire/v5_app/batch_states ire/v5_app/audit_states ire/v5_app/focused_states
           if ! git diff --cached --quiet; then
             git commit -m 'chore(v5-app): refresh public job state from checked commands'
             git push origin "HEAD:${GITHUB_REF_NAME}"
