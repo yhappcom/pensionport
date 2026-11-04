@@ -35,5 +35,7 @@ jobs:
         run: python -m ire.v5.provisional_knowledge_gate --root .
       - name: Recheck source cue spans against external authority references
         run: python -m ire.v5.external_authority_recheck --root .
+      - name: Verify deduplicated evidence-scoped education facts, not personalized advice
+        run: python -m ire.v5.education_release_gate --root .
       - name: Execute V5 core and portability tests
         run: python -m unittest discover -s ire/v5/tests -p 'test_*.py' -v

@@ -1,0 +1,114 @@
+{
+  "schema": "IRE_V5_DEDUPLICATED_EDUCATIONAL_KNOWLEDGE_V1",
+  "as_of": "2026-11-04",
+  "status": "CHATGPT_EVIDENCE_REVIEW_PASSED_NOT_HUMAN_BLIND_APPROVED",
+  "knowledge_count": 4,
+  "source_audit_approvals_merged": 5,
+  "original_ledger_unchanged": true,
+  "external_blind_independent_approval": false,
+  "financial_advice_go": false,
+  "source_audit": "verification_20261104/adjudications.json",
+  "entries": [
+    {
+      "knowledge_id": "EDU-KR-ISA-LIMIT-2026-01",
+      "kind": "REGULATED_TAX_RULE",
+      "rule_reference_start": "2026-09-18",
+      "educational_fact": "ISA 비과세 한도는 법정 요건을 충족한 유형에 따라 200만원 또는 400만원이다.",
+      "source_audit_ids": [
+        "P01_ISA_INCOME"
+      ],
+      "legacy_claim_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C109"
+      ],
+      "authority_ids": [
+        "REF-ISA-STATUTE-2026",
+        "REF-ISA-BANK-SEP-2026"
+      ],
+      "critical_qualification": "가입·연장일 기준 유형/직전과세기간 소득, 금융소득종합과세 관련 제외조건을 확인해야 한다.",
+      "reviewed_as_of": "2026-11-04",
+      "usable_for": "GENERAL_EDUCATION_WITH_SCOPE_AND_SOURCE_ONLY",
+      "personalized_advice_approved": false,
+      "blind_independent_human_approved": false,
+      "legal_certification": false,
+      "independent_human_review_required_for_formal_promotion": true
+    },
+    {
+      "knowledge_id": "EDU-KR-ISA-TO-PENSION-2026-01",
+      "kind": "REGULATED_TAX_RULE",
+      "rule_reference_start": null,
+      "educational_fact": "ISA 만기자금의 적격 연금계좌 전환은 전환액 10%, 최대 300만원의 추가 세액공제 대상 납입한도를 발생시킬 수 있다. 만기 후 60일 이내 납입을 확인한다.",
+      "source_audit_ids": [
+        "P03_ISA_PENSION_TRANSFER",
+        "P07_IRP_PENSION_TRANSFER"
+      ],
+      "legacy_claim_ids": [
+        "GOMHEE-C32",
+        "GOMHEE-C33",
+        "GOMHEE-C08",
+        "GOMHEE-C42"
+      ],
+      "authority_ids": [
+        "REF-ISA-TRANSFER-NTS",
+        "REF-ISA-TRANSFER-60DAYS",
+        "REF-ISA-TRANSFER-TAX-RULING"
+      ],
+      "critical_qualification": "공제세액 자체가 300만원이라는 뜻이 아니며 납세자 결정세액·계좌 유형·이체기한·증권사 처리방식을 확인한다.",
+      "reviewed_as_of": "2026-11-04",
+      "usable_for": "GENERAL_EDUCATION_WITH_SCOPE_AND_SOURCE_ONLY",
+      "personalized_advice_approved": false,
+      "blind_independent_human_approved": false,
+      "legal_certification": false,
+      "independent_human_review_required_for_formal_promotion": true
+    },
+    {
+      "knowledge_id": "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+      "kind": "REGULATED_TAX_RULE",
+      "rule_reference_start": "2024-01-01",
+      "educational_fact": "특정 과세대상 사적연금소득이 연 1500만원을 넘더라도 종합과세 또는 소득세율 15% 분리과세 선택이 가능하며, 계좌별 연금수령한도와 별개다.",
+      "source_audit_ids": [
+        "P04_PENSION_1500"
+      ],
+      "legacy_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C71"
+      ],
+      "authority_ids": [
+        "REF-PENSION-TAX-NTS",
+        "REF-PENSION-TAX-MOEL",
+        "REF-INCOME-TAX-DECREE-2026"
+      ],
+      "critical_qualification": "1,500만원은 모든 연금 인출에 대한 법적 상한이 아니다. 이연퇴직소득/비공제 원금과 수령요건, 지방세·소득구간을 분리한다.",
+      "reviewed_as_of": "2026-11-04",
+      "usable_for": "GENERAL_EDUCATION_WITH_SCOPE_AND_SOURCE_ONLY",
+      "personalized_advice_approved": false,
+      "blind_independent_human_approved": false,
+      "legal_certification": false,
+      "independent_human_review_required_for_formal_promotion": true
+    },
+    {
+      "knowledge_id": "EDU-GENERAL-DCA-ARITH-01",
+      "kind": "MATHEMATICAL_EDUCATION",
+      "rule_reference_start": null,
+      "educational_fact": "월 50만원을 가격 10만원·50만원·5만원에 각각 매수하면 수량은 5·1·10, 평균단가는 93,750원이다. 마지막 가격 5만원에서는 평가손실 -46.67%이므로 정액적립이 이익을 보장하지 않는다.",
+      "source_audit_ids": [
+        "P09_DCA_MATH"
+      ],
+      "legacy_claim_ids": [
+        "GOMHEE-C52",
+        "GOMHEE-C75"
+      ],
+      "authority_ids": [
+        "REF-DCA-SEC",
+        "REF-DCA-FINRA-2026"
+      ],
+      "critical_qualification": "임의 가상가격에 따른 산술 예시이며 상품별 실제 수익률이나 과거 실적 예측이 아니다.",
+      "reviewed_as_of": "2026-11-04",
+      "usable_for": "GENERAL_EDUCATION_WITH_SCOPE_AND_SOURCE_ONLY",
+      "personalized_advice_approved": false,
+      "blind_independent_human_approved": false,
+      "legal_certification": false,
+      "independent_human_review_required_for_formal_promotion": true
+    }
+  ]
+}
