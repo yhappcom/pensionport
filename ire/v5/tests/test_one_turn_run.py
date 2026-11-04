@@ -32,6 +32,9 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["new_video_incremental_merge"]["new_approved_tax_topics"],0)
         self.assertFalse(payload["new_video_vertical_slice"]["personalized_investment_advice_approved"])
         self.assertEqual(payload["advisory_access_rehearsal"]["other_claims_rejected_for_education"],36)
+        self.assertEqual(payload["second_unseen_video_full_research"]["source_cues_covered"],185)
+        self.assertEqual(payload["second_unseen_video_full_research"]["anchored_material_claims"],12)
+        self.assertFalse(payload["second_unseen_video_full_research"]["personal_advice_approved"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
