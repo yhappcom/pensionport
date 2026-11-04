@@ -97,7 +97,7 @@ class ExternalAuthorityRecheckTests(unittest.TestCase):
         self.assertEqual(by["P06_IRP_70PCT"]["disposition"],"DATED_POLICY_WATCH")
         self.assertEqual(by["P05_PENSION_7PCT"]["disposition"],"BLOCK_UNSAFE_PROJECTION")
         self.assertEqual(by["P10_DCA_GUARANTEE"]["disposition"],"BLOCK_UNSAFE_PROJECTION")
-        self.assertIn("영상 자체",by["P04_PENSION_1500"]["critical_limit"])
+        self.assertIn("법적 인출",by["P04_PENSION_1500"]["critical_limit"])
         self.assertIn("300만원",by["P07_IRP_PENSION_TRANSFER"]["critical_limit"])
 
 if __name__=="__main__":
