@@ -14,6 +14,7 @@ from pathlib import Path
 from .preflight import run as preflight_run
 from .one_turn_resolution_gate import verify as verify_33
 from .integrated_education_gate import verify as verify_education_graph
+from .advisory_education_rehearsal import audit as verify_advisory_access
 
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
@@ -31,6 +32,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         return n
     decision=verify_33(root)
     education=verify_education_graph(root)
+    advisory_access=verify_advisory_access(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -41,6 +43,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "private_original_archive_verified_in_this_process":private_zip is not None,
         "claims":decision,
         "education_knowledge":education,
+        "advisory_access_rehearsal":advisory_access,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,
         "terminal_outcome":"RESEARCH_CLOSED_NOT_ADVICE_RELEASED",
