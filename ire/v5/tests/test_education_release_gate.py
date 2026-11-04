@@ -39,6 +39,6 @@ class EducationReleaseTests(unittest.TestCase):
 
     def test_unsafe_pension_inflation_rejected(self):
         o=copy.deepcopy(self.data)
-        o["entries"][2]["critical_qualification"]="모든 인출금액이 1500만원을 넘으면 인출을 금지함"
+        o["entries"][2]["critical_qualification"]="모든 인출금액이 연간 1500만원을 넘으면 예외 없이 계좌 인출이 법적으로 금지된다고 단정한다."
         with self.assertRaisesRegex(EducationReleaseError,"EDUCATION_PENSION_TAX_VS_WITHDRAWAL_CONFUSED"):
             verify(ROOT,o)
