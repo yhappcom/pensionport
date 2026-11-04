@@ -24,6 +24,7 @@ class PreflightContractTests(unittest.TestCase):
             "advisory_access_rehearsal_53_claims",
             "unseen_original_video_full_research_and_reconcile",
             "unseen_video_incremental_knowledge_reconciliation",
+            "second_unseen_video_full_source_temporal_gate",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))
