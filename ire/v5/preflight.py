@@ -37,6 +37,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.external_authority_recheck", "--root", ".")),
     ("deduplicated_education_safety",
      ("-m", "ire.v5.education_release_gate", "--root", ".")),
+    ("remaining_44_source_triage",
+     ("-m", "ire.v5.review44_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
