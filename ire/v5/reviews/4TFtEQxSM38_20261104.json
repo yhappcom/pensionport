@@ -1,0 +1,320 @@
+{
+  "schema": "IRE_V5_CHATGPT_SOURCE_STUDY_V1",
+  "date_kst": "2026-11-04",
+  "video_id": "4TFtEQxSM38",
+  "roster_no": 212,
+  "video_publish_date": "2025-09-22",
+  "title": "ETF 어떻게 사면 되나요? ETF 매수하기",
+  "source_archive": "201-300.zip",
+  "source_archive_sha256": "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10",
+  "source_sha256": "3dec05dbf3314c659b07f73a087a699e6968391a4999d16fcf2f4227b0e5d776",
+  "cues": 303,
+  "source_total_ms": 620240,
+  "review_origin": "CHATGPT_CURRENT_CONVERSATION",
+  "source_full_read_in_chat": true,
+  "source_full_cue_range_covered": true,
+  "cues_are_grouped_into_sections_not_independently_adjudicated": true,
+  "research_status": "SOURCE_REVIEWED_PROVISIONAL_OFFICIAL_APPLICABILITY_OPEN",
+  "financial_facts_independently_approved": 0,
+  "investment_advice_approved": false,
+  "prior_claims_source": "data/claims.jsonl",
+  "prior_ledger_baseline_claim_count": 116,
+  "sections": [
+    {
+      "from": 1,
+      "to": 3,
+      "claim_ids": [],
+      "purpose": "인트로·음악"
+    },
+    {
+      "from": 4,
+      "to": 40,
+      "claim_ids": [
+        "C01"
+      ],
+      "purpose": "영상 목적과 시세·주문·잔고 세 화면"
+    },
+    {
+      "from": 41,
+      "to": 63,
+      "claim_ids": [
+        "C02"
+      ],
+      "purpose": "증권사 앱 개설 및 계좌 입금"
+    },
+    {
+      "from": 64,
+      "to": 98,
+      "claim_ids": [
+        "C03"
+      ],
+      "purpose": "상장 ETF 검색과 실시간 가격 예시"
+    },
+    {
+      "from": 99,
+      "to": 145,
+      "claim_ids": [
+        "C04"
+      ],
+      "purpose": "호가·가격·수량·지정가 체결 조건"
+    },
+    {
+      "from": 146,
+      "to": 172,
+      "claim_ids": [
+        "C05"
+      ],
+      "purpose": "주문 접수와 미체결의 구분"
+    },
+    {
+      "from": 173,
+      "to": 200,
+      "claim_ids": [
+        "C06"
+      ],
+      "purpose": "주문 정정과 15:20 종가 단일가"
+    },
+    {
+      "from": 201,
+      "to": 222,
+      "claim_ids": [
+        "C07"
+      ],
+      "purpose": "ETF 장 종료 이후 거래 설명과 NXT"
+    },
+    {
+      "from": 223,
+      "to": 230,
+      "claim_ids": [
+        "C08"
+      ],
+      "purpose": "미체결 주문의 다음 영업일 처리"
+    },
+    {
+      "from": 231,
+      "to": 250,
+      "claim_ids": [
+        "C09"
+      ],
+      "purpose": "체결 직후 잔고 표시와 T+2 결제"
+    },
+    {
+      "from": 251,
+      "to": 285,
+      "claim_ids": [
+        "C10"
+      ],
+      "purpose": "예수금 D·D+1·D+2 화면"
+    },
+    {
+      "from": 286,
+      "to": 303,
+      "claim_ids": [
+        "C01",
+        "C05",
+        "C09"
+      ],
+      "purpose": "세 화면 요약·종료"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "V5-4TFtEQxSM38-C01",
+      "cue_start": 4,
+      "cue_end": 40,
+      "proposition": "ETF 거래에 필요한 기능을 시세 조회·주문 및 체결 확인·잔고 확인의 세 화면으로 설명",
+      "category": "EDUCATIONAL_WORKFLOW",
+      "evidence_status": "CANDIDATE_SCOPE_SUPPORT",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp"
+      ],
+      "prior_claim_candidates": [
+        "GOMHEE-C89",
+        "GOMHEE-C97"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "증권사 메뉴 이름과 화면 배치는 계좌·버전마다 달라짐",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    },
+    {
+      "claim_id": "V5-4TFtEQxSM38-C02",
+      "cue_start": 41,
+      "cue_end": 63,
+      "proposition": "계좌 개설 뒤 해당 증권계좌로 투자금을 이체하여 거래 준비",
+      "category": "EDUCATIONAL_WORKFLOW",
+      "evidence_status": "BROKER_SPECIFIC_OPEN",
+      "official_sources": [],
+      "prior_claim_candidates": [
+        "GOMHEE-C72"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "실제 계좌 적격성·입금 계좌 소유자·증권사 절차는 개별 확인",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    },
+    {
+      "claim_id": "V5-4TFtEQxSM38-C03",
+      "cue_start": 64,
+      "cue_end": 98,
+      "proposition": "국내 상장 ETF를 검색해 상품을 선택하고 시장가격을 확인하는 사례",
+      "category": "PRODUCT_EXAMPLE",
+      "evidence_status": "HISTORICAL_PRICE_NOT_CURRENT",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp"
+      ],
+      "prior_claim_candidates": [
+        "GOMHEE-C15",
+        "GOMHEE-C27"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "영상 속 TIGER 미국S&P500 가격은 촬영 당시 예시로 현행 시세 아님",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    },
+    {
+      "claim_id": "V5-4TFtEQxSM38-C04",
+      "cue_start": 99,
+      "cue_end": 145,
+      "proposition": "가격과 수량을 지정한 매수 주문은 상대 매도 호가·가격시간 우선순위에 따라 체결 또는 대기",
+      "category": "MARKET_MECHANISM",
+      "evidence_status": "OFFICIAL_GENERAL_SCOPE_WITH_EXCEPTIONS",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03020204/RGL03020204.jsp",
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp"
+      ],
+      "prior_claim_candidates": [
+        "GOMHEE-C97"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "호가 색상은 앱 관행이며 모든 화면에 일반화 금지",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    },
+    {
+      "claim_id": "V5-4TFtEQxSM38-C05",
+      "cue_start": 146,
+      "cue_end": 172,
+      "proposition": "매수 주문 접수와 실제 체결은 다르므로 미체결 조회가 필요",
+      "category": "MARKET_MECHANISM",
+      "evidence_status": "OFFICIAL_GENERAL_SCOPE_WITH_EXCEPTIONS",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03020204/RGL03020204.jsp"
+      ],
+      "prior_claim_candidates": [
+        "GOMHEE-C97"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "시세와 유동성 변동으로 주문 가격이 유효해도 체결 보장 안 됨",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    },
+    {
+      "claim_id": "V5-4TFtEQxSM38-C06",
+      "cue_start": 173,
+      "cue_end": 200,
+      "proposition": "미체결 주문을 정정하거나 취소할 수 있고 15:20~15:30 종가 단일가에서는 체결 방식이 달라짐",
+      "category": "ORDER_HANDLING",
+      "evidence_status": "OFFICIAL_GENERAL_SCOPE_WITH_EXCEPTIONS",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03010409/RGL03010409.jsp",
+        "https://regulation.krx.co.kr/contents/RGL/03/03020204/RGL03020204.jsp"
+      ],
+      "prior_claim_candidates": [
+        "GOMHEE-C97"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "정정은 가격·우선순위 변화와 수수료·계좌 조건이 있을 수 있으며 반드시 더 좋은 가격 체결이 보장되지는 않음",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    },
+    {
+      "claim_id": "V5-4TFtEQxSM38-C07",
+      "cue_start": 201,
+      "cue_end": 222,
+      "proposition": "영상은 정규장 15:30 후 ETF 매수 불가와 NXT 거래제한을 일반화",
+      "category": "MARKET_HOURS",
+      "evidence_status": "OFFICIAL_CONTRADICTION_AND_CURRENT_SCOPE_OPEN",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03010301/RGL03010301.jsp",
+        "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+        "https://securities.miraeasset.com/bbs/board/message/view.do?body=Y&categoryId=66&messageId=2342552&selectedId=1000000202&selectedId=1000000203&selectedId=1000003101",
+        "https://nextrade.co.kr/menu/transactionStatusMainEtf/menuList.do"
+      ],
+      "prior_claim_candidates": [
+        "GOMHEE-C15",
+        "GOMHEE-C93"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "KRX ETF 시간외종가 15:40~16:00 존재; 2026 신설 KRX 애프터마켓 ETF 제외; NXT ETF 실제 개시 및 대상은 현행 공식 공지 추가 확인 필요",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    },
+    {
+      "claim_id": "V5-4TFtEQxSM38-C08",
+      "cue_start": 223,
+      "cue_end": 230,
+      "proposition": "정규장 미체결 주문은 다음날 자동 매수가 아닌 재주문 대상이 될 수 있음",
+      "category": "ORDER_VALIDITY",
+      "evidence_status": "BROKER_AND_MARKET_SCOPE_OPEN",
+      "official_sources": [
+        "https://securities.miraeasset.com/bbs/board/message/view.do?body=Y&categoryId=66&messageId=2342552&selectedId=1000000202&selectedId=1000000203&selectedId=1000003101"
+      ],
+      "prior_claim_candidates": [
+        "GOMHEE-C97"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "2026 KRX 정규장 미체결 취소와 NXT 세션간 주문 효력은 구분 필요",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    },
+    {
+      "claim_id": "V5-4TFtEQxSM38-C09",
+      "cue_start": 231,
+      "cue_end": 250,
+      "proposition": "체결 직후 보유잔고 반영과 T+2 결제일을 구분",
+      "category": "SETTLEMENT",
+      "evidence_status": "OFFICIAL_RULE_IN_SCOPE_WITH_PERSONAL_OPEN",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060102/RGL03060102.jsp"
+      ],
+      "prior_claim_candidates": [
+        "GOMHEE-C97"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "영업일 T+2, 계좌 화면 표시 및 지급가능금액은 증권사 처리 조건에 따라 다름",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    },
+    {
+      "claim_id": "V5-4TFtEQxSM38-C10",
+      "cue_start": 251,
+      "cue_end": 285,
+      "proposition": "예수금 D·D+1·D+2 화면은 거래일과 결제예정 잔액 차이를 이해하는 도구",
+      "category": "ACCOUNT_BALANCE",
+      "evidence_status": "BROKER_UI_SCOPE_OPEN",
+      "official_sources": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060102/RGL03060102.jsp"
+      ],
+      "prior_claim_candidates": [
+        "GOMHEE-C72",
+        "GOMHEE-C97"
+      ],
+      "relation_status": "CANDIDATE_NOT_MERGED",
+      "open_reason": "원본 자막 cue 259~260에 D+1 반복 ASR 의심; 주문가능금액을 D+2 예정잔액 하나로 일반화 금지",
+      "finance_fact_independently_approved": false,
+      "advisory_eligible": false
+    }
+  ],
+  "open_items": [
+    "2026-11-04 NXT ETF 시장 실제 인가·개장 및 거래 대상 공식 확인",
+    "cue 259-260 D+1/D+2 ASR 오류 여부 음성 독립 대조",
+    "2026 KRX 시간외종가, 신설 애프터마켓, NXT 세션별 가능 종목과 주문유효기간 현행 재검증",
+    "계좌 유형(일반·ISA·연금저축·IRP) 별 ETF 매매 허용 범위 및 증권사 메뉴 최신 확인",
+    "기존 GOMHEE 지식 원장 관계는 후보만 연결; 독립 심사·자동 병합 금지",
+    "검증된 투자 자문 적합성은 독립 승인 전까지 NO-GO"
+  ],
+  "provenance_note": "Public-safe paraphrase, cue indices and URLs only; original full SRT stays out of the public repository.",
+  "web_evidence_limitation": "Official pages were read via ChatGPT web; original response bytes, effective-date attestation and separate independent verifier are not sealed.",
+  "no_auto_advisory": true
+}
