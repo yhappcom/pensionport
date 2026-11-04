@@ -19,6 +19,7 @@ class PreflightContractTests(unittest.TestCase):
             "independent_authority_crosscheck",
             "deduplicated_education_safety",
             "remaining_44_source_triage",
+            "single_turn_final_33_research_verdicts",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))
