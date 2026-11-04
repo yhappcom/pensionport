@@ -17,6 +17,7 @@ from .integrated_education_gate import verify as verify_education_graph
 from .advisory_education_rehearsal import audit as verify_advisory_access
 from .new_video_batch_gate import verify as verify_new_video
 from .new_video_merge_gate import verify as verify_new_video_merge
+from .new_video_followup_gate import verify as verify_followup_video
 
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
@@ -26,6 +27,9 @@ def run(root:Path,private_zip:Path|None=None)->int:
         a=verify44(root,private_zip=private_zip)
         b=verify10(root,private_zip=private_zip)
         new_private=verify_new_video(root,private_zip=private_zip)
+        new_followup_private=verify_followup_video(root,private_zip=private_zip)
+        if new_followup_private["private_original_claim_spans_byte_rechecked_now"]!=12:
+            raise RuntimeError("SECOND_UNSEEN_VIDEO_CLAIM_SPANS_NOT_RECHECKED")
         if new_private["all_private_original_cue_windows_byte_verified_now"]!=13:
             raise RuntimeError("UNSEEN_VIDEO_SOURCE_WINDOWS_NOT_VERIFIED")
         if a["original_claim_spans_byte_reverified_this_run"]!=44 or not b[
@@ -40,6 +44,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     advisory_access=verify_advisory_access(root)
     new_video=verify_new_video(root)
     new_video_merge=verify_new_video_merge(root)
+    followup_video=verify_followup_video(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -53,6 +58,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "advisory_access_rehearsal":advisory_access,
         "new_video_vertical_slice":new_video,
         "new_video_incremental_merge":new_video_merge,
+        "second_unseen_video_full_research":followup_video,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,
         "terminal_outcome":"RESEARCH_CLOSED_NOT_ADVICE_RELEASED",
