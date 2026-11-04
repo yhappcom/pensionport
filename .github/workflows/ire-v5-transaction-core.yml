@@ -25,5 +25,7 @@ jobs:
         run: python -m ire.v5.continuous_integration --root .
       - name: Verify pilot research remains non-advisory and source-cited
         run: python -m ire.v5.review_gate --review ire/v5/reviews/4TFtEQxSM38_20261104.json --prior data/claims.jsonl
+      - name: Replay sourced advisory research questions and fail closed
+        run: python -m ire.v5.advisory_replay --root .
       - name: Execute V5 core and portability tests
         run: python -m unittest discover -s ire/v5/tests -p 'test_*.py' -v
