@@ -29,5 +29,7 @@ jobs:
         run: python -m ire.v5.advisory_replay --root .
       - name: Verify original 20-claim evidence candidates and five new source IDs
         run: python -m ire.v5.knowledge_stage --root .
+      - name: Validate five real SRT source studies and pending knowledge relations
+        run: python -m ire.v5.five_study_gate --root .
       - name: Execute V5 core and portability tests
         run: python -m unittest discover -s ire/v5/tests -p 'test_*.py' -v
