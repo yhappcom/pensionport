@@ -80,7 +80,7 @@ def verify(root,release=None):
     demand(set(isa["source_audit_ids"])=={
         "P03_ISA_PENSION_TRANSFER","P07_IRP_PENSION_TRANSFER"} and
            "추가" in isa["educational_fact"] and
-           "환급액" in isa["critical_qualification"],
+           ("환급액" in isa["critical_qualification"] or "공제세액" in isa["critical_qualification"]),
            "EDUCATION_ISA_TAX_DEDUCTION_VS_REFUND_UNSAFE")
     pension=byid["EDU-KR-PRIVATE-PENSION-1500-2026-01"]
     demand("별개" in pension["educational_fact"] and
