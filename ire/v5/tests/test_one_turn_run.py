@@ -23,6 +23,7 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertTrue(payload["one_request_research_complete"])
         self.assertFalse(payload["repeat_user_progress_command_required"])
         self.assertEqual(payload["claims"]["claims_without_disposition"],0)
+        self.assertEqual(payload["education_knowledge"]["knowledge_concepts"],13)
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 

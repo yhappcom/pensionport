@@ -41,6 +41,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.review44_gate", "--root", ".")),
     ("single_turn_final_33_research_verdicts",
      ("-m", "ire.v5.one_turn_resolution_gate", "--root", ".")),
+    ("integrated_thirteen_education_topics",
+     ("-m", "ire.v5.integrated_education_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
