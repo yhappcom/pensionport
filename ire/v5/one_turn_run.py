@@ -15,6 +15,8 @@ from .preflight import run as preflight_run
 from .one_turn_resolution_gate import verify as verify_33
 from .integrated_education_gate import verify as verify_education_graph
 from .advisory_education_rehearsal import audit as verify_advisory_access
+from .new_video_batch_gate import verify as verify_new_video
+from .new_video_merge_gate import verify as verify_new_video_merge
 
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
@@ -23,6 +25,9 @@ def run(root:Path,private_zip:Path|None=None)->int:
         from .external_authority_recheck import verify as verify10
         a=verify44(root,private_zip=private_zip)
         b=verify10(root,private_zip=private_zip)
+        new_private=verify_new_video(root,private_zip=private_zip)
+        if new_private["all_private_original_cue_windows_byte_verified_now"]!=13:
+            raise RuntimeError("UNSEEN_VIDEO_SOURCE_WINDOWS_NOT_VERIFIED")
         if a["original_claim_spans_byte_reverified_this_run"]!=44 or not b[
             "private_srt_bytes_reverified_during_this_run"]:
             raise RuntimeError("PRIVATE_SOURCE_BYTES_NOT_INDEPENDENTLY_RECHECKED")
@@ -33,6 +38,8 @@ def run(root:Path,private_zip:Path|None=None)->int:
     decision=verify_33(root)
     education=verify_education_graph(root)
     advisory_access=verify_advisory_access(root)
+    new_video=verify_new_video(root)
+    new_video_merge=verify_new_video_merge(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -44,6 +51,8 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "claims":decision,
         "education_knowledge":education,
         "advisory_access_rehearsal":advisory_access,
+        "new_video_vertical_slice":new_video,
+        "new_video_incremental_merge":new_video_merge,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,
         "terminal_outcome":"RESEARCH_CLOSED_NOT_ADVICE_RELEASED",
