@@ -22,3 +22,12 @@ Scope: all edits under `ire/v5/**` in `feat/ire-v5-vertical-slice-20261103`. Pre
 - Sequential GitHub writes triggered multiple `cancelled` runs because of the workflow concurrency setting. Use one atomic commit per verified batch.
 
 **Never promise that all CI failures are impossible. Do not suppress a legitimate run failure to achieve a cosmetic success rate.**
+
+## 60 existing claims as conditional advisory decision support (2026-11-05)
+
+- Use `ire/v5/advisory60.py` + `advisory_integration/decision_routes_20261105.json`: **60/60 source references, 15 decision domains and 20 chat-authored routing scenarios**. This is a deterministic, non-generative router. Do not misreport passing scenario routing as live financial answer accuracy.
+- B01~B03 source claims have `chat_evidence_fact_approved_this_batch=false` and `official_rule_current_source_verified_this_batch=false`: **no legacy claim may become a currently verified fact merely by indexing it**.
+- Educational rule nodes from the existing 13-node graph are only **previously reviewed with explicit effective-date and source caveats**. Run current official-source verification in the active chat for financial rules used in any personal situation.
+- Known semantic-mismatch edges **C26→ETF-NAV**, **C33→ISA-to-pension**, **C42→ISA-to-pension or pension-1500**, and **C52→DCA-arithmetic** must never prove the unrelated historical claim. The route catalog uses separately scoped domain-level educational nodes and the output marks them `not_directly_certified_by_route_claims=true`.
+- User inputs requesting concrete orders, allocations or guaranteed returns fail closed, but the knowledge engine may provide conditional decision-checklist questions. Keep `personal_action_approved=false`.
+- Mandatory CI gate `sixty_legacy_claim_advisory_decision_support` must appear in preflight and in the receipt test in the **same atomic commit**, followed by checking both workflow results for exactly the resulting HEAD SHA.

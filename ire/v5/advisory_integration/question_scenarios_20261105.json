@@ -1,0 +1,128 @@
+{
+  "schema": "IRE_V5_ADVISORY60_QUESTION_SCENARIOS_V1",
+  "authorship": "CHATGPT_AUTHORED_NOT_INDEPENDENT_BLIND_GOLD",
+  "as_of": "2026-11-05",
+  "cases": [
+    {
+      "case_id": "T01",
+      "question": "연금저축 세액공제와 비공제원금 차이가 무엇인가요",
+      "expected_route_id": "PENSION_TAX",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T02",
+      "question": "IRP 중도인출 조건과 위험자산한도가 궁금해요",
+      "expected_route_id": "IRP_ACCOUNT",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T03",
+      "question": "은퇴 후 생활비를 연금 인출률 4%룰로 계산해도 되나요",
+      "expected_route_id": "RETIREMENT_WITHDRAWAL",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T04",
+      "question": "공무원연금 수령을 포함한 노후준비 방법",
+      "expected_route_id": "RETIREMENT_PLANNING",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T05",
+      "question": "ISA 만기자금 연금전환 절차는 어떻게 되나요",
+      "expected_route_id": "ISA_TRANSFER",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T06",
+      "question": "ISA 미국배당 외국납부세액 처리는 어떻게 되나요",
+      "expected_route_id": "ISA_FOREIGN_DIVIDEND",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T07",
+      "question": "금융투자소득세 과세방식과 양도소득세 차이",
+      "expected_route_id": "GENERAL_TAX",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T08",
+      "question": "테마 ETF 추적오차와 총보수 확인법",
+      "expected_route_id": "ETF_PRODUCT",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T09",
+      "question": "자산배분 목표비중과 리밸런싱 방법",
+      "expected_route_id": "ALLOCATION",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T10",
+      "question": "CMA 발행어음 RP 중 비상자금에 적합한지",
+      "expected_route_id": "CASH_CMA",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T11",
+      "question": "엔화로 미국지수 ETF를 사면 환헤지 효과가 있나요",
+      "expected_route_id": "FOREIGN_CURRENCY",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T12",
+      "question": "채권 신용등급과 표면금리 만기수익률 차이",
+      "expected_route_id": "BONDS",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T13",
+      "question": "ELS 낙인과 선물 롤오버 위험",
+      "expected_route_id": "RISKY_STRUCTURES",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T14",
+      "question": "서킷브레이커 급락장에 손절해야 하나요",
+      "expected_route_id": "MARKET_STRESS",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T15",
+      "question": "투자 초보 가계부와 투자기록 시작하는 법",
+      "expected_route_id": "INVESTOR_BEHAVIOR",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T16",
+      "question": "ISA 해외배당 과세에서 미국 원천징수 확인",
+      "expected_route_id": "ISA_FOREIGN_DIVIDEND",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T17",
+      "question": "커버드콜 8% 인출률은 안전한가요",
+      "expected_route_id": "RETIREMENT_WITHDRAWAL",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T18",
+      "question": "50세 노후준비 저축률 은퇴까지 기간",
+      "expected_route_id": "RETIREMENT_PLANNING",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T19",
+      "question": "월배당 ETF 분배금과 총수익 차이",
+      "expected_route_id": "ETF_PRODUCT",
+      "intent": "general_education"
+    },
+    {
+      "case_id": "T20",
+      "question": "손실 종목 본전과 물타기 판단 기준",
+      "expected_route_id": "MARKET_STRESS",
+      "intent": "general_education"
+    }
+  ],
+  "claims_about_model_answer_accuracy": false
+}

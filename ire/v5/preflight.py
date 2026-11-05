@@ -57,6 +57,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.chat_evidence_acceptance_gate", "--root", ".")),
     ("first_three_legacy_reconciliation_batches_60_and_master_116",
      ("-m", "ire.v5.legacy_consolidation_gate", "--root", ".")),
+    ("sixty_legacy_claim_advisory_decision_support",
+     ("-m", "ire.v5.advisory60", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),

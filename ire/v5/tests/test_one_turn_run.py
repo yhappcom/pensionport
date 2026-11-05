@@ -48,6 +48,11 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["legacy_research_consolidation"]["third_batch_claims_integrated"],20)
         self.assertEqual(payload["legacy_research_consolidation"]["three_batches_claims_detailed_triaged"],60)
         self.assertEqual(payload["legacy_research_consolidation"]["remaining_batches_not_claimed_complete"],3)
+        self.assertEqual(payload["sixty_claim_decision_support"]["legacy_claims_traced"],60)
+        self.assertEqual(payload["sixty_claim_decision_support"]["decision_domains"],15)
+        self.assertEqual(payload["sixty_claim_decision_support"]["question_scenarios_routed"],20)
+        self.assertEqual(payload["sixty_claim_decision_support"]["legacy_claims_promoted_to_new_financial_fact"],0)
+        self.assertFalse(payload["sixty_claim_decision_support"]["actual_model_advisory_answer_accuracy_test"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
