@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 
 from .legacy_consolidation_gate import verify as verify_legacy
+from . import first_five_advisory_bridge as source_bridge
 
 CATALOG = Path("ire/v5/advisory_integration/decision_routes_20261105.json")
 CASES = Path("ire/v5/advisory_integration/question_scenarios_20261105.json")
@@ -145,7 +146,8 @@ def load_policy(root: Path, catalog: dict | None = None) -> dict:
         and len(suite.get("cases", [])) == 20,
         "ADVISORY60_FALSE_INDEPENDENT_BENCHMARK")
     return {"routes": routes, "claims": claims, "nodes": nodes,
-            "cases": suite["cases"], "covered_claim_ids": covered}
+            "cases": suite["cases"], "covered_claim_ids": covered,
+            "first_five_source_index": source_bridge.load(root)}
 
 def resolve(policy: dict, question: str, intent: str = "general_education",
             as_of: str = "2026-11-05") -> dict:
@@ -156,6 +158,7 @@ def resolve(policy: dict, question: str, intent: str = "general_education",
     # substitute for official regulation checks or a personal fiduciary.
     demand(as_of == "2026-11-05", "ADVISORY60_HISTORICAL_BASELINE_RECHECK_REQUIRED")
     q = question.casefold()
+    source_evidence = source_bridge.retrieve(policy['first_five_source_index'],question)
     unsafe_guarantee = (intent == "guaranteed_return" or any(
         t.casefold() in q for t in GUARANTEE_TERMS) or
         (("수익" in q or "분배" in q or "배당" in q)
@@ -173,6 +176,8 @@ def resolve(policy: dict, question: str, intent: str = "general_education",
                              if personal else "NO_SUPPORTED_RESEARCH_ROUTE"),
                 "question": question, "as_of": as_of,
                 "source_claim_ids": [], "education_nodes": [],
+                "first_five_original_source_evidence": source_evidence,
+                "post_60_claim_provisional_links_only": True,
                 "personal_action_approved": False,
                 "trade_or_amount_recommended": False,
                 "current_financial_rule_live_verified": False,
@@ -216,6 +221,8 @@ def resolve(policy: dict, question: str, intent: str = "general_education",
         "questions_to_resolve": primary["questions_to_resolve"],
         "critical_limit": primary["critical_limit"],
         "source_claim_ids": matches,
+        "first_five_original_source_evidence": source_evidence,
+        "post_60_claim_provisional_links_only": True,
         "sources": source_rows,
         "education_nodes": history,
         "source_count_not_independent_confirmation": len(matches),

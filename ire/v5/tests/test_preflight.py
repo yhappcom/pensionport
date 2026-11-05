@@ -39,6 +39,7 @@ class PreflightContractTests(unittest.TestCase):
             "p3_final_answer_independent_math_and_hard_fail_rubric_v2",
             "first_five_raw_source_readiness_not_full_research_approval",
             "first_five_original_risk_quality_and_advisory_retrieval_gap",
+            "first_five_original_45_span_provenance_retrieval_bridge",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))

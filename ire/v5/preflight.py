@@ -79,6 +79,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.first_five_source_readiness_gate", "--root", ".")),
     ("first_five_original_risk_quality_and_advisory_retrieval_gap",
      ("-m", "ire.v5.first_five_quality_gate", "--root", ".")),
+    ("first_five_original_45_span_provenance_retrieval_bridge",
+     ("-m", "ire.v5.first_five_advisory_bridge", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
