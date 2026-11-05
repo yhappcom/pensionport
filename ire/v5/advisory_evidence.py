@@ -16,7 +16,8 @@ from .advisory_semantic import parse
 
 FACTS = Path("ire/v5/advisory_integration/P1_ATOMIC_SOURCE_FACTS_20261105.json")
 ALLOWED_HOSTS = ("nts.go.kr", "g.nts.go.kr", "sc.nts.go.kr", "m.krx.co.kr",
-                 "www.investor.gov", "securities.koreainvestment.com", "m.shinhansec.com")
+                 "www.investor.gov", "securities.koreainvestment.com",
+                 "img.securities.miraeasset.com", "m.shinhansec.com")
 NO_DIRECT_LINKS = (
     ("GOMHEE-C33", "EDU-KR-ISA-TO-PENSION-2026-01"),
     ("GOMHEE-C42", "EDU-KR-ISA-TO-PENSION-2026-01"),
