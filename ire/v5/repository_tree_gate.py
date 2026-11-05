@@ -33,6 +33,10 @@ ESSENTIAL = (
     "ire/v5/first_five_source_readiness_gate.py",
     "ire/v5/tests/test_first_five_source_readiness_gate.py",
     "ire/v5/validation/first_five_raw_srt_integrity_receipt_20261105.json",
+    "ire/v5/validation/first_five_original_qa_25_20261105.json",
+    "ire/v5/validation/FIVE_ORIGINAL_QUALITY_EVALUATION_20261105.md",
+    "ire/v5/first_five_quality_gate.py",
+    "ire/v5/tests/test_first_five_quality_gate.py",
 )
 
 class RepositoryTreeError(ValueError):

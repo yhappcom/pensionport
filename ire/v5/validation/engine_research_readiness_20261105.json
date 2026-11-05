@@ -134,5 +134,21 @@
     "semantic_research_pilot": "GO_SOURCE_VERIFIED_SCOPE_ONLY",
     "broad_corpus_expansion": "NO_GO",
     "verification_receipt": "ire/v5/validation/first_five_raw_srt_integrity_receipt_20261105.json"
+  },
+  "source_fidelity_quality_audit_20261105": {
+    "original_source_sample_spans_hashed": 25,
+    "distinct_cues_across_source_samples": 892,
+    "risk_cases_requiring_conditions": 25,
+    "critical_hard_block_watchlist_count": 6,
+    "legacy_first_two_source_video_direct_claim_link_count": 0,
+    "legacy_remaining_three_source_video_claims": [
+      "GOMHEE-C64",
+      "GOMHEE-C63",
+      "GOMHEE-C62"
+    ],
+    "advisory60_direct_source_integration_completed": false,
+    "full_five_video_financial_semantic_quality_verdict": "NO_GO",
+    "actual_source_fidelity_25_case_report": "ire/v5/validation/FIVE_ORIGINAL_QUALITY_EVALUATION_20261105.md",
+    "independent_external_human_judgment_completed": false
   }
 }

@@ -86,3 +86,14 @@ Mandatory gate: ire.v5.advisory_final_answer_review. Previous 12/12 structural c
 - `1-70.zip` is acceptable even though the originally anticipated archive name was `1-100.zip`, because the identical raw SRT bytes and SHA-256 of all five video IDs were actually matched.
 - This completes **source integrity** only. It unlocks **the first five private-SRT semantic and financial-evidence pilot**, NOT full corpus research approval or future personal trade advice. To re-run byte verification in a new runtime, supply the owner Library source and use `python -m ire.v5.first_five_source_readiness_gate --source-zip /secure/1-70.zip`.
 - GitHub CI only verifies the recorded receipt/schema/hash correspondence; it cannot directly reopen the owner Library archive. Do not claim that a CI pass is an independent byte recheck.
+
+
+
+## 2026-11-05 first-five real SRT semantic quality audit — **research NO-GO**
+
+- Owner Library `1-70.zip` source SHA and 5,129 numbered cues passed. After inspecting original text, 25 selected high-risk source spans (892 distinct cues) were actually compared with 116-claim ledger, 60-claim advisory route and issuer/regulator primary sources. These cases are **risk-targeted, non-blind, not 288/288 window comprehensive semantic research**.
+- Artifacts: `ire/v5/validation/first_five_original_qa_25_20261105.json` (25 source-span hashes, safeguards, six official/issuer references) and `ire/v5/validation/FIVE_ORIGINAL_QUALITY_EVALUATION_20261105.md`. Source text/private archive is **never** committed.
+- **Critical decision-safety watchlist:** F03 pension 1500 tax threshold ≠ hard withdrawal prohibition; F08 CMA RP protection/credit risk; F14 ETF parking 3% ≠ guaranteed; F15 insurance surrender vs dividend not income equivalent; F22 employer stock risk; F23 employer industry ETF human-capital concentration. Do not convert the presenter’s hypothetical education into unconditional trade orders.
+- Research/knowledge connection gap confirmed: #1/#2 SRT video IDs have no direct entry in 116 canonical claims; #3/#4/#5 correspond to C64/C63/C62, outside first-60 advisory routes because B04 is pending. Do not claim tested P0-P3 path has integrated these five original videos.
+- Run `python -m ire.v5.first_five_quality_gate --root .` in every preflight. With an accessible private archive, `--source-zip /secure/1-70.zip` additionally reopens 25 original spans and verifies their text SHA. CI has **no private raw source**, so static ledger crosschecks are distinct from original byte proof.
+- Broad expansion, user portfolio advice and five-video entire-semantic research: **NO-GO**. Release only after all 288 original source windows have semantic evidence decisions, critical cases are scoped/verified and the actual query → source span → integrated knowledge → correct final answer path is tested. No independent-human-blind gate required by owner policy, but no false independent quality claims.

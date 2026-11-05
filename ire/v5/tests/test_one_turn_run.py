@@ -90,6 +90,13 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertFalse(payload["first_five_raw_source_reanalysis_readiness"]["broad_corpus_research_go"])
         self.assertEqual(payload["first_five_raw_source_reanalysis_readiness"]["next_permitted_stage"],
                          "FIRST_FIVE_FULL_SOURCE_SEMANTIC_REVIEW")
+        self.assertEqual(payload["first_five_original_quality_audit"]["focused_qa_source_cases"],25)
+        self.assertEqual(payload["first_five_original_quality_audit"]["focused_qa_unique_source_cues"],892)
+        self.assertEqual(payload["first_five_original_quality_audit"]["critical_risk_cases_not_released"],6)
+        self.assertEqual(payload["first_five_original_quality_audit"]["pilot_video_ids_not_in_116_claim_ledger"],2)
+        self.assertEqual(payload["first_five_original_quality_audit"]["pilot_video_legacy_claims_outside_60_claim_route"],3)
+        self.assertFalse(payload["first_five_original_quality_audit"]["full_research_quality_go"])
+        self.assertFalse(payload["first_five_original_quality_audit"]["next_five_video_expansion_go"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
