@@ -69,6 +69,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.advisory_evidence", "--root", ".")),
     ("p2_conditional_decision_scenarios",
      ("-m", "ire.v5.advisory_decision", "--root", ".")),
+    ("p3_generated_conditional_answer_quality_audit",
+     ("-m", "ire.v5.advisory_answer_pipeline", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),

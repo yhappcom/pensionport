@@ -34,6 +34,7 @@ class PreflightContractTests(unittest.TestCase):
             "p0_multidomain_semantic_decomposition",
             "p1_atomic_source_scoped_evidence",
             "p2_conditional_decision_scenarios",
+            "p3_generated_conditional_answer_quality_audit",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))
