@@ -1,0 +1,328 @@
+{
+  "schema": "IRE_V5_CHAT_EVIDENCE_FACT_ACCEPTANCE_V1",
+  "policy_date": "2026-11-05",
+  "policy_owner": "USER_APPROVED_CURRENT_CHAT_EVIDENCE_ONLY",
+  "independent_human_blind_evaluation_required": false,
+  "independent_ai_blind_evaluation_required": false,
+  "external_model_api_required": false,
+  "verification_basis": "ACTIVE_CHAT_PRIMARY_OFFICIAL_OR_RELIABLE_CONTEMPORANEOUS_SEARCH_AND_CLAIM_SOURCE_MEANING_MATCH",
+  "permitted_use": "SOURCE_SCOPED_EDUCATIONAL_AND_FACT_RETRIEVAL_ONLY",
+  "not_automatically_authorized": "PERSONALIZED_INVESTMENT_ADVICE_OR_REAL_TIME_TRADE_ORDER",
+  "mandatory_checks": [
+    "original_source_anchor",
+    "reliable_evidence_content_directly_supports_specific_fact",
+    "jurisdiction_and_product_scope",
+    "effective_date_and_as_of_date",
+    "numeric_arithmetic_if_present",
+    "known_contradictions_and_open_fragments",
+    "fact_version_and_citation_provenance"
+  ],
+  "never_approve_from": [
+    "link_presence_alone",
+    "unsupported_investment_forecast",
+    "historical_video_future_tense_as_current",
+    "unverified_price_chart",
+    "mere_ci_pass",
+    "unmatched_claim_or_audio_uncertainty"
+  ],
+  "parent_source_video_id": "WIXWPJjhF50",
+  "semantic_overlay_path": "ire/v5/new_video_studies/WIXWPJjhF50_SEMANTIC_EVIDENCE_RECHECK_20261105.json",
+  "original_srt_sha256": "1050fbb4022181130dce827328d165c863a5ec3a87f869dddc0f9fd3ae3ba17a",
+  "reviewed_fact_date": "2026-11-05",
+  "subsequent_live_financial_action_requires_recheck": true,
+  "reviewer": "ACTIVE_CHAT_RESEARCH_NOT_EXTERNAL_BLIND_HUMAN",
+  "independent_human_blind_completed": false,
+  "formal_external_financial_certification": false,
+  "claims": [
+    {
+      "claim_id": "S232-01",
+      "verdict": "ACCEPTED_FACT",
+      "accepted_fact": "일반주권의 통상 가격제한폭은 ±30%이나 신규상장일은 별도 가격범위를 적용한다.",
+      "source_ids": [
+        "KRX-RULE",
+        "KRX-BASE"
+      ],
+      "temporal_scope": "CURRENT_RULE",
+      "source_to_claim_match": "한국거래소의 현재 거래규정을 신규상장 예외 및 일반주권 규칙으로 각각 대조.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-02",
+      "verdict": "ACCEPTED_HISTORICAL_FACT",
+      "accepted_fact": "2023-06-26 이전 IPO 최초 시초가 결정범위는 공모가격의 90~200%였다.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "temporal_scope": "HISTORICAL_RULE",
+      "source_to_claim_match": "금융위원회 2022년 개선안에서 변경 전 시초가 결정 범위를 명시.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-03",
+      "verdict": "ACCEPTED_CORRECTED_FACT",
+      "accepted_fact": "종전 최고가는 공모가×2×1.3=260%, 공모가 대비 상승률은 +160%이며 자막 +130%는 동일 기준 수익률이 아니다.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "temporal_scope": "HISTORICAL_RULE",
+      "source_to_claim_match": "규정에 제시된 200%와 +30%를 순차 곱셈하여 독립 계산. 원음/ASR 귀책은 미확정.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-04",
+      "verdict": "ACCEPTED_CORRECTED_FACT",
+      "accepted_fact": "종전 최저가는 공모가×0.9×0.7=63%, 공모가 대비 수익률은 -37%이다.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "temporal_scope": "HISTORICAL_RULE",
+      "source_to_claim_match": "금융위원회의 종전 범위 설명을 근거로 90%×70% 계산.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-05",
+      "verdict": "CONTEXT_ONLY",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "HISTORICAL_EXAMPLE",
+      "source_to_claim_match": "좋은 기업 청약이 수익을 보장한다는 주장으로 승격하지 않으며 일반 위험 문맥만 유지.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-06",
+      "verdict": "ACCEPTED_CORRECTED_FACT",
+      "accepted_fact": "IPO 신규상장 첫날 가격범위는 2023-06-26부터 공모가 60~400%로 확대되었고 상한가격 400%는 수익률 +300%이다.",
+      "source_ids": [
+        "KRX-RULE",
+        "FSC-IPO-2022"
+      ],
+      "temporal_scope": "CURRENT_RULE",
+      "source_to_claim_match": "현행 한국거래소 규정과 금융위원회 개정 취지를 비교해 적용일·상한가와 수익률의 분모를 구분.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-07",
+      "verdict": "ACCEPTED_HISTORICAL_FACT",
+      "accepted_fact": "구 제도의 따상은 시초가가 공모가의 두 배로 결정된 후 장중 시초가 대비 상한가에 도달하는 가격형성 현상을 뜻한다.",
+      "source_ids": [
+        "FSC-IPO-2022",
+        "MEDIA-FEB-CLOSE"
+      ],
+      "temporal_scope": "HISTORICAL_RULE",
+      "source_to_claim_match": "종전 시초가 결정 및 장중 가격제한을 연결. 장중 터치와 종가 상한가 유지 사건을 분리.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-08",
+      "verdict": "UNVERIFIED",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "HISTORICAL_COMPANY_DATA",
+      "source_to_claim_match": "SK바이오팜·SK바이오사이언스 등 구체적 종목 수익률과 연속 상한가 내역은 증권사 원표·KIND 가격으로 재확인되지 않아 미인정.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-09",
+      "verdict": "PARTIALLY_ACCEPTED_FACT",
+      "accepted_fact": "한국거래소 KIND 공시에서 오브젠의 상장일 2023-01-30을 확인했다.",
+      "source_ids": [
+        "KRX-OBZEN-2023"
+      ],
+      "temporal_scope": "HISTORICAL_LISTING",
+      "source_to_claim_match": "한국거래소 KIND의 개별 종목 상장 공시에서 날짜를 확인. 원본 표에 나오는 다른 세 종목 전체 수익률은 근거 미확보.",
+      "narrow_exclusion": "미래반도체·한주라이트메탈·티이엠씨의 종목별 수익률/평가시점은 승인하지 않음",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-10",
+      "verdict": "PARTIALLY_ACCEPTED_FACT",
+      "accepted_fact": "동시대 연합뉴스 보도에 따르면 오브젠의 공모가는 18,000원, 2023-01-30 종가는 46,800원(+160%)이다.",
+      "source_ids": [
+        "KRX-OBZEN-2023",
+        "MEDIA-OBZEN-2023"
+      ],
+      "temporal_scope": "HISTORICAL_MARKET_PRICE",
+      "source_to_claim_match": "KIND 상장일 공시와 당일 발행된 연합뉴스 거래 보도의 근거 역할을 구분. 가격 숫자는 보조 언론 근거이며 거래소 역사적 체결 원표 대조는 아님.",
+      "narrow_exclusion": "영상의 촬영일 기준 167/433/69/46% 수익률, 종목별 대응, 원본 화면은 미확정",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-11",
+      "verdict": "HYPOTHESIS_UNVERIFIED",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "MARKET_CAUSALITY",
+      "source_to_claim_match": "약세장 신규상장이 저평가·초과수익을 유발한다는 인과관계는 표본통제/반례 부족으로 입증 안 됨.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-12",
+      "verdict": "CONTEXT_ONLY",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "ALLOTMENT_CONDITIONS",
+      "source_to_claim_match": "청약경쟁률·균등/비례 방식에 따른 배정 차이만 일반 교육 문맥으로 기록하고 저경쟁률 투자우위를 확정하지 않음.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-13",
+      "verdict": "PARTIALLY_ACCEPTED_FACT",
+      "accepted_fact": "한국거래소 KIND에서 제이오 2023-02-16, 이노진 2023-02-20 상장 사실을 확인했다.",
+      "source_ids": [
+        "KRX-JO-2023",
+        "KRX-INNOGENE"
+      ],
+      "temporal_scope": "HISTORICAL_LISTING",
+      "source_to_claim_match": "두 기업 각각의 상장 공시를 확인. 다른 2월 종목 또는 스팩의 결과 전체를 의미하지 않음.",
+      "narrow_exclusion": "2월 모든 종목의 시초가·종가·SPAC 수익률은 미확정",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-14",
+      "verdict": "ACCEPTED_CORRECTED_FACT",
+      "accepted_fact": "2023년 2월 일반 IPO 6개 중 동시대 보도상 종가 기준 따상은 3개, 장중 따상은 5개이며 제이오는 시초가가 공모가의 두 배에 못 미쳤다.",
+      "source_ids": [
+        "MEDIA-FEB-2023",
+        "MEDIA-FEB-CLOSE",
+        "KRX-JO-2023"
+      ],
+      "temporal_scope": "HISTORICAL_MARKET_REPORT",
+      "source_to_claim_match": "서로 다른 동시대 언론이 장중/종가 통계를 분리하고 KIND에서 제이오 상장일을 확인. 원 거래소 개별 틱 데이터 전수는 별도 미확인.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-15",
+      "verdict": "UNVERIFIED",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "HISTORICAL_MARKET_PRICE",
+      "source_to_claim_match": "영상의 2/36/205/64/450/117/81% 수익률은 기준시점·종목별 대응·공식 시세를 확보하지 못해 미인정.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-16",
+      "verdict": "HYPOTHESIS_UNVERIFIED",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "MARKET_CAUSALITY",
+      "source_to_claim_match": "뭘 사도 오른 장세라는 선택 편향과 시장 인과성은 통제된 연구 미수행으로 입증 안 됨.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-17",
+      "verdict": "CONTEXT_ONLY",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "GENERAL_EDUCATION",
+      "source_to_claim_match": "기업 분석·보호예수 확인의 일반적 위험관리 문맥은 보존하되 개별 투자 매도/장기보유 지시로 인정하지 않음.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-18",
+      "verdict": "ACCEPTED_HISTORICAL_FACT",
+      "accepted_fact": "영상이 2023년 5월에 예정됐다고 말한 청약 일정을 2026-11-05 현재 진행 중인 청약 일정으로 취급할 수 없다.",
+      "source_ids": [
+        "KRX-OFFER"
+      ],
+      "temporal_scope": "EXPIRED_HISTORICAL_SCHEDULE",
+      "source_to_claim_match": "원문에 나타난 일정 연도와 현재 평가일을 분리. 영상 속 개별 청약 공고 날짜·종목 가격은 이 판정으로 인증되지 않음.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-19",
+      "verdict": "HYPOTHESIS_UNVERIFIED",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "ALLOCATION_HEURISTIC",
+      "source_to_claim_match": "희망 공모가격 상단 확정이면 초과수익이 난다는 투자 가설은 근거 미충분. 수요예측 공모가 결정 절차와 투자성과를 구별.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-20",
+      "verdict": "ACCEPTED_CORRECTED_FACT",
+      "accepted_fact": "기업 시가총액은 주당 시장가격×발행주식수이므로 주당 공모가격이 1만원 미만이라는 이유만으로 기업 규모가 작다고 판단할 수 없다.",
+      "source_ids": [
+        "SEC-CAP"
+      ],
+      "temporal_scope": "VALUATION_IDENTITY",
+      "source_to_claim_match": "미국 SEC 투자자 교육 자료의 시가총액 정의와 기본 산식을 사용. 기업가치/발행수량과 구체적 해당 종목 규모는 별도 확인.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-21",
+      "verdict": "UNVERIFIED",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "PERSON_SPECIFIC_ALLOTMENT",
+      "source_to_claim_match": "수억원 증거금을 넣으면 고작 1~2주만 배정된다는 사례 수치는 개인별 배정 조건·증거금률 원표가 없어 일반 사실로 미인정.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    },
+    {
+      "claim_id": "S232-22",
+      "verdict": "CONTEXT_ONLY",
+      "accepted_fact": null,
+      "source_ids": [],
+      "temporal_scope": "BEHAVIORAL_SUGGESTION",
+      "source_to_claim_match": "공모주 청약을 체험하라는 제안은 사실 검증 대상이 아닌 행동 권유이며, 개인별 적합성 승인 근거가 아니다.",
+      "evidence_verified_as_of": "2026-11-05",
+      "external_blind_review": false,
+      "personal_advice_approved": false
+    }
+  ],
+  "future_context_facts": [
+    {
+      "id": "FUTURE-IPO-20261113",
+      "fact": "금융위원회가 2026-11-03 국무회의 의결을 발표한 IPO 사전수요예측·코너스톤 제도 시행 예정일은 2026-11-13이며 2026-11-05 현재 시행 전이다.",
+      "source_ids": [
+        "FSC-IPO-NOV26"
+      ],
+      "status": "APPROVED_NOT_YET_EFFECTIVE",
+      "as_of": "2026-11-05",
+      "effective_on": "2026-11-13",
+      "not_equal_to": "IPO-2023-FIRST-DAY"
+    }
+  ],
+  "release_result": "FACTS_IN_ACCEPTED_SCOPE_ONLY_AND_ALL_UNSUPPORTED_FRAGMENTS_OPEN"
+}
