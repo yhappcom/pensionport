@@ -53,6 +53,13 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["sixty_claim_decision_support"]["question_scenarios_routed"],20)
         self.assertEqual(payload["sixty_claim_decision_support"]["legacy_claims_promoted_to_new_financial_fact"],0)
         self.assertFalse(payload["sixty_claim_decision_support"]["actual_model_advisory_answer_accuracy_test"])
+        self.assertEqual(payload["sixty_claim_new_question_validation"]["baseline_route_correct"],11)
+        self.assertEqual(payload["sixty_claim_new_question_validation"]["repaired_question_route_correct"],20)
+        self.assertEqual(payload["sixty_claim_new_question_validation"]["untuned_holdout_route_correct"],12)
+        self.assertEqual(payload["sixty_claim_new_question_validation"]["untuned_holdout_route_total"],16)
+        self.assertEqual(payload["sixty_claim_new_question_validation"]["chat_authored_narrow_answers_source_checked"],15)
+        self.assertEqual(payload["sixty_claim_new_question_validation"]["arithmetic_examples_checked"],5)
+        self.assertFalse(payload["sixty_claim_new_question_validation"]["generative_model_accurate_advisory_rate_measured"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 

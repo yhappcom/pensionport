@@ -29,6 +29,7 @@ class PreflightContractTests(unittest.TestCase):
             "user_approved_chat_source_scoped_fact_gate",
             "first_three_legacy_reconciliation_batches_60_and_master_116",
             "sixty_legacy_claim_advisory_decision_support",
+            "new_chat_unseen_advisory_routing_official_scope_and_arithmetic",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))

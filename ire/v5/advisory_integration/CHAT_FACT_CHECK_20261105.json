@@ -1,0 +1,437 @@
+{
+  "schema": "IRE_V5_ADVISORY60_CHAT_FACT_CHECK_V1",
+  "as_of": "2026-11-05",
+  "original_private_SRT_rechecked_this_turn": false,
+  "independent_blind_human_validation": false,
+  "model_api_used": false,
+  "live_chat_web_source_researched": true,
+  "answers_are_chat_authored_not_blind_gold": true,
+  "ci_cannot_reopen_or_attest_source_content": true,
+  "source_count": 16,
+  "sources": [
+    {
+      "source_id": "NTS-PENSION-CREDIT",
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2227",
+      "narrow_scope": "연금저축 600만원·퇴직연금 합산 900만원 세액공제 대상 납입한도와 15%·12% 소득세 공제율. 실제 환급액은 결정세액·과세연도에 따라 달라진다.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "NTS-ISA-TRANSFER",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605",
+      "narrow_scope": "ISA 만기일로부터 60일 이내 연금계좌 납입과 전환액의 소득세법상 납입 취급 및 별도 일반 납입한도 조건.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "NTS-FUND-FOREIGN-2026",
+      "url": "https://sc.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&nttSn=1350542",
+      "narrow_scope": "2025년 이후 국내 설정 해외투자 펀드 외국납부세액 제도 개편과 2026년 신고 안내. ISA 만기와 중도해지는 다르게 적용된다.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "NTS-PRIVATE-1500",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+      "narrow_scope": "특정 사적연금소득 1500만원 초과 시에도 종합과세 또는 15% 분리과세를 선택할 수 있는 경우가 있다는 공식 설명.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "NPS-DELAY",
+      "url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do",
+      "narrow_scope": "국민연금 노령연금 지급 연기 월 0.6%, 연 7.2% 가산과 건강보험료·기초연금 등 개인별 영향 및 적용조건.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "KRX-DISCOUNT",
+      "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp",
+      "narrow_scope": "괴리율은 ETF 거래소 시장가격과 순자산가치 NAV 사이의 가격 차이로, 운용성과의 지수 추적오차와 다른 지표.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "KRX-TRACKING",
+      "url": "https://open.krx.co.kr/contents/OPN/01/01030203/OPN01030203T2.jsp",
+      "narrow_scope": "추적오차는 ETF 순자산가치 움직임이 추종지수 움직임과 달라지는 운용관계 지표로 정의되며 괴리율과 구분.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "KRX-ETF-DISTRIBUTIONS",
+      "url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
+      "narrow_scope": "ETF 수익률 조회에서 분배금 포함 여부와 NAV/종가/기초지수의 상대변화를 구분해야 한다는 거래소 안내.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "KRX-KIND-YEN-HEDGE",
+      "url": "https://kind.krx.co.kr/disclosure/etfisudetail.do?method=searchEtfIsuSummary&strIsurCd=49915",
+      "narrow_scope": "일본 엔화에 최종 환노출을 두고 달러/엔 환헤지를 하는 미국 S&P500 엔화노출 상품의 구체 공시 사례. 모든 엔화ETF에 일반화 불가.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "SEC-ALLOCATION",
+      "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+      "narrow_scope": "자산배분·리밸런싱은 투자기간·위험감내에 맞춰 목표비중을 재조정하는 과정이며 무조건 특정 종목 매도 규칙이 아님.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "SEC-BONDS",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+      "narrow_scope": "채권 수익·매각가격은 표면금리 외에 매입가격·만기·금리·신용·유동성 영향을 받으며 만기보유와 중도매도 위험은 다름.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "CMA-SHINHAN",
+      "url": "https://m.shinhansec.com/mweb/fnin/fcma/ffcma0001?tab=0",
+      "narrow_scope": "신한투자증권 RP형 CMA 등 해당 금융투자상품은 예금자보호법 보호 대상이 아니며 투자원금 손실 위험과 약관 확인이 필요.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "FSC-ELS-KNOCKIN",
+      "url": "https://www.fsc.go.kr/no010103/24616?curPage=18&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=&srchText=",
+      "narrow_scope": "금융위 설명은 ELS의 knock-in 진입이 즉시 투자자 손실 확정을 뜻하지 않으며 상품의 만기평가·회복/상환 조건을 구분해야 한다고 밝힘.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "FSC-ELS-RISK",
+      "url": "https://www.fsc.go.kr/po020201/84057?curPage=2&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=ISA&srchText=",
+      "narrow_scope": "ELS는 원금 전액 손실 가능성을 포함한 고난도 구조이며 적합성·적정성 평가가 중요함.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "NTS-ISA-LAW",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1033258305",
+      "narrow_scope": "2026-09-18 시행 조세특례제한법 91조의18 ISA 비과세 200/400만원 적용요건과 초과금액 세제.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    {
+      "source_id": "KRX-ETF-NAV",
+      "url": "https://open.krx.co.kr/contents/OPN/01/01030204/OPN01030204T7.jsp",
+      "narrow_scope": "ETF 가격·순자산가치·분배금을 별도로 식별해야 하며 분배금만으로 전체 투자수익을 판정할 수 없음.",
+      "observed_at": "2026-11-05",
+      "review_mode": "LIVE_CHAT_WEB_SOURCE_CONTENT_READ_NO_IMMUTABLE_SNAPSHOT",
+      "independent_source_capture_attested": false
+    }
+  ],
+  "answer_count": 15,
+  "answers": [
+    {
+      "case_id": "V01",
+      "narrow_chat_answer": "연금계좌에 900만원 납입했다고 900만원을 돌려받는 것은 아닙니다. 연금저축 납입 중 세액공제 대상 한도는 600만원이고, IRP 등 퇴직연금 포함 합산 한도는 900만원입니다. 900만원에 소득세 공제율 15%를 가정하면 최대 계산상 135만원이며, 공제율 12%라면 108만원입니다. 실제 공제는 자격·결정세액·납입내역에 좌우됩니다.",
+      "source_ids": [
+        "NTS-PENSION-CREDIT"
+      ],
+      "required_answer_terms": [
+        "600만원",
+        "900만원",
+        "135만원"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V02",
+      "narrow_chat_answer": "동일한 제도가 아닙니다. ISA에 담긴 해외투자 펀드/ETF의 외국납부세액과 국내 원천징수 조정은 펀드의 과세·정산 문제이고, ISA 만기자금의 연금계좌 이전은 적격 납입과 추가 세액공제 한도에 관한 별도 문제입니다. 2025년 이후 펀드 외국납부세액 처리 방식의 개편과 중도해지 여부도 확인해야 합니다.",
+      "source_ids": [
+        "NTS-FUND-FOREIGN-2026",
+        "NTS-ISA-TRANSFER"
+      ],
+      "required_answer_terms": [
+        "별도",
+        "외국납부세액",
+        "연금계좌"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V03",
+      "narrow_chat_answer": "ISA 만기 후 70일이 경과했다면 국세청이 설명하는 60일 이내 ISA 만기자금의 적격 연금전환 기간을 넘습니다. 따라서 해당 ISA 전환에 대한 추가 세액공제 한도를 당연히 받을 수 있다고 답할 수 없습니다. 일반 연금계좌의 다른 공제대상 납입 가능성과 혼동해서는 안 되며 만기일·실제 이체일을 확인해야 합니다.",
+      "source_ids": [
+        "NTS-ISA-TRANSFER",
+        "NTS-PENSION-CREDIT"
+      ],
+      "required_answer_terms": [
+        "60일",
+        "70일",
+        "추가"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V05",
+      "narrow_chat_answer": "주어진 월별 수치만 단순 차감하면 생활비 300만원에서 공적연금 120만원을 제외해 월 180만원이 부족합니다. 다만 이것이 필요한 최종 인출액이나 투자원금을 확정하는 것은 아닙니다. 소득세, 물가, 다른 소득·연금, 지출의 증감과 인출기간이 아직 필요합니다.",
+      "source_ids": [],
+      "required_answer_terms": [
+        "180만원",
+        "300만원",
+        "120만원"
+      ],
+      "review_state": "CALCULATION_ONLY_CONDITIONAL",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V06",
+      "narrow_chat_answer": "목표 주식 비중 60%에서 실제 75%로 높아졌다면 차이는 +15%포인트입니다. 위험이 계획보다 높아졌는지 살피고 새 납입금의 배분 조절 또는 기존 자산의 리밸런싱을 비교할 수 있지만, 현재 종목을 즉시 매도하라는 결론은 아닙니다. 목표 기간과 현금수요·거래세금·비용을 확인해야 합니다.",
+      "source_ids": [
+        "SEC-ALLOCATION"
+      ],
+      "required_answer_terms": [
+        "60%",
+        "75%",
+        "15%포인트"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V07",
+      "narrow_chat_answer": "ETF 괴리율 2%는 시장가격과 순자산가치(NAV)의 차이에 관한 지표입니다. 추적오차 0.4%는 순자산가치의 기초지수 추종 정도를 평가하는 별도 지표입니다. 두 숫자를 더하거나 서로 대체하면 안 되고, 실제 운용사 공시의 계산기간·산식을 확인해야 합니다.",
+      "source_ids": [
+        "KRX-DISCOUNT",
+        "KRX-TRACKING"
+      ],
+      "required_answer_terms": [
+        "괴리율",
+        "추적오차",
+        "NAV"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V08",
+      "narrow_chat_answer": "원화 상장 여부와 미국 달러 위험 노출은 동일하지 않습니다. 예컨대 거래소에 공시된 미국S&P500엔화노출(H) 상품은 달러·엔의 환헤지와 원·엔의 환노출을 다르게 설계했습니다. 따라서 ETF마다 실제 기초지수·환헤지 통화와 비율을 확인해야 하며 달러 위험이 항상 0이라고 일반화할 수 없습니다.",
+      "source_ids": [
+        "KRX-KIND-YEN-HEDGE"
+      ],
+      "required_answer_terms": [
+        "달러",
+        "엔",
+        "환헤지"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V09",
+      "narrow_chat_answer": "채권의 표면금리 3%가 만기수익률 3%라는 뜻은 아닙니다. 액면 100만원을 98만원에 샀고, 정확히 1년 후 액면 상환 및 쿠폰 3만원을 받는 단순 무세금·무부도 가정이면 (3만원+2만원)/98만원=약 5.10%입니다. 실제 만기가 몇 년인지와 이자 지급주기를 모르면 정확한 만기수익률은 결정할 수 없습니다.",
+      "source_ids": [
+        "SEC-BONDS"
+      ],
+      "required_answer_terms": [
+        "3%",
+        "98만원",
+        "5.10%"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V10",
+      "narrow_chat_answer": "일반적인 증권사 RP형 등 CMA는 은행 예금과 동일하게 예금보험 보호를 받는다고 볼 수 없습니다. 관련 증권사 상품 안내에도 RP형 CMA의 예금자보호 제외와 손실 가능성이 표시돼 있습니다. 종금형 등 유형·실제 운용자산·보호대상 여부를 금융회사의 최신 상품설명서에서 구분해야 합니다.",
+      "source_ids": [
+        "CMA-SHINHAN"
+      ],
+      "required_answer_terms": [
+        "CMA",
+        "예금자보호",
+        "RP형"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V11",
+      "narrow_chat_answer": "ELS의 녹인(knock-in) 장벽을 터치했다고 즉시 전액 손실이 확정되는 것은 아닙니다. 상품에 따라 만기평가와 기초지수 회복 조건에 따라 지급액이 달라집니다. 반대로 상품 구조상 큰 손실이나 전액 손실도 가능하므로 해당 ELS의 정식 설명서에 기재된 조기상환·손실구간·발행사 위험을 확인해야 합니다.",
+      "source_ids": [
+        "FSC-ELS-KNOCKIN",
+        "FSC-ELS-RISK"
+      ],
+      "required_answer_terms": [
+        "즉시",
+        "전액",
+        "설명서"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V12",
+      "narrow_chat_answer": "월 80만원의 분배금이 매달 유지된다고 가정하면 연간 현금 수령액은 960만원입니다. 하지만 투자 원금이 얼마인지 모르므로 연 분배율조차 계산할 수 없고, 분배금과 ETF 가격 변동을 포함한 총수익률도 알 수 없습니다. 연 8% 확정 수익으로 간주하지 않습니다.",
+      "source_ids": [
+        "KRX-ETF-DISTRIBUTIONS"
+      ],
+      "required_answer_terms": [
+        "80만원",
+        "960만원",
+        "총수익률"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V13",
+      "narrow_chat_answer": "국민연금의 지급 연기는 대상 요건을 갖출 때 지연한 기간에 따라 연 7.2%(월 0.6%) 가산되는 제도가 있습니다. 그러나 연기 기간에 포기하는 수령액, 예상 생존기간, 다른 소득, 건강보험료·기초연금 영향 등을 함께 봐야 하므로 5년 연기가 모든 사람에게 유리하다고 단정할 수 없습니다.",
+      "source_ids": [
+        "NPS-DELAY"
+      ],
+      "required_answer_terms": [
+        "7.2%",
+        "0.6%",
+        "모든"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V16",
+      "narrow_chat_answer": "특정 과세대상 사적연금소득이 연 1,500만원을 넘는다고 연금계좌 인출 자체가 법 위반인 것은 아닙니다. 국세청 안내에는 조건을 충족하면 종합과세 또는 15% 분리과세를 선택할 수 있는 경우가 나옵니다. 세액공제받지 않은 원금이나 이연퇴직소득 등의 과세재원은 구분해야 합니다.",
+      "source_ids": [
+        "NTS-PRIVATE-1500"
+      ],
+      "required_answer_terms": [
+        "1,500만원",
+        "15%",
+        "법 위반"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V17",
+      "narrow_chat_answer": "국내 설정 해외투자 펀드/ETF의 외국납부세액공제는 모든 투자자에게 동일하게 신고의무를 부과하지 않습니다. 국세청의 2026년 안내는 금융소득종합과세 대상 여부(연 이자·배당 합계 2천만원 초과), 국내 설정 펀드, 외국에 납부한 세액, ISA 만기·중도해지 여부 등을 구분합니다. 해외 상장 ETF와 같은 방식으로 처리한다고 가정하지 않습니다.",
+      "source_ids": [
+        "NTS-FUND-FOREIGN-2026"
+      ],
+      "required_answer_terms": [
+        "2천만원",
+        "국내",
+        "해외"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    },
+    {
+      "case_id": "V20",
+      "narrow_chat_answer": "현금 분배금을 받았다는 사실만으로 확정 순이익이 생겼다고 볼 수 없습니다. 분배 전후 ETF 순자산가치와 시장가격 변동, 세금, 비용을 함께 반영해 총수익을 계산해야 합니다. 투자금을 회수한 것과 투자로 추가 이익을 얻은 것은 서로 다른 개념입니다.",
+      "source_ids": [
+        "KRX-ETF-NAV",
+        "KRX-ETF-DISTRIBUTIONS"
+      ],
+      "required_answer_terms": [
+        "분배",
+        "총수익",
+        "가격"
+      ],
+      "review_state": "MATCHED_WITH_CONDITIONS",
+      "answer_authorship": "CHATGPT_ACTIVE_TURN_WITH_OFFICIAL_SOURCE_READING",
+      "not_independent_model_grade": true,
+      "personal_trade_or_allocation_approved": false
+    }
+  ],
+  "arithmetic_assertions": [
+    {
+      "case_id": "V01",
+      "kind": "PENSION_CREDIT_15_PCT",
+      "inputs": {
+        "deductible_krw": 9000000,
+        "income_tax_rate": 0.15
+      },
+      "expected": 1350000
+    },
+    {
+      "case_id": "V05",
+      "kind": "RETIREMENT_MONTHLY_GAP",
+      "inputs": {
+        "monthly_expense_krw": 3000000,
+        "monthly_pension_krw": 1200000
+      },
+      "expected": 1800000
+    },
+    {
+      "case_id": "V06",
+      "kind": "ALLOCATION_DRIFT_PERCENTAGE_POINTS",
+      "inputs": {
+        "target_pct": 60,
+        "current_pct": 75
+      },
+      "expected": 15
+    },
+    {
+      "case_id": "V09",
+      "kind": "ONE_YEAR_BOND_SIMPLE_TOTAL_YIELD_PCT",
+      "inputs": {
+        "face_krw": 1000000,
+        "purchase_krw": 980000,
+        "coupon_rate": 0.03,
+        "holding_years": 1
+      },
+      "expected": 5.10204081632653
+    },
+    {
+      "case_id": "V12",
+      "kind": "ANNUAL_DISTRIBUTION_FROM_MONTHLY",
+      "inputs": {
+        "monthly_krw": 800000,
+        "months": 12
+      },
+      "expected": 9600000
+    }
+  ],
+  "advice_authorized": false
+}

@@ -31,3 +31,11 @@ Scope: all edits under `ire/v5/**` in `feat/ire-v5-vertical-slice-20261103`. Pre
 - Known semantic-mismatch edges **C26→ETF-NAV**, **C33→ISA-to-pension**, **C42→ISA-to-pension or pension-1500**, and **C52→DCA-arithmetic** must never prove the unrelated historical claim. The route catalog uses separately scoped domain-level educational nodes and the output marks them `not_directly_certified_by_route_claims=true`.
 - User inputs requesting concrete orders, allocations or guaranteed returns fail closed, but the knowledge engine may provide conditional decision-checklist questions. Keep `personal_action_approved=false`.
 - Mandatory CI gate `sixty_legacy_claim_advisory_decision_support` must appear in preflight and in the receipt test in the **same atomic commit**, followed by checking both workflow results for exactly the resulting HEAD SHA.
+
+## Fresh real-question advisory validity checks (2026-11-05)
+
+- `ire/v5/advisory60_validation.py` is the mandatory gate over **20 discovery/repair questions, 16 separate untuned holdout questions, 15 ChatGPT-authored official-source-matched narrow answers, five arithmetic calculations**. Require consistent code, fixture, preflight stage, regression tests, and one-turn receipt in the same atomic commit.
+- Do not state **20/20 repaired cases** as unbiased new-question accuracy. **12/16** untuned holdout is the separate generalization result, with H03/H07/H09/H12 recorded as real misses; do not silently tune holdout or mark those 4 successes.
+- Web sources were read by ChatGPT in the active turn, **not independently re-fetched/immutably snapshotted by CI**. Source-content alignment remains a chat-level claim under the user-approved policy, not a GitHub-certified legal fact.
+- Personal action and guaranteed-return intents must be detected **before** no-route exits. No portfolio weight, securities order, or certainty of return can be released from an unsupported question.
+- Every future change to route terms must run existing 20 + repair 20 + untouched holdout scenarios and track new, genuinely unexposed phrasing separately. A corrected prior test must never be passed off as fresh blind validation.

@@ -36,10 +36,13 @@ PERSONAL_TERMS = (
     "매수해줘", "매도해줘", "사야 하나", "사야하나", "팔아야 하나",
     "팔까요", "지금 매수", "지금 사", "얼마 넣", "매수 비중",
     "투자 비중 추천", "추천해줘", "종목 추천", "몇 % 매수",
+    "얼마를 써야", "얼마 투자", "제 월급", "내 월급", "내 자산",
+    "내 돈", "제 돈", "보유분을 매도",
 )
 GUARANTEE_TERMS = (
     "원금보장", "원금 보장", "확정 수익", "확정수익", "반드시 수익",
     "무조건 수익", "절대 손실없", "손실 없이", "100% 수익 보장",
+    "언제나 이득", "무조건 이득", "원금이 그대로",
 )
 BLOCKED_GRAPH_LINKS = {
     ("GOMHEE-C33", "EDU-KR-ISA-TO-PENSION-2026-01"),
@@ -152,15 +155,26 @@ def resolve(policy: dict, question: str, intent: str = "general_education",
     # The software is a deterministic offline decision framework, not a
     # substitute for official regulation checks or a personal fiduciary.
     demand(as_of == "2026-11-05", "ADVISORY60_HISTORICAL_BASELINE_RECHECK_REQUIRED")
+    q = question.casefold()
+    unsafe_guarantee = (intent == "guaranteed_return" or any(
+        t.casefold() in q for t in GUARANTEE_TERMS) or
+        (("수익" in q or "분배" in q or "배당" in q)
+         and ("확정" in q or "보장" in q)))
+    personal = intent == "personal_action" or any(
+        t.casefold() in q for t in PERSONAL_TERMS)
     ranked = sorted(((score(question, x), x["route_id"], x)
                      for x in policy["routes"]),
                     key=lambda x: (-x[0], x[1]))
     if ranked[0][0] <= 0:
         return {"schema": "IRE_V5_ADVISORY60_DECISION_V1",
-                "decision": "NO_SUPPORTED_RESEARCH_ROUTE",
+                "decision": ("REFUSE_UNSUPPORTED_GUARANTEE_NO_RESEARCH_ROUTE"
+                             if unsafe_guarantee else
+                             "PERSONAL_ACTION_NO_RESEARCH_ROUTE"
+                             if personal else "NO_SUPPORTED_RESEARCH_ROUTE"),
                 "question": question, "as_of": as_of,
                 "source_claim_ids": [], "education_nodes": [],
                 "personal_action_approved": False,
+                "trade_or_amount_recommended": False,
                 "current_financial_rule_live_verified": False,
                 "reason": "60개 연구 주제와 연결되지 않는 질문. 근거·상품·제도 검색 없이 자문 내용을 생성하지 않음"}
     primary = ranked[0][2]
@@ -184,10 +198,6 @@ def resolve(policy: dict, question: str, intent: str = "general_education",
         "updated_law_verified_in_this_request": False,
         "not_directly_certified_by_route_claims": True,
     } for nid in primary["education_node_ids"]]
-    unsafe_guarantee = intent == "guaranteed_return" or any(
-        t.casefold() in question.casefold() for t in GUARANTEE_TERMS)
-    personal = intent == "personal_action" or any(
-        t.casefold() in question.casefold() for t in PERSONAL_TERMS)
     if unsafe_guarantee:
         decision = "REFUSE_GUARANTEED_RETURN_AND_SHOW_FRAMEWORK"
     elif personal:
