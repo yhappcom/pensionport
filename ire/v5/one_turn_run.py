@@ -23,6 +23,7 @@ from .chat_evidence_acceptance_gate import verify as verify_chat_evidenced_facts
 from .legacy_consolidation_gate import verify as verify_legacy_consolidation
 from .advisory60 import audit as verify_advisory60
 from .advisory60_validation import verify as verify_advisory60_validation
+from .advisory_semantic import audit as verify_p0_semantic
 
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
@@ -55,6 +56,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     legacy_consolidation=verify_legacy_consolidation(root)
     advisory60=verify_advisory60(root)
     validation60=verify_advisory60_validation(root)
+    p0_semantic=verify_p0_semantic(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -74,6 +76,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "legacy_research_consolidation":legacy_consolidation,
         "sixty_claim_decision_support":advisory60,
         "sixty_claim_new_question_validation":validation60,
+        "p0_multidomain_semantic_plan":p0_semantic,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,

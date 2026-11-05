@@ -60,6 +60,9 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["sixty_claim_new_question_validation"]["chat_authored_narrow_answers_source_checked"],15)
         self.assertEqual(payload["sixty_claim_new_question_validation"]["arithmetic_examples_checked"],5)
         self.assertFalse(payload["sixty_claim_new_question_validation"]["generative_model_accurate_advisory_rate_measured"])
+        self.assertEqual(payload["p0_multidomain_semantic_plan"]["known_prior_holdout_cases"],16)
+        self.assertGreaterEqual(payload["p0_multidomain_semantic_plan"]["domain_recall_at_up_to_five"],12)
+        self.assertTrue(payload["p0_multidomain_semantic_plan"]["not_fresh_blind_data"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 

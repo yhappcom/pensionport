@@ -63,6 +63,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.advisory60", "--root", ".")),
     ("new_chat_unseen_advisory_routing_official_scope_and_arithmetic",
      ("-m", "ire.v5.advisory60_validation", "--root", ".")),
+    ("p0_multidomain_semantic_decomposition",
+     ("-m", "ire.v5.advisory_semantic", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
