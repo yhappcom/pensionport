@@ -35,6 +35,8 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["second_unseen_video_full_research"]["source_cues_covered"],185)
         self.assertEqual(payload["second_unseen_video_full_research"]["anchored_material_claims"],12)
         self.assertFalse(payload["second_unseen_video_full_research"]["personal_advice_approved"])
+        self.assertEqual(payload["second_unseen_video_semantic_evidence_recheck"]["rechecked_semantic_units"],22)
+        self.assertFalse(payload["second_unseen_video_semantic_evidence_recheck"]["financial_fact_certified"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
