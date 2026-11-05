@@ -1,0 +1,112 @@
+"""Defensive tests for bounded legacy inventory and first source-aware batch."""
+from __future__ import annotations
+import copy
+import unittest
+from pathlib import Path
+
+from ire.v5 import legacy_consolidation_gate as gate
+
+ROOT = Path(__file__).resolve().parents[3]
+
+
+class LegacyConsolidationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.master = gate.load_json(ROOT / gate.MASTER)
+        cls.batch = gate.load_json(ROOT / gate.B01)
+
+    def amended(self, mut_master=None, mut_batch=None):
+        m = copy.deepcopy(self.master)
+        b = copy.deepcopy(self.batch)
+        if mut_master:
+            mut_master(m)
+        if mut_batch:
+            mut_batch(b)
+        return gate.verify(ROOT, m, b)
+
+    def test_baseline_b01_exact_coverage(self):
+        s = gate.verify(ROOT)
+        self.assertEqual(s["master_claims_indexed"], 116)
+        self.assertEqual(s["first_batch_claims_integrated"], 20)
+        self.assertEqual(s["first_batch_video_links_checked"], 51)
+        self.assertEqual(s["first_batch_source_doc_paths_mapped"], 52)
+        self.assertEqual(s["preexisting_v5_education_node_core_claims"], 16)
+        self.assertEqual(s["preexisting_v5_education_node_core_edges"], 32)
+        self.assertEqual(s["remaining_batches_not_claimed_complete"], 5)
+        self.assertFalse(s["new_claims_independently_verified_by_script"])
+
+    def test_missing_canonical_video_cannot_pass(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_SUPPORTING_VIDEO_ID_CHANGED"):
+            self.amended(mut_batch=lambda b: b["records"][0]["source_videos"][0].update(
+                video_id="UNKNOWN_ID"))
+
+    def test_original_statement_must_remain_verbatim(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_RESEARCH_STATEMENT_OR_MEANING_LOST"):
+            self.amended(mut_batch=lambda b: b["records"][0].update(
+                original_statement="자동으로 100% 손실 방지 확정"))
+
+    def test_2019_pension_rule_is_not_current_without_refresh(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_TIME_SENSITIVE_FINANCIAL_LAW_WAS_AUTOPROMOTED"):
+            self.amended(mut_batch=lambda b: b["records"][6].update(
+                research_triage="GENERAL_EDUCATION_LINK_CANDIDATE"))
+
+    def test_tr_etf_2025_distribution_changes_not_ignored(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_TIME_SENSITIVE_FINANCIAL_LAW_WAS_AUTOPROMOTED"):
+            self.amended(mut_batch=lambda b: b["records"][16].update(
+                research_triage="STRATEGY_CONTEXT_ONLY"))
+
+    def test_els_transcript_needed_must_not_auto_approve(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_UNVERIFIED_SOURCE_GOT_PROMOTED"):
+            self.amended(mut_batch=lambda b: b["records"][13].update(
+                research_triage="GENERAL_EDUCATION_LINK_CANDIDATE"))
+
+    def test_no_unearned_human_or_chat_fact_certification(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_METADATA_MISREPORTED_AS_FACT_VERIFIED"):
+            self.amended(mut_batch=lambda b: b["records"][5].update(
+                chat_evidence_fact_approved_this_batch=True))
+
+    def test_existing_graph_core_reference_cannot_be_reinvented(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_EXISTING_V5_EDUCATION_GRAPH_LINK_INACCURATE"):
+            self.amended(mut_batch=lambda b: b["records"][7].update(
+                existing_v5_graph_core_references=[]))
+
+    def test_thematic_similarity_does_not_equal_approved_fact(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_THEMATIC_LINK_FALSELY_APPROVED"):
+            self.amended(mut_batch=lambda b: b["records"][12][
+                "integrated_knowledge_links"][0].update(relation="EXACT_VERIFIED_FACT"))
+
+    def test_future_batches_cannot_be_marked_completed(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_PARTITION_OR_COMPLETION_MISMATCH"):
+            self.amended(mut_master=lambda m: m["batches"][1].update(
+                state="METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED"))
+
+    def test_legacy_document_not_found(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_VIDEO_DOCUMENT_NOT_FOUND"):
+            self.amended(mut_batch=lambda b: b["records"][0]["source_videos"][0].update(
+                video_document_paths=["videos/fabricated_AzY0FU-HxME.md"]))
+
+    def test_legacy_confidence_not_equal_new_approval(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_INDEX_UNTRACED_OR_OVERPROMOTED_CLAIM"):
+            self.amended(mut_master=lambda m: m["claims"][0].update(
+                fact_acceptance_this_index="VERIFIED_ALL"))
+
+    def test_no_unverified_srt_cue_claims(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_METADATA_MISREPORTED_AS_FACT_VERIFIED"):
+            self.amended(mut_batch=lambda b: b["records"][17].update(
+                original_srt_full_cue_coverage_reverified_this_batch=True))
+
+
+if __name__ == "__main__":
+    unittest.main()
