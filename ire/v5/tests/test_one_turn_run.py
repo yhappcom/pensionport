@@ -77,6 +77,11 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["p3_real_final_answer_acceptance"]["tuned_repaired_answer_cases_passed"],12)
         self.assertEqual(payload["p3_real_final_answer_acceptance"]["post_edit_exploratory_cases_total"],8)
         self.assertFalse(payload["p3_real_final_answer_acceptance"]["factual_judgment_independently_expert_validated"])
+        self.assertEqual(payload["p3_final_answer_rubric_v2"]["baseline_actual_direct_answers"],8)
+        self.assertEqual(payload["p3_final_answer_rubric_v2"]["exposed_repaired_answers_total"],12)
+        self.assertEqual(payload["p3_final_answer_rubric_v2"]["exposed_repaired_answers_passed"],12)
+        self.assertFalse(payload["p3_final_answer_rubric_v2"]["blind_independent_financial_judgment"])
+        self.assertFalse(payload["p3_final_answer_rubric_v2"]["production_personal_advice_approved"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 

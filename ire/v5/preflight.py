@@ -73,6 +73,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.advisory_answer_pipeline", "--root", ".")),
     ("p3_final_answer_directness_and_source_bound_evaluation",
      ("-m", "ire.v5.advisory_final_answer_review", "--root", ".")),
+    ("p3_final_answer_independent_math_and_hard_fail_rubric_v2",
+     ("-m", "ire.v5.advisory_final_answer_standard", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),

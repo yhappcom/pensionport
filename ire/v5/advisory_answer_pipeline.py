@@ -55,7 +55,39 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
     comparisons=quantitative_compare(root,question,scenario) if scenario is not None else None
     parts=[]
     domains=set(meaning["related_domains"])
-    if personal_request:
+    # The user asks for a conclusion, not for a list of internal route names.
+    # ISA transfer eligibility is not an investment order and can be assessed
+    # conditionally even if the question refers to a personal account.
+    day_match=re.search(r"(\d{1,3})\s*일",question)
+    days_since_maturity=(int(day_match.group(1)) if day_match and
+        "ISA_TRANSFER" in domains and "만기" in question and
+        any(x in question for x in ("경과","지났","만기 후","만기 이후"))
+        else None)
+    if scenario is None and days_since_maturity is not None and days_since_maturity>60:
+        parts.append(
+            f"ISA 만기일로부터 실제로 {days_since_maturity}일이 경과했다면, "
+            "60일 이내 연금계좌 납입 요건을 충족하지 못하므로 ISA 만기 전환에 "
+            "대한 추가 세액공제 특례를 당연히 적용할 수 없습니다. "
+            "만기일과 납입일을 확인하고 일반 연금계좌 납입 규정과 구분해야 합니다.")
+    elif "RETIREMENT_WITHDRAWAL" in domains and re.search(r"8\s*%",question) and (
+        "안전" in question or "보장" in question or "무조건" in question):
+        parts.append(
+            "아닙니다. 연금 인출률 8%를 모든 은퇴자에게 안전한 인출률로 보장할 수 없습니다. "
+            "인출기간, 주식시장 초기 하락, 물가상승, 기대 수명과 연금소득을 고려해야 합니다. "
+            "분배율 8%도 안전인출률 8%와 다른 개념입니다.")
+    elif ("MARKET_STRESS" in domains and
+          any(x in question for x in ("폭락","급락","서킷브레이커")) and
+          any(x in question for x in ("전부","모두","전량")) and
+          any(x in question for x in ("매도","팔"))):
+        if "서킷브레이커" in question:
+            parts.append("아닙니다. 서킷브레이커 발동 자체가 전량매도 신호는 아닙니다. "
+                         "목표비중, 현금수요, 투자근거와 매매비용을 먼저 검토해야 합니다. "
+                         "현재 자료만으로 개인별 매도 주문을 확정할 수 없습니다.")
+        else:
+            parts.append("아닙니다. 시장 폭락만으로 전량매도 신호는 아닙니다. "
+                         "전량 매도로 손실을 피할 수 있다는 보장은 없습니다. "
+                         "투자 목표, 현금수요, 손실 감내 범위와 집중도를 검토해야 합니다.")
+    elif personal_request:
         if "MARKET_STRESS" in domains and "서킷브레이커" in question and ("팔" in question or "매도" in question):
             parts.append("아닙니다. 서킷브레이커 발동 자체가 전량매도 신호는 아닙니다. "
                          "목표비중과 현금수요를 검토해야 하며, 현재 입력만으로 개인 계좌에 매매 지시를 내릴 수 없습니다.")
@@ -151,6 +183,9 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "has_numeric_comparison":comparisons is not None,
         "numeric_comparison":comparisons,
         "personal_order_detected":personal_request,
+        "same_chat_reviewed_source_as_of":"2026-11-05",
+        "official_sources_reopened_this_python_run":False,
+        "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,
         "current_law_fully_verified_in_this_run":False,

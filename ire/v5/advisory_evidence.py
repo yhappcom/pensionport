@@ -49,7 +49,7 @@ def load(root: Path) -> dict:
     for row in rows:
         url=urlparse(row.get("url", ""))
         require(url.scheme=="https" and url.hostname in ALLOWED_HOSTS
-                and row.get("agency") in {"국세청","한국거래소","미국증권거래위원회 투자자교육","한국투자증권","신한투자증권"}
+                and row.get("agency") in {"국세청","한국거래소","미국증권거래위원회 투자자교육","한국투자증권","미래에셋증권","신한투자증권"}
                 and row.get("as_of")=="2026-11-05"
                 and len(row.get("statement", ""))>=40
                 and len(row.get("scope_domains", []))>=1

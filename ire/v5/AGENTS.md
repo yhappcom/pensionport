@@ -58,3 +58,12 @@ Scope: all edits under `ire/v5/**` in `feat/ire-v5-vertical-slice-20261103`. Pre
 
 ## Actual final-answer semantic review (2026-11-05)
 Mandatory gate: ire.v5.advisory_final_answer_review. Previous 12/12 structural checks were insufficient: direct-answer review found Q05/Q07/Q09/Q10 missing the requested judgment, baseline only 8/12. These four are now tuned regression questions, NOT a blind validation set. Do not rewrite historical baseline. Keep eight post-edit exploratory questions and failures visible. New source scopes: SEC general rebalancing (not KRX circuit regulations), issuer-specific foreign-currency RP, and issuer-specific CMA RP. No personal advice approval or live law verification by CI. Preserve all prior files in Git tree, update runner receipt and tests together.
+
+
+## Final-answer quality rubric V2 — mandatory from 2026-11-05
+
+1. Use `ire/v5/advisory_integration/P3_FINAL_ANSWER_STANDARD_V2_20261105.md` as the single release gate for user-visible answers. Score direct answer (20), official source/scope (25), independently recomputed math (20), comparative decision (15), risk/limits (10), and action safety (10). Minimum 90/100 AND zero hard-fail defects.
+2. Never call the 12 exposed repaired cases or eight formerly failed exploratory cases “new blind accuracy”. Record the original 8/12 directness and 5/8 exploratory scores. Report post-fix outcomes separately.
+3. After issuing the deterministic answer, actually assess final text for wrong mathematical calculation, option rankings, legal overclaim, fake source, missing conclusion and unauthorized order; no gate can be satisfied only by existence of route IDs.
+4. Recheck cited issuer source document **content** in live chat. We found the earlier 한국투자증권 외화RP auto-service page did not contain the claimed direct issuer-specific risk provisions; use the verified 미래에셋증권 official foreign-RP product risk PDF with explicit insurance exclusion, issuer/FX risk and cautions. Do not use a mere service page as proof.
+5. Every changed rubric/corpus/code file must land together with preflight, one-turn receipt and adversarial tests in one atomic commit. Compare recursive pre-commit and post-commit Git blob-path inventory to prevent deletion. Inspect both GitHub CI workflows for exact final HEAD.
