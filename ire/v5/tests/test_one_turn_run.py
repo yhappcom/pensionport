@@ -82,6 +82,14 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["p3_final_answer_rubric_v2"]["exposed_repaired_answers_passed"],12)
         self.assertFalse(payload["p3_final_answer_rubric_v2"]["blind_independent_financial_judgment"])
         self.assertFalse(payload["p3_final_answer_rubric_v2"]["production_personal_advice_approved"])
+        self.assertTrue(payload["first_five_raw_source_reanalysis_readiness"]["software_ci_verified_at_basis_head"])
+        self.assertFalse(payload["first_five_raw_source_reanalysis_readiness"]["full_research_engine_validation_completed"])
+        self.assertEqual(payload["first_five_raw_source_reanalysis_readiness"]["first_five_total_windows"],288)
+        self.assertEqual(payload["first_five_raw_source_reanalysis_readiness"]["first_five_public_processed_windows"],5)
+        self.assertEqual(payload["first_five_raw_source_reanalysis_readiness"]["first_five_unconfirmed_windows"],283)
+        self.assertFalse(payload["first_five_raw_source_reanalysis_readiness"]["broad_corpus_research_go"])
+        self.assertEqual(payload["first_five_raw_source_reanalysis_readiness"]["next_permitted_stage"],
+                         "FIRST_FIVE_SOURCE_REACQUISITION")
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 

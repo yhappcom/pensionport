@@ -27,6 +27,11 @@ ESSENTIAL = (
     "ire/v5/advisory_integration/LIVE_QUESTION_VALIDATION_REPORT_20261105.md",
     "ire/v5/advisory60_validation.py",
     "ire/v5/tests/test_advisory60_validation.py",
+    "ire/v5/validation/engine_research_readiness_20261105.json",
+    "ire/v5/validation/first_five_source_manifest_20261105.json",
+    "ire/v5/validation/ENGINE_VERIFICATION_DECISION_AND_PILOT_GATE_20261105.md",
+    "ire/v5/first_five_source_readiness_gate.py",
+    "ire/v5/tests/test_first_five_source_readiness_gate.py",
 )
 
 class RepositoryTreeError(ValueError):
