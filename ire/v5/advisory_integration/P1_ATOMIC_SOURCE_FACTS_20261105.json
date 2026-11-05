@@ -187,6 +187,99 @@
         "특정 ETF의 현시점 지표 값은 별도 공시 확인이 필요하다"
       ],
       "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-SEC-REBALANCE-NOT-FORCED-SELL",
+      "scope_domains": [
+        "MARKET_STRESS",
+        "ALLOCATION"
+      ],
+      "statement": "시장 급락·변동성이나 서킷브레이커 관련 소식만으로 포트폴리오를 전량 매도해야 하는 것은 아니다. 목표 자산배분·감내위험·현금수요·비용을 검토해 리밸런싱 방식을 판단한다.",
+      "url": "https://www.investor.gov/additional-resources/spotlight/formerdirectorlorischock-directors-take/it-time-rebalance-your-investment-portfolio",
+      "agency": "미국증권거래위원회 투자자교육",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "서킷브레이커|급락|폭락|시장 변동",
+        "매도|팔|목표비중|리밸런싱"
+      ],
+      "any_terms": [
+        "매도",
+        "팔",
+        "목표비중",
+        "비중",
+        "리밸런싱"
+      ],
+      "application_conditions": [
+        "실제 보유 자산군·목표비중과 위험감내를 먼저 확인",
+        "필요 유동자금·투자기간·거래비용·세제 영향 확인"
+      ],
+      "exceptions": [
+        "미국 SEC 일반 교육자료는 한국거래소 서킷브레이커 발동 조건의 공식근거가 아니다",
+        "개별 종목 전량 매도·시장 반등을 보장하거나 자동 권고하지 않는다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-FOREIGN-RP-NOT-BANK-DEPOSIT",
+      "scope_domains": [
+        "FOREIGN_CURRENCY",
+        "CASH_CMA"
+      ],
+      "statement": "한국투자증권의 외화RP 상품 설명에 따르면 외화RP는 예금자보호법으로 보호되지 않으며 원금손실과 환율변동에 따른 환차손 위험이 있다. 일반 외화예금과 동일한 법적 구조의 보호상품으로 취급할 수 없다.",
+      "url": "https://securities.koreainvestment.com/main/mall/openptrade/_static/A_FP_2151000.jsp",
+      "agency": "한국투자증권",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "달러|usd|외화",
+        "rp"
+      ],
+      "any_terms": [
+        "예금",
+        "안전",
+        "위험",
+        "보호",
+        "동일"
+      ],
+      "application_conditions": [
+        "외화RP의 실제 발행사·약정기간·상환조건·수익률 확인",
+        "외화예금의 예금자보호 조건과 통화별 환산손익을 별도로 확인"
+      ],
+      "exceptions": [
+        "해당 금융회사의 외화RP 공시를 모든 예금/모든 증권사 상품에 자동 적용하지 않는다",
+        "외화RP 약정수익률이 원화기준 확정수익을 뜻하지 않는다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-CMA-RP-NOT-PROTECTED",
+      "scope_domains": [
+        "CASH_CMA"
+      ],
+      "statement": "신한투자증권이 공시한 CMA·RP 투자상품은 은행 예금과 달리 예금자보호법상 보호 대상이 아니며, 운용자산 및 시장상황에 따라 투자원금 손실이 발생할 수 있다.",
+      "url": "https://m.shinhansec.com/mweb/fnin/fcma/ffcma0001?tab=0",
+      "agency": "신한투자증권",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "cma",
+        "rp|금리|원금|손실|보장|수익"
+      ],
+      "any_terms": [
+        "금리",
+        "원금",
+        "손실",
+        "보장",
+        "수익",
+        "rp"
+      ],
+      "application_conditions": [
+        "해당 CMA 유형과 운용 방식 및 실제 설명서 확인",
+        "현금 출금 가능시점과 신용·유동성 위험을 은행 예금과 비교"
+      ],
+      "exceptions": [
+        "종금형 등 법적 구조가 다른 유형에 신한투자증권의 RP형 조건을 일괄 적용하지 않는다",
+        "상품에 기재된 약정수익률을 예금보험 또는 정부의 지급보장으로 해석하지 않는다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
     }
   ]
 }

@@ -15,7 +15,8 @@ from .advisory60 import load_policy
 from .advisory_semantic import parse
 
 FACTS = Path("ire/v5/advisory_integration/P1_ATOMIC_SOURCE_FACTS_20261105.json")
-ALLOWED_HOSTS = ("nts.go.kr", "g.nts.go.kr", "sc.nts.go.kr", "m.krx.co.kr")
+ALLOWED_HOSTS = ("nts.go.kr", "g.nts.go.kr", "sc.nts.go.kr", "m.krx.co.kr",
+                 "www.investor.gov", "securities.koreainvestment.com", "m.shinhansec.com")
 NO_DIRECT_LINKS = (
     ("GOMHEE-C33", "EDU-KR-ISA-TO-PENSION-2026-01"),
     ("GOMHEE-C42", "EDU-KR-ISA-TO-PENSION-2026-01"),
@@ -43,12 +44,12 @@ def load(root: Path) -> dict:
             and data.get("personal_financial_advice_authorized") is False,
             "P1_UNEARNED_EVIDENCE_CERTIFICATION")
     rows=data.get("rows", [])
-    require(len(rows)==6 and len({x["fact_id"] for x in rows})==6,
+    require(len(rows)==9 and len({x["fact_id"] for x in rows})==9,
             "P1_ATOMIC_FACT_SET_CHANGED")
     for row in rows:
         url=urlparse(row.get("url", ""))
         require(url.scheme=="https" and url.hostname in ALLOWED_HOSTS
-                and row.get("agency") in {"국세청","한국거래소"}
+                and row.get("agency") in {"국세청","한국거래소","미국증권거래위원회 투자자교육","한국투자증권","신한투자증권"}
                 and row.get("as_of")=="2026-11-05"
                 and len(row.get("statement", ""))>=40
                 and len(row.get("scope_domains", []))>=1
@@ -120,6 +121,12 @@ def audit(root: Path) -> dict:
         ("ISA 만기 연금 전환 10% 세액공제는?", "P1-ISA-TRANSFER-10PCT"),
         ("ISA 미국 배당 ETF의 외국원천세 신고는?", "P1-FUND-FOREIGN-TAX-2025"),
         ("ETF NAV 괴리율 추적오차의 의미는?", "P1-ETF-NAV-TRACK"),
+        ("서킷브레이커가 발동하면 목표비중 복원을 위해 모두 팔아야 하나요?",
+         "P1-SEC-REBALANCE-NOT-FORCED-SELL"),
+        ("USD 달러예금과 달러 RP를 같은 안전자산으로 보아도 되나요?",
+         "P1-FOREIGN-RP-NOT-BANK-DEPOSIT"),
+        ("CMA 금리가 높으니 손실 없이 수익을 보장받나요?",
+         "P1-CMA-RP-NOT-PROTECTED"),
     )
     for q,want in cases:
         p=plan(q,root)

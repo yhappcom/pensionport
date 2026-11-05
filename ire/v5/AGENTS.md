@@ -54,3 +54,7 @@ Scope: all edits under `ire/v5/**` in `feat/ire-v5-vertical-slice-20261103`. Pre
 4. Require `ire.v5.repository_tree_gate` in preflight before existing advisory gates. Confirm both `test_advisory60.py` and `test_advisory60_validation.py` were preserved.
 5. Push **only after the comparison passes**, with one atomic `update_ref(expected_sha=HEAD,force=false)`. Then verify both workflows on the final HEAD.
 6. GitHub CI cannot replace this pre-branch-update diff. A CI failure must be disclosed with exact cause and remediated, never suppressed.
+
+
+## Actual final-answer semantic review (2026-11-05)
+Mandatory gate: ire.v5.advisory_final_answer_review. Previous 12/12 structural checks were insufficient: direct-answer review found Q05/Q07/Q09/Q10 missing the requested judgment, baseline only 8/12. These four are now tuned regression questions, NOT a blind validation set. Do not rewrite historical baseline. Keep eight post-edit exploratory questions and failures visible. New source scopes: SEC general rebalancing (not KRX circuit regulations), issuer-specific foreign-currency RP, and issuer-specific CMA RP. No personal advice approval or live law verification by CI. Preserve all prior files in Git tree, update runner receipt and tests together.

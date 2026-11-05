@@ -1,0 +1,310 @@
+{
+  "schema": "IRE_V5_P3_FINAL_ANSWER_ACCEPTANCE_CASES_V1",
+  "as_of": "2026-11-05",
+  "baseline_head": "30c28f95f6b030e7757d346e2688239ace4eba71",
+  "baseline_run_id": 41981236469,
+  "method": "CHATGPT_READ_ACTUAL_RENDERED_Q01_Q12_FROM_CI_AND_IDENTIFIED_FOUR_MATERIAL_ANSWER_DEFECTS",
+  "baseline_structural_passed": 12,
+  "baseline_user_question_directness_sufficient": 8,
+  "baseline_user_question_directness_total": 12,
+  "baseline_directness_failure_case_ids": [
+    "Q05",
+    "Q07",
+    "Q09",
+    "Q10"
+  ],
+  "independent_human_or_blind_review": false,
+  "reviewer_is_same_chat_model": true,
+  "positive_answer_claims_require_cited_narrow_scope": true,
+  "new_advice_action_authorized": false,
+  "repaired_cases": [
+    {
+      "id": "Q01",
+      "question": "ISA 만기 후 35일, 3천만원을 연금저축으로 옮기면 추가 공제가 얼마인가요?",
+      "scenario": {
+        "kind": "ISA_TRANSFER",
+        "assumed_income_tax_credit_rate": 0.15,
+        "remaining_assessable_income_tax_krw": 1000000,
+        "options": [
+          {
+            "id": "transfer_30m",
+            "transfer_krw": 30000000,
+            "days_after_isa_expiry": 35
+          }
+        ]
+      },
+      "lead": "입력한 만기 후",
+      "terms": [
+        "3,000,000원",
+        "450,000원",
+        "실제 환급"
+      ],
+      "sources": [
+        "P1-ISA-60D",
+        "P1-ISA-TRANSFER-10PCT"
+      ]
+    },
+    {
+      "id": "Q02",
+      "question": "ISA 만기 70일 경과 후 3000만원을 연금으로 옮겨도 10% 추가공제인가요?",
+      "scenario": {
+        "kind": "ISA_TRANSFER",
+        "assumed_income_tax_credit_rate": 0.15,
+        "options": [
+          {
+            "id": "late",
+            "transfer_krw": 30000000,
+            "days_after_isa_expiry": 70
+          }
+        ]
+      },
+      "lead": "입력한 만기 후",
+      "terms": [
+        "70일",
+        "0원",
+        "실제 환급"
+      ],
+      "sources": [
+        "P1-ISA-60D"
+      ]
+    },
+    {
+      "id": "Q03",
+      "question": "연금계좌 세액공제 900만원이 전액 환급된다는 말이 맞나요?",
+      "scenario": null,
+      "lead": "연금계좌에 납입한",
+      "terms": [
+        "동일한 액수로 환급받는 것은 아닙니다",
+        "공제대상"
+      ],
+      "sources": [
+        "P1-PENSION-CREDIT-LIMIT"
+      ]
+    },
+    {
+      "id": "Q04",
+      "question": "미국 배당 ETF가 담긴 ISA의 외국원천세와 ISA 연금전환 공제가 같은 규정인가요?",
+      "scenario": null,
+      "lead": "ISA 만기자금",
+      "terms": [
+        "서로 다른 제도",
+        "외국납부세액"
+      ],
+      "sources": [
+        "P1-FUND-FOREIGN-TAX-2025"
+      ]
+    },
+    {
+      "id": "Q05",
+      "question": "ETF NAV 괴리율과 추적오차 중 어떤 숫자를 먼저 비교하나요?",
+      "scenario": null,
+      "lead": "ETF를 매수할 때는",
+      "terms": [
+        "먼저 실제 거래가격과 NAV",
+        "이어 ETF 운용의 지수 추적오차"
+      ],
+      "sources": [
+        "P1-ETF-NAV-TRACK"
+      ]
+    },
+    {
+      "id": "Q06",
+      "question": "은퇴 뒤 월 생활비 300만원, 공적연금 120만원, 기타소득 20만원이면 부족액은?",
+      "scenario": {
+        "kind": "RETIREMENT_GAP",
+        "monthly_pension_krw": 1200000,
+        "other_monthly_income_krw": 200000,
+        "options": [
+          {
+            "id": "base",
+            "monthly_expense_krw": 3000000
+          }
+        ]
+      },
+      "lead": "주어진 현금흐름을",
+      "terms": [
+        "1,600,000원",
+        "19,200,000원"
+      ],
+      "sources": []
+    },
+    {
+      "id": "Q07",
+      "question": "ETF 두 상품의 분배금과 가격 변화를 합쳐 세전 총수익을 비교해 주세요",
+      "scenario": {
+        "kind": "ETF_TOTAL_RETURN",
+        "options": [
+          {
+            "id": "alpha",
+            "initial_value_krw": 1000000,
+            "ending_market_value_krw": 950000,
+            "cash_distributions_krw": 80000,
+            "separately_paid_fees_krw": 10000
+          },
+          {
+            "id": "beta",
+            "initial_value_krw": 1000000,
+            "ending_market_value_krw": 1050000,
+            "cash_distributions_krw": 0,
+            "separately_paid_fees_krw": 15000
+          }
+        ]
+      },
+      "lead": "입력된 가정만 비교하면",
+      "terms": [
+        "beta",
+        "3.50%",
+        "alpha",
+        "2.00%",
+        "1.50%포인트",
+        "상품 추천이 아닌"
+      ],
+      "sources": []
+    },
+    {
+      "id": "Q08",
+      "question": "주식 목표비중 60%, 실제 75%인 포트폴리오의 차이는?",
+      "scenario": {
+        "kind": "ALLOCATION_DRIFT",
+        "target_equity_pct": 60,
+        "options": [
+          {
+            "id": "now",
+            "current_equity_pct": 75
+          }
+        ]
+      },
+      "lead": "주어진 주식 비중은",
+      "terms": [
+        "+15.00%포인트",
+        "즉시 매도"
+      ],
+      "sources": []
+    },
+    {
+      "id": "Q09",
+      "question": "서킷브레이커가 발동하면 목표비중 복원을 위해 모두 팔아야 하나요?",
+      "scenario": null,
+      "lead": "아닙니다. 서킷브레이커 발동 자체가",
+      "terms": [
+        "전량매도 신호는 아닙니다",
+        "목표비중",
+        "미국증권거래위원회 투자자교육"
+      ],
+      "sources": [
+        "P1-SEC-REBALANCE-NOT-FORCED-SELL"
+      ]
+    },
+    {
+      "id": "Q10",
+      "question": "달러예금과 달러 RP를 같은 안전자산이라고 평가할 수 있나요?",
+      "scenario": null,
+      "lead": "같은 안전자산으로 취급해서는 안 됩니다",
+      "terms": [
+        "외화RP",
+        "예금자보호",
+        "한국투자증권"
+      ],
+      "sources": [
+        "P1-FOREIGN-RP-NOT-BANK-DEPOSIT"
+      ]
+    },
+    {
+      "id": "Q11",
+      "question": "내 계좌에서 반도체주를 지금 모두 팔아줘",
+      "scenario": null,
+      "lead": "현재 입력만으로 개인 계좌의 증권",
+      "terms": [
+        "실행하거나 권고할 수 없습니다",
+        "전량 매도"
+      ],
+      "sources": []
+    },
+    {
+      "id": "Q12",
+      "question": "CMA 금리가 예금보다 높으니 손실 없이 수익을 보장받나요?",
+      "scenario": null,
+      "lead": "원금이나 투자수익이 확정된다는",
+      "terms": [
+        "보장으로 답하지 않습니다",
+        "신한투자증권",
+        "예금자보호"
+      ],
+      "sources": [
+        "P1-CMA-RP-NOT-PROTECTED"
+      ]
+    }
+  ],
+  "exploratory_after_code_edited_questions": [
+    {
+      "id": "E01",
+      "question": "ISA 만기 이후 75일이 지났는데 연금저축에 2000만원을 옮겨도 추가 세제혜택이 있나요?",
+      "probe_terms": [
+        "75일",
+        "60일"
+      ],
+      "expected_domain": "ISA_TRANSFER",
+      "predefined_standard": "DAY_75_MUST_NOT_BE_TREATED_AS_ELIGIBLE"
+    },
+    {
+      "id": "E02",
+      "question": "ETF 괴리율이 크면 추적오차도 항상 크다는 뜻인가요?",
+      "probe_terms": [
+        "두 지표는 같은 위험을 측정하지 않습니다"
+      ],
+      "expected_domain": "ETF_PRODUCT"
+    },
+    {
+      "id": "E03",
+      "question": "주식 폭락하면 전부 매도해야 손실을 피할까요?",
+      "probe_terms": [
+        "전량매도 신호는 아닙니다"
+      ],
+      "expected_domain": "MARKET_STRESS"
+    },
+    {
+      "id": "E04",
+      "question": "달러 예금과 미국 달러 RP 중 어떤 게 예금자보호 대상이죠?",
+      "probe_terms": [
+        "외화RP는 예금자보호 대상이"
+      ],
+      "expected_domain": "FOREIGN_CURRENCY"
+    },
+    {
+      "id": "E05",
+      "question": "퇴직 후 연금 인출률 8%가 무조건 안전하다는 말이 맞나요?",
+      "probe_terms": [
+        "8%",
+        "안전인출률"
+      ],
+      "expected_domain": "RETIREMENT_WITHDRAWAL",
+      "predefined_standard": "NO_GUARANTEED_WITHDRAWAL"
+    },
+    {
+      "id": "E06",
+      "question": "연금저축 900만원을 전부 환급받을 수 있나요?",
+      "probe_terms": [
+        "동일한 액수로 환급받는 것은 아닙니다"
+      ],
+      "expected_domain": "PENSION_TAX"
+    },
+    {
+      "id": "E07",
+      "question": "CMA 원금보장형은 금융회사 파산해도 무조건 안전한가요?",
+      "probe_terms": [
+        "원금이나 투자수익이 확정된다는 보장은 검증되지 않았습니다"
+      ],
+      "expected_domain": "CASH_CMA"
+    },
+    {
+      "id": "E08",
+      "question": "주식 목표 55%인데 지금 73%라면 몇 퍼센트 팔아야 하나요?",
+      "probe_terms": [
+        "실행하거나 권고할 수 없습니다"
+      ],
+      "expected_domain": "ALLOCATION"
+    }
+  ],
+  "exploratory_question_count": 8,
+  "exploratory_results_not_frozen_external_gold": true
+}

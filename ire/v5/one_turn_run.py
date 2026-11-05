@@ -27,6 +27,7 @@ from .advisory_semantic import audit as verify_p0_semantic
 from .advisory_evidence import audit as verify_p1_evidence
 from .advisory_decision import audit as verify_p2_decision
 from .advisory_answer_pipeline import audit as verify_p3_answer
+from .advisory_final_answer_review import run as verify_final_answer_quality
 
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
@@ -63,6 +64,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     p1_evidence=verify_p1_evidence(root)
     p2_decision=verify_p2_decision(root)
     p3_answer=verify_p3_answer(root)
+    final_answer_quality=verify_final_answer_quality(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -86,6 +88,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "p1_atomic_source_scoped_evidence":p1_evidence,
         "p2_conditional_decision_analysis":p2_decision,
         "p3_conditional_answer_quality":p3_answer,
+        "p3_real_final_answer_acceptance":final_answer_quality,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,

@@ -9,7 +9,7 @@ import argparse
 import json
 import re
 from pathlib import Path
-from .advisory60 import load_policy
+from .advisory60 import load_policy, PERSONAL_TERMS, GUARANTEE_TERMS
 from .advisory_semantic import parse as semantic_parse
 from .advisory_evidence import plan as evidence_plan
 from .advisory_decision import compare as quantitative_compare
@@ -47,19 +47,66 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
     policy=load_policy(root)
     meaning=semantic_parse(question,policy)
     scope=evidence_plan(question,root)
-    personal_request=bool(PERSONAL_ORDER.search(question) or "내 계좌" in question)
-    guarantee_request=bool(ASSURANCE.search(question))
+    q=question.casefold()
+    personal_request=bool(PERSONAL_ORDER.search(question) or any(
+        k.casefold() in q for k in PERSONAL_TERMS))
+    guarantee_request=bool(ASSURANCE.search(question) or any(
+        k.casefold() in q for k in GUARANTEE_TERMS))
     comparisons=quantitative_compare(root,question,scenario) if scenario is not None else None
     parts=[]
     domains=set(meaning["related_domains"])
     if personal_request:
-        parts.append("현재 입력만으로 개인 계좌의 증권 매수·매도 주문을 실행하거나 권고할 수 없습니다.")
+        if "MARKET_STRESS" in domains and "서킷브레이커" in question and ("팔" in question or "매도" in question):
+            parts.append("아닙니다. 서킷브레이커 발동 자체가 전량매도 신호는 아닙니다. "
+                         "목표비중과 현금수요를 검토해야 하며, 현재 입력만으로 개인 계좌에 매매 지시를 내릴 수 없습니다.")
+        else:
+            parts.append("현재 입력만으로 개인 계좌의 증권 매수·매도 주문을 실행하거나 권고할 수 없습니다.")
     elif guarantee_request:
         parts.append("원금이나 투자수익이 확정된다는 보장은 검증되지 않았습니다.")
     elif {"ISA_TRANSFER","ISA_FOREIGN_DIVIDEND"}<=domains:
         parts.append("ISA 만기자금의 연금계좌 이전 공제와 해외배당 외국세액 조정은 서로 다른 제도이며, 같은 공제로 취급할 수 없습니다.")
     elif "PENSION_TAX" in domains and ("환급" in question or "돌려받" in question):
         parts.append("연금계좌에 납입한 금액을 그대로 동일한 액수로 환급받는 것은 아닙니다.")
+    elif "ETF_PRODUCT" in domains and "괴리" in question and "추적오차" in question:
+        parts.append("ETF를 매수할 때는 먼저 실제 거래가격과 NAV의 괴리·호가를 점검하고, "
+                     "이어 ETF 운용의 지수 추적오차를 별도로 확인하는 것이 합리적입니다. "
+                     "두 지표는 같은 위험을 측정하지 않습니다.")
+    elif "MARKET_STRESS" in domains and ("서킷브레이커" in question or "급락" in question) and (
+            "매도" in question or "팔" in question):
+        parts.append("아닙니다. 서킷브레이커 발동이나 급락 사실 자체가 보유 주식의 전량매도 신호는 아닙니다. "
+                     "목표비중, 현금수요, 투자근거 및 매매비용을 먼저 검토해야 합니다.")
+    elif "FOREIGN_CURRENCY" in domains and ("달러" in question or "usd" in q) and "rp" in q:
+        parts.append("같은 안전자산으로 취급해서는 안 됩니다. 외화예금과 외화RP는 법적 구조, "
+                     "신용위험 및 예금자보호 여부가 다릅니다. 외화RP는 예금자보호 대상이 "
+                     "아니며 원금손실과 환율변동 위험이 있습니다.")
+    elif comparisons is not None and len(comparisons["results"])==1:
+        a=comparisons["results"][0]
+        k=comparisons["kind"]
+        if k=="ISA_TRANSFER":
+            parts.append(
+                f"입력한 만기 후 {a['days_after_expiry']:.0f}일 경과 조건에서 "
+                f"추가 세액공제 대상 납입액은 {a['additional_credit_eligible_contribution_krw']:,.0f}원, "
+                f"가정 소득세율 기준 계산상 공제액은 {a['hypothetical_income_tax_credit_before_tax_cap_krw']:,.0f}원입니다. "
+                "이는 실제 환급 확정금액이 아닙니다.")
+        elif k=="RETIREMENT_GAP":
+            parts.append(
+                f"주어진 현금흐름을 단순 차감하면 월 부족분은 {a['monthly_unfunded_spending_krw']:,.0f}원입니다. "
+                "이 부족액은 세금·물가·기간을 반영한 필요 투자원금과 다릅니다.")
+        elif k=="ALLOCATION_DRIFT":
+            parts.append(
+                f"주어진 주식 비중은 목표 대비 {a['equity_weight_drift_percentage_points']:+.2f}%포인트 차이가 납니다. "
+                "이 차이를 곧바로 전량매도 지시로 바꾸지 않습니다.")
+    elif comparisons is not None and comparisons["kind"]=="ETF_TOTAL_RETURN" and len(comparisons["results"])>=2:
+        rank=sorted(comparisons["results"],key=lambda x:x["net_total_return_pct_pre_tax"],reverse=True)
+        delta=rank[0]["net_total_return_pct_pre_tax"]-rank[1]["net_total_return_pct_pre_tax"]
+        if delta>1e-8:
+            parts.append(
+                f"입력된 가정만 비교하면 {rank[0]['option_id']} 대안의 세전 총수익률 "
+                f"{rank[0]['net_total_return_pct_pre_tax']:.2f}%가 "
+                f"{rank[1]['option_id']} 대안 {rank[1]['net_total_return_pct_pre_tax']:.2f}%보다 "
+                f"{delta:.2f}%포인트 높습니다. 이는 실제 상품 추천이 아닌 계산상 차이입니다.")
+        else:
+            parts.append("입력된 대안의 세전 총수익률이 동일해, 금액 외 위험과 비용을 추가 검토해야 합니다.")
     if meaning["related_domains"]:
         titles={x["route_id"]:x["title"] for x in policy["routes"]}
         parts.append("질문에서 분리한 판단 영역은 "

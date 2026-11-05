@@ -8,8 +8,8 @@ ROOT=Path(__file__).resolve().parents[3]
 class EvidenceP1Tests(unittest.TestCase):
     def test_p1_atomic_fact_catalog_and_negative_cases(self):
         out=p1.audit(ROOT)
-        self.assertEqual(out["atomic_source_scoped_facts"],6)
-        self.assertEqual(out["question_fact_scope_tests"],8)
+        self.assertEqual(out["atomic_source_scoped_facts"],9)
+        self.assertEqual(out["question_fact_scope_tests"],11)
         self.assertEqual(out["false_legacy_graph_edges_explicitly_blocked"],5)
         self.assertTrue(out["not_all_60_legacy_claims_reverified"])
 

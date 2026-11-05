@@ -24,3 +24,7 @@
 - 실제 생성한 답변 12건은 **관련성·근거 추적·계산 포함·위험/예외·거래 차단 등 5개 구조 검수 항목 12/12 통과**. 외부 독립 전문가 평가나 무제한 질문의 생성형 모델 정답률이 아니다.
 - Q04 ISA 해외배당 과세와 만기자금 연금전환을 묻는 사례에서 기존 첫 문장이 기술적인 영역 코드만 나열하는 문제를 발견하여, 두 제도가 **서로 다름을 직접 답하는 문장**을 앞에 두도록 보완. 개인 주문을 요청한 경우 거래 불가를 문두에 표기하고, 납입원금 전체 세액환급 오류도 직접 정정한다.
 - N12 실패는 이번 질문 세트에 맞춰 P0 분류기를 재튜닝하지 않고 공개한 상태로 유지. 90% 목표 충족은 같은 작성자 기반 한정 시험에 대한 결과이다.
+
+
+## Actual final-answer quality audit — new gate
+From the prior CI's actual rendered Q01-Q12 responses, 12/12 had passed structural criteria, but only 8/12 directly answered the questions: Q05 comparison sequence, Q07 hypothetical ETF outcome, Q09 circuit-breaker all-sell, Q10 dollar deposit vs foreign-RP. Direct lead and issuer-scoped SEC/FX RP/CMA evidence added, plus a separate eight-question post-edit exploratory check. Repaired cases are non-independent and must not be reported as out-of-sample accuracy. See P3_FINAL_ANSWER_VALIDATION_REPORT_20261105.md.
