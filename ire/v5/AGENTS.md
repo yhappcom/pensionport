@@ -39,3 +39,18 @@ Scope: all edits under `ire/v5/**` in `feat/ire-v5-vertical-slice-20261103`. Pre
 - Web sources were read by ChatGPT in the active turn, **not independently re-fetched/immutably snapshotted by CI**. Source-content alignment remains a chat-level claim under the user-approved policy, not a GitHub-certified legal fact.
 - Personal action and guaranteed-return intents must be detected **before** no-route exits. No portfolio weight, securities order, or certainty of return can be released from an unsupported question.
 - Every future change to route terms must run existing 20 + repair 20 + untouched holdout scenarios and track new, genuinely unexposed phrasing separately. A corrected prior test must never be passed off as fresh blind validation.
+
+## MANDATORY Git tree path preservation pre-push (2026-11-05)
+
+**Incident:** GitHub create_tree changes initially dropped 3 pre-existing files:
+`ire/v5/advisory_integration/REPORT_60_ADVISORY_20261105.md`,
+`ire/v5/advisory_integration/question_scenarios_20261105.json`,
+`ire/v5/tests/test_advisory60.py`. This caused actual CI failure for SHA `25c6da5cdfb59d5592e7a55302b0425195bc1b19`. Do not diagnose this as merely superseded or cancelled.
+
+**Required BEFORE each GitHub update_ref:**
+1. Fetch recursively the HEAD Git tree of the parent commit, and the recursively expanded proposed Git tree. Ensure `truncated=false` for both.
+2. Compute every old blob path missing in the new candidate; **abort publication on any deletion not explicitly approved by the user** (including tests, existing scenario data, reports, original evidence and independent workflow files). Check retained paths, not just SHA of modified blobs.
+3. When staging through repeated `create_tree` operations, inspect the full candidate after all updates, because intermediate new directories can replace older sibling files. Restore missing blob entries by their exact previous Git SHA, then run the diff again.
+4. Require `ire.v5.repository_tree_gate` in preflight before existing advisory gates. Confirm both `test_advisory60.py` and `test_advisory60_validation.py` were preserved.
+5. Push **only after the comparison passes**, with one atomic `update_ref(expected_sha=HEAD,force=false)`. Then verify both workflows on the final HEAD.
+6. GitHub CI cannot replace this pre-branch-update diff. A CI failure must be disclosed with exact cause and remediated, never suppressed.

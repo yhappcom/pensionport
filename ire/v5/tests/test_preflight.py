@@ -28,6 +28,7 @@ class PreflightContractTests(unittest.TestCase):
             "fine_grained_ipo_semantic_and_current_law_recheck",
             "user_approved_chat_source_scoped_fact_gate",
             "first_three_legacy_reconciliation_batches_60_and_master_116",
+            "research_tree_original_and_new_file_integrity",
             "sixty_legacy_claim_advisory_decision_support",
             "new_chat_unseen_advisory_routing_official_scope_and_arithmetic",
             "all_v5_regression_tests",

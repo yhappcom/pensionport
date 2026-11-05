@@ -57,6 +57,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.chat_evidence_acceptance_gate", "--root", ".")),
     ("first_three_legacy_reconciliation_batches_60_and_master_116",
      ("-m", "ire.v5.legacy_consolidation_gate", "--root", ".")),
+    ("research_tree_original_and_new_file_integrity",
+     ("-m", "ire.v5.repository_tree_gate", "--root", ".")),
     ("sixty_legacy_claim_advisory_decision_support",
      ("-m", "ire.v5.advisory60", "--root", ".")),
     ("new_chat_unseen_advisory_routing_official_scope_and_arithmetic",
