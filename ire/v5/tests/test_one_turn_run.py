@@ -66,6 +66,9 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["p1_atomic_source_scoped_evidence"]["atomic_source_scoped_facts"],6)
         self.assertEqual(payload["p1_atomic_source_scoped_evidence"]["question_fact_scope_tests"],8)
         self.assertEqual(payload["p1_atomic_source_scoped_evidence"]["new_personalized_actions_approved"],0)
+        self.assertEqual(payload["p2_conditional_decision_analysis"]["conditional_scenario_templates"],4)
+        self.assertEqual(payload["p2_conditional_decision_analysis"]["synthetic_comparison_cases_passed"],5)
+        self.assertFalse(payload["p2_conditional_decision_analysis"]["full_investor_suitability_measured"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 

@@ -33,6 +33,7 @@ class PreflightContractTests(unittest.TestCase):
             "new_chat_unseen_advisory_routing_official_scope_and_arithmetic",
             "p0_multidomain_semantic_decomposition",
             "p1_atomic_source_scoped_evidence",
+            "p2_conditional_decision_scenarios",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))

@@ -1,0 +1,188 @@
+{
+  "schema": "IRE_V5_P2_EXAMPLE_COMPARISONS_V1",
+  "as_of": "2026-11-05",
+  "not_independent_personal_advice_validation": true,
+  "cases": [
+    {
+      "case_id": "A01",
+      "question": "ISA 만기 전환으로 연금 세액공제를 받으려면?",
+      "scenario": {
+        "kind": "ISA_TRANSFER",
+        "assumed_income_tax_credit_rate": 0.15,
+        "remaining_assessable_income_tax_krw": 1000000,
+        "options": [
+          {
+            "id": "transfer_all",
+            "transfer_krw": 30000000,
+            "days_after_isa_expiry": 35
+          },
+          {
+            "id": "transfer_partial",
+            "transfer_krw": 10000000,
+            "days_after_isa_expiry": 35
+          },
+          {
+            "id": "late",
+            "transfer_krw": 30000000,
+            "days_after_isa_expiry": 70
+          }
+        ]
+      },
+      "expected": [
+        {
+          "id": "transfer_all",
+          "metrics": {
+            "additional_credit_eligible_contribution_krw": 3000000,
+            "hypothetical_income_tax_credit_before_tax_cap_krw": 450000
+          }
+        },
+        {
+          "id": "transfer_partial",
+          "metrics": {
+            "additional_credit_eligible_contribution_krw": 1000000,
+            "hypothetical_income_tax_credit_before_tax_cap_krw": 150000
+          }
+        },
+        {
+          "id": "late",
+          "metrics": {
+            "additional_credit_eligible_contribution_krw": 0,
+            "hypothetical_income_tax_credit_before_tax_cap_krw": 0
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A02",
+      "question": "은퇴 후 생활비 부족분에서 연금은 얼마나 커버하나요?",
+      "scenario": {
+        "kind": "RETIREMENT_GAP",
+        "monthly_pension_krw": 1200000,
+        "other_monthly_income_krw": 200000,
+        "options": [
+          {
+            "id": "original",
+            "monthly_expense_krw": 3000000
+          },
+          {
+            "id": "spend_less",
+            "monthly_expense_krw": 2600000
+          }
+        ]
+      },
+      "expected": [
+        {
+          "id": "original",
+          "metrics": {
+            "monthly_unfunded_spending_krw": 1600000,
+            "annual_unfunded_spending_krw": 19200000
+          }
+        },
+        {
+          "id": "spend_less",
+          "metrics": {
+            "monthly_unfunded_spending_krw": 1200000,
+            "annual_unfunded_spending_krw": 14400000
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A03",
+      "question": "ETF 배당분배가 많으면 총수익도 더 높나요?",
+      "scenario": {
+        "kind": "ETF_TOTAL_RETURN",
+        "options": [
+          {
+            "id": "high_distribution",
+            "initial_value_krw": 1000000,
+            "ending_market_value_krw": 950000,
+            "cash_distributions_krw": 80000,
+            "separately_paid_fees_krw": 10000
+          },
+          {
+            "id": "growth",
+            "initial_value_krw": 1000000,
+            "ending_market_value_krw": 1050000,
+            "cash_distributions_krw": 0,
+            "separately_paid_fees_krw": 15000
+          }
+        ]
+      },
+      "expected": [
+        {
+          "id": "high_distribution",
+          "metrics": {
+            "net_total_return_krw_pre_tax": 20000,
+            "net_total_return_pct_pre_tax": 2
+          }
+        },
+        {
+          "id": "growth",
+          "metrics": {
+            "net_total_return_krw_pre_tax": 35000,
+            "net_total_return_pct_pre_tax": 3.5
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A04",
+      "question": "자산배분 주식 목표비중에서 벗어난 상태를 계산해줘",
+      "scenario": {
+        "kind": "ALLOCATION_DRIFT",
+        "target_equity_pct": 60,
+        "options": [
+          {
+            "id": "current",
+            "current_equity_pct": 75
+          },
+          {
+            "id": "near_target",
+            "current_equity_pct": 62
+          }
+        ]
+      },
+      "expected": [
+        {
+          "id": "current",
+          "metrics": {
+            "equity_weight_drift_percentage_points": 15
+          }
+        },
+        {
+          "id": "near_target",
+          "metrics": {
+            "equity_weight_drift_percentage_points": 2
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A05",
+      "question": "ISA 만기 60일 내 전환 공제혜택은 실제 환급액인가요?",
+      "scenario": {
+        "kind": "ISA_TRANSFER",
+        "assumed_income_tax_credit_rate": 0.12,
+        "remaining_assessable_income_tax_krw": 100000,
+        "options": [
+          {
+            "id": "tax_capped",
+            "transfer_krw": 30000000,
+            "days_after_isa_expiry": 50
+          }
+        ]
+      },
+      "expected": [
+        {
+          "id": "tax_capped",
+          "metrics": {
+            "additional_credit_eligible_contribution_krw": 3000000,
+            "hypothetical_income_tax_credit_before_tax_cap_krw": 360000,
+            "hypothetical_credit_after_supplied_remaining_tax_cap_krw": 100000
+          }
+        }
+      ]
+    }
+  ]
+}
