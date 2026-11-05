@@ -98,7 +98,7 @@ class LegacyConsolidationTests(unittest.TestCase):
     def test_future_batches_cannot_be_marked_completed(self):
         with self.assertRaisesRegex(gate.LegacyConsolidationError,
                                     "LEGACY_PARTITION_OR_COMPLETION_MISMATCH"):
-            self.amended(mut_master=lambda m: m["batches"][2].update(
+            self.amended(mut_master=lambda m: m["batches"][3].update(
                 state="METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED"))
 
     def test_legacy_document_not_found(self):
