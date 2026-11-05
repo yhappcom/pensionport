@@ -16,6 +16,7 @@ ROOT_DIR = Path("ire/v5/legacy_consolidation")
 MASTER = ROOT_DIR / "master_index_20261105.json"
 B01 = ROOT_DIR / "batch_B01_C001_C020_20261105.json"
 B02 = ROOT_DIR / "batch_B02_C021_C040_20261105.json"
+B03 = ROOT_DIR / "batch_B03_C041_C060_20261105.json"
 
 
 class LegacyConsolidationError(ValueError):
@@ -41,11 +42,13 @@ def git_blob_sha(raw: bytes) -> str:
 
 
 def verify(root: Path, master: dict | None = None, batch: dict | None = None,
-           batch2: dict | None = None) -> dict:
+           batch2: dict | None = None,
+           batch3: dict | None = None) -> dict:
     root = Path(root)
     master = load_json(root / MASTER) if master is None else master
     batch = load_json(root / B01) if batch is None else batch
     batch2 = load_json(root / B02) if batch2 is None else batch2
+    batch3 = load_json(root / B03) if batch3 is None else batch3
     claim_path = root / "data/claims.jsonl"
     video_path = root / "data/videos.jsonl"
     graph_path = root / "ire/v5/advisory_knowledge/integrated_education13_20261104.json"
@@ -98,16 +101,16 @@ def verify(root: Path, master: dict | None = None, batch: dict | None = None,
              and b.get("claim_ids") == want
              and b.get("range") == [want[0], want[-1]]
              and b.get("state") ==
-                 ("METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED" if k <= 2
+                 ("METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED" if k <= 3
                   else "PENDING_DETAILED_RECONCILIATION")
              and b.get("artifact") ==
-                 ({1: str(B01), 2: str(B02)}.get(k)),
+                 ({1: str(B01), 2: str(B02), 3: str(B03)}.get(k)),
              "LEGACY_PARTITION_OR_COMPLETION_MISMATCH")
         assigned.extend(want)
     must(assigned == ids, "LEGACY_BATCH_COVERAGE_GAP")
-    must(master["summary"].get("legacy_detailed_batches_completed") == 2
-         and master["summary"].get("legacy_claims_detailed_triaged") == 40
-         and master["summary"].get("legacy_claims_waiting_detailed_triage") == 76
+    must(master["summary"].get("legacy_detailed_batches_completed") == 3
+         and master["summary"].get("legacy_claims_detailed_triaged") == 60
+         and master["summary"].get("legacy_claims_waiting_detailed_triage") == 56
          and master["summary"].get("new_fact_approvals_from_consolidation") == 0,
          "LEGACY_B02_MASTER_PROGRESS_INCONSISTENT")
     for i, (row, claim) in enumerate(zip(index, claims)):
@@ -122,10 +125,10 @@ def verify(root: Path, master: dict | None = None, batch: dict | None = None,
              and row.get("assigned_batch_id") == f"B{i//20+1:02d}"
              and row.get("fact_acceptance_this_index") == "NOT_REASSESSED_METADATA_ONLY"
              and row.get("consolidation_state") ==
-                 ("SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL" if i < 40
+                 ("SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL" if i < 60
                   else "METADATA_ONLY")
              and row.get("detailed_triage_artifact") ==
-                 (str(B01) if i < 20 else str(B02) if i < 40 else None),
+                 (str(B01) if i < 20 else str(B02) if i < 40 else str(B03) if i < 60 else None),
              "LEGACY_INDEX_UNTRACED_OR_OVERPROMOTED_CLAIM")
     summary = master["summary"]
     must(summary.get("legacy_claims") == len(claims)
@@ -385,6 +388,124 @@ def verify(root: Path, master: dict | None = None, batch: dict | None = None,
          and stat2.get("new_personalized_advice_approvals") == 0
          and stat2.get("legacy_claims_modified") == 0,
          "LEGACY_B02_SUMMARY_INCONSISTENT")
+
+    # B03 completion validates provenance, chronology and safe labels, not external law.
+    must(batch3.get("schema") == "IRE_V5_LEGACY_CONSOLIDATION_BATCH_V1"
+         and batch3.get("batch_id") == "B03"
+         and batch3.get("claim_range") == ["GOMHEE-C41", "GOMHEE-C60"]
+         and batch3.get("source_legacy_blob_sha") == source_sha["legacy"]
+         and batch3.get("source_video_index_blob_sha") == source_sha["video"]
+         and batch3.get("source_education_graph_blob_sha") == source_sha["graph"]
+         and batch3.get("original_ledger_preserved") is True
+         and batch3.get("unverified_fact_promotion_prohibited") is True
+         and batch3.get("basis") ==
+             "METADATA_AND_LEGACY_STUDY_DOCUMENT_RECONCILIATION_NOT_FRESH_REGULATORY_FACT_CHECK",
+         "LEGACY_B03_FALSE_FACT_OR_SOURCE_POLICY")
+    third = batch3.get("records", [])
+    must(len(third) == 20, "LEGACY_B03_MISSING_RECORDS")
+    cat3 = Counter()
+    links3 = 0
+    docpaths3 = 0
+    vset3 = set()
+    v5_refs3 = 0
+    warnings3 = 0
+    for claim, row in zip(claims[40:60], third):
+        cid = claim["claim_id"]
+        must(row.get("claim_id") == cid
+             and row.get("original_statement") == claim["claim"]
+             and row.get("original_topic") == claim["topic"]
+             and row.get("legacy_status") == claim["status"]
+             and row.get("legacy_confidence") == claim["confidence"]
+             and len(row.get("interpretation_and_exceptions", "")) >= 80,
+             "LEGACY_B03_ORIGINAL_CLAIM_CHANGED")
+        must(row.get("original_srt_full_cue_coverage_reverified_this_batch") is False
+             and row.get("official_rule_current_source_verified_this_batch") is False
+             and row.get("chat_evidence_fact_approved_this_batch") is False
+             and row.get("personal_investment_advice_approved") is False,
+             "LEGACY_B03_FAKE_FACT_OR_ADVICE_APPROVAL")
+        category = row.get("research_triage")
+        must(category in {"TIME_SENSITIVE_EVIDENCE_RECHECK",
+                          "SOURCE_LIMITED_NOT_FACT_APPROVED",
+                          "STRATEGY_CONTEXT_ONLY",
+                          "GENERAL_EDUCATION_LINK_CANDIDATE"},
+             "LEGACY_B03_INVALID_CATEGORY")
+        cat3[category] += 1
+        sv = row.get("source_videos", [])
+        must(len(sv) == 1
+             and [x["video_id"] for x in sv] == claim["supporting_videos"],
+             "LEGACY_B03_SOURCE_LINK_CHANGED")
+        video = sv[0]
+        v = vmap[video["video_id"]]
+        must(video.get("canonical_sequence") == v["sequence"]
+             and video.get("verification_status") == v.get("verification_status")
+             and video.get("analysis_status") == v.get("analysis_status")
+             and video.get("original_full_transcript_reviewed_this_batch") is False,
+             "LEGACY_B03_FALSE_TRANSCRIPT_CHECK")
+        pths = video.get("video_document_paths", [])
+        used = video.get("reviewed_document_paths", [])
+        must(len(pths) >= 1 and len(used) == 1 and set(used) <= set(pths)
+             and video.get("review_depth") == "PRIOR_RESEARCH_SUMMARY_ONLY",
+             "LEGACY_B03_REVIEW_PATH_INCONSISTENT")
+        for doc in pths:
+            must(doc.startswith("videos/") and video["video_id"] in Path(doc).name
+                 and (root / doc).is_file(), "LEGACY_B03_VIDEO_DOCUMENT_MISSING")
+        must(row.get("reviewed_primary_or_secondary_study_documents") == used,
+             "LEGACY_B03_READ_DOCUMENT_MISMATCH")
+        docpaths3 += len(pths)
+        vset3.add(video["video_id"])
+        stored = row.get("existing_v5_graph_core_references", [])
+        must([z.get("knowledge_id") for z in stored] == direct[cid]
+             and all(z.get("relation") ==
+                "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+                for z in stored), "LEGACY_B03_V5_GRAPH_REFERENCE_FORGED")
+        v5_refs3 += len(stored)
+        must(all(x.get("knowledge_id") in available
+             and x.get("relation") ==
+                 "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+             for x in row.get("integrated_knowledge_links", [])),
+             "LEGACY_B03_THEMATIC_MATCH_FALSE_APPROVAL")
+        must(all(x.get("claim_id") in ids and x.get("claim_id") != cid
+             and x.get("relation") ==
+                 "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+             for x in row.get("legacy_relation_candidates", [])),
+             "LEGACY_B03_CROSSCLAIM_WITHOUT_EVIDENCE")
+        if row.get("existing_v5_link_semantic_warning") != "NONE":
+            warnings3 += 1
+        links3 += len(row.get("integrated_knowledge_links", []))
+    third_byid = {r["claim_id"]:r for r in third}
+    must(third_byid["GOMHEE-C42"]["existing_v5_link_semantic_warning"] ==
+         "B03_C42_TAX_BASIS_NOT_SAME_AS_ISA_TRANSFER_OR_PENSION_1500"
+         and third_byid["GOMHEE-C52"]["existing_v5_link_semantic_warning"] ==
+         "B03_C52_ALLOCATION_NOT_DCA_ARITHMETIC",
+         "LEGACY_B03_TAX_OR_ALLOCATION_RELATION_CONFLATED")
+    must("안전인출률" in third_byid["GOMHEE-C45"]["interpretation_and_exceptions"]
+         and "8%" in third_byid["GOMHEE-C45"]["interpretation_and_exceptions"]
+         and third_byid["GOMHEE-C60"]["content_type"] == "COMPILATION",
+         "LEGACY_B03_UNSAFE_WITHDRAWAL_OR_REPEATED_SOURCE")
+    for cid in ("GOMHEE-C41","GOMHEE-C42","GOMHEE-C43","GOMHEE-C44",
+                "GOMHEE-C45","GOMHEE-C46","GOMHEE-C48","GOMHEE-C55",
+                "GOMHEE-C56","GOMHEE-C59"):
+        must(third_byid[cid]["research_triage"] ==
+             "TIME_SENSITIVE_EVIDENCE_RECHECK",
+             "LEGACY_B03_CURRENT_LAW_UNVERIFIED")
+    for cid in ("GOMHEE-C47","GOMHEE-C53","GOMHEE-C54",
+                "GOMHEE-C58","GOMHEE-C60"):
+        must(third_byid[cid]["research_triage"] ==
+             "SOURCE_LIMITED_NOT_FACT_APPROVED",
+             "LEGACY_B03_ORIGINAL_AUDIO_UNAVAILABLE")
+    stats3 = batch3["stats"]
+    must(stats3.get("claims") == len(third) == 20
+         and stats3.get("video_links") == 20
+         and stats3.get("distinct_video_ids") == len(vset3) == 20
+         and stats3.get("source_document_paths_mapped") == docpaths3
+         and stats3.get("distinct_summary_documents_read") == 20
+         and stats3.get("triage_counts") == dict(cat3)
+         and stats3.get("existing_v5_graph_core_reference_edges") == v5_refs3
+         and stats3.get("existing_graph_semantic_link_warning_count") == warnings3 == 2
+         and stats3.get("new_fact_approvals") == 0
+         and stats3.get("new_personalized_advice_approvals") == 0
+         and stats3.get("legacy_claims_modified") == 0,
+         "LEGACY_B03_SUMMARY_INVALID")
     return {
         "schema": "IRE_V5_LEGACY_CONSOLIDATION_GATE_V1",
         "master_claims_indexed": len(index),
@@ -405,7 +526,11 @@ def verify(root: Path, master: dict | None = None, batch: dict | None = None,
         "second_batch_summary_documents_read": len(b2_summary_docs),
         "second_batch_preexisting_core_links": b2_link_edges,
         "two_batches_claims_detailed_triaged": len(reviewed) + len(second),
-        "remaining_batches_not_claimed_complete": 4,
+        "third_batch": "B03",
+        "third_batch_claims_integrated": len(third),
+        "third_batch_video_links_checked": len(vset3),
+        "three_batches_claims_detailed_triaged": len(reviewed)+len(second)+len(third),
+        "remaining_batches_not_claimed_complete": 3,
         "existing_approved_facts_retracted_or_changed": 0,
         "new_claims_independently_verified_by_script": 0,
         "new_personalized_advice_approvals": 0,

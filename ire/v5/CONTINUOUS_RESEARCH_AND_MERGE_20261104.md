@@ -49,3 +49,8 @@ GitHub Actions 실행 성공 = 금융 사실 검증 성공이 아니다. V5 의�
 ## 2026-11-05 B02 처리 및 Actions run-fail 예방
 
 GitHub 워크플로 실패 방지 원칙은 `ire/v5/AGENTS.md`와 `ire/v5/legacy_consolidation/RUN_FAIL_PREVENTION_20261105.md`에 명시했다. **단일 원자적 Git commit + preflight/회귀시험/동일 HEAD 두 워크플로의 green 상태 확인**을 원칙으로 한다. B02 C21–C40 20건은 문서 기반 의미·연결·시점 위험 분류를 완료, B03~B06 76건은 미처리 상태이며 기존 핵심 원장·V5 승인 교육 지식은 변경하지 않았다.
+
+
+## B03 C41~C60 연구 통합 (2026-11-05)
+
+기존 연구 문서 20개를 대조해 20건의 의미·중복·시점 제한을 기록했다. 통합 누적 60/116건, 상세 정리 대기 56건(B04~B06). C42 연금 비공제원금·ISA 연금전환 참조 및 C52 자산배분·DCA 산술 참조를 의미링크 검토 후보로 표시한다. 8% 커버드콜 분배는 안전한 8% 인출률로 승인 금지. 관련 보고서: `ire/v5/legacy_consolidation/PLAN_AND_BATCH03_REPORT_20261105.md`.
