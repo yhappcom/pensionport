@@ -53,6 +53,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.new_video_followup_gate", "--root", ".")),
     ("fine_grained_ipo_semantic_and_current_law_recheck",
      ("-m", "ire.v5.semantic_evidence_gate", "--root", ".")),
+    ("user_approved_chat_source_scoped_fact_gate",
+     ("-m", "ire.v5.chat_evidence_acceptance_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
