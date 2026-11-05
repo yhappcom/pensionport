@@ -37,6 +37,10 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertFalse(payload["second_unseen_video_full_research"]["personal_advice_approved"])
         self.assertEqual(payload["second_unseen_video_semantic_evidence_recheck"]["rechecked_semantic_units"],22)
         self.assertFalse(payload["second_unseen_video_semantic_evidence_recheck"]["financial_fact_certified"])
+        self.assertEqual(payload["source_scoped_chat_researched_facts"]["fully_accepted_facts"],9)
+        self.assertEqual(payload["source_scoped_chat_researched_facts"]["narrowly_accepted_partial_facts"],3)
+        self.assertEqual(payload["source_scoped_chat_researched_facts"]["not_accepted_as_facts"],10)
+        self.assertFalse(payload["blind_review_required_for_research_fact_acceptance"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
