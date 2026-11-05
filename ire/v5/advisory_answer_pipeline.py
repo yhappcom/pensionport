@@ -51,10 +51,20 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
     guarantee_request=bool(ASSURANCE.search(question))
     comparisons=quantitative_compare(root,question,scenario) if scenario is not None else None
     parts=[]
+    domains=set(meaning["related_domains"])
+    if personal_request:
+        parts.append("현재 입력만으로 개인 계좌의 증권 매수·매도 주문을 실행하거나 권고할 수 없습니다.")
+    elif guarantee_request:
+        parts.append("원금이나 투자수익이 확정된다는 보장은 검증되지 않았습니다.")
+    elif {"ISA_TRANSFER","ISA_FOREIGN_DIVIDEND"}<=domains:
+        parts.append("ISA 만기자금의 연금계좌 이전 공제와 해외배당 외국세액 조정은 서로 다른 제도이며, 같은 공제로 취급할 수 없습니다.")
+    elif "PENSION_TAX" in domains and ("환급" in question or "돌려받" in question):
+        parts.append("연금계좌에 납입한 금액을 그대로 동일한 액수로 환급받는 것은 아닙니다.")
     if meaning["related_domains"]:
-        parts.append("질문에서 분리한 금융 판단 영역은 "
-                     + ", ".join(meaning["related_domains"]) + "입니다. "
-                     "각 영역의 조건과 근거를 독립적으로 확인해야 합니다.")
+        titles={x["route_id"]:x["title"] for x in policy["routes"]}
+        parts.append("질문에서 분리한 판단 영역은 "
+                     + ", ".join(titles.get(d,d) for d in meaning["related_domains"])
+                     + "입니다. 각 영역의 조건과 근거를 독립적으로 확인해야 합니다.")
     else:
         parts.append("현재 연구 지식 원장에서 이 질문과 직접 일치하는 금융 판단 영역을 확인하지 못했습니다.")
     facts=scope["direct_scoped_evidence"]

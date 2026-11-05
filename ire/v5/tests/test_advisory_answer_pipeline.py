@@ -39,6 +39,23 @@ class AnswerP3Tests(unittest.TestCase):
         self.assertTrue(r["guarantee_claim_detected"])
         self.assertIn("보장으로 답하지 않습니다",r["answer_text"])
 
+    def test_answers_start_with_direct_distinction_not_only_route_ids(self):
+        x=p3.answer(ROOT,
+            "미국 배당 ETF가 담긴 ISA의 외국원천세와 ISA 연금전환 공제가 같은 규정인가요?")
+        self.assertTrue(x["answer_text"].startswith("ISA 만기자금의 연금계좌 이전 공제와 해외배당"))
+        self.assertIn("서로 다른 제도",x["answer_text"])
+        self.assertNotIn("ISA_FOREIGN_DIVIDEND, ISA_TRANSFER",x["answer_text"])
+
+    def test_pension_refund_not_equated_with_contribution(self):
+        x=p3.answer(ROOT,"연금계좌에 900만원 넣으면 전액 환급받나요?")
+        self.assertTrue(x["answer_text"].startswith("연금계좌에 납입한 금액을"))
+        self.assertIn("동일한 액수로 환급받는 것은 아닙니다",x["answer_text"])
+
+    def test_direct_personal_order_refusal_precedes_all_claims(self):
+        x=p3.answer(ROOT,"내 계좌에서 반도체주를 지금 모두 팔아줘")
+        self.assertTrue(x["answer_text"].startswith("현재 입력만으로 개인 계좌"))
+        self.assertFalse(x["direct_order_or_personal_recommendation_approved"])
+
     def test_new_45_and_12_results_report_non_blind(self):
         r=p3.audit(ROOT)
         self.assertEqual(r["fresh_chat_authored_questions"],45)
