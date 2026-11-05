@@ -70,3 +70,9 @@ B01~B03에서 출처·의미·시점을 분류한 60개 연구 주장을 `ire/v5
 ## 2026-11-05 엔진 검증 판정 고정 및 #1~#5 착수 게이트
 
 최신 V5 소프트웨어는 29개 필수검사와 415개 회귀시험(실패 0, 건너뜀 1)을 기존 HEAD에서 통과했다. 그러나 `v5-gomhee-001-005-batch` 공개 원장은 #1~#5 SRT 전체 5,129 cue, 288개 연구 창 중 5개 처리 기록과 283개 미확인/미처리, `all_five_videos_research_complete=false`를 명시한다. 따라서 **V5 전체 연구 엔진 검증 완료는 NO**, **원본 #1~#5의 제한적 재검증 착수는 조건부 GO**로 확정한다. 현재 `1-100.zip` 부재. 원본 재확인 전 다른 영상 확대·금융자문 승인 금지. `ire/v5/validation/ENGINE_VERIFICATION_DECISION_AND_PILOT_GATE_20261105.md`와 실행형 `first_five_source_readiness_gate.py` 참조.
+
+
+
+## #1~#5 원본 재발견·전수 구조검사 (2026-11-05)
+
+개인 Library의 `박곰희TV_원본확보/1-70.zip`에서 실제 #1~#5 SRT를 회수해 기존 GitHub 등록 SHA-256 5/5, cue 5,129/5,129, 번호 연속·시간코드 순서 5,129/5,129를 실검증하였다. 사용자 제공 원본 ZIP SHA `00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd`. **원본 무결성 PASS, 288개 전 구간 금융 의미 분석은 계속 미완료.** 이전 문서의 1-100.zip 미확보는 뒤늦은 1-70.zip 원본 발견으로 해소됨. 보고 `ire/v5/validation/ENGINE_VERIFICATION_DECISION_AND_PILOT_GATE_20261105.md` 6절 참조.

@@ -23,7 +23,10 @@ class FirstFiveResearchReadinessTests(unittest.TestCase):
         self.assertFalse(result["broad_corpus_research_go"])
         self.assertFalse(result["advisory_approval"])
         self.assertEqual(result["first_five_unconfirmed_windows"], 283)
-        self.assertEqual(result["next_permitted_stage"], "FIRST_FIVE_SOURCE_REACQUISITION")
+        self.assertEqual(result["next_permitted_stage"], "FIRST_FIVE_FULL_SOURCE_SEMANTIC_REVIEW")
+        self.assertTrue(result["prior_active_chat_original_srt_sha_verified"])
+        self.assertFalse(result["private_source_original_bytes_reopened_by_ci"])
+        self.assertTrue(result["first_five_semantic_pilot_authorized"])
 
     def test_public_five_video_counts_and_source_ids_unchanged(self):
         result = readiness.verify(ROOT)
@@ -71,6 +74,22 @@ class FirstFiveResearchReadinessTests(unittest.TestCase):
             with self.assertRaisesRegex(readiness.ResearchReadinessError,
                                         "FIRST_FIVE_SRT_NOT_FOUND_OR_DUPLICATED"):
                 readiness.verify(ROOT, source_zip=zip_path)
+
+    def test_forged_active_chat_original_receipt_rejected(self):
+        record = readiness._load(ROOT, readiness.RAW_SOURCE_RECEIPT)
+        corrupted = copy.deepcopy(record)
+        corrupted["individual_results"][1]["sha256"] = "f" * 64
+        with self.assertRaisesRegex(
+                readiness.ResearchReadinessError,
+                "ENGINE_PRIOR_SOURCE_RECEIPT_VIDEO_OR_INTEGRITY_FORGED"):
+            readiness.verify(ROOT, recorded_source=corrupted)
+
+    def test_original_file_attestation_not_confused_with_ci_reopening(self):
+        result = readiness.verify(ROOT)
+        self.assertTrue(result["prior_private_source_receipt_verified_from_public_hashes"])
+        self.assertFalse(result["first_five_original_source_check"][
+            "all_five_original_srt_byte_integrity_verified"])
+        self.assertFalse(result["private_source_original_bytes_reopened_by_ci"])
 
     def test_srt_parser_rejects_cue_number_gaps(self):
         bad=(b"1\n00:00:00,000 --> 00:00:01,000\nhi\n\n"

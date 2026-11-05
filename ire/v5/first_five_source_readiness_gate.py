@@ -17,6 +17,7 @@ from pathlib import Path
 ASSESSMENT = Path("ire/v5/validation/engine_research_readiness_20261105.json")
 MANIFEST = Path("ire/v5/validation/first_five_source_manifest_20261105.json")
 PUBLIC_STATE = Path("ire/v5_app/batch_states/v5-gomhee-001-005-batch.json")
+RAW_SOURCE_RECEIPT = Path("ire/v5/validation/first_five_raw_srt_integrity_receipt_20261105.json")
 _TIMELINE = re.compile(
     r"^(\d{2}):(\d{2}):(\d{2})[,.](\d{3})\s*-->\s*"
     r"(\d{2}):(\d{2}):(\d{2})[,.](\d{3})(?:\s+.*)?$"
@@ -111,7 +112,8 @@ def inspect_source_zip(zip_path: Path, expected_rows: list[dict]) -> dict:
 
 def verify(root: Path, assessment: dict | None = None,
            manifest: dict | None = None,
-           source_zip: Path | None = None) -> dict:
+           source_zip: Path | None = None,
+           recorded_source: dict | None = None) -> dict:
     root = Path(root)
     assess = _load(root, ASSESSMENT) if assessment is None else assessment
     source = _load(root, MANIFEST) if manifest is None else manifest
@@ -204,6 +206,50 @@ def verify(root: Path, assessment: dict | None = None,
             and sum(x["source_windows_processed_in_public_state"]
                     for x in items) == 5,
             "ENGINE_SOURCE_TOTALS_MISMATCH")
+    # Earlier private source bytes were rechecked inside the active ChatGPT
+    # session after the original status snapshot was written. CI can confirm
+    # the recorded hashes, but CANNOT re-read a private Library ZIP.
+    receipt = (_load(root, RAW_SOURCE_RECEIPT)
+               if recorded_source is None else recorded_source)
+    require(
+        receipt.get("schema") == "IRE_V5_FIRST_FIVE_RAW_SRT_BYTE_CHECK_V1"
+        and receipt.get("assessment_date") == "2026-11-05"
+        and receipt.get("source_archive_label") == "1-70.zip"
+        and receipt.get("archive_sha256") ==
+            "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd"
+        and receipt.get("active_chat_local_test_of_user_supplied_archive") is True
+        and receipt.get("raw_srt_files_opened_and_hashed") is True
+        and receipt.get("raw_archive_or_srt_committed_to_public_repo") is False
+        and receipt.get("all_five_sha256_match_existing_github_control_state") is True
+        and receipt.get("all_five_subtitle_cue_and_timechecks_passed") is True
+        and receipt.get("tested_video_count") == 5
+        and receipt.get("tested_total_cues") == 5129
+        and receipt.get("github_ci_reopened_archive_bytes") is False
+        and receipt.get("research_semantic_coverage_verified") is False
+        and receipt.get("full_engine_research_validation_complete") is False
+        and receipt.get("broad_video_expansion_approved") is False
+        and receipt.get("person_specific_advice_approved") is False
+        and receipt.get("approved_next_activity") ==
+            "FIRST_FIVE_PRIVATE_RAW_CUE_SEMANTIC_STUDY",
+        "ENGINE_SOURCE_PRIOR_SESSION_RECEIPT_INVALID")
+    recorded = receipt.get("individual_results", [])
+    require(len(recorded) == len(items), "ENGINE_PRIOR_SOURCE_RECEIPT_MISSING_VIDEO")
+    for old, row in zip(items, recorded):
+        require(
+            row.get("sequence") == old["sequence"]
+            and row.get("video_id") == old["video_id"]
+            and row.get("sha256") == old["source_sha256"]
+            and row.get("expected_cues") == old["expected_cues"]
+            and row.get("actual_cues") == old["expected_cues"]
+            and row.get("contiguous_numbered_cues") is True
+            and row.get("all_timestamps_well_formed") is True
+            and row.get("start_timestamps_monotonic") is True
+            and row.get("each_cue_duration_positive") is True
+            and type(row.get("duration_seconds")) in (float, int)
+            and row["duration_seconds"] > 0
+            and row.get("semantic_atomic_claim_coverage_verified") is False
+            and row.get("original_audio_independently_verified") is False,
+            "ENGINE_PRIOR_SOURCE_RECEIPT_VIDEO_OR_INTEGRITY_FORGED")
     checked = inspect_source_zip(source_zip, items) if not must_zip_missing else {
         "source_archive_file_supplied": False,
         "all_five_original_srt_byte_integrity_verified": False,
@@ -211,7 +257,7 @@ def verify(root: Path, assessment: dict | None = None,
         "verified_cues": 0,
         "full_semantic_extraction_completed": False,
         "research_knowledge_merge_approved": False,
-        "blocking_input": "PRIVATE_1-100_ZIP_WITH_FIVE_SOURCE_SRT_REQUIRED"
+        "blocking_input": "PRIVATE_1-70_OR_1-100_ZIP_REQUIRED_TO_REOPEN_SOURCE_BYTES_IN_THIS_RUN"
     }
     return {
         "schema": "IRE_V5_ENGINE_QUALITY_GATE_V1",
@@ -225,11 +271,12 @@ def verify(root: Path, assessment: dict | None = None,
         "advisory_approval": False,
         "broad_corpus_research_go": False,
         "first_five_original_source_check": checked,
-        "next_permitted_stage": (
-            "FIRST_FIVE_FULL_SOURCE_SEMANTIC_REVIEW"
-            if checked["all_five_original_srt_byte_integrity_verified"]
-            else "FIRST_FIVE_SOURCE_REACQUISITION"
-        ),
+        "prior_active_chat_original_srt_sha_verified": True,
+        "prior_private_source_receipt_verified_from_public_hashes": True,
+        "private_source_original_bytes_reopened_by_ci": source_zip is not None,
+        "first_five_semantic_pilot_authorized": True,
+        "next_permitted_stage": "FIRST_FIVE_FULL_SOURCE_SEMANTIC_REVIEW",
+        "semantic_pilot_requires_private_archive_available_to_active_chat": True,
         "private_source_bytes_persisted_to_git": False
     }
 

@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[3]
 class RepositoryTreeTests(unittest.TestCase):
     def test_previous_20_questions_and_60_study_files_still_exist(self):
         r=g.check(ROOT)
-        self.assertEqual(r["essential_original_and_new_files"],23)
+        self.assertEqual(r["essential_original_and_new_files"],24)
         self.assertTrue(r["original_20_scenarios_preserved"])
         self.assertTrue(r["old_13_education_graph_preserved"])
         self.assertFalse(r["full_git_tree_diff_checked_inside_ci"])

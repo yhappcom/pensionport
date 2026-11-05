@@ -78,3 +78,11 @@ Mandatory gate: ire.v5.advisory_final_answer_review. Previous 12/12 structural c
 - User has declined separate external blind evaluation engine and external LLM API; these are **not prerequisites** for a bounded internal pilot. Nevertheless, no independent verification may be claimed, and scope limitations are non-negotiable.
 - The source file currently visible to the chat runtime is `201-300.zip`, and it must never be relabeled or treated as `1-100.zip`. Public V5 encrypted snapshots do not prove an accessible plaintext.
 - Do not edit `main`, canonical source claim ledger, existing approved education nodes, or any private transcript. Preserve all Git blob paths and run both CI workflows on final exact HEAD.
+
+## 2026-11-05 original #1~#5 SRT found in personal Library
+
+- After initial source-blocked verdict, previous user Library folder `박곰희TV_원본확보` yielded `1-70.zip`. The *exact five source SRTs*, indexed by video ID, matched all saved per-SRT SHA-256 bytes; all **5,129/5,129** numbered and time-ordered cues validated.
+- The verified raw archive SHA-256 is `00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd`; receipt `ire/v5/validation/first_five_raw_srt_integrity_receipt_20261105.json`. No original text or archive bytes go into Git.
+- `1-70.zip` is acceptable even though the originally anticipated archive name was `1-100.zip`, because the identical raw SRT bytes and SHA-256 of all five video IDs were actually matched.
+- This completes **source integrity** only. It unlocks **the first five private-SRT semantic and financial-evidence pilot**, NOT full corpus research approval or future personal trade advice. To re-run byte verification in a new runtime, supply the owner Library source and use `python -m ire.v5.first_five_source_readiness_gate --source-zip /secure/1-70.zip`.
+- GitHub CI only verifies the recorded receipt/schema/hash correspondence; it cannot directly reopen the owner Library archive. Do not claim that a CI pass is an independent byte recheck.

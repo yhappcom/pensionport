@@ -89,7 +89,7 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["first_five_raw_source_reanalysis_readiness"]["first_five_unconfirmed_windows"],283)
         self.assertFalse(payload["first_five_raw_source_reanalysis_readiness"]["broad_corpus_research_go"])
         self.assertEqual(payload["first_five_raw_source_reanalysis_readiness"]["next_permitted_stage"],
-                         "FIRST_FIVE_SOURCE_REACQUISITION")
+                         "FIRST_FIVE_FULL_SOURCE_SEMANTIC_REVIEW")
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
