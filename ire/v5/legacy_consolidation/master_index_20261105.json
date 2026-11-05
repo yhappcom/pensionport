@@ -27,7 +27,11 @@
     "core_claims_with_existing_v5_graph_reference": 16,
     "existing_v5_core_edges": 32,
     "fact_approvals_from_metadata_index": 0,
-    "previous_research_records_mutated": 0
+    "previous_research_records_mutated": 0,
+    "legacy_detailed_batches_completed": 2,
+    "legacy_claims_detailed_triaged": 40,
+    "legacy_claims_waiting_detailed_triage": 76,
+    "new_fact_approvals_from_consolidation": 0
   },
   "topics": {
     "behavior": 1,
@@ -153,8 +157,8 @@
         "GOMHEE-C40"
       ],
       "count": 20,
-      "state": "PENDING_DETAILED_RECONCILIATION",
-      "artifact": null
+      "state": "METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED",
+      "artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "batch_id": "B03",
@@ -294,7 +298,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C02",
@@ -308,7 +314,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C03",
@@ -329,7 +337,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C04",
@@ -345,7 +355,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C05",
@@ -364,7 +376,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C06",
@@ -387,7 +401,9 @@
         "EDU-ETF-TOTAL-COST-DECISION"
       ],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C07",
@@ -403,7 +419,9 @@
         "EDU-KR-PENSION-55-5"
       ],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C08",
@@ -423,7 +441,9 @@
         "EDU-PENSION-DEFERRED-TAX"
       ],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C09",
@@ -439,7 +459,9 @@
         "EDU-DCA-DIVERSIFICATION"
       ],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C10",
@@ -452,7 +474,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C11",
@@ -465,7 +489,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C12",
@@ -479,7 +505,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C13",
@@ -494,7 +522,9 @@
         "EDU-KR-ISA-LIMIT-2026-01"
       ],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C14",
@@ -508,7 +538,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C15",
@@ -521,7 +553,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C16",
@@ -534,7 +568,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C17",
@@ -547,7 +583,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C18",
@@ -561,7 +599,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C19",
@@ -574,7 +614,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C20",
@@ -588,7 +630,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B01",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C21",
@@ -601,7 +645,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C22",
@@ -614,7 +660,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C23",
@@ -627,7 +675,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C24",
@@ -640,7 +690,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C25",
@@ -655,7 +707,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C26",
@@ -670,7 +724,9 @@
         "EDU-ETF-NAV-TRACKING"
       ],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C27",
@@ -686,7 +742,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C28",
@@ -699,7 +757,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C29",
@@ -713,7 +773,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C30",
@@ -726,7 +788,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C31",
@@ -739,7 +803,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C32",
@@ -754,7 +820,9 @@
         "EDU-KR-ISA-TO-PENSION-2026-01"
       ],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C33",
@@ -769,7 +837,9 @@
         "EDU-KR-ISA-TO-PENSION-2026-01"
       ],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C34",
@@ -782,7 +852,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C35",
@@ -795,7 +867,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C36",
@@ -810,7 +884,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C37",
@@ -823,7 +899,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C38",
@@ -837,7 +915,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C39",
@@ -850,7 +930,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C40",
@@ -864,7 +946,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B02",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
     },
     {
       "claim_id": "GOMHEE-C41",
@@ -877,7 +961,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C42",
@@ -895,7 +981,9 @@
         "EDU-KR-PENSION-CREDIT-600-900"
       ],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C43",
@@ -912,7 +1000,9 @@
         "EDU-KR-PENSION-IN-KIND-TRANSFER"
       ],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C44",
@@ -925,7 +1015,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C45",
@@ -938,7 +1030,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C46",
@@ -951,7 +1045,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C47",
@@ -964,7 +1060,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C48",
@@ -977,7 +1075,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C49",
@@ -990,7 +1090,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C50",
@@ -1003,7 +1105,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C51",
@@ -1016,7 +1120,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C52",
@@ -1032,7 +1138,9 @@
         "EDU-DCA-DIVERSIFICATION"
       ],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C53",
@@ -1045,7 +1153,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C54",
@@ -1058,7 +1168,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C55",
@@ -1071,7 +1183,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C56",
@@ -1084,7 +1198,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C57",
@@ -1097,7 +1213,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C58",
@@ -1110,7 +1228,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C59",
@@ -1123,7 +1243,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C60",
@@ -1136,7 +1258,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B03",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C61",
@@ -1149,7 +1273,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C62",
@@ -1162,7 +1288,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C63",
@@ -1175,7 +1303,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C64",
@@ -1188,7 +1318,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C65",
@@ -1201,7 +1333,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C66",
@@ -1214,7 +1348,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C67",
@@ -1227,7 +1363,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C68",
@@ -1240,7 +1378,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C69",
@@ -1253,7 +1393,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C70",
@@ -1266,7 +1408,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C71",
@@ -1281,7 +1425,9 @@
         "EDU-KR-PRIVATE-PENSION-1500-2026-01"
       ],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C72",
@@ -1294,7 +1440,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C73",
@@ -1312,7 +1460,9 @@
         "EDU-KR-PENSION-IN-KIND-TRANSFER"
       ],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C74",
@@ -1325,7 +1475,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C75",
@@ -1340,7 +1492,9 @@
         "EDU-GENERAL-DCA-ARITH-01"
       ],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C76",
@@ -1353,7 +1507,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C77",
@@ -1366,7 +1522,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C78",
@@ -1379,7 +1537,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C79",
@@ -1392,7 +1552,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C80",
@@ -1405,7 +1567,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B04",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C81",
@@ -1418,7 +1582,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C82",
@@ -1431,7 +1597,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C83",
@@ -1444,7 +1612,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C84",
@@ -1457,7 +1627,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C85",
@@ -1470,7 +1642,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C86",
@@ -1483,7 +1657,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C87",
@@ -1496,7 +1672,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C88",
@@ -1509,7 +1687,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C89",
@@ -1522,7 +1702,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C90",
@@ -1535,7 +1717,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C91",
@@ -1548,7 +1732,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C92",
@@ -1561,7 +1747,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C93",
@@ -1574,7 +1762,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C94",
@@ -1587,7 +1777,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C95",
@@ -1600,7 +1792,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C96",
@@ -1613,7 +1807,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C97",
@@ -1626,7 +1822,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C98",
@@ -1639,7 +1837,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C99",
@@ -1652,7 +1852,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C100",
@@ -1665,7 +1867,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B05",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C101",
@@ -1678,7 +1882,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C102",
@@ -1691,7 +1897,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C103",
@@ -1704,7 +1912,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C104",
@@ -1717,7 +1927,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C105",
@@ -1730,7 +1942,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C106",
@@ -1744,7 +1958,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C107",
@@ -1757,7 +1973,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C108",
@@ -1770,7 +1988,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C109",
@@ -1785,7 +2005,9 @@
         "EDU-KR-ISA-LIMIT-2026-01"
       ],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C110",
@@ -1800,7 +2022,9 @@
         "EDU-ETF-TOTAL-COST-DECISION"
       ],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C111",
@@ -1813,7 +2037,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C112",
@@ -1827,7 +2053,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C113",
@@ -1840,7 +2068,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C114",
@@ -1854,7 +2084,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C115",
@@ -1867,7 +2099,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     },
     {
       "claim_id": "GOMHEE-C116",
@@ -1880,7 +2114,9 @@
       "canonical_video_links_complete": true,
       "direct_v5_core_reference_ids": [],
       "assigned_batch_id": "B06",
-      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY"
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
     }
   ],
   "requires_active_chat_web_evidence_review_for_new_financial_fact_approval": true,

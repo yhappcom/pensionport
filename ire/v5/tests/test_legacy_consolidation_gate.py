@@ -14,15 +14,19 @@ class LegacyConsolidationTests(unittest.TestCase):
     def setUpClass(cls):
         cls.master = gate.load_json(ROOT / gate.MASTER)
         cls.batch = gate.load_json(ROOT / gate.B01)
+        cls.batch2 = gate.load_json(ROOT / gate.B02)
 
-    def amended(self, mut_master=None, mut_batch=None):
+    def amended(self, mut_master=None, mut_batch=None, mut_batch2=None):
         m = copy.deepcopy(self.master)
         b = copy.deepcopy(self.batch)
+        c = copy.deepcopy(self.batch2)
         if mut_master:
             mut_master(m)
         if mut_batch:
             mut_batch(b)
-        return gate.verify(ROOT, m, b)
+        if mut_batch2:
+            mut_batch2(c)
+        return gate.verify(ROOT, m, b, c)
 
     def test_baseline_b01_exact_coverage(self):
         s = gate.verify(ROOT)
@@ -32,7 +36,10 @@ class LegacyConsolidationTests(unittest.TestCase):
         self.assertEqual(s["first_batch_source_doc_paths_mapped"], 52)
         self.assertEqual(s["preexisting_v5_education_node_core_claims"], 16)
         self.assertEqual(s["preexisting_v5_education_node_core_edges"], 32)
-        self.assertEqual(s["remaining_batches_not_claimed_complete"], 5)
+        self.assertEqual(s["remaining_batches_not_claimed_complete"], 4)
+        self.assertEqual(s["second_batch_claims_integrated"], 20)
+        self.assertEqual(s["second_batch_video_links_checked"], 30)
+        self.assertEqual(s["second_batch_summary_documents_read"], 27)
         self.assertFalse(s["new_claims_independently_verified_by_script"])
 
     def test_missing_canonical_video_cannot_pass(self):
@@ -86,7 +93,7 @@ class LegacyConsolidationTests(unittest.TestCase):
     def test_future_batches_cannot_be_marked_completed(self):
         with self.assertRaisesRegex(gate.LegacyConsolidationError,
                                     "LEGACY_PARTITION_OR_COMPLETION_MISMATCH"):
-            self.amended(mut_master=lambda m: m["batches"][1].update(
+            self.amended(mut_master=lambda m: m["batches"][2].update(
                 state="METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED"))
 
     def test_legacy_document_not_found(self):
@@ -106,6 +113,51 @@ class LegacyConsolidationTests(unittest.TestCase):
                                     "LEGACY_METADATA_MISREPORTED_AS_FACT_VERIFIED"):
             self.amended(mut_batch=lambda b: b["records"][17].update(
                 original_srt_full_cue_coverage_reverified_this_batch=True))
+
+
+    def test_second_batch_fact_approval_cannot_be_forged(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_B02_UNSUPPORTED_FACT_OR_ADVICE_APPROVED"):
+            self.amended(mut_batch2=lambda b: b["records"][0].update(
+                chat_evidence_fact_approved_this_batch=True))
+
+    def test_second_batch_missing_study_document_rejected(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_B02_VIDEO_DOCUMENT_NOT_FOUND"):
+            self.amended(mut_batch2=lambda b: b["records"][0]["source_videos"][0].update(
+                video_document_paths=["videos/undated/fake_fkBKf67l3uo_tax.md"],
+                reviewed_document_paths=["videos/undated/fake_fkBKf67l3uo_tax.md"]))
+
+    def test_isa_foreign_tax_is_not_the_same_as_isa_pension_transfer(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_B02_ISA_FOREIGN_TAX_LINK_CONFLATED"):
+            self.amended(mut_batch2=lambda b: b["records"][12].update(
+                existing_v5_link_semantic_warning="NONE"))
+
+    def test_unreviewed_2026_account_law_not_promoted(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_B02_CURRENT_TAX_MARKET_RULE_FALSELY_APPROVED"):
+            self.amended(mut_batch2=lambda b: b["records"][19].update(
+                research_triage="GENERAL_EDUCATION_LINK_CANDIDATE"))
+
+    def test_original_material_video_is_not_full_transcript(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_B02_SOURCE_STATUS_MISREPRESENTED"):
+            self.amended(mut_batch2=lambda b: b["records"][9]["source_videos"][0].update(
+                original_full_transcript_reviewed_this_batch=True))
+
+    def test_b02_to_b03_no_phantom_completion(self):
+        with self.assertRaisesRegex(gate.LegacyConsolidationError,
+                                    "LEGACY_PARTITION_OR_COMPLETION_MISMATCH"):
+            self.amended(mut_master=lambda m: m["batches"][3].update(
+                state="METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED"))
+
+    def test_run_fail_prevention_must_be_documented(self):
+        path = ROOT / "ire/v5/AGENTS.md"
+        body = path.read_text(encoding="utf-8")
+        for required in ("atomic", "preflight", "cancel-in-progress",
+                         "expected_sha", "main", "failure"):
+            self.assertIn(required, body)
 
 
 if __name__ == "__main__":

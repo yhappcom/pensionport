@@ -44,3 +44,8 @@ GitHub Actions 실행 성공 = 금융 사실 검증 성공이 아니다. V5 의�
 ## 기존 연구 정리 2026-11-05 — 6개 소규모 배치
 
 `ire/v5/legacy_consolidation/PLAN_AND_BATCH01_REPORT_20261105.md` 기준으로 116건을 20/20/20/20/20/16건으로 분리한다. B01 20건만 세부 대조했으며 B02~B06은 누락이 아니라 미처리 대기열이다. `master_index_20261105.json`에서 116/116 원장·영상 ID 인덱스와 V5 기존 연결을 확인하되, 메타데이터/연구 문서의 존재가 현재 공식 근거 검증이나 투자자문 승인을 뜻하지는 않는다. 이후 단계에서 canonical 수정 이벤트·기존 개별 문서·synthesis 중복을 교차검사한다.
+
+
+## 2026-11-05 B02 처리 및 Actions run-fail 예방
+
+GitHub 워크플로 실패 방지 원칙은 `ire/v5/AGENTS.md`와 `ire/v5/legacy_consolidation/RUN_FAIL_PREVENTION_20261105.md`에 명시했다. **단일 원자적 Git commit + preflight/회귀시험/동일 HEAD 두 워크플로의 green 상태 확인**을 원칙으로 한다. B02 C21–C40 20건은 문서 기반 의미·연결·시점 위험 분류를 완료, B03~B06 76건은 미처리 상태이며 기존 핵심 원장·V5 승인 교육 지식은 변경하지 않았다.
