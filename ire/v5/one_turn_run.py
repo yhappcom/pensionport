@@ -19,6 +19,7 @@ from .new_video_batch_gate import verify as verify_new_video
 from .new_video_merge_gate import verify as verify_new_video_merge
 from .new_video_followup_gate import verify as verify_followup_video
 from .semantic_evidence_gate import verify as verify_semantic_evidence
+from .chat_evidence_acceptance_gate import verify as verify_chat_evidenced_facts
 
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
@@ -47,6 +48,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     new_video_merge=verify_new_video_merge(root)
     followup_video=verify_followup_video(root)
     semantic_evidence=verify_semantic_evidence(root)
+    fact_acceptance=verify_chat_evidenced_facts(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -62,6 +64,8 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "new_video_incremental_merge":new_video_merge,
         "second_unseen_video_full_research":followup_video,
         "second_unseen_video_semantic_evidence_recheck":semantic_evidence,
+        "source_scoped_chat_researched_facts":fact_acceptance,
+        "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,
         "terminal_outcome":"RESEARCH_CLOSED_NOT_ADVICE_RELEASED",
