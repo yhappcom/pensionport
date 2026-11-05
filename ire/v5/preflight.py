@@ -65,6 +65,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.advisory60_validation", "--root", ".")),
     ("p0_multidomain_semantic_decomposition",
      ("-m", "ire.v5.advisory_semantic", "--root", ".")),
+    ("p1_atomic_source_scoped_evidence",
+     ("-m", "ire.v5.advisory_evidence", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),

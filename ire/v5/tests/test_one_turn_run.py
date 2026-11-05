@@ -63,6 +63,9 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["p0_multidomain_semantic_plan"]["known_prior_holdout_cases"],16)
         self.assertGreaterEqual(payload["p0_multidomain_semantic_plan"]["domain_recall_at_up_to_five"],12)
         self.assertTrue(payload["p0_multidomain_semantic_plan"]["not_fresh_blind_data"])
+        self.assertEqual(payload["p1_atomic_source_scoped_evidence"]["atomic_source_scoped_facts"],6)
+        self.assertEqual(payload["p1_atomic_source_scoped_evidence"]["question_fact_scope_tests"],8)
+        self.assertEqual(payload["p1_atomic_source_scoped_evidence"]["new_personalized_actions_approved"],0)
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
