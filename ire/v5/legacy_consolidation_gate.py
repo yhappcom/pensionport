@@ -212,6 +212,15 @@ def verify(root: Path, master: dict | None = None, batch: dict | None = None) ->
                  and x.get("relation") ==
                      "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
                  for x in relationships), "LEGACY_CROSSCLAIM_RELATION_UNSAFE")
+    special = {r["claim_id"]: r for r in reviewed}
+    for id in ("GOMHEE-C07", "GOMHEE-C08", "GOMHEE-C13",
+               "GOMHEE-C15", "GOMHEE-C17"):
+        must(special[id]["research_triage"] == "TIME_SENSITIVE_EVIDENCE_RECHECK",
+             "LEGACY_TIME_SENSITIVE_FINANCIAL_LAW_WAS_AUTOPROMOTED")
+    for id in ("GOMHEE-C11", "GOMHEE-C14", "GOMHEE-C18",
+               "GOMHEE-C19", "GOMHEE-C20"):
+        must(special[id]["research_triage"] == "SOURCE_LIMITED_NOT_FACT_APPROVED",
+             "LEGACY_UNVERIFIED_SOURCE_GOT_PROMOTED")
     stats = batch.get("stats", {})
     must(stats.get("claims") == len(reviewed) == 20
          and stats.get("video_links") == source_count
@@ -226,15 +235,6 @@ def verify(root: Path, master: dict | None = None, batch: dict | None = None) ->
          and stats.get("new_personalized_advice_approvals") == 0
          and stats.get("legacy_claims_modified") == 0,
          "LEGACY_BATCH_SUMMARY_INCONSISTENT")
-    special = {r["claim_id"]: r for r in reviewed}
-    for id in ("GOMHEE-C07", "GOMHEE-C08", "GOMHEE-C13",
-               "GOMHEE-C15", "GOMHEE-C17"):
-        must(special[id]["research_triage"] == "TIME_SENSITIVE_EVIDENCE_RECHECK",
-             "LEGACY_TIME_SENSITIVE_FINANCIAL_LAW_WAS_AUTOPROMOTED")
-    for id in ("GOMHEE-C11", "GOMHEE-C14", "GOMHEE-C18",
-               "GOMHEE-C19", "GOMHEE-C20"):
-        must(special[id]["research_triage"] == "SOURCE_LIMITED_NOT_FACT_APPROVED",
-             "LEGACY_UNVERIFIED_SOURCE_GOT_PROMOTED")
     return {
         "schema": "IRE_V5_LEGACY_CONSOLIDATION_GATE_V1",
         "master_claims_indexed": len(index),
