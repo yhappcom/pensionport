@@ -31,7 +31,9 @@
     },
     "new_fact_approvals": 0,
     "new_personalized_advice_approvals": 0,
-    "legacy_claims_modified": 0
+    "legacy_claims_modified": 0,
+    "existing_v5_graph_core_linked_claims": 5,
+    "existing_v5_graph_core_reference_edges": 12
   },
   "records": [
     {
@@ -82,7 +84,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C02",
@@ -128,7 +131,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C03",
@@ -255,7 +259,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C04",
@@ -324,7 +329,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C05",
@@ -431,7 +437,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C06",
@@ -548,7 +555,17 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": [
+        {
+          "knowledge_id": "EDU-ETF-NAV-TRACKING",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-ETF-TOTAL-COST-DECISION",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        }
+      ]
     },
     {
       "claim_id": "GOMHEE-C07",
@@ -597,7 +614,17 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": [
+        {
+          "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-KR-PENSION-55-5",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        }
+      ]
     },
     {
       "claim_id": "GOMHEE-C08",
@@ -642,7 +669,33 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": [
+        {
+          "knowledge_id": "EDU-KR-ISA-TO-PENSION-2026-01",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-KR-PENSION-55-5",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-IRP-LIFECYCLE",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-KR-PENSION-CREDIT-600-900",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-PENSION-DEFERRED-TAX",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        }
+      ]
     },
     {
       "claim_id": "GOMHEE-C09",
@@ -697,7 +750,13 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": [
+        {
+          "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        }
+      ]
     },
     {
       "claim_id": "GOMHEE-C10",
@@ -738,7 +797,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C11",
@@ -772,7 +832,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C12",
@@ -820,7 +881,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C13",
@@ -865,7 +927,13 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": [
+        {
+          "knowledge_id": "EDU-KR-ISA-LIMIT-2026-01",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        }
+      ]
     },
     {
       "claim_id": "GOMHEE-C14",
@@ -909,7 +977,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C15",
@@ -954,7 +1023,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C16",
@@ -988,7 +1058,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C17",
@@ -1024,7 +1095,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C18",
@@ -1079,7 +1151,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C19",
@@ -1115,7 +1188,8 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     },
     {
       "claim_id": "GOMHEE-C20",
@@ -1162,7 +1236,9 @@
       "original_srt_full_cue_coverage_reverified_this_batch": false,
       "official_rule_current_source_verified_this_batch": false,
       "chat_evidence_fact_approved_this_batch": false,
-      "personal_investment_advice_approved": false
+      "personal_investment_advice_approved": false,
+      "existing_v5_graph_core_references": []
     }
-  ]
+  ],
+  "crosswalk_policy": "Existing V5 core references are graph relationships (NOT exact semantic equality or fresh official verification). Suggested thematic links are separate unverified candidates."
 }
