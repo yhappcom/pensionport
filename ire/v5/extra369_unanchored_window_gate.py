@@ -29,6 +29,10 @@ from .first_five_remnant_221_gate import cue_txt
 
 LEDGER=Path("ire/v5/validation/extra369_175window_78gap_13risk_review_20261107.json")
 LEDGER_PIN="8cf2a8f709208e0af511169b9057dc0228bfb5dd"
+CROSSWALK=Path("ire/v5/validation/extra369_gap13_master116_scope_crosswalk_20261107.json")
+CROSSWALK_PIN="f88dae5d75deb393d673093c86e34ccc72e7fd1c"
+CANONICAL=Path("data/claims.jsonl")
+CANONICAL_PIN="ab5af7eea02e65d5e36174546a2a94f4cc642d92"
 EVIDENCE_HOSTS={"www.law.go.kr"}
 NUMBERS={6:(45,28,17,2),8:(59,30,29,4),9:(71,39,32,7)}
 DETECTORS={
@@ -166,6 +170,64 @@ def audit(root:Path,source_zip:Path|None=None):
          and "1,000만원" in gift["scoped_interpretation"],
          "EXTRA_GAP_OTHER_RELATIVE_GIFT_10Y_APPLICATION_BAD")
 
+    # Source-scoped P4 crosswalk remains a non-authoritative concept index.
+    # Verify against the unchanged, frozen original 116-claim master: never
+    # manufacture strict equivalence or amend formal knowledge implicitly.
+    canonical_blob=(root/CANONICAL).read_bytes()
+    need(gitblob(canonical_blob)==CANONICAL_PIN,
+         "EXTRA_GAP_MASTER116_CHANGED_WITHOUT_REVIEW")
+    canonical_rows=[json.loads(line) for line in
+                   canonical_blob.decode("utf-8").splitlines() if line.strip()]
+    canonical_ids={x.get("claim_id") for x in canonical_rows}
+    need(len(canonical_rows)==116 and len(canonical_ids)==116,
+         "EXTRA_GAP_CANONICAL_MASTER_IDS_NOT_116")
+    cross_blob=(root/CROSSWALK).read_bytes()
+    need(gitblob(cross_blob)==CROSSWALK_PIN,
+         "EXTRA_GAP_CROSSWALK_NOT_SOURCE_PINNED")
+    cw=json.loads(cross_blob)
+    need(cw.get("schema")==
+         "IRE_V5_EXTRA369_UNLINKED13_TO_FROZEN_MASTER116_CONCEPT_CROSSWALK_V1"
+         and cw.get("as_of")=="2026-11-07"
+         and cw.get("base_master_116_file")==str(CANONICAL)
+         and cw.get("base_master_116_git_blob_sha1")==CANONICAL_PIN
+         and cw.get("source_gap_13_file")==str(LEDGER)
+         and cw.get("source_gap_13_git_blob_sha1")==LEDGER_PIN
+         and cw.get("crosswalk_rows")==13
+         and cw.get("provisional_relations_to_116")==13
+         and cw.get("source_rows_without_direct_canonical_analogue")==2
+         and cw.get("scope_or_product_context_only_count")==11
+         and cw.get("strict_atomic_equivalence_approvals")==0
+         and cw.get("formal_B04_master_knowledge_relation_promotions")==0
+         and cw.get("master_claim_mutations")==0
+         and cw.get("prior_P4_active_29_unchanged") is True
+         and cw.get("prior_original_36_candidates_preserved") is True
+         and cw.get("full_175_window_atomic_recall_proven") is False
+         and cw.get("blind_independent_financial_advisory_accuracy_proven") is False
+         and cw.get("release")==
+           "MASTER116_SCOPED_CROSSWALK_FOR_RISK_RETRIEVAL_ONLY_NOT_FORMAL_MERGE",
+         "EXTRA_GAP_CROSSWALK_FALSE_KNOWLEDGE_RELEASE")
+    links=cw.get("items")
+    need(type(links) is list and len(links)==13
+         and {x.get("source_review_id") for x in links}==
+             {x["review_id"] for x in reviews},
+         "EXTRA_GAP_CROSSWALK_ROWS_UNLINKED")
+    no_master=0
+    for item in links:
+        ids=item.get("related_master_claim_ids")
+        need(type(ids) is list and len(ids)==len(set(ids))
+             and all(mid in canonical_ids for mid in ids)
+             and len(item.get("relation_type",""))>=12
+             and len(item.get("scope_reason",""))>=45
+             and item.get("strict_semantic_equivalence") is False
+             and item.get("master_claim_text_rewritten") is False
+             and item.get("master_claim_count_incremented") is False
+             and item.get("law_or_product_verified_for_all_customers") is False
+             and item.get("formal_B04_relation_approved") is False,
+             "EXTRA_GAP_UNAPPROVED_CANONICAL_MERGE_OR_MISSING_ID")
+        if not ids:
+            no_master+=1
+    need(no_master==2,"EXTRA_GAP_DIRECT_CANONICAL_ANALOG_UNJUSTIFIED")
+
     # Only when the owner-private original source is actually given does this
     # receipt certify independent 175-window source-body and 13-score replay.
     private_replay=False
@@ -218,6 +280,9 @@ def audit(root:Path,source_zip:Path|None=None):
        "windows_directly_anchored_by_prior36":97,
        "windows_not_directly_anchored_by_prior36":78,
        "unlinked_high_signal_windows_reviewed":13,
+       "provisional_master116_scope_crosswalk_rows":13,
+       "source_risks_without_direct_canonical_parallel":2,
+       "strict_canonical_equivalence_approvals":0,
        "lower_signal_or_context_unlinked_windows_still_open":65,
        "new_narrow_scoped_2026_gift_kinship_issue_detected":True,
        "private_owner_zip_replayed_in_this_process":private_replay,
@@ -238,6 +303,8 @@ def retrieve(root:Path,question:str,*,limit:int=3):
     audit(root)
     q=re.sub(r"\s+","",question.casefold())
     matched=[]
+    canonical_links={row["source_review_id"]:row for row in
+                     json.loads((Path(root)/CROSSWALK).read_text("utf-8"))["items"]}
     for x in load(root)["priority_reviews"]:
         if any(re.sub(r"\s+","",term.casefold()) in q
                for term in x["user_query_triggers"]):
@@ -250,6 +317,8 @@ def retrieve(root:Path,question:str,*,limit:int=3):
                 "classification":x["status"],
                 "related_prior_36":x["contextually_related_36_claim_ids"],
                 "strict_newness_certified":False,
+                "related_canonical_master_context_ids":canonical_links[x["review_id"]]["related_master_claim_ids"],
+                "strict_canonical_equivalence_approved":False,
                 "official_law_fact_finalized":False,
                 "personal_action_approved":False})
     return {"schema":"IRE_V5_EXTRA369_MISSING_WINDOW_SOURCE_CAUTION_V1",
