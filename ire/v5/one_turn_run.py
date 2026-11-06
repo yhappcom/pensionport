@@ -117,6 +117,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     extra369=audit_extra369(root)
     extra369_gap=audit_extra369_gap(root)
     extra369_low65=audit_extra369_low65(root)
+    partial97=audit_partial97(root)
     frozen_advice=evaluate_frozen_questions(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
