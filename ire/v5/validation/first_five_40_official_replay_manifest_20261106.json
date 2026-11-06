@@ -1,0 +1,322 @@
+{
+  "fact_approval_records_published": 0,
+  "formal_b04_master_merges_published": 0,
+  "formal_knowledge_release_policy": "TWO_INDEPENDENT_ED25519_SIGNERS_WITH_OUT_OF_BAND_TRUST_REGISTRY_ONLY",
+  "full_speaker_claims_automatically_approved": 0,
+  "observed_as_of": "2026-11-06",
+  "personal_investment_advice_approved": false,
+  "prior_master_git_blob_sha1": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "regulatory_claim_narrow_source_map": {
+    "V5C0004": [
+      "NPS_CPI"
+    ],
+    "V5C0018": [
+      "LAW_FIN2000"
+    ],
+    "V5C0024": [
+      "LAW_CREDIT",
+      "LAW_WITHDRAW"
+    ],
+    "V5C0033": [
+      "LAW_WITHDRAW"
+    ],
+    "V5C0261": [
+      "NPS_RETRO"
+    ],
+    "V5C0266": [
+      "NTS_RATE2026",
+      "LAW_129"
+    ],
+    "V5C0267": [
+      "NPS_TAX_FAQ",
+      "LAW_40"
+    ],
+    "V5C0279": [
+      "NPS_RETRO"
+    ],
+    "V5C0282": [
+      "NPS_PAY"
+    ],
+    "V5C0283": [
+      "NPS_PAY"
+    ],
+    "V5C0287": [
+      "NPS_TAX_FAQ",
+      "LAW_40"
+    ],
+    "V5C0290": [
+      "NPS_DELAY"
+    ],
+    "V5C0300": [
+      "NTS_RATE2026",
+      "LAW_14"
+    ],
+    "V5C0404": [
+      "NTS_RATE2026",
+      "LAW_14"
+    ],
+    "V5C0405": [
+      "LAW_55",
+      "LAW_14",
+      "NTS_RATE2026"
+    ],
+    "V5C0417": [
+      "LAW_WITHDRAW"
+    ],
+    "V5C0418": [
+      "LAW_WITHDRAW"
+    ],
+    "V5C0422": [
+      "LAW_WITHDRAW"
+    ],
+    "V5C0427": [
+      "NTS_CREDIT",
+      "LAW_CREDIT"
+    ],
+    "V5C0430": [
+      "LAW_55",
+      "NTS_TAXBRACKET"
+    ]
+  },
+  "regulatory_claims_scope": 20,
+  "schema": "IRE_V5_FIRST40_OFFICIAL_EXTRACT_REPLAY_MANIFEST_V1",
+  "snapshot_version_scope": "EXTRACTION_AS_OBSERVED_NOT_TIME_TRAVEL_LEGAL_DATABASE_OR_SIGNED_OFFICIAL_ORIGINAL",
+  "snapshots": [
+    {
+      "authority_id": "NTS_RATE2026",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "GUIDANCE_CURRENT_2026-11-06",
+      "expected_literal_anchors": [
+        "종신계약",
+        "’26.1.1.",
+        "1,500만원"
+      ],
+      "official_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+      "snapshot_git_blob_sha1": "6682bd34bc3b19bc01987cd84ddc8370e944828c",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/NTS_RATE2026.md",
+      "snapshot_sha256": "b1d29ab375ed2d3d79d639a945c70c82a1a19fa3f8f044f581a20ca8c91f3145",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "LAW_129",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "2026-07-01",
+      "expected_literal_anchors": [
+        "제129조",
+        "종신계약",
+        "100분의 3"
+      ],
+      "official_url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1029626703",
+      "snapshot_git_blob_sha1": "72b7f3371eb50b84fd40386356d2ec6c7d3122ff",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/LAW_129.md",
+      "snapshot_sha256": "6ff82892fcc7a0dd87a1aaa78717ee3881499478248b5f7aa62224f26cfe4c8d",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "LAW_14",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "2026-07-01",
+      "expected_literal_anchors": [
+        "제14조",
+        "1천500만원"
+      ],
+      "official_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032952821",
+      "snapshot_git_blob_sha1": "9ebc690cd8d74f94e9ec5b71f288880fec53c361",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/LAW_14.md",
+      "snapshot_sha256": "367c4bd67124340fbb60bcd444e89008b9348495d38353ca80fb7167379faac1",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "LAW_40",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "2026-07-01",
+      "expected_literal_anchors": [
+        "제40조",
+        "2002년"
+      ],
+      "official_url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1023516853",
+      "snapshot_git_blob_sha1": "6d34574d7f26fcfe0cd7ea4637244ee812dd3cf1",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/LAW_40.md",
+      "snapshot_sha256": "e7f5654d24aaa5672e87cdb128d82f7239cc8e5bc4241288faa4d78c0fcb8eaa",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "LAW_55",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "2026-07-01",
+      "expected_literal_anchors": [
+        "제55조",
+        "24퍼센트",
+        "38퍼센트"
+      ],
+      "official_url": "https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1023583825",
+      "snapshot_git_blob_sha1": "d3d7a88072329d2d85bad0d49f5c54887151747a",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/LAW_55.md",
+      "snapshot_sha256": "cc12a28e03393d32b4e868b53b6ed32f4c1b5740e178b4329a5034071ca0e558",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "NPS_TAX_FAQ",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "GUIDANCE_CURRENT_2026-11-06",
+      "expected_literal_anchors": [
+        "원천징수",
+        "2002년",
+        "종합소득"
+      ],
+      "official_url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0088M0.do",
+      "snapshot_git_blob_sha1": "90e64ec704d7c724cab9d4048fa851a591468f35",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/NPS_TAX_FAQ.md",
+      "snapshot_sha256": "8399d972dd15a1a77b62a50d571b0f33d3e557a86cc8d0a6fec4383f9a9de695",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "NTS_TAXBRACKET",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "GUIDANCE_CURRENT_2026-11-06",
+      "expected_literal_anchors": [
+        "과세표준",
+        "세율"
+      ],
+      "official_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7873",
+      "snapshot_git_blob_sha1": "fbddaf1171ae4aa1afc9e86779061944f6feb08b",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/NTS_TAXBRACKET.md",
+      "snapshot_sha256": "8deb5b313ff8e0710e38d949f4b1031b62ae00a25c9ce19dc3e05c659e716697",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "NPS_RETRO",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "GUIDANCE_CURRENT_2026-11-06",
+      "expected_literal_anchors": [
+        "추납",
+        "119개월"
+      ],
+      "official_url": "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do?menuId=MN24001116",
+      "snapshot_git_blob_sha1": "b220913d10001a1f9eb866c4206a2f6130248af9",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/NPS_RETRO.md",
+      "snapshot_sha256": "f62edf1c8b0dde315a9a16bb4e51a35a60017ec49efab4e4499788940e4649dd",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "NPS_CPI",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "GUIDANCE_CURRENT_2026-11-06",
+      "expected_literal_anchors": [
+        "물가변동률",
+        "연금"
+      ],
+      "official_url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do",
+      "snapshot_git_blob_sha1": "8a80893644ff949c57298c336879ee2a3f10acbd",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/NPS_CPI.md",
+      "snapshot_sha256": "edef4cbb62799f30cbd3dc647f865874cd98d83d1623181cd6221dd629665f67",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "NPS_PAY",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "GUIDANCE_CURRENT_2026-11-06",
+      "expected_literal_anchors": [
+        "지급일",
+        "25일"
+      ],
+      "official_url": "https://nps.or.kr/pnsinfo/ntpsklg/getOHAF0048M0.do?menuId=MN24001117&tab=tab2",
+      "snapshot_git_blob_sha1": "34b350242fcd8cd3830d782ce30bdab029d6ba25",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/NPS_PAY.md",
+      "snapshot_sha256": "1bdd315628ea626625fbadab1f3144d4122efd353b81155746115628a69372cd",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "NPS_DELAY",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "GUIDANCE_CURRENT_2026-11-06",
+      "expected_literal_anchors": [
+        "연기연금",
+        "7.2%"
+      ],
+      "official_url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do",
+      "snapshot_git_blob_sha1": "8a80893644ff949c57298c336879ee2a3f10acbd",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/NPS_DELAY.md",
+      "snapshot_sha256": "edef4cbb62799f30cbd3dc647f865874cd98d83d1623181cd6221dd629665f67",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "LAW_WITHDRAW",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "2026-10-01",
+      "expected_literal_anchors": [
+        "제40조의3",
+        "과세제외금액",
+        "이연퇴직소득"
+      ],
+      "official_url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+      "snapshot_git_blob_sha1": "166bd16491c1ac7fd71d63b4a1ae604ca806577c",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/LAW_WITHDRAW.md",
+      "snapshot_sha256": "b3409924d32934e5d81b8514b978209c9c1fdaccf423a3ae6b56d6b349158e9d",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "LAW_CREDIT",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "2026-07-01",
+      "expected_literal_anchors": [
+        "제59조의3",
+        "600만원",
+        "900만원"
+      ],
+      "official_url": "https://www.law.go.kr/lsLinkCommonInfo.do?ancYnChk=&chrClsCd=&lsJoLnkSeq=1021863203",
+      "snapshot_git_blob_sha1": "3e97ee4be42a3309954f08beda996feb733a99f6",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/LAW_CREDIT.md",
+      "snapshot_sha256": "9704c663839a20d30a0699bb5f1492dbb149d8f492459a1b23b542cb94a307e0",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "NTS_CREDIT",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "GUIDANCE_CURRENT_2026-11-06",
+      "expected_literal_anchors": [
+        "ISA",
+        "300만원",
+        "연금계좌"
+      ],
+      "official_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6467",
+      "snapshot_git_blob_sha1": "c63449bc534f0aaeec7bec3b770fe5329b8fc826",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/NTS_CREDIT.md",
+      "snapshot_sha256": "3858ca70d034869fee1f7b405c448bcd2ff939ff8fa601753664b075a39f6807",
+      "source_status_reported": 200
+    },
+    {
+      "authority_id": "LAW_FIN2000",
+      "capture_date": "2026-11-06",
+      "capture_type": "THIRD_PARTY_FIRECRAWL_OFFICIAL_URL_MARKDOWN_EXTRACTION_NOT_GOVERNMENT_SIGNED_OR_HTTP_RAW",
+      "effective_date_or_guidance_observed": "2026-07-01",
+      "expected_literal_anchors": [
+        "제14조",
+        "2천만원"
+      ],
+      "official_url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031075917",
+      "snapshot_git_blob_sha1": "4e4cdb75f705877820e087b6bfbf70e96ef62d41",
+      "snapshot_path": "ire/v5/validation/official_extracts_20261106/LAW_FIN2000.md",
+      "snapshot_sha256": "fe79302441a2b9d8f09b8af5948432bb02f86c45edbeb2a1b3012b0d8096ce88",
+      "source_status_reported": 200
+    }
+  ],
+  "source_claims_scope": 97,
+  "source_event_head_sha256": "9f0685b2b1f8b95c2eefa7708e8ae1ad8d1bd567d40e84e1d6b2d04aed81874e",
+  "source_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+  "source_window_scope": 40
+}

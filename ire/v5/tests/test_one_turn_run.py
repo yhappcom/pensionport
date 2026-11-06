@@ -21,6 +21,12 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         row=output.getvalue().split("ONE_TURN_RESEARCH_RECEIPT ",1)[1]
         payload=json.loads(row)
         self.assertTrue(payload["one_request_research_complete"])
+        self.assertEqual(payload["first_five_40_reproducible_official_extractions_and_signed_knowledge_policy"]["official_source_extraction_snapshots_replayed"],15)
+        self.assertEqual(payload["first_five_40_reproducible_official_extractions_and_signed_knowledge_policy"]["unique_snapshot_payloads"],14)
+        self.assertEqual(payload["first_five_40_reproducible_official_extractions_and_signed_knowledge_policy"]["regulated_video_claims_with_source_scope_link"],20)
+        self.assertEqual(payload["first_five_40_reproducible_official_extractions_and_signed_knowledge_policy"]["actual_dual_signed_legal_knowledge_approvals"],0)
+        self.assertFalse(payload["first_five_40_reproducible_official_extractions_and_signed_knowledge_policy"]["government_raw_signed_source_bytes_verified"])
+        self.assertEqual(payload["first_five_40_reproducible_official_extractions_and_signed_knowledge_policy"]["personal_financial_advice_release"],"NO_GO")
         self.assertEqual(payload["first_five_40_five_terminal_rule_dispositions_and_B04_scoped_edges"]["five_composite_reviews_terminal"],5)
         self.assertEqual(payload["first_five_40_five_terminal_rule_dispositions_and_B04_scoped_edges"]["b04_scope_accepted_education_edges"],6)
         self.assertEqual(payload["first_five_40_five_terminal_rule_dispositions_and_B04_scoped_edges"]["outside_b04_links_unmerged"],9)

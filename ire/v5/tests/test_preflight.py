@@ -50,6 +50,7 @@ class PreflightContractTests(unittest.TestCase):
             "first_five_video1_w21_to_w40_original_cue_tax_and_chain_audit",
             "first_five_first40_narrow_official_rule_and_readonly_knowledge_overlay",
             "first_five_first40_five_rule_dispositions_and_B04_scoped_relation_gate",
+            "first_five_40_official_content_pinned_offline_and_external_dual_signature_policy",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))
