@@ -16,7 +16,7 @@
 - 원본 `1-70.zip` SHA-256 `00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd` 재검증. 다섯 원본 SRT 288창 계획 및 cue 경계 일치.
 - 새 별도 **비공개** `private_five_video_research_v2` 안에 각 영상의 원본 SRT, V5 SOURCE_PLAN, RUN_LOCK, `BATCH_ACCEPT` 연쇄 이벤트 1건씩 기록. 모델 제출 서브액션 288건, 원본 cue SHA와 직접 연결되는 잠정 명제 258건의 `EVIDENCE_REVIEW` 및 `PRIOR_RELATION_REVIEW` 각각 258건. 재생기에서 모든 원본 텍스트·해시·관계 연결을 재검증; 변조 시험 3건 차단.
 - **기존 68건은 창 전체의 근거 해시만 있고 안전한 원자 cue 직접 인용을 보장하지 않아 미승격.** 다수 원본 cue의 독립적 주장의 누락 여부는 여전히 불명확: 4,908 cue를 `UNRESOLVED`로 명시. 이 때문에 V5 `RESEARCH_CLOSURE` 이벤트를 발급하지 않음.
-- `BATCH_ACCEPT`는 V5 스키마에 맞게 생성됐고 별도 독립 검증기에 의해 재생됐지만, **현재 세션에서는 GitHub 저장소의 실제 `ResearchRun` 클래스를 로컬로 복원하지 못해 그 클래스에 의한 정확한 재생은 수행하지 못함**. 실제 엔진 replay 명령은 함께 제공한 `replay_with_repository_engine.py` 참조. 이 제한을 숨기고 정식 엔진 승인으로 표현하지 않음.
+- `BATCH_ACCEPT`는 V5 스키마에 맞게 생성됐고 별도 독립 검증기에 의해 재생됐지만, **이후 같은 턴에 GitHub Actions `42143555915`의 `ire-tested-sources` 산출물(artifact `13468354430`)에서 정확한 저장소 `ire/v5/engine.py`를 확보하고, 비공개 원본 5개와 생성 이벤트를 실제 `ResearchRun`으로 재생하는 데 성공했다.** 엔진 파일 SHA-256은 `9fb47463941132cabe7a4faff5e5528f78f98df12666cfa54b700f34d8c22e51`. 5개 모두 `submitted_windows`가 원래 67/76/44/43/58이며 각각의 근거·관계 심사가 매칭되고, 원본/이벤트 변조는 발견되지 않았다. 그럼에도 4,908 cue는 `UNRESOLVED`이므로 `RESEARCH_CLOSURE`는 발급하지 않았다. **이것은 채팅 실행환경에서 실제 저장소 엔진으로 재생한 결과이지, GitHub CI가 비공개 원본을 다시 읽었다는 뜻은 아니다.** `actual_ResearchRun_replay_20261106.json`에 재생 결과를 별도로 보존했다.
 - 기존 GitHub 공개 처리기록 `5/288`, 미처리 `283`, PR #13 Draft, `main` 불변. 본 비공개 이벤트 파일(원본 자막 인용 포함)은 **GitHub에 게시하지 않음**. 공개 GitHub에는 사실 승인 0건의 해시 포인터/검증 경계만 저장.
 
 ## 분리된 데이터 흐름
@@ -40,4 +40,4 @@
 - [한국거래소 KRX 금현물](https://www.krx.co.kr/contents/OPN/01/01050206/OPN01050206.jsp)
 - [한국은행 2026-08-27 금리결정](https://www.bok.or.kr/portal/bbs/P0000559/view.do?depth=200690&menuNo=200690&nttId=11064191&programType=newsData&relate=Y)
 
-**다음 승인 필요조건:** 실제 GitHub V5 `ResearchRun` 원본 재생 성공; 나머지 4,908 cue의 원자 주장/비주장 증빙; 기존 68건의 개별 cue 직접 근거; 미확정 11건의 개별 맥락 조사. 이 네 가지 없이 정식 288/288 전수 검증 완료로 승격할 수 없다.
+**남은 승인 필요조건:** GitHub V5 `ResearchRun`을 이용한 원본·미봉인 이벤트 재생은 이번 턴에 완료했다. 하지만 4,908개 미해결 cue의 주장/비주장 근거, 기존 68건의 개별 cue 직접 인용·심사, 미확정 법규 11건의 상세 적용범위 검증은 아직 남았다. 이 조건을 충족하기 전에는 정식 288/288 연구 종료로 승격하지 않는다.

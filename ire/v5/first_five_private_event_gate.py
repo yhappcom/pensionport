@@ -41,7 +41,12 @@ def verify(root:Path, replacement:dict|None=None)->dict:
  check(idx.get('owner_private_archive_not_committed_to_git') is True and
        idx.get('events_and_srt_stored_in_owner_private_bundle_only') is True and
        idx.get('source_bytes_reopened_by_github_ci') is False and
-       idx.get('actual_repo_ResearchRun_replay_executed_in_this_turn') is False and
+       idx.get('actual_repo_ResearchRun_replay_executed_in_this_turn') is True and
+       idx.get('actual_repo_ResearchRun_replay_attested_by_chat_host_not_by_github_ci') is True and
+       SHA.fullmatch(str(idx.get('exact_ResearchRun_source_sha256'))) and
+       idx.get('exact_ResearchRun_source_workflow_artifact_id')==13468354430 and
+       idx.get('exact_ResearchRun_source_workflow_run_id')==42143555915 and
+       idx.get('original_sources_verified_by_actual_ResearchRun_host') is True and
        idx.get('no_RESEARCH_CLOSURE_event_created') is True and
        idx.get('all_original_288_windows_final_research_complete') is False and
        idx.get('all_financial_facts_independently_approved') is False and
@@ -76,6 +81,7 @@ def verify(root:Path, replacement:dict|None=None)->dict:
  return {'schema':'IRE_V5_PRIVATE_SOURCE_EVENT_POINTER_CI_V1',
          'public_reference_matches':True,'private_original_bytes_reopened_by_ci':False,
          'real_v5_engine_replay_of_private_events_by_ci':False,
+         'actual_v5_engine_private_replay_host_attested':True,
          'independently_source_anchored_claims_publicly_proven':False,
          'provisional_model_windows_private_only':288,
          'provisional_claim_review_actions_private_only':258,
