@@ -23,7 +23,7 @@ from .first_five_window_review_gate import source_windows
 from .first_five_remnant_221_gate import cue_txt
 
 LEDGER=Path("ire/v5/validation/extra369_97linked_506partial_9risk_20261107.json")
-LEDGER_PIN="e4db0be5d139d63b680df07921615d072e83fe18"
+LEDGER_PIN="282808ec62ade5527a6065f11b6b2a459c18a471"
 PATTERNS=(
  r"\d+(?:[.,]\d+)?\s*(?:%|퍼센트|프로)",
  r"\d+(?:[.,]\d+)?\s*(?:원|만|억|조|년|개월)",
