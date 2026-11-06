@@ -62,6 +62,7 @@ class PreflightContractTests(unittest.TestCase):
             "first_five_original_15_source_spans_68_237_duplication_risk_gate",
             "all_5129_original_cues_636_risk_signals_and_22_scoped_source_groups",
             "extra_video10_all_34_source_cues_eight_pension_scope_groups",
+            "video7_compilation_exact_cue_reprint_and_no_blind_holdout",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))
