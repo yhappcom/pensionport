@@ -125,6 +125,10 @@ class FiveVideoResearchBatch:
                            "source_cues": self.runs[vid].manifest["source_cues"],
                            "windows_total": s["video_windows_total"],
                            "windows_processed": s["submitted_windows"],
+                           "windows_model_evidence_relation_reviewed":
+                               s["windows_model_evidence_relation_reviewed"],
+                           "windows_model_pending_review":
+                               s["windows_model_pending_review"],
                            "windows_remaining": s["video_windows_total"] - s["submitted_windows"],
                            "claims": s["claims"], "evidence_cases": s["evidence_cases_reviewed"],
                            "relation_cases": s["relation_cases_reviewed"],
@@ -137,6 +141,10 @@ class FiveVideoResearchBatch:
         return {"schema": "IRE_V5_4_5_BATCH_STATUS_V1", "batch_id": self.batch_id,
                 "video_count": len(states), "source_cues": sum(x["source_cues"] for x in states),
                 "windows_total": total, "windows_processed": processed,
+                "windows_model_evidence_relation_reviewed":
+                    sum(x["windows_model_evidence_relation_reviewed"] for x in states),
+                "windows_model_pending_review":
+                    sum(x["windows_model_pending_review"] for x in states),
                 "windows_remaining": total - processed,
                 "videos_full_scope_sealed": completed,
                 "all_videos_research_reports_sealed": completed == len(states),

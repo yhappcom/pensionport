@@ -31,6 +31,7 @@ from .advisory_final_answer_review import run as verify_final_answer_quality
 from .advisory_final_answer_standard import run as verify_final_answer_rubric_v2
 from .first_five_source_readiness_gate import verify as verify_first_five_readiness
 from .first_five_quality_gate import verify as verify_first_five_quality
+from .first_five_adjudication_receipt_gate import verify as verify_five_source_adjudication
 
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
@@ -71,6 +72,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     final_answer_rubric_v2=verify_final_answer_rubric_v2(root)
     first_five_readiness=verify_first_five_readiness(root)
     first_five_quality=verify_first_five_quality(root)  # private 1-70 ZIP uses its separate CLI
+    first_five_adjudication=verify_five_source_adjudication(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -98,6 +100,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "p3_final_answer_rubric_v2":final_answer_rubric_v2,
         "first_five_raw_source_reanalysis_readiness":first_five_readiness,
         "first_five_original_quality_audit":first_five_quality,
+        "first_five_13_omission_equivalence_and_receipt_audit":first_five_adjudication,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,

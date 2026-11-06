@@ -75,6 +75,35 @@ class V5ContractTests(unittest.TestCase):
         for n in (1,2,3):self.r.append('MODEL_ANALYSIS',self.model(n))
         for n in (1,2,3):self.r.append('EVIDENCE_REVIEW',self.evidence(n))
         for n in (1,2,3):self.r.append('PRIOR_RELATION_REVIEW',self.relation(n))
+    def test_model_receipt_does_not_count_as_complete_evidence_and_relation_review(self):
+        self.assertEqual(self.r.status()["windows_model_evidence_relation_reviewed"],0)
+        self.r.append("MODEL_ANALYSIS",self.model(1))
+        status=self.r.status()
+        self.assertEqual(status["submitted_windows"],1)
+        self.assertEqual(status["windows_model_evidence_relation_reviewed"],0)
+        self.assertEqual(status["windows_model_pending_review"],1)
+        self.r.append("EVIDENCE_REVIEW",self.evidence(1))
+        self.assertEqual(self.r.status()["windows_model_evidence_relation_reviewed"],0)
+        self.r.append("PRIOR_RELATION_REVIEW",self.relation(1))
+        self.assertEqual(self.r.status()["windows_model_evidence_relation_reviewed"],1)
+        self.assertEqual(self.r.status()["windows_model_pending_review"],0)
+        self.assertEqual(self.r.status()["approved_financial_facts"],0)
+        reloaded=ResearchRun(SRT,MAN,self.store)
+        self.assertEqual(reloaded.status()["windows_model_evidence_relation_reviewed"],1)
+
+    def test_unresolved_cue_blocks_review_complete_even_with_both_reviews(self):
+        model=self.model(1)
+        model["claims"][0]["source_refs"]=model["claims"][0]["source_refs"][:1]
+        model["cue_dispositions"][1]={"cue_index":2,"status":"UNRESOLVED",
+                                      "claim_ids":[],
+                                      "reason":"Missing evidence for conditional statement."}
+        self.r.append("MODEL_ANALYSIS",model)
+        self.r.append("EVIDENCE_REVIEW",self.evidence(1))
+        self.r.append("PRIOR_RELATION_REVIEW",self.relation(1))
+        self.assertEqual(self.r.status()["submitted_windows"],1)
+        self.assertEqual(self.r.status()["windows_model_evidence_relation_reviewed"],0)
+        self.assertEqual(self.r.status()["windows_model_pending_review"],1)
+
     def test_host_next_task_routes_all_stages_without_continue(self):
         # A deterministic synthetic host supplies prepared answers. Real model
         # interpretation still belongs to ChatGPT, not the Python program.

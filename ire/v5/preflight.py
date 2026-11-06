@@ -87,6 +87,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.first_five_atomic_claim_gate", "--root", ".")),
     ("first_five_221_unprocessed_atomic_candidate_integrity",
      ("-m", "ire.v5.first_five_remnant_221_gate", "--root", ".")),
+    ("first_five_13_omission_305_equivalence_and_receipt_integrity",
+     ("-m", "ire.v5.first_five_adjudication_receipt_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),

@@ -21,6 +21,10 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         row=output.getvalue().split("ONE_TURN_RESEARCH_RECEIPT ",1)[1]
         payload=json.loads(row)
         self.assertTrue(payload["one_request_research_complete"])
+        self.assertEqual(payload["first_five_13_omission_equivalence_and_receipt_audit"]["source_classification_corrections_resolved"],13)
+        self.assertEqual(payload["first_five_13_omission_equivalence_and_receipt_audit"]["candidate_claims_scope_reviewed"],305)
+        self.assertEqual(payload["first_five_13_omission_equivalence_and_receipt_audit"]["formal_new_v5_engine_window_receipts"],0)
+        self.assertEqual(payload["first_five_13_omission_equivalence_and_receipt_audit"]["public_v5_batch_processed_windows"],5)
         self.assertFalse(payload["repeat_user_progress_command_required"])
         self.assertEqual(payload["claims"]["claims_without_disposition"],0)
         self.assertEqual(payload["education_knowledge"]["knowledge_concepts"],13)

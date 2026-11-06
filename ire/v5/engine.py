@@ -488,7 +488,18 @@ class ResearchRun:
         # are computed outside the event content so older sealed receipts replay.
         full_scope=(len(self.active)==len(self.windows))
         d=self.closure.copy() if self.closure is not None else self._closure_body()
-        return {**d,"sealed":self.closure is not None,
+        # A recorded MODEL_ANALYSIS does NOT prove evidence/prior-relation
+        # review completion. This is a derived, replay-safe progress metric,
+        # not a historical event mutation or financial fact certification.
+        reviewed_windows=sum(
+            all(c["claim_id"] in self.evidence and
+                c["claim_id"] in self.relations for c in model["claims"]) and
+            all(c["status"] != "UNRESOLVED" for c in model["cue_dispositions"])
+            for model in self.model.values())
+        return {**d,"windows_model_evidence_relation_reviewed":reviewed_windows,
+                "windows_model_pending_review":len(self.model)-reviewed_windows,
+                "windows_official_financial_facts_approved":0,
+                "sealed":self.closure is not None,
                 "receipt_count":self.seq,
                 "model_corrections":sum(self.model_corrections.values()),
                 "event_chain_head_sha256":getattr(self,"head","0"*64),

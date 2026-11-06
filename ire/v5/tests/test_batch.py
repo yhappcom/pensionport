@@ -152,6 +152,22 @@ class FiveVideoBatchTests(unittest.TestCase):
         self.assertTrue(r["claims"][0]["needs_prior_relation_review"])
         self.assertFalse(r["financial_fact_approved"])
 
+    def test_model_only_window_not_counted_as_evidence_relation_reviewed(self):
+        vid=self.b.video_order[0]
+        actions=self.actions(vid)
+        self.b.submit_video_bundle(vid,actions[:1])
+        s=self.b.status()
+        self.assertEqual(s["windows_processed"],1)
+        self.assertEqual(s["windows_model_evidence_relation_reviewed"],0)
+        self.assertEqual(s["windows_model_pending_review"],1)
+        self.b.submit_video_bundle(vid,actions[1:2])
+        self.assertEqual(self.b.status()["windows_model_evidence_relation_reviewed"],0)
+        self.b.submit_video_bundle(vid,actions[2:])
+        s=self.b.status()
+        self.assertEqual(s["windows_model_evidence_relation_reviewed"],1)
+        self.assertEqual(s["windows_model_pending_review"],0)
+        self.assertEqual(s["official_financial_facts_approved"],0)
+
     def test_five_full_closures_still_not_advisory_approval(self):
         for k in (1,2):
             req=[{"video_id":vid,"actions":self.actions(vid,k)} for vid in self.b.video_order]
