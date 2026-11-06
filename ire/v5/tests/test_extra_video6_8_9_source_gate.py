@@ -17,6 +17,7 @@ class ExtraThreeFinanceOriginalTests(unittest.TestCase):
         self.assertEqual(x["original_planner_windows"],175)
         self.assertEqual(x["scoped_source_claim_candidates"],36)
         self.assertEqual(x["previous_crossvideo_risk_cases_checked"],9)
+        self.assertEqual(x["provisional_crossvideo_concept_relations_checked"],8)
         self.assertFalse(x["private_owner_archive_replayed_this_process"])
         self.assertFalse(x["independent_complete_atomic_recall_certified"])
         self.assertEqual(x["new_formally_approved_financial_law_facts"],0)
