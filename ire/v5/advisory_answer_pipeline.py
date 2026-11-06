@@ -21,6 +21,7 @@ from .first_five_residual_15_gate import retrieve as retrieve_residual15
 from .first_five_all5129_risk_gate import retrieve as retrieve_all5129_risk
 from .video10_all34_cue_gate import retrieve as retrieve_short34
 from .extra_video6_8_9_source_gate import retrieve as retrieve_extra369
+from .extra369_unanchored_window_gate import retrieve as retrieve_extra369_gap
 from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
@@ -293,6 +294,18 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
             parts.append(f"- #{item['video_no']} cue "+
                          f"{item['source_cues'][0]}~{item['source_cues'][1]}: "+
                          f"{item['caveat']} [연구 상태: {item['status']}]")
+    gap_review=retrieve_extra369_gap(root,question,limit=3)
+    # The 13 previously unanchored windows are extra source-risk context,
+    # not newly certified legal facts or a second copy of old 36 claims.
+    old_extra_ids={item["claim_id"] for item in extra369["items"]}
+    fresh_gaps=[item for item in gap_review["items"]
+                if not old_extra_ids.intersection(item["related_prior_36"])]
+    if fresh_gaps and not personal_request:
+        parts.append("#6·#8·#9 추가 원문창 누락 후보 대조(정식 원자 주장 완결 승인 전):")
+        for risk in fresh_gaps:
+            parts.append(f"- #{risk['video_no']} {risk['source_window_id']} "+
+                         f"cue {risk['cue_range'][0]}~{risk['cue_range'][1]}: "+
+                         f"{risk['scope_caveat']} [검토 상태: {risk['classification']}]")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -317,6 +330,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "first_five_full5129_risk_screen_cautions":original5129,
         "video10_all34_original_scope":video10,
         "extra_three_source_scoped_claims":extra369,
+        "extra_three_unanchored_source_cautions":gap_review,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,
