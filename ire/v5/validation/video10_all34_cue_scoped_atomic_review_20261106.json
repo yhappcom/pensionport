@@ -1,0 +1,260 @@
+{
+  "schema": "IRE_V5_EXTRA_VIDEO10_ALL_34_CUE_SOURCE_ATOMIC_GROUP_CENSUS_V1",
+  "as_of": "2026-11-06",
+  "video_number": 10,
+  "video_id": "VKr060rIirM",
+  "source_srt_sha256": "1263d79eaf2f203b81e39231a05b884f6069bd9c3e4e3e20a213ad86cfdd2c95",
+  "source_archive_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "original_srt_cue_count": 34,
+  "source_window_count": 2,
+  "source_window_sha256": [
+    "646a1dc7b0aef5dfbe1cc1a02356112a31fb0ace9016574a1919b6304a02d9dd",
+    "7617da6e2fef01b041cfc1148efea028ecabb8746f17a87e37e9048a03e8edaa"
+  ],
+  "all_34_cues_assigned_one_disposition_group": true,
+  "source_semantics_chat_host_reviewed": true,
+  "independent_blind_atomic_recall_certified": false,
+  "original_audio_independently_rechecked": false,
+  "current_legal_rules_for_every_taxpayer_approved": false,
+  "formal_financial_knowledge_nodes_approved": 0,
+  "prior_cv010_four_risk_cases_preserved": true,
+  "compilation_video7_excluded_from_independent_blind_holdout": true,
+  "prior_116_master_unchanged": true,
+  "p4_29_education_nodes_unchanged": true,
+  "official_context": {
+    "NTS_PENSION": {
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6608",
+      "verified_scope": "과세제외 재원·이연퇴직소득·연금수령 저율 및 연 1500만원 기준 초과시 선택분리과세를 구분한다.",
+      "as_of": "CHECKED_2026-11-06",
+      "not_government_signed_snapshot": true
+    },
+    "SAMSUNG_PENSION": {
+      "url": "https://www.samsungpop.com/mbw/finance/pensionAccount.do?cmd=guide",
+      "verified_scope": "연금저축과 IRP의 비공제 원금, 인출 제한 및 세율 차이를 각 계좌 운영 기준으로 구분한다.",
+      "as_of": "CHECKED_2026-11-06",
+      "not_government_signed_snapshot": true
+    },
+    "KRX_ETF": {
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+      "verified_scope": "ETF 상품 분류별 과세를 구분; 일반 위탁계좌 모든 평가수익이 과세된다는 단정을 보증하지 않는다.",
+      "as_of": "CHECKED_2026-11-06",
+      "not_government_signed_snapshot": true
+    },
+    "FSS_PENSION_IRP": {
+      "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=219577",
+      "verified_scope": "금감원 2021-11-02 연금저축 일부인출 자유·IRP 법정사유 외 일부인출 제한 안내; 세액공제 한도는 2021년 과거 기준이므로 재사용 금지.",
+      "as_of": "2021-11-02_HISTORICAL_GUIDE_ON_WITHDRAWAL_ONLY",
+      "not_government_signed_snapshot": true
+    }
+  },
+  "groups": [
+    {
+      "group_id": "V10-C01",
+      "start_cue": 1,
+      "end_cue": 4,
+      "combined_cue_sha256": "cac7624dac914516eac3b6990b0192fb7b8854641109c14c83ffc849674a8d20",
+      "source_window_ids": [
+        "W00001"
+      ],
+      "claim_topic": "QUESTION_AND_PERSONAL_CONTEXT",
+      "scoped_meaning": "40대 주부의 세액공제 미적용 연금계좌 유지 여부를 묻는 시청자 질문. 세액공제 불가능이 납세자 단위로 확정된 사실은 아니다.",
+      "disposition": "QUESTION_NOT_A_STATUTORY_FACT",
+      "official_ids": [],
+      "prior_crossvideo_risk_ids": [],
+      "query_phrases": [
+        "주부 세액공제 없는 연금"
+      ],
+      "provisional_claim_group_id": "P3-10-N01",
+      "formal_tax_law_fact_approved": false,
+      "unrestricted_partial_withdrawal_approved": false,
+      "personalized_advice_trade_order_approved": false
+    },
+    {
+      "group_id": "V10-C02",
+      "start_cue": 5,
+      "end_cue": 8,
+      "combined_cue_sha256": "5857b3ccec8b395bf4bab6671a688b9498d1c925ec3034dfb07ae079dba90c88",
+      "source_window_ids": [
+        "W00001"
+      ],
+      "claim_topic": "PENSION_ALWAYS_BETTER_GENERALIZATION",
+      "scoped_meaning": "세액공제 유무와 상관없이 연금계좌가 일반계좌보다 언제나 훨씬 유리하다는 결론은 중도유동성·가입자 납세상태·상품 및 세율에 따라 달라지는 조건부 의견이다.",
+      "disposition": "UNIVERSAL_ACCOUNT_SUPERIORITY_REJECTED",
+      "official_ids": [
+        "NTS_PENSION",
+        "SAMSUNG_PENSION"
+      ],
+      "prior_crossvideo_risk_ids": [
+        "CV-010-PENSION-ALL-BETTER"
+      ],
+      "query_phrases": [
+        "연금저축 항상 유리",
+        "세액공제 없어도 무조건 연금저축"
+      ],
+      "provisional_claim_group_id": "P3-10-N02",
+      "formal_tax_law_fact_approved": false,
+      "unrestricted_partial_withdrawal_approved": false,
+      "personalized_advice_trade_order_approved": false
+    },
+    {
+      "group_id": "V10-C03",
+      "start_cue": 9,
+      "end_cue": 12,
+      "combined_cue_sha256": "30a70194a3464e9d5e4a1a38a0fd8a12e68e00defc0212befddbcddd63e2e7c2",
+      "source_window_ids": [
+        "W00001"
+      ],
+      "claim_topic": "ORDINARY_ACCOUNT_TAX_EVERY_PROFIT",
+      "scoped_meaning": "일반계좌에서 미국 ETF·배당주 투자 수익이 발생할 때마다 과세된다는 말은 국내/해외 상장 ETF, 매매차익·배당·평가이익, 매도실현 시점의 법적 구분을 생략한다.",
+      "disposition": "ORDINARY_TAX_SCOPE_OVERGENERALIZED",
+      "official_ids": [
+        "KRX_ETF"
+      ],
+      "prior_crossvideo_risk_ids": [
+        "CV-010-ACCOUNT-TAX"
+      ],
+      "query_phrases": [
+        "일반계좌 수익마다 세금",
+        "미국 ETF 수익마다 세금"
+      ],
+      "provisional_claim_group_id": "P3-10-N03",
+      "formal_tax_law_fact_approved": false,
+      "unrestricted_partial_withdrawal_approved": false,
+      "personalized_advice_trade_order_approved": false
+    },
+    {
+      "group_id": "V10-C04",
+      "start_cue": 13,
+      "end_cue": 16,
+      "combined_cue_sha256": "8c74e7419b6ccc34c1ddc2dc3de5cf669ce247651da6ecbf9ec55b9abb8a8a30",
+      "source_window_ids": [
+        "W00001"
+      ],
+      "claim_topic": "PENSION_DEFERRAL_UNTIL_WITHDRAWAL",
+      "scoped_meaning": "연금계좌의 적격 운용수익은 계좌 내 과세이연이 가능할 수 있지만 모든 계좌·소득·상품에서 무조건 최종 연금수령 시점에만 세금을 낸다는 해석은 부정확하다.",
+      "disposition": "CONDITIONAL_TAX_DEFERRAL",
+      "official_ids": [
+        "NTS_PENSION",
+        "SAMSUNG_PENSION"
+      ],
+      "prior_crossvideo_risk_ids": [
+        "CV-010-ACCOUNT-TAX"
+      ],
+      "query_phrases": [
+        "연금계좌 과세이연 조건",
+        "연금저축 세금 미루기"
+      ],
+      "provisional_claim_group_id": "P3-10-N04",
+      "formal_tax_law_fact_approved": false,
+      "unrestricted_partial_withdrawal_approved": false,
+      "personalized_advice_trade_order_approved": false
+    },
+    {
+      "group_id": "V10-C05",
+      "start_cue": 17,
+      "end_cue": 20,
+      "combined_cue_sha256": "9c96557fc017d3bb6821168527612d3174349deca4c019051bc56e80c2721d0a",
+      "source_window_ids": [
+        "W00001",
+        "W00002"
+      ],
+      "claim_topic": "NONDEDUCTED_BASIS_NOT_MOST_BY_DEFAULT",
+      "scoped_meaning": "세액공제를 받지 않은 납입원금은 일반적으로 과세제외 재원이지만 원금의 대부분이 반드시 비공제라는 근거는 없으며, 공제 이력·증빙·인출순서 및 계좌형태 확인이 필요하다.",
+      "disposition": "NONDEDUCTED_BASIS_REQUIRES_PROOF",
+      "official_ids": [
+        "NTS_PENSION",
+        "SAMSUNG_PENSION"
+      ],
+      "prior_crossvideo_risk_ids": [
+        "CV-010-LOW-RATE"
+      ],
+      "query_phrases": [
+        "비공제 원금 비과세 증빙",
+        "연금저축 원금 대부분 비과세"
+      ],
+      "provisional_claim_group_id": "P3-10-N05",
+      "formal_tax_law_fact_approved": false,
+      "unrestricted_partial_withdrawal_approved": false,
+      "personalized_advice_trade_order_approved": false
+    },
+    {
+      "group_id": "V10-C06",
+      "start_cue": 21,
+      "end_cue": 25,
+      "combined_cue_sha256": "62fcb32e56fca3f64cef31921fe8b3f03ec9356779ef73fe9795a0c25452be7f",
+      "source_window_ids": [
+        "W00002"
+      ],
+      "claim_topic": "PENSION_EARNINGS_RATE_NOT_ALWAYS_3_3_TO_5_5",
+      "scoped_meaning": "적격 연금수령의 과세대상 납입액·운용수익에 연령별 저율이 적용될 수 있지만, 연금수령요건·비공제 원금·이연퇴직소득·연간 1500만원 초과 선택분리과세와 예외를 구분해야 한다.",
+      "disposition": "PENSION_TAX_RATE_CONDITIONAL",
+      "official_ids": [
+        "NTS_PENSION",
+        "SAMSUNG_PENSION"
+      ],
+      "prior_crossvideo_risk_ids": [
+        "CV-010-LOW-RATE"
+      ],
+      "query_phrases": [
+        "연금소득 항상 3.3~5.5",
+        "연금저축 1500만원 넘으면"
+      ],
+      "provisional_claim_group_id": "P3-10-N06",
+      "formal_tax_law_fact_approved": false,
+      "unrestricted_partial_withdrawal_approved": false,
+      "personalized_advice_trade_order_approved": false
+    },
+    {
+      "group_id": "V10-C07",
+      "start_cue": 26,
+      "end_cue": 31,
+      "combined_cue_sha256": "dc3918cec5698567c03c53c578a66da91b3ab4792299729513fcc78f5f6dc97d",
+      "source_window_ids": [
+        "W00002"
+      ],
+      "claim_topic": "ANYTIME_NONDEDUCTED_PRINCIPAL_WITHDRAWAL",
+      "scoped_meaning": "세액공제 없는 원금의 과세제외 여부와 부분인출 권리는 별개다. 연금저축은 일부 중도인출이 가능하지만 개인형IRP는 원칙적으로 법정사유가 아니면 일부인출이 제한되므로 '연금계좌에서 언제든 자유 출금'은 과도한 일반화다.",
+      "disposition": "IRP_PARTIAL_WITHDRAWAL_NOT_ANYTIME",
+      "official_ids": [
+        "FSS_PENSION_IRP",
+        "SAMSUNG_PENSION"
+      ],
+      "prior_crossvideo_risk_ids": [
+        "CV-010-WITHDRAW-ANYTIME"
+      ],
+      "query_phrases": [
+        "연금저축 언제든 출금",
+        "IRP 비공제 원금 언제든"
+      ],
+      "provisional_claim_group_id": "P3-10-N07",
+      "formal_tax_law_fact_approved": false,
+      "unrestricted_partial_withdrawal_approved": false,
+      "personalized_advice_trade_order_approved": false
+    },
+    {
+      "group_id": "V10-C08",
+      "start_cue": 32,
+      "end_cue": 34,
+      "combined_cue_sha256": "a065c4b22b838d632e74a3fde29685007723f3097ed47e47d162bce945020f70",
+      "source_window_ids": [
+        "W00002"
+      ],
+      "claim_topic": "FINAL_BENEFITS_CONCLUSION_REPETITION",
+      "scoped_meaning": "세액공제를 받지 않는 주부에게도 연금저축이 무조건 최선이라는 결론을 앞선 세제·유동성 주장과 독립된 새로운 사실로 중복 등록하지 않는다.",
+      "disposition": "CONCLUSION_REPEATS_SCOPED_OPINION",
+      "official_ids": [],
+      "prior_crossvideo_risk_ids": [
+        "CV-010-PENSION-ALL-BETTER"
+      ],
+      "query_phrases": [
+        "주부 연금저축 무조건",
+        "세액공제 없어도 연금 계좌 필수"
+      ],
+      "provisional_claim_group_id": "P3-10-N08",
+      "formal_tax_law_fact_approved": false,
+      "unrestricted_partial_withdrawal_approved": false,
+      "personalized_advice_trade_order_approved": false
+    }
+  ],
+  "release": "ORIGINAL_34_CUE_8_SCOPED_GROUPS_RESEARCHED_NOT_INDEPENDENT_ATOMIC_CERTIFICATE"
+}
