@@ -127,6 +127,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.video10_all34_cue_gate", "--root", ".")),
     ("video7_compilation_exact_cue_reprint_and_no_blind_holdout",
      ("-m", "ire.v5.video7_compilation_dedup_gate", "--root", ".")),
+    ("extra_6_8_9_3123_owner_cues_175_source_windows_36_claim_scope",
+     ("-m", "ire.v5.extra_video6_8_9_source_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),

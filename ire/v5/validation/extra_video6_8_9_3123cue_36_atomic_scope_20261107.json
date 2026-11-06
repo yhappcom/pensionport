@@ -1,0 +1,935 @@
+{
+  "schema": "IRE_V5_EXTRA6_8_9_ORIGINAL_3123_CUES_175_WINDOWS_AND_36_SCOPED_CANDIDATES_V1",
+  "as_of": "2026-11-07",
+  "original_archive_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "original_cues_total": 3123,
+  "source_windows_total": 175,
+  "source_byte_sha_replayed_by_chat_host": true,
+  "source_bytes_replayed_in_github_ci": false,
+  "private_srt_published": false,
+  "window_index_is_not_atomic_recall_certificate": true,
+  "original_36_spans_source_anchor_checked_in_chat": true,
+  "scoped_claim_candidates_total": 36,
+  "fully_independent_blind_atomic_recall_proven": false,
+  "novel_authoritative_financial_fact_approvals": 0,
+  "formal_B04_edges_created": 0,
+  "old_116_claims_unchanged": true,
+  "old_29_p4_education_nodes_unchanged": true,
+  "extra_7_compilation_still_not_holdout": true,
+  "extra_video10_34_cues_preserved": true,
+  "official_reference_context_not_universal_tax_approval": true,
+  "source_videos": [
+    {
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "original_cues": 807,
+      "original_windows": 45,
+      "srt_sha256": "493c52ea3e56cb9be756d70f4de90d3b069c40dff5743d69bd8a8770f32c1bcc",
+      "window_rollup_sha256": "249d7c7c992887fb31a69f4ae545055d8056859ad5bba407ebe62cd5a2d1cd4d"
+    },
+    {
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "original_cues": 1039,
+      "original_windows": 59,
+      "srt_sha256": "d97852825e0b09d58eb76957e22cd7ef41f5d8a59013795bc4c949c1e651c921",
+      "window_rollup_sha256": "f4264c5651a4eb2c8a0dcda47cece558e3099cd72ee983fb651077fa756d3b04"
+    },
+    {
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "original_cues": 1277,
+      "original_windows": 71,
+      "srt_sha256": "b48c51ac62ddf27a0d667e018ad1fbf3717e2bb447a66d9c48ed114eeeb6c2ce",
+      "window_rollup_sha256": "4c8ce8c6fa08f47b2fe919ac5878fcab0c6ce266e07bdfc5eb2e6084a6609fae"
+    }
+  ],
+  "official_context": {
+    "GIFT53": {
+      "url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&efYd=20260101&joBrNo=00&joNo=0053&lsiSeq=280353&urlMode=lsScJoRltInfoR",
+      "as_of": "2026-01-01",
+      "scope": "미성년자 직계존속 10년 합산 2천만원, 성인 5천만원 증여재산공제; 이전 증여·수증자 조건 확인",
+      "use": "2026_STATUTE_NARROW"
+    },
+    "GIFT53_2": {
+      "url": "https://taxlaw.nts.go.kr/st/USESTA002P.do?ntstBscId=100000000000001561&ntstSysClCd=01&ntstTlawClCd=109",
+      "as_of": "2026-01-02",
+      "scope": "혼인·출산 1억원 특별공제 합산한도와 혼인신고·출산일 전후 2년 및 거주자·직계존속 요건",
+      "use": "2026_STATUTE_NARROW"
+    },
+    "GIFT68": {
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029615297",
+      "as_of": "2026-01-02",
+      "scope": "일반 증여세 신고기한은 증여받은 날이 속하는 달의 말일부터 3개월, 신고 증빙자료 첨부",
+      "use": "2026_STATUTE_NARROW"
+    },
+    "GIFT_STOCK": {
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7731",
+      "as_of": "2026-11-07",
+      "scope": "코스피·코스닥 상장주식의 증여일 전후 각 2개월 최종시세 평균 산정. 외국주식·비상장주식 등에 무차별 적용 금지",
+      "use": "NTS_GUIDANCE_SCOPED"
+    },
+    "GIFT_GENERAL": {
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7728&mi=2338",
+      "as_of": "2026-11-07",
+      "scope": "증여세 과세가액·동일인 10년 내 과세가액 합산의 기본 구조; 2천만원 공제와 합산규정은 동일 개념 아님",
+      "use": "NTS_GUIDANCE_SCOPED"
+    },
+    "ISA": {
+      "url": "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView",
+      "as_of": "2026-11-07",
+      "scope": "ISA 손익통산·비과세 한도·3년·가입자격과 국내상장 ETF 편입 조건; 해외시장 직접주식 계좌와 별도",
+      "use": "ISSUER_GUIDANCE_NOT_GOVERNMENT_SIGNED"
+    },
+    "ETF_TAX": {
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+      "as_of": "2026-11-07",
+      "scope": "국내상장 기타(해외·원자재·선물 등) ETF 과세와 국내주식형 ETF 및 해외상장 ETF 차이. 계좌 유형에 따라 변경",
+      "use": "KRX_MARKET_GUIDANCE_NARROW"
+    },
+    "NABO_2026": {
+      "url": "https://www.nabo.go.kr/board/file/down.do?fid=33319156",
+      "as_of": "2026-03",
+      "scope": "국내 상장 해외자산 ETF 배당소득형 15.4%, 해외상장 주식·ETF 양도소득 22% 및 해외주식 연 250만원 기본공제(거주자 전제). PDF 원문 페이지 155; 공식 보고서이지 개별 과세처분 아님",
+      "use": "2026_LEGISLATIVE_GUIDANCE_PDF_TEXT_NOT_GOVERNMENT_SIGNED"
+    },
+    "FX_PRODUCT": {
+      "url": "https://www.trueetn.com/trueetn/nkis/item/itemEtn.jsp?cmd=FR10800&itemCode=Q570094&tabId=prodInfoTab1",
+      "as_of": "2026-11-07",
+      "scope": "엔선물 ETN의 원엔 환율 1배 추종 시도, 선물·지표가치/실제 가격 차이. ETF·ETN 모든 상품 수익 동일 보증 아님",
+      "use": "ISSUER_PRODUCT_EXAMPLE"
+    }
+  },
+  "claim_candidates": [
+    {
+      "claim_id": "V5X-6-01",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 125,
+      "end_cue": 151,
+      "source_span_sha256": "e95e678926bc4a57dbd6377a725664e19b8e2bf8309d214920625e311e2c9db9",
+      "topic_code": "CHILD_GIFTING_MOTIVATION",
+      "scoped_interpretation": "자녀 장기투자는 미래 기회를 마련한다는 교육적 의견이며 부모의 적정 증여금액·수익률·아이의 권리 설정을 승인하지 않는다.",
+      "source_review_class": "VIDEO_OPINION",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "자녀 장기투자 필요",
+        "아기 투자 10억"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-02",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 185,
+      "end_cue": 214,
+      "source_span_sha256": "fa780ca14f5125147f55c24399ac8a8bdcdc5104ff12c5779458bf318277c509",
+      "topic_code": "MINOR_LEGAL_REP_CAPACITY",
+      "scoped_interpretation": "부모가 미성년자의 법정대리인이라는 일반 설명은 투자계좌명의·증여재산 소유권·세무신고 대리 범위를 모두 대체하지 않는다.",
+      "source_review_class": "LEGAL_SCOPE_REQUIRES_ACCOUNT_CONTRACT",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "미성년 자녀 주식계좌 법정대리인"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-03",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 239,
+      "end_cue": 271,
+      "source_span_sha256": "17ac4111bdeffb58ee4eb1d3ec304b42d7549b57634cd911a92565b3cb0efb1c",
+      "topic_code": "CASH_STOCK_PERIODIC_GIFTS",
+      "scoped_interpretation": "현금·보유주식·정기금 형태의 증여는 과세 평가와 신고 시점이 다를 수 있다. 단순히 증여한 뒤 투자하면 항상 절세가 보장되는 것은 아니다.",
+      "source_review_class": "CONDITIONAL_GIFT_STRATEGY",
+      "official_scope_ids": [
+        "GIFT_GENERAL"
+      ],
+      "prior_14_risk_related_ids": [
+        "CV-006-GIFT-2000"
+      ],
+      "query_phrases": [
+        "현금 주식 정기금 증여 방법"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-04",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 270,
+      "end_cue": 282,
+      "source_span_sha256": "acf7178b3ef52e800f2c5db91832cd330993cd625bffa1311652786875f78c2a",
+      "topic_code": "MINOR_GIFT_20M_TEN_YEAR",
+      "scoped_interpretation": "미성년자 직계존속 증여공제 2천만원은 수증자 기준 과거 10년 공제이력 등 전제조건이 있다. 증여 2천만원 이하이면 항상 모든 신고·세무문제가 끝난다는 결론은 부적절하다.",
+      "source_review_class": "NARROW_2026_STATUTORY_SCOPE",
+      "official_scope_ids": [
+        "GIFT53",
+        "GIFT_GENERAL"
+      ],
+      "prior_14_risk_related_ids": [
+        "CV-006-GIFT-2000"
+      ],
+      "query_phrases": [
+        "미성년 자녀 2천만원 증여",
+        "아이 증여 2000만원"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-05",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 281,
+      "end_cue": 324,
+      "source_span_sha256": "8b892b8bf502a745798080da05cc91cbbc8300765c6b4af08c640a3e4cf73b42",
+      "topic_code": "LISTED_SHARES_2_MONTH_AVERAGE_AND_RETURN",
+      "scoped_interpretation": "코스피·코스닥 상장주식은 증여일 전후 각 2개월 평균 평가 원칙이지만 주가 급등 후 증여주식을 반환하면 모든 세금이 사라진다는 설명은 반환시점·재증여·자산종류 검증 없이는 승인할 수 없다.",
+      "source_review_class": "NARROW_STOCK_VALUATION_AND_RETURN_OPEN",
+      "official_scope_ids": [
+        "GIFT_STOCK",
+        "GIFT68"
+      ],
+      "prior_14_risk_related_ids": [
+        "CV-006-GIFT-STOCK-VALUATION"
+      ],
+      "query_phrases": [
+        "상장주식 증여 2개월 평가",
+        "증여주식 다시 반환"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-06",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 324,
+      "end_cue": 361,
+      "source_span_sha256": "69297091b57ab76f3c63fb7c44ddd594c3992289205d0f1b758087da8ccb4e7c",
+      "topic_code": "GIFT_TAX_REPORTING_MONTH_END_3MO",
+      "scoped_interpretation": "영상의 증여일로부터 대략 3개월 신고는 정확한 법정 산식이 아니다. 2026년 일반 규정은 증여받은 달의 말일부터 3개월 이내이고 증여유형별 예외·평가증빙이 있다.",
+      "source_review_class": "CURRENT_2026_FILING_STATUTE_CORRECTED",
+      "official_scope_ids": [
+        "GIFT68"
+      ],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "증여세 증여일부터 3개월",
+        "주식증여 신고기한"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-07",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 363,
+      "end_cue": 383,
+      "source_span_sha256": "51b32810aaf17a8e0368f1bd51e3f7632f4972a2aa9cafb24736e8556f815c8d",
+      "topic_code": "PERIODIC_GIFT_189K_DISCOUNT",
+      "scoped_interpretation": "매월 18만9천원을 10년간 증여하면 현재가치로 2천만원이라는 영상 예시는 할인율·지급기한·정기금 평가·증여 신고 계약요건을 재현하기 전까지 법정 면세 공식으로 승인할 수 없다.",
+      "source_review_class": "CASHFLOW_TAX_PRESENT_VALUE_OPEN",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-006-GIFT-2000"
+      ],
+      "query_phrases": [
+        "정기금 증여 18만9천원",
+        "적립식 증여 할인"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-08",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 407,
+      "end_cue": 444,
+      "source_span_sha256": "38e8997730b310d94f7ca760505d4506b5b71ff8d2fa78be5cb38fe689b339c4",
+      "topic_code": "GIFTED_CHILD_ACCOUNT_AUTO_BUY",
+      "scoped_interpretation": "미성년 명의로 증여받은 자산의 자동매수는 보호자 대리·실질 수익자·거래 권한·상품적합성 확인이 필요하며 자동매수가 장기 수익을 보증하지 않는다.",
+      "source_review_class": "EDUCATION_OPINION_AND_ACCOUNT_SCOPE",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "자녀 증여계좌 자동매수"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-09",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 535,
+      "end_cue": 576,
+      "source_span_sha256": "f04e91c4880e0c6d2f44ff0b8e9121a8681e5c960255364f0ba9c0b2778c6ca0",
+      "topic_code": "PARENT_CONTROL_GIFTED_ASSET",
+      "scoped_interpretation": "자녀 명의로 준 돈의 소유권과 부모의 투자관리·성년 시 접근권을 구분해야 한다. 계좌를 부모가 무기한 통제할 수 있다는 법률 권리는 영상만으로 성립하지 않는다.",
+      "source_review_class": "BENEFICIAL_OWNERSHIP_OPEN",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "증여 자녀계좌 부모관리"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-10",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 588,
+      "end_cue": 625,
+      "source_span_sha256": "adf0a00ea8ec077cf8749502dc93c913e9493ebd71181a2cd4f15a66d25dfa34",
+      "topic_code": "CHILD_LONG_HORIZON_6040_ETF",
+      "scoped_interpretation": "10년 이상 기간의 자녀 명의 ETF 6대4·성장산업 투자는 주식·채권 비중, 종목 집중, 투자 기간, 유동성에 따라 손실 가능성이 달라지는 투자전략 의견이다.",
+      "source_review_class": "CONDITIONAL_ASSET_ALLOCATION_OPINION",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "자녀 투자 6대4 ETF"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-11",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 645,
+      "end_cue": 658,
+      "source_span_sha256": "91b3b50b84967688806a8832a1574f4cbb76229118f470440921ba4cf9ada61a",
+      "topic_code": "GIFT_SCHEDULE_240M_CONDITIONAL",
+      "scoped_interpretation": "출생·10세·20세·30세 및 혼인/출산 공제를 합한 2억4천만원은 일정 수증자·거주자·시간간격·혼인/출산 특례 요건을 충족한다는 가정이며 모든 자녀가 자동 면세받는 금액이 아니다.",
+      "source_review_class": "HYPOTHETICAL_2026_STATUTORY_COMBINATION",
+      "official_scope_ids": [
+        "GIFT53",
+        "GIFT53_2"
+      ],
+      "prior_14_risk_related_ids": [
+        "CV-006-GIFT-240M"
+      ],
+      "query_phrases": [
+        "30년 증여 2억4천",
+        "증여 2.4억 공제"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-6-12",
+      "video_number": 6,
+      "video_id": "3MyhYE2jmuE",
+      "start_cue": 700,
+      "end_cue": 735,
+      "source_span_sha256": "1be48b61f975a942755ebf721b17469d6f108019ba4c098e8f410bdb75fea298",
+      "topic_code": "GIFT_RETURN_1_3B_TO_4_3B_MODEL",
+      "scoped_interpretation": "35년 적립 1억3천만원 원금·3억원 수익·추가 1억원의 5억3천만원 시나리오는 임의 수익률과 적립시점을 전제로 한다. 세금·물가·손실 가능성 반영 없이 보장 자산으로 안내 금지.",
+      "source_review_class": "HYPOTHETICAL_LONG_TERM_RETURN_NOT_FACT",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-006-GIFT-RETURN"
+      ],
+      "query_phrases": [
+        "35년 증여 5억3천",
+        "증여 수익금 3억"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-01",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 10,
+      "end_cue": 38,
+      "source_span_sha256": "69494ec5f67f99a933dc58c99bd4ae46dd51e22af86ad4d5f06db65f3a5bc11d",
+      "topic_code": "YEN_ETF_VS_SPOT_TAX_ACCOUNTS",
+      "scoped_interpretation": "원화 거래 국내상장 엔화 ETF의 이익·보수·과세는 단순 외화 현물환전과 같지 않다. ISA·연금저축·IRP 편입과 과세는 계좌 및 상품 분류별로 따로 확인한다.",
+      "source_review_class": "NARROW_ETF_AND_WRAPPER_TAX_SCOPE",
+      "official_scope_ids": [
+        "ETF_TAX",
+        "ISA"
+      ],
+      "prior_14_risk_related_ids": [
+        "CV-008-YEN-ETF-TAX"
+      ],
+      "query_phrases": [
+        "엔화 ETF 세금",
+        "엔화 현금 ETF 비과세"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-02",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 44,
+      "end_cue": 55,
+      "source_span_sha256": "80c99f59996db2535ccf2d4d8818571ed81c75add2c96963c39f697a3bcaa69d",
+      "topic_code": "IRP_YEN_FUTURES_ELIGIBILITY",
+      "scoped_interpretation": "엔선물 ETF가 모든 IRP에서 무조건 매수불가라는 일반화는 상품 적격성과 IRP 위험자산 한도·운용사 공시를 개별적으로 검증하기 전까지 현행 일반규칙으로 승인하지 않는다.",
+      "source_review_class": "PRODUCT_PENSION_ELIGIBILITY_OPEN",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "엔선물 ETF IRP 가능",
+        "엔화 선물 연금저축"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-03",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 98,
+      "end_cue": 140,
+      "source_span_sha256": "9a8b78a6346cfc11c15116503537ebea62b66230b67b051f6f6028813f531760",
+      "topic_code": "ULTRASHORT_JPY_BOND_NOT_JPY_CASH",
+      "scoped_interpretation": "일본 초단기 국채 ETF는 엔화에 대한 환 노출 외에 금리·보수·추적오차·기초자산 신용·유동성 위험이 있다. 엔화 현금과 동일한 원금보장 상품이 아니다.",
+      "source_review_class": "PRODUCT_DURATION_AND_TRACKING_RISK",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "엔화 초단기 국채 ETF",
+        "엔화채권 ETF 현금"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-04",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 155,
+      "end_cue": 205,
+      "source_span_sha256": "8c99a6e34668533beaa2b758daa24c16608df62060d83ec9fc43c374013c1ca0",
+      "topic_code": "NIKKEI225_TOPIX_DIFFERENT_INDEX",
+      "scoped_interpretation": "일본 니케이225와 TOPIX 지수는 산출방식·편입 종목과 가중치가 달라 같은 일본 대표지수라도 투자성과가 동일하다는 주장은 성립하지 않는다.",
+      "source_review_class": "INDEX_STRUCTURE_SCOPED",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "니케이225 TOPIX 비교"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-05",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 203,
+      "end_cue": 228,
+      "source_span_sha256": "5c2fdd2d4213f8b1fb2955bde8c54abe53c4c40893573db7d2a22ecb709d7b9d",
+      "topic_code": "JPY_UNHEDGED_JAPAN_EQUITY_TWO_RISKS",
+      "scoped_interpretation": "엔화 환노출 일본주식 ETF 수익은 주가지수와 원엔 환율 변동을 함께 반영하며 두 방향을 모두 맞히면 확정수익이라는 보장은 없다.",
+      "source_review_class": "EQUITY_AND_FX_DOUBLE_EXPOSURE",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-008-FX-HEDGE"
+      ],
+      "query_phrases": [
+        "일본 ETF 환노출 두가지",
+        "일본 주식 엔화 같이"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-06",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 313,
+      "end_cue": 341,
+      "source_span_sha256": "573b9d53a15ab73e0eec4c82ded56b5447e4eec4673162b4f6a4397dd4b6ea33",
+      "topic_code": "YEN_JP_EQUITY_HEDGE_ACCOUNT",
+      "scoped_interpretation": "일본 지수 ETF를 원화로 매수해도 상품의 환헤지 여부에 따라 엔화의 원화 수익 기여가 달라진다. 환헤지 상품이 엔저 투자목적에 적합한지 별도 판단해야 한다.",
+      "source_review_class": "HEDGE_STRATEGY_CONDITIONAL",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-008-FX-HEDGE"
+      ],
+      "query_phrases": [
+        "일본 주식 엔저 환헤지"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-07",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 338,
+      "end_cue": 370,
+      "source_span_sha256": "5e3189b085d162a6bb367afded00363bb918063f52fe727376942666a173def7",
+      "topic_code": "JAPAN_LISTED_US_SP500_WITH_YEN",
+      "scoped_interpretation": "엔화로 일본거래소 상장 미국 S&P500 ETF를 매수해도 기초자산 USD 주식위험과 JPY·KRW·USD 환율위험, 해당 ETF의 환헤지 여부를 별도 판단한다.",
+      "source_review_class": "THREE_CURRENCY_TAX_AND_MARKET_EXPOSURE",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "엔화로 미국 ETF 일본상장",
+        "일본 상장 SP500 엔화"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-08",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 420,
+      "end_cue": 452,
+      "source_span_sha256": "481f91a2aae8f418800c5b748b925a546ae3ad78bdee88a87b30571fcae1f001",
+      "topic_code": "JAPAN_STOCK_MIN_LOT_SETTLEMENT_AND_TAX",
+      "scoped_interpretation": "일본 주식 최소매매단위 100주·T+1 결제는 증권사 상품 및 시장구간별 최신 확인 필요. 거주자의 해외주식 양도소득 기본공제 연 250만원과 22% 세율은 국내 상장 ETF 과세와 구분한다.",
+      "source_review_class": "OVERSEAS_EQUITY_TAX_SCOPED_PRODUCT_TERMS_OPEN",
+      "official_scope_ids": [
+        "NABO_2026"
+      ],
+      "prior_14_risk_related_ids": [
+        "CV-008-JP-STOCK-TAX"
+      ],
+      "query_phrases": [
+        "일본주식 양도세 22%",
+        "일본주식 250만원 공제"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-09",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 540,
+      "end_cue": 567,
+      "source_span_sha256": "6ee190b996b79bd08cae121e5449de9d049353350220d2b79b7bcb0bd321df38",
+      "topic_code": "JAPAN_US_ETF_HEDGED_USDJPY",
+      "scoped_interpretation": "일본상장 미국주식 ETF의 엔-달러 헤지 여부는 원-엔 노출 자체와 다른 축이며, 환헤지 비용·기간·환율 방향이 수익을 결정한다.",
+      "source_review_class": "TWO_LAYER_HEDGE_SCOPE",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-008-FX-HEDGE"
+      ],
+      "query_phrases": [
+        "일본 상장 미국ETF 환헤지"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-10",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 602,
+      "end_cue": 638,
+      "source_span_sha256": "4ce260fae2432bad919780779573a5289752e7ebbea3e150db9b56dfc7cfb5c8",
+      "topic_code": "HEDGE_NOT_ALWAYS_BETTER_LONG_TERM",
+      "scoped_interpretation": "엔화 약세를 믿으면 헤지, 장기는 언제나 환노출이 정답이라는 보편 처방은 환헤지 비용·일본/미국 금리·투자기간·자산 구성에 의존하므로 사실 승격 금지.",
+      "source_review_class": "HEDGE_MARKET_TIMING_OPINION_ONLY",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-008-FX-HEDGE"
+      ],
+      "query_phrases": [
+        "엔화 환헤지 항상 유리",
+        "장기 환노출 무조건"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-11",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 899,
+      "end_cue": 933,
+      "source_span_sha256": "06a0181e0e70e5838597f215cf21900162decf9ea49822f38bffb708b15c9258",
+      "topic_code": "JPY_FX_POLICY_CANNOT_FORECAST",
+      "scoped_interpretation": "정부·중앙은행의 외환시장 개입, 국가간 금리차, 주식시장 여건은 엔화 움직임에 영향을 주지만 상승 시점과 방향을 확정할 수 없다.",
+      "source_review_class": "HISTORICAL_FX_CONTEXT_NOT_FORECAST",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "엔화 정책개입 반등 확정"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-8-12",
+      "video_number": 8,
+      "video_id": "OfkY343OaNs",
+      "start_cue": 934,
+      "end_cue": 971,
+      "source_span_sha256": "a29835a75bf0da862490fab19b020db26f762a7831aeeb488a148f78b3905861",
+      "topic_code": "CHEAP_YEN_EXPENSIVE_EQUITY_OPINION",
+      "scoped_interpretation": "엔화가 과거 대비 저렴하더라도 일본·미국 주식의 현재 밸류에이션과 환율을 동일하게 저평가라 볼 수 없다. 분할매수 제안은 위험관리 의견이다.",
+      "source_review_class": "STRATEGY_NOT_GUARANTEED",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "엔화 싸면 일본주식 매수"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-01",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 29,
+      "end_cue": 63,
+      "source_span_sha256": "1ec88762998a5c54cf40fc4c9a5cecbce4a68c6497810bc033cac08362fb40b6",
+      "topic_code": "YEN_CHEAPNESS_AND_TRAVEL_RATIONALE",
+      "scoped_interpretation": "엔저에 일본여행 비용이 절감될 수 있으나 과거 환율이 반드시 회복되거나 환전 투자에 확정 이익이 생기는 것은 아니다.",
+      "source_review_class": "CONSUMPTION_VS_SPECULATION_SCOPE",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "엔저 여행 투자 확정"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-02",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 277,
+      "end_cue": 299,
+      "source_span_sha256": "c00aa39ae1dfc34879b4234ec031561b383b46f442d166e37add84cab945b8f6",
+      "topic_code": "TRAVEL_1500000_BUDGET_SCENARIO",
+      "scoped_interpretation": "오키나와 3박4일 인당 150만원 예산은 당시 개인 여행 계획·숙박·항공·렌터카 가정으로 현재 평균시장가격이나 투자 손익 비교 기준으로 쓸 수 없다.",
+      "source_review_class": "HISTORICAL_PERSONAL_COST_MODEL",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "일본여행 150만원 가정"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-03",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 323,
+      "end_cue": 369,
+      "source_span_sha256": "e9eeba13a168a97ffa8fd4c7f7cbd37793184cbdf748b6ccbd1597a9848ccf1a",
+      "topic_code": "JPY870_TO950_9_195PCT_NOT_TEN_GUARANTEE",
+      "scoped_interpretation": "원엔 870원에서 950원으로 가정 상승하면 80/870=약 9.1954%다. 영상의 10%와 1500만원 투자 원금에 대한 150만원 수익은 어림 계산이며 매수·매도 스프레드, 세금, 기간 미반영이다.",
+      "source_review_class": "INDEPENDENT_ARITHMETIC_AND_RETURN_HYPOTHESIS",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-009-YEN-10PCT"
+      ],
+      "query_phrases": [
+        "엔화 870에서 950",
+        "엔화 10% 수익"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-04",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 411,
+      "end_cue": 453,
+      "source_span_sha256": "cd46dbf720ac329681fc9dcae38fe66e9d819b99f19547904ac236c4746e2075",
+      "topic_code": "KRWJPY_VS_USDJPY_NOMINAL_DEVIATION",
+      "scoped_interpretation": "원엔 환율과 달러엔 환율은 서로 다른 통화쌍·표시기준으로 같은 방향·폭으로 움직이지 않는다. 과거 37년 최저 기록을 현재 투자신호로 사용하는 것은 불가하다.",
+      "source_review_class": "HISTORICAL_FX_REFERENCE_NOT_FORECAST",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "원엔 달러엔 환율 차이"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-05",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 463,
+      "end_cue": 506,
+      "source_span_sha256": "f4137e3d2f4af80133d600f481f4c246e643ff1813b5668386488d1232fbefe5",
+      "topic_code": "JAPAN_TEN_YEAR_YIELD_3PCT_HISTORIC",
+      "scoped_interpretation": "일본 10년물 국채 3%와 기준금리 1% 발언은 영상 녹화시점의 시장 수치일 수 있지만 현행 수치로 자동 승인하지 않는다. 수익률·정책금리·물가 기대는 다른 지표다.",
+      "source_review_class": "RATE_AND_MARKET_DATE_NEEDS_VERIFICATION",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "일본 10년 국채 3%",
+        "일본 기준금리 1%"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-06",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 536,
+      "end_cue": 589,
+      "source_span_sha256": "a2df674cfc30e28c69a6c8e310dd685daf427c5ffb3300bf3cafab62509b3451",
+      "topic_code": "BANK_FX_SPREAD_VS_REFERENCE",
+      "scoped_interpretation": "은행 고시 기준환율과 현찰 살 때·팔 때 환율에는 스프레드가 있고 우대율은 스프레드의 할인이지 전 거래·해외인출 비용 면제를 뜻하지 않는다.",
+      "source_review_class": "FX_QUOTATION_AND_FEES_NARROW",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-009-FX-SPREAD"
+      ],
+      "query_phrases": [
+        "엔화 기준환율 스프레드",
+        "환전 우대 수수료"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-07",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 621,
+      "end_cue": 643,
+      "source_span_sha256": "b07b6d1a275fe775d9bb2efec806c7aab4a3a8af402c1196caf04387d15c4fda",
+      "topic_code": "FX_CASH_WITHDRAWAL_EXTRA_COSTS",
+      "scoped_interpretation": "원화→엔화 전환, 외화송금, 현찰 인출에는 서비스·은행별 수수료가 별도 적용될 수 있어 엔화 투자비용을 최초 환전 스프레드만으로 산정하면 안 된다.",
+      "source_review_class": "FX_PRODUCT_FEE_TERMS_PENDING",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-009-FX-SPREAD"
+      ],
+      "query_phrases": [
+        "엔화 현찰 인출 수수료"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-08",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 647,
+      "end_cue": 677,
+      "source_span_sha256": "f3e47df8163374b6a41600551c40b11b60ce20451430cc7fa22ded26d926ca09",
+      "topic_code": "JPYKRW_QUOTE_PER100_ERROR_RISK",
+      "scoped_interpretation": "원엔 환율은 통상 100엔당 원화로 인용되는 경우가 많다. 영상의 JPYKRW 호가·1엔당 단위와 100엔당 870원 표시를 혼동해 환산액을 100배 오산하지 않는다.",
+      "source_review_class": "FX_QUOTE_UNIT_AND_ASR_RECHECK",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "엔화 100엔 기준환율",
+        "원엔 환율 1엔 100엔"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-09",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 720,
+      "end_cue": 775,
+      "source_span_sha256": "c5b2fa1ef0c661e2a7f25a3cf1b440e91f8e823b4765c35aa801e0f6b6f1ccd0",
+      "topic_code": "CROSS_FX_TRIANGULATION_NOT_ABSOLUTE",
+      "scoped_interpretation": "원엔과 달러엔은 원달러와 산술적으로 연결되지만 어느 한 통화쌍이 엔화의 절대가치 또는 미래수익을 단독 결정한다고 해석하지 않는다.",
+      "source_review_class": "FX_CROSS_RATE_IDENTITY_NOT_FORECAST",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "원엔 달러엔 교차환율"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-10",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 911,
+      "end_cue": 950,
+      "source_span_sha256": "b07964c56343175f5ca6d698f660c041e5aa215ae140e6ca4e1653840c2a194a",
+      "topic_code": "FIVE_YEN_INVESTMENT_METHODS_DISTINCT_RISKS",
+      "scoped_interpretation": "엔 현찰·국내 엔 ETF·국내 일본주식 ETF·일본상장 미국 ETF·일본 개별주식은 각각 상품·시장·통화·세금·매수단위·기회비용이 다르다. 단순 환전과 동일한 엔 투자로 합칠 수 없다.",
+      "source_review_class": "MULTI_PRODUCT_ACCOUNT_RISK_SCOPE",
+      "official_scope_ids": [
+        "ETF_TAX",
+        "NABO_2026"
+      ],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "엔화 투자 다섯가지 방법"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-11",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 959,
+      "end_cue": 995,
+      "source_span_sha256": "503ab7b1d3a6c3fbb63641399d802fc970cd9a4024a3040c79c4a3fd4022db43",
+      "topic_code": "YEN_HOLDING_NO_YIELD_OPPORTUNITY_COST",
+      "scoped_interpretation": "현찰 엔화가 장기간 이자를 지급하지 않을 수 있는 기회비용과 달러/ETF의 가격·신용·환위험은 서로 다르다. 엔화 보유가 무조건 손해거나 달러가 항상 우위는 아니다.",
+      "source_review_class": "CASH_RETURN_OPPORTUNITY_COST",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [],
+      "query_phrases": [
+        "엔화 투자 기회비용",
+        "엔화 현금 장기 보유"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    },
+    {
+      "claim_id": "V5X-9-12",
+      "video_number": 9,
+      "video_id": "YNOSY15ppf8",
+      "start_cue": 1145,
+      "end_cue": 1195,
+      "source_span_sha256": "8ad9c18f15233159765c05d9cfe13b636485d9eb758380a94b55e5bceccf958b",
+      "topic_code": "FX_SPREAD_1_75PCT_NOT_UNIVERSAL",
+      "scoped_interpretation": "1.75% 환전 스프레드는 영상에서 제시한 상품·시점 예시일 수 있으므로 은행·통화·현찰/전신환·우대율과 외화 출금수수료 확인 전 현재 모든 엔화 거래에 적용하지 않는다.",
+      "source_review_class": "HISTORICAL_FX_RATE_PRODUCT_QUOTE",
+      "official_scope_ids": [],
+      "prior_14_risk_related_ids": [
+        "CV-009-FX-SPREAD"
+      ],
+      "query_phrases": [
+        "엔화 환전 수수료 1.75%",
+        "환전 100% 우대"
+      ],
+      "source_semantic_author": "SAME_CHAT_SESSION_NOT_INDEPENDENT_BLIND",
+      "atomic_decomposition_completeness_proven": false,
+      "statute_or_product_terms_formally_approved": false,
+      "strict_legacy_equivalence_approved": false,
+      "personal_order_or_tax_filing_approved": false
+    }
+  ],
+  "release": "SOURCE_INDEXED_175_WINDOWS_AND_36_SCOPED_ATOMIC_CANDIDATES_NOT_FULL_SEMANTIC_RECALL"
+}

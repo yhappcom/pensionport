@@ -20,6 +20,7 @@ from .crossvideo_14_quarantine import retrieve as retrieve_crossvideo
 from .first_five_residual_15_gate import retrieve as retrieve_residual15
 from .first_five_all5129_risk_gate import retrieve as retrieve_all5129_risk
 from .video10_all34_cue_gate import retrieve as retrieve_short34
+from .extra_video6_8_9_source_gate import retrieve as retrieve_extra369
 from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
@@ -280,6 +281,18 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
             parts.append(f"- #10 cue {item['source_cues'][0]}~"+
                          f"{item['source_cues'][1]}: {item['scope_caveat']} "+
                          f"[상태: {item['disposition']}]")
+    extra369=retrieve_extra369(root,question,limit=3)
+    earlier_risks={x["case_id"] for x in crossvideo["items"]}
+    # Show only fresh conditional scope; keep overlapping source anchors in
+    # metadata so original citations and risk lineage can still be audited.
+    new_extra369=[x for x in extra369["items"]
+                  if not earlier_risks.intersection(x["prior_risk_ids"])]
+    if new_extra369 and not personal_request:
+        parts.append("#6·#8·#9 원본 자막 검토의 추가 금융규정·위험 적용 조건(정식 금융사실 승인 전):")
+        for item in new_extra369:
+            parts.append(f"- #{item['video_no']} cue "+
+                         f"{item['source_cues'][0]}~{item['source_cues'][1]}: "+
+                         f"{item['caveat']} [연구 상태: {item['status']}]")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -303,6 +316,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "first_five_residual_15_scoped_cautions":residual15,
         "first_five_full5129_risk_screen_cautions":original5129,
         "video10_all34_original_scope":video10,
+        "extra_three_source_scoped_claims":extra369,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,
