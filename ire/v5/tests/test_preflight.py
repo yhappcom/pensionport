@@ -41,6 +41,7 @@ class PreflightContractTests(unittest.TestCase):
             "first_five_original_risk_quality_and_advisory_retrieval_gap",
             "first_five_original_45_span_provenance_retrieval_bridge",
             "first_five_all_288_window_source_meaning_provenance",
+            "first_five_68_atomic_claims_original_and_knowledge_safety",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))

@@ -60,6 +60,15 @@ class Advisory60Tests(unittest.TestCase):
         x=a.resolve(self.policy,"CMA 비상자금 원금 보장 무조건 수익")
         self.assertEqual(x["decision"],"REFUSE_GUARANTEED_RETURN_AND_SHOW_FRAMEWORK")
 
+    def test_new_first_five_atomic_source_evidence_is_provisional(self):
+        x=a.resolve(self.policy,"연금 1500 인출상한 세금")
+        self.assertTrue(any(z["id"]=="FV5-A007" for z in x["first_five_atomic_source_evidence"]))
+        self.assertTrue(all(z["personalized_trade_action_approved"] is False
+                            for z in x["first_five_atomic_source_evidence"]))
+        self.assertFalse(x["personal_action_approved"])
+        y=a.resolve(self.policy,"내일 영화관 상영 일정")
+        self.assertEqual(y["first_five_atomic_source_evidence"],[])
+
     def test_unknown_topic_no_unsupported_advice(self):
         x=a.resolve(self.policy,"이번 주말 영화 추천")
         self.assertEqual(x["decision"],"NO_SUPPORTED_RESEARCH_ROUTE")

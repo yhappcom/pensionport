@@ -83,6 +83,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.first_five_advisory_bridge", "--root", ".")),
     ("first_five_all_288_window_source_meaning_provenance",
      ("-m", "ire.v5.first_five_window_review_gate", "--root", ".")),
+    ("first_five_68_atomic_claims_original_and_knowledge_safety",
+     ("-m", "ire.v5.first_five_atomic_claim_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
