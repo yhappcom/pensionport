@@ -63,7 +63,8 @@ jobs:
           assert all(f.startswith("ire/") or
                      f in {".github/workflows/ire-cleanroom-gate.yml",
                    ".github/workflows/ire-v5-transaction-core.yml",
-                   ".github/workflows/ire-v5-app-control.yml"}
+                   ".github/workflows/ire-v5-app-control.yml",
+                   ".github/workflows/ire-v5-p3-p4-one-turn.yml"}
                      for f in files), "HISTORICAL_OR_OTHER_FILE_MODIFIED"
           forbidden={"scripts","v30","v5","data","synthesis"}
           modules=list(pathlib.Path("ire").rglob("*.py"))
