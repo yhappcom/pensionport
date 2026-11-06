@@ -18,6 +18,14 @@ from .first_five_remnant_221_gate import cue_txt
 
 LEDGER=Path("ire/v5/validation/extra_video6_8_9_3123cue_36_atomic_scope_20261107.json")
 PIN="f5fa5ef1e042205f6c07d1b4b5ce6e8ed4df9d07"
+RELATION_LEDGER=Path("ire/v5/validation/extra6_8_9_eight_concept_relations_20261107.json")
+RELATION_PIN="2b94480374362142af7e82c96530c80b983d4aa1"
+RELATION_TYPES={
+    "SCOPE_QUALIFIER","SEPARATE_LEGAL_DIMENSION",
+    "CASHFLOW_TAX_SCOPE_CONFLICT_RISK","ACCOUNT_AND_PRODUCT_DISTINCTION",
+    "DIFFERENT_FX_RETURN_COMPONENTS","JAPAN_LISTED_US_EQUITY_REFINES",
+    "OVERSEAS_EQUITY_TAX_REFINES","GROSS_FX_RETURN_NET_OF_COSTS",
+}
 SHA_ARCHIVE="088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716"
 EXPECTED={
  6:("3MyhYE2jmuE",807,45,"493c52ea3e56cb9be756d70f4de90d3b069c40dff5743d69bd8a8770f32c1bcc",
@@ -160,6 +168,40 @@ def audit(root:Path,source_zip:Path|None=None):
              "EXTRA369_CANDIDATE_SOURCE_OR_APPROVAL_INVALID")
     need(counts=={6:12,8:12,9:12},
          "EXTRA369_SOURCE_CASE_BALANCE_CHANGED")
+    raw_rel=(root/RELATION_LEDGER).read_bytes()
+    need(gitblob(raw_rel)==RELATION_PIN,
+         "EXTRA369_UNREVIEWED_CONCEPT_RELATIONS")
+    relations_doc=json.loads(raw_rel)
+    need(relations_doc.get("schema")==
+         "IRE_V5_EXTRA6_8_9_EIGHT_SOURCE_SCOPED_CONCEPT_RELATIONS_V1"
+         and relations_doc.get("as_of")=="2026-11-07"
+         and relations_doc.get("basis")==LEDGER.name
+         and relations_doc.get("source_scoped_candidate_ids_constrained_to_36") is True
+         and relations_doc.get("concept_relation_total")==8
+         and relations_doc.get("formal_116_master_claim_relations_approved")==0
+         and relations_doc.get("new_29_education_nodes_inserted")==0
+         and relations_doc.get("source_mutation_approved") is False
+         and relations_doc.get("strict_semantic_duplicate_deletion")==0
+         and relations_doc.get("personal_tax_advice_authorized") is False
+         and relations_doc.get("release")==
+           "PROVISIONAL_RELATION_NETWORK_ONLY_NOT_FORMAT_B04_FACT_APPROVAL",
+         "EXTRA369_FALSE_FORMAL_CONCEPT_MERGE")
+    relations=relations_doc.get("relations")
+    candidate_ids={c["claim_id"] for c in candidates}
+    need(type(relations) is list and len(relations)==8
+         and len({(x.get("from"),x.get("to")) for x in relations})==8,
+         "EXTRA369_EIGHT_RELATIONS_NOT_DISTINCT")
+    for n,edge in enumerate(relations,1):
+        need(edge.get("relation_id")==f"XREL-{n:02d}"
+             and edge.get("from") in candidate_ids
+             and edge.get("to") in candidate_ids
+             and edge["from"]!=edge["to"]
+             and edge.get("relation") in RELATION_TYPES
+             and len(edge.get("meaning",""))>=30
+             and edge.get("strict_atomic_equivalence_certified") is False
+             and edge.get("formal_legacy_B04_edge_created") is False
+             and edge.get("independent_expert_coherence_review_done") is False,
+             "EXTRA369_UNAPPROVED_CONCEPT_EDGE")
     private_replayed=False
     if source_zip is not None:
         p=Path(source_zip)
@@ -192,6 +234,7 @@ def audit(root:Path,source_zip:Path|None=None):
       "original_planner_windows":175,
       "scoped_source_claim_candidates":36,
       "previous_crossvideo_risk_cases_checked":9,
+      "provisional_crossvideo_concept_relations_checked":8,
       "private_owner_archive_replayed_this_process":private_replayed,
       "actual_source_windows_replayed_this_process":175 if private_replayed else 0,
       "actual_source_claim_spans_replayed_this_process":36 if private_replayed else 0,
