@@ -54,6 +54,8 @@ class PreflightContractTests(unittest.TestCase):
             "first_five_40_official_education_in_live_advisory_pipeline",
             "first_five_p1_p3_p4_progress_source_and_knowledge_safety",
             "p4_active_integrated_education22_source_and_pending_quarantine",
+            "video1_w41_w67_original_srt_486cue_89atom_source_provenance",
+            "p4_p3_29node_live_incremental_education_source_gate",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))

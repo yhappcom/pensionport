@@ -41,6 +41,8 @@ from .first_five_40_formal_approval_b04_gate import verify as verify_first40_B04
 from .first_five_40_official_replay_approval_gate import verify as verify_first40_external_approval_policy
 from .first_five_40_retrieval_bridge import audit as audit_first40_live_retrieval
 from .p4_active_integration import audit as audit_p4_active_integration
+from .p3_original_27_source_gate import verify as verify_p3_original_27
+from .p4_p3_source_integration import audit as audit_p4_p3_live
 from .phase1_to_phase4_progress import audit as audit_p1_p3_p4_progress
 
 def run(root:Path,private_zip:Path|None=None)->int:
@@ -93,6 +95,8 @@ def run(root:Path,private_zip:Path|None=None)->int:
     first40_live_advisory_connection=audit_first40_live_retrieval(root)
     p1_p3_p4_progress=audit_p1_p3_p4_progress(root)
     p4_active=audit_p4_active_integration(root)
+    p3_source_review=verify_p3_original_27(root)
+    p4_p3_knowledge=audit_p4_p3_live(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -131,6 +135,8 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "first_five_40_official_education_live_advisory_retrieval":first40_live_advisory_connection,
         "first_five_P1_P3_P4_scoped_progress":p1_p3_p4_progress,
         "p4_active_integrated_education22":p4_active,
+        "first_five_video1_w41_w67_original_source_atomic_review":p3_source_review,
+        "p4_p3_incremental_29_live_education_nodes":p4_p3_knowledge,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,
