@@ -147,6 +147,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "p4_p3_incremental_29_live_education_nodes":p4_p3_knowledge,
         "first_ten_raw_srt_metadata_and_source_replay_readiness":original_ten,
         "new_five_source_anchored_negative_risk_quarantine":crossvideo_hazards,
+        "first_five_original_15_residual_and_duplicate_conflict_adjudication":first_five_residual15,
         "new_twelve_frozen_questions_structural_advisory_evaluation":frozen_advice,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
