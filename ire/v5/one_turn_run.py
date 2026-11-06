@@ -47,6 +47,7 @@ from .six_stage_original_replay import audit as audit_ten_original
 from .crossvideo_14_quarantine import audit as audit_crossvideo_guard
 from .first_five_residual_15_gate import audit as audit_first_five_residual15
 from .first_five_all5129_risk_gate import audit as audit_all5129_risk
+from .video10_all34_cue_gate import audit as audit_video10_all34
 from .six_stage_frozen_advisory_eval import run as evaluate_frozen_questions
 from .phase1_to_phase4_progress import audit as audit_p1_p3_p4_progress
 
