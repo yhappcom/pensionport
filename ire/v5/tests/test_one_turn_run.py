@@ -21,6 +21,10 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         row=output.getvalue().split("ONE_TURN_RESEARCH_RECEIPT ",1)[1]
         payload=json.loads(row)
         self.assertTrue(payload["one_request_research_complete"])
+        self.assertEqual(payload["first_five_40_official_education_live_advisory_retrieval"]["education_candidates_connected"],9)
+        self.assertEqual(payload["first_five_40_official_education_live_advisory_retrieval"]["official_source_snapshots_replayed"],15)
+        self.assertEqual(payload["first_five_40_official_education_live_advisory_retrieval"]["externally_signed_narrow_facts_approved"],0)
+        self.assertFalse(payload["first_five_40_official_education_live_advisory_retrieval"]["master_116_modified"])
         self.assertEqual(payload["first_five_40_reproducible_official_extractions_and_signed_knowledge_policy"]["official_source_extraction_snapshots_replayed"],15)
         self.assertEqual(payload["first_five_40_reproducible_official_extractions_and_signed_knowledge_policy"]["unique_snapshot_payloads"],14)
         self.assertEqual(payload["first_five_40_reproducible_official_extractions_and_signed_knowledge_policy"]["regulated_video_claims_with_source_scope_link"],20)

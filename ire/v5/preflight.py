@@ -103,6 +103,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.first_five_40_formal_approval_b04_gate", "--root", ".")),
     ("first_five_40_official_content_pinned_offline_and_external_dual_signature_policy",
      ("-m", "ire.v5.first_five_40_official_replay_approval_gate", "--root", ".")),
+    ("first_five_40_official_education_in_live_advisory_pipeline",
+     ("-m", "ire.v5.first_five_40_retrieval_bridge", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),

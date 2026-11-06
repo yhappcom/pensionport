@@ -51,6 +51,7 @@ class PreflightContractTests(unittest.TestCase):
             "first_five_first40_narrow_official_rule_and_readonly_knowledge_overlay",
             "first_five_first40_five_rule_dispositions_and_B04_scoped_relation_gate",
             "first_five_40_official_content_pinned_offline_and_external_dual_signature_policy",
+            "first_five_40_official_education_in_live_advisory_pipeline",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))

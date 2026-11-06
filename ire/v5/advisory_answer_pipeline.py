@@ -13,6 +13,7 @@ from .advisory60 import load_policy, PERSONAL_TERMS, GUARANTEE_TERMS
 from .advisory_semantic import parse as semantic_parse
 from .advisory_evidence import plan as evidence_plan
 from .advisory_decision import compare as quantitative_compare
+from .first_five_40_retrieval_bridge import retrieve as retrieve_first40
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
 PERSONAL_ORDER=re.compile(r"매수해|매도해|팔아줘|전부\s*팔|즉시\s*사|주문해")
@@ -170,6 +171,23 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
                      "개인 보유내역과 위험/세제 조건을 확인해야 합니다.")
     if guarantee_request:
         parts.append("원금보장이나 확정수익 주장은 검증되지 않았으므로 보장으로 답하지 않습니다.")
+    # Connect content-addressed first-40 source-verified educational context to
+    # the *actual* P3 response, without modifying P1 fact_ids or approving tax
+    # or individualized investment conclusions. Invalid/missing pins fail closed.
+    first40={"schema":"IRE_V5_FIRST40_READONLY_EDUCATION_RETRIEVAL_V1",
+             "match_count":0,"items":[],"decision":"NOT_INSTALLED_ON_THIS_ROOT",
+             "independent_legal_fact_approval_count":0,
+             "personal_advice_approved":False,"master_merged":False}
+    if (root/'ire/v5/validation/first_five_40_official_replay_manifest_20261106.json').exists():
+        first40=retrieve_first40(root,question,
+                 intent='personal_action' if personal_request else
+                        'guaranteed_return' if guarantee_request else 'general_education')
+        if first40['items']:
+            parts.append("#1 영상 40개 창의 근거 연결 교육용 문맥(2026-11-06 공식 사이트 추출 스냅샷, 독립 승인 전):")
+            for item in first40['items']:
+                urls='; '.join(x['official_url'] for x in item['official_extraction_evidence'])
+                parts.append(f"- {item['statement']} 공식 출처 추출본: {urls}. "
+                             "개인별 적용 조건·현행성 재검증이 필요하며 전체 영상 주장 또는 정식 금융사실 승인은 아닙니다.")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -185,6 +203,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "personal_order_detected":personal_request,
         "same_chat_reviewed_source_as_of":"2026-11-05",
         "official_sources_reopened_this_python_run":False,
+        "first40_education_retrieval":first40,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,
