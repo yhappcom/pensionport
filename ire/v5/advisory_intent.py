@@ -20,7 +20,7 @@ GUARANTEED = re.compile(
 PERSONAL = re.compile(
     r"(?:내|제|저의|제가|저는|우리|나의|저한테|나에게)\s*"
     r"(?:ISA|IRP|연금|계좌|포트폴리오|자산|돈|투자|보유|상황|월급|목표|은퇴|소득)"
-    r"|(?:내게|저에게|제게)"
+    r"|(?:내게|저에게|제게)", re.IGNORECASE
 )
 DECISION = re.compile(
     r"(?:유리|불리|할까요|해야\s*하|괜찮|비교|판단|추천|선택|"
@@ -38,7 +38,7 @@ def classify(question: str) -> dict:
         kind = "ORDER_EXECUTION_REQUEST"
     elif guaranteed:
         kind = "GUARANTEED_RETURN_REQUEST"
-    elif PERSONAL.search(q) and DECISION.search(q):
+    elif PERSONAL.search(question) and DECISION.search(q):
         kind = "PERSONAL_DECISION_SUPPORT"
     else:
         kind = "GENERAL_EDUCATION"
