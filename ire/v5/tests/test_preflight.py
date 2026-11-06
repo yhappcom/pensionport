@@ -60,6 +60,7 @@ class PreflightContractTests(unittest.TestCase):
             "extra_five_14_source_risk_quarantine_live_p3",
             "frozen_12_new_financial_questions_actual_p3_advisory",
             "first_five_original_15_source_spans_68_237_duplication_risk_gate",
+            "all_5129_original_cues_636_risk_signals_and_22_scoped_source_groups",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))
