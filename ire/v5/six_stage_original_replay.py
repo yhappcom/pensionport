@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import hashlib
 import re
 import zipfile
 from pathlib import Path
@@ -16,6 +17,7 @@ from pathlib import Path
 from .first_five_window_review_gate import source_windows
 
 MANIFEST=Path("ire/v5/validation/first_ten_original_crossvalidation_20261106.json")
+REVIEWED_BLOB_SHA1="edb4e79e26f40d52f76d0b32d6318aa838200108"
 ORIGINAL_SHA="088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716"
 OLD_ARCHIVE_SHA="00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd"
 IDS=("sz5N9WJS310","6VEfKF7BzZU","OiDTNstaSpM","aNfGrcO6WPI","qtluAViPpsQ",
@@ -44,6 +46,10 @@ def read(root:Path):
 
 def audit(root:Path,source_zip:Path|None=None,replacement:dict|None=None):
     root=Path(root)
+    if replacement is None:
+        original=(root/MANIFEST).read_bytes()
+        if hashlib.sha1(b"blob "+str(len(original)).encode("ascii")+b"\0"+original).hexdigest()!=REVIEWED_BLOB_SHA1:
+            raise SixStageSourceError("SIX_STAGE_UNREVIEWED_SOURCE_MANIFEST")
     d=read(root) if replacement is None else replacement
     archive=d.get("source_archive",{})
     require(d.get("schema")=="IRE_V5_FIRST_TEN_ORIGINAL_INTAKE_AND_CROSSVALIDATION_V1"
