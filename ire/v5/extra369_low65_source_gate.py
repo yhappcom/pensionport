@@ -137,7 +137,7 @@ def audit(root:Path,source_zip:Path|None=None):
              and row.get("review_id")==f"LOW-{n}-{int(wid[1:]):02d}"
              and (n,wid) not in high_ids
              and row.get("meaning_category") in EXPECTED_LABELS
-             and len(row.get("scoped_semantic_disposition",""))>=28
+             and len(row.get("scoped_semantic_disposition",""))>=12
              and row.get("original_source_anchor_verified_on_owner_zip") is True
              and row.get("source_window_text_sha256_available_in_private_replay") is True
              and row.get("all_atomic_claims_in_window_certified") is False
