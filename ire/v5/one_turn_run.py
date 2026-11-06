@@ -162,6 +162,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "extra_video10_all34_cue_scoped_financial_review":video10_all34,
         "extra_video7_compilation_dedup_no_independent_holdout":video7_dup,
         "extra_video6_8_9_3123cue_source_scoped_candidate_36":extra369,
+        "extra_three_175_window_78_unanchored_13_scoped_risks":extra369_gap,
         "new_twelve_frozen_questions_structural_advisory_evaluation":frozen_advice,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
