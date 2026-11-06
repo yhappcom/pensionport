@@ -1,0 +1,306 @@
+{
+  "schema": "IRE_V5_P4_P3_27_SOURCE_INCREMENTAL_EDUCATION29_V1",
+  "as_of": "2026-11-06",
+  "lineage": {
+    "p3_atomic_ledger_path": "ire/v5/validation/first_five_video1_w41_w67_source_atomic_review_20261106.json",
+    "p3_atomic_ledger_git_blob_sha1": "8719a5dd5a04838eb02b18eb5ed9150b31660329",
+    "prior_p4_22_path": "ire/v5/advisory_knowledge/p4_integrated_scoped_education22_20261106.json",
+    "prior_p4_22_git_blob_sha1": "bfb446ffb1dd40caa1ed03088d088c9a1ba7490f",
+    "original_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+    "original_archive_sha256_seen_in_host": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716"
+  },
+  "prior_education_nodes": 22,
+  "new_education_nodes": 7,
+  "combined_education_nodes": 29,
+  "new_atomic_source_candidates_reviewed": 89,
+  "official_narrow_claims_scoped": 10,
+  "overgeneralizations_restricted": 14,
+  "materialized_116_master_updated": false,
+  "financial_law_facts_formally_approved": 0,
+  "blind_independent_recall_certified": false,
+  "raw_private_original_published": false,
+  "scope": "CHAT_HOST_SOURCE_BYTES_MATCHED_GENERAL_EDUCATION_ONLY",
+  "items": [
+    {
+      "knowledge_id": "P3-001-DISTRIBUTION-IS-NOT-PRESERVED-PRINCIPAL",
+      "title": "분배율·인출액과 원금 보존 구분",
+      "namespace": "P3_VIDEO1_W41_67_SOURCE_VERIFIED",
+      "safe_general_statement": "월 분배금이 발생하고 그만큼 인출하더라도 계좌 평가액·투자원금이 유지되거나 미래 현금흐름이 보장되지는 않는다. 8억원에서 월 400만원은 연 6% 단순 현금 분배율 가정일 뿐 안전인출률이 아니다.",
+      "critical_scope_and_exceptions": "배당·분배금 원천, 가격 변동, 과세, 총수익률, 비용, 시퀀스 위험을 별도 평가. 영상의 16~20년 시뮬레이션을 확정 기간으로 사용하지 말 것.",
+      "terms": [
+        "분배금 원금",
+        "월배당 원금",
+        "배당만 빼면",
+        "배당 400",
+        "원금 유지",
+        "배당 수익률",
+        "분배율"
+      ],
+      "source_claim_ids": [
+        "FV5-P3-0002",
+        "FV5-P3-0005",
+        "FV5-P3-0009",
+        "FV5-P3-0013"
+      ],
+      "prior_knowledge_ids": [
+        "EDU-RETIREMENT-ACCOUNT-AUDIT"
+      ],
+      "relation_to_prior": "RISK_CAUTION_EXTENDS_EDUCATION",
+      "official_context_source_ids": [],
+      "knowledge_basis": "SOURCE_AND_ARITHMETIC_EDUCATION",
+      "provenance_video_id": "sz5N9WJS310",
+      "source_original_video1_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "source_original_replayed_by_chat_host": true,
+      "source_original_replayed_by_github_ci": false,
+      "government_signed_original_copy_verified": false,
+      "independent_human_blind_fact_verified": false,
+      "status": "ACTIVE_SCOPED_GENERAL_EDUCATION_NOT_PERSONAL_ADVICE",
+      "formal_116_master_claim_merged": false,
+      "personalized_action_approved": false
+    },
+    {
+      "knowledge_id": "P3-001-PRIVATE-PENSION-1500-CHOICE",
+      "title": "사적연금 1,500만원 초과 시 선택적 분리과세 정정",
+      "namespace": "P3_VIDEO1_W41_67_SOURCE_VERIFIED",
+      "safe_general_statement": "2026년 국세청 안내상 해당 범위의 사적연금소득이 연 1,500만원을 초과하더라도 종합소득세 신고 때 15% 분리과세를 선택할 수 있다. 1,500만원은 전체 연금계좌 인출 상한이 아니며 무조건 전액 종합과세라는 설명은 부정확하다.",
+      "critical_scope_and_exceptions": "법률상 분리과세 15%는 지방소득세 별도. 이연퇴직소득·과세제외액·부득이한 인출 등의 소득 분류, 연금수령 요건·연령별 원천징수율을 구분. 개인별 최적 인출액은 확인되지 않음.",
+      "terms": [
+        "연금 1500 종합과세",
+        "연금 1,500 분리과세",
+        "연금 종합과세 강제",
+        "연금 1500 초과",
+        "15% 분리과세",
+        "16.5% 연금"
+      ],
+      "source_claim_ids": [
+        "FV5-P3-0010",
+        "FV5-P3-0012",
+        "FV5-P3-0016",
+        "FV5-P3-0017"
+      ],
+      "prior_knowledge_ids": [
+        "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+        "V5-001-40-PRIVATE_PENSION_1500_TAX"
+      ],
+      "relation_to_prior": "CORRECTS_VIDEO_OVERGENERALIZATION_WITH_SCOPED_OFFICIAL_RULE",
+      "official_context_source_ids": [
+        "NTS_PENSION_1500",
+        "NTS_WITHDRAWAL"
+      ],
+      "knowledge_basis": "SOURCE_AND_OFFICIAL_SCOPED_EDUCATION",
+      "provenance_video_id": "sz5N9WJS310",
+      "source_original_video1_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "source_original_replayed_by_chat_host": true,
+      "source_original_replayed_by_github_ci": false,
+      "government_signed_original_copy_verified": false,
+      "independent_human_blind_fact_verified": false,
+      "status": "ACTIVE_SCOPED_GENERAL_EDUCATION_NOT_PERSONAL_ADVICE",
+      "formal_116_master_claim_merged": false,
+      "personalized_action_approved": false
+    },
+    {
+      "knowledge_id": "P3-001-IRP-DOMESTIC-STOCK-ETF-TAX-DISTINCTION",
+      "title": "국내주식형 ETF 일반계좌와 연금계좌 과세 구분",
+      "namespace": "P3_VIDEO1_W41_67_SOURCE_VERIFIED",
+      "safe_general_statement": "일반 위탁계좌에서 국내주식형 ETF 매매차익에 적용되는 비과세와 연금계좌에서 운용수익을 연금수령할 때 적용하는 과세는 서로 다르다. IRP의 이연퇴직소득과 계좌 운용수익은 법정 인출 재원 구분에 따라 과세 유형이 달라진다.",
+      "critical_scope_and_exceptions": "주식형과 기타 ETF·해외투자형을 구분. 실제 매매차익 과표·분배금 과세, 연금수령 여부와 인출순서, 이연퇴직소득세율, 적용 과세연도 확인. 한국거래소 과거 설명에 기재된 과거 세율을 현행 세율로 전용하지 않음.",
+      "terms": [
+        "국내주식형 ETF IRP",
+        "IRP 국내 ETF 과세",
+        "국내주식 ETF 매매차익",
+        "퇴직금 수익금 연금세",
+        "국내주식형 ETF 연금"
+      ],
+      "source_claim_ids": [
+        "FV5-P3-0027",
+        "FV5-P3-0028",
+        "FV5-P3-0030",
+        "FV5-P3-0033",
+        "FV5-P3-0034",
+        "FV5-P3-0035"
+      ],
+      "prior_knowledge_ids": [
+        "EDU-PENSION-DEFERRED-TAX",
+        "EDU-IRP-LIFECYCLE",
+        "EDU-ETF-NAV-TRACKING"
+      ],
+      "relation_to_prior": "EXTENDS_WITH_DISTINCT_ACCOUNT_TAX_SCOPE",
+      "official_context_source_ids": [
+        "KRX_ETF",
+        "NTS_WITHDRAWAL",
+        "NTS_PENSION_1500"
+      ],
+      "knowledge_basis": "SOURCE_AND_OFFICIAL_SCOPED_EDUCATION",
+      "provenance_video_id": "sz5N9WJS310",
+      "source_original_video1_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "source_original_replayed_by_chat_host": true,
+      "source_original_replayed_by_github_ci": false,
+      "government_signed_original_copy_verified": false,
+      "independent_human_blind_fact_verified": false,
+      "status": "ACTIVE_SCOPED_GENERAL_EDUCATION_NOT_PERSONAL_ADVICE",
+      "formal_116_master_claim_merged": false,
+      "personalized_action_approved": false
+    },
+    {
+      "knowledge_id": "P3-001-OLD-PENSION-INSURANCE-TRANSFER-CHECKLIST",
+      "title": "기존 연금저축보험 유지·이전 비교",
+      "namespace": "P3_VIDEO1_W41_67_SOURCE_VERIFIED",
+      "safe_general_statement": "장기 연금저축보험을 연금저축펀드로 이전할지 판단할 때 계약별 최저보증·공시이율, 실제 적용기간과 기준금액, 해지환급액, 비용, 이전제약 및 투자 변동성을 비교해야 한다. 특정 과거 보험의 고금리 보증 여부는 계약 증명 전까지 사실로 인정하지 않는다.",
+      "critical_scope_and_exceptions": "시청자가 언급한 과거 5~7.5% 이율은 약관이나 증권이 확보되지 않은 비검증 사례. 무조건 유지·이전 권고 금지. 일반 원칙만 교육용으로 제공.",
+      "terms": [
+        "연금저축보험 이전",
+        "보험에서 펀드로 이전",
+        "옛날 보험 7%",
+        "연금저축 보험 해지",
+        "최저보증이율 비교",
+        "연금보험 이율"
+      ],
+      "source_claim_ids": [
+        "FV5-P3-0051",
+        "FV5-P3-0053",
+        "FV5-P3-0054",
+        "FV5-P3-0059",
+        "FV5-P3-0061",
+        "FV5-P3-0063",
+        "FV5-P3-0066"
+      ],
+      "prior_knowledge_ids": [
+        "EDU-KR-PENSION-IN-KIND-TRANSFER",
+        "EDU-RETIREMENT-ACCOUNT-AUDIT"
+      ],
+      "relation_to_prior": "NEW_CONTRACT_SPECIFIC_DECISION_CHECKLIST_NOT_OLD_FACT_EQUIVALENCE",
+      "official_context_source_ids": [],
+      "knowledge_basis": "SOURCE_AND_UNVERIFIED_PRODUCT_GUARDRAIL_EDUCATION",
+      "provenance_video_id": "sz5N9WJS310",
+      "source_original_video1_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "source_original_replayed_by_chat_host": true,
+      "source_original_replayed_by_github_ci": false,
+      "government_signed_original_copy_verified": false,
+      "independent_human_blind_fact_verified": false,
+      "status": "ACTIVE_SCOPED_GENERAL_EDUCATION_NOT_PERSONAL_ADVICE",
+      "formal_116_master_claim_merged": false,
+      "personalized_action_approved": false
+    },
+    {
+      "knowledge_id": "P3-001-ISA-NETTING-SCOPE-NO-50YEAR-GUARANTEE",
+      "title": "ISA 손익통산 적격범위와 50년 비과세 오해",
+      "namespace": "P3_VIDEO1_W41_67_SOURCE_VERIFIED",
+      "safe_general_statement": "ISA의 손익통산은 해당 계좌에서 법이 정한 적격 소득·손실을 대상으로 계약기간과 해지 시점에 따라 적용된다. 평가손실이 있다고 해서 향후 50년간 모든 수익이 자동 비과세되거나 모든 손실이 무제한 이월되는 것은 아니다.",
+      "critical_scope_and_exceptions": "주식·펀드·ETF의 과세대상 손익 유형, 평가손실 실현 여부, 계약 연장 요건, 중도해지 여부를 확인. 투자원금 8천만→잔고 4천만 사례는 가정이며 세법상 결손금 확정자료가 아님.",
+      "terms": [
+        "ISA 50년",
+        "ISA 손실 이월",
+        "ISA 4000 손실",
+        "ISA 손익 통산 50년",
+        "ISA 무기한 비과세",
+        "ISA 손실 통산"
+      ],
+      "source_claim_ids": [
+        "FV5-P3-0075",
+        "FV5-P3-0076",
+        "FV5-P3-0078",
+        "FV5-P3-0080",
+        "FV5-P3-0081",
+        "FV5-P3-0082",
+        "FV5-P3-0084"
+      ],
+      "prior_knowledge_ids": [
+        "EDU-KR-ISA-LIMIT-2026-01"
+      ],
+      "relation_to_prior": "CORRECTS_SCOPE_OF_ISA_NETTING_NOT_UNLIMITED_LOSS_CARRY",
+      "official_context_source_ids": [
+        "LAW_ISA",
+        "KOFIA_ISA",
+        "SHINHAN_ISA"
+      ],
+      "knowledge_basis": "SOURCE_AND_OFFICIAL_SCOPED_EDUCATION",
+      "provenance_video_id": "sz5N9WJS310",
+      "source_original_video1_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "source_original_replayed_by_chat_host": true,
+      "source_original_replayed_by_github_ci": false,
+      "government_signed_original_copy_verified": false,
+      "independent_human_blind_fact_verified": false,
+      "status": "ACTIVE_SCOPED_GENERAL_EDUCATION_NOT_PERSONAL_ADVICE",
+      "formal_116_master_claim_merged": false,
+      "personalized_action_approved": false
+    },
+    {
+      "knowledge_id": "P3-001-ISA-RENEWAL-VS-REENTRY-LIMITS",
+      "title": "ISA 만기 연장·해지 재가입 비교",
+      "namespace": "P3_VIDEO1_W41_67_SOURCE_VERIFIED",
+      "safe_general_statement": "ISA 만기 연장과 해지 후 재가입의 세제 결과는 적격 손익통산 범위, 비과세 한도, 계약조건과 재가입·연장 시점의 자격에 따라 달라진다. 3~5년 주기 해지가 언제나 최선이라는 규칙은 아니다.",
+      "critical_scope_and_exceptions": "2026년 조특법 제91조의18 기준 서민형 400만원·일반형 200만원 비과세 한도의 가입일 또는 연장일 요건을 재검토. 2026년 이후 법 개정에 따라 달라질 수 있고, 유리한 선택은 실현손익과 납세정보를 확인한 뒤에만 비교.",
+      "terms": [
+        "ISA 3년 재가입",
+        "ISA 5년 연장",
+        "ISA 만기 연장 재가입",
+        "ISA 서민형 400만원",
+        "ISA 비과세 여러 번",
+        "ISA 해지 재가입"
+      ],
+      "source_claim_ids": [
+        "FV5-P3-0083",
+        "FV5-P3-0085",
+        "FV5-P3-0086",
+        "FV5-P3-0087",
+        "FV5-P3-0088",
+        "FV5-P3-0089"
+      ],
+      "prior_knowledge_ids": [
+        "EDU-KR-ISA-LIMIT-2026-01",
+        "EDU-KR-ISA-TO-PENSION-2026-01"
+      ],
+      "relation_to_prior": "EXTENDS_TAX_CYCLE_DECISION_WITH_ELIGIBILITY_GUARD",
+      "official_context_source_ids": [
+        "LAW_ISA",
+        "LAW_ISA_400",
+        "SHINHAN_ISA"
+      ],
+      "knowledge_basis": "SOURCE_AND_OFFICIAL_SCOPED_EDUCATION",
+      "provenance_video_id": "sz5N9WJS310",
+      "source_original_video1_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "source_original_replayed_by_chat_host": true,
+      "source_original_replayed_by_github_ci": false,
+      "government_signed_original_copy_verified": false,
+      "independent_human_blind_fact_verified": false,
+      "status": "ACTIVE_SCOPED_GENERAL_EDUCATION_NOT_PERSONAL_ADVICE",
+      "formal_116_master_claim_merged": false,
+      "personalized_action_approved": false
+    },
+    {
+      "knowledge_id": "P3-001-RETIREMENT-SUFFICIENCY-IS-NOT-GUARANTEE",
+      "title": "노후자산 규모와 물가·수명 위험",
+      "namespace": "P3_VIDEO1_W41_67_SOURCE_VERIFIED",
+      "safe_general_statement": "은퇴자금 10억원 같은 명목 잔액만으로 생활비 부족 위험이 사라진다고 단정할 수 없다. 인출기간, 투자손실 순서, 의료비·주거비, 물가와 기타 연금현금흐름을 포함해 조건별로 검토한다.",
+      "critical_scope_and_exceptions": "20년 뒤 구매력 하락 30%는 영상 속 근거 없는 예측 수치로 현재 미래 전망치로 사용할 수 없다. 개인별 목표생활비·실질수익률·수명을 입력하기 전 최적 포트폴리오를 권고하지 않음.",
+      "terms": [
+        "10억 노후자금",
+        "노후자금 불안없",
+        "20년 물가 30%",
+        "노후 10억원",
+        "은퇴 물가 위험",
+        "노후 자금 충분"
+      ],
+      "source_claim_ids": [
+        "FV5-P3-0022",
+        "FV5-P3-0023",
+        "FV5-P3-0024"
+      ],
+      "prior_knowledge_ids": [
+        "EDU-RETIREMENT-ACCOUNT-AUDIT"
+      ],
+      "relation_to_prior": "RISK_CAUTION_EXTENDS_PRIOR_EDUCATION",
+      "official_context_source_ids": [],
+      "knowledge_basis": "SOURCE_AND_GENERAL_RISK_EDUCATION",
+      "provenance_video_id": "sz5N9WJS310",
+      "source_original_video1_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+      "source_original_replayed_by_chat_host": true,
+      "source_original_replayed_by_github_ci": false,
+      "government_signed_original_copy_verified": false,
+      "independent_human_blind_fact_verified": false,
+      "status": "ACTIVE_SCOPED_GENERAL_EDUCATION_NOT_PERSONAL_ADVICE",
+      "formal_116_master_claim_merged": false,
+      "personalized_action_approved": false
+    }
+  ]
+}
