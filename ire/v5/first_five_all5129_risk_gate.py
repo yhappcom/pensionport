@@ -20,7 +20,7 @@ from .first_five_remnant_221_gate import cue_txt
 CENSUS=Path("ire/v5/validation/first_five_all5129_cue_risk_census_20261106.json")
 REVIEW=Path("ire/v5/validation/first_five_22_scope_financial_adjudication_20261106.json")
 CENSUS_PIN="2398a7218196d541ba1f2f9e7aea0a2b029e66b8"
-REVIEW_PIN="ac1d26ff0120d088096d38d299d3ec2fb8079ec4"
+REVIEW_PIN="f2078cefe484e66b083b383c7df04b19b60e8f6d"
 PRIVATE_ZIP_SHA="088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716"
 VIDEO_IDS=("sz5N9WJS310","6VEfKF7BzZU","OiDTNstaSpM","aNfGrcO6WPI","qtluAViPpsQ")
 CUES=(1195,1347,785,758,1044)
