@@ -156,6 +156,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "first_five_original_15_residual_and_duplicate_conflict_adjudication":first_five_residual15,
         "first_five_5129_cue_risk_22_source_group_audit":all5129_risk,
         "extra_video10_all34_cue_scoped_financial_review":video10_all34,
+        "extra_video7_compilation_dedup_no_independent_holdout":video7_dup,
         "new_twelve_frozen_questions_structural_advisory_evaluation":frozen_advice,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
