@@ -14,6 +14,9 @@ class Extra369GapTests(unittest.TestCase):
         self.assertEqual(d["windows_not_directly_anchored_by_prior36"],78)
         self.assertEqual(d["unlinked_high_signal_windows_reviewed"],13)
         self.assertEqual(d["lower_signal_or_context_unlinked_windows_still_open"],65)
+        self.assertEqual(d["provisional_master116_scope_crosswalk_rows"],13)
+        self.assertEqual(d["source_risks_without_direct_canonical_parallel"],2)
+        self.assertEqual(d["strict_canonical_equivalence_approvals"],0)
         self.assertFalse(d["strict_new_claim_recall_certified"])
 
     def test_nephew_gift_scope(self):
