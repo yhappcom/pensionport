@@ -116,7 +116,7 @@ def verify(root: Path, *, source_zip: Path | None = None,
         covered=set()
         for c in rawclaims:
             cid=c.get("claim_id")
-            require(isinstance(cid,str) and re.fullmatch(r"FV5-P3-\\d{4}",cid)
+            require(isinstance(cid,str) and re.fullmatch(r"FV5-P3-\d{4}",cid)
                     and cid not in ids
                     and c.get("meaning_class") in CLAIM_KINDS
                     and type(c.get("source_cue_start")) is int
