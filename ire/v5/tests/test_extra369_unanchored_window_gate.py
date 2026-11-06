@@ -23,6 +23,8 @@ class Extra369GapTests(unittest.TestCase):
         d=gate.retrieve(ROOT,"삼촌 조카 1천만원 증여 되나요?")
         self.assertEqual(d["items"][0]["review_id"],"V5-GAP-02")
         self.assertIn("10년",d["items"][0]["scope_caveat"])
+        self.assertEqual(d["items"][0]["related_canonical_master_context_ids"],[])
+        self.assertFalse(d["items"][0]["strict_canonical_equivalence_approved"])
         self.assertFalse(d["items"][0]["official_law_fact_finalized"])
 
     def test_live_answer_for_uncovered_nephew_gift(self):
