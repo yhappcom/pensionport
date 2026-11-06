@@ -23,6 +23,7 @@ from .video10_all34_cue_gate import retrieve as retrieve_short34
 from .extra_video6_8_9_source_gate import retrieve as retrieve_extra369
 from .extra369_unanchored_window_gate import retrieve as retrieve_extra369_gap
 from .extra369_low65_source_gate import retrieve as retrieve_extra369_low65
+from .extra369_linked97_cue_gap_gate import retrieve as retrieve_partial97
 from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
@@ -315,6 +316,15 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
                          f"{caution['original_window_id']}: "+
                          f"{caution['scoped_risk']} "+
                          f"[연구 상태: {caution['financial_legal_status']}]")
+    partial97=retrieve_partial97(root,question,limit=3)
+    if partial97["items"] and not personal_request:
+        parts.append("#6·#8·#9 기존 주장 연결창 내 미연결 자막의 조건·오류 주의사항(원자 주장 완전성 미인증):")
+        for risk in partial97["items"]:
+            parts.append(f"- #{risk['video_number']} "+
+                         f"{risk['window_id']} cue "+
+                         f"{risk['residual_cue_range'][0]}~"+
+                         f"{risk['residual_cue_range'][1]}: "+
+                         f"{risk['scope_caveat']} [{risk['status']}]")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -341,6 +351,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "extra_three_source_scoped_claims":extra369,
         "extra_three_unanchored_source_cautions":gap_review,
         "extra_three_low_keyword_source_cautions":low65_review,
+        "extra_three_linked97_cue_residual_cautions":partial97,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,

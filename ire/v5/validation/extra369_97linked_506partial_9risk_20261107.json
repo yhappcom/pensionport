@@ -1,0 +1,259 @@
+{
+  "schema": "IRE_V5_EXTRA369_LINKED97_PARTIAL_506_SOURCE_CUE_RISK_CENSUS_V1",
+  "as_of": "2026-11-07",
+  "source_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "source_claim_36": "extra_video6_8_9_3123cue_36_atomic_scope_20261107.json",
+  "source_low65": "extra369_65_low_keyword_windows_meaning_review_20261107.json",
+  "source_total_cues": 3123,
+  "source_total_windows": 175,
+  "source_claim_36_unique_covered_cues": 1240,
+  "unanchored_cues_anywhere": 1883,
+  "prior78_unlinked_windows_cues": 1377,
+  "prior97_linked_window_total_cues": 1746,
+  "prior97_linked_window_cues_with_selected_claim_anchor": 1240,
+  "remaining_unanchored_cues_inside97": 506,
+  "linked_windows_total": 97,
+  "linked_windows_with_residual_cues": 53,
+  "linked_windows_fully_covered_by_any_selected_claim_range": 44,
+  "source_residual_53_window_proof_rollup_sha256": "516a32340ff758d0297f858ea906fea2c2a24479a4b32696ef1b0b8fa7233b6f",
+  "remaining_source_cue_positions_are_not_independent_atom_counts": true,
+  "original_source_reopened_inside_github_ci": false,
+  "independent_complete_claim_recall_proven": false,
+  "prior_78_window_semantic_dispositions_preserved": true,
+  "prior_13_high_risk_and_19_low_risk_cautions_preserved": true,
+  "formal_B04_knowledge_promotions": 0,
+  "strict_existing_116_equivalence_approved": 0,
+  "existing_p4_29_untouched": true,
+  "official_context": {
+    "KOREA_PERIODIC_GIFT_REGULATION": {
+      "urls": [
+        "https://law.go.kr/LSW/lsLinkCommonInfo.do?lspttninfSeq=113998",
+        "https://lawtrack.kr/law/003814/006200"
+      ],
+      "checked_date": "2026-11-07",
+      "scope": "상속세 및 증여세법 시행규칙 제19조의2 제3항(정기금 평가 연3%)과 2026 시행령 제62조의 평가방식. 정확한 계약 및 신고 요건 필요",
+      "blanket_zero_tax_approved": false
+    }
+  },
+  "by_video": [
+    {
+      "video_number": 6,
+      "source_cues": 807,
+      "source_windows": 45,
+      "linked_windows": 28,
+      "linked_windows_total_cues": 504,
+      "selected_claim_covered_cues": 369,
+      "residual_cues": 135,
+      "partial_windows": 16,
+      "high_signal_partial_windows": 2
+    },
+    {
+      "video_number": 8,
+      "source_cues": 1039,
+      "source_windows": 59,
+      "linked_windows": 30,
+      "linked_windows_total_cues": 540,
+      "selected_claim_covered_cues": 387,
+      "residual_cues": 153,
+      "partial_windows": 15,
+      "high_signal_partial_windows": 2
+    },
+    {
+      "video_number": 9,
+      "source_cues": 1277,
+      "source_windows": 71,
+      "linked_windows": 39,
+      "linked_windows_total_cues": 702,
+      "selected_claim_covered_cues": 484,
+      "residual_cues": 218,
+      "partial_windows": 22,
+      "high_signal_partial_windows": 5
+    }
+  ],
+  "high_signal_cue_risk_reviews": [
+    {
+      "id": "V5-PART-01",
+      "video_number": 6,
+      "source_window_id": "W00037",
+      "start_residual_cue": 659,
+      "end_residual_cue": 666,
+      "residual_cue_count": 8,
+      "lexical_risk_score": 9,
+      "residual_text_sha256": "bba0377f54341f382ae19dc6ef6c62ec21d89c39723de22bdc9852b9050b6b3a",
+      "risk_code": "THIRTY_YEAR_RETURN_NOT_ALWAYS_EXCEED_PRINCIPAL",
+      "scoped_interpretation": "30년 동안 투자했다면 수익이 납입원금보다 반드시 많아진다는 발언은 수익률·현금흐름·투자원금·세금에 의존하므로 법칙이나 보장 수익으로 승인할 수 없다.",
+      "question_triggers": [
+        "30년 투자 수익 원금 초과",
+        "장기 투자 원금보다 수익 많다"
+      ],
+      "official_context_ids": [],
+      "independent_atomic_uniqueness_certified": false,
+      "exact_current_legal_treatment_for_all_households_approved": false,
+      "personal_trade_advice_approved": false
+    },
+    {
+      "id": "V5-PART-02",
+      "video_number": 6,
+      "source_window_id": "W00039",
+      "start_residual_cue": 685,
+      "end_residual_cue": 699,
+      "residual_cue_count": 15,
+      "lexical_risk_score": 8,
+      "residual_text_sha256": "6d0b5983b19f158192505a287a4e440c10e44d9ce1a3a82d56ed683c25a6b99e",
+      "risk_code": "PERIODIC_GIFT_3PCT_PV_NOT_BLANKET_TAX_EXEMPT",
+      "scoped_interpretation": "유기정기금을 받을 권리의 법정 평가에 적용되는 할인율 연 3%는 해당 계약·정기금 권리·신고기간 등 요건이 전제다. 30년 적립을 3% 할인하면 언제나 증여세가 0원이라는 일반규칙은 아니다.",
+      "question_triggers": [
+        "증여 정기금 3% 할인 무조건 비과세",
+        "적립식 증여 3% 할인 신고"
+      ],
+      "official_context_ids": [
+        "KOREA_PERIODIC_GIFT_REGULATION"
+      ],
+      "independent_atomic_uniqueness_certified": false,
+      "exact_current_legal_treatment_for_all_households_approved": false,
+      "personal_trade_advice_approved": false
+    },
+    {
+      "id": "V5-PART-03",
+      "video_number": 8,
+      "source_window_id": "W00014",
+      "start_residual_cue": 229,
+      "end_residual_cue": 243,
+      "residual_cue_count": 15,
+      "lexical_risk_score": 14,
+      "residual_text_sha256": "2229e9b4ea6370fcf74292c28ef26a82e0f99c3bc1b0ad751a428594a8760c46",
+      "risk_code": "USD_CASH_VS_US_STOCK_RISK_EXPOSURE",
+      "scoped_interpretation": "달러 예금·달러 발행어음과 미국주식은 달러 표시라는 점만 공유하며 주가·원금손실·신용·환율 위험이 서로 다르다. 위기시 달러 강세가 미국주식 손실을 상쇄한다고 보장할 수 없다.",
+      "question_triggers": [
+        "달러 현금 미국 주식 차이",
+        "달러 발행어음 미국주식 위험"
+      ],
+      "official_context_ids": [],
+      "independent_atomic_uniqueness_certified": false,
+      "exact_current_legal_treatment_for_all_households_approved": false,
+      "personal_trade_advice_approved": false
+    },
+    {
+      "id": "V5-PART-04",
+      "video_number": 8,
+      "source_window_id": "W00055",
+      "start_residual_cue": 972,
+      "end_residual_cue": 981,
+      "residual_cue_count": 10,
+      "lexical_risk_score": 8,
+      "residual_text_sha256": "f65fed607ebdeccab2597ad5364594213769cc2abd235d4fe947a2027b642b4a",
+      "risk_code": "FOMC_EXPECTED_RATE_NOT_PAYOUT_PROMISE",
+      "scoped_interpretation": "앞으로 FOMC가 금리를 올리면 달러상품 수익률이 높아질 것이라는 영상의 전망은 발표시점과 상품·만기·신용위험에 의존한다. 정책금리와 계좌 실제 수익률은 다르다.",
+      "question_triggers": [
+        "FOMC 금리 인상 달러 상품 수익",
+        "달러 상품 금리 확정 상승"
+      ],
+      "official_context_ids": [],
+      "independent_atomic_uniqueness_certified": false,
+      "exact_current_legal_treatment_for_all_households_approved": false,
+      "personal_trade_advice_approved": false
+    },
+    {
+      "id": "V5-PART-05",
+      "video_number": 9,
+      "source_window_id": "W00002",
+      "start_residual_cue": 19,
+      "end_residual_cue": 28,
+      "residual_cue_count": 10,
+      "lexical_risk_score": 6,
+      "residual_text_sha256": "730d49c3d9b3ef04cc5d2aca827489f7e4b0438ab52065e1a450f858f1144c34",
+      "risk_code": "SPOT_YEN_CAN_HAVE_FX_GAIN_OR_LOSS",
+      "scoped_interpretation": "엔화 현찰·외화예금으로 바꿔두는 행위는 일반적인 의미의 배당·이자를 지급하지 않을 수 있어도 환율 변화에 따른 원화 환차손익이 생길 수 있다. 현찰의 환전 비용을 빼지 않은 투자수익과 혼동하지 않는다.",
+      "question_triggers": [
+        "엔화 환전하면 수익 없다",
+        "엔화 현금 환차익"
+      ],
+      "official_context_ids": [],
+      "independent_atomic_uniqueness_certified": false,
+      "exact_current_legal_treatment_for_all_households_approved": false,
+      "personal_trade_advice_approved": false
+    },
+    {
+      "id": "V5-PART-06",
+      "video_number": 9,
+      "source_window_id": "W00018",
+      "start_residual_cue": 307,
+      "end_residual_cue": 322,
+      "residual_cue_count": 16,
+      "lexical_risk_score": 13,
+      "residual_text_sha256": "1ffa360696d46d9a14f7652a2ad34a6e0259e5d74b4572b81108d8faf6e2e9a1",
+      "risk_code": "SPENDING_SMALL_INVEST_BIG_NOT_A_FINANCIAL_RULE",
+      "scoped_interpretation": "소비는 작게 하고 투자금은 무조건 크게 해야 한다는 보편적 재무규칙은 없다. 투자 규모는 생활비·부채·비상자금·목적과 손실 허용도에 따라 달라진다.",
+      "question_triggers": [
+        "소비 작게 투자금 크게 무조건",
+        "투자금은 무조건 키워야"
+      ],
+      "official_context_ids": [],
+      "independent_atomic_uniqueness_certified": false,
+      "exact_current_legal_treatment_for_all_households_approved": false,
+      "personal_trade_advice_approved": false
+    },
+    {
+      "id": "V5-PART-07",
+      "video_number": 9,
+      "source_window_id": "W00029",
+      "start_residual_cue": 507,
+      "end_residual_cue": 522,
+      "residual_cue_count": 16,
+      "lexical_risk_score": 5,
+      "residual_text_sha256": "a7fe6bdeed4a2a310e14e5b20b3616f95c61da76be9efe09f1eb5fd6dae96926",
+      "risk_code": "PREBUY_TRAVEL_YEN_IS_CURRENCY_RISK",
+      "scoped_interpretation": "여행 예정 엔화를 미리 사두면 미래 환율 상승을 피할 수 있지만 엔화 추가하락 시 원화 평가손실과 스프레드·보유 기회비용이 생길 수 있다. 저점 선매수로 수익이 확정되지 않는다.",
+      "question_triggers": [
+        "일본여행 엔화 미리 사면 이득",
+        "엔화 싸게 사두면 여행 공짜"
+      ],
+      "official_context_ids": [],
+      "independent_atomic_uniqueness_certified": false,
+      "exact_current_legal_treatment_for_all_households_approved": false,
+      "personal_trade_advice_approved": false
+    },
+    {
+      "id": "V5-PART-08",
+      "video_number": 9,
+      "source_window_id": "W00036",
+      "start_residual_cue": 644,
+      "end_residual_cue": 646,
+      "residual_cue_count": 3,
+      "lexical_risk_score": 6,
+      "residual_text_sha256": "07b0fcb8a8c202deac252639c2e743f4804eb6f78a7663902d5df5303126ac16",
+      "risk_code": "YEN_QUOTE_INTRO_NOT_INDEPENDENT_TAX_RULE",
+      "scoped_interpretation": "엔화 투자 관점에서 환율 호가 읽기를 연습하자는 연결 발언으로 신규 별도 금융규정이나 확정 매매수익률의 근거는 아니다.",
+      "question_triggers": [
+        "원엔 환율 읽는 법",
+        "엔화 환율 숫자 표시"
+      ],
+      "official_context_ids": [],
+      "independent_atomic_uniqueness_certified": false,
+      "exact_current_legal_treatment_for_all_households_approved": false,
+      "personal_trade_advice_approved": false
+    },
+    {
+      "id": "V5-PART-09",
+      "video_number": 9,
+      "source_window_id": "W00056",
+      "start_residual_cue": 996,
+      "end_residual_cue": 1008,
+      "residual_cue_count": 13,
+      "lexical_risk_score": 9,
+      "residual_text_sha256": "fa8172a30261c5bb45e8573c94c6e3b8d79425c0b3cb10e9589fff8f0948eff5",
+      "risk_code": "HISTORICAL_DOLLAR_1400_VS_YEN_FX_COMPARISON",
+      "scoped_interpretation": "달러가 1,400원 이상이었던 시기와 엔화의 저가·반등 사례는 영상 녹화시점의 역사적 비교다. 현재 기준환율과 달러·엔화 중 어느 쪽이 반드시 유리한지 확정할 수 없다.",
+      "question_triggers": [
+        "달러 1400 엔화 800 투자",
+        "달러 엔화 뭐가 유리 확정"
+      ],
+      "official_context_ids": [],
+      "independent_atomic_uniqueness_certified": false,
+      "exact_current_legal_treatment_for_all_households_approved": false,
+      "personal_trade_advice_approved": false
+    }
+  ],
+  "release": "97_WINDOWS_PARTIAL_CUE_COVERAGE_AND_NINE_HIGH_SIGNAL_SCOPE_REVIEWS_NO_COMPLETE_ATOMIC_CLAIM_RECALL",
+  "lexical_score_gte5_window_count": 9
+}

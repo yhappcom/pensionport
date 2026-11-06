@@ -52,6 +52,7 @@ from .video7_compilation_dedup_gate import audit as audit_video7_compilation
 from .extra_video6_8_9_source_gate import audit as audit_extra369
 from .extra369_unanchored_window_gate import audit as audit_extra369_gap
 from .extra369_low65_source_gate import audit as audit_extra369_low65
+from .extra369_linked97_cue_gap_gate import audit as audit_partial97
 from .six_stage_frozen_advisory_eval import run as evaluate_frozen_questions
 from .phase1_to_phase4_progress import audit as audit_p1_p3_p4_progress
 
@@ -116,6 +117,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     extra369=audit_extra369(root)
     extra369_gap=audit_extra369_gap(root)
     extra369_low65=audit_extra369_low65(root)
+    partial97=audit_partial97(root)
     frozen_advice=evaluate_frozen_questions(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
@@ -166,6 +168,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "extra_video6_8_9_3123cue_source_scoped_candidate_36":extra369,
         "extra_three_175_window_78_unanchored_13_scoped_risks":extra369_gap,
         "extra_three_65_low_keyword_windows_semantic_audit":extra369_low65,
+        "extra_three_97_claim_linked_windows_506_residual_cue_audit":partial97,
         "new_twelve_frozen_questions_structural_advisory_evaluation":frozen_advice,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
