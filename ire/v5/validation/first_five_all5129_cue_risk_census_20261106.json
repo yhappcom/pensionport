@@ -1,0 +1,410 @@
+{
+  "schema": "IRE_V5_FIRST_FIVE_ALL_5129_CUE_SIGNAL_CENSUS_V1",
+  "as_of": "2026-11-06",
+  "private_owner_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "original_private_raw_srt_committed_to_github": false,
+  "all_cues_screened": 5129,
+  "all_windows_screened": 288,
+  "risk_lexical_cues_with_at_least_one_detector": 636,
+  "overlap_across_detectors_allowed": true,
+  "regex_signals_not_independent_atomic_claim_count": true,
+  "full_atomic_recall_certified": false,
+  "blind_evaluator_reviewed": false,
+  "new_formal_financial_fact_approvals": 0,
+  "original_srt_reopened_by_github_ci": false,
+  "class_names": [
+    "PERCENT_NUMERIC",
+    "MONEY_NUMERIC",
+    "ACCOUNT_TAX_PENSION",
+    "PRODUCT_OR_LEVERAGE",
+    "INSTRUCTION_CERTAINTY",
+    "MACRO_STAT"
+  ],
+  "by_video": [
+    {
+      "video_number": 1,
+      "cues": 1195,
+      "windows": 67,
+      "detector_positive_cues": 279,
+      "class_positive_cues": {
+        "PERCENT_NUMERIC": 40,
+        "MONEY_NUMERIC": 47,
+        "ACCOUNT_TAX_PENSION": 133,
+        "PRODUCT_OR_LEVERAGE": 49,
+        "INSTRUCTION_CERTAINTY": 14,
+        "MACRO_STAT": 15
+      }
+    },
+    {
+      "video_number": 2,
+      "cues": 1347,
+      "windows": 76,
+      "detector_positive_cues": 149,
+      "class_positive_cues": {
+        "PERCENT_NUMERIC": 7,
+        "MONEY_NUMERIC": 12,
+        "ACCOUNT_TAX_PENSION": 78,
+        "PRODUCT_OR_LEVERAGE": 24,
+        "INSTRUCTION_CERTAINTY": 20,
+        "MACRO_STAT": 15
+      }
+    },
+    {
+      "video_number": 3,
+      "cues": 785,
+      "windows": 44,
+      "detector_positive_cues": 118,
+      "class_positive_cues": {
+        "PERCENT_NUMERIC": 14,
+        "MONEY_NUMERIC": 6,
+        "ACCOUNT_TAX_PENSION": 41,
+        "PRODUCT_OR_LEVERAGE": 57,
+        "INSTRUCTION_CERTAINTY": 2,
+        "MACRO_STAT": 6
+      }
+    },
+    {
+      "video_number": 4,
+      "cues": 758,
+      "windows": 43,
+      "detector_positive_cues": 50,
+      "class_positive_cues": {
+        "PERCENT_NUMERIC": 13,
+        "MONEY_NUMERIC": 4,
+        "ACCOUNT_TAX_PENSION": 1,
+        "PRODUCT_OR_LEVERAGE": 24,
+        "INSTRUCTION_CERTAINTY": 1,
+        "MACRO_STAT": 10
+      }
+    },
+    {
+      "video_number": 5,
+      "cues": 1044,
+      "windows": 58,
+      "detector_positive_cues": 40,
+      "class_positive_cues": {
+        "PERCENT_NUMERIC": 0,
+        "MONEY_NUMERIC": 10,
+        "ACCOUNT_TAX_PENSION": 15,
+        "PRODUCT_OR_LEVERAGE": 12,
+        "INSTRUCTION_CERTAINTY": 3,
+        "MACRO_STAT": 1
+      }
+    }
+  ],
+  "source_span_evidence": [
+    {
+      "review_id": "FV5-3PASS-001",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "start_cue": 232,
+      "end_cue": 270,
+      "window_ids": [
+        "W00014",
+        "W00015",
+        "W00016"
+      ],
+      "combined_cue_text_sha256": "63b1e1d737838a13477e929bda12bf36dd86fc9e83cc4c5716bbe8d55f0aa24a",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-002",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "start_cue": 283,
+      "end_cue": 295,
+      "window_ids": [
+        "W00017",
+        "W00018"
+      ],
+      "combined_cue_text_sha256": "b005144297d62a215a948a73d5a28a47aeae4d3116b6604e9338d895cd02c8e5",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-003",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "start_cue": 305,
+      "end_cue": 308,
+      "window_ids": [
+        "W00018"
+      ],
+      "combined_cue_text_sha256": "ad992219d3b3b4953c00a3d7f0fb56659271090caa3f6be909148354b4e5e0ff",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-004",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "start_cue": 375,
+      "end_cue": 398,
+      "window_ids": [
+        "W00022",
+        "W00023"
+      ],
+      "combined_cue_text_sha256": "348ae204a6445be9c6299dc1fc61f933aa1f5ea61f454f2f71f0e4e346eb5fb8",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-005",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "start_cue": 759,
+      "end_cue": 793,
+      "window_ids": [
+        "W00043",
+        "W00044",
+        "W00045"
+      ],
+      "combined_cue_text_sha256": "65117d88cc5d13387d29d520245a2cab12876b476dd54ea1ef21a02799125025",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-006",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "start_cue": 1010,
+      "end_cue": 1031,
+      "window_ids": [
+        "W00057",
+        "W00058"
+      ],
+      "combined_cue_text_sha256": "96ae923a52facb2892fd65884daf95779ad660e0c0b50fef4958b36a3be0d947",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-007",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "start_cue": 130,
+      "end_cue": 167,
+      "window_ids": [
+        "W00008",
+        "W00009",
+        "W00010"
+      ],
+      "combined_cue_text_sha256": "ef7a560e61ab700d2a065b14b4b66068e4dbc9c3ecf067290aa474a72f66ea08",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-008",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "start_cue": 173,
+      "end_cue": 181,
+      "window_ids": [
+        "W00010",
+        "W00011"
+      ],
+      "combined_cue_text_sha256": "0dce87483e1f408e99411c844d28370e6b889310adb4fe64db84a77844d34444",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-009",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "start_cue": 362,
+      "end_cue": 388,
+      "window_ids": [
+        "W00021",
+        "W00022"
+      ],
+      "combined_cue_text_sha256": "7aef920b2ede4ceafac1f512f6188985aa8a3aa7153a8954c33e918d5cef2315",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-010",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "start_cue": 463,
+      "end_cue": 487,
+      "window_ids": [
+        "W00026",
+        "W00027",
+        "W00028"
+      ],
+      "combined_cue_text_sha256": "7cc46ccb579945dbc2b9d256257fab2ccc1905fdce1b8cf7a3ceb531e4c673d2",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-011",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "start_cue": 507,
+      "end_cue": 540,
+      "window_ids": [
+        "W00029",
+        "W00030"
+      ],
+      "combined_cue_text_sha256": "7a978d73034f8e85319eb75bcbafad4f624ece067620624d1b3f7b2e976f7091",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-012",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "start_cue": 578,
+      "end_cue": 591,
+      "window_ids": [
+        "W00033"
+      ],
+      "combined_cue_text_sha256": "84c7ca8f3b85f2cf435402b48499322b7a511961ab3963a00e6cc8a2249f61d7",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-013",
+      "video_number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "start_cue": 345,
+      "end_cue": 365,
+      "window_ids": [
+        "W00020",
+        "W00021"
+      ],
+      "combined_cue_text_sha256": "5154af53b6f6854a01009d1fa06b1439b8624624498330a3ec460819d73a5af0",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-014",
+      "video_number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "start_cue": 423,
+      "end_cue": 450,
+      "window_ids": [
+        "W00025",
+        "W00026"
+      ],
+      "combined_cue_text_sha256": "b87760a7e0fa42248aca3b39e040954f7bad9ab817cced6f846c9a5b1085eceb",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-015",
+      "video_number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "start_cue": 617,
+      "end_cue": 633,
+      "window_ids": [
+        "W00035",
+        "W00036"
+      ],
+      "combined_cue_text_sha256": "38ada5e0176f777ce8e16cdd3e9a233e50f8956d8672483c6714961cd7b04f17",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-016",
+      "video_number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "start_cue": 663,
+      "end_cue": 678,
+      "window_ids": [
+        "W00038",
+        "W00039"
+      ],
+      "combined_cue_text_sha256": "bf01eb0fdd0408210b372941a7dc5bc18dd75c189811b9354f3e7160a73b6db0",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-017",
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "start_cue": 266,
+      "end_cue": 299,
+      "window_ids": [
+        "W00015",
+        "W00016",
+        "W00017"
+      ],
+      "combined_cue_text_sha256": "284f266922cded8ac418b574ba70061569f0094b2f8bb2bd9921a6be48462c05",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-018",
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "start_cue": 373,
+      "end_cue": 409,
+      "window_ids": [
+        "W00021",
+        "W00022",
+        "W00023"
+      ],
+      "combined_cue_text_sha256": "f3b1efa821608866a549241add009ac83608b4467e7a29a41365eac9a6e0c7b9",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-019",
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "start_cue": 524,
+      "end_cue": 543,
+      "window_ids": [
+        "W00030",
+        "W00031"
+      ],
+      "combined_cue_text_sha256": "8bfc84dee642e823d2a4e7e18f96c6e51dd752b62da0a80d4e58eb89987b25cf",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-020",
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "start_cue": 559,
+      "end_cue": 580,
+      "window_ids": [
+        "W00032",
+        "W00033"
+      ],
+      "combined_cue_text_sha256": "4f6348276136e81623d6a6d16e7dbfbf535fe54eb1d350febb06b1f71a9310b4",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-021",
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "start_cue": 590,
+      "end_cue": 606,
+      "window_ids": [
+        "W00033",
+        "W00034"
+      ],
+      "combined_cue_text_sha256": "be4108fa8f3da959ecd69a60bf38bb3eda67740d3f60cda3da4b6a36681e65b2",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    },
+    {
+      "review_id": "FV5-3PASS-022",
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "start_cue": 689,
+      "end_cue": 699,
+      "window_ids": [
+        "W00039"
+      ],
+      "combined_cue_text_sha256": "1241654f8257d82c5f27c9cbbc4bed99ffc9b58f306bba922e55e3517fc854d0",
+      "actual_audio_rechecked": false,
+      "individual_claim_recall_proven": false
+    }
+  ],
+  "sources_are_private_and_not_shipped": true,
+  "classification": "CUE_LEXICAL_TRIAGE_WITH_22_MANUALLY_SELECTED_RISK_SPANS_NOT_COMPLETE_SEMANTIC_RECALL"
+}
