@@ -48,6 +48,7 @@ from .crossvideo_14_quarantine import audit as audit_crossvideo_guard
 from .first_five_residual_15_gate import audit as audit_first_five_residual15
 from .first_five_all5129_risk_gate import audit as audit_all5129_risk
 from .video10_all34_cue_gate import audit as audit_video10_all34
+from .video7_compilation_dedup_gate import audit as audit_video7_compilation
 from .six_stage_frozen_advisory_eval import run as evaluate_frozen_questions
 from .phase1_to_phase4_progress import audit as audit_p1_p3_p4_progress
 
@@ -108,6 +109,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     first_five_residual15=audit_first_five_residual15(root)
     all5129_risk=audit_all5129_risk(root)
     video10_all34=audit_video10_all34(root)
+    video7_dup=audit_video7_compilation(root)
     frozen_advice=evaluate_frozen_questions(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
@@ -154,6 +156,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "first_five_original_15_residual_and_duplicate_conflict_adjudication":first_five_residual15,
         "first_five_5129_cue_risk_22_source_group_audit":all5129_risk,
         "extra_video10_all34_cue_scoped_financial_review":video10_all34,
+        "extra_video7_compilation_dedup_no_independent_holdout":video7_dup,
         "new_twelve_frozen_questions_structural_advisory_evaluation":frozen_advice,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,

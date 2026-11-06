@@ -164,6 +164,9 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["extra_video10_all34_cue_scoped_financial_review"]["source_cues_dispositioned"],34)
         self.assertEqual(payload["extra_video10_all34_cue_scoped_financial_review"]["source_cue_groups_researched"],8)
         self.assertFalse(payload["extra_video10_all34_cue_scoped_financial_review"]["full_five_video_atomic_recall_certified"])
+        self.assertEqual(payload["extra_video7_compilation_dedup_no_independent_holdout"]["known_exact_cue_reprints"],940)
+        self.assertFalse(payload["extra_video7_compilation_dedup_no_independent_holdout"]["video7_is_independent_holdout"])
+        self.assertFalse(payload["extra_video7_compilation_dedup_no_independent_holdout"]["private_archive_replayed_in_this_process"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
