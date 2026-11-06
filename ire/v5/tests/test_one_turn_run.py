@@ -154,6 +154,9 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["new_five_source_anchored_negative_risk_quarantine"]["scoped_risk_cases"],14)
         self.assertEqual(payload["new_twelve_frozen_questions_structural_advisory_evaluation"]["new_questions_executed_against_actual_p3_pipeline"],12)
         self.assertFalse(payload["new_twelve_frozen_questions_structural_advisory_evaluation"]["human_blind_fact_grade_completed"])
+        self.assertEqual(payload["first_five_original_15_residual_and_duplicate_conflict_adjudication"]["reviewed_original_srt_spans"],15)
+        self.assertEqual(payload["first_five_original_15_residual_and_duplicate_conflict_adjudication"]["new_direct_source_anchor_gaps_for_adjudication"],2)
+        self.assertFalse(payload["first_five_original_15_residual_and_duplicate_conflict_adjudication"]["private_owner_source_zip_replayed_in_this_process"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
