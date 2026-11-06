@@ -105,6 +105,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.first_five_40_official_replay_approval_gate", "--root", ".")),
     ("first_five_40_official_education_in_live_advisory_pipeline",
      ("-m", "ire.v5.first_five_40_retrieval_bridge", "--root", ".")),
+    ("first_five_p1_p3_p4_progress_source_and_knowledge_safety",
+     ("-m", "ire.v5.phase1_to_phase4_progress", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
