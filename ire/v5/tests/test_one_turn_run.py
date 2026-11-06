@@ -161,6 +161,9 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["first_five_5129_cue_risk_22_source_group_audit"]["reviewed_risk_claim_groups"],22)
         self.assertEqual(payload["first_five_5129_cue_risk_22_source_group_audit"]["risk_flagged_source_cues"],636)
         self.assertFalse(payload["first_five_5129_cue_risk_22_source_group_audit"]["full_atomic_claim_recall_independently_proven"])
+        self.assertEqual(payload["extra_video10_all34_cue_scoped_financial_review"]["source_cues_dispositioned"],34)
+        self.assertEqual(payload["extra_video10_all34_cue_scoped_financial_review"]["source_cue_groups_researched"],8)
+        self.assertFalse(payload["extra_video10_all34_cue_scoped_financial_review"]["full_five_video_atomic_recall_certified"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
