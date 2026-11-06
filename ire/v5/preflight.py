@@ -131,6 +131,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.extra_video6_8_9_source_gate", "--root", ".")),
     ("extra369_175_window_78_unanchored_13_source_risk",
      ("-m", "ire.v5.extra369_unanchored_window_gate", "--root", ".")),
+    ("extra369_65_remaining_low_keyword_windows_19_financial_cautions",
+     ("-m", "ire.v5.extra369_low65_source_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
