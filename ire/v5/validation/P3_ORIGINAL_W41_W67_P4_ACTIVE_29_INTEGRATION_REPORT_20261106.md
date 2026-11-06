@@ -6,7 +6,7 @@
 
 ## 원본 출처 확인
 
-- 사용자 Google Drive 기존 보관함 `박곰희TV_SRT_원본보관함`에서 `1-100.zip`을 읽기 전용으로 다시 확보했다. 원본 ZIP 파일 ID는 `1sSHXfWHbzoG5ZT4t0Hc47Jd7SXG_D0OX`이며 내용을 공개 GitHub에 업로드하지 않았다.
+- 사용자 Google Drive 기존 보관함 `박곰희TV_SRT_원본보관함`에서 `1-100.zip`을 읽기 전용으로 다시 확보했다. 비공개 파일 식별자 및 원본 아카이브 바이트는 GitHub에 업로드하지 않았다.
 - 현재 ZIP SHA-256: `088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716`. 과거 `1-70` 연구 원장 ZIP SHA-256 `00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd`와 다르다. **동일한 ZIP이라고 보증하지 않는다.**
 - #1 SRT `1-100/youtube-transcript-sz5N9WJS310.srt`는 92,252 bytes, 1,195 cue, SHA-256 `2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f`; 기존 V5 연구 SRT 해시와 정확하게 일치한다.
 - 기존 연구의 창 분할 결과와 #1 전체 67/67개 창의 시작·끝 cue 및 텍스트 SHA가 모두 일치했다. 이번 신규 심사 범위 `W00041`–`W00067`의 486 cue를 원문 대조했다.
