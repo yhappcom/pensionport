@@ -26,6 +26,12 @@ class First40ReproFactsTest(unittest.TestCase):
   self.m=copy.deepcopy(self.manifest);self.s=copy.deepcopy(self.scope)
   self.r=copy.deepcopy(self.resolution);self.b=copy.deepcopy(self.b04)
  def check(self):return gate.verify_source_claim_bundle(self.m,self.s,self.r,self.b)
+ def test_2026_enforcement_decree_effective_date_is_october_first(self):
+  by_id={x['authority_id']:x for x in self.m['snapshots']}
+  for key in ('LAW_40','LAW_WITHDRAW'):
+   self.assertEqual(by_id[key]['effective_date_or_guidance_observed'],'2026-10-01')
+  for key in ('LAW_14','LAW_55','LAW_129','LAW_CREDIT','LAW_FIN2000'):
+   self.assertEqual(by_id[key]['effective_date_or_guidance_observed'],'2026-07-01')
  def test_20_regulatory_claims_97_claims_15_extract_pins(self):
   rule=self.check();self.assertEqual(len(rule),20)
   self.assertEqual(len(self.m['snapshots']),15)
