@@ -119,6 +119,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.crossvideo_14_quarantine", "--root", ".")),
     ("frozen_12_new_financial_questions_actual_p3_advisory",
      ("-m", "ire.v5.six_stage_frozen_advisory_eval", "--root", ".")),
+    ("first_five_original_15_source_spans_68_237_duplication_risk_gate",
+     ("-m", "ire.v5.first_five_residual_15_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),

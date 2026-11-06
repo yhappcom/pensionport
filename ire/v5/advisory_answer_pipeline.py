@@ -17,6 +17,7 @@ from .first_five_40_retrieval_bridge import retrieve as retrieve_first40
 from .p4_active_integration import retrieve as retrieve_p4_integrated
 from .p4_p3_source_integration import retrieve as retrieve_p4_p3_source
 from .crossvideo_14_quarantine import retrieve as retrieve_crossvideo
+from .first_five_residual_15_gate import retrieve as retrieve_residual15
 from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
@@ -242,6 +243,17 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         for hazard in crossvideo["items"]:
             parts.append(f"- #{hazard['video_no']} cue {hazard['cue_range'][0]}~{hazard['cue_range'][1]}: "+
                          f"{hazard['caveat']} [검증 상태: {hazard['status']}]")
+    # The extra original #2~#5 source audit routes negative/disputed claims
+    # without adding a new financial fact to P1 or the formal 116 master.
+    residual15=retrieve_residual15(root,question,limit=3)
+    if residual15["items"] and not personal_request:
+        parts.append("#2~#5 원본 자막의 고위험 발언 대조·범위 제한(금융사실 정식 승인 아님):")
+        for risk in residual15["items"]:
+            urls="; ".join(risk["official_context_urls"])
+            parts.append(f"- #{risk['video_number']} cue "+
+                         f"{risk['cue_range'][0]}~{risk['cue_range'][1]}: "+
+                         f"{risk['scope_caveat']} [상태: {risk['adjudication_state']}]"+
+                         (f" 관련 기관·상품 공시: {urls}" if urls else ""))
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -262,6 +274,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "p4_integrated_knowledge_retrieval":p4,
         "p4_p3_source_education_retrieval":p4_source,
         "crossvideo_unverified_risk_retrieval":crossvideo,
+        "first_five_residual_15_scoped_cautions":residual15,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,

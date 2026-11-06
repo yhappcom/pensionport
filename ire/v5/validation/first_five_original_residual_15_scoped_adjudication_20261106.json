@@ -1,0 +1,463 @@
+{
+  "schema": "IRE_V5_FIRST_FIVE_ORIGINAL_RESIDUAL_15_SCOPED_ADJUDICATION_V1",
+  "as_of": "2026-11-06",
+  "input_private_original_archive_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "historical_archive_sha256_different": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "source_video_ids": {
+    "2": "6VEfKF7BzZU",
+    "3": "OiDTNstaSpM",
+    "4": "aNfGrcO6WPI",
+    "5": "qtluAViPpsQ"
+  },
+  "reviewed_source_spans": 15,
+  "new_direct_source_anchor_gaps_found": 2,
+  "asr_caution_cases": 1,
+  "prior_focused_68_and_remnant_237_candidates_preserved": true,
+  "previous_89_video1_source_review_preserved": true,
+  "existing_p4_29_nodes_preserved": true,
+  "formal_B04_merge_count": 0,
+  "unseen_full_288_atomic_recall_certified": false,
+  "original_audio_ambiguities_resolved": 0,
+  "official_context_sources_are_scoped_not_government_signed": true,
+  "GitHub_CI_source_zip_replayed": false,
+  "official_context_sources": {
+    "BOK_20260827": {
+      "url": "https://www.bok.or.kr/portal/bbs/P0000559/view.do?depth=200690&menuNo=200690&nttId=11064191&programType=newsData&relate=Y",
+      "scope": "2026-08-27 한국은행 2.75→3.00 정책금리 결정. 당시 2026-09 영상의 3.00 사실만 확인."
+    },
+    "BOK_POLICY": {
+      "url": "https://www.bok.or.kr/portal/singl/baseRate/progress.do?dataSeCd=01&menuNo=200656",
+      "scope": "한국은행 기준금리의 7일물 RP 매매 적용 메커니즘. 개별 CMA 약정수익률이 아님."
+    },
+    "SAMSUNG_IRP_FEES": {
+      "url": "https://www.samsungpop.com/ux/kor/pension/center/public/commission.pop",
+      "scope": "2026-11-06 확인된 삼성증권 일반 IRP 운용/자산관리 수수료와 다이렉트 IRP 면제 조건 구분."
+    },
+    "HANA_IRP_FEES": {
+      "url": "https://pension.kebhana.com/rpc/hhom/kr/rpc05030401.do",
+      "scope": "2026-11-06 하나은행 공시 IRP의 적립금 규모·가입채널·부담금에 따른 수수료 차이."
+    },
+    "SAMSUNG_IRP_TAX": {
+      "url": "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop",
+      "scope": "삼성증권 IRP 연금 개시 신청·55세 및 퇴직급여 원천 예외. 만원 전국 의무 명시 없음."
+    },
+    "SHINHAN_IRP_PAYOUT": {
+      "url": "https://file.shinhansec.com/filedoc/mtscon/irp_guide.pdf",
+      "scope": "신한투자증권 IRP 연금개시 신청 및 지정지급 방식 안내. PDF 확인은 기준일·상품별 확인 필요."
+    },
+    "FINRA_EMPLOYEE_CONCENTRATION": {
+      "url": "https://syndication.finra.org/content/questions-employees-should-ask-about-stock-awards",
+      "scope": "미국 FINRA 고용주 주식 편중위험의 일반 원칙. 한국 세법·내부자거래법 현행성 인증으로 사용 금지."
+    },
+    "SEC_EMPLOYER_STOCK": {
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-80",
+      "scope": "미국 SEC 투자자 교육 단일 종목·고용주 지분 과집중 위험. 한국 상품/세제 사실 인증이 아님."
+    }
+  },
+  "items": [
+    {
+      "id": "FV5-RES-001",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "first_cue": 158,
+      "last_cue": 181,
+      "source_span_sha256": "173942a7a221a2b228f86a29538f17806691d63c0e39d54474286f9674ffe8f9",
+      "source_windows": [
+        "W00010",
+        "W00011"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A017",
+        "FV5-R0064",
+        "FV5-R0065"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "AGE_BASED_ACCOUNT_ALLOCATION_NOT_UNIVERSAL",
+      "adjudicated_scope": "CMA·ISA·연금저축 계좌 3개와 월 10:40·20:80 납입은 화자의 예시이며 수입·비상자금·부채·세액공제 적격성에 따라 달라진다.",
+      "review_status": "STRATEGY_SCOPE_ONLY",
+      "official_source_ids": [],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-002",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "first_cue": 305,
+      "last_cue": 329,
+      "source_span_sha256": "7e6b095bd7ddbbd6d24921f8f427ca1621a79c1b57afd646cc2f4ceaa2cc853c",
+      "source_windows": [
+        "W00018",
+        "W00019"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A020"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "SEPT_2026_BOK_3PCT_CORROBORATED",
+      "adjudicated_scope": "2026년 8월 27일 한국은행 기준금리는 2.75%에서 3.00%로 인상되었다. 같은 시점 CMA 수익률이 기준금리와 같거나 은행 계좌보다 항상 20~30배 높은 것은 아니다.",
+      "review_status": "NARROW_HISTORICAL_RATE_CORROBORATED_NOT_PRODUCT_RETURN",
+      "official_source_ids": [
+        "BOK_20260827",
+        "BOK_POLICY"
+      ],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-003",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "first_cue": 331,
+      "last_cue": 355,
+      "source_span_sha256": "b014bf7432e9ebab893d8d75e6d7ee9ee38a4452124607f47810555f17ed9e72",
+      "source_windows": [
+        "W00020",
+        "W00021"
+      ],
+      "prior_candidate_ids": [
+        "FV5-R0073",
+        "FV5-R0074",
+        "FV5-R0075"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "BASE_RATE_VS_7DAY_REPO",
+      "adjudicated_scope": "한국은행 정책금리는 7일물 RP 매매 기준으로 운용되지만, 시장에서 관찰되는 7일물 RP 투자상품 수익률이 정책금리와 항상 일치하는 것은 아니다.",
+      "review_status": "OFFICIAL_SCOPE_CORRECTION_NOT_FORMAL_FACT_APPROVAL",
+      "official_source_ids": [
+        "BOK_POLICY"
+      ],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-004",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "first_cue": 501,
+      "last_cue": 516,
+      "source_span_sha256": "ed8c262c05012b9c90fadb46918d728b4bf0103e62da1dc384bdab2901abd124",
+      "source_windows": [
+        "W00029",
+        "W00030"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A023",
+        "FV5-R0080"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "CMA_PRODUCT_RATE_2026_CONTEXT",
+      "adjudicated_scope": "CMA 2.15~2.85%는 영상 시점의 선택적 예시이며 현재 모든 CMA의 공시이율·원금보장·예금자보호로 일반화할 수 없다.",
+      "review_status": "PRODUCT_HISTORICAL_UNCERTAIN",
+      "official_source_ids": [],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-005",
+      "video_number": 2,
+      "video_id": "6VEfKF7BzZU",
+      "first_cue": 924,
+      "last_cue": 939,
+      "source_span_sha256": "e46845a4f5f37af7c2c409e07cbd780c99c2a963604775da96633601d81f1d45",
+      "source_windows": [
+        "W00052",
+        "W00053"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A028"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "ACCOUNT_DIVIDEND_PASSIVE_ROLE",
+      "adjudicated_scope": "IRP·연금저축에 패시브 자산배분, ISA·위탁계좌에 배당투자를 배치하자는 원문은 조건부 투자전략이지 법정 필수 계좌 구조가 아니다.",
+      "review_status": "STRATEGY_SCOPE_ONLY",
+      "official_source_ids": [],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-006",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "first_cue": 90,
+      "last_cue": 101,
+      "source_span_sha256": "fd09417c587bdd7ad4abd64fc093b1bd0f1e1193dd43de2d163ed5b1aa08652e",
+      "source_windows": [
+        "W00005",
+        "W00006"
+      ],
+      "prior_candidate_ids": [
+        "FV5-R0130",
+        "FV5-R0131"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "IRP_ALL_BROKERS_ZERO_FEE_REJECTED",
+      "adjudicated_scope": "퇴직급여 입금 IRP 수수료는 금융회사·가입방식·수수료 면제 요건·적립금 재원에 따라 달라진다. 증권사 IRP가 모두 0원이라는 단정은 실제 증권사의 유료/무료 상품 구분과 충돌한다.",
+      "review_status": "PRODUCT_TERMS_SCOPED_OFFICIAL_EXAMPLE",
+      "official_source_ids": [
+        "SAMSUNG_IRP_FEES",
+        "HANA_IRP_FEES"
+      ],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-007",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "first_cue": 142,
+      "last_cue": 168,
+      "source_span_sha256": "2bad7f4737b7db1191a86aa00002b4db645460deb3fa5fb1b974ee1b6bc998ab",
+      "source_windows": [
+        "W00008",
+        "W00009",
+        "W00010"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A031",
+        "FV5-A032",
+        "FV5-R0133"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "IRP_10K_INCOME_MANDATE_NOT_ESTABLISHED",
+      "adjudicated_scope": "55세·가입기간·퇴직금 재원 등의 연금개시 요건과 실제 최소 지급방식은 구분해야 한다. IRP에서 1만원 인출 신청이 모든 계좌에 의무라는 법적 근거는 확보하지 못했다.",
+      "review_status": "OPEN_PRODUCT_PROCEDURE_NOT_APPROVED",
+      "official_source_ids": [
+        "SAMSUNG_IRP_TAX",
+        "SHINHAN_IRP_PAYOUT"
+      ],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-008",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "first_cue": 396,
+      "last_cue": 415,
+      "source_span_sha256": "ecb2038da0a9279d1bdaa01d1d45c72796037bb7b205dbd93fde453beb6c5d3b",
+      "source_windows": [
+        "W00022",
+        "W00023",
+        "W00024"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A035",
+        "FV5-A036"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "IRP_3PCT_PARKING_ETF_UNCERTAIN",
+      "adjudicated_scope": "파킹 ETF가 세전 연 3%를 언제나 제공한다거나 모든 은행 IRP는 수수료를 내고 모든 증권사 IRP는 무료라는 설명은 상품 유형·금리 변동·비용·계좌 계약 조건을 생략했다.",
+      "review_status": "OVERGENERALIZATION_QUARANTINED",
+      "official_source_ids": [
+        "SAMSUNG_IRP_FEES",
+        "HANA_IRP_FEES"
+      ],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-009",
+      "video_number": 3,
+      "video_id": "OiDTNstaSpM",
+      "first_cue": 728,
+      "last_cue": 733,
+      "source_span_sha256": "ebb8301bdde7ccd8dde467ca21c231ff65c6501e9efb9fd7b6989a919e9e8dba",
+      "source_windows": [
+        "W00041"
+      ],
+      "prior_candidate_ids": [],
+      "prior_relation": "NO_DIRECT_SOURCE_ANCHOR_MATCH_IN_SELECTED_68_AND_237",
+      "conflict_code": "RETIREMENT_5_7_RETURN_UNMATCHED_SELECTED_CLAIMS",
+      "adjudicated_scope": "퇴직 IRP 자산을 연 5~7%로 굴리라는 요약은 원문의 투자목표/희망수익률 표현이다. 적립금의 5~7%를 확정 이자나 개인별 안전수익으로 보증하지 않는다.",
+      "review_status": "NEW_UNMATCHED_IN_68_237_SOURCE_ANCHOR_REGISTERS",
+      "official_source_ids": [],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-010",
+      "video_number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "first_cue": 420,
+      "last_cue": 446,
+      "source_span_sha256": "4c75ad3817c650a18f3da6a7047e451928151bef89661671a446fdee1af226cd",
+      "source_windows": [
+        "W00024",
+        "W00025",
+        "W00026"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A048",
+        "FV5-A049"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "DIVIDEND_RECOVERY_3_5_YEARS_HYPOTHETICAL",
+      "adjudicated_scope": "-30% 손실 뒤 새 자금으로 연 9% 고배당주를 모으면 3~5년 내 기존 손실을 상쇄한다는 예시는 자금·배당변동·주가·세금을 생략한 가상 시나리오다.",
+      "review_status": "HYPOTHESIS_NOT_RETURN_GUARANTEE",
+      "official_source_ids": [],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-011",
+      "video_number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "first_cue": 665,
+      "last_cue": 676,
+      "source_span_sha256": "c24cf6a2b1c492f14a187cf0052588d0030392f24cf047d1a6af4f0deec44754",
+      "source_windows": [
+        "W00038",
+        "W00039"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A053"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "ASR_89_PERCENT_VS_8_TO_9_PERCENT",
+      "adjudicated_scope": "원본 SRT cue 667에는 '89%'라는 숫자 표기가 있으나 이웃 발화의 6%·9% 비교와 불일치한다. 원음 확인 전 89% 또는 8~9%로 자동 정정/승인할 수 없다.",
+      "review_status": "ORIGINAL_AUDIO_REVIEW_REQUIRED",
+      "official_source_ids": [],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-012",
+      "video_number": 4,
+      "video_id": "aNfGrcO6WPI",
+      "first_cue": 693,
+      "last_cue": 715,
+      "source_span_sha256": "3b6e5bf49af05060cca1a15a67c897f431a4e1495e56738e7ac2124261401b8f",
+      "source_windows": [
+        "W00040",
+        "W00041"
+      ],
+      "prior_candidate_ids": [],
+      "prior_relation": "NO_DIRECT_SOURCE_ANCHOR_MATCH_IN_SELECTED_68_AND_237",
+      "conflict_code": "CHINA_RECOVERY_ANCHOR_UNMATCHED_SELECTED_CLAIMS",
+      "adjudicated_scope": "과거 중국펀드의 손실이 축소된 경험은 개인 경험이며 현재 물린 주식의 3년 후 회복 가능성에 대한 일반적 확률 추정치가 아니다.",
+      "review_status": "NEW_UNMATCHED_IN_68_237_SOURCE_ANCHOR_REGISTERS",
+      "official_source_ids": [],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-013",
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "first_cue": 277,
+      "last_cue": 303,
+      "source_span_sha256": "3131a444c214e40277c985f57883ba0978ef8bb04d6668bea30ede95a0db1658",
+      "source_windows": [
+        "W00016",
+        "W00017"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A059",
+        "FV5-R0201",
+        "FV5-R0202"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "NEW_HIRE_50_50_40_10_BUDGET_NOT_UNIVERSAL",
+      "adjudicated_scope": "신입 월급에서 저축 100만원, 예적금 50만원·ISA 40만원·연금저축 10만원 배분은 개인 소득·부채·비상자금·생활비가 확인되지 않은 예시다.",
+      "review_status": "PERSONAL_ALLOCATION_NOT_APPROVED",
+      "official_source_ids": [],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-014",
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "first_cue": 304,
+      "last_cue": 315,
+      "source_span_sha256": "cc0610291499f481e4898ba02757e65cff1ef1362c4ecfb78e978994636a08b9",
+      "source_windows": [
+        "W00017",
+        "W00018"
+      ],
+      "prior_candidate_ids": [
+        "FV5-A060"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "EMPLOYER_SUPPLIER_STOCK_CORRELATED_RISK",
+      "adjudicated_scope": "재직 회사·계열사·협력사 주식 우선 매수라는 제안은 근로소득과 투자자산의 동반위험·업종 집중·미공개 중요정보 관련 준수 여부를 먼저 검토해야 한다.",
+      "review_status": "GENERAL_RISK_CAUTION_OFFICIAL_EDUCATION",
+      "official_source_ids": [
+        "FINRA_EMPLOYEE_CONCENTRATION",
+        "SEC_EMPLOYER_STOCK"
+      ],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    },
+    {
+      "id": "FV5-RES-015",
+      "video_number": 5,
+      "video_id": "qtluAViPpsQ",
+      "first_cue": 915,
+      "last_cue": 937,
+      "source_span_sha256": "356198ab03b24a2a553085b1314d2c76662968e39bf6826b390c894a196463a4",
+      "source_windows": [
+        "W00051",
+        "W00052",
+        "W00053"
+      ],
+      "prior_candidate_ids": [
+        "FV5-R0232"
+      ],
+      "prior_relation": "TOPIC_OR_SCOPED_PROPOSITION_OVERLAP_NOT_ATOMIC_EQUIVALENCE_CLAIM",
+      "conflict_code": "CAREER_AGE_STAGES_NOT_RETURN_FORECAST",
+      "adjudicated_scope": "20대 직업선택·30대 직업숙련·40대 소득·50대 은퇴/환원은 화자의 생애설계 의견이며 근로소득·은퇴 시점·투자성과를 예측하는 법칙이 아니다.",
+      "review_status": "GENERAL_OPINION_ONLY",
+      "official_source_ids": [],
+      "content_author": "CHATGPT_IN_SAME_TURN_ORIGINAL_TEXT_REVIEW_NOT_BLIND",
+      "independent_human_claim_recall_verified": false,
+      "legal_fact_or_product_terms_formally_approved": false,
+      "personal_investment_action_approved": false,
+      "existing_candidate_deleted": false
+    }
+  ],
+  "release": "SOURCE_SPAN_CUE_HASHES_ADJUDICATED_EDUCATIONAL_SCOPE_WITH_OPEN_RESIDUALS"
+}
