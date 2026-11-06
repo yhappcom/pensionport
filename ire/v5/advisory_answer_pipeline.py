@@ -14,6 +14,7 @@ from .advisory_semantic import parse as semantic_parse
 from .advisory_evidence import plan as evidence_plan
 from .advisory_decision import compare as quantitative_compare
 from .first_five_40_retrieval_bridge import retrieve as retrieve_first40
+from .p4_active_integration import retrieve as retrieve_p4_integrated
 from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
@@ -191,6 +192,26 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
                 urls='; '.join(x['official_url'] for x in item['official_extraction_evidence'])
                 parts.append(f"- {item['statement']} 공식 출처 추출본: {urls}. "
                              "개인별 적용 조건·현행성 재검증이 필요하며 전체 영상 주장 또는 정식 금융사실 승인은 아닙니다.")
+
+    # P4 materialized source-pinned integration: 13 earlier educational nodes
+    # and 9 first-40 scoped nodes are queried together. The 27 W41-W67
+    # drafts remain quarantined; never render them as proven financial facts.
+    p4={"schema":"IRE_V5_P4_INTEGRATED_RETRIEVAL_V1",
+        "match_count":0,"items":[],"decision":"NOT_INSTALLED_ON_THIS_ROOT",
+        "P3_promoted_fact_count":0,"master_modified":False,
+        "personal_trading_approved":False}
+    if (root/'ire/v5/advisory_knowledge/p4_integrated_scoped_education22_20261106.json').exists():
+        p4=retrieve_p4_integrated(
+            root,question,
+            intent='order_execution' if personal_request else
+                   'guaranteed_return' if guarantee_request else
+                   'personal_decision_support' if intent["personal_decision_support_requested"]
+                   else 'general_education',limit=8)
+        existing=[n for n in p4["items"] if n["namespace"]=="PRIOR_13"]
+        if existing:
+            parts.append("통합 P4 지식 색인의 기존 교육 문맥(기존 13개 지식; 독립 법률인증·당일 현행성 검증 아님):")
+            for item in existing[:2]:
+                parts.append(f"- {item['statement']} 적용 제한: {item['scope_and_exceptions']}")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -208,6 +229,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "same_chat_reviewed_source_as_of":"2026-11-05",
         "official_sources_reopened_this_python_run":False,
         "first40_education_retrieval":first40,
+        "p4_integrated_knowledge_retrieval":p4,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,
