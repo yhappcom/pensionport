@@ -34,6 +34,7 @@ from .first_five_quality_gate import verify as verify_first_five_quality
 from .first_five_adjudication_receipt_gate import verify as verify_five_source_adjudication
 from .first_five_private_event_gate import verify as verify_private_source_event_pointer
 from .first_five_phase1_cue_gate import verify as verify_five_phase1_cue_review
+from .first_five_phase1_second_ten_gate import verify as verify_second_ten_cue_review
 
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
@@ -77,6 +78,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     first_five_adjudication=verify_five_source_adjudication(root)
     first_five_private_source_pointer=verify_private_source_event_pointer(root)
     first_five_current_phase1=verify_five_phase1_cue_review(root)
+    first_five_current_phase1_w20=verify_second_ten_cue_review(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -107,6 +109,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "first_five_13_omission_equivalence_and_receipt_audit":first_five_adjudication,
         "first_five_private_provisional_event_pointer_no_source_replay_claim":first_five_private_source_pointer,
         "first_five_video1_first_ten_original_cue_review_private_v4":first_five_current_phase1,
+        "first_five_video1_first_twenty_original_cue_review_private_v5":first_five_current_phase1_w20,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,

@@ -21,6 +21,10 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         row=output.getvalue().split("ONE_TURN_RESEARCH_RECEIPT ",1)[1]
         payload=json.loads(row)
         self.assertTrue(payload["one_request_research_complete"])
+        self.assertEqual(payload["first_five_video1_first_twenty_original_cue_review_private_v5"]["source_cues_reviewed_video1"],349)
+        self.assertEqual(payload["first_five_video1_first_twenty_original_cue_review_private_v5"]["five_video_new_unresolved_cues_remaining"],4578)
+        self.assertEqual(payload["first_five_video1_first_twenty_original_cue_review_private_v5"]["all_five_engine_model_evidence_relation_reviewed_windows"],20)
+        self.assertFalse(payload["first_five_video1_first_twenty_original_cue_review_private_v5"]["private_original_zip_replayed_in_this_run"])
         self.assertEqual(payload["first_five_video1_first_ten_original_cue_review_private_v4"]["original_video1_cues_dispositioned"],169)
         self.assertEqual(payload["first_five_video1_first_ten_original_cue_review_private_v4"]["all_five_video_unresolved_cues_remaining"],4749)
         self.assertEqual(payload["first_five_video1_first_ten_original_cue_review_private_v4"]["actual_v5_private_model_evidence_relation_windows"],10)
