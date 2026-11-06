@@ -14,12 +14,17 @@ class Extra369GapTests(unittest.TestCase):
         self.assertEqual(d["windows_not_directly_anchored_by_prior36"],78)
         self.assertEqual(d["unlinked_high_signal_windows_reviewed"],13)
         self.assertEqual(d["lower_signal_or_context_unlinked_windows_still_open"],65)
+        self.assertEqual(d["provisional_master116_scope_crosswalk_rows"],13)
+        self.assertEqual(d["source_risks_without_direct_canonical_parallel"],2)
+        self.assertEqual(d["strict_canonical_equivalence_approvals"],0)
         self.assertFalse(d["strict_new_claim_recall_certified"])
 
     def test_nephew_gift_scope(self):
         d=gate.retrieve(ROOT,"삼촌 조카 1천만원 증여 되나요?")
         self.assertEqual(d["items"][0]["review_id"],"V5-GAP-02")
         self.assertIn("10년",d["items"][0]["scope_caveat"])
+        self.assertEqual(d["items"][0]["related_canonical_master_context_ids"],[])
+        self.assertFalse(d["items"][0]["strict_canonical_equivalence_approved"])
         self.assertFalse(d["items"][0]["official_law_fact_finalized"])
 
     def test_live_answer_for_uncovered_nephew_gift(self):
