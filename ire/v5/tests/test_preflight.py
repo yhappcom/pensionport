@@ -66,6 +66,7 @@ class PreflightContractTests(unittest.TestCase):
             "extra_6_8_9_3123_owner_cues_175_source_windows_36_claim_scope",
             "extra369_175_window_78_unanchored_13_source_risk",
             "extra369_65_remaining_low_keyword_windows_19_financial_cautions",
+            "extra369_linked97_506_unanchored_cue_positions_9_scope_review",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))
