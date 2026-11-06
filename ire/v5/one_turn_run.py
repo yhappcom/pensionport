@@ -51,6 +51,7 @@ from .video10_all34_cue_gate import audit as audit_video10_all34
 from .video7_compilation_dedup_gate import audit as audit_video7_compilation
 from .extra_video6_8_9_source_gate import audit as audit_extra369
 from .extra369_unanchored_window_gate import audit as audit_extra369_gap
+from .extra369_low65_source_gate import audit as audit_extra369_low65
 from .six_stage_frozen_advisory_eval import run as evaluate_frozen_questions
 from .phase1_to_phase4_progress import audit as audit_p1_p3_p4_progress
 
