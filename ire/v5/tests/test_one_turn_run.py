@@ -157,6 +157,10 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["first_five_original_15_residual_and_duplicate_conflict_adjudication"]["reviewed_original_srt_spans"],15)
         self.assertEqual(payload["first_five_original_15_residual_and_duplicate_conflict_adjudication"]["new_direct_source_anchor_gaps_for_adjudication"],2)
         self.assertFalse(payload["first_five_original_15_residual_and_duplicate_conflict_adjudication"]["private_owner_source_zip_replayed_in_this_process"])
+        self.assertEqual(payload["first_five_5129_cue_risk_22_source_group_audit"]["source_cues_screened"],5129)
+        self.assertEqual(payload["first_five_5129_cue_risk_22_source_group_audit"]["reviewed_risk_claim_groups"],22)
+        self.assertEqual(payload["first_five_5129_cue_risk_22_source_group_audit"]["risk_flagged_source_cues"],636)
+        self.assertFalse(payload["first_five_5129_cue_risk_22_source_group_audit"]["full_atomic_claim_recall_independently_proven"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
