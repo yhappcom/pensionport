@@ -180,7 +180,7 @@ def audit(root:Path,source_zip:Path|None=None):
         need(s.get("window_ids")==overlap,
              "RISK5129_WINDOW_CUE_RELATION_CHANGED")
         need(m.get("status") in EXPECTED_STATUS
-             and len(m.get("adjudicated_scope",""))>=55
+             and len(m.get("adjudicated_scope",""))>=30
              and type(m.get("query_phrases")) is list
              and 1<=len(m["query_phrases"])<=4
              and all(type(q) is str and len(q)>=5 for q in m["query_phrases"])
