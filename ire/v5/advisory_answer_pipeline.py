@@ -16,6 +16,7 @@ from .advisory_decision import compare as quantitative_compare
 from .first_five_40_retrieval_bridge import retrieve as retrieve_first40
 from .p4_active_integration import retrieve as retrieve_p4_integrated
 from .p4_p3_source_integration import retrieve as retrieve_p4_p3_source
+from .crossvideo_14_quarantine import retrieve as retrieve_crossvideo
 from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
@@ -232,6 +233,15 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
                 parts.append(f"- {item['statement']} 적용 제한: {item['scope_and_exceptions']} "+
                              (f"공식 참고 근거: {urls}. " if urls else "")+
                              "원본 발언의 전면 금융사실 승인이나 매매 권고는 아닙니다.")
+    # Preliminary source-anchored #6-#10 negative challenges may warn about
+    # unsafe video generalizations. They are NOT a new factual-knowledge
+    # approval and cannot manufacture a personal tax/trading conclusion.
+    crossvideo=retrieve_crossvideo(root,question,max_items=3)
+    if crossvideo["items"] and not personal_request:
+        parts.append("추가 원본 #6~#10 교차검증에서 확인한 주의사항(정식 금융사실 승인 전):")
+        for hazard in crossvideo["items"]:
+            parts.append(f"- #{hazard['video_no']} cue {hazard['cue_range'][0]}~{hazard['cue_range'][1]}: "+
+                         f"{hazard['caveat']} [검증 상태: {hazard['status']}]")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -251,6 +261,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "first40_education_retrieval":first40,
         "p4_integrated_knowledge_retrieval":p4,
         "p4_p3_source_education_retrieval":p4_source,
+        "crossvideo_unverified_risk_retrieval":crossvideo,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,

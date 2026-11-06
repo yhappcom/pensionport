@@ -148,6 +148,12 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["first_five_original_quality_audit"]["pilot_video_legacy_claims_outside_60_claim_route"],3)
         self.assertFalse(payload["first_five_original_quality_audit"]["full_research_quality_go"])
         self.assertFalse(payload["first_five_original_quality_audit"]["next_five_video_expansion_go"])
+        self.assertEqual(payload["first_ten_raw_srt_metadata_and_source_replay_readiness"]["new_five_original_source_windows"],773)
+        self.assertEqual(payload["first_ten_raw_srt_metadata_and_source_replay_readiness"]["total_source_cues"],19014)
+        self.assertFalse(payload["first_ten_raw_srt_metadata_and_source_replay_readiness"]["original_srt_archives_replayed_in_current_process"])
+        self.assertEqual(payload["new_five_source_anchored_negative_risk_quarantine"]["scoped_risk_cases"],14)
+        self.assertEqual(payload["new_twelve_frozen_questions_structural_advisory_evaluation"]["new_questions_executed_against_actual_p3_pipeline"],12)
+        self.assertFalse(payload["new_twelve_frozen_questions_structural_advisory_evaluation"]["human_blind_fact_grade_completed"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 

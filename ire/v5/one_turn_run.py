@@ -43,6 +43,9 @@ from .first_five_40_retrieval_bridge import audit as audit_first40_live_retrieva
 from .p4_active_integration import audit as audit_p4_active_integration
 from .p3_original_27_source_gate import verify as verify_p3_original_27
 from .p4_p3_source_integration import audit as audit_p4_p3_live
+from .six_stage_original_replay import audit as audit_ten_original
+from .crossvideo_14_quarantine import audit as audit_crossvideo_guard
+from .six_stage_frozen_advisory_eval import run as evaluate_frozen_questions
 from .phase1_to_phase4_progress import audit as audit_p1_p3_p4_progress
 
 def run(root:Path,private_zip:Path|None=None)->int:
@@ -97,6 +100,9 @@ def run(root:Path,private_zip:Path|None=None)->int:
     p4_active=audit_p4_active_integration(root)
     p3_source_review=verify_p3_original_27(root)
     p4_p3_knowledge=audit_p4_p3_live(root)
+    original_ten=audit_ten_original(root)
+    crossvideo_hazards=audit_crossvideo_guard(root)
+    frozen_advice=evaluate_frozen_questions(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
         "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
@@ -137,6 +143,9 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "p4_active_integrated_education22":p4_active,
         "first_five_video1_w41_w67_original_source_atomic_review":p3_source_review,
         "p4_p3_incremental_29_live_education_nodes":p4_p3_knowledge,
+        "first_ten_raw_srt_metadata_and_source_replay_readiness":original_ten,
+        "new_five_source_anchored_negative_risk_quarantine":crossvideo_hazards,
+        "new_twelve_frozen_questions_structural_advisory_evaluation":frozen_advice,
         "blind_review_required_for_research_fact_acceptance":False,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,
