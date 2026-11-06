@@ -21,6 +21,11 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         row=output.getvalue().split("ONE_TURN_RESEARCH_RECEIPT ",1)[1]
         payload=json.loads(row)
         self.assertTrue(payload["one_request_research_complete"])
+        self.assertEqual(payload["first_five_private_provisional_event_pointer_no_source_replay_claim"]["provisional_model_windows_private_only"],288)
+        self.assertEqual(payload["first_five_private_provisional_event_pointer_no_source_replay_claim"]["provisional_claim_review_actions_private_only"],258)
+        self.assertEqual(payload["first_five_private_provisional_event_pointer_no_source_replay_claim"]["unresolved_cues"],4908)
+        self.assertFalse(payload["first_five_private_provisional_event_pointer_no_source_replay_claim"]["real_v5_engine_replay_of_private_events_by_ci"])
+        self.assertEqual(payload["first_five_private_provisional_event_pointer_no_source_replay_claim"]["research_closure"],"BLOCKED")
         self.assertEqual(payload["first_five_13_omission_equivalence_and_receipt_audit"]["source_classification_corrections_resolved"],13)
         self.assertEqual(payload["first_five_13_omission_equivalence_and_receipt_audit"]["candidate_claims_scope_reviewed"],305)
         self.assertEqual(payload["first_five_13_omission_equivalence_and_receipt_audit"]["formal_new_v5_engine_window_receipts"],0)
