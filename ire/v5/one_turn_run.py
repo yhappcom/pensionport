@@ -113,6 +113,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     video10_all34=audit_video10_all34(root)
     video7_dup=audit_video7_compilation(root)
     extra369=audit_extra369(root)
+    extra369_gap=audit_extra369_gap(root)
     frozen_advice=evaluate_frozen_questions(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
