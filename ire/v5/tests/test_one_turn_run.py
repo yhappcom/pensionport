@@ -21,6 +21,12 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         row=output.getvalue().split("ONE_TURN_RESEARCH_RECEIPT ",1)[1]
         payload=json.loads(row)
         self.assertTrue(payload["one_request_research_complete"])
+        self.assertEqual(payload["first_five_40_five_terminal_rule_dispositions_and_B04_scoped_edges"]["five_composite_reviews_terminal"],5)
+        self.assertEqual(payload["first_five_40_five_terminal_rule_dispositions_and_B04_scoped_edges"]["b04_scope_accepted_education_edges"],6)
+        self.assertEqual(payload["first_five_40_five_terminal_rule_dispositions_and_B04_scoped_edges"]["outside_b04_links_unmerged"],9)
+        self.assertEqual(payload["first_five_40_five_terminal_rule_dispositions_and_B04_scoped_edges"]["v5_kernel_official_financial_facts_approved"],0)
+        self.assertFalse(payload["first_five_40_five_terminal_rule_dispositions_and_B04_scoped_edges"]["formal_B04_master_fact_merge_approved"])
+
         self.assertEqual(payload["first_five_40_scoped_official_education_retrieval_v1"]["original_40_windows_claims_reviewed"],97)
         self.assertEqual(payload["first_five_40_scoped_official_education_retrieval_v1"]["raw_rule_claims_examined"],20)
         self.assertEqual(payload["first_five_40_scoped_official_education_retrieval_v1"]["official_narrow_subfacts_education_only"],15)

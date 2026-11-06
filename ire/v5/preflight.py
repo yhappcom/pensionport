@@ -99,6 +99,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.first_five_phase1_third_twenty_gate", "--root", ".")),
     ("first_five_first40_narrow_official_rule_and_readonly_knowledge_overlay",
      ("-m", "ire.v5.first_five_40_scoped_fact_gate", "--root", ".")),
+    ("first_five_first40_five_rule_dispositions_and_B04_scoped_relation_gate",
+     ("-m", "ire.v5.first_five_40_formal_approval_b04_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
