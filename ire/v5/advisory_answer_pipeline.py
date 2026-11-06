@@ -18,6 +18,7 @@ from .p4_active_integration import retrieve as retrieve_p4_integrated
 from .p4_p3_source_integration import retrieve as retrieve_p4_p3_source
 from .crossvideo_14_quarantine import retrieve as retrieve_crossvideo
 from .first_five_residual_15_gate import retrieve as retrieve_residual15
+from .first_five_all5129_risk_gate import retrieve as retrieve_all5129_risk
 from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
@@ -254,6 +255,18 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
                          f"{risk['cue_range'][0]}~{risk['cue_range'][1]}: "+
                          f"{risk['scope_caveat']} [상태: {risk['adjudication_state']}]"+
                          (f" 관련 기관·상품 공시: {urls}" if urls else ""))
+    original5129=retrieve_all5129_risk(root,question,limit=3)
+    # Dedupe narrower, earlier adjudications when both caution registries
+    # match. Metadata keeps the provenance and all matching original cues.
+    reviewed_prior={x["review_id"] for x in residual15["items"]}
+    fresh_cautions=[x for x in original5129["items"]
+                    if not reviewed_prior.intersection(x["prior_related_ids"])]
+    if fresh_cautions and not personal_request:
+        parts.append("#1~#5 원본 5,129개 자막 스캔에서 확인한 조건·오류 위험(정식 투자사실 승인 전):")
+        for caution in fresh_cautions:
+            parts.append(f"- #{caution['video_number']} cue "+
+                         f"{caution['cue_range'][0]}~{caution['cue_range'][1]}: "+
+                         f"{caution['caution']} [검증 상태: {caution['status']}]")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -275,6 +288,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "p4_p3_source_education_retrieval":p4_source,
         "crossvideo_unverified_risk_retrieval":crossvideo,
         "first_five_residual_15_scoped_cautions":residual15,
+        "first_five_full5129_risk_screen_cautions":original5129,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,
