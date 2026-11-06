@@ -123,6 +123,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.first_five_residual_15_gate", "--root", ".")),
     ("all_5129_original_cues_636_risk_signals_and_22_scoped_source_groups",
      ("-m", "ire.v5.first_five_all5129_risk_gate", "--root", ".")),
+    ("extra_video10_all_34_source_cues_eight_pension_scope_groups",
+     ("-m", "ire.v5.video10_all34_cue_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
