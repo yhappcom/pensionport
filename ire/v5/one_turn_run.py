@@ -107,6 +107,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     crossvideo_hazards=audit_crossvideo_guard(root)
     first_five_residual15=audit_first_five_residual15(root)
     all5129_risk=audit_all5129_risk(root)
+    video10_all34=audit_video10_all34(root)
     frozen_advice=evaluate_frozen_questions(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
