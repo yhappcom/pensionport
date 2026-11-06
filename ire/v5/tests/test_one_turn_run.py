@@ -177,6 +177,10 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["extra_three_175_window_78_unanchored_13_scoped_risks"]["provisional_master116_scope_crosswalk_rows"],13)
         self.assertEqual(payload["extra_three_175_window_78_unanchored_13_scoped_risks"]["strict_canonical_equivalence_approvals"],0)
         self.assertFalse(payload["extra_three_175_window_78_unanchored_13_scoped_risks"]["strict_new_claim_recall_certified"])
+        self.assertEqual(payload["extra_three_65_low_keyword_windows_semantic_audit"]["additional_low_keyword_windows_semantically_triaged"],65)
+        self.assertEqual(payload["extra_three_65_low_keyword_windows_semantic_audit"]["all_78_previously_unlinked_windows_triaged"],78)
+        self.assertEqual(payload["extra_three_65_low_keyword_windows_semantic_audit"]["additional_low_keyword_financial_cautions"],19)
+        self.assertFalse(payload["extra_three_65_low_keyword_windows_semantic_audit"]["source_cue_semantics_independently_blind_recalled"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
