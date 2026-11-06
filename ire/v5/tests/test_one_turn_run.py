@@ -172,6 +172,9 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["extra_video6_8_9_3123cue_source_scoped_candidate_36"]["scoped_source_claim_candidates"],36)
         self.assertEqual(payload["extra_video6_8_9_3123cue_source_scoped_candidate_36"]["provisional_crossvideo_concept_relations_checked"],8)
         self.assertFalse(payload["extra_video6_8_9_3123cue_source_scoped_candidate_36"]["independent_complete_atomic_recall_certified"])
+        self.assertEqual(payload["extra_three_175_window_78_unanchored_13_scoped_risks"]["windows_not_directly_anchored_by_prior36"],78)
+        self.assertEqual(payload["extra_three_175_window_78_unanchored_13_scoped_risks"]["unlinked_high_signal_windows_reviewed"],13)
+        self.assertFalse(payload["extra_three_175_window_78_unanchored_13_scoped_risks"]["strict_new_claim_recall_certified"])
         self.assertFalse(payload["formal_personal_investment_advice_authorized"])
         self.assertFalse(payload["independent_human_blind_evaluation_completed"])
 
