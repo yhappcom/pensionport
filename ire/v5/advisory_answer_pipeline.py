@@ -14,6 +14,9 @@ from .advisory_semantic import parse as semantic_parse
 from .advisory_evidence import plan as evidence_plan
 from .advisory_decision import compare as quantitative_compare
 from .first_five_40_retrieval_bridge import retrieve as retrieve_first40
+from .p4_active_integration import retrieve as retrieve_p4_integrated
+from .p4_p3_source_integration import retrieve as retrieve_p4_p3_source
+from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
 PERSONAL_ORDER=re.compile(r"매수해|매도해|팔아줘|전부\s*팔|즉시\s*사|주문해")
@@ -49,8 +52,8 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
     meaning=semantic_parse(question,policy)
     scope=evidence_plan(question,root)
     q=question.casefold()
-    personal_request=bool(PERSONAL_ORDER.search(question) or any(
-        k.casefold() in q for k in PERSONAL_TERMS))
+    intent=classify_intent(question)
+    personal_request=intent["order_execution_requested"]
     guarantee_request=bool(ASSURANCE.search(question) or any(
         k.casefold() in q for k in GUARANTEE_TERMS))
     comparisons=quantitative_compare(root,question,scenario) if scenario is not None else None
@@ -96,6 +99,8 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
             parts.append("현재 입력만으로 개인 계좌의 증권 매수·매도 주문을 실행하거나 권고할 수 없습니다.")
     elif guarantee_request:
         parts.append("원금이나 투자수익이 확정된다는 보장은 검증되지 않았습니다.")
+    elif intent["personal_decision_support_requested"]:
+        parts.append("개인 투자 조건을 고려한 비교 요청으로 이해했습니다. 실제 매매 실행은 하지 않으며, 제도 적용 조건·현금수요·위험·세금을 확인한 뒤 대안을 비교할 수 있습니다. 현재 자료만으로 유리한 대안을 확정하지 않습니다.")
     elif {"ISA_TRANSFER","ISA_FOREIGN_DIVIDEND"}<=domains:
         parts.append("ISA 만기자금의 연금계좌 이전 공제와 해외배당 외국세액 조정은 서로 다른 제도이며, 같은 공제로 취급할 수 없습니다.")
     elif "PENSION_TAX" in domains and ("환급" in question or "돌려받" in question):
@@ -188,6 +193,45 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
                 urls='; '.join(x['official_url'] for x in item['official_extraction_evidence'])
                 parts.append(f"- {item['statement']} 공식 출처 추출본: {urls}. "
                              "개인별 적용 조건·현행성 재검증이 필요하며 전체 영상 주장 또는 정식 금융사실 승인은 아닙니다.")
+
+    # P4 materialized source-pinned integration: 13 earlier educational nodes
+    # and 9 first-40 scoped nodes are queried together. The 27 W41-W67
+    # drafts remain quarantined; never render them as proven financial facts.
+    p4={"schema":"IRE_V5_P4_INTEGRATED_RETRIEVAL_V1",
+        "match_count":0,"items":[],"decision":"NOT_INSTALLED_ON_THIS_ROOT",
+        "P3_promoted_fact_count":0,"master_modified":False,
+        "personal_trading_approved":False}
+    if (root/'ire/v5/advisory_knowledge/p4_integrated_scoped_education22_20261106.json').exists():
+        p4=retrieve_p4_integrated(
+            root,question,
+            intent='order_execution' if personal_request else
+                   'guaranteed_return' if guarantee_request else
+                   'personal_decision_support' if intent["personal_decision_support_requested"]
+                   else 'general_education',limit=8)
+        existing=[n for n in p4["items"] if n["namespace"]=="PRIOR_13"]
+        if existing:
+            parts.append("통합 P4 지식 색인의 기존 교육 문맥(기존 13개 지식; 독립 법률인증·당일 현행성 검증 아님):")
+            for item in existing[:2]:
+                parts.append(f"- {item['statement']} 적용 제한: {item['scope_and_exceptions']}")
+    p4_source={"schema":"IRE_V5_P4_SOURCE_EDUCATION_RETRIEVAL29_V1",
+        "match_count":0,"items":[],"decision":"NOT_INSTALLED",
+        "master_modified":False,"personal_order_approved":False}
+    if (root/'ire/v5/advisory_knowledge/p4_p3_incremental_education29_20261106.json').exists():
+        p4_source=retrieve_p4_p3_source(
+            root,question,
+            intent='order_execution' if personal_request else
+                   'guaranteed_return' if guarantee_request else
+                   'personal_decision_support' if intent["personal_decision_support_requested"]
+                   else 'general_education',limit=8)
+        promoted=[n for n in p4_source["items"] if
+                  n["namespace"]=="P3_VIDEO1_W41_67_SOURCE_VERIFIED"]
+        if promoted:
+            parts.append("#1 원본 SRT W41~W67 근거를 확인한 일반 교육용 추가 문맥(2026-11-06 검토; 개인별 승인 전):")
+            for item in promoted[:2]:
+                urls="; ".join(item["official_context_urls"])
+                parts.append(f"- {item['statement']} 적용 제한: {item['scope_and_exceptions']} "+
+                             (f"공식 참고 근거: {urls}. " if urls else "")+
+                             "원본 발언의 전면 금융사실 승인이나 매매 권고는 아닙니다.")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -200,10 +244,13 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "cited_authority_urls":[f["authority_url"] for f in facts],
         "has_numeric_comparison":comparisons is not None,
         "numeric_comparison":comparisons,
+        "question_intent":intent,
         "personal_order_detected":personal_request,
         "same_chat_reviewed_source_as_of":"2026-11-05",
         "official_sources_reopened_this_python_run":False,
         "first40_education_retrieval":first40,
+        "p4_integrated_knowledge_retrieval":p4,
+        "p4_p3_source_education_retrieval":p4_source,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,
