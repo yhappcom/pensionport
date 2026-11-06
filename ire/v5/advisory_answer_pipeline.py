@@ -14,6 +14,7 @@ from .advisory_semantic import parse as semantic_parse
 from .advisory_evidence import plan as evidence_plan
 from .advisory_decision import compare as quantitative_compare
 from .first_five_40_retrieval_bridge import retrieve as retrieve_first40
+from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
 PERSONAL_ORDER=re.compile(r"매수해|매도해|팔아줘|전부\s*팔|즉시\s*사|주문해")
@@ -49,8 +50,8 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
     meaning=semantic_parse(question,policy)
     scope=evidence_plan(question,root)
     q=question.casefold()
-    personal_request=bool(PERSONAL_ORDER.search(question) or any(
-        k.casefold() in q for k in PERSONAL_TERMS))
+    intent=classify_intent(question)
+    personal_request=intent["order_execution_requested"]
     guarantee_request=bool(ASSURANCE.search(question) or any(
         k.casefold() in q for k in GUARANTEE_TERMS))
     comparisons=quantitative_compare(root,question,scenario) if scenario is not None else None
@@ -96,6 +97,8 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
             parts.append("현재 입력만으로 개인 계좌의 증권 매수·매도 주문을 실행하거나 권고할 수 없습니다.")
     elif guarantee_request:
         parts.append("원금이나 투자수익이 확정된다는 보장은 검증되지 않았습니다.")
+    elif intent["personal_decision_support_requested"]:
+        parts.append("개인 투자 조건을 고려한 비교 요청으로 이해했습니다. 실제 매매 실행은 하지 않으며, 제도 적용 조건·현금수요·위험·세금을 확인한 뒤 대안을 비교할 수 있습니다. 현재 자료만으로 유리한 대안을 확정하지 않습니다.")
     elif {"ISA_TRANSFER","ISA_FOREIGN_DIVIDEND"}<=domains:
         parts.append("ISA 만기자금의 연금계좌 이전 공제와 해외배당 외국세액 조정은 서로 다른 제도이며, 같은 공제로 취급할 수 없습니다.")
     elif "PENSION_TAX" in domains and ("환급" in question or "돌려받" in question):
@@ -200,6 +203,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "cited_authority_urls":[f["authority_url"] for f in facts],
         "has_numeric_comparison":comparisons is not None,
         "numeric_comparison":comparisons,
+        "question_intent":intent,
         "personal_order_detected":personal_request,
         "same_chat_reviewed_source_as_of":"2026-11-05",
         "official_sources_reopened_this_python_run":False,
