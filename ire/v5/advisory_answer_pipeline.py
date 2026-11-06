@@ -19,6 +19,7 @@ from .p4_p3_source_integration import retrieve as retrieve_p4_p3_source
 from .crossvideo_14_quarantine import retrieve as retrieve_crossvideo
 from .first_five_residual_15_gate import retrieve as retrieve_residual15
 from .first_five_all5129_risk_gate import retrieve as retrieve_all5129_risk
+from .video10_all34_cue_gate import retrieve as retrieve_short34
 from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
@@ -267,6 +268,18 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
             parts.append(f"- #{caution['video_number']} cue "+
                          f"{caution['cue_range'][0]}~{caution['cue_range'][1]}: "+
                          f"{caution['caution']} [검증 상태: {caution['status']}]")
+    video10=retrieve_short34(root,question,limit=3)
+    prior_cv10={x["case_id"] for x in crossvideo["items"] if x["video_no"]==10}
+    # When #10's earlier quarantine already rendered the same exception,
+    # retain source provenance only; avoid duplicating warnings in answers.
+    new_video10=[x for x in video10["items"]
+                 if not prior_cv10.intersection(x["related_prior_crossvideo_ids"])]
+    if new_video10 and not personal_request:
+        parts.append("원본 #10 전체 34개 자막 대조에 따른 제한사항(정식 세법 사실 승인 전):")
+        for item in new_video10:
+            parts.append(f"- #10 cue {item['source_cues'][0]}~"+
+                         f"{item['source_cues'][1]}: {item['scope_caveat']} "+
+                         f"[상태: {item['disposition']}]")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -289,6 +302,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "crossvideo_unverified_risk_retrieval":crossvideo,
         "first_five_residual_15_scoped_cautions":residual15,
         "first_five_full5129_risk_screen_cautions":original5129,
+        "video10_all34_original_scope":video10,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,
