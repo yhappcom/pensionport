@@ -54,7 +54,7 @@ def read(path: Path) -> dict:
 
 
 def blob_sha(raw: bytes) -> str:
-    return hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\\0" + raw).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\0" + raw).hexdigest()
 
 
 def load(root: Path, *, manifest_override: dict | None = None,
@@ -185,7 +185,7 @@ def load(root: Path, *, manifest_override: dict | None = None,
 
 
 def _normalize(s: str) -> str:
-    return re.sub(r"\\s+|[,，]", "", s.casefold())
+    return re.sub(r"\s+|[,，]", "", s.casefold())
 
 
 def retrieve(root: Path, question: str, *, intent: str = "general_education",
