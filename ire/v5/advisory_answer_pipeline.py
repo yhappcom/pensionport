@@ -22,6 +22,7 @@ from .first_five_all5129_risk_gate import retrieve as retrieve_all5129_risk
 from .video10_all34_cue_gate import retrieve as retrieve_short34
 from .extra_video6_8_9_source_gate import retrieve as retrieve_extra369
 from .extra369_unanchored_window_gate import retrieve as retrieve_extra369_gap
+from .extra369_low65_source_gate import retrieve as retrieve_extra369_low65
 from .advisory_intent import classify as classify_intent
 
 CASES=Path("ire/v5/advisory_integration/P3_ANSWER_QUALITY_CASES_20261105.json")
@@ -306,6 +307,14 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
             parts.append(f"- #{risk['video_no']} {risk['source_window_id']} "+
                          f"cue {risk['cue_range'][0]}~{risk['cue_range'][1]}: "+
                          f"{risk['scope_caveat']} [검토 상태: {risk['classification']}]")
+    low65_review=retrieve_extra369_low65(root,question,limit=3)
+    if low65_review["items"] and not personal_request:
+        parts.append("#6·#8·#9 낮은 검출점수 원본창에서 추가로 확인한 투자 위험(정식 원자 주장 승인 전):")
+        for caution in low65_review["items"]:
+            parts.append(f"- #{caution['video_number']} "+
+                         f"{caution['original_window_id']}: "+
+                         f"{caution['scoped_risk']} "+
+                         f"[연구 상태: {caution['financial_legal_status']}]")
     parts.append("이전 영상 요약과 60건 연구 원장은 학습·출처 문맥이지 새로운 법률 사실의 자동 승인 근거가 아닙니다.")
     text="\n".join(parts)
     return {
@@ -331,6 +340,7 @@ def answer(root: Path, question: str, scenario: dict | None = None) -> dict:
         "video10_all34_original_scope":video10,
         "extra_three_source_scoped_claims":extra369,
         "extra_three_unanchored_source_cautions":gap_review,
+        "extra_three_low_keyword_source_cautions":low65_review,
         "final_answer_direct_response_required":True,
         "guarantee_claim_detected":guarantee_request,
         "direct_order_or_personal_recommendation_approved":False,
