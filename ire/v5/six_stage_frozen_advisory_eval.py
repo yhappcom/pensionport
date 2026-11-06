@@ -6,16 +6,21 @@ stand in for independent human financial correctness/decision quality review.
 from __future__ import annotations
 import argparse
 import json
+import hashlib
 from pathlib import Path
 
 from .advisory_answer_pipeline import answer
 from .six_stage_original_replay import audit as source_audit
 
 CASES=Path("ire/v5/validation/six_stage_frozen_advisory12_20261106.json")
+REVIEWED_BLOB_SHA1="6c90c83405d61a7ca47107c2d03774bf529d7c10"
 
 class SixStageAdvisoryError(ValueError): pass
 
 def load(root:Path):
+    original=(root/CASES).read_bytes()
+    if hashlib.sha1(b"blob "+str(len(original)).encode("ascii")+b"\0"+original).hexdigest()!=REVIEWED_BLOB_SHA1:
+        raise SixStageAdvisoryError("SIX_STAGE_QUESTIONS_CHANGED_AFTER_FREEZE")
     d=json.loads((root/CASES).read_text("utf-8"))
     if not (d.get("schema")=="IRE_V5_SIX_STAGE_FROZEN_UNSEEN_12_QUESTIONS_V1"
             and d.get("as_of")=="2026-11-06"
