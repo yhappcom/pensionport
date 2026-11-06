@@ -48,6 +48,7 @@ class PreflightContractTests(unittest.TestCase):
             "first_five_video1_10_windows_cue_by_cue_recheck",
             "first_five_video1_w11_w20_cue_recheck_after_w01_w10",
             "first_five_video1_w21_to_w40_original_cue_tax_and_chain_audit",
+            "first_five_first40_narrow_official_rule_and_readonly_knowledge_overlay",
             "all_v5_regression_tests",
         ])
         self.assertEqual(len(names),len(set(names)))

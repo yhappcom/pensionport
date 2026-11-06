@@ -21,6 +21,12 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         row=output.getvalue().split("ONE_TURN_RESEARCH_RECEIPT ",1)[1]
         payload=json.loads(row)
         self.assertTrue(payload["one_request_research_complete"])
+        self.assertEqual(payload["first_five_40_scoped_official_education_retrieval_v1"]["original_40_windows_claims_reviewed"],97)
+        self.assertEqual(payload["first_five_40_scoped_official_education_retrieval_v1"]["raw_rule_claims_examined"],20)
+        self.assertEqual(payload["first_five_40_scoped_official_education_retrieval_v1"]["official_narrow_subfacts_education_only"],15)
+        self.assertEqual(payload["first_five_40_scoped_official_education_retrieval_v1"]["deduplicated_education_overlay_nodes"],9)
+        self.assertFalse(payload["first_five_40_scoped_official_education_retrieval_v1"]["formal_B04_master_claim_merge"])
+        self.assertEqual(payload["first_five_40_scoped_official_education_retrieval_v1"]["financial_personal_advice_release"],"NO_GO")
         self.assertEqual(payload["first_five_video1_first_forty_original_cue_review_private_v7"]["source_video1_reviewed_windows"],40)
         self.assertEqual(payload["first_five_video1_first_forty_original_cue_review_private_v7"]["newly_dispositioned_unresolved_cues"],342)
         self.assertEqual(payload["first_five_video1_first_forty_original_cue_review_private_v7"]["five_video_unresolved_cues_remaining"],4236)

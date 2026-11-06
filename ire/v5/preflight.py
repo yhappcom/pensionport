@@ -97,6 +97,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.first_five_phase1_second_ten_gate", "--root", ".")),
     ("first_five_video1_w21_to_w40_original_cue_tax_and_chain_audit",
      ("-m", "ire.v5.first_five_phase1_third_twenty_gate", "--root", ".")),
+    ("first_five_first40_narrow_official_rule_and_readonly_knowledge_overlay",
+     ("-m", "ire.v5.first_five_40_scoped_fact_gate", "--root", ".")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
