@@ -100,7 +100,7 @@ class IncrementalQualityPathTests(unittest.TestCase):
     def test_offset_window_gap_rejected(self):
         d = fixture()
         d["windows"][0]["window_id"] = "W00026"
-        with self.assertRaisesRegex(ResearchCoverageError, "WINDOW_ORDER|FIRST"):
+        with self.assertRaisesRegex(ResearchCoverageError, "WINDOW_ORDER|FIRST|RESUME_POINTER"):
             validate_source_review(d)
 
     def test_single_batch_true_execution(self):
