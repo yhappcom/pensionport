@@ -261,8 +261,10 @@ def verify_private_source(
                     cues = cues_from_srt(srt_raw)
                 except (RunError, UnicodeError) as exc:
                     raise ClaimOwnershipError("PRIVATE_SRT_PARSE_INVALID") from exc
-                source_cache[video] = cues
-            cues = source_cache[video]
+                source_cache[video] = (cues, hashlib.sha256(srt_raw).hexdigest())
+            cues, current_source_sha = source_cache[video]
+            require(current_source_sha == data["source_sha256"],
+                    "PRIVATE_BATCH_SOURCE_SHA256_DRIFT")
             require(len(cues) == data["source_cues_total"], "PRIVATE_SRT_CUE_CENSUS_DRIFT")
             for window in data["windows"]:
                 ids = range(window["first_cue"], window["last_cue"] + 1)
