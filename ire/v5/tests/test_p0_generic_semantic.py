@@ -246,6 +246,13 @@ class P0AdaptivePersistedProofTests(unittest.TestCase):
                              "P0_SECOND_PASS_REQUIRED")
             with self.assertRaisesRegex(RunError, "P0_SECOND_PASS_COMPLETENESS_NOT_PROVEN"):
                 cohort.close_video(vid)
+            # Direct run.close() and raw closure event must not bypass P0.
+            with self.assertRaisesRegex(RunError, "P0_SECOND_PASS_COMPLETENESS_NOT_PROVEN"):
+                cohort.runs[vid].close()
+            with self.assertRaisesRegex(RunError, "P0_SECOND_PASS_COMPLETENESS_NOT_PROVEN"):
+                cohort.runs[vid].append("RESEARCH_CLOSURE",
+                                        cohort.runs[vid]._closure_body())
+            self.assertEqual(cohort.runs[vid].status()["receipt_count"],3)
             self.assertTrue(cohort.audit(vid, "W00001", review)
                             ["source_review_reconciled"])
             cohort.close_video(vid)
@@ -280,6 +287,28 @@ class P0AdaptivePersistedProofTests(unittest.TestCase):
             proof.write_bytes(b"{}")
             with self.assertRaisesRegex(RunError, "P0_PROOF_FILE_HASH_MISMATCH"):
                 GenericResearchCohort.reopen(root).status()
+
+
+    def test_reopen_existing_seal_requires_private_p0_proof_still_present(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)/"private"
+            cohort, vid, review = self._cohort_with_model(root)
+            cohort.audit(vid,"W00001",review)
+            cohort.close_video(vid)
+            proof = next((root/"p0_second_pass_proofs"/vid/"W00001").glob("*.json"))
+            proof.unlink()
+            with self.assertRaisesRegex(
+                    RunError,"P0_SECOND_PASS_COMPLETENESS_NOT_PROVEN"):
+                GenericResearchCohort.reopen(root)
+
+    def test_second_pass_is_next_after_model_before_external_evidence(self):
+        with tempfile.TemporaryDirectory() as temp:
+            cohort, vid, review = self._cohort_with_model(Path(temp)/"private")
+            # The fixture already includes evidence; nevertheless missing second
+            # pass takes precedence over remaining model work.
+            self.assertEqual(
+                cohort.next_required_task()["tasks"][0]["task"]["phase"],
+                "P0_SECOND_PASS_REQUIRED")
 
 if __name__ == "__main__":
     unittest.main()

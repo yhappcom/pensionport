@@ -29,6 +29,28 @@ def _private_write(path: Path, data: bytes) -> None:
         os.fsync(fp.fileno())
 
 
+class P0StrictResearchRun(ResearchRun):
+    """P0-only run: every closure path, including append/replay, requires proofs.
+
+    Legacy ResearchRun and historical event-body hashes are unaffected.
+    Without this hook, callers could bypass GenericResearchCohort.close_video()
+    through runs[video_id].close() or append(RESEARCH_CLOSURE,...).
+    """
+    def __init__(self, source_srt: bytes, manifest: dict, store: Path,
+                 cohort_root: Path):
+        self._p0_cohort_root = Path(cohort_root)
+        super().__init__(source_srt, manifest, store)
+
+    def _apply(self, kind: str, item: dict) -> None:
+        if kind == "RESEARCH_CLOSURE":
+            proof = SecondPassRegistry(
+                {self.manifest["video_id"]: self}, self._p0_cohort_root)
+            missing = [wid for wid in self.active
+                       if not proof.status(self.manifest["video_id"], wid)["passed"]]
+            require(not missing, "P0_SECOND_PASS_COMPLETENESS_NOT_PROVEN")
+        return super()._apply(kind, item)
+
+
 class GenericResearchCohort:
     """Keep existing single-video ResearchRun receipts, do not fork its schema."""
 
@@ -54,7 +76,8 @@ class GenericResearchCohort:
             store = _private_dir(root / vid)
             _private_write(store / "original.srt", item["source"])
             _private_write(store / "manifest.json", canonical(manifest))
-            self.runs[vid] = ResearchRun(item["source"], manifest, store / "ledger")
+            self.runs[vid] = P0StrictResearchRun(
+                item["source"], manifest, store / "ledger", root)
             self.order.append(vid)
         index = {"schema": "IRE_V5_P0_GENERIC_COHORT_V1",
                  "video_ids": self.order,
@@ -120,22 +143,25 @@ class GenericResearchCohort:
         return {**body, "work_sha256": sha256(canonical(body))}
 
     def next_required_task(self) -> dict:
-        """Gate nominal engine closure on durable 2nd-pass provenance."""
+        """Second pass BEFORE evidence and prior review to avoid wasted work."""
         tasks = []
         for vid in self.order:
             run = self.runs[vid]
             t = run.next_task()
-            if t["phase"] in {"SEAL_RESEARCH_REPORT_REQUIRED", "DONE"}:
-                for wid in run.active:
-                    proof = self.p0_proofs.status(vid, wid)
-                    if not proof["passed"]:
-                        t = {"phase": (
-                            "P0_ATOMIC_GAP_REQUIRES_MODEL_CORRECTION"
-                            if proof["has_gap"] else "P0_SECOND_PASS_REQUIRED"),
-                            "window_id": wid,
-                            "review_records": proof["records"],
-                            "independent_atomic_recall_certified": False}
-                        break
+            # Every submitted model should be independently challenged for
+            # additional atomic units before investing in evidence retrieval.
+            for wid in run.active:
+                if wid not in run.model:
+                    continue
+                proof = self.p0_proofs.status(vid, wid)
+                if not proof["passed"]:
+                    t = {"phase": (
+                        "P0_ATOMIC_GAP_REQUIRES_MODEL_CORRECTION"
+                        if proof["has_gap"] else "P0_SECOND_PASS_REQUIRED"),
+                        "window_id": wid,
+                        "review_records": proof["records"],
+                        "independent_atomic_recall_certified": False}
+                    break
             if t["phase"] != "DONE":
                 ctx = adaptive_packet(run, t["window_id"]) if (
                     t["phase"] in {"MODEL_ANALYSIS_REQUIRED",
