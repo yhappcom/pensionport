@@ -128,7 +128,14 @@ class ReceiptBlindReviewContractTests(unittest.TestCase):
         for field in ("p0_private_original_source_replay",
                       "p0_private_multicue_span_replay"):
             good[field]["source_original_bytes_replayed"] = True
-        self.assertIsNone(assert_receipt_safety(good))
+        # A positive private-replay attestation must also carry complete,
+        # matching source/anchor/window/context-cue census evidence. The
+        # legacy fixture had only booleans and must not bypass the new gate.
+        from ire.v5.tests.test_p0_private_replay_census_receipt import replay_receipt
+        complete = replay_receipt()
+        self.assertIsNone(assert_receipt_safety(complete))
+        with self.assertRaisesRegex(RuntimeError, "UNSAFE_PRIVATE_REPLAY_CENSUS_MISMATCH"):
+            assert_receipt_safety(good)
 
     def test_personal_advice_authorization_is_rejected(self):
         bad = safe_receipt()
