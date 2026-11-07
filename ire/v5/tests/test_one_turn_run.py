@@ -20,7 +20,9 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         p.assert_called_once()
         row=output.getvalue().split("ONE_TURN_RESEARCH_RECEIPT ",1)[1]
         payload=json.loads(row)
-        self.assertTrue(payload["one_request_research_complete"])
+        self.assertFalse(payload["one_request_research_complete"])
+        self.assertEqual(payload["research_state"],
+                         "DETERMINISTIC_VALIDATION_ONLY_RESEARCH_OPEN")
         self.assertEqual(payload["first_five_video1_w41_w67_original_source_atomic_review"]["original_cues_dispositioned"],486)
         self.assertEqual(payload["first_five_video1_w41_w67_original_source_atomic_review"]["source_anchored_candidates"],89)
         self.assertFalse(payload["first_five_video1_w41_w67_original_source_atomic_review"]["original_private_source_replayed_this_process"])
