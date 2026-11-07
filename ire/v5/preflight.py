@@ -135,6 +135,8 @@ _CHECKS: tuple[tuple[str, tuple[str, ...]], ...] = (
      ("-m", "ire.v5.extra369_low65_source_gate", "--root", ".")),
     ("extra369_linked97_506_unanchored_cue_positions_9_scope_review",
      ("-m", "ire.v5.extra369_linked97_cue_gap_gate", "--root", ".")),
+    ("p0_generic_semantic_context_and_gap_regression",
+     ("-m", "unittest", "ire.v5.tests.test_p0_generic_semantic", "-v")),
     ("all_v5_regression_tests",
      ("-m", "unittest", "discover", "-s", "ire/v5/tests",
       "-p", "test_*.py", "-v")),
