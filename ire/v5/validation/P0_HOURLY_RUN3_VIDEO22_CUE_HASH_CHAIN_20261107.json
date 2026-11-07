@@ -1,0 +1,110 @@
+{
+  "schema": "IRE_V5_P0_RUN3_CUE_HASH_CHAIN_V1",
+  "source_srt_sha256": "cd99dbf5576b74f2b256f2e08d6b869fdfbed7b08e8fcb5bb1f1296e50deea06",
+  "hash_algorithm": "For each cue in SRT: text=' '.join(nonempty trimmed lines after index and time); cue_sha256=SHA256(UTF8(text)); window_chain_sha256=SHA256(ASCII(concatenated lowercase cue_sha256 in ascending cue order))",
+  "windows": [
+    {
+      "window_id": "W00037",
+      "cue_first": 649,
+      "cue_last": 666,
+      "provisional_claim_count": 4,
+      "cue_hash_chain_sha256": "890621d49675c11e2e2b9e972b073b8df30b463cf1e165a12e3828d67a1a1b83",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00038",
+      "cue_first": 667,
+      "cue_last": 684,
+      "provisional_claim_count": 5,
+      "cue_hash_chain_sha256": "a78c089ccb4d2fc29589324e714db22e2d284024f45be62625b2123c5ba0a51d",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00039",
+      "cue_first": 685,
+      "cue_last": 702,
+      "provisional_claim_count": 1,
+      "cue_hash_chain_sha256": "fdda2c9c55854d36627745def7719401e7e6a52ebceca597d3f5b3198affe6fa",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00040",
+      "cue_first": 703,
+      "cue_last": 720,
+      "provisional_claim_count": 2,
+      "cue_hash_chain_sha256": "6babf5d0c7f6bdceacf132a5b7ad1a9a7a018ed647357671b062792bb18cbd81",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00042",
+      "cue_first": 739,
+      "cue_last": 756,
+      "provisional_claim_count": 4,
+      "cue_hash_chain_sha256": "e0697706cb76f1871082c578bd1d5caca850085a54277fafa1e05e905d41c496",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00043",
+      "cue_first": 757,
+      "cue_last": 774,
+      "provisional_claim_count": 5,
+      "cue_hash_chain_sha256": "77f3e7a025735961f0d65c902c7e8ad8dacaf91000e92112725281e45e255a3c",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00044",
+      "cue_first": 775,
+      "cue_last": 792,
+      "provisional_claim_count": 2,
+      "cue_hash_chain_sha256": "bf5303da18ac7102566ccbd218df0066aed40cf2ed664ea07afe6c823bc3434c",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00045",
+      "cue_first": 793,
+      "cue_last": 810,
+      "provisional_claim_count": 2,
+      "cue_hash_chain_sha256": "4920dd97f757cb3bcd2d08745ed17c2debe5b9c25412e5f5a3872d7a93c1a6f2",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00047",
+      "cue_first": 829,
+      "cue_last": 846,
+      "provisional_claim_count": 2,
+      "cue_hash_chain_sha256": "de9a8222227c7c05e6773a7f8e43c2157d08326e9eeef7ecd43d484ea405a22c",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00048",
+      "cue_first": 847,
+      "cue_last": 864,
+      "provisional_claim_count": 2,
+      "cue_hash_chain_sha256": "0fb6f31e018be9f6121f6adcd203618ee5049155fdff776a5816b9dcab575efa",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00049",
+      "cue_first": 865,
+      "cue_last": 882,
+      "provisional_claim_count": 2,
+      "cue_hash_chain_sha256": "77ac0813f3f358029cd3fe772c6a7d10760c188d08e713005ed9951612e40663",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    },
+    {
+      "window_id": "W00050",
+      "cue_first": 883,
+      "cue_last": 900,
+      "provisional_claim_count": 3,
+      "cue_hash_chain_sha256": "3994a63e76f9198ead5ee12bf357233b8daa6ce3c5c2896d2e927b69af72596d",
+      "review": "CHATGPT_DIRECT_SEMANTIC_PROVISIONAL"
+    }
+  ],
+  "prior_scoped_excluded": [
+    "W00041",
+    "W00046"
+  ],
+  "next_window": "W00051",
+  "independent_recall": false,
+  "formal_event_chain": false
+}
