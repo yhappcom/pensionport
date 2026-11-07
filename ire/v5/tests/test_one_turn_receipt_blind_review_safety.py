@@ -19,6 +19,12 @@ def safe_receipt():
         "one_request_research_complete": False,
         "research_state": "DETERMINISTIC_VALIDATION_ONLY_RESEARCH_OPEN",
         "terminal_outcome": "DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED",
+        "private_original_archive_verified_in_this_process": False,
+        "p0_incremental_source_derivative_integrity": {"p0_go": False},
+        "p0_candidate_source_window_ownership": {"p0_go": False},
+        "p0_private_original_source_replay": {"p0_go": False, "source_original_bytes_replayed": False},
+        "p0_multicue_context_census": {"p0_go": False},
+        "p0_private_multicue_span_replay": {"p0_go": False, "source_original_bytes_replayed": False},
     }
 
 
@@ -79,6 +85,50 @@ class ReceiptBlindReviewContractTests(unittest.TestCase):
             del bad[field]
             with self.assertRaisesRegex(RuntimeError, "UNSAFE_TERMINAL_RECEIPT"):
                 assert_receipt_safety(bad)
+
+    def test_nested_gate_cannot_claim_p0_go(self):
+        for field in ("p0_incremental_source_derivative_integrity",
+                      "p0_candidate_source_window_ownership",
+                      "p0_private_original_source_replay",
+                      "p0_multicue_context_census",
+                      "p0_private_multicue_span_replay"):
+            with self.subTest(field=field):
+                bad = safe_receipt()
+                bad[field]["p0_go"] = True
+                with self.assertRaisesRegex(RuntimeError, "UNSAFE_NESTED_P0_APPROVAL"):
+                    assert_receipt_safety(bad)
+
+    def test_missing_or_untyped_nested_gate_fails_closed(self):
+        for field in ("p0_incremental_source_derivative_integrity",
+                      "p0_candidate_source_window_ownership",
+                      "p0_private_original_source_replay",
+                      "p0_multicue_context_census",
+                      "p0_private_multicue_span_replay"):
+            for invalid in (None, [], {"p0_go": 0}, {"p0_go": "false"}):
+                with self.subTest(field=field, invalid=invalid):
+                    bad = safe_receipt()
+                    bad[field] = invalid
+                    with self.assertRaisesRegex(RuntimeError, "UNSAFE_NESTED_P0_APPROVAL"):
+                        assert_receipt_safety(bad)
+
+    def test_private_replay_attestation_must_match_both_private_gates(self):
+        for field in ("p0_private_original_source_replay",
+                      "p0_private_multicue_span_replay"):
+            with self.subTest(field=field):
+                bad = safe_receipt()
+                bad[field]["source_original_bytes_replayed"] = True
+                with self.assertRaisesRegex(RuntimeError, "UNSAFE_PRIVATE_REPLAY_ATTESTATION"):
+                    assert_receipt_safety(bad)
+        bad = safe_receipt()
+        bad["private_original_archive_verified_in_this_process"] = True
+        with self.assertRaisesRegex(RuntimeError, "UNSAFE_PRIVATE_REPLAY_ATTESTATION"):
+            assert_receipt_safety(bad)
+        good = safe_receipt()
+        good["private_original_archive_verified_in_this_process"] = True
+        for field in ("p0_private_original_source_replay",
+                      "p0_private_multicue_span_replay"):
+            good[field]["source_original_bytes_replayed"] = True
+        self.assertIsNone(assert_receipt_safety(good))
 
     def test_personal_advice_authorization_is_rejected(self):
         bad = safe_receipt()
