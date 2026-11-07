@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent / "private_source_derived_20261107"
 ARCHIVE_SHA = "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd"
 RAW_SHA = {
-    "short5": "9f305af6c5acdf11fb3af312e0483229f68b13a04e0e4e7f5d19caefdb9422fd",
+    "short5": "9f305af6c5acdf11fb3af312e0483229f68b13a04a0e4e7f5d19caefdb9422fd",
     "long5": "853e3e37692ded8e0cdcc20e0c365e473eacbe8d98af5b659487811b31382221",
     "evidence19": "8877a86bf69a84b0043abf36b8b6dca69e4cd143eea82c503cbf0e48c44cfc99",
     "long5risk": "8ebe14dfb16edda1cf1fe8e840f70ab38d1b6a5136d1778b6b4b8dd9720ff34d",
