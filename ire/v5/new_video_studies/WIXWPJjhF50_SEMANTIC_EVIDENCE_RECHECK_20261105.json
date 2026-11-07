@@ -1,0 +1,553 @@
+{
+  "schema": "IRE_V5_SOURCE_SEMANTIC_EVIDENCE_RECHECK_V1",
+  "review_date": "2026-11-05",
+  "video_id": "WIXWPJjhF50",
+  "roster_no": 232,
+  "original_archive": "201-300.zip",
+  "original_srt_sha256": "1050fbb4022181130dce827328d165c863a5ec3a87f869dddc0f9fd3ae3ba17a",
+  "source_cues": 185,
+  "previous_study_path": "ire/v5/new_video_studies/WIXWPJjhF50_20261105.json",
+  "scope": "22 finer semantic units within 12 already verified parent source windows; new official research as of Nov 5 2026; human blind gold unperformed; source video audio and image footage not authenticated.",
+  "prior_canonical_education_13_unchanged": true,
+  "legacy_claims_116_unchanged": true,
+  "previous_12_source_claims_unchanged": true,
+  "full_source_parent_windows_rechecked_from_private_srt": true,
+  "external_references": [
+    {
+      "id": "KRX-RULE",
+      "issuer": "한국거래소",
+      "kind": "OFFICIAL_RULE",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03020203/RGL03020203.jsp",
+      "description": "신규상장일 기준가격과 60~400% 공모가 범위",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "KRX-BASE",
+      "issuer": "한국거래소",
+      "kind": "OFFICIAL_RULE",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03010100/RGL03010100T6.jsp",
+      "description": "신규상장 첫날 가격 기준/주권과 ETF 차이",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "FSC-IPO-2022",
+      "issuer": "금융위원회",
+      "kind": "DATED_POLICY_ANNOUNCEMENT",
+      "url": "https://www.fsc.go.kr/no010101/79116",
+      "description": "2022-12-19 종전 63~260%, 개선 60~400% 및 허수성청약 문제",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "FSC-IPO-2023",
+      "issuer": "금융위원회",
+      "kind": "DATED_REGULATORY_NOTICE",
+      "url": "https://www.fsc.go.kr/po010102/79873",
+      "description": "2023-04-26 기관 주금납입능력 및 수요예측 개선 발표",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "KRX-OFFER",
+      "issuer": "한국거래소",
+      "kind": "OFFICIAL_PROCESS",
+      "url": "https://www.krx.co.kr/contents/LST/03/03030000/LST03030000T5.jsp",
+      "description": "수요예측 및 회사·주관사 협의에 의한 공모가 결정",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "FSC-ALLOTMENT",
+      "issuer": "금융위원회",
+      "kind": "DATED_REGULATORY_GUIDANCE",
+      "url": "https://www.fsc.go.kr/po010101/76078",
+      "description": "일반공모 청약 균등배정 및 중복청약 제한 제도",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "KRX-OBZEN-2023",
+      "issuer": "한국거래소 KIND",
+      "kind": "OFFICIAL_LISTING_DISCLOSURE",
+      "url": "https://kind.krx.co.kr/external/2023/01/26/000646/20230126001852/70760.htm",
+      "description": "오브젠 2023-01-30 상장 사실과 총주식수",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "KRX-JO-2023",
+      "issuer": "한국거래소 KIND",
+      "kind": "OFFICIAL_IPO_DISCLOSURE",
+      "url": "https://kind.krx.co.kr/listinvstg/pubofrprogcomdetail.do?bzProcsNo=20220126000043&method=searchProgComDetailMain",
+      "description": "제이오 2023-02-16 상장 공시",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "KRX-INNOGENE",
+      "issuer": "한국거래소 KIND",
+      "kind": "OFFICIAL_LISTING_RECORD",
+      "url": "https://kind.krx.co.kr/common/companysummary.do?method=searchCompanySummary&strIsurCd=34486",
+      "description": "이노진 2023-02-20 코스닥 상장",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "SEC-CAP",
+      "issuer": "미국 SEC Investor.gov",
+      "kind": "OFFICIAL_EDUCATION",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/market-capitalization",
+      "description": "발행주식수×주당 가격=시가총액, 단순 주당 가격으로 기업 규모 판정 불가",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "MEDIA-OBZEN-2023",
+      "issuer": "연합뉴스",
+      "kind": "CONTEMPORANEOUS_SECONDARY",
+      "url": "https://www.yna.co.kr/view/AKR20230130031551002",
+      "description": "오브젠 2023-01-30 공모 18000, 종가 46800 따상",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "MEDIA-FEB-2023",
+      "issuer": "서울경제(네이트 재송신)",
+      "kind": "CONTEMPORANEOUS_SECONDARY",
+      "url": "https://news.nate.com/view/20230228n04348",
+      "description": "2023년 2월 6개 IPO 중 5개 장중 따상, 제이오 제외",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "MEDIA-FEB-CLOSE",
+      "issuer": "By The Stock(Investing 재송신)",
+      "kind": "CONTEMPORANEOUS_SECONDARY",
+      "url": "https://kr.investing.com/news/markets/article-895490?ampMode=1",
+      "description": "2023년 2월 6개 IPO 중 종가 따상 3개, 장중 따상 추가 2개, 제이오 미해당",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "FSC-IPO-NOV26",
+      "issuer": "금융위원회",
+      "kind": "OFFICIAL_FUTURE_EFFECTIVITY",
+      "url": "https://www.fsc.go.kr/po010103/88071",
+      "description": "2026-11-03 시행령 국무회의 의결, 사전수요예측·코너스톤 2026-11-13 시행 예정",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    },
+    {
+      "id": "FSC-IPO-JUL26",
+      "issuer": "금융위원회",
+      "kind": "DATED_PROPOSAL",
+      "url": "https://fsc.go.kr/po010101/87440",
+      "description": "2026-07-30 새 IPO 제도 하위법규 입법예고",
+      "original_document_bytes_sealed": false,
+      "external_blind_review": false
+    }
+  ],
+  "semantic_assertions": [
+    {
+      "analysis_id": "S232-01",
+      "parent_claim_id": "C232-01",
+      "cue_start": 2,
+      "cue_end": 4,
+      "semantic_type": "GENERAL_MARKET_RULE",
+      "source_paraphrase": "일반 주식의 일일 가격제한폭 ±30%를 신규상장일에도 같은 방식으로 적용한다고 여기는 오해를 지적한다.",
+      "adjudication": "HISTORICAL_CONTEXT_CONFIRMED",
+      "independent_evidence_analysis": "일반 주식과 IPO 첫날 예외를 분리한다. 현행 IPO 대상 일반주권의 상장일에는 공모가 60~400%를 적용한다.",
+      "source_ids": [
+        "KRX-RULE",
+        "KRX-BASE"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-02",
+      "parent_claim_id": "C232-01",
+      "cue_start": 5,
+      "cue_end": 9,
+      "semantic_type": "IPO_OPENING_OLD_RULE",
+      "source_paraphrase": "상장 당일 신규상장 주식은 공모가 대비 시초가가 100% 오를 수 있다고 설명한다.",
+      "adjudication": "HISTORICAL_RULE_VERIFIED_NOT_CURRENT",
+      "independent_evidence_analysis": "개정 전 90~200%의 시초가 결정 범위에서 +100% 시초가 가능했으나, 2023-06-26 이후 시가기준가 방식을 그대로 사용하지 않는다.",
+      "source_ids": [
+        "FSC-IPO-2022",
+        "KRX-BASE"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-03",
+      "parent_claim_id": "C232-01",
+      "cue_start": 10,
+      "cue_end": 13,
+      "semantic_type": "OLD_UPSIDE_ARITHMETIC",
+      "source_paraphrase": "구 상장일 이중 가격제한폭의 최대 상승을 공모가 대비 130%라고 설명한다.",
+      "adjudication": "SOURCE_NUMERIC_DISCREPANCY_CONFIRMED_AUDIO_OPEN",
+      "independent_evidence_analysis": "수익률은 (2.0×1.3−1)×100=+160%. +100%와 +30%의 단순 가산 +130%는 전체 공모가 대비 수익률이 아니다. 실제 음성 발성의 오류인지 ASR 오류인지는 미확정.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-04",
+      "parent_claim_id": "C232-02",
+      "cue_start": 14,
+      "cue_end": 23,
+      "semantic_type": "OLD_DOWNSIDE_ARITHMETIC",
+      "source_paraphrase": "종전 시초가가 공모가의 90%로 정해지고 장중 30% 떨어질 수 있다고 설명한다.",
+      "adjudication": "HISTORICAL_RULE_VERIFIED_WITH_QUALIFICATION",
+      "independent_evidence_analysis": "최저 종가는 0.9×0.7=공모가의 63%, 즉 공모가 대비 −37%. -30%는 시초가 대비 당일 변동폭이다.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-05",
+      "parent_claim_id": "C232-02",
+      "cue_start": 24,
+      "cue_end": 34,
+      "semantic_type": "IPO_SUCCESS_STORY",
+      "source_paraphrase": "좋은 기업을 청약받으면 시초가 두 배·상한가가 발생할 수 있다는 경험적 기대를 말한다.",
+      "adjudication": "CONDITIONAL_EXAMPLE_NOT_FORECAST",
+      "independent_evidence_analysis": "특정 발행기업 수익을 보장하는 근거가 아니다. 상장 후 가격은 유동성과 시장·기업 위험에 따라 달라진다.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-06",
+      "parent_claim_id": "C232-03",
+      "cue_start": 35,
+      "cue_end": 38,
+      "semantic_type": "IPO_EFFECTIVE_DATE",
+      "source_paraphrase": "2023년 촬영 당시 400% 제도 변경이 예정되어 있다고 설명하며 '법안'으로 부른다.",
+      "adjudication": "HISTORICAL_FUTURE_NOW_EFFECTIVE_WITH_LEGAL_FORM_CORRECTION",
+      "independent_evidence_analysis": "실제 변경은 거래소 업무규정 시행세칙으로 2023-06-26 시행됐다. 400%는 공모가 대비 가격 비율이며 수익률은 +300%다. 일반 법률 '법안'과 거래소 규정을 구별한다.",
+      "source_ids": [
+        "FSC-IPO-2022",
+        "KRX-RULE",
+        "KRX-BASE"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-07",
+      "parent_claim_id": "C232-04",
+      "cue_start": 39,
+      "cue_end": 53,
+      "semantic_type": "DOUBLE_OPENING_LIMIT_UP",
+      "source_paraphrase": "이른바 따상은 공모가의 두 배 시초가와 시초가 대비 상한가가 결합한 구 제도 현상이다.",
+      "adjudication": "HISTORICAL_TERMINOLOGY_CONFIRMED",
+      "independent_evidence_analysis": "장중 도달 여부와 상한가 종가 마감 여부를 분리해야 하며 현행 60~400% 상장일에 구 제도 산식을 적용하지 않는다.",
+      "source_ids": [
+        "FSC-IPO-2022",
+        "MEDIA-FEB-CLOSE"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-08",
+      "parent_claim_id": "C232-04",
+      "cue_start": 54,
+      "cue_end": 64,
+      "semantic_type": "NAMED_HISTORICAL_STOCKS",
+      "source_paraphrase": "과거 SK바이오팜·SK바이오사이언스의 따상 등 IPO 열풍을 회상한다.",
+      "adjudication": "NAMED_RETURN_DETAILS_NOT_INDEPENDENTLY_RECHECKED",
+      "independent_evidence_analysis": "예시 종목 자체의 상장일 가격·동일 종목의 따상상 여부는 이번 핵심 공식 근거로 독립 대조하지 않았다. 역사적 회고로 한정한다.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-09",
+      "parent_claim_id": "C232-05",
+      "cue_start": 65,
+      "cue_end": 75,
+      "semantic_type": "JAN2023_LISTED_COHORT",
+      "source_paraphrase": "2023년 1월 공모주로 오브젠·미래반도체·한주라이트메탈·티이엠씨를 제시한다.",
+      "adjudication": "PARTIAL_LISTING_VERIFIED",
+      "independent_evidence_analysis": "KRX 공시로 오브젠의 2023-01-30 상장을 확인했으며, 다른 종목의 개별 가격·종가와 영상 당시 화면 숫자는 동일 출처에서 확인한 것이 아니다.",
+      "source_ids": [
+        "KRX-OBZEN-2023"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-10",
+      "parent_claim_id": "C232-05",
+      "cue_start": 76,
+      "cue_end": 83,
+      "semantic_type": "JAN2023_RETURN_SNAPSHOT",
+      "source_paraphrase": "2023년 1월 표본의 시초가 상승률과 촬영 시점 현재가 상승률 167%,433%,69%,46% 등을 설명한다.",
+      "adjudication": "PARTIAL_EXAMPLE_CONFIRMED_SNAPSHOT_OPEN",
+      "independent_evidence_analysis": "오브젠의 2023-01-30 공모 18000원·종가 46800원 (+160%)는 동시대 독립 보도에서 확인. 영상에 등장한 167/433/69/46%는 기준일, 종목별 대응, 조정가격 및 원본 화면이 없어 OPEN.",
+      "source_ids": [
+        "KRX-OBZEN-2023",
+        "MEDIA-OBZEN-2023"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-11",
+      "parent_claim_id": "C232-06",
+      "cue_start": 84,
+      "cue_end": 99,
+      "semantic_type": "BEAR_MARKET_IPO_VALUE_HYPOTHESIS",
+      "source_paraphrase": "시장 유동성이 적을 때 공모가격이 상대적으로 낮아져 보유수익이 커질 수 있다고 주장한다.",
+      "adjudication": "CAUSAL_INVESTMENT_HYPOTHESIS_UNPROVEN",
+      "independent_evidence_analysis": "수요예측은 시장 수요에 영향을 받지만 약세장이 곧 저평가·미래 초과수익이라는 인과 결론은 아니다. 낙관 사례 편향과 반례 조사 필요.",
+      "source_ids": [
+        "KRX-OFFER",
+        "FSC-IPO-2022"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-12",
+      "parent_claim_id": "C232-06",
+      "cue_start": 100,
+      "cue_end": 108,
+      "semantic_type": "LOW_COMPETITION_OPPORTUNITY",
+      "source_paraphrase": "약세장에는 청약경쟁률이 낮아 좋은 기업을 더 많이 받을 수 있다고 권한다.",
+      "adjudication": "CONDITIONAL_ALLOCATION_AND_RISK",
+      "independent_evidence_analysis": "경쟁률·균등/비례 배정·발행 물량 등에 따라 배정 달라지며 낮은 경쟁률이 좋은 가치와 동치가 아니다.",
+      "source_ids": [
+        "FSC-ALLOTMENT",
+        "FSC-IPO-2023"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-13",
+      "parent_claim_id": "C232-07",
+      "cue_start": 109,
+      "cue_end": 116,
+      "semantic_type": "FEB2023_IPO_NAMING",
+      "source_paraphrase": "스팩과 일반 기업 IPO를 포함해 2023년 2월 신규상장을 예시로 든다.",
+      "adjudication": "PARTIAL_ORIGINAL_EXCHANGE_LISTING_VERIFIED",
+      "independent_evidence_analysis": "제이오(2023-02-16), 이노진(2023-02-20)는 KIND 자료로 해당 상장일 확인. SPAC은 일반 사업회사 IPO와 위험·구조가 달라 구분해야 한다.",
+      "source_ids": [
+        "KRX-JO-2023",
+        "KRX-INNOGENE"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-14",
+      "parent_claim_id": "C232-07",
+      "cue_start": 117,
+      "cue_end": 119,
+      "semantic_type": "ALL_FEB_TTASANG",
+      "source_paraphrase": "2월 상장 기업들이 전부 따상에 갔다고 일반화한다.",
+      "adjudication": "OVERGENERALIZATION_CONTRADICTED_BY_CONTEMPORANEOUS_DATA",
+      "independent_evidence_analysis": "동시대 보도상 2월 6개 일반 IPO 가운데 시초가 두 배는 5개, 장중 따상도 5개이며, 종가 기준 따상 3개. 제이오는 시초가 두 배에 미달했다. 영상 53% 언급 자체도 '전부'와 불일치한다.",
+      "source_ids": [
+        "MEDIA-FEB-2023",
+        "MEDIA-FEB-CLOSE",
+        "KRX-JO-2023"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-15",
+      "parent_claim_id": "C232-07",
+      "cue_start": 120,
+      "cue_end": 124,
+      "semantic_type": "FEB_RETURN_SNAPSHOT",
+      "source_paraphrase": "촬영 당시 2023년 2월 IPO 종목별 등락률로 2%,36%,205%,64%,450%,117%,81%를 열거한다.",
+      "adjudication": "AS_OF_DATE_AND_MATCHING_UNVERIFIED",
+      "independent_evidence_analysis": "정확한 종목별 매핑·촬영일 기준 가격표·조정 주가가 없다. 실제 유효수익률로 재사용 금지.",
+      "source_ids": [
+        "MEDIA-FEB-CLOSE"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-16",
+      "parent_claim_id": "C232-08",
+      "cue_start": 125,
+      "cue_end": 139,
+      "semantic_type": "RISING_MARKET_EXPLAINS_ALL",
+      "source_paraphrase": "주요 종목의 상승을 개별기업 질보다 장세 개선의 결과로 설명하고 당시 아무 종목이나 올랐다고 평가한다.",
+      "adjudication": "SELECTION_BIAS_NONCAUSAL",
+      "independent_evidence_analysis": "시장 변동성과 개별 기업의 주가가 동행할 수는 있지만 공모가·업종·규모·공시·시점 등 통제 없이 '뭘 사도' 수익이라는 결론은 부당하다.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-17",
+      "parent_claim_id": "C232-09",
+      "cue_start": 140,
+      "cue_end": 152,
+      "semantic_type": "IPO_EQUITY_RISK_DISCIPLINE",
+      "source_paraphrase": "공모주도 일반 주식이므로 상장 당일 매도와 장기보유 여부를 기업 분석을 통해 결정하라고 설명한다.",
+      "adjudication": "GENERAL_EDUCATION_ACCEPTABLE_WITH_SCOPE",
+      "independent_evidence_analysis": "상장일의 급등락, 공모가 대비 손실, 유통가능주식/보호예수 등 정보 확인의 중요성은 유효하나 특정 종목 매도·보유 추천으로 자동 승격하지 않는다.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-18",
+      "parent_claim_id": "C232-10",
+      "cue_start": 153,
+      "cue_end": 159,
+      "semantic_type": "MAY2023_SCHEDULE",
+      "source_paraphrase": "영상 촬영 시점 다가오는 2023년 5월 공모 청약 일정과 희망 공모가를 소개한다.",
+      "adjudication": "HISTORICAL_SCHEDULE_EXPIRED",
+      "independent_evidence_analysis": "2026년 현재 예정 청약이나 주문 가능 일정이 아니며 당시 제시한 미래 시제를 수정해야 한다.",
+      "source_ids": [
+        "KRX-OFFER"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-19",
+      "parent_claim_id": "C232-10",
+      "cue_start": 160,
+      "cue_end": 161,
+      "semantic_type": "TOP_BAND_AS_GO_SIGNAL",
+      "source_paraphrase": "희망 공모가격 밴드 상단으로 확정된다면 청약을 생각할 수 있다는 단순 판단을 제시한다.",
+      "adjudication": "HEURISTIC_NOT_PROVEN",
+      "independent_evidence_analysis": "공모가 상단 결정은 수요예측 및 발행사·주관사 협의의 결과이지 상장 후 초과수익/저평가 확증이 아니다.",
+      "source_ids": [
+        "KRX-OFFER",
+        "FSC-IPO-2022"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-20",
+      "parent_claim_id": "C232-10",
+      "cue_start": 162,
+      "cue_end": 163,
+      "semantic_type": "UNIT_PRICE_COMPANY_SIZE",
+      "source_paraphrase": "공모가가 주당 1만원 미만이므로 기업 규모가 작을 것이라고 추정한다.",
+      "adjudication": "INVALID_VALUATION_INFERENCE",
+      "independent_evidence_analysis": "회사 규모를 주당 가격만으로 추정하면 안 된다. 시가총액=발행주식수×주당가격이므로 주식수/지분구조 확인이 필수.",
+      "source_ids": [
+        "SEC-CAP",
+        "KRX-JO-2023"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-21",
+      "parent_claim_id": "C232-11",
+      "cue_start": 164,
+      "cue_end": 176,
+      "semantic_type": "HIGH_COMPETITION_ALLOTMENT",
+      "source_paraphrase": "청약 경쟁률 1000대1에서 수억원 증거금으로 1~2주만 받을 수 있다는 사례를 설명한다.",
+      "adjudication": "CASE_QUANTIFICATION_UNVERIFIED",
+      "independent_evidence_analysis": "균등·비례 배정, 개인 청약 단위, 공모별 배정물량·증거금률에 따라 달라지므로 원금과 배정주수를 고정된 수익 공식으로 해석하면 안 된다.",
+      "source_ids": [
+        "FSC-ALLOTMENT"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    },
+    {
+      "analysis_id": "S232-22",
+      "parent_claim_id": "C232-12",
+      "cue_start": 177,
+      "cue_end": 184,
+      "semantic_type": "TRY_IPO_AS_EXPERIENCE",
+      "source_paraphrase": "일반 시청자에게 공모주 청약을 체험해 보라고 권한다.",
+      "adjudication": "NONPERSONAL_SUGGESTION_NOT_ADVICE",
+      "independent_evidence_analysis": "교육적 경험 제안과 가입·청약·매도 적합성은 다르다. 손실 가능성과 현금 동원/이체 위험을 별도로 안내해야 한다.",
+      "source_ids": [
+        "FSC-IPO-2022"
+      ],
+      "source_audio_verified": false,
+      "blind_human_verified": false,
+      "individual_advice_approved": false
+    }
+  ],
+  "temporal_rule_updates": [
+    {
+      "id": "IPO-2023-FIRST-DAY",
+      "topic": "FIRST_TRADING_DAY_PRICE_BAND",
+      "status": "EFFECTIVE_CURRENT",
+      "effective_from": "2023-06-26",
+      "range_pct_of_offer": [
+        60,
+        400
+      ],
+      "sources": [
+        "KRX-RULE",
+        "KRX-BASE"
+      ]
+    },
+    {
+      "id": "IPO-2026-PREDEMAND-CORNERSTONE",
+      "topic": "PRE_DEMAND_AND_CORNERSTONE_ALLOTMENT",
+      "status": "APPROVED_NOT_YET_EFFECTIVE_AS_OF_2026-11-05",
+      "effective_on": "2026-11-13",
+      "approved_decree_on": "2026-11-03",
+      "sources": [
+        "FSC-IPO-NOV26",
+        "FSC-IPO-JUL26"
+      ],
+      "scope_note": "IPO 발행 전 수요예측과 코너스톤 사전배정의 별도 규정이며, 2023 상장일 가격제한폭 60~400% 폐지나 변경의 근거가 아니다."
+    }
+  ],
+  "new_provisional_concepts_approved": 0,
+  "individual_investment_advice_approved": false,
+  "semantic_recall_against_blind_human_gold": null,
+  "financial_fact_independently_certified": false,
+  "unverified_screen_prices_status": "OPEN_PENDING_ORIGINAL_VIDEO_SCREEN_AND_KRX_POINT_IN_TIME_PRICES",
+  "final_outcome": "RESEARCH_EVIDENCE_RECHECK_COMPLETED_WITH_SCOPE_LIMITS_NOT_ADVICE_RELEASE"
+}

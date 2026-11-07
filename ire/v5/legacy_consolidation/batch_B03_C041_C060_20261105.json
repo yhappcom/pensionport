@@ -1,0 +1,1085 @@
+{
+  "schema": "IRE_V5_LEGACY_CONSOLIDATION_BATCH_V1",
+  "as_of": "2026-11-05",
+  "batch_id": "B03",
+  "claim_range": [
+    "GOMHEE-C41",
+    "GOMHEE-C60"
+  ],
+  "source_legacy_blob_sha": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "source_video_index_blob_sha": "c0e703cc20f4bc264ff1fa086f9ba4558d4f6d21",
+  "source_education_graph_blob_sha": "527bfe648c96de4b3d56d19f404cb97b90da3537",
+  "basis": "METADATA_AND_LEGACY_STUDY_DOCUMENT_RECONCILIATION_NOT_FRESH_REGULATORY_FACT_CHECK",
+  "original_ledger_preserved": true,
+  "unverified_fact_promotion_prohibited": true,
+  "source_docs_read_subset_note": "20개 기존 연구 문서만 직접 확인; 기존 원본 SRT 전체와 2026 현재 금융법규 원표는 재검증하지 않음",
+  "stats": {
+    "claims": 20,
+    "video_links": 20,
+    "distinct_video_ids": 20,
+    "source_document_paths_mapped": 40,
+    "distinct_summary_documents_read": 20,
+    "triage_counts": {
+      "TIME_SENSITIVE_EVIDENCE_RECHECK": 10,
+      "SOURCE_LIMITED_NOT_FACT_APPROVED": 5,
+      "STRATEGY_CONTEXT_ONLY": 4,
+      "GENERAL_EDUCATION_LINK_CANDIDATE": 1
+    },
+    "existing_v5_graph_core_linked_claims": 3,
+    "existing_v5_graph_core_reference_edges": 9,
+    "existing_graph_semantic_link_warning_count": 2,
+    "new_fact_approvals": 0,
+    "new_personalized_advice_approvals": 0,
+    "legacy_claims_modified": 0
+  },
+  "records": [
+    {
+      "claim_id": "GOMHEE-C41",
+      "original_topic": "pension_behavior",
+      "original_statement": "연금저축은 세액공제 계좌를 넘어 장기 현금흐름을 만드는 축적 시스템이며, 장기계좌의 제약은 유동성 비용과 동시에 단기 과잉개입을 줄이는 행동 통제 장치로 작동할 수 있다",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "normalized_concept": "PENSION_CASHFLOW_BEHAVIOR",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "연금저축을 절세·장기 현금흐름 계좌로 운용하는 철학을 보존하되 조기인출 제약은 투자 규율의 이점만이 아니라 실제 유동성 비용이라는 점을 명시한다. 600/900 세액공제, 과세이연과 인출 세율은 개인별 법규 확인 전 신규 승인하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "-71DQQIcTlc",
+          "canonical_sequence": 77,
+          "verification_status": "current_income_tax_and_NTS_pension_rules_checked",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/undated/-71DQQIcTlc.md",
+            "videos/pending/-71DQQIcTlc.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/undated/-71DQQIcTlc.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/undated/-71DQQIcTlc.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-PENSION-DEFERRED-TAX",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C07",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        },
+        {
+          "claim_id": "GOMHEE-C31",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C42",
+      "original_topic": "pension_tax_basis",
+      "original_statement": "연금계좌의 납입한도와 세액공제 한도는 다른 개념이며, 공제한도를 초과한 납입액도 비공제 원금·과세이연·향후 인출설계 관점에서 별도 관리한다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "normalized_concept": "PENSION_NONDEDUCTED_PRINCIPAL",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "연금저축의 공제대상 납입 600만원·연금계좌 900만원 합산과 일반 납입 1800만원은 별개다. 세액공제 받지 않은 원금의 세무 추적이 필요하며 IRP 인출과 동일시하면 안 된다. 기존 V5 ISA 만기 전환/사적연금 1500만원 참조는 이 주장과 직접 동일 사실이 아니다.",
+      "source_videos": [
+        {
+          "video_id": "ZTlLcC4gE0M",
+          "canonical_sequence": 78,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/ZTlLcC4gE0M.md",
+            "videos/pending/ZTlLcC4gE0M.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/ZTlLcC4gE0M.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/ZTlLcC4gE0M.md"
+      ],
+      "existing_v5_graph_core_references": [
+        {
+          "knowledge_id": "EDU-KR-ISA-TO-PENSION-2026-01",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-KR-PENSION-55-5",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-KR-PENSION-CREDIT-600-900",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        }
+      ],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-KR-PENSION-CREDIT-600-900",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-PENSION-DEFERRED-TAX",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C08",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        },
+        {
+          "claim_id": "GOMHEE-C07",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "B03_C42_TAX_BASIS_NOT_SAME_AS_ISA_TRANSFER_OR_PENSION_1500",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C43",
+      "original_topic": "pension_wrapper_selection",
+      "original_statement": "연금저축과 IRP는 어느 하나가 절대 우월한 계좌가 아니라 유동성·투자가능자산·위험자산 한도·퇴직급여 수용 등 기능 차이를 기준으로 조합한다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "normalized_concept": "PENSION_IRP_LIQUIDITY_ASSET_CONSTRAINT",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "연금저축과 IRP의 중도인출, 투자가능 상품과 위험자산 한도, 퇴직급여 수용기능을 별개로 비교해야 한다. 영상 속 IRP 위험자산 70% 및 담보대출 50~60% 사례는 2026 당시 자료이며 금융회사·자산·법정 조건의 최신 확인이 필요하다.",
+      "source_videos": [
+        {
+          "video_id": "DVEdeOoCtXA",
+          "canonical_sequence": 79,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/DVEdeOoCtXA.md",
+            "videos/pending/DVEdeOoCtXA.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/DVEdeOoCtXA.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/DVEdeOoCtXA.md"
+      ],
+      "existing_v5_graph_core_references": [
+        {
+          "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-PENSION-DEFERRED-TAX",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-KR-PENSION-IN-KIND-TRANSFER",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        }
+      ],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-IRP-LIFECYCLE",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C08",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        },
+        {
+          "claim_id": "GOMHEE-C42",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C44",
+      "original_topic": "pension_product_mix",
+      "original_statement": "연금저축은 세액공제 계좌라는 wrapper만 볼 것이 아니라 그 안의 보험·신탁·펀드·ETF 등 상품형태와 자산배분·시장위험을 분리해 평가해야 한다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "normalized_concept": "PENSION_ACCOUNT_UNDERLYING_PRODUCT_RISK",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "연금저축계좌의 보험·신탁·펀드/ETF 운용 형태가 다르고 자산 노출에 따라 위험이 달라진다. 종전 자료의 2025년 수익률 29.3% 등 통계는 해당 연도와 당시 산정방식의 결과일 뿐 장기 기대수익이나 2026 현재 성과로 재사용하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "UqF7q4yIODM",
+          "canonical_sequence": 80,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/UqF7q4yIODM.md",
+            "videos/pending/UqF7q4yIODM.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/UqF7q4yIODM.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/UqF7q4yIODM.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C43",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        },
+        {
+          "claim_id": "GOMHEE-C48",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C45",
+      "original_topic": "retirement",
+      "original_statement": "적립을 끝낸 뒤에는 '얼마를 모았는가'만큼 '어떻게 인출할 것인가'가 중요하다. 영상은 연금자산에 인출률을 적용해 월 현금흐름을 역산하고, 국민연금 등 공적연금과 개인연금을 합쳐 은퇴소득을 설계하는 decumulation 관점을 제시한다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "RETIREMENT_WITHDRAWAL_SEQUENCE_RISK",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "연금 인출액은 공적연금 등 소득과 총지출, 인출기간, 인플레이션, 초기 하락 위험에 좌우된다. 역사적 4% 인출률은 영구 원금보장 규칙이 아니며 커버드콜의 8% 분배 아이디어는 안전인출률 8%를 의미하지 않는다. 현행법과 개인 조건 검토 없이 실행 금지.",
+      "source_videos": [
+        {
+          "video_id": "CPKP1iu1ZMI",
+          "canonical_sequence": 81,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/CPKP1iu1ZMI.md",
+            "videos/pending/CPKP1iu1ZMI.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/CPKP1iu1ZMI.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/CPKP1iu1ZMI.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-KR-PENSION-55-5",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C31",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        },
+        {
+          "claim_id": "GOMHEE-C55",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C46",
+      "original_topic": "cash_management",
+      "original_statement": "2020년 CMA 리뉴얼 영상에서 확립된 'CMA는 투자상품이라기보다 현금관리 인프라'라는 관점을 2026년 환경에 맞춰 다시 설명한다. 핵심은 남는 현금을 무이자성 대기자금으로 방치하지 않고 증권투자와 연결되는 현금관리 계좌에 두되, CMA 유형별 구조와 안전장치를 구분하는 것이다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "CMA_CREDIT_LIQUIDITY_AND_CASH_HUB",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "CMA는 현금관리와 대기자금의 계좌 인프라로 볼 수 있으나 RP·발행어음·MMW 등의 법적·신용·유동성 구조는 다르다. 영상의 2026년 금리 2.0~2.6%는 촬영당시 예시로만 보존하고 현재 판매금리나 예금보호를 단정하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "cSNjKKdtp6M",
+          "canonical_sequence": 82,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/cSNjKKdtp6M.md",
+            "videos/pending/cSNjKKdtp6M.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/cSNjKKdtp6M.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/cSNjKKdtp6M.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C20",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        },
+        {
+          "claim_id": "GOMHEE-C19",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C47",
+      "original_topic": "retirement",
+      "original_statement": "노후준비는 소득수준만으로 가능/불가능을 판단하는 문제가 아니다. 같은 50대라도 고용형태·남은 근로기간·공적연금·보험·현재자산·월 저축가능액이 다르면 해법이 달라진다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "RETIREMENT_SUBSCRIBER_CASE_INPUTS",
+      "research_triage": "SOURCE_LIMITED_NOT_FACT_APPROVED",
+      "interpretation_and_exceptions": "30대 근로자·50대 근로자·프리랜서·종신보험 상담은 개인 조건이 다른 사례다. 원본 전체 전사가 없으므로 특정 보험 해지나 상품선택 지시를 재구성하지 않는다. 소득·공적연금·자산·부채·저축가능액·보장을 평가할 입력 항목만 상담 문맥으로 기록한다.",
+      "source_videos": [
+        {
+          "video_id": "lWWz4i7vIX4",
+          "canonical_sequence": 83,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/lWWz4i7vIX4.md",
+            "videos/pending/lWWz4i7vIX4.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/lWWz4i7vIX4.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/lWWz4i7vIX4.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C55",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C48",
+      "original_topic": "irp",
+      "original_statement": "퇴직연금 통계의 목적은 남들과 같은 상품을 따라 사는 것이 아니라 제도가 DB 중심에서 DC/IRP 및 실적배당형 운용으로 점차 이동하는 구조를 이해하는 데 있다. 운용 책임이 개인에게 더 많이 넘어올수록 자산배분·비용·위험관리 역량의 중요성이 커진다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "RETIREMENT_PENSION_ANNUAL_STATISTICS",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "2025년 퇴직연금 적립금 501.4조원, 수익률 6.5%, 실적배당 비중 24.6%는 이전 연구 문서에 기록된 해당 연도 수치다. 이번 배치에서 원표를 새로 검색하지 않아 사실 재승인하지 않고 DB/DC/IRP 운용권한 차이만 교육상 맥락으로 보존한다.",
+      "source_videos": [
+        {
+          "video_id": "OdR6ICkcthc",
+          "canonical_sequence": 84,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/OdR6ICkcthc.md",
+            "videos/pending/OdR6ICkcthc.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/OdR6ICkcthc.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/OdR6ICkcthc.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C43",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        },
+        {
+          "claim_id": "GOMHEE-C44",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C49",
+      "original_topic": "investment_principles",
+      "original_statement": "결과금액 7억원보다 중요한 것은 자산축적 과정을 측정하고 기록한 시스템이다. 가계부로 현금흐름을 관리하고, 투자 관리시트로 자산을 추적하며, 자산배분을 장기간 유지해 금융자산이 늘어가는 경로를 확인하는 사례다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "SUBSCRIBER_WEALTH_FEEDBACK_LOOP",
+      "research_triage": "STRATEGY_CONTEXT_ONLY",
+      "interpretation_and_exceptions": "7억원 자산 형성 사례는 가계부·저축률·정기투자·포트폴리오 기록과 지출목표의 연결을 보여주는 개인 경험이다. 7억원이 다른 사람도 달성할 수 있는 보장 목표라는 증거나 특정 자산배분의 우월성에 대한 실증 연구가 아니다.",
+      "source_videos": [
+        {
+          "video_id": "i32DeJPzsfE",
+          "canonical_sequence": 85,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/i32DeJPzsfE.md",
+            "videos/pending/i32DeJPzsfE.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/i32DeJPzsfE.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/i32DeJPzsfE.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C60",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C50",
+      "original_topic": "investor_education",
+      "original_statement": "시장가격을 재무숫자만으로 설명하기보다 자금흐름과 투자심리의 상호작용으로 해석하는 관점을 소개한다. 시장 참여자의 유형과 심리국면을 이해하되, 이를 단기 고점/저점을 정확히 맞히는 공식으로 사용하지 않는 것이 중요하다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "BOOK_REVIEW_MARKET_PSYCHOLOGY",
+      "research_triage": "STRATEGY_CONTEXT_ONLY",
+      "interpretation_and_exceptions": "코스톨라니 서평에 나오는 시장심리·달걀 이론은 투자관점과 서술 모델이다. 단기 변동률 예측을 검증한 규정 사실이 아니며 책 저자의 이론과 채널의 공식 금융자료 검증을 혼합하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "835_phhMGM8",
+          "canonical_sequence": 86,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/835_phhMGM8.md",
+            "videos/pending/835_phhMGM8.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/835_phhMGM8.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/835_phhMGM8.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C01",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "BOOK_REVIEW",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C51",
+      "original_topic": "investment_principles",
+      "original_statement": "특정 대형주 두 종목에 대한 손실 문제를 '언제 본전이 오나'가 아니라 포트폴리오 집중과 자산배분 문제로 재정의한다. 매수가 회복 여부는 투자판단의 절대기준이 아니며 현재 투자근거와 전체 포트폴리오에서 차지하는 위험을 다시 봐야 한다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "LOSING_STOCK_BREAKEVEN_BIAS",
+      "research_triage": "STRATEGY_CONTEXT_ONLY",
+      "interpretation_and_exceptions": "삼성전자·SK하이닉스 손실주식 구독자 사례는 본전가격보다 종목집중·투자기간·자산배분을 검토하는 행동 문맥이다. 원본에 없는 매도가, 목표비중, 분할매수 수치는 생성하지 않으며 특정 투자자의 손절 또는 물타기를 자동 권고하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "Dqv6t3cOlIM",
+          "canonical_sequence": 87,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/Dqv6t3cOlIM.md",
+            "videos/pending/Dqv6t3cOlIM.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/Dqv6t3cOlIM.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/Dqv6t3cOlIM.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C52",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C52",
+      "original_topic": "asset_allocation",
+      "original_statement": "자산배분은 단기 시장방향을 반복 예측하는 대신 서로 다른 위험요인을 가진 자산을 목표비중으로 보유하고 정기적으로 리밸런싱하는 접근이다. 영상의 핵심 프레임은 '예측보다 구조'다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "ASSET_CLASS_TARGET_WEIGHT_REBALANCING",
+      "research_triage": "GENERAL_EDUCATION_LINK_CANDIDATE",
+      "interpretation_and_exceptions": "자산배분은 서로 다른 경제적 위험을 가진 자산군을 목표비중으로 두고 리밸런싱하는 구조다. 위기 시 동반 손실을 제거하지 않는다. 기존 V5 정액적립 평균단가 산술 예시 참조는 이 자산배분 주장 전체의 직접 근거로 볼 수 없어 연결 의미를 재검토한다.",
+      "source_videos": [
+        {
+          "video_id": "oxMpNgnbISw",
+          "canonical_sequence": 88,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/oxMpNgnbISw.md",
+            "videos/pending/oxMpNgnbISw.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/oxMpNgnbISw.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/oxMpNgnbISw.md"
+      ],
+      "existing_v5_graph_core_references": [
+        {
+          "knowledge_id": "EDU-GENERAL-DCA-ARITH-01",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+          "relation": "EXISTING_V5_GRAPH_CORE_REFERENCE_NOT_A_NEW_EVIDENCE_APPROVAL"
+        }
+      ],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C09",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        },
+        {
+          "claim_id": "GOMHEE-C57",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "B03_C52_ALLOCATION_NOT_DCA_ARITHMETIC",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C53",
+      "original_topic": "investment_principles",
+      "original_statement": "투자 시작이 늦었다는 불안에 높은 위험을 감수하는 것으로 대응하지 않고, 현재의 소득·저축가능액·목표기간에서 출발하는 접근을 강화한다. 나이보다 중요한 것은 앞으로 축적할 수 있는 현금흐름과 투자기간이다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "LATE_START_NO_LEVERAGE_RESCUE",
+      "research_triage": "SOURCE_LIMITED_NOT_FACT_APPROVED",
+      "interpretation_and_exceptions": "투자 시작이 늦었다는 불안을 공격적 수익률이나 레버리지로 보상하는 것이 적절하다는 증거는 없다. 영상 전문이 확보되지 않아 월급 투자비율, 청년정책 상품의 자격이나 구체 투자 추천 수치는 재구성하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "uzZkVRGZw2k",
+          "canonical_sequence": 89,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/uzZkVRGZw2k.md",
+            "videos/pending/uzZkVRGZw2k.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/uzZkVRGZw2k.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/uzZkVRGZw2k.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C38",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C54",
+      "original_topic": "investor_education",
+      "original_statement": "투자공부의 목적을 '더 많은 정보를 소비해 더 자주 거래하는 것'이 아니라 가설을 의심하고, 위험을 분산하고, 포지션 크기를 통제하며, 불필요한 반응을 줄이는 의사결정 역량으로 본다. 특히 '올바른 반응의 99%는 무반응'이라는 장은 뉴스·가격변화에 대한 과잉행동을 경계하는 행동원칙을 명시한다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "SPONSORED_INTERVIEW_UNVERIFIED_FORMULA",
+      "research_triage": "SOURCE_LIMITED_NOT_FACT_APPROVED",
+      "interpretation_and_exceptions": "협찬 인터뷰의 '올바른 반응 99%는 무반응'은 교육적 장 제목이지 객관적으로 검증한 투자 정답률 99%가 아니다. 출연자 주장을 금융규정으로 승격하거나 원문 없는 포지션 규모 산식·증권시장 전망을 새 사실로 승인하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "AeCOMNl11v4",
+          "canonical_sequence": 90,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/AeCOMNl11v4.md",
+            "videos/pending/AeCOMNl11v4.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/AeCOMNl11v4.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/AeCOMNl11v4.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C50",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "SPONSORED_INTERVIEW",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C55",
+      "original_topic": "retirement",
+      "original_statement": "50세부터 시작하는 노후준비는 '늦었으니 높은 수익률을 노린다'가 아니라 남은 근로기간, 저축가능액, ISA·연금저축 등 절세계좌, 국민연금 수령시점, 은퇴 후 현금흐름을 함께 역산하는 문제다. 시작시점이 늦을수록 기대수익률을 과도하게 높이기보다 저축액·은퇴시점·지출목표를 현실적으로 조정해야 한다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "AGE50_NATIONAL_PENSION_RETIREMENT_GAP",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "50대 은퇴설계는 남은 근로기간과 월저축액, 지출계획, 국민연금 예상액, ISA·연금의 세제조건, 인출순서를 함께 역산한다. 국민연금 연기수령 0.6%/월 등 과거 문서의 설명은 실제 개인 적용과 최신 NPS 규정 검색 전 확정하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "WGFPHeM6-6I",
+          "canonical_sequence": 91,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/WGFPHeM6-6I.md",
+            "videos/pending/WGFPHeM6-6I.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/WGFPHeM6-6I.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/WGFPHeM6-6I.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        },
+        {
+          "knowledge_id": "EDU-KR-PENSION-55-5",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C31",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C56",
+      "original_topic": "retirement",
+      "original_statement": "공무원의 노후준비도 직업명 자체보다 안정적인 급여흐름, 공적연금 예상액, 은퇴까지 남은 기간, 추가 저축여력을 함께 계산하는 문제로 본다. 공적연금이 있다는 이유로 금융자산 형성을 생략하거나, 반대로 공적연금을 무시하고 일반 직장인과 동일한 목표액을 기계적으로 적용하면 안 된다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "CIVIL_SERVICE_PENSION_DISTINCT_FROM_NPS",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "공무원 직역연금은 국민연금 가입자와 다른 수급·기여 조건을 갖는다. 직업명만으로 공적연금액이나 목표 자산을 정할 수 없으며 관련 법령과 가입 이력에 따른 개인 급여액의 확인 없이 사적연금 추천을 실행하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "zi9x_q2fYoc",
+          "canonical_sequence": 92,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/zi9x_q2fYoc.md",
+            "videos/pending/zi9x_q2fYoc.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/zi9x_q2fYoc.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/zi9x_q2fYoc.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C55",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C57",
+      "original_topic": "retirement",
+      "original_statement": "핵심은 특정 자산이나 시장국면을 맞히기보다 서로 다른 경제환경에서 반응이 다른 자산을 조합해 포트폴리오 전체 변동성을 관리하는 자산배분 접근이다. 이는 기존 박곰희 프레임의 '시장예측보다 목표비중과 리밸런싱'을 다시 강화한다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "SPONSORED_BOOK_ALL_WEATHER_BACKTEST",
+      "research_triage": "STRATEGY_CONTEXT_ONLY",
+      "interpretation_and_exceptions": "협찬 도서 영상의 올웨더 자산배분과 50년 백테스트는 연구방법·기간·구현비용을 따른 전략 사례다. 이를 미래 50년의 무손실이나 확정 초과수익으로 바꾸지 않는다. 기존 C52 자산배분 원칙에 중복 노드를 추가하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "uiauof6tOFk",
+          "canonical_sequence": 93,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/uiauof6tOFk.md",
+            "videos/pending/uiauof6tOFk.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/uiauof6tOFk.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/uiauof6tOFk.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C52",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "SPONSORED_BOOK_REVIEW",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C58",
+      "original_topic": "retirement",
+      "original_statement": "은퇴설계는 '얼마를 모아야 하는가'라는 숫자부터 시작하기보다 은퇴 후 어떤 삶과 활동을 원하는지 정의하는 것이 먼저라는 목표기반 접근을 강화한다. 원하는 활동이 여행·취미·가족지원·주거·의료 등 무엇인지에 따라 필요한 생활비와 현금흐름이 달라지기 때문이다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "RETIREMENT_PERSONAL_GOAL_FIRST",
+      "research_triage": "SOURCE_LIMITED_NOT_FACT_APPROVED",
+      "interpretation_and_exceptions": "은퇴 후 여행·취미·가족지원·건강 등 목표를 먼저 정의하고 필요한 지출/연금 부족액을 계산하는 일반 설계 틀이다. 영상 전체 원문과 구독자 발언 내용이 확인되지 않아 구체 활동·금액을 임의 복원하거나 개인별 판단을 확정하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "HfrBi5mzm8w",
+          "canonical_sequence": 94,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/HfrBi5mzm8w.md",
+            "videos/pending/HfrBi5mzm8w.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/HfrBi5mzm8w.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/HfrBi5mzm8w.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C55",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C59",
+      "original_topic": "currency",
+      "original_statement": "'엔화가 싸다'는 한 문장에서 실제 투자는 여러 노출로 갈라진다. 엔화 자체의 환율 노출, 일본주식의 기업/시장 노출, 미국지수를 엔화로 거래하는 경우의 기초자산·통화 노출은 서로 다르다. 거래통화가 엔화라고 해서 최종 경제적 위험이 모두 엔화인 것은 아니다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "JPY_CURRENCY_VS_JAPANESE_EQUITY",
+      "research_triage": "TIME_SENSITIVE_EVIDENCE_RECHECK",
+      "interpretation_and_exceptions": "엔화 거래 ETF와 일본주식·미국지수 노출은 기초자산·환헤지 여부·거래통화가 다르므로 같은 엔화 투자로 단순화하지 않는다. 2026년 엔화 800원대는 촬영 시점 환율로만 기록하고 실제 환전·매매 전에 상품 설명서와 시세 확인이 필요하다.",
+      "source_videos": [
+        {
+          "video_id": "OfkY343OaNs",
+          "canonical_sequence": 95,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/OfkY343OaNs.md",
+            "videos/pending/OfkY343OaNs.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/OfkY343OaNs.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/OfkY343OaNs.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C29",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        },
+        {
+          "claim_id": "GOMHEE-C36",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "EDUCATION_OR_CASE",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C60",
+      "original_topic": "asset_allocation",
+      "original_statement": "새로운 제도지식보다 기존 박곰희 프레임을 여러 실제 사례로 반복 검증하는 콘텐츠다. 공통축은 소득에서 꾸준한 투자금을 만들고, 예적금 일변도 또는 즉흥적 종목투자에서 자신에게 맞는 투자원칙으로 이동하며, 장기간 기록·지속하는 과정이다.",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "normalized_concept": "REPACKAGED_SUBSCRIBER_STUDIES_NO_DOUBLE_COUNT",
+      "research_triage": "SOURCE_LIMITED_NOT_FACT_APPROVED",
+      "interpretation_and_exceptions": "구독자 사연 몰아보기는 원영상 재편집물이다. 반복 수록된 7억원·월 500만원 사례는 독립 증거로 이중 계상할 수 없고 개인 수익률 예측도 아니다. 별도 원본 구간 대조 없이 재편집 내용을 새 연구 지식으로 복제하지 않는다.",
+      "source_videos": [
+        {
+          "video_id": "4CQ4FjGT2gA",
+          "canonical_sequence": 96,
+          "verification_status": "existing_source_backed_analysis_preserved",
+          "analysis_status": "source_backed_analysis_canonicalized",
+          "video_document_paths": [
+            "videos/2026/4CQ4FjGT2gA.md",
+            "videos/pending/4CQ4FjGT2gA.md"
+          ],
+          "reviewed_document_paths": [
+            "videos/2026/4CQ4FjGT2gA.md"
+          ],
+          "review_depth": "PRIOR_RESEARCH_SUMMARY_ONLY",
+          "original_full_transcript_reviewed_this_batch": false
+        }
+      ],
+      "reviewed_primary_or_secondary_study_documents": [
+        "videos/2026/4CQ4FjGT2gA.md"
+      ],
+      "existing_v5_graph_core_references": [],
+      "integrated_knowledge_links": [
+        {
+          "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+          "relation": "TOPICALLY_RELATED_NOT_SAME_FACT_AND_NOT_NEW_APPROVAL"
+        }
+      ],
+      "legacy_relation_candidates": [
+        {
+          "claim_id": "GOMHEE-C49",
+          "relation": "POTENTIAL_OVERLAP_OR_EXTENSION_REQUIRES_SEMANTIC_REVIEW"
+        }
+      ],
+      "existing_v5_link_semantic_warning": "NONE",
+      "content_type": "COMPILATION",
+      "original_srt_full_cue_coverage_reverified_this_batch": false,
+      "official_rule_current_source_verified_this_batch": false,
+      "chat_evidence_fact_approved_this_batch": false,
+      "personal_investment_advice_approved": false
+    }
+  ]
+}

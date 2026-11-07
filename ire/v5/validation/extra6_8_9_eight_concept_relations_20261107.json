@@ -1,0 +1,95 @@
+{
+  "schema": "IRE_V5_EXTRA6_8_9_EIGHT_SOURCE_SCOPED_CONCEPT_RELATIONS_V1",
+  "as_of": "2026-11-07",
+  "basis": "extra_video6_8_9_3123cue_36_atomic_scope_20261107.json",
+  "source_scoped_candidate_ids_constrained_to_36": true,
+  "relations": [
+    {
+      "relation_id": "XREL-01",
+      "from": "V5X-6-04",
+      "to": "V5X-6-11",
+      "relation": "SCOPE_QUALIFIER",
+      "meaning": "미성년 10년 증여공제 2천만원 규정은 30년간 2억4천만원 예시의 한 요소일 뿐이고 혼인/출산 공제·10년 이력은 별도로 판정",
+      "strict_atomic_equivalence_certified": false,
+      "formal_legacy_B04_edge_created": false,
+      "independent_expert_coherence_review_done": false
+    },
+    {
+      "relation_id": "XREL-02",
+      "from": "V5X-6-05",
+      "to": "V5X-6-06",
+      "relation": "SEPARATE_LEGAL_DIMENSION",
+      "meaning": "상장주식 증여 평가기간 전후 각 2개월은 신고기한(증여받은 달 말일부터 3개월)과 서로 다른 기간·의무",
+      "strict_atomic_equivalence_certified": false,
+      "formal_legacy_B04_edge_created": false,
+      "independent_expert_coherence_review_done": false
+    },
+    {
+      "relation_id": "XREL-03",
+      "from": "V5X-6-07",
+      "to": "V5X-6-11",
+      "relation": "CASHFLOW_TAX_SCOPE_CONFLICT_RISK",
+      "meaning": "정기금 현가 평가를 검증하지 않은 채 기간별 현금 증여 2천만원 법정공제와 같은 금액이라고 단정하면 세액 오류",
+      "strict_atomic_equivalence_certified": false,
+      "formal_legacy_B04_edge_created": false,
+      "independent_expert_coherence_review_done": false
+    },
+    {
+      "relation_id": "XREL-04",
+      "from": "V5X-8-01",
+      "to": "V5X-9-10",
+      "relation": "ACCOUNT_AND_PRODUCT_DISTINCTION",
+      "meaning": "#8 국내상장 엔화 ETF의 과세·계좌 구분은 #9가 나열한 엔 현찰·ETF·일본주식 5가지 방법 각각에 동일 적용되지 않음",
+      "strict_atomic_equivalence_certified": false,
+      "formal_legacy_B04_edge_created": false,
+      "independent_expert_coherence_review_done": false
+    },
+    {
+      "relation_id": "XREL-05",
+      "from": "V5X-8-05",
+      "to": "V5X-9-04",
+      "relation": "DIFFERENT_FX_RETURN_COMPONENTS",
+      "meaning": "일본주식 환노출 ETF의 주가·원엔 두 위험과 원엔·달러엔 환율의 상대 비교는 비슷해 보여도 각기 다른 수익 구성요소",
+      "strict_atomic_equivalence_certified": false,
+      "formal_legacy_B04_edge_created": false,
+      "independent_expert_coherence_review_done": false
+    },
+    {
+      "relation_id": "XREL-06",
+      "from": "V5X-8-07",
+      "to": "V5X-9-10",
+      "relation": "JAPAN_LISTED_US_EQUITY_REFINES",
+      "meaning": "엔화로 일본상장 미국 ETF를 사는 방법은 미국주식 기초자산·통화·상품/과세가 결합된 것이라는 조건을 #9의 투자수단 목록에 추가",
+      "strict_atomic_equivalence_certified": false,
+      "formal_legacy_B04_edge_created": false,
+      "independent_expert_coherence_review_done": false
+    },
+    {
+      "relation_id": "XREL-07",
+      "from": "V5X-8-08",
+      "to": "V5X-9-10",
+      "relation": "OVERSEAS_EQUITY_TAX_REFINES",
+      "meaning": "#9의 일본 개별주식·일본상장 ETF 투자수단에는 #8의 해외주식 양도소득세·기본공제와 배당세 별도 판정이 필요",
+      "strict_atomic_equivalence_certified": false,
+      "formal_legacy_B04_edge_created": false,
+      "independent_expert_coherence_review_done": false
+    },
+    {
+      "relation_id": "XREL-08",
+      "from": "V5X-9-03",
+      "to": "V5X-9-12",
+      "relation": "GROSS_FX_RETURN_NET_OF_COSTS",
+      "meaning": "870→950원 단순 상승 9.1954%가 은행 스프레드·매매·현찰인출 비용 차감 후 실현 수익과 같다는 오류를 차단",
+      "strict_atomic_equivalence_certified": false,
+      "formal_legacy_B04_edge_created": false,
+      "independent_expert_coherence_review_done": false
+    }
+  ],
+  "concept_relation_total": 8,
+  "formal_116_master_claim_relations_approved": 0,
+  "new_29_education_nodes_inserted": 0,
+  "source_mutation_approved": false,
+  "strict_semantic_duplicate_deletion": 0,
+  "personal_tax_advice_authorized": false,
+  "release": "PROVISIONAL_RELATION_NETWORK_ONLY_NOT_FORMAT_B04_FACT_APPROVAL"
+}

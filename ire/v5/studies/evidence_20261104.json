@@ -1,0 +1,159 @@
+{
+  "schema": "IRE_V5_FIVE_SOURCE_EVIDENCE_REGISTRY_V1",
+  "date": "2026-11-04",
+  "source_evidence_count": 15,
+  "sources": [
+    {
+      "id": "SRC-ISA-ACCOUNT",
+      "issuer": "우리은행 ISA 안내",
+      "url": "https://spot.wooribank.com/pot/Dream?withyou=IMISA0045",
+      "evidence_class": "INSTITUTIONAL_RULE_DESCRIPTION",
+      "claimed_scope": "계좌 가입요건·연간 2000만원·서민형 400만원 및 연금 전환",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-ISA-WOORI",
+      "issuer": "우리은행 신탁형 ISA",
+      "url": "https://spot.wooribank.com/pot/Dream?withyou=POTRT0058",
+      "evidence_class": "INSTITUTIONAL_RULE_DESCRIPTION",
+      "claimed_scope": "ISA 3개년도 금융소득종합과세 요건·만기연장 시 유형 재확인",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-ISA-MIRAE",
+      "issuer": "미래에셋증권 ISA Q&A",
+      "url": "https://trading.securities.miraeasset.com/bbs/board/message/list.do?categoryId=1558&curPage=47&direction=0&listType=1&searchEndDay=04&searchEndMonth=07&searchEndYear=2026&searchStartDay=04&searchStartMonth=07&searchStartYear=2025&searchType=2&startId=09izn~&startPage=47",
+      "evidence_class": "BROKER_EXPLANATION",
+      "claimed_scope": "ISA 서민형 소득 확인 증빙·심사 시점: 제공 회사 설명, 현재 법 원문은 별도",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-ISA-KB",
+      "issuer": "KB증권 ISA 만기연금 전환",
+      "url": "https://blog.kbsec.com/isa/%EB%A7%8C%EA%B8%B0%EC%9E%90%EA%B8%88-60%EC%9D%BC-%EC%97%B0%EA%B8%88%EC%A0%84%ED%99%98/",
+      "evidence_class": "BROKER_EXPLANATION",
+      "claimed_scope": "60일 만기 자금 연금전환 및 10% 최대 300만원 추가 세액공제 대상 한도",
+      "observed_date": "2026-10-15",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-NTS-PENSION",
+      "issuer": "국세청 연금계좌 세액공제",
+      "url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+      "evidence_class": "OFFICIAL_TAX_GUIDANCE",
+      "claimed_scope": "세액공제 한도 600/900만원 및 ISA 전환 추가 한도",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-NTS-PENSION-TAX",
+      "issuer": "국세청 연금소득 과세",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+      "evidence_class": "OFFICIAL_TAX_GUIDANCE",
+      "claimed_scope": "연금 수령에 대한 과세대상과 비과세/이연 퇴직소득의 구분",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-NTS-PRIVATE-PENSION",
+      "issuer": "국세청 사적연금 과세",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+      "evidence_class": "OFFICIAL_TAX_GUIDANCE",
+      "claimed_scope": "연 1500만원 초과 사적연금의 종합과세 및 15% 분리과세 선택",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-PENSION-ELIGIBILITY",
+      "issuer": "국세청 연금소득 제도",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+      "evidence_class": "PARTIAL_COVERAGE",
+      "claimed_scope": "55세·가입 5년·연금수령연차 개별 요건의 전체 시행령 원문 별도 필요",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-IRP-LAW",
+      "issuer": "국가법령정보센터 퇴직연금 관련 시행령",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032589681",
+      "evidence_class": "LEGAL_REFERENCE_NEEDS_EFFECTIVITY",
+      "claimed_scope": "IRP 적격 요건·법정 중도인출사유: 연령/유형별 법령 실효성 재확인 필요",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-MOEL-IRP-20261029",
+      "issuer": "고용노동부 퇴직연금 기능강화 2026-10-29",
+      "url": "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=20160",
+      "evidence_class": "DATED_POLICY_PROPOSAL_NOT_ENACTED_LAW",
+      "claimed_scope": "정부가 IRP 위험자산 70% 한도의 단계적 완화 추진 발표, 법안 마련 계획",
+      "observed_date": "2026-10-29",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-ETF-FEE-KB",
+      "issuer": "KB자산운용 ETF 총비용 안내",
+      "url": "https://kbam.co.kr/insights/guide/etf-total-expense-ratio-vs-actual-cost",
+      "evidence_class": "ASSET_MANAGER_EXPLANATION",
+      "claimed_scope": "총보수·기타비용·매매중개수수료를 구분한 총 투자 비용 비교, 실시간 공시 순위 아님",
+      "observed_date": "2026-07-13",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-KRX-ETF",
+      "issuer": "한국거래소 ETF 매매절차",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+      "evidence_class": "EXCHANGE_RULE_GUIDANCE",
+      "claimed_scope": "ETF 매매시간·호가·시장가격과 순자산 가치 및 체결 구조",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-SEC-RISK",
+      "issuer": "미국 SEC 투자 기초",
+      "url": "https://www.investor.gov/introduction-investing",
+      "evidence_class": "US_GENERAL_EDUCATION",
+      "claimed_scope": "투자자산의 손실 위험·배당 및 복리 예시; 한국 연금 세법은 검증하지 않음",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-SEC-DCA",
+      "issuer": "미국 SEC 정액분할매수 교육",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+      "evidence_class": "US_GENERAL_EDUCATION",
+      "claimed_scope": "정기 금액 매수는 낮은 가격에 더 많은 수량을 매수하지만 수익률 보장 아님",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    },
+    {
+      "id": "SRC-SEC-ALLOCATION",
+      "issuer": "미국 SEC 자산배분과 리밸런싱",
+      "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+      "evidence_class": "US_GENERAL_EDUCATION",
+      "claimed_scope": "자산군 분산·투자기간·손실 감내 수준·리밸런싱 개념; 한국 세법은 검증하지 않음",
+      "observed_date": "2026-11-04",
+      "source_bytes_archived": false,
+      "independent_verifier": false
+    }
+  ],
+  "no_automatic_financial_fact_approval": true,
+  "source_note": "ChatGPT web search/reads of public institutional sources; URLs and scope descriptions only; no immutable page snapshot or law effective-date independent review."
+}

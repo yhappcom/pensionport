@@ -1,0 +1,285 @@
+{
+  "schema": "IRE_V5_P1_SOURCE_SCOPED_ATOMIC_FACTS_V1",
+  "as_of": "2026-11-05",
+  "sources_reviewed_this_chat": true,
+  "immutable_page_snapshots_captured": false,
+  "independent_human_blind_verified": false,
+  "financial_claims_accepted_only_with_scope": true,
+  "original_legacy_claims_promoted_directly": 0,
+  "personal_financial_advice_authorized": false,
+  "rows": [
+    {
+      "fact_id": "P1-PENSION-CREDIT-LIMIT",
+      "scope_domains": [
+        "PENSION_TAX"
+      ],
+      "statement": "연금저축 세액공제 대상 납입한도는 600만원이며 퇴직연금계좌 포함 합산 공제대상 납입한도는 900만원이다.",
+      "url": "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596",
+      "agency": "국세청",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "연금",
+        "공제"
+      ],
+      "any_terms": [
+        "600",
+        "900",
+        "세액공제",
+        "납입한도",
+        "환급"
+      ],
+      "application_conditions": [
+        "과세연도 기준 확인",
+        "연금저축·퇴직연금 각각의 실제 납입액",
+        "소득세액공제율·결정세액 확인"
+      ],
+      "exceptions": [
+        "공제대상 납입액 자체가 환급세액은 아니다",
+        "기존 납입액과 결정세액이 실제 공제액을 제한한다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-PENSION-CREDIT-RATE",
+      "scope_domains": [
+        "PENSION_TAX"
+      ],
+      "statement": "국세청 안내의 소득세 세액공제율은 소득요건에 따라 15% 또는 12%이고, 지방소득세 포함 수치는 별도로 계산한다.",
+      "url": "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596",
+      "agency": "국세청",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "연금",
+        "공제"
+      ],
+      "any_terms": [
+        "환급",
+        "공제율",
+        "세율",
+        "소득"
+      ],
+      "application_conditions": [
+        "총급여 또는 종합소득금액 확인",
+        "소득세와 지방소득세 구분",
+        "실제 결정세액 확인"
+      ],
+      "exceptions": [
+        "15%를 16.5%(지방세 포함)와 혼용하면 안 된다",
+        "개인 실제 환급액을 보장하지 않는다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-ISA-60D",
+      "scope_domains": [
+        "ISA_TRANSFER"
+      ],
+      "statement": "ISA 만기잔액을 연금계좌로 납입하는 특례는 ISA계좌 만기일로부터 60일 이내 납입 여부가 핵심 조건이다.",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605",
+      "agency": "국세청",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "isa"
+      ],
+      "any_terms": [
+        "만기",
+        "전환",
+        "이체",
+        "종료",
+        "옮기"
+      ],
+      "application_conditions": [
+        "ISA 계약기간 만료일과 실제 납입일",
+        "금융회사의 ISA 전환금액 처리 방식",
+        "연금저축 또는 IRP 수취계좌 조건"
+      ],
+      "exceptions": [
+        "납입기한 초과 시 전환 특례를 자동 적용하지 않는다",
+        "연금계좌 일반 납입액과 특례대상 금액은 별개다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-ISA-TRANSFER-10PCT",
+      "scope_domains": [
+        "ISA_TRANSFER"
+      ],
+      "statement": "적격 ISA 만기 전환액의 10%를 최대 300만원까지 연금계좌 세액공제 대상 납입한도로 추가 인정할 수 있다.",
+      "url": "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596",
+      "agency": "국세청",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "isa"
+      ],
+      "any_terms": [
+        "전환",
+        "연금",
+        "공제",
+        "만기"
+      ],
+      "application_conditions": [
+        "만기 전환금액·납입 시점",
+        "기존 연금계좌 공제대상 및 결정세액",
+        "과세연도 적용 및 실제 금융사 이체"
+      ],
+      "exceptions": [
+        "300만원은 실제 환급액이 아니라 추가 공제대상 납입한도다",
+        "연금전환 특례는 해외배당 외국세액공제와 다르다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-FUND-FOREIGN-TAX-2025",
+      "scope_domains": [
+        "ISA_FOREIGN_DIVIDEND",
+        "GENERAL_TAX"
+      ],
+      "statement": "2025년 귀속소득부터 국내 설정 해외투자 펀드의 외국납부세액 조정 방식이 변경됐으며, 금융소득종합과세 해당 여부와 계좌 해지 상태에 따라 신고·공제 방식이 달라진다.",
+      "url": "https://sc.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&nttSn=1350542",
+      "agency": "국세청",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "외국|해외|미국"
+      ],
+      "any_terms": [
+        "배당",
+        "세금",
+        "원천",
+        "납부세액",
+        "펀드"
+      ],
+      "application_conditions": [
+        "국내 설정 펀드·ETF 여부",
+        "2025년 귀속 이후 적용 및 금융소득종합과세 대상 여부",
+        "ISA 만기 유지와 중도해지 여부"
+      ],
+      "exceptions": [
+        "ISA 연금계좌 전환공제 규정을 외국납부세액 직접 근거로 삼지 않는다",
+        "해외 상장 ETF에 국내 설정 펀드 규정을 기계적으로 적용하지 않는다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-ETF-NAV-TRACK",
+      "scope_domains": [
+        "ETF_PRODUCT"
+      ],
+      "statement": "ETF 시장가격과 NAV의 괴리는 NAV와 기초지수 간 추적오차와 구분되는 지표다.",
+      "url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
+      "agency": "한국거래소",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "etf"
+      ],
+      "any_terms": [
+        "nav",
+        "괴리",
+        "추적오차",
+        "시장가격"
+      ],
+      "application_conditions": [
+        "ETF 시장가격·NAV·기초지수의 비교시점 일치",
+        "분배금과 거래비용 반영 여부 확인",
+        "상품별 추적지수·시장 거래량 확인"
+      ],
+      "exceptions": [
+        "괴리율을 펀드 운용 추적오차와 같은 지표로 취급하지 않는다",
+        "특정 ETF의 현시점 지표 값은 별도 공시 확인이 필요하다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-SEC-REBALANCE-NOT-FORCED-SELL",
+      "scope_domains": [
+        "MARKET_STRESS",
+        "ALLOCATION"
+      ],
+      "statement": "시장 급락·변동성이나 서킷브레이커 관련 소식만으로 포트폴리오를 전량 매도해야 하는 것은 아니다. 목표 자산배분·감내위험·현금수요·비용을 검토해 리밸런싱 방식을 판단한다.",
+      "url": "https://www.investor.gov/additional-resources/spotlight/formerdirectorlorischock-directors-take/it-time-rebalance-your-investment-portfolio",
+      "agency": "미국증권거래위원회 투자자교육",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "서킷브레이커|급락|폭락|시장 변동",
+        "매도|팔|목표비중|리밸런싱"
+      ],
+      "any_terms": [
+        "매도",
+        "팔",
+        "목표비중",
+        "비중",
+        "리밸런싱"
+      ],
+      "application_conditions": [
+        "실제 보유 자산군·목표비중과 위험감내를 먼저 확인",
+        "필요 유동자금·투자기간·거래비용·세제 영향 확인"
+      ],
+      "exceptions": [
+        "미국 SEC 일반 교육자료는 한국거래소 서킷브레이커 발동 조건의 공식근거가 아니다",
+        "개별 종목 전량 매도·시장 반등을 보장하거나 자동 권고하지 않는다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-FOREIGN-RP-NOT-BANK-DEPOSIT",
+      "scope_domains": [
+        "FOREIGN_CURRENCY",
+        "CASH_CMA"
+      ],
+      "statement": "미래에셋증권의 외화RP 핵심설명서에 따르면 외화RP는 예금자보호법에 따라 보호되지 않고, 발행사 및 담보채권의 지급능력과 환율 변동에 따라 원금손실이 발생할 수 있다. 외화예금과 동일한 법적 위험 구조로 취급할 수 없다.",
+      "url": "https://img.securities.miraeasset.com/download/pdf/hki3032n15.pdf",
+      "agency": "미래에셋증권",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "달러|usd|외화",
+        "rp"
+      ],
+      "any_terms": [
+        "예금",
+        "안전",
+        "위험",
+        "보호",
+        "동일"
+      ],
+      "application_conditions": [
+        "외화RP의 실제 발행사·약정기간·상환조건·수익률 확인",
+        "외화예금의 예금자보호 조건과 통화별 환산손익을 별도로 확인"
+      ],
+      "exceptions": [
+        "해당 금융회사의 외화RP 공시를 모든 예금/모든 증권사 상품에 자동 적용하지 않는다",
+        "외화RP 약정수익률이 원화기준 확정수익을 뜻하지 않는다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    },
+    {
+      "fact_id": "P1-CMA-RP-NOT-PROTECTED",
+      "scope_domains": [
+        "CASH_CMA"
+      ],
+      "statement": "신한투자증권이 공시한 CMA·RP 투자상품은 은행 예금과 달리 예금자보호법상 보호 대상이 아니며, 운용자산 및 시장상황에 따라 투자원금 손실이 발생할 수 있다.",
+      "url": "https://m.shinhansec.com/mweb/fnin/fcma/ffcma0001?tab=0",
+      "agency": "신한투자증권",
+      "as_of": "2026-11-05",
+      "require_terms": [
+        "cma",
+        "rp|금리|원금|손실|보장|수익"
+      ],
+      "any_terms": [
+        "금리",
+        "원금",
+        "손실",
+        "보장",
+        "수익",
+        "rp"
+      ],
+      "application_conditions": [
+        "해당 CMA 유형과 운용 방식 및 실제 설명서 확인",
+        "현금 출금 가능시점과 신용·유동성 위험을 은행 예금과 비교"
+      ],
+      "exceptions": [
+        "종금형 등 법적 구조가 다른 유형에 신한투자증권의 RP형 조건을 일괄 적용하지 않는다",
+        "상품에 기재된 약정수익률을 예금보험 또는 정부의 지급보장으로 해석하지 않는다"
+      ],
+      "legacy_research_claims_are_direct_evidence": false
+    }
+  ]
+}

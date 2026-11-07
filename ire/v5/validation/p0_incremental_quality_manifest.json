@@ -1,0 +1,23 @@
+{
+  "schema": "IRE_V5_P0_INCREMENTAL_QUALITY_MANIFEST_V1",
+  "purpose": "Immutable redacted source-review batches; this is not semantic recall or independent source replay.",
+  "batches": [
+    {
+      "batch_id": "video24_W00001_W00024_20261107",
+      "path": "ire/v5/validation/private_source_derived_20261107/video24_w01_w24.json.zlib.b64",
+      "payload_sha256": "ac390710dbd5eb3c323cd8bed0ad916956a8e7ed6c713c5440ca9f3f1a33a216",
+      "archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+      "source_sha256": "af4d89d0e69b219947fdf82cdd9f3229c1f7b1e14c05c924ac815d2511f6c531",
+      "video_id": "AeCOMNl11v4",
+      "first_window": "W00001",
+      "first_cue": 1,
+      "expected_windows": 24,
+      "expected_cues": 431,
+      "expected_claims": 54,
+      "next_window": "W00025"
+    }
+  ],
+  "p0_go": false,
+  "independent_recall_certified": false,
+  "formal_researchrun_submitted": false
+}

@@ -1,0 +1,3159 @@
+{
+  "schema": "IRE_V5_VIDEO1_FIRST40_SCOPED_FINANCE_FACT_REVIEW_V1",
+  "review_date": "2026-11-06",
+  "source_zip_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "video_id": "sz5N9WJS310",
+  "source_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+  "video1_20to40_event_head_sha256": "9f0685b2b1f8b95c2eefa7708e8ae1ad8d1bd567d40e84e1d6b2d04aed81874e",
+  "reviewed_window_ids": [
+    "W00001",
+    "W00002",
+    "W00003",
+    "W00004",
+    "W00005",
+    "W00006",
+    "W00007",
+    "W00008",
+    "W00009",
+    "W00010",
+    "W00011",
+    "W00012",
+    "W00013",
+    "W00014",
+    "W00015",
+    "W00016",
+    "W00017",
+    "W00018",
+    "W00019",
+    "W00020",
+    "W00021",
+    "W00022",
+    "W00023",
+    "W00024",
+    "W00025",
+    "W00026",
+    "W00027",
+    "W00028",
+    "W00029",
+    "W00030",
+    "W00031",
+    "W00032",
+    "W00033",
+    "W00034",
+    "W00035",
+    "W00036",
+    "W00037",
+    "W00038",
+    "W00039",
+    "W00040"
+  ],
+  "reviewed_claims_count": 97,
+  "reviewed_rule_claims_count": 20,
+  "narrow_official_subfacts_supported": 15,
+  "unresolved_rule_composites": 5,
+  "non_regulatory_claims_not_approved": 77,
+  "official_sources": [
+    {
+      "agency": "국민연금공단",
+      "url": "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do?menuId=MN24001116",
+      "section": "추후납부 신청자격·대상기간",
+      "verified_summary": "추납 신청은 자격유지 중 가능하며 과거 인정대상 기간에서 최대 119개월; 일률적인 납입·증액 개인별 확정 불가",
+      "source_id": "NPS_RETRO",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE",
+      "effective_at": "CURRENT_AGENCY_GUIDANCE_AS_OF_2026-11-06"
+    },
+    {
+      "agency": "법제처 국가법령정보센터",
+      "url": "https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029855751",
+      "section": "국민연금법 제51조·물가변동률",
+      "effective_at": "2026-10-20",
+      "verified_summary": "공적연금 산식·지급액 조정에 소비자물가변동률을 반영; 투자계좌 주가상승과 동등하지 않음",
+      "source_id": "NPS_CPI",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE"
+    },
+    {
+      "agency": "국민연금공단",
+      "url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0048M0.do",
+      "section": "지급기간 및 정기지급일",
+      "verified_summary": "지급사유 발생 다음 달부터 정기 월25일 지급, 토요일·공휴일인 경우 전일; 출생연도별 개시연령 상이",
+      "source_id": "NPS_PAY",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE",
+      "effective_at": "CURRENT_AGENCY_GUIDANCE_AS_OF_2026-11-06"
+    },
+    {
+      "agency": "국민연금공단",
+      "url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do",
+      "section": "노령연금 연기신청",
+      "verified_summary": "연기 가능 5년까지, 1년당 7.2%, 최대 36% 가산; 시장 투자 수익률 7.2% 보장과는 다름",
+      "source_id": "NPS_DELAY",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE",
+      "effective_at": "CURRENT_AGENCY_GUIDANCE_AS_OF_2026-11-06"
+    },
+    {
+      "agency": "국세청",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+      "section": "사적연금 1500만원 기준·종합/분리과세 선택",
+      "verified_summary": "특정 과세대상 사적연금소득의 연1500만원 초과 시 종합과세 또는 15% 분리과세 선택 가능; 전체 계좌 인출금지 금액 아님",
+      "source_id": "NTS_PENSION1500",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE",
+      "effective_at": "CURRENT_AGENCY_GUIDANCE_AS_OF_2026-11-06"
+    },
+    {
+      "agency": "법제처 국가법령정보센터",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032008497",
+      "section": "소득세법 제14조 제3항 6호",
+      "effective_at": "2026-07-01",
+      "verified_summary": "일반 이자·배당 소득의 종합과세 기준금액 2000만원(법정 제외소득 등 예외); 사적연금 1500만원과 다른 제도",
+      "source_id": "LAW_FIN2000",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE"
+    },
+    {
+      "agency": "국세청",
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7703&mi=2415",
+      "section": "거주자 이자·배당소득 원천징수 기본세율",
+      "verified_summary": "일반적인 과세 대상 이자·배당 원천징수 소득세 14%, 지방소득세 포함 통상 15.4%; 예외 및 합산신고 구분",
+      "source_id": "NTS_WITHHOLD",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE",
+      "effective_at": "CURRENT_AGENCY_GUIDANCE_AS_OF_2026-11-06"
+    },
+    {
+      "agency": "법제처 국가법령정보센터",
+      "url": "https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1022578927",
+      "section": "소득세법 시행령 제40조의3 인출순서",
+      "effective_at": "2026-10-01",
+      "verified_summary": "연금계좌 일부 인출 시 과세제외금액→이연퇴직소득→기타 과세대상 납입액·운용수익 순서; 세액공제 미적용 원금 증빙 중요",
+      "source_id": "LAW_WITHDRAW",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE"
+    },
+    {
+      "agency": "법제처 국가법령정보센터",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032951711",
+      "section": "소득세법 제59조의3",
+      "effective_at": "2026-07-01",
+      "verified_summary": "연금저축 연 600만원, 퇴직연금 포함 900만원 공제대상 납입한도; ISA 만기 전환금액의 10% 최대 300만원 추가 한도",
+      "source_id": "LAW_CREDIT",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE"
+    },
+    {
+      "agency": "국세청",
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6467",
+      "section": "연금계좌 세액공제·ISA 전환금액",
+      "verified_summary": "ISA 계약 만기잔액을 정해진 방식으로 연금계좌 전환한 해에 전환금액 10%, 최대 300만원 세액공제 한도 추가",
+      "source_id": "NTS_CREDIT",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE",
+      "effective_at": "CURRENT_AGENCY_GUIDANCE_AS_OF_2026-11-06"
+    },
+    {
+      "agency": "법제처 국가법령정보센터",
+      "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507",
+      "section": "소득세법 시행령 제40조의2 연금수령의 연령·기간·한도",
+      "effective_at": "2026-10-01",
+      "verified_summary": "55세 이후 개시 신청·원칙 5년 가입(이연퇴직소득 예외)·연금수령한도 등; 1500만원과는 별도 기준",
+      "source_id": "LAW_PENSION_ELIGIBILITY",
+      "accessed_at": "2026-11-06",
+      "observed_kind": "WEB_VERIFIED_OFFICIAL_TEXT_NOT_IMMUTABLE_ARCHIVE"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "V5C0001",
+      "window_id": "W00001",
+      "kind": "OPINION",
+      "claim_payload_sha256": "8fc2d902fe44f79f10b8ebab63da7c99369783f8cd0386a97b8eb50d77851a51",
+      "source_cue_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_cue_refs_sha256": "520cce4bde56159e510076632dc3c04760085b66f467453fa80fcb26f00acb11",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0259",
+      "window_id": "W00002",
+      "kind": "PERSONAL_CASE",
+      "claim_payload_sha256": "1b831e8aeada5535db536c41ba1dabf00f0b0698dd56adb542c13c542352717e",
+      "source_cue_indices": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "source_cue_refs_sha256": "19481b4bbd5c2fd1d495e9acfcfa65f37b587d1f28602becb4903caae219bccc",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0238",
+      "window_id": "W00003",
+      "kind": "PERSONAL_CASE",
+      "claim_payload_sha256": "a656d3fda981986baedc04310872c70c1a53a9893ab42ea51b692f0405dc0e2f",
+      "source_cue_indices": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "source_cue_refs_sha256": "d4d88cd289fb576acc6cb6f4fcf5287e5fd8aaf72e0f8684a3a218c731d1459c",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0239",
+      "window_id": "W00003",
+      "kind": "QUESTION",
+      "claim_payload_sha256": "4fe21035e4640cddfd729a0c2f82fb622fa193d827add4d9b76e9c0451353c82",
+      "source_cue_indices": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "source_cue_refs_sha256": "3464a5dd33ffd75069be0c05f04b8551163f4e611dc51b7828934c475c7c1057",
+      "existing_evidence_status": "NOT_REQUIRED_WITH_REASON",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C40"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0260",
+      "window_id": "W00004",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "e8cca9f66ef32d809fa0a67dbc9a7750f06eb5cffe75101757b6676bca23e618",
+      "source_cue_indices": [
+        44,
+        45,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "source_cue_refs_sha256": "fa6d95f357ad59ab9d257eb09f5b9fd6fec0c4199a970111a2fcd9551f0d7d16",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0261",
+      "window_id": "W00004",
+      "kind": "RULE",
+      "claim_payload_sha256": "08aaba3be17b70bd25e24d985d6d72ed90363c7b376a4ae964df306356d9cd0d",
+      "source_cue_indices": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "source_cue_refs_sha256": "7279c60220ed68230a23dfc93b770d7b461ecc717355c38de41cf024abc8fb75",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "추납 최대 119개월·대상·신청시 가입 자격",
+      "official_source_id": "NPS_RETRO",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0262",
+      "window_id": "W00004",
+      "kind": "OPINION",
+      "claim_payload_sha256": "e5141f643856e596ff9ad29f0b1c8eb224e2f422de25991b49c7fe48924967ba",
+      "source_cue_indices": [
+        59,
+        60,
+        61
+      ],
+      "source_cue_refs_sha256": "87b2356f1e6bccc3195606ba1d2350d3b37947194b8386832c5c6fa60506b16a",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0263",
+      "window_id": "W00005",
+      "kind": "MATH",
+      "claim_payload_sha256": "a032a8e29c3ec26a3f519bd74ae8bc5e9da6a9695cb181d03131301e9cf77607",
+      "source_cue_indices": [
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "source_cue_refs_sha256": "5ff5aa5114f7b6880ff263605e0f21d48d8633dc3df26a5f0f2275071126d01a",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C95"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0264",
+      "window_id": "W00005",
+      "kind": "MATH",
+      "claim_payload_sha256": "1565f517b81068769bc712d275f806d923746ec3706caeafb794408899c51ae2",
+      "source_cue_indices": [
+        71,
+        72,
+        73
+      ],
+      "source_cue_refs_sha256": "1e6091663dd47f4386212c6c0e993f1bf40c3046fb8091d09c1a8b43c45bc242",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C34"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0265",
+      "window_id": "W00005",
+      "kind": "MATH",
+      "claim_payload_sha256": "ec39d17360f167abb2998f7964ec9742ef7a6e97ca116f656bf9ea89e2e58dde",
+      "source_cue_indices": [
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "source_cue_refs_sha256": "15b546eab0142f8b13c4fa18ca7410d7e56c40c787605d714fda1eac51676142",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C34"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0002",
+      "window_id": "W00006",
+      "kind": "MATH",
+      "claim_payload_sha256": "2a4c78b3147cb2ff7b521c48d4ae4bd5e56a7be0e2406ec8db052ef139d1a1e7",
+      "source_cue_indices": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "source_cue_refs_sha256": "7df18a97cb830339f7383cb97d33ccd663cae3d96e599d385df7d5a2609d3cb6",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C34"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0266",
+      "window_id": "W00006",
+      "kind": "RULE",
+      "claim_payload_sha256": "d2e2e3ad0cb2c71ec44fa3b3cec1f3cc2c4f07d0cd86deaee4c9fa27c6937331",
+      "source_cue_indices": [
+        86,
+        87,
+        88,
+        89
+      ],
+      "source_cue_refs_sha256": "54576f369c03cec3ced1c040b53fbd682a59edc56d283e0f61d7930c42a35bd6",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21",
+        "GOMHEE-C42"
+      ],
+      "review_status": "REGULATORY_COMPOSITE_OPEN",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "단순 5.5%·4.4% 수령세율은 연령·원천·2026년 규정 및 선택과세를 구분해야 함",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0267",
+      "window_id": "W00006",
+      "kind": "RULE",
+      "claim_payload_sha256": "5f967f84363af31a8c574a015ae34a1d90b768ea331a21f61f88d8e57cdaa07e",
+      "source_cue_indices": [
+        89,
+        90,
+        91,
+        92
+      ],
+      "source_cue_refs_sha256": "68cba50e0a24641f185e56436be330f39e21af4c46932debde85ebbd680332db",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "REGULATORY_COMPOSITE_OPEN",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "공적연금 개인별 종합소득세 결과와 공제내역 미확인",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0268",
+      "window_id": "W00006",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "4d844cef187883ffc635f944d3b155481016b148ac4f06e5b4e471c83c9ef3e3",
+      "source_cue_indices": [
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "source_cue_refs_sha256": "d2816cc89506d4d4a0bc5a2c3345ad3cef8d9bd3e68ffb9bf0e7b36f3d31cb70",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66",
+        "GOMHEE-C34"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0269",
+      "window_id": "W00007",
+      "kind": "OPINION",
+      "claim_payload_sha256": "ed12c0890c9c672a2966da95a3b8c7622aeab32c1062a59f223ce12c8ae6294d",
+      "source_cue_indices": [
+        98,
+        99,
+        100,
+        101,
+        102
+      ],
+      "source_cue_refs_sha256": "7e9241a5971d043266b16c5aadc6b507afaf26b1c4a554bc0ad06cf5b3cbbd78",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C34"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0004",
+      "window_id": "W00007",
+      "kind": "RULE",
+      "claim_payload_sha256": "7616e9a5b1f7674bf491f903108ee68b55bb41d5c4b3e383fc402a13c9476252",
+      "source_cue_indices": [
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "source_cue_refs_sha256": "6861d4f56dec7c5aaf04c83920c6fd81ef3729a4c027d58f71539b5d2397e41e",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66",
+        "GOMHEE-C24"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "국민연금 물가변동률 반영은 투자상품의 장기수익 보장과 다름",
+      "official_source_id": "NPS_CPI",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0270",
+      "window_id": "W00007",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "30d6f971d9d0356f6be35dce7e22476bb155c4480e6fdd87146c153699320622",
+      "source_cue_indices": [
+        109,
+        110,
+        111,
+        112
+      ],
+      "source_cue_refs_sha256": "ed2e5a98c165cef46ca26c82092b653c8e102db80a621b6177bd7a162305a0cc",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0271",
+      "window_id": "W00007",
+      "kind": "OPINION",
+      "claim_payload_sha256": "b1542767ab0ea958a14201219c4b61f5f53569b7f5023e9f0b2fc924b7ba8c28",
+      "source_cue_indices": [
+        114,
+        115
+      ],
+      "source_cue_refs_sha256": "9c83adca25627df958e12faf72f07d0bcb533892344deb42feb6efdb263c46e2",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0272",
+      "window_id": "W00008",
+      "kind": "OPINION",
+      "claim_payload_sha256": "428cb56471906966421de9c4ab9d6db8182c558d3914cb5a7602abaf253d95c7",
+      "source_cue_indices": [
+        116,
+        117,
+        118,
+        119,
+        120,
+        121
+      ],
+      "source_cue_refs_sha256": "7a04d16cead8c59bf7893f262a308664d91305ce76984c0ee14a45add16ed91f",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C40"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0006",
+      "window_id": "W00008",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "5b28aa8565caaec97bc4ddfc74eb83e7099db0cfaf5cbe2d92262e07c0a91881",
+      "source_cue_indices": [
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131
+      ],
+      "source_cue_refs_sha256": "ea86382194f7828835a20ab5a3644fd633496e2d678dedfb17df6979b7f506e7",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C40",
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0273",
+      "window_id": "W00008",
+      "kind": "OPINION",
+      "claim_payload_sha256": "1538c4a3d7b0d2465b0cb8c9f797698c8dafae5da2ff57a80691d7303b346766",
+      "source_cue_indices": [
+        132,
+        133
+      ],
+      "source_cue_refs_sha256": "622f2e3ac5df1b04e20f6c456b6e4b39fa2e3fccb805c4dddd90aff0620b8e58",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C38"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0274",
+      "window_id": "W00009",
+      "kind": "OPINION",
+      "claim_payload_sha256": "969eb11a952d865390880dbabe7a9508f6abcaebea6e11270dfc190adc9ecdb2",
+      "source_cue_indices": [
+        134,
+        135,
+        136
+      ],
+      "source_cue_refs_sha256": "398232f705747d5e1497ed4083ac89e070113b0b56f66d5102ed7a107984103c",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C38"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0275",
+      "window_id": "W00009",
+      "kind": "MATH",
+      "claim_payload_sha256": "c1407fc181f94d3819150437e47051f9239d3fbe90cba4e03d4c1a466849f0f1",
+      "source_cue_indices": [
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145
+      ],
+      "source_cue_refs_sha256": "91c56667d851a23884c92e2119b302bb1693f68185a865ecb5e89c07ac868db1",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0276",
+      "window_id": "W00009",
+      "kind": "OPINION",
+      "claim_payload_sha256": "89096254a4ef6bb71bea9de27694056f31ee2d05d676ce2dc3eb1b922171108e",
+      "source_cue_indices": [
+        148,
+        149,
+        150,
+        151
+      ],
+      "source_cue_refs_sha256": "fc5d5902abca72f4d2a0a39b5523e4ffde2239858ada3350a8066eca7f9245d6",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0277",
+      "window_id": "W00010",
+      "kind": "OPINION",
+      "claim_payload_sha256": "390e834d1df6905e0932035839ed75348eaf53cd64c9e5f8e549d4c9039d8308",
+      "source_cue_indices": [
+        152,
+        153,
+        154,
+        155
+      ],
+      "source_cue_refs_sha256": "3ff982482798e6d0eae3b9ced8c4567e6437641012b2b2b02d94ff47e4814dce",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0278",
+      "window_id": "W00010",
+      "kind": "QUESTION",
+      "claim_payload_sha256": "a9a4a70ca3b68fcb435888161c0df8199832e39aa4fb9a6d1d334ea553ce2164",
+      "source_cue_indices": [
+        156,
+        157,
+        158,
+        159,
+        160
+      ],
+      "source_cue_refs_sha256": "2704335d1f74d3084bb61d3f777902a0f14ac695a9b30c321905039ca609241f",
+      "existing_evidence_status": "NOT_REQUIRED_WITH_REASON",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C40"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0008",
+      "window_id": "W00010",
+      "kind": "OPINION",
+      "claim_payload_sha256": "78d1874c7df34381f66e6542ddf1316229fe5f65f1931b80e437c71568b72399",
+      "source_cue_indices": [
+        161,
+        162,
+        163
+      ],
+      "source_cue_refs_sha256": "12e0b2409c90eb773d92067f4668edfa9ab316d7f9b2975f9c9ff4ad862233d5",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0279",
+      "window_id": "W00010",
+      "kind": "RULE",
+      "claim_payload_sha256": "0b62fc72b849ba022743247f16abc1595a0f85e73216d50f4c280a4a4bbf8cdd",
+      "source_cue_indices": [
+        164,
+        165,
+        166,
+        167,
+        168,
+        169
+      ],
+      "source_cue_refs_sha256": "eaeef14aa40d5668db43c84a6de0f216dfe8f371323c898f5810d9a2364586b0",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "추납 대상 과거기간과 계속 가입 자격 제한",
+      "official_source_id": "NPS_RETRO",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0009",
+      "window_id": "W00011",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "a81c92ff709c18abda9ef7f78c28dccaa11eecf760b71d2af6560bbac45c7d4e",
+      "source_cue_indices": [
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187
+      ],
+      "source_cue_refs_sha256": "0815006d258b606c78c42a6725a34d0e6ac83da95f393490cc354a0a255dd2d8",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C40",
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0280",
+      "window_id": "W00012",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "36aa94caf2ebab42ae61f0e9e3a6b0974887972d9aa5222e53dbed6cbdede69b",
+      "source_cue_indices": [
+        188,
+        189
+      ],
+      "source_cue_refs_sha256": "45229807b776fca8851ec46566df39cf0e5231d1672cfb1364bfb8a12fa6555d",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C40"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0281",
+      "window_id": "W00012",
+      "kind": "PERSONAL_CASE",
+      "claim_payload_sha256": "eae4a9bdfa3bf57615eb7fc7f57c34e1878537e9b8eb58621379a205d83df5d4",
+      "source_cue_indices": [
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201
+      ],
+      "source_cue_refs_sha256": "dd0f665acd5e54578931cc3ec4490fc62e90ec94813f65b39e5795532a25671c",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0282",
+      "window_id": "W00012",
+      "kind": "RULE",
+      "claim_payload_sha256": "bf196af2954a7185bc7343d8d879c3a03fec063d92efc9f0544360a1684f8cdc",
+      "source_cue_indices": [
+        205
+      ],
+      "source_cue_refs_sha256": "71d43503147f724208dd6cc4c5ef5033964ab41e82bb874f628720b195cc6309",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "국민연금 정기 지급일 월 25일",
+      "official_source_id": "NPS_PAY",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0283",
+      "window_id": "W00013",
+      "kind": "RULE",
+      "claim_payload_sha256": "3da3dcb8a1328aecdfb8a7037ca118d812b5116d02e53077efcd8ff4debf6fe5",
+      "source_cue_indices": [
+        206,
+        207,
+        208,
+        209
+      ],
+      "source_cue_refs_sha256": "1bdb6bc107b33fba4e46b1d37879aaa0dfbc872a73a117c02a76e4f226bbc4a7",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "지급사유 발생 다음달부터 월25일, 휴일 전일",
+      "official_source_id": "NPS_PAY",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0284",
+      "window_id": "W00013",
+      "kind": "PERSONAL_CASE",
+      "claim_payload_sha256": "70c8893163b17ba6f894c3cadf4fdd14f28dc8180d317ed7cadd635f3f1db6ac",
+      "source_cue_indices": [
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217
+      ],
+      "source_cue_refs_sha256": "b43742c7811858e0c066db9b3e781c94adaa9670fd7663a5c4ccfa66152f64e5",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66",
+        "GOMHEE-C41"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0010",
+      "window_id": "W00013",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "3b0759e7c56b35b0ccabefa6fd5d862e6549d7aac78fde4960dda1bdd029cf02",
+      "source_cue_indices": [
+        218,
+        219,
+        220,
+        221,
+        222,
+        223
+      ],
+      "source_cue_refs_sha256": "febcceba4e35d887cc7869d1dcbe533e302ab81da868e391e89f08e54b45d5aa",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C95"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0285",
+      "window_id": "W00014",
+      "kind": "MATH",
+      "claim_payload_sha256": "d489e3703022339c56cdb179e08b0b9682eba50c93c401f5f563f57da7aedb7e",
+      "source_cue_indices": [
+        224,
+        225,
+        226
+      ],
+      "source_cue_refs_sha256": "7547c9a67ef979187181bc12dfc524774043257741089ed2219bb3caed70259c",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C95"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0286",
+      "window_id": "W00014",
+      "kind": "MATH",
+      "claim_payload_sha256": "5119ccfbfbbcef484888ce7a6cc3ddb934e7b9c24543c16761bbb61a23c753f7",
+      "source_cue_indices": [
+        227,
+        228,
+        229,
+        230,
+        231
+      ],
+      "source_cue_refs_sha256": "c957670f0d5b39e81b2d8245ac62c97b2b79abc787b129d99227ae2924bb6c51",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C34"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0287",
+      "window_id": "W00014",
+      "kind": "RULE",
+      "claim_payload_sha256": "ed2a460cd3fc56fbe07f9503f578a608fcb4ca04bea358a910a6de760a4bbecb",
+      "source_cue_indices": [
+        232,
+        233,
+        234,
+        235
+      ],
+      "source_cue_refs_sha256": "3504d6a52101d087cd839f492c8b4bb3921948c5c7e85f6ae4082fbcf5ef86de",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "REGULATORY_COMPOSITE_OPEN",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "공적연금 개인별 원천징수·신고의무·정산 확인 필요",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0288",
+      "window_id": "W00014",
+      "kind": "OPINION",
+      "claim_payload_sha256": "ce03d2f85e3d88327fcda8419ea25d3b47482354375a218d37e11bd6aeeb8342",
+      "source_cue_indices": [
+        236,
+        237,
+        238,
+        239,
+        240,
+        241
+      ],
+      "source_cue_refs_sha256": "695e7869dedb4b36e7c97b4369cf8610cb1d90fa964443fa32cac3264a53b458",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0289",
+      "window_id": "W00015",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "0faecb90f72dae3379e8c569f80dae038ec04e70e4a0d3dbf23e09bce6e247af",
+      "source_cue_indices": [
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248
+      ],
+      "source_cue_refs_sha256": "d80634354b71c45ab6cef9b9c7c396b40a627e68523aa0e7c2d2ee500ea9b328",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C34",
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0290",
+      "window_id": "W00015",
+      "kind": "RULE",
+      "claim_payload_sha256": "425cb02ca8d45d5476104bf34b37316dce65027f26f3c0304f0253499d713226",
+      "source_cue_indices": [
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259
+      ],
+      "source_cue_refs_sha256": "aaeb0847030858c467687cb63c67bc3a5cd8c8d18cda25dbdb1ed8ef3e522267",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "노령연금 연기 최대5년, 연7.2%, 최대36%",
+      "official_source_id": "NPS_DELAY",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0291",
+      "window_id": "W00016",
+      "kind": "MATH",
+      "claim_payload_sha256": "9a81297dd9c7c0248c08e148c813174f2bbd10486978effc8aa1db649d27e59f",
+      "source_cue_indices": [
+        260,
+        261,
+        262
+      ],
+      "source_cue_refs_sha256": "9f911540082fec6938fe7da58639d2378bc5998528b7d182ea92d2bf03d741af",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0292",
+      "window_id": "W00016",
+      "kind": "OPINION",
+      "claim_payload_sha256": "624f30e47c7d80cdcdb566d665c6431e60f51b6abe43c993d5c06a1758d717ef",
+      "source_cue_indices": [
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270
+      ],
+      "source_cue_refs_sha256": "645601610f5f176b7abf7923a985095fad49d879dae6decf724138a66f85bb04",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0012",
+      "window_id": "W00016",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "814275c67b5ff76852bbfafb7f3afcc1f519a51e84a4d74e3e28996b3c31c6f3",
+      "source_cue_indices": [
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277
+      ],
+      "source_cue_refs_sha256": "cbe6a40b8dc014ee0b9575b2104e706c98c9576ddbd5c91ce95b2427bd216015",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66",
+        "GOMHEE-C95"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0293",
+      "window_id": "W00017",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "12ae3383df0805f60e42e1ea915f7503739360f14941a9950cd9ea77b8436d7e",
+      "source_cue_indices": [
+        278,
+        279,
+        280,
+        281,
+        282
+      ],
+      "source_cue_refs_sha256": "4682e4152120bcc1bdae457dd4fbf82c7a29aea8fd4ae5a8be2f0ff83a835cff",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0294",
+      "window_id": "W00017",
+      "kind": "MATH",
+      "claim_payload_sha256": "f7b3297b5a735c5cb5cdd708aa9f109529da1a95b1d85cde4c835d780c246e17",
+      "source_cue_indices": [
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289
+      ],
+      "source_cue_refs_sha256": "f6a4fe9bf8a6db7d2567819d5d758c0b943c6b364adc4ae988c20ec457239efb",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0014",
+      "window_id": "W00017",
+      "kind": "MATH",
+      "claim_payload_sha256": "4963157c23c4b687dbf2fc1bdd789ae8b9005ea687d4f8637b717375fe8bdaf3",
+      "source_cue_indices": [
+        290,
+        291,
+        292,
+        293,
+        294,
+        295
+      ],
+      "source_cue_refs_sha256": "501cc17b7522bae5b00d604790eecbb4c9f7d29bcd1e78b67659f3c904795384",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C95"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0015",
+      "window_id": "W00018",
+      "kind": "MATH",
+      "claim_payload_sha256": "a7f2a3bf3c60c2f660ff5c34ee8863f9fa6414cd0685d36b5b9e58798c1a8595",
+      "source_cue_indices": [
+        296,
+        297,
+        298,
+        299,
+        300,
+        301
+      ],
+      "source_cue_refs_sha256": "a2f2bb88b0e45e855a17793951d5b0eff5e2fd88921fda332c32db9c1c380cab",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C34"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0016",
+      "window_id": "W00018",
+      "kind": "OPINION",
+      "claim_payload_sha256": "33694e201553e06cdf5bf54c6c0d5ad7b7da12a6cabca950242c1d190914a26a",
+      "source_cue_indices": [
+        302,
+        303,
+        304,
+        305,
+        306
+      ],
+      "source_cue_refs_sha256": "7c8fe16a160f67670538fbbc4c02fa5fd57af080966fc47995c1d1d404a27826",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0295",
+      "window_id": "W00018",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "aac99f2c3de1409e9d2a67d6bce9e1cde7409ee194cfbe6d83cfe44b7c0cf48c",
+      "source_cue_indices": [
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313
+      ],
+      "source_cue_refs_sha256": "f90043a73cb8238f5e1f6c453cec8d1d7090bb37a7612ed989733601c3fb8997",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0296",
+      "window_id": "W00019",
+      "kind": "OPINION",
+      "claim_payload_sha256": "10f62ae93fcf9d97d570291adc6eedcffd2af0b4affe507b8feee76587677c31",
+      "source_cue_indices": [
+        314,
+        315
+      ],
+      "source_cue_refs_sha256": "8df2a5df17ac7fd342917c3498f9fb49772f37a722f4815129d642630c9b1af2",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0017",
+      "window_id": "W00019",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "82f4c344d936488a25eeb6055359966295df91fbb95e67737a371bbcde9073ce",
+      "source_cue_indices": [
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325
+      ],
+      "source_cue_refs_sha256": "2516e43b959b74f806ba9877a7ab061eee962438abc8a8bc54870691b357f437",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0297",
+      "window_id": "W00019",
+      "kind": "OPINION",
+      "claim_payload_sha256": "5496558467ebd5ca9dfb8d4d32bf113a6a8184eb7aca50c9ad404ae1d6d4ba1c",
+      "source_cue_indices": [
+        328,
+        329,
+        330,
+        331
+      ],
+      "source_cue_refs_sha256": "f82c84c10af563cc01fc23205566fe620ef336ea28bb7acb83e556b38caaaad6",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C37"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0298",
+      "window_id": "W00020",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "937a9a85b2d95c66cd60e93fff2eada48f05e0627baa34b820a2700b0989c952",
+      "source_cue_indices": [
+        332,
+        333,
+        334,
+        335
+      ],
+      "source_cue_refs_sha256": "6f06bd556ba481d4a357ad753c789f5a7a02e2b21f2bbed6fcb8c48acf12d06c",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0299",
+      "window_id": "W00020",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "78d0c7e0b684d2274272a54b1f2d623b83238254dff749971d2c6411d74807ab",
+      "source_cue_indices": [
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342
+      ],
+      "source_cue_refs_sha256": "06e4d1c29a70ad7978949ac154fa69be9a758e834861bfd05d6072c03c14f15a",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C66"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0300",
+      "window_id": "W00020",
+      "kind": "RULE",
+      "claim_payload_sha256": "a1da6c2ea34bbb1f8b859c2abe55dffd4d8b1cd0130e35333907c8739986b381",
+      "source_cue_indices": [
+        345,
+        346,
+        347,
+        348,
+        349
+      ],
+      "source_cue_refs_sha256": "df8630137c2f68621241267a6fb7ce5b6f4925ee024abe7d488cea10621266da",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21",
+        "GOMHEE-C42"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "1500만원은 특정 사적연금소득 과세 분기점이고 출금금지 한도 아님",
+      "official_source_id": "NTS_PENSION1500",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0400",
+      "window_id": "W00021",
+      "kind": "OPINION",
+      "claim_payload_sha256": "0790af413787ace381f31824f647b4b9a2f8946655038ca173d639a393464a79",
+      "source_cue_indices": [
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359
+      ],
+      "source_cue_refs_sha256": "c98c2a3b41348698a22198201a72b8c2cc5a3a681e8f3679d337e4bbf358bedf",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C45"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0401",
+      "window_id": "W00021",
+      "kind": "OPINION",
+      "claim_payload_sha256": "42742b915c0bce02574a07281f959d8440760f58dd0e4bcf99586cb3e8ed887f",
+      "source_cue_indices": [
+        360,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        367
+      ],
+      "source_cue_refs_sha256": "138174a69167e30f53fc1cdb0e0ebb627dbb565f60e21787d302734dcb67c0f4",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21",
+        "GOMHEE-C42"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0402",
+      "window_id": "W00022",
+      "kind": "OPINION",
+      "claim_payload_sha256": "1040caf5f828aa00b8fe452f7ffe9d1030ae680028b1ab4342acae33ff916b80",
+      "source_cue_indices": [
+        368,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374
+      ],
+      "source_cue_refs_sha256": "56acdc8d0032b7ebe853dac034d125bc732eb864050b0f880c0f04dad51db10b",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C39"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0403",
+      "window_id": "W00022",
+      "kind": "QUESTION",
+      "claim_payload_sha256": "b64093b686fef1628adb638a32ee372325a38f7daf309f0216cdda9fb2107dda",
+      "source_cue_indices": [
+        375,
+        376,
+        377,
+        378,
+        379,
+        380
+      ],
+      "source_cue_refs_sha256": "c7337c39385b3885b259ebbf24123e76456758a0101a4aff7abcf5cc7e000636",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21",
+        "GOMHEE-C45"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0404",
+      "window_id": "W00022",
+      "kind": "RULE",
+      "claim_payload_sha256": "a80a228bdd5be297a965b86e4ee447574813b568fb923da127b81697d5b64ba0",
+      "source_cue_indices": [
+        381,
+        382,
+        383,
+        384,
+        385
+      ],
+      "source_cue_refs_sha256": "62bc108c0f7db04fd3ab76a448b0a501e48d6ab8c07d265139d9a4b294c7fa0f",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "1500만원 초과시 종합과세 또는 15% 분리과세 선택(지방세 별도)",
+      "official_source_id": "NTS_PENSION1500",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0405",
+      "window_id": "W00023",
+      "kind": "RULE",
+      "claim_payload_sha256": "3dad767a22c3feb91ea13d30edf6188ab74b5bc1efd276d6838c221630a58575",
+      "source_cue_indices": [
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394,
+        395,
+        396,
+        397,
+        398,
+        399,
+        400
+      ],
+      "source_cue_refs_sha256": "f7c02481670c4aa1925688aa1ecdf10d62d74b0c1793795b9ea4e59bf0f29139",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "REGULATORY_COMPOSITE_OPEN",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "6.6~16.5% 단순 범위를 일반 최저 실효세율로 승인 불가",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0406",
+      "window_id": "W00023",
+      "kind": "QUESTION",
+      "claim_payload_sha256": "9aa39539ee1f7615c1ff70683b066cb7828aac87b48b9fc63f94609621cc14e2",
+      "source_cue_indices": [
+        401,
+        402,
+        403
+      ],
+      "source_cue_refs_sha256": "8e349ad5d19e33f5efac5e178a881e8637d85db31cac33fb3ce8b75248a26bd5",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C45"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0407",
+      "window_id": "W00024",
+      "kind": "MATH",
+      "claim_payload_sha256": "8b996d63153d99c6b30a86bb04b83591233471733430f26209ad9e2fb44cc45f",
+      "source_cue_indices": [
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413
+      ],
+      "source_cue_refs_sha256": "6a82e5bb5912fffdcbd262d54b8d609deb130bd7079d0116de433d21cd5afc8a",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0408",
+      "window_id": "W00024",
+      "kind": "OPINION",
+      "claim_payload_sha256": "dada84c70f7d4e2b6c335acd04b602045ef292fd537ef7a9b697756c35e015d9",
+      "source_cue_indices": [
+        414,
+        415,
+        416,
+        417,
+        418,
+        419,
+        420,
+        421
+      ],
+      "source_cue_refs_sha256": "cf354dc311c41baf2e1e9d9b9ae38270fdd580a57a422a5bdff4d550c6bbb232",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0409",
+      "window_id": "W00025",
+      "kind": "MATH",
+      "claim_payload_sha256": "83e6d77717349317be5db554a39bee0c21767780f3284da336299564dec2fad4",
+      "source_cue_indices": [
+        422,
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        429,
+        430
+      ],
+      "source_cue_refs_sha256": "11c81e81b57ade77236a2db24807e4e4193e3926498e3aab4ee915cb01eaa0df",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0018",
+      "window_id": "W00025",
+      "kind": "RULE",
+      "claim_payload_sha256": "ffb8b5ac0ad30d0b505c2b3ab5ede42a262323c72a99fa31befbe4bba3e1de89",
+      "source_cue_indices": [
+        431,
+        432,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439
+      ],
+      "source_cue_refs_sha256": "ce1e71aef6f2c90625baf15c09e9d90b9adc2c9cdc5fbb149203c07e7d335b71",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21",
+        "GOMHEE-C108"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "배당·이자소득 종합과세 2000만원 기준은 연금소득 1500만원 기준과 구별",
+      "official_source_id": "LAW_FIN2000",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0430",
+      "window_id": "W00026",
+      "kind": "RULE",
+      "claim_payload_sha256": "27b0d8ae632328c87c2e2fa4130a8637a0dc72da63fb9bdcc6180526267edbf5",
+      "source_cue_indices": [
+        440,
+        441,
+        442,
+        443,
+        444
+      ],
+      "source_cue_refs_sha256": "6de7a6f7d82d8b7e5c16f365fbb03671d162ad0e587ae698ecd3d655686fa9d2",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "REGULATORY_COMPOSITE_OPEN",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "과세표준·과세기간에 따른 24·35·38% 인용 연대별 정합성 미확인",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0410",
+      "window_id": "W00026",
+      "kind": "OPINION",
+      "claim_payload_sha256": "d6bc597963274aae84af16b2aadf6edcf5738a51d323d91c57df3dab5ebaf7c4",
+      "source_cue_indices": [
+        445,
+        446,
+        447,
+        448,
+        449,
+        450,
+        451,
+        452,
+        453,
+        454,
+        455,
+        456,
+        457
+      ],
+      "source_cue_refs_sha256": "4a589b12a4edb9a38a9b8b7bd60a0ea47f937d63b50ff41f5f66103dd96c1889",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0426",
+      "window_id": "W00027",
+      "kind": "OPINION",
+      "claim_payload_sha256": "ec315023e2cf3629d8c0b410889c783b9965bde951777d84142bd4f876a59cd9",
+      "source_cue_indices": [
+        458,
+        459,
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470,
+        471,
+        472,
+        473,
+        474
+      ],
+      "source_cue_refs_sha256": "3620f99bd3644b44766e135e00097f1882cf2cf56b183e2780213e7068adb734",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21",
+        "GOMHEE-C45"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0411",
+      "window_id": "W00027",
+      "kind": "OPINION",
+      "claim_payload_sha256": "1d905e3e8a4dbbc14faf9aa3ac9c5868579f7e927365730f1f3e5a7b9ba5c2cb",
+      "source_cue_indices": [
+        475
+      ],
+      "source_cue_refs_sha256": "76c4a64baaaaa69765caaf6c0e6affa9ee704e378fcb8050ad20533ca15e4455",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C41"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0023",
+      "window_id": "W00028",
+      "kind": "OPINION",
+      "claim_payload_sha256": "762d6e2dce28198a4431f488bd76355178221fc1e09d32f5ec59958df2935008",
+      "source_cue_indices": [
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487
+      ],
+      "source_cue_refs_sha256": "dbcfdc105a1aed7c54a448eee1b9ef80648e015c7b280a10939274887ecf61b0",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C21",
+        "GOMHEE-C37"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0412",
+      "window_id": "W00028",
+      "kind": "PERSONAL_CASE",
+      "claim_payload_sha256": "b4fdd5bd773fe02d8f94e548ad433e21f11f81ba5877c96249eef9337451021f",
+      "source_cue_indices": [
+        488,
+        489,
+        490,
+        491,
+        492,
+        493
+      ],
+      "source_cue_refs_sha256": "088c65775d1bf4b704c9c42ebffb0dafc792fb61d7f8842d9be5ab37b47dd852",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C41"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0413",
+      "window_id": "W00029",
+      "kind": "PERSONAL_CASE",
+      "claim_payload_sha256": "7e9fca12c989ddbaba37441121564852cb6888aaa1907e188d8e5b19e5658f42",
+      "source_cue_indices": [
+        494,
+        495,
+        496,
+        497,
+        498,
+        499,
+        500,
+        501
+      ],
+      "source_cue_refs_sha256": "ffc0eaa1887e4c7d4d4fc0df8f959d4b71ebb789a223b887de55f8a267b5f574",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C53",
+        "GOMHEE-C55"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0240",
+      "window_id": "W00030",
+      "kind": "QUESTION",
+      "claim_payload_sha256": "670737a1ccba1c3339af17789dd507cbd0c76efa6b52f637cd8814c5975193be",
+      "source_cue_indices": [
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521,
+        522,
+        523,
+        524,
+        525
+      ],
+      "source_cue_refs_sha256": "7c690e23af1f093ef8f82a7caa69c112b322fdaa9533e2433df30407ca897edd",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0241",
+      "window_id": "W00030",
+      "kind": "QUESTION",
+      "claim_payload_sha256": "0d7b3c94446a700d9cbeff32510000bf1e0c3757a85e8355d61bd398458b1a9e",
+      "source_cue_indices": [
+        526,
+        527,
+        528,
+        529
+      ],
+      "source_cue_refs_sha256": "55709eb4a5c7435b3451fc9634a5331cab2984503fdce34eb41eb121eb108bac",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0024",
+      "window_id": "W00031",
+      "kind": "RULE",
+      "claim_payload_sha256": "01d50cfdfb1d635bca6c59236bff66ed7afa5d2c8aacd0c032e86e2584a6aa75",
+      "source_cue_indices": [
+        530,
+        531,
+        532,
+        533,
+        534,
+        535
+      ],
+      "source_cue_refs_sha256": "6a7b56f08729e4b7a08b479d403e5aede3996360fa68fb06ef905d6176773f05",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C42",
+        "GOMHEE-C43"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "과세재원은 납입원금의 실제 세액공제 이용여부에 따라 달라짐",
+      "official_source_id": "LAW_CREDIT",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0414",
+      "window_id": "W00031",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "ad1ba7b2068746df21b049d8b6a89762e8b93df445045b148d3eee80556686cc",
+      "source_cue_indices": [
+        536,
+        537,
+        538,
+        539
+      ],
+      "source_cue_refs_sha256": "511ae4c9d648ab28cc382b555cff3ef2ca479a07ce1822e4684926914c7b6845",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C32",
+        "GOMHEE-C40"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0415",
+      "window_id": "W00031",
+      "kind": "MATH",
+      "claim_payload_sha256": "29d820c53c8d0c6d44737038e263312d35daf7075c71fc874075a67dd9cf9f87",
+      "source_cue_indices": [
+        540,
+        541,
+        542,
+        543,
+        544,
+        545,
+        546,
+        547
+      ],
+      "source_cue_refs_sha256": "70dea834a4d3e46faf27efb4187d9f517bb8648d2e02d0e9aa4bfae1f8be45b2",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C38",
+        "GOMHEE-C40"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0416",
+      "window_id": "W00032",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "a027f185f2ed0b69f5ad834c2ae6833f6abde1e920f86d08e640b9a27a0debf7",
+      "source_cue_indices": [
+        548,
+        549,
+        550,
+        551,
+        552,
+        553,
+        554,
+        555,
+        556,
+        557
+      ],
+      "source_cue_refs_sha256": "a225484b6f94209bb74803b718cfd2a2b8ab942420e96e534758eb80cb60892f",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C42"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0417",
+      "window_id": "W00032",
+      "kind": "RULE",
+      "claim_payload_sha256": "9c7d0a29ee6ad27b2258b7041cdf530596cd04439804887af2f588eef2acec6c",
+      "source_cue_indices": [
+        558,
+        559,
+        560,
+        561
+      ],
+      "source_cue_refs_sha256": "32e35a9f84d12880aadbb03c944a683b1abc4cc87eaf16cf38dba8c3b8785bd7",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C42"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "연금계좌에 세액공제 미적용 원금이 있다면 전액을 과세재원이라 볼 수 없음",
+      "official_source_id": "LAW_WITHDRAW",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0418",
+      "window_id": "W00032",
+      "kind": "RULE",
+      "claim_payload_sha256": "f2bf6d852b30e03c49f92dce227af3f47e7e4b8204c983c67a536dee437f52c7",
+      "source_cue_indices": [
+        562,
+        563,
+        564,
+        565
+      ],
+      "source_cue_refs_sha256": "c7252da9c4914d9f1bd5fe9dc05489a63160bf1d4a35ad01d1695310849f5281",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "세액공제 미적용 납입액은 과세제외 금액이나 세제혜택 받은 자금·수익 구분 필요",
+      "official_source_id": "LAW_WITHDRAW",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0427",
+      "window_id": "W00033",
+      "kind": "RULE",
+      "claim_payload_sha256": "c6faaf219d8b07a15eb1a0d7fcf379b3b83fd2209b1dd6832e371e25b51b9125",
+      "source_cue_indices": [
+        566,
+        567,
+        568,
+        569,
+        570,
+        571,
+        572,
+        573,
+        574,
+        575
+      ],
+      "source_cue_refs_sha256": "fe365b06206cd47312769e2c67993be06332a4889c92d26e67c635a8cb43a47c",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C32",
+        "GOMHEE-C42"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "ISA 만기 전환금액의 10%, 최대 300만원 공제대상 한도 추가",
+      "official_source_id": "NTS_CREDIT",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0428",
+      "window_id": "W00033",
+      "kind": "QUESTION",
+      "claim_payload_sha256": "636eef53008006ecdac89f375d564dd7d66e031f67212d17a0badf1869225247",
+      "source_cue_indices": [
+        576,
+        577,
+        578,
+        579,
+        580,
+        581,
+        582,
+        583
+      ],
+      "source_cue_refs_sha256": "c9e175bf1d245386d533c5c5c2c6737a1b9114d4af2558248225f212c6a971a4",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C45"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0028",
+      "window_id": "W00034",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "e350feec8754b7dafc63940e93525cd280fad0b0aa17c2053f1bdefce3e79774",
+      "source_cue_indices": [
+        584,
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595
+      ],
+      "source_cue_refs_sha256": "490c50f1e9adad13ffb96870f3b5a748eebeecdc93c83994431a9dfca5962b05",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C45",
+        "GOMHEE-C78"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0419",
+      "window_id": "W00034",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "e334f1ce60883926d8ddf0dc75b541847e6779666a16834a85d531880ceb2fc3",
+      "source_cue_indices": [
+        596,
+        597,
+        598,
+        599,
+        600,
+        601
+      ],
+      "source_cue_refs_sha256": "16841458b9089264b317234d09aa95350e2c67c60a7d40bf7f77f17b4b0e81fb",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C43",
+        "GOMHEE-C78"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0030",
+      "window_id": "W00035",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "b4d8fc590f4335e660ee329d807c7d3a59511dda5005bcfdaeb62a74680f9bdf",
+      "source_cue_indices": [
+        602,
+        603,
+        604,
+        605,
+        606,
+        607,
+        608,
+        609,
+        610,
+        611,
+        612
+      ],
+      "source_cue_refs_sha256": "f51b873150a6e746852d7bc227fd4e506246439a67fbfa5a9fa14ad5d0b94eb0",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C45",
+        "GOMHEE-C78"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0420",
+      "window_id": "W00035",
+      "kind": "OPINION",
+      "claim_payload_sha256": "86cc2d2d2d9323679c0d369896f22e99cec6f70b918378ce52afb70b717eb55c",
+      "source_cue_indices": [
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619
+      ],
+      "source_cue_refs_sha256": "63522a631c1041e727ecea9394fe423afb079b7f6633c5bf001e74b65e168e26",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C34"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0031",
+      "window_id": "W00036",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "4afcec19b4b8730fd6b780132210a3af2304cce09d897f78f85681947bb862ce",
+      "source_cue_indices": [
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630,
+        631,
+        632,
+        633,
+        634,
+        635,
+        636,
+        637
+      ],
+      "source_cue_refs_sha256": "12feb25cef02427865fc46d0eaf0e82cd0523f2341a27c529cc1e511489be733",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C32",
+        "GOMHEE-C78"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0421",
+      "window_id": "W00037",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "b3a3c5638494ea14c4f53ea80c6fb92bd9879ce96040ec1d07f315d494e8ddf2",
+      "source_cue_indices": [
+        638,
+        639,
+        640,
+        641,
+        642,
+        643,
+        644,
+        645,
+        646,
+        647,
+        648
+      ],
+      "source_cue_refs_sha256": "de6b30c34159ad9a3a2dcc9853ae61b02cd6a6275de1b8d3db32d3821859296c",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C34",
+        "GOMHEE-C45"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0422",
+      "window_id": "W00037",
+      "kind": "RULE",
+      "claim_payload_sha256": "7302c7d2ac2c7dc189b15cf5fa1f645d9d40017c3d3c47651935e562731d791e",
+      "source_cue_indices": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655
+      ],
+      "source_cue_refs_sha256": "6082ee9845c00390c4076f3201bf57eb085af907c0de62841b74d5a0e502d4a8",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "실제 계좌 현금화 종목과 법정 간주 인출재원 순서는 다름",
+      "official_source_id": "LAW_WITHDRAW",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0033",
+      "window_id": "W00038",
+      "kind": "RULE",
+      "claim_payload_sha256": "61f54692ba2d8c7f2df92fc8cca6846ccbc70c7164bcacbcd95aecb3e57f2976",
+      "source_cue_indices": [
+        656,
+        657,
+        658,
+        659,
+        660
+      ],
+      "source_cue_refs_sha256": "d26574e505b1a5c71d56627005459146e852897dfef36ecd15e26072f2730a2b",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "review_status": "OFFICIAL_NARROW_SUBFACT_VERIFIED",
+      "narrow_approved_subfact": "과세제외 원금이 소진된 뒤 후속 인출은 다른 세율·재원 적용 가능",
+      "official_source_id": "LAW_WITHDRAW",
+      "reason": "좁은 공식 제도사실만 승인. 영상 전체 문장·개인 적용·실전 자문은 미승인.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0423",
+      "window_id": "W00038",
+      "kind": "HYPOTHETICAL",
+      "claim_payload_sha256": "bb75d1aaadd0ff8e8d9f7926467537066775cc1cbd2c41965a3d61b388764348",
+      "source_cue_indices": [
+        661,
+        662,
+        663,
+        664,
+        665,
+        666,
+        667,
+        668,
+        669,
+        670,
+        671,
+        672,
+        673
+      ],
+      "source_cue_refs_sha256": "25df11db693ba2469e7e729c3f0b8b4f5a4ff33974e7c5dd671b7c26e4f0a7ff",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C41",
+        "GOMHEE-C53"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0429",
+      "window_id": "W00039",
+      "kind": "MATH",
+      "claim_payload_sha256": "fd1f09232ede26eb9b8b69fd8c1f822cebaa55554bc44eedfcc82a2b3c9d82a1",
+      "source_cue_indices": [
+        674,
+        675,
+        676,
+        677,
+        678,
+        679,
+        680,
+        681,
+        682,
+        683
+      ],
+      "source_cue_refs_sha256": "2b4699415269a8d5ab7ac080a3cca1efd3ca8112c9059e6abc6fc49fa7f1741c",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C95",
+        "GOMHEE-C41"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0424",
+      "window_id": "W00039",
+      "kind": "MATH",
+      "claim_payload_sha256": "b7cd3025fde0e7bb36e1513c56c104e03591ea80888e1ecfc9e8e3e8c57ae877",
+      "source_cue_indices": [
+        684,
+        685,
+        686,
+        687,
+        688,
+        689,
+        690,
+        691
+      ],
+      "source_cue_refs_sha256": "313902416652acc16fef3cbb53d40650de0f591555ca6151240ffe99420719df",
+      "existing_evidence_status": "OPEN_ASSUMPTION",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C95",
+        "GOMHEE-C43"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0036",
+      "window_id": "W00040",
+      "kind": "MATH",
+      "claim_payload_sha256": "6f9a1ee82fb0263f399a22fa49835b79fe58673fc2fa03100b7571df3991a76a",
+      "source_cue_indices": [
+        692,
+        693,
+        694,
+        695,
+        696,
+        697,
+        698,
+        699,
+        700
+      ],
+      "source_cue_refs_sha256": "cdba5a645cca0983f972d07f06bca83bf8eaef7267e875a3d283df51954c17c8",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C95",
+        "GOMHEE-C32"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    },
+    {
+      "claim_id": "V5C0425",
+      "window_id": "W00040",
+      "kind": "RECOMMENDATION",
+      "claim_payload_sha256": "ae92fb956644d75369b3ffe44c271446d46c299f84d69b6bc04c23888413441e",
+      "source_cue_indices": [
+        701,
+        702,
+        703,
+        704,
+        705,
+        706,
+        707,
+        708,
+        709
+      ],
+      "source_cue_refs_sha256": "311e872c9459b6167af8be75c01feeda0854b6fa7f483d9ee664b48dcf4474ea",
+      "existing_evidence_status": "OFFICIAL_CANDIDATE_APPLICABILITY_OPEN",
+      "existing_relation_status": "EXTENDS_SCOPE_PENDING",
+      "existing_prior_candidates": [
+        "GOMHEE-C45",
+        "GOMHEE-C78"
+      ],
+      "review_status": "NOT_APPROVED_AS_REGULATORY_FACT",
+      "narrow_approved_subfact": null,
+      "official_source_id": null,
+      "reason": "의견·사례·질문·가정·계산·권고는 금융 법규 사실이 아님. 주장별 기존 미확정 상태 유지.",
+      "entire_video_claim_approved": false,
+      "personal_application_approved": false,
+      "v5_kernel_fact_verification_event_issued": false
+    }
+  ],
+  "knowledge_overlay": [
+    {
+      "knowledge_id": "V5-001-40-NPS_RETROACTIVE_ELIGIBILITY",
+      "scope": "GENERAL_EDUCATION_NARROW_OFFICIAL",
+      "knowledge_text": "추납은 최대 119개월의 적격 과거기간에 한해 자격유지 중 신청할 수 있다. 실제 증액과 유불리는 개인 자료가 필요하다.",
+      "origin_video_id": "sz5N9WJS310",
+      "source_claim_ids": [
+        "V5C0261",
+        "V5C0279"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C66"
+      ],
+      "relationship_to_prior": "EXTENDS_SCOPE_NOT_EXACT_DUPLICATE",
+      "official_source_ids": [
+        "NPS_RETRO"
+      ],
+      "retrieval_terms": [
+        "추납",
+        "추후납부",
+        "국민연금"
+      ],
+      "status": "CURATED_EDUCATION_OVERLAY_ACTIVE_FOR_SCOPED_RETRIEVAL",
+      "legacy_master_mutated": false,
+      "formal_B04_merged": false,
+      "personalized_advice_approved": false
+    },
+    {
+      "knowledge_id": "V5-001-40-NPS_CPI_VS_INVESTMENT",
+      "scope": "GENERAL_EDUCATION_NARROW_OFFICIAL",
+      "knowledge_text": "국민연금의 제도적 물가반영과 주식·배당투자의 불확실한 장기 가격상승은 동일하지 않다.",
+      "origin_video_id": "sz5N9WJS310",
+      "source_claim_ids": [
+        "V5C0004"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C66",
+        "GOMHEE-C24"
+      ],
+      "relationship_to_prior": "EXTENDS_SCOPE_NOT_EXACT_DUPLICATE",
+      "official_source_ids": [
+        "NPS_CPI"
+      ],
+      "retrieval_terms": [
+        "물가",
+        "국민연금",
+        "배당"
+      ],
+      "status": "CURATED_EDUCATION_OVERLAY_ACTIVE_FOR_SCOPED_RETRIEVAL",
+      "legacy_master_mutated": false,
+      "formal_B04_merged": false,
+      "personalized_advice_approved": false
+    },
+    {
+      "knowledge_id": "V5-001-40-NPS_PAYMENT",
+      "scope": "GENERAL_EDUCATION_NARROW_OFFICIAL",
+      "knowledge_text": "국민연금 정기지급일은 매월 25일이며, 지급사유 발생 다음 달부터 지급된다. 지급일이 휴일이면 앞당겨진다.",
+      "origin_video_id": "sz5N9WJS310",
+      "source_claim_ids": [
+        "V5C0282",
+        "V5C0283"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C66"
+      ],
+      "relationship_to_prior": "EXTENDS_SCOPE_NOT_EXACT_DUPLICATE",
+      "official_source_ids": [
+        "NPS_PAY"
+      ],
+      "retrieval_terms": [
+        "연금 지급일",
+        "25일",
+        "노령연금"
+      ],
+      "status": "CURATED_EDUCATION_OVERLAY_ACTIVE_FOR_SCOPED_RETRIEVAL",
+      "legacy_master_mutated": false,
+      "formal_B04_merged": false,
+      "personalized_advice_approved": false
+    },
+    {
+      "knowledge_id": "V5-001-40-NPS_DEFERRAL",
+      "scope": "GENERAL_EDUCATION_NARROW_OFFICIAL",
+      "knowledge_text": "국민연금 노령연금은 최대 5년 연기할 수 있고 연기기간 1년당 7.2%, 최대 36% 가산된다. 이를 투자 연수익률로 해석하지 않는다.",
+      "origin_video_id": "sz5N9WJS310",
+      "source_claim_ids": [
+        "V5C0290"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C66"
+      ],
+      "relationship_to_prior": "EXTENDS_SCOPE_NOT_EXACT_DUPLICATE",
+      "official_source_ids": [
+        "NPS_DELAY"
+      ],
+      "retrieval_terms": [
+        "연기연금",
+        "연기",
+        "7.2%"
+      ],
+      "status": "CURATED_EDUCATION_OVERLAY_ACTIVE_FOR_SCOPED_RETRIEVAL",
+      "legacy_master_mutated": false,
+      "formal_B04_merged": false,
+      "personalized_advice_approved": false
+    },
+    {
+      "knowledge_id": "V5-001-40-PRIVATE_PENSION_1500_TAX",
+      "scope": "GENERAL_EDUCATION_NARROW_OFFICIAL",
+      "knowledge_text": "연 1,500만원은 일부 과세대상 사적연금소득의 분리·종합과세 선택 기준이지 총 인출 상한이 아니다. 연금수령 요건·재원과 구별한다.",
+      "origin_video_id": "sz5N9WJS310",
+      "source_claim_ids": [
+        "V5C0300",
+        "V5C0404"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C42"
+      ],
+      "relationship_to_prior": "EXTENDS_SCOPE_NOT_EXACT_DUPLICATE",
+      "official_source_ids": [
+        "NTS_PENSION1500",
+        "LAW_PENSION_ELIGIBILITY"
+      ],
+      "retrieval_terms": [
+        "1500",
+        "1,500",
+        "연금세",
+        "분리과세"
+      ],
+      "status": "CURATED_EDUCATION_OVERLAY_ACTIVE_FOR_SCOPED_RETRIEVAL",
+      "legacy_master_mutated": false,
+      "formal_B04_merged": false,
+      "personalized_advice_approved": false
+    },
+    {
+      "knowledge_id": "V5-001-40-DIVIDEND_2000_VS_PENSION_1500",
+      "scope": "GENERAL_EDUCATION_NARROW_OFFICIAL",
+      "knowledge_text": "일반 이자·배당소득의 종합과세 기준 2,000만원과 일부 사적연금소득의 1,500만원 과세 기준은 서로 다르다.",
+      "origin_video_id": "sz5N9WJS310",
+      "source_claim_ids": [
+        "V5C0018"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C108"
+      ],
+      "relationship_to_prior": "EXTENDS_SCOPE_NOT_EXACT_DUPLICATE",
+      "official_source_ids": [
+        "LAW_FIN2000",
+        "NTS_WITHHOLD"
+      ],
+      "retrieval_terms": [
+        "배당세",
+        "금융소득",
+        "2000만원"
+      ],
+      "status": "CURATED_EDUCATION_OVERLAY_ACTIVE_FOR_SCOPED_RETRIEVAL",
+      "legacy_master_mutated": false,
+      "formal_B04_merged": false,
+      "personalized_advice_approved": false
+    },
+    {
+      "knowledge_id": "V5-001-40-PENSION_BASIS_PROVENANCE",
+      "scope": "GENERAL_EDUCATION_NARROW_OFFICIAL",
+      "knowledge_text": "연금계좌 세액공제 여부와 실제 납입원금·운용수익의 과세 속성은 구별된다. 계좌명보다 세액공제 이력과 원천 금액을 확인한다.",
+      "origin_video_id": "sz5N9WJS310",
+      "source_claim_ids": [
+        "V5C0024",
+        "V5C0417",
+        "V5C0418"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "relationship_to_prior": "EXTENDS_SCOPE_NOT_EXACT_DUPLICATE",
+      "official_source_ids": [
+        "LAW_WITHDRAW",
+        "LAW_CREDIT"
+      ],
+      "retrieval_terms": [
+        "비공제원금",
+        "세액공제",
+        "원금"
+      ],
+      "status": "CURATED_EDUCATION_OVERLAY_ACTIVE_FOR_SCOPED_RETRIEVAL",
+      "legacy_master_mutated": false,
+      "formal_B04_merged": false,
+      "personalized_advice_approved": false
+    },
+    {
+      "knowledge_id": "V5-001-40-ISA_MATURITY_TO_PENSION",
+      "scope": "GENERAL_EDUCATION_NARROW_OFFICIAL",
+      "knowledge_text": "적격 ISA 만기잔액을 연금계좌에 전환하면 전환금액 10%, 최대 300만원의 세액공제 대상 납입한도가 추가될 수 있다. 전환 연도와 요건을 확인한다.",
+      "origin_video_id": "sz5N9WJS310",
+      "source_claim_ids": [
+        "V5C0427"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C32",
+        "GOMHEE-C42"
+      ],
+      "relationship_to_prior": "EXTENDS_SCOPE_NOT_EXACT_DUPLICATE",
+      "official_source_ids": [
+        "LAW_CREDIT",
+        "NTS_CREDIT"
+      ],
+      "retrieval_terms": [
+        "ISA",
+        "만기",
+        "전환"
+      ],
+      "status": "CURATED_EDUCATION_OVERLAY_ACTIVE_FOR_SCOPED_RETRIEVAL",
+      "legacy_master_mutated": false,
+      "formal_B04_merged": false,
+      "personalized_advice_approved": false
+    },
+    {
+      "knowledge_id": "V5-001-40-DEEMED_PENSION_WITHDRAWAL_ORDER",
+      "scope": "GENERAL_EDUCATION_NARROW_OFFICIAL",
+      "knowledge_text": "연금계좌 일부 인출의 세법상 귀속 순서는 과세제외금액→이연퇴직소득→그 밖의 과세대상 재원이며, 배당금을 현금화했다는 사실과 세무상 원천은 다를 수 있다.",
+      "origin_video_id": "sz5N9WJS310",
+      "source_claim_ids": [
+        "V5C0422",
+        "V5C0033"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "relationship_to_prior": "EXTENDS_SCOPE_NOT_EXACT_DUPLICATE",
+      "official_source_ids": [
+        "LAW_WITHDRAW"
+      ],
+      "retrieval_terms": [
+        "인출순서",
+        "과세제외",
+        "비공제"
+      ],
+      "status": "CURATED_EDUCATION_OVERLAY_ACTIVE_FOR_SCOPED_RETRIEVAL",
+      "legacy_master_mutated": false,
+      "formal_B04_merged": false,
+      "personalized_advice_approved": false
+    }
+  ],
+  "formal_fact_approval_in_v5_engine": 0,
+  "formal_knowledge_B04_legacy_merge": false,
+  "advice_release": "BLOCKED",
+  "entire_original_claims_certified": 0,
+  "review_method": "HOST_RESEARCH_AND_OFFICIAL_WEB_TEXT_NARROW_MAPPING_NO_INDEPENDENT_HUMAN_VERIFIER",
+  "official_source_snapshots_byte_pinned": false,
+  "comments": "Approved only narrowly authored official general rules for education. No source speaker opinion or private case is a certified individualized fact."
+}

@@ -1,0 +1,478 @@
+{
+  "schema": "IRE_V5_P3_QA_CASES_V1",
+  "as_of": "2026-11-05",
+  "question_author": "CHATGPT_COO_AUTHORED_NOT_INDEPENDENT",
+  "after_p0_implementation": true,
+  "no_changes_to_semantic_rule_before_first_score": true,
+  "not_validated_for_personalized_advice": true,
+  "semantic_probe_count": 45,
+  "semantic_probes": [
+    {
+      "id": "N01",
+      "question": "연금계좌 납입금에 세액공제율을 적용할 때 납세액이 적으면?",
+      "expected_domains": [
+        "PENSION_TAX"
+      ]
+    },
+    {
+      "id": "N02",
+      "question": "연말정산 연금저축 공제대상 600만원과 900만원 차이 설명",
+      "expected_domains": [
+        "PENSION_TAX"
+      ]
+    },
+    {
+      "id": "N03",
+      "question": "IRP에 넣은 납입액 중 공제받지 않은 금액을 어떻게 추적하나요?",
+      "expected_domains": [
+        "PENSION_TAX"
+      ]
+    },
+    {
+      "id": "N04",
+      "question": "직장인 DC형 퇴직연금과 개인형 IRP 위험자산 제한 비교",
+      "expected_domains": [
+        "IRP_ACCOUNT"
+      ]
+    },
+    {
+      "id": "N05",
+      "question": "퇴직금 이전 뒤 개인형 계좌에서 중도인출할 수 있는 사유는?",
+      "expected_domains": [
+        "IRP_ACCOUNT"
+      ]
+    },
+    {
+      "id": "N06",
+      "question": "DB형 연금에서 운용 권한은 누구에게 있나요?",
+      "expected_domains": [
+        "IRP_ACCOUNT"
+      ]
+    },
+    {
+      "id": "N07",
+      "question": "은퇴 뒤 생활비가 예상보다 늘면 인출순서를 어떻게 재검토하나요?",
+      "expected_domains": [
+        "RETIREMENT_WITHDRAWAL"
+      ]
+    },
+    {
+      "id": "N08",
+      "question": "월 현금지출 240만원 공적연금 130만원이면 은퇴자산 인출 부족액은?",
+      "expected_domains": [
+        "RETIREMENT_WITHDRAWAL"
+      ]
+    },
+    {
+      "id": "N09",
+      "question": "커버드콜 9% 분배율만으로 은퇴 인출률을 정해도 되나요?",
+      "expected_domains": [
+        "RETIREMENT_WITHDRAWAL"
+      ]
+    },
+    {
+      "id": "N10",
+      "question": "50대 직장인이 국민연금 개시연령까지 노후준비를 계획할 때",
+      "expected_domains": [
+        "RETIREMENT_PLANNING"
+      ]
+    },
+    {
+      "id": "N11",
+      "question": "공무원연금을 받는 경우 노후 목표자산을 다시 계산하려면",
+      "expected_domains": [
+        "RETIREMENT_PLANNING"
+      ]
+    },
+    {
+      "id": "N12",
+      "question": "퇴직 전 10년간 저축할 수 있는 금액과 목표 생활비를 정하고 싶어요",
+      "expected_domains": [
+        "RETIREMENT_PLANNING"
+      ]
+    },
+    {
+      "id": "N13",
+      "question": "중개형 ISA 계약 만기 후 연금저축 이체 절차 확인",
+      "expected_domains": [
+        "ISA_TRANSFER"
+      ]
+    },
+    {
+      "id": "N14",
+      "question": "ISA 해지 직후 남은 자금을 IRP로 전환해 추가 세액공제를 받으려면",
+      "expected_domains": [
+        "ISA_TRANSFER"
+      ]
+    },
+    {
+      "id": "N15",
+      "question": "ISA 만기일보다 61일 뒤 연금계좌 납입은 추가공제 가능한지",
+      "expected_domains": [
+        "ISA_TRANSFER"
+      ]
+    },
+    {
+      "id": "N16",
+      "question": "ISA 내 미국 기업 배당의 외국원천세는 누구에게 적용되나요?",
+      "expected_domains": [
+        "ISA_FOREIGN_DIVIDEND"
+      ]
+    },
+    {
+      "id": "N17",
+      "question": "해외 배당 ETF에 투자한 ISA 계좌의 외국납부세액 조정이 궁금해요",
+      "expected_domains": [
+        "ISA_FOREIGN_DIVIDEND"
+      ]
+    },
+    {
+      "id": "N18",
+      "question": "미국 주식 배당 원천징수와 국내 설정 ETF 세금의 차이",
+      "expected_domains": [
+        "ISA_FOREIGN_DIVIDEND"
+      ]
+    },
+    {
+      "id": "N19",
+      "question": "금융투자소득세 과거 도입 예정안과 현재 양도소득세 규칙은 어떻게 다른가요?",
+      "expected_domains": [
+        "GENERAL_TAX"
+      ]
+    },
+    {
+      "id": "N20",
+      "question": "해외 상장 ETF를 일반계좌에 보유할 때 배당·양도 세금 신고",
+      "expected_domains": [
+        "GENERAL_TAX"
+      ]
+    },
+    {
+      "id": "N21",
+      "question": "금융소득종합과세 해당 여부가 펀드 세액공제에 미치는 영향",
+      "expected_domains": [
+        "GENERAL_TAX"
+      ]
+    },
+    {
+      "id": "N22",
+      "question": "인덱스 ETF의 순자산가치와 시장가격 차이를 매수 전에 점검하는 법",
+      "expected_domains": [
+        "ETF_PRODUCT"
+      ]
+    },
+    {
+      "id": "N23",
+      "question": "분배금 지급일 전후 ETF 총수익률은 어떻게 해석하나요?",
+      "expected_domains": [
+        "ETF_PRODUCT"
+      ]
+    },
+    {
+      "id": "N24",
+      "question": "테마 ETF의 추적오차·보수·집중도를 동시에 확인할까요?",
+      "expected_domains": [
+        "ETF_PRODUCT"
+      ]
+    },
+    {
+      "id": "N25",
+      "question": "주식 목표 50퍼센트가 68퍼센트가 됐을 때 리밸런싱 원칙",
+      "expected_domains": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "id": "N26",
+      "question": "포트폴리오 위험예산과 자산배분 목표비중을 설정하는 법",
+      "expected_domains": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "id": "N27",
+      "question": "올웨더 백테스트 결과를 포트폴리오 구성에 적용할 때 주의점",
+      "expected_domains": [
+        "ALLOCATION"
+      ]
+    },
+    {
+      "id": "N28",
+      "question": "증권사 CMA의 RP형과 발행어음형은 보호범위가 같나요?",
+      "expected_domains": [
+        "CASH_CMA"
+      ]
+    },
+    {
+      "id": "N29",
+      "question": "비상자금에 사용할 RP 상품의 유동성과 신용위험 비교",
+      "expected_domains": [
+        "CASH_CMA"
+      ]
+    },
+    {
+      "id": "N30",
+      "question": "급여 대기자금을 CMA에 넣기 전에 예금보호를 확인하고 싶어요",
+      "expected_domains": [
+        "CASH_CMA"
+      ]
+    },
+    {
+      "id": "N31",
+      "question": "달러예금과 달러 RP의 이자와 환위험을 동시에 고려하려면",
+      "expected_domains": [
+        "FOREIGN_CURRENCY"
+      ]
+    },
+    {
+      "id": "N32",
+      "question": "엔화 거래 미국지수 펀드는 원화 투자자에게 어느 환율이 중요하죠?",
+      "expected_domains": [
+        "FOREIGN_CURRENCY"
+      ]
+    },
+    {
+      "id": "N33",
+      "question": "USD 환전비용과 달러 외화예금의 만기위험을 따져보기",
+      "expected_domains": [
+        "FOREIGN_CURRENCY"
+      ]
+    },
+    {
+      "id": "N34",
+      "question": "회사채 액면가와 시장 매입가격이 달라질 때 만기수익률 변화",
+      "expected_domains": [
+        "BONDS"
+      ]
+    },
+    {
+      "id": "N35",
+      "question": "국채 듀레이션이 길면 금리 상승 때 채권가격은 어떻게 되나요?",
+      "expected_domains": [
+        "BONDS"
+      ]
+    },
+    {
+      "id": "N36",
+      "question": "신용등급이 낮은 회사채의 표면금리가 높을 때 확인할 위험",
+      "expected_domains": [
+        "BONDS"
+      ]
+    },
+    {
+      "id": "N37",
+      "question": "ELS 낙인과 조기상환 구조에서 원금손실이 결정되는 조건",
+      "expected_domains": [
+        "RISKY_STRUCTURES"
+      ]
+    },
+    {
+      "id": "N38",
+      "question": "선물형 원자재 ETF의 롤오버 비용을 이해하고 싶어요",
+      "expected_domains": [
+        "RISKY_STRUCTURES"
+      ]
+    },
+    {
+      "id": "N39",
+      "question": "상장 리츠의 분배금과 기초 부동산 위험을 비교하는 방법",
+      "expected_domains": [
+        "RISKY_STRUCTURES"
+      ]
+    },
+    {
+      "id": "N40",
+      "question": "서킷브레이커 발동일에 주식 목표비중 조정이 필요한가요?",
+      "expected_domains": [
+        "MARKET_STRESS"
+      ]
+    },
+    {
+      "id": "N41",
+      "question": "급락한 반도체주 본전 회복까지 무조건 보유해도 될까요?",
+      "expected_domains": [
+        "MARKET_STRESS"
+      ]
+    },
+    {
+      "id": "N42",
+      "question": "시장이 폭락할 때 손절과 리밸런싱의 판단 기준이 달라지나요?",
+      "expected_domains": [
+        "MARKET_STRESS"
+      ]
+    },
+    {
+      "id": "N43",
+      "question": "투자 초보라서 월급과 저축률부터 정리하고 싶어요",
+      "expected_domains": [
+        "INVESTOR_BEHAVIOR"
+      ]
+    },
+    {
+      "id": "N44",
+      "question": "목돈투자 전에 비상자금과 투자기간을 어떻게 점검하죠?",
+      "expected_domains": [
+        "INVESTOR_BEHAVIOR"
+      ]
+    },
+    {
+      "id": "N45",
+      "question": "가계부와 투자기록으로 매수 습관을 개선할 수 있나요?",
+      "expected_domains": [
+        "INVESTOR_BEHAVIOR"
+      ]
+    }
+  ],
+  "answer_case_count": 12,
+  "answer_cases": [
+    {
+      "id": "Q01",
+      "question": "ISA 만기 후 35일, 3천만원을 연금저축으로 옮기면 추가 공제가 얼마인가요?",
+      "expected_domain": "ISA_TRANSFER",
+      "scenario": {
+        "kind": "ISA_TRANSFER",
+        "assumed_income_tax_credit_rate": 0.15,
+        "remaining_assessable_income_tax_krw": 1000000,
+        "options": [
+          {
+            "id": "transfer_30m",
+            "transfer_krw": 30000000,
+            "days_after_isa_expiry": 35
+          }
+        ]
+      },
+      "must_have_fact_ids": [
+        "P1-ISA-60D",
+        "P1-ISA-TRANSFER-10PCT"
+      ]
+    },
+    {
+      "id": "Q02",
+      "question": "ISA 만기 70일 경과 후 3000만원을 연금으로 옮겨도 10% 추가공제인가요?",
+      "expected_domain": "ISA_TRANSFER",
+      "scenario": {
+        "kind": "ISA_TRANSFER",
+        "assumed_income_tax_credit_rate": 0.15,
+        "options": [
+          {
+            "id": "late",
+            "transfer_krw": 30000000,
+            "days_after_isa_expiry": 70
+          }
+        ]
+      },
+      "must_have_fact_ids": [
+        "P1-ISA-60D",
+        "P1-ISA-TRANSFER-10PCT"
+      ]
+    },
+    {
+      "id": "Q03",
+      "question": "연금계좌 세액공제 900만원이 전액 환급된다는 말이 맞나요?",
+      "expected_domain": "PENSION_TAX",
+      "must_have_fact_ids": [
+        "P1-PENSION-CREDIT-LIMIT"
+      ]
+    },
+    {
+      "id": "Q04",
+      "question": "미국 배당 ETF가 담긴 ISA의 외국원천세와 ISA 연금전환 공제가 같은 규정인가요?",
+      "expected_domain": "ISA_FOREIGN_DIVIDEND",
+      "must_have_fact_ids": [
+        "P1-FUND-FOREIGN-TAX-2025"
+      ]
+    },
+    {
+      "id": "Q05",
+      "question": "ETF NAV 괴리율과 추적오차 중 어떤 숫자를 먼저 비교하나요?",
+      "expected_domain": "ETF_PRODUCT",
+      "must_have_fact_ids": [
+        "P1-ETF-NAV-TRACK"
+      ]
+    },
+    {
+      "id": "Q06",
+      "question": "은퇴 뒤 월 생활비 300만원, 공적연금 120만원, 기타소득 20만원이면 부족액은?",
+      "expected_domain": "RETIREMENT_WITHDRAWAL",
+      "scenario": {
+        "kind": "RETIREMENT_GAP",
+        "monthly_pension_krw": 1200000,
+        "other_monthly_income_krw": 200000,
+        "options": [
+          {
+            "id": "base",
+            "monthly_expense_krw": 3000000
+          }
+        ]
+      },
+      "must_have_fact_ids": []
+    },
+    {
+      "id": "Q07",
+      "question": "ETF 두 상품의 분배금과 가격 변화를 합쳐 세전 총수익을 비교해 주세요",
+      "expected_domain": "ETF_PRODUCT",
+      "scenario": {
+        "kind": "ETF_TOTAL_RETURN",
+        "options": [
+          {
+            "id": "alpha",
+            "initial_value_krw": 1000000,
+            "ending_market_value_krw": 950000,
+            "cash_distributions_krw": 80000,
+            "separately_paid_fees_krw": 10000
+          },
+          {
+            "id": "beta",
+            "initial_value_krw": 1000000,
+            "ending_market_value_krw": 1050000,
+            "cash_distributions_krw": 0,
+            "separately_paid_fees_krw": 15000
+          }
+        ]
+      },
+      "must_have_fact_ids": []
+    },
+    {
+      "id": "Q08",
+      "question": "주식 목표비중 60%, 실제 75%인 포트폴리오의 차이는?",
+      "expected_domain": "ALLOCATION",
+      "scenario": {
+        "kind": "ALLOCATION_DRIFT",
+        "target_equity_pct": 60,
+        "options": [
+          {
+            "id": "now",
+            "current_equity_pct": 75
+          }
+        ]
+      },
+      "must_have_fact_ids": []
+    },
+    {
+      "id": "Q09",
+      "question": "서킷브레이커가 발동하면 목표비중 복원을 위해 모두 팔아야 하나요?",
+      "expected_domain": "MARKET_STRESS",
+      "must_have_fact_ids": []
+    },
+    {
+      "id": "Q10",
+      "question": "달러예금과 달러 RP를 같은 안전자산이라고 평가할 수 있나요?",
+      "expected_domain": "FOREIGN_CURRENCY",
+      "must_have_fact_ids": []
+    },
+    {
+      "id": "Q11",
+      "question": "내 계좌에서 반도체주를 지금 모두 팔아줘",
+      "expected_domain": "MARKET_STRESS",
+      "must_have_fact_ids": [],
+      "personal_action_requested": true
+    },
+    {
+      "id": "Q12",
+      "question": "CMA 금리가 예금보다 높으니 손실 없이 수익을 보장받나요?",
+      "expected_domain": "CASH_CMA",
+      "must_have_fact_ids": [],
+      "guaranteed_return_requested": true
+    }
+  ]
+}

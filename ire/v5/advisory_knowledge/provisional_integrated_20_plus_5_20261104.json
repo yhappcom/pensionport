@@ -1,0 +1,1936 @@
+{
+  "schema": "IRE_V5_PROVISIONAL_INTEGRATED_KNOWLEDGE_V1",
+  "as_of": "2026-11-04",
+  "provenance": {
+    "existing_claims": "data/claims.jsonl",
+    "core_dossiers": "ire/v5/advisory_knowledge/core20_candidates_20261104.json",
+    "new_source_studies": [
+      "ire/v5/studies/7p3p7TKcdqY.json",
+      "ire/v5/studies/l0Q-2Ah-ba8.json",
+      "ire/v5/studies/2bLy034D5LA.json",
+      "ire/v5/studies/z1oZOJ3_uIk.json",
+      "ire/v5/studies/tDD5GzvDYq8.json"
+    ],
+    "source_evidence_registry": "ire/v5/studies/evidence_20261104.json"
+  },
+  "purpose": "Research integration of existing 20 claims and new 53 source statements; not approved for financial advice.",
+  "summary": {
+    "existing_core_nodes": 20,
+    "newly_studied_videos": 5,
+    "new_provisional_claims": 53,
+    "relationship_by_type": {
+      "EXTENDS": 26,
+      "QUALIFIES": 15,
+      "SUPPORTS": 7,
+      "CHALLENGES": 3,
+      "UNRELATED": 2
+    },
+    "attached_legacy_relation_edges": 101,
+    "existing_nodes_with_incoming": 17,
+    "out_of_scope_claims_excluded": 2,
+    "challenged_legacy_claim_ids": [
+      "GOMHEE-C07",
+      "GOMHEE-C71",
+      "GOMHEE-C52",
+      "GOMHEE-C75"
+    ],
+    "independent_approved_financial_facts": 0,
+    "personalized_advisory_approved": false
+  },
+  "nodes": [
+    {
+      "claim_id": "GOMHEE-C13",
+      "domain": "ISA",
+      "original_legacy_claim": "ISA는 투자상품이 아니라 세제 래퍼이며 손익통산·비과세·분리과세 구조를 함께 평가한다",
+      "existing_supporting_video_ids": [
+        "X_k682dMXoM"
+      ],
+      "reviewed_source_candidate_refs": [
+        "ISA-LAW",
+        "ISA-FSC-HISTORY"
+      ],
+      "existing_scope_condition": "계좌 유형 및 계약시점에 따라 과세 특례가 달라짐",
+      "existing_scope_exception": "계좌 밖 손실·모든 소득을 통산한다고 해석하면 오류",
+      "incoming_research_links": [
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-01",
+          "source_cue_start": 23,
+          "source_cue_end": 59,
+          "relationship": "EXTENDS",
+          "source_proposition": "기존 신탁형 ISA의 예금 만기와 ISA 계약 만기를 구분하고 중개형 변경 시 기존 예금 중도해지 비용을 확인하라고 권한다.",
+          "qualification": "기존 ISA 만기 후 신설과 금융기관간 계좌 이전은 별개이며 증권사별 이전 가능 시점과 예금 만기·세제효과 확인 필요.",
+          "verification_state": "ACCOUNT_PROCEDURE_OPEN",
+          "evidence_ids": [
+            "SRC-ISA-ACCOUNT"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-02",
+          "source_cue_start": 60,
+          "source_cue_end": 167,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA의 연간 납입한도 2000만원이 달력 연도별로 발생하고 새 계약에서 만기자금 재투입이 필요하다고 설명한다.",
+          "qualification": "기존 계좌의 미사용 이월 한도와 새 ISA 계약의 한도, 개인 1인 1계좌 및 연장 효과 혼동 금지.",
+          "verification_state": "CONDITIONAL_CURRENT_RULE",
+          "evidence_ids": [
+            "SRC-ISA-ACCOUNT"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-03",
+          "source_cue_start": 170,
+          "source_cue_end": 249,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA 서민형은 총급여 5000만원 이하 등 가입·연장 시 소득기준을 적용하며, 이후 소득 증가와 만기 연장의 자격판정을 구분한다.",
+          "qualification": "소득자료의 기준연도·서민형 판정일·자동전환/연장 재심사 여부는 현행 법령과 증권사 서류로 검증. 직전 3개년 금융소득종합과세자 제외 조건 포함.",
+          "verification_state": "OFFICIAL_CONDITIONAL_RULE",
+          "evidence_ids": [
+            "SRC-ISA-WOORI",
+            "SRC-ISA-MIRAE"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-04",
+          "source_cue_start": 250,
+          "source_cue_end": 337,
+          "relationship": "QUALIFIES",
+          "source_proposition": "6월·7월 소득확정 시차를 활용하여 서민형 ISA를 개설할 수 있다는 사례를 제시한다.",
+          "qualification": "해당 2025년 시점은 개인 가입요건과 소득 확인증명서 발급연도에 종속. 자격 우회 전략으로 권고하지 말고 현행 증명서에 기재된 소득과 적격요건을 확인.",
+          "verification_state": "HISTORICAL_SITUATION_NOT_GENERAL_ADVICE",
+          "evidence_ids": [
+            "SRC-ISA-MIRAE"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-05",
+          "source_cue_start": 371,
+          "source_cue_end": 403,
+          "relationship": "EXTENDS",
+          "source_proposition": "금융소득종합과세대상자가 되면 기존 ISA 유지와 신규 ISA 개설/만기연장의 가능성이 달라진다고 설명한다.",
+          "qualification": "금융소득종합과세 대상자 해당 과세기간·통보시점·가입 전 최근 3개 과세연도 조건을 법령/증권사 확인. 영상의 단정적 유지 가능성은 증빙 필요.",
+          "verification_state": "LEGAL_SCOPE_OPEN",
+          "evidence_ids": [
+            "SRC-ISA-WOORI"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-06",
+          "source_cue_start": 407,
+          "source_cue_end": 517,
+          "relationship": "QUALIFIES",
+          "source_proposition": "기존 ISA 주식의 평가수익률이 만기·매도·재투자로 초기화돼도 총주식수와 배당금은 유지될 수 있다는 수치 예시를 제시한다.",
+          "qualification": "재매수 가격·거래비용·매도시점 주가·세제와 재납입 한도를 무시한 예시. 배당률 5%나 주당배당금이 계속 유지됨을 보장하지 않는다.",
+          "verification_state": "HYPOTHETICAL_IGNORE_COSTS",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-10",
+          "source_cue_start": 774,
+          "source_cue_end": 794,
+          "relationship": "QUALIFIES",
+          "source_proposition": "ISA·연금저축 내 소득이 일반 과세계좌의 이자·배당금과 금융소득종합과세에 동일하게 합산되지 않는다고 설명한다.",
+          "qualification": "일반계좌 금융소득, ISA 분리과세, 연금계좌 과세이연/연금소득의 과세시점과 종류 구분 필요. 모든 해외원천세·원천징수분 면제 오해 금지.",
+          "verification_state": "TAX_INCOME_TYPE_OPEN",
+          "evidence_ids": []
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C32",
+      "domain": "ISA",
+      "original_legacy_claim": "ISA 만기는 단순 계좌 종료가 아니라 손익·세제혜택을 확정하고 필요시 연금계좌 전환과 신규 ISA 재개설로 이어지는 계좌 lifecycle event로 본다",
+      "existing_supporting_video_ids": [
+        "iy7_HMMSLGc"
+      ],
+      "reviewed_source_candidate_refs": [
+        "PENSION-NTS",
+        "ISA-LAW"
+      ],
+      "existing_scope_condition": "연금계좌 전환 추가 공제는 전환 시점과 요건에 따름",
+      "existing_scope_exception": "ISA 재개설 권한과 세부 계약 조건은 별도 확인",
+      "incoming_research_links": [
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-01",
+          "source_cue_start": 23,
+          "source_cue_end": 59,
+          "relationship": "EXTENDS",
+          "source_proposition": "기존 신탁형 ISA의 예금 만기와 ISA 계약 만기를 구분하고 중개형 변경 시 기존 예금 중도해지 비용을 확인하라고 권한다.",
+          "qualification": "기존 ISA 만기 후 신설과 금융기관간 계좌 이전은 별개이며 증권사별 이전 가능 시점과 예금 만기·세제효과 확인 필요.",
+          "verification_state": "ACCOUNT_PROCEDURE_OPEN",
+          "evidence_ids": [
+            "SRC-ISA-ACCOUNT"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-02",
+          "source_cue_start": 60,
+          "source_cue_end": 167,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA의 연간 납입한도 2000만원이 달력 연도별로 발생하고 새 계약에서 만기자금 재투입이 필요하다고 설명한다.",
+          "qualification": "기존 계좌의 미사용 이월 한도와 새 ISA 계약의 한도, 개인 1인 1계좌 및 연장 효과 혼동 금지.",
+          "verification_state": "CONDITIONAL_CURRENT_RULE",
+          "evidence_ids": [
+            "SRC-ISA-ACCOUNT"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-06",
+          "source_cue_start": 407,
+          "source_cue_end": 517,
+          "relationship": "QUALIFIES",
+          "source_proposition": "기존 ISA 주식의 평가수익률이 만기·매도·재투자로 초기화돼도 총주식수와 배당금은 유지될 수 있다는 수치 예시를 제시한다.",
+          "qualification": "재매수 가격·거래비용·매도시점 주가·세제와 재납입 한도를 무시한 예시. 배당률 5%나 주당배당금이 계속 유지됨을 보장하지 않는다.",
+          "verification_state": "HYPOTHETICAL_IGNORE_COSTS",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-07",
+          "source_cue_start": 518,
+          "source_cue_end": 600,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA로 모은 자금을 만기 후 일반 계좌·연금계좌에 분산시키는 장기 적립식 계좌 전략을 제안한다.",
+          "qualification": "ISA 만기 때마다 반복 해지는 모든 투자자에게 최적이 아니며 소득·세제·계좌규모·유동성·매매비용을 비교해야 한다.",
+          "verification_state": "PERSONAL_SUITABILITY_OPEN",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-08",
+          "source_cue_start": 603,
+          "source_cue_end": 676,
+          "relationship": "EXTENDS",
+          "source_proposition": "만기 ISA 자금을 연금저축계좌 두 개에 나누어 전환하고 세액공제 대상 원금과 비공제 원금을 구분해 관리할 수 있다고 설명한다.",
+          "qualification": "ISA 전환금액의 10% 최대 300만원은 추가 **세액공제 대상 납입한도**이며 실제 공제세액 300만원이라는 뜻이 아님. 복수계좌 전환·세액공제 신청방식은 증권사 및 국세청 증빙 확인 필요.",
+          "verification_state": "BROKER_SPECIFIC_ACCOUNT_BOOKING",
+          "evidence_ids": [
+            "SRC-NTS-PENSION",
+            "SRC-ISA-KB"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-09",
+          "source_cue_start": 675,
+          "source_cue_end": 764,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA 만기자금의 60일 내 연금 전환, 특별 납입 프로세스, 증권사 고객센터 세공제/비공제 관리 사례를 설명한다.",
+          "qualification": "ISA 계약 만료·3년 경과/만료 간주, 전환 신청 및 입금 기한, 증권사별 가상계좌 방법은 구분. 자동으로 ISA 만기가 일반 계좌 전환된다는 설명은 증권사 사례를 확인해야 한다.",
+          "verification_state": "TIME_SENSITIVE_ACCOUNT_OPERATION",
+          "evidence_ids": [
+            "SRC-ISA-KB",
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-11",
+          "source_cue_start": 798,
+          "source_cue_end": 839,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA 가입기간을 3년 이상 유지한 뒤 추가 납입과 만기 연금 전환 가능성, 금융소득종합과세 판정시점을 다시 질문받는다.",
+          "qualification": "서민형·일반형·연장 여부·금융소득종합과세 판정연도 및 60일 전환기한은 개인 계약별 재확인 필요.",
+          "verification_state": "PERSONAL_ELIGIBILITY_OPEN",
+          "evidence_ids": [
+            "SRC-ISA-WOORI"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C33",
+      "domain": "ISA",
+      "original_legacy_claim": "ISA의 세후효과는 계좌명만으로 판단하지 않고 기초자산의 소득원천과 외국 원천세·국내 과세·비과세/분리과세·과세이연을 함께 비교한다",
+      "existing_supporting_video_ids": [
+        "Gk3-ZC9W3vw"
+      ],
+      "reviewed_source_candidate_refs": [
+        "ISA-LAW",
+        "ISA-FSC-HISTORY"
+      ],
+      "existing_scope_condition": "해외 배당의 원천징수·국내 과세 상호관계는 상품마다 다름",
+      "existing_scope_exception": "ISA 전체에서 외국세액 환급이 자동 보장된다고 할 수 없음",
+      "incoming_research_links": [
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-07",
+          "source_cue_start": 518,
+          "source_cue_end": 600,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA로 모은 자금을 만기 후 일반 계좌·연금계좌에 분산시키는 장기 적립식 계좌 전략을 제안한다.",
+          "qualification": "ISA 만기 때마다 반복 해지는 모든 투자자에게 최적이 아니며 소득·세제·계좌규모·유동성·매매비용을 비교해야 한다.",
+          "verification_state": "PERSONAL_SUITABILITY_OPEN",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-08",
+          "source_cue_start": 603,
+          "source_cue_end": 676,
+          "relationship": "EXTENDS",
+          "source_proposition": "만기 ISA 자금을 연금저축계좌 두 개에 나누어 전환하고 세액공제 대상 원금과 비공제 원금을 구분해 관리할 수 있다고 설명한다.",
+          "qualification": "ISA 전환금액의 10% 최대 300만원은 추가 **세액공제 대상 납입한도**이며 실제 공제세액 300만원이라는 뜻이 아님. 복수계좌 전환·세액공제 신청방식은 증권사 및 국세청 증빙 확인 필요.",
+          "verification_state": "BROKER_SPECIFIC_ACCOUNT_BOOKING",
+          "evidence_ids": [
+            "SRC-NTS-PENSION",
+            "SRC-ISA-KB"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-09",
+          "source_cue_start": 675,
+          "source_cue_end": 764,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA 만기자금의 60일 내 연금 전환, 특별 납입 프로세스, 증권사 고객센터 세공제/비공제 관리 사례를 설명한다.",
+          "qualification": "ISA 계약 만료·3년 경과/만료 간주, 전환 신청 및 입금 기한, 증권사별 가상계좌 방법은 구분. 자동으로 ISA 만기가 일반 계좌 전환된다는 설명은 증권사 사례를 확인해야 한다.",
+          "verification_state": "TIME_SENSITIVE_ACCOUNT_OPERATION",
+          "evidence_ids": [
+            "SRC-ISA-KB",
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-10",
+          "source_cue_start": 774,
+          "source_cue_end": 794,
+          "relationship": "QUALIFIES",
+          "source_proposition": "ISA·연금저축 내 소득이 일반 과세계좌의 이자·배당금과 금융소득종합과세에 동일하게 합산되지 않는다고 설명한다.",
+          "qualification": "일반계좌 금융소득, ISA 분리과세, 연금계좌 과세이연/연금소득의 과세시점과 종류 구분 필요. 모든 해외원천세·원천징수분 면제 오해 금지.",
+          "verification_state": "TAX_INCOME_TYPE_OPEN",
+          "evidence_ids": []
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C109",
+      "domain": "ISA",
+      "original_legacy_claim": "ISA 등 세제개편 영상은 발표안과 실제 시행법을 분리해 관리해야 하며, 현재 한도와 세율은 실행 시점의 시행 법령으로 재검증해야 한다.",
+      "existing_supporting_video_ids": [
+        "JsdnpGa9_ZY"
+      ],
+      "reviewed_source_candidate_refs": [
+        "ISA-LAW",
+        "ISA-FSC-HISTORY"
+      ],
+      "existing_scope_condition": "공식 법령의 시행·적용 연도를 먼저 확인해야 함",
+      "existing_scope_exception": "과거 발표안의 개정 한도를 현행 한도로 오인 금지",
+      "incoming_research_links": [
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-03",
+          "source_cue_start": 170,
+          "source_cue_end": 249,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA 서민형은 총급여 5000만원 이하 등 가입·연장 시 소득기준을 적용하며, 이후 소득 증가와 만기 연장의 자격판정을 구분한다.",
+          "qualification": "소득자료의 기준연도·서민형 판정일·자동전환/연장 재심사 여부는 현행 법령과 증권사 서류로 검증. 직전 3개년 금융소득종합과세자 제외 조건 포함.",
+          "verification_state": "OFFICIAL_CONDITIONAL_RULE",
+          "evidence_ids": [
+            "SRC-ISA-WOORI",
+            "SRC-ISA-MIRAE"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-04",
+          "source_cue_start": 250,
+          "source_cue_end": 337,
+          "relationship": "QUALIFIES",
+          "source_proposition": "6월·7월 소득확정 시차를 활용하여 서민형 ISA를 개설할 수 있다는 사례를 제시한다.",
+          "qualification": "해당 2025년 시점은 개인 가입요건과 소득 확인증명서 발급연도에 종속. 자격 우회 전략으로 권고하지 말고 현행 증명서에 기재된 소득과 적격요건을 확인.",
+          "verification_state": "HISTORICAL_SITUATION_NOT_GENERAL_ADVICE",
+          "evidence_ids": [
+            "SRC-ISA-MIRAE"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-05",
+          "source_cue_start": 371,
+          "source_cue_end": 403,
+          "relationship": "EXTENDS",
+          "source_proposition": "금융소득종합과세대상자가 되면 기존 ISA 유지와 신규 ISA 개설/만기연장의 가능성이 달라진다고 설명한다.",
+          "qualification": "금융소득종합과세 대상자 해당 과세기간·통보시점·가입 전 최근 3개 과세연도 조건을 법령/증권사 확인. 영상의 단정적 유지 가능성은 증빙 필요.",
+          "verification_state": "LEGAL_SCOPE_OPEN",
+          "evidence_ids": [
+            "SRC-ISA-WOORI"
+          ]
+        },
+        {
+          "source_video_id": "7p3p7TKcdqY",
+          "source_roster_no": 255,
+          "source_sha256": "8a4d2ddab66c2b22d11418dad8e1d009342594548a12985753dc6d66ddc552f2",
+          "source_claim_id": "I255-11",
+          "source_cue_start": 798,
+          "source_cue_end": 839,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA 가입기간을 3년 이상 유지한 뒤 추가 납입과 만기 연금 전환 가능성, 금융소득종합과세 판정시점을 다시 질문받는다.",
+          "qualification": "서민형·일반형·연장 여부·금융소득종합과세 판정연도 및 60일 전환기한은 개인 계약별 재확인 필요.",
+          "verification_state": "PERSONAL_ELIGIBILITY_OPEN",
+          "evidence_ids": [
+            "SRC-ISA-WOORI"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C07",
+      "domain": "PENSION",
+      "original_legacy_claim": "연금저축을 장기 노후자산 구축의 기본 세제계좌로 활용한다",
+      "existing_supporting_video_ids": [
+        "4wt9xB9KV6A"
+      ],
+      "reviewed_source_candidate_refs": [
+        "PENSION-NTS"
+      ],
+      "existing_scope_condition": "적립기간·과세구간·인출제약에 따라 유용성이 다름",
+      "existing_scope_exception": "개인 누구에게나 반드시 연금저축 우선이라는 권고는 불가",
+      "incoming_research_links": [
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-01",
+          "source_cue_start": 17,
+          "source_cue_end": 57,
+          "relationship": "EXTENDS",
+          "source_proposition": "은퇴 전 DB/DC/퇴직급여 구조와 기존 퇴직연금 자산을 먼저 점검할 것을 권한다.",
+          "qualification": "기존 퇴직연금 운용 상태 확인은 유용하나 퇴직급여·보장상품을 모든 투자자에게 일괄 변경하도록 권고하지 않는다.",
+          "verification_state": "GENERAL_EDUCATION",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-03",
+          "source_cue_start": 117,
+          "source_cue_end": 160,
+          "relationship": "EXTENDS",
+          "source_proposition": "연금저축 개설 연령의 제약과 연금수령 개시 55세·가입기간 5년을 설명한다.",
+          "qualification": "연금 수령의 구체적 법적 요건·퇴직급여 예외와 연금수령한도에 따라 다르므로 일률적 최소 15년 보유 의무로 확정 금지.",
+          "verification_state": "CONDITIONAL_RULE",
+          "evidence_ids": [
+            "SRC-PENSION-ELIGIBILITY"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-05",
+          "source_cue_start": 209,
+          "source_cue_end": 266,
+          "relationship": "CHALLENGES",
+          "source_proposition": "8년 투자한 8400만원이 1억원을 훌쩍 넘을 것이고 연 7% 배당으로 월 약 60만원을 지속적으로 인출할 수 있다고 가정한다.",
+          "qualification": "계좌 1억원 이상 및 연 7% 분배율·원금 보존은 보장되지 않는다. 1억원*7%/12=약 58.3만원은 조건부 산술일 뿐 시장 검증·세후 소득이 아니다.",
+          "verification_state": "UNSAFE_RETURN_ASSUMPTION",
+          "evidence_ids": [
+            "SRC-SEC-RISK"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-02",
+          "source_cue_start": 59,
+          "source_cue_end": 132,
+          "relationship": "QUALIFIES",
+          "source_proposition": "노후소득 300만원/월과 복리 투자의 필요성을 제시하고 연금 3층 구조를 설명한다.",
+          "qualification": "가구별 필요 생활비와 수명·수익률이 서로 달라 40년*월 300만원 단순 누적액을 개인 필요자금으로 단정 불가.",
+          "verification_state": "HISTORICAL_STATISTIC_AND_RETURN_OPEN",
+          "evidence_ids": []
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C28",
+      "domain": "PENSION",
+      "original_legacy_claim": "연금저축에 납입해 세액공제를 받는 것과 계좌 안의 자금을 실제 투자하는 것은 별도 단계이며, 운용 난이도에 따라 MMF 임시대기·TDF 위임·ETF 자기주도로 단계적으로 구현할 수 있다",
+      "existing_supporting_video_ids": [
+        "a-890uldXeo"
+      ],
+      "reviewed_source_candidate_refs": [
+        "PENSION-NTS",
+        "SEC-ETF"
+      ],
+      "existing_scope_condition": "계좌 납입만으로 주식·ETF 보유가 자동 발생하지 않음",
+      "existing_scope_exception": "MMF·TDF·ETF의 국내 연금계좌 편입 가능 조건은 상품별 상이",
+      "incoming_research_links": [],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C42",
+      "domain": "PENSION",
+      "original_legacy_claim": "연금계좌의 납입한도와 세액공제 한도는 다른 개념이며, 공제한도를 초과한 납입액도 비공제 원금·과세이연·향후 인출설계 관점에서 별도 관리한다.",
+      "existing_supporting_video_ids": [
+        "ZTlLcC4gE0M"
+      ],
+      "reviewed_source_candidate_refs": [
+        "PENSION-NTS"
+      ],
+      "existing_scope_condition": "연금저축 600만원 및 퇴직연금 합산 900만원 공제 한도",
+      "existing_scope_exception": "초과 납입액의 세제 성격을 모든 개인에게 단정 불가",
+      "incoming_research_links": [
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-03",
+          "source_cue_start": 117,
+          "source_cue_end": 160,
+          "relationship": "EXTENDS",
+          "source_proposition": "연금저축 개설 연령의 제약과 연금수령 개시 55세·가입기간 5년을 설명한다.",
+          "qualification": "연금 수령의 구체적 법적 요건·퇴직급여 예외와 연금수령한도에 따라 다르므로 일률적 최소 15년 보유 의무로 확정 금지.",
+          "verification_state": "CONDITIONAL_RULE",
+          "evidence_ids": [
+            "SRC-PENSION-ELIGIBILITY"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-04",
+          "source_cue_start": 163,
+          "source_cue_end": 209,
+          "relationship": "SUPPORTS",
+          "source_proposition": "57세부터 매년 연금계좌 1800만원 3년, 이후 600만원 5년 납입하면 납입원금 8400만원이 된다는 가상 사례를 제시한다.",
+          "qualification": "1800*3+600*5=8400만원 산술은 일치. 해당 연도 한도·소득·공제한도·실현수익률은 별개; ASR에서 일부 금액이 불명확함.",
+          "verification_state": "HYPOTHETICAL_ARITHMETIC",
+          "evidence_ids": [
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-06",
+          "source_cue_start": 239,
+          "source_cue_end": 267,
+          "relationship": "EXTENDS",
+          "source_proposition": "세액공제 받지 않은 납입원금은 과세대상 사적연금과 구분하며 초기 인출 재원으로 활용하라고 제안한다.",
+          "qualification": "비공제 납입 증빙, 연금계좌 인출순서, 원금·운용수익 구분, 연금 전환여부를 확인하기 전 비과세 인출액 단정 금지.",
+          "verification_state": "TAX_SOURCE_CLASSIFICATION_OPEN",
+          "evidence_ids": [
+            "SRC-NTS-PENSION-TAX"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-07",
+          "source_cue_start": 270,
+          "source_cue_end": 336,
+          "relationship": "QUALIFIES",
+          "source_proposition": "연금수령한도 공식과 사적연금 과세대상 연 1500만원을 설명하면서 이를 넘지 않는 수령을 권한다.",
+          "qualification": "연금수령한도(계좌/연차별 산식)와 1500만원(사적연금소득 과세선택 기준)은 별개다. 1500만원 초과가 수령 금지는 아니며 종합과세/15% 분리과세 선택 대상이 될 수 있다.",
+          "verification_state": "OFFICIAL_CORRECTION",
+          "evidence_ids": [
+            "SRC-NTS-PRIVATE-PENSION",
+            "SRC-PENSION-ELIGIBILITY"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-04",
+          "source_cue_start": 199,
+          "source_cue_end": 275,
+          "relationship": "SUPPORTS",
+          "source_proposition": "연금저축/IRP 합산 연간 납입 1800만원과 IRP 세액공제 대상 900만원, 공제율 16.5/13.2%를 구분한다.",
+          "qualification": "연금저축 600만원·퇴직연금 포함 900만원 세액공제 대상 납입한도. 지방소득세 포함율과 세액공제 실제 이용한도·과세연도 조건 분리.",
+          "verification_state": "OFFICIAL_CONDITIONAL_RULE",
+          "evidence_ids": [
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-11",
+          "source_cue_start": 578,
+          "source_cue_end": 615,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA 만기 자금의 IRP 전환 시 전환금액 10% 최대 300만원 추가 세액공제 한도를 설명한다.",
+          "qualification": "최대 300만원은 세액공제 **대상 납입한도 추가분**, 실제 환급액이 300만원인 것은 아님. ISA 만기 후 60일 요건과 개인 결정세액 확인.",
+          "verification_state": "OFFICIAL_CONDITIONAL_RULE",
+          "evidence_ids": [
+            "SRC-NTS-PENSION",
+            "SRC-ISA-KB"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C71",
+      "domain": "PENSION",
+      "original_legacy_claim": "연금저축 납입액이 있다고 해서 세액공제를 기계적으로 최대 적용하는 것이 항상 최적은 아니라는 실제 사례다. 월세 등 다른 세액공제로 이미 납부세액을 충분히 환급받을 수 있는 경우 연금저축 납입액을 세액공제 받지 않은 원금으로 남기는 선택을 보여준다.",
+      "existing_supporting_video_ids": [
+        "x2_oSwvVH8k"
+      ],
+      "reviewed_source_candidate_refs": [
+        "PENSION-NTS"
+      ],
+      "existing_scope_condition": "세액공제는 공제대상 납입뿐 아니라 실제 세액과 개인 자격의 제약을 받음",
+      "existing_scope_exception": "월세 공제 등 다른 공제가 우선 적용되는 일반적 규칙으로 단정 불가",
+      "incoming_research_links": [
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-04",
+          "source_cue_start": 163,
+          "source_cue_end": 209,
+          "relationship": "SUPPORTS",
+          "source_proposition": "57세부터 매년 연금계좌 1800만원 3년, 이후 600만원 5년 납입하면 납입원금 8400만원이 된다는 가상 사례를 제시한다.",
+          "qualification": "1800*3+600*5=8400만원 산술은 일치. 해당 연도 한도·소득·공제한도·실현수익률은 별개; ASR에서 일부 금액이 불명확함.",
+          "verification_state": "HYPOTHETICAL_ARITHMETIC",
+          "evidence_ids": [
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-05",
+          "source_cue_start": 209,
+          "source_cue_end": 266,
+          "relationship": "CHALLENGES",
+          "source_proposition": "8년 투자한 8400만원이 1억원을 훌쩍 넘을 것이고 연 7% 배당으로 월 약 60만원을 지속적으로 인출할 수 있다고 가정한다.",
+          "qualification": "계좌 1억원 이상 및 연 7% 분배율·원금 보존은 보장되지 않는다. 1억원*7%/12=약 58.3만원은 조건부 산술일 뿐 시장 검증·세후 소득이 아니다.",
+          "verification_state": "UNSAFE_RETURN_ASSUMPTION",
+          "evidence_ids": [
+            "SRC-SEC-RISK"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-06",
+          "source_cue_start": 239,
+          "source_cue_end": 267,
+          "relationship": "EXTENDS",
+          "source_proposition": "세액공제 받지 않은 납입원금은 과세대상 사적연금과 구분하며 초기 인출 재원으로 활용하라고 제안한다.",
+          "qualification": "비공제 납입 증빙, 연금계좌 인출순서, 원금·운용수익 구분, 연금 전환여부를 확인하기 전 비과세 인출액 단정 금지.",
+          "verification_state": "TAX_SOURCE_CLASSIFICATION_OPEN",
+          "evidence_ids": [
+            "SRC-NTS-PENSION-TAX"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-07",
+          "source_cue_start": 270,
+          "source_cue_end": 336,
+          "relationship": "QUALIFIES",
+          "source_proposition": "연금수령한도 공식과 사적연금 과세대상 연 1500만원을 설명하면서 이를 넘지 않는 수령을 권한다.",
+          "qualification": "연금수령한도(계좌/연차별 산식)와 1500만원(사적연금소득 과세선택 기준)은 별개다. 1500만원 초과가 수령 금지는 아니며 종합과세/15% 분리과세 선택 대상이 될 수 있다.",
+          "verification_state": "OFFICIAL_CORRECTION",
+          "evidence_ids": [
+            "SRC-NTS-PRIVATE-PENSION",
+            "SRC-PENSION-ELIGIBILITY"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-10",
+          "source_cue_start": 419,
+          "source_cue_end": 463,
+          "relationship": "EXTENDS",
+          "source_proposition": "세액공제 원금·비공제 원금·퇴직급여를 세 계좌로 분리하면 인출세금을 관리하기 쉽다고 설명한다.",
+          "qualification": "일반적 관리 아이디어이지만 무조건 세 계좌 분리는 비용·연금수령한도·세법·연금수령액 때문에 개인별 최적화가 필요하다.",
+          "verification_state": "PERSONALIZED_PLAN_OPEN",
+          "evidence_ids": [
+            "SRC-NTS-PRIVATE-PENSION"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C08",
+      "domain": "IRP",
+      "original_legacy_claim": "IRP는 연금저축과 조합하되 세제혜택뿐 아니라 유동성·운용제약을 함께 평가한다",
+      "existing_supporting_video_ids": [
+        "xqXD9R_3TOI"
+      ],
+      "reviewed_source_candidate_refs": [
+        "IRP-LAW",
+        "PENSION-NTS"
+      ],
+      "existing_scope_condition": "제18조 법정 사유와 요건 충족 여부에 따라 중도인출 제한",
+      "existing_scope_exception": "무주택·주거 관련 사유만으로 자동 인출 가능하다고 할 수 없음",
+      "incoming_research_links": [
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-08",
+          "source_cue_start": 337,
+          "source_cue_end": 383,
+          "relationship": "EXTENDS",
+          "source_proposition": "연금저축·IRP의 과세대상 저축 재원과 퇴직금 원천의 IRP, 국민연금을 1500만원 기준에서 구분한다.",
+          "qualification": "이연퇴직소득·비공제 원금·운용수익·과세대상 연금의 분류를 개인별 증빙으로 확인해야 한다.",
+          "verification_state": "TAX_SOURCE_CLASSIFICATION_OPEN",
+          "evidence_ids": [
+            "SRC-NTS-PRIVATE-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-01",
+          "source_cue_start": 22,
+          "source_cue_end": 46,
+          "relationship": "EXTENDS",
+          "source_proposition": "저축용 IRP의 개설·매년 납입·상품 매수·세액공제·연금 수령 절차를 반복 설명한다.",
+          "qualification": "개설·매수·세액공제·수령 시점은 각기 다른 요건을 가지며 세액공제는 실제 결정세액 범위 내에서 적용된다.",
+          "verification_state": "GENERAL_WORKFLOW",
+          "evidence_ids": [
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-03",
+          "source_cue_start": 133,
+          "source_cue_end": 198,
+          "relationship": "EXTENDS",
+          "source_proposition": "IRP를 퇴직급여 수령용과 개인 저축용으로 구분하고 IRP 가입에 소득·자격 제한이 있음을 설명한다.",
+          "qualification": "가입자격·퇴직급여 IRP 예외, 무소득자의 기존 계좌 유지 및 퇴직급여 수령 가능성은 상품설명서와 최신 법령 확인.",
+          "verification_state": "LEGAL_SCOPE_OPEN",
+          "evidence_ids": [
+            "SRC-IRP-LAW"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-04",
+          "source_cue_start": 199,
+          "source_cue_end": 275,
+          "relationship": "SUPPORTS",
+          "source_proposition": "연금저축/IRP 합산 연간 납입 1800만원과 IRP 세액공제 대상 900만원, 공제율 16.5/13.2%를 구분한다.",
+          "qualification": "연금저축 600만원·퇴직연금 포함 900만원 세액공제 대상 납입한도. 지방소득세 포함율과 세액공제 실제 이용한도·과세연도 조건 분리.",
+          "verification_state": "OFFICIAL_CONDITIONAL_RULE",
+          "evidence_ids": [
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-05",
+          "source_cue_start": 277,
+          "source_cue_end": 331,
+          "relationship": "SUPPORTS",
+          "source_proposition": "연금계좌의 과세이연 효과와 운용수익 재투자를 설명한다.",
+          "qualification": "과세이연은 비과세가 아니며 국내/해외 원천징수·상품별 세금·인출 시 세율이 다르다.",
+          "verification_state": "GENERAL_TAX_PRINCIPLE",
+          "evidence_ids": [
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-07",
+          "source_cue_start": 373,
+          "source_cue_end": 431,
+          "relationship": "QUALIFIES",
+          "source_proposition": "55세·가입기간 5년·계좌별 연금수령한도와 10년 수령을 설명한다.",
+          "qualification": "이연퇴직소득이 있는 계좌의 5년 가입기간 요건 예외; 11년차 연금수령한도 미적용 등 별도. 최소 10년 무조건 인출 불가로 오해하지 않는다.",
+          "verification_state": "RULE_WITH_EXCEPTIONS",
+          "evidence_ids": [
+            "SRC-PENSION-ELIGIBILITY"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-08",
+          "source_cue_start": 405,
+          "source_cue_end": 483,
+          "relationship": "QUALIFIES",
+          "source_proposition": "연 1500만원 사적연금 과세선, 3.3~5.5% 세율, 조기 해지 16.5% 기타소득세를 설명한다.",
+          "qualification": "1500만원은 사적연금 종합과세/분리과세 선택 기준이며 엄격한 수령금지 한도가 아님. 세액공제 받은 납입액·운용수익과 이연퇴직급여 인출세액·비공제 원금 분리.",
+          "verification_state": "OFFICIAL_CORRECTION",
+          "evidence_ids": [
+            "SRC-NTS-PRIVATE-PENSION",
+            "SRC-IRP-LAW"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-11",
+          "source_cue_start": 578,
+          "source_cue_end": 615,
+          "relationship": "EXTENDS",
+          "source_proposition": "ISA 만기 자금의 IRP 전환 시 전환금액 10% 최대 300만원 추가 세액공제 한도를 설명한다.",
+          "qualification": "최대 300만원은 세액공제 **대상 납입한도 추가분**, 실제 환급액이 300만원인 것은 아님. ISA 만기 후 60일 요건과 개인 결정세액 확인.",
+          "verification_state": "OFFICIAL_CONDITIONAL_RULE",
+          "evidence_ids": [
+            "SRC-NTS-PENSION",
+            "SRC-ISA-KB"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C43",
+      "domain": "IRP",
+      "original_legacy_claim": "연금저축과 IRP는 어느 하나가 절대 우월한 계좌가 아니라 유동성·투자가능자산·위험자산 한도·퇴직급여 수용 등 기능 차이를 기준으로 조합한다.",
+      "existing_supporting_video_ids": [
+        "DVEdeOoCtXA"
+      ],
+      "reviewed_source_candidate_refs": [
+        "IRP-LAW",
+        "IRP-PROPOSAL"
+      ],
+      "existing_scope_condition": "70% 위험자산 한도 완화 추진은 시행 여부 미확정",
+      "existing_scope_exception": "2026-10 발표를 이미 시행된 100% 위험자산 허용으로 오인 금지",
+      "incoming_research_links": [
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-01",
+          "source_cue_start": 17,
+          "source_cue_end": 57,
+          "relationship": "EXTENDS",
+          "source_proposition": "은퇴 전 DB/DC/퇴직급여 구조와 기존 퇴직연금 자산을 먼저 점검할 것을 권한다.",
+          "qualification": "기존 퇴직연금 운용 상태 확인은 유용하나 퇴직급여·보장상품을 모든 투자자에게 일괄 변경하도록 권고하지 않는다.",
+          "verification_state": "GENERAL_EDUCATION",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-02",
+          "source_cue_start": 58,
+          "source_cue_end": 113,
+          "relationship": "QUALIFIES",
+          "source_proposition": "퇴직연금 DC·IRP 내 현금성 자산을 원리금보장 예금·ELB 또는 투자형 상품과 비교하며 고금리를 우선 선택하라고 권한다.",
+          "qualification": "예금자보호 한도, 예금·ELB 발행기관 신용위험, 수수료·만기·예금보호 구분과 위험성향 확인 필요.",
+          "verification_state": "PRODUCT_SCOPE_OPEN",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-09",
+          "source_cue_start": 385,
+          "source_cue_end": 422,
+          "relationship": "EXTENDS",
+          "source_proposition": "여러 연금계좌 이전·통합을 설명하고 퇴직금 재원과 개인 납입재원을 분리 관리하는 장점을 제안한다.",
+          "qualification": "계좌간 이체 가능 유형·연금수령 중 계약변경·수수료·투자상품 현금화·자금의 과세원천을 증권사와 확인해야 한다.",
+          "verification_state": "PRACTICAL_CONDITIONS_OPEN",
+          "evidence_ids": [
+            "SRC-PENSION-ELIGIBILITY"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-02",
+          "source_cue_start": 59,
+          "source_cue_end": 132,
+          "relationship": "QUALIFIES",
+          "source_proposition": "노후소득 300만원/월과 복리 투자의 필요성을 제시하고 연금 3층 구조를 설명한다.",
+          "qualification": "가구별 필요 생활비와 수명·수익률이 서로 달라 40년*월 300만원 단순 누적액을 개인 필요자금으로 단정 불가.",
+          "verification_state": "HISTORICAL_STATISTIC_AND_RETURN_OPEN",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-05",
+          "source_cue_start": 277,
+          "source_cue_end": 331,
+          "relationship": "SUPPORTS",
+          "source_proposition": "연금계좌의 과세이연 효과와 운용수익 재투자를 설명한다.",
+          "qualification": "과세이연은 비과세가 아니며 국내/해외 원천징수·상품별 세금·인출 시 세율이 다르다.",
+          "verification_state": "GENERAL_TAX_PRINCIPLE",
+          "evidence_ids": [
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-06",
+          "source_cue_start": 332,
+          "source_cue_end": 371,
+          "relationship": "EXTENDS",
+          "source_proposition": "IRP에서 원리금보장 예금·ELB·펀드·ETF 등을 매수할 수 있고 위험자산 투자 70% 제한을 설명한다.",
+          "qualification": "2026-10-29 고용노동부 공식 발표는 70% 투자 한도 단계적 완화 **추진**으로 표시. 시행 개정 확인 전 완화된 한도 적용 금지. 상품별 위험자산 분류·예금보호도 구분.",
+          "verification_state": "PENDING_REGULATORY_CHANGE",
+          "evidence_ids": [
+            "SRC-MOEL-IRP-20261029",
+            "SRC-IRP-LAW"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-09",
+          "source_cue_start": 489,
+          "source_cue_end": 530,
+          "relationship": "QUALIFIES",
+          "source_proposition": "IRP 2023년 가입자 및 적립금 통계와 원리금보장형 IRP의 적합성 사례를 든다.",
+          "qualification": "2023년 통계는 현재 2026년 수치와 다르며 원리금보장 상품은 금리·신용위험·보호한도·수수료 판단 필요.",
+          "verification_state": "DATED_DATA_AND_PERSONAL_RISK",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-10",
+          "source_cue_start": 533,
+          "source_cue_end": 577,
+          "relationship": "EXTENDS",
+          "source_proposition": "IRP 운용/자산관리 수수료와 2024년 10월 시행 퇴직연금 실물이전 제도를 설명한다.",
+          "qualification": "수수료 무료 여부, 실물이전 가능 상품, 동일 제도·유형·금융기관 조건은 2026년 증권사 안내 재확인.",
+          "verification_state": "BROKER_PRODUCT_SCOPE_OPEN",
+          "evidence_ids": []
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C73",
+      "domain": "IRP",
+      "original_legacy_claim": "연금저축과 IRP는 둘 다 노후용 세제계좌지만 동일하지 않다. 선택은 세액공제만이 아니라 가입자격, 납입/투자 자유도, 위험자산 투자제한, 중도인출 조건, 수수료와 운용상품을 함께 비교해야 한다.",
+      "existing_supporting_video_ids": [
+        "BVAp7DhBA40"
+      ],
+      "reviewed_source_candidate_refs": [
+        "IRP-LAW",
+        "PENSION-NTS"
+      ],
+      "existing_scope_condition": "연금계좌라도 계좌 성격별 인출 제한은 다름",
+      "existing_scope_exception": "개인 사유를 묻지 않고 IRP와 연금저축을 동일하게 취급 금지",
+      "incoming_research_links": [
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-02",
+          "source_cue_start": 58,
+          "source_cue_end": 113,
+          "relationship": "QUALIFIES",
+          "source_proposition": "퇴직연금 DC·IRP 내 현금성 자산을 원리금보장 예금·ELB 또는 투자형 상품과 비교하며 고금리를 우선 선택하라고 권한다.",
+          "qualification": "예금자보호 한도, 예금·ELB 발행기관 신용위험, 수수료·만기·예금보호 구분과 위험성향 확인 필요.",
+          "verification_state": "PRODUCT_SCOPE_OPEN",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-08",
+          "source_cue_start": 337,
+          "source_cue_end": 383,
+          "relationship": "EXTENDS",
+          "source_proposition": "연금저축·IRP의 과세대상 저축 재원과 퇴직금 원천의 IRP, 국민연금을 1500만원 기준에서 구분한다.",
+          "qualification": "이연퇴직소득·비공제 원금·운용수익·과세대상 연금의 분류를 개인별 증빙으로 확인해야 한다.",
+          "verification_state": "TAX_SOURCE_CLASSIFICATION_OPEN",
+          "evidence_ids": [
+            "SRC-NTS-PRIVATE-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-09",
+          "source_cue_start": 385,
+          "source_cue_end": 422,
+          "relationship": "EXTENDS",
+          "source_proposition": "여러 연금계좌 이전·통합을 설명하고 퇴직금 재원과 개인 납입재원을 분리 관리하는 장점을 제안한다.",
+          "qualification": "계좌간 이체 가능 유형·연금수령 중 계약변경·수수료·투자상품 현금화·자금의 과세원천을 증권사와 확인해야 한다.",
+          "verification_state": "PRACTICAL_CONDITIONS_OPEN",
+          "evidence_ids": [
+            "SRC-PENSION-ELIGIBILITY"
+          ]
+        },
+        {
+          "source_video_id": "l0Q-2Ah-ba8",
+          "source_roster_no": 217,
+          "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+          "source_claim_id": "P217-10",
+          "source_cue_start": 419,
+          "source_cue_end": 463,
+          "relationship": "EXTENDS",
+          "source_proposition": "세액공제 원금·비공제 원금·퇴직급여를 세 계좌로 분리하면 인출세금을 관리하기 쉽다고 설명한다.",
+          "qualification": "일반적 관리 아이디어이지만 무조건 세 계좌 분리는 비용·연금수령한도·세법·연금수령액 때문에 개인별 최적화가 필요하다.",
+          "verification_state": "PERSONALIZED_PLAN_OPEN",
+          "evidence_ids": [
+            "SRC-NTS-PRIVATE-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-01",
+          "source_cue_start": 22,
+          "source_cue_end": 46,
+          "relationship": "EXTENDS",
+          "source_proposition": "저축용 IRP의 개설·매년 납입·상품 매수·세액공제·연금 수령 절차를 반복 설명한다.",
+          "qualification": "개설·매수·세액공제·수령 시점은 각기 다른 요건을 가지며 세액공제는 실제 결정세액 범위 내에서 적용된다.",
+          "verification_state": "GENERAL_WORKFLOW",
+          "evidence_ids": [
+            "SRC-NTS-PENSION"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-03",
+          "source_cue_start": 133,
+          "source_cue_end": 198,
+          "relationship": "EXTENDS",
+          "source_proposition": "IRP를 퇴직급여 수령용과 개인 저축용으로 구분하고 IRP 가입에 소득·자격 제한이 있음을 설명한다.",
+          "qualification": "가입자격·퇴직급여 IRP 예외, 무소득자의 기존 계좌 유지 및 퇴직급여 수령 가능성은 상품설명서와 최신 법령 확인.",
+          "verification_state": "LEGAL_SCOPE_OPEN",
+          "evidence_ids": [
+            "SRC-IRP-LAW"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-06",
+          "source_cue_start": 332,
+          "source_cue_end": 371,
+          "relationship": "EXTENDS",
+          "source_proposition": "IRP에서 원리금보장 예금·ELB·펀드·ETF 등을 매수할 수 있고 위험자산 투자 70% 제한을 설명한다.",
+          "qualification": "2026-10-29 고용노동부 공식 발표는 70% 투자 한도 단계적 완화 **추진**으로 표시. 시행 개정 확인 전 완화된 한도 적용 금지. 상품별 위험자산 분류·예금보호도 구분.",
+          "verification_state": "PENDING_REGULATORY_CHANGE",
+          "evidence_ids": [
+            "SRC-MOEL-IRP-20261029",
+            "SRC-IRP-LAW"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-07",
+          "source_cue_start": 373,
+          "source_cue_end": 431,
+          "relationship": "QUALIFIES",
+          "source_proposition": "55세·가입기간 5년·계좌별 연금수령한도와 10년 수령을 설명한다.",
+          "qualification": "이연퇴직소득이 있는 계좌의 5년 가입기간 요건 예외; 11년차 연금수령한도 미적용 등 별도. 최소 10년 무조건 인출 불가로 오해하지 않는다.",
+          "verification_state": "RULE_WITH_EXCEPTIONS",
+          "evidence_ids": [
+            "SRC-PENSION-ELIGIBILITY"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-08",
+          "source_cue_start": 405,
+          "source_cue_end": 483,
+          "relationship": "QUALIFIES",
+          "source_proposition": "연 1500만원 사적연금 과세선, 3.3~5.5% 세율, 조기 해지 16.5% 기타소득세를 설명한다.",
+          "qualification": "1500만원은 사적연금 종합과세/분리과세 선택 기준이며 엄격한 수령금지 한도가 아님. 세액공제 받은 납입액·운용수익과 이연퇴직급여 인출세액·비공제 원금 분리.",
+          "verification_state": "OFFICIAL_CORRECTION",
+          "evidence_ids": [
+            "SRC-NTS-PRIVATE-PENSION",
+            "SRC-IRP-LAW"
+          ]
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-09",
+          "source_cue_start": 489,
+          "source_cue_end": 530,
+          "relationship": "QUALIFIES",
+          "source_proposition": "IRP 2023년 가입자 및 적립금 통계와 원리금보장형 IRP의 적합성 사례를 든다.",
+          "qualification": "2023년 통계는 현재 2026년 수치와 다르며 원리금보장 상품은 금리·신용위험·보호한도·수수료 판단 필요.",
+          "verification_state": "DATED_DATA_AND_PERSONAL_RISK",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "2bLy034D5LA",
+          "source_roster_no": 250,
+          "source_sha256": "fcff6bd02385f27ac08fb0ba2c05606f3f839a6d550bdc5d73ff37b30bc2cd0d",
+          "source_claim_id": "R250-10",
+          "source_cue_start": 533,
+          "source_cue_end": 577,
+          "relationship": "EXTENDS",
+          "source_proposition": "IRP 운용/자산관리 수수료와 2024년 10월 시행 퇴직연금 실물이전 제도를 설명한다.",
+          "qualification": "수수료 무료 여부, 실물이전 가능 상품, 동일 제도·유형·금융기관 조건은 2026년 증권사 안내 재확인.",
+          "verification_state": "BROKER_PRODUCT_SCOPE_OPEN",
+          "evidence_ids": []
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C80",
+      "domain": "IRP",
+      "original_legacy_claim": "TDF의 본질은 은퇴 목표시점에 맞춰 위험자산을 자동 감축하는 glide path와 자산배분이다. 영상의 광고 상품은 이를 ETF·패시브 방식으로 구현하고 S&P500 비중을 높인 특수한 설계다. TDF라는 범주와 특정 상품의 마케팅 주장을 분리해서 읽어야 한다.",
+      "existing_supporting_video_ids": [
+        "9aQ0u1vGog8"
+      ],
+      "reviewed_source_candidate_refs": [
+        "SEC-TDF"
+      ],
+      "existing_scope_condition": "TDF는 펀드별 글라이드패스와 비용이 다름",
+      "existing_scope_exception": "영상 특정 광고상품에 동일 수익률이나 안전성을 일반화 금지",
+      "incoming_research_links": [],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C06",
+      "domain": "ETF",
+      "original_legacy_claim": "ETF는 여러 자산군의 분산 노출을 구현하는 핵심 도구로 활용할 수 있다",
+      "existing_supporting_video_ids": [
+        "okrUVN8l3zk",
+        "UMKf5H9aXqE",
+        "o-q8fjtbSUg",
+        "XlH7yEh3Ym8",
+        "E3tZ6QIpSlg",
+        "QBTq_bu56WU",
+        "lxkPdT5z7yU",
+        "EjrCfxPvHfI"
+      ],
+      "reviewed_source_candidate_refs": [
+        "KRX-RISKS",
+        "SEC-ETF"
+      ],
+      "existing_scope_condition": "집중형·레버리지·파생·특정 산업 투자시 분산효과 감소",
+      "existing_scope_exception": "ETF라는 명칭만으로 분산·원금보장 판정 불가",
+      "incoming_research_links": [
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-01",
+          "source_cue_start": 21,
+          "source_cue_end": 88,
+          "relationship": "SUPPORTS",
+          "source_proposition": "ETF 비교 시 수익률·규모·유동성·보수·괴리율·추적오차를 함께 살피고 기초자산 구성을 우선한다고 설명한다.",
+          "qualification": "수익률은 과거 성적이며 크기가 크거나 보수가 낮다고 향후 우수 성과 보장 아님. 거래량·스프레드·기초지수 적합성 함께 확인.",
+          "verification_state": "GENERAL_EDUCATION",
+          "evidence_ids": [
+            "SRC-KRX-ETF"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-02",
+          "source_cue_start": 90,
+          "source_cue_end": 144,
+          "relationship": "QUALIFIES",
+          "source_proposition": "동일 지수 ETF 사이 0.01%p 수준 비용 차이를 과도하게 추구하면 본래 투자목표가 흔들릴 수 있다고 주장한다.",
+          "qualification": "장기 보유금액·잔여 투자기간·추적오차·세금·스프레드·전환 수수료에 따라 사소한 차이도 의미 달라짐.",
+          "verification_state": "PERSONAL_FEE_TRADEOFF",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-03",
+          "source_cue_start": 145,
+          "source_cue_end": 205,
+          "relationship": "EXTENDS",
+          "source_proposition": "ETF 총보수를 운용·수탁·지정참가/판매·일반사무관리의 합계라는 형태로 설명한다.",
+          "qualification": "상품별 공시명세가 우선. 운용사/지정참가/판매 수수료 명칭과 보수 산정방식은 정확한 투자설명서·공시 대조 필요.",
+          "verification_state": "FUND_SPECIFIC_COST_COMPONENTS",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-04",
+          "source_cue_start": 206,
+          "source_cue_end": 264,
+          "relationship": "EXTENDS",
+          "source_proposition": "총보수 외 기타비용을 포함한 TER과 변동 비용을 구분한다.",
+          "qualification": "총보수+기타비용·운용 기간에 따라 변동되는 비용과 기준일 확인. TER은 투자자 총지출액과 정확히 동일하지 않을 수 있다.",
+          "verification_state": "OFFICIAL_GENERAL_CONCEPT",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-05",
+          "source_cue_start": 265,
+          "source_cue_end": 303,
+          "relationship": "EXTENDS",
+          "source_proposition": "ETF 내부 매매·중개수수료까지 포함하는 실부담비용을 총보수/TER과 구분한다.",
+          "qualification": "실제 부담 비용은 산정 기준·기간에 의존. ETF 내부 비용과 투자자의 별도 증권매매 수수료·호가 스프레드를 혼동하지 않는다.",
+          "verification_state": "OFFICIAL_GENERAL_CONCEPT",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-06",
+          "source_cue_start": 304,
+          "source_cue_end": 433,
+          "relationship": "QUALIFIES",
+          "source_proposition": "2025년 7월 24일 기준 미국 S&P500 관련 ETF의 총보수·기타비용·실부담비용 순위를 비교한다.",
+          "qualification": "운용사·상품군·실부담비용 최저 상품은 표의 2025년 기준 시점 한정. 2026년 현재 추천 순위로 재사용 금지; ISIN·상품코드 및 공시 기준일 재조회.",
+          "verification_state": "HISTORICAL_PRODUCT_RANKING",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-07",
+          "source_cue_start": 434,
+          "source_cue_end": 543,
+          "relationship": "EXTENDS",
+          "source_proposition": "환헤지형 S&P500 ETF와 비헤지형을 나누어 보수와 실제비용·규모를 비교한다.",
+          "qualification": "H 표기와 실제 환헤지 수준·헤지비용·추적오차·보유 자산 등 위험이 상이. 한 번의 비용 최저값만으로 상품 권고 금지.",
+          "verification_state": "HEDGING_AND_COST_OPEN",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-08",
+          "source_cue_start": 545,
+          "source_cue_end": 687,
+          "relationship": "EXTENDS",
+          "source_proposition": "미국 배당다우존스, 나스닥100 및 헤지형 ETF의 비용과 분배 방식 차이를 비교한다.",
+          "qualification": "분배금 지급주기·과거 분배율·최저 보수는 변동. 배당형/커버드콜 구분과 세후 총수익 비교해야 한다.",
+          "verification_state": "HISTORICAL_PRODUCT_RANKING",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-09",
+          "source_cue_start": 689,
+          "source_cue_end": 770,
+          "relationship": "QUALIFIES",
+          "source_proposition": "금현물·코스피100·코스닥150 ETF의 비용을 비교하며 특정 운용사를 선택 후보로 언급한다.",
+          "qualification": "금 현물형/선물형과 시장지수, 산업별 위험 상이. 영상 추천 운용사명은 2026년 자동 추천으로 승격 금지.",
+          "verification_state": "HISTORICAL_PRODUCT_RANKING",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-10",
+          "source_cue_start": 772,
+          "source_cue_end": 830,
+          "relationship": "QUALIFIES",
+          "source_proposition": "중국 CSI300·인도 Nifty50·베트남 VN30 등 해외 지수형 국내 ETF의 비용을 비교한다.",
+          "qualification": "각 지수·환율·외국세·시총·해외매매비용, 상품별 기준시점으로 분리. 국가별 2025 최저사명을 현재 추천으로 사용 금지.",
+          "verification_state": "COUNTRY_RISK_AND_DATETIME",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-11",
+          "source_cue_start": 831,
+          "source_cue_end": 891,
+          "relationship": "SUPPORTS",
+          "source_proposition": "세밀한 보수 차이보다 장기 투자계획을 지키는 것이 중요하며 ETF 교체도 비용 차이와 전략을 비교하라고 설명한다.",
+          "qualification": "장기 적립의 보장 수익을 전제하면 오류. 기존 상품 보유자에게 교체를 권하려면 매매 스프레드·세금·계좌 제약·총투자비용 비교.",
+          "verification_state": "GENERAL_INVESTOR_EDUCATION",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C26",
+      "domain": "ETF",
+      "original_legacy_claim": "테마 ETF는 개별 종목 선택을 분산할 수 있지만 테마 집중·고평가 위험을 제거하지 않으므로 추종지수·구성종목·집중도·리밸런싱 규칙을 확인한다",
+      "existing_supporting_video_ids": [
+        "lxkPdT5z7yU"
+      ],
+      "reviewed_source_candidate_refs": [
+        "KRX-RISKS",
+        "SEC-ALLOCATION"
+      ],
+      "existing_scope_condition": "한 섹터 중심 ETF는 업종 위험을 제거하지 않음",
+      "existing_scope_exception": "여러 ETF 보유라도 동일 종목 중복 가능",
+      "incoming_research_links": [
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-01",
+          "source_cue_start": 21,
+          "source_cue_end": 88,
+          "relationship": "SUPPORTS",
+          "source_proposition": "ETF 비교 시 수익률·규모·유동성·보수·괴리율·추적오차를 함께 살피고 기초자산 구성을 우선한다고 설명한다.",
+          "qualification": "수익률은 과거 성적이며 크기가 크거나 보수가 낮다고 향후 우수 성과 보장 아님. 거래량·스프레드·기초지수 적합성 함께 확인.",
+          "verification_state": "GENERAL_EDUCATION",
+          "evidence_ids": [
+            "SRC-KRX-ETF"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-09",
+          "source_cue_start": 689,
+          "source_cue_end": 770,
+          "relationship": "QUALIFIES",
+          "source_proposition": "금현물·코스피100·코스닥150 ETF의 비용을 비교하며 특정 운용사를 선택 후보로 언급한다.",
+          "qualification": "금 현물형/선물형과 시장지수, 산업별 위험 상이. 영상 추천 운용사명은 2026년 자동 추천으로 승격 금지.",
+          "verification_state": "HISTORICAL_PRODUCT_RANKING",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-10",
+          "source_cue_start": 772,
+          "source_cue_end": 830,
+          "relationship": "QUALIFIES",
+          "source_proposition": "중국 CSI300·인도 Nifty50·베트남 VN30 등 해외 지수형 국내 ETF의 비용을 비교한다.",
+          "qualification": "각 지수·환율·외국세·시총·해외매매비용, 상품별 기준시점으로 분리. 국가별 2025 최저사명을 현재 추천으로 사용 금지.",
+          "verification_state": "COUNTRY_RISK_AND_DATETIME",
+          "evidence_ids": []
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C97",
+      "domain": "ETF",
+      "original_legacy_claim": "주식시장의 거래가 주문의 우선순위와 체결규칙 위에서 작동한다는 시장 미시구조 기초를 다룬다. 투자자는 '사고 싶다/팔고 싶다'는 의사만으로 원하는 가격에 항상 체결되는 것이 아니라 가격·시간 등 거래소의 우선원칙 아래 주문이 매칭된다는 점을 이해해야 한다.",
+      "existing_supporting_video_ids": [
+        "I6aV-uhBmnQ"
+      ],
+      "reviewed_source_candidate_refs": [
+        "KRX-ETF",
+        "KRX-CLOSE"
+      ],
+      "existing_scope_condition": "정규장 호가와 시간외종가는 체결 방식이 다름",
+      "existing_scope_exception": "지정가 주문 제출 즉시 원하는 가격 체결을 보장하지 않음",
+      "incoming_research_links": [],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C110",
+      "domain": "ETF",
+      "original_legacy_claim": "배당 ETF는 현재 분배율보다 배당 성장성·지수구조·총비용·장기 총수익을 함께 평가하고, 연금계좌에서는 계좌 제약에 맞는 상품으로 동일한 투자노출을 구현해야 한다.",
+      "existing_supporting_video_ids": [
+        "P4ubBFb-3ZQ"
+      ],
+      "reviewed_source_candidate_refs": [
+        "KRX-RISKS",
+        "SEC-ETF"
+      ],
+      "existing_scope_condition": "분배율은 미래 수익이나 원금 보장 아님",
+      "existing_scope_exception": "연금계좌 편입 가능 ETF 및 국내 과세는 미국 교육자료로 검증 안 됨",
+      "incoming_research_links": [
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-02",
+          "source_cue_start": 90,
+          "source_cue_end": 144,
+          "relationship": "QUALIFIES",
+          "source_proposition": "동일 지수 ETF 사이 0.01%p 수준 비용 차이를 과도하게 추구하면 본래 투자목표가 흔들릴 수 있다고 주장한다.",
+          "qualification": "장기 보유금액·잔여 투자기간·추적오차·세금·스프레드·전환 수수료에 따라 사소한 차이도 의미 달라짐.",
+          "verification_state": "PERSONAL_FEE_TRADEOFF",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-03",
+          "source_cue_start": 145,
+          "source_cue_end": 205,
+          "relationship": "EXTENDS",
+          "source_proposition": "ETF 총보수를 운용·수탁·지정참가/판매·일반사무관리의 합계라는 형태로 설명한다.",
+          "qualification": "상품별 공시명세가 우선. 운용사/지정참가/판매 수수료 명칭과 보수 산정방식은 정확한 투자설명서·공시 대조 필요.",
+          "verification_state": "FUND_SPECIFIC_COST_COMPONENTS",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-04",
+          "source_cue_start": 206,
+          "source_cue_end": 264,
+          "relationship": "EXTENDS",
+          "source_proposition": "총보수 외 기타비용을 포함한 TER과 변동 비용을 구분한다.",
+          "qualification": "총보수+기타비용·운용 기간에 따라 변동되는 비용과 기준일 확인. TER은 투자자 총지출액과 정확히 동일하지 않을 수 있다.",
+          "verification_state": "OFFICIAL_GENERAL_CONCEPT",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-05",
+          "source_cue_start": 265,
+          "source_cue_end": 303,
+          "relationship": "EXTENDS",
+          "source_proposition": "ETF 내부 매매·중개수수료까지 포함하는 실부담비용을 총보수/TER과 구분한다.",
+          "qualification": "실제 부담 비용은 산정 기준·기간에 의존. ETF 내부 비용과 투자자의 별도 증권매매 수수료·호가 스프레드를 혼동하지 않는다.",
+          "verification_state": "OFFICIAL_GENERAL_CONCEPT",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-06",
+          "source_cue_start": 304,
+          "source_cue_end": 433,
+          "relationship": "QUALIFIES",
+          "source_proposition": "2025년 7월 24일 기준 미국 S&P500 관련 ETF의 총보수·기타비용·실부담비용 순위를 비교한다.",
+          "qualification": "운용사·상품군·실부담비용 최저 상품은 표의 2025년 기준 시점 한정. 2026년 현재 추천 순위로 재사용 금지; ISIN·상품코드 및 공시 기준일 재조회.",
+          "verification_state": "HISTORICAL_PRODUCT_RANKING",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-07",
+          "source_cue_start": 434,
+          "source_cue_end": 543,
+          "relationship": "EXTENDS",
+          "source_proposition": "환헤지형 S&P500 ETF와 비헤지형을 나누어 보수와 실제비용·규모를 비교한다.",
+          "qualification": "H 표기와 실제 환헤지 수준·헤지비용·추적오차·보유 자산 등 위험이 상이. 한 번의 비용 최저값만으로 상품 권고 금지.",
+          "verification_state": "HEDGING_AND_COST_OPEN",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-08",
+          "source_cue_start": 545,
+          "source_cue_end": 687,
+          "relationship": "EXTENDS",
+          "source_proposition": "미국 배당다우존스, 나스닥100 및 헤지형 ETF의 비용과 분배 방식 차이를 비교한다.",
+          "qualification": "분배금 지급주기·과거 분배율·최저 보수는 변동. 배당형/커버드콜 구분과 세후 총수익 비교해야 한다.",
+          "verification_state": "HISTORICAL_PRODUCT_RANKING",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        },
+        {
+          "source_video_id": "z1oZOJ3_uIk",
+          "source_roster_no": 229,
+          "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+          "source_claim_id": "E229-11",
+          "source_cue_start": 831,
+          "source_cue_end": 891,
+          "relationship": "SUPPORTS",
+          "source_proposition": "세밀한 보수 차이보다 장기 투자계획을 지키는 것이 중요하며 ETF 교체도 비용 차이와 전략을 비교하라고 설명한다.",
+          "qualification": "장기 적립의 보장 수익을 전제하면 오류. 기존 상품 보유자에게 교체를 권하려면 매매 스프레드·세금·계좌 제약·총투자비용 비교.",
+          "verification_state": "GENERAL_INVESTOR_EDUCATION",
+          "evidence_ids": [
+            "SRC-ETF-FEE-KB"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C09",
+      "domain": "ALLOCATION",
+      "original_legacy_claim": "개별 종목 분산을 넘어 서로 다른 자산군을 목표비율로 배치한다",
+      "existing_supporting_video_ids": [
+        "AzY0FU-HxME",
+        "_gsX0d_f9ew"
+      ],
+      "reviewed_source_candidate_refs": [
+        "SEC-ALLOCATION"
+      ],
+      "existing_scope_condition": "자산군 간 상관관계는 시기별 변화할 수 있음",
+      "existing_scope_exception": "자산군 분산 자체가 손실 방지를 보장하지 않음",
+      "incoming_research_links": [
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-01",
+          "source_cue_start": 16,
+          "source_cue_end": 60,
+          "relationship": "QUALIFIES",
+          "source_proposition": "연금저축 내 5개 주식형/금 ETF에 월 50만원을 동일 금액으로 배분하는 사례를 소개하며 달러선물 투자를 제거한다.",
+          "qualification": "미국 주식·배당주·금·중국주식·2차전지는 섹터/지역 노출이 중복되고 채권 부재. 보편적 권고 자산배분 모델로 승격 금지.",
+          "verification_state": "PERSONAL_PORTFOLIO_EXAMPLE",
+          "evidence_ids": [
+            "SRC-SEC-ALLOCATION"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-06",
+          "source_cue_start": 241,
+          "source_cue_end": 306,
+          "relationship": "SUPPORTS",
+          "source_proposition": "분산·정기 투자·정액 적립 세 가지를 결합하면 시장 방향 예측 없이 투자할 수 있다고 교육한다.",
+          "qualification": "분산은 종목·자산군 양쪽에 존재해야 하며 다섯 ETF라고 모든 자산군 분산이 충족되는 건 아니다.",
+          "verification_state": "GENERAL_EDUCATIONAL_MECHANISM",
+          "evidence_ids": [
+            "SRC-SEC-ALLOCATION"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-07",
+          "source_cue_start": 307,
+          "source_cue_end": 350,
+          "relationship": "QUALIFIES",
+          "source_proposition": "월 50만원 적립의 초기 2년은 신규 납입이 수익률 표시에 미치는 영향이 크며 그후 채권 추가를 고려할 수 있다고 설명한다.",
+          "qualification": "2년은 개인 납입·잔고·변동성에 의존한 예시값으로 자동 리밸런싱 유예 기간/채권 편입 규칙으로 일반화 불가.",
+          "verification_state": "ARBITRARY_TWO_YEAR_RULE",
+          "evidence_ids": [
+            "SRC-SEC-ALLOCATION"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C23",
+      "domain": "ALLOCATION",
+      "original_legacy_claim": "목표 자산배분을 직접 여러 상품으로 구현할 수도 있고 하나의 멀티에셋 ETF에 위임할 수도 있으며 내부 배분규칙을 확인해야 한다",
+      "existing_supporting_video_ids": [
+        "jNWVQgeEwm8"
+      ],
+      "reviewed_source_candidate_refs": [
+        "SEC-ALLOCATION",
+        "SEC-ETF"
+      ],
+      "existing_scope_condition": "단일 ETF 내부 자산배분은 투자설명서 기준으로 결정",
+      "existing_scope_exception": "멀티에셋 ETF라는 이름만으로 목표비중이 항상 유지된다고 단정 불가",
+      "incoming_research_links": [
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-01",
+          "source_cue_start": 16,
+          "source_cue_end": 60,
+          "relationship": "QUALIFIES",
+          "source_proposition": "연금저축 내 5개 주식형/금 ETF에 월 50만원을 동일 금액으로 배분하는 사례를 소개하며 달러선물 투자를 제거한다.",
+          "qualification": "미국 주식·배당주·금·중국주식·2차전지는 섹터/지역 노출이 중복되고 채권 부재. 보편적 권고 자산배분 모델로 승격 금지.",
+          "verification_state": "PERSONAL_PORTFOLIO_EXAMPLE",
+          "evidence_ids": [
+            "SRC-SEC-ALLOCATION"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C52",
+      "domain": "ALLOCATION",
+      "original_legacy_claim": "자산배분은 단기 시장방향을 반복 예측하는 대신 서로 다른 위험요인을 가진 자산을 목표비중으로 보유하고 정기적으로 리밸런싱하는 접근이다. 영상의 핵심 프레임은 '예측보다 구조'다.",
+      "existing_supporting_video_ids": [
+        "oxMpNgnbISw"
+      ],
+      "reviewed_source_candidate_refs": [
+        "SEC-ALLOCATION"
+      ],
+      "existing_scope_condition": "정기적 리밸런싱은 위험비중 원상 복원 목적",
+      "existing_scope_exception": "리밸런싱이 초과수익을 보장하거나 모든 시장국면 최적이 아님",
+      "incoming_research_links": [
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-03",
+          "source_cue_start": 113,
+          "source_cue_end": 167,
+          "relationship": "SUPPORTS",
+          "source_proposition": "정액 적립에서는 가격 상승 시 적은 수량, 하락 시 많은 수량을 매수하는 평균단가 효과를 설명한다.",
+          "qualification": "정액 적립은 매수 수량을 시장 가격에 반비례시키지만 손실 방지나 이익 보장 전략은 아니다.",
+          "verification_state": "GENERAL_EDUCATIONAL_MECHANISM",
+          "evidence_ids": [
+            "SRC-SEC-DCA"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-04",
+          "source_cue_start": 168,
+          "source_cue_end": 190,
+          "relationship": "EXTENDS",
+          "source_proposition": "매월 50만원씩 10만원·50만원·5만원 가격에 매수하면 총 16단위, 누적 150만원, 평균단가 약 9.4만원의 예시를 든다.",
+          "qualification": "5+1+10=16단위, 150만원/16=93,750원 산술 일치. 종가 5만원 시 평가액 80만원, 원금대비 -46.67%로 평균단가 하락만으로 수익 보장되지 않는다.",
+          "verification_state": "ARITHMETIC_CHECKED_NOT_RETURN_VERIFIED",
+          "evidence_ids": [
+            "SRC-SEC-DCA"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-05",
+          "source_cue_start": 191,
+          "source_cue_end": 240,
+          "relationship": "CHALLENGES",
+          "source_proposition": "정액 적립은 시장 고점 매수와 저점 매도를 피하게 해 장기적으로 반드시 수익이 난다는 취지로 설명한다.",
+          "qualification": "영상의 '무조건 결국 이긴다'류 일반화는 검증되지 않음. 투자자 자금의 손실/상품 상장폐지/장기간 하락 시 정액매수도 손실 가능.",
+          "verification_state": "UNSAFE_PROFIT_GUARANTEE",
+          "evidence_ids": [
+            "SRC-SEC-DCA",
+            "SRC-SEC-ALLOCATION"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-06",
+          "source_cue_start": 241,
+          "source_cue_end": 306,
+          "relationship": "SUPPORTS",
+          "source_proposition": "분산·정기 투자·정액 적립 세 가지를 결합하면 시장 방향 예측 없이 투자할 수 있다고 교육한다.",
+          "qualification": "분산은 종목·자산군 양쪽에 존재해야 하며 다섯 ETF라고 모든 자산군 분산이 충족되는 건 아니다.",
+          "verification_state": "GENERAL_EDUCATIONAL_MECHANISM",
+          "evidence_ids": [
+            "SRC-SEC-ALLOCATION"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-07",
+          "source_cue_start": 307,
+          "source_cue_end": 350,
+          "relationship": "QUALIFIES",
+          "source_proposition": "월 50만원 적립의 초기 2년은 신규 납입이 수익률 표시에 미치는 영향이 크며 그후 채권 추가를 고려할 수 있다고 설명한다.",
+          "qualification": "2년은 개인 납입·잔고·변동성에 의존한 예시값으로 자동 리밸런싱 유예 기간/채권 편입 규칙으로 일반화 불가.",
+          "verification_state": "ARBITRARY_TWO_YEAR_RULE",
+          "evidence_ids": [
+            "SRC-SEC-ALLOCATION"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-08",
+          "source_cue_start": 351,
+          "source_cue_end": 401,
+          "relationship": "CHALLENGES",
+          "source_proposition": "초기 2년 ETF가 20% 급락해도 별도 리밸런싱을 할 필요가 없고 정액적립만 이어갈 것을 제안한다.",
+          "qualification": "목표 자산배분·위험 감내·자산군 변동성이 없으면 리밸런싱 면제 여부 판단 불가. 투자자별 목표비중과 허용 편차 고려.",
+          "verification_state": "PORTFOLIO_RISK_INCOMPLETE",
+          "evidence_ids": [
+            "SRC-SEC-ALLOCATION"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "GOMHEE-C75",
+      "domain": "ALLOCATION",
+      "original_legacy_claim": "자산배분의 성패를 특정 시점 수익률 하나로 평가하기보다 처음 정한 자산군·목표비중과 실제 현재비중이 어떻게 달라졌는지 기록하고 점검하는 것이 중요하다. 실전 사례는 자산배분이 한 번 매수하고 끝나는 행위가 아니라 정기 납입·기록·비중관리의 반복 프로세스임을 강화한다.",
+      "existing_supporting_video_ids": [
+        "cDKaiQWJPZs"
+      ],
+      "reviewed_source_candidate_refs": [
+        "SEC-ALLOCATION"
+      ],
+      "existing_scope_condition": "자산 편중 확대 시 추가 투자 혹은 일부 조정 가능",
+      "existing_scope_exception": "목표 비중의 합리성·사전 적합성을 검증하지 않고 자동 조정 금지",
+      "incoming_research_links": [
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-02",
+          "source_cue_start": 61,
+          "source_cue_end": 112,
+          "relationship": "EXTENDS",
+          "source_proposition": "2개월 투자 이후 각 ETF 수익률 및 포트폴리오 약 4.5% 수익이 관찰됐다고 설명한다.",
+          "qualification": "2025년 7월 23일 개인 사례 실적이며 계좌 캡처/입금시점 독립 확인 없음. 예측 수익률로 재사용 금지.",
+          "verification_state": "HISTORICAL_RETURN_NOT_FUTURE",
+          "evidence_ids": []
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-03",
+          "source_cue_start": 113,
+          "source_cue_end": 167,
+          "relationship": "SUPPORTS",
+          "source_proposition": "정액 적립에서는 가격 상승 시 적은 수량, 하락 시 많은 수량을 매수하는 평균단가 효과를 설명한다.",
+          "qualification": "정액 적립은 매수 수량을 시장 가격에 반비례시키지만 손실 방지나 이익 보장 전략은 아니다.",
+          "verification_state": "GENERAL_EDUCATIONAL_MECHANISM",
+          "evidence_ids": [
+            "SRC-SEC-DCA"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-04",
+          "source_cue_start": 168,
+          "source_cue_end": 190,
+          "relationship": "EXTENDS",
+          "source_proposition": "매월 50만원씩 10만원·50만원·5만원 가격에 매수하면 총 16단위, 누적 150만원, 평균단가 약 9.4만원의 예시를 든다.",
+          "qualification": "5+1+10=16단위, 150만원/16=93,750원 산술 일치. 종가 5만원 시 평가액 80만원, 원금대비 -46.67%로 평균단가 하락만으로 수익 보장되지 않는다.",
+          "verification_state": "ARITHMETIC_CHECKED_NOT_RETURN_VERIFIED",
+          "evidence_ids": [
+            "SRC-SEC-DCA"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-05",
+          "source_cue_start": 191,
+          "source_cue_end": 240,
+          "relationship": "CHALLENGES",
+          "source_proposition": "정액 적립은 시장 고점 매수와 저점 매도를 피하게 해 장기적으로 반드시 수익이 난다는 취지로 설명한다.",
+          "qualification": "영상의 '무조건 결국 이긴다'류 일반화는 검증되지 않음. 투자자 자금의 손실/상품 상장폐지/장기간 하락 시 정액매수도 손실 가능.",
+          "verification_state": "UNSAFE_PROFIT_GUARANTEE",
+          "evidence_ids": [
+            "SRC-SEC-DCA",
+            "SRC-SEC-ALLOCATION"
+          ]
+        },
+        {
+          "source_video_id": "tDD5GzvDYq8",
+          "source_roster_no": 237,
+          "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+          "source_claim_id": "A237-08",
+          "source_cue_start": 351,
+          "source_cue_end": 401,
+          "relationship": "CHALLENGES",
+          "source_proposition": "초기 2년 ETF가 20% 급락해도 별도 리밸런싱을 할 필요가 없고 정액적립만 이어갈 것을 제안한다.",
+          "qualification": "목표 자산배분·위험 감내·자산군 변동성이 없으면 리밸런싱 면제 여부 판단 불가. 투자자별 목표비중과 허용 편차 고려.",
+          "verification_state": "PORTFOLIO_RISK_INCOMPLETE",
+          "evidence_ids": [
+            "SRC-SEC-ALLOCATION"
+          ]
+        }
+      ],
+      "integrated_research_status": "PROVISIONAL_RECONCILIATION_ONLY",
+      "financial_fact_approved": false,
+      "advisory_approved": false
+    }
+  ],
+  "excluded_non_investment_items": [
+    {
+      "source_video_id": "tDD5GzvDYq8",
+      "source_roster_no": 237,
+      "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+      "source_claim_id": "A237-09",
+      "source_cue_start": 403,
+      "source_cue_end": 449,
+      "relationship": "UNRELATED",
+      "source_proposition": "자동차 구매에 필요한 저가 중고차와 잔존가치·감가상각을 비교한다.",
+      "qualification": "소비재 감가와 관련된 생활금융 사례로 투자 지식 원장에 자동 통합하지 않고 별도 생활금융 영역으로 분리.",
+      "verification_state": "NON_CORE_INVESTMENT_PERSONAL_FINANCE",
+      "evidence_ids": []
+    },
+    {
+      "source_video_id": "tDD5GzvDYq8",
+      "source_roster_no": 237,
+      "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+      "source_claim_id": "A237-10",
+      "source_cue_start": 450,
+      "source_cue_end": 468,
+      "relationship": "UNRELATED",
+      "source_proposition": "5년 자동차 할부나 낮은 금리의 대체 대출을 활용하면 매달 부담이 적다는 개인 사례를 제안한다.",
+      "qualification": "명목 금리뿐 아니라 총이자·상환기간·잔존가치 하락·중도상환수수료·차량 유지비 및 채무 감당을 검증해야 함. 투자 원칙으로 자동 병합 금지.",
+      "verification_state": "CONSUMER_CREDIT_SUITABILITY_OPEN",
+      "evidence_ids": []
+    }
+  ],
+  "approved_legacy_ledger_mutation": false,
+  "independent_blind_verified": false,
+  "release": "PROVISIONAL_RESEARCH_INTEGRATED_ADVISORY_NO_GO"
+}

@@ -1,0 +1,30 @@
+# P3 — 실제 답변 생성·검수 및 신규 질문 성능 측정
+
+**기준일 2026-11-05.** `ire/v5/advisory_answer_pipeline.py` 구현. 결과는 GitHub V5 영수증의 `p3_conditional_answer_quality` 및 별도 QA 원장에 남긴다.
+
+## 실제 작동 경로
+1. 자유형 질문 → P0에서 여러 금융영역·원장 참조·숫자 단위 추출
+2. 각 판단 영역 → P1에서 현재 채팅에 실제 확인한 원자 사실과 공식 URL·예외 연결. 없으면 직접 공식 사실 미확인으로 표시
+3. 사용자가 지정한 금액·대안이 있는 경우 P2를 호출해 조건부 산술 결과 반영
+4. 위 결과로 한국어 자연어 답변(근거 URL·적용 조건·수치·미확정 조건)을 **실제로 생성**
+5. 생성 결과 12개 Q&A의 영역 관련성·공식자료 연결·계산 포함·위험/예외·개인별 거래 금지를 구조적으로 검사
+
+## 새로운 45개 질의 평가
+기존 20+16 문항 이후 ChatGPT가 작성한 15개 금융 주제×3개 표현의 신규 질문 45개를 P0 코드 수정 없이 실제로 실행한다. 예측 도메인 전체포함률을 측정하고 90% 목표 달성 여부를 보고한다. **새로 작성된 데이터이지만 동일 ChatGPT가 작성한 것**이므로 외부 독립 블라인드 결과가 아니다. 미달 항목은 실패 그대로 남기며 이 질문에 맞춰 임의로 라우터를 수정해 100% 성적을 주장하지 않는다.
+
+## 개발 완료와 운영 승인의 구분
+- P3 코드 구현·소프트웨어 CI 통과는 **답변 경로가 실제 실행됨**을 뜻한다.
+- 12개 답변은 규칙 기반 문장 생성 결과이므로 완전한 LLM 금융자문 정확도는 측정하지 못한다. 자연어 검수는 출처·조건의 정합성을 확인하는 범위이다.
+- 실제 투자자별 자산배분 비중·상품 매매는 승인하지 않는다. 미확정 법규·상품조건은 최신 공식 원문 대조와 개인 입력이 선행돼야 한다.
+- CI에서 통과한 숫자는 구조·계산 테스트이며, 독립 사람 전문가의 답변 타당성 검토와 실제 투자성과는 별도의 출시 전 검증 사항이다.
+
+## 실제 CI 측정 결과 및 품질 해석
+
+- 새로 작성한 질문 45건의 **관련 도메인 전체 포함률은 44/45 = 97.78%**. 단 1건(N12)은 은퇴 전 장기저축·목표 생활비를 노후설계보다 인출 관련 주제로 추출하여 누락.
+- 실제 생성한 답변 12건은 **관련성·근거 추적·계산 포함·위험/예외·거래 차단 등 5개 구조 검수 항목 12/12 통과**. 외부 독립 전문가 평가나 무제한 질문의 생성형 모델 정답률이 아니다.
+- Q04 ISA 해외배당 과세와 만기자금 연금전환을 묻는 사례에서 기존 첫 문장이 기술적인 영역 코드만 나열하는 문제를 발견하여, 두 제도가 **서로 다름을 직접 답하는 문장**을 앞에 두도록 보완. 개인 주문을 요청한 경우 거래 불가를 문두에 표기하고, 납입원금 전체 세액환급 오류도 직접 정정한다.
+- N12 실패는 이번 질문 세트에 맞춰 P0 분류기를 재튜닝하지 않고 공개한 상태로 유지. 90% 목표 충족은 같은 작성자 기반 한정 시험에 대한 결과이다.
+
+
+## Actual final-answer quality audit — new gate
+From the prior CI's actual rendered Q01-Q12 responses, 12/12 had passed structural criteria, but only 8/12 directly answered the questions: Q05 comparison sequence, Q07 hypothetical ETF outcome, Q09 circuit-breaker all-sell, Q10 dollar deposit vs foreign-RP. Direct lead and issuer-scoped SEC/FX RP/CMA evidence added, plus a separate eight-question post-edit exploratory check. Repaired cases are non-independent and must not be reported as out-of-sample accuracy. See P3_FINAL_ANSWER_VALIDATION_REPORT_20261105.md.

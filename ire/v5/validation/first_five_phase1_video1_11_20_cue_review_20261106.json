@@ -1,0 +1,2132 @@
+{
+  "schema": "IRE_V5_FIRST_FIVE_PHASE1_SECOND_TEN_CUE_AUDIT_V1",
+  "as_of": "2026-11-06",
+  "original_zip_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "source_review": "VIDEO_1_WINDOWS_11_TO_20_170_TO_349_INCLUSIVE",
+  "first_ten_prior_event_head_sha256": "b3b53f613a536acccbcb204263212ee731e69170a1eb76533e81838fbb3d06d6",
+  "original_cues_in_this_batch": 180,
+  "newly_dispositioned_unresolved_cues_in_this_batch": 171,
+  "previous_five_video_unresolved_cue_count": 4749,
+  "current_five_video_unresolved_cue_count": 4578,
+  "total_five_video_windows_reviewed_model_evidence_relation": 20,
+  "total_video1_source_cues_reviewed_first_20": 349,
+  "five_video_model_windows_still_288": 288,
+  "original_public_batch_processed_windows_remain_5": 5,
+  "private_event_records_video1_now_3": 3,
+  "claim_count_video1_now_104": 104,
+  "claim_count_five_videos_now_295": 295,
+  "retired_previous_scope_claim_ids": [
+    "V5C0011",
+    "V5C0013"
+  ],
+  "fresh_official_narrow_scope_urls": [
+    {
+      "topic": "국민연금 노령연금 지급사유 발생 다음 달과 정기지급일 25일",
+      "issuer": "국민연금공단",
+      "url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0048M0.do",
+      "scope": "W00012 W00013"
+    },
+    {
+      "topic": "노령연금 지급연기 1년 7.2% 5년 최대 36% (가산은 단순 비율)",
+      "issuer": "국민연금공단",
+      "url": "https://ma.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do",
+      "scope": "W00015 W00017"
+    },
+    {
+      "topic": "과세대상 사적연금소득 1,500만원 기준 적용 대상 구분",
+      "issuer": "국세청",
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+      "scope": "W00020"
+    }
+  ],
+  "arithmetic_recheck": [
+    {
+      "scenario": "monthly 300000 at 7pct nominal monthly for 84 months",
+      "future_value_krw": 32399694,
+      "not_guaranteed": true
+    },
+    {
+      "scenario": "monthly 300000 at 7pct nominal monthly for 120 months",
+      "future_value_krw": 51925442,
+      "not_guaranteed": true
+    },
+    {
+      "scenario": "120 month value times 6pct / 12 monthly distribution",
+      "monthly_krw": 259627,
+      "not_guaranteed": true
+    },
+    {
+      "scenario": "monthly 400000 at 7pct nominal monthly for 60 months",
+      "future_value_krw": 28637161,
+      "not_guaranteed": true
+    },
+    {
+      "scenario": "monthly 408000 at 7pct nominal monthly for 60 months",
+      "future_value_krw": 29209904,
+      "not_guaranteed": true
+    },
+    {
+      "scenario": "28000000 times 6pct /12",
+      "monthly_krw": 140000,
+      "not_guaranteed": true
+    },
+    {
+      "scenario": "300000 times 1.36",
+      "new_annual_increase_effect_monthly_krw": 408000,
+      "not_guaranteed": true
+    }
+  ],
+  "source_period_discrepancy_not_audio_confirmed": "W00014 says 7 years about 51 million, but 300k/month 7% for 7 years ~32.4 million and for 10 years ~51.9 million. Preserve ASR/period conflict.",
+  "source_window_reviews": [
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00011",
+      "first_cue": 170,
+      "last_cue": 187,
+      "window_sha256": "e17dfca156c0db464e6f9097dc1e850e5dff0a7c97955d4816fd8d6e7fd19e1f",
+      "claims": [
+        {
+          "claim_id": "V5C0009",
+          "kind": "RECOMMENDATION",
+          "paraphrase": "화자는 추납이 허용되는 과거기간을 우선 보완하고 향후 가용자금이 생길 때 연금저축에 추가 적립하는 조건부 병행안을 제시한다. 1,800만원·월25만원은 질문자 예시이며 개인별 추납자격과 재무 여력 미확정.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            170,
+            171,
+            172,
+            173,
+            174,
+            175,
+            176,
+            177,
+            178,
+            179,
+            180,
+            181,
+            182,
+            183,
+            184,
+            185,
+            186,
+            187
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 170,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 171,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 172,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 173,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 174,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 175,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 176,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 177,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 178,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 179,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 180,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 181,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 182,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 183,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 184,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 185,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 186,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0009"
+          ],
+          "cue_index": 187,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    },
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00012",
+      "first_cue": 188,
+      "last_cue": 205,
+      "window_sha256": "9a6f0892dd6034bc7a24ec0ce49d7999b9b910a71f44f4952ff484ea378c15c3",
+      "claims": [
+        {
+          "claim_id": "V5C0280",
+          "kind": "RECOMMENDATION",
+          "paraphrase": "추납과 별개로 향후 여유자금이 생길 때 연금저축에 넣는 방안을 제안한다. 수익률·현금흐름·세액공제 실익 확인 전 개인별 최적안 아님.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            188,
+            189
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0281",
+          "kind": "PERSONAL_CASE",
+          "paraphrase": "다른 질문자는 만 59세가 되는 다음 해 2월에 연금이 시작된다고 설명하며 월 약30만원을 10년간 연금저축펀드에 재투자할 수 있는지 묻는다. 개인 원자료 없음.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            195,
+            196,
+            197,
+            198,
+            199,
+            200,
+            201
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0282",
+          "kind": "RULE",
+          "paraphrase": "화자는 노령연금 월 지급일이 25일이라는 설명을 시작한다. 실제 지급개시 월과 수급연령은 출생연도·청구자격과 지급일 예외에 따라 달라진다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            205
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0280"
+          ],
+          "cue_index": 188,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0280"
+          ],
+          "cue_index": 189,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 190,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 191,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 192,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 193,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 194,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [
+            "V5C0281"
+          ],
+          "cue_index": 195,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0281"
+          ],
+          "cue_index": 196,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0281"
+          ],
+          "cue_index": 197,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0281"
+          ],
+          "cue_index": 198,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0281"
+          ],
+          "cue_index": 199,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0281"
+          ],
+          "cue_index": 200,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0281"
+          ],
+          "cue_index": 201,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 202,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 203,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 204,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [
+            "V5C0282"
+          ],
+          "cue_index": 205,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    },
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00013",
+      "first_cue": 206,
+      "last_cue": 223,
+      "window_sha256": "2a9073434a2d7b0c08c9044869af5eb08f6cc20d842f9402efd6aed571c1e05e",
+      "claims": [
+        {
+          "claim_id": "V5C0283",
+          "kind": "RULE",
+          "paraphrase": "국민연금은 지급사유가 발생한 달 다음 달부터 지급되며 정기지급일은 매월 25일이라는 설명이다. 휴일이면 앞선 지급일 적용, 개인별 출생연도 지급개시연령 확인 필요.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            206,
+            207,
+            208,
+            209
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0284",
+          "kind": "PERSONAL_CASE",
+          "paraphrase": "질문자가 국민연금 월 약30만원을 소비하지 않고 연금저축펀드에 10년 재투자하려는 계획을 진행자가 다시 소개한다. 개인 투자예산과 다른 소득은 확인되지 않았다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            210,
+            211,
+            212,
+            213,
+            214,
+            215,
+            216,
+            217
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0010",
+          "kind": "HYPOTHETICAL",
+          "paraphrase": "월 30만원을 10년 동안 매월 투자하며 연 수익률 7%를 가정하는 적립식 시뮬레이션이다. 명목수익률·실질가치·실현수익과 구별해야 한다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            218,
+            219,
+            220,
+            221,
+            222,
+            223
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0283"
+          ],
+          "cue_index": 206,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0283"
+          ],
+          "cue_index": 207,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0283"
+          ],
+          "cue_index": 208,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0283"
+          ],
+          "cue_index": 209,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0284"
+          ],
+          "cue_index": 210,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0284"
+          ],
+          "cue_index": 211,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0284"
+          ],
+          "cue_index": 212,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0284"
+          ],
+          "cue_index": 213,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0284"
+          ],
+          "cue_index": 214,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0284"
+          ],
+          "cue_index": 215,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0284"
+          ],
+          "cue_index": 216,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0284"
+          ],
+          "cue_index": 217,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0010"
+          ],
+          "cue_index": 218,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0010"
+          ],
+          "cue_index": 219,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0010"
+          ],
+          "cue_index": 220,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0010"
+          ],
+          "cue_index": 221,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0010"
+          ],
+          "cue_index": 222,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0010"
+          ],
+          "cue_index": 223,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    },
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00014",
+      "first_cue": 224,
+      "last_cue": 241,
+      "window_sha256": "4b03c4ceedbdf5ecc29352e0e3d23ebcb7f1ae432f75a8df602aebd84955924f",
+      "claims": [
+        {
+          "claim_id": "V5C0285",
+          "kind": "MATH",
+          "paraphrase": "영상 자막에는 7년 시점에 약5,100만원이라는 표현이 나오지만 앞 구간의 월30만원·연7%·10년 모형과 기간이 다르다. 연7% 월복리로 10년은 약5,193만원, 7년은 약3,240만원으로 기간/ASR 불일치 미해결.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            224,
+            225,
+            226
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0286",
+          "kind": "MATH",
+          "paraphrase": "연금저축 잔고 약5,100만~5,200만원을 연6% 현금분배율로 환산해 세전 월 약25.5만~26만원을 추정하는 가정이다. 분배율·원금은 보장되지 않는다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            227,
+            228,
+            229,
+            230,
+            231
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0287",
+          "kind": "RULE",
+          "paraphrase": "시청자 질문과 진행자는 국민연금 수령액에 세금이 원천징수·정산될 수 있다는 점을 언급한다. 모든 국민연금 수령액이 종합소득세 신고 대상이라는 뜻은 아니다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            232,
+            233,
+            234,
+            235
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0288",
+          "kind": "OPINION",
+          "paraphrase": "연금을 당장 소비하지 않고 10년 투자하는 것을 연금수령 연기와 비슷하게 표현한다. 법정 연기연금과 이미 수령한 연금의 재투자는 지급·세금·기회비용 구조가 다르다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            236,
+            237,
+            238,
+            239,
+            240,
+            241
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0285"
+          ],
+          "cue_index": 224,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0285"
+          ],
+          "cue_index": 225,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0285"
+          ],
+          "cue_index": 226,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0286"
+          ],
+          "cue_index": 227,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0286"
+          ],
+          "cue_index": 228,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0286"
+          ],
+          "cue_index": 229,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0286"
+          ],
+          "cue_index": 230,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0286"
+          ],
+          "cue_index": 231,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0287"
+          ],
+          "cue_index": 232,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0287"
+          ],
+          "cue_index": 233,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0287"
+          ],
+          "cue_index": 234,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0287"
+          ],
+          "cue_index": 235,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0288"
+          ],
+          "cue_index": 236,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0288"
+          ],
+          "cue_index": 237,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0288"
+          ],
+          "cue_index": 238,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0288"
+          ],
+          "cue_index": 239,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0288"
+          ],
+          "cue_index": 240,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0288"
+          ],
+          "cue_index": 241,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    },
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "first_cue": 242,
+      "last_cue": 259,
+      "window_sha256": "ef1b9478f75b3b34589764bc606ea267f3682b58179de32d729aa2340b049179",
+      "claims": [
+        {
+          "claim_id": "V5C0289",
+          "kind": "HYPOTHETICAL",
+          "paraphrase": "월 국민연금 약30만원에 10년 적립식 투자로 만든 예상 월 분배 약25.8만원을 더해 10년 후 약55.8만~58만원이라는 가상 현금흐름 비교를 설명한다. 실수령액 확정 불가.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            242,
+            243,
+            244,
+            245,
+            246,
+            247,
+            248
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0290",
+          "kind": "RULE",
+          "paraphrase": "국민연금 노령연금의 전부·일부 지급 연기는 최대 5년이며 1년마다 원연금액의 7.2%, 5년이면 최대 36% 가산된다는 제도 설명이다. 연기로 놓친 지급액과 개인별 세금·건보 영향을 고려해야 한다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            249,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0289"
+          ],
+          "cue_index": 242,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0289"
+          ],
+          "cue_index": 243,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0289"
+          ],
+          "cue_index": 244,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0289"
+          ],
+          "cue_index": 245,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0289"
+          ],
+          "cue_index": 246,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0289"
+          ],
+          "cue_index": 247,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0289"
+          ],
+          "cue_index": 248,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 249,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 250,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 251,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 252,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 253,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 254,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 255,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 256,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 257,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 258,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0290"
+          ],
+          "cue_index": 259,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    },
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "first_cue": 260,
+      "last_cue": 277,
+      "window_sha256": "b31186d867069b92bb4df4aab7595dcbfbba130e90558722881ce4a971118ac1",
+      "claims": [
+        {
+          "claim_id": "V5C0291",
+          "kind": "MATH",
+          "paraphrase": "월 30만원 국민연금을 5년 전액 연기하면 단순 기준금액의 36%를 더해 약40.8만원이 된다는 가정이다. 실제 수령액에는 물가변동·세금·다른 사정이 영향을 준다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            260,
+            261,
+            262
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0292",
+          "kind": "OPINION",
+          "paraphrase": "연기연금 가산을 연7% 시장투자와 비슷하다고 평가하면서 연기를 권하는 의견이다. 수령 포기의 기회비용 때문에 연7.2% 투자 수익률과 동치가 아니다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0012",
+          "kind": "HYPOTHETICAL",
+          "paraphrase": "월 국민연금 30만원을 10년간 연7%로 적립하고 그 투자잔고에서 월25.8만원을 추가 분배한다는 모형이다. 미래 투자수익과 분배금은 불확실하다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            271,
+            272,
+            273,
+            274,
+            275,
+            276,
+            277
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0291"
+          ],
+          "cue_index": 260,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0291"
+          ],
+          "cue_index": 261,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0291"
+          ],
+          "cue_index": 262,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0292"
+          ],
+          "cue_index": 263,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0292"
+          ],
+          "cue_index": 264,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0292"
+          ],
+          "cue_index": 265,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0292"
+          ],
+          "cue_index": 266,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0292"
+          ],
+          "cue_index": 267,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0292"
+          ],
+          "cue_index": 268,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0292"
+          ],
+          "cue_index": 269,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0292"
+          ],
+          "cue_index": 270,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0012"
+          ],
+          "cue_index": 271,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0012"
+          ],
+          "cue_index": 272,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0012"
+          ],
+          "cue_index": 273,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0012"
+          ],
+          "cue_index": 274,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0012"
+          ],
+          "cue_index": 275,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0012"
+          ],
+          "cue_index": 276,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0012"
+          ],
+          "cue_index": 277,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    },
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00017",
+      "first_cue": 278,
+      "last_cue": 295,
+      "window_sha256": "7b91e66069e9f79b3a0f7ee84dce3aafe5745270f6e367091df5d656e0bab036",
+      "claims": [
+        {
+          "claim_id": "V5C0293",
+          "kind": "HYPOTHETICAL",
+          "paraphrase": "월 약30만원 국민연금의 물가조정과 월25.8만원 투자분배가 겹치는 10년 후 재투자안은 가상 합계이며 실현액은 확정되지 않는다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            278,
+            279,
+            280,
+            281,
+            282
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0294",
+          "kind": "MATH",
+          "paraphrase": "전액 5년 연기로 기존 월30만원에 36% 가산한 월 약40.8만원을 5년 뒤부터 수령한다는 시나리오다. 연기로 받지 못한 첫 5년의 지급액을 포함해야 한다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            283,
+            284,
+            285,
+            286,
+            287,
+            288,
+            289
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0014",
+          "kind": "MATH",
+          "paraphrase": "연기 이후 월 약40만원 수령액을 다시 5년간 연7%로 적립한다면 잔고가 약2,800만원이 된다는 계산이다. 수익률·입금시점·세금 가정이 필요하다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            290,
+            291,
+            292,
+            293,
+            294,
+            295
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0293"
+          ],
+          "cue_index": 278,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0293"
+          ],
+          "cue_index": 279,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0293"
+          ],
+          "cue_index": 280,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0293"
+          ],
+          "cue_index": 281,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0293"
+          ],
+          "cue_index": 282,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0294"
+          ],
+          "cue_index": 283,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0294"
+          ],
+          "cue_index": 284,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0294"
+          ],
+          "cue_index": 285,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0294"
+          ],
+          "cue_index": 286,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0294"
+          ],
+          "cue_index": 287,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0294"
+          ],
+          "cue_index": 288,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0294"
+          ],
+          "cue_index": 289,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0014"
+          ],
+          "cue_index": 290,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0014"
+          ],
+          "cue_index": 291,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0014"
+          ],
+          "cue_index": 292,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0014"
+          ],
+          "cue_index": 293,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0014"
+          ],
+          "cue_index": 294,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0014"
+          ],
+          "cue_index": 295,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    },
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00018",
+      "first_cue": 296,
+      "last_cue": 313,
+      "window_sha256": "6381f1abd4eeee3d9d71224d5e6c91b07de6ff61aadc61d7082b2d615b6b2f09",
+      "claims": [
+        {
+          "claim_id": "V5C0015",
+          "kind": "MATH",
+          "paraphrase": "투자잔고 2,800만원에 연6% 분배율을 적용하면 세전 월 약14만원이고 연기연금 월40만원에 더할 수 있다는 가정이다. 분배율 보장 아님.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            296,
+            297,
+            298,
+            299,
+            300,
+            301
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0016",
+          "kind": "OPINION",
+          "paraphrase": "연기안의 월40만원+투자분배 월14만원을 재투자안과 비슷하다고 평가한다. 다른 지급시점·세금·물가·원금소진·손실위험을 무시한 근사 비교다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            302,
+            303,
+            304,
+            305,
+            306
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0295",
+          "kind": "RECOMMENDATION",
+          "paraphrase": "화자는 연기연금 선택을 권하면서도 실제 신청 절차는 확실히 알지 못한다고 인정한다. 연금공단에서 개인별 자격·신청·부분연기 여부를 확인해야 한다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0015"
+          ],
+          "cue_index": 296,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0015"
+          ],
+          "cue_index": 297,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0015"
+          ],
+          "cue_index": 298,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0015"
+          ],
+          "cue_index": 299,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0015"
+          ],
+          "cue_index": 300,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0015"
+          ],
+          "cue_index": 301,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0016"
+          ],
+          "cue_index": 302,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0016"
+          ],
+          "cue_index": 303,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0016"
+          ],
+          "cue_index": 304,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0016"
+          ],
+          "cue_index": 305,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0016"
+          ],
+          "cue_index": 306,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0295"
+          ],
+          "cue_index": 307,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0295"
+          ],
+          "cue_index": 308,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0295"
+          ],
+          "cue_index": 309,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0295"
+          ],
+          "cue_index": 310,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0295"
+          ],
+          "cue_index": 311,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0295"
+          ],
+          "cue_index": 312,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0295"
+          ],
+          "cue_index": 313,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    },
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00019",
+      "first_cue": 314,
+      "last_cue": 331,
+      "window_sha256": "36c093803fc3de3c4240525f4c8c26de0cac1879b2f0972a061e107d1ae46bd2",
+      "claims": [
+        {
+          "claim_id": "V5C0296",
+          "kind": "OPINION",
+          "paraphrase": "진행자는 구체적 신청방법은 추가 확인이 필요하지만 연기연금이라는 선택지가 있음을 다시 강조한다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            314,
+            315
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0017",
+          "kind": "HYPOTHETICAL",
+          "paraphrase": "10년간 전액 수령 후 투자하는 안과 5년 연기 후 수령액을 재투자하는 안이 거의 비슷하다는 가정 비교로, 실제 현금흐름·세금·물가를 전수 반영한 계산은 아니다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            316,
+            317,
+            318,
+            319,
+            320,
+            321,
+            322,
+            323,
+            324,
+            325
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0297",
+          "kind": "OPINION",
+          "paraphrase": "연7% 시장투자 수익은 달성하지 못할 수 있고 심리적 스트레스도 있다는 위험을 강조한다. 이것만으로 모든 사람에게 연기연금이 우월하다는 결론은 성립하지 않는다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            328,
+            329,
+            330,
+            331
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0296"
+          ],
+          "cue_index": 314,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0296"
+          ],
+          "cue_index": 315,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 316,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 317,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 318,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 319,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 320,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 321,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 322,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 323,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 324,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0017"
+          ],
+          "cue_index": 325,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 326,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 327,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [
+            "V5C0297"
+          ],
+          "cue_index": 328,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0297"
+          ],
+          "cue_index": 329,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0297"
+          ],
+          "cue_index": 330,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0297"
+          ],
+          "cue_index": 331,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    },
+    {
+      "video_number": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00020",
+      "first_cue": 332,
+      "last_cue": 349,
+      "window_sha256": "27c894cb530b101a1410bc89b6879a6eacab3b731a0e6a853ad03f1ee1e9058e",
+      "claims": [
+        {
+          "claim_id": "V5C0298",
+          "kind": "RECOMMENDATION",
+          "paraphrase": "화자는 연기연금의 상대적 확실성을 근거로 부모에게도 권하겠다고 말한다. 연기기간 중 지급 포기·생존기간·다른 소득·건보 영향을 반영해야 한다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            332,
+            333,
+            334,
+            335
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0299",
+          "kind": "RECOMMENDATION",
+          "paraphrase": "연기연금의 정확한 수령액과 세금·물가 영향을 국민연금공단 지사에서 개인별 상담으로 확인할 것을 권한다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            336,
+            337,
+            338,
+            339,
+            340,
+            341,
+            342
+          ],
+          "financial_fact_approved": false
+        },
+        {
+          "claim_id": "V5C0300",
+          "kind": "RULE",
+          "paraphrase": "화자가 연금 수령 ‘1,500’ 기준을 다음 질문으로 소개한다. 이는 모든 연금의 수령금지 한도를 뜻하지 않으며 일정 과세대상 사적연금소득의 과세 구간과 구별해야 한다.",
+          "requires_external_verification": true,
+          "cue_ids": [
+            345,
+            346,
+            347,
+            348,
+            349
+          ],
+          "financial_fact_approved": false
+        }
+      ],
+      "cue_dispositions": [
+        {
+          "claim_ids": [
+            "V5C0298"
+          ],
+          "cue_index": 332,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0298"
+          ],
+          "cue_index": 333,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0298"
+          ],
+          "cue_index": 334,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0298"
+          ],
+          "cue_index": 335,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0299"
+          ],
+          "cue_index": 336,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0299"
+          ],
+          "cue_index": 337,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0299"
+          ],
+          "cue_index": 338,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0299"
+          ],
+          "cue_index": 339,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0299"
+          ],
+          "cue_index": 340,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0299"
+          ],
+          "cue_index": 341,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0299"
+          ],
+          "cue_index": 342,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 343,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [],
+          "cue_index": 344,
+          "reason": "Reply, content transition, or casual remark examined in full context; no independent new financial proposition.",
+          "status": "NONCLAIM"
+        },
+        {
+          "claim_ids": [
+            "V5C0300"
+          ],
+          "cue_index": 345,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0300"
+          ],
+          "cue_index": 346,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0300"
+          ],
+          "cue_index": 347,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0300"
+          ],
+          "cue_index": 348,
+          "reason": null,
+          "status": "LINKED"
+        },
+        {
+          "claim_ids": [
+            "V5C0300"
+          ],
+          "cue_index": 349,
+          "reason": null,
+          "status": "LINKED"
+        }
+      ],
+      "full_external_fact_certified": false,
+      "legacy_merge_approved": false
+    }
+  ],
+  "private_actual_replay_status_summary": [
+    {
+      "video_id": "sz5N9WJS310",
+      "submitted_windows": 67,
+      "claims": 104,
+      "evidence_cases_reviewed": 104,
+      "relation_cases_reviewed": 104,
+      "unresolved_cues": 805,
+      "windows_model_evidence_relation_reviewed": 20,
+      "receipt_count": 3,
+      "event_chain_head_sha256": "808d9d6a24d79654cad739e34796f1fa87ff5d9c25781f3a26b42b9c46a6021d",
+      "sealed": false,
+      "approved_financial_facts": 0
+    },
+    {
+      "video_id": "6VEfKF7BzZU",
+      "submitted_windows": 76,
+      "claims": 72,
+      "evidence_cases_reviewed": 72,
+      "relation_cases_reviewed": 72,
+      "unresolved_cues": 1283,
+      "windows_model_evidence_relation_reviewed": 0,
+      "receipt_count": 1,
+      "event_chain_head_sha256": "460dd4007ac145f63fa1d064e34a1e20190a7030a46947a60d2a79af4e026249",
+      "sealed": false,
+      "approved_financial_facts": 0
+    },
+    {
+      "video_id": "OiDTNstaSpM",
+      "submitted_windows": 44,
+      "claims": 41,
+      "evidence_cases_reviewed": 41,
+      "relation_cases_reviewed": 41,
+      "unresolved_cues": 751,
+      "windows_model_evidence_relation_reviewed": 0,
+      "receipt_count": 1,
+      "event_chain_head_sha256": "9bc4998e59488107c58fb585493cdd99da1b2d6b5778d3149b7f189aec8fea08",
+      "sealed": false,
+      "approved_financial_facts": 0
+    },
+    {
+      "video_id": "aNfGrcO6WPI",
+      "submitted_windows": 43,
+      "claims": 36,
+      "evidence_cases_reviewed": 36,
+      "relation_cases_reviewed": 36,
+      "unresolved_cues": 729,
+      "windows_model_evidence_relation_reviewed": 0,
+      "receipt_count": 1,
+      "event_chain_head_sha256": "d7d6b9f9ac5cf4de771d6855c70aee817671af811b2e5b4e6bbe39c5e49b10ba",
+      "sealed": false,
+      "approved_financial_facts": 0
+    },
+    {
+      "video_id": "qtluAViPpsQ",
+      "submitted_windows": 58,
+      "claims": 42,
+      "evidence_cases_reviewed": 42,
+      "relation_cases_reviewed": 42,
+      "unresolved_cues": 1010,
+      "windows_model_evidence_relation_reviewed": 0,
+      "receipt_count": 1,
+      "event_chain_head_sha256": "1e42d9e341d265ef0eeb325b87578792b98f05055dc49a498d4631b9dac7bc74",
+      "sealed": false,
+      "approved_financial_facts": 0
+    }
+  ],
+  "source_private_quote_text_uploaded_to_git": false,
+  "full_original_atomic_recall_proven": false,
+  "all_five_ResearchRun_CLOSURE_issued": false,
+  "official_personal_finance_fact_approved": 0,
+  "B04_legacy_merge_approved": false,
+  "investment_advice_authorized": false,
+  "release": "SOURCE_CUE_EVIDENCE_RELATION_REVIEW_PROGRESS_ONLY_NO_GO"
+}

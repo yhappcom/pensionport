@@ -1,0 +1,994 @@
+{
+  "schema": "IRE_V5_P4_MATERIALIZED_SCOPED_EDUCATION22_V1",
+  "as_of": "2026-11-06",
+  "lineage_git_blob_sha1": {
+    "ire/v5/advisory_knowledge/integrated_education13_20261104.json": "527bfe648c96de4b3d56d19f404cb97b90da3537",
+    "ire/v5/validation/first_five_40_scoped_fact_knowledge_review_20261106.json": "458f7b08e4e187072c23a85f739af130f8991e8a",
+    "ire/v5/validation/v5_first_five_video_01_window_review_20261106.json": "2767819a7618c128954d7818caa761ee68293841",
+    "data/claims.jsonl": "ab5af7eea02e65d5e36174546a2a94f4cc642d92"
+  },
+  "legacy_master_claim_count": 116,
+  "official_extracts_replayed_by_source_gate": 15,
+  "active_education_nodes": 22,
+  "provisional_prior13_nodes": 13,
+  "scoped_first40_nodes": 9,
+  "cross_namespace_education_edges": [
+    {
+      "from": "V5-001-40-PRIVATE_PENSION_1500_TAX",
+      "to": "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+      "relation": "TOPIC_OVERLAP_NOT_EXACT_EQUIVALENCE",
+      "status": "EDUCATIONAL_RELATION_ONLY_NO_FORMAL_MASTER_MERGE"
+    },
+    {
+      "from": "V5-001-40-ISA_MATURITY_TO_PENSION",
+      "to": "EDU-KR-ISA-TO-PENSION-2026-01",
+      "relation": "TOPIC_OVERLAP_NOT_EXACT_EQUIVALENCE",
+      "status": "EDUCATIONAL_RELATION_ONLY_NO_FORMAL_MASTER_MERGE"
+    },
+    {
+      "from": "V5-001-40-PENSION_BASIS_PROVENANCE",
+      "to": "EDU-PENSION-DEFERRED-TAX",
+      "relation": "SPECIFIC_DETAIL_EXTENDS_PRIOR_EDUCATION",
+      "status": "EDUCATIONAL_RELATION_ONLY_NO_FORMAL_MASTER_MERGE"
+    },
+    {
+      "from": "V5-001-40-DEEMED_PENSION_WITHDRAWAL_ORDER",
+      "to": "EDU-PENSION-DEFERRED-TAX",
+      "relation": "SPECIFIC_DETAIL_EXTENDS_PRIOR_EDUCATION",
+      "status": "EDUCATIONAL_RELATION_ONLY_NO_FORMAL_MASTER_MERGE"
+    },
+    {
+      "from": "V5-001-40-DIVIDEND_2000_VS_PENSION_1500",
+      "to": "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+      "relation": "DISTINCT_THRESHOLD_DO_NOT_CONFLATE",
+      "status": "EDUCATIONAL_RELATION_ONLY_NO_FORMAL_MASTER_MERGE"
+    }
+  ],
+  "nodes": [
+    {
+      "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "A237-06"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C52"
+      ],
+      "authority_ids": [
+        "SEC-ASSET",
+        "SEC-DCA",
+        "FINRA-DCA"
+      ],
+      "terms": [
+        "분산투자",
+        "분산",
+        "적립식"
+      ],
+      "statement": "정액적립과 서로 다른 자산군의 분산 보유는 투자 행동을 규칙화하지만 손실을 방지하거나 미래 수익을 보장하지 않는다. 여러 ETF를 보유해도 동일 종목·업종에 집중될 수 있다.",
+      "scope_and_exceptions": "개인 투자기간·현금수요·위험감내·ETF 구성종목·목표비중이 없는 상태에서 자산배분 비율을 확정하지 않는다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-ETF-NAV-TRACKING",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "E229-01"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C26"
+      ],
+      "authority_ids": [
+        "KRX-ETF",
+        "KRX-PRICE-NAV",
+        "KRX-ETF-DISC",
+        "SEC-ETF-STRUCTURE"
+      ],
+      "terms": [
+        "괴리율",
+        "추적오차",
+        "NAV"
+      ],
+      "statement": "ETF의 시장가격·순자산가치(NAV) 간 괴리율과 기초지수 대비 추적오차는 서로 다른 지표다. 투자자는 보수·거래량·스프레드·추종지수도 구분해 평가한다.",
+      "scope_and_exceptions": "과거 운용지표는 미래 성과를 보장하지 않으며 특정 ETF의 현재 비용·추적오차는 최신 공시로 확인한다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-ETF-TOTAL-COST-DECISION",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "E229-11"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "authority_ids": [
+        "KRX-ETF",
+        "KRX-ETF-DISC",
+        "SEC-ASSET",
+        "SEC-ETF-STRUCTURE"
+      ],
+      "terms": [
+        "총보수",
+        "스프레드",
+        "ETF 교체"
+      ],
+      "statement": "ETF 교체는 표면 총보수만 비교하지 않고 내재 비용, 거래수수료, 호가 스프레드, 추적오차, 세금, 보유기간과 투자목표를 함께 검토해야 한다.",
+      "scope_and_exceptions": "이 설명만으로 기존 ETF를 매도하거나 최저비용 상품을 즉시 매수하라고 권해서는 안 된다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-GENERAL-DCA-ARITH-01",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "A237-04",
+        "A237-03"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C52",
+        "GOMHEE-C75"
+      ],
+      "authority_ids": [
+        "REF-DCA-SEC",
+        "REF-DCA-FINRA-2026",
+        "SEC-DCA",
+        "FINRA-DCA"
+      ],
+      "terms": [
+        "평균단가",
+        "정액적립",
+        "분할매수"
+      ],
+      "statement": "월 50만원을 가격 10만원·50만원·5만원에 각각 매수하면 수량은 5·1·10, 평균단가는 93,750원이다. 마지막 가격 5만원에서는 평가손실 -46.67%이므로 정액적립이 이익을 보장하지 않는다.",
+      "scope_and_exceptions": "임의 가상가격에 따른 산술 예시이며 상품별 실제 수익률이나 과거 실적 예측이 아니다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-IRP-LIFECYCLE",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "R250-01"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C08",
+        "GOMHEE-C73"
+      ],
+      "authority_ids": [
+        "MOEL-IRP",
+        "NTS-PENSION"
+      ],
+      "terms": [
+        "IRP",
+        "퇴직연금",
+        "연금 수령"
+      ],
+      "statement": "개인형 IRP 개설, 적립금 납입, 운용상품 매수, 세액공제 신청, 연금 수령은 각각 별도의 단계이며 요건이 다르다.",
+      "scope_and_exceptions": "계좌 개설만으로 운용상품 편입·세액공제·연금수령이 자동 실행되는 것은 아니다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-KR-ISA-LIMIT-2026-01",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "I255-03"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C109"
+      ],
+      "authority_ids": [
+        "REF-ISA-STATUTE-2026",
+        "REF-ISA-BANK-SEP-2026"
+      ],
+      "terms": [
+        "ISA 비과세",
+        "비과세 한도",
+        "400만원",
+        "200만원"
+      ],
+      "statement": "ISA 비과세 한도는 법정 요건을 충족한 유형에 따라 200만원 또는 400만원이다.",
+      "scope_and_exceptions": "가입·연장일 기준 유형/직전과세기간 소득, 금융소득종합과세 관련 제외조건을 확인해야 한다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-KR-ISA-TO-PENSION-2026-01",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "I255-08",
+        "R250-11"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C32",
+        "GOMHEE-C33",
+        "GOMHEE-C08",
+        "GOMHEE-C42"
+      ],
+      "authority_ids": [
+        "REF-ISA-TRANSFER-NTS",
+        "REF-ISA-TRANSFER-TAX-RULING",
+        "REF-ISA-TRANSFER-60DAYS"
+      ],
+      "terms": [
+        "ISA 만기",
+        "만기자금",
+        "연금전환",
+        "60일"
+      ],
+      "statement": "ISA 만기자금의 적격 연금계좌 전환은 전환액 10%, 최대 300만원의 추가 세액공제 대상 납입한도를 발생시킬 수 있다. 만기 후 60일 이내 납입을 확인한다.",
+      "scope_and_exceptions": "공제세액 자체가 300만원이라는 뜻이 아니며 납세자 결정세액·계좌 유형·이체기한·증권사 처리방식을 확인한다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-KR-PENSION-55-5",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "P217-03",
+        "R250-07"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C07",
+        "GOMHEE-C42",
+        "GOMHEE-C08",
+        "GOMHEE-C73"
+      ],
+      "authority_ids": [
+        "NTS-PENSION",
+        "PENSION-DECREE"
+      ],
+      "terms": [
+        "55세",
+        "가입 5년",
+        "연금수령요건"
+      ],
+      "statement": "연금계좌 연금수령에는 일반적으로 55세 이후 신청과 가입 5년 경과 요건이 있으나, 이연퇴직소득에는 5년 요건 예외가 있다. 계좌별 연금수령한도와 연차별 조건도 별도로 확인한다.",
+      "scope_and_exceptions": "모든 계좌에 5년 보유 또는 10년 분할 인출을 무조건 적용해서는 안 된다. 시행일과 재원 구분을 확인한다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-KR-PENSION-CREDIT-600-900",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "R250-04"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C08"
+      ],
+      "authority_ids": [
+        "NTS-PENSION",
+        "LAW-CREDIT"
+      ],
+      "terms": [
+        "900만원",
+        "600만원",
+        "연금 세액공제"
+      ],
+      "statement": "연금저축 세액공제 대상 납입한도 600만원과 IRP 포함 합산 900만원, 연금계좌 일반 납입한도 1,800만원은 서로 다른 개념이다.",
+      "scope_and_exceptions": "세액공제 대상 납입한도는 실제 환급액이 아니며 결정세액·공제율·과세연도·ISA 만기전환 등의 조건이 별도다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-KR-PENSION-IN-KIND-TRANSFER",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "R250-10"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C43",
+        "GOMHEE-C73"
+      ],
+      "authority_ids": [
+        "MOEL-TRANSFER",
+        "IRP-HANWHA"
+      ],
+      "terms": [
+        "실물이전",
+        "현물이전",
+        "퇴직연금 이전"
+      ],
+      "statement": "2024년 10월 31일 개시된 퇴직연금 실물이전은 동일 제도 간에서 취급 가능한 상품에 한해 이뤄질 수 있다.",
+      "scope_and_exceptions": "모든 IRP/연금저축 상품을 매도 없이 옮길 수 있다는 뜻이 아니며 이전 전후 기관 지원·상품 유형·수수료를 확인해야 한다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "P217-07",
+        "R250-08"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C71",
+        "GOMHEE-C08",
+        "GOMHEE-C73"
+      ],
+      "authority_ids": [
+        "REF-PENSION-TAX-NTS",
+        "REF-PENSION-TAX-MOEL",
+        "REF-INCOME-TAX-DECREE-2026",
+        "NTS-PENSION-TAX",
+        "LAW-WITHDRAW"
+      ],
+      "terms": [
+        "사적연금",
+        "연금 1500",
+        "연금 1,500",
+        "분리과세"
+      ],
+      "statement": "특정 과세대상 사적연금소득이 연 1500만원을 넘더라도 종합과세 또는 소득세율 15% 분리과세 선택이 가능하며, 계좌별 연금수령한도와 별개다.",
+      "scope_and_exceptions": "1,500만원은 모든 연금 인출에 대한 법적 상한이 아니다. 이연퇴직소득/비공제 원금과 수령요건, 지방세·소득구간을 분리한다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-PENSION-DEFERRED-TAX",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "R250-05"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C08",
+        "GOMHEE-C43"
+      ],
+      "authority_ids": [
+        "NTS-PENSION-TAX",
+        "LAW-WITHDRAW"
+      ],
+      "terms": [
+        "과세이연",
+        "연금 인출",
+        "운용수익"
+      ],
+      "statement": "연금계좌의 과세이연은 인출시점까지 일부 과세를 미루는 구조로 완전 비과세와 다르다. 인출금의 세액공제 여부·이연퇴직소득·운용수익 등 재원별 과세가 달라진다.",
+      "scope_and_exceptions": "개인별 확정 세율·연금 인출 순서·해외 원천징수는 계좌 및 소득 증빙에 따라 달라진다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+      "namespace": "PRIOR_13",
+      "source_claim_ids": [
+        "P217-01"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C07",
+        "GOMHEE-C43"
+      ],
+      "authority_ids": [
+        "MOEL-IRP",
+        "SEC-ASSET"
+      ],
+      "terms": [
+        "퇴직연금",
+        "은퇴 전",
+        "DB형",
+        "DC형"
+      ],
+      "statement": "은퇴 전 DB·DC·IRP 등 기존 연금계좌의 잔액·상품·비용·목표기간·위험노출을 점검한다. 이는 특정 상품 교체를 권하는 지시가 아니다.",
+      "scope_and_exceptions": "퇴직연금 유형 및 계좌 변경은 개인의 세제·소득원천·유동성·투자 적합성 점검을 전제로 한다.",
+      "status": "EXISTING_PROVISIONAL_EDUCATION_NOT_CURRENT_LAW_APPROVAL"
+    },
+    {
+      "knowledge_id": "V5-001-40-DEEMED_PENSION_WITHDRAWAL_ORDER",
+      "namespace": "FIRST40_SCOPED_9",
+      "source_claim_ids": [
+        "V5C0422",
+        "V5C0033"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "authority_ids": [
+        "LAW_WITHDRAW"
+      ],
+      "terms": [
+        "인출순서",
+        "과세제외",
+        "비공제"
+      ],
+      "statement": "연금계좌 일부 인출의 세법상 귀속 순서는 과세제외금액→이연퇴직소득→그 밖의 과세대상 재원이며, 배당금을 현금화했다는 사실과 세무상 원천은 다를 수 있다.",
+      "scope_and_exceptions": "Narrow official-site extraction and original-claim scope only; recheck latest law and personal applicability.",
+      "status": "SCOPED_EDUCATION_OFFLINE_OFFICIAL_EXTRACT_REPLAYED"
+    },
+    {
+      "knowledge_id": "V5-001-40-DIVIDEND_2000_VS_PENSION_1500",
+      "namespace": "FIRST40_SCOPED_9",
+      "source_claim_ids": [
+        "V5C0018"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C108"
+      ],
+      "authority_ids": [
+        "LAW_FIN2000",
+        "NTS_WITHHOLD"
+      ],
+      "terms": [
+        "배당세",
+        "금융소득",
+        "2000만원"
+      ],
+      "statement": "일반 이자·배당소득의 종합과세 기준 2,000만원과 일부 사적연금소득의 1,500만원 과세 기준은 서로 다르다.",
+      "scope_and_exceptions": "Narrow official-site extraction and original-claim scope only; recheck latest law and personal applicability.",
+      "status": "SCOPED_EDUCATION_OFFLINE_OFFICIAL_EXTRACT_REPLAYED"
+    },
+    {
+      "knowledge_id": "V5-001-40-ISA_MATURITY_TO_PENSION",
+      "namespace": "FIRST40_SCOPED_9",
+      "source_claim_ids": [
+        "V5C0427"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C32",
+        "GOMHEE-C42"
+      ],
+      "authority_ids": [
+        "LAW_CREDIT",
+        "NTS_CREDIT"
+      ],
+      "terms": [
+        "ISA",
+        "만기",
+        "전환"
+      ],
+      "statement": "적격 ISA 만기잔액을 연금계좌에 전환하면 전환금액 10%, 최대 300만원의 세액공제 대상 납입한도가 추가될 수 있다. 전환 연도와 요건을 확인한다.",
+      "scope_and_exceptions": "Narrow official-site extraction and original-claim scope only; recheck latest law and personal applicability.",
+      "status": "SCOPED_EDUCATION_OFFLINE_OFFICIAL_EXTRACT_REPLAYED"
+    },
+    {
+      "knowledge_id": "V5-001-40-NPS_CPI_VS_INVESTMENT",
+      "namespace": "FIRST40_SCOPED_9",
+      "source_claim_ids": [
+        "V5C0004"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C66",
+        "GOMHEE-C24"
+      ],
+      "authority_ids": [
+        "NPS_CPI"
+      ],
+      "terms": [
+        "물가",
+        "국민연금",
+        "배당"
+      ],
+      "statement": "국민연금의 제도적 물가반영과 주식·배당투자의 불확실한 장기 가격상승은 동일하지 않다.",
+      "scope_and_exceptions": "Narrow official-site extraction and original-claim scope only; recheck latest law and personal applicability.",
+      "status": "SCOPED_EDUCATION_OFFLINE_OFFICIAL_EXTRACT_REPLAYED"
+    },
+    {
+      "knowledge_id": "V5-001-40-NPS_DEFERRAL",
+      "namespace": "FIRST40_SCOPED_9",
+      "source_claim_ids": [
+        "V5C0290"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C66"
+      ],
+      "authority_ids": [
+        "NPS_DELAY"
+      ],
+      "terms": [
+        "연기연금",
+        "연기",
+        "7.2%"
+      ],
+      "statement": "국민연금 노령연금은 최대 5년 연기할 수 있고 연기기간 1년당 7.2%, 최대 36% 가산된다. 이를 투자 연수익률로 해석하지 않는다.",
+      "scope_and_exceptions": "Narrow official-site extraction and original-claim scope only; recheck latest law and personal applicability.",
+      "status": "SCOPED_EDUCATION_OFFLINE_OFFICIAL_EXTRACT_REPLAYED"
+    },
+    {
+      "knowledge_id": "V5-001-40-NPS_PAYMENT",
+      "namespace": "FIRST40_SCOPED_9",
+      "source_claim_ids": [
+        "V5C0282",
+        "V5C0283"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C66"
+      ],
+      "authority_ids": [
+        "NPS_PAY"
+      ],
+      "terms": [
+        "연금 지급일",
+        "25일",
+        "노령연금"
+      ],
+      "statement": "국민연금 정기지급일은 매월 25일이며, 지급사유 발생 다음 달부터 지급된다. 지급일이 휴일이면 앞당겨진다.",
+      "scope_and_exceptions": "Narrow official-site extraction and original-claim scope only; recheck latest law and personal applicability.",
+      "status": "SCOPED_EDUCATION_OFFLINE_OFFICIAL_EXTRACT_REPLAYED"
+    },
+    {
+      "knowledge_id": "V5-001-40-NPS_RETROACTIVE_ELIGIBILITY",
+      "namespace": "FIRST40_SCOPED_9",
+      "source_claim_ids": [
+        "V5C0261",
+        "V5C0279"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C66"
+      ],
+      "authority_ids": [
+        "NPS_RETRO"
+      ],
+      "terms": [
+        "추납",
+        "추후납부",
+        "국민연금"
+      ],
+      "statement": "추납은 최대 119개월의 적격 과거기간에 한해 자격유지 중 신청할 수 있다. 실제 증액과 유불리는 개인 자료가 필요하다.",
+      "scope_and_exceptions": "Narrow official-site extraction and original-claim scope only; recheck latest law and personal applicability.",
+      "status": "SCOPED_EDUCATION_OFFLINE_OFFICIAL_EXTRACT_REPLAYED"
+    },
+    {
+      "knowledge_id": "V5-001-40-PENSION_BASIS_PROVENANCE",
+      "namespace": "FIRST40_SCOPED_9",
+      "source_claim_ids": [
+        "V5C0024",
+        "V5C0417",
+        "V5C0418"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "authority_ids": [
+        "LAW_WITHDRAW",
+        "LAW_CREDIT"
+      ],
+      "terms": [
+        "비공제원금",
+        "세액공제",
+        "원금"
+      ],
+      "statement": "연금계좌 세액공제 여부와 실제 납입원금·운용수익의 과세 속성은 구별된다. 계좌명보다 세액공제 이력과 원천 금액을 확인한다.",
+      "scope_and_exceptions": "Narrow official-site extraction and original-claim scope only; recheck latest law and personal applicability.",
+      "status": "SCOPED_EDUCATION_OFFLINE_OFFICIAL_EXTRACT_REPLAYED"
+    },
+    {
+      "knowledge_id": "V5-001-40-PRIVATE_PENSION_1500_TAX",
+      "namespace": "FIRST40_SCOPED_9",
+      "source_claim_ids": [
+        "V5C0300",
+        "V5C0404"
+      ],
+      "prior_claim_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C42"
+      ],
+      "authority_ids": [
+        "NTS_PENSION1500",
+        "LAW_PENSION_ELIGIBILITY"
+      ],
+      "terms": [
+        "1500",
+        "1,500",
+        "연금세",
+        "분리과세"
+      ],
+      "statement": "연 1,500만원은 일부 과세대상 사적연금소득의 분리·종합과세 선택 기준이지 총 인출 상한이 아니다. 연금수령 요건·재원과 구별한다.",
+      "scope_and_exceptions": "Narrow official-site extraction and original-claim scope only; recheck latest law and personal applicability.",
+      "status": "SCOPED_EDUCATION_OFFLINE_OFFICIAL_EXTRACT_REPLAYED"
+    }
+  ],
+  "p3_pending_window_count": 27,
+  "p3_pending_windows": [
+    {
+      "window_id": "W00041",
+      "first_cue": 710,
+      "last_cue": 727,
+      "source_sha256": "be9920d13500c96524353483e2e01df3b051beaa2d4297ce622f24ce6cd10cef",
+      "domain": "PENSION_TAX",
+      "meaning_type": "HYPOTHETICAL_FINANCIAL_MODEL",
+      "risk_review_codes": [
+        "SCOPE_AND_ASSUMPTION_REVIEW"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00042",
+      "first_cue": 728,
+      "last_cue": 745,
+      "source_sha256": "8cfbc3e458fa637da2838d8f04a9d59b4197b5837a7505c638c4d4345aad903d",
+      "domain": "PENSION_TAX",
+      "meaning_type": "HYPOTHETICAL_FINANCIAL_MODEL",
+      "risk_review_codes": [
+        "DIVIDEND_PRINCIPAL_PRESERVATION_FALSE"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00043",
+      "first_cue": 746,
+      "last_cue": 763,
+      "source_sha256": "10772ce6a5a0c27974a204cff4f68a66bed168ef7d48075138eebaeb89953e8a",
+      "domain": "PENSION_TAX",
+      "meaning_type": "HYPOTHETICAL_FINANCIAL_MODEL",
+      "risk_review_codes": [
+        "SCOPE_AND_ASSUMPTION_REVIEW"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00044",
+      "first_cue": 764,
+      "last_cue": 781,
+      "source_sha256": "cfc3af0e36fbd27ee87523e2004bd7466f3614c3e9d4d1cb07d3b6a2739e9573",
+      "domain": "PENSION_TAX",
+      "meaning_type": "TAX_OR_PENSION_RULE",
+      "risk_review_codes": [
+        "SCOPE_AND_ASSUMPTION_REVIEW"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00045",
+      "first_cue": 782,
+      "last_cue": 799,
+      "source_sha256": "e1eeb40dde7e3140024b5ea8249321ac3a9a8f4928ada6f26f5d0ff16cc4de7d",
+      "domain": "PENSION_TAX",
+      "meaning_type": "TAX_OR_PENSION_RULE",
+      "risk_review_codes": [
+        "PENSION_1500_NOT_HARD_CAP"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00046",
+      "first_cue": 800,
+      "last_cue": 817,
+      "source_sha256": "64c1dda9eec621b278155a4fdf8c9b6a665fecf9490d3e6ee9f54732b3b42a5c",
+      "domain": "PENSION_TAX",
+      "meaning_type": "HYPOTHETICAL_FINANCIAL_MODEL",
+      "risk_review_codes": [
+        "RETIREMENT_SUFFICIENCY_HYPOTHETICAL"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00047",
+      "first_cue": 818,
+      "last_cue": 835,
+      "source_sha256": "3b0681167eabd460d0f156f9d2d9ed8d021eea0f5309d7c5d64effb5199b381e",
+      "domain": "ISA_ETF",
+      "meaning_type": "USER_QUESTION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00048",
+      "first_cue": 836,
+      "last_cue": 853,
+      "source_sha256": "a0ec322be372ee995a44433c8c7d6850bcf267ebd9e370dd60b9c6786fc94fb1",
+      "domain": "ISA_ETF",
+      "meaning_type": "TAX_OR_PENSION_RULE",
+      "risk_review_codes": [
+        "DOMESTIC_EQUITY_ETF_TAX_SCOPE"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00049",
+      "first_cue": 854,
+      "last_cue": 871,
+      "source_sha256": "0d7008b99e4dd1602fef960b1b18265e2aad665a800283ec65aeae1e3abb7fe2",
+      "domain": "ISA_ETF",
+      "meaning_type": "TAX_OR_PENSION_RULE",
+      "risk_review_codes": [
+        "SCOPE_AND_ASSUMPTION_REVIEW"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00050",
+      "first_cue": 872,
+      "last_cue": 889,
+      "source_sha256": "88d2a14cb70e87f6d1ea073e6d7c2a8071b528d9e4a8f649f6f445f86d4cf901",
+      "domain": "ISA_ETF",
+      "meaning_type": "TAX_OR_PENSION_RULE",
+      "risk_review_codes": [
+        "SCOPE_AND_ASSUMPTION_REVIEW"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00051",
+      "first_cue": 890,
+      "last_cue": 907,
+      "source_sha256": "361831d1ea2341e0a4f46362f49881328f3eb201d8b9711c15a39a9cef86782d",
+      "domain": "ISA_ETF",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00052",
+      "first_cue": 908,
+      "last_cue": 925,
+      "source_sha256": "02abdc0518da7831bb5b97e0b204acbbd25d9d969890a04b000cc8c83793a5bf",
+      "domain": "ISA_ETF",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00053",
+      "first_cue": 926,
+      "last_cue": 943,
+      "source_sha256": "dc440838956ca408eda8a1093641b44df7709c71fcd2929a64a515578b7556de",
+      "domain": "ISA_ETF",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00054",
+      "first_cue": 944,
+      "last_cue": 961,
+      "source_sha256": "59fa778d0809fbadbc300c6cf4a2401f15bbd975c7ecadcf28f3e9e0f1fefa22",
+      "domain": "ISA_ETF",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00055",
+      "first_cue": 962,
+      "last_cue": 979,
+      "source_sha256": "9abb8e49d07db89ee604aea1e99b3f025e0fa8f0fe9528eb23e226ab7e5b1ce3",
+      "domain": "PENSION_INSURANCE",
+      "meaning_type": "NON_FINANCIAL_CONTEXT",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00056",
+      "first_cue": 980,
+      "last_cue": 997,
+      "source_sha256": "11a4b87b770bce6f2692cd43c6c87b4e6d4b9f6a750afc8af4c119caf3abb05a",
+      "domain": "PENSION_INSURANCE",
+      "meaning_type": "USER_QUESTION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00057",
+      "first_cue": 998,
+      "last_cue": 1015,
+      "source_sha256": "9ca5b017a827566451c94ecd1dd987a3946bbc30b2fe48089226f41e6234bc12",
+      "domain": "PENSION_INSURANCE",
+      "meaning_type": "PRODUCT_TERMS_OR_RISK",
+      "risk_review_codes": [
+        "INSURANCE_FIXED_GUARANTEE_RECHECK"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00058",
+      "first_cue": 1016,
+      "last_cue": 1033,
+      "source_sha256": "cf7ff6dbeefdce7275b80954478d08edc81605291218a685d2e06c16a951af0e",
+      "domain": "PENSION_INSURANCE",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00059",
+      "first_cue": 1034,
+      "last_cue": 1051,
+      "source_sha256": "23242fca88ab453b5114994fd9a68ba347138836cfddd361da1ad5aad0e1be8f",
+      "domain": "PENSION_INSURANCE",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00060",
+      "first_cue": 1052,
+      "last_cue": 1069,
+      "source_sha256": "fbbf18ccc97872edc5495be6a194b29d659b6b5c47cb9d29cd41b8dd557d5ebd",
+      "domain": "PENSION_INSURANCE",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00061",
+      "first_cue": 1070,
+      "last_cue": 1087,
+      "source_sha256": "5adbe2c8948a2574e0082098f43409c6da215956c727620bb89bbae074a2e276",
+      "domain": "PENSION_INSURANCE",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [
+        "INSURANCE_FIXED_GUARANTEE_RECHECK"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00062",
+      "first_cue": 1088,
+      "last_cue": 1105,
+      "source_sha256": "1dc63dc55d5e7f4a261dc540a5244e154fd64ff6d57acc091a4447746e55c383",
+      "domain": "PENSION_INSURANCE",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00063",
+      "first_cue": 1106,
+      "last_cue": 1123,
+      "source_sha256": "aa424773b53d245bf5c87024ac6c7ecca7eca6b9319077c345e4d48f663d1b10",
+      "domain": "ISA_ETF",
+      "meaning_type": "USER_QUESTION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00064",
+      "first_cue": 1124,
+      "last_cue": 1141,
+      "source_sha256": "86b5c4b6e4eb5551510f2f7041bc4019db745fdf2e984f3fdf99c03e7cabe74d",
+      "domain": "ISA_ETF",
+      "meaning_type": "TAX_OR_PENSION_RULE",
+      "risk_review_codes": [
+        "SCOPE_AND_ASSUMPTION_REVIEW"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00065",
+      "first_cue": 1142,
+      "last_cue": 1159,
+      "source_sha256": "2507dd38086ba296996434bc9323bbf2792cb5d866126ceed873902b380683e3",
+      "domain": "ISA_ETF",
+      "meaning_type": "TAX_OR_PENSION_RULE",
+      "risk_review_codes": [
+        "ISA_50YEAR_TAX_GENERALIZATION"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00066",
+      "first_cue": 1160,
+      "last_cue": 1177,
+      "source_sha256": "7475a3e1f8e59bd609712b903e97ad3af4a4fb1b366c29840854d9c38436640a",
+      "domain": "ISA_ETF",
+      "meaning_type": "TAX_OR_PENSION_RULE",
+      "risk_review_codes": [
+        "SCOPE_AND_ASSUMPTION_REVIEW"
+      ],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    },
+    {
+      "window_id": "W00067",
+      "first_cue": 1178,
+      "last_cue": 1195,
+      "source_sha256": "9ed93c835cafb777fe2485755469a88c880483cbc41f502b9b0ab6c706bf13c3",
+      "domain": "ISA_ETF",
+      "meaning_type": "CONDITIONAL_STRATEGY_OPINION",
+      "risk_review_codes": [],
+      "source_original_replayed_in_current_turn": false,
+      "financial_fact_verified": false,
+      "formal_claim_approved": false,
+      "knowledge_node_created": false,
+      "status": "P3_PENDING_SOURCE_BYTE_AND_ATOMIC_FACT_REVIEW"
+    }
+  ],
+  "source_original_zip_replayed_now": false,
+  "original_w41_67_atomic_recall_verified": false,
+  "P3_formal_claim_approvals": 0,
+  "B04_formal_master_merges": 0,
+  "personal_trade_recommendations_authorized": false,
+  "release_level": "GENERAL_EDUCATION_RETRIEVAL_ONLY_NOT_NEW_P3_FACT_CERTIFICATION"
+}

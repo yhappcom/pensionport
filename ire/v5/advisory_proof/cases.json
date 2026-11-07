@@ -1,0 +1,316 @@
+{
+  "schema": "IRE_V5_ADVISORY_REPLAY_V1",
+  "as_of": "2026-11-04",
+  "scope": "EDUCATIONAL_RESEARCH_REPLAY",
+  "gold_author": "CHATGPT_SAME_TURN_NOT_BLIND",
+  "independent_reviewers": 0,
+  "gold_design_note": "Cases and response labels are both authored in current ChatGPT conversation; these are development checks, not independent blind accuracy certification.",
+  "official_evidence": {
+    "SRC-KRX-ETF": {
+      "issuer": "한국거래소",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03060101/RGL03060101.jsp",
+      "observed_date": "2026-11-04",
+      "finding": "ETF follows exchange stock-like orders; regular hours 09:00-15:30, extra trading conditional",
+      "source_content_provenance": "LIVE_CHAT_WEB_REVIEW_NOT_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    "SRC-KRX-CLOSE": {
+      "issuer": "한국거래소",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03010301/RGL03010301.jsp",
+      "observed_date": "2026-11-04",
+      "finding": "ETF is in 15:40-16:00 off-hours closing-price session; separate 16:00-20:00 after-market stock types do not list ETF",
+      "source_content_provenance": "LIVE_CHAT_WEB_REVIEW_NOT_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    "SRC-KRX-SETTLEMENT": {
+      "issuer": "한국거래소",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03010100/RGL03010100T1.jsp",
+      "observed_date": "2026-11-04",
+      "finding": "Securities trade settlement stated as T+2 exchange business days",
+      "source_content_provenance": "LIVE_CHAT_WEB_REVIEW_NOT_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    "SRC-NTS-PENSION": {
+      "issuer": "국세청",
+      "url": "https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6596",
+      "observed_date": "2026-11-04",
+      "finding": "Pension savings 600만원, with retirement account combined 900만원, gross wage threshold 5500만원 for 15% versus 12% national income tax credit base",
+      "source_content_provenance": "LIVE_CHAT_WEB_REVIEW_NOT_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    "SRC-LAW-IRP": {
+      "issuer": "국가법령정보센터",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032589681",
+      "observed_date": "2026-11-04",
+      "finding": "퇴직연금 중도인출 제한 사유 및 시행령 제14조 관련 규정",
+      "source_content_provenance": "LIVE_CHAT_WEB_REVIEW_NOT_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    "SRC-MOEL-IRP": {
+      "issuer": "고용노동부",
+      "url": "https://1350.moel.go.kr/rtmview.do?id=1000277449&page=10&type=ALL",
+      "observed_date": "2026-11-04",
+      "finding": "Medical-expense middle withdrawal needs documented care duration and statutory conditions; details are individual",
+      "source_content_provenance": "LIVE_CHAT_WEB_REVIEW_NOT_SNAPSHOT",
+      "independent_source_capture_attested": false
+    },
+    "SRC-ISA-ACCOUNT": {
+      "issuer": "한국투자증권",
+      "url": "https://pension.koreainvestment.com/main/mall/isa/_static/TF02ef010000.jsp",
+      "observed_date": "2026-11-04",
+      "finding": "ISA general 200만원, lower-income 400만원 tax-exempt on net in-account gains, excess separately taxed at 9.9% inclusive of local",
+      "source_content_provenance": "LIVE_CHAT_WEB_REVIEW_NOT_SNAPSHOT",
+      "independent_source_capture_attested": false
+    }
+  },
+  "cases": [
+    {
+      "case_id": "A001",
+      "question": "ETF 거래시간 15시 45분 시간외종가매매 매수 주문이 되나요?",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "MARKET_HOURS",
+      "expected_disposition": "PUBLIC_EDUCATIONAL",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C15",
+        "GOMHEE-C97"
+      ],
+      "expected_evidence_ids": [
+        "SRC-KRX-CLOSE",
+        "SRC-KRX-ETF"
+      ],
+      "expected_v5_claim_ids": [
+        "V5-4TFtEQxSM38-C07"
+      ],
+      "expected_blockers": [
+        "EXCHANGE_ORDER_TYPE_AND_BROKER_NOT_CONFIRMED"
+      ],
+      "required_answer_terms": [
+        "15:40",
+        "16:00",
+        "시간외종가"
+      ]
+    },
+    {
+      "case_id": "A002",
+      "question": "ETF 지정가 주문을 넣으면 반드시 바로 체결되나요? 호가 체결 규칙",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "ORDER_EXECUTION",
+      "expected_disposition": "PUBLIC_EDUCATIONAL",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C97"
+      ],
+      "expected_evidence_ids": [
+        "SRC-KRX-ETF"
+      ],
+      "expected_v5_claim_ids": [
+        "V5-4TFtEQxSM38-C04",
+        "V5-4TFtEQxSM38-C05"
+      ],
+      "expected_blockers": [
+        "ORDER_PRICE_LIQUIDITY_UNKNOWN"
+      ],
+      "required_answer_terms": [
+        "지정가",
+        "체결",
+        "보장하지"
+      ]
+    },
+    {
+      "case_id": "A003",
+      "question": "IRP 계좌는 무주택 전세금 때문에 언제든지 중도인출할 수 있나요?",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "RETIREMENT_WITHDRAWAL",
+      "expected_disposition": "CONDITIONAL_EDUCATIONAL",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C73"
+      ],
+      "expected_evidence_ids": [
+        "SRC-LAW-IRP"
+      ],
+      "expected_v5_claim_ids": [],
+      "expected_blockers": [
+        "PERSONAL_CASE_DOCUMENTS_MISSING",
+        "INDEPENDENT_LEGAL_SCOPE_REVIEW_MISSING"
+      ],
+      "required_answer_terms": [
+        "법정",
+        "무주택",
+        "서류"
+      ]
+    },
+    {
+      "case_id": "A004",
+      "question": "연금저축 600만원 IRP 300만원 세액공제 한도와 소득에 따른 공제율",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "PENSION_TAX",
+      "expected_disposition": "CONDITIONAL_EDUCATIONAL",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C42"
+      ],
+      "expected_evidence_ids": [
+        "SRC-NTS-PENSION"
+      ],
+      "expected_v5_claim_ids": [],
+      "expected_blockers": [
+        "FINAL_TAX_LIABILITY_UNKNOWN",
+        "INDIVIDUAL_DEDUCTION_ELIGIBILITY_OPEN"
+      ],
+      "required_answer_terms": [
+        "600만원",
+        "900만원",
+        "12%",
+        "납부세액"
+      ]
+    },
+    {
+      "case_id": "A005",
+      "question": "ISA 비과세 한도 일반형 500만원 개정안이 시행됐나요 손익통산?",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "ISA_POLICY",
+      "expected_disposition": "CONDITIONAL_EDUCATIONAL",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C109",
+        "GOMHEE-C13"
+      ],
+      "expected_evidence_ids": [
+        "SRC-ISA-ACCOUNT"
+      ],
+      "expected_v5_claim_ids": [],
+      "expected_blockers": [
+        "LAW_ENACTMENT_AND_TAXPAYER_CLASSIFICATION_NEED_RECHECK"
+      ],
+      "required_answer_terms": [
+        "200만원",
+        "400만원",
+        "500만원",
+        "개정안"
+      ]
+    },
+    {
+      "case_id": "A006",
+      "question": "배당 ETF 8% 분배율 원금 수익 보장 안전한가요?",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "DIVIDEND_RETURN",
+      "expected_disposition": "REFUSE_UNSUPPORTED",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C24",
+        "GOMHEE-C110"
+      ],
+      "expected_evidence_ids": [],
+      "expected_v5_claim_ids": [],
+      "expected_blockers": [
+        "NO_PRODUCT_DISCLOSURE",
+        "RETURN_GUARANTEE_UNSUPPORTED"
+      ],
+      "required_answer_terms": [
+        "보장",
+        "총수익",
+        "비용"
+      ]
+    },
+    {
+      "case_id": "A007",
+      "question": "전세보증금 테마 ETF 전액 투자해도 될까요? 유동성 위험",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "SUITABILITY",
+      "expected_disposition": "CONDITIONAL_EDUCATIONAL",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C26",
+        "GOMHEE-C40"
+      ],
+      "expected_evidence_ids": [],
+      "expected_v5_claim_ids": [],
+      "expected_blockers": [
+        "SUITABILITY_INPUTS_MISSING",
+        "ESSENTIAL_LIQUIDITY_NEEDS_UNASSESSED"
+      ],
+      "required_answer_terms": [
+        "유동성",
+        "투자기간",
+        "손실"
+      ]
+    },
+    {
+      "case_id": "A008",
+      "question": "ETF 애프터마켓 저녁 7시 주문 매수 가능하나요 거래시간",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "AFTER_MARKET",
+      "expected_disposition": "REFUSE_UNSUPPORTED",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C15"
+      ],
+      "expected_evidence_ids": [
+        "SRC-KRX-CLOSE"
+      ],
+      "expected_v5_claim_ids": [
+        "V5-4TFtEQxSM38-C07"
+      ],
+      "expected_blockers": [
+        "AFTER_MARKET_ELIGIBLE_INSTRUMENTS_MUST_BE_CHECKED"
+      ],
+      "required_answer_terms": [
+        "16:00",
+        "ETF",
+        "애프터마켓"
+      ]
+    },
+    {
+      "case_id": "A009",
+      "question": "ETF 주문 체결 후 예수금 D+1 D+2 결제일 미확정 자막",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "ASR_SETTLEMENT",
+      "expected_disposition": "SOURCE_UNRESOLVED",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C97"
+      ],
+      "expected_evidence_ids": [
+        "SRC-KRX-SETTLEMENT"
+      ],
+      "expected_v5_claim_ids": [
+        "V5-4TFtEQxSM38-C10"
+      ],
+      "expected_blockers": [
+        "ASR_ORIGINAL_AUDIO_PENDING",
+        "BROKER_ACCOUNT_BALANCE_NOT_CONFIRMED"
+      ],
+      "required_answer_terms": [
+        "D+2",
+        "ASR",
+        "원본"
+      ]
+    },
+    {
+      "case_id": "A010",
+      "question": "ISA 계좌 밖 손실까지 무기한 손익통산 공제할 수 있나요?",
+      "as_of": "2026-11-04",
+      "jurisdiction": "KR",
+      "category": "ISA_CONTRADICTION",
+      "expected_disposition": "REFUSE_UNSUPPORTED",
+      "expected_legacy_claim_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C115"
+      ],
+      "expected_evidence_ids": [
+        "SRC-ISA-ACCOUNT"
+      ],
+      "expected_v5_claim_ids": [],
+      "expected_blockers": [
+        "CROSS_ACCOUNT_LOSS_CARRYOVER_UNSUPPORTED"
+      ],
+      "required_answer_terms": [
+        "손익통산",
+        "계좌",
+        "무기한"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "schema": "IRE_V5_FULL_SOURCE_STUDY_V1",
+  "video_id": "l0Q-2Ah-ba8",
+  "roster_no": 217,
+  "source_archive": "201-300.zip",
+  "source_sha256": "bfbb35fbb9c1481ed9b83f4226bf2889bacaf5220b4b56c980ab1867a1d4b747",
+  "total_cues": 470,
+  "source_read_all_cues_in_active_chat": true,
+  "each_cue_independently_claim_adjudicated": false,
+  "review_date": "2026-11-04",
+  "reviewer": "CHATGPT_ACTIVE_CONVERSATION",
+  "source_sections": [
+    {
+      "first_cue": 1,
+      "last_cue": 16,
+      "topic": "intro"
+    },
+    {
+      "first_cue": 17,
+      "last_cue": 113,
+      "topic": "retirement_account_order"
+    },
+    {
+      "first_cue": 114,
+      "last_cue": 162,
+      "topic": "age_and_eligibility"
+    },
+    {
+      "first_cue": 163,
+      "last_cue": 269,
+      "topic": "retirement_scenario"
+    },
+    {
+      "first_cue": 270,
+      "last_cue": 384,
+      "topic": "annual_pension_limits"
+    },
+    {
+      "first_cue": 385,
+      "last_cue": 470,
+      "topic": "pension_transfer_and_tax_source"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "P217-01",
+      "first_cue": 17,
+      "last_cue": 57,
+      "proposition": "은퇴 전 DB/DC/퇴직급여 구조와 기존 퇴직연금 자산을 먼저 점검할 것을 권한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C07",
+        "GOMHEE-C43"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "GENERAL_EDUCATION",
+      "scope_or_error": "기존 퇴직연금 운용 상태 확인은 유용하나 퇴직급여·보장상품을 모든 투자자에게 일괄 변경하도록 권고하지 않는다.",
+      "evidence_ids": [],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "P217-02",
+      "first_cue": 58,
+      "last_cue": 113,
+      "proposition": "퇴직연금 DC·IRP 내 현금성 자산을 원리금보장 예금·ELB 또는 투자형 상품과 비교하며 고금리를 우선 선택하라고 권한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C43",
+        "GOMHEE-C73"
+      ],
+      "relationship": "QUALIFIES",
+      "review_status": "PRODUCT_SCOPE_OPEN",
+      "scope_or_error": "예금자보호 한도, 예금·ELB 발행기관 신용위험, 수수료·만기·예금보호 구분과 위험성향 확인 필요.",
+      "evidence_ids": [],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "P217-03",
+      "first_cue": 117,
+      "last_cue": 160,
+      "proposition": "연금저축 개설 연령의 제약과 연금수령 개시 55세·가입기간 5년을 설명한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C07",
+        "GOMHEE-C42"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "CONDITIONAL_RULE",
+      "scope_or_error": "연금 수령의 구체적 법적 요건·퇴직급여 예외와 연금수령한도에 따라 다르므로 일률적 최소 15년 보유 의무로 확정 금지.",
+      "evidence_ids": [
+        "SRC-PENSION-ELIGIBILITY"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "P217-04",
+      "first_cue": 163,
+      "last_cue": 209,
+      "proposition": "57세부터 매년 연금계좌 1800만원 3년, 이후 600만원 5년 납입하면 납입원금 8400만원이 된다는 가상 사례를 제시한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C71"
+      ],
+      "relationship": "SUPPORTS",
+      "review_status": "HYPOTHETICAL_ARITHMETIC",
+      "scope_or_error": "1800*3+600*5=8400만원 산술은 일치. 해당 연도 한도·소득·공제한도·실현수익률은 별개; ASR에서 일부 금액이 불명확함.",
+      "evidence_ids": [
+        "SRC-NTS-PENSION"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "P217-05",
+      "first_cue": 209,
+      "last_cue": 266,
+      "proposition": "8년 투자한 8400만원이 1억원을 훌쩍 넘을 것이고 연 7% 배당으로 월 약 60만원을 지속적으로 인출할 수 있다고 가정한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C07",
+        "GOMHEE-C71"
+      ],
+      "relationship": "CHALLENGES",
+      "review_status": "UNSAFE_RETURN_ASSUMPTION",
+      "scope_or_error": "계좌 1억원 이상 및 연 7% 분배율·원금 보존은 보장되지 않는다. 1억원*7%/12=약 58.3만원은 조건부 산술일 뿐 시장 검증·세후 소득이 아니다.",
+      "evidence_ids": [
+        "SRC-SEC-RISK"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "P217-06",
+      "first_cue": 239,
+      "last_cue": 267,
+      "proposition": "세액공제 받지 않은 납입원금은 과세대상 사적연금과 구분하며 초기 인출 재원으로 활용하라고 제안한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C71",
+        "GOMHEE-C42"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "TAX_SOURCE_CLASSIFICATION_OPEN",
+      "scope_or_error": "비공제 납입 증빙, 연금계좌 인출순서, 원금·운용수익 구분, 연금 전환여부를 확인하기 전 비과세 인출액 단정 금지.",
+      "evidence_ids": [
+        "SRC-NTS-PENSION-TAX"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "P217-07",
+      "first_cue": 270,
+      "last_cue": 336,
+      "proposition": "연금수령한도 공식과 사적연금 과세대상 연 1500만원을 설명하면서 이를 넘지 않는 수령을 권한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C71"
+      ],
+      "relationship": "QUALIFIES",
+      "review_status": "OFFICIAL_CORRECTION",
+      "scope_or_error": "연금수령한도(계좌/연차별 산식)와 1500만원(사적연금소득 과세선택 기준)은 별개다. 1500만원 초과가 수령 금지는 아니며 종합과세/15% 분리과세 선택 대상이 될 수 있다.",
+      "evidence_ids": [
+        "SRC-NTS-PRIVATE-PENSION",
+        "SRC-PENSION-ELIGIBILITY"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "P217-08",
+      "first_cue": 337,
+      "last_cue": 383,
+      "proposition": "연금저축·IRP의 과세대상 저축 재원과 퇴직금 원천의 IRP, 국민연금을 1500만원 기준에서 구분한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C08",
+        "GOMHEE-C73"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "TAX_SOURCE_CLASSIFICATION_OPEN",
+      "scope_or_error": "이연퇴직소득·비공제 원금·운용수익·과세대상 연금의 분류를 개인별 증빙으로 확인해야 한다.",
+      "evidence_ids": [
+        "SRC-NTS-PRIVATE-PENSION"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "P217-09",
+      "first_cue": 385,
+      "last_cue": 422,
+      "proposition": "여러 연금계좌 이전·통합을 설명하고 퇴직금 재원과 개인 납입재원을 분리 관리하는 장점을 제안한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C43",
+        "GOMHEE-C73"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "PRACTICAL_CONDITIONS_OPEN",
+      "scope_or_error": "계좌간 이체 가능 유형·연금수령 중 계약변경·수수료·투자상품 현금화·자금의 과세원천을 증권사와 확인해야 한다.",
+      "evidence_ids": [
+        "SRC-PENSION-ELIGIBILITY"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "P217-10",
+      "first_cue": 419,
+      "last_cue": 463,
+      "proposition": "세액공제 원금·비공제 원금·퇴직급여를 세 계좌로 분리하면 인출세금을 관리하기 쉽다고 설명한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C73",
+        "GOMHEE-C71"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "PERSONALIZED_PLAN_OPEN",
+      "scope_or_error": "일반적 관리 아이디어이지만 무조건 세 계좌 분리는 비용·연금수령한도·세법·연금수령액 때문에 개인별 최적화가 필요하다.",
+      "evidence_ids": [
+        "SRC-NTS-PRIVATE-PENSION"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    }
+  ],
+  "headline": "은퇴자를 위한 연금저축 활용팁 4가지",
+  "overall_status": "SOURCE_STUDIED_CLAIMS_PROVISIONAL",
+  "advisory_go": false,
+  "evidence_status": "SOME_OFFICIAL_SOURCES_CROSSED_CHECKED_WITH_OPEN_ITEMS",
+  "verification_open": [
+    "IRP/DC 상품별 예금자보호·예금금리와 투자허용성",
+    "연금 최소 수령기간/5년 요건의 적용 예외와 시행법 원문",
+    "연간 1500만원 과세기준과 계좌별 연금수령한도 혼동 방지",
+    "세공제·미공제 납입원금과 퇴직급여 재원의 인출순서와 증빙",
+    "7% 고정 배당과 계좌 1억원 보장 금지",
+    "연금 수령 및 적립 시나리오의 개인별 세후 수치 재검증"
+  ],
+  "no_public_transcript_full_text": true
+}

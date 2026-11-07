@@ -1,0 +1,2124 @@
+{
+  "schema": "IRE_V5_LEGACY_SOURCE_CONSOLIDATION_MASTER_V1",
+  "as_of": "2026-11-05",
+  "data_revision": "5620375ed096d4ff4739c617c4db5123d21716dc",
+  "source_blob_shas": {
+    "legacy": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+    "video": "c0e703cc20f4bc264ff1fa086f9ba4558d4f6d21",
+    "graph": "527bfe648c96de4b3d56d19f404cb97b90da3537"
+  },
+  "scope_note": "GitHub metadata index; does not confirm original video full SRT or live official-source fact for every legacy claim. Each batch is only approved for source/knowledge reuse after detailed review and ChatGPT source matching.",
+  "source_paths": {
+    "legacy": "data/claims.jsonl",
+    "videos": "data/videos.jsonl",
+    "graph": "ire/v5/advisory_knowledge/integrated_education13_20261104.json"
+  },
+  "summary": {
+    "legacy_claims": 116,
+    "metadata_videos": 157,
+    "canonical_event_files": 169,
+    "video_study_documents": 241,
+    "synthesis_markdown_batches": 15,
+    "integrated_education_topics": 13,
+    "legacy_distinct_topics": 60,
+    "legacy_claims_with_missing_video_ids": 0,
+    "all_legacy_video_refs": 160,
+    "distinct_video_ids_referenced_from_legacy_claims": 125,
+    "core_claims_with_existing_v5_graph_reference": 16,
+    "existing_v5_core_edges": 32,
+    "fact_approvals_from_metadata_index": 0,
+    "previous_research_records_mutated": 0,
+    "legacy_detailed_batches_completed": 3,
+    "legacy_claims_detailed_triaged": 60,
+    "legacy_claims_waiting_detailed_triage": 56,
+    "new_fact_approvals_from_consolidation": 0
+  },
+  "topics": {
+    "behavior": 1,
+    "learning": 1,
+    "product_structure": 1,
+    "risk": 1,
+    "implementation": 1,
+    "etf": 7,
+    "pension_savings": 7,
+    "irp": 3,
+    "asset_allocation": 4,
+    "rebalancing": 1,
+    "reits": 1,
+    "bonds": 2,
+    "isa": 3,
+    "structured_products": 1,
+    "etf_implementation": 1,
+    "derivatives": 1,
+    "total_return": 1,
+    "tdf": 1,
+    "cash_management": 4,
+    "account_structure": 1,
+    "tax": 3,
+    "commodities": 1,
+    "asset_allocation_etf": 1,
+    "dividend_etf": 1,
+    "thematic_etf": 1,
+    "etf_structure": 1,
+    "pension_savings_operation": 1,
+    "currency": 2,
+    "lump_sum_investing": 1,
+    "retirement_cashflow": 1,
+    "isa_lifecycle": 1,
+    "isa_tax_location": 1,
+    "income_portfolio": 2,
+    "market_stress": 3,
+    "currency_implementation": 1,
+    "behavioral_simplicity": 1,
+    "income_scaled_planning": 1,
+    "beginner_learning_sequence": 1,
+    "tax_wrapper_allocation": 1,
+    "pension_behavior": 1,
+    "pension_tax_basis": 1,
+    "pension_wrapper_selection": 1,
+    "pension_product_mix": 1,
+    "retirement": 11,
+    "investment_principles": 9,
+    "investor_education": 7,
+    "stocks": 3,
+    "national_pension": 1,
+    "cash_flow": 1,
+    "tools": 1,
+    "market_structure": 1,
+    "company_analysis": 1,
+    "compound_return": 1,
+    "thematic_investing": 1,
+    "market_execution": 1,
+    "tax_advantaged_accounts": 1,
+    "dividend_investing": 2,
+    "account_location": 1,
+    "covered_call": 1,
+    "retirement_accounts": 1
+  },
+  "batches": [
+    {
+      "batch_id": "B01",
+      "claim_ids": [
+        "GOMHEE-C01",
+        "GOMHEE-C02",
+        "GOMHEE-C03",
+        "GOMHEE-C04",
+        "GOMHEE-C05",
+        "GOMHEE-C06",
+        "GOMHEE-C07",
+        "GOMHEE-C08",
+        "GOMHEE-C09",
+        "GOMHEE-C10",
+        "GOMHEE-C11",
+        "GOMHEE-C12",
+        "GOMHEE-C13",
+        "GOMHEE-C14",
+        "GOMHEE-C15",
+        "GOMHEE-C16",
+        "GOMHEE-C17",
+        "GOMHEE-C18",
+        "GOMHEE-C19",
+        "GOMHEE-C20"
+      ],
+      "range": [
+        "GOMHEE-C01",
+        "GOMHEE-C20"
+      ],
+      "count": 20,
+      "state": "METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED",
+      "artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "batch_id": "B02",
+      "claim_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C22",
+        "GOMHEE-C23",
+        "GOMHEE-C24",
+        "GOMHEE-C25",
+        "GOMHEE-C26",
+        "GOMHEE-C27",
+        "GOMHEE-C28",
+        "GOMHEE-C29",
+        "GOMHEE-C30",
+        "GOMHEE-C31",
+        "GOMHEE-C32",
+        "GOMHEE-C33",
+        "GOMHEE-C34",
+        "GOMHEE-C35",
+        "GOMHEE-C36",
+        "GOMHEE-C37",
+        "GOMHEE-C38",
+        "GOMHEE-C39",
+        "GOMHEE-C40"
+      ],
+      "range": [
+        "GOMHEE-C21",
+        "GOMHEE-C40"
+      ],
+      "count": 20,
+      "state": "METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED",
+      "artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "batch_id": "B03",
+      "claim_ids": [
+        "GOMHEE-C41",
+        "GOMHEE-C42",
+        "GOMHEE-C43",
+        "GOMHEE-C44",
+        "GOMHEE-C45",
+        "GOMHEE-C46",
+        "GOMHEE-C47",
+        "GOMHEE-C48",
+        "GOMHEE-C49",
+        "GOMHEE-C50",
+        "GOMHEE-C51",
+        "GOMHEE-C52",
+        "GOMHEE-C53",
+        "GOMHEE-C54",
+        "GOMHEE-C55",
+        "GOMHEE-C56",
+        "GOMHEE-C57",
+        "GOMHEE-C58",
+        "GOMHEE-C59",
+        "GOMHEE-C60"
+      ],
+      "range": [
+        "GOMHEE-C41",
+        "GOMHEE-C60"
+      ],
+      "count": 20,
+      "state": "METADATA_AND_SOURCE_DOCUMENT_TRIAGE_COMPLETED",
+      "artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "batch_id": "B04",
+      "claim_ids": [
+        "GOMHEE-C61",
+        "GOMHEE-C62",
+        "GOMHEE-C63",
+        "GOMHEE-C64",
+        "GOMHEE-C65",
+        "GOMHEE-C66",
+        "GOMHEE-C67",
+        "GOMHEE-C68",
+        "GOMHEE-C69",
+        "GOMHEE-C70",
+        "GOMHEE-C71",
+        "GOMHEE-C72",
+        "GOMHEE-C73",
+        "GOMHEE-C74",
+        "GOMHEE-C75",
+        "GOMHEE-C76",
+        "GOMHEE-C77",
+        "GOMHEE-C78",
+        "GOMHEE-C79",
+        "GOMHEE-C80"
+      ],
+      "range": [
+        "GOMHEE-C61",
+        "GOMHEE-C80"
+      ],
+      "count": 20,
+      "state": "PENDING_DETAILED_RECONCILIATION",
+      "artifact": null
+    },
+    {
+      "batch_id": "B05",
+      "claim_ids": [
+        "GOMHEE-C81",
+        "GOMHEE-C82",
+        "GOMHEE-C83",
+        "GOMHEE-C84",
+        "GOMHEE-C85",
+        "GOMHEE-C86",
+        "GOMHEE-C87",
+        "GOMHEE-C88",
+        "GOMHEE-C89",
+        "GOMHEE-C90",
+        "GOMHEE-C91",
+        "GOMHEE-C92",
+        "GOMHEE-C93",
+        "GOMHEE-C94",
+        "GOMHEE-C95",
+        "GOMHEE-C96",
+        "GOMHEE-C97",
+        "GOMHEE-C98",
+        "GOMHEE-C99",
+        "GOMHEE-C100"
+      ],
+      "range": [
+        "GOMHEE-C81",
+        "GOMHEE-C100"
+      ],
+      "count": 20,
+      "state": "PENDING_DETAILED_RECONCILIATION",
+      "artifact": null
+    },
+    {
+      "batch_id": "B06",
+      "claim_ids": [
+        "GOMHEE-C101",
+        "GOMHEE-C102",
+        "GOMHEE-C103",
+        "GOMHEE-C104",
+        "GOMHEE-C105",
+        "GOMHEE-C106",
+        "GOMHEE-C107",
+        "GOMHEE-C108",
+        "GOMHEE-C109",
+        "GOMHEE-C110",
+        "GOMHEE-C111",
+        "GOMHEE-C112",
+        "GOMHEE-C113",
+        "GOMHEE-C114",
+        "GOMHEE-C115",
+        "GOMHEE-C116"
+      ],
+      "range": [
+        "GOMHEE-C101",
+        "GOMHEE-C116"
+      ],
+      "count": 16,
+      "state": "PENDING_DETAILED_RECONCILIATION",
+      "artifact": null
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "GOMHEE-C01",
+      "original_topic": "behavior",
+      "legacy_status": "core",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "AzY0FU-HxME",
+        "_gsX0d_f9ew"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C02",
+      "original_topic": "learning",
+      "legacy_status": "core",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "OlurWhrOsLs",
+        "_gsX0d_f9ew"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C03",
+      "original_topic": "product_structure",
+      "legacy_status": "core",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "p0FpMxUVU7c",
+        "y-SUZ-cOCNk",
+        "okrUVN8l3zk",
+        "UMKf5H9aXqE",
+        "WJPZ2GuyM2w",
+        "o-q8fjtbSUg",
+        "iJ5gzL9AUbs",
+        "XJF0V783h7w",
+        "E3tZ6QIpSlg"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C04",
+      "original_topic": "risk",
+      "legacy_status": "core",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "UMKf5H9aXqE",
+        "o-q8fjtbSUg",
+        "XJF0V783h7w",
+        "E3tZ6QIpSlg"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C05",
+      "original_topic": "implementation",
+      "legacy_status": "core",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "p0FpMxUVU7c",
+        "y-SUZ-cOCNk",
+        "okrUVN8l3zk",
+        "UMKf5H9aXqE",
+        "o-q8fjtbSUg",
+        "_gsX0d_f9ew",
+        "XlH7yEh3Ym8"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C06",
+      "original_topic": "etf",
+      "legacy_status": "core",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "okrUVN8l3zk",
+        "UMKf5H9aXqE",
+        "o-q8fjtbSUg",
+        "XlH7yEh3Ym8",
+        "E3tZ6QIpSlg",
+        "QBTq_bu56WU",
+        "lxkPdT5z7yU",
+        "EjrCfxPvHfI"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-ETF-NAV-TRACKING",
+        "EDU-ETF-TOTAL-COST-DECISION"
+      ],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C07",
+      "original_topic": "pension_savings",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "4wt9xB9KV6A"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-RETIREMENT-ACCOUNT-AUDIT",
+        "EDU-KR-PENSION-55-5"
+      ],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C08",
+      "original_topic": "irp",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "xqXD9R_3TOI"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-KR-ISA-TO-PENSION-2026-01",
+        "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+        "EDU-KR-PENSION-55-5",
+        "EDU-IRP-LIFECYCLE",
+        "EDU-KR-PENSION-CREDIT-600-900",
+        "EDU-PENSION-DEFERRED-TAX"
+      ],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C09",
+      "original_topic": "asset_allocation",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "AzY0FU-HxME",
+        "_gsX0d_f9ew"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-DCA-DIVERSIFICATION"
+      ],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C10",
+      "original_topic": "rebalancing",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium",
+      "video_ids": [
+        "_gsX0d_f9ew"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C11",
+      "original_topic": "reits",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium",
+      "video_ids": [
+        "p0FpMxUVU7c"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C12",
+      "original_topic": "bonds",
+      "legacy_status": "core",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "WJPZ2GuyM2w",
+        "o-q8fjtbSUg"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C13",
+      "original_topic": "isa",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "X_k682dMXoM"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-KR-ISA-LIMIT-2026-01"
+      ],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C14",
+      "original_topic": "structured_products",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium",
+      "video_ids": [
+        "SGTzm6JgQgU",
+        "siC58JGNWh0"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C15",
+      "original_topic": "etf_implementation",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "XlH7yEh3Ym8"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C16",
+      "original_topic": "derivatives",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "E3tZ6QIpSlg"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C17",
+      "original_topic": "total_return",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "QBTq_bu56WU"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C18",
+      "original_topic": "tdf",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium",
+      "video_ids": [
+        "DZhUylpuGIg",
+        "a-890uldXeo"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C19",
+      "original_topic": "cash_management",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium",
+      "video_ids": [
+        "5iUZ1ywf3s8"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C20",
+      "original_topic": "account_structure",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "elOgUetuk-8",
+        "0xMspE3Y2OQ"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B01",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B01_C001_C020_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C21",
+      "original_topic": "tax",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "fkBKf67l3uo"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C22",
+      "original_topic": "commodities",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium",
+      "video_ids": [
+        "clf1y4BwGkU"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C23",
+      "original_topic": "asset_allocation_etf",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium",
+      "video_ids": [
+        "jNWVQgeEwm8"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C24",
+      "original_topic": "dividend_etf",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium",
+      "video_ids": [
+        "0H3Tagga2Ho"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C25",
+      "original_topic": "bonds",
+      "legacy_status": "core",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "3f_BLTdTXxM",
+        "WJPZ2GuyM2w",
+        "o-q8fjtbSUg"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C26",
+      "original_topic": "thematic_etf",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "lxkPdT5z7yU"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-ETF-NAV-TRACKING"
+      ],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C27",
+      "original_topic": "etf_structure",
+      "legacy_status": "core",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "okrUVN8l3zk",
+        "UMKf5H9aXqE",
+        "lxkPdT5z7yU",
+        "EjrCfxPvHfI"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C28",
+      "original_topic": "pension_savings_operation",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "a-890uldXeo"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C29",
+      "original_topic": "currency",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "Mcjhjgh50Is",
+        "YNOSY15ppf8"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C30",
+      "original_topic": "lump_sum_investing",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium",
+      "video_ids": [
+        "JwoiWyec7ks"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C31",
+      "original_topic": "retirement_cashflow",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "Q3OrWpOVS2E"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C32",
+      "original_topic": "isa_lifecycle",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "iy7_HMMSLGc"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-KR-ISA-TO-PENSION-2026-01"
+      ],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C33",
+      "original_topic": "isa_tax_location",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "Gk3-ZC9W3vw"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-KR-ISA-TO-PENSION-2026-01"
+      ],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C34",
+      "original_topic": "income_portfolio",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "0Qt8rm01SOg"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C35",
+      "original_topic": "market_stress",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "sqh-919UMVk"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C36",
+      "original_topic": "currency_implementation",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "FPA12oQeQbc",
+        "Mcjhjgh50Is",
+        "YNOSY15ppf8"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C37",
+      "original_topic": "behavioral_simplicity",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "-3iNxrjeQak"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C38",
+      "original_topic": "income_scaled_planning",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "GmwmPKFY4PY",
+        "n1hVZlHq-RA"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C39",
+      "original_topic": "beginner_learning_sequence",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "yl0UyfkvaHs"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C40",
+      "original_topic": "tax_wrapper_allocation",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "_vo1uqkk1yo",
+        "H04y8gmBtqk"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B02",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B02_C021_C040_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C41",
+      "original_topic": "pension_behavior",
+      "legacy_status": "supported",
+      "legacy_confidence": "medium_high",
+      "video_ids": [
+        "-71DQQIcTlc"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C42",
+      "original_topic": "pension_tax_basis",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "ZTlLcC4gE0M"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-KR-ISA-TO-PENSION-2026-01",
+        "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+        "EDU-KR-PENSION-55-5",
+        "EDU-KR-PENSION-CREDIT-600-900"
+      ],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C43",
+      "original_topic": "pension_wrapper_selection",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "DVEdeOoCtXA"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-RETIREMENT-ACCOUNT-AUDIT",
+        "EDU-PENSION-DEFERRED-TAX",
+        "EDU-KR-PENSION-IN-KIND-TRANSFER"
+      ],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C44",
+      "original_topic": "pension_product_mix",
+      "legacy_status": "supported",
+      "legacy_confidence": "high",
+      "video_ids": [
+        "UqF7q4yIODM"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C45",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "CPKP1iu1ZMI"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C46",
+      "original_topic": "cash_management",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "cSNjKKdtp6M"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C47",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "lWWz4i7vIX4"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C48",
+      "original_topic": "irp",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "OdR6ICkcthc"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C49",
+      "original_topic": "investment_principles",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "i32DeJPzsfE"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C50",
+      "original_topic": "investor_education",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "835_phhMGM8"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C51",
+      "original_topic": "investment_principles",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "Dqv6t3cOlIM"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C52",
+      "original_topic": "asset_allocation",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "oxMpNgnbISw"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-GENERAL-DCA-ARITH-01",
+        "EDU-DCA-DIVERSIFICATION"
+      ],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C53",
+      "original_topic": "investment_principles",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "uzZkVRGZw2k"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C54",
+      "original_topic": "investor_education",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "AeCOMNl11v4"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C55",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "WGFPHeM6-6I"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C56",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "zi9x_q2fYoc"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C57",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "uiauof6tOFk"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C58",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "HfrBi5mzm8w"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C59",
+      "original_topic": "currency",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "OfkY343OaNs"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C60",
+      "original_topic": "asset_allocation",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "4CQ4FjGT2gA"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B03",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "SOURCE_CONTEXT_TRIAGE_COMPLETED_NOT_NEW_FACT_APPROVAL",
+      "detailed_triage_artifact": "ire/v5/legacy_consolidation/batch_B03_C041_C060_20261105.json"
+    },
+    {
+      "claim_id": "GOMHEE-C61",
+      "original_topic": "tax",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "3MyhYE2jmuE"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C62",
+      "original_topic": "investment_principles",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "qtluAViPpsQ"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C63",
+      "original_topic": "stocks",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "aNfGrcO6WPI"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C64",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "OiDTNstaSpM"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C65",
+      "original_topic": "cash_management",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "4v8m0NOvAic"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C66",
+      "original_topic": "national_pension",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "0qSMwt0PT0w"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C67",
+      "original_topic": "stocks",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "j7eH37AMAFM"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C68",
+      "original_topic": "investment_principles",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "irE9tBJMcDI"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C69",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "uGINO10KikM"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C70",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "Mbc1TbQqvgc"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C71",
+      "original_topic": "pension_savings",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "x2_oSwvVH8k"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-KR-PRIVATE-PENSION-1500-2026-01"
+      ],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C72",
+      "original_topic": "pension_savings",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "8UPRiaQz6cw"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C73",
+      "original_topic": "pension_savings",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "BVAp7DhBA40"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+        "EDU-KR-PENSION-55-5",
+        "EDU-IRP-LIFECYCLE",
+        "EDU-KR-PENSION-IN-KIND-TRANSFER"
+      ],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C74",
+      "original_topic": "pension_savings",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "qtDnNpPskBc"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C75",
+      "original_topic": "asset_allocation",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "cDKaiQWJPZs"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-GENERAL-DCA-ARITH-01"
+      ],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C76",
+      "original_topic": "cash_flow",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "yNLB4NHFxoc"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C77",
+      "original_topic": "pension_savings",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "sx5blWMu0J4"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C78",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "83bitOQD8e0"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C79",
+      "original_topic": "investment_principles",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "a_bOT0gxTpY"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C80",
+      "original_topic": "irp",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "9aQ0u1vGog8"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B04",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C81",
+      "original_topic": "investor_education",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "JzXLEijQ1AI"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C82",
+      "original_topic": "etf",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "_Tiww7SK9AM"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C83",
+      "original_topic": "income_portfolio",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "IxHh2587qNY"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C84",
+      "original_topic": "investor_education",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "ihy6Q8ftzPw"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C85",
+      "original_topic": "investor_education",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "AqVrVd7RlIg"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C86",
+      "original_topic": "tools",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "oLfGGbqiL-Q"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C87",
+      "original_topic": "etf",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "lqTJB2NXSKg"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C88",
+      "original_topic": "pension_savings",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "CsrdC4yQzWs"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C89",
+      "original_topic": "etf",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "tWNgA70Nyk0"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C90",
+      "original_topic": "etf",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "buUG4bOaZro"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C91",
+      "original_topic": "investment_principles",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "E2DtuDBNgW4"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C92",
+      "original_topic": "investor_education",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "8E6kVcmN-yQ"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C93",
+      "original_topic": "market_structure",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "pt-VmEQaoSw"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C94",
+      "original_topic": "company_analysis",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "U2vZMWxSIMU"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C95",
+      "original_topic": "compound_return",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "WLMYuFdrBuk"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C96",
+      "original_topic": "thematic_investing",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "SQDSPf2IZ3s"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C97",
+      "original_topic": "market_execution",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "I6aV-uhBmnQ"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C98",
+      "original_topic": "market_stress",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "vkYOhgHtoOs"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C99",
+      "original_topic": "investment_principles",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "-88ktXtUGiM"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C100",
+      "original_topic": "stocks",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "ksXQPR7rsU4"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B05",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C101",
+      "original_topic": "market_stress",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "AiHf9B6WGyE"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C102",
+      "original_topic": "etf",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "SAOz2iEU41E"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C103",
+      "original_topic": "etf",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "Z5br9TkMASw"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C104",
+      "original_topic": "investment_principles",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "9RuZAAykJC8"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C105",
+      "original_topic": "tax",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed_officially_verified",
+      "video_ids": [
+        "3jtBJc17ZHw"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C106",
+      "original_topic": "tax_advantaged_accounts",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed_officially_verified",
+      "video_ids": [
+        "giJLCf3ed_s",
+        "574Oi3Jn_KQ"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C107",
+      "original_topic": "retirement",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed_officially_verified",
+      "video_ids": [
+        "Dmq6Tw3Gy7Q"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C108",
+      "original_topic": "dividend_investing",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed_officially_verified",
+      "video_ids": [
+        "n77kZtvLISY"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C109",
+      "original_topic": "isa",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed_officially_verified",
+      "video_ids": [
+        "JsdnpGa9_ZY"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-KR-ISA-LIMIT-2026-01"
+      ],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C110",
+      "original_topic": "dividend_investing",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "P4ubBFb-3ZQ"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [
+        "EDU-ETF-TOTAL-COST-DECISION"
+      ],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C111",
+      "original_topic": "account_location",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed_current_context_checked",
+      "video_ids": [
+        "H8YTjNCIuLM"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C112",
+      "original_topic": "covered_call",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed_multi_source",
+      "video_ids": [
+        "OOC5OUZNGvI",
+        "LoRySWrV0Us"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C113",
+      "original_topic": "retirement_accounts",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed_officially_verified",
+      "video_ids": [
+        "wI6Kd-BJqqk"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C114",
+      "original_topic": "cash_management",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "Sk1JarcNNNs",
+        "SJ_0Za3YxcA"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C115",
+      "original_topic": "isa",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed_officially_verified",
+      "video_ids": [
+        "UzoZbeqcctg"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    },
+    {
+      "claim_id": "GOMHEE-C116",
+      "original_topic": "investor_education",
+      "legacy_status": "supported",
+      "legacy_confidence": "source_backed",
+      "video_ids": [
+        "GAXeom_eF6I"
+      ],
+      "canonical_video_links_complete": true,
+      "direct_v5_core_reference_ids": [],
+      "assigned_batch_id": "B06",
+      "fact_acceptance_this_index": "NOT_REASSESSED_METADATA_ONLY",
+      "consolidation_state": "METADATA_ONLY",
+      "detailed_triage_artifact": null
+    }
+  ],
+  "requires_active_chat_web_evidence_review_for_new_financial_fact_approval": true,
+  "main_branch_unchanged": true
+}
