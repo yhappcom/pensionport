@@ -5,7 +5,7 @@ from pathlib import Path
 import unittest
 from ire.v5.p0_claim_ownership_gate import validate_claim_ownership, ClaimOwnershipError
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[1]
 
 class ClaimOwnershipTests(unittest.TestCase):
     @classmethod
