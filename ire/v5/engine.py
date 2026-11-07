@@ -264,7 +264,13 @@ class ResearchRun:
             require(cid not in self.relations,"RELATION_REVIEW_ALREADY_FINALIZED")
             self.relations[cid]=item
         elif kind=="RESEARCH_CLOSURE":
-            require(item==self._closure_body(),"CLOSURE_CHANGED_OR_INCOMPLETE")
+            # A forged, exact INCOMPLETE closure used to pass this equality
+            # test, making the run look sealed despite missing windows/evidence.
+            # Both the high-level close() and low-level append/replay must block.
+            current = self._closure_body()
+            require(not current["blockers"],"RESEARCH_CANNOT_CLOSE:"+
+                    ",".join(current["blockers"]))
+            require(item==current,"CLOSURE_CHANGED_OR_INCOMPLETE")
             self.closure=item
         else:
             raise RunError("UNKNOWN_EVENT_TYPE")

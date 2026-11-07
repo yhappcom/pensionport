@@ -140,6 +140,15 @@ class V5ContractTests(unittest.TestCase):
     def test_no_close_missing_windows(self):
         self.r.append('MODEL_ANALYSIS',self.model(1))
         with self.assertRaisesRegex(RunError,'MODEL_WINDOWS_NOT_COMPLETE'):self.r.close()
+
+    def test_raw_event_cannot_seal_incomplete_or_be_replayed_as_complete(self):
+        # Regression for bypassing close() with an exact INCOMPLETE payload.
+        body = self.r._closure_body()
+        self.assertTrue(body["blockers"])
+        with self.assertRaisesRegex(RunError, "RESEARCH_CANNOT_CLOSE"):
+            self.r.append("RESEARCH_CLOSURE",body)
+        self.assertFalse(self.r.status()["sealed"])
+        self.assertEqual(self.r.status()["receipt_count"],0)
     def test_source_sha_rejected(self):
         m=copy.deepcopy(MAN);m['source_sha256']='0'*64
         with self.assertRaisesRegex(RunError,'MANIFEST_SOURCE_MISMATCH'):
