@@ -171,14 +171,18 @@ class FiveVideoResearchBatch:
                     continue
                 wid = pending[vid][0]
                 packet = self.runs[vid].packet(wid)
-                # A packet is pure source and exact hash; no knowledge or prior labels.
-                count = len(canonical(packet))
+                # Side-car context is source-only. Keep the original signed
+                # primary packet intact for legacy MODEL_ANALYSIS compatibility.
+                from .p0_semantic_coverage import contextual_packet
+                context = contextual_packet(self.runs[vid], wid)
+                item = {"video_id": vid, "packet": packet, "context": context}
+                count = len(canonical(item))
                 if count > max_chars:
                     raise RunError("FIVE_VIDEO_SINGLE_PACKET_EXCEEDS_BUDGET")
                 if used + count > max_chars:
                     continue
                 pending[vid].pop(0)
-                packets.append({"video_id": vid, "packet": packet})
+                packets.append(item)
                 used += count
                 made = True
             if not made:
