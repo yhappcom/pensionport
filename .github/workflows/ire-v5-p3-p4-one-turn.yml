@@ -25,6 +25,8 @@ jobs:
           python-version: '3.11'
       - name: Install pinned signature verifier dependency
         run: python -m pip install --disable-pip-version-check 'cryptography==46.0.4'
+      - name: Regression-test provisional source ownership and adversarial cue cases
+        run: python -m unittest discover -s tests -p 'test_v5_p0_claim_ownership.py' -v
       - name: Verify full V5 one-turn pipeline and emit bounded research receipt
         run: python -m ire.v5.one_turn_run --root .
       - name: Verify active P4 22-node graph and 27 P3 quarantined windows
