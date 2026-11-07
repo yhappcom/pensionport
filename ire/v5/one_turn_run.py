@@ -81,6 +81,38 @@ def assert_receipt_safety(receipt: dict) -> None:
         receipt.get("terminal_outcome") !=
             "DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED"):
         raise RuntimeError("UNSAFE_TERMINAL_RECEIPT_OR_BLIND_REVIEW_WAIVER")
+    # The terminal guard must also check attestations inside subordinate gates.
+    # Previously a subgate could claim p0_go=True while the top-level receipt
+    # still said quality=False, producing contradictory machine-readable output.
+    # Keep this scoped to the mandatory P0 gates with known conservative
+    # schemas; other advisory audit payloads have different status contracts.
+    p0_guards = (
+        "p0_incremental_source_derivative_integrity",
+        "p0_candidate_source_window_ownership",
+        "p0_private_original_source_replay",
+        "p0_multicue_context_census",
+        "p0_private_multicue_span_replay",
+    )
+    for key in p0_guards:
+        value = receipt.get(key)
+        if type(value) is not dict or value.get("p0_go") is not False:
+            raise RuntimeError("UNSAFE_NESTED_P0_APPROVAL_OR_MISSING_GATE:" + key)
+    # A source replay claim cannot be inferred merely from the presence of
+    # --private-zip. The subordinate gates must agree with the top-level flag.
+    private_claimed = receipt.get("private_original_archive_verified_in_this_process")
+    if type(private_claimed) is not bool:
+        raise RuntimeError("UNSAFE_PRIVATE_REPLAY_ATTESTATION")
+    private_keys = ("p0_private_original_source_replay",
+                    "p0_private_multicue_span_replay")
+    for key in private_keys:
+        value = receipt[key]
+        expected = (value.get("source_original_bytes_replayed") if
+                    key == "p0_private_original_source_replay" else
+                    value.get("source_original_bytes_replayed"))
+        # Both private gates have an explicit replay boolean in successful
+        # source-replay mode. The default no-archive records are also explicit.
+        if type(expected) is not bool or expected is not private_claimed:
+            raise RuntimeError("UNSAFE_PRIVATE_REPLAY_ATTESTATION:" + key)
 
 
 def run(root:Path,private_zip:Path|None=None)->int:
