@@ -74,6 +74,8 @@ def assert_receipt_safety(receipt: dict) -> None:
         receipt.get("formal_personal_investment_advice_authorized") is not False or
         receipt.get("p0_cross_window_semantic_completeness_certified") is not False or
         receipt.get("p0_corpus_research_complete") is not False or
+        receipt.get("p0_independent_semantic_recall_measured") is not False or
+        receipt.get("p0_engine_quality_certified") is not False or
         receipt.get("one_request_research_complete") is not False or
         receipt.get("research_state") != "DETERMINISTIC_VALIDATION_ONLY_RESEARCH_OPEN" or
         receipt.get("terminal_outcome") !=
