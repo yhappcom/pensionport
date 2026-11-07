@@ -45,10 +45,18 @@ def validate_source_review(record: dict) -> dict:
            and record.get("p1_merge") is False, "FALSE_GO")
     _check(record.get("reviewed_windows")==len(windows), "WINDOW_COUNT")
     _check(record.get("reviewed_cues")==sum(w["cue_count"] for w in windows), "CUE_COUNT")
-    prev=record.get("first_cue", 1)-1
+    first_id=windows[0].get("window_id")
+    _check(type(first_id) is str and bool(re.fullmatch(r"W[0-9]{5}", first_id)),
+           "FIRST_WINDOW_ID")
+    first_window_number=int(first_id[1:])
+    _check(first_window_number>=1 and first_window_number+len(windows)<=100000,
+           "WINDOW_RANGE")
+    _check(record.get("first_cue")==windows[0].get("first_cue"),
+           "FIRST_CUE_MISMATCH")
+    prev=record["first_cue"]-1
     owners={}
-    for n,w in enumerate(windows,1):
-        _check(w["window_id"]==f"W{n:05d}", "WINDOW_ORDER")
+    for offset,w in enumerate(windows):
+        _check(w["window_id"]==f"W{first_window_number+offset:05d}", "WINDOW_ORDER")
         _check(w["disposition"] in _ALLOWED, "DISPOSITION_INVALID")
         _check(w["first_cue"]==prev+1 and w["last_cue"]>=w["first_cue"], "CUE_GAP_OR_COLLISION")
         _check(w["cue_count"]==w["last_cue"]-w["first_cue"]+1, "CUE_OWNERSHIP")
@@ -59,7 +67,15 @@ def validate_source_review(record: dict) -> dict:
             _check(item["cue"]==idx and bool(_SHA.fullmatch(item["sha256"])), "CUE_HASH_MISMATCH")
             owners[(w["window_id"],idx)]=item["sha256"]
         prev=w["last_cue"]
-    _check(record["last_cue"]==prev and record["next_window"]==f"W{len(windows)+1:05d}", "RESUME_POINTER")
+    _check(record["last_cue"]==prev and
+           record["next_window"]==f"W{first_window_number+len(windows):05d}",
+           "RESUME_POINTER")
+    if "total_cues" in record:
+        _check(type(record["total_cues"]) is int and prev<=record["total_cues"], "CUE_TOTAL_RANGE")
+    if "total_windows" in record:
+        _check(type(record["total_windows"]) is int and
+               first_window_number+len(windows)-1<=record["total_windows"],
+               "WINDOW_TOTAL_RANGE")
     seen=set()
     count={w["window_id"]:0 for w in windows}
     for c in candidates:
