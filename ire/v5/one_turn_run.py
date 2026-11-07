@@ -74,6 +74,8 @@ def assert_receipt_safety(receipt: dict) -> None:
         receipt.get("formal_personal_investment_advice_authorized") is not False or
         receipt.get("p0_cross_window_semantic_completeness_certified") is not False or
         receipt.get("p0_corpus_research_complete") is not False or
+        receipt.get("one_request_research_complete") is not False or
+        receipt.get("research_state") != "DETERMINISTIC_VALIDATION_ONLY_RESEARCH_OPEN" or
         receipt.get("terminal_outcome") !=
             "DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED"):
         raise RuntimeError("UNSAFE_TERMINAL_RECEIPT_OR_BLIND_REVIEW_WAIVER")
@@ -161,8 +163,8 @@ def run(root:Path,private_zip:Path|None=None)->int:
     frozen_advice=evaluate_frozen_questions(root)
     receipt={
         "schema":"IRE_V5_ONE_TURN_RESEARCH_RECEIPT_V1",
-        "research_state":"ALL_53_NEW_VIDEO_CLAIMS_DISPOSITIONED",
-        "one_request_research_complete":True,
+        "research_state":"DETERMINISTIC_VALIDATION_ONLY_RESEARCH_OPEN",
+        "one_request_research_complete":False,
         "repeat_user_progress_command_required":False,
         "actual_ai_semantics_and_source_checks":"ACTIVE_CHAT_HOST_MUST_SUPPLY",
         "external_model_api_required":False,
