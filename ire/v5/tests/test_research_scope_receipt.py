@@ -19,6 +19,12 @@ SAFE = {
     "one_request_research_complete": False,
     "research_state": "DETERMINISTIC_VALIDATION_ONLY_RESEARCH_OPEN",
     "terminal_outcome": "DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED",
+    "private_original_archive_verified_in_this_process": False,
+    "p0_incremental_source_derivative_integrity": {"p0_go": False},
+    "p0_candidate_source_window_ownership": {"p0_go": False},
+    "p0_private_original_source_replay": {"p0_go": False, "source_original_bytes_replayed": False},
+    "p0_multicue_context_census": {"p0_go": False},
+    "p0_private_multicue_span_replay": {"p0_go": False, "source_original_bytes_replayed": False},
 }
 
 class ResearchScopeReceiptTests(unittest.TestCase):
