@@ -14,6 +14,8 @@ def safe_receipt():
         "formal_personal_investment_advice_authorized": False,
         "p0_cross_window_semantic_completeness_certified": False,
         "p0_corpus_research_complete": False,
+        "p0_independent_semantic_recall_measured": False,
+        "p0_engine_quality_certified": False,
         "one_request_research_complete": False,
         "research_state": "DETERMINISTIC_VALIDATION_ONLY_RESEARCH_OPEN",
         "terminal_outcome": "DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED",
@@ -51,6 +53,32 @@ class ReceiptBlindReviewContractTests(unittest.TestCase):
                 bad[field] = True
                 with self.assertRaisesRegex(RuntimeError, "UNSAFE_TERMINAL_RECEIPT"):
                     assert_receipt_safety(bad)
+
+    def test_unmeasured_recall_cannot_be_relabelled_as_measured(self):
+        bad = safe_receipt()
+        bad["p0_independent_semantic_recall_measured"] = True
+        with self.assertRaisesRegex(RuntimeError, "UNSAFE_TERMINAL_RECEIPT"):
+            assert_receipt_safety(bad)
+
+    def test_uncertified_engine_cannot_be_relabelled_as_certified(self):
+        bad = safe_receipt()
+        bad["p0_engine_quality_certified"] = True
+        with self.assertRaisesRegex(RuntimeError, "UNSAFE_TERMINAL_RECEIPT"):
+            assert_receipt_safety(bad)
+
+    def test_quality_attestation_fields_are_required_strict_false(self):
+        for field in ("p0_independent_semantic_recall_measured",
+                      "p0_engine_quality_certified"):
+            for invalid in (None, 0, "false"):
+                with self.subTest(field=field, invalid=invalid):
+                    bad = safe_receipt()
+                    bad[field] = invalid
+                    with self.assertRaisesRegex(RuntimeError, "UNSAFE_TERMINAL_RECEIPT"):
+                        assert_receipt_safety(bad)
+            bad = safe_receipt()
+            del bad[field]
+            with self.assertRaisesRegex(RuntimeError, "UNSAFE_TERMINAL_RECEIPT"):
+                assert_receipt_safety(bad)
 
     def test_personal_advice_authorization_is_rejected(self):
         bad = safe_receipt()
