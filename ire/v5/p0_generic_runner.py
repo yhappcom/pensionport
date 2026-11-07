@@ -13,7 +13,7 @@ from pathlib import Path
 
 from .engine import ResearchRun, RunError, require, canonical, sha256, _private_dir
 from .planner import prepare_full_video_manifest
-from .p0_semantic_coverage import contextual_packet, audit_second_pass
+from .p0_real_source_safety import adaptive_packet, SecondPassRegistry
 
 VID = re.compile(r"[A-Za-z0-9_-]{11}\Z")
 
@@ -63,6 +63,7 @@ class GenericResearchCohort:
                  "model_api_execution_proven": False,
                  "source_census_is_not_research_completion": True}
         _private_write(root / "cohort_lock.json", canonical(index))
+        self.p0_proofs = SecondPassRegistry(self.runs, root)
 
     @classmethod
     def reopen(cls, root: Path) -> "GenericResearchCohort":
@@ -98,8 +99,8 @@ class GenericResearchCohort:
             for vid in self.order:
                 if not queues[vid] or len(out) >= max_windows:
                     continue
-                pkt = contextual_packet(self.runs[vid], queues[vid][0],
-                                        halo_cues=halo_cues)
+                pkt = adaptive_packet(self.runs[vid], queues[vid][0],
+                                      minimum=halo_cues, maximum=8)
                 item = {"video_id": vid, "contextual_packet": pkt}
                 size = len(canonical(item))
                 if size > max_chars:
@@ -119,32 +120,58 @@ class GenericResearchCohort:
         return {**body, "work_sha256": sha256(canonical(body))}
 
     def next_required_task(self) -> dict:
-        """Generic deterministic transition: model, evidence, relation, close."""
+        """Gate nominal engine closure on durable 2nd-pass provenance."""
         tasks = []
         for vid in self.order:
-            t = self.runs[vid].next_task()
+            run = self.runs[vid]
+            t = run.next_task()
+            if t["phase"] in {"SEAL_RESEARCH_REPORT_REQUIRED", "DONE"}:
+                for wid in run.active:
+                    proof = self.p0_proofs.status(vid, wid)
+                    if not proof["passed"]:
+                        t = {"phase": (
+                            "P0_ATOMIC_GAP_REQUIRES_MODEL_CORRECTION"
+                            if proof["has_gap"] else "P0_SECOND_PASS_REQUIRED"),
+                            "window_id": wid,
+                            "review_records": proof["records"],
+                            "independent_atomic_recall_certified": False}
+                        break
             if t["phase"] != "DONE":
+                ctx = adaptive_packet(run, t["window_id"]) if (
+                    t["phase"] in {"MODEL_ANALYSIS_REQUIRED",
+                                   "P0_SECOND_PASS_REQUIRED",
+                                   "P0_ATOMIC_GAP_REQUIRES_MODEL_CORRECTION"}
+                    ) else None
                 tasks.append({"video_id": vid, "task": t,
-                              "contextual_packet":
-                                  contextual_packet(self.runs[vid], t["window_id"])
-                                  if t["phase"] == "MODEL_ANALYSIS_REQUIRED"
-                                  else None})
+                              "contextual_packet": ctx})
         return {"schema": "IRE_V5_P0_GENERIC_NEXT_TASK_V1",
                 "tasks": tasks, "user_followup_required": False,
                 "all_source_research_closed": not tasks,
                 "independent_semantic_recall_certified": False}
 
     def audit(self, video_id: str, window_id: str, second_pass: dict) -> dict:
+        return self.p0_proofs.submit(video_id, window_id, second_pass)
+
+    def close_video(self, video_id: str) -> dict:
+        """Strict new P0 closure, without altering legacy receipt formats."""
         require(video_id in self.runs, "P0_GENERIC_UNKNOWN_VIDEO")
-        return audit_second_pass(self.runs[video_id], window_id, second_pass)
+        run = self.runs[video_id]
+        run.replay()
+        missing = [wid for wid in run.active
+                   if not self.p0_proofs.status(video_id, wid)["passed"]]
+        require(not missing, "P0_SECOND_PASS_COMPLETENESS_NOT_PROVEN")
+        return run.close()
 
     def status(self) -> dict:
         reports = []
         for vid in self.order:
             s = self.runs[vid].replay()
+            reviewed = sum(self.p0_proofs.status(vid, wid)["passed"]
+                           for wid in self.runs[vid].active)
             reports.append({"video_id": vid,
-                            "source_cues": s["video_windows_total"] and
-                                           len(self.runs[vid].cues),
+                            "source_cues": len(self.runs[vid].cues),
+                            "p0_second_pass_proof_windows": reviewed,
+                            "p0_second_pass_all_windows": reviewed == s["video_windows_total"],
                             "windows_total": s["video_windows_total"],
                             "model_windows": s["submitted_windows"],
                             "evidence_relation_reviewed_windows":
@@ -156,6 +183,10 @@ class GenericResearchCohort:
                 "video_count": len(reports),
                 "source_windows": sum(v["windows_total"] for v in reports),
                 "source_windows_with_model": sum(v["model_windows"] for v in reports),
+                "p0_source_windows_with_second_pass_proof":
+                    sum(v["p0_second_pass_proof_windows"] for v in reports),
+                "p0_source_second_pass_ready":
+                    all(v["p0_second_pass_all_windows"] for v in reports),
                 "independent_atomic_recall_certified": False,
                 "llm_or_web_executed_by_this_module": False,
                 "personal_advice_approved": False}

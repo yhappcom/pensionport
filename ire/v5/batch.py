@@ -173,8 +173,8 @@ class FiveVideoResearchBatch:
                 packet = self.runs[vid].packet(wid)
                 # Side-car context is source-only. Keep the original signed
                 # primary packet intact for legacy MODEL_ANALYSIS compatibility.
-                from .p0_semantic_coverage import contextual_packet
-                context = contextual_packet(self.runs[vid], wid)
+                from .p0_real_source_safety import adaptive_packet
+                context = adaptive_packet(self.runs[vid], wid)
                 item = {"video_id": vid, "packet": packet, "context": context}
                 count = len(canonical(item))
                 if count > max_chars:
