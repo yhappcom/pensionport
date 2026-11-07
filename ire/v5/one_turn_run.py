@@ -13,7 +13,8 @@ from pathlib import Path
 
 from .preflight import run as preflight_run
 from .p0_incremental_source_gate import verify as verify_p0_incremental_source
-from .p0_claim_ownership_gate import verify as verify_p0_claim_ownership
+from .p0_claim_ownership_gate import (verify as verify_p0_claim_ownership,
+                                      verify_private_source as verify_p0_private_source)
 from .one_turn_resolution_gate import verify as verify_33
 from .integrated_education_gate import verify as verify_education_graph
 from .advisory_education_rehearsal import audit as verify_advisory_access
@@ -60,7 +61,15 @@ from .phase1_to_phase4_progress import audit as audit_p1_p3_p4_progress
 
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
+    # These states are deliberately distinct: public CI checks pinned metadata,
+    # but only private execution can replay exact underlying SRT source bytes.
+    p0_private_replay={
+        "source_original_bytes_replayed":False,
+        "reason":"PRIVATE_ARCHIVE_NOT_SUPPLIED",
+        "p0_go":False,
+    }
     if private_zip is not None:
+        p0_private_replay=verify_p0_private_source(root,private_zip)
         from .review44_gate import verify as verify44
         from .external_authority_recheck import verify as verify10
         a=verify44(root,private_zip=private_zip)
@@ -136,6 +145,10 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "private_original_archive_verified_in_this_process":private_zip is not None,
         "p0_incremental_source_derivative_integrity":p0_incremental_integrity,
         "p0_candidate_source_window_ownership":p0_claim_ownership,
+        "p0_private_original_source_replay":p0_private_replay,
+        "p0_corpus_research_complete":False,
+        "p0_independent_semantic_recall_measured":False,
+        "p0_engine_quality_certified":False,
         "claims":decision,
         "education_knowledge":education,
         "advisory_access_rehearsal":advisory_access,
