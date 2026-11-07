@@ -15,6 +15,8 @@ from .preflight import run as preflight_run
 from .p0_incremental_source_gate import verify as verify_p0_incremental_source
 from .p0_claim_ownership_gate import (verify as verify_p0_claim_ownership,
                                       verify_private_source as verify_p0_private_source)
+from .p0_multicue_span_gate import (verify as verify_p0_multicue_spans,
+                                      verify_private as verify_p0_private_multicue_spans)
 from .one_turn_resolution_gate import verify as verify_33
 from .integrated_education_gate import verify as verify_education_graph
 from .advisory_education_rehearsal import audit as verify_advisory_access
@@ -68,8 +70,11 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "reason":"PRIVATE_ARCHIVE_NOT_SUPPLIED",
         "p0_go":False,
     }
+    p0_private_multicue={"source_original_bytes_replayed":False,
+                         "reason":"PRIVATE_ARCHIVE_NOT_SUPPLIED", "p0_go":False}
     if private_zip is not None:
         p0_private_replay=verify_p0_private_source(root,private_zip)
+        p0_private_multicue=verify_p0_private_multicue_spans(root,private_zip)
         from .review44_gate import verify as verify44
         from .external_authority_recheck import verify as verify10
         a=verify44(root,private_zip=private_zip)
@@ -92,6 +97,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     p0_incremental_integrity=verify_p0_incremental_source(root)
     # Structural claim ownership is a mandatory guard even for research notes.
     p0_claim_ownership=verify_p0_claim_ownership(root)
+    p0_multicue_span_coverage=verify_p0_multicue_spans(root)
     decision=verify_33(root)
     education=verify_education_graph(root)
     advisory_access=verify_advisory_access(root)
@@ -146,6 +152,9 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "p0_incremental_source_derivative_integrity":p0_incremental_integrity,
         "p0_candidate_source_window_ownership":p0_claim_ownership,
         "p0_private_original_source_replay":p0_private_replay,
+        "p0_multicue_context_census":p0_multicue_span_coverage,
+        "p0_private_multicue_span_replay":p0_private_multicue,
+        "p0_cross_window_semantic_completeness_certified":False,
         "p0_corpus_research_complete":False,
         "p0_independent_semantic_recall_measured":False,
         "p0_engine_quality_certified":False,
