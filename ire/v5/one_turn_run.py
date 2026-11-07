@@ -13,6 +13,7 @@ from pathlib import Path
 
 from .preflight import run as preflight_run
 from .p0_incremental_source_gate import verify as verify_p0_incremental_source
+from .p0_claim_ownership_gate import verify as verify_p0_claim_ownership
 from .one_turn_resolution_gate import verify as verify_33
 from .integrated_education_gate import verify as verify_education_graph
 from .advisory_education_rehearsal import audit as verify_advisory_access
@@ -80,6 +81,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
     # Mandatory real-path gate: registry/bundle/source-anchor drift aborts the
     # transaction before any terminal receipt can be printed.
     p0_incremental_integrity=verify_p0_incremental_source(root)
+    p0_claim_ownership=verify_p0_claim_ownership(root)
     decision=verify_33(root)
     education=verify_education_graph(root)
     advisory_access=verify_advisory_access(root)
@@ -132,6 +134,7 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "external_model_api_required":False,
         "private_original_archive_verified_in_this_process":private_zip is not None,
         "p0_incremental_source_derivative_integrity":p0_incremental_integrity,
+        "p0_provisional_claim_window_ownership":p0_claim_ownership,
         "claims":decision,
         "education_knowledge":education,
         "advisory_access_rehearsal":advisory_access,
