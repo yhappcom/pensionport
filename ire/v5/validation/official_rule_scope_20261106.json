@@ -1,0 +1,1460 @@
+{
+  "schema": "IRE_V5_FINANCIAL_RULE_41_OFFICIAL_SCOPE_REFRESH_V1",
+  "as_of": "2026-11-06",
+  "prior_narrow_cases": 7,
+  "prior_open_cases": 34,
+  "total_cases": 41,
+  "newly_scoped_from_prior_open": 34,
+  "new_officially_scoped_case_frameworks": 23,
+  "still_not_entire_claim_proven_count": 41,
+  "cannot_promote_universal_or_personal_claims": [
+    "FV5-A020",
+    "FV5-A031",
+    "FV5-R0020",
+    "FV5-R0021",
+    "FV5-R0026",
+    "FV5-R0028",
+    "FV5-R0042",
+    "FV5-R0043",
+    "FV5-R0044",
+    "FV5-R0059",
+    "FV5-R0133"
+  ],
+  "source_html_full_verbatim_snapshot_archived": false,
+  "independent_legal_professional_signature_present": false,
+  "official_registry": {
+    "NTS-PENSION-1500": {
+      "issuer": "국세청",
+      "effective": "current as of 2026-11-06",
+      "url": "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+      "scope": "세액공제·운용수익 과세대상 사적연금소득의 1,500만원 합산·15% 선택. 이연퇴직소득·과세제외금액은 별도."
+    },
+    "NTS-PENSION-SOURCE": {
+      "issuer": "국세청",
+      "effective": "2026-01-01 이연퇴직소득 감면율 변경 등 별도",
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+      "scope": "비공제 원금·이연퇴직소득·세액공제 납입액/운용수익의 과세구분, 연금/연금외 수령."
+    },
+    "LAW-2026-PENSION-ORDER": {
+      "issuer": "국가법령정보센터",
+      "effective": "2026-10-01",
+      "url": "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+      "scope": "소득세법 시행령 제40조의2, 제40조의3 인출순서: 과세제외 → 이연퇴직소득 → 기타 과세대상. 개인별 납입·공제 확인 필수."
+    },
+    "LAW-2026-INCOME-14": {
+      "issuer": "국가법령정보센터",
+      "effective": "2026-07-01",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299",
+      "scope": "소득세법 제14조 이자·배당 금융소득 2,000만원 종합과세기준과 연금소득 과세구분 별개."
+    },
+    "LAW-2026-ISA": {
+      "issuer": "국가법령정보센터",
+      "effective": "2026-09-18",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024359131",
+      "scope": "조세특례제한법 제91조의18 ISA 가입·연장·비과세/분리과세·가입요건. 중도해지·계약 개별사실 별도."
+    },
+    "NABO-2026-ISA": {
+      "issuer": "국회예산정책처",
+      "effective": "2026-05 report",
+      "url": "https://nabo.go.kr/board/file/down.do?fid=33319223",
+      "scope": "일반 ISA 연2천만원·5년 합계1억원, 의무가입 3년, 계약기간 연장·재가입·납입원금 범위 중도인출."
+    },
+    "LAW-2026-PENSION-CREDIT": {
+      "issuer": "국가법령정보센터",
+      "effective": "2026-07-01",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880515",
+      "scope": "소득세법 제59조의3 연금저축 600만원·퇴직연금 포함 900만원·총급여/종합소득 따른 12%·15% 국세 공제율."
+    },
+    "NTS-2026-PENSION-CREDIT": {
+      "issuer": "국세청",
+      "effective": "current as of 2026-11-06",
+      "url": "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+      "scope": "연금계좌 공제한도·공제율, ISA 만기자금 연금전환 추가한도 10%·300만원 및 공제불가 재원 구분."
+    },
+    "LAW-2026-CARD": {
+      "issuer": "국가법령정보센터",
+      "effective": "2026-09-18",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1026416055",
+      "scope": "조세특례제한법 제126조의2 국내 신용카드 등 사용금액 중 총급여액 25% 초과분 공제 요건·사용처 제외."
+    },
+    "KRX-ETF-TAX": {
+      "issuer": "한국거래소",
+      "effective": "historical tax guide; current product classification recheck",
+      "url": "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+      "scope": "국내주식형 ETF와 해외지수·상품 기타 ETF의 일반계좌 매매차익 과세차이."
+    },
+    "KRX-GOLD": {
+      "issuer": "한국거래소",
+      "effective": "current guide as of 2026-11-06",
+      "url": "https://www.krx.co.kr/contents/OPN/01/01050206/OPN01050206.jsp",
+      "scope": "KRX 금현물 장내 거래 매매차익 과세제외·실물인출 VAT 10%; 금 ETF와 다른 제도."
+    },
+    "BOK-2026-AUG": {
+      "issuer": "한국은행",
+      "effective": "2026-08-27 date-scoped",
+      "url": "https://www.bok.or.kr/portal/bbs/P0000559/view.do?depth=200690&menuNo=200690&nttId=11064191&programType=newsData&relate=Y",
+      "scope": "2026-08-27 기준금리 2.75%→3.00%; 영상 당시 수치 또는 CMA 금리를 인증하지 않음."
+    },
+    "NPS-DEFER": {
+      "issuer": "국민연금공단",
+      "effective": "current as of 2026-11-06",
+      "url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do",
+      "scope": "노령연금 지급연기 최대 5년·연 7.2% 월0.6% 가산. 연금액 선택은 개인별."
+    },
+    "ISSUER-IRP": {
+      "issuer": "삼성증권",
+      "effective": "issuer product guide as of 2026-11-06",
+      "url": "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do",
+      "scope": "IRP 연금수령 세법상 인출순서·퇴직금 5년요건 예외·사업자별 실무는 약관 확인."
+    }
+  },
+  "cases": [
+    {
+      "candidate_id": "FV5-A005",
+      "video_number": 1,
+      "window_id": "W00015",
+      "claim": "국민연금 노령연금은 최대 5년 연기할 수 있으며 1년당 7.2%의 가산이 있다",
+      "domain": "NPS_DEFERRAL",
+      "supporting_official_source_ids": [
+        "NPS-DEFER"
+      ],
+      "source_urls": [
+        "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "actual eligible deferral start date",
+        "personal health/longevity and public benefit interactions"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": true
+    },
+    {
+      "candidate_id": "FV5-A007",
+      "video_number": 1,
+      "window_id": "W00022",
+      "claim": "특정 과세대상 사적연금의 연 1,500만원은 과세 선택 기준이지 일률적인 연금 인출 금지액이 아니다",
+      "domain": "PENSION_1500",
+      "supporting_official_source_ids": [
+        "NTS-PENSION-1500",
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE"
+      ],
+      "source_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "taxable private pension only; excluded sources separate",
+        "actual calendar-year receipts across accounts",
+        "income tax vs local tax rates distinct",
+        "tax return election is not withdrawal permission"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": true
+    },
+    {
+      "candidate_id": "FV5-A008",
+      "video_number": 1,
+      "window_id": "W00023",
+      "claim": "연 1,500만원 초과 사적연금의 15% 국세 분리과세 선택 가능성은 법령상 조건부이다",
+      "domain": "PENSION_1500",
+      "supporting_official_source_ids": [
+        "NTS-PENSION-1500",
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE"
+      ],
+      "source_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "taxable private pension only; excluded sources separate",
+        "actual calendar-year receipts across accounts",
+        "income tax vs local tax rates distinct",
+        "tax return election is not withdrawal permission"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": true
+    },
+    {
+      "candidate_id": "FV5-A010",
+      "video_number": 1,
+      "window_id": "W00032",
+      "claim": "연금계좌의 납입원금은 세액공제 여부 및 운용수익에 따라 과세재원 구분이 필요하다",
+      "domain": "PENSION_TAX_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "LAW-2026-INCOME-14"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "proof of historical tax-credit applied/non-applied amounts",
+        "account-specific asset contribution and withdrawal record",
+        "deferred retirement income source",
+        "income-tax enforcement as of 2026-10-01"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": true
+    },
+    {
+      "candidate_id": "FV5-A011",
+      "video_number": 1,
+      "window_id": "W00037",
+      "claim": "비공제 연금원금 선인출을 통한 장기간 비과세 현금흐름은 재원·인출요건을 충족할 때만 가능하다",
+      "domain": "PENSION_TAX_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "LAW-2026-INCOME-14"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "proof of historical tax-credit applied/non-applied amounts",
+        "account-specific asset contribution and withdrawal record",
+        "deferred retirement income source",
+        "income-tax enforcement as of 2026-10-01"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-A013",
+      "video_number": 1,
+      "window_id": "W00048",
+      "claim": "일반계좌의 국내주식형 ETF는 기초자산 범위를 충족할 때 매매차익 비과세 구조가 있다",
+      "domain": "ETF_TAX",
+      "supporting_official_source_ids": [
+        "KRX-ETF-TAX"
+      ],
+      "source_urls": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "fund legal classification and underlying",
+        "domestic listed vs overseas listed and account wrapper"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": true
+    },
+    {
+      "candidate_id": "FV5-A014",
+      "video_number": 1,
+      "window_id": "W00050",
+      "claim": "퇴직연금 IRP의 과세는 투자상품별 차익만 떼어내기보다 과세재원·수령구분에 따라 결정된다",
+      "domain": "PENSION_TAX_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "LAW-2026-INCOME-14"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "proof of historical tax-credit applied/non-applied amounts",
+        "account-specific asset contribution and withdrawal record",
+        "deferred retirement income source",
+        "income-tax enforcement as of 2026-10-01"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": true
+    },
+    {
+      "candidate_id": "FV5-A018",
+      "video_number": 2,
+      "window_id": "W00014",
+      "claim": "KRX 금시장 장내매매에는 실물 인출과 다른 세제 구조가 있다",
+      "domain": "GOLD_MARKET",
+      "supporting_official_source_ids": [
+        "KRX-GOLD",
+        "KRX-ETF-TAX"
+      ],
+      "source_urls": [
+        "https://www.krx.co.kr/contents/OPN/01/01050206/OPN01050206.jsp",
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "KRX spot gold brokerage account vs physical delivery",
+        "gold ETF not identical to spot market",
+        "10% VAT on physical withdrawal"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-A019",
+      "video_number": 2,
+      "window_id": "W00017",
+      "claim": "KRX 금 현물의 장내매매 세제는 금 ETF와 자동으로 동일하지 않다",
+      "domain": "GOLD_MARKET",
+      "supporting_official_source_ids": [
+        "KRX-GOLD",
+        "KRX-ETF-TAX"
+      ],
+      "source_urls": [
+        "https://www.krx.co.kr/contents/OPN/01/01050206/OPN01050206.jsp",
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "KRX spot gold brokerage account vs physical delivery",
+        "gold ETF not identical to spot market",
+        "10% VAT on physical withdrawal"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-A020",
+      "video_number": 2,
+      "window_id": "W00019",
+      "claim": "영상의 한국은행 기준금리 3%는 2026년 8월 27일 이후의 발표 수치와 일치할 수 있다",
+      "domain": "MACRO_HISTORICAL_RATE",
+      "supporting_official_source_ids": [
+        "BOK-2026-AUG"
+      ],
+      "source_urls": [
+        "https://www.bok.or.kr/portal/bbs/P0000559/view.do?depth=200690&menuNo=200690&nttId=11064191&programType=newsData&relate=Y"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "SOURCE_VIDEO_HISTORICAL_DATE_NOT_ESTABLISHED",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "BOK policy date 2026-08-27 is NOT source video recording date",
+        "policy rate not cash product yield"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-A027",
+      "video_number": 2,
+      "window_id": "W00044",
+      "claim": "ISA 연2천만원·연금계좌 연1,800만원을 일률적 필수납입액으로 안내할 수 없다",
+      "domain": "ACCOUNT_CONTRIBUTION_LIMIT",
+      "supporting_official_source_ids": [
+        "NABO-2026-ISA",
+        "NTS-2026-PENSION-CREDIT"
+      ],
+      "source_urls": [
+        "https://nabo.go.kr/board/file/down.do?fid=33319223",
+        "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "ISA annual contribution ceiling vs pension annual tax-credit ceiling",
+        "not a mandatory personal contribution"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-A031",
+      "video_number": 3,
+      "window_id": "W00008",
+      "claim": "퇴직 IRP의 연금수령을 소액 1만원 신청해야 한다는 발언은 금융기관·상황별 제도 확인이 필요하다",
+      "domain": "IRP_1MAN",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "SPECIFIC_IRP_10000_WON_REQUIREMENT_NOT_ESTABLISHED",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "a 10,000 KRW provider workflow is not evidenced as a universal statutory requirement",
+        "different issuer minimum withdrawal terms"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-A032",
+      "video_number": 3,
+      "window_id": "W00009",
+      "claim": "퇴직급여 수령 IRP와 개인 추가납입 IRP의 자금원천이 다르다",
+      "domain": "IRP_WITHDRAWAL_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "source of deferred severance vs personal contributions",
+        "age>=55 and commencement application",
+        "5-year holding condition exception for deferred retirement",
+        "annual tax classification limit and actual-year contract terms"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": true
+    },
+    {
+      "candidate_id": "FV5-A064",
+      "video_number": 5,
+      "window_id": "W00029",
+      "claim": "첫 연말정산에 제출하는 자료와 소득·세액공제 항목은 개인 근로소득·납입액에 따라 다르다",
+      "domain": "YEAR_END_CREDIT",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-CREDIT",
+        "NTS-2026-PENSION-CREDIT",
+        "LAW-2026-CARD"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880515",
+        "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1026416055"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "actual taxable employment income",
+        "annual pension contribution and verified credit claim",
+        "deduction vs credit not interchangeable",
+        "card minimum spend 25% of total salary"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-A065",
+      "video_number": 5,
+      "window_id": "W00033",
+      "claim": "신용카드 사용이 항상 절세에 유리하다는 결론은 지출항목·공제기준에 좌우된다",
+      "domain": "CREDIT_CARD_DEDUCTION",
+      "supporting_official_source_ids": [
+        "LAW-2026-CARD"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1026416055"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "domestic eligible consumption",
+        "total salary 25% threshold",
+        "deduction expense exclusions and actual filing year"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0018",
+      "video_number": 1,
+      "window_id": "W00025",
+      "claim": "연금 외 일반계좌 배당·금융소득세를 연금 과세와 혼합 설명",
+      "domain": "PENSION_TAX_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "LAW-2026-INCOME-14"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "proof of historical tax-credit applied/non-applied amounts",
+        "account-specific asset contribution and withdrawal record",
+        "deferred retirement income source",
+        "income-tax enforcement as of 2026-10-01"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0019",
+      "video_number": 1,
+      "window_id": "W00025",
+      "claim": "금융소득 종합과세 기준은 연금소득 1500만원과 별개다",
+      "domain": "PENSION_1500",
+      "supporting_official_source_ids": [
+        "NTS-PENSION-1500",
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE"
+      ],
+      "source_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "taxable private pension only; excluded sources separate",
+        "actual calendar-year receipts across accounts",
+        "income tax vs local tax rates distinct",
+        "tax return election is not withdrawal permission"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0020",
+      "video_number": 1,
+      "window_id": "W00026",
+      "claim": "연금소득과 다른 종합소득 세율의 관계를 단순화한 고액 자산 사례",
+      "domain": "PENSION_TAX_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "LAW-2026-INCOME-14"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "PERSONAL_HIGH_INCOME_CASE_NOT_CERTIFIABLE",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "proof of historical tax-credit applied/non-applied amounts",
+        "account-specific asset contribution and withdrawal record",
+        "deferred retirement income source",
+        "income-tax enforcement as of 2026-10-01"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0021",
+      "video_number": 1,
+      "window_id": "W00026",
+      "claim": "고액자산의 일반계좌 금융소득과 사적연금의 세율을 한 과세표로 혼합할 수 없다",
+      "domain": "PENSION_TAX_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "LAW-2026-INCOME-14"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "PERSONAL_HIGH_INCOME_CASE_NOT_CERTIFIABLE",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "proof of historical tax-credit applied/non-applied amounts",
+        "account-specific asset contribution and withdrawal record",
+        "deferred retirement income source",
+        "income-tax enforcement as of 2026-10-01"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0024",
+      "video_number": 1,
+      "window_id": "W00031",
+      "claim": "공제 연금저축·IRP·비공제 연금저축의 계좌별 입금 구조 도식",
+      "domain": "IRP_WITHDRAWAL_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "source of deferred severance vs personal contributions",
+        "age>=55 and commencement application",
+        "5-year holding condition exception for deferred retirement",
+        "annual tax classification limit and actual-year contract terms"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0025",
+      "video_number": 1,
+      "window_id": "W00031",
+      "claim": "연금저축 납입계좌 구분만으로 세액공제 수혜 여부가 결정되지 않는다",
+      "domain": "YEAR_END_CREDIT",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-CREDIT",
+        "NTS-2026-PENSION-CREDIT",
+        "LAW-2026-CARD"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880515",
+        "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1026416055"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "actual taxable employment income",
+        "annual pension contribution and verified credit claim",
+        "deduction vs credit not interchangeable",
+        "card minimum spend 25% of total salary"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0026",
+      "video_number": 1,
+      "window_id": "W00033",
+      "claim": "비공제 연금저축의 공제한 원금과 운용수익이 과세재원이 되는 설명",
+      "domain": "PENSION_TAX_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "LAW-2026-INCOME-14"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "AMBIGUOUS_TAX_ORIGIN_WORDING_REQUIRES_CORRECTION",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "proof of historical tax-credit applied/non-applied amounts",
+        "account-specific asset contribution and withdrawal record",
+        "deferred retirement income source",
+        "income-tax enforcement as of 2026-10-01"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0027",
+      "video_number": 1,
+      "window_id": "W00033",
+      "claim": "세액공제 미적용 납입원금과 이후 계좌 운용수익은 세무속성이 다르다",
+      "domain": "YEAR_END_CREDIT",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-CREDIT",
+        "NTS-2026-PENSION-CREDIT",
+        "LAW-2026-CARD"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880515",
+        "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1026416055"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "actual taxable employment income",
+        "annual pension contribution and verified credit claim",
+        "deduction vs credit not interchangeable",
+        "card minimum spend 25% of total salary"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0028",
+      "video_number": 1,
+      "window_id": "W00034",
+      "claim": "공제 연금에서 월 120만원 인출, IRP 유보 전략의 과세선택 조건",
+      "domain": "IRP_WITHDRAWAL_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "PERSONAL_WITHDRAWAL_OPTIMALITY_NOT_PROVEN",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "source of deferred severance vs personal contributions",
+        "age>=55 and commencement application",
+        "5-year holding condition exception for deferred retirement",
+        "annual tax classification limit and actual-year contract terms"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0029",
+      "video_number": 1,
+      "window_id": "W00034",
+      "claim": "월120만원 인출과 1500만원 과세기준의 적용은 다른 연금 재원 유무에 좌우된다",
+      "domain": "PENSION_1500",
+      "supporting_official_source_ids": [
+        "NTS-PENSION-1500",
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE"
+      ],
+      "source_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "taxable private pension only; excluded sources separate",
+        "actual calendar-year receipts across accounts",
+        "income tax vs local tax rates distinct",
+        "tax return election is not withdrawal permission"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0033",
+      "video_number": 1,
+      "window_id": "W00038",
+      "claim": "오래 인출하면 비공제 원금이 고갈되어 과세재원만 남는 구조",
+      "domain": "PENSION_TAX_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "LAW-2026-INCOME-14"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "proof of historical tax-credit applied/non-applied amounts",
+        "account-specific asset contribution and withdrawal record",
+        "deferred retirement income source",
+        "income-tax enforcement as of 2026-10-01"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0041",
+      "video_number": 1,
+      "window_id": "W00044",
+      "claim": "비공제 원금 소진 후 같은 금액 인출 시 과세연금 분류 재검토",
+      "domain": "PENSION_TAX_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "LAW-2026-INCOME-14"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880299"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "proof of historical tax-credit applied/non-applied amounts",
+        "account-specific asset contribution and withdrawal record",
+        "deferred retirement income source",
+        "income-tax enforcement as of 2026-10-01"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0042",
+      "video_number": 1,
+      "window_id": "W00044",
+      "claim": "계좌 전체 인출이 1500만원을 넘는다는 사실만으로 16.5% 일률 과세는 성립하지 않는다",
+      "domain": "PENSION_1500",
+      "supporting_official_source_ids": [
+        "NTS-PENSION-1500",
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE"
+      ],
+      "source_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "UNCONDITIONAL_16_5_PERCENT_REJECTED",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "taxable private pension only; excluded sources separate",
+        "actual calendar-year receipts across accounts",
+        "income tax vs local tax rates distinct",
+        "tax return election is not withdrawal permission"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0043",
+      "video_number": 1,
+      "window_id": "W00045",
+      "claim": "1,500만원 기준 초과 이후 과세 선택과 IRP 인출시기 최적화 주장",
+      "domain": "PENSION_1500",
+      "supporting_official_source_ids": [
+        "NTS-PENSION-1500",
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE"
+      ],
+      "source_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "PERSONAL_WITHDRAWAL_OPTIMALITY_NOT_PROVEN",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "taxable private pension only; excluded sources separate",
+        "actual calendar-year receipts across accounts",
+        "income tax vs local tax rates distinct",
+        "tax return election is not withdrawal permission"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0044",
+      "video_number": 1,
+      "window_id": "W00045",
+      "claim": "연금저축과 IRP의 인출시기 최적화는 금액뿐 아니라 계좌별 세무재원을 반영해야 한다",
+      "domain": "IRP_WITHDRAWAL_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "PERSONAL_WITHDRAWAL_OPTIMALITY_NOT_PROVEN",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "source of deferred severance vs personal contributions",
+        "age>=55 and commencement application",
+        "5-year holding condition exception for deferred retirement",
+        "annual tax classification limit and actual-year contract terms"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0046",
+      "video_number": 1,
+      "window_id": "W00049",
+      "claim": "이연퇴직소득과 운용수익의 다른 과세 재원을 설명",
+      "domain": "IRP_WITHDRAWAL_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "source of deferred severance vs personal contributions",
+        "age>=55 and commencement application",
+        "5-year holding condition exception for deferred retirement",
+        "annual tax classification limit and actual-year contract terms"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0057",
+      "video_number": 1,
+      "window_id": "W00064",
+      "claim": "ISA 만기·연장과 과세이연·비과세·손익통산의 구분 설명",
+      "domain": "ISA_LIFECYCLE",
+      "supporting_official_source_ids": [
+        "LAW-2026-ISA",
+        "NABO-2026-ISA"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024359131",
+        "https://nabo.go.kr/board/file/down.do?fid=33319223"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "year of enrollment/extension and contract type",
+        "income eligibility and one-person-one-ISA requirement",
+        "three-year tax incentive qualification",
+        "actual gain/loss netting and principal withdrawn"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0058",
+      "video_number": 1,
+      "window_id": "W00064",
+      "claim": "ISA 손익통산은 비과세와 동일 개념이 아니며 실제 만기·손익에 따라 달라진다",
+      "domain": "ISA_LIFECYCLE",
+      "supporting_official_source_ids": [
+        "LAW-2026-ISA",
+        "NABO-2026-ISA"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024359131",
+        "https://nabo.go.kr/board/file/down.do?fid=33319223"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "year of enrollment/extension and contract type",
+        "income eligibility and one-person-one-ISA requirement",
+        "three-year tax incentive qualification",
+        "actual gain/loss netting and principal withdrawn"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0059",
+      "video_number": 1,
+      "window_id": "W00066",
+      "claim": "ISA 해지·재가입 주기별 과세 혜택의 교환관계 설명",
+      "domain": "ISA_LIFECYCLE",
+      "supporting_official_source_ids": [
+        "LAW-2026-ISA",
+        "NABO-2026-ISA"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024359131",
+        "https://nabo.go.kr/board/file/down.do?fid=33319223"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "RENEWAL_VERSUS_REOPEN_OPTIMALITY_NOT_PROVEN",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "year of enrollment/extension and contract type",
+        "income eligibility and one-person-one-ISA requirement",
+        "three-year tax incentive qualification",
+        "actual gain/loss netting and principal withdrawn"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0060",
+      "video_number": 1,
+      "window_id": "W00066",
+      "claim": "ISA 중도해지와 만기 후 재가입은 손익통산·비과세 적용 시점이 다르다",
+      "domain": "ISA_LIFECYCLE",
+      "supporting_official_source_ids": [
+        "LAW-2026-ISA",
+        "NABO-2026-ISA"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1024359131",
+        "https://nabo.go.kr/board/file/down.do?fid=33319223"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "year of enrollment/extension and contract type",
+        "income eligibility and one-person-one-ISA requirement",
+        "three-year tax incentive qualification",
+        "actual gain/loss netting and principal withdrawn"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0069",
+      "video_number": 2,
+      "window_id": "W00015",
+      "claim": "연금저축·IRP·퇴직 IRP의 개설 대상과 퇴직급여 처리 예외 언급",
+      "domain": "IRP_WITHDRAWAL_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "source of deferred severance vs personal contributions",
+        "age>=55 and commencement application",
+        "5-year holding condition exception for deferred retirement",
+        "annual tax classification limit and actual-year contract terms"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0070",
+      "video_number": 2,
+      "window_id": "W00015",
+      "claim": "IRP의 가입 가능조건은 근로유형·가입자격·계좌용도별로 다르다",
+      "domain": "IRP_WITHDRAWAL_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "source of deferred severance vs personal contributions",
+        "age>=55 and commencement application",
+        "5-year holding condition exception for deferred retirement",
+        "annual tax classification limit and actual-year contract terms"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0133",
+      "video_number": 3,
+      "window_id": "W00010",
+      "claim": "55세 이후 수령과 수령 개시 유보·만원 신청의 의무성 주장",
+      "domain": "GENERAL_RULE_UNCLASSIFIED",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "SPECIFIC_IRP_10000_WON_REQUIREMENT_NOT_ESTABLISHED",
+      "narrow_statutory_framework_supported": false,
+      "mandatory_qualifiers": [
+        "verify actual pension account tax source",
+        "55 years of age and five-year exception"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0134",
+      "video_number": 3,
+      "window_id": "W00010",
+      "claim": "퇴직금 수령원천은 개인추가납입 IRP의 가입기간 5년 요건과 다르다",
+      "domain": "IRP_WITHDRAWAL_SOURCE",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-ORDER",
+        "NTS-PENSION-SOURCE",
+        "ISSUER-IRP"
+      ],
+      "source_urls": [
+        "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126416",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6452",
+        "https://www.samsungpop.com/ux/kor/finance/irp/pensionirp/irpGuide.do"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "source of deferred severance vs personal contributions",
+        "age>=55 and commencement application",
+        "5-year holding condition exception for deferred retirement",
+        "annual tax classification limit and actual-year contract terms"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0211",
+      "video_number": 5,
+      "window_id": "W00030",
+      "claim": "소득공제·세액공제 항목을 이해하고 다음해 계획에 반영하라는 안내",
+      "domain": "YEAR_END_CREDIT",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-CREDIT",
+        "NTS-2026-PENSION-CREDIT",
+        "LAW-2026-CARD"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880515",
+        "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1026416055"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "actual taxable employment income",
+        "annual pension contribution and verified credit claim",
+        "deduction vs credit not interchangeable",
+        "card minimum spend 25% of total salary"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    },
+    {
+      "candidate_id": "FV5-R0212",
+      "video_number": 5,
+      "window_id": "W00030",
+      "claim": "신용카드 소득공제와 연금계좌 세액공제는 서로 다른 세액계산 구조다",
+      "domain": "YEAR_END_CREDIT",
+      "supporting_official_source_ids": [
+        "LAW-2026-PENSION-CREDIT",
+        "NTS-2026-PENSION-CREDIT",
+        "LAW-2026-CARD"
+      ],
+      "source_urls": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032880515",
+        "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1026416055"
+      ],
+      "official_narrow_issue_reviewed": true,
+      "entire_statement_fully_verified_as_personal_case": false,
+      "scope_verdict": "NARROW_LEGAL_STRUCTURE_SUPPORTED_PERSONAL_CASE_OPEN",
+      "narrow_statutory_framework_supported": true,
+      "mandatory_qualifiers": [
+        "actual taxable employment income",
+        "annual pension contribution and verified credit claim",
+        "deduction vs credit not interchangeable",
+        "card minimum spend 25% of total salary"
+      ],
+      "official_rule_or_date_scope_not_corroboration_of_video_numeric_example": true,
+      "historical_value_hypothesis_verified": false,
+      "formal_independent_fact_signature": null,
+      "automated_financial_fact_approval": false,
+      "can_merge_legacy_B04_directly": false,
+      "as_of": "2026-11-06",
+      "newly_researched_before_20261106": false
+    }
+  ],
+  "all_34_personal_applicability_established": false,
+  "any_personalized_trade_or_tax_recommendation_approved": false
+}

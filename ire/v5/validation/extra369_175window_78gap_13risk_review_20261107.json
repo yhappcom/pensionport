@@ -1,0 +1,379 @@
+{
+  "schema": "IRE_V5_EXTRA369_ALL175_WINDOWS_UNLINKED_78_13_PRIORITY_ADJUDICATION_V1",
+  "as_of": "2026-11-07",
+  "original_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "derived_from_ledger": "extra_video6_8_9_3123cue_36_atomic_scope_20261107.json",
+  "all_original_cues": 3123,
+  "all_original_windows": 175,
+  "previous_selected_claim_ranges": 36,
+  "windows_overlapping_at_least_one_existing_claim": 97,
+  "windows_without_direct_claim_span": 78,
+  "priority_unlinked_windows_selected": 13,
+  "remaining_unlinked_windows_not_prioritized": 65,
+  "signals_do_not_prove_missing_claims": true,
+  "source_scoped_candidate_ledger_may_have_other_semantic_equivalents": true,
+  "full_atomic_claim_recall_certified": false,
+  "original_audio_verified": false,
+  "all_101_to_791_dup_source_archives_available": false,
+  "prior_116_master_unchanged": true,
+  "prior_29_p4_education_nodes_unchanged": true,
+  "formal_new_claim_approvals": 0,
+  "strict_graph_edges_approved": 0,
+  "private_raw_srt_uploaded_to_github": false,
+  "official_context": {
+    "KOREA_GIFT53_2026": {
+      "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1032902571",
+      "effective_date": "2026-01-02",
+      "limited_scope": "제53조 제4호 4촌 이내 혈족 및 3촌 이내 인척 1천만원 공제, 지난 10년 수증자 동일 공제구분 이력 누적 여부 확인",
+      "full_tax_application_approved": false
+    }
+  },
+  "screening_definition": "Unlinked = no overlap between original 18-cue/1600-character V5 source window and any of prior 36 source cue ranges. RiskScore = sum of regex matches in 4 keyword groups tax,numeric,product,certainty. Score >=5, with 2/#6,4/#8,7/#9. Priority 13; standalone financial correctness not implied.",
+  "by_video": [
+    {
+      "video_no": 6,
+      "source_windows": 45,
+      "selected_claim_overlapping_windows": 28,
+      "unlinked_windows": 17,
+      "priority_unlinked": 2
+    },
+    {
+      "video_no": 8,
+      "source_windows": 59,
+      "selected_claim_overlapping_windows": 30,
+      "unlinked_windows": 29,
+      "priority_unlinked": 4
+    },
+    {
+      "video_no": 9,
+      "source_windows": 71,
+      "selected_claim_overlapping_windows": 39,
+      "unlinked_windows": 32,
+      "priority_unlinked": 7
+    }
+  ],
+  "priority_reviews": [
+    {
+      "review_id": "V5-GAP-01",
+      "video_no": 6,
+      "source_window_id": "W00038",
+      "first_cue": 667,
+      "last_cue": 684,
+      "original_window_text_sha256": "6cde2cbf6f2fa45505aa72ae27c9ca90216e69c2c0bf595588d5b6b4a97d249d",
+      "lexical_risk_score": 8,
+      "risk_code": "HYPOTHETICAL_COMPOUNDING_NOT_GUARANTEED",
+      "scoped_interpretation": "30년 동안 연 7~10% 복리가 이어져 2.4억원이 7~8억원 이상으로 커진다는 설명은 미래수익·물가·세금·변동성을 보장하지 않는 투자 가정이다.",
+      "status": "MODEL_CONDITIONAL_OPEN",
+      "contextually_related_36_claim_ids": [
+        "V5X-6-11",
+        "V5X-6-12"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "자녀 증여 7억 8억 복리",
+        "30년 7% 10% 증여투자"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-02",
+      "video_no": 6,
+      "source_window_id": "W00043",
+      "first_cue": 757,
+      "last_cue": 774,
+      "original_window_text_sha256": "7d7456a4db6668bc5b9e7deb454c370e45626cfc00357847e498dc0ba1242c6b",
+      "lexical_risk_score": 7,
+      "risk_code": "UNCLE_AUNT_NEPHEW_OTHER_KIN_GIFT_10M",
+      "scoped_interpretation": "삼촌·이모 등 수증자 기준 기타 친족의 1,000만원 증여재산공제는 2026년 법 제53조 제4호의 관계·거주자 및 지난 10년 공제 이력을 따진다. 친척마다 1,000만원씩 별도 면세되는 무제한 한도로 해석하지 않는다.",
+      "status": "2026_GIFT_STATUTE_SCOPE_CORRECTION",
+      "contextually_related_36_claim_ids": [
+        "V5X-6-04",
+        "V5X-6-11"
+      ],
+      "official_source_ids": [
+        "KOREA_GIFT53_2026"
+      ],
+      "user_query_triggers": [
+        "조카 증여 천만원",
+        "삼촌 조카 1천만원 증여",
+        "이모 조카 증여"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-03",
+      "video_no": 8,
+      "source_window_id": "W00015",
+      "first_cue": 244,
+      "last_cue": 261,
+      "original_window_text_sha256": "59270ba51517b78b92363121e3ac67e7645864287ead5b1f0d6c28681562ca9a",
+      "lexical_risk_score": 8,
+      "risk_code": "USD_CASH_ROLE_DIFFERS_FROM_US_EQUITY",
+      "scoped_interpretation": "달러 현금 또는 외화예금은 미국 주식과 달리 주가위험은 없지만 환율·예금자보호·금리·은행위험이 있을 수 있다. 미국주식의 달러 표시를 안전자산으로 동일 분류할 수 없다.",
+      "status": "PORTFOLIO_ASSET_CLASS_SCOPE",
+      "contextually_related_36_claim_ids": [
+        "V5X-8-05"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "달러현금 미국주식 안전자산",
+        "달러 보유 미국ETF 안전"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-04",
+      "video_no": 8,
+      "source_window_id": "W00029",
+      "first_cue": 496,
+      "last_cue": 513,
+      "original_window_text_sha256": "533d90ddf0ce51cac54c29cf313c9b6118ce33981ad547c57a8568fab247396e",
+      "lexical_risk_score": 6,
+      "risk_code": "JAPAN_ETF_TICKER_SIZE_HISTORICAL",
+      "scoped_interpretation": "일본시장 상장 ETF 코드 165·2558과 약 1조원 자산 규모라는 자막은 종목코드 오인식·기준일·표시 통화 확인 전 현재 상품 규모나 적격성의 확정 사실로 쓰지 않는다.",
+      "status": "PRODUCT_AND_ASR_VERIFICATION_OPEN",
+      "contextually_related_36_claim_ids": [
+        "V5X-8-07"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "일본ETF 2558 1조",
+        "일본 ETF 165 2558"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-05",
+      "video_no": 8,
+      "source_window_id": "W00037",
+      "first_cue": 640,
+      "last_cue": 657,
+      "original_window_text_sha256": "aa22d6e52068ac052b28151690b716c531000955ef6fa7447cb352ea7f41f211",
+      "lexical_risk_score": 5,
+      "risk_code": "FX_HEDGE_COST_NOT_EQUAL_STATED_TER",
+      "scoped_interpretation": "환헤지 관련 비용·효과는 선도환 가격·통화간 금리차·헤지 재조정·추적오차 등에 반영될 수 있다. ETF 표시 보수율에 모든 헤지비용이 포함된다고 단정할 수 없다.",
+      "status": "HEDGE_COST_COMPONENTS_UNVERIFIED",
+      "contextually_related_36_claim_ids": [
+        "V5X-8-09",
+        "V5X-8-10"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "환헤지 비용 ETF 보수",
+        "환헤지 비용 수익률"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-06",
+      "video_no": 8,
+      "source_window_id": "W00057",
+      "first_cue": 1000,
+      "last_cue": 1017,
+      "original_window_text_sha256": "09ea902e4ce07e05973c8fdfd04b1ec3ca29617152b1e7f7d360efbf9fd54534",
+      "lexical_risk_score": 6,
+      "risk_code": "LUMP_SUM_YEN_15M_NOT_UNIVERSAL",
+      "scoped_interpretation": "엔화에 1,500만원을 반드시 일시투자해야 한다는 조언은 환율시점·손실 감내·투자기간·현금흐름·매수 스프레드를 고려하지 않은 개인 경험이다.",
+      "status": "PERSONAL_AMOUNT_NOT_GENERAL_ADVICE",
+      "contextually_related_36_claim_ids": [
+        "V5X-8-12",
+        "V5X-9-03"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "엔화 천오백만원 한 번에",
+        "엔화 1500만원 일시매수"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-07",
+      "video_no": 9,
+      "source_window_id": "W00015",
+      "first_cue": 253,
+      "last_cue": 270,
+      "original_window_text_sha256": "90ebf9d7a1c95de372fafe6590c28f2eb1e8edd262c478ec052a82be83e81c12",
+      "lexical_risk_score": 6,
+      "risk_code": "JAPAN_TRAVEL_75_65_30_BUDGET_BASIS",
+      "scoped_interpretation": "일본 여행 숙박 약 75만원·항공권 65만원·렌터카 30만원 등은 인당/공동부담·여행시점이 섞일 수 있는 소비 예시다. 수치를 일반 평균 또는 투자 확정비용으로 채택하지 않는다.",
+      "status": "HISTORICAL_CONSUMPTION_ONLY",
+      "contextually_related_36_claim_ids": [
+        "V5X-9-02"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "오키나와 숙박 75 항공 65",
+        "오키나와 75만원 숙박"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-08",
+      "video_no": 9,
+      "source_window_id": "W00045",
+      "first_cue": 793,
+      "last_cue": 810,
+      "original_window_text_sha256": "2f0a0a1b3433cd231f6f90576590eecd2fadcda59404b4663e2d0ae1e0105efd",
+      "lexical_risk_score": 6,
+      "risk_code": "USDJPY_AND_KRWJPY_QUOTE_DIRECTION",
+      "scoped_interpretation": "달러엔 USDJPY 숫자가 오를 때 엔화는 달러 대비 약세이고 100엔당 원화 KRWJPY 숫자가 오르면 엔화는 원화 대비 강세다. 각 통화쌍의 분모·분자와 1엔/100엔 단위를 혼동하면 안 된다.",
+      "status": "FX_QUOTE_DIRECTION_EXPLAINED",
+      "contextually_related_36_claim_ids": [
+        "V5X-9-04",
+        "V5X-9-08"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "달러엔 숫자 오르면 엔화",
+        "원엔 달러엔 반대 방향"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-09",
+      "video_no": 9,
+      "source_window_id": "W00058",
+      "first_cue": 1027,
+      "last_cue": 1044,
+      "original_window_text_sha256": "27262ba16335ba256d57728a5a2395868a97631c2f940cafd24a06cbcb86372c",
+      "lexical_risk_score": 5,
+      "risk_code": "USD_DEPOSIT_4PCT_JPY_1_25PCT_PREDICTION",
+      "scoped_interpretation": "달러 수익률 4% 초과와 일본 기준금리 1.25% 등 미래금리·상품수익은 발언 시점 전망이다. 정책금리와 투자자에게 실제 지급되는 외화예금·ETF 수익률은 다르다.",
+      "status": "MACRO_RATE_PRODUCT_SNAPSHOT_REQUIRED",
+      "contextually_related_36_claim_ids": [
+        "V5X-9-05"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "엔화 기준금리 1.25%",
+        "달러 상품 4% 확정"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-10",
+      "video_no": 9,
+      "source_window_id": "W00060",
+      "first_cue": 1063,
+      "last_cue": 1080,
+      "original_window_text_sha256": "a2311c161f0dca55ef23b2f95c1d1813b3359a576342e0b85ae8ec762972b025",
+      "lexical_risk_score": 5,
+      "risk_code": "FX_MARKETING_CONSENT_RATE_DISCOUNT",
+      "scoped_interpretation": "마케팅 정보 수신 동의로 환전우대율이 높아지는 사례는 해당 은행의 당시 프로모션일 뿐 일반 금융규정이나 누구나 적용되는 우대혜택이 아니다.",
+      "status": "PRODUCT_PROMOTION_CONDITIONAL",
+      "contextually_related_36_claim_ids": [
+        "V5X-9-06"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "마케팅 동의 환전 우대",
+        "환전 할인 프로모션"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-11",
+      "video_no": 9,
+      "source_window_id": "W00061",
+      "first_cue": 1081,
+      "last_cue": 1098,
+      "original_window_text_sha256": "6e22d49ade2f1481297f82307bbeb0273242fd3f4c4d0dcda7427e23fca75704",
+      "lexical_risk_score": 7,
+      "risk_code": "FX_100PCT_SPREAD_DISCOUNT_NOT_ALL_FEES",
+      "scoped_interpretation": "환전우대율 100%는 특정 기준환율과 매매 스프레드의 할인 조건을 뜻할 수 있지만, 기준환율로 언제나 거래된다거나 송금·현찰인출·다른 수수료도 모두 0원이라는 보장은 없다.",
+      "status": "FX_PRODUCT_QUOTE_SCOPE_PENDING",
+      "contextually_related_36_claim_ids": [
+        "V5X-9-06",
+        "V5X-9-12"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "환전 우대 100% 기준환율",
+        "환전 100% 우대 모든 수수료"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-12",
+      "video_no": 9,
+      "source_window_id": "W00063",
+      "first_cue": 1117,
+      "last_cue": 1134,
+      "original_window_text_sha256": "6cd7caac9aca519880c779297527c70cecd496356673560dbd63cb02c7927302",
+      "lexical_risk_score": 6,
+      "risk_code": "SPREAD_FIXED_ABSOLUTE_MARGIN_ANALOGY",
+      "scoped_interpretation": "편의점 고정 100원 마진 비유는 설명용이며 은행의 외환 매매 스프레드가 언제나 원화 100원 고정이라는 뜻이 아니다. 통화·상품·시점별 호가·우대가 달라진다.",
+      "status": "ANALOGY_NOT_CURRENT_QUOTED_MARGIN",
+      "contextually_related_36_claim_ids": [
+        "V5X-9-06"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "환전 스프레드 고정 100원",
+        "은행 환전 마진 100원"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    },
+    {
+      "review_id": "V5-GAP-13",
+      "video_no": 9,
+      "source_window_id": "W00070",
+      "first_cue": 1243,
+      "last_cue": 1260,
+      "original_window_text_sha256": "f68de5d22f8a63d4e8ed08c0502603d9ec3a6a978a773520f4db8fe38e10724f",
+      "lexical_risk_score": 5,
+      "risk_code": "FINTECH_YEN_AUTO_BUY_100PCT_PROMO",
+      "scoped_interpretation": "핀테크 앱의 특정 환전·자동매수 혜택과 100% 우대는 서비스 출시시점·약관·매매방향·현찰 수령 비용에 따라 달라진다. 자동매수 조건·예금자보호·계좌 명의를 확인해야 한다.",
+      "status": "PRODUCT_SPECIFIC_SERVICE_TERMS_OPEN",
+      "contextually_related_36_claim_ids": [
+        "V5X-9-12"
+      ],
+      "official_source_ids": [],
+      "user_query_triggers": [
+        "토스 엔화 자동매수",
+        "핀테크 엔화 100% 우대"
+      ],
+      "direct_claim_anchor_preexisting": false,
+      "strict_semantic_newness_certified": false,
+      "formal_financial_fact_approved": false,
+      "personal_trade_approved": false
+    }
+  ],
+  "release": "CUE_WINDOW_GAP_TRIAGE_13_SCOPED_RISK_REVIEWS_NOT_ALL_ATOMIC_CLAIMS"
+}

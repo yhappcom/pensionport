@@ -1,0 +1,340 @@
+{
+  "schema": "IRE_V5_EXTRA369_19_LOW_KEYWORD_FINANCIAL_SCOPE_CAUTIONS_V1",
+  "as_of": "2026-11-07",
+  "source_reviews_file": "extra369_65_low_keyword_windows_meaning_review_20261107.json",
+  "caution_cases_total": 19,
+  "financetext_keyword_flag_false_negative_examples_detected": true,
+  "source_audio_confirmed_for_ticker_or_nikkei": false,
+  "independent_full_claim_recall_certified": false,
+  "scope_caution_not_atomic_claim_approval": true,
+  "strict_legacy_116_equivalence_approvals": 0,
+  "legal_fact_general_scope_promotions": 0,
+  "personalized_trading_authorizations": 0,
+  "previous_13_high_risk_cases_preserved": true,
+  "previous_36_cases_preserved": true,
+  "official_context": {
+    "JPX_TSE_HOURS": {
+      "url": "https://www.jpx.co.jp/english/equities/trading/domestic/01.html",
+      "checked_date": "2026-11-07",
+      "scope": "Japan Exchange Group Tokyo cash securities auction trading hours, not a broker-specific order condition",
+      "full_investment_fact_approval": false
+    },
+    "JPX_ETF_ISSUES": {
+      "url": "https://www.jpx.co.jp/equities/products/etfs/issues/01-08.html",
+      "checked_date": "2026-11-07",
+      "scope": "JPX issues list identifies 1557 SPDR, 1655 iShares and 2558 MAXIS S&P500 ETFs, but not their historical video-date AUM",
+      "full_investment_fact_approval": false
+    }
+  },
+  "caution_cases": [
+    {
+      "caution_id": "V5-LOWC-01",
+      "original_window_review_id": "LOW-6-10",
+      "video_no": 6,
+      "meaning_topic": "BUSINESS_OWNER_FINANCIAL_DIVERSIFICATION",
+      "scoped_caution": "사업을 하는 사람은 금융투자를 할 필요가 없다는 단정은 사업소득의 변동성과 별도의 비상자금·분산투자 필요성을 혼동한다.",
+      "query_phrases": [
+        "사업자는 투자할 필요 없다",
+        "사업하면서 투자 불필요"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-02",
+      "original_window_review_id": "LOW-6-13",
+      "video_no": 6,
+      "meaning_topic": "GIFT_INTO_MINOR_ACCOUNT_IS_NOT_LATE_TRANSFER",
+      "scoped_caution": "미성년자 명의의 증여재산은 적법하게 증여가 이뤄졌는지와 법정대리인의 관리권을 따로 판단한다. 성년이 된 날 처음 소유권이 생기는 것으로 단정하지 않는다.",
+      "query_phrases": [
+        "아기 증여 계좌 성년 전달",
+        "미성년 주식 증여 부모 소유"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-03",
+      "original_window_review_id": "LOW-6-26",
+      "video_no": 6,
+      "meaning_topic": "GIFTED_ASSET_TUITION_RENT_TITLE",
+      "scoped_caution": "자녀 명의의 증여재산을 학자금·전세보증금으로 사용하는 판단은 수증자 자산의 실질 사용처와 명의·증여계약을 확인해야 한다.",
+      "query_phrases": [
+        "자녀 증여돈 대학 등록금",
+        "증여계좌 전세보증금"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-04",
+      "original_window_review_id": "LOW-6-27",
+      "video_no": 6,
+      "meaning_topic": "ADULT_CHILD_OWNERSHIP_DISCLOSURE",
+      "scoped_caution": "부모가 성인 자녀에게 증여계좌를 늦게 알려주는 시나리오는 이미 증여된 자산의 권리를 바꾸지 않으며 성년 이후 계좌관리 권한은 별도로 확인해야 한다.",
+      "query_phrases": [
+        "자녀에게 증여 계좌 숨기기",
+        "성인 자녀 증여돈 공개"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-05",
+      "original_window_review_id": "LOW-6-28",
+      "video_no": 6,
+      "meaning_topic": "GIFTED_ASSET_TO_PENSION_TAX_CREDIT",
+      "scoped_caution": "자녀에게 증여된 원금으로 연금저축에 납입한다고 반드시 세액공제를 받는 것은 아니다. 가입자·소득·과세연도별 적격성과 인출제약을 확인한다.",
+      "query_phrases": [
+        "자녀 증여 돈 연금 세액공제",
+        "성인 자녀 연금저축 세액공제"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-06",
+      "original_window_review_id": "LOW-6-29",
+      "video_no": 6,
+      "meaning_topic": "GIFTED_CHILD_DIVIDEND_BENEFICIAL_OWNER",
+      "scoped_caution": "자녀에게 증여한 투자재산에서 발생한 분배금·배당금은 계좌명의와 실질 소유자·사용목적이 중요하며 부모가 자유롭게 인출하는 자금으로 일반화할 수 없다.",
+      "query_phrases": [
+        "자녀 증여 ETF 월배당 용돈",
+        "증여계좌 배당 부모 출금"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-07",
+      "original_window_review_id": "LOW-6-44",
+      "video_no": 6,
+      "meaning_topic": "CHILD_5B_FUTURE_AND_AVG_NET_WORTH_VINTAGE",
+      "scoped_caution": "30년 후 자녀 명의 자산 5억원 이상은 가정적 복리 모델이고 국내 가구 평균 순자산 약 4억원은 조사연도·표본·통계원표가 확인되지 않았다.",
+      "query_phrases": [
+        "자녀 투자 5억 보장",
+        "평균 순자산 4억 근거"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-08",
+      "original_window_review_id": "LOW-8-17",
+      "video_no": 8,
+      "meaning_topic": "JAPAN_INDEX_70K_SPEECH_TRANSCRIPTION",
+      "scoped_caution": "일본 대표지수 7천에서 7만까지 상승했다는 자막의 7만은 원음과 지수종류·집계시점 확인 전 현재 지수 수치로 인정하지 않는다.",
+      "query_phrases": [
+        "닛케이 7만 사실",
+        "닛케이 7000 70000"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-09",
+      "original_window_review_id": "LOW-8-23",
+      "video_no": 8,
+      "meaning_topic": "JPX_TRADING_9_1130_1230_1530",
+      "scoped_caution": "일본거래소 공식 시장현물 주식 거래는 현지 오전 09:00~11:30, 오후 12:30~15:30이다. 주문접수와 실제 체결 및 휴장·증권사 접속 조건은 별도다.",
+      "query_phrases": [
+        "일본 증시 거래시간",
+        "도쿄 주식 오후 3시반"
+      ],
+      "official_context_ids": [
+        "JPX_TSE_HOURS"
+      ],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-10",
+      "original_window_review_id": "LOW-8-27",
+      "video_no": 8,
+      "meaning_topic": "TSE_FOREIGN_ETF_AND_JDR_STRUCTURE",
+      "scoped_caution": "도쿄거래소 상장 외국 ETF를 모두 일본 예탁증서(JDR)로 해석하지 않는다. 거래·소유권 및 수익권 구조는 해당 증권 종목 공시로 구별한다.",
+      "query_phrases": [
+        "일본 ETF JDR 구조",
+        "SPY 일본 상장 예탁증서"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-11",
+      "original_window_review_id": "LOW-8-28",
+      "video_no": 8,
+      "meaning_topic": "JPX_ETF_1557_1655_2558_CORRECT_TICKERS",
+      "scoped_caution": "JPX 공식 목록에서 일본거래소 1557은 SPDR S&P500 ETF, 1655는 iShares S&P500 ETF, 2558은 MAXIS 미국주식 S&P500 ETF다. 자동자막의 165는 완전한 종목코드가 아니다.",
+      "query_phrases": [
+        "일본 ETF 165 1655",
+        "일본 1557 2558"
+      ],
+      "official_context_ids": [
+        "JPX_ETF_ISSUES"
+      ],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-12",
+      "original_window_review_id": "LOW-8-30",
+      "video_no": 8,
+      "meaning_topic": "JP_ETF_FEE_LIQUIDITY_AUM_NOT_IDENTICAL",
+      "scoped_caution": "일본상장 미국주식 ETF가 모두 동일 지수를 따른다는 이유로 보수·거래량·매매스프레드·환헤지·세금 및 실질 가격차가 없다는 결론은 부정확하다.",
+      "query_phrases": [
+        "일본 상장 SP500 ETF 보수",
+        "일본 ETF SPY 저가 버전"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-13",
+      "original_window_review_id": "LOW-8-33",
+      "video_no": 8,
+      "meaning_topic": "JPY_HEDGED_USD_US_EQUITY_KRW_EXPOSURE",
+      "scoped_caution": "JPY 기준 미국주식 ETF의 USDJPY 환헤지는 한국 원화 투자자의 KRWJPY 손익을 자동으로 제거하지 않는다. 어떤 기준통화에 대한 헤지인지 구분해야 한다.",
+      "query_phrases": [
+        "엔화 표시 미국 ETF 환헤지",
+        "일본 상장 미국 ETF 원화 환위험"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-14",
+      "original_window_review_id": "LOW-8-56",
+      "video_no": 8,
+      "meaning_topic": "YEN_LUMP_SUM_VS_DCA_CONDITIONAL",
+      "scoped_caution": "엔화 매수예산 전액을 지금 한 번에 사야 한다는 전략은 공통 의무가 아니며 투자기간·현금흐름·손실감내·매매비용에 따라 일시·분할매수 평가가 달라진다.",
+      "query_phrases": [
+        "엔화 한번에 사야 하나",
+        "엔화 일시매수 분할"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-15",
+      "original_window_review_id": "LOW-9-34",
+      "video_no": 9,
+      "meaning_topic": "FOREIGN_CURRENCY_CASH_SHORT_HOLDING_FEE",
+      "scoped_caution": "외화예금 입금 후 7일 이내 현찰 인출 시 높은 수수료가 적용된다는 영상 사례를 모든 은행의 법정 일괄 의무로 안내하지 않는다. 거래약관 확인이 필요하다.",
+      "query_phrases": [
+        "외화 7일 이내 출금 수수료",
+        "은행 엔화 현찰 인출 비용"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-16",
+      "original_window_review_id": "LOW-9-46",
+      "video_no": 9,
+      "meaning_topic": "YEN_USD_SAFE_HAVEN_HISTORICAL_ONLY",
+      "scoped_caution": "2008 세계 금융위기·일본 대지진 때 달러나 엔화가 강세였던 관찰을 근거로 향후 모든 위기에 동일한 환율반응을 예측해서는 안 된다.",
+      "query_phrases": [
+        "일본 지진 엔화 상승 보장",
+        "금융위기 달러 엔화 안전"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-17",
+      "original_window_review_id": "LOW-9-47",
+      "video_no": 9,
+      "meaning_topic": "YEN_MONETARY_POLICY_NOT_PERMANENT_TREND",
+      "scoped_caution": "일본 제로금리와 정책적 엔저의 과거 경험만으로 장기 엔화 약세의 지속·반등 시점 또는 수익을 단정하지 않는다.",
+      "query_phrases": [
+        "엔화 계속 약세 정책",
+        "일본 엔저 영구"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-18",
+      "original_window_review_id": "LOW-9-48",
+      "video_no": 9,
+      "meaning_topic": "USDJPY_100_TO160_JPY_DROP_37_5",
+      "scoped_caution": "USDJPY 달러당 100엔에서 160엔으로 변화하면 엔화의 달러가치는 100/160=62.5%가 되어 37.5% 하락한다. 환율호가 상승 60%와 엔화 가치 손실 60% 또는 50%를 혼동하지 않는다.",
+      "query_phrases": [
+        "달러엔 100 160 반토막",
+        "엔화 달러 가치 37.5"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    },
+    {
+      "caution_id": "V5-LOWC-19",
+      "original_window_review_id": "LOW-9-68",
+      "video_no": 9,
+      "meaning_topic": "FX_90_VS100_PERCENT_DISCOUNT_DEPENDS_ON_AMOUNT",
+      "scoped_caution": "환전우대율 90%와 100%의 비용 차이는 원래 스프레드·환전액·거래통화·서비스 조건에 따라 계산해야 하며 모든 거래에서 항상 미미하다고 할 수 없다.",
+      "query_phrases": [
+        "환전우대 90% 100% 차이",
+        "환전 90 100 별 차이"
+      ],
+      "official_context_ids": [],
+      "source_examination_method": "PRIVATE_OWNER_SRT_CHAT_SOURCE_READ",
+      "independent_blind_semantic_match_certified": false,
+      "strict_equivalence_certified": false,
+      "formal_advice_rule_approved": false
+    }
+  ],
+  "release": "19_SOURCE_SCOPED_ADVICE_CAUTIONS_NOT_19_INDEPENDENTLY_CERTIFIED_NEW_ATOMIC_CLAIMS"
+}

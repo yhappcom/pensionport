@@ -1,0 +1,197 @@
+{
+  "schema": "IRE_V5_ADVISORY60_VALIDATION_SCENARIOS_V1",
+  "as_of": "2026-11-05",
+  "claim_scope": "LEGACY_C01_C60",
+  "suite_author": "CHATGPT_CURRENT_TURN_NOT_EXTERNAL_BLIND",
+  "baseline_frozen_before_patch": true,
+  "original_router_sha": "c202eb2661633d2919283e04fe033a8112b2ecee",
+  "baseline_new_questions_correct": 11,
+  "baseline_new_questions_total": 20,
+  "repair_set": [
+    {
+      "case_id": "V01",
+      "question": "연금계좌에 900만원 넣으면 900만원을 세금으로 돌려받나요?",
+      "expected_route_id": "PENSION_TAX"
+    },
+    {
+      "case_id": "V02",
+      "question": "ISA에 담은 미국 배당 ETF에서 해외 원천세가 빠지는 건 ISA 연금전환 공제와 똑같은 건가요?",
+      "expected_route_id": "ISA_FOREIGN_DIVIDEND"
+    },
+    {
+      "case_id": "V03",
+      "question": "ISA 종료하고 70일이 지난 후에도 개인연금 계좌로 옮겨 추가 공제를 받을 수 있나요?",
+      "expected_route_id": "ISA_TRANSFER"
+    },
+    {
+      "case_id": "V04",
+      "question": "퇴직연금에서 개인형 계좌로 옮기면 어떤 위험자산 제한이 생기나요?",
+      "expected_route_id": "IRP_ACCOUNT"
+    },
+    {
+      "case_id": "V05",
+      "question": "은퇴 생활비로 월 300만원이 필요한데 공적연금 120만원이면 나머지 얼마가 필요하죠?",
+      "expected_route_id": "RETIREMENT_WITHDRAWAL"
+    },
+    {
+      "case_id": "V06",
+      "question": "주식 60 채권40이 목표인데 지금 주식이 75가 됐습니다. 투자 비중은 어떻게 점검하나요?",
+      "expected_route_id": "ALLOCATION"
+    },
+    {
+      "case_id": "V07",
+      "question": "국내상장 나스닥 ETF 괴리율이 2%인데 추적오차가 0.4%입니다. 무슨 차이인가요?",
+      "expected_route_id": "ETF_PRODUCT"
+    },
+    {
+      "case_id": "V08",
+      "question": "원화로 거래하는 S&P500 엔화노출 상품은 미국 달러 환위험이 없나요?",
+      "expected_route_id": "FOREIGN_CURRENCY"
+    },
+    {
+      "case_id": "V09",
+      "question": "채권 액면가 100만원에 연 쿠폰 3%인데 98만원에 샀습니다. 만기수익률도 3%인가요?",
+      "expected_route_id": "BONDS"
+    },
+    {
+      "case_id": "V10",
+      "question": "예금자보호 대상인지 모르겠는 종금형 아닌 CMA에 비상자금을 넣어도 될까요?",
+      "expected_route_id": "CASH_CMA"
+    },
+    {
+      "case_id": "V11",
+      "question": "ELS에 녹인 장벽이 터지면 원금이 전부 없어지는 건가요?",
+      "expected_route_id": "RISKY_STRUCTURES"
+    },
+    {
+      "case_id": "V12",
+      "question": "매달 80만원 분배금이면 투자 수익률도 연 8% 확정되는 건가요?",
+      "expected_route_id": "ETF_PRODUCT"
+    },
+    {
+      "case_id": "V13",
+      "question": "국민연금을 5년 뒤로 미루면 언제나 이득인가요?",
+      "expected_route_id": "RETIREMENT_PLANNING"
+    },
+    {
+      "case_id": "V14",
+      "question": "내 포트폴리오의 반도체주를 전부 팔까요?",
+      "expected_route_id": "MARKET_STRESS"
+    },
+    {
+      "case_id": "V15",
+      "question": "월급 320만원, 고정비 240만원이면 처음 투자에 얼마를 써야 하나요?",
+      "expected_route_id": "INVESTOR_BEHAVIOR"
+    },
+    {
+      "case_id": "V16",
+      "question": "사적연금을 한 해 1700만원 수령하면 무조건 법 위반인가요?",
+      "expected_route_id": "RETIREMENT_WITHDRAWAL"
+    },
+    {
+      "case_id": "V17",
+      "question": "국내 상장 해외지수 펀드의 외국 세금공제 조건은 뭔가요?",
+      "expected_route_id": "GENERAL_TAX"
+    },
+    {
+      "case_id": "V18",
+      "question": "역외 선물지수 ETF는 롤오버 비용을 안 내도 되나요?",
+      "expected_route_id": "RISKY_STRUCTURES"
+    },
+    {
+      "case_id": "V19",
+      "question": "주식시장이 급락 중인데 오늘 당장 보유분을 매도해줘",
+      "expected_route_id": "MARKET_STRESS"
+    },
+    {
+      "case_id": "V20",
+      "question": "현금 배당 500만원을 받으면 그만큼 종가가 내려간 뒤에도 수익이 확정인가요?",
+      "expected_route_id": "ETF_PRODUCT"
+    }
+  ],
+  "holdout_set": [
+    {
+      "case_id": "H01",
+      "question": "세액공제를 받지 않은 연금저축 납입금은 어떻게 구분하나요?",
+      "expected_route_id": "PENSION_TAX"
+    },
+    {
+      "case_id": "H02",
+      "question": "DC형 퇴직연금에서 예금상품과 주식형 펀드 위험제한이 어떻게 되나요?",
+      "expected_route_id": "IRP_ACCOUNT"
+    },
+    {
+      "case_id": "H03",
+      "question": "만기된 ISA 현금을 연금저축으로 이체할 때 유의할 절차는?",
+      "expected_route_id": "ISA_TRANSFER"
+    },
+    {
+      "case_id": "H04",
+      "question": "미국 배당에 붙는 외국원천세는 중개형 ISA에서도 적용되나요?",
+      "expected_route_id": "ISA_FOREIGN_DIVIDEND"
+    },
+    {
+      "case_id": "H05",
+      "question": "수익률은 높아도 총보수와 NAV 괴리가 큰 ETF는 무엇을 점검하나요?",
+      "expected_route_id": "ETF_PRODUCT"
+    },
+    {
+      "case_id": "H06",
+      "question": "주식이 80% 넘어 포트폴리오 목표에서 벗어나면 어떻게 하나요?",
+      "expected_route_id": "ALLOCATION"
+    },
+    {
+      "case_id": "H07",
+      "question": "퇴직 후 생활비 부족분 계산에서 공적연금은 어떻게 반영하나요?",
+      "expected_route_id": "RETIREMENT_WITHDRAWAL"
+    },
+    {
+      "case_id": "H08",
+      "question": "커버드콜 배당률이 높으면 은퇴자금 인출은 영구히 안전한가요?",
+      "expected_route_id": "RETIREMENT_WITHDRAWAL"
+    },
+    {
+      "case_id": "H09",
+      "question": "USD 달러예금과 달러 RP를 같은 안전자산으로 봐도 되나요?",
+      "expected_route_id": "FOREIGN_CURRENCY"
+    },
+    {
+      "case_id": "H10",
+      "question": "단기 원리금보장이라고 설명하는 신용등급 낮은 회사채 상품은 어떤 위험이 있나요?",
+      "expected_route_id": "BONDS"
+    },
+    {
+      "case_id": "H11",
+      "question": "ELS의 낙인 수준과 조기상환 조건을 비교하려면?",
+      "expected_route_id": "RISKY_STRUCTURES"
+    },
+    {
+      "case_id": "H12",
+      "question": "서킷브레이커가 발동하면 목표비중을 바로 매도해야 하나요?",
+      "expected_route_id": "MARKET_STRESS"
+    },
+    {
+      "case_id": "H13",
+      "question": "세후 분배금보다 ETF 총수익이 작은 이유가 뭐죠?",
+      "expected_route_id": "ETF_PRODUCT"
+    },
+    {
+      "case_id": "H14",
+      "question": "은퇴 10년 남은 개인에게 공무원연금과 IRP를 어떻게 계획해야 하나요?",
+      "expected_route_id": "RETIREMENT_PLANNING"
+    },
+    {
+      "case_id": "H15",
+      "question": "급락한 반도체 종목을 본전까지 보유해야 하나요?",
+      "expected_route_id": "MARKET_STRESS"
+    },
+    {
+      "case_id": "H16",
+      "question": "종금형 CMA와 일반 RP형의 예금보호 차이는 무엇인가요?",
+      "expected_route_id": "CASH_CMA"
+    }
+  ],
+  "holdout_is_new_after_keyword_patch_design": true,
+  "holdout_not_used_to_tune_keywords": true,
+  "model_generated_response_accuracy_evaluation": false
+}

@@ -1,0 +1,350 @@
+{
+  "schema": "IRE_V5_NEW_VIDEO_INCREMENTAL_KNOWLEDGE_OVERLAY_V1",
+  "created": "2026-11-05",
+  "video_id": "C7KctGzg-K0",
+  "existing_education_graph_path": "ire/v5/advisory_knowledge/integrated_education13_20261104.json",
+  "existing_education_graph_unchanged": true,
+  "existing_core_20_claims_unchanged": true,
+  "previous_13_education_nodes": 13,
+  "new_video_claims": 13,
+  "related_original_research_claims": 5,
+  "proposed_new_topics": 3,
+  "proposed_new_topics_status": "NO_AUTOMATIC_PROMOTION_UNTIL_INDEPENDENT_REVIEW",
+  "new_approved_education_topics": 0,
+  "current_access_to_personal_financial_advice": false,
+  "independent_human_reviewer_completed": false,
+  "normalized_existing_context_links": [
+    {
+      "claim_id": "C231-01",
+      "disposition": "HISTORICAL_DRAFT_FRAME",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        5,
+        23
+      ],
+      "source_cue_span_sha256": "645dbb9e6788c5a463bf0146dc24f8be20551302a8b99787c803e82c1717775a",
+      "existing_context": [
+        "GOMHEE-C109"
+      ],
+      "existing_knowledge_relation": {
+        "target_id": "GOMHEE-C109",
+        "relation": "SUPPORTS_PROPOSAL_LAW_SEPARATION"
+      },
+      "candidate_concept_id": null,
+      "source_refs": [
+        "M25"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-02",
+      "disposition": "SUPERSEDED_DRAFT_MATERIAL_CHANGE",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        24,
+        50
+      ],
+      "source_cue_span_sha256": "84efa47589cfe99d5ab5c89fadb18b168feab9e89aff7a30879c55a87e62b303",
+      "existing_context": [
+        "GOMHEE-C109",
+        "GOMHEE-C110"
+      ],
+      "existing_knowledge_relation": {
+        "target_id": "GOMHEE-C109",
+        "relation": "CHALLENGES_OUTDATED_PROPOSAL"
+      },
+      "candidate_concept_id": "EDU-KR-HIGH-DIVIDEND-2026-CANDIDATE",
+      "source_refs": [
+        "M25",
+        "L26DIV",
+        "N26DIV"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-03",
+      "disposition": "UNVERIFIED_STATISTIC_BLOCKED",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        51,
+        58
+      ],
+      "source_cue_span_sha256": "51a422dfdfb4c1ef240f4217164ec8896c5cfe2437ab5b616fa67fc5f01fea09",
+      "existing_context": [],
+      "existing_knowledge_relation": null,
+      "candidate_concept_id": null,
+      "source_refs": [
+        "M25",
+        "N26DIV"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-04",
+      "disposition": "ENACTED_WITH_PERSONAL_TAX_CONDITIONS",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        59,
+        75
+      ],
+      "source_cue_span_sha256": "db4b52b5aaedd1f123a2ec2b3755d1fa3c2402f349c642c98cf361400ed64476",
+      "existing_context": [],
+      "existing_knowledge_relation": null,
+      "candidate_concept_id": null,
+      "source_refs": [
+        "L26GIVE",
+        "M25"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-05",
+      "disposition": "ENACTED_WITH_PERSONAL_TAX_CONDITIONS",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        76,
+        96
+      ],
+      "source_cue_span_sha256": "061da576b389fa29b177abe6629ec93430a49954b45d83dc17e30a4453b5f4ec",
+      "existing_context": [],
+      "existing_knowledge_relation": null,
+      "candidate_concept_id": null,
+      "source_refs": [
+        "M26CHILD",
+        "K26CHILD"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-06",
+      "disposition": "ENACTED_WITH_PERSONAL_TAX_CONDITIONS",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        97,
+        107
+      ],
+      "source_cue_span_sha256": "4fb9c332107289fc99691fb8b44de63db67562bdc3a5d1932938d64103794d42",
+      "existing_context": [],
+      "existing_knowledge_relation": null,
+      "candidate_concept_id": null,
+      "source_refs": [
+        "M26CHILD",
+        "K26CHILD"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-07",
+      "disposition": "ENACTED_WITH_AMOUNT_LIMIT_CORRECTION",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        108,
+        119
+      ],
+      "source_cue_span_sha256": "32e356197b924386660eb2f69e0f44257bb861c6b50ca870116dad52a48be402",
+      "existing_context": [],
+      "existing_knowledge_relation": null,
+      "candidate_concept_id": null,
+      "source_refs": [
+        "M26CHILD",
+        "K26CHILD",
+        "N26EDU"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-08",
+      "disposition": "ENACTED_CONDITIONAL_WITH_FRESH_PROPOSAL_WATCH",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        120,
+        143
+      ],
+      "source_cue_span_sha256": "8582fdb705547ec1b57571b23d922331f77117e6c5a02ddd3ab6ac2c25f18208",
+      "existing_context": [],
+      "existing_knowledge_relation": null,
+      "candidate_concept_id": null,
+      "source_refs": [
+        "M25",
+        "N26RENT",
+        "M26RENT",
+        "G26WEEKEND"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-09",
+      "disposition": "ENACTED_CORPORATE_TAX_GENERAL",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        144,
+        153
+      ],
+      "source_cue_span_sha256": "7e11cc5062a72eb1be746c8c8df64937d9353de33f9349b013d8087caf7f2842",
+      "existing_context": [],
+      "existing_knowledge_relation": null,
+      "candidate_concept_id": null,
+      "source_refs": [
+        "N26CORP",
+        "M25"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-10",
+      "disposition": "ENACTED_MARKET_SEGMENTED_WITH_ASR_WARNING",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        154,
+        165
+      ],
+      "source_cue_span_sha256": "df195fe0ca5cf3bd2594c09ccf1247a9149c3745886586efdde6a66b20a7c7b4",
+      "existing_context": [
+        "GOMHEE-C109"
+      ],
+      "existing_knowledge_relation": {
+        "target_id": "EDU-ETF-TOTAL-COST-DECISION",
+        "relation": "QUALIFIES_MARKET_TRADING_COST_NOT_ETF_TAX_APPROVAL"
+      },
+      "candidate_concept_id": "EDU-KR-STOCK-TRANSACTION-TAX-2026-CANDIDATE",
+      "source_refs": [
+        "B26STT",
+        "H26STT",
+        "M25"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-11",
+      "disposition": "ETF_TRANSACTION_TAX_SCOPE_HOLD",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        166,
+        167
+      ],
+      "source_cue_span_sha256": "b552544bc6e48551a61a65713f9a3a5992577af6a9f8206135b32ce8849dc6fe",
+      "existing_context": [
+        "GOMHEE-C06"
+      ],
+      "existing_knowledge_relation": {
+        "target_id": "EDU-ETF-TOTAL-COST-DECISION",
+        "relation": "QUALIFIES_TAX_COMPONENT_SCOPE_NOT_AUTO_APPROVAL"
+      },
+      "candidate_concept_id": null,
+      "source_refs": [
+        "B26STT",
+        "H26STT"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-12",
+      "disposition": "DRAFT_REVERSED_BY_GOVERNMENT",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        168,
+        192
+      ],
+      "source_cue_span_sha256": "f4df386b72afb28baec54bd308183b839d8bc7ad51bd3cf8ef17414c4383354e",
+      "existing_context": [
+        "GOMHEE-C109"
+      ],
+      "existing_knowledge_relation": {
+        "target_id": "GOMHEE-C109",
+        "relation": "CHALLENGES_ABORTED_TAX_PROPOSAL"
+      },
+      "candidate_concept_id": "EDU-KR-STOCK-MAJOR-SHAREHOLDER-2026-CANDIDATE",
+      "source_refs": [
+        "M25",
+        "G25MAJOR",
+        "N26MAJOR"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    },
+    {
+      "claim_id": "C231-13",
+      "disposition": "ENACTED_FINANCIAL_SECTOR_TAX_WITH_FORECAST_HOLD",
+      "video_id": "C7KctGzg-K0",
+      "original_cue_range": [
+        193,
+        203
+      ],
+      "source_cue_span_sha256": "d3518aa43f32dc116a067a998f7324c55bc365d78034a0a0e593829125ea8b08",
+      "existing_context": [],
+      "existing_knowledge_relation": null,
+      "candidate_concept_id": null,
+      "source_refs": [
+        "L26EDUTAX",
+        "M26EDUTAX"
+      ],
+      "permissible_investment_advice": false,
+      "current_2026_law_replacement_requires_official_sources": true
+    }
+  ],
+  "new_provisional_topics": [
+    {
+      "knowledge_id": "EDU-KR-HIGH-DIVIDEND-2026-CANDIDATE",
+      "current_scope": "2026년 특정 요건의 고배당 상장법인 배당에 한하여 14·20·25·30% 구간 분리과세 특례 가능. 고배당요건은 배당성향 40% 이상 또는 25% 이상 및 전년 대비 배당금 증가 10% 이상. 납세자 신청 및 법정 대상기업 공시 확인.",
+      "source_current": [
+        "L26DIV",
+        "N26DIV"
+      ],
+      "video_role": "COUNTEREXAMPLE_2025_DRAFT_NOT_CURRENT",
+      "risk": "2025년 원안 최고 35% 및 자격기준 20%/5%를 2026 세법으로 사용 금지",
+      "status": "PROVISIONAL_UNAPPROVED_REGULATED_TAX_CONCEPT",
+      "approved_education": false,
+      "financial_fact_independently_certified": false,
+      "personal_advice_approved": false,
+      "source_claim_id": "C231-02"
+    },
+    {
+      "knowledge_id": "EDU-KR-STOCK-TRANSACTION-TAX-2026-CANDIDATE",
+      "current_scope": "2026년 KOSPI 증권거래세 0.05%와 농특세 0.15%, KOSDAQ·K-OTC 증권거래세 0.20%, KONEX 0.10%로 시장별로 구분. 실무 적용은 매도결제일 확인.",
+      "source_current": [
+        "B26STT",
+        "H26STT"
+      ],
+      "video_role": "HISTORICAL_POLICY_PROPOSAL_CONFIRMED_WITH_MARKET_EXCEPTIONS",
+      "risk": "ETF에 대한 거래세 면제 일반화, 0.2%를 2%로 쓰는 자막 오류, 거래시점 소급적용 금지",
+      "status": "PROVISIONAL_UNAPPROVED_MARKET_TAX_CONCEPT",
+      "approved_education": false,
+      "financial_fact_independently_certified": false,
+      "personal_advice_approved": false,
+      "source_claim_id": "C231-10"
+    },
+    {
+      "knowledge_id": "EDU-KR-STOCK-MAJOR-SHAREHOLDER-2026-CANDIDATE",
+      "current_scope": "2026년 상장주식 양도소득세 대주주 시가총액 50억원 이상 또는 KOSPI 1%, KOSDAQ 2%, KONEX 4% 지분율 등 요건. 2025년 10억 하향 개편안은 정부가 2025-09-15 철회.",
+      "source_current": [
+        "G25MAJOR",
+        "N26MAJOR"
+      ],
+      "video_role": "ABORTED_DRAFT_VIDEO_BEFORE_REVERSAL",
+      "risk": "10억원 기준을 현행 대주주 자격으로 적용하거나 모든 개인주주를 동일하게 과세 대상으로 분류하면 오류",
+      "status": "PROVISIONAL_UNAPPROVED_REGULATED_TAX_CONCEPT",
+      "approved_education": false,
+      "financial_fact_independently_certified": false,
+      "personal_advice_approved": false,
+      "source_claim_id": "C231-12"
+    }
+  ],
+  "reconciliation_rules": {
+    "knowledge_id_stability": "Never replace or rename previous 13 knowledge IDs.",
+    "historical_date_protection": "DRAFT_REVERSED and SUPERSEDED_DRAFT only create time-bound warnings; never replace 2026 law with 2025 proposals.",
+    "source_provenance": "Video role may be counterexample; official law supports correction. Keep the two evidence roles separate.",
+    "no_current_issuer_list": "No automatic issuer or ticker buy recommendation.",
+    "audit_release": "Human-independent blind assessment and periodic legal freshness check needed before formal approval."
+  }
+}

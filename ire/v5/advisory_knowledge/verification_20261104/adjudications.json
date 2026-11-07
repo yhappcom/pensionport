@@ -1,0 +1,237 @@
+{
+  "schema": "IRE_V5_SOURCE_AUTHORITY_ADJUDICATION_V1",
+  "as_of": "2026-11-04",
+  "scope": "10 source/authority comparisons covering nine unique new study claim IDs; remaining 44 of 53 provisional source claims not assessed by this focused audit.",
+  "reference_file": "external_authorities.json",
+  "original_file": "source_spans.json",
+  "original_srt_verified_in_this_session": true,
+  "external_documents_authored_independently_of_youtube": true,
+  "evaluator_independent_of_prior_chatgpt": false,
+  "blind_human_review_completed": false,
+  "formal_financial_advice_approved": false,
+  "disposition_legend": {
+    "EVIDENCE_SUPPORTED_EDUCATIONAL_SCOPE": "Published reference and source match; reusable only as time-/scope-qualified general education.",
+    "GENERAL_PRINCIPLE_SCOPE_ONLY": "General concept supported, jurisdiction/product-specific formula not approved.",
+    "DATED_POLICY_WATCH": "Time-bound ministry statement; enactment and product implementation require fresh check.",
+    "HOLD_CONTEXT": "Context-dependent difference requiring customer/source-specific investigation.",
+    "BLOCK_UNSAFE_PROJECTION": "Reject unreasonable universal financial promise or guaranteed outcome."
+  },
+  "rows": [
+    {
+      "audit_id": "P01_ISA_INCOME",
+      "source_study_claim_id": "I255-03",
+      "legacy_claim_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C109"
+      ],
+      "authority_ids": [
+        "REF-ISA-STATUTE-2026",
+        "REF-ISA-BANK-SEP-2026"
+      ],
+      "disposition": "EVIDENCE_SUPPORTED_EDUCATIONAL_SCOPE",
+      "legal_effective_from": "2026-09-18",
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "2026년 9월 18일 시행 조세특례제한법상 ISA 비과세 한도는 일반형 200만원, 소득 요건 등 해당 유형 400만원이다. 기준은 가입일 또는 연장일의 법정 자격으로 판단한다.",
+      "source_paraphrase": "ISA 서민형 자격을 총급여 5천만원 기준으로 설명한다.",
+      "critical_limit": "납세자 소득구분과 농어민 여부, 해당 연도 가입·연장 자료를 확인하지 않고 개인의 유형을 확정하지 않는다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false
+    },
+    {
+      "audit_id": "P02_ISA_RECLASSIFY",
+      "source_study_claim_id": "I255-03",
+      "legacy_claim_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C109"
+      ],
+      "authority_ids": [
+        "REF-ISA-BANK-SEP-2026",
+        "REF-ISA-BANK-SEP11-2026",
+        "REF-ISA-STATUTE-2026"
+      ],
+      "disposition": "HOLD_CONTEXT",
+      "legal_effective_from": null,
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "2026년 9월 금융회사 통지에는 국세청 확인에 따른 ISA 가입유형 자동 전환 사례가 양방향으로 존재한다. 이를 영상의 연장 시 유형 변경 설명과 구분해 개인 계약에 적용해야 한다.",
+      "source_paraphrase": "연장할 때만 일반형으로 바뀐다는 취지로 답변한다.",
+      "critical_limit": "은행의 자동전환 공지가 모든 소득 증가 사례를 즉시 자동전환한다는 증거는 아니다. 납세자 통보·계약일·연장일·증명서를 함께 확인한다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false
+    },
+    {
+      "audit_id": "P03_ISA_PENSION_TRANSFER",
+      "source_study_claim_id": "I255-08",
+      "legacy_claim_ids": [
+        "GOMHEE-C32",
+        "GOMHEE-C33"
+      ],
+      "authority_ids": [
+        "REF-ISA-TRANSFER-NTS",
+        "REF-ISA-TRANSFER-TAX-RULING",
+        "REF-ISA-TRANSFER-60DAYS"
+      ],
+      "disposition": "EVIDENCE_SUPPORTED_EDUCATIONAL_SCOPE",
+      "legal_effective_from": null,
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "ISA 만기자금을 요건에 따라 연금계좌로 이전하면 전환금액의 10%, 최대 300만원이 세액공제 대상 납입한도에 추가된다. 만기 후 60일 내 납입 요건을 확인한다.",
+      "source_paraphrase": "전환금액 중 300만원을 세액공제받는 계좌로 배치하는 설명이 있으나 증권사 처리 방법은 일부만 확인했다고 언급한다.",
+      "critical_limit": "추가 한도 300만원은 현금 환급액 300만원이 아니며, 복수계좌 이체·태깅 방식은 증권사별 증빙이 필요하다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false
+    },
+    {
+      "audit_id": "P04_PENSION_1500",
+      "source_study_claim_id": "P217-07",
+      "legacy_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C71"
+      ],
+      "authority_ids": [
+        "REF-PENSION-TAX-NTS",
+        "REF-PENSION-TAX-MOEL",
+        "REF-INCOME-TAX-DECREE-2026"
+      ],
+      "disposition": "EVIDENCE_SUPPORTED_EDUCATIONAL_SCOPE",
+      "legal_effective_from": "2024-01-01",
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "관련 과세대상 사적연금소득이 연 1,500만원을 초과하더라도 종합과세 또는 소득세율 15% 분리과세 선택이 가능하다. 계좌별 연금수령한도와는 별도다.",
+      "source_paraphrase": "영상 자체가 1,500만원 초과 시 종합소득세 또는 16.5% 분리과세 선택을 언급한다. 이후 1,500만원 이하 수령을 세금관리 방법으로 추천한다.",
+      "critical_limit": "영상에서 법적 인출 자체가 금지된다고만 말했다고 기록한 과거 요약은 과도했다. 과세대상 소득의 범위·세후 유불리·연금수령한도를 분리한다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false
+    },
+    {
+      "audit_id": "P05_PENSION_7PCT",
+      "source_study_claim_id": "P217-05",
+      "legacy_claim_ids": [
+        "GOMHEE-C07",
+        "GOMHEE-C71"
+      ],
+      "authority_ids": [
+        "REF-DCA-FINRA-2026",
+        "REF-ETF-SEC-2025"
+      ],
+      "disposition": "BLOCK_UNSAFE_PROJECTION",
+      "legal_effective_from": null,
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "1억원 × 7% ÷ 12는 월 약 58만3천원이라는 조건부 산술이지만, 7% 분배·원금보존·장기간 지급은 보장되지 않는다.",
+      "source_paraphrase": "영상은 1억원 포트폴리오에 배당률 7%를 가정하고 월 약 60만원의 현금흐름을 전망한다.",
+      "critical_limit": "과세·분배재원·시장가격·투자자 연령을 검증하지 않은 지속가능한 은퇴 수입 권고를 차단한다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false
+    },
+    {
+      "audit_id": "P06_IRP_70PCT",
+      "source_study_claim_id": "R250-06",
+      "legacy_claim_ids": [
+        "GOMHEE-C43",
+        "GOMHEE-C73"
+      ],
+      "authority_ids": [
+        "REF-IRP-PROPOSAL-MOEL",
+        "REF-IRP-DECREE-2026"
+      ],
+      "disposition": "DATED_POLICY_WATCH",
+      "legal_effective_from": null,
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "고용노동부 2026년 10월 29일 발표 당시 IRP 위험자산 70% 투자한도가 적용되고, 정부는 단계적 완화를 추진한다고 밝혔다. 발표는 시행된 한도 상향을 뜻하지 않는다.",
+      "source_paraphrase": "영상은 IRP 주식형 위험자산을 70%까지만 투자할 수 있다고 설명한다.",
+      "critical_limit": "2026년 11월 4일 현재 모든 상품의 투자 가능 비율과 예외 자산 분류, 개정된 시행규정 여부는 별도 확인이 필요하다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false,
+      "source_release_date": "2026-10-29"
+    },
+    {
+      "audit_id": "P07_IRP_PENSION_TRANSFER",
+      "source_study_claim_id": "R250-11",
+      "legacy_claim_ids": [
+        "GOMHEE-C08",
+        "GOMHEE-C42"
+      ],
+      "authority_ids": [
+        "REF-ISA-TRANSFER-NTS",
+        "REF-ISA-TRANSFER-60DAYS",
+        "REF-ISA-TRANSFER-TAX-RULING"
+      ],
+      "disposition": "EVIDENCE_SUPPORTED_EDUCATIONAL_SCOPE",
+      "legal_effective_from": null,
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "ISA 만기자금 연금계좌 전환시 10% 최대 300만원의 추가 세액공제 대상 납입한도를 고려할 수 있다. 환급액은 적용 공제율과 실제 납부세액에 따라 달라진다.",
+      "source_paraphrase": "영상에서 전환액 10%, 최대 300만원에 대한 세액공제라고 간략히 설명한다.",
+      "critical_limit": "전환액의 10%·최대 300만원을 실제 세액공제액으로 설명하는 것은 오류. 세액공제 대상 추가납입한도로 안내한다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false
+    },
+    {
+      "audit_id": "P08_ETF_FEES",
+      "source_study_claim_id": "E229-04",
+      "legacy_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "authority_ids": [
+        "REF-ETF-SEC-2025"
+      ],
+      "disposition": "GENERAL_PRINCIPLE_SCOPE_ONLY",
+      "legal_effective_from": null,
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "ETF 비교는 표면 총보수뿐 아니라 펀드 운영비용 및 개인 매매수수료·스프레드 등 다양한 비용을 검토해야 한다. 한국 상장 ETF의 TER 계산식과 현재 최저 비용 상품은 별도 공시 확인이 필요하다.",
+      "source_paraphrase": "영상은 총보수·TER(총보수와 기타비용)·내부 매매중개비용을 구분한다.",
+      "critical_limit": "미국 SEC 자료는 한국 ETF TER·실부담비용 정의나 현재 상품 순위에 대한 독립 국내 공시가 아니다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false
+    },
+    {
+      "audit_id": "P09_DCA_MATH",
+      "source_study_claim_id": "A237-04",
+      "legacy_claim_ids": [
+        "GOMHEE-C52",
+        "GOMHEE-C75"
+      ],
+      "authority_ids": [
+        "REF-DCA-SEC",
+        "REF-DCA-FINRA-2026"
+      ],
+      "disposition": "EVIDENCE_SUPPORTED_EDUCATIONAL_SCOPE",
+      "legal_effective_from": null,
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "세 차례 각 50만원을 주당 10만원·50만원·5만원에 투자하면 총 16주, 총납입 150만원, 평균매입단가 9만3750원이다. 마지막 5만원으로 평가하면 80만원이고 평가손실은 70만원(약 -46.67%)이다.",
+      "source_paraphrase": "영상의 5+1+10=16주, 평균매입단가 약 9.4만원이라는 산술은 일치한다.",
+      "critical_limit": "평균매입단가가 낮아져도 이익이 반드시 발생하는 것은 아니며 금액·가격은 교육용 가상 사례다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false
+    },
+    {
+      "audit_id": "P10_DCA_GUARANTEE",
+      "source_study_claim_id": "A237-05",
+      "legacy_claim_ids": [
+        "GOMHEE-C52",
+        "GOMHEE-C75"
+      ],
+      "authority_ids": [
+        "REF-DCA-FINRA-2026",
+        "REF-DCA-SEC"
+      ],
+      "disposition": "BLOCK_UNSAFE_PROJECTION",
+      "legal_effective_from": null,
+      "checked_as_of": "2026-11-04",
+      "verified_safe_summary": "정액적립은 가격이 낮을 때 매수 수량을 늘리는 규칙일 뿐 미래 수익을 보장하지 않는다. 손실과 시장 하락, 수수료·현금보유 기회비용이 존재한다.",
+      "source_paraphrase": "영상은 정액적립을 하면 결국 투자자가 이긴다는 취지의 일반화를 사용한다.",
+      "critical_limit": "이전 계산 예시 자체가 마지막 가격 기준 약 -46.67% 평가손실을 보인다. 이 주장은 자문용 확정지식에 편입하면 안 된다.",
+      "independently_human_blind_approved": false,
+      "source_and_authority_current_chat_checked": true,
+      "personalized_advice_approved": false
+    }
+  ],
+  "unique_study_claims_scoped": 9,
+  "unreviewed_provisional_study_claims": 44
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "IRE_V5_P0_THREE_WINDOW_OPERATIONAL_PROOF_V1",
+  "date": "2026-11-03",
+  "status": "SCOPED_PILOT_COMPLETE_FULL_VIDEO_P0_UNPROVEN",
+  "branch": "feat/ire-v5-vertical-slice-20261103",
+  "source": {
+    "video_id": "sz5N9WJS310",
+    "original_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+    "original_cues": 1195,
+    "original_manifest_v3_adaptive_windows": 81,
+    "source_window_scope": [
+      "W00003",
+      "W00004",
+      "W00005"
+    ],
+    "original_primary_cues_in_scope": 45
+  },
+  "actual_test": {
+    "user_research_instruction_count_in_this_conversation": 1,
+    "source_windows_interpreted_by_current_chat_model": 3,
+    "model_atomic_statements": 11,
+    "claim_specific_external_evidence_dispositions": 11,
+    "official_source_investigations_overview": "National Pension Service eligibility and 119-month catch-up contribution guidance; no individual subscriber forecast verified",
+    "prior_research_review_cases": 11,
+    "approved_semantic_equivalences": 0,
+    "automatic_knowledge_merges": 0,
+    "approved_financial_facts": 0,
+    "approved_investment_advice": 0,
+    "open_or_unverified_financial_evidence_cases": 11,
+    "private_event_receipts": 26,
+    "immutable_event_chain_head_sha256": "e518a271b5e31a22a2878fa438f9ae22caeda5bef4e731ac7ddfb03fae390b9f",
+    "private_plan_sha256": "c20383f63766a503691b64a884ad5c6423d32a2b82b1ef0cc2f56e87e847bfb2",
+    "readback_with_new_python_instance": true,
+    "closure_state": "RESEARCH_REPORT_COMPLETE_WITH_OPEN_ITEMS_SCOPE_ONLY",
+    "no_external_llm_api_calls": true,
+    "host_continuation_independently_attested": false,
+    "host_next_task_steps": 26,
+    "controller_next_task_routed_all_stages": true
+  },
+  "regression": {
+    "synthetic_tests_passed": 16,
+    "synthetic_failures": 0,
+    "regression_is_not_semantic_gold": true,
+    "github_actions_ci_status_at_submission": "SUCCESS_AT_PRIOR_COMMIT_9ceafcfd23ec690fd6149d6901346128688617f6",
+    "github_actions_workflow_run_id": 41597208926,
+    "github_actions_workflow_url": "https://github.com/yhappcom/pensionport/actions/runs/41597208926",
+    "github_actions_v3_regression_tests_passed": 310,
+    "github_actions_v5_regression_tests_passed": 16,
+    "github_actions_clean_room_guard_passed": true,
+    "github_actions_private_source_leak_guard_passed": true
+  },
+  "external_evidence": [
+    {
+      "issuer": "National Pension Service",
+      "url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0097M0.do",
+      "scope": "119-month maximum and qualifying periods"
+    },
+    {
+      "issuer": "National Pension Service",
+      "url": "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do?menuId=MN24001116",
+      "scope": "application and individualized premium calculation requirements"
+    }
+  ],
+  "private_artifacts": {
+    "storage": "Personal ChatGPT Library /IRE_V5_20261103 (not GitHub)",
+    "private_zip_sha256": "943320d1b1f180d7e8213c16c75c36cb66aad339ce033b6a261c4585ad22434e",
+    "source_srt_embedded": false,
+    "public_code_zip_sha256": "8d6f57284d1d397095d0b3ab5741cfe3c8361ea9621339d9d3ccd0cfcc6b51a9",
+    "library_persistence_write_and_metadata_readback": true
+  },
+  "important_limits": [
+    "Only 3 of 81 source windows were in this run; remaining 78 are NOT processed in V5.",
+    "Full original government page byte hashes and legal effective-date verification not completed; every claim remains OPEN or not approved.",
+    "The Python engine never invokes ChatGPT. The chat host genuinely authored the 11 propositions; it did not independently attest its own identity.",
+    "The local event chain is verified against the published SHA anchor but durable private cross-session replay and upstream provider attestation still require tests.",
+    "No personalized advice or investment recommendation was approved.",
+    "Task routing is deterministic and works for the scoped pilot, but cannot invoke model inference by itself; ChatGPT host participation is still mandatory."
+  ],
+  "release": {
+    "V5_VERTICAL_SLICE": "COMPLETE_WITH_OPEN",
+    "V5_P0_FULL_VIDEO": "NO_GO_NOT_RUN",
+    "FACT_VERIFIED": "ZERO",
+    "ADVISORY_ELIGIBLE": "NO"
+  }
+}

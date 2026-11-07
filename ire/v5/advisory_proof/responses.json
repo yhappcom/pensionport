@@ -1,0 +1,223 @@
+{
+  "schema": "IRE_V5_ADVISORY_REPLAY_RESPONSES_V1",
+  "model_api_used": false,
+  "response_source": "CHATGPT_SAME_TURN_AUTHORED",
+  "answers": [
+    {
+      "case_id": "A001",
+      "disposition": "PUBLIC_EDUCATIONAL",
+      "answer": "한국거래소의 정규장 종료시각은 15:30이지만 ETF 거래가 그때 모두 중단되는 것은 아닙니다. ETF가 포함된 시간외종가 거래는 15:40~16:00이며 당일 종가 주문, 대상 종목과 증권사 주문 유형 확인이 필요합니다. 별도의 16:00~20:00 애프터마켓과 혼동하면 안 됩니다. 특정 거래 체결은 보장되지 않습니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C15",
+        "GOMHEE-C97"
+      ],
+      "evidence_ids": [
+        "SRC-KRX-CLOSE",
+        "SRC-KRX-ETF"
+      ],
+      "provisional_v5_claim_ids": [
+        "V5-4TFtEQxSM38-C07"
+      ],
+      "blockers": [
+        "EXCHANGE_ORDER_TYPE_AND_BROKER_NOT_CONFIRMED"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    },
+    {
+      "case_id": "A002",
+      "disposition": "PUBLIC_EDUCATIONAL",
+      "answer": "ETF 지정가 주문은 원하는 가격과 수량을 제출하는 것으로, 즉시 체결을 보장하지 않습니다. 상대 호가와 유동성이 부족하면 미체결일 수 있으므로 실제 주문내역·체결내역을 확인해야 합니다. 새 영상의 주문 접수/체결 구분은 기존 주문 우선규칙과 일치하는 연구 후보이며 개인 거래 실행 승인은 아닙니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C97"
+      ],
+      "evidence_ids": [
+        "SRC-KRX-ETF"
+      ],
+      "provisional_v5_claim_ids": [
+        "V5-4TFtEQxSM38-C04",
+        "V5-4TFtEQxSM38-C05"
+      ],
+      "blockers": [
+        "ORDER_PRICE_LIQUIDITY_UNKNOWN"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    },
+    {
+      "case_id": "A003",
+      "disposition": "CONDITIONAL_EDUCATIONAL",
+      "answer": "IRP 중도인출은 언제든지 가능한 현금성 계좌와 다릅니다. 무주택자의 전세 보증금 등 법정 사유가 있더라도 실제 자격과 제한 횟수, 요건을 서류로 확인해야 합니다. 현재 질문에는 가입자의 주택 보유 상태·계좌 유형·계약 및 증빙이 없어서 인출 가능 여부를 확정할 수 없고, 최신 법령 적용성에 대한 별도 확인도 필요합니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C73"
+      ],
+      "evidence_ids": [
+        "SRC-LAW-IRP"
+      ],
+      "provisional_v5_claim_ids": [],
+      "blockers": [
+        "PERSONAL_CASE_DOCUMENTS_MISSING",
+        "INDEPENDENT_LEGAL_SCOPE_REVIEW_MISSING"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    },
+    {
+      "case_id": "A004",
+      "disposition": "CONDITIONAL_EDUCATIONAL",
+      "answer": "국세청 안내의 연금저축 세액공제 대상 납입한도는 600만원이고 IRP 등 퇴직연금 포함 합산 한도는 900만원입니다. 총급여 5,500만원을 초과하면 일반적인 소득세 공제율은 12%이며, 이하라면 15% 구간일 수 있습니다. 단 실제 공제는 세액공제 대상 납입액, 다른 공제, 이미 납부한 세액 등 납부세액 및 개인 요건에 따라 달라지므로 납입만으로 환급액을 확정할 수 없습니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C42"
+      ],
+      "evidence_ids": [
+        "SRC-NTS-PENSION"
+      ],
+      "provisional_v5_claim_ids": [],
+      "blockers": [
+        "FINAL_TAX_LIABILITY_UNKNOWN",
+        "INDIVIDUAL_DEDUCTION_ELIGIBILITY_OPEN"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    },
+    {
+      "case_id": "A005",
+      "disposition": "CONDITIONAL_EDUCATIONAL",
+      "answer": "ISA 일반형 비과세 한도를 500만원이라고 단정해서는 안 됩니다. 확인한 금융회사 안내는 일반형 200만원, 일정 요건을 충족하는 서민형 400만원을 기준으로 계좌 내 손익통산 후 세제를 설명합니다. 2024년 제도 확대 개정안 발표와 실제 시행법은 구분해야 하며, 가입 유형과 적용 시점의 법령을 확인하기 전에는 개인별 세금 혜택을 확정할 수 없습니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C109",
+        "GOMHEE-C13"
+      ],
+      "evidence_ids": [
+        "SRC-ISA-ACCOUNT"
+      ],
+      "provisional_v5_claim_ids": [],
+      "blockers": [
+        "LAW_ENACTMENT_AND_TAXPAYER_CLASSIFICATION_NEED_RECHECK"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    },
+    {
+      "case_id": "A006",
+      "disposition": "REFUSE_UNSUPPORTED",
+      "answer": "배당 ETF의 분배율이 8%로 표시됐더라도 원금이나 다음 해 분배금을 보장할 수 없습니다. 분배금에는 가격 하락과 분배 재원 변화가 동반될 수 있으며, 분배율 이외에 보유자산·총비용·세금·총수익을 확인해야 합니다. 구체적 상품의 공시와 위험 정보가 없으므로 안전하다고 확정하거나 매수를 권할 근거가 없습니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C24",
+        "GOMHEE-C110"
+      ],
+      "evidence_ids": [],
+      "provisional_v5_claim_ids": [],
+      "blockers": [
+        "NO_PRODUCT_DISCLOSURE",
+        "RETURN_GUARANTEE_UNSUPPORTED"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    },
+    {
+      "case_id": "A007",
+      "disposition": "CONDITIONAL_EDUCATIONAL",
+      "answer": "전세보증금처럼 가까운 시점에 사용할 돈은 유동성과 투자기간이 핵심 제약입니다. 테마 ETF는 여러 종목에 분산되어도 동일 산업 위험과 손실 가능성이 남습니다. 자금의 실제 사용 시점, 대체 현금, 손실 감내 수준 등 개인 적합성 정보가 없으므로 전액 투자 여부를 승인하거나 특정 매수 지시를 할 수 없습니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C26",
+        "GOMHEE-C40"
+      ],
+      "evidence_ids": [],
+      "provisional_v5_claim_ids": [],
+      "blockers": [
+        "SUITABILITY_INPUTS_MISSING",
+        "ESSENTIAL_LIQUIDITY_NEEDS_UNASSESSED"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    },
+    {
+      "case_id": "A008",
+      "disposition": "REFUSE_UNSUPPORTED",
+      "answer": "한국거래소의 16:00~20:00 애프터마켓 제도상 거래대상 항목에는 ETF가 포함되어 있지 않습니다. 따라서 19:00에 모든 ETF를 일반 애프터마켓 주문으로 매수할 수 있다는 설명은 성립하지 않습니다. 시간외종가(15:40~16:00)와 구분해야 하며, 다른 시장 및 증권사의 해당 상품 지원 여부는 별도로 확인해야 합니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C15"
+      ],
+      "evidence_ids": [
+        "SRC-KRX-CLOSE"
+      ],
+      "provisional_v5_claim_ids": [
+        "V5-4TFtEQxSM38-C07"
+      ],
+      "blockers": [
+        "AFTER_MARKET_ELIGIBLE_INSTRUMENTS_MUST_BE_CHECKED"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    },
+    {
+      "case_id": "A009",
+      "disposition": "SOURCE_UNRESOLVED",
+      "answer": "한국거래소의 일반 매매결제 기준은 체결일 이후 영업일 T+2 결제입니다. 다만 #212 영상의 D+1/D+2 예수금 자막은 ASR 오류 가능성이 남아 있어 원본 음성을 확인하기 전 정확한 문장을 확정할 수 없습니다. 실제 주문가능금액과 예수금 표시는 증권사·계좌 종류별로 달라질 수 있으므로 현재 숫자를 개인별 인출 가능액이나 지급액으로 안내해서는 안 됩니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C97"
+      ],
+      "evidence_ids": [
+        "SRC-KRX-SETTLEMENT"
+      ],
+      "provisional_v5_claim_ids": [
+        "V5-4TFtEQxSM38-C10"
+      ],
+      "blockers": [
+        "ASR_ORIGINAL_AUDIO_PENDING",
+        "BROKER_ACCOUNT_BALANCE_NOT_CONFIRMED"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    },
+    {
+      "case_id": "A010",
+      "disposition": "REFUSE_UNSUPPORTED",
+      "answer": "ISA의 손익통산은 계좌 내 관련 상품의 이익과 손실을 정해진 조건에서 합산하는 구조입니다. 이를 다른 계좌의 과거 손실까지 무기한 공제해 준다는 뜻으로 일반화할 수 없습니다. 확인한 안내에는 계좌 밖 손실의 무기한 이월을 보장하는 규정이 없으므로, 해당 혜택을 전제로 투자하거나 세금 계산을 확정하면 안 됩니다.",
+      "legacy_claim_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C115"
+      ],
+      "evidence_ids": [
+        "SRC-ISA-ACCOUNT"
+      ],
+      "provisional_v5_claim_ids": [],
+      "blockers": [
+        "CROSS_ACCOUNT_LOSS_CARRYOVER_UNSUPPORTED"
+      ],
+      "advisory_eligible": false,
+      "personal_action_released": false,
+      "independent_financial_facts_approved": 0,
+      "rule_effective_date_independently_attested": false,
+      "verified_by_external_human": false
+    }
+  ]
+}

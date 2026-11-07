@@ -1,0 +1,255 @@
+{
+  "schema": "IRE_V5_FULL_SOURCE_STUDY_V1",
+  "video_id": "tDD5GzvDYq8",
+  "roster_no": 237,
+  "headline": "감자일기 3편 적립식 투자 및 자산배분 사례",
+  "source_archive": "201-300.zip",
+  "source_sha256": "888e5c90bdce6d4f97291388376e3a580f33ad6aec9a7100b5e6ad92019ff643",
+  "total_cues": 498,
+  "source_read_all_cues_in_active_chat": true,
+  "each_cue_independently_claim_adjudicated": false,
+  "review_date": "2026-11-04",
+  "reviewer": "CHATGPT_ACTIVE_CONVERSATION",
+  "source_sections": [
+    {
+      "first_cue": 1,
+      "last_cue": 16,
+      "topic": "intro"
+    },
+    {
+      "first_cue": 17,
+      "last_cue": 113,
+      "topic": "portfolio_progress"
+    },
+    {
+      "first_cue": 114,
+      "last_cue": 240,
+      "topic": "dollar_cost_averaging_example"
+    },
+    {
+      "first_cue": 241,
+      "last_cue": 306,
+      "topic": "periodic_investing_principles"
+    },
+    {
+      "first_cue": 307,
+      "last_cue": 402,
+      "topic": "portfolio_rebalancing_and_two_year_claim"
+    },
+    {
+      "first_cue": 403,
+      "last_cue": 468,
+      "topic": "car_purchase_consumer_credit"
+    },
+    {
+      "first_cue": 469,
+      "last_cue": 498,
+      "topic": "closing_and_future_content"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "A237-01",
+      "first_cue": 16,
+      "last_cue": 60,
+      "proposition": "연금저축 내 5개 주식형/금 ETF에 월 50만원을 동일 금액으로 배분하는 사례를 소개하며 달러선물 투자를 제거한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C23"
+      ],
+      "relationship": "QUALIFIES",
+      "review_status": "PERSONAL_PORTFOLIO_EXAMPLE",
+      "scope_or_error": "미국 주식·배당주·금·중국주식·2차전지는 섹터/지역 노출이 중복되고 채권 부재. 보편적 권고 자산배분 모델로 승격 금지.",
+      "evidence_ids": [
+        "SRC-SEC-ALLOCATION"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "A237-02",
+      "first_cue": 61,
+      "last_cue": 112,
+      "proposition": "2개월 투자 이후 각 ETF 수익률 및 포트폴리오 약 4.5% 수익이 관찰됐다고 설명한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C75"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "HISTORICAL_RETURN_NOT_FUTURE",
+      "scope_or_error": "2025년 7월 23일 개인 사례 실적이며 계좌 캡처/입금시점 독립 확인 없음. 예측 수익률로 재사용 금지.",
+      "evidence_ids": [],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "A237-03",
+      "first_cue": 113,
+      "last_cue": 167,
+      "proposition": "정액 적립에서는 가격 상승 시 적은 수량, 하락 시 많은 수량을 매수하는 평균단가 효과를 설명한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C52",
+        "GOMHEE-C75"
+      ],
+      "relationship": "SUPPORTS",
+      "review_status": "GENERAL_EDUCATIONAL_MECHANISM",
+      "scope_or_error": "정액 적립은 매수 수량을 시장 가격에 반비례시키지만 손실 방지나 이익 보장 전략은 아니다.",
+      "evidence_ids": [
+        "SRC-SEC-DCA"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "A237-04",
+      "first_cue": 168,
+      "last_cue": 190,
+      "proposition": "매월 50만원씩 10만원·50만원·5만원 가격에 매수하면 총 16단위, 누적 150만원, 평균단가 약 9.4만원의 예시를 든다.",
+      "prior_claim_ids": [
+        "GOMHEE-C52",
+        "GOMHEE-C75"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "ARITHMETIC_CHECKED_NOT_RETURN_VERIFIED",
+      "scope_or_error": "5+1+10=16단위, 150만원/16=93,750원 산술 일치. 종가 5만원 시 평가액 80만원, 원금대비 -46.67%로 평균단가 하락만으로 수익 보장되지 않는다.",
+      "evidence_ids": [
+        "SRC-SEC-DCA"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "A237-05",
+      "first_cue": 191,
+      "last_cue": 240,
+      "proposition": "정액 적립은 시장 고점 매수와 저점 매도를 피하게 해 장기적으로 반드시 수익이 난다는 취지로 설명한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C52",
+        "GOMHEE-C75"
+      ],
+      "relationship": "CHALLENGES",
+      "review_status": "UNSAFE_PROFIT_GUARANTEE",
+      "scope_or_error": "영상의 '무조건 결국 이긴다'류 일반화는 검증되지 않음. 투자자 자금의 손실/상품 상장폐지/장기간 하락 시 정액매수도 손실 가능.",
+      "evidence_ids": [
+        "SRC-SEC-DCA",
+        "SRC-SEC-ALLOCATION"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "A237-06",
+      "first_cue": 241,
+      "last_cue": 306,
+      "proposition": "분산·정기 투자·정액 적립 세 가지를 결합하면 시장 방향 예측 없이 투자할 수 있다고 교육한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C52"
+      ],
+      "relationship": "SUPPORTS",
+      "review_status": "GENERAL_EDUCATIONAL_MECHANISM",
+      "scope_or_error": "분산은 종목·자산군 양쪽에 존재해야 하며 다섯 ETF라고 모든 자산군 분산이 충족되는 건 아니다.",
+      "evidence_ids": [
+        "SRC-SEC-ALLOCATION"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "A237-07",
+      "first_cue": 307,
+      "last_cue": 350,
+      "proposition": "월 50만원 적립의 초기 2년은 신규 납입이 수익률 표시에 미치는 영향이 크며 그후 채권 추가를 고려할 수 있다고 설명한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C52"
+      ],
+      "relationship": "QUALIFIES",
+      "review_status": "ARBITRARY_TWO_YEAR_RULE",
+      "scope_or_error": "2년은 개인 납입·잔고·변동성에 의존한 예시값으로 자동 리밸런싱 유예 기간/채권 편입 규칙으로 일반화 불가.",
+      "evidence_ids": [
+        "SRC-SEC-ALLOCATION"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "A237-08",
+      "first_cue": 351,
+      "last_cue": 401,
+      "proposition": "초기 2년 ETF가 20% 급락해도 별도 리밸런싱을 할 필요가 없고 정액적립만 이어갈 것을 제안한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C75",
+        "GOMHEE-C52"
+      ],
+      "relationship": "CHALLENGES",
+      "review_status": "PORTFOLIO_RISK_INCOMPLETE",
+      "scope_or_error": "목표 자산배분·위험 감내·자산군 변동성이 없으면 리밸런싱 면제 여부 판단 불가. 투자자별 목표비중과 허용 편차 고려.",
+      "evidence_ids": [
+        "SRC-SEC-ALLOCATION"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "A237-09",
+      "first_cue": 403,
+      "last_cue": 449,
+      "proposition": "자동차 구매에 필요한 저가 중고차와 잔존가치·감가상각을 비교한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C09"
+      ],
+      "relationship": "UNRELATED",
+      "review_status": "NON_CORE_INVESTMENT_PERSONAL_FINANCE",
+      "scope_or_error": "소비재 감가와 관련된 생활금융 사례로 투자 지식 원장에 자동 통합하지 않고 별도 생활금융 영역으로 분리.",
+      "evidence_ids": [],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "A237-10",
+      "first_cue": 450,
+      "last_cue": 468,
+      "proposition": "5년 자동차 할부나 낮은 금리의 대체 대출을 활용하면 매달 부담이 적다는 개인 사례를 제안한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C09"
+      ],
+      "relationship": "UNRELATED",
+      "review_status": "CONSUMER_CREDIT_SUITABILITY_OPEN",
+      "scope_or_error": "명목 금리뿐 아니라 총이자·상환기간·잔존가치 하락·중도상환수수료·차량 유지비 및 채무 감당을 검증해야 함. 투자 원칙으로 자동 병합 금지.",
+      "evidence_ids": [],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    }
+  ],
+  "overall_status": "SOURCE_STUDIED_CLAIMS_PROVISIONAL",
+  "advisory_go": false,
+  "evidence_status": "DCA_MATHEMATICAL_CHECK_AND_PUBLIC_INVESTOR_GUIDANCE",
+  "counterexample_arithmetic": {
+    "monthly_investment_krw": 500000,
+    "prices_krw": [
+      100000,
+      500000,
+      50000
+    ],
+    "purchased_units": [
+      5,
+      1,
+      10
+    ],
+    "total_units": 16,
+    "total_paid_krw": 1500000,
+    "average_cost_krw": 93750,
+    "last_price_krw": 50000,
+    "ending_value_krw": 800000,
+    "unrealized_loss_krw": 700000,
+    "return_pct": -46.666666666666664
+  },
+  "verification_open": [
+    "미국 S&P500·배당·금·중국·2차전지 ETF 실제 자산노출 및 중복",
+    "개인 목표비중 없는 상태에서 2년 리밸런싱 미실시 권유는 위험",
+    "영상 계좌 2025년 수익률은 캡처·거래내역 독립 확인 필요",
+    "정액 적립이 수익을 보장한다는 과장 금지",
+    "차량 구매자금/차입 조건·총이자·감가상각은 투자 지식과 분리"
+  ],
+  "no_public_transcript_full_text": true
+}

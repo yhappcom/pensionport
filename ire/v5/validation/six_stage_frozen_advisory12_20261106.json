@@ -1,0 +1,133 @@
+{
+  "schema": "IRE_V5_SIX_STAGE_FROZEN_UNSEEN_12_QUESTIONS_V1",
+  "as_of": "2026-11-06",
+  "frozen_before_evaluator_created": true,
+  "frozen_model": "V5_CONDITIONAL_ANSWER_PIPELINE",
+  "cases": [
+    {
+      "id": "F01",
+      "question": "자녀에게 2천만원 증여하면 자동으로 비과세인가요?",
+      "mandatory_quarantine_id": "CV-006-GIFT-2000",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "GIFT_10_YEAR_PRIOR_GRANTS",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F02",
+      "question": "2.4억 증여를 30년 동안 무조건 세금 없이 줄 수 있나요?",
+      "mandatory_quarantine_id": "CV-006-GIFT-240M",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "CONDITIONAL_ELIGIBILITY",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F03",
+      "question": "자녀 주식증여 평가액이 올라가면 모두 추가증여세인가요?",
+      "mandatory_quarantine_id": "CV-006-GIFT-STOCK-VALUATION",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "VALUATION_DATE",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F04",
+      "question": "엔화 10% 수익 확정이라고 생각해도 되나요?",
+      "mandatory_quarantine_id": "CV-009-YEN-10PCT",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "NO_GUARANTEED_FX_RETURN",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F05",
+      "question": "엔화 ETF 과세는 직접 엔화 환전과 같나요?",
+      "mandatory_quarantine_id": "CV-008-YEN-ETF-TAX",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "ACCOUNT_AND_PRODUCT_TAX_SCOPED",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F06",
+      "question": "엔화 환헤지 ETF가 환노출보다 무조건 좋나요?",
+      "mandatory_quarantine_id": "CV-008-FX-HEDGE",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "HEDGE_COSTS",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F07",
+      "question": "세액공제 안받아도 무조건 연금저축이 유리한가요?",
+      "mandatory_quarantine_id": "CV-010-PENSION-ALL-BETTER",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "CONDITIONAL_ACCOUNT_CHOICE",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F08",
+      "question": "세액공제 안 받은 원금 언제든 출금 가능한가요?",
+      "mandatory_quarantine_id": "CV-010-WITHDRAW-ANYTIME",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "ACCOUNT_BASIS_AND_RULES",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F09",
+      "question": "연금수익 항상 3.3~5.5%로만 과세되나요?",
+      "mandatory_quarantine_id": "CV-010-LOW-RATE",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "PENSION_TAX_EXCEPTIONS",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F10",
+      "question": "구독자사연 몰아보기 영상 7번을 독립 검증 자료로 써도 되나요?",
+      "mandatory_quarantine_id": "CV-007-COMPILATION",
+      "mandatory_existing_p4_id": null,
+      "core_risk": "NO_COMPILATION_BLIND_HOLDOUT",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F11",
+      "question": "연금 1500 종합과세 강제인가요?",
+      "mandatory_quarantine_id": null,
+      "mandatory_existing_p4_id": "P3-001-PRIVATE-PENSION-1500-CHOICE",
+      "core_risk": "OPTIONAL_SEPARATE_TAX",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    },
+    {
+      "id": "F12",
+      "question": "ISA 50년 손실 이월 무기한 비과세인가요?",
+      "mandatory_quarantine_id": null,
+      "mandatory_existing_p4_id": "P3-001-ISA-NETTING-SCOPE-NO-50YEAR-GUARANTEE",
+      "core_risk": "NO_UNLIMITED_CARRY",
+      "prohibit_automated_trade": true,
+      "author": "CHATGPT_SAME_SESSION_NOT_BLIND",
+      "requires_independent_human_final_answer_review": true
+    }
+  ],
+  "independent_human_reviewer_completed": false,
+  "independent_financial_legal_advice_approved": false,
+  "self_authored_questions_not_blind": true,
+  "unknown_customer_portfolio_case_inputs_not_used": true,
+  "release": "STRUCTURAL_NEGATIVE_CHECK_ONLY_NOT_INDEPENDENT_ADVISORY_QUALITY_CERTIFICATION"
+}

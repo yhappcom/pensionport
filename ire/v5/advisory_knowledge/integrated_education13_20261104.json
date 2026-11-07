@@ -1,0 +1,832 @@
+{
+  "schema": "IRE_V5_INTEGRATED_EDUCATION_KNOWLEDGE_13_V1",
+  "as_of": "2026-11-04",
+  "status": "PROVISIONAL_GENERAL_EDUCATION_RESEARCH_NOT_PERSONAL_ADVICE",
+  "predecessor_sources": {
+    "existing_education": "ire/v5/advisory_knowledge/deduplicated_educational_knowledge_20261104.json",
+    "last33": "ire/v5/advisory_knowledge/one_turn33_20261104/decisions.json",
+    "initial_financial_evidence": "ire/v5/advisory_knowledge/verification_20261104/adjudications.json",
+    "initial_original_srt_spans": "ire/v5/advisory_knowledge/verification_20261104/source_spans.json",
+    "study_lineage": "ire/v5/advisory_knowledge/review44_20261104/triage.json",
+    "old20": "ire/v5/advisory_knowledge/provisional_integrated_20_plus_5_20261104.json"
+  },
+  "original_legacy_ledger_mutated": false,
+  "remaining_other_53_statuses_protected": true,
+  "total_education_topics": 13,
+  "metrics": {
+    "initial_existing_education_concepts": 4,
+    "new_education_concepts": 9,
+    "education_source_assessment_links": 17,
+    "distinct_original_video_ids": 5,
+    "approved_personal_advice": 0,
+    "external_human_blind_approvals": 0
+  },
+  "non_education_other_claim_dispositions": "original triage and 10-case adjudication, no automatic promotion",
+  "source_reference_catalog": [
+    {
+      "id": "FINRA-DCA",
+      "issuer": "FINRA",
+      "url": "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "IRP-HANWHA",
+      "issuer": "한화투자증권",
+      "url": "https://www.hanwhawm.com/static/pension/PS230_1p.htm",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "KRX-ETF",
+      "issuer": "한국거래소",
+      "url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "KRX-ETF-DISC",
+      "issuer": "한국거래소 KIND",
+      "url": "https://kind.krx.co.kr/disclosure/etfisudetail.do?method=searchEtfIsuSummary&strIsurCd=27763",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "KRX-PRICE-NAV",
+      "issuer": "한국거래소",
+      "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "LAW-CREDIT",
+      "issuer": "국가법령정보센터",
+      "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032951711",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "LAW-WITHDRAW",
+      "issuer": "국가법령정보센터",
+      "url": "https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1022578927",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "MOEL-IRP",
+      "issuer": "고용노동부",
+      "url": "https://www.moel.go.kr/retirementpay.do",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "MOEL-TRANSFER",
+      "issuer": "고용노동부",
+      "url": "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=17141",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "NTS-PENSION",
+      "issuer": "국세청",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6439",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "NTS-PENSION-TAX",
+      "issuer": "국세청",
+      "url": "https://d.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238978&mi=40483",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "PENSION-DECREE",
+      "issuer": "국가법령정보센터",
+      "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-DCA-FINRA-2026",
+      "issuer": "FINRA",
+      "url": "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging",
+      "source_type": "INDEPENDENT_SRO_GUIDE",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-DCA-SEC",
+      "issuer": "미국 증권거래위원회 투자자교육",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+      "source_type": "REGULATOR_INVESTOR_GUIDE",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-INCOME-TAX-DECREE-2026",
+      "issuer": "국가법령정보센터",
+      "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507",
+      "source_type": "ENACTED_DECREE",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-ISA-BANK-SEP-2026",
+      "issuer": "하나은행",
+      "url": "https://www.kebhana.com/cont/mall/mall23/mall2302/1528904_124747.jsp",
+      "source_type": "INSTITUTIONAL_NOTICE",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-ISA-STATUTE-2026",
+      "issuer": "국가법령정보센터",
+      "url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1018255825",
+      "source_type": "STATUTE",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-ISA-TRANSFER-60DAYS",
+      "issuer": "국세청",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605",
+      "source_type": "ADMINISTRATIVE_GUIDANCE",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-ISA-TRANSFER-NTS",
+      "issuer": "국세청",
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2343",
+      "source_type": "ADMINISTRATIVE_GUIDANCE",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-ISA-TRANSFER-TAX-RULING",
+      "issuer": "국세청 국세법령정보시스템",
+      "url": "https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000006505",
+      "source_type": "TAX_RULING",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-PENSION-TAX-MOEL",
+      "issuer": "고용노동부",
+      "url": "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=20160",
+      "source_type": "MINISTRY_PRESS_RELEASE",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "REF-PENSION-TAX-NTS",
+      "issuer": "국세청",
+      "url": "https://i.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6453",
+      "source_type": "ADMINISTRATIVE_GUIDANCE",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "SEC-ASSET",
+      "issuer": "미국 증권거래위원회",
+      "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "SEC-DCA",
+      "issuer": "미국 증권거래위원회",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    },
+    {
+      "id": "SEC-ETF-STRUCTURE",
+      "issuer": "미국 증권거래위원회",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
+      "source_type": "PUBLIC_PROVIDER_DOCUMENT",
+      "source_verified_by_external_human": false,
+      "immutable_original_copy_archived": false
+    }
+  ],
+  "nodes": [
+    {
+      "knowledge_id": "EDU-KR-ISA-LIMIT-2026-01",
+      "knowledge_kind": "REGULATED_TAX_RULE",
+      "safe_general_statement": "ISA 비과세 한도는 법정 요건을 충족한 유형에 따라 200만원 또는 400만원이다.",
+      "critical_scope_and_exceptions": "가입·연장일 기준 유형/직전과세기간 소득, 금융소득종합과세 관련 제외조건을 확인해야 한다.",
+      "previous_education_record": true,
+      "prior_education_claim_unchanged": true,
+      "existing_core_claim_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C109"
+      ],
+      "original_source_claims": [
+        "I255-03"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "SOURCE_CONTEXT_SCOPED_FINANCIAL_EDUCATION",
+          "research_review_id": "P01_ISA_INCOME",
+          "source_claim_id": "I255-03",
+          "source_video_id": "7p3p7TKcdqY",
+          "original_cue_start": 181,
+          "original_cue_end": 195,
+          "original_cue_span_sha256": "f849f02cf3c63562313cc4133e303bf6bc04141661cf067e61ea2ee68bd96a0d",
+          "external_reference_ids": [
+            "REF-ISA-STATUTE-2026",
+            "REF-ISA-BANK-SEP-2026"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "REF-ISA-STATUTE-2026",
+        "REF-ISA-BANK-SEP-2026"
+      ],
+      "requires_fresh_effectivity_check": true,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-KR-ISA-TO-PENSION-2026-01",
+      "knowledge_kind": "REGULATED_TAX_RULE",
+      "safe_general_statement": "ISA 만기자금의 적격 연금계좌 전환은 전환액 10%, 최대 300만원의 추가 세액공제 대상 납입한도를 발생시킬 수 있다. 만기 후 60일 이내 납입을 확인한다.",
+      "critical_scope_and_exceptions": "공제세액 자체가 300만원이라는 뜻이 아니며 납세자 결정세액·계좌 유형·이체기한·증권사 처리방식을 확인한다.",
+      "previous_education_record": true,
+      "prior_education_claim_unchanged": true,
+      "existing_core_claim_ids": [
+        "GOMHEE-C32",
+        "GOMHEE-C33",
+        "GOMHEE-C08",
+        "GOMHEE-C42"
+      ],
+      "original_source_claims": [
+        "I255-08",
+        "R250-11"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "SOURCE_CONTEXT_SCOPED_FINANCIAL_EDUCATION",
+          "research_review_id": "P03_ISA_PENSION_TRANSFER",
+          "source_claim_id": "I255-08",
+          "source_video_id": "7p3p7TKcdqY",
+          "original_cue_start": 629,
+          "original_cue_end": 663,
+          "original_cue_span_sha256": "c56fe1b4dea14faadaee21e07af64f9ee3b8c1d6f5277173eed7683c040f0224",
+          "external_reference_ids": [
+            "REF-ISA-TRANSFER-NTS",
+            "REF-ISA-TRANSFER-TAX-RULING",
+            "REF-ISA-TRANSFER-60DAYS"
+          ]
+        },
+        {
+          "evidence_role": "SOURCE_CONTEXT_SCOPED_FINANCIAL_EDUCATION",
+          "research_review_id": "P07_IRP_PENSION_TRANSFER",
+          "source_claim_id": "R250-11",
+          "source_video_id": "2bLy034D5LA",
+          "original_cue_start": 583,
+          "original_cue_end": 590,
+          "original_cue_span_sha256": "33311ad9a439146b20a008160b72095a46fdf7b4b4f4ba29dd522733d736dbc8",
+          "external_reference_ids": [
+            "REF-ISA-TRANSFER-NTS",
+            "REF-ISA-TRANSFER-60DAYS",
+            "REF-ISA-TRANSFER-TAX-RULING"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "REF-ISA-TRANSFER-NTS",
+        "REF-ISA-TRANSFER-TAX-RULING",
+        "REF-ISA-TRANSFER-60DAYS"
+      ],
+      "requires_fresh_effectivity_check": true,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-KR-PRIVATE-PENSION-1500-2026-01",
+      "knowledge_kind": "REGULATED_TAX_RULE",
+      "safe_general_statement": "특정 과세대상 사적연금소득이 연 1500만원을 넘더라도 종합과세 또는 소득세율 15% 분리과세 선택이 가능하며, 계좌별 연금수령한도와 별개다.",
+      "critical_scope_and_exceptions": "1,500만원은 모든 연금 인출에 대한 법적 상한이 아니다. 이연퇴직소득/비공제 원금과 수령요건, 지방세·소득구간을 분리한다.",
+      "previous_education_record": true,
+      "prior_education_claim_unchanged": true,
+      "existing_core_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C71",
+        "GOMHEE-C08",
+        "GOMHEE-C73"
+      ],
+      "original_source_claims": [
+        "P217-07",
+        "R250-08"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "SOURCE_CONTEXT_SCOPED_FINANCIAL_EDUCATION",
+          "research_review_id": "P04_PENSION_1500",
+          "source_claim_id": "P217-07",
+          "source_video_id": "l0Q-2Ah-ba8",
+          "original_cue_start": 314,
+          "original_cue_end": 349,
+          "original_cue_span_sha256": "e2ddba31bbb670e4de789475b4d36800047f07359ddba396183465e2dd8ee140",
+          "external_reference_ids": [
+            "REF-PENSION-TAX-NTS",
+            "REF-PENSION-TAX-MOEL",
+            "REF-INCOME-TAX-DECREE-2026"
+          ]
+        },
+        {
+          "evidence_role": "NEW_SOURCE_CORROBORATION_WITH_SCOPE",
+          "research_review_id": "one_turn33:R250-08",
+          "source_claim_id": "R250-08",
+          "source_video_id": "2bLy034D5LA",
+          "original_cue_start": 405,
+          "original_cue_end": 483,
+          "original_cue_span_sha256": "c82d308dc0087ed23e8150b7b46db5d04420785c5631291eadc1d027b9cca49d",
+          "external_reference_ids": [
+            "NTS-PENSION-TAX",
+            "LAW-WITHDRAW"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "REF-PENSION-TAX-NTS",
+        "REF-PENSION-TAX-MOEL",
+        "REF-INCOME-TAX-DECREE-2026",
+        "NTS-PENSION-TAX",
+        "LAW-WITHDRAW"
+      ],
+      "requires_fresh_effectivity_check": true,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-GENERAL-DCA-ARITH-01",
+      "knowledge_kind": "MATHEMATICAL_EDUCATION",
+      "safe_general_statement": "월 50만원을 가격 10만원·50만원·5만원에 각각 매수하면 수량은 5·1·10, 평균단가는 93,750원이다. 마지막 가격 5만원에서는 평가손실 -46.67%이므로 정액적립이 이익을 보장하지 않는다.",
+      "critical_scope_and_exceptions": "임의 가상가격에 따른 산술 예시이며 상품별 실제 수익률이나 과거 실적 예측이 아니다.",
+      "previous_education_record": true,
+      "prior_education_claim_unchanged": true,
+      "existing_core_claim_ids": [
+        "GOMHEE-C52",
+        "GOMHEE-C75"
+      ],
+      "original_source_claims": [
+        "A237-04",
+        "A237-03"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "SOURCE_CONTEXT_SCOPED_FINANCIAL_EDUCATION",
+          "research_review_id": "P09_DCA_MATH",
+          "source_claim_id": "A237-04",
+          "source_video_id": "tDD5GzvDYq8",
+          "original_cue_start": 166,
+          "original_cue_end": 185,
+          "original_cue_span_sha256": "adf98c66522f307fa561d18f41dcff9055f7b760828af39da2082af75059881b",
+          "external_reference_ids": [
+            "REF-DCA-SEC",
+            "REF-DCA-FINRA-2026"
+          ]
+        },
+        {
+          "evidence_role": "NEW_SOURCE_CORROBORATION_WITH_SCOPE",
+          "research_review_id": "one_turn33:A237-03",
+          "source_claim_id": "A237-03",
+          "source_video_id": "tDD5GzvDYq8",
+          "original_cue_start": 113,
+          "original_cue_end": 167,
+          "original_cue_span_sha256": "4493c61c94e7bb740c95fc6b79427f7ed29ccbb982d0c494d22dd2b9f4d37b6f",
+          "external_reference_ids": [
+            "SEC-DCA",
+            "FINRA-DCA"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "REF-DCA-SEC",
+        "REF-DCA-FINRA-2026",
+        "SEC-DCA",
+        "FINRA-DCA"
+      ],
+      "requires_fresh_effectivity_check": false,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-RETIREMENT-ACCOUNT-AUDIT",
+      "knowledge_kind": "GENERAL_FINANCIAL_EDUCATION",
+      "safe_general_statement": "은퇴 전 DB·DC·IRP 등 기존 연금계좌의 잔액·상품·비용·목표기간·위험노출을 점검한다. 이는 특정 상품 교체를 권하는 지시가 아니다.",
+      "critical_scope_and_exceptions": "퇴직연금 유형 및 계좌 변경은 개인의 세제·소득원천·유동성·투자 적합성 점검을 전제로 한다.",
+      "previous_education_record": false,
+      "prior_education_claim_unchanged": null,
+      "existing_core_claim_ids": [
+        "GOMHEE-C07",
+        "GOMHEE-C43"
+      ],
+      "original_source_claims": [
+        "P217-01"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:P217-01",
+          "source_claim_id": "P217-01",
+          "source_video_id": "l0Q-2Ah-ba8",
+          "original_cue_start": 17,
+          "original_cue_end": 57,
+          "original_cue_span_sha256": "1d1f928a18b41cafca80f3e5b06c628dd304ba298085196e804f3b33a5166316",
+          "external_reference_ids": [
+            "MOEL-IRP",
+            "SEC-ASSET"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "MOEL-IRP",
+        "SEC-ASSET"
+      ],
+      "requires_fresh_effectivity_check": false,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-KR-PENSION-55-5",
+      "knowledge_kind": "REGULATED_ACCOUNT_EDUCATION",
+      "safe_general_statement": "연금계좌 연금수령에는 일반적으로 55세 이후 신청과 가입 5년 경과 요건이 있으나, 이연퇴직소득에는 5년 요건 예외가 있다. 계좌별 연금수령한도와 연차별 조건도 별도로 확인한다.",
+      "critical_scope_and_exceptions": "모든 계좌에 5년 보유 또는 10년 분할 인출을 무조건 적용해서는 안 된다. 시행일과 재원 구분을 확인한다.",
+      "previous_education_record": false,
+      "prior_education_claim_unchanged": null,
+      "existing_core_claim_ids": [
+        "GOMHEE-C07",
+        "GOMHEE-C42",
+        "GOMHEE-C08",
+        "GOMHEE-C73"
+      ],
+      "original_source_claims": [
+        "P217-03",
+        "R250-07"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:P217-03",
+          "source_claim_id": "P217-03",
+          "source_video_id": "l0Q-2Ah-ba8",
+          "original_cue_start": 117,
+          "original_cue_end": 160,
+          "original_cue_span_sha256": "a48d4e18fefd18a06dfab4cb1bcaf017b78ffdb83c34d5efdf0a3a46d919a58a",
+          "external_reference_ids": [
+            "NTS-PENSION",
+            "PENSION-DECREE"
+          ]
+        },
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:R250-07",
+          "source_claim_id": "R250-07",
+          "source_video_id": "2bLy034D5LA",
+          "original_cue_start": 373,
+          "original_cue_end": 431,
+          "original_cue_span_sha256": "aeb5042b69fa17a6455cb6a81952793121bf91c0da2b7185ad656087c6d7748b",
+          "external_reference_ids": [
+            "NTS-PENSION",
+            "PENSION-DECREE"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "NTS-PENSION",
+        "PENSION-DECREE"
+      ],
+      "requires_fresh_effectivity_check": true,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-IRP-LIFECYCLE",
+      "knowledge_kind": "REGULATED_ACCOUNT_EDUCATION",
+      "safe_general_statement": "개인형 IRP 개설, 적립금 납입, 운용상품 매수, 세액공제 신청, 연금 수령은 각각 별도의 단계이며 요건이 다르다.",
+      "critical_scope_and_exceptions": "계좌 개설만으로 운용상품 편입·세액공제·연금수령이 자동 실행되는 것은 아니다.",
+      "previous_education_record": false,
+      "prior_education_claim_unchanged": null,
+      "existing_core_claim_ids": [
+        "GOMHEE-C08",
+        "GOMHEE-C73"
+      ],
+      "original_source_claims": [
+        "R250-01"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:R250-01",
+          "source_claim_id": "R250-01",
+          "source_video_id": "2bLy034D5LA",
+          "original_cue_start": 22,
+          "original_cue_end": 46,
+          "original_cue_span_sha256": "4333725a87bafa6d8b3bdb1e64ad4e15594c5fb429f7bac817417cddc86fd6d1",
+          "external_reference_ids": [
+            "MOEL-IRP",
+            "NTS-PENSION"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "MOEL-IRP",
+        "NTS-PENSION"
+      ],
+      "requires_fresh_effectivity_check": false,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-KR-PENSION-CREDIT-600-900",
+      "knowledge_kind": "REGULATED_ACCOUNT_EDUCATION",
+      "safe_general_statement": "연금저축 세액공제 대상 납입한도 600만원과 IRP 포함 합산 900만원, 연금계좌 일반 납입한도 1,800만원은 서로 다른 개념이다.",
+      "critical_scope_and_exceptions": "세액공제 대상 납입한도는 실제 환급액이 아니며 결정세액·공제율·과세연도·ISA 만기전환 등의 조건이 별도다.",
+      "previous_education_record": false,
+      "prior_education_claim_unchanged": null,
+      "existing_core_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C08"
+      ],
+      "original_source_claims": [
+        "R250-04"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:R250-04",
+          "source_claim_id": "R250-04",
+          "source_video_id": "2bLy034D5LA",
+          "original_cue_start": 199,
+          "original_cue_end": 275,
+          "original_cue_span_sha256": "6e7e60cf485bd34e04709f7cb1547836ce8047bbf7126b1569779fa4a7d9646f",
+          "external_reference_ids": [
+            "NTS-PENSION",
+            "LAW-CREDIT"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "NTS-PENSION",
+        "LAW-CREDIT"
+      ],
+      "requires_fresh_effectivity_check": true,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-PENSION-DEFERRED-TAX",
+      "knowledge_kind": "REGULATED_ACCOUNT_EDUCATION",
+      "safe_general_statement": "연금계좌의 과세이연은 인출시점까지 일부 과세를 미루는 구조로 완전 비과세와 다르다. 인출금의 세액공제 여부·이연퇴직소득·운용수익 등 재원별 과세가 달라진다.",
+      "critical_scope_and_exceptions": "개인별 확정 세율·연금 인출 순서·해외 원천징수는 계좌 및 소득 증빙에 따라 달라진다.",
+      "previous_education_record": false,
+      "prior_education_claim_unchanged": null,
+      "existing_core_claim_ids": [
+        "GOMHEE-C08",
+        "GOMHEE-C43"
+      ],
+      "original_source_claims": [
+        "R250-05"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:R250-05",
+          "source_claim_id": "R250-05",
+          "source_video_id": "2bLy034D5LA",
+          "original_cue_start": 277,
+          "original_cue_end": 331,
+          "original_cue_span_sha256": "a953e20e7674023c5754028197438fb9feb218450e7c2d2960dfb59fd2a55abe",
+          "external_reference_ids": [
+            "NTS-PENSION-TAX",
+            "LAW-WITHDRAW"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "NTS-PENSION-TAX",
+        "LAW-WITHDRAW"
+      ],
+      "requires_fresh_effectivity_check": false,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-KR-PENSION-IN-KIND-TRANSFER",
+      "knowledge_kind": "REGULATED_ACCOUNT_EDUCATION",
+      "safe_general_statement": "2024년 10월 31일 개시된 퇴직연금 실물이전은 동일 제도 간에서 취급 가능한 상품에 한해 이뤄질 수 있다.",
+      "critical_scope_and_exceptions": "모든 IRP/연금저축 상품을 매도 없이 옮길 수 있다는 뜻이 아니며 이전 전후 기관 지원·상품 유형·수수료를 확인해야 한다.",
+      "previous_education_record": false,
+      "prior_education_claim_unchanged": null,
+      "existing_core_claim_ids": [
+        "GOMHEE-C43",
+        "GOMHEE-C73"
+      ],
+      "original_source_claims": [
+        "R250-10"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:R250-10",
+          "source_claim_id": "R250-10",
+          "source_video_id": "2bLy034D5LA",
+          "original_cue_start": 533,
+          "original_cue_end": 577,
+          "original_cue_span_sha256": "f49b07f1b9f028cf6d4ee29393efc49482542e880d9c4860a13715e184a314cc",
+          "external_reference_ids": [
+            "MOEL-TRANSFER",
+            "IRP-HANWHA"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "MOEL-TRANSFER",
+        "IRP-HANWHA"
+      ],
+      "requires_fresh_effectivity_check": true,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-ETF-NAV-TRACKING",
+      "knowledge_kind": "GENERAL_FINANCIAL_EDUCATION",
+      "safe_general_statement": "ETF의 시장가격·순자산가치(NAV) 간 괴리율과 기초지수 대비 추적오차는 서로 다른 지표다. 투자자는 보수·거래량·스프레드·추종지수도 구분해 평가한다.",
+      "critical_scope_and_exceptions": "과거 운용지표는 미래 성과를 보장하지 않으며 특정 ETF의 현재 비용·추적오차는 최신 공시로 확인한다.",
+      "previous_education_record": false,
+      "prior_education_claim_unchanged": null,
+      "existing_core_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C26"
+      ],
+      "original_source_claims": [
+        "E229-01"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:E229-01",
+          "source_claim_id": "E229-01",
+          "source_video_id": "z1oZOJ3_uIk",
+          "original_cue_start": 21,
+          "original_cue_end": 88,
+          "original_cue_span_sha256": "cf161879c9d388b06591bcfc15c603b2b555d003ea880083ec77b6701e598564",
+          "external_reference_ids": [
+            "KRX-ETF",
+            "KRX-PRICE-NAV",
+            "KRX-ETF-DISC",
+            "SEC-ETF-STRUCTURE"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "KRX-ETF",
+        "KRX-PRICE-NAV",
+        "KRX-ETF-DISC",
+        "SEC-ETF-STRUCTURE"
+      ],
+      "requires_fresh_effectivity_check": false,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-ETF-TOTAL-COST-DECISION",
+      "knowledge_kind": "GENERAL_FINANCIAL_EDUCATION",
+      "safe_general_statement": "ETF 교체는 표면 총보수만 비교하지 않고 내재 비용, 거래수수료, 호가 스프레드, 추적오차, 세금, 보유기간과 투자목표를 함께 검토해야 한다.",
+      "critical_scope_and_exceptions": "이 설명만으로 기존 ETF를 매도하거나 최저비용 상품을 즉시 매수하라고 권해서는 안 된다.",
+      "previous_education_record": false,
+      "prior_education_claim_unchanged": null,
+      "existing_core_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "original_source_claims": [
+        "E229-11"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:E229-11",
+          "source_claim_id": "E229-11",
+          "source_video_id": "z1oZOJ3_uIk",
+          "original_cue_start": 831,
+          "original_cue_end": 891,
+          "original_cue_span_sha256": "627b8dd461a5e62fc351c5386e05f5ce0e4971c4f766d9a85e2a5042c8a56e3b",
+          "external_reference_ids": [
+            "KRX-ETF",
+            "KRX-ETF-DISC",
+            "SEC-ASSET",
+            "SEC-ETF-STRUCTURE"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "KRX-ETF",
+        "KRX-ETF-DISC",
+        "SEC-ASSET",
+        "SEC-ETF-STRUCTURE"
+      ],
+      "requires_fresh_effectivity_check": false,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    },
+    {
+      "knowledge_id": "EDU-DCA-DIVERSIFICATION",
+      "knowledge_kind": "GENERAL_FINANCIAL_EDUCATION",
+      "safe_general_statement": "정액적립과 서로 다른 자산군의 분산 보유는 투자 행동을 규칙화하지만 손실을 방지하거나 미래 수익을 보장하지 않는다. 여러 ETF를 보유해도 동일 종목·업종에 집중될 수 있다.",
+      "critical_scope_and_exceptions": "개인 투자기간·현금수요·위험감내·ETF 구성종목·목표비중이 없는 상태에서 자산배분 비율을 확정하지 않는다.",
+      "previous_education_record": false,
+      "prior_education_claim_unchanged": null,
+      "existing_core_claim_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C52"
+      ],
+      "original_source_claims": [
+        "A237-06"
+      ],
+      "source_links": [
+        {
+          "evidence_role": "NEW_SOURCE_EDUCATION_WITH_CRITICAL_SCOPE",
+          "research_review_id": "one_turn33:A237-06",
+          "source_claim_id": "A237-06",
+          "source_video_id": "tDD5GzvDYq8",
+          "original_cue_start": 241,
+          "original_cue_end": 306,
+          "original_cue_span_sha256": "9ef9198d96e80cd36798000a06e439522c59ecbf8567cb73099756b601dcc6b5",
+          "external_reference_ids": [
+            "SEC-ASSET",
+            "SEC-DCA",
+            "FINRA-DCA"
+          ]
+        }
+      ],
+      "authority_ids": [
+        "SEC-ASSET",
+        "SEC-DCA",
+        "FINRA-DCA"
+      ],
+      "requires_fresh_effectivity_check": false,
+      "research_quality_status": "MULTI_SOURCE_PUBLIC_DOCUMENT_CROSSCHECK_NOT_BLIND_HUMAN_APPROVAL",
+      "safe_use": "GENERAL_EDUCATION_ONLY",
+      "independent_human_blind_verified": false,
+      "personalized_advice_approved": false,
+      "financial_fact_independently_certified": false
+    }
+  ],
+  "independent_blind_review_completed": false,
+  "formal_financial_advice_approved": false
+}

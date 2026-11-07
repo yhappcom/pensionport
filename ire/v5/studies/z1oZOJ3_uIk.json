@@ -1,0 +1,271 @@
+{
+  "schema": "IRE_V5_FULL_SOURCE_STUDY_V1",
+  "video_id": "z1oZOJ3_uIk",
+  "roster_no": 229,
+  "headline": "ETF 실제 보수·비용 비교와 2025년 상품별 순위",
+  "source_archive": "201-300.zip",
+  "source_sha256": "56a7064e14282258376f5b95ea64479fa307c16585a4a7fd195fb7f5cda2881a",
+  "total_cues": 891,
+  "source_read_all_cues_in_active_chat": true,
+  "each_cue_independently_claim_adjudicated": false,
+  "review_date": "2026-11-04",
+  "reviewer": "CHATGPT_ACTIVE_CONVERSATION",
+  "source_sections": [
+    {
+      "first_cue": 1,
+      "last_cue": 20,
+      "topic": "intro"
+    },
+    {
+      "first_cue": 21,
+      "last_cue": 144,
+      "topic": "selection_principles"
+    },
+    {
+      "first_cue": 145,
+      "last_cue": 205,
+      "topic": "management_custody_admin_fees"
+    },
+    {
+      "first_cue": 206,
+      "last_cue": 303,
+      "topic": "ter_trading_internal_cost"
+    },
+    {
+      "first_cue": 304,
+      "last_cue": 433,
+      "topic": "sp500_unhedged_historical_comparison"
+    },
+    {
+      "first_cue": 434,
+      "last_cue": 543,
+      "topic": "sp500_hedged_comparison"
+    },
+    {
+      "first_cue": 544,
+      "last_cue": 688,
+      "topic": "dividend_nasdaq_costs"
+    },
+    {
+      "first_cue": 689,
+      "last_cue": 771,
+      "topic": "gold_kospi_kosdaq"
+    },
+    {
+      "first_cue": 772,
+      "last_cue": 830,
+      "topic": "china_india_vietnam"
+    },
+    {
+      "first_cue": 831,
+      "last_cue": 891,
+      "topic": "summary_account_cost_tradeoff"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "E229-01",
+      "first_cue": 21,
+      "last_cue": 88,
+      "proposition": "ETF 비교 시 수익률·규모·유동성·보수·괴리율·추적오차를 함께 살피고 기초자산 구성을 우선한다고 설명한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C26"
+      ],
+      "relationship": "SUPPORTS",
+      "review_status": "GENERAL_EDUCATION",
+      "scope_or_error": "수익률은 과거 성적이며 크기가 크거나 보수가 낮다고 향후 우수 성과 보장 아님. 거래량·스프레드·기초지수 적합성 함께 확인.",
+      "evidence_ids": [
+        "SRC-KRX-ETF"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-02",
+      "first_cue": 90,
+      "last_cue": 144,
+      "proposition": "동일 지수 ETF 사이 0.01%p 수준 비용 차이를 과도하게 추구하면 본래 투자목표가 흔들릴 수 있다고 주장한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "relationship": "QUALIFIES",
+      "review_status": "PERSONAL_FEE_TRADEOFF",
+      "scope_or_error": "장기 보유금액·잔여 투자기간·추적오차·세금·스프레드·전환 수수료에 따라 사소한 차이도 의미 달라짐.",
+      "evidence_ids": [],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-03",
+      "first_cue": 145,
+      "last_cue": 205,
+      "proposition": "ETF 총보수를 운용·수탁·지정참가/판매·일반사무관리의 합계라는 형태로 설명한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "FUND_SPECIFIC_COST_COMPONENTS",
+      "scope_or_error": "상품별 공시명세가 우선. 운용사/지정참가/판매 수수료 명칭과 보수 산정방식은 정확한 투자설명서·공시 대조 필요.",
+      "evidence_ids": [
+        "SRC-ETF-FEE-KB"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-04",
+      "first_cue": 206,
+      "last_cue": 264,
+      "proposition": "총보수 외 기타비용을 포함한 TER과 변동 비용을 구분한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "OFFICIAL_GENERAL_CONCEPT",
+      "scope_or_error": "총보수+기타비용·운용 기간에 따라 변동되는 비용과 기준일 확인. TER은 투자자 총지출액과 정확히 동일하지 않을 수 있다.",
+      "evidence_ids": [
+        "SRC-ETF-FEE-KB"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-05",
+      "first_cue": 265,
+      "last_cue": 303,
+      "proposition": "ETF 내부 매매·중개수수료까지 포함하는 실부담비용을 총보수/TER과 구분한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "OFFICIAL_GENERAL_CONCEPT",
+      "scope_or_error": "실제 부담 비용은 산정 기준·기간에 의존. ETF 내부 비용과 투자자의 별도 증권매매 수수료·호가 스프레드를 혼동하지 않는다.",
+      "evidence_ids": [
+        "SRC-ETF-FEE-KB"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-06",
+      "first_cue": 304,
+      "last_cue": 433,
+      "proposition": "2025년 7월 24일 기준 미국 S&P500 관련 ETF의 총보수·기타비용·실부담비용 순위를 비교한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "relationship": "QUALIFIES",
+      "review_status": "HISTORICAL_PRODUCT_RANKING",
+      "scope_or_error": "운용사·상품군·실부담비용 최저 상품은 표의 2025년 기준 시점 한정. 2026년 현재 추천 순위로 재사용 금지; ISIN·상품코드 및 공시 기준일 재조회.",
+      "evidence_ids": [
+        "SRC-ETF-FEE-KB"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-07",
+      "first_cue": 434,
+      "last_cue": 543,
+      "proposition": "환헤지형 S&P500 ETF와 비헤지형을 나누어 보수와 실제비용·규모를 비교한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "HEDGING_AND_COST_OPEN",
+      "scope_or_error": "H 표기와 실제 환헤지 수준·헤지비용·추적오차·보유 자산 등 위험이 상이. 한 번의 비용 최저값만으로 상품 권고 금지.",
+      "evidence_ids": [],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-08",
+      "first_cue": 545,
+      "last_cue": 687,
+      "proposition": "미국 배당다우존스, 나스닥100 및 헤지형 ETF의 비용과 분배 방식 차이를 비교한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "relationship": "EXTENDS",
+      "review_status": "HISTORICAL_PRODUCT_RANKING",
+      "scope_or_error": "분배금 지급주기·과거 분배율·최저 보수는 변동. 배당형/커버드콜 구분과 세후 총수익 비교해야 한다.",
+      "evidence_ids": [
+        "SRC-ETF-FEE-KB"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-09",
+      "first_cue": 689,
+      "last_cue": 770,
+      "proposition": "금현물·코스피100·코스닥150 ETF의 비용을 비교하며 특정 운용사를 선택 후보로 언급한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C26"
+      ],
+      "relationship": "QUALIFIES",
+      "review_status": "HISTORICAL_PRODUCT_RANKING",
+      "scope_or_error": "금 현물형/선물형과 시장지수, 산업별 위험 상이. 영상 추천 운용사명은 2026년 자동 추천으로 승격 금지.",
+      "evidence_ids": [
+        "SRC-ETF-FEE-KB"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-10",
+      "first_cue": 772,
+      "last_cue": 830,
+      "proposition": "중국 CSI300·인도 Nifty50·베트남 VN30 등 해외 지수형 국내 ETF의 비용을 비교한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C26"
+      ],
+      "relationship": "QUALIFIES",
+      "review_status": "COUNTRY_RISK_AND_DATETIME",
+      "scope_or_error": "각 지수·환율·외국세·시총·해외매매비용, 상품별 기준시점으로 분리. 국가별 2025 최저사명을 현재 추천으로 사용 금지.",
+      "evidence_ids": [],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    },
+    {
+      "claim_id": "E229-11",
+      "first_cue": 831,
+      "last_cue": 891,
+      "proposition": "세밀한 보수 차이보다 장기 투자계획을 지키는 것이 중요하며 ETF 교체도 비용 차이와 전략을 비교하라고 설명한다.",
+      "prior_claim_ids": [
+        "GOMHEE-C06",
+        "GOMHEE-C110"
+      ],
+      "relationship": "SUPPORTS",
+      "review_status": "GENERAL_INVESTOR_EDUCATION",
+      "scope_or_error": "장기 적립의 보장 수익을 전제하면 오류. 기존 상품 보유자에게 교체를 권하려면 매매 스프레드·세금·계좌 제약·총투자비용 비교.",
+      "evidence_ids": [
+        "SRC-ETF-FEE-KB"
+      ],
+      "independent_human_verified": false,
+      "advisory_approved": false
+    }
+  ],
+  "overall_status": "SOURCE_STUDIED_CLAIMS_PROVISIONAL",
+  "advisory_go": false,
+  "evidence_status": "ETF_FEE_CONCEPT_SUPPORTED_HISTORICAL_PRODUCT_RANKINGS_OPEN",
+  "verification_open": [
+    "표 이미지 원문 수치와 ASR 보수 단위 검수: 숫자 자막만으로 최저 상품 확정 불가",
+    "2025년 7월 24일 공시와 2026년 동일 상품 실부담비용 재조회",
+    "정확한 ETF 상품코드·환헤지·지수·분배 정책 매칭",
+    "TER와 실부담비용·개인 증권사 거래수수료 분리",
+    "중국/인도/베트남 등 시장별 투자/환율/세금 위험",
+    "상품 선정 순위는 2025년 역사적 비교로만 보존"
+  ],
+  "no_public_transcript_full_text": true
+}

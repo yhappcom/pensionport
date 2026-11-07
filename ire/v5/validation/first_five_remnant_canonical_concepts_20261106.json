@@ -1,0 +1,985 @@
+{
+  "schema": "IRE_V5_FIRST_FIVE_221_CONCEPT_CANONICALIZATION_V1",
+  "as_of": "2026-11-06",
+  "canonical_educational_scopes": [
+    {
+      "cluster_id": "NPS_TOPUP",
+      "canonical_conditional_statement": "국민연금 추납은 가입기간을 늘리는 선택지이나 개인별 추납금 대비 증액 연금의 유불리는 가입기간·기대수명·현금흐름에 달린다",
+      "source_ids_checked_for_limited_scope": [
+        "NPS-119M"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C66",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "NPS_DEFER",
+      "canonical_conditional_statement": "노령연금 연기는 최대 5년·연 7.2% 가산이며, 연기기간에 미수령한 연금의 기회비용과 미래 세금도 반영해야 한다",
+      "source_ids_checked_for_limited_scope": [
+        "NPS-DEFER"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C66",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "PENSION_1500_TAX",
+      "canonical_conditional_statement": "과세대상 사적연금소득 연 1500만원은 과세선택 기준이고 연금계좌 인출금지 한도가 아니며 이연퇴직소득 등 예외가 있다",
+      "source_ids_checked_for_limited_scope": [
+        "NTS-1500",
+        "NTS-SOURCES"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C42",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "PENSION_NONCREDIT",
+      "canonical_conditional_statement": "공제받지 않은 연금 납입원금과 운용수익은 다른 과세재원이며 장기간 인출계획에서 원금 소진 가능성을 고려한다",
+      "source_ids_checked_for_limited_scope": [
+        "NTS-SOURCES"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C78",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "ISA_LIFECYCLE",
+      "canonical_conditional_statement": "ISA 만기·연장·해지·연금전환은 세제·손익통산·유동성을 함께 확인해야 하는 별개 선택지다",
+      "source_ids_checked_for_limited_scope": [
+        "ISA-LIVE-ISSUER",
+        "NTS-CREDIT"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C115",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "PENSION_INSURANCE_RATES",
+      "canonical_conditional_statement": "과거 연금저축보험의 보증이율·해지손실과 주식형 펀드 변동수익을 위험조정 없이 동일시할 수 없다",
+      "source_ids_checked_for_limited_scope": [],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C44",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "CMA_INSURANCE_AND_RATES",
+      "canonical_conditional_statement": "증권사 CMA의 유형별 신용·원금손실·예금보호 위험과 기준일별 적용금리를 확인해야 한다",
+      "source_ids_checked_for_limited_scope": [
+        "KBSEC-CMA"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C65",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "ACCOUNT_THREE_SEVEN",
+      "canonical_conditional_statement": "생애별 계좌 수와 납입액 예시는 개인 소득·결정세액·비상금·현행 계좌 제도에 따라 달라진다",
+      "source_ids_checked_for_limited_scope": [
+        "ISA-LIVE-ISSUER",
+        "NTS-CREDIT"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C40",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "PORTFOLIO_ACTIVE_PASSIVE",
+      "canonical_conditional_statement": "패시브·액티브와 주도주·가치주의 비중은 고정 정답이 없고 산업·개별기업 집중도를 함께 관리한다",
+      "source_ids_checked_for_limited_scope": [
+        "US-SEC-DIVERSIFY"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C09",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "IRP_FEES_AND_TRANSFER",
+      "canonical_conditional_statement": "퇴직금 IRP의 계좌이전·금융회사 선택은 비교공시 및 계약별 수수료·운용제약을 확인해야 한다",
+      "source_ids_checked_for_limited_scope": [
+        "MOEL-IRP"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C43",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "IRP_1MAN_APPLICATION",
+      "canonical_conditional_statement": "IRP의 연금개시에는 계좌 원천별 가입기간·연령·수령한도 조건이 있으며 1만원 신청이 법정 필수조건이라는 증거는 확인되지 않았다",
+      "source_ids_checked_for_limited_scope": [
+        "IRP-TAX-ISSUER"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C68",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "BOND_MATURITY_NOT_GUARANTEE",
+      "canonical_conditional_statement": "국채 만기보유 수익과 국채/채권 ETF의 중도 가격변동·신용·유동성 조건을 구분한다",
+      "source_ids_checked_for_limited_scope": [
+        "US-SEC-BONDS"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C12",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "RETIREMENT_DCA_PARKING",
+      "canonical_conditional_statement": "퇴직금 목돈을 분할 매수하는 방식은 진입시점 스트레스를 낮출 수 있지만 손실 회피·원금보장을 뜻하지 않는다",
+      "source_ids_checked_for_limited_scope": [
+        "US-SEC-DCA"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C64",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "INSURANCE_REPLACE_DIVIDEND",
+      "canonical_conditional_statement": "보험 보장·해지환급금과 고배당 위험자산의 현금흐름은 법적 지급성격과 원금위험이 다르다",
+      "source_ids_checked_for_limited_scope": [],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C34",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "RETIREMENT_HOUSE",
+      "canonical_conditional_statement": "주택연금·다운사이징·현금자산 인출은 거주 안정성·보증비용·유동성·상속·과세를 달리한다",
+      "source_ids_checked_for_limited_scope": [
+        "HF-REVERSE",
+        "HF-PAYMENT"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C58",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "SEMICONDUCTOR_CYCLE",
+      "canonical_conditional_statement": "반도체 산업의 영상 당시 전망을 현재 주가나 개별기업 회복의 확률보장 근거로 승격하지 않는다",
+      "source_ids_checked_for_limited_scope": [],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C63",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "HOLD_STOCKS_WITHOUT_REVIEW",
+      "canonical_conditional_statement": "손실만을 이유로 매도하지 않되 기업 근거 훼손·자금 필요·집중위험 시 보유기간과 무관하게 재검토한다",
+      "source_ids_checked_for_limited_scope": [
+        "US-SEC-DIVERSIFY"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C63",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "DIVIDEND_NEW_MONEY",
+      "canonical_conditional_statement": "신규 고배당 투자 수익과 기존 손실주식 회복은 서로 다른 위험 노출로 분리 기록해야 한다",
+      "source_ids_checked_for_limited_scope": [],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C34",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "SOCIAL_BEGINNER_SAVE",
+      "canonical_conditional_statement": "사회초년생은 월급과 지출·부채·목표·결정세액을 정리하고 세제계좌·저축액을 개별로 정한다",
+      "source_ids_checked_for_limited_scope": [
+        "NTS-CREDIT"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C62",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "EMPLOYER_SECTOR_RISK",
+      "canonical_conditional_statement": "자신이 근무하는 산업에 대한 친숙성은 그 산업 ETF의 분산·적합성을 보장하지 않으며 고용과 투자 동시위험을 살핀다",
+      "source_ids_checked_for_limited_scope": [
+        "US-SEC-DIVERSIFY"
+      ],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C62",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "BUDGET_RECORDS",
+      "canonical_conditional_statement": "가계부 기록으로 지출·저축가능액을 확인하되 예산비율과 절약·소비 방법을 고정 투자규칙으로 만들지 않는다",
+      "source_ids_checked_for_limited_scope": [],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C62",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    },
+    {
+      "cluster_id": "HUMAN_CAPITAL_PRIORITY",
+      "canonical_conditional_statement": "20~50대의 경력·소득·저축·은퇴 목표는 다양한 경로가 있으므로 나이별 고정소득·자산수익을 가정하지 않는다",
+      "source_ids_checked_for_limited_scope": [],
+      "related_preexisting_core_id_not_source_inserted": "GOMHEE-C62",
+      "claim_level_duplicate_equivalence_verified": false,
+      "current_personal_advice_release": false,
+      "historical_sources_preserved": true
+    }
+  ],
+  "B04_source_meaning_relationships_for_qualified_principles": [
+    {
+      "video_number": 3,
+      "window_id": "W00011",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00015",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00017",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00020",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00022",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00025",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00026",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00035",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00040",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00041",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00042",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00006",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00007",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00010",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00014",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00019",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00027",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00028",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00031",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00032",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00043",
+      "legacy_claim_id": "GOMHEE-C64",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00005",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00007",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00011",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00012",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00016",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00017",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00019",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00034",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00035",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00041",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00009",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00013",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00021",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00022",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00024",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00027",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00028",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00029",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 4,
+      "window_id": "W00038",
+      "legacy_claim_id": "GOMHEE-C63",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00017",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00024",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00028",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00030",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00031",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00037",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00039",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00042",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00043",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00046",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00050",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00051",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00052",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "SUPPORTS_CONDITIONAL_PRINCIPLE",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00019",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00020",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00025",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00026",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00027",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00032",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00034",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00054",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00057",
+      "legacy_claim_id": "GOMHEE-C62",
+      "provisional_source_relationship": "QUALIFIES_OR_CHALLENGES_UNSAFE_EXTENSION",
+      "official_regulation_confirmation": false,
+      "B04_formal_merge_approval": false,
+      "meaning_qualified_not_same_as_automatic_financial_fact_approval": true
+    }
+  ],
+  "narrow_financial_or_product_context_crosschecks": [
+    {
+      "video_number": 1,
+      "window_id": "W00016",
+      "narrow_corroborated_fact_or_scope": "국민연금 연기 최대 5년·연7.2%·최대36% 구조",
+      "official_context_ids": [
+        "NPS-DEFER"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 1,
+      "window_id": "W00033",
+      "narrow_corroborated_fact_or_scope": "세액공제받지 않은 원금과 운용수익 과세재원 구분",
+      "official_context_ids": [
+        "NTS-SOURCES"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 1,
+      "window_id": "W00034",
+      "narrow_corroborated_fact_or_scope": "연1500만원은 과세대상 사적연금소득 기준이고 인출금지 상한 아님",
+      "official_context_ids": [
+        "NTS-1500"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 1,
+      "window_id": "W00038",
+      "narrow_corroborated_fact_or_scope": "비공제원금 소진 뒤 운용수익 과세재원 구분 필요",
+      "official_context_ids": [
+        "NTS-SOURCES"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 1,
+      "window_id": "W00044",
+      "narrow_corroborated_fact_or_scope": "연금계좌 전액을 동일 과세재원으로 볼 수 없음",
+      "official_context_ids": [
+        "NTS-SOURCES"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 1,
+      "window_id": "W00064",
+      "narrow_corroborated_fact_or_scope": "일반 ISA 손익통산·비과세 구조 및 최소 의무기간",
+      "official_context_ids": [
+        "ISA-LIVE-ISSUER"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 2,
+      "window_id": "W00015",
+      "narrow_corroborated_fact_or_scope": "IRP의 퇴직금 통산 기능",
+      "official_context_ids": [
+        "MOEL-IRP"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 2,
+      "window_id": "W00020",
+      "narrow_corroborated_fact_or_scope": "은행 기준금리와 RP/CMA 상품금리가 다름",
+      "official_context_ids": [
+        "KBSEC-CMA"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 2,
+      "window_id": "W00039",
+      "narrow_corroborated_fact_or_scope": "ISA 세제 혜택은 해당 요건과 손익이 발생해야 적용",
+      "official_context_ids": [
+        "ISA-LIVE-ISSUER"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00006",
+      "narrow_corroborated_fact_or_scope": "퇴직연금 사업자별 총비용 비교공시 필요",
+      "official_context_ids": [
+        "MOEL-IRP"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00010",
+      "narrow_corroborated_fact_or_scope": "IRP 퇴직급여 원천과 개인납입 원천의 연금개시기간 조건이 다름",
+      "official_context_ids": [
+        "IRP-TAX-ISSUER"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00014",
+      "narrow_corroborated_fact_or_scope": "채권 직접 만기보유와 ETF 상품 구조는 달라 동일한 원금보장 아님",
+      "official_context_ids": [
+        "US-SEC-BONDS"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00032",
+      "narrow_corroborated_fact_or_scope": "주택연금의 초기보증료·연보증료 등 가입 비용 존재",
+      "official_context_ids": [
+        "HF-REVERSE"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 3,
+      "window_id": "W00035",
+      "narrow_corroborated_fact_or_scope": "국민연금·사적연금·주택연금 수령조건 구별",
+      "official_context_ids": [
+        "NTS-SOURCES",
+        "HF-REVERSE"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00030",
+      "narrow_corroborated_fact_or_scope": "소득공제와 연금저축 세액공제는 계산 단계가 다름",
+      "official_context_ids": [
+        "NTS-CREDIT"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    },
+    {
+      "video_number": 5,
+      "window_id": "W00032",
+      "narrow_corroborated_fact_or_scope": "카드 소득공제의 소비 증가 위험과 세액공제 실익을 따로 점검",
+      "official_context_ids": [
+        "NTS-CREDIT"
+      ],
+      "verification_type": "NARROW_INSTITUTION_PAGE_CROSSCHECK_NOT_WHOLE_WINDOW",
+      "exact_verbatim_video_fact_reviewed_by_independent_audio": false,
+      "advice_or_account_action_approval": false
+    }
+  ],
+  "formal_B04_knowledge_merge_approved": false,
+  "strict_semantic_duplicate_subclaims_approved_removed": 0,
+  "concept_level_duplication_collapsed_into_conditional_scopes": 22,
+  "unresolved_claim_level_relation_state": "OPEN_ALL_221_BECAUSE_RECALL_AND_BLIND_ADJUDICATION_NOT_PROVEN",
+  "complete_financial_regulation_fact_approval": false,
+  "personal_advice_release": false
+}

@@ -1,0 +1,132 @@
+{
+  "schema": "IRE_V5_ORIGINAL_CUE_SPAN_ATTESTATION_V1",
+  "audit_date": "2026-11-04",
+  "source_archive": "201-300.zip",
+  "source_zip_sha256": "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10",
+  "method": "sha256(json.dumps([{cue:int,time:'start --> end',text:'joined original SRT lines'},...],ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8'))",
+  "source_original_available_to_ci": false,
+  "excerpt_policy": "No copyrighted original transcript reproduced in public GitHub",
+  "span_count": 10,
+  "rows": [
+    {
+      "id": "P01_ISA_INCOME",
+      "video_id": "7p3p7TKcdqY",
+      "first_cue": 181,
+      "last_cue": 195,
+      "first_time": "00:06:15,160",
+      "last_time": "00:06:46,479",
+      "cue_span_sha256": "f849f02cf3c63562313cc4133e303bf6bc04141661cf067e61ea2ee68bd96a0d",
+      "source_study_claim_id": "I255-03",
+      "cue_count": 15,
+      "private_zip_source_verified_locally": true
+    },
+    {
+      "id": "P02_ISA_RECLASSIFY",
+      "video_id": "7p3p7TKcdqY",
+      "first_cue": 175,
+      "last_cue": 181,
+      "first_time": "00:06:02,639",
+      "last_time": "00:06:19,280",
+      "cue_span_sha256": "4ad0e1c2e3ee04072b754c74d40cbaa2e74b92251a8b493557b44eae032b1bb7",
+      "source_study_claim_id": "I255-03",
+      "cue_count": 7,
+      "private_zip_source_verified_locally": true
+    },
+    {
+      "id": "P03_ISA_PENSION_TRANSFER",
+      "video_id": "7p3p7TKcdqY",
+      "first_cue": 629,
+      "last_cue": 663,
+      "first_time": "00:20:52,600",
+      "last_time": "00:22:03,760",
+      "cue_span_sha256": "c56fe1b4dea14faadaee21e07af64f9ee3b8c1d6f5277173eed7683c040f0224",
+      "source_study_claim_id": "I255-08",
+      "cue_count": 35,
+      "private_zip_source_verified_locally": true
+    },
+    {
+      "id": "P04_PENSION_1500",
+      "video_id": "l0Q-2Ah-ba8",
+      "first_cue": 314,
+      "last_cue": 349,
+      "first_time": "00:11:00,480",
+      "last_time": "00:12:15,959",
+      "cue_span_sha256": "e2ddba31bbb670e4de789475b4d36800047f07359ddba396183465e2dd8ee140",
+      "source_study_claim_id": "P217-07",
+      "cue_count": 36,
+      "private_zip_source_verified_locally": true
+    },
+    {
+      "id": "P05_PENSION_7PCT",
+      "video_id": "l0Q-2Ah-ba8",
+      "first_cue": 210,
+      "last_cue": 260,
+      "first_time": "00:07:19,440",
+      "last_time": "00:09:08,519",
+      "cue_span_sha256": "c3ea52e907b8a66c18fdad6f5fcdca3da5c41bdfa83924fc1583018a0d546b30",
+      "source_study_claim_id": "P217-05",
+      "cue_count": 51,
+      "private_zip_source_verified_locally": true
+    },
+    {
+      "id": "P06_IRP_70PCT",
+      "video_id": "2bLy034D5LA",
+      "first_cue": 366,
+      "last_cue": 371,
+      "first_time": "00:12:50,199",
+      "last_time": "00:13:03,760",
+      "cue_span_sha256": "c72a46ed8392c7c808e05b63e930a6532f93a3d8d1354fc76e379cfa4943a6e3",
+      "source_study_claim_id": "R250-06",
+      "cue_count": 6,
+      "private_zip_source_verified_locally": true
+    },
+    {
+      "id": "P07_IRP_PENSION_TRANSFER",
+      "video_id": "2bLy034D5LA",
+      "first_cue": 583,
+      "last_cue": 590,
+      "first_time": "00:20:39,200",
+      "last_time": "00:21:00,000",
+      "cue_span_sha256": "33311ad9a439146b20a008160b72095a46fdf7b4b4f4ba29dd522733d736dbc8",
+      "source_study_claim_id": "R250-11",
+      "cue_count": 8,
+      "private_zip_source_verified_locally": true
+    },
+    {
+      "id": "P08_ETF_FEES",
+      "video_id": "z1oZOJ3_uIk",
+      "first_cue": 243,
+      "last_cue": 279,
+      "first_time": "00:06:33,360",
+      "last_time": "00:07:38,440",
+      "cue_span_sha256": "8a8b574394d6b4a428cc0dab842e6212f82cc972ef14d2bc4cadd08ae899409c",
+      "source_study_claim_id": "E229-04",
+      "cue_count": 37,
+      "private_zip_source_verified_locally": true
+    },
+    {
+      "id": "P09_DCA_MATH",
+      "video_id": "tDD5GzvDYq8",
+      "first_cue": 166,
+      "last_cue": 185,
+      "first_time": "00:05:01,000",
+      "last_time": "00:05:40,160",
+      "cue_span_sha256": "adf98c66522f307fa561d18f41dcff9055f7b760828af39da2082af75059881b",
+      "source_study_claim_id": "A237-04",
+      "cue_count": 20,
+      "private_zip_source_verified_locally": true
+    },
+    {
+      "id": "P10_DCA_GUARANTEE",
+      "video_id": "tDD5GzvDYq8",
+      "first_cue": 202,
+      "last_cue": 239,
+      "first_time": "00:06:07,880",
+      "last_time": "00:07:22,039",
+      "cue_span_sha256": "07b7820a639c4f3b64ce38da9c95b1425c23daa684ad616c94f4d69b628a493e",
+      "source_study_claim_id": "A237-05",
+      "cue_count": 38,
+      "private_zip_source_verified_locally": true
+    }
+  ]
+}
