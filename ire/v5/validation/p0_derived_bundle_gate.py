@@ -80,7 +80,7 @@ def research_state() -> dict:
     long_vid = {x["video_id"] for x in long["videos"]}
     if len(short_vid) != 5 or len(long_vid) != 5 or short_vid & long_vid:
         raise ValueError("P0_DERIVED_VIDEO_COHORT_INVALID")
-    if {x["video_id"] for x in risks["videos"]} != long_vid:
+    if {x["id"] for x in risks["videos"]} != long_vid:
         raise ValueError("P0_DERIVED_LONG_RISK_VIDEO_MISMATCH")
     claims = {c["candidate_id"] for v in short["videos"] for c in v["candidates"]}
     claims |= {c["atom_id"] for v in long["videos"] for c in v["claims"]}
