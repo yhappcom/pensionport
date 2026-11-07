@@ -61,6 +61,24 @@ from .extra369_linked97_cue_gap_gate import audit as audit_partial97
 from .six_stage_frozen_advisory_eval import run as evaluate_frozen_questions
 from .phase1_to_phase4_progress import audit as audit_p1_p3_p4_progress
 
+def assert_receipt_safety(receipt: dict) -> None:
+    """Prevent a successful structural run from falsely waiving independent review.
+
+    This guard is deliberately separate from the domain-specific validators:
+    terminal status must remain conservative even if an upstream subgate
+    returns a passing structural result.
+    """
+    if (type(receipt) is not dict or
+        receipt.get("blind_review_required_for_research_fact_acceptance") is not True or
+        receipt.get("independent_human_blind_evaluation_completed") is not False or
+        receipt.get("formal_personal_investment_advice_authorized") is not False or
+        receipt.get("p0_cross_window_semantic_completeness_certified") is not False or
+        receipt.get("p0_corpus_research_complete") is not False or
+        receipt.get("terminal_outcome") !=
+            "DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED"):
+        raise RuntimeError("UNSAFE_TERMINAL_RECEIPT_OR_BLIND_REVIEW_WAIVER")
+
+
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
     # These states are deliberately distinct: public CI checks pinned metadata,
@@ -201,11 +219,12 @@ def run(root:Path,private_zip:Path|None=None)->int:
         "extra_three_65_low_keyword_windows_semantic_audit":extra369_low65,
         "extra_three_97_claim_linked_windows_506_residual_cue_audit":partial97,
         "new_twelve_frozen_questions_structural_advisory_evaluation":frozen_advice,
-        "blind_review_required_for_research_fact_acceptance":False,
+        "blind_review_required_for_research_fact_acceptance":True,
         "independent_human_blind_evaluation_completed":False,
         "formal_personal_investment_advice_authorized":False,
-        "terminal_outcome":"RESEARCH_CLOSED_NOT_ADVICE_RELEASED",
+        "terminal_outcome":"DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED",
     }
+    assert_receipt_safety(receipt)
     print("ONE_TURN_RESEARCH_RECEIPT "+json.dumps(
         receipt,ensure_ascii=False,sort_keys=True),flush=True)
     return 0

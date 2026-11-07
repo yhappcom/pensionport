@@ -91,7 +91,10 @@ class SingleRequestOrchestratorTests(unittest.TestCase):
         self.assertEqual(payload["source_scoped_chat_researched_facts"]["fully_accepted_facts"],9)
         self.assertEqual(payload["source_scoped_chat_researched_facts"]["narrowly_accepted_partial_facts"],3)
         self.assertEqual(payload["source_scoped_chat_researched_facts"]["not_accepted_as_facts"],10)
-        self.assertFalse(payload["blind_review_required_for_research_fact_acceptance"])
+        self.assertTrue(payload["blind_review_required_for_research_fact_acceptance"])
+        self.assertEqual(payload["terminal_outcome"],
+                         "DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED")
+        self.assertFalse(payload["independent_human_blind_evaluation_completed"])
         self.assertEqual(payload["legacy_research_consolidation"]["master_claims_indexed"],116)
         self.assertEqual(payload["legacy_research_consolidation"]["first_batch_claims_integrated"],20)
         self.assertEqual(payload["legacy_research_consolidation"]["second_batch_claims_integrated"],20)
