@@ -160,6 +160,31 @@ class IncrementalQualityPathTests(unittest.TestCase):
                     with self.assertRaises(ResearchCoverageError):
                         verify(Path(temp), path)
 
+    def test_two_distinct_atomic_claims_on_same_cue(self):
+        d = fixture()
+        extra = dict(d["candidates"][0])
+        extra["candidate_id"] = "A25B"
+        d["candidates"].append(extra)
+        self.assertEqual(validate_source_review(d)["provisional_claims"], 2)
+
+    def test_empty_window_needs_explicit_disposition(self):
+        d = fixture()
+        d["candidates"] = []
+        with self.assertRaisesRegex(ResearchCoverageError, "EMPTY_WINDOW_MISMATCH"):
+            validate_source_review(d)
+        d["windows"][0]["disposition"] = "SOURCE_READ_NO_FINANCIAL_ATOMIC_CLAIM"
+        self.assertEqual(validate_source_review(d)["provisional_claims"], 0)
+
+    def test_real_one_turn_entrypoint_aborts_on_gate_failure(self):
+        from unittest.mock import patch
+        from ire.v5 import one_turn_run
+        with patch.object(one_turn_run, "preflight_run", return_value=0):
+            with patch.object(one_turn_run, "verify_p0_incremental_source",
+                              side_effect=IncrementalQualityError("PROBE_FAIL")) as check:
+                with self.assertRaisesRegex(IncrementalQualityError, "PROBE_FAIL"):
+                    one_turn_run.run(Path(__file__).resolve().parents[3])
+                check.assert_called_once()
+
     def test_claim_provenance_cannot_be_edited(self):
         d = fixture()
         d["candidates"][0]["cue_sha256"] = H("fake-cue")
