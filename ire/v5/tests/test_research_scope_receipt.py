@@ -14,6 +14,8 @@ SAFE = {
     "formal_personal_investment_advice_authorized": False,
     "p0_cross_window_semantic_completeness_certified": False,
     "p0_corpus_research_complete": False,
+    "p0_independent_semantic_recall_measured": False,
+    "p0_engine_quality_certified": False,
     "one_request_research_complete": False,
     "research_state": "DETERMINISTIC_VALIDATION_ONLY_RESEARCH_OPEN",
     "terminal_outcome": "DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED",
