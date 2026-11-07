@@ -12,6 +12,9 @@ from pathlib import Path
 import hashlib
 import json
 import re
+import zipfile
+
+from .engine import cues_from_srt, RunError
 
 SCHEMA = "IRE_V5_P0_CLAIM_OWNERSHIP_RECONCILIATION_V1"
 REGISTRY_SCHEMA = "IRE_V5_P0_CLAIM_OWNERSHIP_REGISTRY_V1"
@@ -210,4 +213,98 @@ def verify(root: Path, registry_path: Path | None = None) -> dict:
         "semantic_gold_recall_certified": False,
         "p0_go": False,
         "per_batch": all_result
+    }
+
+def verify_private_source(
+    root: Path,
+    private_archive: Path,
+    registry_path: Path | None = None,
+) -> dict:
+    """Recompute *all* recorded source anchors, times and window hashes from SRT.
+
+    Strictly opt-in: GitHub CI without private bytes only runs structural
+    verification and MUST NOT claim original-source replay. The archive is
+    opened read-only; no cue transcript content is written or returned.
+    """
+    root = Path(root).resolve()
+    private_archive = Path(private_archive)
+    require(private_archive.is_file(), "PRIVATE_ARCHIVE_NOT_FOUND")
+    raw_archive = private_archive.read_bytes()
+    require(len(raw_archive) <= 100_000_000, "PRIVATE_ARCHIVE_TOO_LARGE")
+    archive_sha = hashlib.sha256(raw_archive).hexdigest()
+    # Verify the public registry and record digest before trusting metadata.
+    structural = verify(root, registry_path=registry_path)
+    regfile = root / REGISTRY if registry_path is None else Path(registry_path)
+    registry = json.loads(regfile.read_text("utf-8"))
+    checked_cues: set[tuple[str, int]] = set()
+    checked_windows = checked_claims = checked_context_cues = 0
+    source_cache = {}
+    with zipfile.ZipFile(private_archive, "r") as archive:
+        for entry in registry["entries"]:
+            data = json.loads((root / entry["path"]).read_text("utf-8"))
+            require(archive_sha == data["archive_sha256"],
+                    "PRIVATE_ARCHIVE_SHA256_MISMATCH")
+            video = data["video_id"]
+            if video not in source_cache:
+                target = f"youtube-transcript-{video}.srt"
+                members = [item for item in archive.infolist()
+                           if not item.is_dir()
+                           and item.filename.split("/")[-1] == target
+                           and "__MACOSX" not in item.filename.split("/")]
+                require(len(members) == 1, "PRIVATE_SRT_MEMBER_MISSING_OR_AMBIGUOUS")
+                member = members[0]
+                require(member.file_size <= 15_000_000, "PRIVATE_SRT_TOO_LARGE")
+                srt_raw = archive.read(member)
+                require(hashlib.sha256(srt_raw).hexdigest() == data["source_sha256"],
+                        "PRIVATE_SRT_SHA256_MISMATCH")
+                try:
+                    cues = cues_from_srt(srt_raw)
+                except (RunError, UnicodeError) as exc:
+                    raise ClaimOwnershipError("PRIVATE_SRT_PARSE_INVALID") from exc
+                source_cache[video] = cues
+            cues = source_cache[video]
+            require(len(cues) == data["source_cues_total"], "PRIVATE_SRT_CUE_CENSUS_DRIFT")
+            for window in data["windows"]:
+                ids = range(window["first_cue"], window["last_cue"] + 1)
+                require(all(i in cues for i in ids), "PRIVATE_WINDOW_CUE_MISSING")
+                actual = hashlib.sha256(
+                    " ".join(cues[i].text for i in ids).encode("utf-8")
+                ).hexdigest()
+                require(actual == window["window_text_sha256"],
+                        "PRIVATE_WINDOW_CONTENT_SHA256_MISMATCH")
+                checked_windows += 1
+            for claim in data["claims"]:
+                idx = claim["anchor_cue"]
+                cue = cues[idx]
+                require(hashlib.sha256(cue.text.encode("utf-8")).hexdigest() ==
+                        claim["anchor_cue_sha256"],
+                        "PRIVATE_ANCHOR_CUE_SHA256_MISMATCH")
+                # Source-native milliseconds, not a syntactically valid invented time.
+                start = cue.start_ms
+                start_text = (
+                    f"{start // 3600000:02d}:{(start // 60000) % 60:02d}:"
+                    f"{(start // 1000) % 60:02d},{start % 1000:03d}"
+                )
+                require(claim["anchor_start_time"] == start_text,
+                        "PRIVATE_ANCHOR_START_TIME_MISMATCH")
+                checked_cues.add((video, idx))
+                checked_context_cues += (
+                    claim["context_last_cue"] - claim["context_first_cue"] + 1
+                )
+                checked_claims += 1
+    require(checked_claims == structural["verified_provisional_claim_anchors"],
+            "PRIVATE_REPLAY_CLAIM_CENSUS_MISMATCH")
+    return {
+        "schema": "IRE_V5_P0_PRIVATE_ORIGINAL_SOURCE_REPLAY_V1",
+        "source_original_bytes_replayed": True,
+        "validated_video_sources": len(source_cache),
+        "validated_research_batches": structural["batches"],
+        "validated_window_hashes": checked_windows,
+        "validated_claim_anchor_hashes_and_times": checked_claims,
+        "unique_claim_anchor_cues": len(checked_cues),
+        "context_cue_references_structurally_reviewed": checked_context_cues,
+        "context_semantic_completeness_proven": False,
+        "independent_blind_recall_proven": False,
+        "approved_financial_facts": 0,
+        "p0_go": False,
     }
