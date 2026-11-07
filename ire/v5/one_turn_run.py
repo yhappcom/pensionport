@@ -115,6 +115,35 @@ def assert_receipt_safety(receipt: dict) -> None:
             raise RuntimeError("UNSAFE_PRIVATE_REPLAY_ATTESTATION:" + key)
 
 
+    # PR #46 checked replay booleans, but a successful subgate could still
+    # under-report verified anchors or context cues without invalidating the
+    # terminal receipt. Compare independent counts only when private bytes
+    # were actually replayed; public CI cannot attest to private counts.
+    if private_claimed:
+        owner = receipt["p0_candidate_source_window_ownership"]
+        replay = receipt["p0_private_original_source_replay"]
+        spans = receipt["p0_multicue_context_census"]
+        span_replay = receipt["p0_private_multicue_span_replay"]
+        count_pairs = (
+            (owner, "verified_provisional_claim_anchors",
+             replay, "validated_claim_anchor_hashes_and_times"),
+            (owner, "batches", replay, "validated_research_batches"),
+            (owner, "cross_window_context_open",
+             spans, "claims_with_complete_declared_context_census"),
+            (spans, "cue_roles_reviewed_structurally",
+             span_replay, "original_private_cues_replayed"),
+            (spans, "claims_with_complete_declared_context_census",
+             span_replay, "multicue_cases_structurally_reviewed"),
+        )
+        for left, left_key, right, right_key in count_pairs:
+            a, b = left.get(left_key), right.get(right_key)
+            if (type(a) is not int or type(b) is not int or
+                    a < 0 or b < 0 or a != b):
+                raise RuntimeError(
+                    "UNSAFE_PRIVATE_REPLAY_CENSUS_MISMATCH:" +
+                    left_key + ":" + right_key)
+
+
 def run(root:Path,private_zip:Path|None=None)->int:
     root=root.resolve()
     # These states are deliberately distinct: public CI checks pinned metadata,
