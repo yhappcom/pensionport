@@ -188,3 +188,29 @@ jobs:
         run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_blind_preregistration.py' -v
 
 
+
+
+  canonical-116-hash-only-private-export:
+    name: Reproduce protected 116 claim identity hashes for private original replay
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Export only immutable 116 claim identifiers and content hashes
+        run: python validation/ire-v6-frozen/export_legacy_116_hashes.py --output "${{ runner.temp }}/ire-v6-legacy116/legacy116_hashes.json"
+      - name: Upload private legacy membership hashes (no SRT / no claim text)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ire-v6-legacy116-hash-only-${{ github.run_id }}
+          path: ${{ runner.temp }}/ire-v6-legacy116/legacy116_hashes.json
+          if-no-files-found: error
+          retention-days: 14
