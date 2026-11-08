@@ -1079,10 +1079,13 @@ class TransactionStore:
                     receipt=self._receipt(scope_id,previous["sequence"],
                                 previous["event_sha256"],previous["state_sha256"],
                                 command_id,idempotent=True)
+                    still_current=(previous["event_sha256"]==head and
+                                   state["research_report_closed"])
                     return {**receipt,"terminal_outcome":p["report"]["outcome"],
-                            "research_complete":True,
+                            "research_complete":still_current,
                             "scoped_official_rule_verified":True,
-                            "is_current":previous["event_sha256"]==head}
+                            "historical_scope_completed":True,
+                            "is_current":still_current}
                 if head!=expected_head:
                     raise ConcurrentHeadChanged("EXPECTED_HEAD_STALE")
                 if state["research_report_closed"]:

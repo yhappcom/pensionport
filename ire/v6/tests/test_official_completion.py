@@ -217,6 +217,33 @@ class OfficialTerminalV2Tests(unittest.TestCase):
         with self.assertRaisesRegex(QualityNotProven,"SOURCE_VERSION_NOT_ESTABLISHED"):
             verify_pinned_law(self.official,as_of="2026-09-30")
 
+
+    def test_revised_model_revokes_current_completion_and_old_retry_is_historical(self):
+        self.setup_recorded()
+        args=self.args()
+        finished=self.store.issue_terminal_receipt(**args)
+        self.assertTrue(self.store.progress_receipt(SCOPE)["research_complete"])
+        revised=make_model(first=1,last=1,quote1=CANONICAL_PROPOSITION)
+        revised["claims"][0]["kind"]="FACT"
+        revised["claims"][0]["proposition"]=CANONICAL_PROPOSITION
+        self.store.submit(scope_id=SCOPE,command_id="model_revised_after_completion",
+            expected_head=self.head(),kind="MODEL_RECORDED",
+            payload={"window_id":"W00001","model":revised})
+        reopened=TransactionStore(self.store.path)
+        historical=reopened.read_official_terminal_receipt(
+            scope_id=SCOPE,terminal_event_sha256=finished["event_sha256"])
+        self.assertTrue(historical["historical_scope_completed"])
+        self.assertFalse(historical["is_current"])
+        self.assertFalse(historical["research_complete"])
+        self.assertFalse(reopened.progress_receipt(SCOPE)["research_complete"])
+        exact_retry=reopened.issue_terminal_receipt(**args)
+        self.assertTrue(exact_retry["idempotent_replay"])
+        self.assertTrue(exact_retry["historical_scope_completed"])
+        self.assertFalse(exact_retry["research_complete"])
+        self.assertFalse(exact_retry["is_current"])
+        with self.assertRaises(QualityNotProven):
+            reopened.issue_terminal_receipt(**self.args(command_id="new_completion"))
+
     def test_cannot_forge_terminal_through_generic_submit(self):
         self.setup_recorded()
         with self.assertRaisesRegex(DomainConflict,"COMMAND_KIND_NOT_ENABLED"):
