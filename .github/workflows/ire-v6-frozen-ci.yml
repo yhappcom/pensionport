@@ -143,6 +143,8 @@ jobs:
         run: python validation/ire-v6-frozen/verify_pinned_official_snapshot.py --directory validation/ire-v6-frozen/public_official_raw_20261108
       - name: Apply V2 official-source-only completion policy without human gold
         run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_official_policy_v2.py' -v
+      - name: Fail closed on actual private original high-risk tax case dispositions
+        run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_real_tax_claim_dispositions_v2.py' -v
 
   official-live-refetch-manual-only:
     name: Optional live government document refresh (NOT core CI)
