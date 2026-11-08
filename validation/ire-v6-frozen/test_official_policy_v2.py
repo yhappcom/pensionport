@@ -43,9 +43,11 @@ def ensure_official_anchor(anchor,raw):
     visible=normalize("".join(parser.parts))
     if not all(normalize(x) in visible for x in anchor["required_visible_phrases"]):
         raise ValueError("OFFICIAL_EXCERPT_NOT_PRESENT")
-    if anchor["effective_date_verified"] and (not anchor["effective_from"] or not
-            normalize("[시행 "+anchor["effective_from"].replace("-",". ")+".]") in visible):
-        raise ValueError("OFFICIAL_LEGAL_DATE_NOT_MATCHED")
+    if anchor["effective_date_verified"]:
+        matches=re.findall(r"\\[시행(\\d{4})\\.(\\d{1,2})\\.(\\d{1,2})\\.\\]",visible)
+        parsed={f"{int(y):04d}-{int(m):02d}-{int(d):02d}" for y,m,d in matches}
+        if anchor["effective_from"] not in parsed:
+            raise ValueError("OFFICIAL_LEGAL_DATE_NOT_MATCHED")
     return True
 
 class OfficialPolicyV2Tests(unittest.TestCase):
