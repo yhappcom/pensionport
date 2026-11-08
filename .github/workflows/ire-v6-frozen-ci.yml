@@ -186,6 +186,8 @@ jobs:
           python-version: '3.11.18'
       - name: Verify immutable prospective blind pre-registration
         run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_blind_preregistration.py' -v
+      - name: Verify private real-source E2E attestation safe metadata against official and 116 protected files
+        run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_private_scope_bridge.py' -v
 
 
 
