@@ -1,0 +1,142 @@
+{
+  "schema": "IRE_V6_1_TO_7_SOURCE_FREEZE_V1",
+  "date": "2026-11-08",
+  "status": "LOCAL_FROZEN_CANDIDATE_NOT_GITHUB_COMMITTED",
+  "canonical_dev_head_read_only": "f753ba57a1afabaa849f3eeca88170938c0b51f6",
+  "source_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "files_count": 25,
+  "paths": [
+    {
+      "path": "ire/v6/README.md",
+      "bytes": 6733,
+      "sha256": "668f536659d7c9fadcf8f2cdf26c9454f864afb91be41b82e3d34ab8196153ff"
+    },
+    {
+      "path": "ire/v6/__init__.py",
+      "bytes": 658,
+      "sha256": "aa1ad4790cf68053072b4c61f7d48b1d1006eec291ccfeaecf5b4ef2542765ec"
+    },
+    {
+      "path": "ire/v6/codec.py",
+      "bytes": 2468,
+      "sha256": "bed94bbf2faa49fd4a70fe34f2225711d5af93bf8695398f3bfbfab1612ae46b"
+    },
+    {
+      "path": "ire/v6/contracts/ARCHITECTURE_DECISION_V6_000.md",
+      "bytes": 7043,
+      "sha256": "3ac1e173280861d46b7a0f75e5a8c760791d15ce8556a1e9a4c756f8498eb287"
+    },
+    {
+      "path": "ire/v6/contracts/ARCHITECTURE_DECISION_V6_002.md",
+      "bytes": 5407,
+      "sha256": "b20215bf7c79e5d61f2a6a4fc8d03bda217e647214c3ab7ed0ba60599fd7ef59"
+    },
+    {
+      "path": "ire/v6/contracts/ARCHITECTURE_DECISION_V6_004.md",
+      "bytes": 5580,
+      "sha256": "659d2e58c63a55ee7ae56fb9d7c5db376d0ab5dcd60a806d2e99a95b359a0bdb"
+    },
+    {
+      "path": "ire/v6/contracts/ARCHITECTURE_DECISION_V6_005_007.md",
+      "bytes": 7492,
+      "sha256": "ae18ce7fa770e673b2858cfd56e08ccd6da0bfda07e6ec0d9a86a54fc81475d6"
+    },
+    {
+      "path": "ire/v6/errors.py",
+      "bytes": 774,
+      "sha256": "3135f87ac5255664972c9c4de3394a98313bd0ffc57ddaac6a7bdec775e64c1b"
+    },
+    {
+      "path": "ire/v6/evaluation.py",
+      "bytes": 10697,
+      "sha256": "c2a414dd3d5100f10b7f32f9c91beb4c3e53cda05a8f62824370c45c3cc8d587"
+    },
+    {
+      "path": "ire/v6/finance.py",
+      "bytes": 8033,
+      "sha256": "887d655ebbc8f5fe2f76ad3a5bf0dd44b7cd51abe836a831abb85d3776fd39aa"
+    },
+    {
+      "path": "ire/v6/prepush.py",
+      "bytes": 6497,
+      "sha256": "a3615cd36dbafd71daa770fc3b9515a5b509e749d318b5dceb2759dfc5050d85"
+    },
+    {
+      "path": "ire/v6/proof.py",
+      "bytes": 4769,
+      "sha256": "6122cb2db350419f66d0e9b825466e098889dc5273f1936f234e8ccf20203b91"
+    },
+    {
+      "path": "ire/v6/receipt.py",
+      "bytes": 9859,
+      "sha256": "072f46cecf3352f46e5ca36e9d11583445d36e25b0b8e2e15b29bf13176e9a11"
+    },
+    {
+      "path": "ire/v6/source.py",
+      "bytes": 8335,
+      "sha256": "3a24bab07d24e66543bdd30abcd849ad58f1e9791f25b2cf42612e11a7af08ba"
+    },
+    {
+      "path": "ire/v6/state_machine.py",
+      "bytes": 17473,
+      "sha256": "254bea8f56f5bed7509470612d136cf55551b917cc306592b4595d7e48ef9240"
+    },
+    {
+      "path": "ire/v6/store.py",
+      "bytes": 61826,
+      "sha256": "94418387f90571d98ddfd916f596c72af35fab22f918023875fc43e96f6e7f74"
+    },
+    {
+      "path": "ire/v6/tests/__init__.py",
+      "bytes": 67,
+      "sha256": "2af84c63e0268b578325ad9b6dc5cc7f2be0a90d6cdfb5a7b6b3f898cfa8a98d"
+    },
+    {
+      "path": "ire/v6/tests/test_large_cue_census_replay.py",
+      "bytes": 2872,
+      "sha256": "02286d52ebdbe700a73eee5786f7e4e6ab7c68d9208878e4cf0325da032bc06f"
+    },
+    {
+      "path": "ire/v6/tests/test_multiprocess_determinism.py",
+      "bytes": 5950,
+      "sha256": "be625a4f36ea555a85f9747bd3640259713611e74ba4dc7aebc15a785f85602b"
+    },
+    {
+      "path": "ire/v6/tests/test_owner_finance_chain.py",
+      "bytes": 22842,
+      "sha256": "41631073a2c79952b34b9696506b7d4074f8bab37c4de087bfd6f59221a50cf0"
+    },
+    {
+      "path": "ire/v6/tests/test_prepush_guard.py",
+      "bytes": 1373,
+      "sha256": "e2b464475c0044216192ebf844e8a5471533dadf0d56e10bd57d3fde5cdede75"
+    },
+    {
+      "path": "ire/v6/tests/test_source_and_proof.py",
+      "bytes": 18893,
+      "sha256": "1489a9be722d76b993683bcd8c74874cc12df563de65a545113c813d0025e6da"
+    },
+    {
+      "path": "ire/v6/tests/test_terminal_blind_quality.py",
+      "bytes": 29842,
+      "sha256": "82c9f8004cc7018c5e80d5887bd12e6be2b71c97f1c450224c6a3996e8d35eb8"
+    },
+    {
+      "path": "ire/v6/tests/test_transaction_store.py",
+      "bytes": 14860,
+      "sha256": "3d58cbdbf7fa0573676ba81dd84081f39e48a936a0cc30d69fc3308844e55ca9"
+    },
+    {
+      "path": "ire/v6/trust.py",
+      "bytes": 4362,
+      "sha256": "a5cfbd07c0a238dc3b3a5f2413a888779f483d1ed5f7c649c23e23c880217bb1"
+    }
+  ],
+  "large_cue_streaming_fix_included": true,
+  "source_mutation_allowed": false,
+  "exception_for_reproducible_safety_defects_only_after_red_green": true,
+  "frozen_release": false,
+  "blind_gold_evaluation": "UNMEASURABLE",
+  "site_of_frozen_code": "local isolated V6 candidate (NOT canonical complete pensionport checkout)",
+  "owner_private_zip_data_embedded": false
+}
