@@ -1,0 +1,132 @@
+name: IRE V6 frozen candidate - isolated P0A verification (NOT a release)
+on:
+  push:
+    branches:
+      - verify/ire-v6-frozen-ci-20261108
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ire-v6-frozen-validation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  canonical-environment:
+    name: Canonical 1214-file origin / CPython 3.11.18
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Fail closed if HEAD, checkout, Python, or protected tree differs
+        env:
+          CANONICAL_BASE_SHA: f753ba57a1afabaa849f3eeca88170938c0b51f6
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, subprocess, sys
+          def git(*args):
+              return subprocess.check_output(["git", *args], text=True).strip()
+          base=os.environ["CANONICAL_BASE_SHA"]
+          head=git("rev-parse","HEAD")
+          parent=git("rev-parse","HEAD^1")
+          assert parent==base, f"NON_CANONICAL_PARENT:{parent}"
+          assert sys.version_info[:3]==(3,11,18), f"WRONG_PYTHON:{sys.version}"
+          baseline=subprocess.check_output(
+              ["git","ls-tree","-r","-z","--name-only",base])
+          paths=[p.decode("utf-8") for p in baseline.split(b"\x00") if p]
+          assert len(paths)==1214, f"TRACKED_COUNT_CHANGED:{len(paths)}"
+          missing=[p for p in paths if not pathlib.Path(p).is_file()]
+          assert not missing, f"INCOMPLETE_CHECKOUT:{missing[:5]}"
+          diff=git("diff","--name-only",base,head).splitlines()
+          allowed=lambda p:(p==".github/workflows/ire-v6-frozen-ci.yml" or
+                            p.startswith("validation/ire-v6-frozen/") or
+                            p.startswith("ire/v6/"))
+          assert diff and all(map(allowed,diff)), f"PROTECTED_DIFF:{diff}"
+          assert not git("status","--porcelain","--untracked-files=no"), "DIRTY_TRACKED_TREE"
+          print("P0A_ENV_PASSED",json.dumps({
+              "canonical_base":base,"candidate_sha":head,
+              "original_tracked_files":len(paths),
+              "python":sys.version.split()[0],
+              "allowed_candidate_diff":diff
+          },ensure_ascii=False,sort_keys=True))
+          PY
+
+  cross-version-six-gates:
+    name: Six existing V5/IRE prepush gates in complete checkout
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install exact current V5 / evidence dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: 1 - Compile full IRE tree
+        run: python -m compileall -q ire
+      - name: 2 - IRE baseline unit tests
+        run: python -m unittest discover -s ire/tests -v
+      - name: 3 - V5 core unit tests
+        run: python -m unittest discover -s ire/v5/tests -p 'test_*.py' -v
+      - name: 4 - V5 application unit tests
+        run: python -m unittest discover -s ire/v5_app/tests -p 'test_*.py' -v
+      - name: 5 - V5 preflight
+        run: python -m ire.v5.preflight --root .
+      - name: 6 - V5 one-turn
+        run: python -m ire.v5.one_turn_run --root .
+
+  frozen-v6-strict:
+    name: Frozen V6 SHA+manifest and strict 8-gate test (must not fake GO)
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install exact current V5 / evidence dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Require authentic frozen ZIP, verify all 25 code file hashes, unpack safely
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, sys, zipfile
+          p=pathlib.Path("validation/ire-v6-frozen/V6_FROZEN_TEST_BASELINE_CODE_ONLY.zip")
+          if not p.is_file():
+              print("::error::FROZEN_V6_CODE_BUNDLE_NOT_YET_COMMITTED - V6 CAN NOT BE CERTIFIED")
+              sys.exit(2)
+          digest=hashlib.sha256(p.read_bytes()).hexdigest()
+          assert digest=="7c3363f876326f2df81df582b0e345e99e762b06343a64dba79715f3051eb9ba", "FROZEN_ZIP_SHA_MISMATCH"
+          with zipfile.ZipFile(p) as z:
+              manifest=json.loads(z.read("FROZEN_V6_CODE_MANIFEST.json"))
+              assert manifest["source_manifest_sha256"]=="471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340", "MANIFEST_MISMATCH"
+              items=manifest["paths"]
+              assert len(items)==25 and len(z.namelist())==26, "FROZEN_ENTRY_COUNT_MISMATCH"
+              assert set(z.namelist())=={a["path"] for a in items}|{"FROZEN_V6_CODE_MANIFEST.json"}, "UNKNOWN_ENTRY"
+              for a in items:
+                  raw=z.read(a["path"])
+                  assert len(raw)==a["bytes"], "SIZE_MISMATCH:"+a["path"]
+                  assert hashlib.sha256(raw).hexdigest()==a["sha256"], "FILE_SHA_MISMATCH:"+a["path"]
+                  dst=pathlib.Path(a["path"])
+                  assert not dst.is_absolute() and ".." not in dst.parts and str(dst).startswith("ire/v6/"), "BAD_PATH"
+                  dst.parent.mkdir(parents=True,exist_ok=True)
+                  assert not dst.exists(), "PREEXISTING_V6_SOURCE:"+str(dst)
+                  dst.write_bytes(raw)
+          print("AUTHENTIC_FROZEN_V6_25_OF_25_OK",digest)
+          PY
+      - name: Strict frozen V6 and original 6 prepush gates on same exact commit
+        run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
