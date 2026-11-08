@@ -161,7 +161,7 @@ class TransactionStore:
                 event["command_sha256"] != row["command_sha256"] or
                 sha256(raw.encode("utf-8")) != row["event_sha256"]):
                 raise LedgerCorrupted("EVENT_CHAIN_OR_ROW_MISMATCH")
-            if (event["type"]=="TERMINAL_AUDIT_RECORDED" and
+            if (event["type"] in ("TERMINAL_AUDIT_RECORDED", "TERMINAL_OFFICIAL_COMPLETION_RECORDED") and
                 event["payload"].get("base_head_sha256")!=prev):
                 raise LedgerCorrupted("AUDIT_BASE_HEAD_NOT_PREVIOUS_EVENT")
             fingerprint = json_digest({
@@ -1027,14 +1027,129 @@ class TransactionStore:
                 "snapshot_head_sha256": snap["ledger_head_sha256"],
                 "state_sha256": snap["state_sha256"],
                 "progress": snap["progress"],
-                "terminal": False,
-                "research_complete": False,
+                "terminal": snap["progress"]["research_report_closed"],
+                "research_complete": snap["progress"]["research_report_closed"],
                 "engine_quality_certified": False,
                 "p0_go": False,
-                "terminal_outcome": "V6_KERNEL_ONLY_VALIDATION_OPEN"}
+                "terminal_outcome": ("OFFICIAL_SOURCE_SCOPED_COMPLETE"
+                    if snap["progress"]["research_report_closed"]
+                    else "V6_KERNEL_ONLY_VALIDATION_OPEN")}
 
-    def issue_terminal_receipt(self, scope_id: str) -> dict:
-        # V6-1 has no source-byte validator, official-evidence verifier or
-        # independently measured goldset: creating a terminal receipt is unsafe.
-        self.snapshot(scope_id)  # Corrupt/missing event chains still fail.
-        raise QualityNotProven("V6_1_MANDATORY_PROOF_VERIFIERS_NOT_IMPLEMENTED")
+    def issue_terminal_receipt(self, scope_id: str, *, command_id=None,
+                               expected_head=None, raw=None, manifest=None,
+                               inventory_bytes=None, expected_inventory_sha256=None,
+                               finance_inputs=None, determinations=None,
+                               official_document_raw=None, as_of=None) -> dict:
+        """V2 narrowed official-rule completion, never general engine P0 GO.
+
+        Historical no-evidence signature still fails; all new inputs must be
+        transaction-bound and the official rule is cryptographically pinned.
+        """
+        if command_id is None:
+            self.snapshot(scope_id)
+            raise QualityNotProven("V6_1_MANDATORY_PROOF_VERIFIERS_NOT_IMPLEMENTED")
+        from .receipt import audit_input_digest
+        from .official_completion import audit_official_completion, verify_pinned_law
+        scope_id=require_identifier(scope_id,name="SCOPE_ID")
+        command_id=require_identifier(command_id,name="COMMAND_ID")
+        expected_head=require_hash(expected_head,"EXPECTED_HEAD")
+        if type(determinations) is not list or type(official_document_raw) is not bytes:
+            raise InvalidInput("OFFICIAL_COMPLETION_INPUTS_REQUIRED")
+        verify_pinned_law(official_document_raw,as_of=as_of)
+        commitment=json_digest({
+            "source_finance":audit_input_digest(raw,manifest,inventory_bytes,
+                                expected_inventory_sha256,finance_inputs),
+            "decisions":json_digest(determinations),
+            "official_raw_sha256":sha256(official_document_raw),
+            "as_of":as_of})
+        con=self._connection()
+        try:
+            def work():
+                state,seq,head=self._replay(con,scope_id)
+                previous=con.execute(
+                    "SELECT * FROM events WHERE scope_id=? AND command_id=?",
+                    (scope_id,command_id)).fetchone()
+                if previous:
+                    e=json.loads(previous["event_json"])
+                    p=e["payload"]
+                    if (e["type"]!="TERMINAL_OFFICIAL_COMPLETION_RECORDED" or
+                        p["base_head_sha256"]!=expected_head or
+                        p["private_input_sha256"]!=commitment):
+                        raise IdempotencyConflict("OFFICIAL_TERMINAL_RETRY_CHANGED")
+                    receipt=self._receipt(scope_id,previous["sequence"],
+                                previous["event_sha256"],previous["state_sha256"],
+                                command_id,idempotent=True)
+                    return {**receipt,"terminal_outcome":p["report"]["outcome"],
+                            "research_complete":True,
+                            "scoped_official_rule_verified":True,
+                            "is_current":previous["event_sha256"]==head}
+                if head!=expected_head:
+                    raise ConcurrentHeadChanged("EXPECTED_HEAD_STALE")
+                if state["research_report_closed"]:
+                    raise DomainConflict("OFFICIAL_SCOPE_ALREADY_COMPLETE")
+                report=audit_official_completion(
+                    con,scope_id,state,raw=raw,manifest=manifest,
+                    inventory_bytes=inventory_bytes,
+                    expected_inventory_sha256=expected_inventory_sha256,
+                    finance_inputs=finance_inputs,determinations=determinations,
+                    official_document_raw=official_document_raw,as_of=as_of)
+                payload={"schema":"IRE_V6_OFFICIAL_TERMINAL_EVENT_V2",
+                         "base_head_sha256":head,
+                         "base_state_sha256":json_digest(state),
+                         "private_input_sha256":commitment,
+                         "report":report}
+                result=self._write_event(
+                    con,scope_id=scope_id,seq=seq+1,prev=head,
+                    command_id=command_id,
+                    kind="TERMINAL_OFFICIAL_COMPLETION_RECORDED",
+                    payload=payload,state=state)
+                return {**result,"terminal_outcome":report["outcome"],
+                        "research_complete":True,
+                        "scoped_official_rule_verified":True,"is_current":True}
+            return self._commit(con,work)
+        finally:
+            con.close()
+
+    def read_official_terminal_receipt(self, *, scope_id: str,
+                                       terminal_event_sha256: str) -> dict:
+        """Fresh SQLite audit of current/historical official-scope terminal."""
+        scope_id=require_identifier(scope_id,name="SCOPE_ID")
+        terminal_event_sha256=require_hash(terminal_event_sha256,"TERMINAL_SHA")
+        con=self._connection()
+        try:
+            con.execute("BEGIN")
+            try:
+                state,seq,head=self._replay(con,scope_id)
+                entry=next((e for e in state["terminal_audits"]
+                    if e["event_sha256"]==terminal_event_sha256 and
+                    e["outcome"]=="OFFICIAL_SOURCE_SCOPED_COMPLETE"),None)
+                if entry is None:
+                    raise InvalidInput("OFFICIAL_SCOPE_RECEIPT_NOT_FOUND")
+                row=con.execute(
+                    "SELECT event_json FROM events WHERE scope_id=? AND event_sha256=?",
+                    (scope_id,terminal_event_sha256)).fetchone()
+                if row is None:
+                    raise LedgerCorrupted("OFFICIAL_SCOPE_EVENT_MISSING")
+                event=json.loads(row["event_json"])
+                if (event["type"]!="TERMINAL_OFFICIAL_COMPLETION_RECORDED" or
+                    json_digest(event["payload"]["report"])!=entry["report_sha256"]):
+                    raise LedgerCorrupted("OFFICIAL_SCOPE_REPORT_DRIFT")
+                current=head==terminal_event_sha256 and state["research_report_closed"]
+                result={"schema":"IRE_V6_OFFICIAL_TERMINAL_READ_V2",
+                        "scope_id":scope_id,
+                        "terminal_event_sha256":terminal_event_sha256,
+                        "base_head_sha256":entry["base_head_sha256"],
+                        "current_head_sha256":head,
+                        "is_current":current,
+                        "historical_scope_completed":True,
+                        "research_complete":current,
+                        "engine_quality_certified":False,"p0_go":False,
+                        "report":event["payload"]["report"]}
+                con.execute("COMMIT")
+                return result
+            except BaseException:
+                if con.in_transaction:
+                    con.execute("ROLLBACK")
+                raise
+        finally:
+            con.close()

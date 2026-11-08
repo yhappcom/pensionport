@@ -77,6 +77,7 @@ def reduce_event(state: dict, kind: str, payload: dict, event_hash: str) -> dict
            payload["audit"].get("independent_gold_verified") is not False or \
            payload["audit"].get("p0_go") is not False:
             raise InvalidInput("STRUCTURAL_PROOF_AUDIT_UNTRUSTWORTHY")
+        next_state["research_report_closed"]=False
         next_state["structural_proofs"][window_id] = {
             "model_revision_event_sha256": model["revision_event_sha256"],
             "proof_event_sha256": event_hash,
@@ -133,6 +134,7 @@ def reduce_event(state: dict, kind: str, payload: dict, event_hash: str) -> dict
             relation.get("baseline_entry_membership_verified") is not True):
             raise InvalidInput("FINANCE_CANDIDATE_FALSE_AUTHORITY")
         key = wid + ":" + official["claim_id"]
+        next_state["research_report_closed"]=False
         next_state["finance_candidate_reviews"][key] = {
             "model_revision_event_sha256": model["revision_event_sha256"],
             "finance_event_sha256": event_hash,
@@ -187,6 +189,48 @@ def reduce_event(state: dict, kind: str, payload: dict, event_hash: str) -> dict
             "event_sha256":event_hash, "plan_event_sha256":plan["event_sha256"],
             "revision_set_sha256":revisions, "metrics_sha256":json_digest(payload["metrics"]),
             "semantic_accuracy_certified":False}
+    elif kind == "TERMINAL_OFFICIAL_COMPLETION_RECORDED":
+        if (set(payload)!={"schema","base_head_sha256","base_state_sha256",
+                           "private_input_sha256","report"} or
+            payload["schema"]!="IRE_V6_OFFICIAL_TERMINAL_EVENT_V2" or
+            type(payload["report"]) is not dict):
+            raise InvalidInput("OFFICIAL_TERMINAL_EVENT_SCHEMA_INVALID")
+        require_hash(payload["base_head_sha256"],"OFFICIAL_TERMINAL_BASE_HEAD")
+        require_hash(payload["private_input_sha256"],"OFFICIAL_TERMINAL_INPUT_SHA")
+        report=payload["report"]
+        from .official_completion import LAW_RULE_ID, LAW_SOURCE_SHA256
+        revisions=json_digest([
+            {"window_id":wid,"revision_event_sha256":item["revision_event_sha256"]}
+            for wid,item in sorted(state["models"].items())])
+        if (payload["base_state_sha256"]!=json_digest(state) or
+            state["research_report_closed"] is not False or
+            report.get("schema")!="IRE_V6_OFFICIAL_SCOPE_TERMINAL_REPORT_V2" or
+            report.get("source_sha256")!=state["source"]["source_sha256"] or
+            report.get("manifest_sha256")!=state["source"]["manifest_sha256"] or
+            report.get("rule_id")!=LAW_RULE_ID or
+            report.get("official_document_sha256")!=LAW_SOURCE_SHA256 or
+            report.get("model_revision_set_sha256")!=revisions or
+            report.get("window_count")!=len(state["models"]) or
+            type(report.get("officially_verified_fact_count")) is not int or
+            report["officially_verified_fact_count"]<1 or
+            report.get("scope_fully_modelled") is not True or
+            report.get("all_registered_factual_assertions_verified") is not True or
+            report.get("historical_official_source_bytes_verified") is not True or
+            report.get("independent_human_review_required") is not False or
+            report.get("general_semantic_recall_certified") is not False or
+            report.get("legacy116_semantic_merge_approved") is not False or
+            report.get("outcome")!="OFFICIAL_SOURCE_SCOPED_COMPLETE" or
+            report.get("research_complete") is not True or
+            report.get("engine_quality_certified") is not False or
+            report.get("p0_go") is not False):
+            raise InvalidInput("OFFICIAL_TERMINAL_UNAUTHORIZED_COMPLETION")
+        next_state["terminal_audits"].append({
+            "event_sha256":event_hash,
+            "base_head_sha256":payload["base_head_sha256"],
+            "base_state_sha256":payload["base_state_sha256"],
+            "report_sha256":json_digest(report),
+            "outcome":"OFFICIAL_SOURCE_SCOPED_COMPLETE"})
+        next_state["research_report_closed"]=True
     elif kind == "TERMINAL_AUDIT_RECORDED":
         if set(payload)!={"schema", "base_head_sha256", "base_state_sha256", "private_input_sha256", "report"} or \
            payload["schema"]!="IRE_V6_TERMINAL_AUDIT_EVENT_V1" or \
@@ -222,6 +266,7 @@ def reduce_event(state: dict, kind: str, payload: dict, event_hash: str) -> dict
         if next_state["source"] is None:
             raise DomainConflict("SOURCE_NOT_DECLARED")
         previous = next_state["models"].get(window_id)
+        next_state["research_report_closed"]=False
         next_state["models"][window_id] = {
             "revision": 1 if previous is None else previous["revision"] + 1,
             "revision_event_sha256": event_hash,
@@ -269,7 +314,11 @@ def progress(state: dict) -> dict:
         "owner_inventory_pin_recorded": state["owner_pin"] is not None,
         "blind_plan_frozen_before_predictions": state["blind_plan"] is not None,
         "blind_measurement_recorded": state["blind_measurement"] is not None,
-        "terminal_blocked_audit_count": len(state["terminal_audits"]),
+        "terminal_blocked_audit_count": sum(
+            a["outcome"]=="TERMINAL_BLOCKED" for a in state["terminal_audits"]),
+        "terminal_official_scope_count": sum(
+            a["outcome"]=="OFFICIAL_SOURCE_SCOPED_COMPLETE"
+            for a in state["terminal_audits"]),
         "current_revision_finance_candidate_reviews": current_finance,
         "financial_facts_approved": False,
         "source_pointer_declared": state["source"] is not None,
@@ -279,7 +328,7 @@ def progress(state: dict) -> dict:
         "model_windows_recorded": len(models),
         "unverified_current_revision_review_proposals": current_proposals,
         "verified_proofs": 0,
-        "research_report_closed": False,
+        "research_report_closed": state["research_report_closed"],
         "independent_semantic_recall_measured": False,
         "engine_quality_certified": False,
         "p0_go": False,

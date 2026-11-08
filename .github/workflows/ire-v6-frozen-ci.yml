@@ -100,24 +100,37 @@ jobs:
       - name: Install exact current V5 / evidence dependencies
         run: |
           python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
-      - name: Require frozen 25 tracked files and authentic original manifest
+      - name: Validate original V6 baseline and V2 official completion delta
         run: |
           python - <<'PY'
-          import hashlib, json, pathlib
+          import hashlib, json, pathlib, subprocess
           p=pathlib.Path("validation/ire-v6-frozen/FROZEN_V6_CODE_MANIFEST.json")
           m=json.loads(p.read_text(encoding="utf-8"))
-          assert m["source_manifest_sha256"]=="471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340","MANIFEST_DIGEST_MISMATCH"
-          items=m["paths"]
-          assert len(items)==25 and len(set(v["path"] for v in items))==25,"FROZEN_COUNT_MISMATCH"
-          actual={p.as_posix() for p in pathlib.Path("ire/v6").rglob("*") if p.is_file()}
-          assert actual=={v["path"] for v in items},"UNREGISTERED_V6_FILE"
-          for item in items:
-              p=pathlib.Path(item["path"])
-              assert not p.is_absolute() and ".." not in p.parts,"PATH_TRAVERSAL"
-              raw=p.read_bytes()
-              assert len(raw)==item["bytes"],"BAD_FROZEN_SIZE:"+item["path"]
-              assert hashlib.sha256(raw).hexdigest()==item["sha256"],"BAD_FROZEN_SHA:"+item["path"]
-          print("FROZEN_25_FILES_VERIFIED")
+          assert m["source_manifest_sha256"]=="471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340","HISTORICAL_MANIFEST_CHANGED"
+          assert len(m["paths"])==25
+          patch=json.loads(pathlib.Path("validation/ire-v6-frozen/V6_OFFICIAL_COMPLETION_PATCH_MANIFEST_V2.json").read_text(encoding="utf-8"))
+          assert patch["schema"]=="IRE_V6_VALIDATION_ONLY_OFFICIAL_COMPLETION_PATCH_V2"
+          assert patch["base_manifest_sha256"]==m["source_manifest_sha256"]
+          assert patch["scope"]=="VALIDATION_BRANCH_ONLY" and patch["full_engine_p0_go"] is False
+          changes={x["path"]:x["git_blob_sha"] for x in patch["modified_from_original"]}
+          new={x["path"]:x["git_blob_sha"] for x in patch["added"]}
+          assert set(changes)=={"ire/v6/store.py","ire/v6/state_machine.py"},"UNAUTHORIZED_MUTATED_CODE"
+          assert set(new)=={"ire/v6/official_completion.py","ire/v6/tests/test_official_completion.py"},"UNAUTHORIZED_NEW_CODE"
+          old={x["path"]:x for x in m["paths"]}
+          assert set(changes).issubset(old) and not set(new).intersection(old)
+          actual={f.as_posix() for f in pathlib.Path("ire/v6").rglob("*") if f.is_file()}
+          assert actual==set(old)|set(new),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==patch["new_total_ire_v6_tracked_files"]==27
+          for path,item in old.items():
+              f=pathlib.Path(path)
+              if path not in changes:
+                  raw=f.read_bytes()
+                  assert len(raw)==item["bytes"] and hashlib.sha256(raw).hexdigest()==item["sha256"],"ORIGINAL_FROZEN_SHA_DRIFT:"+path
+          for path,sha in (changes|new).items():
+              assert pathlib.Path(path).is_file()
+              actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"UNAUTHORIZED_V2_PATCH_BYTES:"+path
+          print("HISTORICAL_ORIGINAL_23_PLUS_APPROVED_V2_4_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"

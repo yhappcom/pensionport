@@ -1,0 +1,33 @@
+{
+  "schema": "IRE_V6_VALIDATION_ONLY_OFFICIAL_COMPLETION_PATCH_V2",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "canonical_read_only_dev_head": "f753ba57a1afabaa849f3eeca88170938c0b51f6",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "Owner-approved 2026-11-09 official first-party source completion instead of human independent gold; preserve original 25 file baseline as historical reference",
+  "modified_from_original": [
+    {
+      "path": "ire/v6/store.py",
+      "git_blob_sha": "94c0315552ce5de7a80e1248693e35e31782c181"
+    },
+    {
+      "path": "ire/v6/state_machine.py",
+      "git_blob_sha": "3efe4cc951a2cc0f400d84c8f253eab65ce9db1e"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/official_completion.py",
+      "git_blob_sha": "b39fbc77db7024eff2852d5f3652a8dab3dd7ab2"
+    },
+    {
+      "path": "ire/v6/tests/test_official_completion.py",
+      "git_blob_sha": "704738e1db3ea00b31e2ce26ef2d1bdd0e5bd5ff"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 27,
+  "only_pinned_2026_10_01_korean_decree_rule_eligible": true,
+  "historical_2026_capture_max_as_of": "2026-11-08",
+  "human_review_required": false,
+  "full_engine_p0_go": false,
+  "never_merge_without_further_owner_approval": true
+}
