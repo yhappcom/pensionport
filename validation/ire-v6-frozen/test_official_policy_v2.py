@@ -44,9 +44,11 @@ def ensure_official_anchor(anchor,raw):
     if not all(normalize(x) in visible for x in anchor["required_visible_phrases"]):
         raise ValueError("OFFICIAL_EXCERPT_NOT_PRESENT")
     if anchor["effective_date_verified"]:
-        matches=re.findall(r"\\[시행(\\d{4})\\.(\\d{1,2})\\.(\\d{1,2})\\.\\]",visible)
-        parsed={f"{int(y):04d}-{int(m):02d}-{int(d):02d}" for y,m,d in matches}
-        if anchor["effective_from"] not in parsed:
+        if not anchor["effective_from"]:
+            raise ValueError("OFFICIAL_LEGAL_DATE_NOT_MATCHED")
+        y,m,d=[int(x) for x in anchor["effective_from"].split("-")]
+        exact_visible_date=f"[시행{y}.{m}.{d}.]"
+        if exact_visible_date not in visible:
             raise ValueError("OFFICIAL_LEGAL_DATE_NOT_MATCHED")
     return True
 
