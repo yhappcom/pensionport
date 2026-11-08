@@ -1,0 +1,72 @@
+{
+  "schema": "IRE_V6_FIRST_PARTY_PUBLIC_RULE_ANCHORS_V2",
+  "source_video_srt_sha256": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+  "as_of": "2026-11-08",
+  "source_windows_verified_factual_claims": 0,
+  "official_rule_anchors": [
+    {
+      "id": "RULE-PENSION-1500-TAX-ELECTION",
+      "issuer": "국세청",
+      "source_id": "nts_pension",
+      "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+      "path": "validation/ire-v6-frozen/public_official_raw_20261108/nts_pension.html",
+      "sha256": "9cd242c9778c6248dba8c01e6bfa35e7fcc649347714ab57a348f6881dbb107d",
+      "required_visible_phrases": [
+        "연 1천500만원 이하인 경우 그 연금소득",
+        "연 1천500만원을 초과하는 경우에도 종합소득세 신고 시 15%의 세율로 분리과세 선택 가능"
+      ],
+      "official_rule": "Certain private pension income exceeding KRW 15m can still elect separate income taxation at the NTS-specified 15% income tax rate, conditional on the defined category and filing.",
+      "effective_from": null,
+      "published_at": null,
+      "effective_date_verified": false,
+      "historical_captured_on": "2026-11-08",
+      "semantic_scope": "Income tax election is distinct from a universal maximum permitted pension withdrawal.",
+      "original_question_cues": [
+        375,
+        380
+      ],
+      "original_role": "QUESTION",
+      "speaker_claim_verdict": "NOT_FACT_CLAIM",
+      "official_rule_verdict": "OFFICIAL_TEXT_CONFIRMED_WITH_DATE_LIMITATION",
+      "third_party_human_review_required": false,
+      "finance_fact_auto_approved": false
+    },
+    {
+      "id": "RULE-PENSION-DEEMED-WITHDRAWAL-ORDER",
+      "issuer": "국가법령정보센터",
+      "source_id": "decree_40_3",
+      "url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=03&joNo=0040&lsiSeq=290841&urlMode=lsScJoRltInfoR",
+      "path": "validation/ire-v6-frozen/public_official_raw_20261108/decree_40_3.html",
+      "sha256": "5540ac2a9ecfad76382580cf7f46c947e2e0f11469ac700f4855b3a16f9115c2",
+      "required_visible_phrases": [
+        "[시행 2026. 10. 1.]",
+        "제40조의3(연금계좌의 인출순서 등)",
+        "과세제외금액",
+        "이연퇴직소득",
+        "제201조의10",
+        "확인되는 날부터 과세제외금액으로 본다"
+      ],
+      "official_rule": "Under 2026-10-01 decree §40-3, deemed withdrawals start with tax-excluded amounts, then deferred retirement income, then specified taxable pension amounts; part of non-deducted basis is recognized only after the prescribed confirmation.",
+      "effective_from": "2026-10-01",
+      "published_at": "2026-09-30",
+      "effective_date_verified": true,
+      "historical_captured_on": "2026-11-08",
+      "semantic_scope": "Legal tax-source ordering, not the immediate economic source of a cash dividend.",
+      "original_related_cues": [
+        648,
+        658
+      ],
+      "original_role": "MIXED_DISCUSSION",
+      "speaker_claim_verdict": "UNVERIFIED",
+      "official_rule_verdict": "OFFICIAL_LEGAL_RULE_TEXT_VERIFIED",
+      "third_party_human_review_required": false,
+      "finance_fact_auto_approved": false
+    }
+  ],
+  "video_level_legal_accuracy_certified": false,
+  "verified_video_claim_count": 0,
+  "human_review_required": false,
+  "self_reported_precision_recall": null,
+  "legacy116_semantic_merge_approved": false,
+  "p0_go": false
+}
