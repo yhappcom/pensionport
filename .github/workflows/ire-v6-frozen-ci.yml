@@ -122,8 +122,37 @@ jobs:
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
 
-  official-primary-raw-capture:
-    name: Government raw HTTPS evidence / no claim approval
+  official-primary-pinned-replay:
+    name: Reverify public raw government source artifact SHA (not live or approved)
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Verify negative controls for public document pins
+        run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_pinned_official_snapshot.py' -v
+      - name: Download originally verified official HTML from pinned prior GitHub Actions run
+        uses: actions/download-artifact@v4
+        with:
+          name: ire-v6-public-official-42464865238
+          run-id: 42464865238
+          repository: yhappcom/pensionport
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ${{ runner.temp }}/ire-v6-official-original
+      - name: Verify exact original public HTML bytes and no independent fact approval
+        run: python validation/ire-v6-frozen/verify_pinned_official_snapshot.py --directory "${{ runner.temp }}/ire-v6-official-original"
+
+  official-live-refetch-manual-only:
+    name: Optional live government document refresh (NOT core CI)
+    if: github.event_name == 'workflow_dispatch'
     needs: canonical-environment
     runs-on: ubuntu-latest
     timeout-minutes: 12
@@ -136,18 +165,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11.18'
-      - name: Negative tests for actual official HTTPS capture
+      - name: First-party public source negative controls
         run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_official_source_capture.py' -v
-      - name: Capture actual raw government page bytes
-        run: python validation/ire-v6-frozen/official_source_capture.py --output "${{ runner.temp }}/ire-v6-official"
-      - name: Archive public government response bytes and hash manifest
+      - name: Refresh live originals and log current bytes
+        run: python validation/ire-v6-frozen/official_source_capture.py --output "${{ runner.temp }}/ire-v6-new-public-original"
+      - name: Preserve only public government bytes (not private SRT)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ire-v6-public-official-${{ github.run_id }}
-          path: ${{ runner.temp }}/ire-v6-official/
+          name: ire-v6-refreshed-official-${{ github.run_id }}
+          path: ${{ runner.temp }}/ire-v6-new-public-original/
           if-no-files-found: warn
-          retention-days: 14
+          retention-days: 90
 
   prospective-blind-cohort-precommitment:
     name: Lock unseen-source protocol and thresholds (NOT human gold)
