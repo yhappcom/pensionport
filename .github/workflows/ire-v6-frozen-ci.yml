@@ -33,7 +33,7 @@ jobs:
               return subprocess.check_output(["git", *args], text=True).strip()
           base=os.environ["CANONICAL_BASE_SHA"]
           head=git("rev-parse","HEAD")
-          subprocess.run(["git","merge-base","--is-ancestor",base,head],check=True)"
+          subprocess.run(["git","merge-base","--is-ancestor",base,head],check=True)
           assert sys.version_info[:3]==(3,11,18), f"WRONG_PYTHON:{sys.version}"
           baseline=subprocess.check_output(
               ["git","ls-tree","-r","-z","--name-only",base])
