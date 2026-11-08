@@ -148,3 +148,20 @@ jobs:
           path: ${{ runner.temp }}/ire-v6-official/
           if-no-files-found: warn
           retention-days: 14
+
+  prospective-blind-cohort-precommitment:
+    name: Lock unseen-source protocol and thresholds (NOT human gold)
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Verify immutable prospective blind pre-registration
+        run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_blind_preregistration.py' -v
