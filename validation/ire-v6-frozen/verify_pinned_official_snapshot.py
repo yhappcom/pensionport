@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Revalidate first-party public raw snapshot originally fetched by GitHub Actions.
+"""Revalidate permanently archived first-party public response bytes.
 
-The pinned GitHub artifact comes from a prior successful HTTPS capture. Offline
-hash validation prevents an unrelated transient public-site DNS failure from
-invalidating canonical V5/V6 regression tests. Pinned snapshot is NOT fresh
-law or human semantic fact approval. It expires and must be renewed separately.
+The archive was originally fetched by GitHub Actions, then verified and stored
+in the isolated V6 validation branch. The original transient artifact expires,
+but the Git tree copy does not. Raw bytes preserve historical source evidence;
+they do NOT prove current law, semantic entailment, issuer digital signatures,
+human review, blind accuracy or financial fact approval.
 """
 from __future__ import annotations
 import argparse
