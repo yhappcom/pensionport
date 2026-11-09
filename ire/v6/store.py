@@ -748,6 +748,11 @@ class TransactionStore:
         finally:
             con.close()
 
+    def submit_host_atomic_batch(self, **kwargs) -> dict:
+        """One-transaction ChatGPT-host model+proof batch, no semantic approval."""
+        from .host_batch import submit_host_atomic_batch
+        return submit_host_atomic_batch(self, **kwargs)
+
     def freeze_blind_plan(self, *, scope_id: str, command_id: str,
                           expected_head: str, raw: bytes, manifest: dict,
                           inventory_bytes: bytes, expected_inventory_sha256: str,

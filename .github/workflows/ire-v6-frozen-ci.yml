@@ -9,6 +9,7 @@ on:
       - verify/ire-v6-p0-atomic-exchange-20261109
       - verify/ire-v6-p1-legacy-readonly-20261109
       - verify/ire-v6-p1-prior-relation-20261109
+      - verify/ire-v6-p1-atomic-host-batch-20261109
   workflow_dispatch:
 permissions:
   contents: read
@@ -114,8 +115,8 @@ jobs:
           m=json.loads(p.read_text(encoding="utf-8"))
           assert m["source_manifest_sha256"]=="471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340","HISTORICAL_MANIFEST_CHANGED"
           assert len(m["paths"])==25
-          patch=json.loads(pathlib.Path("validation/ire-v6-frozen/V6_PRIOR116_P4_CANDIDATES_PATCH_MANIFEST_V8.json").read_text(encoding="utf-8"))
-          assert patch["schema"]=="IRE_V6_PRIOR116_P4_CANDIDATES_PATCH_V8"
+          patch=json.loads(pathlib.Path("validation/ire-v6-frozen/V6_HOST_BATCH_TRANSACTION_PATCH_MANIFEST_V9.json").read_text(encoding="utf-8"))
+          assert patch["schema"]=="IRE_V6_HOST_BATCH_TRANSACTION_PATCH_V9"
           assert patch["base_manifest_sha256"]==m["source_manifest_sha256"]
           assert patch['previous_v2_manifest_git_blob_sha']==subprocess.check_output(['git','hash-object','validation/ire-v6-frozen/V6_OFFICIAL_COMPLETION_PATCH_MANIFEST_V2.json'],text=True).strip(),'V2_HISTORICAL_MANIFEST_DRIFT'
           assert patch['previous_v3_manifest_git_blob_sha']==subprocess.check_output(['git','hash-object','validation/ire-v6-frozen/V6_OFFICIAL_RULE_AUDIT_PATCH_MANIFEST_V3.json'],text=True).strip(),'V3_HISTORICAL_MANIFEST_DRIFT'
@@ -123,6 +124,7 @@ jobs:
           assert patch["previous_v5_manifest_git_blob_sha"]==subprocess.check_output(["git","hash-object","validation/ire-v6-frozen/V6_SOURCE_FIRST_RESIDUAL_PATCH_MANIFEST_V5.json"],text=True).strip(),"HISTORICAL_V5_MANIFEST_DRIFT"
           assert patch["previous_v6_manifest_git_blob_sha"]==subprocess.check_output(["git","hash-object","validation/ire-v6-frozen/V6_ATOMIC_HOST_EXCHANGE_PATCH_MANIFEST_V6.json"],text=True).strip(),"HISTORICAL_V6_MANIFEST_DRIFT"
           assert patch["previous_v7_manifest_git_blob_sha"]==subprocess.check_output(["git","hash-object","validation/ire-v6-frozen/V6_LEGACY_V2_ARCHIVE_PATCH_MANIFEST_V7.json"],text=True).strip(),"HISTORICAL_V7_MANIFEST_DRIFT"
+          assert patch["previous_v8_manifest_git_blob_sha"]==subprocess.check_output(["git","hash-object","validation/ire-v6-frozen/V6_PRIOR116_P4_CANDIDATES_PATCH_MANIFEST_V8.json"],text=True).strip(),"HISTORICAL_V8_MANIFEST_DRIFT"
           assert patch["scope"]=="VALIDATION_BRANCH_ONLY" and patch["full_engine_p0_go"] is False
           changes={x["path"]:x["git_blob_sha"] for x in patch["modified_from_original"]}
           new={x["path"]:x["git_blob_sha"] for x in patch["added"]}
@@ -132,12 +134,13 @@ jobs:
                            "ire/v6/atomic_exchange.py","ire/v6/tests/test_atomic_exchange.py",
                            "ire/v6/legacy_v2_state_machine.py","ire/v6/legacy_v2_archive.py",
                            "ire/v6/tests/test_legacy_v2_archive.py",
-                           "ire/v6/prior_knowledge.py","ire/v6/tests/test_prior_knowledge.py"},"UNAUTHORIZED_NEW_CODE"
+                           "ire/v6/prior_knowledge.py","ire/v6/tests/test_prior_knowledge.py",
+                           "ire/v6/host_batch.py","ire/v6/tests/test_host_batch.py"},"UNAUTHORIZED_NEW_CODE"
           old={x["path"]:x for x in m["paths"]}
           assert set(changes).issubset(old) and not set(new).intersection(old)
           actual={f.as_posix() for f in pathlib.Path("ire/v6").rglob("*") if f.is_file()}
           assert actual==set(old)|set(new),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==patch["new_total_ire_v6_tracked_files"]==36
+          assert len(actual)==patch["new_total_ire_v6_tracked_files"]==38
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -146,8 +149,8 @@ jobs:
           for path,sha in (changes|new).items():
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
-              assert actual_sha==sha,"UNAUTHORIZED_V8_PATCH_BYTES:"+path
-          print("HISTORICAL_BASE_PLUS_V8_PRIOR_KNOWLEDGE_BRIDGE_VERIFIED")
+              assert actual_sha==sha,"UNAUTHORIZED_V9_PATCH_BYTES:"+path
+          print("HISTORICAL_BASE_PLUS_V9_ATOMIC_HOST_BATCH_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
