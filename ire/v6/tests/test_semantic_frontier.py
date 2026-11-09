@@ -70,6 +70,20 @@ class SemanticFrontierTests(unittest.TestCase):
         self.assertGreater(r["review_cases_by_kind"]["SPEAKER_OR_STANCE_AMBIGUITY"],0)
         self.assertGreater(r["review_cases_by_kind"]["FINANCIAL_FACT_DATE_SCOPE_UNKNOWN"],0)
 
+    def test_multiple_source_anchors_adjacent_to_same_qualifier_deduplicated(self):
+        e=copy.deepcopy(self.fx.exchange)
+        # C00001 spans original cues 1 and 2; cue 3 qualifier is then
+        # adjacent to both 1 and 2 but outside its declared context.
+        e["atoms"][0]["source_refs"].append(
+            {"cue_index":2,"quote":self.fx.source.cues[1].text})
+        e["atoms"][0]["context_cue_indices"]=[1,2]
+        e["cue_dispositions"][1]["claim_ids"].insert(0,"C00001")
+        r=source_first_semantic_frontier(self.fx.source,e)
+        matching=[x for x in r["review_cases"]
+                  if x["kind"]=="NEARBY_QUALIFIER_EXCLUDED_FROM_CONTEXT"
+                  and x["claim_id"]=="C00001" and x["cue_index"]==3]
+        self.assertEqual(len(matching),1)
+
     def test_repeatability_and_source_identity(self):
         r=source_first_semantic_frontier(self.fx.source,self.fx.exchange)
         r2=source_first_semantic_frontier(self.fx.source,self.fx.exchange)

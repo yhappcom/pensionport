@@ -46,10 +46,18 @@ def source_first_semantic_frontier(source, exchange):
     mapped = {r["cue_index"]: r for r in rows}
     atoms = exchange["atoms"]
     cases = []
+    seen_cases = set()
 
     def add(kind, cue, claim_id=None):
         # Source index, SHA identity and reason are safe metadata only.
         key = {"kind": kind, "cue_index": cue, "claim_id": claim_id}
+        identity = (kind, cue, claim_id)
+        # The same qualifier can neighbor multiple anchors of one claim.
+        if identity in seen_cases:
+            return
+        seen_cases.add(identity)
+        if len(cases) >= 100000:
+            raise InvalidInput("SEMANTIC_FRONTIER_TOO_MANY_CASES")
         cases.append({"case_id": sha256(canonical({
                           "source_sha256": source.source_sha256,
                           "manifest_sha256": source.manifest_sha256, **key})),
@@ -79,11 +87,12 @@ def source_first_semantic_frontier(source, exchange):
             # A qualifier immediately preceding/following an anchor is a
             # *review cue* even if the model did not include it in context.
             # It can belong to a different speaker/topic: human decides.
-            near = sorted(i for i in qualifiers if 0 < abs(i - anchor) <= 2
-                          and i not in ctx)
-            for idx in near:
-                add("NEARBY_QUALIFIER_EXCLUDED_FROM_CONTEXT", idx,
-                    atom["claim_id"])
+            # Four constant-time source probes rather than a scan across
+            # potentially thousands of qualifiers for *each* source ref.
+            for idx in (anchor - 2, anchor - 1, anchor + 1, anchor + 2):
+                if idx in qualifiers and idx not in ctx:
+                    add("NEARBY_QUALIFIER_EXCLUDED_FROM_CONTEXT", idx,
+                        atom["claim_id"])
         if atom["speaker"] in {"UNKNOWN", "QUOTED_SOURCE"} or (
                 atom["stance"] in {"QUOTED", "UNRESOLVED"}):
             add("SPEAKER_OR_STANCE_AMBIGUITY", refs[0], atom["claim_id"])
