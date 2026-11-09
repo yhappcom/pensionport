@@ -15,10 +15,11 @@ from .errors import (ConcurrentHeadChanged, DomainConflict, IdempotencyConflict,
                      InvalidInput, LedgerCorrupted, QualityNotProven)
 from .prior_knowledge import audit_prior_candidates
 from .proof import audit_model_anchors
+from .semantic_frontier import source_first_semantic_frontier
 from .state_machine import reduce_event
 from .trust import verify_owner_inventory
 
-MARKER_SCHEMA = "IRE_V6_HOST_BATCH_COMMIT_MARKER_V1"
+MARKER_SCHEMA = "IRE_V6_HOST_BATCH_COMMIT_MARKER_V2"
 
 
 def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
@@ -58,6 +59,30 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 raise DomainConflict("HOST_BATCH_SOURCE_PIN_LEDGER_DRIFT")
             atom_audit=audit_host_atomic_exchange(source,exchange)
             prior_audit=audit_prior_candidates(source,exchange,knowledge)
+            # The review frontier runs on this exact owner-pinned original
+            # BEFORE any SQLite model/proof event can be committed. Only
+            # bounded counts and digests enter the public-safe event marker.
+            frontier=source_first_semantic_frontier(source,exchange)
+            if (frontier["source_sha256"]!=source.source_sha256 or
+                frontier["manifest_sha256"]!=source.manifest_sha256 or
+                frontier["atom_candidate_digest"]!=atom_audit["atom_candidate_digest"] or
+                frontier["cue_disposition_digest"]!=atom_audit["cue_disposition_digest"] or
+                frontier["scoped_original_cues"]!=atom_audit["original_scoped_cues_enumerated"] or
+                frontier["proposed_atomic_claims"]!=atom_audit["proposed_atomic_claims"] or
+                frontier["review_case_count"]!=sum(frontier["review_cases_by_kind"].values()) or
+                frontier["independent_review_performed"] is not False or
+                frontier["p0_go"] is not False):
+                raise LedgerCorrupted("HOST_BATCH_SEMANTIC_FRONTIER_INTEGRITY_DRIFT")
+            frontier_pin={
+                "schema":frontier["schema"],
+                "original_source_sha256":source.source_sha256,
+                "manifest_sha256":source.manifest_sha256,
+                "review_case_census_sha256":frontier["review_case_census_sha256"],
+                "review_case_count":frontier["review_case_count"],
+                "review_cases_by_kind":frontier["review_cases_by_kind"],
+                "human_semantic_review_pending":True,
+                "independent_semantic_review_verified":False,
+            }
             if (atom_audit["unresolved_cues"] or
                 atom_audit["suspicious_no_atom_cues"]):
                 raise QualityNotProven("HOST_BATCH_UNRESOLVED_SOURCE_RESIDUALS")
@@ -97,6 +122,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 "manifest_sha256":source.manifest_sha256,
                 "atom_candidate_digest":atom_audit["atom_candidate_digest"],
                 "cue_disposition_digest":atom_audit["cue_disposition_digest"],
+                "source_first_semantic_frontier_pin":frontier_pin,
                 "prior_relation_digest":_digest_rows(knowledge["relations"]),
                 "prior_master116_blob":prior_audit["master116_git_blob_sha1"],
                 "prior_p4_22_blob":prior_audit["p4_prior22_git_blob_sha1"],
@@ -113,7 +139,10 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 if (event.get("type")!="REVIEW_PROPOSED" or
                     review.get("schema")!=MARKER_SCHEMA or
                     review.get("bundle_sha256")!=commitment or
-                    review.get("original_expected_head")!=expected_head):
+                    review.get("original_expected_head")!=expected_head or
+                    review.get("source_first_semantic_frontier_pin")!=frontier_pin or
+                    review.get("semantic_truth_certified") is not False or
+                    review.get("engine_quality_certified") is not False):
                     raise IdempotencyConflict("HOST_BATCH_RETRY_INPUT_CHANGED")
                 return {"schema":"IRE_V6_HOST_BATCH_RECEIPT_V1",
                         "scope_id":scope_id, "event_sha256":prior["event_sha256"],
@@ -121,6 +150,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                         "is_current":head==prior["event_sha256"],
                         "atomic_batch_committed":True,
                         "source_and_proof_model_windows":len(windows),
+                        "source_first_semantic_frontier_pin":frontier_pin,
+                        "human_semantic_review_pending":True,
                         "semantic_truth_certified":False,
                         "independent_gold_recall_measured":False,
                         "research_complete":False,"p0_go":False}
@@ -163,6 +194,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     "model_windows":len(windows),
                     "knowledge_master_claims":116,
                     "knowledge_p4_nodes":29,
+                    "source_first_semantic_frontier_pin":frontier_pin,
+                    "human_semantic_review_pending":True,
                     "semantic_truth_certified":False,
                     "engine_quality_certified":False}
             payload={"window_id":last,
@@ -181,6 +214,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     "bundle_sha256":commitment,"idempotent_replay":False,
                     "is_current":True,"atomic_batch_committed":True,
                     "source_and_proof_model_windows":len(windows),
+                    "source_first_semantic_frontier_pin":frontier_pin,
+                    "human_semantic_review_pending":True,
                     "semantic_truth_certified":False,
                     "independent_gold_recall_measured":False,
                     "research_complete":False,"p0_go":False}

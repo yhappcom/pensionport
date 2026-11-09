@@ -1,0 +1,27 @@
+{
+  "schema": "IRE_V6_HOST_FRONTIER_COMMIT_PATCH_V11",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v9_manifest_git_blob_sha": "f83fc5005992558fdd2b733e8c692b22e756075e",
+  "previous_v10_manifest_git_blob_sha": "4810a69699b41b1c043a48ff581fdb879036499f",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "Tie the original-first P0 semantic review frontier to the owner-pinned ACID host batch marker, stable replay commitment and nonterminal receipt",
+  "modified_from_v9": [
+    {
+      "path": "ire/v6/host_batch.py",
+      "git_blob_sha": "c01c8711732ca6e1d7a52f26b359428cd06c4531"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/tests/test_host_batch_frontier.py",
+      "git_blob_sha": "a680411c08337f03abb1dc0a1bf4a09b4d3c49e2"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 41,
+  "original_review_case_digest_bound_to_batch": true,
+  "pending_semantic_review_not_auto_approved": true,
+  "independently_authored_gold_verified": false,
+  "full_engine_p0_go": false,
+  "protect_main_v5_116_p4": true,
+  "no_private_source_published": true
+}
