@@ -693,7 +693,8 @@ class TransactionStore:
     def snapshot_with_atomic_exchange(self, *, scope_id: str, raw: bytes,
                                       manifest: dict, inventory_bytes: bytes,
                                       expected_inventory_sha256: str,
-                                      exchange: dict) -> dict:
+                                      exchange: dict,
+                                      knowledge: dict | None = None) -> dict:
         """Verify host-supplied atomic candidates on one owner-bound read snapshot.
 
         No claim text or original subtitle is persisted; this does not create
@@ -721,6 +722,10 @@ class TransactionStore:
                                                if k != "event_sha256"}):
                     raise DomainConflict("ATOMIC_SOURCE_OWNER_LEDGER_DRIFT")
                 report = audit_host_atomic_exchange(source, exchange)
+                knowledge_audit = None
+                if knowledge is not None:
+                    from .prior_knowledge import audit_prior_candidates
+                    knowledge_audit = audit_prior_candidates(source, exchange, knowledge)
                 result = {
                     "schema":"IRE_V6_PRIVATE_HOST_ATOMIC_SNAPSHOT_V1",
                     "scope_id":scope_id, "sequence":seq,
@@ -728,6 +733,7 @@ class TransactionStore:
                     "state_sha256":json_digest(state),
                     "source_original_bytes_verified_this_call":True,
                     "atomic_audit":report,
+                    "knowledge_audit":knowledge_audit,
                     "independent_semantic_recall_verified":False,
                     "financial_facts_approved":False,
                     "research_complete":False,
