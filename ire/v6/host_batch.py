@@ -80,10 +80,10 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 for claim in model["claims"]:
                     cid=claim["claim_id"]
                     atom=atomic_claims.get(cid)
-                    if cid in model_claim_ids or atom is None or
-                       atom["owner_window_id"]!=wid or
-                       any(claim[k]!=atom[k] for k in (
-                           "claim_id","owner_window_id","proposition","kind","source_refs")):
+                    if (cid in model_claim_ids or atom is None or
+                        atom["owner_window_id"]!=wid or
+                        any(claim[k]!=atom[k] for k in (
+                            "claim_id","owner_window_id","proposition","kind","source_refs"))):
                         raise InvalidInput("HOST_BATCH_ATOM_MODEL_INCONSISTENT")
                     model_claim_ids.add(cid)
                 pins.append({"window_id":wid,"model_sha256":json_digest(model),
