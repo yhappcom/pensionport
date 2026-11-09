@@ -10,12 +10,12 @@ from ire.v6.errors import (IdempotencyConflict, InvalidInput, LedgerCorrupted,
                            QualityNotProven)
 from ire.v6.host_batch import MARKER_SCHEMA
 from ire.v6.semantic_frontier import source_first_semantic_frontier
-from ire.v6.tests.test_host_batch import HostBatchTests
+from ire.v6.tests import test_host_batch
 
 
 class HostBatchSemanticFrontierIntegrationTests(unittest.TestCase):
     def setUp(self):
-        parent=HostBatchTests("test_one_command_commits_all_models_and_proofs_atomically")
+        parent=test_host_batch.HostBatchTests("test_one_command_commits_all_models_and_proofs_atomically")
         parent.setUp()
         self.addCleanup(parent.doCleanups)
         self.fx=parent
