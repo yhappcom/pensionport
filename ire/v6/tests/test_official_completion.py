@@ -313,5 +313,65 @@ class OfficialTerminalV2Tests(unittest.TestCase):
         self.assertEqual(self.head(),one["event_sha256"])
 
 
+    def test_interleaved_unrelated_review_does_not_expire_narrow_rule(self):
+        self.setup_recorded()
+        terminal=self.store.issue_terminal_receipt(**self.args())
+        model=self.store.snapshot(SCOPE)["state"]["models"]["W00001"]
+        self.store.submit(scope_id=SCOPE,command_id="unrelated_review",
+            expected_head=self.head(),kind="REVIEW_PROPOSED",
+            payload={"window_id":"W00001",
+                     "model_revision_event_sha256":model["revision_event_sha256"],
+                     "review":{"note":"unverified commentary"}})
+        progress=self.store.progress_receipt(SCOPE)
+        self.assertTrue(progress["scoped_official_rule_verified"])
+        self.assertEqual(progress["terminal_outcome"],"OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN")
+        self.assertFalse(progress["research_complete"])
+        historical=self.store.read_official_terminal_receipt(
+            scope_id=SCOPE,terminal_event_sha256=terminal["event_sha256"])
+        self.assertTrue(historical["is_current"])
+        self.assertFalse(historical["source_speaker_meaning_verified"])
+        with self.assertRaisesRegex(DomainConflict,"OFFICIAL_RULE_ALREADY_VERIFIED_CURRENT"):
+            self.store.issue_terminal_receipt(**self.args(command_id="interleaved_duplicate"))
+
+    def test_post_verification_model_revision_invalidates_rule(self):
+        self.setup_recorded()
+        self.store.issue_terminal_receipt(**self.args())
+        new_model=make_model(first=1,last=1,quote1=CANONICAL_PROPOSITION)
+        new_model["claims"][0]["proposition"]=CANONICAL_PROPOSITION
+        self.store.submit(scope_id=SCOPE,command_id="new_revision_for_coverage",
+            expected_head=self.head(),kind="MODEL_RECORDED",
+            payload={"window_id":"W00001","model":new_model})
+        progress=self.store.progress_receipt(SCOPE)
+        self.assertFalse(progress["scoped_official_rule_verified"])
+        self.assertEqual(progress["terminal_outcome"],"V6_KERNEL_ONLY_VALIDATION_OPEN")
+        self.assertFalse(progress["research_complete"])
+
+    def test_negated_quote_in_same_cue_rejected_not_published(self):
+        # The registered statutory sentence is *quoted and denied* in the cue.
+        self.raw=make_srt([CANONICAL_PROPOSITION+" 그러나 이것은 틀린 주장입니다.",
+            "A neutral cue.", "An independent synthetic cue.", "Further neutral text."])
+        self.manifest=make_manifest(self.raw,cut=4)
+        src=verify_source(self.raw,self.manifest,
+            expected_source_sha256=sha256(self.raw),
+            expected_manifest_sha256=json_digest(self.manifest))
+        inv={"schema":"IRE_V6_OWNER_INVENTORY_V1","entries":[{
+            "video_id":VIDEO,"source_sha256":sha256(self.raw),
+            "manifest_sha256":json_digest(self.manifest),
+            "cue_census_sha256":src.cue_census_sha256}]}
+        self.inv_bytes=canonical(inv)
+        self.inv_sha=sha256(self.inv_bytes)
+        tmp=tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.store=TransactionStore(Path(tmp.name)/"private"/"negation.db")
+        self.store.create_scope(scope_id=SCOPE,video_id=VIDEO,
+            source_sha256=sha256(self.raw),manifest_sha256=json_digest(self.manifest),
+            command_id="negation_genesis")
+        self.setup_recorded()
+        before=self.head()
+        with self.assertRaisesRegex(QualityNotProven,"OFFICIAL_ORIGINAL_SOURCE_DOES_NOT_ASSERT_RULE"):
+            self.store.issue_terminal_receipt(**self.args())
+        self.assertEqual(self.head(),before)
+        self.assertFalse(self.store.progress_receipt(SCOPE)["scoped_official_rule_verified"])
+
 if __name__=="__main__":
     unittest.main()

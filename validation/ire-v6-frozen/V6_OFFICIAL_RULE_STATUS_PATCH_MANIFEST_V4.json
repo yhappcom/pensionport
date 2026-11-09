@@ -1,0 +1,35 @@
+{
+  "schema": "IRE_V6_VALIDATION_ONLY_RULE_STATUS_HARDENING_V4",
+  "base_branch_head": "81fdcb88a37ecb9ca65ad3808a0cf1f2c689e771",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v3_manifest_git_blob_sha": "3638274d0de77a000e5d65185208f0849b1e5a5a",
+  "previous_v2_manifest_git_blob_sha": "330b435afa571119a7ceee3314176c482ca6bc48",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "P0/P1 negate quoted cue, revision-bound rule status, interleaved duplicate rejection",
+  "modified_from_original": [
+    {
+      "path": "ire/v6/store.py",
+      "git_blob_sha": "c47427953b9f4df9c224710f0db829dfc6209e7f"
+    },
+    {
+      "path": "ire/v6/state_machine.py",
+      "git_blob_sha": "68cbc09e7abb18c8b3355816a976f21349ad0dd2"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/official_completion.py",
+      "git_blob_sha": "5c27a1212cb8f9758230d2120f4bc47c51c66eea"
+    },
+    {
+      "path": "ire/v6/tests/test_official_completion.py",
+      "git_blob_sha": "aaec025322bb1523a11e576c3f688031f489ff03"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 27,
+  "semantic_gold_externally_independent": false,
+  "entire_research_complete": false,
+  "full_engine_p0_go": false,
+  "manual_migration_required_for_legacy_v2_events": true,
+  "never_merge_without_further_owner_approval": true
+}

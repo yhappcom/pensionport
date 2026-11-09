@@ -216,7 +216,10 @@ def reduce_event(state: dict, kind: str, payload: dict, event_hash: str) -> dict
             report.get("scope_fully_modelled") is not True or
             report.get("source_claim_census_independently_verified") is not False or
             report.get("nonfact_roles_independently_verified") is not False or
-            report.get("all_registered_factual_assertions_verified") is not True or
+            report.get("all_registered_factual_assertions_verified") is not False or
+            report.get("source_speaker_meaning_verified") is not False or
+            report.get("official_statute_rule_text_verified") is not True or
+            report.get("source_first_atomic_exhaustiveness_verified") is not False or
             report.get("historical_official_source_bytes_verified") is not True or
             report.get("independent_human_review_required") is not False or
             report.get("general_semantic_recall_certified") is not False or
