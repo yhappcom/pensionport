@@ -139,18 +139,35 @@ jobs:
           old={x["path"]:x for x in m["paths"]}
           assert set(changes).issubset(old) and not set(new).intersection(old)
           actual={f.as_posix() for f in pathlib.Path("ire/v6").rglob("*") if f.is_file()}
-          assert actual==set(old)|set(new),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==patch["new_total_ire_v6_tracked_files"]==38
+          # Additive V10 challenge docket. Historical V9 manifest and all its
+          # exact pinned code remain unchanged; never rewrite its hashes.
+          v10=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_SEMANTIC_FRONTIER_PATCH_MANIFEST_V10.json"
+          ).read_text(encoding="utf-8"))
+          assert v10["schema"]=="IRE_V6_SEMANTIC_FRONTIER_PATCH_V10"
+          assert v10["base_manifest_sha256"]==m["source_manifest_sha256"]
+          assert v10["previous_v9_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_HOST_BATCH_TRANSACTION_PATCH_MANIFEST_V9.json"],
+              text=True).strip(), "HISTORICAL_V9_MANIFEST_DRIFT"
+          v10_added={x["path"]:x["git_blob_sha"] for x in v10["added"]}
+          assert set(v10_added)=={
+              "ire/v6/semantic_frontier.py",
+              "ire/v6/tests/test_semantic_frontier.py"
+          }, "V10_UNAUTHORIZED_CODE"
+          assert not set(v10_added).intersection(set(old)|set(new))
+          assert v10["full_engine_p0_go"] is False
+          assert actual==set(old)|set(new)|set(v10_added),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v10["new_total_ire_v6_tracked_files"]==40
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
                   raw=f.read_bytes()
                   assert len(raw)==item["bytes"] and hashlib.sha256(raw).hexdigest()==item["sha256"],"ORIGINAL_FROZEN_SHA_DRIFT:"+path
-          for path,sha in (changes|new).items():
+          for path,sha in (changes|new|v10_added).items():
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
-              assert actual_sha==sha,"UNAUTHORIZED_V9_PATCH_BYTES:"+path
-          print("HISTORICAL_BASE_PLUS_V9_ATOMIC_HOST_BATCH_VERIFIED")
+              assert actual_sha==sha,"UNAUTHORIZED_V10_PATCH_BYTES:"+path
+          print("HISTORICAL_BASE_PLUS_V9_AND_V10_SEMANTIC_FRONTIER_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
