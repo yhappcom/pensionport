@@ -122,9 +122,9 @@ def audit_prior_candidates(source, exchange, inputs: dict) -> dict:
         if row["relationship"]=="NOVEL_PENDING":
             if kind!="NONE" or target is not None or row["target_content_sha256"] is not None:
                 raise InvalidInput("PRIOR_RELATION_NOVEL_TARGET_INVALID")
-        elif kind not in ("MASTER116","P4_EDUCATION") or (
-            kind,target) not in indexed or
-            row["target_content_sha256"]!=indexed[(kind,target)]:
+        elif (kind not in ("MASTER116","P4_EDUCATION") or
+              (kind,target) not in indexed or
+              row["target_content_sha256"]!=indexed.get((kind,target))):
             raise InvalidInput("PRIOR_RELATION_TARGET_CONTENT_DRIFT")
         key=(cid,kind,target)
         if key in pairs:
