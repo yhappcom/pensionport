@@ -1027,11 +1027,15 @@ class TransactionStore:
                 "snapshot_head_sha256": snap["ledger_head_sha256"],
                 "state_sha256": snap["state_sha256"],
                 "progress": snap["progress"],
-                "terminal": snap["progress"]["research_report_closed"],
+                "terminal": False,
+                "scoped_official_rule_verified": any(
+                    a["event_sha256"] == snap["ledger_head_sha256"] and
+                    a["outcome"] == "OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"
+                    for a in snap["state"]["terminal_audits"]),
                 "research_complete": snap["progress"]["research_report_closed"],
                 "engine_quality_certified": False,
                 "p0_go": False,
-                "terminal_outcome": ("OFFICIAL_SOURCE_SCOPED_COMPLETE"
+                "terminal_outcome": ("OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"
                     if snap["progress"]["research_report_closed"]
                     else "V6_KERNEL_ONLY_VALIDATION_OPEN")}
 
@@ -1079,17 +1083,20 @@ class TransactionStore:
                     receipt=self._receipt(scope_id,previous["sequence"],
                                 previous["event_sha256"],previous["state_sha256"],
                                 command_id,idempotent=True)
-                    still_current=(previous["event_sha256"]==head and
-                                   state["research_report_closed"])
+                    still_current=(previous["event_sha256"]==head)
                     return {**receipt,"terminal_outcome":p["report"]["outcome"],
-                            "research_complete":still_current,
+                            "research_complete":False,
                             "scoped_official_rule_verified":True,
-                            "historical_scope_completed":True,
+                            "historical_scope_completed":False,
+                            "historical_scoped_rule_verified":True,
                             "is_current":still_current}
                 if head!=expected_head:
                     raise ConcurrentHeadChanged("EXPECTED_HEAD_STALE")
-                if state["research_report_closed"]:
-                    raise DomainConflict("OFFICIAL_SCOPE_ALREADY_COMPLETE")
+                if (state["research_report_closed"] or any(
+                    a["event_sha256"] == head and
+                    a["outcome"] == "OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"
+                    for a in state["terminal_audits"])):
+                    raise DomainConflict("OFFICIAL_RULE_ALREADY_VERIFIED_CURRENT")
                 report=audit_official_completion(
                     con,scope_id,state,raw=raw,manifest=manifest,
                     inventory_bytes=inventory_bytes,
@@ -1107,7 +1114,7 @@ class TransactionStore:
                     kind="TERMINAL_OFFICIAL_COMPLETION_RECORDED",
                     payload=payload,state=state)
                 return {**result,"terminal_outcome":report["outcome"],
-                        "research_complete":True,
+                        "research_complete":False,
                         "scoped_official_rule_verified":True,"is_current":True}
             return self._commit(con,work)
         finally:
@@ -1125,7 +1132,7 @@ class TransactionStore:
                 state,seq,head=self._replay(con,scope_id)
                 entry=next((e for e in state["terminal_audits"]
                     if e["event_sha256"]==terminal_event_sha256 and
-                    e["outcome"]=="OFFICIAL_SOURCE_SCOPED_COMPLETE"),None)
+                    e["outcome"]=="OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"),None)
                 if entry is None:
                     raise InvalidInput("OFFICIAL_SCOPE_RECEIPT_NOT_FOUND")
                 row=con.execute(
@@ -1137,15 +1144,16 @@ class TransactionStore:
                 if (event["type"]!="TERMINAL_OFFICIAL_COMPLETION_RECORDED" or
                     json_digest(event["payload"]["report"])!=entry["report_sha256"]):
                     raise LedgerCorrupted("OFFICIAL_SCOPE_REPORT_DRIFT")
-                current=head==terminal_event_sha256 and state["research_report_closed"]
+                current=head==terminal_event_sha256
                 result={"schema":"IRE_V6_OFFICIAL_TERMINAL_READ_V2",
                         "scope_id":scope_id,
                         "terminal_event_sha256":terminal_event_sha256,
                         "base_head_sha256":entry["base_head_sha256"],
                         "current_head_sha256":head,
                         "is_current":current,
-                        "historical_scope_completed":True,
-                        "research_complete":current,
+                        "historical_scope_completed":False,
+                        "historical_scoped_rule_verified":True,
+                        "research_complete":False,
                         "engine_quality_certified":False,"p0_go":False,
                         "report":event["payload"]["report"]}
                 con.execute("COMMIT")

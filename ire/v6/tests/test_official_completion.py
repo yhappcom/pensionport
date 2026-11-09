@@ -39,7 +39,7 @@ class OfficialTerminalV2Tests(unittest.TestCase):
         self.addCleanup(tmp.cleanup)
         self.store=TransactionStore(Path(tmp.name)/"private"/"official.db")
         self.raw=make_srt([CANONICAL_PROPOSITION,
-                           "The example explains the legal condition.",
+                           "연금계좌에서 일부 인출하면 모두 비과세된다.",
                            "A synthetic cue for the conditional case.",
                            "Nothing here is an investment recommendation."])
         self.manifest=make_manifest(self.raw, cut=4)
@@ -129,17 +129,17 @@ class OfficialTerminalV2Tests(unittest.TestCase):
         self.setup_recorded()
         old=self.head()
         terminal=self.store.issue_terminal_receipt(**self.args(expected_head=old))
-        self.assertTrue(terminal["research_complete"])
+        self.assertFalse(terminal["research_complete"])
         self.assertTrue(terminal["scoped_official_rule_verified"])
         self.assertFalse(terminal["engine_quality_certified"])
         self.assertFalse(terminal["p0_go"])
         reopened=TransactionStore(self.store.path)
         read=reopened.read_official_terminal_receipt(
             scope_id=SCOPE,terminal_event_sha256=terminal["event_sha256"])
-        self.assertTrue(read["research_complete"])
+        self.assertFalse(read["research_complete"])
         self.assertTrue(read["is_current"])
         self.assertEqual(read["report"]["officially_verified_fact_count"],1)
-        self.assertTrue(reopened.progress_receipt(SCOPE)["research_complete"])
+        self.assertFalse(reopened.progress_receipt(SCOPE)["research_complete"])
         self.assertFalse(reopened.progress_receipt(SCOPE)["p0_go"])
         with closing(sqlite3.connect(self.store.path)) as con:
             joined="\n".join(r[0] for r in con.execute("SELECT event_json FROM events"))
@@ -222,7 +222,7 @@ class OfficialTerminalV2Tests(unittest.TestCase):
         self.setup_recorded()
         args=self.args()
         finished=self.store.issue_terminal_receipt(**args)
-        self.assertTrue(self.store.progress_receipt(SCOPE)["research_complete"])
+        self.assertFalse(self.store.progress_receipt(SCOPE)["research_complete"])
         revised=make_model(first=1,last=1,quote1=CANONICAL_PROPOSITION)
         revised["claims"][0]["kind"]="FACT"
         revised["claims"][0]["proposition"]=CANONICAL_PROPOSITION
@@ -232,13 +232,13 @@ class OfficialTerminalV2Tests(unittest.TestCase):
         reopened=TransactionStore(self.store.path)
         historical=reopened.read_official_terminal_receipt(
             scope_id=SCOPE,terminal_event_sha256=finished["event_sha256"])
-        self.assertTrue(historical["historical_scope_completed"])
+        self.assertFalse(historical["historical_scope_completed"])
         self.assertFalse(historical["is_current"])
         self.assertFalse(historical["research_complete"])
         self.assertFalse(reopened.progress_receipt(SCOPE)["research_complete"])
         exact_retry=reopened.issue_terminal_receipt(**args)
         self.assertTrue(exact_retry["idempotent_replay"])
-        self.assertTrue(exact_retry["historical_scope_completed"])
+        self.assertFalse(exact_retry["historical_scope_completed"])
         self.assertFalse(exact_retry["research_complete"])
         self.assertFalse(exact_retry["is_current"])
         with self.assertRaises(QualityNotProven):
@@ -249,6 +249,69 @@ class OfficialTerminalV2Tests(unittest.TestCase):
         with self.assertRaisesRegex(DomainConflict,"COMMAND_KIND_NOT_ENABLED"):
             self.store.submit(scope_id=SCOPE,command_id="forged",expected_head=self.head(),
                 kind="TERMINAL_OFFICIAL_COMPLETION_RECORDED",payload={})
+
+
+    def test_omitted_second_high_risk_fact_cannot_close_research(self):
+        # A valid official legal statement is in cue 1, but cue 2 asserts a
+        # contradictory tax rule. The model submits only cue 1.
+        self.setup_recorded()
+        receipt=self.store.issue_terminal_receipt(**self.args())
+        self.assertTrue(receipt["scoped_official_rule_verified"])
+        self.assertFalse(receipt["research_complete"])
+        report=self.store.read_official_terminal_receipt(
+            scope_id=SCOPE,terminal_event_sha256=receipt["event_sha256"])["report"]
+        self.assertFalse(report["source_claim_census_independently_verified"])
+        self.assertFalse(report["nonfact_roles_independently_verified"])
+        self.assertFalse(report["research_complete"])
+        self.assertFalse(self.store.progress_receipt(SCOPE)["research_complete"])
+
+    def test_false_tax_fact_self_labelled_question_never_closes_research(self):
+        self.setup_recorded()
+        m=make_model(first=1,last=1,quote1=CANONICAL_PROPOSITION)
+        m["claims"][0]["kind"]="FACT"
+        m["claims"][0]["proposition"]=CANONICAL_PROPOSITION
+        second=copy.deepcopy(m["claims"][0])
+        second.update({"claim_id":"C00002","kind":"QUESTION",
+                       "proposition":"연금계좌에서 일부 인출하면 모두 비과세된다.",
+                       "source_refs":[{"cue_index":2,
+                           "quote":"연금계좌에서 일부 인출하면 모두 비과세된다."}],
+                       "context_first_cue":2,"context_last_cue":2})
+        m["claims"].append(second)
+        self.store.submit(scope_id=SCOPE,command_id="two_model_claims",
+            expected_head=self.head(),kind="MODEL_RECORDED",
+            payload={"window_id":"W00001","model":m})
+        review=make_review()
+        review["reviewed_claim_ids"].append("C00002")
+        self.store.submit_structural_proof(
+            scope_id=SCOPE,command_id="two_model_proof",expected_head=self.head(),
+            window_id="W00001",raw=self.raw,manifest=self.manifest,review=review)
+        self.store.submit_finance_candidate(
+            scope_id=SCOPE,command_id="two_model_finance",expected_head=self.head(),
+            window_id="W00001",raw=self.raw,manifest=self.manifest,
+            inventory_bytes=self.inv_bytes,
+            expected_inventory_sha256=self.inv_sha,**self.finance_input)
+        reviews=self.decision()
+        reviews.append({"window_id":"W00001","claim_id":"C00002",
+                        "model_revision_event_sha256":reviews[0]["model_revision_event_sha256"],
+                        "verdict":"NOT_FACT_CLAIM","rule_id":None,
+                        "conditions_acknowledged":[]})
+        receipt=self.store.issue_terminal_receipt(
+            **self.args(command_id="mislabelled_nonfact",determinations=reviews))
+        report=self.store.read_official_terminal_receipt(
+            scope_id=SCOPE,terminal_event_sha256=receipt["event_sha256"])["report"]
+        self.assertEqual(report["model_labelled_nonfact_count"],1)
+        self.assertFalse(report["nonfact_roles_independently_verified"])
+        self.assertFalse(receipt["research_complete"])
+
+    def test_second_rule_receipt_same_revision_rejected(self):
+        self.setup_recorded()
+        one=self.store.issue_terminal_receipt(**self.args())
+        self.assertTrue(self.store.progress_receipt(SCOPE)["scoped_official_rule_verified"])
+        with self.assertRaisesRegex(DomainConflict,"OFFICIAL_RULE_ALREADY_VERIFIED_CURRENT"):
+            self.store.issue_terminal_receipt(**self.args(command_id="second_rule"))
+        self.assertFalse(self.store.progress_receipt(SCOPE)["research_complete"])
+        self.assertEqual(self.head(),one["event_sha256"])
+
 
 if __name__=="__main__":
     unittest.main()

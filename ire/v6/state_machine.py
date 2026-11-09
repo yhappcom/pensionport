@@ -214,13 +214,15 @@ def reduce_event(state: dict, kind: str, payload: dict, event_hash: str) -> dict
             type(report.get("officially_verified_fact_count")) is not int or
             report["officially_verified_fact_count"]<1 or
             report.get("scope_fully_modelled") is not True or
+            report.get("source_claim_census_independently_verified") is not False or
+            report.get("nonfact_roles_independently_verified") is not False or
             report.get("all_registered_factual_assertions_verified") is not True or
             report.get("historical_official_source_bytes_verified") is not True or
             report.get("independent_human_review_required") is not False or
             report.get("general_semantic_recall_certified") is not False or
             report.get("legacy116_semantic_merge_approved") is not False or
-            report.get("outcome")!="OFFICIAL_SOURCE_SCOPED_COMPLETE" or
-            report.get("research_complete") is not True or
+            report.get("outcome")!="OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN" or
+            report.get("research_complete") is not False or
             report.get("engine_quality_certified") is not False or
             report.get("p0_go") is not False):
             raise InvalidInput("OFFICIAL_TERMINAL_UNAUTHORIZED_COMPLETION")
@@ -229,8 +231,8 @@ def reduce_event(state: dict, kind: str, payload: dict, event_hash: str) -> dict
             "base_head_sha256":payload["base_head_sha256"],
             "base_state_sha256":payload["base_state_sha256"],
             "report_sha256":json_digest(report),
-            "outcome":"OFFICIAL_SOURCE_SCOPED_COMPLETE"})
-        next_state["research_report_closed"]=True
+            "outcome":"OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"})
+        next_state["research_report_closed"]=False
     elif kind == "TERMINAL_AUDIT_RECORDED":
         if set(payload)!={"schema", "base_head_sha256", "base_state_sha256", "private_input_sha256", "report"} or \
            payload["schema"]!="IRE_V6_TERMINAL_AUDIT_EVENT_V1" or \
@@ -317,7 +319,7 @@ def progress(state: dict) -> dict:
         "terminal_blocked_audit_count": sum(
             a["outcome"]=="TERMINAL_BLOCKED" for a in state["terminal_audits"]),
         "terminal_official_scope_count": sum(
-            a["outcome"]=="OFFICIAL_SOURCE_SCOPED_COMPLETE"
+            a["outcome"]=="OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"
             for a in state["terminal_audits"]),
         "current_revision_finance_candidate_reviews": current_finance,
         "financial_facts_approved": False,
