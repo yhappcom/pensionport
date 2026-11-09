@@ -11,11 +11,11 @@ from ire.v6.codec import canonical, json_digest, sha256
 from ire.v6.errors import LedgerCorrupted, UnsupportedSchema
 from ire.v6.legacy_v2_state_machine import empty_state, reduce_event
 from ire.v6.legacy_v2_archive import read_legacy_v2_archive
-from ire.v6.tests.test_official_completion import OfficialTerminalV2Tests
 
 
 class LegacyV2ArchiveTests(unittest.TestCase):
     def make_legacy(self):
+        from ire.v6.tests.test_official_completion import OfficialTerminalV2Tests
         fixture = OfficialTerminalV2Tests(
             methodName="test_true_official_scoped_complete_and_reopened_sqlite")
         fixture.setUp()
@@ -94,6 +94,7 @@ class LegacyV2ArchiveTests(unittest.TestCase):
             read_legacy_v2_archive(db,"official_v2_scope")
 
     def test_modern_ledger_without_old_terminal_is_not_legacy_archive(self):
+        from ire.v6.tests.test_official_completion import OfficialTerminalV2Tests
         fixture=OfficialTerminalV2Tests(methodName="test_true_official_scoped_complete_and_reopened_sqlite")
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
