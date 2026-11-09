@@ -1,0 +1,36 @@
+{
+  "schema": "IRE_V6_VALIDATION_ONLY_OFFICIAL_RULE_AUDIT_PATCH_V3",
+  "base_branch_head": "b5e32f238c0897b83b4693f00376ca396aecaaa5",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v2_manifest_git_blob_sha": "330b435afa571119a7ceee3314176c482ca6bc48",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "P0 fail closed: narrow official fact verification does not certify source-first claim completeness",
+  "modified_from_original": [
+    {
+      "path": "ire/v6/store.py",
+      "git_blob_sha": "f5c8a22aeef5ec90e4b07cfc77f5cfaf5f1d71fc"
+    },
+    {
+      "path": "ire/v6/state_machine.py",
+      "git_blob_sha": "f979d9d947e038c8957d4460340eb8d667fdde24"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/official_completion.py",
+      "git_blob_sha": "fbe5c589a4ad54b6e47d192dd66eb748fedd3066"
+    },
+    {
+      "path": "ire/v6/tests/test_official_completion.py",
+      "git_blob_sha": "332a9747bdb8696c75adee9f9f7d33a189d11021"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 27,
+  "source_claim_census_independently_verified": false,
+  "nonfact_roles_independently_verified": false,
+  "official_rule_narrowly_verifiable": true,
+  "entire_research_complete": false,
+  "full_engine_p0_go": false,
+  "never_merge_without_further_owner_approval": true,
+  "historical_v2_terminal_receipts_require_separate_migration": true
+}
