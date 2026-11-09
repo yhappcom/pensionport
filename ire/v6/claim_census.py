@@ -14,17 +14,17 @@ from .codec import json_digest, sha256
 from .errors import InvalidInput
 
 FINANCIAL = re.compile(
-    r"(?i)(?:\\d[\\d,.]*\\s*(?:%|원|만원|억원|조원|퍼센트|달러|배)|"
+    r"(?i)(?:\d[\d,.]*\s*(?:%|원|만원|억원|조원|퍼센트|달러|배)|"
     r"연금|국민연금|IRP|ISA|ETF|투자|수익|주식|채권|배당|분배|세금|과세|"
     r"공제|부채|대출|상환|환율|금리|손실|수수료|소득|자산|"
     r"retirement|tax|interest|yield|bond|stock|dividend|pension|loan)"
 )
 QUALIFIER = re.compile(
     r"(?i)(?:하지만|그러나|다만|아니라|아닙|틀리|반박|거짓|반대|"
-    r"예외|조건|제외|무조건|보장|제한|unless|except|false|wrong|not\\s+true)"
+    r"예외|조건|제외|무조건|보장|제한|unless|except|false|wrong|not\s+true)"
 )
 MULTI_CLAIM = re.compile(
-    r"(?i)(?:그리고|또한|반면|동시에|한편|첫째|둘째|\\b(?:and|but|whereas)\\b)"
+    r"(?i)(?:그리고|또한|반면|동시에|한편|첫째|둘째|\b(?:and|but|whereas)\b)"
 )
 
 
