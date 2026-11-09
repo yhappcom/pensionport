@@ -225,6 +225,8 @@ jobs:
         run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_source_scope_v2.py' -v
       - name: Verify private real-source E2E attestation safe metadata against official and 116 protected files
         run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_private_scope_bridge.py' -v
+      - name: P0-3 nine-video prospective blind score arithmetic and no-fake-GO controls
+        run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_blind_cohort_gate.py' -v
 
 
 
