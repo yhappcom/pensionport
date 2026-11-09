@@ -1,0 +1,45 @@
+{
+  "schema": "IRE_V6_SOURCE_FIRST_RESIDUAL_PATCH_V5",
+  "base_branch_head": "c42dcce3c450f75d1957bfb9939170dc2001a9ef",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v4_manifest_git_blob_sha": "453179a0bdfc4a712d3376871aa3b5a23a5616e4",
+  "previous_v3_manifest_git_blob_sha": "3638274d0de77a000e5d65185208f0849b1e5a5a",
+  "previous_v2_manifest_git_blob_sha": "330b435afa571119a7ceee3314176c482ca6bc48",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "Enumerate every original scoped cue and surface unresolved risk without false semantic recall certification",
+  "modified_from_original": [
+    {
+      "path": "ire/v6/store.py",
+      "git_blob_sha": "c47427953b9f4df9c224710f0db829dfc6209e7f"
+    },
+    {
+      "path": "ire/v6/state_machine.py",
+      "git_blob_sha": "5bf244e16e2c5e5c8a51df63b65de69ccff5d796"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/official_completion.py",
+      "git_blob_sha": "57fd2cab68aeeb4678aea8e1a07ed64b2fbf83e0"
+    },
+    {
+      "path": "ire/v6/tests/test_official_completion.py",
+      "git_blob_sha": "aaec025322bb1523a11e576c3f688031f489ff03"
+    },
+    {
+      "path": "ire/v6/claim_census.py",
+      "git_blob_sha": "4eca1241a772627895299ecc91ea419406546ac2"
+    },
+    {
+      "path": "ire/v6/tests/test_claim_census.py",
+      "git_blob_sha": "2e853798dcf146545331e4f02cf2fda425c7e8aa"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 29,
+  "source_first_cue_coverage_verified": true,
+  "atomic_semantic_completeness_certified": false,
+  "independently_authored_gold_verified": false,
+  "full_engine_p0_go": false,
+  "migration_of_historical_v2_receipts_complete": false,
+  "never_merge_without_owner_approval": true
+}
