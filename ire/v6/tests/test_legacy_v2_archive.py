@@ -27,7 +27,7 @@ class LegacyV2ArchiveTests(unittest.TestCase):
             con.row_factory=sqlite3.Row
             events=con.execute(
                 "SELECT * FROM events WHERE scope_id=? ORDER BY sequence",
-                (fixture.store.snapshot(fixture.store.snapshot(fixture.store.snapshot("official_v2_scope")["scope_id"])["scope_id"])["scope_id"],)
+                ("official_v2_scope",)
             ).fetchall()
             # Simulate a real-format legacy V2 completion event, preserving
             # all preceding legitimate source/proof/finance event bytes.
