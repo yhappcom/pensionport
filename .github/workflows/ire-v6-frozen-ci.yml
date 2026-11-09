@@ -4,6 +4,7 @@ on:
     branches:
       - verify/ire-v6-frozen-ci-20261108
       - verify/ire-v6-p0-false-completion-20261109
+      - verify/ire-v6-p0-integrity-hardening-20261109
   workflow_dispatch:
 permissions:
   contents: read
@@ -109,10 +110,11 @@ jobs:
           m=json.loads(p.read_text(encoding="utf-8"))
           assert m["source_manifest_sha256"]=="471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340","HISTORICAL_MANIFEST_CHANGED"
           assert len(m["paths"])==25
-          patch=json.loads(pathlib.Path("validation/ire-v6-frozen/V6_OFFICIAL_RULE_AUDIT_PATCH_MANIFEST_V3.json").read_text(encoding="utf-8"))
-          assert patch["schema"]=="IRE_V6_VALIDATION_ONLY_OFFICIAL_RULE_AUDIT_PATCH_V3"
+          patch=json.loads(pathlib.Path("validation/ire-v6-frozen/V6_OFFICIAL_RULE_STATUS_PATCH_MANIFEST_V4.json").read_text(encoding="utf-8"))
+          assert patch["schema"]=="IRE_V6_VALIDATION_ONLY_RULE_STATUS_HARDENING_V4"
           assert patch["base_manifest_sha256"]==m["source_manifest_sha256"]
           assert patch['previous_v2_manifest_git_blob_sha']==subprocess.check_output(['git','hash-object','validation/ire-v6-frozen/V6_OFFICIAL_COMPLETION_PATCH_MANIFEST_V2.json'],text=True).strip(),'V2_HISTORICAL_MANIFEST_DRIFT'
+          assert patch['previous_v3_manifest_git_blob_sha']==subprocess.check_output(['git','hash-object','validation/ire-v6-frozen/V6_OFFICIAL_RULE_AUDIT_PATCH_MANIFEST_V3.json'],text=True).strip(),'V3_HISTORICAL_MANIFEST_DRIFT'
           assert patch["scope"]=="VALIDATION_BRANCH_ONLY" and patch["full_engine_p0_go"] is False
           changes={x["path"]:x["git_blob_sha"] for x in patch["modified_from_original"]}
           new={x["path"]:x["git_blob_sha"] for x in patch["added"]}
@@ -131,8 +133,8 @@ jobs:
           for path,sha in (changes|new).items():
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
-              assert actual_sha==sha,"UNAUTHORIZED_V3_PATCH_BYTES:"+path
-          print("HISTORICAL_ORIGINAL_23_PLUS_V3_HOTFIX_VERIFIED")
+              assert actual_sha==sha,"UNAUTHORIZED_V4_PATCH_BYTES:"+path
+          print("HISTORICAL_ORIGINAL_23_PLUS_V4_HARDENING_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"

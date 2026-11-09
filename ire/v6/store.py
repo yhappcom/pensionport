@@ -1019,25 +1019,85 @@ class TransactionStore:
         require_hash(ledger_head_sha256, "LEDGER_HEAD")
         return self.snapshot(scope_id)["ledger_head_sha256"] == ledger_head_sha256
 
+
+    def _current_official_rule_record(self, con, scope_id, state):
+        """Report still valid for model/proof/finance revisions, not latest HEAD.
+
+        Only confirms narrowly pinned official *text*. Source-speaker semantic
+        entailment is NEVER inferred from a quote or unreviewed model labels.
+        Old terminal records are not implicitly migrated or promoted.
+        """
+        from .receipt import _payload
+        revisions = json_digest([
+            {"window_id": wid, "revision_event_sha256": item["revision_event_sha256"]}
+            for wid, item in sorted(state["models"].items())
+        ])
+        proofs = []
+        finance = []
+        for wid, item in sorted(state["models"].items()):
+            proof = state["structural_proofs"].get(wid)
+            if proof is None or proof["model_revision_event_sha256"] != item["revision_event_sha256"]:
+                return None
+            proofs.append(proof["proof_event_sha256"])
+            model = _payload(con, scope_id, item["revision_event_sha256"], "MODEL_RECORDED")["model"]
+            for claim in model.get("claims", ()):
+                if claim["kind"] == "FACT":
+                    key = wid + ":" + claim["claim_id"]
+                    saved = state["finance_candidate_reviews"].get(key)
+                    if saved is None or saved["model_revision_event_sha256"] != item["revision_event_sha256"]:
+                        return None
+                    finance.append(saved["finance_event_sha256"])
+        current_proofs = json_digest(proofs)
+        current_finance = json_digest(finance)
+        for record in reversed(state["terminal_audits"]):
+            if record["outcome"] != "OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN":
+                continue
+            payload = _payload(con, scope_id, record["event_sha256"],
+                               "TERMINAL_OFFICIAL_COMPLETION_RECORDED")
+            report = payload["report"]
+            if json_digest(report) != record["report_sha256"]:
+                raise LedgerCorrupted("OFFICIAL_RULE_AUDIT_DIGEST_DRIFT")
+            if (report.get("model_revision_set_sha256") == revisions and
+                report.get("source_sha256") == state["source"]["source_sha256"] and
+                report.get("manifest_sha256") == state["source"]["manifest_sha256"] and
+                report.get("replayed_proof_set_sha256") == current_proofs and
+                report.get("replayed_finance_set_sha256") == current_finance and
+                report.get("source_speaker_meaning_verified") is False and
+                report.get("research_complete") is False):
+                return record
+        return None
+
     def progress_receipt(self, scope_id: str) -> dict:
-        snap = self.snapshot(scope_id)
-        return {"schema": "IRE_V6_PROGRESS_RECEIPT_V1",
-                "scope_id": snap["scope_id"],
-                "snapshot_sequence": snap["sequence"],
-                "snapshot_head_sha256": snap["ledger_head_sha256"],
-                "state_sha256": snap["state_sha256"],
-                "progress": snap["progress"],
-                "terminal": False,
-                "scoped_official_rule_verified": any(
-                    a["event_sha256"] == snap["ledger_head_sha256"] and
-                    a["outcome"] == "OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"
-                    for a in snap["state"]["terminal_audits"]),
-                "research_complete": snap["progress"]["research_report_closed"],
-                "engine_quality_certified": False,
-                "p0_go": False,
-                "terminal_outcome": ("OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"
-                    if snap["progress"]["research_report_closed"]
-                    else "V6_KERNEL_ONLY_VALIDATION_OPEN")}
+        """Read model-bound rule status and progress in the same SQLite snapshot."""
+        scope_id = require_identifier(scope_id, name="SCOPE_ID")
+        con = self._connection()
+        try:
+            con.execute("BEGIN")
+            try:
+                state, seq, head = self._replay(con, scope_id)
+                rule = self._current_official_rule_record(con, scope_id, state)
+                counters = progress(state)
+                out = {"schema": "IRE_V6_PROGRESS_RECEIPT_V1",
+                       "scope_id": scope_id, "snapshot_sequence": seq,
+                       "snapshot_head_sha256": head,
+                       "state_sha256": json_digest(state),
+                       "progress": counters, "terminal": False,
+                       "scoped_official_rule_verified": rule is not None,
+                       "official_statute_rule_text_verified": rule is not None,
+                       "source_speaker_meaning_verified": False,
+                       "research_complete": False,
+                       "engine_quality_certified": False, "p0_go": False,
+                       "terminal_outcome": (
+                           "OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"
+                           if rule is not None else "V6_KERNEL_ONLY_VALIDATION_OPEN")}
+                con.execute("COMMIT")
+                return out
+            except BaseException:
+                if con.in_transaction:
+                    con.execute("ROLLBACK")
+                raise
+        finally:
+            con.close()
 
     def issue_terminal_receipt(self, scope_id: str, *, command_id=None,
                                expected_head=None, raw=None, manifest=None,
@@ -1083,19 +1143,19 @@ class TransactionStore:
                     receipt=self._receipt(scope_id,previous["sequence"],
                                 previous["event_sha256"],previous["state_sha256"],
                                 command_id,idempotent=True)
-                    still_current=(previous["event_sha256"]==head)
+                    still_current=(self._current_official_rule_record(con,scope_id,state) or {}).get("event_sha256")==previous["event_sha256"]
                     return {**receipt,"terminal_outcome":p["report"]["outcome"],
                             "research_complete":False,
-                            "scoped_official_rule_verified":True,
+                            "scoped_official_rule_verified":still_current,
+                            "official_statute_rule_text_verified":still_current,
+                            "source_speaker_meaning_verified":False,
                             "historical_scope_completed":False,
                             "historical_scoped_rule_verified":True,
                             "is_current":still_current}
                 if head!=expected_head:
                     raise ConcurrentHeadChanged("EXPECTED_HEAD_STALE")
-                if (state["research_report_closed"] or any(
-                    a["event_sha256"] == head and
-                    a["outcome"] == "OFFICIAL_RULE_VERIFIED_RESEARCH_OPEN"
-                    for a in state["terminal_audits"])):
+                if (state["research_report_closed"] or
+                    self._current_official_rule_record(con,scope_id,state) is not None):
                     raise DomainConflict("OFFICIAL_RULE_ALREADY_VERIFIED_CURRENT")
                 report=audit_official_completion(
                     con,scope_id,state,raw=raw,manifest=manifest,
@@ -1115,7 +1175,9 @@ class TransactionStore:
                     payload=payload,state=state)
                 return {**result,"terminal_outcome":report["outcome"],
                         "research_complete":False,
-                        "scoped_official_rule_verified":True,"is_current":True}
+                        "scoped_official_rule_verified":True,
+                        "official_statute_rule_text_verified":True,
+                        "source_speaker_meaning_verified":False,"is_current":True}
             return self._commit(con,work)
         finally:
             con.close()
@@ -1144,7 +1206,7 @@ class TransactionStore:
                 if (event["type"]!="TERMINAL_OFFICIAL_COMPLETION_RECORDED" or
                     json_digest(event["payload"]["report"])!=entry["report_sha256"]):
                     raise LedgerCorrupted("OFFICIAL_SCOPE_REPORT_DRIFT")
-                current=head==terminal_event_sha256
+                current=(self._current_official_rule_record(con,scope_id,state) or {}).get("event_sha256")==terminal_event_sha256
                 result={"schema":"IRE_V6_OFFICIAL_TERMINAL_READ_V2",
                         "scope_id":scope_id,
                         "terminal_event_sha256":terminal_event_sha256,
@@ -1153,6 +1215,8 @@ class TransactionStore:
                         "is_current":current,
                         "historical_scope_completed":False,
                         "historical_scoped_rule_verified":True,
+                        "source_speaker_meaning_verified":False,
+                        "official_statute_rule_text_verified":current,
                         "research_complete":False,
                         "engine_quality_certified":False,"p0_go":False,
                         "report":event["payload"]["report"]}

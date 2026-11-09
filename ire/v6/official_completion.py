@@ -179,7 +179,7 @@ def audit_official_completion(con, scope_id, state, *,
                 raise QualityNotProven("OFFICIAL_FACT_NOT_EXACT_REGISTERED_RULE")
             # Stronger than quotes merely present in two unrelated documents:
             # the original cue itself must assert the exact registered sentence.
-            if not any(_compact(CANONICAL_PROPOSITION) in
+            if not any(_compact(CANONICAL_PROPOSITION) ==
                        _compact(src.cues[r["cue_index"]-1].text)
                        for r in atom["source_refs"]):
                 raise QualityNotProven("OFFICIAL_ORIGINAL_SOURCE_DOES_NOT_ASSERT_RULE")
@@ -240,9 +240,12 @@ def audit_official_completion(con, scope_id, state, *,
         "replayed_finance_set_sha256":json_digest(finance_set),
         "determination_sha256":json_digest(determinations),
         "scope_fully_modelled":True,
+        "source_first_atomic_exhaustiveness_verified":False,
         "source_claim_census_independently_verified":False,
         "nonfact_roles_independently_verified":False,
-        "all_registered_factual_assertions_verified":True,
+        "all_registered_factual_assertions_verified":False,
+        "source_speaker_meaning_verified":False,
+        "official_statute_rule_text_verified":True,
         "independent_human_review_required":False,
         "historical_official_source_bytes_verified":True,
         "general_semantic_recall_certified":False,
