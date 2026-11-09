@@ -220,6 +220,16 @@ def reduce_event(state: dict, kind: str, payload: dict, event_hash: str) -> dict
             report.get("source_speaker_meaning_verified") is not False or
             report.get("official_statute_rule_text_verified") is not True or
             report.get("source_first_atomic_exhaustiveness_verified") is not False or
+            type(report.get("source_first_scope_cue_count")) is not int or
+            report["source_first_scope_cue_count"] < 1 or
+            type(report.get("source_first_unanchored_financial_cue_count")) is not int or
+            report["source_first_unanchored_financial_cue_count"] < 0 or
+            type(report.get("source_first_qualifier_cue_count")) is not int or
+            report["source_first_qualifier_cue_count"] < 0 or
+            type(report.get("source_first_multi_atom_cue_count")) is not int or
+            report["source_first_multi_atom_cue_count"] < 0 or
+            not isinstance(report.get("source_first_residual_census_sha256"),str) or
+            len(report["source_first_residual_census_sha256"]) != 64 or
             report.get("historical_official_source_bytes_verified") is not True or
             report.get("independent_human_review_required") is not False or
             report.get("general_semantic_recall_certified") is not False or

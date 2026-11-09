@@ -132,6 +132,7 @@ def audit_official_completion(con, scope_id, state, *,
             raise InvalidInput("OFFICIAL_DUPLICATE_DETERMINATION")
         given[key] = item
     all_claims = {}
+    actual_models = {}
     verified = []
     nonfacts = []
     proof_set = []
@@ -146,6 +147,7 @@ def audit_official_completion(con, scope_id, state, *,
             raise QualityNotProven("OFFICIAL_CURRENT_STRUCTURAL_PROOF_REQUIRED")
         actual_model = _payload(con, scope_id, model["revision_event_sha256"],
                                 "MODEL_RECORDED")["model"]
+        actual_models[wid] = actual_model
         actual_proof = _payload(con, scope_id, proof["proof_event_sha256"],
                                 "STRUCTURAL_PROOF_RECORDED")
         checked = audit_model_anchors(src, wid, actual_model, actual_proof["review"])
@@ -220,6 +222,8 @@ def audit_official_completion(con, scope_id, state, *,
         raise QualityNotProven("OFFICIAL_INCOMPLETE_OR_ZERO_VERIFIED_FACT_CENSUS")
     if set(state["finance_candidate_reviews"]) != set(verified):
         raise QualityNotProven("OFFICIAL_UNREVIEWED_OR_HISTORICAL_FINANCE_CANDIDATE")
+    from .claim_census import audit_source_first_residuals
+    residuals = audit_source_first_residuals(src, actual_models)
     revisions = [{"window_id":wid,
                   "revision_event_sha256":state["models"][wid]["revision_event_sha256"]}
                  for wid in windows]
@@ -241,6 +245,14 @@ def audit_official_completion(con, scope_id, state, *,
         "determination_sha256":json_digest(determinations),
         "scope_fully_modelled":True,
         "source_first_atomic_exhaustiveness_verified":False,
+        "source_first_residual_census_sha256":residuals["cue_census_sha256"],
+        "source_first_scope_cue_count":residuals["scope_cue_count"],
+        "source_first_unanchored_financial_cue_count":residuals[
+            "unanchored_financial_heuristic_cue_count"],
+        "source_first_qualifier_cue_count":residuals[
+            "qualifier_or_contradiction_cue_count"],
+        "source_first_multi_atom_cue_count":residuals[
+            "multi_atom_heuristic_cue_count"],
         "source_claim_census_independently_verified":False,
         "nonfact_roles_independently_verified":False,
         "all_registered_factual_assertions_verified":False,
