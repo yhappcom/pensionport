@@ -77,6 +77,7 @@ class SemanticFrontierTests(unittest.TestCase):
         e["atoms"][0]["source_refs"].append(
             {"cue_index":2,"quote":self.fx.source.cues[1].text})
         e["atoms"][0]["context_cue_indices"]=[1,2]
+        e["atoms"][0]["stance"]="CORRECTED"
         e["cue_dispositions"][1]["claim_ids"].insert(0,"C00001")
         r=source_first_semantic_frontier(self.fx.source,e)
         matching=[x for x in r["review_cases"]
