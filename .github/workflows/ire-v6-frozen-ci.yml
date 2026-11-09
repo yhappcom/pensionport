@@ -175,8 +175,21 @@ jobs:
           assert not set(v11_added).intersection(set(old)|set(new)|set(v10_added))
           assert v11["scope"]=="VALIDATION_BRANCH_ONLY" and v11["full_engine_p0_go"] is False
           assert v11["independently_authored_gold_verified"] is False
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v11["new_total_ire_v6_tracked_files"]==41
+          v12=json.loads(pathlib.Path("validation/ire-v6-frozen/V6_PRIVATE_GOLD_CUSTODY_PATCH_MANIFEST_V12.json").read_text(encoding="utf-8"))
+          assert v12["schema"]=="IRE_V6_PRIVATE_GOLD_CUSTODY_PATCH_V12"
+          assert v12["base_manifest_sha256"]==m["source_manifest_sha256"]
+          assert v12["previous_v11_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_HOST_FRONTIER_COMMIT_PATCH_MANIFEST_V11.json"],
+              text=True).strip(),"HISTORICAL_V11_MANIFEST_DRIFT"
+          assert v12["original_prereg_sha256"]==hashlib.sha256(
+              pathlib.Path("validation/ire-v6-frozen/BLIND_PREREGISTRATION_V1.json").read_bytes()
+          ).hexdigest(),"ORIGINAL_PREREG_DRIFT"
+          added12={x["path"]:x["git_blob_sha"] for x in v12["added"]}
+          assert set(added12)=={"ire/v6/blind_custody.py","ire/v6/tests/test_blind_custody.py"},"V12_UNAUTHORIZED_CODE"
+          assert not set(added12).intersection(set(old)|set(new)|set(v10_added)|set(v11_added))
+          assert v12["p0_go"] is False and v12["gold_sealed_by_real_reviewers"] is False
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v12["new_total_ire_v6_tracked_files"]==43
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -191,11 +204,11 @@ jobs:
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
               assert actual_sha==sha,"UNAUTHORIZED_PREVIOUS_PATCH_BYTES:"+path
-          for path,sha in (v11_modified|v11_added).items():
+          for path,sha in (v11_modified|v11_added|added12).items():
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
-              assert actual_sha==sha,"UNAUTHORIZED_V11_PATCH_BYTES:"+path
-          print("HISTORICAL_BASE_PLUS_V11_HOST_FRONTIER_INTEGRATION_VERIFIED")
+              assert actual_sha==sha,"UNAUTHORIZED_V12_PATCH_BYTES:"+path
+          print("HISTORICAL_BASE_PLUS_V12_PRIVATE_GOLD_CUSTODY_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
