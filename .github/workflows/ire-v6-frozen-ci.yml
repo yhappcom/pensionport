@@ -127,7 +127,7 @@ jobs:
           assert set(changes).issubset(old) and not set(new).intersection(old)
           actual={f.as_posix() for f in pathlib.Path("ire/v6").rglob("*") if f.is_file()}
           assert actual==set(old)|set(new),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==patch["new_total_ire_v6_tracked_files"]==27
+          assert len(actual)==patch["new_total_ire_v6_tracked_files"]==29
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
