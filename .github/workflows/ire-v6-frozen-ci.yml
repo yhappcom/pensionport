@@ -366,8 +366,39 @@ jobs:
                        "s7_rollout_approved","p0_go"):
               assert v20[flag] is False,"V20_UNAUTHORIZED_RELEASE:"+flag
           assert v20["no_external_model_api"] is True
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v21=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_SOURCE_PUBLISH_ASOF_FINANCE_SCOPE_PATCH_MANIFEST_V21.json"
+          ).read_text(encoding="utf-8"))
+          assert v21["schema"]=="IRE_V6_SOURCE_PUBLISH_ASOF_AND_FINANCE_SCOPE_PATCH_V21"
+          assert v21["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v21["previous_v20_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_CONTRAST_SCOPE_FINANCE_RULE_PATCH_MANIFEST_V20.json"],text=True
+          ).strip(),"V21_HISTORICAL_V20_DRIFT"
+          assert v21["base_head_sha"]=="db74afdc24f11be50d6af5d1e503d89e4ec5f9c4"
+          added21={x["path"]:x["git_blob_sha"] for x in v21["added"]}
+          assert set(added21)=={"ire/v6/temporal_finance_gate.py","ire/v6/tests/test_temporal_finance_gate.py"}
+          assert not set(added21).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20))
+          assert v21["report_path"]=="validation/ire-v6-frozen/V6_V21_TIMESTAMP_AND_FINANCE_SCOPE_REPLAY.md"
+          assert v21["original_five_video_source_cues"]==184
+          assert v21["chat_host_atomic_candidate_claims"]==52
+          assert v21["five_video_initial_lexical_risks"]==4
+          assert v21["five_video_after_condition_amendment_raw_risks"]==1
+          assert v21["five_video_source_first_frontier_cases"]==77
+          assert v21["youtube_native_video_metadata_dates_checked"]==10
+          assert v21["youtube_date_roster_native_match_count"]==10
+          assert v21["published_kst_day_after_native_date_count"]==4
+          assert v21["future_2026_10_decree_not_valid_at_publication_count"]==10
+          assert v21["real_source_rate_period_contradiction_examples"]==2
+          assert v21["real_source_legal_scope_hazards"]==2
+          assert v21["independently_authenticated_recording_dates"]==0
+          for key in ("real_private_srt_or_gold_uploaded","official_law_primary_body_bytes_pinned",
+                      "independent_human_gold","external_model_api_call_used",
+                      "actual_semantic_precision_recall_measured",
+                      "old_blind_preregistration_changed",
+                      "all_791_video_semantically_verified","s6_s7_rollout_approved","p0_go"):
+              assert v21[key] is False,"V21_FALSE_QUALITY_GO:"+key
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -451,7 +482,12 @@ jobs:
               assert actual_sha==sha,"UNAUTHORIZED_V20_PATCH_BYTES:"+path
           assert subprocess.check_output(
               ["git","hash-object",v20["report_path"]],text=True).strip()==v20["report_git_blob_sha"],"V20_SAFE_REPORT_SHA_DRIFT"
-          print("HISTORICAL_BASE_PLUS_V20_SOURCE_CONTRAST_FINANCE_SCOPE_VERIFIED")
+          for path,sha in added21.items():
+              assert pathlib.Path(path).is_file(),"V21_FILE_NOT_FOUND:"+path
+              actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"UNAUTHORIZED_V21_CODE_BYTES:"+path
+          assert subprocess.check_output(["git","hash-object",v21["report_path"]],text=True).strip()==v21["report_git_blob_sha"],"V21_REPORT_HASH_DRIFT"
+          print("HISTORICAL_BASE_PLUS_V21_PUBLISH_ASOF_FINANCE_SCOPE_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
