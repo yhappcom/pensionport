@@ -259,8 +259,33 @@ jobs:
           assert v17["all_791_videos_researched"] is False
           assert v17["s5_six_lexical_risk_cases_open"] is True
           assert v17["s6_9_video_original_available"] is False and v17["p0_go"] is False
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v18=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_CHAT_STAGE_SPLIT_AND_S5_RISK_REVIEW_MANIFEST_V18.json"
+          ).read_text(encoding="utf-8"))
+          assert v18["schema"]=="IRE_V6_CHAT_STAGE_SPLIT_AND_S5_RISK_REVIEW_PATCH_V18"
+          assert v18["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v18["previous_v17_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_CHAT_INTERNAL_EVAL_AND_UNIT_GUARD_MANIFEST_V17.json"],
+              text=True).strip(),"HISTORICAL_V17_MANIFEST_DRIFT"
+          assert v18["base_head_sha"]=="1549d3adb815c5997ddbe7490031c0cd8317609c"
+          added18={x["path"]:x["git_blob_sha"] for x in v18["added"]}
+          assert set(added18)=={"ire/v6/stage_repair.py","ire/v6/tests/test_stage_repair.py"},"V18_ADDED_SCOPE_DRIFT"
+          assert not set(added18).intersection(
+              set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)),"V18_UNAUTHORIZED_PREVIOUS_MUTATION"
+          assert v18["report_path"]=="validation/ire-v6-frozen/V6_S3_SPLIT_S5_SEMANTIC_REVIEW_V18.md"
+          assert v18["real_s3_merged_atoms_split"]==2 and v18["real_s3_split_children"]==4
+          assert v18["real_s3_additional_unresolved_high_risk_atom"]==1
+          assert v18["real_s3_baseline_candidates"]==17 and v18["real_s3_posthoc_candidates"]==20
+          assert v18["s5_original_risks"]==6 and v18["s5_source_context_amended"]==3
+          assert v18["s5_cross_clause_scoped_chat_only"]==3 and v18["s5_raw_risks_still_visible"]==3
+          assert v18["s5_unreviewed_original_risks"]==0
+          assert v18["source_only_self_signed_owner_inventory"] is True
+          for name in ("private_raw_srt_committed","chat_reference_is_independent_gold",
+                       "semantic_truth_independently_verified","s6_9_video_original_obtained",
+                       "s7_rollout_approved","p0_go"):
+              assert v18[name] is False,"V18_UNAUTHORIZED_SAFETY_GO:"+name
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -315,7 +340,14 @@ jobs:
               ["git","cat-file","-e",v17["previous_atomic_exchange_git_blob_sha"]+"^{blob}"],check=True)
           assert subprocess.check_output(
               ["git","hash-object",v17["report_path"]],text=True).strip()==v17["report_git_blob_sha"],"V17_SAFE_REPORT_SHA_DRIFT"
-          print("HISTORICAL_BASE_PLUS_V17_CHAT_INTERNAL_EVAL_NUMERIC_UNITS_VERIFIED")
+          for path,sha in added18.items():
+              assert pathlib.Path(path).is_file()
+              actual_sha=subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"UNAUTHORIZED_V18_PATCH_BYTES:"+path
+          assert subprocess.check_output(
+              ["git","hash-object",v18["report_path"]],text=True).strip()==v18["report_git_blob_sha"],"V18_PUBLIC_SAFE_REPORT_DRIFT"
+          print("HISTORICAL_BASE_PLUS_V18_CHAT_SPLIT_AND_SEMANTIC_REVIEW_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
