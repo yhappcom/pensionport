@@ -533,8 +533,27 @@ jobs:
                       "frozen_nine_video_corpus_available",
                       "all_791_semantically_researched","p0_go"):
               assert v24[key] is False,"V24_FALSE_APPROVAL:"+key
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v25=json.loads(pathlib.Path("validation/ire-v6-frozen/V6_V25_SEMANTIC_RELEVANCE_ISA_BASE_MANIFEST.json").read_text(encoding="utf-8"))
+          assert v25["schema"]=="IRE_V6_V25_CHAT_RELEVANCE_AND_ISA_ILLUSTRATIVE_BASE"
+          assert v25["scope"]=="VALIDATION_BRANCH_ONLY" and v25["base_head_sha"]=="96fa870de76e7ac4420dc15c9784ac6f762ccdba"
+          assert v25["previous_v24_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V24_DECISION_QUALITY_DEVELOPMENT_MANIFEST.json"],
+              text=True).strip(),"HISTORICAL_V24_MANIFEST_DRIFT"
+          added25={x["path"]:x["git_blob_sha"] for x in v25["added"]}
+          assert set(added25)=={
+              "ire/v6/semantic_finance_decision_v25.py",
+              "ire/v6/tests/test_semantic_finance_decision_v25.py"
+          },"V25_UNEXPECTED_CODE"
+          assert not set(added25).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)),"V25_HISTORICAL_CODE_OVERWRITE"
+          assert v25["new_synthetic_tests"]==18 and v25["current_as_of"]=="2026-11-10"
+          assert v25["requires_explicit_chat_claim_relevance_review"] is True
+          for flag in ("host_generated_review_is_independent_gold","lexical_facet_prefilter_is_semantic_entailment",
+                       "official_primary_full_bytes_authenticated","personal_tax_credit_or_refund_calculated",
+                       "actual_private_v25_srt_replay_completed","independent_precision_recall_measured",
+                       "all_791_videos_researched","main_v5_116_p4_changed","p0_go"):
+              assert v25[flag] is False,"V25_FALSE_QUALITY_APPROVAL:"+flag
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -644,6 +663,14 @@ jobs:
               assert actual_sha==sha,"V24_UNAUTHORIZED_NEW_CODE_BYTES:"+path
           assert subprocess.check_output(
               ["git","hash-object",v24["report_path"]],text=True).strip()==v24["report_git_blob_sha"],"V24_SAFE_REPORT_SHA_DRIFT"
+          for path,sha in added25.items():
+              assert pathlib.Path(path).is_file(),"V25_NEW_CODE_MISSING:"+path
+              actual_sha=subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"V25_UNAUTHORIZED_CODE_BYTES:"+path
+          assert subprocess.check_output(
+              ["git","hash-object",v25["report_path"]],text=True).strip()==v25["report_git_blob_sha"],"V25_SAFE_REPORT_SHA_DRIFT"
+          print("HISTORICAL_BASE_PLUS_V25_RELEVANCE_ISA_ILLUSTRATIVE_BASE_VERIFIED")
           print("HISTORICAL_BASE_PLUS_V24_USER_QUESTION_DECISION_MATH_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
