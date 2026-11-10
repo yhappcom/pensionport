@@ -210,6 +210,8 @@ def audit_chat_evidence_v31(source, exchange, *, current_as_of,
         label='CHAT_REVIEW_REQUIRED'
         if (m is not None and lr['status'] not in
                 ('CHATGPT_REVIEW_REQUIRED','OPEN_CHAT_OR_SOURCE_APPLICABILITY') and
+            prior_review is not None and
+            prior_review['relation'] not in ('UNREVIEWED','POSSIBLE_RELATION_PENDING') and
             m['meaning_verdict']!='UNRESOLVED' and
             (m['numeric_scope_checked'] or not known[cid]['numeric_references'])):
             cls=lr['classification']

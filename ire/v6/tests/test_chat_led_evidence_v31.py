@@ -166,6 +166,25 @@ class ChatLedEvidenceV31Tests(unittest.TestCase):
         self.assertEqual(r['pending_candidate_ids'],['C00002','C00003'])
         self.assertFalse(r['operational_research_ready'])
 
+    def test_explicit_unreviewed_prior_relation_never_marks_operational_ready(self):
+        # An explicit UNREVIEWED row is not an actual comparison.
+        bad=copy.deepcopy(self.prior)
+        bad[0]['relation']='UNREVIEWED'
+        bad[0]['master_claim_id']=None
+        bad[0]['master_atom_sha256']=None
+        r=self.audit(prior_knowledge_reviews=bad)
+        self.assertFalse(r['operational_research_ready'])
+        self.assertIn('C00001',r['pending_candidate_ids'])
+
+    def test_pending_possible_prior_knowledge_relation_blocks_ready(self):
+        bad=copy.deepcopy(self.prior)
+        bad[1]['relation']='POSSIBLE_RELATION_PENDING'
+        bad[1]['master_claim_id']=None
+        bad[1]['master_atom_sha256']=None
+        r=self.audit(prior_knowledge_reviews=bad)
+        self.assertFalse(r['operational_research_ready'])
+        self.assertIn('C00002',r['pending_candidate_ids'])
+
     def test_missing_prior_relation_review_prevents_complete_research(self):
         r=self.audit(prior_knowledge_reviews=self.prior[:1])
         self.assertFalse(r['operational_research_ready'])

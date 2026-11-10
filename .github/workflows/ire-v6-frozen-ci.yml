@@ -734,6 +734,54 @@ jobs:
                        "historical_v5_v6_v30_core_files_changed","main_branch_changed",
                        "all_791_completed","p0_go"):
               assert v31[flag] is False,"V31_FALSE_RELEASE_APPROVAL:"+flag
+          v31_1=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V31_1_OWNER_FIVE_VIDEO_SMOKE_FIX_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v31_1["schema"]=="IRE_V6_V31_1_REAL_OWNER_FIRST_FIVE_PARTIAL_HOST_SMOKE_AND_PRIOR_GUARD"
+          assert v31_1["on_validation_branch_only"] is True
+          assert v31_1["base_v31_commit"]=="ae73ea79cff76a185143b850d50d38e08a750185"
+          assert v31_1["historical_v31_manifest_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V31_CHAT_LED_FINANCIAL_EVIDENCE_MANIFEST.json"],
+              text=True).strip(),"V31_1_V31_HISTORY_MANIFEST_CHANGED"
+          assert set(added31)=={r["path"] for r in v31_1["changed_code"]}
+          over31={r["path"]:r["corrected_blob_sha"] for r in v31_1["changed_code"]}
+          for r in v31_1["changed_code"]:
+              assert r["historical_blob_sha"]==added31[r["path"]],"V31_1_PREVIOUS_CODE_PIN_CHANGED"
+          assert v31_1["original_five_video_count"]==5
+          assert v31_1["original_total_cues"]==5129
+          assert v31_1["actual_private_scoped_cue_count"]==28
+          assert v31_1["actual_scoped_candidates"]==6
+          assert v31_1["actual_v31_host_review_cases"]==5
+          assert v31_1["real_v31_to_unmocked_v5_p3_answer_count"]==1
+          assert v31_1["unreviewed_or_possible_prior_relation_guard_fixed"] is True
+          assert v31_1["numeric_unknown_stays_pending"] is True
+          assert v31_1["lexical_IRP_question_and_generic_topic_gaps_recorded"] is True
+          assert v31_1["test_count_prior_v31"]==445 and v31_1["new_synthetic_test_count"]==2
+          assert v31_1["expected_unique_v6_tests"]==447
+          assert v31_1["new_v6_tracked_file_total"]==82
+          assert v31_1["legacy_116_source_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","data/claims.jsonl"],text=True).strip(),"V31_1_LEGACY_116_CHANGED"
+          for flag in ("actual_full_five_video_extraction","all_791_researched",
+              "independent_semantic_gold_verified",
+              "whole_original_to_final_archive_pinned_one_transaction",
+              "live_official_rule_fullbody_publisher_authenticated",
+              "individual_tax_or_trade_authorized",
+              "auto_knowledge_master116_merged",
+              "source_or_private_original_in_github","p0_go"):
+              assert v31_1[flag] is False,"V31_1_FALSE_RESEARCH_CERTIFICATION:"+flag
+          public_receipt=json.loads(pathlib.Path(v31_1["receipt_path"]).read_text(encoding="utf-8"))
+          assert public_receipt["schema"]=="IRE_V6_V31_1_ACTUAL_OWNER_ORIGINAL_FIVE_VIDEO_SCOPED_CHAT_EVIDENCE_RECEIPT"
+          assert public_receipt["actual_originals_verified"]==5
+          assert public_receipt["actual_total_original_cues"]==5129
+          assert public_receipt["actual_scoped_cues_reviewed"]==28
+          assert public_receipt["actual_same_chat_candidate_frames_reviewed"]==6
+          assert len(public_receipt["cases"])==5
+          assert sum(r["scoped_cues"] for r in public_receipt["cases"])==28
+          assert sum(r["claim_candidates"] for r in public_receipt["cases"])==6
+          assert sum(r["v5_nonmock_answer_executed"] for r in public_receipt["cases"])==1
+          assert all(r["full_video_review_completed"] is False for r in public_receipt["cases"])
+          assert public_receipt["independent_semantic_recall_measured"] is False
+          assert public_receipt["p0_go"] is False
           assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31),"V6_FILE_CENSUS_DRIFT"
           assert len(actual)==v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
@@ -944,10 +992,16 @@ jobs:
           for path,sha in added31.items():
               assert pathlib.Path(path).is_file(),"V31_NEW_FILE_MISSING:"+path
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
-              assert actual_sha==sha,"V31_NEW_CODE_SHA_DRIFT:"+path
+              assert actual_sha==over31[path],"V31_1_CORRECTED_CODE_SHA_DRIFT:"+path
           assert subprocess.check_output(["git","hash-object",v31["report_path"]],
               text=True).strip()==v31["report_git_blob_sha"],"V31_REPORT_BLOB_DRIFT"
           print("V31_CHAT_SEMANTIC_AUTHORITY_ENGINE_HASH_ENFORCEMENT_NO_INDEPENDENT_GOLD")
+          for path,sha in ((v31_1["receipt_path"],v31_1["receipt_git_blob_sha"]),
+                           (v31_1["report_path"],v31_1["report_git_blob_sha"])):
+              assert subprocess.check_output(["git","hash-object",path],
+                  text=True).strip()==sha,"V31_1_PUBLIC_HASH_ONLY_DOC_DRIFT:"+path
+          print("V31_1_OWNER_5_VIDEO_PARTIAL_28_CUES_REAL_CHAT_REPLAY_AND_PRIOR_RELATION_FAIL_CLOSED")
+
 
 
 
@@ -960,14 +1014,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 445 unique V6 tests (no imported baseline cases)
+      - name: Verify exactly 447 unique V6 tests (no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==445, f"V31_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V31_UNIQUE_V6_445_TESTS_VERIFIED")
+          assert found==447, f"V31_1_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V31_1_UNIQUE_V6_447_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:
