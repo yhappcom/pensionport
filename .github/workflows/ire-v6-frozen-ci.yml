@@ -782,8 +782,72 @@ jobs:
           assert all(r["full_video_review_completed"] is False for r in public_receipt["cases"])
           assert public_receipt["independent_semantic_recall_measured"] is False
           assert public_receipt["p0_go"] is False
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v32=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V32_ACTUAL_SOURCE_REPLAY_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v32["schema"]=="IRE_V6_V32_ORIGINAL_FIVE_CUE_QUEUE_NUMERIC_CONTEXT_AND_GENERAL_EDUCATION"
+          assert v32["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v32["based_on_commit"]=="a371dc29209f3bf386f9cda4ad118ef58eee88b7"
+          assert v32["historic_v31_1_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V31_1_OWNER_FIVE_VIDEO_SMOKE_FIX_MANIFEST.json"],
+              text=True).strip(),"V32_V31_1_HISTORY_MANIFEST_DRIFT"
+          added32={r["path"]:r["sha"] for r in v32["added"]}
+          assert set(added32)=={
+              "ire/v6/source_census_queue_v32.py",
+              "ire/v6/chat_general_answer_v32.py",
+              "ire/v6/tests/test_source_census_queue_v32.py",
+              "ire/v6/tests/test_chat_general_answer_v32.py"},"V32_UNEXPECTED_ADDITIONAL_FILE"
+          assert not set(added32).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)),"V32_CORE_HISTORY_OVERWRITTEN"
+          assert v32["new_tests"]==32 and v32["previous_unique_v6_tests"]==447
+          assert v32["expected_unique_v6_tests"]==479
+          assert v32["new_total_ire_v6_tracked_files"]==86
+          assert v32["private_archive_sha256"]==v31_1["owner_source_zip_sha256"]
+          assert v32["original_video_count"]==5
+          assert [v32[f"original_video_{i}_cues"] for i in range(1,6)]==[1195,1347,785,758,1044]
+          assert v32["original_source_cues_structurally_registered"]==5129
+          assert v32["source_review_window_counts"]==[30,34,20,19,27]
+          assert v32["source_review_queue_windows_total"]==130
+          assert v32["prior_v31_1_sample_cues"]==28 and v32["prior_v31_1_claim_candidates"]==6
+          assert v32["actual_v32_unit_example_context_cue_range"]==[173,181]
+          assert v32["actual_v32_unit_example_chat_inference"] is True
+          assert v32["original_video2_v31_contextual_review_ready"] is True
+          assert v32["actual_v32_generic_host_general_education_answer_count"]==2
+          assert v32["actual_v32_nonmock_v5_p3_irp_paraphrase_answer_count"]==1
+          for flag in ("all_full_video_windows_meaning_review_completed",
+                  "original_audio_independent_unit_verification",
+                  "actual_host_question_semantic_equivalence_independently_certified",
+                  "actual_full_original_atomic_extraction_completed",
+                  "host_edited_text_or_original_srt_on_github",
+                  "historical_main_v5_master116_p4_changed",
+                  "original_full_v31_1_manifest_overwritten",
+                  "independent_precision_recall_measured",
+                  "current_law_official_signed_body_authenticated",
+                  "current_personal_trade_tax_advice_approved",
+                  "all_791_researched","p0_go"):
+              assert v32[flag] is False,"V32_FALSE_QUALITY_RELEASE:"+flag
+          queue=json.loads(pathlib.Path(v32["queue_path"]).read_text(encoding="utf-8"))
+          assert queue["schema"]=="IRE_V6_V32_FULL_SOURCE_FIVE_VIDEO_HASH_ONLY_OPEN_REVIEW_QUEUE"
+          assert queue["private_owner_archive_sha256"]==v32["private_archive_sha256"]
+          assert queue["original_cues_structurally_registered"]==5129
+          assert queue["semantic_review_windows_registered"]==130
+          assert queue["semantic_review_windows_completed_in_this_new_queue"]==0
+          assert queue["all_original_financial_claims_extracted"] is False and queue["p0_go"] is False
+          assert [r["original_cue_count"] for r in queue["videos"]]==[1195,1347,785,758,1044]
+          assert [r["window_count"] for r in queue["videos"]]==[30,34,20,19,27]
+          assert sum(w["cue_count"] for v in queue["videos"] for w in v["window_review_queue"])==5129
+          assert all(w["state"]=="PENDING_CHAT_SEMANTIC_REVIEW" for v in queue["videos"] for w in v["window_review_queue"])
+          evidence=json.loads(pathlib.Path(v32["actual_receipt_path"]).read_text(encoding="utf-8"))
+          assert evidence["schema"]=="IRE_V6_V32_ACTUAL_PRIVATE_FIVE_VIDEO_CHAT_ROUTE_REPLAY_HASH_ONLY"
+          assert evidence["v32_full_original_cue_registry_count"]==5129
+          assert evidence["v32_full_original_semantic_review_windows_open"]==130
+          assert evidence["actual_general_chat_final_answers"]==2
+          assert evidence["actual_nonmock_v5_irp_paraphrase_answer"]==1
+          assert evidence["numerical_context_2"]["general_education_scope_ready"] is True
+          assert evidence["numerical_context_2"]["audio_verified"] is False
+          assert evidence["source_semantic_independent_gold"] is False
+          assert evidence["p0_go"] is False
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -1001,6 +1065,16 @@ jobs:
               assert subprocess.check_output(["git","hash-object",path],
                   text=True).strip()==sha,"V31_1_PUBLIC_HASH_ONLY_DOC_DRIFT:"+path
           print("V31_1_OWNER_5_VIDEO_PARTIAL_28_CUES_REAL_CHAT_REPLAY_AND_PRIOR_RELATION_FAIL_CLOSED")
+          for path,sha in added32.items():
+              assert pathlib.Path(path).is_file(),"V32_SOURCE_MISSING:"+path
+              actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"V32_CODE_BLOB_SHA_DRIFT:"+path
+          for path,sha in ((v32["report_path"],v32["report_blob_sha"]),
+                           (v32["queue_path"],v32["queue_blob_sha"]),
+                           (v32["actual_receipt_path"],v32["actual_receipt_blob_sha"])):
+              assert subprocess.check_output(["git","hash-object",path],text=True).strip()==sha,"V32_HASH_ONLY_RECEIPT_OR_REPORT_DRIFT"
+          print("V32_FIVE_ORIGINALS_5129_CUES_130_OPEN_QUEUED_CLAIM_GOLD_NOT_DONE")
+
 
 
 
@@ -1014,14 +1088,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 447 unique V6 tests (no imported baseline cases)
+      - name: Verify exactly 479 unique V6 tests (no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==447, f"V31_1_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V31_1_UNIQUE_V6_447_TESTS_VERIFIED")
+          assert found==479, f"V32_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V32_UNIQUE_V6_479_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:
