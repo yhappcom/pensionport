@@ -486,8 +486,55 @@ jobs:
                        "user_order_execution_enabled","all_791_videos_researched",
                        "s6_frozen_nine_source_acquired","p0_go"):
               assert v23[flag] is False,"V23_FALSE_RELEASE_STATUS:"+flag
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v24=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V24_DECISION_QUALITY_DEVELOPMENT_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v24["schema"]=="IRE_V6_V24_FINANCE_USER_QUESTION_DECISION_QUALITY_DEVELOPMENT"
+          assert v24["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v24["previous_v23_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V23_P3_CURRENT_LAW_BRIDGE_AND_GIFT_MANIFEST.json"],
+              text=True).strip(),"HISTORICAL_V23_MANIFEST_DRIFT"
+          assert v24["base_head_sha"]=="b162d523c8f24316765e29c5d1cce5bbb25bda50"
+          added24={x["path"]:x["git_blob_sha"] for x in v24["added"]}
+          assert set(added24)=={
+              "ire/v6/advisory_decision_utility.py",
+              "ire/v6/tests/test_advisory_decision_utility.py"
+          },"V24_CHANGED_CODE_SCOPE_DRIFT"
+          assert not set(added24).intersection(
+              set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|
+              set(added13)|set(v14_added)|set(added15)|set(added17)|
+              set(added18)|set(added19)|set(added20)|set(added21)|
+              set(added22)|set(added23)),"V24_PREVIOUS_CODE_MUTATED"
+          assert v24["report_path"]=="validation/ire-v6-frozen/V6_V24_REAL_QUESTIONS_DECISION_QUALITY_REPORT.md"
+          assert v24["asof"]=="2026-11-10"
+          assert v24["real_private_source_video_id"]=="8Zh1q4Ziv4c"
+          assert v24["real_private_source_cue_count"]==34
+          assert v24["real_private_source_original_candidate_claims"]==11
+          assert v24["real_private_question_cases"]==4
+          assert v24["real_private_cases_source_bound_chat_result_passed"]==4
+          assert v24["private_cases_have_mock_p3_baseline"] is True
+          assert v24["new_synthetic_and_integration_tests"]==14
+          assert v24["local_v24_own_tests_passed"]==13
+          assert v24["local_full_root_smoke_skipped"]==1
+          assert v24["local_full_v6_suite_passing"] is False
+          assert v24["real_canonical_v5_p3_p2_full_root_ci_required"] is True
+          assert v24["quantitative_scenarios_guarded"]==[
+              "RETIREMENT_GAP","ETF_TOTAL_RETURN","ALLOCATION_DRIFT"
+          ]
+          assert v24["isa_current_tax_math_quarantined"] is True
+          for key in ("old_v5_legal_prose_rendered",
+                      "question_to_atom_relevance_independently_verified",
+                      "official_full_body_signature_verified",
+                      "same_chat_answer_score_is_independent_gold",
+                      "actual_semantic_precision_recall_measured",
+                      "personal_advice_or_order_approved",
+                      "private_source_or_gold_committed_to_public_repo",
+                      "main_v5_master116_p4_29_changed",
+                      "frozen_nine_video_corpus_available",
+                      "all_791_semantically_researched","p0_go"):
+              assert v24[key] is False,"V24_FALSE_APPROVAL:"+key
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -590,7 +637,14 @@ jobs:
               assert actual_sha==sha,"V23_UNAUTHORIZED_NEW_CODE_BYTES:"+path
           assert subprocess.check_output(
               ["git","hash-object",v23["report_path"]],text=True).strip()==v23["report_git_blob_sha"],"V23_SAFE_REPORT_HASH_DRIFT"
-          print("HISTORICAL_BASE_PLUS_V23_CURRENT_LAW_V5_BRIDGE_GIFT_REVIEW_VERIFIED")
+          for path,sha in added24.items():
+              assert pathlib.Path(path).is_file(),"V24_NEW_CODE_MISSING:"+path
+              actual_sha=subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"V24_UNAUTHORIZED_NEW_CODE_BYTES:"+path
+          assert subprocess.check_output(
+              ["git","hash-object",v24["report_path"]],text=True).strip()==v24["report_git_blob_sha"],"V24_SAFE_REPORT_SHA_DRIFT"
+          print("HISTORICAL_BASE_PLUS_V24_USER_QUESTION_DECISION_MATH_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"

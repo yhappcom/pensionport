@@ -1,0 +1,50 @@
+{
+  "schema": "IRE_V6_V24_FINANCE_USER_QUESTION_DECISION_QUALITY_DEVELOPMENT",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "base_head_sha": "b162d523c8f24316765e29c5d1cce5bbb25bda50",
+  "previous_v23_manifest_git_blob_sha": "714ff6e00e978407a6296e24c155dcc8a21185eb",
+  "added": [
+    {
+      "path": "ire/v6/advisory_decision_utility.py",
+      "git_blob_sha": "65e6e4e5be1f5f11b6e8dec5b941acea1e556aef"
+    },
+    {
+      "path": "ire/v6/tests/test_advisory_decision_utility.py",
+      "git_blob_sha": "bdd0302152a9262ced30a2cad06f69a8831f0742"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_V24_REAL_QUESTIONS_DECISION_QUALITY_REPORT.md",
+  "report_git_blob_sha": "b7bc25afc8c48024bf3add78adf5770a58c2e0f6",
+  "new_total_ire_v6_tracked_files": 68,
+  "asof": "2026-11-10",
+  "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "real_private_source_video_id": "8Zh1q4Ziv4c",
+  "real_private_source_cue_count": 34,
+  "real_private_source_original_candidate_claims": 11,
+  "real_private_question_cases": 4,
+  "real_private_cases_source_bound_chat_result_passed": 4,
+  "private_cases_have_mock_p3_baseline": true,
+  "private_receipt_digest_sha256": "bc2e72086cad321532e0487824c61ace83285319d777b5e3880f13b4acc7ae78",
+  "new_synthetic_and_integration_tests": 14,
+  "local_v24_own_tests_passed": 13,
+  "local_full_root_smoke_skipped": 1,
+  "local_full_v6_suite_passing": false,
+  "real_canonical_v5_p3_p2_full_root_ci_required": true,
+  "quantitative_scenarios_guarded": [
+    "RETIREMENT_GAP",
+    "ETF_TOTAL_RETURN",
+    "ALLOCATION_DRIFT"
+  ],
+  "isa_current_tax_math_quarantined": true,
+  "old_v5_legal_prose_rendered": false,
+  "question_to_atom_relevance_independently_verified": false,
+  "official_full_body_signature_verified": false,
+  "same_chat_answer_score_is_independent_gold": false,
+  "actual_semantic_precision_recall_measured": false,
+  "personal_advice_or_order_approved": false,
+  "private_source_or_gold_committed_to_public_repo": false,
+  "main_v5_master116_p4_29_changed": false,
+  "frozen_nine_video_corpus_available": false,
+  "all_791_semantically_researched": false,
+  "p0_go": false
+}
