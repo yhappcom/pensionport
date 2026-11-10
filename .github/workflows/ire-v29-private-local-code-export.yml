@@ -1,0 +1,44 @@
+name: IRE V29 private local replay - source code only (no user source)
+on:
+  push:
+    branches:
+      - verify/ire-v6-p1-atomic-host-batch-20261109
+    paths:
+      - .github/workflows/ire-v29-private-local-code-export.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish-tracked-code-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Refuse packaged owner originals or binary source archives
+        shell: bash
+        run: |
+          python - <<'PY'
+          import subprocess
+          paths = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
+          paths = [p for p in paths if p]
+          private_files = [p for p in paths if p.lower().endswith(('.srt', '.zip', '.pem', '.key'))]
+          assert not private_files, "SOURCE_EXPORT_PRIVATE_FILES_DENIED:" + str(len(private_files))
+          print("V29_TRACKED_SOURCE_ONLY", len(paths))
+          PY
+      - name: Produce exact-HEAD tracked source archive only
+        shell: bash
+        run: |
+          mkdir -p /tmp/v29_export
+          git archive --format=zip --output=/tmp/v29_export/ire_v29_tracked_code.zip HEAD
+          sha256sum /tmp/v29_export/ire_v29_tracked_code.zip > /tmp/v29_export/sha256.txt
+          git rev-parse HEAD > /tmp/v29_export/commit.txt
+          unzip -t /tmp/v29_export/ire_v29_tracked_code.zip | tail -n 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ire-v29-replay-code-only-${{ github.sha }}
+          path: /tmp/v29_export/
+          retention-days: 1
+          if-no-files-found: error
