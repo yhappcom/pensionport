@@ -703,8 +703,39 @@ jobs:
           assert v30_receipt["revised_semantic_review_alert_count"]==0
           assert all(r["actual_v5_p3_executed"] is True for r in v30_receipt["cases"])
           assert v30_receipt["p0_go"] is False and v30_receipt["independent_human_blind_precision_recall_measured"] is False
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v31=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V31_CHAT_LED_FINANCIAL_EVIDENCE_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v31["schema"]=="IRE_V6_V31_CHAT_LED_FINANCIAL_EVIDENCE_AND_OPERATIONAL_EDUCATION"
+          assert v31["scope"]=="VALIDATION_BRANCH_ONLY" and v31["base_head_sha"]=="ca3009c6764f23ca2be332ac05c41bb047768778"
+          assert v31["previous_v30_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V30_SOURCE_QUALITY_REPAIR_MANIFEST.json"],
+              text=True).strip(),"V31_HISTORICAL_V30_MANIFEST_DRIFT"
+          added31={x["path"]:x["git_blob_sha"] for x in v31["added"]}
+          assert set(added31)=={"ire/v6/chat_led_evidence_v31.py",
+                                "ire/v6/tests/test_chat_led_evidence_v31.py"}
+          assert not set(added31).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)),"V31_HISTORICAL_SOURCE_OVERWRITE"
+          assert v31["new_synthetic_tests"]==28 and v31["expected_unique_v6_tests"]==445
+          assert v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80
+          assert v31["old_v30_source_sha256"]==v30["original_srt_sha256"]
+          assert v31["preserved_frozen_blind_prereg_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/BLIND_PREREGISTRATION_V1.json"],
+              text=True).strip(),"V31_BLIND_PREREG_HISTORICAL_DRIFT"
+          for flag in ("host_meaning_judgment_authority","host_current_law_scope_judgment_authority",
+                       "host_prior_knowledge_relation_judgment_authority","deterministic_engine_checks_original_source_hash",
+                       "deterministic_engine_checks_all_provided_reviews",
+                       "operational_education_allowed_after_chat_gate","legal_and_semantic_labels_are_same_chat_only"):
+              assert v31[flag] is True,"V31_MISSING_CHAT_LED_AUTHORITY:"+flag
+          assert v31["private_claim_packet_pagination_size_limit"]==25
+          for flag in ("current_legal_page_body_independently_authenticated","original_private_v31_e2e_performed",
+                       "independent_gold_commitment_supplied","external_human_reviewers_verified",
+                       "independent_precision_recall_measured","personal_trade_tax_order_approved",
+                       "automatic_master116_p4_integration_approved",
+                       "historical_v5_v6_v30_core_files_changed","main_branch_changed",
+                       "all_791_completed","p0_go"):
+              assert v31[flag] is False,"V31_FALSE_RELEASE_APPROVAL:"+flag
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -910,6 +941,14 @@ jobs:
               assert subprocess.check_output(
                   ["git","hash-object",path],text=True).strip()==sha,"V30_RECEIPT_REPORT_SHA_DRIFT:"+path
           print("V30_PRIVATE_SOURCE_2_ALERTS_CLOSED_11_NUMBERS_LINKED_BLIND_GOLD_OPEN")
+          for path,sha in added31.items():
+              assert pathlib.Path(path).is_file(),"V31_NEW_FILE_MISSING:"+path
+              actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"V31_NEW_CODE_SHA_DRIFT:"+path
+          assert subprocess.check_output(["git","hash-object",v31["report_path"]],
+              text=True).strip()==v31["report_git_blob_sha"],"V31_REPORT_BLOB_DRIFT"
+          print("V31_CHAT_SEMANTIC_AUTHORITY_ENGINE_HASH_ENFORCEMENT_NO_INDEPENDENT_GOLD")
+
 
 
 
@@ -921,14 +960,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 417 unique V6 tests (no imported baseline cases)
+      - name: Verify exactly 445 unique V6 tests (no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==417, f"V30_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V30_UNIQUE_V6_417_TESTS_VERIFIED")
+          assert found==445, f"V31_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V31_UNIQUE_V6_445_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:
