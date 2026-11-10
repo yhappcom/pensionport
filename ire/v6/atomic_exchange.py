@@ -15,12 +15,20 @@ from .codec import WINDOW, canonical, require_hash, require_identifier, sha256
 from .errors import InvalidInput
 
 CLAIM = re.compile(r"C[0-9]{5,8}\Z")
-# Preserve units even when Korean monetary expressions contain spaces.
-# V16 real ISA source exposed "300만 원" -> prior regex counted only "300".
+# Preserve *complete* Korean money units, including grouped amounts.
+# 2026-11-10 new (V18-unused) private originals exposed 2천만 원,
+# 2억 4천만 원, 18만9,000원 incorrectly split into bare numbers.
+# MONEY is deliberately first: amount + Korean place-values + 원 is one token;
+# bare numbers, years, percentages remain supported by the original fallback.
+_NUMBER_BASE = r"(?:[0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)(?:\.[0-9]+)?"
+_KOREAN_MAGNITUDE = r"(?:[십백천]?(?:조|억|만)|[십백천])"
+_KOREAN_WON = (
+    rf"{_NUMBER_BASE}(?:\s*{_KOREAN_MAGNITUDE}"
+    rf"(?:\s*{_NUMBER_BASE}(?:\s*{_KOREAN_MAGNITUDE})?)*)?\s*원"
+)
 NUMBER = re.compile(
-    r"(?<![0-9])(?:[0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)"
-    r"(?:\.[0-9]+)?(?:\s*(?:%|퍼센트|(?:만|억|조)\s*원|"
-    r"원|달러|배|년|개월|월|일))?"
+    rf"(?<![0-9])(?:{_KOREAN_WON}|"
+    rf"{_NUMBER_BASE}(?:\s*(?:%|퍼센트|달러|배|년|개월|월|일))?)"
 )
 KINDS = {"FACT", "HYPOTHETICAL", "QUESTION", "OPINION", "RECOMMENDATION", "MATH"}
 STANCES = {"AFFIRMED", "NEGATED", "CORRECTED", "CONDITIONAL", "QUOTED", "UNRESOLVED"}

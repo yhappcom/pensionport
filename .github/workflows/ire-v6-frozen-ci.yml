@@ -284,15 +284,62 @@ jobs:
                        "semantic_truth_independently_verified","s6_9_video_original_obtained",
                        "s7_rollout_approved","p0_go"):
               assert v18[name] is False,"V18_UNAUTHORIZED_SAFETY_GO:"+name
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v19=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_UNUSED_REPAIR_COHORT_NUMERIC_SPLIT_PATCH_MANIFEST_V19.json"
+          ).read_text(encoding="utf-8"))
+          assert v19["schema"]=="IRE_V6_PRIVATE_UNUSED_REPAIR_COHORT_AND_KOREAN_MONEY_PATCH_V19"
+          assert v19["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v19["previous_v18_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_CHAT_STAGE_SPLIT_AND_S5_RISK_REVIEW_MANIFEST_V18.json"],
+              text=True).strip(),"HISTORICAL_V18_MANIFEST_DRIFT"
+          assert v19["base_head_sha"]=="89065846c848d6948c5232306afd2c0f30f0c3cf"
+          modified19={x["path"]:x["git_blob_sha"] for x in v19["modified_from_v18"]}
+          oldblobs19={x["path"]:x["previous_git_blob_sha"] for x in v19["modified_from_v18"]}
+          added19={x["path"]:x["git_blob_sha"] for x in v19["added"]}
+          assert set(modified19)=={
+              "ire/v6/atomic_exchange.py","ire/v6/semantic_frontier.py","ire/v6/stage_repair.py"
+          },"V19_MODIFIED_SCOPE_DRIFT"
+          assert set(added19)=={
+              "ire/v6/tests/test_korean_amount_units.py",
+              "ire/v6/tests/test_stage_repair_extended.py",
+              "ire/v6/tests/test_multi_number_split_frontier.py",
+              "ire/v6/tests/test_same_cue_clause_review.py"
+          },"V19_ADDED_SCOPE_DRIFT"
+          assert oldblobs19=={
+              "ire/v6/atomic_exchange.py":modified17["ire/v6/atomic_exchange.py"],
+              "ire/v6/semantic_frontier.py":v10_added["ire/v6/semantic_frontier.py"],
+              "ire/v6/stage_repair.py":added18["ire/v6/stage_repair.py"]
+          },"V19_PARENT_BLOB_PIN_DRIFT"
+          assert not set(added19).intersection(
+              set(old)|set(new)|set(v10_added)|set(v11_added)|
+              set(added12)|set(added13)|set(v14_added)|set(added15)|
+              set(added17)|set(added18)),"V19_OLDER_CODE_MUTATED"
+          assert v19["report_path"]=="validation/ire-v6-frozen/V6_V19_UNUSED_REPAIR_COHORT_REPLAY_REPORT.md"
+          assert v19["original_unique_videos_replayed"]==5 and v19["original_cues_replayed"]==184
+          assert v19["chat_atomic_candidates"]==67 and v19["initial_raw_semantic_alerts"]==12
+          assert v19["after_raw_semantic_alerts"]==9
+          assert v19["original_alerts_directly_remodeled"]==4
+          assert v19["original_alerts_cross_clause_reviewed"]==7
+          assert v19["new_same_cue_alert_reviewed"]==1
+          assert v19["remaining_explicit_open_alerts"]==1
+          assert v19["num_70_video_original_cues_replayed"]==56045
+          assert v19["changed_numeric_cue_count"]==145 and v19["videos_with_changed_numeric_tokens"]==30
+          assert v19["v18_numeric_tokens"]==8457 and v19["v19_numeric_tokens"]==8415
+          assert v19["guided_real_source_split_regression_only"] is True
+          assert v19["external_model_api_calls"]==0
+          for flag in ("real_private_original_published","independent_human_gold_available",
+                       "true_semantic_recall_measured","owner_provenance_independently_signed",
+                       "official_finance_facts_approved","full_791_researched","p0_go"):
+              assert v19[flag] is False,"V19_FALSE_RELEASE_GO:"+flag
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
                   raw=f.read_bytes()
                   assert len(raw)==item["bytes"] and hashlib.sha256(raw).hexdigest()==item["sha256"],"ORIGINAL_FROZEN_SHA_DRIFT:"+path
           for path,sha in (changes|new|v10_added).items():
-              if path in v11_modified or path in modified17:
+              if path in v11_modified or path in modified17 or path in modified19:
                   # The V9 source blob remains reachable in Git history; only
                   # the separately SHA-pinned V11 override may be in HEAD.
                   subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
@@ -332,6 +379,9 @@ jobs:
           assert v16["independent_semantic_recall_measured"] is False
           assert v16["p0_go"] is False
           for path,sha in (modified17|added17).items():
+              if path in modified19:
+                  subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
+                  continue
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(
                   ["git","hash-object",path],text=True).strip()
@@ -341,13 +391,25 @@ jobs:
           assert subprocess.check_output(
               ["git","hash-object",v17["report_path"]],text=True).strip()==v17["report_git_blob_sha"],"V17_SAFE_REPORT_SHA_DRIFT"
           for path,sha in added18.items():
+              if path in modified19:
+                  subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
+                  continue
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(
                   ["git","hash-object",path],text=True).strip()
               assert actual_sha==sha,"UNAUTHORIZED_V18_PATCH_BYTES:"+path
           assert subprocess.check_output(
               ["git","hash-object",v18["report_path"]],text=True).strip()==v18["report_git_blob_sha"],"V18_PUBLIC_SAFE_REPORT_DRIFT"
-          print("HISTORICAL_BASE_PLUS_V18_CHAT_SPLIT_AND_SEMANTIC_REVIEW_VERIFIED")
+          for path,sha in (modified19|added19).items():
+              assert pathlib.Path(path).is_file(),"V19_SOURCE_MISSING:"+path
+              actual_sha=subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"UNAUTHORIZED_V19_PATCH_BYTES:"+path
+          for sha in oldblobs19.values():
+              subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
+          assert subprocess.check_output(
+              ["git","hash-object",v19["report_path"]],text=True).strip()==v19["report_git_blob_sha"],"V19_PUBLIC_SAFE_REPORT_DRIFT"
+          print("HISTORICAL_BASE_PLUS_V19_UNUSED_ORIGINAL_MONEY_AND_SPLIT_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"

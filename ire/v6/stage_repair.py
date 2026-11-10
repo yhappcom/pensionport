@@ -98,6 +98,7 @@ def review_chat_risk_cases(source, before, after, decisions):
     after_lookup = {c['case_sha256']: c for c in revised['review_cases']}
     revised_atoms = {a['claim_id']: a for a in after['atoms']}
     resolved, scoped, open_case, seen = 0, 0, 0, set()
+    remodeled_exception, remodeled_polarity, scoped_same_cue = 0, 0, 0
     for item in decisions:
         if (type(item) is not dict or set(item) != {
                 'case_sha256', 'source_cue_sha256', 'decision', 'linked_claim_id',
@@ -121,6 +122,24 @@ def review_chat_risk_cases(source, before, after, decisions):
                     index not in revised_atoms[link]['condition_cue_indices']):
                 raise InvalidInput('CHAT_RISK_CONDITION_NOT_REPAIRED')
             resolved += 1
+        elif kind == 'REMODELED_EXCEPTION':
+            if (case['reason'] != 'UNMAPPED_EXCEPTION_IN_MODEL_CONTEXT' or
+                    cid in after_lookup or link != case['claim_id'] or
+                    link not in revised_atoms or
+                    index not in revised_atoms[link]['exception_cue_indices']):
+                raise InvalidInput('CHAT_RISK_EXCEPTION_NOT_REPAIRED')
+            resolved += 1
+            remodeled_exception += 1
+        elif kind == 'REMODELED_POLARITY':
+            if (case['reason'] != 'SOURCE_NEGATION_POLARITY_REVIEW' or
+                    cid in after_lookup or link != case['claim_id'] or
+                    link not in revised_atoms or
+                    revised_atoms[link]['stance'] not in {
+                        'NEGATED', 'CORRECTED', 'QUOTED', 'UNRESOLVED'} or
+                    index not in {r['cue_index'] for r in revised_atoms[link]['source_refs']}):
+                raise InvalidInput('CHAT_RISK_POLARITY_NOT_REPAIRED')
+            resolved += 1
+            remodeled_polarity += 1
         elif kind == 'CROSS_CLAUSE_CONTEXT':
             if (cid not in after_lookup or link == case['claim_id'] or
                     link not in revised_atoms or
@@ -138,6 +157,34 @@ def review_chat_risk_cases(source, before, after, decisions):
             else:
                 raise InvalidInput('CHAT_RISK_CROSS_CLAUSE_REASON_INVALID')
             scoped += 1
+        elif kind == 'SAME_CUE_DISTINCT_CLAUSES':
+            # A source cue can contain two sentences with different stances.
+            # Both verbatim quotes must be *separate, nonoverlapping spans* of
+            # that same independently pinned original cue. Keep the raw alert.
+            if (case['reason'] != 'CONFLICTING_STANCES_ON_SAME_SOURCE_CUE' or
+                    cid not in after_lookup or case['claim_id'] is not None or
+                    link not in revised_atoms):
+                raise InvalidInput('CHAT_RISK_SAME_CUE_CONFLICT_NOT_GROUNDED')
+            refs_here = [(atom['claim_id'], atom['stance'], r['quote'])
+                         for atom in after['atoms'] for r in atom['source_refs']
+                         if r['cue_index'] == index]
+            if len(refs_here) != 2 or link not in {r[0] for r in refs_here}:
+                raise InvalidInput('CHAT_RISK_SAME_CUE_TWO_CLAIMS_REQUIRED')
+            stances = {r[1] for r in refs_here}
+            if 'AFFIRMED' not in stances or not stances.intersection({'NEGATED', 'CORRECTED'}):
+                raise InvalidInput('CHAT_RISK_SAME_CUE_OPPOSITE_STANCES_REQUIRED')
+            raw = source.cues[index-1].text
+            offsets = []
+            for _, _, quote in refs_here:
+                start = raw.find(quote)
+                if start < 0 or raw.find(quote, start + 1) >= 0 or quote == raw:
+                    raise InvalidInput('CHAT_RISK_SAME_CUE_UNIQUE_SPAN_REQUIRED')
+                offsets.append((start,start + len(quote)))
+            if not (offsets[0][1] <= offsets[1][0] or
+                    offsets[1][1] <= offsets[0][0]):
+                raise InvalidInput('CHAT_RISK_SAME_CUE_SPANS_OVERLAP')
+            scoped += 1
+            scoped_same_cue += 1
         elif kind == 'OPEN':
             if cid not in after_lookup:
                 raise InvalidInput('CHAT_RISK_OPEN_BUT_ALREADY_DISAPPEARED')
@@ -155,6 +202,9 @@ def review_chat_risk_cases(source, before, after, decisions):
         'decision_digest': json_digest(decisions),
         'original_alert_count': len(lookup),
         'directly_remodeled_alerts': resolved,
+        'remodeled_exception_alerts': remodeled_exception,
+        'remodeled_polarity_alerts': remodeled_polarity,
+        'same_cue_distinct_clause_alerts_raw_still_present': scoped_same_cue,
         'cross_clause_scoped_alerts_raw_still_present': scoped,
         'declared_open_alerts': open_case,
         'unreviewed_new_alerts': len(unassessed_new),

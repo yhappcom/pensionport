@@ -17,6 +17,7 @@ KINDS = (
     "UNRESOLVED_CUE",
     "FINANCIAL_NO_ATOM",
     "COMPOUND_CUE_SINGLE_OR_NO_CANDIDATE",
+    "MULTIPLE_NUMERIC_TOKENS_SINGLE_OR_NO_CANDIDATE",
     "QUALIFIER_OR_CORRECTION_CUE",
     "NEARBY_QUALIFIER_EXCLUDED_FROM_CONTEXT",
     "SPEAKER_OR_STANCE_AMBIGUITY",
@@ -76,6 +77,14 @@ def source_first_semantic_frontier(source, exchange):
             add("FINANCIAL_NO_ATOM", idx)
         if MULTI_CLAIM.search(cue) and count <= 1:
             add("COMPOUND_CUE_SINGLE_OR_NO_CANDIDATE", idx)
+        # Two or more grounded financial numeric tokens can encode distinct
+        # claims even without lexical "and" or a previous host split-plan.
+        # A *review prompt*, not proof of an omission: base+duration, two tax
+        # thresholds, and examples can all be one legitimate atomic scenario.
+        numbers = NUMBER.findall(cue)
+        if (len(numbers) >= 2 and count <= 1 and
+                (any("원" in token for token in numbers) or FINANCIAL.search(cue))):
+            add("MULTIPLE_NUMERIC_TOKENS_SINGLE_OR_NO_CANDIDATE", idx)
         if is_qualifier:
             qualifiers.add(idx)
             add("QUALIFIER_OR_CORRECTION_CUE", idx)
