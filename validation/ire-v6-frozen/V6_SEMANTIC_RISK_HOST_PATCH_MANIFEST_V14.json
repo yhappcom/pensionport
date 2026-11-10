@@ -1,0 +1,35 @@
+{
+  "schema": "IRE_V6_SEMANTIC_RISK_HOST_PATCH_V14",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v13_manifest_git_blob_sha": "bb50ee3f1c2645005132f43a7b41667fbb206fa3",
+  "previous_v11_host_batch_git_blob_sha": "c01c8711732ca6e1d7a52f26b359428cd06c4531",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "P0-2 source-first negation/condition/exception/quote/timebase risk triage bound to V6 ACID host marker without semantic self-certification",
+  "modified_from_v11": [
+    {
+      "path": "ire/v6/host_batch.py",
+      "git_blob_sha": "6dc5ed75145eabe401e89adea8426f21a7947555"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/semantic_risk.py",
+      "git_blob_sha": "ef06f713adc4855448868fe247d276fcfc43933f"
+    },
+    {
+      "path": "ire/v6/tests/test_semantic_risk.py",
+      "git_blob_sha": "1ff128e8d2ba9482883b197255b17645b222cac8"
+    },
+    {
+      "path": "ire/v6/tests/test_host_batch_semantic_risk.py",
+      "git_blob_sha": "903615a3f8a4ef224b722faa2b0a73246c6911c0"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 48,
+  "actual_human_source_meaning_verified": false,
+  "independent_gold_sealed": false,
+  "real_financial_law_temporal_applicability_verified": false,
+  "no_original_srt_published": true,
+  "full_chat_model_semantic_extraction_automated": false,
+  "p0_go": false
+}

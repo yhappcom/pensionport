@@ -206,8 +206,25 @@ jobs:
           assert set(added13)=={"ire/v6/one_turn_host.py","ire/v6/tests/test_one_turn_host.py"},"V13_UNAUTHORIZED_CODE"
           assert not set(added13).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12))
           assert v13["p0_go"] is False and v13["full_chat_model_semantic_extraction_automated"] is False
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v13["new_total_ire_v6_tracked_files"]==45
+          v14=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_SEMANTIC_RISK_HOST_PATCH_MANIFEST_V14.json"
+          ).read_text(encoding="utf-8"))
+          assert v14["schema"]=="IRE_V6_SEMANTIC_RISK_HOST_PATCH_V14"
+          assert v14["base_manifest_sha256"]==m["source_manifest_sha256"]
+          assert v14["previous_v13_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_PRIVATE_HOST_TURN_PATCH_MANIFEST_V13.json"],
+              text=True).strip(),"HISTORICAL_V13_MANIFEST_DRIFT"
+          assert v14["previous_v11_host_batch_git_blob_sha"]==v11_modified["ire/v6/host_batch.py"]
+          v14_modified={x["path"]:x["git_blob_sha"] for x in v14["modified_from_v11"]}
+          v14_added={x["path"]:x["git_blob_sha"] for x in v14["added"]}
+          assert set(v14_modified)=={"ire/v6/host_batch.py"},"V14_MUTATION_SCOPE_DRIFT"
+          assert set(v14_added)=={"ire/v6/semantic_risk.py",
+              "ire/v6/tests/test_semantic_risk.py",
+              "ire/v6/tests/test_host_batch_semantic_risk.py"},"V14_NEW_SOURCE_SCOPE_DRIFT"
+          assert not set(v14_added).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13))
+          assert v14["p0_go"] is False and v14["actual_human_source_meaning_verified"] is False
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v14["new_total_ire_v6_tracked_files"]==48
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -223,10 +240,17 @@ jobs:
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
               assert actual_sha==sha,"UNAUTHORIZED_PREVIOUS_PATCH_BYTES:"+path
           for path,sha in (v11_modified|v11_added|added12|added13).items():
+              if path in v14_modified:
+                  subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
+                  continue
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
-              assert actual_sha==sha,"UNAUTHORIZED_V13_PATCH_BYTES:"+path
-          print("HISTORICAL_BASE_PLUS_V13_PRIVATE_HOST_TURN_VERIFIED")
+              assert actual_sha==sha,"UNAUTHORIZED_PREVIOUS_PATCH_BYTES:"+path
+          for path,sha in (v14_modified|v14_added).items():
+              assert pathlib.Path(path).is_file()
+              actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"UNAUTHORIZED_V14_PATCH_BYTES:"+path
+          print("HISTORICAL_BASE_PLUS_V14_SOURCE_SEMANTIC_RISK_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"

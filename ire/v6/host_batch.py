@@ -16,10 +16,11 @@ from .errors import (ConcurrentHeadChanged, DomainConflict, IdempotencyConflict,
 from .prior_knowledge import audit_prior_candidates
 from .proof import audit_model_anchors
 from .semantic_frontier import source_first_semantic_frontier
+from .semantic_risk import audit_semantic_risks
 from .state_machine import reduce_event
 from .trust import verify_owner_inventory
 
-MARKER_SCHEMA = "IRE_V6_HOST_BATCH_COMMIT_MARKER_V2"
+MARKER_SCHEMA = "IRE_V6_HOST_BATCH_COMMIT_MARKER_V3"
 
 
 def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
@@ -83,6 +84,29 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 "human_semantic_review_pending":True,
                 "independent_semantic_review_verified":False,
             }
+            risk=audit_semantic_risks(source,exchange)
+            if (risk["source_sha256"]!=source.source_sha256 or
+                risk["manifest_sha256"]!=source.manifest_sha256 or
+                risk["atom_candidate_digest"]!=atom_audit["atom_candidate_digest"] or
+                risk["cue_disposition_digest"]!=atom_audit["cue_disposition_digest"] or
+                risk["scoped_cue_count"]!=atom_audit["original_scoped_cues_enumerated"] or
+                risk["model_claim_count"]!=atom_audit["proposed_atomic_claims"] or
+                risk["review_case_count"]!=sum(risk["cases_by_reason"].values()) or
+                risk["independent_human_review_complete"] is not False or
+                risk["financial_law_as_of_verified"] is not False or
+                risk["p0_go"] is not False):
+                raise LedgerCorrupted("HOST_BATCH_SEMANTIC_RISK_AUDIT_DRIFT")
+            risk_pin={
+                "schema":risk["schema"],
+                "original_source_sha256":source.source_sha256,
+                "manifest_sha256":source.manifest_sha256,
+                "case_census_sha256":risk["case_census_sha256"],
+                "review_case_count":risk["review_case_count"],
+                "cases_by_reason":risk["cases_by_reason"],
+                "human_semantic_review_pending":True,
+                "financial_law_as_of_verified":False,
+                "semantic_entailment_independently_verified":False,
+            }
             if (atom_audit["unresolved_cues"] or
                 atom_audit["suspicious_no_atom_cues"]):
                 raise QualityNotProven("HOST_BATCH_UNRESOLVED_SOURCE_RESIDUALS")
@@ -123,6 +147,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 "atom_candidate_digest":atom_audit["atom_candidate_digest"],
                 "cue_disposition_digest":atom_audit["cue_disposition_digest"],
                 "source_first_semantic_frontier_pin":frontier_pin,
+                "source_semantic_risk_pin":risk_pin,
                 "prior_relation_digest":_digest_rows(knowledge["relations"]),
                 "prior_master116_blob":prior_audit["master116_git_blob_sha1"],
                 "prior_p4_22_blob":prior_audit["p4_prior22_git_blob_sha1"],
@@ -141,6 +166,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     review.get("bundle_sha256")!=commitment or
                     review.get("original_expected_head")!=expected_head or
                     review.get("source_first_semantic_frontier_pin")!=frontier_pin or
+                    review.get("source_semantic_risk_pin")!=risk_pin or
                     review.get("semantic_truth_certified") is not False or
                     review.get("engine_quality_certified") is not False):
                     raise IdempotencyConflict("HOST_BATCH_RETRY_INPUT_CHANGED")
@@ -151,6 +177,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                         "atomic_batch_committed":True,
                         "source_and_proof_model_windows":len(windows),
                         "source_first_semantic_frontier_pin":frontier_pin,
+                        "source_semantic_risk_pin":risk_pin,
                         "human_semantic_review_pending":True,
                         "semantic_truth_certified":False,
                         "independent_gold_recall_measured":False,
@@ -195,6 +222,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     "knowledge_master_claims":116,
                     "knowledge_p4_nodes":29,
                     "source_first_semantic_frontier_pin":frontier_pin,
+                    "source_semantic_risk_pin":risk_pin,
                     "human_semantic_review_pending":True,
                     "semantic_truth_certified":False,
                     "engine_quality_certified":False}
@@ -215,6 +243,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     "is_current":True,"atomic_batch_committed":True,
                     "source_and_proof_model_windows":len(windows),
                     "source_first_semantic_frontier_pin":frontier_pin,
+                    "source_semantic_risk_pin":risk_pin,
                     "human_semantic_review_pending":True,
                     "semantic_truth_certified":False,
                     "independent_gold_recall_measured":False,
