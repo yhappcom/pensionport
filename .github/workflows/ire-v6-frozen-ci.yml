@@ -625,8 +625,45 @@ jobs:
                        "public_private_original_text_committed","personal_tax_trade_approved",
                        "main_v5_protected116_p4_changed","all_791_researched","p0_go"):
               assert v28[flag] is False,"V28_FALSE_APPROVAL:"+flag
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v29=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V29_PRIVATE_END_TO_END_INTEGRITY_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v29["schema"]=="IRE_V6_V29_OWNER_PRIVATE_ORIGINAL_REAL_V5_P3_E2E_HASH_RECEIPTS"
+          assert v29["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v29["base_validated_v28_head_sha"]=="0332ca278cdacdf5e2c78d8ebd11e1a4c147d64c"
+          assert v29["temporary_source_export_commit_sha"]=="21b421d2229d73414b44d992159b47109957f7bf"
+          assert v29["previous_v28_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V28_PINNED_ORIGINAL_SOURCE_REPLAY_MANIFEST.json"],
+              text=True).strip(),"V29_PRIOR_MANIFEST_DRIFT"
+          assert v29["removed_temporary_code_export_workflow"] is True
+          assert not pathlib.Path(".github/workflows/ire-v29-private-local-code-export.yml").exists(),"V29_TEMPORARY_EXPORT_WORKFLOW_STILL_PRESENT"
+          assert v29["new_synthetic_tests"]==13 and v29["expected_unique_v6_tests"]==404
+          assert v29["new_ire_v6_file_count"]==78
+          assert v29["actual_cues"]==34 and v29["host_candidate_count"]==16
+          assert v29["selected_real_question_paths"]==3 and v29["real_negative_controls_rejected"]==5
+          assert v29["real_runtime_git_blob_files_verified"]==11
+          assert v29["actual_private_srt_sha256"]==v28["correct_actual_srt_sha256"]
+          assert v29["actual_private_zip_sha256"]==v28["original_zip_sha256"]
+          added29={x["path"]:x["git_blob_sha"] for x in v29["added"]}
+          assert set(added29)=={
+              "ire/v6/private_replay_receipt_v29.py",
+              "ire/v6/tests/test_private_replay_receipt_v29.py"
+          },"V29_UNAUTHORIZED_CODE"
+          assert not set(added29).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)),"V29_HISTORY_OVERWRITE"
+          for flag in ("original_private_srt_published","private_exchange_published","independent_human_semantic_gold",
+              "complete_original_atom_recall_certified","official_signed_legal_full_body_verified",
+              "full_repository_dependency_tree_verified","personal_financial_tax_order_approved",
+              "protected_main_v5_master116_p4_changed","all_791_researched","p0_go"):
+              assert v29[flag] is False,"V29_FALSE_RELEASE:"+flag
+          receipt=json.loads(pathlib.Path(v29["receipt_path"]).read_text(encoding="utf-8"))
+          assert receipt["schema"]=="IRE_V6_V29_ACTUAL_PRIVATE_ORIGINAL_THREE_CASE_HASH_ONLY_RECEIPTS"
+          assert receipt["source_srt_sha256"]==v29["actual_private_srt_sha256"]
+          assert receipt["source_archive_sha256"]==v29["actual_private_zip_sha256"]
+          assert len(receipt["cases"])==3 and all(x["v5_p3_executed"] is True and x["p0_go"] is False for x in receipt["cases"])
+          assert {x["case_id"] for x in receipt["cases"]}=={"IRP_WITHDRAWAL","ETF_TAX","PENSION_EXCLUDED_BASIS"}
+          assert receipt["private_raw_subtitle_published"] is False and receipt["p0_go"] is False
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -815,6 +852,15 @@ jobs:
           assert subprocess.check_output(
               ["git","hash-object",v28["report_path"]],text=True).strip()==v28["report_git_blob_sha"],"V28_REPORT_SHA_DRIFT"
           print("HISTORICAL_V27_60_DIGIT_SRT_DEFECT_RECORDED_V28_64_DIGIT_PIN_ENFORCED")
+          for path,sha in added29.items():
+              assert pathlib.Path(path).is_file(),"V29_NEW_SOURCE_MISSING:"+path
+              actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"V29_NEW_CODE_SHA_DRIFT:"+path
+          for path,sha in ((v29["receipt_path"],v29["receipt_git_blob_sha"]),
+                           (v29["report_path"],v29["report_git_blob_sha"])):
+              assert subprocess.check_output(["git","hash-object",path],text=True).strip()==sha,"V29_RECEIPT_OR_REPORT_BYTES_DRIFT"
+          print("V29_PRIVATE_LOCAL_E2E_HASHES_RECORDED_NOT_INDEPENDENT_GOLD")
+
 
 
 
@@ -824,14 +870,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 391 unique V6 tests (no imported baseline cases)
+      - name: Verify exactly 404 unique V6 tests (no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==391, f"V28_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V28_UNIQUE_V6_391_TESTS_VERIFIED")
+          assert found==404, f"V29_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V29_UNIQUE_V6_404_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:
