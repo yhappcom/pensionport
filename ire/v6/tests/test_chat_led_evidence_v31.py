@@ -64,11 +64,11 @@ class ChatLedEvidenceV31Tests(unittest.TestCase):
                 'reviewer':'CHATGPT_CURRENT_TURN','reviewed_as_of':self.asof,
             })
         self.relevance=[{
-            'claim_id':cid,
+            'claim_id':atom['claim_id'],
             'question_sha256':sha256(self.q.encode()),
             'proposition_sha256':sha256(atom['proposition'].encode()),
             'relation':'COUNTERPOINT',
-            'facet':'IRP_WITHDRAWAL' if cid=='C00001' else 'ETF_TAX',
+            'facet':'IRP_WITHDRAWAL' if atom['claim_id']=='C00001' else 'ETF_TAX',
             'reviewer':'CHATGPT_CURRENT_TURN',
             'reviewed_as_of':self.asof,
             'source_attribution_checked':True,
