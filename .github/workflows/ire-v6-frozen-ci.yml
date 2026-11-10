@@ -1052,8 +1052,88 @@ jobs:
                        "automatic_master116_p4_merge","main_or_protected_v5_116_p4_changed",
                        "all_791_researched","p0_go"):
               assert v35[flag] is False,"V35_FALSE_FINANCIAL_RESEARCH_CERTIFICATION:"+flag
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v36=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V36_SOURCE_SCOPE_DISPOSITION_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v36["schema"]=="IRE_V6_V36_ACTUAL_PRIVATE_THIRTEEN_HOST_SCOPE_AND_MASTER_NON_EQUIVALENCE_CUSTODY"
+          assert v36["scope"]=="VALIDATION_BRANCH_ONLY" and v36["date"]=="2026-11-11"
+          assert v36["base_head_sha"]=="3965017974dae1761512d828226c2fb66e066474"
+          assert v36["previous_v35_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V35_CHAT37_RESOLUTION_MANIFEST.json"],
+              text=True).strip(),"V36_HISTORIC_V35_MANIFEST_DRIFT"
+          assert v36["previous_v35_receipt_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V35_37_SOURCE_FIRST_HASH_ONLY_RECEIPT.json"],
+              text=True).strip(),"V36_HISTORIC_37_CASE_PARENT_DRIFT"
+          assert v36["previous_v35_receipt_canonical_sha256"]==v35_record["receipt_sha256"]
+          assert v36["parent_master116_source_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","data/claims.jsonl"],text=True).strip(),"V36_MASTER116_LEDGER_DRIFT"
+          assert v36["parent_master116_array_sha256"]==v35_record["master116_rows_digest"]
+          assert v36["private_original_owner_archive_sha256"]==v35["original_private_zip_sha256"]
+          added36={row["path"]:row["git_blob_sha"] for row in v36["added"]}
+          assert set(added36)=={"ire/v6/chat_scope_disposition_v36.py",
+                                "ire/v6/tests/test_chat_scope_disposition_v36.py"},"V36_UNAUTHORIZED_ADDITIONAL_FILES"
+          assert not set(added36).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)),"V36_HISTORICAL_SOURCE_OVERWRITTEN"
+          assert v36["new_synthetic_tests"]==20 and v36["prior_unique_v6_tests"]==546
+          assert v36["expected_unique_v6_tests"]==566 and v36["new_ire_v6_tracked_file_count"]==96
+          assert v36["actual_private_original_video_replay_count"]==4
+          assert v36["actual_original_unique_contexts_reopened"]==9
+          assert v36["prior_open_source_finance_cases"]==9
+          assert v36["prior_open_master_relation_cases"]==4
+          assert v36["prior_open_case_total"]==13
+          assert v36["source_and_master_relation_scoped_chat_dispositions_completed"]==13
+          assert v36["source_or_master_semantic_dispositions_unclassified"]==0
+          assert v36["external_audio_or_provider_specific_evidence_remains_open"]==8
+          assert v36["independently_financial_fact_certified_count"]==0
+          for flag in ("private_original_srt_published","private_chat_explanations_published",
+                       "publisher_signed_full_current_law_body_verified",
+                       "independent_human_gold_provided","independent_precision_recall_measured",
+                       "original_1603_utterance_full_atomic_split_complete",
+                       "original_130_window_full_meaning_complete",
+                       "automerge_master116_or_p4","personal_tax_trade_approval",
+                       "historical_v5_v6_v35_modules_changed","main_changed",
+                       "all_791_researched","p0_go"):
+              assert v36[flag] is False,"V36_FALSE_FACT_OR_RELEASE_APPROVAL:"+flag
+          public36=json.loads(pathlib.Path(v36["public_hash_receipt_path"]).read_text(encoding="utf-8"))
+          assert public36["schema"]=="IRE_V6_V36_THIRTEEN_OPEN_CASES_CHAT_SCOPE_AND_PRIOR_REVIEW_HASH_ONLY"
+          assert public36["current_as_of"]=="2026-11-11"
+          assert public36["receipt_sha256"]==v36["public_hash_receipt_sha256"]
+          assert public36["parent_v35_receipt_sha256"]==v35_record["receipt_sha256"]
+          assert public36["protected_master116_root_digest"]==v35_record["master116_rows_digest"]
+          assert public36["original_video_count"]==4
+          assert public36["exact_v35_previous_open_cases"]==13
+          assert public36["host_scope_decisions_recorded"]==13
+          assert public36["revisited_actual_original_cue_contexts"]==9
+          assert public36["semantic_scope_dispositions_remaining_unreviewed"]==0
+          assert public36["verified_financial_truth_decisions"]==0
+          assert public36["source_audio_or_current_product_terms_still_unverified"]==8
+          assert public36["p0_go"] is False
+          old_open={r["original_case_sha256"]:r for r in v35_record["per_alert_reviews"]
+              if r["combined_source_and_prior_review_status"]!="CHAT_FIRSTPASS_EDUCATIONAL_CONTEXT_REVIEWED_NOT_GOLD"}
+          assert len(old_open)==13 and len(public36["reviewed_cases"])==13
+          assert {r["case_sha256"] for r in public36["reviewed_cases"]}==set(old_open),"V36_PARENT_OPEN_CASE_CENSUS_DRIFT"
+          for r in public36["reviewed_cases"]:
+              original=old_open[r["case_sha256"]]
+              assert r["video_id"]==original["video_id"] and r["cue_index"]==original["source_hinge_cue_index"]
+              assert r["parent_child_digest"]==original["child_candidate_digest"]
+              assert r["master_claim_id"]==original["master_claim_id"]
+              assert r["master_row_sha256"]==original["master_row_sha256"]
+              assert r["external_expert_financial_fact_certified"] is False
+              assert r["independent_blind_gold"] is False
+              assert r["master_knowledge_auto_merge"] is False
+              assert r["host_semantic_disposition"] in ("SCOPED_HISTORICAL_EDUCATION_ONLY",
+                                    "DISTINCT_PRIOR_RELATION_REVIEWED_CHAT_ONLY")
+          assert sum(r["original_audio_or_current_product_terms_unverified"]
+                     for r in public36["reviewed_cases"])==8
+          assert sum(r["host_semantic_disposition"]=="SCOPED_HISTORICAL_EDUCATION_ONLY"
+                     for r in public36["reviewed_cases"])==9
+          assert sum(r["host_semantic_disposition"]=="DISTINCT_PRIOR_RELATION_REVIEWED_CHAT_ONLY"
+                     for r in public36["reviewed_cases"])==4
+          public_text=pathlib.Path(v36["public_hash_receipt_path"]).read_text(encoding="utf-8")
+          for prohibited in ('"reason":','"quote":','"source_text":','"answer_text":',
+                             '"proposition":','"financial_fact_approved": true'):
+              assert prohibited not in public_text,"V36_PRIVATE_SOURCE_OR_REASON_LEAK"
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -1309,6 +1389,16 @@ jobs:
               assert subprocess.check_output(
                   ["git","hash-object",path],text=True).strip()==sha,"V35_PUBLIC_RECEIPT_OR_REPORT_DRIFT:"+path
           print("V35_REAL_ORIGINAL_37_TRIAGED_58_FIRSTPASS_24_EDUCATIONAL_13_OPEN_P0_NO_GO")
+          for path,sha in added36.items():
+              assert pathlib.Path(path).is_file(),"V36_NEW_MODULE_MISSING:"+path
+              assert subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()==sha,"V36_NEW_MODULE_GIT_BLOB_DRIFT:"+path
+          for path,sha in ((v36["report_path"],v36["report_git_blob_sha"]),
+                           (v36["public_hash_receipt_path"],v36["public_hash_receipt_git_blob_sha"])):
+              assert subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()==sha,"V36_REPORT_OR_PUBLIC_RECEIPT_SHA_DRIFT:"+path
+          print("V36_THIRTEEN_CHAT_SCOPE_CLASSIFIED_EIGHT_EXTERNAL_SOURCE_VERIFICATIONS_OPEN_P0_NO_GO")
+
 
 
 
@@ -1326,14 +1416,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 546 unique V6 tests (no imported baseline cases)
+      - name: Verify exactly 566 unique V6 tests (no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==546, f"V35_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V35_UNIQUE_V6_546_TESTS_VERIFIED")
+          assert found==566, f"V36_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V36_UNIQUE_V6_566_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:
