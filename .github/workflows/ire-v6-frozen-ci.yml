@@ -980,8 +980,80 @@ jobs:
               data=pathlib.Path(v34[field]["path"]).read_text(encoding="utf-8")
               for prohibited in ('"quote":','"proposition":','"answer_text":','"raw_srt":','"source_text":'):
                   assert prohibited not in data,"V34_PRIVATE_TEXT_LEAK:"+field
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v35_record=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V35_37_SOURCE_FIRST_HASH_ONLY_RECEIPT.json"
+          ).read_text(encoding="utf-8"))
+          assert v35_record["schema"]=="IRE_V6_V35_37_REAL_ORIGINAL_SOURCE_SPLIT_FINANCE_EVIDENCE_AND_PRIOR116_CUSTODY"
+          assert v35_record["v34_original_open_cases"]==v35_record["reviewed_source_case_count"]==37
+          assert v35_record["unique_source_hinge_count"]==29
+          assert v35_record["new_provisional_child_claim_frames"]==58
+          assert v35_record["reviewed_cited_numeric_occurrences"]==18
+          assert v35_record["chat_source_meaning_resolved_education_only"]==28
+          assert v35_record["source_meaning_and_prior_relation_chat_reviewed"]==24
+          assert v35_record["risk_cases_retained_open_after_chat_review"]==9
+          assert v35_record["additional_prior_relation_pending_among_source_resolved"]==4
+          assert v35_record["still_open_including_prior_relation"]==13
+          assert len(v35_record["per_alert_reviews"])==37 and len(v35_record["source_split_clusters"])==29
+          assert all(len(x["child_claims"])==2 for x in v35_record["source_split_clusters"])
+          assert all(x["financial_fact_truth_certified"] is False for x in v35_record["per_alert_reviews"])
+          assert all(x["financial_fact_approved"] is False for s in v35_record["source_split_clusters"] for x in s["child_claims"])
+          assert v35_record["p0_go"] is False
+          assert v35_record["master116_auto_merge_approved"] is False
+          assert v35_record["independent_gold_precision_recall_measured"] is False
+          public_text=pathlib.Path("validation/ire-v6-frozen/V6_V35_37_SOURCE_FIRST_HASH_ONLY_RECEIPT.json").read_text(encoding="utf-8")
+          for leaked_field in ('"proposition":','"quote":','"source_text":',
+                               '"bounded_semantic_explanation":','"chat_reason":','"answer_text":'):
+              assert leaked_field not in public_text,"V35_PRIVATE_ORIGINAL_OR_HOST_REVIEW_LEAK"
+          v35=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V35_CHAT37_RESOLUTION_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v35["schema"]=="IRE_V6_V35_ORIGINAL37_SOURCE_FIRST_ATOM_CHAT_FINANCE_PRIOR116_REVIEW"
+          assert v35["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v35["previous_v34_commit_sha"]=="e4cbdbc7b5e457d4d43277329e73a18b4b39158e"
+          assert v35["previous_v34_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V34_HOST_REVIEW_INTEGRITY_MANIFEST.json"],
+              text=True).strip(),"V35_V34_MANIFEST_DRIFT"
+          added35={r["path"]:r["git_blob_sha"] for r in v35["added"]}
+          assert set(added35)=={"ire/v6/chat_risk_resolution_v35.py",
+                                 "ire/v6/tests/test_chat_risk_resolution_v35.py"},"V35_UNAUTHORIZED_NEW_MODULES"
+          assert not set(added35).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)),"V35_PROTECTED_HISTORY_OVERWRITTEN"
+          assert v35["original_private_zip_sha256"]==v34["source_original_zip_sha256"]
+          assert v35["original_video_count"]==5 and v35["original_cue_count"]==5129
+          assert v35["original_source_windows"]==130
+          assert v35["v33_provisional_utterance_candidates"]==1603
+          assert v35["previous_v34_open_risks"]==v35["reviewed_prior_open_cases"]==37
+          assert v35["unique_risk_cue_hinges"]==29 and v35["provisional_source_bound_child_claim_frames"]==58
+          assert v35["original_numeric_token_occurrences_source_linked"]==18
+          assert v35["chat_source_context_meaning_resolved"]==28
+          assert v35["source_risk_open_after_reassessment"]==9
+          assert v35["prior_knowledge_relation_pending_among_context_resolved"]==4
+          assert v35["total_remain_open_adding_prior_relationship"]==13
+          assert v35["chat_source_and_prior_knowledge_relation_reviewed"]==24
+          assert v35["previous_v34_risk_receipt_sha256"]==v35_record["original_v34_risk_receipt_sha256"]
+          assert v35["new_v35_public_receipt_sha256"]==v35_record["receipt_sha256"]
+          assert v35["existing_116_claims"]==v35_record["master116_count"]==116
+          assert v35["existing_master116_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","data/claims.jsonl"],text=True).strip(),"V35_MASTER116_ROWS_CHANGED"
+          assert v35["existing_master116_rows_digest"]==v35_record["master116_rows_digest"]
+          assert v35["new_synthetic_tests"]==18
+          assert v35["previous_unique_v6_tests"]==528
+          assert v35["expected_unique_v6_tests"]==546
+          assert v35["expected_ire_v6_tracked_file_count"]==94
+          assert v35["source_raw_40_alert_flags_preserved"] is True
+          assert v35["all_37_previous_risks_source_bound"] is True
+          assert v35["local_real_original_v6_source_replay_executed"] is True
+          for flag in ("private_original_srt_stored_on_github",
+                       "completed_130_full_meaning_windows",
+                       "all_1603_utterances_atomically_split",
+                       "source_wide_semantic_precision_recall_proven",
+                       "independent_human_gold_verified",
+                       "independent_financial_legal_body_authentication",
+                       "individual_financial_suitability_or_trade_approval",
+                       "automatic_master116_p4_merge","main_or_protected_v5_116_p4_changed",
+                       "all_791_researched","p0_go"):
+              assert v35[flag] is False,"V35_FALSE_FINANCIAL_RESEARCH_CERTIFICATION:"+flag
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -1228,6 +1300,16 @@ jobs:
               assert subprocess.check_output(
                   ["git","hash-object",path],text=True).strip()==sha,"V34_PUBLIC_RECEIPT_SHA_DRIFT:"+field
           print("V34_SOURCE_FIRST_40_TRIAGED_37_OPEN_TWO_CONDITIONAL_28_FIRSTPASS_P0_NO_GO")
+          for path,sha in added35.items():
+              assert pathlib.Path(path).is_file(),"V35_NEW_SOURCE_MISSING:"+path
+              assert subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()==sha,"V35_CODE_BLOB_SHA_DRIFT:"+path
+          for path,sha in ((v35["report_path"],v35["report_git_blob_sha"]),
+                           (v35["receipt_path"],v35["receipt_git_blob_sha"])):
+              assert subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()==sha,"V35_PUBLIC_RECEIPT_OR_REPORT_DRIFT:"+path
+          print("V35_REAL_ORIGINAL_37_TRIAGED_58_FIRSTPASS_24_EDUCATIONAL_13_OPEN_P0_NO_GO")
+
 
 
 
@@ -1244,14 +1326,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 528 unique V6 tests (no imported baseline cases)
+      - name: Verify exactly 546 unique V6 tests (no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==528, f"V34_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V34_UNIQUE_V6_528_TESTS_VERIFIED")
+          assert found==546, f"V35_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V35_UNIQUE_V6_546_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:
