@@ -23,7 +23,7 @@ EXCEPTION = re.compile(r"다만|제외|예외|별도로|그럼에도|단,\s*|"
                        r"except|unless|exception", re.I)
 QUOTATION = re.compile(r"질문|댓글|인용|누가\s*말|어떤\s*분|"
                        r"asked|quote|questioner", re.I)
-CORRECTION = re.compile(r"정정|틀렸|잘못|취소|아니다|아닙니다|반대로|"
+CORRECTION = re.compile(r"정정|틀렸|잘못|취소|아니다|아닙니다|반대로|하지만|그러나|"
                         r"correction|incorrect", re.I)
 ANNUAL = re.compile(r"연간|매년|연\s*[0-9]|연\s*[0-9]+%|annual|per\s+year", re.I)
 MONTHLY = re.compile(r"월간|매월|월\s*[0-9]|월\s*[0-9]+%|monthly|per\s+month", re.I)

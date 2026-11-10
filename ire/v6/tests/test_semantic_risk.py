@@ -60,13 +60,11 @@ class SemanticRiskTests(unittest.TestCase):
         self.assertGreater(r["cases_by_reason"]["UNMAPPED_EXCEPTION_IN_MODEL_CONTEXT"],0)
 
     def test_neighbor_correction_not_in_context_is_flagged(self):
-        e=copy.deepcopy(self.fx.exchange)
-        # Claim 1 includes cue 1 only; neighbor cue 2 is "하지만".
-        # For this check use explicit correction language in a pinned source.
-        src,e=self._single_cue_exchange("연금 10%라고 말했지만 잘못 설명했습니다.",
-                                        proposition="연금 10%는 예상입니다.",
-                                        stance="CORRECTED")
-        self.assertGreater(audit_semantic_risks(src,e)["review_case_count"],0)
+        # Claim 1 cites cue 1 and uses context [1]. Cue 2 says "하지만"
+        # and deliberately remains outside that context.
+        r=audit_semantic_risks(self.fx.source,self.fx.exchange)
+        self.assertGreater(
+            r["cases_by_reason"]["NEARBY_CORRECTION_NOT_IN_CONTEXT"],0)
 
     def test_source_quote_mismatch_still_fails_closed(self):
         e=copy.deepcopy(self.fx.exchange)
