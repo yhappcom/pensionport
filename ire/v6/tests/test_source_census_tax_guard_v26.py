@@ -94,7 +94,7 @@ class SourceCensusTaxGuardV26Tests(unittest.TestCase):
             'classification':'CURRENT_GENERAL_RULE_CONSISTENT_CONDITIONAL',
             'rule_ids':['NTS_ISA_60D','NTS_ISA_EXTRA'],
             'reason':'현재 법령상의 ISA 연금 전환 일반 규정과 일치할 수 있으나 개인 조건을 확인해야 한다.',
-            'missing_conditions':['납입 내역','가입자 소득 및 결정세액'],
+            'missing_conditions':['가입자 소득 및 결정세액','납입 내역'],
             'reviewer':'CHATGPT_CURRENT_TURN','reviewed_as_of':'2026-11-10'}]
         relevance=[{
             'claim_id':'C00001','question_sha256':sha256(q.encode()),

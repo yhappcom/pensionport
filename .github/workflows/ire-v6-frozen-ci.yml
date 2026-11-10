@@ -716,12 +716,35 @@ jobs:
           print("HISTORICAL_V25_RETAINED_V25_1_DEDUP_TEST_FIX_VERIFIED")
           for path,sha in added26.items():
               assert pathlib.Path(path).is_file(),"V26_NEW_SOURCE_MISSING:"+path
+              if path=="ire/v6/tests/test_source_census_tax_guard_v26.py":
+                  subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
+                  continue
               actual_sha=subprocess.check_output(
                   ["git","hash-object",path],text=True).strip()
               assert actual_sha==sha,"V26_SHA_LOCK_SOURCE_CHANGED:"+path
           assert subprocess.check_output(
               ["git","hash-object",v26["report_path"]],text=True).strip()==v26["report_git_blob_sha"],"V26_REPORT_SHA_DRIFT"
           print("HISTORICAL_BASE_PLUS_V26_CANDIDATE_CENSUS_ISA_ACTION_VERIFIED")
+          v261=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V26_1_REVIEW_CONDITIONS_FIX_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v261["schema"]=="IRE_V6_V26_1_SYNTHETIC_REVIEW_INPUT_CANONICAL_FIX"
+          assert v261["scope"]=="VALIDATION_BRANCH_ONLY" and v261["base_head_sha"]=="1eab173a4d8e9efcfe9e5c6fb61979479be731bd"
+          assert v261["previous_v26_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V26_CANDIDATE_CENSUS_ISA_GUARD_MANIFEST.json"],
+              text=True).strip(),"HISTORICAL_V26_MANIFEST_DRIFT"
+          assert v261["old_v26_test_git_blob_sha"]==added26["ire/v6/tests/test_source_census_tax_guard_v26.py"]
+          assert v261["expected_v6_unique_test_cases"]==364 and v261["new_v26_tests"]==18
+          assert v261["ire_v6_file_count"]==len(actual)==72
+          assert v261["production_v26_code_changed"] is False and v261["p0_go"] is False
+          assert v261["real_source_gold_completed"] is False and v261["personal_tax_or_order_approval"] is False
+          assert subprocess.check_output(
+              ["git","hash-object","ire/v6/tests/test_source_census_tax_guard_v26.py"],
+              text=True).strip()==v261["corrected_v26_test_git_blob_sha"],"V26_1_UNAUTHORIZED_FIX_BYTES"
+          assert subprocess.check_output(
+              ["git","hash-object",v261["report_path"]],text=True).strip()==v261["report_git_blob_sha"],"V26_1_REPORT_SHA_DRIFT"
+          print("HISTORICAL_V26_RETAINED_V26_1_CANONICAL_SYNTHETIC_FIX_VERIFIED")
+
 
 
           print("HISTORICAL_BASE_PLUS_V24_USER_QUESTION_DECISION_MATH_VERIFIED")
