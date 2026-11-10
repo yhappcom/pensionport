@@ -1,0 +1,934 @@
+{
+  "schema": "IRE_V6_V38_2_ACTUAL_OWNER_FOUR_WINDOWS_47_CHAT_SEMANTIC_CLASSIFICATION_SHA_ONLY",
+  "as_of": "2026-11-11",
+  "parent_v38_1_commit": "736e583cbe680ae8a194a7a342b33e333d703bc2",
+  "actual_owner_zip_name": "1-100.zip",
+  "actual_owner_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "actual_original_srt_sha256": {
+    "sz5N9WJS310": "2de4b318c75c96421f446a462ecaeacef2a931fbda5bd4c7b35236dcb3fe9a0f",
+    "6VEfKF7BzZU": "a59b2fd424011c3f572aa52404411ff4ea435f6dd1e7e27e4f5c9e11f7218b72"
+  },
+  "reviewed_original_windows": 4,
+  "reviewed_original_cues": 160,
+  "reviewed_v33_utterance_candidates": 47,
+  "v33_candidate_digest_same_as_v37_for_all_windows": true,
+  "chat_semantic_review_note_items": 79,
+  "non_independent_context_only_fragments": 2,
+  "labels_definition": {
+    "C": "asserted_statement",
+    "H": "illustrative_or_uncertain_hypothesis",
+    "Q": "question",
+    "A": "personal_anecdote",
+    "R": "recommendation",
+    "D": "different_speaker_not_endorsed",
+    "U": "audio_or_provenance_uncertain",
+    "X": "corrective_rebuttal",
+    "F": "context_only_fragment",
+    "T": "historical_time_specific_rate"
+  },
+  "window_counts": {
+    "W00015": {
+      "video_no": 1,
+      "items": 14,
+      "review_notes": 25,
+      "context_only_fragments": 0
+    },
+    "W00016": {
+      "video_no": 1,
+      "items": 9,
+      "review_notes": 19,
+      "context_only_fragments": 0
+    },
+    "W00011": {
+      "video_no": 2,
+      "items": 12,
+      "review_notes": 18,
+      "context_only_fragments": 0
+    },
+    "W00013": {
+      "video_no": 2,
+      "items": 12,
+      "review_notes": 17,
+      "context_only_fragments": 2
+    }
+  },
+  "reviewed_window_pins": [
+    {
+      "video_no": 1,
+      "window_id": "W00015",
+      "original_window_sha256": "00af9859dadb4f2f9919b6b990bd25f6356f62f671415edb8dbecebf9c5bd1bc",
+      "v33_candidate_digest_sha256": "6e045bd679f3eebd036e5bd7ae7a4765d81b1890a3266ad644a044b224be7838",
+      "expected_v33_candidates": 14,
+      "host_reviewed_candidates": 14
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00016",
+      "original_window_sha256": "2894bd20af60287c13a1b7db6fcae7d8a68829f49ef373b0d87e1805108d54fa",
+      "v33_candidate_digest_sha256": "b0fe47f508b5064219978f93389168e6316080a1273813728109b6803ec3d693",
+      "expected_v33_candidates": 9,
+      "host_reviewed_candidates": 9
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00011",
+      "original_window_sha256": "faa79a289575f3de7eb220675a6802637278d8f21929ea86d6fc55763f91524e",
+      "v33_candidate_digest_sha256": "c7e4bbfb6853b99c6a472a2c89ab8c0e819895546fccd973b045def88e5d17ce",
+      "expected_v33_candidates": 12,
+      "host_reviewed_candidates": 12
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00013",
+      "original_window_sha256": "c96d0c8e26616d34bcd16cf4ad22757ddb99ccea627b4ad947f064a21db1a01d",
+      "v33_candidate_digest_sha256": "593a81a357475c560a5461e1ce3d148702c79ac4924b0b8a647d2353dc2ccca6",
+      "expected_v33_candidates": 12,
+      "host_reviewed_candidates": 12
+    }
+  ],
+  "reviewed_candidate_rows": [
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00174",
+      "cue_first": 561,
+      "cue_last": 562,
+      "labels": [
+        "asserted_statement",
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "5c8ef4ff96d81a30566b91b14fda10998046adb8feeac0f82ea5c96c0761f27b",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00175",
+      "cue_first": 563,
+      "cue_last": 565,
+      "labels": [
+        "illustrative_or_uncertain_hypothesis",
+        "question"
+      ],
+      "meaning_review_memo_sha256": "2872c1bbf81eb7498b4daebd0abe7c9e35ead53bc2f2b79ee6b3794f162a74e1",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00176",
+      "cue_first": 566,
+      "cue_last": 567,
+      "labels": [
+        "asserted_statement",
+        "audio_or_provenance_uncertain"
+      ],
+      "meaning_review_memo_sha256": "08d779278faed3167b125a6e4d15ebb01a54b76ee6efecd5092b65eb86bdab6e",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00177",
+      "cue_first": 568,
+      "cue_last": 574,
+      "labels": [
+        "illustrative_or_uncertain_hypothesis",
+        "asserted_statement"
+      ],
+      "meaning_review_memo_sha256": "1138e1b06e2b30dc529c1a103cde296afb89020b575a79b38e16dc48066f9f73",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00178",
+      "cue_first": 575,
+      "cue_last": 581,
+      "labels": [
+        "asserted_statement",
+        "illustrative_or_uncertain_hypothesis",
+        "illustrative_or_uncertain_hypothesis",
+        "question"
+      ],
+      "meaning_review_memo_sha256": "9fed5ab093b4977d09ff4bc4cb4fbf73125d9e419be667f799ddc7d6410eec99",
+      "estimated_semantic_review_items": 4,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00179",
+      "cue_first": 583,
+      "cue_last": 583,
+      "labels": [
+        "different_speaker_not_endorsed"
+      ],
+      "meaning_review_memo_sha256": "005f4c8e58a97b2b84facaf5fa912d7c6a33fd6ca8553b60e3b9870bf9369374",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00180",
+      "cue_first": 584,
+      "cue_last": 585,
+      "labels": [
+        "recommendation",
+        "audio_or_provenance_uncertain"
+      ],
+      "meaning_review_memo_sha256": "cc7c8870094f41d528986401e2555328106aab3be59d62f027f01b9545154a7d",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00181",
+      "cue_first": 586,
+      "cue_last": 586,
+      "labels": [
+        "question"
+      ],
+      "meaning_review_memo_sha256": "c6de880aafa9d6d174712da111d6e4c67a2c22c6240c0aae451e7a180da20863",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00182",
+      "cue_first": 587,
+      "cue_last": 588,
+      "labels": [
+        "question"
+      ],
+      "meaning_review_memo_sha256": "97a4f6ff0fbfd4f0a9ba86300a634c7f952edb5ece9cf160c054faa47233cf8f",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00183",
+      "cue_first": 589,
+      "cue_last": 592,
+      "labels": [
+        "audio_or_provenance_uncertain",
+        "recommendation"
+      ],
+      "meaning_review_memo_sha256": "0f7d7121c7b48173ee473208d823bef3c89e99f58bcbf77b51333157078b9bd2",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00184",
+      "cue_first": 593,
+      "cue_last": 595,
+      "labels": [
+        "asserted_statement",
+        "asserted_statement"
+      ],
+      "meaning_review_memo_sha256": "525396a4a1e2fbff218194adff41e176cd8f50f514a7991af8b1596be764e544",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00185",
+      "cue_first": 596,
+      "cue_last": 597,
+      "labels": [
+        "recommendation",
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "3a0bfed9ff105c2418a027a4059c414161aac9bd7c8b3d417e35d1f3ef56f1db",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00186",
+      "cue_first": 598,
+      "cue_last": 598,
+      "labels": [
+        "question"
+      ],
+      "meaning_review_memo_sha256": "a75f809a441dd76116f0c171f213a489f38b213d9c4c3cfeee4c2f0d9135e5c8",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00015",
+      "v33_candidate_id": "C00187",
+      "cue_first": 600,
+      "cue_last": 600,
+      "labels": [
+        "question"
+      ],
+      "meaning_review_memo_sha256": "cab2c6f5ffb6ba61636cd74c45b7c4f8525716c281d1608bf9ff6416973db35b",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "v33_candidate_id": "C00188",
+      "cue_first": 601,
+      "cue_last": 601,
+      "labels": [
+        "different_speaker_not_endorsed"
+      ],
+      "meaning_review_memo_sha256": "fd5d9656d3cffea9d4ad0dc88fafa850a60f387ccc34003bf79f631e7a12cb0a",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "v33_candidate_id": "C00189",
+      "cue_first": 602,
+      "cue_last": 603,
+      "labels": [
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "3a45b081614f8d3cdac03ec2d0f7d081f82c720a82b102603817242de0e197fe",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "v33_candidate_id": "C00190",
+      "cue_first": 604,
+      "cue_last": 610,
+      "labels": [
+        "illustrative_or_uncertain_hypothesis",
+        "audio_or_provenance_uncertain",
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "436137777b18a378006ffe9ca99854ed507cfc11a20244c25e033c2aa3ac5691",
+      "estimated_semantic_review_items": 3,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "v33_candidate_id": "C00191",
+      "cue_first": 611,
+      "cue_last": 616,
+      "labels": [
+        "illustrative_or_uncertain_hypothesis",
+        "recommendation",
+        "question"
+      ],
+      "meaning_review_memo_sha256": "02b78331171be232ef4de18ec1ae83da037e783cf7bc74c1d7aa18b886d12352",
+      "estimated_semantic_review_items": 3,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "v33_candidate_id": "C00192",
+      "cue_first": 617,
+      "cue_last": 617,
+      "labels": [
+        "different_speaker_not_endorsed"
+      ],
+      "meaning_review_memo_sha256": "25967f627d729873792e821de33ba057bcee27d9a00f2d4755e8df64ed031ccf",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "v33_candidate_id": "C00193",
+      "cue_first": 618,
+      "cue_last": 624,
+      "labels": [
+        "corrective_rebuttal",
+        "illustrative_or_uncertain_hypothesis",
+        "corrective_rebuttal"
+      ],
+      "meaning_review_memo_sha256": "a18d9300ad0c67f5efde19aa88b59d9b43c911389edac18d56743844b848ac7c",
+      "estimated_semantic_review_items": 3,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "v33_candidate_id": "C00194",
+      "cue_first": 625,
+      "cue_last": 631,
+      "labels": [
+        "illustrative_or_uncertain_hypothesis",
+        "illustrative_or_uncertain_hypothesis",
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "e69a61643a7978602f76bfd8a3cefe052e3cca9b986e8d6d70f940c7896bf6d5",
+      "estimated_semantic_review_items": 3,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "v33_candidate_id": "C00195",
+      "cue_first": 632,
+      "cue_last": 638,
+      "labels": [
+        "personal_anecdote",
+        "illustrative_or_uncertain_hypothesis",
+        "recommendation"
+      ],
+      "meaning_review_memo_sha256": "ac98678a35d6e9b304bbc7287503811a7fb435d19dc9ded72257c35dd8245cc1",
+      "estimated_semantic_review_items": 3,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00016",
+      "v33_candidate_id": "C00196",
+      "cue_first": 639,
+      "cue_last": 640,
+      "labels": [
+        "question"
+      ],
+      "meaning_review_memo_sha256": "f5a3d127dae490305ea1a76df77edd1d2beea05179c284982cba584c823733f9",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00139",
+      "cue_first": 401,
+      "cue_last": 404,
+      "labels": [
+        "personal_anecdote"
+      ],
+      "meaning_review_memo_sha256": "739091ca9a5796d5fa8a849b068a1dcf7ddcec5d1b52aedaa274294c27370617",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00140",
+      "cue_first": 405,
+      "cue_last": 411,
+      "labels": [
+        "personal_anecdote",
+        "personal_anecdote",
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "ee22fd005e1a11a3f1e7087a76eb1e3c4e0dbf4e40ebf41d800e58e632357bf8",
+      "estimated_semantic_review_items": 3,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00141",
+      "cue_first": 412,
+      "cue_last": 414,
+      "labels": [
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "ad9cc67196e993d29d90c1b6416864162596bb5f10043daeae4b3177ac525919",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00142",
+      "cue_first": 415,
+      "cue_last": 416,
+      "labels": [
+        "personal_anecdote"
+      ],
+      "meaning_review_memo_sha256": "ca4bdd818b2812ad879aaf0e653d486519af025cb5e362f44c5919f47a535332",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00143",
+      "cue_first": 418,
+      "cue_last": 420,
+      "labels": [
+        "personal_anecdote",
+        "audio_or_provenance_uncertain"
+      ],
+      "meaning_review_memo_sha256": "fe63a94b8edf4439024bbbc1776845b21489426ed3ccc1732af1fb19ed7ab959",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00144",
+      "cue_first": 421,
+      "cue_last": 424,
+      "labels": [
+        "illustrative_or_uncertain_hypothesis",
+        "audio_or_provenance_uncertain"
+      ],
+      "meaning_review_memo_sha256": "757f0309d3ec874d464e08af20867349fc06d6ec92b9755772c093a75b5766d5",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00145",
+      "cue_first": 425,
+      "cue_last": 429,
+      "labels": [
+        "personal_anecdote",
+        "audio_or_provenance_uncertain"
+      ],
+      "meaning_review_memo_sha256": "a6b3ad993a57086a1c0677b3423be45ee89ae8d000c82f80fdbd86839eb3a310",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00146",
+      "cue_first": 430,
+      "cue_last": 430,
+      "labels": [
+        "different_speaker_not_endorsed"
+      ],
+      "meaning_review_memo_sha256": "281077689cc60c85699cd46a067b2476c5e8bb441978164389c9dbd7abad485f",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00147",
+      "cue_first": 431,
+      "cue_last": 431,
+      "labels": [
+        "personal_anecdote"
+      ],
+      "meaning_review_memo_sha256": "bad53686460e843945aea95d23a23dbb85193bbd53ff7a9563eb458a3411b111",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00148",
+      "cue_first": 432,
+      "cue_last": 432,
+      "labels": [
+        "recommendation"
+      ],
+      "meaning_review_memo_sha256": "4cdb7463af73541f580d5f1034d5af8a2ce59fa62db8550b931cf11647c3dd75",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00149",
+      "cue_first": 433,
+      "cue_last": 435,
+      "labels": [
+        "personal_anecdote"
+      ],
+      "meaning_review_memo_sha256": "32b81d904f5a521545355a0ad36b7de548d32e6bb5dc993a15c9b6659027b817",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00011",
+      "v33_candidate_id": "C00150",
+      "cue_first": 436,
+      "cue_last": 440,
+      "labels": [
+        "personal_anecdote",
+        "audio_or_provenance_uncertain"
+      ],
+      "meaning_review_memo_sha256": "51a5d0378341e44f490d7b8121b0ff1e58c59b37c572ffdeabdb9cc00f71453d",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00158",
+      "cue_first": 481,
+      "cue_last": 481,
+      "labels": [
+        "context_only_fragment"
+      ],
+      "meaning_review_memo_sha256": "26a8fcecd52807d4a193c90348b5688736ed4ca410765976816dda18208308ab",
+      "estimated_semantic_review_items": 0,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00159",
+      "cue_first": 482,
+      "cue_last": 486,
+      "labels": [
+        "asserted_statement",
+        "question"
+      ],
+      "meaning_review_memo_sha256": "fd1abf5a85e01971984f7d61525c04876f91171c9e5517dcafe9709538c59f8c",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00160",
+      "cue_first": 487,
+      "cue_last": 490,
+      "labels": [
+        "different_speaker_not_endorsed",
+        "asserted_statement",
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "1a4ec279e023c5fd738a89883cea5d35d53a33151bcaa76ede0820fdae522356",
+      "estimated_semantic_review_items": 3,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00161",
+      "cue_first": 491,
+      "cue_last": 492,
+      "labels": [
+        "personal_anecdote"
+      ],
+      "meaning_review_memo_sha256": "a4065f53d135136b9757abe5f2b64c55a4f52796c1d851d45c5d09c7acaf9b66",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00162",
+      "cue_first": 493,
+      "cue_last": 499,
+      "labels": [
+        "personal_anecdote",
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "8bf8df48c3911b8f5ca0ad5863b0a236e811c51353ba6d157ab7ce7f21c10937",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00163",
+      "cue_first": 500,
+      "cue_last": 500,
+      "labels": [
+        "illustrative_or_uncertain_hypothesis"
+      ],
+      "meaning_review_memo_sha256": "ed411d96d574415cec45e259ff1f90048660aa5d9918bbeaa5020b7b932256fe",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00164",
+      "cue_first": 501,
+      "cue_last": 507,
+      "labels": [
+        "historical_time_specific_rate",
+        "audio_or_provenance_uncertain"
+      ],
+      "meaning_review_memo_sha256": "ed0780561e2f423134d5e82f7227769a6400e89038115b2635b73a8428952bf0",
+      "estimated_semantic_review_items": 2,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00165",
+      "cue_first": 509,
+      "cue_last": 515,
+      "labels": [
+        "asserted_statement",
+        "recommendation",
+        "recommendation"
+      ],
+      "meaning_review_memo_sha256": "c041084de827b4fca5d8b1eb409748ef06efe9864971843376e74f12d3436bd8",
+      "estimated_semantic_review_items": 3,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00166",
+      "cue_first": 516,
+      "cue_last": 516,
+      "labels": [
+        "question"
+      ],
+      "meaning_review_memo_sha256": "4e113f7ea6e167f309e946f693e4ba7b8592719135c10d86cbb9f3d2af916e57",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00167",
+      "cue_first": 517,
+      "cue_last": 518,
+      "labels": [
+        "different_speaker_not_endorsed"
+      ],
+      "meaning_review_memo_sha256": "3a14ec1c549b3b1e7e25c6d6ff291206e347a0929ad0b346c96175084184f8eb",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00168",
+      "cue_first": 519,
+      "cue_last": 519,
+      "labels": [
+        "different_speaker_not_endorsed"
+      ],
+      "meaning_review_memo_sha256": "639a68b84e9f919d509082d53ef38d8856b147ec4f464373471ceb49568db051",
+      "estimated_semantic_review_items": 1,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00013",
+      "v33_candidate_id": "C00169",
+      "cue_first": 520,
+      "cue_last": 520,
+      "labels": [
+        "context_only_fragment"
+      ],
+      "meaning_review_memo_sha256": "3da7d62147615012519f9f486fbdb6ffd7bbe45fb587ef8179cfc5206c4b1b73",
+      "estimated_semantic_review_items": 0,
+      "original_audio_verified": false,
+      "source_specific_issuer_terms_verified": false,
+      "independent_human_gold": false,
+      "financial_semantic_truth_certified": false
+    }
+  ],
+  "v38_2_private_local_semantic_summary_not_uploaded": true,
+  "source_specific_original_audio_or_issuer_evidence_cases_closed": 0,
+  "previous_8_source_specific_cases_open": true,
+  "true_independent_precision_recall_measured": false,
+  "p0_go": false,
+  "claim_level_independent_truth_certified": false,
+  "all_130_windows_claim_reviewed": false,
+  "private_raw_srt_or_speaker_quotes_published": false,
+  "source_original_audio_provenance_authenticated": false,
+  "approved_master116_or_p4_modified": false
+}
