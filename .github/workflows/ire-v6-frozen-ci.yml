@@ -331,8 +331,43 @@ jobs:
                        "true_semantic_recall_measured","owner_provenance_independently_signed",
                        "official_finance_facts_approved","full_791_researched","p0_go"):
               assert v19[flag] is False,"V19_FALSE_RELEASE_GO:"+flag
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v20=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_CONTRAST_SCOPE_FINANCE_RULE_PATCH_MANIFEST_V20.json"
+          ).read_text(encoding="utf-8"))
+          assert v20["schema"]=="IRE_V6_PRIVATE_CONTRAST_SOURCE_SCOPE_AND_FINANCE_RULE_REVIEW_V20"
+          assert v20["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v20["previous_v19_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_UNUSED_REPAIR_COHORT_NUMERIC_SPLIT_PATCH_MANIFEST_V19.json"],
+              text=True).strip(),"HISTORICAL_V19_MANIFEST_DRIFT"
+          assert v20["base_head_sha"]=="68d6abe1fbc35c52e434e8703567d9548b879845"
+          added20={x["path"]:x["git_blob_sha"] for x in v20["added"]}
+          assert set(added20)=={"ire/v6/source_clause_review.py","ire/v6/tests/test_source_clause_review.py"},"V20_ADDED_SCOPE_DRIFT"
+          assert not set(added20).intersection(
+              set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|
+              set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)),"V20_OLDER_CODE_REUSED"
+          assert v20["report_path"]=="validation/ire-v6-frozen/V6_V20_CONTRAST_SCOPE_AND_PRIMARY_FINANCE_REVIEW.md"
+          assert v20["source_video_id"]=="IMJfPgmnFwc" and v20["source_cue_index"]==24
+          assert v20["original_source_cues_replayed"]==49 and v20["new_synthetic_tests"]==7
+          assert v20["before_chat_context_open"]==1 and v20["after_chat_context_open"]==0
+          assert v20["same_video_raw_heuristic_alerts_before"]==3
+          assert v20["same_video_raw_heuristic_alerts_after"]==3
+          assert v20["v19_five_raw_heuristic_alerts_retained"]==9
+          assert v20["source_only_cue_quote_boundaries_reviewed"] is True
+          assert len(v20["official_primary_law_scopes_checked"])==4
+          assert v20["related_local_synthetic_tests"]==31
+          for flag in ("canonical_full_local_v6_discover_passed",
+                       "private_raw_srt_in_public_repo",
+                       "financial_law_primary_bytes_pinned_for_this_turn",
+                       "original_video_speaker_as_of_verified",
+                       "independent_human_gold_available",
+                       "individual_tax_or_pension_applicability_approved",
+                       "actual_recall_measured",
+                       "s6_frozen_9_video_cohort_evaluated",
+                       "s7_rollout_approved","p0_go"):
+              assert v20[flag] is False,"V20_UNAUTHORIZED_RELEASE:"+flag
+          assert v20["no_external_model_api"] is True
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -409,7 +444,14 @@ jobs:
               subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
           assert subprocess.check_output(
               ["git","hash-object",v19["report_path"]],text=True).strip()==v19["report_git_blob_sha"],"V19_PUBLIC_SAFE_REPORT_DRIFT"
-          print("HISTORICAL_BASE_PLUS_V19_UNUSED_ORIGINAL_MONEY_AND_SPLIT_VERIFIED")
+          for path,sha in added20.items():
+              assert pathlib.Path(path).is_file(),"V20_SOURCE_MISSING:"+path
+              actual_sha=subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"UNAUTHORIZED_V20_PATCH_BYTES:"+path
+          assert subprocess.check_output(
+              ["git","hash-object",v20["report_path"]],text=True).strip()==v20["report_git_blob_sha"],"V20_SAFE_REPORT_SHA_DRIFT"
+          print("HISTORICAL_BASE_PLUS_V20_SOURCE_CONTRAST_FINANCE_SCOPE_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"

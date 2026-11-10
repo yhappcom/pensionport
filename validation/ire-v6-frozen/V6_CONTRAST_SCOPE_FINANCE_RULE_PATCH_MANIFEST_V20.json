@@ -1,0 +1,49 @@
+{
+  "schema": "IRE_V6_PRIVATE_CONTRAST_SOURCE_SCOPE_AND_FINANCE_RULE_REVIEW_V20",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "previous_v19_manifest_git_blob_sha": "d49200e4c9d0bfc418f30c5680c2586c7d4acd44",
+  "base_head_sha": "68d6abe1fbc35c52e434e8703567d9548b879845",
+  "added": [
+    {
+      "path": "ire/v6/source_clause_review.py",
+      "git_blob_sha": "f168e2db9b81ac81deb11119a59fb305ccd30974"
+    },
+    {
+      "path": "ire/v6/tests/test_source_clause_review.py",
+      "git_blob_sha": "69ddb5748902726403149362323b94fe58b08e05"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_V20_CONTRAST_SCOPE_AND_PRIMARY_FINANCE_REVIEW.md",
+  "report_git_blob_sha": "bc11a0dd653f23d01bdeaadc4a322c133b1f356a",
+  "new_total_ire_v6_tracked_files": 60,
+  "owner_private_zip_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "v19_unresolved_chat_contrast_case_sha256": "88a9934c5ec6720cdf9b28a86190b9f193c6cdd94e25c10f391d0f8ce3ce4564",
+  "source_video_id": "IMJfPgmnFwc",
+  "source_cue_index": 24,
+  "original_source_cues_replayed": 49,
+  "before_chat_context_open": 1,
+  "after_chat_context_open": 0,
+  "same_video_raw_heuristic_alerts_before": 3,
+  "same_video_raw_heuristic_alerts_after": 3,
+  "v19_five_raw_heuristic_alerts_retained": 9,
+  "source_only_cue_quote_boundaries_reviewed": true,
+  "official_primary_law_scopes_checked": [
+    "KOREAN_GIFT_TAX_ART_53_CURRENT_SCOPE",
+    "KOREAN_GIFT_TAX_ART_53_2_MARRIAGE_BIRTH_SCOPE",
+    "KOREAN_GIFT_TAX_ART_63_LISTED_SHARES_SCOPE",
+    "KOREAN_INCOME_TAX_DECREE_ART_40_3_PENSION_WITHDRAWAL_ORDER"
+  ],
+  "new_synthetic_tests": 7,
+  "related_local_synthetic_tests": 31,
+  "canonical_full_local_v6_discover_passed": false,
+  "no_external_model_api": true,
+  "private_raw_srt_in_public_repo": false,
+  "financial_law_primary_bytes_pinned_for_this_turn": false,
+  "original_video_speaker_as_of_verified": false,
+  "independent_human_gold_available": false,
+  "individual_tax_or_pension_applicability_approved": false,
+  "actual_recall_measured": false,
+  "s6_frozen_9_video_cohort_evaluated": false,
+  "s7_rollout_approved": false,
+  "p0_go": false
+}
