@@ -238,15 +238,36 @@ jobs:
               set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added))
           assert v15["p0_go"] is False and v15["child_owner_pins_auto_authorized"] is False
           assert v15["all_791_videos_researched"] is False
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v15["new_total_ire_v6_tracked_files"]==50
+          v17=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_CHAT_INTERNAL_EVAL_AND_UNIT_GUARD_MANIFEST_V17.json"
+          ).read_text(encoding="utf-8"))
+          assert v17["schema"]=="IRE_V6_CHAT_INTERNAL_EVAL_AND_UNIT_GUARD_PATCH_V17"
+          assert v17["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v17["previous_v16_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_CHAT_ONLY_EXECUTION_PLAN_MANIFEST_V16.json"],text=True).strip(),"HISTORICAL_V16_MANIFEST_DRIFT"
+          assert v17["previous_atomic_exchange_git_blob_sha"]=="06f4d402d0b3a3584bfe4b096654dc640ce321d0"
+          modified17={x["path"]:x["git_blob_sha"] for x in v17["modified_from_v16"]}
+          added17={x["path"]:x["git_blob_sha"] for x in v17["added"]}
+          assert set(modified17)=={"ire/v6/atomic_exchange.py"},"V17_MODIFIED_SCOPE_DRIFT"
+          assert set(added17)=={"ire/v6/internal_reference.py","ire/v6/tests/test_internal_reference.py"},"V17_ADDED_SCOPE_DRIFT"
+          assert set(modified17).issubset(set(new))
+          assert not set(added17).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15))
+          assert v17["report_path"]=="validation/ire-v6-frozen/V6_STAGE_S2_TO_S7_CHAT_EXECUTION_REPORT_V17.md"
+          assert v17["private_original_srt_uploaded"] is False
+          assert v17["chat_self_reference_is_independent_gold"] is False
+          assert v17["actual_gold_precision_measured"] is False
+          assert v17["all_791_videos_researched"] is False
+          assert v17["s5_six_lexical_risk_cases_open"] is True
+          assert v17["s6_9_video_original_available"] is False and v17["p0_go"] is False
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
                   raw=f.read_bytes()
                   assert len(raw)==item["bytes"] and hashlib.sha256(raw).hexdigest()==item["sha256"],"ORIGINAL_FROZEN_SHA_DRIFT:"+path
           for path,sha in (changes|new|v10_added).items():
-              if path in v11_modified:
+              if path in v11_modified or path in modified17:
                   # The V9 source blob remains reachable in Git history; only
                   # the separately SHA-pinned V11 override may be in HEAD.
                   subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
@@ -285,7 +306,16 @@ jobs:
           assert v16["all_791_videos_researched"] is False
           assert v16["independent_semantic_recall_measured"] is False
           assert v16["p0_go"] is False
-          print("HISTORICAL_BASE_PLUS_V16_CHAT_ONLY_EXECUTION_PLAN_VERIFIED")
+          for path,sha in (modified17|added17).items():
+              assert pathlib.Path(path).is_file()
+              actual_sha=subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"UNAUTHORIZED_V17_PATCH_BYTES:"+path
+          subprocess.run(
+              ["git","cat-file","-e",v17["previous_atomic_exchange_git_blob_sha"]+"^{blob}"],check=True)
+          assert subprocess.check_output(
+              ["git","hash-object",v17["report_path"]],text=True).strip()==v17["report_git_blob_sha"],"V17_SAFE_REPORT_SHA_DRIFT"
+          print("HISTORICAL_BASE_PLUS_V17_CHAT_INTERNAL_EVAL_NUMERIC_UNITS_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"

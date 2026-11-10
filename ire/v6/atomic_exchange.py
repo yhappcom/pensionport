@@ -15,9 +15,12 @@ from .codec import WINDOW, canonical, require_hash, require_identifier, sha256
 from .errors import InvalidInput
 
 CLAIM = re.compile(r"C[0-9]{5,8}\Z")
+# Preserve units even when Korean monetary expressions contain spaces.
+# V16 real ISA source exposed "300만 원" -> prior regex counted only "300".
 NUMBER = re.compile(
     r"(?<![0-9])(?:[0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)"
-    r"(?:\.[0-9]+)?\s*(?:%|퍼센트|만원|억원|조원|원|달러|배)?"
+    r"(?:\.[0-9]+)?(?:\s*(?:%|퍼센트|(?:만|억|조)\s*원|"
+    r"원|달러|배|년|개월|월|일))?"
 )
 KINDS = {"FACT", "HYPOTHETICAL", "QUESTION", "OPINION", "RECOMMENDATION", "MATH"}
 STANCES = {"AFFIRMED", "NEGATED", "CORRECTED", "CONDITIONAL", "QUOTED", "UNRESOLVED"}
@@ -170,7 +173,7 @@ def audit_host_atomic_exchange(source, exchange: dict) -> dict:
                 type(token) is not str or token not in rowmap[idx]["numeric_tokens"]):
                 raise InvalidInput("HOST_ATOM_NUMERIC_REF_NOT_IN_SOURCE")
             seen_numbers.append(token)
-        if any(n.strip() not in {x.strip() for x in seen_numbers}
+        if any(re.sub(r"\s+", "", n) not in {re.sub(r"\s+", "", x) for x in seen_numbers}
                for n in NUMBER.findall(atom["proposition"])):
             raise InvalidInput("HOST_ATOM_PROPOSITION_NUMBER_UNGROUNDED")
     for idx, row in rowmap.items():
