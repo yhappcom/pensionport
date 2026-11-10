@@ -665,16 +665,51 @@ jobs:
               ["git","hash-object",v24["report_path"]],text=True).strip()==v24["report_git_blob_sha"],"V24_SAFE_REPORT_SHA_DRIFT"
           for path,sha in added25.items():
               assert pathlib.Path(path).is_file(),"V25_NEW_CODE_MISSING:"+path
+              if path=="ire/v6/tests/test_semantic_finance_decision_v25.py":
+                  subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
+                  continue
               actual_sha=subprocess.check_output(
                   ["git","hash-object",path],text=True).strip()
               assert actual_sha==sha,"V25_UNAUTHORIZED_CODE_BYTES:"+path
           assert subprocess.check_output(
               ["git","hash-object",v25["report_path"]],text=True).strip()==v25["report_git_blob_sha"],"V25_SAFE_REPORT_SHA_DRIFT"
           print("HISTORICAL_BASE_PLUS_V25_RELEVANCE_ISA_ILLUSTRATIVE_BASE_VERIFIED")
+          v251=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V25_1_DUPLICATE_TEST_DISCOVERY_FIX_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v251["schema"]=="IRE_V6_V25_1_DUPLICATE_DISCOVERY_FIX"
+          assert v251["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v251["base_head_sha"]=="26f86c17f63d083850b89c460fc089a87deb2d35"
+          assert v251["previous_v25_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V25_SEMANTIC_RELEVANCE_ISA_BASE_MANIFEST.json"],
+              text=True).strip(),"HISTORICAL_V25_MANIFEST_DRIFT"
+          assert v251["old_v25_test_git_blob_sha"]==added25["ire/v6/tests/test_semantic_finance_decision_v25.py"]
+          assert v251["expected_v6_test_discovery_count"]==346
+          assert v251["new_v25_synthetic_tests"]==18
+          assert v251["previous_v25_accidentally_duplicated_v24_tests"]==14
+          assert v251["ire_v6_file_count"]==len(actual)==70
+          assert v251["changes_production_v25_module"] is False and v251["p0_go"] is False
+          assert v251["independent_human_gold_available"] is False
+          assert subprocess.check_output(
+              ["git","hash-object","ire/v6/tests/test_semantic_finance_decision_v25.py"],
+              text=True).strip()==v251["corrected_v25_test_git_blob_sha"],"V25_1_TEST_DISCOVERY_FIX_BYTES_DRIFT"
+          assert subprocess.check_output(
+              ["git","hash-object",v251["report_path"]],text=True).strip()==v251["report_git_blob_sha"],"V25_1_SAFE_REPORT_DRIFT"
+          print("HISTORICAL_V25_RETAINED_V25_1_DEDUP_TEST_FIX_VERIFIED")
+
           print("HISTORICAL_BASE_PLUS_V24_USER_QUESTION_DECISION_MATH_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
+      - name: Verify exactly 346 unique V6 test cases (no imported V24 duplicate)
+        run: |
+          python - <<'PY'
+          import unittest
+          suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
+          found=suite.countTestCases()
+          assert found==346, f"V25_1_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V25_1_UNIQUE_V6_346_TESTS_VERIFIED")
+          PY
 
   official-primary-pinned-replay:
     name: Reverify archived first-party government body SHA (not fact approval)

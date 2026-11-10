@@ -10,11 +10,13 @@ from ire.v6.codec import sha256
 from ire.v6.errors import InvalidInput
 from ire.v6.semantic_finance_decision_v25 import (
     _audit_relevance, illustrative_isa_extra_base, evaluate_current_question_v25)
-from ire.v6.tests.test_advisory_decision_utility import CurrentDecisionUtilityTests
 
 
 class V25SemanticFinanceTests(unittest.TestCase):
     def setUp(self):
+        # Import a reusable fixture inside setup: unittest otherwise discovers
+        # the 14 imported V24 TestCase methods a second time in this module.
+        from ire.v6.tests.test_advisory_decision_utility import CurrentDecisionUtilityTests
         older=CurrentDecisionUtilityTests('test_actual_style_irp_and_etf_question_leads_with_decision')
         older.setUp()
         self.old=older
