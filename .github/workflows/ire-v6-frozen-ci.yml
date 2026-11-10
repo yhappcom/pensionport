@@ -570,8 +570,34 @@ jobs:
                        "personal_isa_credit_or_refund_approved","public_original_srt_committed",
                        "main_v5_116_p4_changed","p0_go"):
               assert v26[flag] is False,"V26_UNAUTHORIZED_QUALITY_APPROVAL:"+flag
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          v27=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V27_SOURCE_FACET_GUARD_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v27["schema"]=="IRE_V6_V27_PRIVATE_CUE_AUDIT_AND_SOURCE_FACET_RESIDUAL_GATE"
+          assert v27["scope"]=="VALIDATION_BRANCH_ONLY" and v27["base_head_sha"]=="39a11312369bc816c2cb7c6a22b4c2c30f67bbe1"
+          assert v27["previous_v26_1_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V26_1_REVIEW_CONDITIONS_FIX_MANIFEST.json"],
+              text=True).strip(),"HISTORICAL_V26_1_MANIFEST_DRIFT"
+          added27={x["path"]:x["git_blob_sha"] for x in v27["added"]}
+          assert set(added27)=={
+              "ire/v6/source_facet_audit_v27.py",
+              "ire/v6/tests/test_source_facet_audit_v27.py"
+          },"V27_UNEXPECTED_CODE"
+          assert not set(added27).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)),"V27_HISTORY_OVERWRITE"
+          assert v27["new_synthetic_tests"]==12 and v27["expected_unique_v6_tests"]==376
+          assert v27["source_srt_sha256"]=="cbb57d372bc0fb5965052a776b5b945a5b82df3178d5c40dcdcc8b0d8239"
+          assert v27["private_actual_cues_checked"]==34
+          assert v27["same_chat_bounded_candidate_count"]==16
+          assert v27["source_cues_with_candidate_spans"]==33
+          assert v27["original_cues_without_independent_financial_claim"]==1
+          for flag in ("private_actual_v26_python_e2e_executed","independent_human_gold",
+                       "original_full_semantic_recall_certified","private_original_raw_text_committed",
+                       "true_semantic_precision_recall_measured","current_official_law_body_signatures_verified",
+                       "personal_investment_or_tax_approval","main_v5_master116_p4_29_changed",
+                       "all_791_researched","p0_go"):
+              assert v27[flag] is False,"V27_FALSE_RELEASE:"+flag
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27),"V6_FILE_CENSUS_DRIFT"
+          assert len(actual)==v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -735,7 +761,7 @@ jobs:
               text=True).strip(),"HISTORICAL_V26_MANIFEST_DRIFT"
           assert v261["old_v26_test_git_blob_sha"]==added26["ire/v6/tests/test_source_census_tax_guard_v26.py"]
           assert v261["expected_v6_unique_test_cases"]==364 and v261["new_v26_tests"]==18
-          assert v261["ire_v6_file_count"]==len(actual)==72
+          assert v261["ire_v6_file_count"]==72
           assert v261["production_v26_code_changed"] is False and v261["p0_go"] is False
           assert v261["real_source_gold_completed"] is False and v261["personal_tax_or_order_approval"] is False
           assert subprocess.check_output(
@@ -744,6 +770,15 @@ jobs:
           assert subprocess.check_output(
               ["git","hash-object",v261["report_path"]],text=True).strip()==v261["report_git_blob_sha"],"V26_1_REPORT_SHA_DRIFT"
           print("HISTORICAL_V26_RETAINED_V26_1_CANONICAL_SYNTHETIC_FIX_VERIFIED")
+          for path,sha in added27.items():
+              assert pathlib.Path(path).is_file(),"V27_SOURCE_MISSING:"+path
+              actual_sha=subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()
+              assert actual_sha==sha,"V27_NEW_SOURCE_SHA_DRIFT:"+path
+          assert subprocess.check_output(
+              ["git","hash-object",v27["report_path"]],text=True).strip()==v27["report_git_blob_sha"],"V27_REPORT_SHA_DRIFT"
+          print("HISTORICAL_BASE_PLUS_V27_SOURCE_FACET_AUDIT_SHA_VERIFIED")
+
 
 
 
@@ -751,14 +786,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 364 unique V6 tests (no imported baseline cases)
+      - name: Verify exactly 376 unique V6 tests (no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==364, f"V26_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V26_UNIQUE_V6_364_TESTS_VERIFIED")
+          assert found==376, f"V27_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V27_UNIQUE_V6_376_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:
