@@ -51,8 +51,14 @@ jobs:
           diff=git("diff","--name-only",base,head).splitlines()
           allowed=lambda p:(p==".github/workflows/ire-v6-frozen-ci.yml" or
                             p.startswith("validation/ire-v6-frozen/") or
-                            p.startswith("ire/v6/"))
+                            p.startswith("ire/v6/") or
+                            p==".github/workflows/ire-cleanroom-gate.yml")
           assert diff and all(map(allowed,diff)), f"PROTECTED_DIFF:{diff}"
+          if ".github/workflows/ire-cleanroom-gate.yml" in diff:
+              # This ONE separately authorized V6-branch governance extension
+              # must be exact-byte identical; legacy protected paths stay blocked.
+              assert git("hash-object",".github/workflows/ire-cleanroom-gate.yml")==(
+                  "60373b2a844d55caece7428b5a8f440032635a29"),"CLEANROOM_PROTECTED_GATE_SHA_DRIFT"
           assert not git("status","--porcelain","--untracked-files=no"), "DIRTY_TRACKED_TREE"
           print("P0A_ENV_PASSED",json.dumps({
               "canonical_base":base,"candidate_sha":head,

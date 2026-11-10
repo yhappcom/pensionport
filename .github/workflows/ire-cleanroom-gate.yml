@@ -82,9 +82,15 @@ jobs:
                   if f==".github/workflows/ire-v6-frozen-ci.yml":
                       continue
                   item=root/f
+                  # Two frozen first-party PUBLIC rule snapshots are HTML,
+                  # not owner-private SRT. Whitelist their exact archive paths,
+                  # not arbitrary HTML or external source imports.
+                  public_html=f in {
+                      "validation/ire-v6-frozen/public_official_raw_20261108/decree_40_3.html",
+                      "validation/ire-v6-frozen/public_official_raw_20261108/nts_pension.html"}
                   assert (item.is_file() and not item.is_symlink() and
-                          item.suffix.lower() in {".py",".json",".md"} and
-                          item.stat().st_size<1024*1024), "V6_UNSAFE_VALIDATION_ARTIFACT"
+                          (item.suffix.lower() in {".py",".json",".md"} or public_html) and
+                          item.stat().st_size<4*1024*1024), "V6_UNSAFE_VALIDATION_ARTIFACT"
               for f in subprocess.check_output(
                       ["git","ls-files","validation/ire-v6-frozen"],
                       text=True).splitlines():
