@@ -265,7 +265,27 @@ jobs:
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
               assert actual_sha==sha,"UNAUTHORIZED_V15_PATCH_BYTES:"+path
-          print("HISTORICAL_BASE_PLUS_V15_FULL_VIDEO_WORKPLAN_VERIFIED")
+          v16=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_CHAT_ONLY_EXECUTION_PLAN_MANIFEST_V16.json"
+          ).read_text(encoding="utf-8"))
+          assert v16["schema"]=="IRE_V6_CHAT_ONLY_EXECUTION_PLAN_V16"
+          assert v16["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v16["previous_v15_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_PRIVATE_FULL_VIDEO_WORKPLAN_PATCH_MANIFEST_V15.json"],
+              text=True).strip(),"HISTORICAL_V15_MANIFEST_DRIFT"
+          assert v16["plan_path"]=="validation/ire-v6-frozen/V6_CHAT_ONLY_RESEARCH_EXECUTION_PLAN_V16.md"
+          assert v16["plan_basis_head_sha"]=="1aaa15ca6cd94033e08cbd300a16fa7ed4fa8166"
+          assert v16["plan_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object",v16["plan_path"]],
+              text=True).strip(),"V16_EXECUTION_PLAN_SHA_DRIFT"
+          assert v16["chat_only_review"] is True and v16["additional_model_api_calls"]==0
+          assert v16["externally_independent_human_gold_available"] is False
+          assert v16["internal_reference_scores_not_independent_accuracy"] is True
+          assert v16["pre_registered_nine_video_protocol_unchanged"] is True
+          assert v16["all_791_videos_researched"] is False
+          assert v16["independent_semantic_recall_measured"] is False
+          assert v16["p0_go"] is False
+          print("HISTORICAL_BASE_PLUS_V16_CHAT_ONLY_EXECUTION_PLAN_VERIFIED")
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
