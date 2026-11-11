@@ -1363,8 +1363,83 @@ jobs:
               "true_finance_accuracy_certified","main_v5_master116_p4_mutated",
               "raw_private_srt_or_chat_reasoning_uploaded","p0_go"):
               assert v41[key] is False,"V41_FALSE_FINANCIAL_RELEASE:"+key
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40)|set(added41),"V6_FILE_CENSUS_DRIFT:V39_FILE_CENSUS_DRIFT:V40_FILE_CENSUS_DRIFT:V41_FILE_CENSUS_DRIFT"
-          assert len(actual)==104 and v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          # V42 additive source-first private original risk triage, not financial GO.
+          v42=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V42_FULL_SOURCE_RISK_PATCH_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v42["schema"]=="IRE_V6_V42_OWNER_FIVE_FULL_SOURCE_RISK_TRIAGE_PATCH"
+          assert v42["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v42["parent_v41_commit"]=="ce5665b2a88123e17fdbff1eefe686913c0382a6"
+          assert v42["previous_v41_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V41_SOURCE_TO_ATOM_PATCH_MANIFEST.json"],
+              text=True).strip(),"V42_V41_MANIFEST_CUSTODY_CHANGED"
+          assert v42["previous_v41_code_git_blob_sha"]==added41["ire/v6/semantic_atom_handoff_v41.py"]
+          assert v42["previous_unique_v6_tests"]==629 and v42["added_synthetic_tests"]==18
+          assert v42["expected_unique_v6_tests"]==647
+          assert v42["previous_tracked_v6_files"]==104 and v42["new_tracked_v6_files"]==106
+          added42={x["path"]:x["git_blob_sha"] for x in v42["new_code"]}
+          assert set(added42)=={
+              "ire/v6/full_original_risk_intake_v42.py",
+              "ire/v6/tests/test_full_original_risk_intake_v42.py"},"V42_NEW_CODE_SCOPE_DRIFT"
+          assert not set(added42).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40)|set(added41)),"V42_FROZEN_CODE_PROTECTION_CHANGED"
+          for path,sha in added42.items():
+              assert subprocess.check_output(
+                  ["git","hash-object",path],text=True).strip()==sha,"V42_SOURCE_SHA_CHANGED:"+path
+          for item in (v42["owner_public_safe_full130_priority_queue"],
+                       v42["historic_8_case_current_rule_review"],v42["public_report"]):
+              assert subprocess.check_output(
+                  ["git","hash-object",item["path"]],text=True
+              ).strip()==item["git_blob_sha"],"V42_EVIDENCE_OR_REPORT_SHA_CHANGED"
+          risk42=json.loads(pathlib.Path(
+              v42["owner_public_safe_full130_priority_queue"]["path"]
+          ).read_text(encoding="utf-8"))
+          assert risk42["schema"]=="IRE_V6_V42_REAL_OWNER_ALL130_WINDOW_SOURCE_RISK_PRIORITY_NOT_SEMANTIC_APPROVAL"
+          assert risk42["total_exact_source_windows"]==130
+          assert risk42["total_exact_v33_provisional_speech_candidates"]==1603
+          assert risk42["source_only_triaged_remaining_windows"]==122
+          assert risk42["source_only_triaged_remaining_candidates"]==1490
+          assert risk42["actual_original_full_window_and_V33_candidate_digest_cohort_sha256"]==v42[
+                 "independently_pinned_all130_original_window_and_candidate_digest_cohort_sha256"]
+          assert len(risk42["all_130_window_sha_bound_rows"])==130
+          assert sum(r["v33_provisional_utterances"] for r in risk42["all_130_window_sha_bound_rows"])==1603
+          assert sum(r["previous_v41_deep_review_recorded"] for r in risk42["all_130_window_sha_bound_rows"])==8
+          v38prior=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V38_130_WINDOW_RESUME_QUEUE_PUBLIC_SAFE.json"
+          ).read_text(encoding="utf-8"))
+          older=v38prior["window_rows"]
+          now=risk42["all_130_window_sha_bound_rows"]
+          assert len(older)==len(now)==130
+          assert all(a["video_id"]==b["video_id"] and a["window_id"]==b["window_id"]
+              and a["source_window_text_sha256"]==b["original_window_sha256"]
+              and a["v37_candidate_list_sha256"]==b["v33_candidate_digest_sha256"]
+              and a["provisional_utterances"]==b["v33_provisional_utterances"]
+              for a,b in zip(older,now)),"V42_V37_SPEECH_SOURCE_PIN_RELATED_ROWS_CHANGED"
+          from hashlib import sha256 as sha256_42
+          pins42=[[r["video_no"],r["window_id"],r["source_window_text_sha256"],
+                   r["v37_candidate_list_sha256"]] for r in older]
+          assert sha256_42(json.dumps(pins42,separators=(',',':')).encode()).hexdigest()==(
+              "a17442d2a3ce6df555b601e11f47d68a50c58fea683103a1766cea05c48f5381"
+          ),"V42_130_PIN_COHORT_HASH_DRIFT"
+          historical42=json.loads(pathlib.Path(
+              v42["historic_8_case_current_rule_review"]["path"]
+          ).read_text(encoding="utf-8"))
+          assert historical42["case_count_original"]==8 and historical42["case_count_source_specific_proof_closed"]==0
+          assert historical42["historic_recording_audio_verification_count"]==0
+          assert historical42["issuer_specific_historical_finance_terms_authenticated_count"]==0
+          assert len(historical42["cases"])==8
+          assert v42["actual_original_all130_window_sha_and_candidate_digests_match_prior_v37"] is True
+          assert v42["new_direct_high_risk_original_context_read_windows"]==9
+          assert v42["new_direct_high_risk_source_cues_read"]==360
+          assert v42["number_original_external_specific_cases_closed"]==0
+          for flag in ("new_video_audio_verified","historical_issuer_terms_verified",
+              "blind_independent_9_video_gold_available",
+              "independent_precision_recall_measured","true_semantic_atomization_all_1603_complete",
+              "all_122_windows_meaning_reviewed","personal_finance_advice_approved",
+              "private_raw_zip_or_subtitle_published",
+              "main_v5_approved_master116_or_p4_modified","p0_go"):
+              assert v42[flag] is False,"V42_FALSE_FINANCIAL_GO:"+flag
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40)|set(added41)|set(added42),"V6_FILE_CENSUS_DRIFT:V39_FILE_CENSUS_DRIFT:V40_FILE_CENSUS_DRIFT:V41_FILE_CENSUS_DRIFT:V42_FILE_CENSUS_DRIFT"
+          assert len(actual)==106 and v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -1662,14 +1737,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 629 unique V6 tests (611 previous + 18 V41; no imported baseline cases)
+      - name: Verify exactly 647 unique V6 tests (629 previous + 18 V42; no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==629, f"V41_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V41_UNIQUE_V6_629_TESTS_VERIFIED")
+          assert found==647, f"V42_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V42_UNIQUE_V6_647_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:

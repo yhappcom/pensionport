@@ -1,0 +1,166 @@
+{
+  "schema": "IRE_V6_V42_HISTORICAL_EIGHT_GAP_CASES_2026_11_11_REASSESSMENT_NO_FALSE_CLOSURE",
+  "as_of": "2026-11-11",
+  "v37_parent_path": "validation/ire-v6-frozen/V6_V37_8_EXTERNAL_SOURCE_EVIDENCE_OPEN.json",
+  "case_count_original": 8,
+  "case_count_source_specific_proof_closed": 0,
+  "case_count_current_general_context_rechecked": 8,
+  "historic_recording_audio_verification_count": 0,
+  "issuer_specific_historical_finance_terms_authenticated_count": 0,
+  "clustered_cases": [
+    {
+      "cluster": "CMA_HISTORICAL_AUTO_PAYMENT",
+      "context_topic": "CMA 지급결제·자동납부의 당시 금융기관 운영사례",
+      "case_count": 1,
+      "unresolved_original_proof": "영상에 특정된 CMA 제공 금융사·계좌유형·당시 자동납부 약관·당시 원음성",
+      "current_references": [
+        "https://eng.koreainvestment.com/main/mall/opencma/CmaInfo.jsp?cmd=TF02bc000000"
+      ],
+      "source_use_limitation": "현재 회사별 이체 서비스가 존재한다는 일반 사례는 확인; 당시 계좌 특정 자동납부의 객관증명 불가"
+    },
+    {
+      "cluster": "CMA_HISTORICAL_RATE_ISSUER_TERMS",
+      "context_topic": "CMA 2.15~2.85% 과거 금리·RP형 구조",
+      "case_count": 3,
+      "unresolved_original_proof": "당시 영상 게시일 및 발행사·상품명을 특정한 과거 원표·기간/조건·원음성",
+      "current_references": [
+        "https://money2.daishin.com/e5/mboard/ptype_basic/basic_001/DW_Basic_Read.aspx?boardseq=114&m=1108&p=1385&page=1&searchString=&seq=18245&v=2247",
+        "https://home.imeritz.com/meritzcma/CmaMmw.do",
+        "https://home.imeritz.com/meritzcma/CmaRp.do"
+      ],
+      "source_use_limitation": "2026-09-01 대신증권 금리 공시는 현대 사례일 뿐 과거 영상 2.15~2.85%의 발행사 계약 원표가 아님. MMW는 실적배당·비예금자보호"
+    },
+    {
+      "cluster": "PENSION_ASR_TAX_SOURCE",
+      "context_topic": "연금계좌 세액공제 여부와 인출 원금·계좌명 전사",
+      "case_count": 2,
+      "unresolved_original_proof": "ASR 계좌명 및 개인 연금 세액공제 이력·원음성·개별 금융계좌 자료",
+      "current_references": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2343",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673"
+      ],
+      "source_use_limitation": "ISA 만기 전환 세액공제 한도 10% 최대300만원 및 세법상 과세제외금액 우선 인출은 일반 현행 규칙. 실제 개인 공제금액/과거 음성은 증명 불가"
+    },
+    {
+      "cluster": "DIVIDEND_PRINCIPAL_HYPOTHESIS",
+      "context_topic": "월 120+500=620 인출·배당과 원금보존의 가정",
+      "case_count": 2,
+      "unresolved_original_proof": "원음성·특정 계좌 과세제외 잔고·배당 유입액·자산변동과 실제 수령시점",
+      "current_references": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029964673",
+        "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032953507"
+      ],
+      "source_use_limitation": "가상의 월 120+500=620만원은 법적 한도나 확정 배당 수입이 아님; 실제 수령조건과 법정 인출원천 별도"
+    }
+  ],
+  "cases": [
+    {
+      "case_sha256": "991710ac58a2fc358c4111ef02fd8aba458a106d8dc0e93a5008cabef4351a1c",
+      "video_id": "6VEfKF7BzZU",
+      "cue_index": 425,
+      "source_cue_sha256": "fea1bc3a8f45469fb25230014108b01865ef47a0474385f7de0fdc2258f387e3",
+      "bounded_source_sha256": "961c02320555b53c271c439a6be6f55dcdb9d87ea88ec0d8c2a755b8ef2fac3c",
+      "cluster": "CMA_HISTORICAL_AUTO_PAYMENT",
+      "historical_audio_reverified": false,
+      "historical_product_or_account_proof_newly_verified": false,
+      "current_2026_rule_context_rechecked": true,
+      "unresolved_required_original_proof": "영상에 특정된 CMA 제공 금융사·계좌유형·당시 자동납부 약관·당시 원음성",
+      "status": "OPEN_SOURCE_SPECIFIC_EVIDENCE"
+    },
+    {
+      "case_sha256": "a1dadd5dea0011a8dce257ed11b02d40a0a86a204f5ad3876251a3c05581af85",
+      "video_id": "6VEfKF7BzZU",
+      "cue_index": 520,
+      "source_cue_sha256": "9c8de7c4c5e87403ba61f67250d45e1cdc57f8facbe0e46fcbd2dbf1b7a12085",
+      "bounded_source_sha256": "a5d578432b9760c9a6e51f6930361937fe579c7653e3a52245a636ad9783b5f6",
+      "cluster": "CMA_HISTORICAL_RATE_ISSUER_TERMS",
+      "historical_audio_reverified": false,
+      "historical_product_or_account_proof_newly_verified": false,
+      "current_2026_rule_context_rechecked": true,
+      "unresolved_required_original_proof": "당시 영상 게시일 및 발행사·상품명을 특정한 과거 원표·기간/조건·원음성",
+      "status": "OPEN_SOURCE_SPECIFIC_EVIDENCE"
+    },
+    {
+      "case_sha256": "d6046ba9699d88632fdf746dafc92f1bd9ce2856d39e4bf92db214ef4252d3a4",
+      "video_id": "6VEfKF7BzZU",
+      "cue_index": 520,
+      "source_cue_sha256": "9c8de7c4c5e87403ba61f67250d45e1cdc57f8facbe0e46fcbd2dbf1b7a12085",
+      "bounded_source_sha256": "a5d578432b9760c9a6e51f6930361937fe579c7653e3a52245a636ad9783b5f6",
+      "cluster": "CMA_HISTORICAL_RATE_ISSUER_TERMS",
+      "historical_audio_reverified": false,
+      "historical_product_or_account_proof_newly_verified": false,
+      "current_2026_rule_context_rechecked": true,
+      "unresolved_required_original_proof": "당시 영상 게시일 및 발행사·상품명을 특정한 과거 원표·기간/조건·원음성",
+      "status": "OPEN_SOURCE_SPECIFIC_EVIDENCE"
+    },
+    {
+      "case_sha256": "fc71e50ebe2ecc7988a5b3b54e45d257cd4cae6b2fe848e14bf67db3057388fd",
+      "video_id": "6VEfKF7BzZU",
+      "cue_index": 520,
+      "source_cue_sha256": "9c8de7c4c5e87403ba61f67250d45e1cdc57f8facbe0e46fcbd2dbf1b7a12085",
+      "bounded_source_sha256": "a5d578432b9760c9a6e51f6930361937fe579c7653e3a52245a636ad9783b5f6",
+      "cluster": "CMA_HISTORICAL_RATE_ISSUER_TERMS",
+      "historical_audio_reverified": false,
+      "historical_product_or_account_proof_newly_verified": false,
+      "current_2026_rule_context_rechecked": true,
+      "unresolved_required_original_proof": "당시 영상 게시일 및 발행사·상품명을 특정한 과거 원표·기간/조건·원음성",
+      "status": "OPEN_SOURCE_SPECIFIC_EVIDENCE"
+    },
+    {
+      "case_sha256": "706a3c3daccd79663e18023a233323a1524d04f4cf962b8f0105294305d870de",
+      "video_id": "sz5N9WJS310",
+      "cue_index": 561,
+      "source_cue_sha256": "6272dd49f96ceff5fd9dbff42b1b804a1ee905053031ffce7c2537e980b55b41",
+      "bounded_source_sha256": "6cffb9a4f578aaf7b18cecb9acee0cf2bb7393ba37225a26360fc01d24ea63b9",
+      "cluster": "PENSION_ASR_TAX_SOURCE",
+      "historical_audio_reverified": false,
+      "historical_product_or_account_proof_newly_verified": false,
+      "current_2026_rule_context_rechecked": true,
+      "unresolved_required_original_proof": "ASR 계좌명 및 개인 연금 세액공제 이력·원음성·개별 금융계좌 자료",
+      "status": "OPEN_SOURCE_SPECIFIC_EVIDENCE"
+    },
+    {
+      "case_sha256": "aa4470a522fc74cae4d7f148b83778d485552e97b79cfae9e047dbdd80f0bb4e",
+      "video_id": "sz5N9WJS310",
+      "cue_index": 561,
+      "source_cue_sha256": "6272dd49f96ceff5fd9dbff42b1b804a1ee905053031ffce7c2537e980b55b41",
+      "bounded_source_sha256": "6cffb9a4f578aaf7b18cecb9acee0cf2bb7393ba37225a26360fc01d24ea63b9",
+      "cluster": "PENSION_ASR_TAX_SOURCE",
+      "historical_audio_reverified": false,
+      "historical_product_or_account_proof_newly_verified": false,
+      "current_2026_rule_context_rechecked": true,
+      "unresolved_required_original_proof": "ASR 계좌명 및 개인 연금 세액공제 이력·원음성·개별 금융계좌 자료",
+      "status": "OPEN_SOURCE_SPECIFIC_EVIDENCE"
+    },
+    {
+      "case_sha256": "05775faa49e4d20cf92157d10ad769048da3c05fa022fca22103c03e558414f6",
+      "video_id": "sz5N9WJS310",
+      "cue_index": 618,
+      "source_cue_sha256": "d9e801e3c3123081859a3fadf9a38e941252d30c7a7321ce425036b07cf3c311",
+      "bounded_source_sha256": "6e5402bf0bed404fcfd2b009f95cdc39642a170f0b86100d5545360eb65ac8da",
+      "cluster": "DIVIDEND_PRINCIPAL_HYPOTHESIS",
+      "historical_audio_reverified": false,
+      "historical_product_or_account_proof_newly_verified": false,
+      "current_2026_rule_context_rechecked": true,
+      "unresolved_required_original_proof": "원음성·특정 계좌 과세제외 잔고·배당 유입액·자산변동과 실제 수령시점",
+      "status": "OPEN_SOURCE_SPECIFIC_EVIDENCE"
+    },
+    {
+      "case_sha256": "6eda09d0355bd4bce7ddfd8d2207d5ef2d07c62ab4431660d88e7fe5364e0761",
+      "video_id": "sz5N9WJS310",
+      "cue_index": 618,
+      "source_cue_sha256": "d9e801e3c3123081859a3fadf9a38e941252d30c7a7321ce425036b07cf3c311",
+      "bounded_source_sha256": "6e5402bf0bed404fcfd2b009f95cdc39642a170f0b86100d5545360eb65ac8da",
+      "cluster": "DIVIDEND_PRINCIPAL_HYPOTHESIS",
+      "historical_audio_reverified": false,
+      "historical_product_or_account_proof_newly_verified": false,
+      "current_2026_rule_context_rechecked": true,
+      "unresolved_required_original_proof": "원음성·특정 계좌 과세제외 잔고·배당 유입액·자산변동과 실제 수령시점",
+      "status": "OPEN_SOURCE_SPECIFIC_EVIDENCE"
+    }
+  ],
+  "independent_financial_gold_verified": false,
+  "private_srt_or_model_review_published": false,
+  "whole_original_atomization_completed": false,
+  "p0_go": false
+}
