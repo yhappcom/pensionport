@@ -17,8 +17,8 @@ def _make_srt(texts):
     chunks=[]
     for i,t in enumerate(texts,1):
         start=(i-1)*2;end=start+1
-        chunks.append(f'{i}\n00:00:{start//60:02d}:{start%60:02d},000 --> '
-                      f'00:00:{end//60:02d}:{end%60:02d},000\n{t}')
+        chunks.append(f'{i}\n00:{start//60:02d}:{start%60:02d},000 --> '
+                      f'00:{end//60:02d}:{end%60:02d},000\n{t}')
     return ('\n\n'.join(chunks)+'\n').encode('utf-8')
 
 
