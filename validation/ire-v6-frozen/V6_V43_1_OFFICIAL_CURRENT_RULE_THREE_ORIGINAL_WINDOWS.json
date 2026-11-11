@@ -1,0 +1,93 @@
+{
+  "schema": "IRE_V6_V43_1_CURRENT_PRIMARY_RULE_CHECK_NOT_HISTORICAL_VIDEO_TRUTH",
+  "as_of": "2026-11-11",
+  "current_source_video_bound_v43_commit": "94287ef5bbbaa7bc958562a37edd9083c732c0d4",
+  "cases": [
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00014",
+      "v33_candidate_ids": [
+        "C00163",
+        "C00164",
+        "C00165"
+      ],
+      "issue": "연간 1,500만원 사적연금 초과 시 무조건 종합과세 여부",
+      "current_primary_rule": "국세청은 관련 사적연금소득 합계 1,500만원 초과 시 종합소득세 합산 신고 또는 15% 세율의 분리과세 선택이 가능하다고 안내한다.",
+      "decision": "VIDEO_HISTORICAL_SPEECH_CONDITIONAL; CURRENT_GENERAL_RULE_ABSOLUTE_MANDATORY_COMPREHENSIVE_TAX_FALSE",
+      "requirements_not_automatically_proved": [
+        "영상 발행·녹음 당시의 법령",
+        "계좌별 세액공제 이력",
+        "과세제외 납입금",
+        "이연퇴직소득 재원",
+        "연금수령 적격 여부"
+      ],
+      "official_urls": [
+        "https://t.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6609",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+      ],
+      "historical_source_audio_authenticated": false,
+      "personal_financial_truth_approved": false
+    },
+    {
+      "video_no": 1,
+      "video_id": "sz5N9WJS310",
+      "window_id": "W00002",
+      "v33_candidate_ids": [
+        "C00015",
+        "C00016",
+        "C00017",
+        "C00024"
+      ],
+      "issue": "국민연금 추후납부 10년 제한과 1,800만원 추납으로 월25만원 보장 주장",
+      "current_primary_rule": "국민연금공단에 따르면 추납은 대상기간 내 최대 119개월이며 현재 자격을 유지해야 신청할 수 있다. 추납보험료는 신청 당시 기준소득월액과 납부 시점 보험료율에 따라 산정된다.",
+      "decision": "CURRENT_119_MONTH_GENERAL_LIMIT_CORROBORATED; PERSONAL_MONTHLY_250000_WON_INCREASE_NOT_AUTHENTICATED",
+      "requirements_not_automatically_proved": [
+        "개별 추납대상 기간",
+        "납부보험료",
+        "국민연금 예상연금조회",
+        "출생연도별 수급연령",
+        "실제 추납 신청자격"
+      ],
+      "official_urls": [
+        "https://ma.nps.or.kr/pnsinfo/ntpsklg/getOHAF0047M0.do?menuId=MN24001116",
+        "https://m.nps.or.kr/pnsinfo/ntpsklg/getOHAF0097M0.do"
+      ],
+      "historical_source_audio_authenticated": false,
+      "personal_financial_truth_approved": false
+    },
+    {
+      "video_no": 2,
+      "video_id": "6VEfKF7BzZU",
+      "window_id": "W00008",
+      "v33_candidate_ids": [
+        "C00095",
+        "C00096",
+        "C00097",
+        "C00098",
+        "C00102"
+      ],
+      "issue": "KRX금현물 유일 비과세 및 다른 금상품·CMA 비교의 과도한 일반화",
+      "current_primary_rule": "한국거래소는 KRX 금시장의 장내 거래 양도·배당·이자소득세 및 장내 부가가치세 면제를 안내하나 실물 금지금 인출 시 10% 부가가치세와 수수료가 발생한다고 안내한다.",
+      "decision": "CURRENT_KRX_ON_MARKET_TAX_TREATMENT_CORROBORATED; UNIVERSAL_ONLY_WAY_AND_20_30X_CMA_RATES_UNPROVEN",
+      "requirements_not_automatically_proved": [
+        "실물 인출 여부",
+        "기타 금투자 상품 유형",
+        "2026년 거래 비용",
+        "영상 당시 CMA 회사와 금리 원표"
+      ],
+      "official_urls": [
+        "https://open.krx.co.kr/contents/OPN/01/01050206/OPN01050206.jsp",
+        "https://regulation.krx.co.kr/contents/RGL/04/04010201/RGL04010201.jsp"
+      ],
+      "historical_source_audio_authenticated": false,
+      "personal_financial_truth_approved": false
+    }
+  ],
+  "actual_current_official_primary_rule_cohort_count": 3,
+  "source_specific_historical_eight_cases_closed": 0,
+  "real_external_independent_blind_gold_labels": 0,
+  "model_semantic_truth_approved": false,
+  "approved_master116_or_p4_auto_merged": false,
+  "p0_go": false
+}
