@@ -1,0 +1,633 @@
+{
+  "schema": "IRE_V6_V50_30_ACTUAL_SOURCE_FINANCE_CANDIDATES_MASTER116_CROSSWALK_REVIEW_NOT_APPROVED",
+  "as_of": "2026-11-11",
+  "source_first_actual_repo_v39_v40_private_receipt_sha256": "08da1f874d88ec57dfa6e324d03ef3a880f45cc3e1741c117b8a4138224cc153",
+  "master116_git_blob": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "master116_total": 116,
+  "source_claim_case_count": 30,
+  "distinct_existing_knowledge_ids_related": 25,
+  "case_rows": [
+    {
+      "video_no": 1,
+      "window_id": "W00023",
+      "source_candidate_id": "C00275",
+      "financial_meaning_brief": "연금계좌 인출 시 세액공제 미사용 납입금과 과세재원을 구별",
+      "decision_class": "SOURCE_TYPE_WITHDRAWAL_RULE_SCOPE",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "current_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6608"
+      ],
+      "remaining_specific_proof": [
+        "세액공제 내역",
+        "연금수령 한도"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00023",
+      "source_candidate_id": "C00276",
+      "financial_meaning_brief": "국내주식형 ETF 일반계좌 매매차익과 연금계좌 출금 과세의 차이",
+      "decision_class": "PRODUCT_ACCOUNT_POSITION_EXCEPTION",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C111"
+      ],
+      "current_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6608"
+      ],
+      "remaining_specific_proof": [
+        "상품의 법적 세무분류"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00023",
+      "source_candidate_id": "C00280",
+      "financial_meaning_brief": "계좌 세금보다 투자 수익을 우선하라는 보편적 권고",
+      "decision_class": "PERSONAL_ADVICE_NOT_UNIVERSAL",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C40"
+      ],
+      "current_sources": [],
+      "remaining_specific_proof": [
+        "손실위험",
+        "세후수익 비교"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00030",
+      "source_candidate_id": "C00354",
+      "financial_meaning_brief": "ISA 3~5년 주기 만기 후 손익통산·세제혜택 정산",
+      "decision_class": "CURRENT_RULE_CONDITIONAL",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C32"
+      ],
+      "current_sources": [
+        "https://securities.miraeasset.com/hks/hks4659/n02.do",
+        "https://www.samsungfund.com/upload/kodex/newsroom/2026011317101936.pdf"
+      ],
+      "remaining_specific_proof": [
+        "가입자격",
+        "만기연장 기한"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00030",
+      "source_candidate_id": "C00355",
+      "financial_meaning_brief": "매우 장기간 연장 시 비과세 혜택을 평생 단 한번만 사용한다는 설명",
+      "decision_class": "OVERGENERALIZED_CUMULATIVE_BENEFIT",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C32"
+      ],
+      "current_sources": [
+        "https://www.samsungfund.com/upload/kodex/newsroom/2026011317101936.pdf"
+      ],
+      "remaining_specific_proof": [
+        "재가입 가능성",
+        "만기와 해지 세제"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00030",
+      "source_candidate_id": "C00358",
+      "financial_meaning_brief": "ISA를 누구나 3~5년마다 해지·재가입하는 것이 낫다",
+      "decision_class": "PERSONAL_ADVICE_NOT_UNIVERSAL",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C32",
+        "GOMHEE-C40"
+      ],
+      "current_sources": [
+        "https://www.samsungfund.com/upload/kodex/newsroom/2026011317101936.pdf"
+      ],
+      "remaining_specific_proof": [
+        "연장자격",
+        "계좌 순이익",
+        "중도자금 수요"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00030",
+      "source_candidate_id": "C00359",
+      "financial_meaning_brief": "ISA 서민형 비과세 한도 400만원",
+      "decision_class": "CURRENT_2026_PRODUCT_LIMIT_SUPPORTED",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C33"
+      ],
+      "current_sources": [
+        "https://securities.miraeasset.com/hks/hks4659/n02.do",
+        "https://www.samsungfund.com/upload/kodex/newsroom/2026011317101936.pdf"
+      ],
+      "remaining_specific_proof": [
+        "소득기준",
+        "제도 시행일"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00030",
+      "source_candidate_id": "C00360",
+      "financial_meaning_brief": "ISA 연장 시 소득증가로 서민형 자격이 바뀔 수 있음",
+      "decision_class": "CURRENT_2026_PROVIDER_SCOPE_SUPPORTED",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C32"
+      ],
+      "current_sources": [
+        "https://www.samsungfund.com/upload/kodex/newsroom/2026011317101936.pdf"
+      ],
+      "remaining_specific_proof": [
+        "연장신청 당시 소득자격"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00016",
+      "source_candidate_id": "C00207",
+      "financial_meaning_brief": "CMA 1억원 예치 하루 수천원 이자 수령",
+      "decision_class": "HISTORICAL_INTEREST_SCENARIO_NOT_CURRENT_RATE",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C19",
+        "GOMHEE-C20"
+      ],
+      "current_sources": [
+        "https://blog.kbsec.com/%ED%88%AC%EC%9E%90%EC%A0%95%EB%B3%B4/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "remaining_specific_proof": [
+        "상품유형",
+        "세전세후",
+        "실제 당시 약정금리"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00016",
+      "source_candidate_id": "C00211",
+      "financial_meaning_brief": "목돈 투자처로 채권·배당주·TDF를 제시",
+      "decision_class": "GENERAL_INVESTMENT_OPTIONS_WITH_RISK",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C24"
+      ],
+      "current_sources": [],
+      "remaining_specific_proof": [
+        "채권 가격위험",
+        "배당 원금손실",
+        "TDF 운용보수"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00016",
+      "source_candidate_id": "C00215",
+      "financial_meaning_brief": "발행어음 적립이 예금 적금보다 언제나 유리해 적금을 불필요하다고 판단",
+      "decision_class": "FALSE_RISK_EQUIVALENCE",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C19"
+      ],
+      "current_sources": [
+        "https://blog.kbsec.com/%ED%88%AC%EC%9E%90%EC%A0%95%EB%B3%B4/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "remaining_specific_proof": [
+        "예금보험 제외 여부",
+        "발행사 신용위험"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00010",
+      "source_candidate_id": "C00130",
+      "financial_meaning_brief": "은행예금과 증권사 CMA의 안정성이 큰 차이가 없다는 암시",
+      "decision_class": "PRODUCT_RISK_PROTECTION_DIFFERENT",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C19"
+      ],
+      "current_sources": [
+        "https://blog.kbsec.com/%ED%88%AC%EC%9E%90%EC%A0%95%EB%B3%B4/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "remaining_specific_proof": [
+        "은행 예금보호",
+        "CMA 실제 유형"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00010",
+      "source_candidate_id": "C00132",
+      "financial_meaning_brief": "0.1% 은행 금리와 2.5% CMA 금리를 25배로 비교",
+      "decision_class": "HISTORICAL_PRICE_RATIO_NOT_COMPARABLE_SAFETY",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C19",
+        "GOMHEE-C20"
+      ],
+      "current_sources": [
+        "https://blog.kbsec.com/%ED%88%AC%EC%9E%90%EC%A0%95%EB%B3%B4/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "remaining_specific_proof": [
+        "당시 금리 원표",
+        "기간·세후·보호 조건"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00010",
+      "source_candidate_id": "C00134",
+      "financial_meaning_brief": "낮은 은행 요구불예금 금리의 이유로 예금자보호를 설명",
+      "decision_class": "UNPROVEN_CAUSAL_EXPLANATION",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C20"
+      ],
+      "current_sources": [
+        "https://blog.kbsec.com/%ED%88%AC%EC%9E%90%EC%A0%95%EB%B3%B4/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "remaining_specific_proof": [
+        "은행의 조달원가",
+        "결제계좌 유용성"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00010",
+      "source_candidate_id": "C00137",
+      "financial_meaning_brief": "증권사 CMA는 모두 예금자보호가 없다는 주장",
+      "decision_class": "OVERGENERALIZED_CMA_TYPE_RULE",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C19"
+      ],
+      "current_sources": [
+        "https://blog.kbsec.com/%ED%88%AC%EC%9E%90%EC%A0%95%EB%B3%B4/%EB%B0%9C%ED%96%89%EC%96%B4%EC%9D%8C-rp-cma-%EC%98%88%EA%B8%88%EC%9E%90%EB%B3%B4%ED%98%B8/"
+      ],
+      "remaining_specific_proof": [
+        "종금형 CMA 법정 보호 예외"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00001",
+      "source_candidate_id": "C00008",
+      "financial_meaning_brief": "퇴직 예정자는 은행 IRP를 무조건 증권사로 이전해야 한다",
+      "decision_class": "PERSONAL_IRP_PROVIDER_SWITCH_NOT_UNIVERSAL",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C73"
+      ],
+      "current_sources": [
+        "https://eiec.kdi.re.kr/policy/materialView.do?num=233201"
+      ],
+      "remaining_specific_proof": [
+        "IRP 수수료·이전자산",
+        "상품 선택"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00001",
+      "source_candidate_id": "C00012",
+      "financial_meaning_brief": "기업 대출금리 때문에 직원이 은행 IRP 사용을 강제받는다는 가정",
+      "decision_class": "EMPLOYER_BANK_SELECTION_UNPROVEN",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C73"
+      ],
+      "current_sources": [],
+      "remaining_specific_proof": [
+        "퇴직연금 규약",
+        "거래은행 계약"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00016",
+      "source_candidate_id": "C00180",
+      "financial_meaning_brief": "은퇴 포트폴리오에서 커버드콜 8% 분배율 가정",
+      "decision_class": "HISTORICAL_YIELD_NOT_TOTAL_RETURN",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C24",
+        "GOMHEE-C34"
+      ],
+      "current_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "remaining_specific_proof": [
+        "분배금 구성",
+        "시점",
+        "옵션손익"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00016",
+      "source_candidate_id": "C00181",
+      "financial_meaning_brief": "노후소득 국민·퇴직·개인·주택연금의 세후현금흐름을 합산",
+      "decision_class": "PLANNING_REQUIRES_SOURCE_AND_TAX",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C78"
+      ],
+      "current_sources": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=6608"
+      ],
+      "remaining_specific_proof": [
+        "수급기간·개시요건·세금"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00016",
+      "source_candidate_id": "C00182",
+      "financial_meaning_brief": "연금·월배당이 나올 것이므로 안심하고 전부 소비해도 된다는 암시",
+      "decision_class": "PAYOUT_UNCERTAINTY_AND_DEPLETION_RISK",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C108"
+      ],
+      "current_sources": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "remaining_specific_proof": [
+        "투자원금 소진",
+        "분배금 불확실성"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00005",
+      "source_candidate_id": "C00065",
+      "financial_meaning_brief": "주가가 보기 싫으면 주식을 팔지 말고 거래앱을 삭제하라는 권고",
+      "decision_class": "MONITORING_MUST_BE_PRESERVED",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C54"
+      ],
+      "current_sources": [],
+      "remaining_specific_proof": [
+        "공시·기업 악화 모니터링"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00005",
+      "source_candidate_id": "C00066",
+      "financial_meaning_brief": "매수 당시의 산업 사이클이 끝날 때까지 무조건 보유해야 한다",
+      "decision_class": "CYCLE_DURATION_NOT_SAFETY_PROOF",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "current_sources": [],
+      "remaining_specific_proof": [
+        "투자논리 변화",
+        "손실 한도"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00016",
+      "source_candidate_id": "C00193",
+      "financial_meaning_brief": "한국 GDP 대비 경상수지가 20%이므로 주가 회복 가능성 높음",
+      "decision_class": "MACRO_RATE_MISMATCH_CURRENT_STATISTICS",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_sources": [
+        "https://index.go.kr/unity/potal/indicator/IndexInfo.do?clasCd=2&idxCd=5020&popup=Y"
+      ],
+      "remaining_specific_proof": [
+        "영상 촬영 연도와 지표 분모",
+        "원음 확인"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00016",
+      "source_candidate_id": "C00195",
+      "financial_meaning_brief": "내년 성장률 3% 전망을 주식 회복 근거로 제시",
+      "decision_class": "HISTORICAL_FORECAST_NOT_CURRENT_FACT",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_sources": [
+        "https://index.go.kr/unity/potal/indicator/IndexInfo.do?clasCd=2&idxCd=5020&popup=Y"
+      ],
+      "remaining_specific_proof": [
+        "영상 당시 기관별 전망 원표"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00016",
+      "source_candidate_id": "C00198",
+      "financial_meaning_brief": "기준금리를 인상하는 것은 경기가 좋아서라는 설명",
+      "decision_class": "MULTICAUSAL_MONETARY_POLICY_NOT_ALWAYSRULE",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_sources": [],
+      "remaining_specific_proof": [
+        "물가",
+        "금융안정",
+        "환율",
+        "당시 한국은행 결정 근거"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00012",
+      "source_candidate_id": "C00168",
+      "financial_meaning_brief": "취업한 업종의 전망이 좋다고 믿고 산업 ETF에 투자하면 적합",
+      "decision_class": "JOB_MARKET_VIEW_NOT_INVESTMENT_SELECTION_PROOF",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "current_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "remaining_specific_proof": [
+        "근로소득·직업 위험 상관"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00012",
+      "source_candidate_id": "C00170",
+      "financial_meaning_brief": "자신이 근무하는 업종 ETF를 구매하라는 권고",
+      "decision_class": "CORRELATED_EMPLOYMENT_AND_EQUITY_RISK",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C26"
+      ],
+      "current_sources": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "remaining_specific_proof": [
+        "업종 비중",
+        "개인 노출"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00012",
+      "source_candidate_id": "C00173",
+      "financial_meaning_brief": "이직 시점과 업종 ETF 매도 시점을 연동해야 함",
+      "decision_class": "FALSE_TIMING_HEURISTIC",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C54"
+      ],
+      "current_sources": [],
+      "remaining_specific_proof": [
+        "퇴직 전후 투자·현금흐름"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00024",
+      "source_candidate_id": "C00327",
+      "financial_meaning_brief": "40대 고소득 50대 은퇴가 모두에게 일반적인 생애주기",
+      "decision_class": "DEMOGRAPHIC_HYPOTHESIS_NOT_FACT",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C76"
+      ],
+      "current_sources": [],
+      "remaining_specific_proof": [
+        "고용형태",
+        "은퇴 시점",
+        "소득 경로"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00024",
+      "source_candidate_id": "C00332",
+      "financial_meaning_brief": "사회초년생 FIRE 조기은퇴 집착보다 인적자본 투자에 집중",
+      "decision_class": "GENERAL_PREFERENCE_NOT_PERSONAL_OPTIMAL",
+      "linked_existing_knowledge_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C76"
+      ],
+      "current_sources": [],
+      "remaining_specific_proof": [
+        "개인 은퇴목표",
+        "근로소득",
+        "부채"
+      ],
+      "video_original_audio_certified": false,
+      "independent_gold_fact_verified": false,
+      "merge_into_master116_approved": false
+    }
+  ],
+  "source_evidence_urls_current_year_only": true,
+  "current_2026_official_proofs_not_video_historic_audio_proofs": true,
+  "independent_semantic_equivalence_verification_count": 0,
+  "existing_master_knowledge_automatically_changed": false,
+  "new_approved_finance_atoms": 0,
+  "open_historical_audio_issuer_cases": 8,
+  "independent_human_gold_reference_labels": 0,
+  "p0_go": false
+}
