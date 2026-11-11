@@ -1,0 +1,92 @@
+{
+  "schema": "IRE_V6_V39_REAL_ORIGINAL_CHAT_SEMANTIC_CUSTODY_AND_COUNT_CORRECTION",
+  "as_of": "2026-11-11",
+  "parent_v38_3_commit": "be4fb897701e909e64512690f056fd164dd0cded",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "original_archive_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "actual_original_srt_video_count": 2,
+  "actual_original_checked_windows": 6,
+  "original_checked_cues": 240,
+  "source_exact_draft_candidates": 78,
+  "source_verified_candidate_rows": 78,
+  "v38_2_previous_reported_meaning_notes": 79,
+  "v38_2_actual_private_review_notes": 81,
+  "v38_3_previous_reported_meaning_notes": 36,
+  "v38_3_actual_private_review_notes": 40,
+  "prior_reported_cumulative_notes": 115,
+  "actual_source_bound_private_notes": 121,
+  "actual_source_bound_notes_fragment_only": 6,
+  "source_candidates_with_numeric_tokens": 22,
+  "corrected_window_note_counts": [
+    {
+      "video_no": 1,
+      "window_id": "W00015",
+      "candidates": 14,
+      "notes": 25
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00016",
+      "candidates": 9,
+      "notes": 19
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00017",
+      "candidates": 14,
+      "notes": 18
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00011",
+      "candidates": 12,
+      "notes": 18
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00013",
+      "candidates": 12,
+      "previously_reported_notes": 17,
+      "notes": 19
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00014",
+      "candidates": 17,
+      "previously_reported_notes": 18,
+      "notes": 22
+    }
+  ],
+  "owner_private_audit_receipt_sha256": "524ab71a59fd773c348d44760b552677953d4fa3ad2d492b1085da0d327fd8b3",
+  "added": [
+    {
+      "path": "ire/v6/host_semantic_custody_v39.py",
+      "git_blob_sha": "12b38f413e0d19b35dc6d0ec4cd660d0a9a68650"
+    },
+    {
+      "path": "ire/v6/tests/test_host_semantic_custody_v39.py",
+      "git_blob_sha": "babbec414055910e163a099f912da494b8f6452d"
+    }
+  ],
+  "public_report": {
+    "path": "validation/ire-v6-frozen/V6_V39_SOURCE_CUSTODY_AND_RECOUNT_REPORT.md",
+    "git_blob_sha": "11b9184a7e5de374107f12412e42b17c59b76c05"
+  },
+  "prior_unique_v6_tests": 580,
+  "new_synthetic_test_count": 15,
+  "expected_unique_v6_tests": 595,
+  "prior_ire_v6_tracked_file_count": 98,
+  "new_ire_v6_tracked_file_count": 100,
+  "local_synthetic_v39_tests_passed": 15,
+  "local_private_actual_source_replay_passed": 78,
+  "local_private_negative_controls_rejected": 10,
+  "all_130_windows_semantically_reviewed": false,
+  "all_1603_provisional_utterances_atomically_split": false,
+  "historical_source_specific_eight_audio_issuer_proof_verified": false,
+  "real_independent_human_gold_available": false,
+  "true_financial_precision_recall_measured": false,
+  "original_srt_or_semantic_private_text_published": false,
+  "main_v5_master116_p4_modified": false,
+  "financial_fact_truth_independently_certified": false,
+  "p0_go": false
+}

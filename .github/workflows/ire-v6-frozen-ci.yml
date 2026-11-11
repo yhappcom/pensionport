@@ -1225,8 +1225,45 @@ jobs:
           assert all(gold37[k] is None for k in ("true_positive","false_positive","false_negative",
                                             "precision","recall","high_risk_recall"))
           assert gold37["independent_semantic_accuracy_certified"] is False and gold37["p0_go"] is False
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37),"V6_FILE_CENSUS_DRIFT"
-          assert len(actual)==v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          # V39 additive, isolated host-semantic custody on real owner originals.
+          # Validate exact new code bytes WITHOUT rewriting historical V37 pins.
+          v39=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V39_SOURCE_SEMANTIC_CUSTODY_PATCH_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v39["schema"]=="IRE_V6_V39_REAL_ORIGINAL_CHAT_SEMANTIC_CUSTODY_AND_COUNT_CORRECTION"
+          assert v39["parent_v38_3_commit"]=="be4fb897701e909e64512690f056fd164dd0cded"
+          assert v39["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v39["prior_unique_v6_tests"]==580 and v39["new_synthetic_test_count"]==15
+          assert v39["expected_unique_v6_tests"]==595
+          assert v39["prior_ire_v6_tracked_file_count"]==98 and v39["new_ire_v6_tracked_file_count"]==100
+          assert v39["source_exact_draft_candidates"]==78
+          assert v39["source_verified_candidate_rows"]==78
+          assert v39["v38_2_previous_reported_meaning_notes"]==79 and v39["v38_2_actual_private_review_notes"]==81
+          assert v39["v38_3_previous_reported_meaning_notes"]==36 and v39["v38_3_actual_private_review_notes"]==40
+          assert v39["prior_reported_cumulative_notes"]==115 and v39["actual_source_bound_private_notes"]==121
+          assert sum(x["notes"] for x in v39["corrected_window_note_counts"])==121
+          assert sum(x["candidates"] for x in v39["corrected_window_note_counts"])==78
+          assert v39["owner_private_audit_receipt_sha256"]=="524ab71a59fd773c348d44760b552677953d4fa3ad2d492b1085da0d327fd8b3"
+          for flag in ("all_130_windows_semantically_reviewed",
+              "all_1603_provisional_utterances_atomically_split",
+              "historical_source_specific_eight_audio_issuer_proof_verified",
+              "real_independent_human_gold_available",
+              "true_financial_precision_recall_measured",
+              "original_srt_or_semantic_private_text_published",
+              "main_v5_master116_p4_modified",
+              "financial_fact_truth_independently_certified","p0_go"):
+              assert v39[flag] is False,"V39_FALSE_RESEARCH_COMPLETION:"+flag
+          added39={x["path"]:x["git_blob_sha"] for x in v39["added"]}
+          assert set(added39)=={"ire/v6/host_semantic_custody_v39.py",
+              "ire/v6/tests/test_host_semantic_custody_v39.py"},"V39_ADDITIVE_CODE_SCOPE_DRIFT"
+          assert not set(added39).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)),"V39_PROTECTED_FILE_OVERLAP"
+          for path,sha in added39.items():
+              assert subprocess.check_output(["git","hash-object",path],text=True).strip()==sha,"V39_CODE_SHA_DRIFT:"+path
+          assert subprocess.check_output(
+              ["git","hash-object",v39["public_report"]["path"]],text=True
+          ).strip()==v39["public_report"]["git_blob_sha"],"V39_REPORT_SHA_DRIFT"
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39),"V39_FILE_CENSUS_DRIFT"
+          assert len(actual)==100 and v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -1524,14 +1561,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 580 unique V6 tests (no imported baseline cases)
+      - name: Verify exactly 595 unique V6 tests (580 historical + 15 V39; no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==580, f"V37_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V37_UNIQUE_V6_580_TESTS_VERIFIED")
+          assert found==595, f"V39_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V39_UNIQUE_V6_595_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:
