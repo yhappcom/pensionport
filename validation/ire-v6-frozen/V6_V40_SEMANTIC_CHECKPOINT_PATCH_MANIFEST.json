@@ -1,0 +1,55 @@
+{
+  "schema": "IRE_V6_V40_PRIVATE_CHAT_SEMANTIC_CHECKPOINT_INTEGRATION",
+  "as_of": "2026-11-11",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "parent_v39_head": "470bdefc64c93d3ff66ba5456cc8022c454d5c2f",
+  "previous_v39_manifest_git_blob_sha": "8ab51e11f7966508ab3bbde455feee7346578d30",
+  "previous_v39_code_sha": "12b38f413e0d19b35dc6d0ec4cd660d0a9a68650",
+  "old_unique_v6_test_count": 595,
+  "added_synthetic_test_count": 16,
+  "expected_unique_v6_test_count": 611,
+  "prior_ire_v6_tracked_file_count": 100,
+  "new_ire_v6_tracked_file_count": 102,
+  "new_source_files": [
+    {
+      "path": "ire/v6/semantic_checkpoint_v40.py",
+      "git_blob_sha": "44415ca2051396010a5ade33b7326daaebafee37"
+    },
+    {
+      "path": "ire/v6/tests/test_semantic_checkpoint_v40.py",
+      "git_blob_sha": "3c5f91a1afc4892b4c661c3718d4bb1dea00fbb8"
+    }
+  ],
+  "public_safe_real_owner_evidence": {
+    "path": "validation/ire-v6-frozen/V6_V40_ACTUAL_OWNER_6WINDOW_SEMANTIC_CHECKPOINT_SHA_ONLY.json",
+    "git_blob_sha": "6ef434ab498e2c5c6866644a27bfcc3865e0fe29",
+    "source_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+    "actual_owner_videos": 2,
+    "original_cues": 240,
+    "reviewed_windows": 6,
+    "source_verified_v33_candidates": 78,
+    "chat_notes_including_questions": 121,
+    "actual_atomic_semantic_checkpoints": 2
+  },
+  "report": {
+    "path": "validation/ire-v6-frozen/V6_V40_SOURCE_FIRST_SEMANTIC_CHECKPOINT_INTEGRATION_REPORT.md",
+    "git_blob_sha": "375262c78987123f42f74f16b1d87d969b21cec1"
+  },
+  "v39_is_mandatory_for_v40_checkpoint_write": true,
+  "v40_is_unapproved_pre_atomic_meaning_staging": true,
+  "legacy_atomic_batch_entrypoint_replaced": false,
+  "semantic_checkpoint_is_independent_human_gold": false,
+  "independent_finance_truth_certified": false,
+  "model_api_called": false,
+  "old_v6_host_batch_rewritten": false,
+  "historical_eight_source_specific_evidence_resolved": false,
+  "true_precision_recall_measured": false,
+  "all_130_windows_semantically_reviewed": false,
+  "remaining_windows": 124,
+  "remaining_v33_candidates": 1525,
+  "private_raw_srt_or_chat_reasoning_uploaded": false,
+  "master_116_or_p4_merged": false,
+  "main_or_v5_changed": false,
+  "personal_advice_approved": false,
+  "p0_go": false
+}
