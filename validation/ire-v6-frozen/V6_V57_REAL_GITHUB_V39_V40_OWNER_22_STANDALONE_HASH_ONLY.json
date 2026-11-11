@@ -1,0 +1,138 @@
+{
+  "schema": "IRE_V6_V57_EXACT_GITHUB_V39_V40_OWNER_PRIVATE_22_STANDALONE_HASH_ONLY",
+  "as_of": "2026-11-12",
+  "parent_v56_commit": "df30a118fc96ea741b4ffb86cd591ba0b68b8eb9",
+  "private_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "five_original_srt_sha_match_v37": true,
+  "github_exact_v39_git_blob": "12b38f413e0d19b35dc6d0ec4cd660d0a9a68650",
+  "github_exact_v40_git_blob": "44415ca2051396010a5ade33b7326daaebafee37",
+  "helper_dependencies_minimal_compatible": true,
+  "whole_repo_clean_checkout_executed_locally": false,
+  "source_windows": 22,
+  "source_cues": 816,
+  "v33_candidates": 239,
+  "chat_semantic_notes": 263,
+  "nonclaim_fragments": 31,
+  "numeric_source_candidates": 58,
+  "v39_full_receipt_sha256": "4338d85363a3ed3ead382fd6776cefe4457e23e8f789da377077c14d7c33dc02",
+  "v40_private_sqlite_sha256": "2be1427941c6183c8be2158582baea1717db2f6e1c7eb8fb70bcbc0c9cd7ecff",
+  "v40_private_sqlite_bytes": 24576,
+  "v40_batches": [
+    {
+      "video_id": "sz5N9WJS310",
+      "run_id": "V57_V1_B01_SRC22",
+      "event_sha256": "e74328d6ca075158282c58f34f98eebf6f97d49d9cba7b618844f8e3bcc4114c",
+      "windows": 3,
+      "candidates": 29,
+      "notes": 42
+    },
+    {
+      "video_id": "6VEfKF7BzZU",
+      "run_id": "V57_V2_B01_SRC22",
+      "event_sha256": "79657157550180c11bb9c04aad5894d9d99bba70562c54f8f294ba626b0f0f67",
+      "windows": 4,
+      "candidates": 48,
+      "notes": 49
+    },
+    {
+      "video_id": "6VEfKF7BzZU",
+      "run_id": "V57_V2_B02_SRC22",
+      "event_sha256": "3a1e3f0b4727fb3cc61e8eb8eb6abd4502fb749c08d95240e3e1dd17b96f1760",
+      "windows": 4,
+      "candidates": 42,
+      "notes": 44
+    },
+    {
+      "video_id": "6VEfKF7BzZU",
+      "run_id": "V57_V2_B03_SRC22",
+      "event_sha256": "0d7499c81ce24d6391f0927f194ef715b6e978efaaa9524c9c1b8174df2f8fb9",
+      "windows": 1,
+      "candidates": 8,
+      "notes": 9
+    },
+    {
+      "video_id": "OiDTNstaSpM",
+      "run_id": "V57_V3_B01_SRC22",
+      "event_sha256": "e52112ee89098500745b0721d2c2554e61c04c061e98310a99ec14fc78c534b9",
+      "windows": 1,
+      "candidates": 4,
+      "notes": 4
+    },
+    {
+      "video_id": "aNfGrcO6WPI",
+      "run_id": "V57_V4_B01_SRC22",
+      "event_sha256": "4a749c3f90e23c79e56e9abfc78785e6322991ecdb31a899667a679193202a55",
+      "windows": 1,
+      "candidates": 15,
+      "notes": 15
+    },
+    {
+      "video_id": "qtluAViPpsQ",
+      "run_id": "V57_V5_B01_SRC22",
+      "event_sha256": "2d7495f1900e28a66a42845b26bb13362d3b3c29d40ab21e88d2ce75cc98c018",
+      "windows": 4,
+      "candidates": 61,
+      "notes": 67
+    },
+    {
+      "video_id": "qtluAViPpsQ",
+      "run_id": "V57_V5_B02_SRC22",
+      "event_sha256": "2abd3fafb9f846a2f1f80ae53b960411371c80939018ecad6e812d0c89657f28",
+      "windows": 4,
+      "candidates": 32,
+      "notes": 33
+    }
+  ],
+  "v40_final_chains": [
+    {
+      "video_id": "sz5N9WJS310",
+      "head_sha256": "e74328d6ca075158282c58f34f98eebf6f97d49d9cba7b618844f8e3bcc4114c",
+      "checkpoints": 1,
+      "windows": 3
+    },
+    {
+      "video_id": "6VEfKF7BzZU",
+      "head_sha256": "0d7499c81ce24d6391f0927f194ef715b6e978efaaa9524c9c1b8174df2f8fb9",
+      "checkpoints": 3,
+      "windows": 9
+    },
+    {
+      "video_id": "OiDTNstaSpM",
+      "head_sha256": "e52112ee89098500745b0721d2c2554e61c04c061e98310a99ec14fc78c534b9",
+      "checkpoints": 1,
+      "windows": 1
+    },
+    {
+      "video_id": "aNfGrcO6WPI",
+      "head_sha256": "4a749c3f90e23c79e56e9abfc78785e6322991ecdb31a899667a679193202a55",
+      "checkpoints": 1,
+      "windows": 1
+    },
+    {
+      "video_id": "qtluAViPpsQ",
+      "head_sha256": "2abd3fafb9f846a2f1f80ae53b960411371c80939018ecad6e812d0c89657f28",
+      "checkpoints": 2,
+      "windows": 8
+    }
+  ],
+  "v40_idempotent_reruns_success": 8,
+  "v40_chain_checks_success": 5,
+  "original_v39_negative_tests_pass": 8,
+  "original_v40_negative_tests_pass": 5,
+  "negative_tests_total": 13,
+  "private_bundle_zip_sha256": "7604a70d639d23534e41ecb4c75f3f2dbcb52a54d0feb98c9e87b4ba04fe9875",
+  "historical_v55_private_100window_sqlite_not_available": true,
+  "merged_full_130window_sqlite": false,
+  "historical_first_8window_sqlite_not_merged": true,
+  "chat_firstpass_source_windows_cumulative": 130,
+  "chat_firstpass_v33_speech_candidates_cumulative": 1603,
+  "claim_level_atomic_exhaustiveness_certified": false,
+  "independent_blind_gold_available": false,
+  "actual_finance_precision_recall_measured": false,
+  "eight_external_source_proofs_resolved": false,
+  "master116_p4_changed": false,
+  "personal_advice_or_tax_approved": false,
+  "raw_owner_srt_or_private_semantic_notes_uploaded": false,
+  "main_untouched": true,
+  "p0_go": false
+}
