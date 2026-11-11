@@ -1,0 +1,367 @@
+{
+  "schema": "IRE_V6_V49_20_SOURCE_BOUND_FINANCE_MEANING_CANDIDATES_CURRENT_RULE_AND_MASTER116_RELATIONS_NOT_MERGED",
+  "as_of": "2026-11-11",
+  "actual_prior_116_master_claims_source": "data/claims.jsonl",
+  "actual_prior_116_master_claims_source_git_blob": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "prior_approved_master_claim_count": 116,
+  "new_v49_window_count": 5,
+  "new_v49_provisional_utterance_count": 56,
+  "new_v49_chat_review_notes_count": 87,
+  "high_impact_finance_candidate_count": 20,
+  "distinct_prior_approved_master_claims_tentatively_linked": 18,
+  "new_candidate_case_rows": [
+    {
+      "video_no": 1,
+      "window_id": "W00029",
+      "v33_candidate_id": "C00345",
+      "financial_meaning_paraphrase": "ISA 만기해지 시 손익 통산으로 순소득 과세 정산",
+      "adjudication_and_exception_scope": "해지시 정산은 계좌별 과세대상 실현손익·만기 연장조건·서류 확인이 필요함",
+      "existing_master116_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C32"
+      ],
+      "external_current_guidance_urls": [
+        "https://nabo.go.kr/board/file/down.do?fid=33319223",
+        "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00029",
+      "v33_candidate_id": "C00346",
+      "financial_meaning_paraphrase": "ISA는 의무가입기간 3년이 지나면 계약연장이 가능하므로 무조건 3년마다 해지할 필요는 없음",
+      "adjudication_and_exception_scope": "현재 3년 의무가입·만기연장 허용 확인; 무기한 유지 또는 혜택 지속 자동보증은 불가",
+      "existing_master116_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C32"
+      ],
+      "external_current_guidance_urls": [
+        "https://nabo.go.kr/board/file/down.do?fid=33319223",
+        "https://www.myasset.com/myasset/static/agreement/isa_prdDsc.pdf"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00029",
+      "v33_candidate_id": "C00348",
+      "financial_meaning_paraphrase": "ISA의 과세이연·비과세·분리과세·계좌 손익통산을 구분해 설명",
+      "adjudication_and_exception_scope": "과세대상 투자수익 구분과 세제 자격 유지·납입원금 인출 예외 확인",
+      "existing_master116_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C33"
+      ],
+      "external_current_guidance_urls": [
+        "https://nabo.go.kr/board/file/down.do?fid=33319223",
+        "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00029",
+      "v33_candidate_id": "C00349",
+      "financial_meaning_paraphrase": "ISA를 50년 유지하면 과거손실이 향후 모든 수익을 계속 비과세한다는 가정",
+      "adjudication_and_exception_scope": "50년 법률·계약보장 없음, 손익통산은 계좌 내 일정 투자상품의 과세대상 손익에만 해당; 오랜기간 과세순익이 없을 수 있다는 가설에 그침",
+      "existing_master116_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C32"
+      ],
+      "external_current_guidance_urls": [
+        "https://nabo.go.kr/board/file/down.do?fid=33319223",
+        "https://www.myasset.com/myasset/static/agreement/isa_prdDsc.pdf"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00029",
+      "v33_candidate_id": "C00351",
+      "financial_meaning_paraphrase": "ISA 원금 8000만원이 손실로 4000만원 된 뒤 계속 유지하는 전략",
+      "adjudication_and_exception_scope": "평가손실과 확정손실·투자위험·세제 만기·해지시 과세 적용 분리",
+      "existing_master116_ids": [
+        "GOMHEE-C32",
+        "GOMHEE-C115"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.myasset.com/myasset/static/agreement/isa_prdDsc.pdf"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00029",
+      "v33_candidate_id": "C00352",
+      "financial_meaning_paraphrase": "ISA 장기간 4000만원 손실이 언제까지나 이후 수익에서 공제되어 세금이 0원이라는 설명",
+      "adjudication_and_exception_scope": "투자손실 계산과 향후 세법·실현구간 조건 미검증, 절세 이익을 확정수익처럼 오해하면 안됨",
+      "existing_master116_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C33"
+      ],
+      "external_current_guidance_urls": [
+        "https://nabo.go.kr/board/file/down.do?fid=33319223",
+        "https://www.kiwoom.com/mobwm/isa/ia010/MobISAInfoView"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00032",
+      "v33_candidate_id": "C00407",
+      "financial_meaning_paraphrase": "1억원을 가치주 5개에 각각 2000만원 집중투자",
+      "adjudication_and_exception_scope": "개별기업 고유 위험이 큰 집중 포트폴리오, 원금손실과 직업·산업 상관관계 점검",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00032",
+      "v33_candidate_id": "C00408",
+      "financial_meaning_paraphrase": "전액 집중투자 전 나이·소득·기업공부 등을 점검하라는 권고",
+      "adjudication_and_exception_scope": "이 조건 확인이 집중투자 안전성을 증명하지는 않음",
+      "existing_master116_ids": [
+        "GOMHEE-C30",
+        "GOMHEE-C54"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00032",
+      "v33_candidate_id": "C00409",
+      "financial_meaning_paraphrase": "기업분석의 깊이와 투자수익률은 자동적으로 비례하지 않음",
+      "adjudication_and_exception_scope": "공부 후에도 가치평가 오류·포트폴리오 위험 존재",
+      "existing_master116_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00032",
+      "v33_candidate_id": "C00412",
+      "financial_meaning_paraphrase": "충분히 준비된 투자자라면 가치주 집중투자를 긍정할 수 있다는 의견",
+      "adjudication_and_exception_scope": "투자성공 지인의 사례는 생존자편향, 독립 재무자문 승인 아님",
+      "existing_master116_ids": [
+        "GOMHEE-C30",
+        "GOMHEE-C09"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00008",
+      "v33_candidate_id": "C00087",
+      "financial_meaning_paraphrase": "퇴직금 전액 파킹 ETF 보관 뒤 일부씩 매도·자산배분 투자",
+      "adjudication_and_exception_scope": "퇴직 IRP에서는 투자 가능·금리위험·신용·ETF가격·안전자산 분류와 현금화 시차 확인",
+      "existing_master116_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C19"
+      ],
+      "external_current_guidance_urls": [
+        "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00008",
+      "v33_candidate_id": "C00095",
+      "financial_meaning_paraphrase": "퇴직금 2억원을 매달 약450만원씩 분할해 장기 포트폴리오로 이전",
+      "adjudication_and_exception_scope": "월450만원·3년은 예시이지 개인 적정 인출액 아님, 대기자금의 기회비용과 매매비용 비교",
+      "existing_master116_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C52"
+      ],
+      "external_current_guidance_urls": [
+        "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00008",
+      "v33_candidate_id": "C00097",
+      "financial_meaning_paraphrase": "분할매수만 하면 투자위험이 해소된다는 과도한 일반화",
+      "adjudication_and_exception_scope": "분할매수는 매수 시점분산 기법이지 ETF·주식·채권 원금 손실 방지 수단이 아님",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C52"
+      ],
+      "external_current_guidance_urls": [
+        "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging",
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00007",
+      "v33_candidate_id": "C00088",
+      "financial_meaning_paraphrase": "손실주식의 하락폭이 줄 가능성을 보유판단 논거로 보는 가정",
+      "adjudication_and_exception_scope": "회복확률은 기업가치·실적·재무·시장위험에 좌우; 매수가 손익이 근거가 아님",
+      "existing_master116_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00007",
+      "v33_candidate_id": "C00090",
+      "financial_meaning_paraphrase": "기업의 성장가치 투자근거 훼손 시 손실 상태라도 매도 가능",
+      "adjudication_and_exception_scope": "개별기업과 전체자산배분을 평가할 때의 조건부 의사결정",
+      "existing_master116_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00007",
+      "v33_candidate_id": "C00092",
+      "financial_meaning_paraphrase": "매도와 보유 의견의 논리를 검토하고 감정적 반응을 피하라는 행동원칙",
+      "adjudication_and_exception_scope": "양쪽 논거의 정확성 검토와 주요 공시 모니터링 유지 필요",
+      "existing_master116_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C63"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00007",
+      "v33_candidate_id": "C00095",
+      "financial_meaning_paraphrase": "고점매수·저점매도를 피하라는 일반 행동권고",
+      "adjudication_and_exception_scope": "기업가치가 구조적으로 훼손됐을 때 매도를 금지하는 보편규칙이 아님",
+      "existing_master116_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C54"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00014",
+      "v33_candidate_id": "C00190",
+      "financial_meaning_paraphrase": "매월 50만원을 ISA 등 계좌에 40만/10만 배분하고 S&P500 ETF 투자",
+      "adjudication_and_exception_scope": "개인별 세액공제 실익·계좌자격·해외지수 노출·투자기간에 따라 달라지는 단순 가상예시",
+      "existing_master116_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C40"
+      ],
+      "external_current_guidance_urls": [
+        "https://nabo.go.kr/board/file/down.do?fid=33319223"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00014",
+      "v33_candidate_id": "C00192",
+      "financial_meaning_paraphrase": "취업한 업종과 관련된 ETF를 ISA에서 매수하도록 권고",
+      "adjudication_and_exception_scope": "직업수입과 같은 업종의 투자위험이 중첩될 수 있고 시장집중·업종구성·내부정보 규제 검토 필요",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C26"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00014",
+      "v33_candidate_id": "C00194",
+      "financial_meaning_paraphrase": "자동매수 설정 후 1년간 아무 것도 하지 않는 장기투자 습관 권고",
+      "adjudication_and_exception_scope": "과잉거래를 피하는 행동규칙은 가능하나 자금사정·종목·법령·수수료 변화를 정기 점검해야 함",
+      "existing_master116_ids": [
+        "GOMHEE-C10",
+        "GOMHEE-C54"
+      ],
+      "external_current_guidance_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "source_semantic_equivalence_independently_proven": false,
+      "financial_fact_independently_approved": false,
+      "auto_merge_allowed": false
+    }
+  ],
+  "all_claims_are_source_paraphrases_and_not_private_raw_srt": true,
+  "all_existing_knowledge_links_tentative_nonmerged": true,
+  "independent_gold_judged_cases": 0,
+  "automatic_knowledge_approvals": 0,
+  "current_fiscal_law_scope_checks_not_historical_video_fact_approval": true,
+  "main_v5_master116_p4_modified": false,
+  "p0_go": false
+}
