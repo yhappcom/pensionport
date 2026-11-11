@@ -1319,8 +1319,52 @@ jobs:
               "master_116_or_p4_merged","main_or_v5_changed",
               "personal_advice_approved","p0_go"):
               assert v40[key] is False,"V40_FALSE_FINANCIAL_RESEARCH_GO:"+key
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40),"V6_FILE_CENSUS_DRIFT:V39_FILE_CENSUS_DRIFT:V40_FILE_CENSUS_DRIFT"
-          assert len(actual)==102 and v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          # V41: the source->atom handoff remains an unapproved preliminary proposal.
+          v41=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V6_V41_SOURCE_TO_ATOM_PATCH_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v41["schema"]=="IRE_V6_V41_V40_TO_V6_ATOMIC_CROSSWALK_AND_OWNER_NEXT_WINDOWS"
+          assert v41["scope"]=="VALIDATION_BRANCH_ONLY"
+          assert v41["parent_v41_source_research_commit"]=="fcd0253c9503e03ae860f0e221db38bb5ae73c8c"
+          assert v41["previous_v40_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V6_V40_SEMANTIC_CHECKPOINT_PATCH_MANIFEST.json"],
+              text=True).strip(),"V41_PREVIOUS_V40_MANIFEST_DRIFT"
+          assert v41["previous_v40_code_sha"]==added40["ire/v6/semantic_checkpoint_v40.py"]
+          assert v41["previous_unique_v6_tests"]==611 and v41["new_synthetic_regression_tests"]==18
+          assert v41["expected_unique_v6_tests"]==629
+          assert v41["prior_ire_v6_tracked_file_count"]==102 and v41["new_ire_v6_tracked_file_count"]==104
+          added41={x["path"]:x["git_blob_sha"] for x in v41["added"]}
+          assert set(added41)=={
+              "ire/v6/semantic_atom_handoff_v41.py",
+              "ire/v6/tests/test_semantic_atom_handoff_v41.py"},"V41_ADDITIVE_FILE_CENSUS_INVALID"
+          assert not set(added41).intersection(set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40)),"V41_PROTECTED_FILE_MUTATION"
+          for path,sha in added41.items():
+              assert subprocess.check_output(["git","hash-object",path],text=True).strip()==sha,"V41_CODE_BLOB_DRIFT:"+path
+          report41=v41["public_safe_report"]
+          assert subprocess.check_output(["git","hash-object",report41["path"]],text=True
+                 ).strip()==report41["git_blob_sha"],"V41_REPORT_BLOB_CHANGED"
+          receipt41=v41["public_safe_real_owner_receipt"]
+          assert subprocess.check_output(["git","hash-object",receipt41["path"]],text=True
+                 ).strip()==receipt41["git_blob_sha"],"V41_PUBLIC_RECEIPT_DRIFT"
+          owner41=json.loads(pathlib.Path(receipt41["path"]).read_text(encoding="utf-8"))
+          assert owner41["schema"]=="IRE_V6_V41_OWNER_PRIVATE_SOURCE_TWO_NEW_WINDOWS_AND_PRE_ATOMIC_LINK"
+          assert len(owner41["new_windows"])==2
+          assert sum(w["draft_utterances"] for w in owner41["new_windows"])==35
+          assert sum(w["host_review_notes"] for w in owner41["new_windows"])==51
+          assert owner41["cumulative"]["source_windows"]==8
+          assert owner41["cumulative"]["source_verified_speech_candidates"]==113
+          assert owner41["cumulative"]["chat_semantic_review_notes"]==172
+          assert owner41["cumulative"]["unreviewed_windows"]==122
+          assert owner41["cumulative"]["unreviewed_speech_candidates"]==1490
+          assert owner41["v41_partial_atom_mapping"]["proposed_v6_shaped_atoms"]==4
+          assert owner41["v41_partial_atom_mapping"]["open_notes"]==14
+          for key in ("whole_video_v6_atom_exchange_submitted",
+              "v6_final_model_commit_allowed","real_independent_blind_gold",
+              "true_finance_accuracy_certified","main_v5_master116_p4_mutated",
+              "raw_private_srt_or_chat_reasoning_uploaded","p0_go"):
+              assert v41[key] is False,"V41_FALSE_FINANCIAL_RELEASE:"+key
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40)|set(added41),"V6_FILE_CENSUS_DRIFT:V39_FILE_CENSUS_DRIFT:V40_FILE_CENSUS_DRIFT:V41_FILE_CENSUS_DRIFT"
+          assert len(actual)==104 and v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -1618,14 +1662,14 @@ jobs:
           PY
       - name: Strict frozen V6 and original 6 prepush gates on same exact commit
         run: python -m ire.v6.prepush --strict --root . --expected-sha "$GITHUB_SHA"
-      - name: Verify exactly 611 unique V6 tests (595 previous + 16 V40; no imported baseline cases)
+      - name: Verify exactly 629 unique V6 tests (611 previous + 18 V41; no imported baseline cases)
         run: |
           python - <<'PY'
           import unittest
           suite=unittest.defaultTestLoader.discover("ire/v6/tests",pattern="test_*.py")
           found=suite.countTestCases()
-          assert found==611, f"V40_TEST_DISCOVERY_COUNT_DRIFT:{found}"
-          print("V40_UNIQUE_V6_611_TESTS_VERIFIED")
+          assert found==629, f"V41_TEST_DISCOVERY_COUNT_DRIFT:{found}"
+          print("V41_UNIQUE_V6_629_TESTS_VERIFIED")
           PY
 
   official-primary-pinned-replay:
