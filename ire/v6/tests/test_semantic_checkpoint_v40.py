@@ -8,7 +8,7 @@ from pathlib import Path
 from ire.v6.errors import (ConcurrentHeadChanged, IdempotencyConflict,
                            InvalidInput, LedgerCorrupted)
 from ire.v6.semantic_checkpoint_v40 import PrivateSemanticCheckpointV40, ZERO_SHA
-from ire.v6.tests.test_host_semantic_custody_v39 import SourceBoundSemanticReviewV39Tests
+from ire.v6.tests import test_host_semantic_custody_v39 as v39_fixture_module
 
 
 class SemanticCheckpointV40Tests(unittest.TestCase):
@@ -17,7 +17,7 @@ class SemanticCheckpointV40Tests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.db = Path(self.temp.name) / 'owner_private_semantic_checkpoint.sqlite'
         self.store = PrivateSemanticCheckpointV40(self.db)
-        fx = SourceBoundSemanticReviewV39Tests(
+        fx = v39_fixture_module.SourceBoundSemanticReviewV39Tests(
             'test_all_source_bound_candidates_and_notes_replayed')
         fx.setUp()
         self.fx = fx
