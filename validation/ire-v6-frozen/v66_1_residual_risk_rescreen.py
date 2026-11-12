@@ -5,7 +5,7 @@ from __future__ import annotations
 import collections,hashlib,json,re
 PUBLIC_RULE='연금|세금|세액|과세|비과세|ISA|IRP|CMA|ETF|추납|배당|손실|원금|수익률|억원|만원|투자'
 PATTERN=re.compile(PUBLIC_RULE,re.I)
-STRONG=re.compile(r'추납|연금|ISA|IRP|세액|과세|비과세|\\d+[.,]?\\d*\\s*(?:만|억|%)',re.I)
+STRONG=re.compile(r'추납|연금|ISA|IRP|세액|과세|비과세|\d+[.,]?\d*\s*(?:만|억|%)',re.I)
 
 def inspect_unreviewed(rows):
  if type(rows) is not list or not rows:raise ValueError('REAL_SOURCE_REVIEW_QUEUE_REQUIRED')
