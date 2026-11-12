@@ -1,0 +1,182 @@
+{
+  "schema": "IRE_V6_V58_130_WINDOW_FEDERATED_SOURCE_OWNERSHIP_NOT_HISTORICAL_CHAIN_MERGE",
+  "as_of": "2026-11-12",
+  "parent_validation_commit": "9ab8e6962322a6ef746f5c89ffed6987509cce1d",
+  "original_srt_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "source_video_count": 5,
+  "original_source_cues": 5129,
+  "source_windows_census": 130,
+  "source_v33_provisional_speech_census": 1603,
+  "source_window_census_sha256": "90d47e2327e67662109ce80efe73d0236bd49b04b0e47097dbc9b24ebfe9d31c",
+  "v37_public_census_blob_sha": "5186bb99931f17ec09f3824306c0eba192098059",
+  "public_stage_sha_provenance_130_of_130_checked": true,
+  "source_window_partition_is_disjoint": true,
+  "per_partition": [
+    {
+      "partition": "INITIAL8",
+      "source_windows": 8,
+      "v33_provisional_speech": 113,
+      "original_sqlite_present": false,
+      "original_v40_event_replay_this_turn": false
+    },
+    {
+      "partition": "V55_100",
+      "source_windows": 100,
+      "v33_provisional_speech": 1251,
+      "original_sqlite_present": false,
+      "original_v40_event_replay_this_turn": false,
+      "prior_reported_private_sqlite_sha256": "d79217d105334b12b2c591b4d812218d4add6ee5bf991f932758d9fae5b33cbb"
+    },
+    {
+      "partition": "V57_22",
+      "source_windows": 22,
+      "v33_provisional_speech": 239,
+      "original_sqlite_present": true,
+      "original_v40_checkpoints_preserved": 8,
+      "original_v40_event_replay_this_turn": true,
+      "original_sqlite_sha256": "2be1427941c6183c8be2158582baea1717db2f6e1c7eb8fb70bcbc0c9cd7ecff"
+    }
+  ],
+  "stage_counts": [
+    {
+      "version": "V38_2",
+      "windows": 4,
+      "speech": 47
+    },
+    {
+      "version": "V38_3",
+      "windows": 2,
+      "speech": 31
+    },
+    {
+      "version": "V41",
+      "windows": 2,
+      "speech": 35
+    },
+    {
+      "version": "V43",
+      "windows": 6,
+      "speech": 80
+    },
+    {
+      "version": "V44",
+      "windows": 8,
+      "speech": 101
+    },
+    {
+      "version": "V45",
+      "windows": 16,
+      "speech": 200
+    },
+    {
+      "version": "V47",
+      "windows": 5,
+      "speech": 69
+    },
+    {
+      "version": "V49",
+      "windows": 5,
+      "speech": 56
+    },
+    {
+      "version": "V50",
+      "windows": 10,
+      "speech": 109
+    },
+    {
+      "version": "V51",
+      "windows": 10,
+      "speech": 130
+    },
+    {
+      "version": "V52",
+      "windows": 10,
+      "speech": 126
+    },
+    {
+      "version": "V53",
+      "windows": 10,
+      "speech": 117
+    },
+    {
+      "version": "V54",
+      "windows": 10,
+      "speech": 132
+    },
+    {
+      "version": "V55",
+      "windows": 10,
+      "speech": 131
+    },
+    {
+      "version": "V57",
+      "windows": 22,
+      "speech": 239
+    }
+  ],
+  "per_video": [
+    {
+      "video_id": "sz5N9WJS310",
+      "windows": 30,
+      "provisional_speech": 361,
+      "initial8": 4,
+      "v55_100": 23,
+      "v57_22": 3
+    },
+    {
+      "video_id": "6VEfKF7BzZU",
+      "windows": 34,
+      "provisional_speech": 432,
+      "initial8": 4,
+      "v55_100": 21,
+      "v57_22": 9
+    },
+    {
+      "video_id": "OiDTNstaSpM",
+      "windows": 20,
+      "provisional_speech": 225,
+      "initial8": 0,
+      "v55_100": 19,
+      "v57_22": 1
+    },
+    {
+      "video_id": "aNfGrcO6WPI",
+      "windows": 19,
+      "provisional_speech": 231,
+      "initial8": 0,
+      "v55_100": 18,
+      "v57_22": 1
+    },
+    {
+      "video_id": "qtluAViPpsQ",
+      "windows": 27,
+      "provisional_speech": 354,
+      "initial8": 0,
+      "v55_100": 19,
+      "v57_22": 8
+    }
+  ],
+  "newly_created_private_sqlite_is_metadata_federated_index_not_combined_v40_history": true,
+  "new_federated_index_sqlite_sha256": "cfc874e8bbefe033f73acfc60a91c9b3e06f353693da703c5195729f6a93d900",
+  "new_federated_index_sqlite_bytes": 81920,
+  "original_v57_sqlite_preserved_unchanged": true,
+  "v57_original_v40_hash_chains_checked": 5,
+  "v57_original_v40_checkpoint_rows_copied_without_value_change": 8,
+  "v57_original_v40_window_ownership_rows_copied_without_value_change": 22,
+  "new_index_sqlite_integrity_check": "ok",
+  "new_index_local_custody_checks_passed": 10,
+  "new_index_fault_tests_rejected": 3,
+  "deterministic_rebuild_sha_matches": true,
+  "private_recovery_zip_sha256": "0f218db483ad9c98887c6af3687019743a4febd73cfce5819cd87f5cdb5c1fd7",
+  "historical_108_window_original_sqlite_event_rows_not_in_new_index": true,
+  "owner_srt_or_semantic_notes_or_sqlite_uploaded_to_github": false,
+  "full_130_window_v40_lossless_history_merge_complete": false,
+  "all_1603_utterances_certified_atomized": false,
+  "independent_blind_human_gold_available": false,
+  "independent_precision_recall_measured": false,
+  "eight_historical_audio_issuer_proofs_completed": false,
+  "master116_p4_auto_merged": false,
+  "personal_investment_tax_advice_approved": false,
+  "protected_main_v5_116_p4_modified": false,
+  "p0_go": false
+}
