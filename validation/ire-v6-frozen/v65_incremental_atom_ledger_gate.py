@@ -59,7 +59,7 @@ def audit_atomic_ledger(source_census,review_rows):
     pending=Counter(by_src[k]['triage_bucket'] for k in by_src if k not in done)
     public.sort(key=lambda r:(r['video_id'],r['window_id'],r['parent_id'],r['child_id']))
     # Id only, no original transcript, raw meaning text, risk memo or tax conclusions.
-    return {'schema':'IRE_V6_V64_SOURCE_CENSUS_AND_UNIQUE_VIDEO_WINDOW_PARENT_CHILD_SHA_ONLY',
+    return {'schema':'IRE_V6_V65_SOURCE_CENSUS_AND_UNIQUE_VIDEO_WINDOW_PARENT_CHILD_SHA_ONLY',
             'source_provisional_parent_count':len(by_src),
             'source_grounded_parent_review_count':len(done),
             'unreviewed_source_parent_count':len(by_src)-len(done),
