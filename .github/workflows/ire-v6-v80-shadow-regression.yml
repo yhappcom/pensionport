@@ -1,0 +1,34 @@
+name: IRE V6 V77-V80 shadow lineage synthetic-only regression
+
+on:
+  push:
+    branches:
+      - verify/ire-v6-p1-atomic-host-batch-20261109
+    paths:
+      - 'validation/ire-v6-frozen/v7*_*.py'
+      - 'validation/ire-v6-frozen/v80_*.py'
+      - 'validation/ire-v6-frozen/test_v7*.py'
+      - '.github/workflows/ire-v6-v80-shadow-regression.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  shadow-lineage-synthetic-regression:
+    name: V77-V80 public-source-only 81 synthetic checks (NO private SRT)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Reconfirm local synthetic V77 to V80 contracts without private data
+        run: |
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v77_private_v33_replay.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v78_shadow_source_custody.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v79_shadow_delta_guard.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v80_shadow_triplet_guard.py' -v
