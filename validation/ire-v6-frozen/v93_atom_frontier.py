@@ -14,8 +14,9 @@ def digest(x):return hashlib.sha256(json.dumps(x,ensure_ascii=False,sort_keys=Tr
 def require(b,m):
     if not b:raise ValueError('V93_'+m)
 
-def scan_source(cues,registry,*,expected_video_id,expected_cues,expected_windows):
+def scan_source(cues,registry,*,expected_video_id,expected_cues,expected_windows,include_private_queue=False):
     """Bounded linear-ish structural audit; output contains no raw cue text."""
+    require(type(include_private_queue) is bool,'PRIVATE_QUEUE_FLAG')
     require(len(cues)==expected_cues,'CUE_COUNT')
     require(len(registry)==expected_windows,'WINDOW_COUNT')
     index_map={};all_parents=set()
@@ -49,13 +50,17 @@ def scan_source(cues,registry,*,expected_video_id,expected_cues,expected_windows
             risk_pins.append([i,kind,hashlib.sha256(t.encode('utf-8')).hexdigest()])
         checked+=1
     require(checked==expected_cues,'INCOMPLETE_SOURCE_SCAN')
-    return {'schema':'V93_SOURCE_FIRST_RISK_NOT_ATOM_RECALL_V1','video_id':expected_video_id,
+    result={'schema':'V93_SOURCE_FIRST_RISK_NOT_ATOM_RECALL_V1','video_id':expected_video_id,
         'source_cues_checked':checked,'source_windows_checked':len(registry),'draft_parent_count':len(all_parents),
         'source_cues_without_draft_parent':unassigned,'max_parent_overlap_per_cue':max_assigned,
         'risk_count_by_kind':dict(sorted(risk_count.items())),
         'risk_case_count':len(risk_pins),'risk_case_receipt_sha256':digest(risk_pins),
         'source_excerpt_public':False,'independent_omission_accuracy_certified':False,
         'full_atomic_decomposition_certified':False,'p0_go':False}
+    if include_private_queue:
+        # Metadata only, untrusted as independent errors or negative gold.
+        result['private_review_cases']=[{'cue_index':i,'kind':k,'cue_sha256':h} for i,k,h in risk_pins]
+    return result
 
 def review_subclaims(parent,subclaims):
     """Do not equate all-parent coverage with subclaim coverage."""

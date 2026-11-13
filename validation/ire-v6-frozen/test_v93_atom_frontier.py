@@ -16,6 +16,11 @@ class T(unittest.TestCase):
   x=self.check();self.assertEqual(x['source_cues_checked'],80);self.assertEqual(x['source_cues_without_draft_parent'],1);self.assertTrue(x['risk_case_count']>=3);self.assertFalse(x['p0_go'])
  def test_uncaptured_finance(self):
   self.cues[39].text='ISA 2026년 세액';x=self.check();self.assertIn('UNCAPTURED_FINANCE_CUE',x['risk_count_by_kind'])
+ def test_private_queue_source_only(self):
+  r=scan_source(self.cues,self.reg,expected_video_id='SYNTHETIC',expected_cues=80,expected_windows=2,include_private_queue=True)
+  self.assertEqual(len(r['private_review_cases']),r['risk_case_count'])
+  self.assertNotIn('private_review_cases',self.check())
+  self.assertNotIn('text',r['private_review_cases'][0])
  def test_unsorted_cue(self):
   q=copy.deepcopy(self.cues);q[0].index=2
   with self.assertRaises(ValueError):self.check(cues=q)

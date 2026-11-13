@@ -1866,7 +1866,7 @@ jobs:
         run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_v68_context_risk_gate.py' -v
 
   shadow-lineage-synthetic-regression:
-    name: V77-V95 684 public synthetic source-custody checks (no owner SRT)
+    name: V77-V95 685 public synthetic source-custody checks (no owner SRT)
     needs: canonical-environment
     runs-on: ubuntu-latest
     timeout-minutes: 10
