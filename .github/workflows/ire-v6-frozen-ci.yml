@@ -1866,7 +1866,7 @@ jobs:
         run: python -m unittest discover -s validation/ire-v6-frozen -p 'test_v68_context_risk_gate.py' -v
 
   shadow-lineage-synthetic-regression:
-    name: V77-V84 252 public synthetic source-custody checks (no owner SRT)
+    name: V77-V85 313 public synthetic source-custody checks (no owner SRT)
     needs: canonical-environment
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -1879,7 +1879,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11.18'
-      - name: Run synthetic-only V77-V84 source and non-approval regression
+      - name: Run synthetic-only V77-V85 source and non-approval regression
         run: |
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v77_private_v33_replay.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v78_shadow_source_custody.py' -v
@@ -1889,3 +1889,4 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v82_shadow_five_stage_guard.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v83_source_gap_context_guard.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v84_gap_extension_guard.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v85_newvideo_gap_guard.py' -v
