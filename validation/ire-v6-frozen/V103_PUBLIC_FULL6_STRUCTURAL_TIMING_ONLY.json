@@ -1,0 +1,50 @@
+{
+  "alternating_order": true,
+  "certified_end_to_end_runtime": null,
+  "certified_error_reduction": null,
+  "includes_chat_semantic_time": false,
+  "includes_independent_reviewer_time": false,
+  "includes_regulatory_web_search_time": false,
+  "includes_zip_io_srt_parse_v33_registry": true,
+  "independent_gold": false,
+  "metrics": {
+    "v103_extended_all": {
+      "median_wall_seconds": 0.306208,
+      "min_wall_seconds": 0.297492,
+      "p95_wall_seconds": 0.35759,
+      "result_counts": 633
+    },
+    "v91_source_registry": {
+      "median_wall_seconds": 0.11386,
+      "min_wall_seconds": 0.109935,
+      "p95_wall_seconds": 0.139067,
+      "result_counts": [
+        15857,
+        4944
+      ]
+    },
+    "v93_source_risk": {
+      "median_wall_seconds": 0.158907,
+      "min_wall_seconds": 0.149446,
+      "p95_wall_seconds": 0.172566,
+      "result_counts": 1172
+    },
+    "v98_full_hybrid": {
+      "median_wall_seconds": 0.224264,
+      "min_wall_seconds": 0.214321,
+      "p95_wall_seconds": 0.292435,
+      "result_counts": [
+        15857,
+        9836,
+        6021
+      ]
+    }
+  },
+  "p0_go": false,
+  "repetitions": 15,
+  "schema": "V103_OWNER_SOURCE_FULL6_STRUCTURAL_PIPELINE_THROUGHPUT_NOT_CHAT_V1",
+  "six_video_files_only_replayed": true,
+  "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "source_cues": 15857,
+  "source_videos": 6
+}
