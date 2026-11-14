@@ -8,7 +8,9 @@ from v115_full_video_bridge import (audit_private_review, assert_public_replay_r
                                     UnsafeResearchStage)
 from ire.v6.research_pipeline_v114 import V114ResearchJournal, ZERO
 
-FIXTURE_PATH=Path(__file__).parent/'public'/'V115_ACTUAL_152CUE_REAL_SOURCE_FIVE_STAGE_SHA_ONLY.json'
+FIXTURE_PATH=Path(__file__).parent/'V115_ACTUAL_152CUE_REAL_SOURCE_FIVE_STAGE_SHA_ONLY.json'
+if not FIXTURE_PATH.exists():
+    FIXTURE_PATH=Path(__file__).parent/'public'/'V115_ACTUAL_152CUE_REAL_SOURCE_FIVE_STAGE_SHA_ONLY.json'
 
 def fake():
     txt=['회사 주식 ETF', '분배 정책이 서로', '다를 수 있습니다.',
@@ -182,15 +184,12 @@ class ResumablePreparedDriver(unittest.TestCase):
                 resume_prepared_five_stage_run(str(Path(t)/'p.sqlite'),'V115_TEST',p)
 
 class PublicReceiptTest(unittest.TestCase):
-    @unittest.skipUnless(FIXTURE_PATH.exists(),'public V115 digest not packaged with this test')
     def test_real_pilot_receipt_frozen(self):
         x=json.loads(FIXTURE_PATH.read_text(encoding='utf-8'))
         self.assertTrue(assert_public_replay_receipt(x)['public_cue_review_pilot_receipt_consistent'])
-    @unittest.skipUnless(FIXTURE_PATH.exists(),'public V115 digest not packaged with this test')
     def test_fake_p0_go_receipt_rejected(self):
         x=json.loads(FIXTURE_PATH.read_text(encoding='utf-8'));x['p0_go']=True
         with self.assertRaises(UnsafeResearchStage):assert_public_replay_receipt(x)
-    @unittest.skipUnless(FIXTURE_PATH.exists(),'public V115 digest not packaged with this test')
     def test_fake_model_latency_rejected(self):
         x=json.loads(FIXTURE_PATH.read_text(encoding='utf-8'));x['model_semantic_wall_ns']=1
         with self.assertRaises(UnsafeResearchStage):assert_public_replay_receipt(x)
