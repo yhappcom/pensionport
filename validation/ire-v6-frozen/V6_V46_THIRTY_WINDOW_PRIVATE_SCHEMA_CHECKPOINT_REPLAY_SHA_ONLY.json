@@ -1,0 +1,176 @@
+{
+  "schema": "IRE_V6_V46_PRIVATE_30_WINDOW_REIMPLEMENTED_V39_V40_SCHEMA_LEDGER_SHA_ONLY_NOT_DEPLOYED",
+  "as_of": "2026-11-11",
+  "source_archive_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "parent_v45_commit": "d23e242a80ccd7b336147800b7b630a6385cb21f",
+  "source_video_count": 5,
+  "private_review_batches": 10,
+  "nonoverlapping_source_windows": 30,
+  "original_cues": 1200,
+  "all_v33_original_utterances": 381,
+  "chat_meaning_units_including_questions": 540,
+  "private_local_sqlite_sha256": "25a013072614d8bc63f0b59a606e033e1b44b0ab9e3c886a2f6c6b3e345920e5",
+  "private_local_sqlite_size_bytes": 32768,
+  "private_local_all10_batch_receipts_file_sha256": "a9d70971e7091a5d7dcb7fd34d973779423873fe7ebdb5c7c7fb11d2345faed7",
+  "strict_30_of_30_private_srt_window_sha_replayed": true,
+  "strict_30_of_30_full_v33_candidate_sha_reconstructed": true,
+  "one_to_one_candidate_meaning_replay_381_of_381": true,
+  "repeated_run_id_same_evidence_idempotent_10_of_10": true,
+  "all_ten_independent_sqlite_event_hash_and_source_window_ownership_pass": true,
+  "negative_guards": {
+    "original_zip_tamper": true,
+    "candidate_note_count_change": true,
+    "duplicate_window_owner": true,
+    "checksum_tamper_detected": true,
+    "modified_checkpoint_hash_detected": true,
+    "mid_write_transaction_rolled_back": true
+  },
+  "reimplemented_local_v39_public_receipt_contract_not_deployed_git_module": true,
+  "reimplemented_local_v40_sqlite_schema_event_hash_not_deployed_git_module": true,
+  "separate_new_private_sqlite_not_same_as_previous_eight_window_original_db": true,
+  "formal_existing_v39_v40_checkpointed_windows": 8,
+  "formal_new_v39_v40_repo_module_checkpointed_windows": 0,
+  "chat_firstpass_source_windows": 38,
+  "chat_firstpass_utterance_candidates": 494,
+  "chat_firstpass_meaning_units": 712,
+  "remaining_chat_firstpass_windows": 92,
+  "remaining_original_v33_utterances": 1109,
+  "financial_fact_approved_count": 0,
+  "real_independent_blind_gold_count": 0,
+  "historical_eight_audio_issuer_evidence_closed": 0,
+  "no_private_srt_meaning_prose_or_sqlite_uploaded_to_public_github": true,
+  "no_main_v5_master116_p4_mutation": true,
+  "p0_go": false,
+  "private_local_receipt_batches": [
+    {
+      "video_id": "6VEfKF7BzZU",
+      "sequence": 1,
+      "windows": [
+        "W00005",
+        "W00006",
+        "W00007",
+        "W00008"
+      ],
+      "candidates": 54,
+      "notes": 82,
+      "event_sha256": "7613e28de9f443da76bc46ae811ece8a8a1ea5c4c21c60405c11b708287efc53",
+      "replayed_v39_receipt_sha256": "199798539d011954f48e870ab059a4b4ee6342395ddc550aeca8f4242a32a542"
+    },
+    {
+      "video_id": "6VEfKF7BzZU",
+      "sequence": 2,
+      "windows": [
+        "W00012",
+        "W00023",
+        "W00024"
+      ],
+      "candidates": 38,
+      "notes": 54,
+      "event_sha256": "a4140210a65d04d45d2f1739e848586770f9ba93c19ebcef5a4f36ed99ccc5cd",
+      "replayed_v39_receipt_sha256": "0c8272ab6d5eb3f7ec268411d6fe1ce707f72c22c35ffc59bb36e1e7db242f19"
+    },
+    {
+      "video_id": "OiDTNstaSpM",
+      "sequence": 1,
+      "windows": [
+        "W00003",
+        "W00004",
+        "W00006",
+        "W00007"
+      ],
+      "candidates": 50,
+      "notes": 73,
+      "event_sha256": "99d02b21f25b78de3001c9db4cd2f4088f2a93bff19d533160cdf352798f24e4",
+      "replayed_v39_receipt_sha256": "fbddcdf35d73bad350b28a356bba7782bf7f3029c39687cbfe301a09361495b9"
+    },
+    {
+      "video_id": "OiDTNstaSpM",
+      "sequence": 2,
+      "windows": [
+        "W00011"
+      ],
+      "candidates": 16,
+      "notes": 19,
+      "event_sha256": "f4091013879726d9422ecc6f947d0ec958dfdb3e83a551c04d146f54c63f7474",
+      "replayed_v39_receipt_sha256": "e75daf53279d483d707975e04529097aaa6d6ed84e69f51fdd7b9676f18e2d63"
+    },
+    {
+      "video_id": "aNfGrcO6WPI",
+      "sequence": 1,
+      "windows": [
+        "W00011",
+        "W00012",
+        "W00013",
+        "W00017"
+      ],
+      "candidates": 48,
+      "notes": 71,
+      "event_sha256": "7e1aaffbd9eac9df3857c2616f1e6e11f196b1cbdc5a470876cd893ae1e1c113",
+      "replayed_v39_receipt_sha256": "5e655bd51a898ac7be6682b8296660c5ba1b168cbcb4d776567948b902d6e42f"
+    },
+    {
+      "video_id": "qtluAViPpsQ",
+      "sequence": 1,
+      "windows": [
+        "W00005",
+        "W00007",
+        "W00008",
+        "W00009"
+      ],
+      "candidates": 58,
+      "notes": 75,
+      "event_sha256": "ac1b614d85a90f093b652062075bc5bcb4686a2a4f477d02c720a3b5a79f54b6",
+      "replayed_v39_receipt_sha256": "05e5ccd4954b4090cd58d275cc824fb97dd627ae0ba1b4ecfac9ab13565a0fe0"
+    },
+    {
+      "video_id": "qtluAViPpsQ",
+      "sequence": 2,
+      "windows": [
+        "W00010"
+      ],
+      "candidates": 8,
+      "notes": 14,
+      "event_sha256": "f82dea0572f68c9fcf0256725a942c7dfca47f957040b8db507ab3de0692e592",
+      "replayed_v39_receipt_sha256": "d924fbd3123c4d2394dd6134248e8eec0f75c65f0645d2d1ad7eecb59fb8c430"
+    },
+    {
+      "video_id": "sz5N9WJS310",
+      "sequence": 1,
+      "windows": [
+        "W00001",
+        "W00002",
+        "W00004",
+        "W00005"
+      ],
+      "candidates": 53,
+      "notes": 72,
+      "event_sha256": "cf1f6d609019c1a32e7a54d81691ef44ae7357bc37303320d34c5945f4e3a137",
+      "replayed_v39_receipt_sha256": "ad33048e964daba12132f25ad36314311085aff9f854435056d54cb4f10dee7a"
+    },
+    {
+      "video_id": "sz5N9WJS310",
+      "sequence": 2,
+      "windows": [
+        "W00006",
+        "W00009",
+        "W00014",
+        "W00022"
+      ],
+      "candidates": 44,
+      "notes": 64,
+      "event_sha256": "5080c593cbaf17ba8dcf2db7c5e69e34ed511569fe847b99f255ba13b4b95442",
+      "replayed_v39_receipt_sha256": "60158692f9763f2d3fb67f75d5f62b063cbd674519851bb699ef958bdecf542d"
+    },
+    {
+      "video_id": "sz5N9WJS310",
+      "sequence": 3,
+      "windows": [
+        "W00028"
+      ],
+      "candidates": 12,
+      "notes": 16,
+      "event_sha256": "e792b4d0cbf3517e08dc5646402a242bb3ddfb31234937e6b9835000eb5492fe",
+      "replayed_v39_receipt_sha256": "94d7fede3ed937183b80c4e92aee708e85d334c7da5e0cbfb82e48ffc9c809cb"
+    }
+  ]
+}

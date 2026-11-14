@@ -1,0 +1,328 @@
+{
+  "schema": "IRE_V6_V44_REAL_116_MASTER_22_SOURCE_CANDIDATE_PRELIMINARY_CROSSWALK_NOT_MERGED",
+  "as_of": "2026-11-11",
+  "master_116_repository_source_path": "data/claims.jsonl",
+  "master_116_git_blob_sha": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "master_116_claim_count": 116,
+  "comparison_source": "V44_22_ATOMIC_CANDIDATE_DECISION_AND_CURRENT_RULE_DOCKET",
+  "compared_source_claim_candidates": 22,
+  "unique_existing_master_claims_referenced": 24,
+  "unique_master_claim_ids": [
+    "GOMHEE-C03",
+    "GOMHEE-C09",
+    "GOMHEE-C106",
+    "GOMHEE-C108",
+    "GOMHEE-C111",
+    "GOMHEE-C113",
+    "GOMHEE-C15",
+    "GOMHEE-C21",
+    "GOMHEE-C24",
+    "GOMHEE-C30",
+    "GOMHEE-C31",
+    "GOMHEE-C34",
+    "GOMHEE-C38",
+    "GOMHEE-C40",
+    "GOMHEE-C42",
+    "GOMHEE-C45",
+    "GOMHEE-C51",
+    "GOMHEE-C62",
+    "GOMHEE-C63",
+    "GOMHEE-C68",
+    "GOMHEE-C73",
+    "GOMHEE-C76",
+    "GOMHEE-C78",
+    "GOMHEE-C79"
+  ],
+  "proposed_links": [
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "v33_source_candidate_id": "C00266",
+      "proposed_relation_type": "TAX_WRAPPER_APPLICABILITY_SCOPE",
+      "existing_master_claim_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C111"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "v33_source_candidate_id": "C00268",
+      "proposed_relation_type": "QUESTION_NEEDS_SCOPE_NOT_NEW_FACT",
+      "existing_master_claim_ids": [
+        "GOMHEE-C111"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "v33_source_candidate_id": "C00270",
+      "proposed_relation_type": "WITHDRAWAL_SOURCE_REFINEMENT",
+      "existing_master_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "v33_source_candidate_id": "C00272",
+      "proposed_relation_type": "ETF_TYPE_TAX_EXCEPTION_DETAIL",
+      "existing_master_claim_ids": [
+        "GOMHEE-C15",
+        "GOMHEE-C21"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "v33_source_candidate_id": "C00274",
+      "proposed_relation_type": "TOO_BROAD_NEEDS_PENSION_SOURCE_EXCEPTION",
+      "existing_master_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00005",
+      "v33_source_candidate_id": "C00057",
+      "proposed_relation_type": "PERSONAL_ACCOUNT_RECOMMENDATION_NOT_UNIVERSAL",
+      "existing_master_claim_ids": [
+        "GOMHEE-C40",
+        "GOMHEE-C106"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00005",
+      "v33_source_candidate_id": "C00059",
+      "proposed_relation_type": "ALLOCATION_EXAMPLE_NOT_OPTIMAL",
+      "existing_master_claim_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C79"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00007",
+      "v33_source_candidate_id": "C00085",
+      "proposed_relation_type": "STATUTORY_IRP_TRANSFER_EXCEPTION_DETAIL",
+      "existing_master_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C113"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00007",
+      "v33_source_candidate_id": "C00089",
+      "proposed_relation_type": "CONFLICT_WITH_FLEXIBLE_ACCOUNT_ALLOCATION",
+      "existing_master_claim_ids": [
+        "GOMHEE-C40",
+        "GOMHEE-C79"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00003",
+      "v33_source_candidate_id": "C00034",
+      "proposed_relation_type": "BANK_TO_BROKER_UNIVERSAL_NOT_SUPPORTED",
+      "existing_master_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C73"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00003",
+      "v33_source_candidate_id": "C00036",
+      "proposed_relation_type": "CONTRACT_FEE_CHECK_REQUIRED",
+      "existing_master_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C73"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00004",
+      "v33_source_candidate_id": "C00049",
+      "proposed_relation_type": "IRP_EARLY_WITHDRAWAL_PERSONAL_CONDITION",
+      "existing_master_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C45"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00004",
+      "v33_source_candidate_id": "C00050",
+      "proposed_relation_type": "ONE_PROVIDER_POST_PAYOUT_OPERATION_REFINEMENT",
+      "existing_master_claim_ids": [
+        "GOMHEE-C68",
+        "GOMHEE-C113"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00004",
+      "v33_source_candidate_id": "C00052",
+      "proposed_relation_type": "ACCOUNT_TRANSFER_CONTRACT_CONDITION",
+      "existing_master_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C73"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00011",
+      "v33_source_candidate_id": "C00132",
+      "proposed_relation_type": "DO_NOT_TURN_NO_SELL_INTO_PERSONAL_ORDER",
+      "existing_master_claim_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00011",
+      "v33_source_candidate_id": "C00137",
+      "proposed_relation_type": "DIVIDEND_YIELD_MARKET_TIME_SCENARIO",
+      "existing_master_claim_ids": [
+        "GOMHEE-C24",
+        "GOMHEE-C34"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00011",
+      "v33_source_candidate_id": "C00143",
+      "proposed_relation_type": "HIGH_DIVIDEND_NOT_GUARANTEED_RECOVERY",
+      "existing_master_claim_ids": [
+        "GOMHEE-C24",
+        "GOMHEE-C108"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00007",
+      "v33_source_candidate_id": "C00103",
+      "proposed_relation_type": "LIVING_BUDGET_PRECEDES_DISCRETIONARY_SPEND",
+      "existing_master_claim_ids": [
+        "GOMHEE-C62",
+        "GOMHEE-C76"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00007",
+      "v33_source_candidate_id": "C00107",
+      "proposed_relation_type": "FIFTY_FIFTY_BUDGET_NOT_RULE",
+      "existing_master_claim_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C76"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00008",
+      "v33_source_candidate_id": "C00115",
+      "proposed_relation_type": "ISA_PENSION_ALLOCATION_EXAMPLE_NOT_RULE",
+      "existing_master_claim_ids": [
+        "GOMHEE-C40",
+        "GOMHEE-C79"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00008",
+      "v33_source_candidate_id": "C00122",
+      "proposed_relation_type": "EMPLOYMENT_STOCK_CONCENTRATION_RISK",
+      "existing_master_claim_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00008",
+      "v33_source_candidate_id": "C00123",
+      "proposed_relation_type": "AFFILIATE_VENDOR_INDUSTRY_CORRELATION_RISK",
+      "existing_master_claim_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "needs_semantic_equivalence_review": true,
+      "source_issuer_audio_verified": false,
+      "auto_merge_authorized": false
+    }
+  ],
+  "all_links_are_preliminary_not_verified_semantic_equivalence": true,
+  "master_claims_modified": false,
+  "automatically_added_knowledge_claims": 0,
+  "blind_gold_verified": false,
+  "p0_go": false
+}

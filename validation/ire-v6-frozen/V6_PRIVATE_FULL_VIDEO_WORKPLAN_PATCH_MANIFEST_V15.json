@@ -1,0 +1,26 @@
+{
+  "schema": "IRE_V6_PRIVATE_FULL_VIDEO_WORKPLAN_PATCH_V15",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v14_manifest_git_blob_sha": "3f49e80cd8459fb6d742d3b0cca46f3b81bd3e97",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "Owner-pinned original full-video deterministic bounded source workplan, exact cue coverage, independent child owner pins required; no LLM API or false completion",
+  "added": [
+    {
+      "path": "ire/v6/full_video_segments.py",
+      "git_blob_sha": "b2cf970e989e0be7ceee4f888a4822acac001644"
+    },
+    {
+      "path": "ire/v6/tests/test_full_video_segments.py",
+      "git_blob_sha": "a0c60c496abb06f860c09a3a94c5783e977434cf"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 50,
+  "full_original_cue_partition_structurally_checked": true,
+  "original_parent_owner_pin_verified": true,
+  "child_owner_pins_auto_authorized": false,
+  "model_generated_semantic_claims": false,
+  "private_srt_saved_to_public_repo": false,
+  "all_791_videos_researched": false,
+  "independent_gold_recall_measured": false,
+  "p0_go": false
+}

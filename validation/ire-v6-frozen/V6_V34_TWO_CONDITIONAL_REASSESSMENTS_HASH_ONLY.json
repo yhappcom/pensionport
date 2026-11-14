@@ -1,0 +1,90 @@
+{
+  "schema": "IRE_V6_V34_TWO_OPEN_HISTORICAL_CLAIMS_CHAT_CONDITIONAL_REASSESSMENT",
+  "prior_v33_host_review_sha256": "d25e5a8ac021e2722dc8b9f0e52fe4df879cbbb20da17adc6c77d2914e28faf5",
+  "original_open_claim_count": 2,
+  "conditional_scope_reclassified_count": 2,
+  "unverified_current_individual_or_provider_cases": 2,
+  "reassessments": [
+    {
+      "review_id": "V3-IRP_ONE_MAN_WITHDRAWAL_START",
+      "source_original_sha256": "e94b12a1084a8b57c3b9c2a630e27f840ae5a827b3a71c62526e15380a7c57bd",
+      "original_review_sha256": "7633504941d15bd7b046f674119d02678426a98863d2c4e1fd1f49f75f09d10c",
+      "reassessed_meaning_sha256": "d76b764dac97f29437102960a7bcb3c680540a55fa50a1f754992d85a767ea4c",
+      "reassessed_rationale_sha256": "e6779e7ef33dffea3b05b641581da1b012b5a1a01ff603311c74f7f2c244650b",
+      "prior_master_claim_id": "GOMHEE-C31",
+      "prior_master_sha256": "f8f09a35b71b4e556211be87536e057a3de94411c5f9c151368e343603ee8aef",
+      "decision": "PROVIDER_AND_CONTRIBUTION_TYPE_CONDITIONAL",
+      "supporting_evidence": [
+        {
+          "url_sha256": "50f9d98bd7ec8fe45248d7a286990bf8dbae4a7bcd7d9cd326f64890a0081d1a",
+          "source_type": "FINANCIAL_INSTITUTION_POLICY",
+          "effective_or_publication_date": "2026-11-10",
+          "retrieved_on": "2026-11-10",
+          "scope_sha256": "99c968d34d72898a2f55c636ba89d7de311576438b007c7bda8722add07fd2fb",
+          "original_signed_issuer_full_body_authenticated": false
+        },
+        {
+          "url_sha256": "6397eef93388faeaf167b7dcd1a32b333a20ae00f0a1fc3cb7a904df6bc364c7",
+          "source_type": "HISTORICAL_FINANCIAL_INSTITUTION_PDF",
+          "effective_or_publication_date": "2024-07-18",
+          "retrieved_on": "2026-11-10",
+          "scope_sha256": "be6c97e13cd613ee5aedf9017fa8c9fb2f33c6708f7c6943616cfd77d411110e",
+          "original_signed_issuer_full_body_authenticated": false
+        },
+        {
+          "url_sha256": "668ac61eb40f057b8392a386f52120e26ba903243101e9b62299c84d00b8067b",
+          "source_type": "STATUTE_CURRENT",
+          "effective_or_publication_date": "2026-09-18",
+          "retrieved_on": "2026-11-10",
+          "scope_sha256": "63edfc2135c3c7105b0b55c4a312b2810343a541a9a276ec133d91d25beaa6e3",
+          "original_signed_issuer_full_body_authenticated": false
+        }
+      ],
+      "case_scope_reviewed_conditional_education_only": true,
+      "actual_account_financial_provider_policy_current_verified": false,
+      "company_specific_MNPI_status_verified": false,
+      "historical_claim_reuse_as_unconditional_fact": false,
+      "existing_knowledge_auto_merge": false
+    },
+    {
+      "review_id": "V5-EMPLOYER_SUPPLIER_STOCK_ADVOCACY",
+      "source_original_sha256": "af4fb6b702c5497e5c17bc7b9a3e87855a5488dd263cded32be9a09cec67a543",
+      "original_review_sha256": "9481a7b86f8094a04a22ea412cd23503fd819ef8d077f9c10fed5c9e5644a02a",
+      "reassessed_meaning_sha256": "b7136045b90bb902404d0145ed25cec999acb1b809db11f21dc3d236798519d9",
+      "reassessed_rationale_sha256": "55cb78b0619afa7046d6e2420aae5e6d252f8bf3f5eb379b55237e9d4a5a5232",
+      "prior_master_claim_id": "GOMHEE-C09",
+      "prior_master_sha256": "aada420fdac19ec3532b1da7d4ec16951682f206f00eb338df9aa2c979a900d4",
+      "decision": "PUBLIC_INFORMATION_AND_DIVERSIFICATION_BOUNDARY",
+      "supporting_evidence": [
+        {
+          "url_sha256": "c85322382720598b743d472b71e5922539b9813f5692e0bfc56f4a9ff0f7660c",
+          "source_type": "STATUTE_CURRENT",
+          "effective_or_publication_date": "2026-10-02",
+          "retrieved_on": "2026-11-10",
+          "scope_sha256": "b21d2f282e104083ce7cb9952ce7cd66f014711d25239673f4497af5edabf29a",
+          "original_signed_issuer_full_body_authenticated": false
+        },
+        {
+          "url_sha256": "b17537262bc90ae3d53a535710dd0a4c9713806bca564e89c5b3f39af8fb5221",
+          "source_type": "REGULATOR_FINANCIAL_EDUCATION",
+          "effective_or_publication_date": "2026-11-10",
+          "retrieved_on": "2026-11-10",
+          "scope_sha256": "c923e4be6cea2af0e1ac04bc01a38ffe50c95d7bb1476988efb95b3adebffc23",
+          "original_signed_issuer_full_body_authenticated": false
+        }
+      ],
+      "case_scope_reviewed_conditional_education_only": true,
+      "actual_account_financial_provider_policy_current_verified": false,
+      "company_specific_MNPI_status_verified": false,
+      "historical_claim_reuse_as_unconditional_fact": false,
+      "existing_knowledge_auto_merge": false
+    }
+  ],
+  "original_review_rows_immutable": true,
+  "not_a_current_personal_investment_or_tax_advice": true,
+  "not_independent_human_financial_gold": true,
+  "all_1603_candidate_claims_semantically_reviewed": false,
+  "master116_or_p4_auto_merge": false,
+  "p0_go": false,
+  "receipt_sha256": "55bc1a412fd309a0bf8cfb6ab4f97abb63bc320f3c91297182c858f210b2ed74"
+}

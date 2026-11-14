@@ -1,0 +1,83 @@
+{
+  "actual_new_financial_knowledge_approved": 0,
+  "checkpoint_head_sha256": "2d332daec0377f4845c884bf88af2c02cbb640e229a63271c4593688b7503b7a",
+  "checkpoint_restart_verified": true,
+  "classified_cues": 158,
+  "finance_general_rule_counterevidence_open": 1,
+  "finance_general_rule_limited_open": 1,
+  "finance_source_fact_open": 3,
+  "financial_fact_candidates": 5,
+  "financial_fact_evidence_docket_rows": 5,
+  "full_historical_dedup_complete": false,
+  "independent_adjudication_wall_ns": null,
+  "independent_gold": false,
+  "independent_precision": null,
+  "independent_recall": null,
+  "local_structural_stage_wall_ns": {
+    "finance_docket_construction_and_audit": 202546,
+    "p1_metadata_preview": 156,
+    "private_archive_read_and_parse": 8416901,
+    "source_semantic_crosswalk": 1653035
+  },
+  "master116_p4_v5_modified": false,
+  "model_semantic_wall_ns": null,
+  "new_semantic_model_inference_performed": false,
+  "official_docket_digest_sha256": "243e5cedda9fbef26b6d940606351035846644a46a70b43a71a0de4966695ce4",
+  "official_html_document_body_snapshots_pinned": false,
+  "official_reference_pointers": 3,
+  "official_search_wall_ns": null,
+  "open_context_resolved_from_v111": 10,
+  "open_resolution_wall_ns": null,
+  "original_1_70_zip_bytes_rechecked": false,
+  "p0_go": false,
+  "parent_candidates": 52,
+  "personal_advice_approved": false,
+  "schema": "IRE_V6_V114_ACTUAL_OWNER_PRIVATE_160_CUE_STAGE_DRIVER_PUBLIC_SHA_ONLY_V1",
+  "semantic_units": 85,
+  "source_cue_unit_sha_replayed": true,
+  "source_cues": 160,
+  "source_original_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "source_owner_private_zip_hashes_verified": {
+    "v110": "f03b5147f01d2e976a26f080dae0e4ed53f447f0b4c6252ab812665a29aa135e",
+    "v112": "dd099a2c22f6555ab78f3205c4a642a7b5d48470e8a5db59846bdd4537132c9e",
+    "v113": "08e3ed04d0f50641d79b21b34e31a076923a9ae0bf0cc8cb900a86c04bc7c5b4"
+  },
+  "source_windows": 4,
+  "stage_checkpoint_count": 5,
+  "stage_receipts": [
+    {
+      "hash": "1d793fcab371b8c9c97e6e28f206cf04143229fe8efe5e4fa82f7cb90463441b",
+      "payload_digest": "f6e3b1c8618635d754599f48630bdecd8006a4cecf5b3b75210f6ed498be1c46",
+      "sequence": 1,
+      "stage": "SOURCE"
+    },
+    {
+      "hash": "ff206718275ca9e5efd43bde1686045daad10a009e809e111d1a310901992d36",
+      "payload_digest": "a7c13c4f3d4f70e9f92a4e7450735bcb839bad1b984e8a348fee85bdffe69beb",
+      "sequence": 2,
+      "stage": "SEMANTIC"
+    },
+    {
+      "hash": "482bb3fa3d2a6bbd7792be9ebf9b6d8a5cda76803b63828980275cd5ed3e584c",
+      "payload_digest": "5bc7bfef1638e57b90ad2d364ea8534d3cf46e8c341e52be5606ff790b3e454f",
+      "sequence": 3,
+      "stage": "FINANCE"
+    },
+    {
+      "hash": "e152e32a0308cfbc180200185cf143ea5a00f2af51bf0edb9bb1e7aa870a9c68",
+      "payload_digest": "6ee16292b5b555ef1dc91b716b270ffedc83302464cdad089121a15490728ba2",
+      "sequence": 4,
+      "stage": "METRICS"
+    },
+    {
+      "hash": "2d332daec0377f4845c884bf88af2c02cbb640e229a63271c4593688b7503b7a",
+      "payload_digest": "fd9f0a6b8168bc954e0d293f56035b2f26173f17fbd7deecdb142478b39fe25c",
+      "sequence": 5,
+      "stage": "KNOWLEDGE"
+    }
+  ],
+  "still_open_evidence_units": 12,
+  "unassigned_cues": 2,
+  "v113_source_key_prior_overlap_positions": 1,
+  "v75_historical_identity_recovered": false
+}

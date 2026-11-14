@@ -1,0 +1,56 @@
+{
+  "schema": "IRE_V6_HOST_ATOMIC_EXCHANGE_PATCH_V6",
+  "base_branch_head": "ccac3a3ef9a7b91ec01244432e594412af54e37a",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v4_manifest_git_blob_sha": "453179a0bdfc4a712d3376871aa3b5a23a5616e4",
+  "previous_v3_manifest_git_blob_sha": "3638274d0de77a000e5d65185208f0849b1e5a5a",
+  "previous_v2_manifest_git_blob_sha": "330b435afa571119a7ceee3314176c482ca6bc48",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "Source-first explicit cue dispositions, numeric provenance, bounded speaker/condition context and private one-snapshot host exchange; no independent semantic certification",
+  "modified_from_original": [
+    {
+      "path": "ire/v6/store.py",
+      "git_blob_sha": "25fc8d8ea8a96a6e3c5456fcf7da63b0cba5e3e9"
+    },
+    {
+      "path": "ire/v6/state_machine.py",
+      "git_blob_sha": "5bf244e16e2c5e5c8a51df63b65de69ccff5d796"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/official_completion.py",
+      "git_blob_sha": "57fd2cab68aeeb4678aea8e1a07ed64b2fbf83e0"
+    },
+    {
+      "path": "ire/v6/tests/test_official_completion.py",
+      "git_blob_sha": "aaec025322bb1523a11e576c3f688031f489ff03"
+    },
+    {
+      "path": "ire/v6/claim_census.py",
+      "git_blob_sha": "1e0630e7088926d752dcf54275e8d81721cb1221"
+    },
+    {
+      "path": "ire/v6/tests/test_claim_census.py",
+      "git_blob_sha": "2e853798dcf146545331e4f02cf2fda425c7e8aa"
+    },
+    {
+      "path": "ire/v6/atomic_exchange.py",
+      "git_blob_sha": "06f4d402d0b3a3584bfe4b096654dc640ce321d0"
+    },
+    {
+      "path": "ire/v6/tests/test_atomic_exchange.py",
+      "git_blob_sha": "8eb3cde49c02f87712a958c75f227f383fbf9282"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 31,
+  "source_first_cue_coverage_verified": true,
+  "atomic_semantic_completeness_certified": false,
+  "independently_authored_gold_verified": false,
+  "full_engine_p0_go": false,
+  "migration_of_historical_v2_receipts_complete": false,
+  "never_merge_without_owner_approval": true,
+  "previous_v5_manifest_git_blob_sha": "32573935a30d9f4a3d45ec2460ee69ea42056d95",
+  "atomic_exchange_host_contract_integrated": true,
+  "every_cue_explicit_disposition_validated": true
+}

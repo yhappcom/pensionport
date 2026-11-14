@@ -1,0 +1,851 @@
+{
+  "schema": "IRE_V6_V51_FORTY_SOURCE_LINKED_FINANCE_CANDIDATE_CASES_MASTER116_NONMERGED",
+  "as_of": "2026-11-11",
+  "source_original_sha_pin_cohort": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "prior_protected_master116_git_blob": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "actual_prior_master_claim_count": 116,
+  "candidate_cases": 40,
+  "distinct_master_claim_id_links": 33,
+  "candidate_to_knowledge_preliminary_rows": [
+    {
+      "video_no": 1,
+      "window_id": "W00011",
+      "candidate_id": "C00126",
+      "paraphrased_atomic_meaning": "100억원 연금자산의 고액 인출 시 16.5%를 감수하고 많이 인출하는 권고",
+      "status_not_fact_approval": "PERSONAL_WITHDRAWAL_ADVICE_CONDITIONAL",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C45",
+        "GOMHEE-C78"
+      ],
+      "current_authoritative_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238978&mi=40483",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888"
+      ],
+      "conditions_and_errors_preserved": [
+        "계좌 재원별 비공제원금/이연퇴직금/운용수익 구별",
+        "연금수령요건·세액"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00011",
+      "candidate_id": "C00127",
+      "paraphrased_atomic_meaning": "100만원에 16.5% 세율 적용 시 세금 16만5천원",
+      "status_not_fact_approval": "MATH_ONLY_NOT_GENERAL_TAX_RATE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "current_authoritative_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238978&mi=40483"
+      ],
+      "conditions_and_errors_preserved": [
+        "모든 사적연금 전체액에 16.5% 일괄적용 불가"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00011",
+      "candidate_id": "C00128",
+      "paraphrased_atomic_meaning": "100억원 전체에 16.5% 적용 시 세금 16억5천만원",
+      "status_not_fact_approval": "CONDITIONAL_MULTIPLICATION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C45",
+        "GOMHEE-C108"
+      ],
+      "current_authoritative_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238978&mi=40483"
+      ],
+      "conditions_and_errors_preserved": [
+        "가정 계산상 일치, 실제 과세재원·선택세율 미검증"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00011",
+      "candidate_id": "C00132",
+      "paraphrased_atomic_meaning": "100억원에서 16.5%를 낸 뒤 84억6천만원을 수령한다는 수치",
+      "status_not_fact_approval": "ARITHMETIC_INTERNAL_CONTRADICTION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C45",
+        "GOMHEE-C78"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "100억원−16억5천만원=83억5천만원, 원문 84억6천만원과 1억1천만원 차이"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00011",
+      "candidate_id": "C00133",
+      "paraphrased_atomic_meaning": "다른 계좌의 증여·배당이 50% 세금에 이를 수 있다고 일괄비교",
+      "status_not_fact_approval": "TAX_CATEGORY_OVERGENERALIZATION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C108"
+      ],
+      "current_authoritative_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238978&mi=40483"
+      ],
+      "conditions_and_errors_preserved": [
+        "증여세·상속세·금융소득종합과세는 다른 소득·납세단계이며 일괄 50% 아님"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00011",
+      "candidate_id": "C00136",
+      "paraphrased_atomic_meaning": "기준액 초과 사적연금 소득은 초과액만 종합과세된다는 설명",
+      "status_not_fact_approval": "CURRENT_PENSION_THRESHOLD_AND_OPTION_SCOPE_DRIFT",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "current_authoritative_urls": [
+        "https://j.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238978&mi=40483"
+      ],
+      "conditions_and_errors_preserved": [
+        "현재 연간 해당 사적연금 1500만원 초과 종합과세 또는 15% 분리과세 선택 가능; 원천소득 구분"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00008",
+      "candidate_id": "C00090",
+      "paraphrased_atomic_meaning": "국민연금 5년 연기로 월액 약 36% 증가하는 시나리오",
+      "status_not_fact_approval": "OFFICIAL_FORMULA_SUPPORTED_PERSONAL_BENEFIT_OPEN",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C55",
+        "GOMHEE-C66"
+      ],
+      "current_authoritative_urls": [
+        "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do"
+      ],
+      "conditions_and_errors_preserved": [
+        "연기기간 중 미지급, 월0.6% 가산, 개인 예상연금 별도 조회"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00008",
+      "candidate_id": "C00092",
+      "paraphrased_atomic_meaning": "월40만원을 5년간 연7% 가정으로 투자하여 약2800만원 형성",
+      "status_not_fact_approval": "HYPOTHETICAL_RETURN_NOT_GUARANTEED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C45",
+        "GOMHEE-C95"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "월 납입시점·월복리·세금·보수·실제 위험자산 연간수익률"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00008",
+      "candidate_id": "C00093",
+      "paraphrased_atomic_meaning": "2800만원에 연6%를 적용해 매월 14만원 분배",
+      "status_not_fact_approval": "ANNUAL_TO_MONTHLY_MATH_ONLY",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C24",
+        "GOMHEE-C34"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "원금보장·분배원천·세후 지급일과 실제 월분배 변동"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00008",
+      "candidate_id": "C00095",
+      "paraphrased_atomic_meaning": "국민연금 40만원과 배당 14만원을 합쳐 54만원 수급",
+      "status_not_fact_approval": "MIXED_CASHFLOW_SAFETY_UNPROVEN",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C34",
+        "GOMHEE-C66"
+      ],
+      "current_authoritative_urls": [
+        "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do"
+      ],
+      "conditions_and_errors_preserved": [
+        "공적연금과 투자상품 분배금의 지급 안정성 다름"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00008",
+      "candidate_id": "C00102",
+      "paraphrased_atomic_meaning": "연기연금과 10년 투자 전략의 장기결과가 유사하다는 가정",
+      "status_not_fact_approval": "NOT_RETURN_EQUIVALENCE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C55",
+        "GOMHEE-C66"
+      ],
+      "current_authoritative_urls": [
+        "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0100M0.do"
+      ],
+      "conditions_and_errors_preserved": [
+        "연금 수급기간·기대여명·금융자산 가격위험·세금이 다름"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00009",
+      "candidate_id": "C00112",
+      "paraphrased_atomic_meaning": "은행 요구불예금금리 0.1%인 시점 의존 예시",
+      "status_not_fact_approval": "HISTORICAL_PRODUCT_RATE_UNPROVEN",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C19",
+        "GOMHEE-C20"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "은행명·상품·적용일 및 금리 원표 미확보"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00009",
+      "candidate_id": "C00113",
+      "paraphrased_atomic_meaning": "영상 자막이 현재 날짜를 2026년 9월이라고 언급",
+      "status_not_fact_approval": "VIDEO_RECORDING_DATE_UNAUTHENTICATED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C46"
+      ],
+      "current_authoritative_urls": [
+        "https://www.bok.or.kr/portal/singl/baseRate/list.do?menuNo=200759"
+      ],
+      "conditions_and_errors_preserved": [
+        "자막의 현재 날짜를 실제 녹음 날짜와 동일 인증하지 않음"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00009",
+      "candidate_id": "C00115",
+      "paraphrased_atomic_meaning": "2026년 9월 기준금리 3.00%라는 숫자",
+      "status_not_fact_approval": "CURRENT_OFFICIAL_BOK_2026_SEPT_CORROBORATED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C19"
+      ],
+      "current_authoritative_urls": [
+        "https://www.bok.or.kr/portal/singl/baseRate/list.do?menuNo=200759",
+        "https://www.bok.or.kr/portal/bbs/B0000217/view.do?menuNo=200144&nttId=11065301"
+      ],
+      "conditions_and_errors_preserved": [
+        "BOK 2026-08-27 금융통화위원회 기준금리 3.00% 결정, 녹음일은 별도"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00009",
+      "candidate_id": "C00117",
+      "paraphrased_atomic_meaning": "정책금리를 7일 환매조건부증권 금리로 설명",
+      "status_not_fact_approval": "CENTRAL_BANK_POLICY_INSTRUMENT_DISTINCTION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C19"
+      ],
+      "current_authoritative_urls": [
+        "https://www.bok.or.kr/portal/bbs/B0000217/view.do?menuNo=200144&nttId=11065301"
+      ],
+      "conditions_and_errors_preserved": [
+        "금통위가 결정한 기준금리를 7일 RP 매각 고정입찰금리로 적용"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00009",
+      "candidate_id": "C00118",
+      "paraphrased_atomic_meaning": "7일물 RP 시장금리로부터 한국은행 정책금리를 정한다는 인과",
+      "status_not_fact_approval": "POLICY_RATE_CAUSAL_DIRECTION_INVERSION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C19"
+      ],
+      "current_authoritative_urls": [
+        "https://www.bok.or.kr/portal/bbs/B0000217/view.do?menuNo=200144&nttId=11065301"
+      ],
+      "conditions_and_errors_preserved": [
+        "금통위의 정책금리 설정과 RP 공개시장운영 수단을 구별"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00009",
+      "candidate_id": "C00122",
+      "paraphrased_atomic_meaning": "RP 만기가 길면 금리가 반드시 높아진다",
+      "status_not_fact_approval": "YIELD_CURVE_NOT_MONOTONIC",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C12",
+        "GOMHEE-C19"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "역전 수익률곡선, 신용·담보 및 거래상대방 리스크"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00009",
+      "candidate_id": "C00123",
+      "paraphrased_atomic_meaning": "한국은행 RP 거래가 모든 증권사 RP 상품과 같은 무위험 거래라는 암시",
+      "status_not_fact_approval": "RISK_PRODUCT_CONFLATION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C19"
+      ],
+      "current_authoritative_urls": [
+        "https://www.bok.or.kr/portal/bbs/B0000217/view.do?menuNo=200144&nttId=11065301"
+      ],
+      "conditions_and_errors_preserved": [
+        "중앙은행 공개시장거래와 고객 RP상품 법적 상대방·담보가 다름"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00030",
+      "candidate_id": "C00385",
+      "paraphrased_atomic_meaning": "5000만원을 IRP1800·ISA2000·일반계좌1200으로 분할하는 예시",
+      "status_not_fact_approval": "PERSON_SPECIFIC_ACCOUNT_WRAPPER_ALLOCATION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C40"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "자금 필요, 2026 납입 가능한도·가입자격 및 유동성 확인"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00030",
+      "candidate_id": "C00386",
+      "paraphrased_atomic_meaning": "전재산 1억원 중 단일 종목에 5000만원 집중투자를 지양",
+      "status_not_fact_approval": "CONCENTRATION_RISK_EDUCATION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "current_authoritative_urls": [
+        "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      ],
+      "conditions_and_errors_preserved": [
+        "여러 종목이 동일 섹터라면 집중 위험 계속 존재"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00030",
+      "candidate_id": "C00387",
+      "paraphrased_atomic_meaning": "5000만원을 주도주와 가치주 2500씩, 각 다섯 종목으로 분산",
+      "status_not_fact_approval": "HYPOTHETICAL_EQUITY_POSITION_WEIGHTS",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "10종목의 업종·상관·시장위험 미측정"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00015",
+      "candidate_id": "C00173",
+      "paraphrased_atomic_meaning": "자녀 독립·상속 의향이 낮으면 주택연금 고려",
+      "status_not_fact_approval": "CURRENT_HOUSING_PENSION_ELIGIBILITY_CONDITIONS",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C58"
+      ],
+      "current_authoritative_urls": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do"
+      ],
+      "conditions_and_errors_preserved": [
+        "부부 중 1인 55세 이상, 공시가격 합계12억원 이하, 실거주 및 담보 조건"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00015",
+      "candidate_id": "C00175",
+      "paraphrased_atomic_meaning": "주택을 팔고 주택연금을 받는 것으로 설명",
+      "status_not_fact_approval": "HOUSING_REVERSE_MORTGAGE_VS_HOME_SALE_CONFLATION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C58"
+      ],
+      "current_authoritative_urls": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do"
+      ],
+      "conditions_and_errors_preserved": [
+        "주택연금은 주택을 담보 제공하여 계속 거주·월 연금 수급, 단순 매각 대금이 아님"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00015",
+      "candidate_id": "C00176",
+      "paraphrased_atomic_meaning": "은퇴자 자산 정리 후 월배당 포트 구성",
+      "status_not_fact_approval": "PERSONAL_RETIREMENT_DECUMULATION_SCOPE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C34"
+      ],
+      "current_authoritative_urls": [
+        "https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do"
+      ],
+      "conditions_and_errors_preserved": [
+        "주택연금과 위험자산 배당의 원금·수수료·수급 구조 다름"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00015",
+      "candidate_id": "C00179",
+      "paraphrased_atomic_meaning": "특정 배당 포트폴리오가 과거 1년 하락 없었다는 경험담",
+      "status_not_fact_approval": "HISTORICAL_RETURN_ANECODTE_NOT_GUARANTEE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C34",
+        "GOMHEE-C83"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "외부 계좌 수익률 자료 없음, 미래 배당 지속 보장 불가"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00009",
+      "candidate_id": "C00103",
+      "paraphrased_atomic_meaning": "장기 적립식 투자 두 기법을 합치면 거의 무적",
+      "status_not_fact_approval": "INVESTMENT_LOSS_RISK_NOT_ELIMINATED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C01",
+        "GOMHEE-C52"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "투자 원금·목적기간·기초자산 가격변동과 유동성 위험"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00009",
+      "candidate_id": "C00105",
+      "paraphrased_atomic_meaning": "퇴직 IRP를 열고 바로 최소 금액 연금 개시 권고",
+      "status_not_fact_approval": "RETIREMENT_TAX_AND_PROVIDER_CASE_OPEN",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C68"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "사업자별 최소 연금수령 기준, 연금개시 후 신규 납입 가능여부, 법정 인출요건"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00004",
+      "candidate_id": "C00047",
+      "paraphrased_atomic_meaning": "손실 종목은 현재 팔면 안 된다는 단정",
+      "status_not_fact_approval": "PERSONAL_TRADE_RECOMMENDATION_BLOCK",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "기업가치 논리 변경·현금흐름·집중위험 검토"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00004",
+      "candidate_id": "C00049",
+      "paraphrased_atomic_meaning": "매수 투자논리가 실현되거나 훼손되었는지를 매도 판단 기준으로 사용",
+      "status_not_fact_approval": "EDUCATIONAL_DECISION_PRINCIPLE_WITH_LIMITS",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "인출 수요와 목표변경·가치평가 등도 별도 입력"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00004",
+      "candidate_id": "C00055",
+      "paraphrased_atomic_meaning": "실적 발표 전까지 매도하지 말라는 권고",
+      "status_not_fact_approval": "PRE_EARNINGS_MARKET_PRICE_RISK",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C54"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "가격은 예상 실적의 변화를 선반영할 수 있음"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00004",
+      "candidate_id": "C00057",
+      "paraphrased_atomic_meaning": "예상 실적이 이미 주가에 반영됐는지 묻는 반론",
+      "status_not_fact_approval": "OTHER_SPEAKER_QUESTION_PRESERVE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C50",
+        "GOMHEE-C103"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "반론을 원 발화자의 확정 견해로 바꾸지 않음"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00018",
+      "candidate_id": "C00210",
+      "paraphrased_atomic_meaning": "금리 상승기 채권과 REITs가 함께 하락한다는 설명",
+      "status_not_fact_approval": "ASSET_SPECIFIC_DURATION_CREDIT_EXPOSURE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C11",
+        "GOMHEE-C12"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "만기·신용·개별 REITs 영업기초·금리 수준"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00018",
+      "candidate_id": "C00216",
+      "paraphrased_atomic_meaning": "과거 차이나펀드 회복 사례를 근거로 손실 종목을 보유",
+      "status_not_fact_approval": "SURVIVORSHIP_HISTORICAL_ANECDOTE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "다른 주식의 원금회복 보장 아님"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00018",
+      "candidate_id": "C00222",
+      "paraphrased_atomic_meaning": "코스피 3000 재상승을 예견했다는 화자의 회고",
+      "status_not_fact_approval": "HISTORICAL_MARKET_FORECAST_PROOF_OPEN",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C50",
+        "GOMHEE-C54"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "발언시점·시장지수 원표와 재현 가능한 예측 필요"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00006",
+      "candidate_id": "C00084",
+      "paraphrased_atomic_meaning": "SK의 과거 하이닉스 인수 사례",
+      "status_not_fact_approval": "PAST_CORPORATE_EVENT_NEEDS_ISSUER_RECORD",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "금융회사·기업공시 시점과 전사 오류 확인"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00006",
+      "candidate_id": "C00089",
+      "paraphrased_atomic_meaning": "과거 대우증권 근무자의 예측 불가능한 기업합병 경험",
+      "status_not_fact_approval": "PERSONAL_CAREER_ANECDOTE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "기업 인수합병 역사와 개인적 판단 분리"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00006",
+      "candidate_id": "C00093",
+      "paraphrased_atomic_meaning": "사회초년생 네 개 통장 개설 권고",
+      "status_not_fact_approval": "PERSONAL_ACCOUNT_NUMBER_NOT_LAW",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C62"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "목표/부채/예비비/절세계좌 우선순위 달라짐"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00016",
+      "candidate_id": "C00211",
+      "paraphrased_atomic_meaning": "주택담보대출은 좋은 빚으로 활용 가능하다는 의견",
+      "status_not_fact_approval": "LEVERAGE_RISK_AND_CASHFLOW_SCOPE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C76"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "차입자 상환능력·금리 상승·주택 가치·DSR·직업 위험"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00016",
+      "candidate_id": "C00218",
+      "paraphrased_atomic_meaning": "사회초년생 월 300만원 소비욕구",
+      "status_not_fact_approval": "PERSONAL_CONSUMPTION_ANECODTE_NOT_BUDGET_RULE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C76"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "실제 급여·고정비·저축·채무상환"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00016",
+      "candidate_id": "C00224",
+      "paraphrased_atomic_meaning": "좋은 소비생활에도 꾸준한 노력이 필요하다는 원칙",
+      "status_not_fact_approval": "GENERAL_VALUES_NOT_QUANTITATIVE_FINANCE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C62"
+      ],
+      "current_authoritative_urls": [],
+      "conditions_and_errors_preserved": [
+        "금융상품 적합성·투자성과로 승인할 사안이 아님"
+      ],
+      "official_current_rule_not_historical_recording_proof": true,
+      "independent_semantic_gold_verified": false,
+      "approved_for_investment_advice": false,
+      "master_auto_merge_authorized": false
+    }
+  ],
+  "related_master_ids": [
+    "GOMHEE-C01",
+    "GOMHEE-C03",
+    "GOMHEE-C09",
+    "GOMHEE-C103",
+    "GOMHEE-C108",
+    "GOMHEE-C11",
+    "GOMHEE-C12",
+    "GOMHEE-C19",
+    "GOMHEE-C20",
+    "GOMHEE-C21",
+    "GOMHEE-C24",
+    "GOMHEE-C30",
+    "GOMHEE-C31",
+    "GOMHEE-C34",
+    "GOMHEE-C38",
+    "GOMHEE-C40",
+    "GOMHEE-C42",
+    "GOMHEE-C45",
+    "GOMHEE-C46",
+    "GOMHEE-C50",
+    "GOMHEE-C51",
+    "GOMHEE-C52",
+    "GOMHEE-C54",
+    "GOMHEE-C55",
+    "GOMHEE-C58",
+    "GOMHEE-C62",
+    "GOMHEE-C63",
+    "GOMHEE-C66",
+    "GOMHEE-C68",
+    "GOMHEE-C76",
+    "GOMHEE-C78",
+    "GOMHEE-C83",
+    "GOMHEE-C95"
+  ],
+  "nonindependent_original_chat_label_only": true,
+  "financial_factual_gold_independent_approved": 0,
+  "semantic_equivalence_actually_certified": 0,
+  "new_approved_or_merged_claims": 0,
+  "historical_original_audio_and_issuer_docs_eight_cases_closed": 0,
+  "main_v5_master116_p4_modified": false,
+  "p0_go": false,
+  "number_of_substantive_source_cases_reviewed": 40
+}

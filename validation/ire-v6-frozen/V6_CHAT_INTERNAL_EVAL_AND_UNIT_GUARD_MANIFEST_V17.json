@@ -1,0 +1,32 @@
+{
+  "schema": "IRE_V6_CHAT_INTERNAL_EVAL_AND_UNIT_GUARD_PATCH_V17",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "previous_v16_manifest_git_blob_sha": "7686750fda1a0553cee25f7526dc4dbb3ccb8444",
+  "previous_atomic_exchange_git_blob_sha": "06f4d402d0b3a3584bfe4b096654dc640ce321d0",
+  "modified_from_v16": [
+    {
+      "path": "ire/v6/atomic_exchange.py",
+      "git_blob_sha": "710a79f7e3083c38bb68b24358b7e4c9d6d7d625"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/internal_reference.py",
+      "git_blob_sha": "47fe870a5527a2bcee729ab75b226f906a409f19"
+    },
+    {
+      "path": "ire/v6/tests/test_internal_reference.py",
+      "git_blob_sha": "161c14e5aba5b28cf0fb5c214bf12b92ad2f2945"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_STAGE_S2_TO_S7_CHAT_EXECUTION_REPORT_V17.md",
+  "report_git_blob_sha": "cbe75333d05c431c49c04e02e49ccaaf6a0f7d7e",
+  "new_total_ire_v6_tracked_files": 52,
+  "private_original_srt_uploaded": false,
+  "chat_self_reference_is_independent_gold": false,
+  "actual_gold_precision_measured": false,
+  "all_791_videos_researched": false,
+  "s5_six_lexical_risk_cases_open": true,
+  "s6_9_video_original_available": false,
+  "p0_go": false
+}

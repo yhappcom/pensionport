@@ -1,0 +1,713 @@
+{
+  "schema": "IRE_V6_V52_32_SOURCE_BOUND_HIGH_CONSEQUENCE_FINANCE_CANDIDATE_MASTER116_NONMERGED",
+  "as_of": "2026-11-11",
+  "source_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "source_to_meaning_receipt_private_sha256": "70782e8c94e0372b7e271ea780c5b98cfc8a3e86b3536d849a7c0e679648d689",
+  "source_actual_v39_v40_10_windows": 10,
+  "source_candidates_semantically_classified": 126,
+  "master116_git_blob": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "master116_verified_total": 116,
+  "scope_review_case_count": 32,
+  "distinct_prior_master_claim_id_suggestions": 32,
+  "distinct_prior_master_claim_ids": [
+    "GOMHEE-C03",
+    "GOMHEE-C05",
+    "GOMHEE-C102",
+    "GOMHEE-C112",
+    "GOMHEE-C115",
+    "GOMHEE-C12",
+    "GOMHEE-C13",
+    "GOMHEE-C14",
+    "GOMHEE-C18",
+    "GOMHEE-C19",
+    "GOMHEE-C24",
+    "GOMHEE-C26",
+    "GOMHEE-C31",
+    "GOMHEE-C33",
+    "GOMHEE-C34",
+    "GOMHEE-C37",
+    "GOMHEE-C38",
+    "GOMHEE-C40",
+    "GOMHEE-C42",
+    "GOMHEE-C45",
+    "GOMHEE-C51",
+    "GOMHEE-C54",
+    "GOMHEE-C55",
+    "GOMHEE-C62",
+    "GOMHEE-C63",
+    "GOMHEE-C65",
+    "GOMHEE-C66",
+    "GOMHEE-C68",
+    "GOMHEE-C76",
+    "GOMHEE-C78",
+    "GOMHEE-C79",
+    "GOMHEE-C80"
+  ],
+  "candidate_conditions_and_knowledge_crosswalk": [
+    {
+      "video_no": 1,
+      "window_id": "W00003",
+      "v33_candidate_id": "C00030",
+      "paraphrased_financial_meaning": "8% 배당률을 미래 연금 인출·투자 수익 예측에 사용",
+      "case_status": "HYPOTHETICAL_YIELD_NOT_CERTIFIED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C24",
+        "GOMHEE-C34"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "material_application_conditions": [
+        "8% 분배율은 원금·총수익 보장 아님",
+        "실물 분배금과 자본환급 구별"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00003",
+      "v33_candidate_id": "C00031",
+      "paraphrased_financial_meaning": "연금저축 수령액 20·23·26만원 및 5.5·4.4% 세율을 함께 비교",
+      "case_status": "MULTIPLE_PENSION_TAX_RULES_UNRESOLVED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "인출 재원과 연령·연금수령한도에 따라 과세가 다름",
+        "수치 ASR 단위확인"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00003",
+      "v33_candidate_id": "C00032",
+      "paraphrased_financial_meaning": "국민연금과 연7% 운용 12년·8% 배당 모형을 동일 월수급액으로 비교",
+      "case_status": "CROSS_PRODUCT_COMPARISON_NEEDS_PROBABILISTIC_RISK",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C45",
+        "GOMHEE-C66"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "material_application_conditions": [
+        "연금보장·물가연동·기대여명 vs 시장위험",
+        "수급개시연령"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00003",
+      "v33_candidate_id": "C00036",
+      "paraphrased_financial_meaning": "국민연금의 물가조정과 배당주 원금 상승을 함께 가정",
+      "case_status": "STOCK_APPRECIATION_NOT_INFLATION_PROTECTED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C24",
+        "GOMHEE-C66"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "material_application_conditions": [
+        "실물 배당주 주가상승은 물가보정과 달리 보장되지 않음"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00003",
+      "v33_candidate_id": "C00041",
+      "paraphrased_financial_meaning": "추납의 유리함을 7% 적립·8% 인출 모형으로 설명",
+      "case_status": "PERSON_SPECIFIC_NPS_TOPUP_NOT_UNIVERSAL",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C55",
+        "GOMHEE-C66"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "공단 예상연금·추납보험료·개시시점·건강과 수명 확인"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00026",
+      "v33_candidate_id": "C00313",
+      "paraphrased_financial_meaning": "2000년대 초 이전 연금보험 연6.5~7.5% 고금리 계약이 있으므로 해지주의",
+      "case_status": "HISTORICAL_CONTRACT_TERMS_OPEN",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C14"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.hanwhalife.com/main/disclosure/goods/disclosurenotice/DF_GDDN000_P10000.do",
+        "https://pub.insure.or.kr"
+      ],
+      "material_application_conditions": [
+        "실제 확정이율·공시이율·최저보증이율 구별",
+        "보증기간·납입원금·사업비·보험증권 필요"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00026",
+      "v33_candidate_id": "C00315",
+      "paraphrased_financial_meaning": "높은 과거 보험이율 상품을 무조건 장기보유하라는 권고",
+      "case_status": "PERSONAL_INSURANCE_HOLD_ADVICE_WITH_CONDITIONS",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C14"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.hanwhalife.com/main/disclosure/goods/disclosurenotice/DF_GDDN000_P10000.do"
+      ],
+      "material_application_conditions": [
+        "실효세후수익률·해지환급금·위험보장 가치·대체투자 검토"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00026",
+      "v33_candidate_id": "C00318",
+      "paraphrased_financial_meaning": "6.5~7.5% 복리 보증이면 위험투자보다 유리할 수 있음",
+      "case_status": "CONDITIONAL_RATE_GUARANTEE_NOT_PROVED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C14"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://pub.insure.or.kr"
+      ],
+      "material_application_conditions": [
+        "이율 적용기준·기간·회사 지급여력·세금 및 만기/해지 조건"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00026",
+      "v33_candidate_id": "C00320",
+      "paraphrased_financial_meaning": "과거 보험 판매시기에 따라 상품조건이 다르다고 설명",
+      "case_status": "GENERAL_PRODUCT_VINTAGE_SCOPE_SUPPORTED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C14"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.hanwhalife.com/main/disclosure/goods/disclosurenotice/DF_GDDN000_P10000.do"
+      ],
+      "material_application_conditions": [
+        "보험사가 해지를 권하는 동기는 별도 증거 필요"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00017",
+      "v33_candidate_id": "C00218",
+      "paraphrased_financial_meaning": "TDF와 업종별 반도체·자동차 ETF를 적립식 투자 대안으로 제안",
+      "case_status": "ASSET_CLASS_ALLOCATION_SECTOR_RISK",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C26",
+        "GOMHEE-C80"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "섹터집중·상품원금손실·TDF 글라이드패스와 비용"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00017",
+      "v33_candidate_id": "C00220",
+      "paraphrased_financial_meaning": "ISA 2천만원과 연금 1800만원 납입 후 일반계좌 배당투자 제안",
+      "case_status": "HISTORICAL_WRAPPER_CONTRIBUTION_NOT_AUTOMATIC",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C40",
+        "GOMHEE-C79"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.samsungpop.com/ux/kor/finance/isa/isainfo/intro.do"
+      ],
+      "material_application_conditions": [
+        "개인현금흐름·2026 납입가능 한도·연금 세액공제 실익"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00017",
+      "v33_candidate_id": "C00222",
+      "paraphrased_financial_meaning": "ISA 계좌에 입금해도 실제 ETF 등 자산을 매수해야 투자수익 발생",
+      "case_status": "CORRECT_DEPOSIT_VS_INVESTMENT_DISTINCTION",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C05",
+        "GOMHEE-C13"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.samsungfund.com/etf/isa.do"
+      ],
+      "material_application_conditions": [
+        "입금만으로 손익·절세 보장되지 않음"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00017",
+      "v33_candidate_id": "C00226",
+      "paraphrased_financial_meaning": "ISA 계좌 이용만으로 무조건 세금혜택을 받는다는 화자 발언",
+      "case_status": "ISA_TAX_BENEFIT_NOT_GUARANTEED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C33"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.samsungpop.com/ux/kor/finance/isa/isainfo/intro.do"
+      ],
+      "material_application_conditions": [
+        "과세대상 투자수익·계약유지조건·계좌 적격성·상품 분류"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00230",
+      "paraphrased_financial_meaning": "ISA 내 단기채·금리형 상품을 원금 안전 대안으로 추천",
+      "case_status": "ACCOUNT_ALLOWED_PRODUCTS_NOT_SAME_AS_DEPOSIT_INSURANCE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C12",
+        "GOMHEE-C19"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.samsungpop.com/ux/kor/finance/isa/isainfo/intro.do"
+      ],
+      "material_application_conditions": [
+        "채권형 가격변동·신용위험·보험보호 대상 여부"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00231",
+      "paraphrased_financial_meaning": "ISA에 넣은 목돈을 곧바로 회수할 수 있다는 단순 응답",
+      "case_status": "ISA_MIDTERM_WITHDRAWAL_PRINCIPAL_RULE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C13",
+        "GOMHEE-C115"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.samsungpop.com/ux/kor/finance/isa/isainfo/intro.do"
+      ],
+      "material_application_conditions": [
+        "납입원금 범위 중도인출과 재납입한도·해지 요건 구별"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00232",
+      "paraphrased_financial_meaning": "ISA 2천·연금 1800·일반계좌 배당투자의 정해진 순서 제안",
+      "case_status": "PERSONAL_ALLOCATION_NOT_UNIVERSAL",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C40"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.samsungpop.com/ux/kor/finance/isa/isainfo/intro.do"
+      ],
+      "material_application_conditions": [
+        "ISA와 연금의 유동성·납입가능액·절세 한도 다름"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00236",
+      "paraphrased_financial_meaning": "배당받은 돈으로 새로운 산업주식을 마음껏 매수해도 된다는 조언",
+      "case_status": "DIVIDEND_IS_NOT_FREE_RISK_CAPITAL",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C24",
+        "GOMHEE-C34"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "material_application_conditions": [
+        "재투자금도 본인 투자자산이며 신규 손실 가능"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00237",
+      "paraphrased_financial_meaning": "남는 목돈 전액을 당시 금리 약 3%의 CMA에 보관하라는 제안",
+      "case_status": "CMA_HISTORICAL_RATE_AND_PROTECTION_SCOPE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C19",
+        "GOMHEE-C65"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "당시 실제 상품·금리·신용위험·유동성·보호여부 확인"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00202",
+      "paraphrased_financial_meaning": "은퇴기에는 최후 자금의 공격적인 투자보다 인출생활비 설계를 우선하자는 조언",
+      "case_status": "GENERAL_DECUMULATION_CAUTION_SCOPE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C68"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.investor.gov/additional-resources/retirement-toolkit/managing-lifetime-income"
+      ],
+      "material_application_conditions": [
+        "예상은퇴기간·수명·기초연금 유무·투자자 위험감내력"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00203",
+      "paraphrased_financial_meaning": "은퇴 초기 주가 급락이 인출기간 자산소진 위험을 높인다는 설명",
+      "case_status": "SEQUENCE_OF_RETURNS_RISK_COHERENT",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C102"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.investor.gov/additional-resources/retirement-toolkit/managing-lifetime-income"
+      ],
+      "material_application_conditions": [
+        "인출이 있는 기간에 조기 손실은 장기성과에 비대칭적 영향 가능"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00205",
+      "paraphrased_financial_meaning": "TDF가 은퇴시점 위험자산 비중을 조절하는 이유 설명",
+      "case_status": "TDF_GLIDEPATH_DEPENDS_ON_PRODUCT",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C18",
+        "GOMHEE-C80"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.investor.gov/additional-resources/retirement-toolkit/managing-lifetime-income"
+      ],
+      "material_application_conditions": [
+        "TDF마다 실제 주식·채권비중/수수료·은퇴 후 위험 다름"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00019",
+      "v33_candidate_id": "C00212",
+      "paraphrased_financial_meaning": "퇴직금 받으면 증권사 IRP 개설 후 1만원 연금 개시 권고",
+      "case_status": "IRP_PROVIDER_AND_EARLY_PAYOUT_CASE_UNAPPROVED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C68"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "법정 연령·사업자 최저지급액·수령 연차·기존납입 제약"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00019",
+      "v33_candidate_id": "C00213",
+      "paraphrased_financial_meaning": "퇴직금 운용 연5~7% 목표를 보편적 은퇴 수익률처럼 제시",
+      "case_status": "HYPOTHETICAL_RETURN_NOT_GUARANTEED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C102"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "분산투자·수익률순서위험·시장위험·비용"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00019",
+      "v33_candidate_id": "C00214",
+      "paraphrased_financial_meaning": "은퇴 자산을 모아 월배당 포트로 모두 전환하라는 권고",
+      "case_status": "DIVIDEND_INCOME_NOT_PENSION_GUARANTEE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C34",
+        "GOMHEE-C112"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fund-distributions-investor-bulletin"
+      ],
+      "material_application_conditions": [
+        "분배주기·분배원천·총수익·인출액과 원금 소진"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00019",
+      "v33_candidate_id": "C00220",
+      "paraphrased_financial_meaning": "생애주기 설계를 따라가면 고확률로 풍족한 노후 보장된다는 전망",
+      "case_status": "OPTIMISTIC_LIFECYCLE_FORECAST_NOT_CERTIFIED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C38"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "실제 저축·고용·시장성과·주거·의료 리스크"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00001",
+      "v33_candidate_id": "C00002",
+      "paraphrased_financial_meaning": "고점매수 저점매도를 피하라는 투자행동 원칙",
+      "case_status": "RISK_MANAGEMENT_EDUCATION_NOT_TRADING_ORDER",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C37",
+        "GOMHEE-C54"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "상승시 매수/하락시 매도가 언제나 잘못이라는 뜻은 아님"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00008",
+      "v33_candidate_id": "C00101",
+      "paraphrased_financial_meaning": "하락한 보유종목이 현재 더 좋은 매수기회일 수 있다는 가정",
+      "case_status": "FALLING_PRICE_NOT_PROOF_OF_UNDERVALUE",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "현금흐름·부채·경쟁·사업가치 재평가"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00008",
+      "v33_candidate_id": "C00104",
+      "paraphrased_financial_meaning": "급락한 손실주식의 공포매도를 참으라는 권고",
+      "case_status": "PERSONAL_SELL_HOLD_NOT_UNIVERSAL",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "official_primary_or_regulated_source_urls": [],
+      "material_application_conditions": [
+        "투자논리 훼손·집중위험·자금수요가 있으면 매도 합리적"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00246",
+      "paraphrased_financial_meaning": "폴더블 스마트폰 330만~400만원 가격을 소비 판단에 사용",
+      "case_status": "CONSUMER_PRICE_HISTORICAL_UNVERIFIED",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C76"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/educator-tool/your-money-your-goals/toolkit/"
+      ],
+      "material_application_conditions": [
+        "기종·판매시점·ASR·옵션가격 근거 필요"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00018",
+      "v33_candidate_id": "C00253",
+      "paraphrased_financial_meaning": "휴대전화 할부를 24개월 또는 30개월까지 제공한다는 설명",
+      "case_status": "TELECOM_INSTALLMENT_CONTRACT_CONDITIONAL",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C76"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/educator-tool/your-money-your-goals/toolkit/"
+      ],
+      "material_application_conditions": [
+        "통신사 약관·실제 할부금리·약정해지비용 확인"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00019",
+      "v33_candidate_id": "C00259",
+      "paraphrased_financial_meaning": "충동소비 이후 액세서리·요금 추가 지출이 생길 수 있으므로 예산 관리",
+      "case_status": "SPENDING_CASCADE_ANECDOTE_EDUCATIONAL",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C62"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.consumerfinance.gov/owning-a-home/prepare/assess-your-spending/"
+      ],
+      "material_application_conditions": [
+        "소비/할부원리금·반복고정비를 별도 기록"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00019",
+      "v33_candidate_id": "C00268",
+      "paraphrased_financial_meaning": "초과소비를 가계부로 확인하고 타 항목 지출을 조정한다는 예산관리",
+      "case_status": "BUDGET_REBALANCE_WITH_ESSENTIAL_SPENDING_GUARD",
+      "existing_master116_claim_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C76"
+      ],
+      "official_primary_or_regulated_source_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/educator-tool/your-money-your-goals/toolkit/"
+      ],
+      "material_application_conditions": [
+        "필수식비·주거·부채상환·비상금 우선"
+      ],
+      "historical_recording_audio_verified": false,
+      "issuer_contract_at_video_date_verified": false,
+      "independent_semantic_gold_adjudicated": false,
+      "personal_advice_or_knowledge_merge_approved": false
+    }
+  ],
+  "source_video_claim_not_independent_gold": true,
+  "existing_master_equivalence_independently_certified": 0,
+  "new_approved_financial_facts": 0,
+  "video_audio_or_old_issuer_contract_eight_cases_closed": 0,
+  "private_original_srt_or_individual_meaning_prose_published": false,
+  "automatic_master116_p4_merge": false,
+  "main_v5_changed": false,
+  "p0_go": false
+}

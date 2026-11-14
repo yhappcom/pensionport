@@ -1,0 +1,24 @@
+{
+  "schema": "IRE_V6_PRIVATE_HOST_TURN_PATCH_V13",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v12_manifest_git_blob_sha": "d1ac6786bee7ccce54b38e9219b43fb9dd249e7f",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "Private original source-first ChatGPT one-turn bounded payload and existing owner-pinned ACID source/proof/frontier receipt bridge",
+  "added": [
+    {
+      "path": "ire/v6/one_turn_host.py",
+      "git_blob_sha": "046c5f2a727c64637513b81a13e12582a2c28117"
+    },
+    {
+      "path": "ire/v6/tests/test_one_turn_host.py",
+      "git_blob_sha": "37e4070155255bc89664373afa070eb5bf738ac9"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 45,
+  "additional_model_api_calls": 0,
+  "full_chat_model_semantic_extraction_automated": false,
+  "large_video_single_turn_guaranteed": false,
+  "private_cues_persisted_in_public_repository": false,
+  "independent_gold_recall_measured": false,
+  "p0_go": false
+}

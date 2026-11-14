@@ -1,0 +1,29 @@
+{
+  "schema": "V109_CHAT_NATIVE_REVIEW_OPTIONAL_EXTERNAL_CERTIFICATION_POLICY_V1",
+  "as_of": "2026-11-14",
+  "user_decision": "CHAT_ONLY_NO_EXTERNAL_REVIEWER_OR_MODEL_API_REQUIRED",
+  "chat_native_evaluation_release": "ALLOWED_WITH_SOURCE_CUSTODY_AND_LIMITATIONS",
+  "chat_native_gates": [
+    "frozen_automated_prediction_before_manual_semantic_annotation",
+    "all_original_cues_accounted_as_parent_or_open_gap",
+    "speaker_stance_condition_exception_and_source_sha_validated",
+    "adversarial_same_model_second_pass_docket_source_pinned",
+    "current_issuer_evidence_scoped_and_not_automatic_fact_approval",
+    "independent_accuracy_not_claimed"
+  ],
+  "external_reviewers_required_for_chat_native_research": false,
+  "external_independent_gold_optional_for_future_external_accuracy_certification": true,
+  "former_v105_160_cues_used_in_v109_chat_review": true,
+  "former_v105_160_cues_still_unseen_for_future_independent_holdout": false,
+  "public_private_source_separation_required": true,
+  "formal_financial_fact_approval_count": 0,
+  "master116_p4_v5_modified": false,
+  "main_branch_modified": false,
+  "independent_gold": false,
+  "certified_precision": null,
+  "certified_recall": null,
+  "certified_high_risk_recall": null,
+  "chat_model_inference_time_measured": false,
+  "p0_go": false,
+  "automatic_personal_advice_approved": false
+}

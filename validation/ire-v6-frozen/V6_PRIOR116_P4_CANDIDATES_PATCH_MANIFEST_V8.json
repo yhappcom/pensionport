@@ -1,0 +1,84 @@
+{
+  "schema": "IRE_V6_PRIOR116_P4_CANDIDATES_PATCH_V8",
+  "base_branch_head": "76584d60718e3597fa557d7f747c460855a11865",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v4_manifest_git_blob_sha": "453179a0bdfc4a712d3376871aa3b5a23a5616e4",
+  "previous_v3_manifest_git_blob_sha": "3638274d0de77a000e5d65185208f0849b1e5a5a",
+  "previous_v2_manifest_git_blob_sha": "330b435afa571119a7ceee3314176c482ca6bc48",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "Read-only pinned 116 master + P4 22+7 knowledge candidate relationships with no semantic self-approval",
+  "modified_from_original": [
+    {
+      "path": "ire/v6/store.py",
+      "git_blob_sha": "e2ac536261b88c6ff41acd69b4fa41002cc51e96"
+    },
+    {
+      "path": "ire/v6/state_machine.py",
+      "git_blob_sha": "5bf244e16e2c5e5c8a51df63b65de69ccff5d796"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/official_completion.py",
+      "git_blob_sha": "57fd2cab68aeeb4678aea8e1a07ed64b2fbf83e0"
+    },
+    {
+      "path": "ire/v6/tests/test_official_completion.py",
+      "git_blob_sha": "aaec025322bb1523a11e576c3f688031f489ff03"
+    },
+    {
+      "path": "ire/v6/claim_census.py",
+      "git_blob_sha": "1e0630e7088926d752dcf54275e8d81721cb1221"
+    },
+    {
+      "path": "ire/v6/tests/test_claim_census.py",
+      "git_blob_sha": "2e853798dcf146545331e4f02cf2fda425c7e8aa"
+    },
+    {
+      "path": "ire/v6/atomic_exchange.py",
+      "git_blob_sha": "06f4d402d0b3a3584bfe4b096654dc640ce321d0"
+    },
+    {
+      "path": "ire/v6/tests/test_atomic_exchange.py",
+      "git_blob_sha": "8eb3cde49c02f87712a958c75f227f383fbf9282"
+    },
+    {
+      "path": "ire/v6/legacy_v2_state_machine.py",
+      "git_blob_sha": "c58aa3ee4849e9f6f123215fb5a9ecdb2afc7f61"
+    },
+    {
+      "path": "ire/v6/legacy_v2_archive.py",
+      "git_blob_sha": "47c44cfc94c5ca4119d2c07b3149ca961c3a2ab7"
+    },
+    {
+      "path": "ire/v6/tests/test_legacy_v2_archive.py",
+      "git_blob_sha": "9c8583b840a4149f9b6cd62eb5d8f18006314d4d"
+    },
+    {
+      "path": "ire/v6/prior_knowledge.py",
+      "git_blob_sha": "9dd028db072a65633c3c802f58aa17db3af4ddc9"
+    },
+    {
+      "path": "ire/v6/tests/test_prior_knowledge.py",
+      "git_blob_sha": "dca1ff8efd740f4ff09525cb0e1f87bb4b48bba2"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 36,
+  "source_first_cue_coverage_verified": true,
+  "atomic_semantic_completeness_certified": false,
+  "independently_authored_gold_verified": false,
+  "full_engine_p0_go": false,
+  "migration_of_historical_v2_receipts_complete": false,
+  "never_merge_without_owner_approval": true,
+  "previous_v5_manifest_git_blob_sha": "32573935a30d9f4a3d45ec2460ee69ea42056d95",
+  "atomic_exchange_host_contract_integrated": true,
+  "every_cue_explicit_disposition_validated": true,
+  "previous_v6_manifest_git_blob_sha": "2a48f2a3613c76f336a3280df39d742c079e05e0",
+  "legacy_v2_readonly_replay_supported": true,
+  "legacy_v2_lossless_migration_completed": false,
+  "previous_v7_manifest_git_blob_sha": "3711d33621be961dd32f2c3eeaec111a5667a268",
+  "prior_master116_readonly_integrity_verified": true,
+  "p4_general_education29_readonly_integrity_verified": true,
+  "automatic_knowledge_merge_authorized": false,
+  "independent_semantic_relation_review_completed": false
+}
