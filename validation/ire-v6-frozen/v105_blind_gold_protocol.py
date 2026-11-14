@@ -13,11 +13,42 @@ SCHEMA='V105_EXTERNAL_BLIND_GOLD_NOT_CREATED_V1'
 ALLOWED_STANCES={'FACT_CANDIDATE','QUESTION','OPINION','HYPOTHESIS','CONDITION','EXCEPTION','REBUTTAL','UNCERTAIN'}
 ALLOWED_RISK={'HIGH','MEDIUM','LOW','NONE'}
 
+# V107: NO independently authenticated identity-authority roots are yet registered.
+# An arbitrarily supplied 'verified_by_external_identity_authority=True' boolean
+# and self-generated Ed25519 keys MUST NOT create alleged independent human gold.
+# A verified authority root must be reviewed and pinned out-of-band before
+# accepting real reviewer signatures (the empty set is a deliberate fail-close).
+TRUSTED_IDENTITY_AUTHORITY_ROOT_PINS_SHA256=frozenset()
+
 def canon(x):return json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False)
 def sha(x):return hashlib.sha256(x if isinstance(x,bytes) else x.encode('utf-8')).hexdigest()
 def digest(x):return sha(canon(x))
 def require(a,c):
  if not a:raise ValueError('V105_'+c)
+
+
+def verify_externally_pinned_signature(payload, *, key_field='identity_authority_root_public_key_hex', signature_field='identity_authority_registry_signature_hex'):
+ """Require a root whose SHA was approved out-of-band, then verify its signature.
+
+ Never infer real-world human independence from self-issued flags. There are
+ currently zero approved roots: all incoming alleged real gold fails closed.
+ """
+ require(type(payload) is dict,'EXTERNAL_ATTESTATION_TYPE')
+ root=payload.get(key_field)
+ require(type(root) is str and re.fullmatch('[0-9a-f]{64}',root) is not None,'NO_TRUSTED_AUTHORITY_ROOT')
+ require(sha(bytes.fromhex(root)) in TRUSTED_IDENTITY_AUTHORITY_ROOT_PINS_SHA256,'SELF_ASSERTED_IDENTITY_AUTHORITY_BLOCKED')
+ signature=payload.get(signature_field)
+ require(type(signature) is str and re.fullmatch('[0-9a-f]{128}',signature) is not None,'UNSIGNED_EXTERNAL_ATTESTATION')
+ try:
+  from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
+ except ImportError as exc:
+  raise ValueError('V105_CRYPTO_SIGNATURE_VERIFIER_NOT_INSTALLED') from exc
+ signed={k:v for k,v in payload.items() if k!=signature_field}
+ try:
+  Ed25519PublicKey.from_public_bytes(bytes.fromhex(root)).verify(bytes.fromhex(signature),canon(signed).encode('utf-8'))
+ except Exception as exc:
+  raise ValueError('V105_INVALID_ROOT_SIGNED_ATTESTATION') from exc
+ return True
 
 def lock_blind_cohort(lock,cues,*,source_archive_sha256, prior_windows):
  """Private source packet with all cues, including no-alert source, no predictions."""
@@ -68,6 +99,7 @@ def external_gold_gate(lock, packet, reviewer_a=None, reviewer_b=None, adjudicat
  if any(x is None for x in (reviewer_a,reviewer_b,adjudication,trusted_registry)):
   return fields
  require(type(trusted_registry)==dict and trusted_registry.get('verified_by_external_identity_authority') is True,'UNVERIFIED_IDENTITY_REGISTRY')
+ verify_externally_pinned_signature(trusted_registry)
  reviewer_ids=(reviewer_a.get('reviewer_id'),reviewer_b.get('reviewer_id'),adjudication.get('adjudicator_id'))
  require(all(type(r) is str and r in trusted_registry.get('verified_unique_people',[]) for r in reviewer_ids),'REVIEWER_NOT_EXTERNAL_VERIFIED')
  require(len(set(reviewer_ids))==3,'REVIEWER_COLLUSION_OR_DUP')
@@ -103,12 +135,20 @@ def external_gold_gate(lock, packet, reviewer_a=None, reviewer_b=None, adjudicat
          'gold_count':len(adjudication['adjudicated_claims']),'precision':None,'recall':None,'high_risk_recall':None,
          'reason':'INDEPENDENT_GOLD_LOCKED_PREDICTION_COMPARISON_SEPARATE','p0_go':False}
 
-def score_predictions(gold, predictions, *, independent_gate_receipt, equivalence_receipt):
+def score_predictions(gold, predictions, *, independent_gate_receipt, equivalence_receipt, synthetic_arithmetic_only=False):
  """Score *only* externally adjudicated one-to-one semantic equivalences.
 
  Gold IDs and prediction IDs are from disjoint namespaces, so raw ID equality
  cannot be used as a TP; scope, stance and conditions require adjudication.
  """
+ require(type(synthetic_arithmetic_only) is bool,'SYNTHETIC_FLAG_TYPE')
+ if not synthetic_arithmetic_only:
+  # Caller-supplied 'independent_gold=True' is NEVER sufficient proof.
+  # The real-world authority MUST sign BOTH the gold gate and equivalence receipt.
+  verify_externally_pinned_signature(independent_gate_receipt,
+     signature_field='identity_authority_gold_gate_signature_hex')
+  verify_externally_pinned_signature(equivalence_receipt,
+     signature_field='identity_authority_equivalence_signature_hex')
  require(independent_gate_receipt.get('independent_gold') is True and independent_gate_receipt.get('gold_locked') is True,'GOLD_NOT_READY')
  require(independent_gate_receipt.get('gold_source_digest')==digest(gold),'GOLD_NOT_SAME')
  require(type(gold)==list and type(predictions)==list,'PRED_TYPE')
@@ -130,8 +170,18 @@ def score_predictions(gold, predictions, *, independent_gate_receipt, equivalenc
   seen_gold.add(gi);seen_prediction.add(pi)
  tp=len(seen_gold);fp=len(p)-len(seen_prediction);fn=len(g)-len(seen_gold)
  high_gold={k for k,z in g.items() if z.get('risk')=='HIGH'};h_fn=len(high_gold-seen_gold)
- return {'tp':tp,'fp':fp,'fn':fn,'high_risk_fn':h_fn,
-         'precision':tp/(tp+fp) if tp+fp else None,
+ # Test-only arithmetic is deliberately kept apart from real-world accuracy.
+ scores={'precision':tp/(tp+fp) if tp+fp else None,
          'recall':tp/(tp+fn) if tp+fn else None,
-         'high_risk_recall':(len(high_gold)-h_fn)/len(high_gold) if high_gold else None,
+         'high_risk_recall':(len(high_gold)-h_fn)/len(high_gold) if high_gold else None}
+ if synthetic_arithmetic_only:
+  return {'tp':tp,'fp':fp,'fn':fn,'high_risk_fn':h_fn,
+          'synthetic_precision':scores['precision'],
+          'synthetic_recall':scores['recall'],
+          'synthetic_high_risk_recall':scores['high_risk_recall'],
+          'precision':None,'recall':None,'high_risk_recall':None,
+          'independent_gold_certified':False,'synthetic_arithmetic_only':True,
+          'p0_go':False,'automatic_personal_advice_approved':False}
+ return {'tp':tp,'fp':fp,'fn':fn,'high_risk_fn':h_fn,
+         **scores,'independent_gold_certified':True,'synthetic_arithmetic_only':False,
          'p0_go':False,'automatic_personal_advice_approved':False}

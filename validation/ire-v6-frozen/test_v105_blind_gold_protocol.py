@@ -57,8 +57,9 @@ class TestV105(unittest.TestCase):
   eq={'external_adjudication_verified':True,'gold_sha256':digest(gold),'prediction_sha256':digest(pred),
       'pairs':[{'gold_atomic_id':'G-1','predicted_atomic_id':'P-A','semantically_equivalent':True,
                 'source_span_verified':True,'stance_preserved':True,'condition_exception_preserved':True,'adjudicator_attested':True}]}
-  r=score_predictions(gold,pred,independent_gate_receipt=fake_gate,equivalence_receipt=eq)
+  r=score_predictions(gold,pred,independent_gate_receipt=fake_gate,equivalence_receipt=eq,synthetic_arithmetic_only=True)
   self.assertEqual((r['tp'],r['fp'],r['fn'],r['high_risk_fn']),(1,1,1,0))
+  self.assertIsNone(r['precision']);self.assertIsNone(r['recall']);self.assertFalse(r['independent_gold_certified'])
  def test_reject_same_id_without_equivalence(self):
   gold=[{'atomic_id':'G-1','risk':'HIGH'}];pred=[{'atomic_id':'G-1'}]
   fake_gate={'independent_gold':True,'gold_locked':True,'gold_source_digest':digest(gold)}
