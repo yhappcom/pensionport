@@ -16,7 +16,7 @@ HERE=pathlib.Path(__file__).resolve().parent
 
 def demo():
     src='\n\n'.join(f'{i}\n00:00:00,000 --> 00:00:01,000\nSYNTH-{i}' for i in range(1,174)).encode()
-    predict=b'FAKE-PREDICTION-RAW-NOT_OWNER'
+    predict=json.dumps({'atoms':[{'atom_id':f'P{i:03}','cue_indices':[i],'risk':'LOW'} for i in range(1,47)]},sort_keys=True).encode()
     def cuehash(ids):return g.digest(' | '.join(f'SYNTH-{x}' for x in ids).encode())
     A=[{'id':f'A{i:03}', 'cue_indices':[i], 'source_text_sha256':cuehash([i])}
        for i in range(1,59)]
@@ -40,8 +40,8 @@ def demo():
        'A_claim_count':58,'chat_reference_claim_count':59,'B_revision_count':20,
        'revisions':[{'id':i} for i in range(20)],'reference_claims':B}
     bb=json.dumps(b,sort_keys=True).encode()
-    matches=[{'prediction_id':f'P{i:03}','reference_id':f'R{i:03}','verdict':'TP'} for i in range(1,36)]
-    other=[{'prediction_id':f'P{i:03}','reference_id':None,'verdict':'FP'} for i in range(36,47)]
+    matches=[{'prediction_id':f'P{i:03}','reference_id':f'R{i:03}','verdict':'TP','baseline_cue_indices':[i],'predicted_risk':'LOW'} for i in range(1,36)]
+    other=[{'prediction_id':f'P{i:03}','reference_id':None,'verdict':'FP','baseline_cue_indices':[i],'predicted_risk':'LOW'} for i in range(36,47)]
     misses=[{'reference_id':f'R{i:03}','risk':r['risk']} for i,r in enumerate(B,1) if i>35]
     s={'schema':'V120_CHAT_INTERNAL_REFERENCE_ONE_TO_ONE_CROSSCHECK_NOT_EXTERNAL_GOLD_V1',
        'video_id':'Yb_5prWaqhk','B_sha256':g.digest(bb),
@@ -142,6 +142,14 @@ class TestSyntheticChatScore(unittest.TestCase):
         self.reject(lambda v:v[1].__setitem__('reference_gold_certified',True))
     def test_34_missing_duplicate_reference_disclaimer(self):
         self.reject(lambda v:v[3]['limitations'].remove('REFERENCE_DUPLICATE_R045_R046_POTENTIAL_OVERSPLIT'))
+    def test_39_forged_prediction_risk(self):
+        self.reject(lambda v:v[3]['predicted_atom_verdicts'][0].__setitem__('predicted_risk','HIGH'))
+    def test_40_forged_prediction_cue(self):
+        self.reject(lambda v:v[3]['predicted_atom_verdicts'][0].__setitem__('baseline_cue_indices',[46]))
+    def test_41_wrong_source_reference_matched(self):
+        self.reject(lambda v:v[3]['predicted_atom_verdicts'][0].__setitem__('reference_id','R059'))
+    def test_42_corrupt_baseline_json_but_sha_changed(self):
+        self.reject(lambda v:v.__setitem__(5,b'{invalid json'))
     def test_35_internal_scores_not_0_0(self):
         z=self.call();self.assertAlmostEqual(z['recall_provisional'],35/59)
 

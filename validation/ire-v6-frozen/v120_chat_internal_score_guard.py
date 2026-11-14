@@ -43,6 +43,10 @@ def audit(precommit,A,B,score,actual_source_bytes,old_prediction_bytes,private_A
         required(bool(bycue[expected]),'SOURCE_CUE_EMPTY')
     required(len(bycue)==173,'SOURCE_CUE_COUNT')
     required(digest(old_prediction_bytes)==precommit['engine_predictions_pre_reveal_sha256'],'BASELINE_SHA')
+    baseline=json.loads(old_prediction_bytes)
+    required(isinstance(baseline.get('atoms'),list) and len(baseline['atoms'])==46,'BASELINE_ATOMS')
+    baseline_byid={x['atom_id']:x for x in baseline['atoms']}
+    required(len(baseline_byid)==46,'BASELINE_ATOM_IDS')
     required(digest(private_A_bytes)==precommit['first_pass_A_sha256'],'A_SHA')
     required(digest(private_B_bytes)==score['B_sha256'],'B_SHA')
     required(B['A_frozen_sha256']==precommit['first_pass_A_sha256'],'A_LOCK')
@@ -76,14 +80,20 @@ def audit(precommit,A,B,score,actual_source_bytes,old_prediction_bytes,private_A
     required(counts['tp']+counts['fp']==46 and counts['tp']+counts['fn']==59,'TP_FP_FN')
     required(len(score['predicted_atom_verdicts'])==46 and len(score['unmatched_chat_reference'])==counts['fn'],'MATCH_CENSUS')
     refs={x['id'] for x in B['reference_claims']}
+    ref_byid={x['id']:x for x in B['reference_claims']}
     required(len(refs)==59,'REF_DUPLICATE_ID')
     expected_hi=sum(x['risk'] in ('HIGH','CRITICAL') for x in B['reference_claims'])
     required(expected_hi==counts['high_critical_reference_candidates'],'HIGH_CENSUS')
     used=[]
     for row in score['predicted_atom_verdicts']:
+        required(row['prediction_id'] in baseline_byid,'UNKNOWN_PREDICTION')
+        orig=baseline_byid[row['prediction_id']]
+        required(row['baseline_cue_indices']==orig['cue_indices'],'PRED_CUE_MISMATCH')
+        required(row['predicted_risk']==orig['risk'],'PRED_RISK_MISMATCH')
         required(row['verdict'] in ('TP','FP'),'VERDICT')
         if row['verdict']=='TP':
             required(row['reference_id'] in refs,'UNKNOWN_REFERENCE')
+            required(bool(set(orig['cue_indices'])&set(ref_byid[row['reference_id']]['cue_indices'])),'SEMANTIC_ANCHOR_NO_COMMON_SOURCE')
             used.append(row['reference_id'])
         else:
             required(row['reference_id'] is None,'FALSE_MATCH_REFERENCE')
@@ -91,6 +101,7 @@ def audit(precommit,A,B,score,actual_source_bytes,old_prediction_bytes,private_A
     missing=set(refs)-set(used)
     required(missing=={r['reference_id'] for r in score['unmatched_chat_reference']},'FN_SET')
     required(len({r['prediction_id'] for r in score['predicted_atom_verdicts']})==46,'PRED_ID_DUPLICATE')
+    required({r['prediction_id'] for r in score['predicted_atom_verdicts']}==set(baseline_byid),'PRED_CENSUS')
     missed_risk=sum(r['risk'] in ('HIGH','CRITICAL') for r in score['unmatched_chat_reference'])
     required(missed_risk==counts['high_critical_fn'],'HIGH_FN_COUNT')
     required(counts['high_critical_tp']+missed_risk==expected_hi,'HIGH_TP_FN_COUNT')
