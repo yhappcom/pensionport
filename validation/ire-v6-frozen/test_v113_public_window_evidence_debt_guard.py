@@ -22,6 +22,13 @@ class V113PublicWindowEvidenceDebtTests(unittest.TestCase):
         self.assertIsNone(r["certified_recall"])
         self.assertFalse(r["prior_v92_v75_overlap_fully_reconciled"])
 
+    def test_frozen_public_receipt_matches_audit(self):
+        import json
+        from pathlib import Path
+        expected = audit(self.baseline)
+        observed = json.loads((Path(__file__).parent / "V113_PUBLIC_WINDOW_DEDUP_EVIDENCE_DEBT_NO_GOLD.json").read_text(encoding="utf-8"))
+        self.assertEqual(observed, expected)
+
     def test_duplicate_window_rejected(self):
         self.check_bad(lambda d: d["v102"]["new_windows"].__setitem__(
             0, ["sz5N9WJS310","W00020"]))
