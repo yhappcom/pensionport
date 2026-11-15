@@ -296,5 +296,22 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         self.assertTrue(ev["chatgpt_final_answer_review_required"])
         self.assertNotIn("answer_text",ev)
 
+
+    def test_21_legacy_knowledge_audit_and_query_do_not_create_parent_table(self):
+        # V128 parent-proof verification is essential, but legacy full-scope
+        # standalone V126 research must retain read-only audit semantics.
+        legacy=PrivateKnowledgeStore(self.temp/"legacy_full_scope.sqlite")
+        with sqlite3.connect(legacy.path) as con:
+            self.assertIsNone(con.execute(
+                "SELECT name FROM sqlite_master WHERE type='table' "
+                "AND name='parent_publications'").fetchone())
+        self.assertEqual(legacy.audit()["active_claims"],0)
+        packet=legacy.evidence_for_question("검증된 지식이 아직 없습니다")
+        self.assertEqual(packet["count"],0)
+        with sqlite3.connect(legacy.path) as con:
+            self.assertIsNone(con.execute(
+                "SELECT name FROM sqlite_master WHERE type='table' "
+                "AND name='parent_publications'").fetchone())
+
 if __name__ == "__main__":
     unittest.main()
