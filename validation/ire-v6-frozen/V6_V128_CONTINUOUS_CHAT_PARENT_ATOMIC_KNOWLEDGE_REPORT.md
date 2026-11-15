@@ -26,3 +26,8 @@ Prior V127.3 1,481-cue real-source test proved **13-segment structural partition
 ### Next objective
 
 Run V128 on previously acquired long private original with actual ChatGPT reviewing each segment in one user turn (with external source capture and owner inventory reconciliation), validate 13/13 semantic windows and a real all-or-nothing current-db checkpoint/release; then verify current-law, cumulative retrieval and user-question advisory end-to-end without model API or false approvals.
+
+
+## V128.1 — unittest naming collision correction
+
+The first V128 CI run failed before executing its new tests because the helper \`V128HostRunAndAtomicParentTests.run(self, **kw)\` accidentally shadowed Python \`unittest.TestCase.run(result)\`. The helper is renamed \`run_engine\` throughout the dedicated test module and re-queued in CI. This is a test-harness invocation correction, not a semantic research approval.

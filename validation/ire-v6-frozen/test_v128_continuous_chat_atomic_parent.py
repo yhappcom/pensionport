@@ -88,7 +88,7 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
             unresolved_cross_segment_cases=0)
         return template
 
-    def run(self,**kw):
+    def run_engine(self,**kw):
         args={"checkpoint":self.checkpoint,"knowledge_store":self.knowledge,
               "review_or_load_child":self.child,"review_seams":self.seams,
               "review_parent":self.parent_review,
@@ -103,7 +103,7 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
                     con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?",(t,)).fetchone()}
 
     def test_01_two_native_v6_children_seam_and_atomic_private_parent_publication(self):
-        result=self.run()
+        result=self.run_engine()
         self.assertEqual(self.trace,[("B0001","REVIEW_REQUIRED"),("B0002","REVIEW_REQUIRED")])
         self.assertEqual(result["status"],"WHOLE_VIDEO_RESEARCH_CANDIDATE_PUBLISHED_ATOMICALLY")
         self.assertEqual(result["child_scopes_supplied"],2)
@@ -116,8 +116,8 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         self.assertEqual(result["financial_fact_formally_approved"],0)
 
     def test_02_idempotent_same_chat_host_replay_and_no_second_publication(self):
-        first=self.run()
-        second=self.run()
+        first=self.run_engine()
+        second=self.run_engine()
         self.assertEqual(second["publication_receipt"]["status"],"IDEMPOTENT_PARENT_KNOWLEDGE_COMMIT")
         self.assertEqual(second["child_checkpoints_reused"],2)
         self.assertEqual(second["knowledge_head_sha256"],first["knowledge_head_sha256"])
@@ -130,7 +130,7 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         case["official_evidence_bodies"]={}
         packet["case"]=case
         self.packets[1]=packet
-        r=self.run()
+        r=self.run_engine()
         self.assertEqual(r["status"],"HOLD_CHILD_CHAT_SEMANTICS_OR_FINANCE")
         self.assertEqual(self.checkpoint.progress()["passed_child_scopes"],1)
         self.assertEqual(self.checkpoint.progress()["held_child_scopes"],1)
@@ -142,19 +142,19 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         case["official_evidence_bodies"]={}
         packet["case"]=case
         self.packets[1]=packet
-        self.assertIn("HOLD",self.run()["status"])
+        self.assertIn("HOLD",self.run_engine()["status"])
         self.packets[1]={**self.packets[1],"case":self.p.cases[1]}
         with self.assertRaisesRegex(QualityNotProven,"REVIEW_REVISION_NOT_EXPLICIT"):
-            self.run()
+            self.run_engine()
         self.packets[1]["explicit_hold_revision"]=True
-        result=self.run()
+        result=self.run_engine()
         self.assertEqual(result["publication_receipt"]["entry_count"],3)
         self.assertEqual(self.checkpoint.progress()["passed_child_scopes"],2)
 
     def test_05_missing_parent_chat_release_cannot_commit_after_all_children_pass(self):
         def missing(*args):return None
         with self.assertRaisesRegex(QualityNotProven,"PARENT_CHAT_RELEASE_SCHEMA"):
-            self.run(review_parent=missing)
+            self.run_engine(review_parent=missing)
         self.assertEqual(self._counts(),{"events":0,"knowledge":0})
         self.assertEqual(self.checkpoint.progress()["passed_child_scopes"],2)
 
@@ -164,12 +164,12 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
             result["whole_parent_source_first_reviewed"]=False
             return result
         with self.assertRaisesRegex(QualityNotProven,"PARENT_CHAT_RELEASE_NOT_SOURCE_BOUND"):
-            self.run(review_parent=forge)
+            self.run_engine(review_parent=forge)
         self.assertEqual(self._counts(),{"events":0,"knowledge":0})
 
     def test_07_missing_parent_seam_cannot_commit(self):
         with self.assertRaisesRegex(QualityNotProven,"MISSING_CROSS_SEGMENT"):
-            self.run(review_seams=lambda *_:[])
+            self.run_engine(review_seams=lambda *_:[])
         self.assertEqual(self._counts(),{"events":0,"knowledge":0})
 
     def test_08_bad_second_child_chat_relation_rolls_back_first_staged_success(self):
@@ -177,7 +177,7 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         modified[0]["private_chat_relation_review_sha256"]="BAD"
         self.packets[1]["relation_decisions"]=modified
         with self.assertRaises(QualityNotProven):
-            self.run()
+            self.run_engine()
         self.assertEqual(self._counts(),{"events":0,"knowledge":0})
 
     def test_09_forged_second_host_replay_args_prevents_any_private_write(self):
@@ -185,7 +185,7 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         replay["run_id"]="new-run-forgery"
         self.packets[1]["original_host_batch_replay_args"]=replay
         with self.assertRaises(QualityNotProven):
-            self.run()
+            self.run_engine()
         self.assertEqual(self._counts(),{"events":0,"knowledge":0})
 
     def test_10_fail_at_last_parent_receipt_sqlite_insert_rolls_back_all_child_entries(self):
@@ -197,43 +197,43 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
             con.execute("""CREATE TRIGGER abort_parent_proof BEFORE INSERT ON parent_publications
                       BEGIN SELECT RAISE(ABORT, 'synthetic parent receipt failure'); END""")
         with self.assertRaises(sqlite3.IntegrityError):
-            self.run()
+            self.run_engine()
         self.assertEqual(self._counts(),{"events":0,"knowledge":0,"parent_publications":0})
         self.assertEqual(self.knowledge.audit()["head_sha256"],ZERO_SHA)
 
     def test_11_same_parent_different_chat_signature_cannot_replace_publication(self):
-        first=self.run()
+        first=self.run_engine()
         def changed(checkpoint,assembly,seams,packets):
             out=self.parent_review(checkpoint,assembly,seams,packets)
             out["private_chat_parent_review_sha256"]=sha256(b"different synthetic verdict")
             return out
         with self.assertRaisesRegex(QualityNotProven,"PARENT_ALREADY_PUBLISHED_WITH_DIFFERENT_PROOF"):
-            self.run(review_parent=changed)
+            self.run_engine(review_parent=changed)
         self.assertEqual(self._counts(),{"events":3,"knowledge":3,"parent_publications":1})
 
     def test_12_mismatched_start_head_prevents_all_writes(self):
         with self.assertRaisesRegex(QualityNotProven,"KNOWLEDGE_EXPECTED_HEAD_CHANGED"):
-            self.run(expected_knowledge_head="1"*64)
+            self.run_engine(expected_knowledge_head="1"*64)
         self.assertEqual(self._counts(),{"events":0,"knowledge":0})
 
     def test_13_host_needs_real_callbacks_no_silent_fake_chat(self):
         with self.assertRaisesRegex(InvalidInput,"SYNC_CHAT_CALLBACKS_REQUIRED"):
-            self.run(review_or_load_child=None)
+            self.run_engine(review_or_load_child=None)
         self.assertEqual(self.checkpoint.progress()["passed_child_scopes"],0)
 
     def test_14_existing_parent_publication_proof_tamper_detected(self):
-        self.run()
+        self.run_engine()
         with sqlite3.connect(self.knowledge.path) as con:
             con.execute("UPDATE parent_publications SET proof_sha256=?",("1"*64,))
         with self.assertRaisesRegex(QualityNotProven,"PARENT_PROOF_HASH_OR_SCHEMA_DRIFT"):
-            self.run()
+            self.run_engine()
 
     def test_15_unresolved_contradiction_in_parent_relation_blocks_full_video(self):
         row=copy.deepcopy(self.packets[1]["relation_decisions"])
         row[0]["relation"]="CONFLICT"
         self.packets[1]["relation_decisions"]=row
         with self.assertRaisesRegex(QualityNotProven,"UNRESOLVED_PARENT_KNOWLEDGE_CONFLICT"):
-            self.run()
+            self.run_engine()
         self.assertEqual(self._counts(),{"events":0,"knowledge":0})
 
 if __name__ == "__main__":
