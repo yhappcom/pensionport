@@ -1936,3 +1936,4 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1235_owner_window_preflight_hold.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1236_native_original_staging_hold_metadata.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v12361_cue32_archive_raw_hold.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1237_numeric_split_original_staging_hold.py' -v
