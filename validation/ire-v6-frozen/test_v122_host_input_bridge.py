@@ -156,4 +156,60 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual(obj['same_chat_scoring_label'],'CHAT_INTERNAL_EXPLORATORY_SELF_CORRELATED')
         self.assertEqual(obj['baseline_tp_fp_fn'],[9,3,8]);self.assertEqual(obj['refined_tp_fp_fn'],[15,0,2])
 
+    def actual_unmocked_v6_host_fixture(self):
+        from ire.v6.tests.test_host_batch import HostBatchTests
+        parent=HostBatchTests(methodName="test_one_command_commits_all_models_and_proofs_atomically")
+        parent.setUp()
+        self.addCleanup(parent.doCleanups)
+        fx=parent.fx
+        cues=[x.text for x in fx.source.cues]
+        props=[];frames={}
+        for i,a in enumerate(fx.exchange['atoms'],1):
+            k=f'G{i:03}';ix=[r['cue_index'] for r in a['source_refs']]
+            props.append({'id':k,'cue_indices':ix,'source_sha256':source_sha(cues,ix),
+                          'speaker_assertion':a['proposition']})
+            frames[k]={name:copy.deepcopy(a[name]) for name in (
+                'kind','stance','speaker','context_cue_indices',
+                'condition_cue_indices','exception_cue_indices','as_of')}
+        req=dict(store=fx.store,raw_srt=fx.raw,manifest=fx.manifest,
+                 inventory_bytes=parent.owner,expected_inventory_sha256=parent.pin,
+                 proposals=props,operations=[],host_frames=frames,
+                 knowledge=parent.knowledge,window_models=parent.models,
+                 window_reviews=parent.reviews,scope_id='host_scope',run_id='run_0001',
+                 expected_head=parent.base['ledger_head_sha256'])
+        return parent,req
+    def test_33_unmocked_native_v6_ACID_commit(self):
+        parent,req=self.actual_unmocked_v6_host_fixture()
+        before=parent.fx.store.snapshot('host_scope')
+        res=submit_v122_refined_host_batch(**req)
+        after=parent.fx.store.snapshot('host_scope')
+        self.assertTrue(res['atomic_batch_committed'])
+        self.assertEqual(after['sequence'],before['sequence']+5)
+        self.assertFalse(after['progress']['engine_quality_certified'])
+    def test_34_unmocked_native_v6_idempotent_retry(self):
+        parent,req=self.actual_unmocked_v6_host_fixture()
+        first=submit_v122_refined_host_batch(**req)
+        second=submit_v122_refined_host_batch(**req)
+        self.assertTrue(second['idempotent_replay'])
+        self.assertEqual(first['event_sha256'],second['event_sha256'])
+    def test_35_unmocked_source_pin_rejects_before_commit(self):
+        parent,req=self.actual_unmocked_v6_host_fixture()
+        before=parent.fx.store.snapshot('host_scope')
+        req['raw_srt']=req['raw_srt']+b'forged'
+        with self.assertRaises(InvalidInput):submit_v122_refined_host_batch(**req)
+        self.assertEqual(before['sequence'],parent.fx.store.snapshot('host_scope')['sequence'])
+    def test_36_unmocked_qualification_patch_rejects_before_commit(self):
+        parent,req=self.actual_unmocked_v6_host_fixture()
+        before=parent.fx.store.snapshot('host_scope')
+        req['operations']=[{'source_id':'G001','operation':'SPLIT','children':[
+          {'id':'G001.1','cue_indices':[1],'source_sha256':'f'*64,
+           'speaker_assertion':'가짜 원본','reviewer_qualification':'허위',
+           'speaker_scope_is_source_literal':True,'approval_status':'PENDING_REVIEW'},
+          {'id':'G001.2','cue_indices':[1],'source_sha256':'f'*64,
+           'speaker_assertion':'가짜 숫자','reviewer_qualification':'허위',
+           'speaker_scope_is_source_literal':True,'approval_status':'PENDING_REVIEW'}]}]
+        with self.assertRaises((UnsafeV122,ValueError,InvalidInput)):
+            submit_v122_refined_host_batch(**req)
+        self.assertEqual(before['sequence'],parent.fx.store.snapshot('host_scope')['sequence'])
+
 if __name__=='__main__':unittest.main()
