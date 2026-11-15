@@ -136,3 +136,10 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - [V127.2 SHA-only 영수증](V127_2_EXISTING_V122_REAL_STAGING_CHECKPOINT_HOLD_SHA_ONLY.json): 이미 검토한 V122 원본 47 cue·잠정 원자 18개·V123.7 격리 V6 DB를 재사용해 \`PrivateFullVideoCheckpoint\`가 실제 \`CHAT_FINAL_HOLD_OPEN\`을 **보류 체크포인트**로 기록하는지 확인했다.
 - 결과: 체크포인트 구간 1/1 HOLD, 기존 격리 DB HEAD 일치, 동일 입력 재시작 멱등성 PASS. 비공개 SQLite·원문과 구별되는 체크포인트 증빙은 사용자 비공개 Library에만 보관; GitHub는 SHA·범위·HOLD만 공개한다.
 - **소유자 독립 원본 핀 및 기존 운영 DB HEAD 미확보, 금융 OPEN 12, 실제 새 지식 승인 0, P0 NO-GO**. 이 실물은 장편 다중 구간 능력 인증이 아니라 기존 47 cue 1구간 HOLD 확인이다.
+
+
+## 19. V127.3 기존 확보 장편 1,481 cue 실제 원본 구조 성능 검문
+
+- [V127.3 SHA-only 장편 검문 영수증](V127_3_EXISTING_LONG_VIDEO_1481CUE_SEGMENTATION_SHA_ONLY.json): 기존 사용자 비공개 \`1-70.zip\` 속 한 원본(1,481 cue)으로 **연구·의미 추출 없이** 전체 V6 구조 검증과 120 cue 제한 분할 계획만 실행하였다.
+- 25개 부모 창을 13개 자식 구간으로 제안했고 원본 1,481/1,481 cue가 빠짐없이 해당 구간에 포함되는 것을 확인했다. 전체 영상의 직접 호스트 입력은 차단, 첫 120 cue 구간만 \`HOST_TURN_READY_NOT_EXECUTED\`로 준비됨. 원본/자식 인벤토리는 운영자 파생 잠정 핀이며 독립 소유자 승인이나 ChatGPT 의미 검증 결과가 아니다.
+- 실제 분할 장편 실행 시간·모델 검토 정확도·공식근거 검증·전체 지식 반영은 여전히 미완성. E1/E10 \`OPEN\`, 금융 OPEN 12, 신규 연구 지식 승인 0, P0 NO-GO 유지. 다른 영상 **연구** 및 포트폴리오 연계는 엔진 완료 전 시행 금지.

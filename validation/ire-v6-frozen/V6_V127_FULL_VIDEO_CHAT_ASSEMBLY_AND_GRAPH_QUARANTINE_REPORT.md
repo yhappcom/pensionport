@@ -54,3 +54,15 @@ Reused the **already reviewed** V122 video \`EYya0e4APBE\` and its owner-private
 - **Still 12 finance OPEN**, all 18 source provisional candidates unapproved; no owner-independent signature, no production ledger, no original-audio verification, no candidate export, no personal advice. The new checkpoint passed correct **HOLD enforcement**, not engine research-completion.
 
 This real-case replay used only a 47-cue source (one child), so it does not certify long-video multi-segment chat execution. V127 synthetic two-child tests cover assembly mechanics only. V125 E1–E10 remain OPEN, P0 NO-GO.
+
+
+## V127.3 — Existing long (1,481-cue) source structural capacity preflight
+
+An already user-supplied private original from \`1-70.zip\` was read **strictly as an engine structural scalability test**, not as new video research. The SRT \`5NvtBlmt93Y\` had 1,481 contiguous original cues. The runtime parsed exact source bytes SHA \`638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d\`; it created a **provisional operator-derived manifest/inventory only**, without independently signed owner attestation.
+
+- Native V6 \`verify_source\` validated a 25-primary-window parent source plan, with at most 60 cues per source window.
+- Native \`propose_full_video_segments(max_cues=120)\` returned **13 bounded child scope proposals**, with 1,481/1,481 source cues covered without gaps/overlaps, and every child manifest was replayed against the same full original source SHA.
+- Native \`prepare_private_host_turn\` correctly **blocked the unsegmented 1,481-cue parent** and rendered the first 120-cue child \`HOST_TURN_READY_NOT_EXECUTED\`, with private text held in memory only. It did not execute the model, commit child results, approve official law, or publish knowledge.
+- Local structural preflight elapsed approximately 0.316 s in the test container; this is **not ChatGPT semantic time** or a 791-video throughput estimate.
+
+[Public SHA-only size/census receipt](V127_3_EXISTING_LONG_VIDEO_1481CUE_SEGMENTATION_SHA_ONLY.json) contains no private subtitle text. Owner-signed child manifests, ChatGPT actual per-child complete semantics, 13 child original-body official checks, entire parent ACID publication, and semantic-quality acceptance **remain OPEN**. No new research or Google Drive portfolio integration was begun. V125 E1/E10 remain OPEN, P0 NO-GO.
