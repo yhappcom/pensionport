@@ -30,3 +30,14 @@ Passing tests **do not establish** genuine ChatGPT finance verdict, official iss
 - Phase R other video research and Phase P Drive portfolio integration remain **PROHIBITED** until E1–E10 full acceptance; P0 **NO-GO**.
 
 **Immediate next development:** durable host-child checkpoint/resume and atomic whole-parent candidate batch publication only after every child + seam passes; live first-party official-source capture/period/scope and real owner-staging-to-production HEAD reconciliation; then end-to-end private original and advice acceptance.
+
+
+## V127.1 — Private durable child checkpoint, restart and exact resume
+
+Implemented \`v1271_parent_resume_checkpoint.py\` with \`PrivateFullVideoCheckpoint\` on owner-private SQLite. The checkpoint is created against the exact verified original parent raw SRT, independently supplied parent inventory pin, deterministic child manifest digests and explicit cue budget. It holds **SHA-only child receipt metadata**, never source cue text. It does not create ChatGPT judgments or external owner signatures.
+
+\`record(segment_id, case, expected_checkpoint_head)\` replays genuine child V6 current host + ChatGPT final gate, records PASS/HOLD/REJECT in an append-only SHA256-chain event ledger, and makes identical retry idempotent. A previously OPEN decision can be replaced only by an explicitly requested revision: the earlier record stays in the chain and a current PASS can no longer be silently modified. SQLite writes use an immediate transaction and stale head rejection. \`progress\` identifies the next unpassed child on restart, and \`assemble\` requires the exact final recorded child hashes, full child case inputs and every cross-segment seam before running the V127 parent assembly again.
+
+**10 dedicated V127.1 synthetic tests PASS** (18 when imported V127 tests are included): restart after child1, child2 completion, HOLD revision, stale HEAD rejection, source/plan drift, tamper, missing seam, no SRT text in DB, and external checkpoint comparison. The final status is still **STAGING NOT PUBLISHED**, so unreviewed child knowledge does not reach V126. Entire-run orchestration still relies on ChatGPT supplying real child semantics and original official-body evidence. An external trusted head checkpoint is not automatically established by storing a local SHA.
+
+V125 E1/E9 **remain OPEN**, owner operating ledger and proof of financial facts remain unresolved, finance OPEN 12, no real new research candidates, no Phase R/P authorization, P0 NO-GO.

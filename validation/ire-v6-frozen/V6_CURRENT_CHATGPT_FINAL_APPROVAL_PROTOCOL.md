@@ -121,3 +121,11 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - \`v127_cumulative_knowledge_graph\`는 비공개 V126 누적 원장의 충돌한 **기존·신규 주장 모두**, 철회된 근거의 의존 주장, 의미 동치 미해결 동일 문구 별도 개념을 질의 조회에서 격리한다. \`v126_chat_approved_knowledge_store.evidence_for_question\`이 이 검문을 반드시 수행한다.
 - 공개 합성 4cue/2구간 V6+V123 수용회귀 8개 신규, 누적 지식 교차 영상 오류 격리 9개 신규 PASS(기존 V126 11+8 포함 **36개 고유 시험 메서드**). 구간 간 ChatGPT 의미 판정과 법령 진위는 자동 검증되지 않는다.
 - V125 E1/E7은 여전히 \`OPEN\`, 실제 영상 신규 연구 0, 금융 OPEN 12, 실물 신규 지식 승인 0, P0 NO-GO. Phase P 포트폴리오 연결 금지 유지.
+
+
+## 17. V127.1 전체영상 분할 실행 체크포인트·재시작 영수증 (2026-11-15)
+
+- [SHA-only 영수증](V127_1_FULL_VIDEO_CHECKPOINT_RESUME_SHA_ONLY.json) / [검증 및 한계](V6_V127_FULL_VIDEO_CHAT_ASSEMBLY_AND_GRAPH_QUARANTINE_REPORT.md).
+- \`v1271_parent_resume_checkpoint.PrivateFullVideoCheckpoint\`는 부모 원본 바이트·인벤토리·정확한 하위 창 계획을 다시 읽고, 자식별 V6 실물 영수증·ChatGPT 검증결과의 SHA만 비공개 SQLite 체인에 기록한다. 재시작 후 나머지 자식 범위를 파악하며, 미검증 구간과 금융 OPEN은 PASS로 바꾸지 않는다.
+- \`OPEN\` 수정은 원래 HOLD 영수증을 보존한 추가 검토 이벤트가 필요하고, 완료된 구간에 다른 검토표를 끼워넣거나 이전 DB HEAD를 사용하는 동작은 거부한다. 모든 구간 PASS 이후에도 V127 부모 원문·구간 경계 재검문은 **임시 검문 단계**이며 연구 완료/지식 반출 승인까지 자동 연결되지 않는다.
+- 공개 합성 신규 10개 PASS, E1/E9 \`OPEN\`, 금융 OPEN 12, 신규 실제 지식 승인 0, P0 NO-GO. 엔진 완료 이전의 신규 영상 연구·Google Drive 포트폴리오 연계 금지 유지.

@@ -1944,3 +1944,4 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v126_chat_research_answer_bridge.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v127_full_video_chat_completion.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v127_cumulative_knowledge_graph.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1271_parent_resume_checkpoint.py' -v
