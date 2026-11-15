@@ -1949,3 +1949,4 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1273_long_existing_source_sha_only.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v128_continuous_chat_atomic_parent.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v129_real_fourtrack_acceptance_hold.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v130_real_acceptance_metadata.py' -v

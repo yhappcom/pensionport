@@ -127,6 +127,12 @@ class PrivateKnowledgeStore:
     def audit(self, *, externally_pinned_head=None):
         with self._session() as con:
             head, state = self._audit(con)
+            # A knowledge event chain alone does not attest the separate V128
+            # all-child parent ChatGPT publication receipt. Recheck it on
+            # *every* knowledge audit; a changed parent proof must not be
+            # silently treated as a still-approved research source.
+            from v128_atomic_parent_knowledge import _replay_parent_publications
+            _replay_parent_publications(con, head)
         if externally_pinned_head is not None and head != externally_pinned_head:
             _stop("EXTERNAL_HEAD_CHECKPOINT_DRIFT")
         return {"schema":"IRE_V126_PRIVATE_KNOWLEDGE_AUDIT_V1",
@@ -319,6 +325,11 @@ class PrivateKnowledgeStore:
             raise InvalidInput("V126_SELECTED_KNOWLEDGE_IDS_INVALID")
         with self._session() as con:
             head, statuses = self._audit(con)
+            # Protect the advice-retrieval path from using rows whose parent
+            # all-segment release receipt has been modified or detached from
+            # its original V6 event-chain boundaries.
+            from v128_atomic_parent_knowledge import _replay_parent_publications
+            _replay_parent_publications(con, head)
             entries = [json.loads(v[0]) for v in con.execute("SELECT entry_json FROM knowledge")]
             # A newly detected cross-video conflict must quarantine the old
             # active target too. Review-only status never becomes auto approval.

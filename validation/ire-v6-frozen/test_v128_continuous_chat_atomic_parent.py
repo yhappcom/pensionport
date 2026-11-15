@@ -269,5 +269,32 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         with self.assertRaisesRegex(QualityNotProven,"UNPUBLISHED_PARENT_STAGING_CANNOT_REVOKE"):
             stage.revoke("0"*64,chat_review_sha256="1"*64,expected_knowledge_head=ZERO_SHA)
 
+
+    def test_18_damaged_parent_approval_receipt_cannot_support_knowledge_query(self):
+        # The V128 publisher already detects this on publication replay.
+        # V130 extends fail-closed enforcement to the real V126 Q&A path.
+        self.run_engine()
+        with sqlite3.connect(self.knowledge.path) as con:
+            con.execute("UPDATE parent_publications SET proof_sha256=?",("1"*64,))
+        with self.assertRaisesRegex(QualityNotProven,"PARENT_PROOF_HASH_OR_SCHEMA_DRIFT"):
+            self.knowledge.evidence_for_question("투자 연구 기반 분산 및 집중")
+        with self.assertRaisesRegex(QualityNotProven,"PARENT_PROOF_HASH_OR_SCHEMA_DRIFT"):
+            self.knowledge.audit()
+
+    def test_19_modified_parent_event_head_cannot_support_answer_packet(self):
+        self.run_engine()
+        with sqlite3.connect(self.knowledge.path) as con:
+            con.execute("UPDATE parent_publications SET to_head_sha256=?",("1"*64,))
+        with self.assertRaisesRegex(QualityNotProven,"PARENT_PROOF_HASH_OR_SCHEMA_DRIFT"):
+            self.knowledge.evidence_for_question("투자 연구 자문")
+
+    def test_20_valid_parent_receipt_query_is_only_a_context_packet(self):
+        self.run_engine()
+        ev=self.knowledge.evidence_for_question("투자 연구 자문")
+        self.assertFalse(ev["p0_go"])
+        self.assertTrue(ev["research_candidate_not_formal_financial_fact"])
+        self.assertTrue(ev["chatgpt_final_answer_review_required"])
+        self.assertNotIn("answer_text",ev)
+
 if __name__ == "__main__":
     unittest.main()
