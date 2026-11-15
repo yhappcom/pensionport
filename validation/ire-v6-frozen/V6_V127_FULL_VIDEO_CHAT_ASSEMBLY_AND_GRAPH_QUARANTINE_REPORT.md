@@ -41,3 +41,16 @@ Implemented \`v1271_parent_resume_checkpoint.py\` with \`PrivateFullVideoCheckpo
 **10 dedicated V127.1 synthetic tests PASS** (18 when imported V127 tests are included): restart after child1, child2 completion, HOLD revision, stale HEAD rejection, source/plan drift, tamper, missing seam, no SRT text in DB, and external checkpoint comparison. The final status is still **STAGING NOT PUBLISHED**, so unreviewed child knowledge does not reach V126. Entire-run orchestration still relies on ChatGPT supplying real child semantics and original official-body evidence. An external trusted head checkpoint is not automatically established by storing a local SHA.
 
 V125 E1/E9 **remain OPEN**, owner operating ledger and proof of financial facts remain unresolved, finance OPEN 12, no real new research candidates, no Phase R/P authorization, P0 NO-GO.
+
+
+## V127.2 — existing V122 *real private original* checkpoint HOLD replay
+
+Reused the **already reviewed** V122 video \`EYya0e4APBE\` and its owner-private historical V123.7 package; **no new video research** was performed. This is a *real private-source / existing V6 staging DB* execution of the V127.1 checkpoint, distinct from synthetic unit tests.
+
+- Original 47-cue SRT, 18 existing provisional atoms, original V123.7 ChatGPT review OPEN, operator-derived inventory, and existing V6 isolated SQLite backup were read and SHA-replayed, without altering any original.
+- Existing V6 staging HEAD replay confirmed \`a24352d7068d1ab8e0e2a915f60ae8578d0bef8c2d10900f6840d6bd35ddb6a9\`. It is **not** the owner's production V6 DB.
+- \`PrivateFullVideoCheckpoint.record\` returned **\`CHILD_CHAT_CHECKPOINT_HOLD\`** for the only parent scope (47 cues fit the bounded 120-cue host segment). Restart and identical input repeat returned **idempotent** with unchanged checkpoint HEAD \`181dedb1423b54da886be5a109e8138ebe5634cd99385feaa3738e01bac6867e\`.
+- The private 1,983-byte ZIP, containing only the private SQLite checkpoint and SHA receipt (no original SRT/finance law or account data), passed ZIP CRC, SQLite integrity and SHA replay. It is saved under user's private Library \`/박곰희TV_원본확보/V1271_EXISTING_V122_47CUE_18ATOM_CHAT_HOLD_CHECKPOINT_PRIVATE.zip\`; SHA \`218085d0c77925c3ff676eb3dba27ff394465e198069558d85940d033fd4ee9a\`. GitHub holds only the [SHA receipt](V127_2_EXISTING_V122_REAL_STAGING_CHECKPOINT_HOLD_SHA_ONLY.json).
+- **Still 12 finance OPEN**, all 18 source provisional candidates unapproved; no owner-independent signature, no production ledger, no original-audio verification, no candidate export, no personal advice. The new checkpoint passed correct **HOLD enforcement**, not engine research-completion.
+
+This real-case replay used only a 47-cue source (one child), so it does not certify long-video multi-segment chat execution. V127 synthetic two-child tests cover assembly mechanics only. V125 E1–E10 remain OPEN, P0 NO-GO.

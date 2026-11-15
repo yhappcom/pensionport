@@ -129,3 +129,10 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - \`v1271_parent_resume_checkpoint.PrivateFullVideoCheckpoint\`는 부모 원본 바이트·인벤토리·정확한 하위 창 계획을 다시 읽고, 자식별 V6 실물 영수증·ChatGPT 검증결과의 SHA만 비공개 SQLite 체인에 기록한다. 재시작 후 나머지 자식 범위를 파악하며, 미검증 구간과 금융 OPEN은 PASS로 바꾸지 않는다.
 - \`OPEN\` 수정은 원래 HOLD 영수증을 보존한 추가 검토 이벤트가 필요하고, 완료된 구간에 다른 검토표를 끼워넣거나 이전 DB HEAD를 사용하는 동작은 거부한다. 모든 구간 PASS 이후에도 V127 부모 원문·구간 경계 재검문은 **임시 검문 단계**이며 연구 완료/지식 반출 승인까지 자동 연결되지 않는다.
 - 공개 합성 신규 10개 PASS, E1/E9 \`OPEN\`, 금융 OPEN 12, 신규 실제 지식 승인 0, P0 NO-GO. 엔진 완료 이전의 신규 영상 연구·Google Drive 포트폴리오 연계 금지 유지.
+
+
+## 18. V127.2 기존 비공개 원본 V122 실물 체크포인트 재개·HOLD 검증
+
+- [V127.2 SHA-only 영수증](V127_2_EXISTING_V122_REAL_STAGING_CHECKPOINT_HOLD_SHA_ONLY.json): 이미 검토한 V122 원본 47 cue·잠정 원자 18개·V123.7 격리 V6 DB를 재사용해 \`PrivateFullVideoCheckpoint\`가 실제 \`CHAT_FINAL_HOLD_OPEN\`을 **보류 체크포인트**로 기록하는지 확인했다.
+- 결과: 체크포인트 구간 1/1 HOLD, 기존 격리 DB HEAD 일치, 동일 입력 재시작 멱등성 PASS. 비공개 SQLite·원문과 구별되는 체크포인트 증빙은 사용자 비공개 Library에만 보관; GitHub는 SHA·범위·HOLD만 공개한다.
+- **소유자 독립 원본 핀 및 기존 운영 DB HEAD 미확보, 금융 OPEN 12, 실제 새 지식 승인 0, P0 NO-GO**. 이 실물은 장편 다중 구간 능력 인증이 아니라 기존 47 cue 1구간 HOLD 확인이다.
