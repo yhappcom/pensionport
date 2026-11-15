@@ -102,3 +102,9 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - `V123 require_chat_final_release`가 실물 최신 V6 호스트 저장소에 대해 **PASS**를 내야만 `PrivateKnowledgeStore.add_chat_final_batch`가 별도 비공개 SQLite 누적원장에 후보를 저장한다. 지식 관계는 ChatGPT 추가 의견 SHA와 기존 Master116/P4 원본검문을 통해 연결하며, 충돌 격리·철회·멱등성·개정 이력을 보존한다.
 - 누적 증거 조회 결과는 **ChatGPT의 추가 사실검토 및 현재 공식규정 검색을 요구하는 비공개 맥락 패킷**이지 자동 개인 투자자문이 아니다. 기존 금융 OPEN 12건과 V122 실제 ChatGPT HOLD는 그대로이므로 신규 실물 승인/반출 **0**.
 - V125 E6–E8 중 신규 검증·누적·검색 부문은 프로토타입 개발을 시작했으나 미완성 상태 `OPEN`; 대량 영상 일괄 처리와 Q&A 실제 최종 답변 연결 미완성. **신규 영상 연구 및 Google Drive 포트폴리오 연결은 시작하지 않는다.**
+
+## 14. V126.1 누적 지식 관계 입력과 원본 V6 저장 영수증 일치 강제
+
+- [V126.1 SHA-only 회귀 영수증](V126_1_EXACT_HOST_BUNDLE_PRIOR_RELATION_PIN_SHA_ONLY.json): ChatGPT 최종 검토가 승인한 지식 관계를 누적 저장하려면, **처음 V6 호스트 배치에 사용된 원본 바이트·인벤토리·창별 모델·원자 주장·기존 지식 관계 전체를 같은 매개변수로 멱등 재실행**해야 한다.
+- 비교 대상은 `host_receipt.event_sha256` 및 `host_receipt.bundle_sha256`; 관계표를 나중에 임의 교체해 별도 의미 감사만 통과시키는 결함은 `SOURCE_HOST_BATCH_REPLAY_INPUT_DRIFT`로 거부한다.
+- 공개 합성 11개 테스트 PASS는 금융 사실, 지식 누적 실제 운영 승인, P0 GO가 아니다. 원본 47 cue 실제 금융 OPEN 12, 새 연구 확대·포트폴리오 연결 금지 유지.

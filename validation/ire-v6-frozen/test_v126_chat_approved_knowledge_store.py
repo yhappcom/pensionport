@@ -39,6 +39,7 @@ class V126RealGatePrivateCumulativeKnowledgeTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.db=PrivateKnowledgeStore(Path(self.tmp.name)/"v126_private.db")
         self.prior=p.parent.knowledge
+        self.original_host_batch_replay_args=p.parent.args()
         self.decisions=explicit_relation_decisions(p.exchange,self.prior)
 
     def push(self,**overrides):
@@ -47,7 +48,8 @@ class V126RealGatePrivateCumulativeKnowledgeTests(unittest.TestCase):
                   chat_review=self.p.review,source_store=self.p.parent.fx.store,
                   official_evidence_bodies=self.p.evidence_bodies,
                   relation_decisions=self.decisions,
-                  expected_knowledge_head=ZERO_SHA)
+                  expected_knowledge_head=ZERO_SHA,
+                  original_host_batch_replay_args=self.original_host_batch_replay_args)
         args.update(overrides)
         return self.db.add_chat_final_batch(**args)
 
@@ -103,6 +105,18 @@ class V126RealGatePrivateCumulativeKnowledgeTests(unittest.TestCase):
             with self.subTest(mode=mode),self.assertRaises(QualityNotProven):
                 self.push(relation_decisions=rows)
             self.assertEqual(self.db.audit()["active_claims"],0)
+
+    def test_stale_host_batch_prior_relations_cannot_be_substituted(self):
+        modified=copy.deepcopy(self.prior)
+        modified["relations"][0]["relationship"]="CONFLICT_PENDING"
+        with self.assertRaisesRegex(QualityNotProven,"SOURCE_HOST_BATCH_REPLAY_INPUT_DRIFT"):
+            self.push(prior_knowledge=modified)
+        self.assertEqual(self.db.audit()["active_claims"],0)
+
+    def test_missing_exact_host_replay_denied(self):
+        with self.assertRaisesRegex(QualityNotProven,"SOURCE_HOST_BATCH_REPLAY_INPUT_DRIFT"):
+            self.push(original_host_batch_replay_args={})
+        self.assertEqual(self.db.audit()["active_claims"],0)
 
     def test_stale_expected_head_fails_closed_for_other_batch(self):
         first=self.push()

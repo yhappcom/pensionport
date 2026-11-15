@@ -24,3 +24,13 @@ Actual local Python replay using the frozen public V6 synthetic host-batch fixtu
 - Frozen `ire/v6` implementation, V5, Master116, P4 and `main` remain untouched.
 
 **Decision:** E6/E7/E8 **active prototypes under development, not PASS**; V125 machine-status becomes `OPEN` for three prototype items. All ten final-completion requirements remain unresolved, research rollout blocked, **P0 NO-GO**.
+
+## V126.1 — Real V6 host bundle exact replay before any accumulated knowledge write
+
+An additional integrity defect was identified: re-running `audit_prior_candidates` alone does not prove that the ChatGPT relationship payload is the same one cryptographically committed in the **original V6 host batch bundle**.
+
+The V126.1 `add_chat_final_batch` function now **requires `original_host_batch_replay_args`** and first replays the actual frozen `TransactionStore.submit_host_atomic_batch` with the original source bytes, owner inventory, exact prior relation list, original atom exchange and all model/proof window inputs. It verifies the replay is **idempotent**, **current**, and both host `event_sha256` and `bundle_sha256` are byte-identical to the V123 reviewed host receipt. If any prior relation/input is changed, the entire cumulative transaction is rejected **before any private SQLite write**.
+
+Locally ran **11/11 dedicated synthetic V126 tests** against the actual public V6 and actual V123 gate. Two new negative tests demonstrate changed prior relations after the host event and missing replay input cannot insert knowledge.
+
+This is stronger **source-relation consistency**, not owner-independent attestation, semantic truth, legal issuer certification, or production E6/E7/E8 completion. V122 official finance OPEN 12, new real approved knowledge 0, E1–E10 NO-GO.

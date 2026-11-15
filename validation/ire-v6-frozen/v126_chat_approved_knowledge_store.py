@@ -7,7 +7,6 @@ without a separately held owner checkpoint. Advisory access is evidence-only.
 """
 from __future__ import annotations
 
-import hashlib
 import json
 import re
 import sqlite3
@@ -121,7 +120,8 @@ class PrivateKnowledgeStore:
     def add_chat_final_batch(self, source, exchange, prior_knowledge, *,
                              host_receipt, chat_review, source_store,
                              official_evidence_bodies, relation_decisions,
-                             expected_knowledge_head):
+                             expected_knowledge_head,
+                             original_host_batch_replay_args):
         """All-or-nothing exact ChatGPT-vetted candidate accumulation.
 
         Every claim must have one source-bound, explicit ChatGPT relationship
@@ -132,6 +132,24 @@ class PrivateKnowledgeStore:
             source, exchange, host_receipt=host_receipt, chat_review=chat_review,
             store=source_store, official_evidence_bodies=official_evidence_bodies)
         prior = audit_prior_candidates(source, exchange, prior_knowledge)
+        # Bind the *same* original prior relation list to the real V6 batch
+        # commitment, not merely to a separate, replaceable ChatGPT input.
+        # The V6 idempotent replay returns the original bundle and event SHA
+        # only if every model, source, owner pin and relation byte still match.
+        replay = original_host_batch_replay_args
+        if (type(replay) is not dict or set(replay) != {
+            "scope_id", "run_id", "expected_head", "raw", "manifest",
+            "inventory_bytes", "expected_inventory_sha256", "exchange",
+            "knowledge", "window_models", "window_reviews"
+        } or replay["knowledge"] != prior_knowledge or
+                replay["exchange"] != exchange or replay["scope_id"] != host_receipt["scope_id"]):
+            _stop("SOURCE_HOST_BATCH_REPLAY_INPUT_DRIFT")
+        rechecked = source_store.submit_host_atomic_batch(**replay)
+        if (rechecked["idempotent_replay"] is not True or
+                rechecked["is_current"] is not True or
+                rechecked["event_sha256"] != host_receipt["event_sha256"] or
+                rechecked["bundle_sha256"] != host_receipt["bundle_sha256"]):
+            _stop("SOURCE_HOST_BUNDLE_NOT_EXACT_REPLAY")
         if gate["status"] != "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY":
             _stop("CHAT_FINAL_NOT_PASSED")
         if type(expected_knowledge_head) is not str or not SHA.fullmatch(expected_knowledge_head):
