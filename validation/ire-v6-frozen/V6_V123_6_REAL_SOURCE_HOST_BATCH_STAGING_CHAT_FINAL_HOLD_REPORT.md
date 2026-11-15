@@ -37,3 +37,7 @@
 The old `HOLD_MISSING_V6_HOST_BATCH_OR_STORE` *readiness inference* still applies to an **existing owner operational DB**, but is no longer an accurate description of what was exercised in isolated staging. This new concrete staging gate returned `CHAT_FINAL_HOLD_OPEN`. Do not conflate their provenance.
 
 The next high-value work is: privately correct cue-32 conditional mapping and check cue-14 number context; securely retain original official response bytes, effective-date and issuer/product scope for 12 priority cases; rerun a new-version staged batch and ChatGPT final review; maintain hold until all required OPENs are resolved.
+
+## CI boundary repair in V123.6
+
+A temporary public-only GitHub Actions source-export workflow was used to transfer the **public** frozen V6 engine into the private local runtime without uploading the private SRT. That added workflow path violated the existing canonical/clean-room allowed-diff policy; those intermediate GitHub CI runs failed **on repository scope enforcement**, not on the actual original-source host_batch. The temporary workflow was removed in commit `43129c4ebec6627f4c9943d6b836903a49bad1c0`, restoring a HEAD diff limited to V6 validation metadata and the already-approved V6 CI workflow. Keep the scope guard unchanged. Final CI is verified separately on the repaired HEAD, not by inheriting a previous green run.
