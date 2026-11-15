@@ -108,3 +108,9 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - [V126.1 SHA-only 회귀 영수증](V126_1_EXACT_HOST_BUNDLE_PRIOR_RELATION_PIN_SHA_ONLY.json): ChatGPT 최종 검토가 승인한 지식 관계를 누적 저장하려면, **처음 V6 호스트 배치에 사용된 원본 바이트·인벤토리·창별 모델·원자 주장·기존 지식 관계 전체를 같은 매개변수로 멱등 재실행**해야 한다.
 - 비교 대상은 `host_receipt.event_sha256` 및 `host_receipt.bundle_sha256`; 관계표를 나중에 임의 교체해 별도 의미 감사만 통과시키는 결함은 `SOURCE_HOST_BATCH_REPLAY_INPUT_DRIFT`로 거부한다.
 - 공개 합성 11개 테스트 PASS는 금융 사실, 지식 누적 실제 운영 승인, P0 GO가 아니다. 원본 47 cue 실제 금융 OPEN 12, 새 연구 확대·포트폴리오 연결 금지 유지.
+
+## 15. V126.2 누적 지식 검색과 ChatGPT 답변 검문 부분 연결
+
+- [V126.2 공개 해시 영수증](V126_2_CHAT_RESEARCH_QA_BRIDGE_SHA_ONLY.json) 및 [Q&A 검문 코드](v126_chat_research_answer_bridge.py), [합성 원본→질문 응답 부정검사](test_v126_chat_research_answer_bridge.py).
+- `prepare_question_packet`은 비공개 누적 지식 원장의 최신 HEAD, 정확한 연구 지식 ID, 질문 SHA를 묶는다. `check_chat_research_answer`는 ChatGPT가 작성·검토한 답변 SHA와 원본 근거를 다시 대조하고, 금융 주장은 공식기관 HTML **실제 바이트·SHA·발효일·문구·기관 도메인**을 입력으로 요구한다. 미제공/불일치/지식 철회 시 답변을 보류한다.
+- 문서 바이트의 **실제 인터넷 제공 출처 인증 및 금융 법령 적용성 독립 검증은 아직 구현되지 않았으며**, 공공기관 도메인 문자열 자체를 신원/진위로 인정하지 않는다. 해당 경로는 계좌별 개인 자문·주문·금융사실 승인 엔진이 아니다. 실제 신규 영상/실거래 연결 없음; E8 `OPEN`, P0 NO-GO.

@@ -34,3 +34,15 @@ The V126.1 `add_chat_final_batch` function now **requires `original_host_batch_r
 Locally ran **11/11 dedicated synthetic V126 tests** against the actual public V6 and actual V123 gate. Two new negative tests demonstrate changed prior relations after the host event and missing replay input cannot insert knowledge.
 
 This is stronger **source-relation consistency**, not owner-independent attestation, semantic truth, legal issuer certification, or production E6/E7/E8 completion. V122 official finance OPEN 12, new real approved knowledge 0, E1–E10 NO-GO.
+
+## V126.2 — Cumulative private evidence to ChatGPT-reviewed Q&A bridge
+
+`v126_chat_research_answer_bridge.py` now implements an **explicit source-selected question packet** and a **ChatGPT-host-written answer verification receipt** that is bound to the private knowledge ledger's current event HEAD and exact source claim evidence. The function does NOT generate text, call an LLM API, search the live web, or read a portfolio.
+
+- All referenced research knowledge must still be active, not revoked/quarantined; the answer packet becomes stale if cumulative knowledge changes. No answer without supporting research candidates.
+- ChatGPT's final answer and source-first/counterexample review are bound to exact question, private evidence and answer SHA; tampered text/review cannot be reused.
+- Each **financial** referenced claim requires claim-specific original official HTML response bytes, SHA-256 replay, an exact literal source excerpt, a legal effective date not after the question date, a capture date not after the question date and an official HTTPS domain allowlist. This is a **negative-control guard**: passing it does *not* prove the bytes actually came from the issuer, the legal rule is substantively applicable, or the ChatGPT decision is independent.
+- The host cannot use this route to authorize personal orders, portfolio changes or formal tax advice. Code returns reviewed *general research guidance*, with `financial_facts_formally_approved=0`.
+- **8 dedicated synthetic tests PASS** for valid same-source packet, missing financial body, wrong hash/quote, unofficial domain/future law, absent review, changed answer, trade request, stale/revoked knowledge and no research candidate. **Total V126 local dedicated tests 19/19 PASS.** Synthetic official HTML is explicitly fake and never treated as authentic government proof.
+
+The module is a functional advisory **host interface** only. The actual live official web search and ChatGPT's supported research/advisory answer workflow remain to be validated end to end with genuine owner evidence. No user-specific portfolio retrieval and no new videos were started. V125 E8 is upgraded from NOT_IMPLEMENTED to OPEN; completion not certified. Finance OPEN 12 and P0 NO-GO remain.

@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import re
 import sqlite3
+from contextlib import contextmanager
 from pathlib import Path
 
 from ire.v6.codec import canonical, json_digest, sha256, ZERO_SHA
@@ -61,6 +62,15 @@ class PrivateKnowledgeStore:
         con.execute("PRAGMA foreign_keys=ON")
         return con
 
+    @contextmanager
+    def _session(self):
+        con=self._connect()
+        try:
+            with con:
+                yield con
+        finally:
+            con.close()
+
     @staticmethod
     def _audit(con):
         rows = con.execute("SELECT * FROM events ORDER BY seq").fetchall()
@@ -107,7 +117,7 @@ class PrivateKnowledgeStore:
         return head
 
     def audit(self, *, externally_pinned_head=None):
-        with self._connect() as con:
+        with self._session() as con:
             head, state = self._audit(con)
         if externally_pinned_head is not None and head != externally_pinned_head:
             _stop("EXTERNAL_HEAD_CHECKPOINT_DRIFT")
@@ -177,7 +187,7 @@ class PrivateKnowledgeStore:
         if set(decisions) != set(atoms):
             _stop("CHAT_RELATION_MISSING_ATOM")
         finance = {r["claim_id"]:r["financial_claim"] for r in chat_review["atom_verdicts"]}
-        with self._connect() as con:
+        with self._session() as con:
             con.execute("BEGIN IMMEDIATE")
             head, statuses = self._audit(con)
             current = {x[0]:json.loads(x[1]) for x in con.execute(
@@ -262,7 +272,7 @@ class PrivateKnowledgeStore:
         if not all(type(x) is str and SHA.fullmatch(x or "")
                    for x in (knowledge_id,chat_review_sha256,expected_knowledge_head)):
             raise InvalidInput("V126_REVOCATION_REQUIRES_VALID_SHA_PINS")
-        with self._connect() as con:
+        with self._session() as con:
             con.execute("BEGIN IMMEDIATE")
             head, states = self._audit(con)
             if head != expected_knowledge_head or states.get(knowledge_id) != "ACTIVE":
@@ -289,7 +299,7 @@ class PrivateKnowledgeStore:
             any(type(x) is not str or not SHA.fullmatch(x) for x in selected_knowledge_ids) or
             selected_knowledge_ids!=sorted(set(selected_knowledge_ids))):
             raise InvalidInput("V126_SELECTED_KNOWLEDGE_IDS_INVALID")
-        with self._connect() as con:
+        with self._session() as con:
             head, statuses = self._audit(con)
             entries = [json.loads(v[0]) for v in con.execute("SELECT entry_json FROM knowledge")]
         active = {x["knowledge_id"]:x for x in entries
