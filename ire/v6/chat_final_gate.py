@@ -98,7 +98,7 @@ def _stage_receipt(source, atom_audit, host, store):
 
 def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                            host_receipt: dict | None, chat_review: dict | None,
-                           store=None) -> dict:
+                           store=None, official_evidence_bodies=None) -> dict:
     """Replay real V6 atomic source audit; return safe HOLD or research-only PASS.
 
     The verifier structurally replays supplied evidence; it cannot establish
@@ -149,6 +149,13 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
     _check(type(hrf) is int and 0 <= hrf <= 100000 and
            type(av) is int and 0 <= av <= 100000, "OPEN_COUNTS_INVALID")
 
+    # Verify actual owner-private primary-source bodies, not just source SHA
+    # strings. A missing body is an OPEN, never a self-certified finance PASS.
+    if official_evidence_bodies is None:
+        official_evidence_bodies = {}
+    _check(type(official_evidence_bodies) is dict and
+           all(type(k) is str and type(v) is bytes and 0 < len(v) <= 8*1024*1024
+               for k,v in official_evidence_bodies.items()), "OFFICIAL_BODY_BYTES_INPUT")
     cues = chat_review["source_cues"]
     _check(type(cues) is list and len(cues) == source.scope_last_cue-source.scope_first_cue+1,
            "CHAT_CUE_CENSUS")
@@ -167,6 +174,7 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
     _check(type(rows) is list and len(rows) == len(atoms), "CHAT_ATOM_CENSUS")
     seen = set()
     accepted = rejected = opened = finance_open = risk_open = 0
+    _check(set(official_evidence_bodies).issubset(atoms), "OFFICIAL_BODY_UNKNOWN_CLAIM")
     for row in rows:
         _check(type(row) is dict and set(row) == {
             "claim_id", "atom_sha256", "status", "speaker_stance_checked",
@@ -195,8 +203,14 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
             _check(row["finance_evidence_status"] != "NOT_APPLICABLE", "FINANCE_NOT_APPLICABLE")
         else:
             _check(row["finance_evidence_status"] == "NOT_APPLICABLE", "NONFINANCE_STATUS")
+        body_replayed = False
         if row["finance_evidence_status"] == "PRIMARY_BODY_AND_DATE_CHAT_CHECKED":
             _pin(row["official_body_sha256"], "OFFICIAL_BODY")
+            original_body = official_evidence_bodies.get(cid)
+            if original_body is not None:
+                _check(sha256(original_body) == row["official_body_sha256"],
+                       "OFFICIAL_BODY_BYTES_MISMATCH")
+                body_replayed = True
             _check(_date(row["official_effective_as_of"], "OFFICIAL_EFFECTIVE_DATE")
                    <= _date(chat_review["as_of"], "REVIEW_ASOF"),
                    "FUTURE_EFFECTIVE_LAW")
@@ -210,10 +224,13 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
         rejected += int(row["status"] == "REJECT")
         opened += int(row["status"] == "OPEN")
         finance_open += int(row["financial_claim"] and
-                            row["finance_evidence_status"] != "PRIMARY_BODY_AND_DATE_CHAT_CHECKED")
+                            (row["finance_evidence_status"] != "PRIMARY_BODY_AND_DATE_CHAT_CHECKED"
+                             or not body_replayed))
         risk_open += int(row["high_risk"] and (
             row["status"] != "ACCEPT_FOR_RESEARCH" or
-            row["financial_claim"] and row["finance_evidence_status"] != "PRIMARY_BODY_AND_DATE_CHAT_CHECKED"))
+            row["financial_claim"] and
+            (row["finance_evidence_status"] != "PRIMARY_BODY_AND_DATE_CHAT_CHECKED"
+             or not body_replayed)))
         if row["status"] == "ACCEPT_FOR_RESEARCH":
             _check(all(row[k] for k in ("speaker_stance_checked", "conditions_exceptions_checked",
                                          "numeric_period_checked", "counterexample_checked")),
@@ -226,8 +243,11 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                 chat_review["counterexample_pass_completed"] and
                 chat_review["disagreements_adjudicated"] and
                 not atomic["unresolved_cues"] and not atomic["suspicious_no_atom_cues"])
+    final_status = ("CHAT_FINAL_REJECTED" if rejected else
+                    "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY" if all_pass else
+                    "CHAT_FINAL_HOLD_OPEN")
     return _result(source, atomic,
-                   status="CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY" if all_pass else "CHAT_FINAL_HOLD_OPEN",
+                   status=final_status,
                    reviewed=len(cues)-missing_cues, accepted=accepted, rejected=rejected,
                    opened=opened, missing_cues=missing_cues, finance_open=finance_open,
                    risk_open=risk_open+hrf, digest=json_digest(chat_review))
@@ -260,14 +280,15 @@ def _result(source, atomic, *, status, reviewed, accepted, rejected, opened,
     }
 
 
-def require_chat_final_release(source, exchange, *, host_receipt, chat_review, store) -> dict:
+def require_chat_final_release(source, exchange, *, host_receipt, chat_review, store, official_evidence_bodies) -> dict:
     """Fail-closed ONLY supported new V6 candidate-export entrypoint.
 
     A V6 host batch PASS without an explicit ChatGPT final review MUST NOT
     be used to export newly discovered research candidates.
     """
     decision = assess_chat_final_gate(source, exchange,
-                                      host_receipt=host_receipt, chat_review=chat_review, store=store)
+                                      host_receipt=host_receipt, chat_review=chat_review, store=store,
+                                      official_evidence_bodies=official_evidence_bodies)
     if not decision["research_candidate_export_allowed"]:
         raise QualityNotProven("V123_CHAT_FINAL_REVIEW_REQUIRED_BEFORE_RESEARCH_EXPORT")
     return decision

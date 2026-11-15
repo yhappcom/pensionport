@@ -12,9 +12,10 @@ from .prior_knowledge import audit_prior_candidates
 
 
 def preview_chat_validated_candidates(source, exchange, knowledge, *,
-                                      host_receipt, chat_review, store):
+                                      host_receipt, chat_review, store, official_evidence_bodies):
     gate = require_chat_final_release(
-        source, exchange, host_receipt=host_receipt, chat_review=chat_review, store=store)
+        source, exchange, host_receipt=host_receipt, chat_review=chat_review, store=store,
+        official_evidence_bodies=official_evidence_bodies)
     prior = audit_prior_candidates(source, exchange, knowledge)
     return {
         "schema": "IRE_V6_CHAT_FINAL_P1_READONLY_PREVIEW_V123",

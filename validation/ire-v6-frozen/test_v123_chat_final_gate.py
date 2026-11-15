@@ -58,6 +58,8 @@ class ChatFinalGateTests(unittest.TestCase):
             "p0_go": False,
             "review_private_evidence_sha256": sha("synthetic chat A/B evidence"),
         }
+        self.evidence_bodies={a["claim_id"]:b"synthetic-only government text, not real law"
+                              for a in self.exchange["atoms"]}
         for atom in self.exchange["atoms"]:
             self.review["atom_verdicts"].append({
                 "claim_id": atom["claim_id"],
@@ -80,7 +82,8 @@ class ChatFinalGateTests(unittest.TestCase):
         return assess_chat_final_gate(self.source, self.exchange,
                    host_receipt=self.host if host is None else host,
                    chat_review=self.review if review is None else review,
-                   store=self.parent.fx.store)
+                   store=self.parent.fx.store,
+                   official_evidence_bodies=self.evidence_bodies)
 
     def test_01_real_native_v6_batch_then_synthetic_chat_final_pass(self):
         result = self.assess()
@@ -95,24 +98,28 @@ class ChatFinalGateTests(unittest.TestCase):
     def test_02_export_wrapper_requires_chat_last(self):
         decision = require_chat_final_release(self.source, self.exchange,
                                 host_receipt=self.host, chat_review=self.review,
-                                store=self.parent.fx.store)
+                                store=self.parent.fx.store,
+                   official_evidence_bodies=self.evidence_bodies)
         self.assertTrue(decision["research_candidate_export_allowed"])
         with self.assertRaises(QualityNotProven):
             require_chat_final_release(self.source, self.exchange,
                                        host_receipt=self.host, chat_review=None,
-                                       store=self.parent.fx.store)
+                                       store=self.parent.fx.store,
+                   official_evidence_bodies=self.evidence_bodies)
 
     def test_03_no_host_batch_no_export(self):
         result = assess_chat_final_gate(self.source, self.exchange,
                                         host_receipt=None, chat_review=self.review,
-                                        store=self.parent.fx.store)
+                                        store=self.parent.fx.store,
+                   official_evidence_bodies=self.evidence_bodies)
         self.assertEqual(result["status"], "HOLD_MISSING_V6_HOST_BATCH_OR_STORE")
         self.assertFalse(result["research_candidate_export_allowed"])
 
     def test_04_missing_chat_no_export(self):
         result = assess_chat_final_gate(self.source, self.exchange,
                                         host_receipt=self.host, chat_review=None,
-                                       store=self.parent.fx.store)
+                                       store=self.parent.fx.store,
+                   official_evidence_bodies=self.evidence_bodies)
         self.assertEqual(result["status"], "HOLD_MISSING_CHAT_FINAL_REVIEW")
         self.assertFalse(result["research_candidate_export_allowed"])
 
@@ -129,6 +136,7 @@ class ChatFinalGateTests(unittest.TestCase):
     def test_06_rejected_claim_holds(self):
         self.review["atom_verdicts"][0]["status"] = "REJECT"
         self.assertEqual(self.assess()["atoms_rejected"], 1)
+        self.assertEqual(self.assess()["status"],"CHAT_FINAL_REJECTED")
         self.assertFalse(self.assess()["research_candidate_export_allowed"])
 
     def test_07_open_cue_holds(self):
@@ -240,7 +248,22 @@ class ChatFinalGateTests(unittest.TestCase):
                                     "current_revision_structural_proof_records":2}}
         with self.assertRaisesRegex(InvalidInput,"HOST_STORE_STALE_OR_PROOF_NOT_COMMITTED"):
             assess_chat_final_gate(self.source,self.exchange,
-                    host_receipt=self.host,chat_review=self.review,store=StaleStore())
+                    host_receipt=self.host,chat_review=self.review,store=StaleStore(),official_evidence_bodies=self.evidence_bodies)
+
+    def test_28_hash_only_official_without_bytes_is_hold(self):
+        got=assess_chat_final_gate(self.source,self.exchange,
+                 host_receipt=self.host,chat_review=self.review,
+                 store=self.parent.fx.store,official_evidence_bodies={})
+        self.assertEqual(got["status"],"CHAT_FINAL_HOLD_OPEN")
+        self.assertEqual(got["finance_open"],3)
+
+    def test_29_wrong_official_bytes_rejected(self):
+        forged=copy.deepcopy(self.evidence_bodies)
+        forged[self.exchange["atoms"][0]["claim_id"]]=b"wrong primary source"
+        with self.assertRaisesRegex(InvalidInput,"OFFICIAL_BODY_BYTES_MISMATCH"):
+            assess_chat_final_gate(self.source,self.exchange,
+                 host_receipt=self.host,chat_review=self.review,
+                 store=self.parent.fx.store,official_evidence_bodies=forged)
 
 class ChatValidatedPriorPreviewTests(unittest.TestCase):
     def setUp(self):
@@ -253,13 +276,15 @@ class ChatValidatedPriorPreviewTests(unittest.TestCase):
         with self.assertRaises(QualityNotProven):
             preview_chat_validated_candidates(
                 self.base.source,self.base.exchange,self.base.parent.knowledge,
-                host_receipt=self.base.host,chat_review=None,store=self.base.parent.fx.store)
+                host_receipt=self.base.host,chat_review=None,store=self.base.parent.fx.store,
+                official_evidence_bodies=self.base.evidence_bodies)
 
     def test_25_final_chat_gate_allows_only_readonly_p1(self):
         from ire.v6.chat_validated_knowledge_preview import preview_chat_validated_candidates
         got = preview_chat_validated_candidates(
             self.base.source,self.base.exchange,self.base.parent.knowledge,
-            host_receipt=self.base.host,chat_review=self.base.review,store=self.base.parent.fx.store)
+            host_receipt=self.base.host,chat_review=self.base.review,store=self.base.parent.fx.store,
+                official_evidence_bodies=self.base.evidence_bodies)
         self.assertEqual(got["candidate_count"],3)
         self.assertEqual(got["status"],"CHAT_REVIEWED_RESEARCH_CANDIDATES_READONLY")
         self.assertFalse(got["master_p4_merged"])
