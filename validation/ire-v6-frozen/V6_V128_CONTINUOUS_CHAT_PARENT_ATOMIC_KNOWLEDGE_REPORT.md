@@ -36,3 +36,8 @@ The first V128 CI run failed before executing its new tests because the helper \
 ## V128.2 — Actual new full-path CI exceptions corrected
 
 The second V128 CI successfully entered all 15 tests and exposed (1) a Python \`staging_head\` variable typo in the full-knowledge-DB staging audit, (2) negative regression assertions that treated creation of an **empty** \`parent_publications\` metadata table as a publication, and (3) native V6 concurrency error \`ConcurrentHeadChanged\` being rightly rejected but not listed in the forged-replay test's expected exceptions. Corrected all three. The core safety invariant is **zero entries and zero events**, even when empty schema metadata exists.
+
+
+## V128.3 — close the old per-child direct-write bypass
+
+The V126 **public/private production** \`PrivateKnowledgeStore.add_chat_final_batch\` path now rejects **partial source scopes** by default, even if a child V123 review PASS exists. Only the disposable \`v128_staging_*/staging.db\` instance used by the V128 atomic parent publisher may temporarily assemble partial children; such staging instances cannot answer questions or revoke knowledge. Thus older clients cannot accidentally store a long-video child before other children and the parent ChatGPT final review pass. Two additional negative tests verify direct partial publication and temporary DB Q&A/revocation are blocked. This flag is an in-process programming boundary, not a tamper-proof identity attestation against arbitrary malicious Python execution.

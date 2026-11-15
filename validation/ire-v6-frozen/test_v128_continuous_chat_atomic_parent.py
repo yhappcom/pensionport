@@ -244,5 +244,30 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         self.assertEqual(self._counts().get("events",0),0)
         self.assertEqual(self._counts().get("knowledge",0),0)
 
+    def test_16_old_direct_child_knowledge_writer_cannot_bypass_parent_gate(self):
+        child=self.packets[0]
+        c=child["case"]
+        with self.assertRaisesRegex(QualityNotProven,
+                                    "PARTIAL_SOURCE_REQUIRES_FULL_PARENT_ATOMIC_PUBLICATION"):
+            self.knowledge.add_chat_final_batch(
+                c["source"],c["exchange"],c["prior_knowledge"],
+                host_receipt=c["host_receipt"],chat_review=c["chat_review"],
+                source_store=c["source_store"],
+                official_evidence_bodies=c["official_evidence_bodies"],
+                relation_decisions=child["relation_decisions"],
+                expected_knowledge_head=ZERO_SHA,
+                original_host_batch_replay_args=child["original_host_batch_replay_args"])
+        self.assertEqual(self._counts().get("events",0),0)
+        self.assertEqual(self._counts().get("knowledge",0),0)
+
+    def test_17_temporary_parent_staging_db_cannot_be_used_for_qa(self):
+        stage_dir=self.temp/"v128_staging_synthetic"
+        stage_dir.mkdir()
+        stage=PrivateKnowledgeStore(stage_dir/"staging.db",parent_staging_only=True)
+        with self.assertRaisesRegex(QualityNotProven,"UNPUBLISHED_PARENT_STAGING_NOT_QUERYABLE"):
+            stage.evidence_for_question("투자 분산")
+        with self.assertRaisesRegex(QualityNotProven,"UNPUBLISHED_PARENT_STAGING_CANNOT_REVOKE"):
+            stage.revoke("0"*64,chat_review_sha256="1"*64,expected_knowledge_head=ZERO_SHA)
+
 if __name__ == "__main__":
     unittest.main()

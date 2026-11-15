@@ -8,6 +8,8 @@ publication occur. It neither launches tasks in background nor skips review.
 """
 from __future__ import annotations
 
+from contextlib import closing
+
 from ire.v6.errors import InvalidInput, QualityNotProven
 from v128_atomic_parent_knowledge import publish_parent_once
 
@@ -41,9 +43,9 @@ def run_all_video_scopes_in_chat(checkpoint, knowledge_store, *,
     """
     if not all(callable(c) for c in (review_or_load_child,review_seams,review_parent)):
         raise InvalidInput("V128_HOST_SYNC_CHAT_CALLBACKS_REQUIRED")
-    start=checkpoint.progress(externally_pinned_checkpoint_head=
-                              externally_pinned_checkpoint_head)
-    with checkpoint._connect() as con:
+    checkpoint.progress(externally_pinned_checkpoint_head=
+                        externally_pinned_checkpoint_head)
+    with closing(checkpoint._connect()) as con:
         _,initial_rows=checkpoint._audit(con)
     packets=[]
     appended=0

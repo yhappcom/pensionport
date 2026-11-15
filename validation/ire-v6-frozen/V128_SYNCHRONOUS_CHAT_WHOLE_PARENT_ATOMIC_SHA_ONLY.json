@@ -1,5 +1,5 @@
 {
-  "schema": "IRE_V128_2_CHATGPT_SYNCHRONOUS_FULL_VIDEO_ATOMIC_PARENT_CANDIDATES_SHA_ONLY_V1",
+  "schema": "IRE_V128_3_CHATGPT_SYNCHRONOUS_FULL_VIDEO_ATOMIC_PARENT_CANDIDATES_SHA_ONLY_V1",
   "as_of": "2026-11-16",
   "previous_commit": "ddfca19c69cb7bebffed66967186e5afd874a9e8",
   "code_paths": [
@@ -8,11 +8,11 @@
     "validation/ire-v6-frozen/test_v128_continuous_chat_atomic_parent.py"
   ],
   "source_code_sha256": [
-    "ab634fffa93c8fb8462659f3b5e125a64325ef6773e70e9b943782ddc52b2628",
-    "51e066aa089589478a20b9f69cda20e0e16f0dd36d6d67cb3ad6b25b8f2a823b",
-    "b84984182aaa44f4323dde6c0ee6dd4c738bc4838780a622c2b379c6c634ca48"
+    "d2cdf8f77946a0e6ef94ca784bc451c65305b9fc283b454012af60d89510203a",
+    "11fa4f82d15b2d8e36868f5b9711be21ea4c09f1bcdb26aea67b0b65b64545db",
+    "ba249c8cd01ad4e4e1dace4d6ab7b5b1f076bb1e99983ad7628a9ad5db1af785"
   ],
-  "expected_dedicated_synthetic_test_methods": 15,
+  "expected_dedicated_synthetic_test_methods": 17,
   "all_children_source_bound_real_v6_v123_gate_synthetic_fixture": true,
   "synchronous_chat_host_callback_required": true,
   "external_model_api_invoked": false,
@@ -32,5 +32,7 @@
   "test_class_helper_run_collision_corrected": true,
   "staging_head_name_defect_corrected": true,
   "expected_native_v6_concurrency_exception_in_negative_test": true,
-  "empty_parent_proof_schema_not_misread_as_published_knowledge": true
+  "empty_parent_proof_schema_not_misread_as_published_knowledge": true,
+  "old_v126_partial_source_direct_publish_blocked": true,
+  "parent_staging_temporary_sqlite_cannot_answer_or_revoke": true
 }

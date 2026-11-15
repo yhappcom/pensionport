@@ -36,8 +36,16 @@ def _digest(obj):
 
 class PrivateKnowledgeStore:
     """Private cumulative knowledge; frozen Master/P4 are read-only relations."""
-    def __init__(self, path):
+    def __init__(self, path, *, parent_staging_only=False):
         self.path = Path(path)
+        if type(parent_staging_only) is not bool:
+            raise InvalidInput("V126_PARENT_STAGING_FLAG_INVALID")
+        if parent_staging_only and (
+            self.path.name != "staging.db" or
+            not self.path.parent.name.startswith("v128_staging_")
+        ):
+            raise InvalidInput("V126_PARENT_STAGING_MUST_BE_DISPOSABLE_PRIVATE_PATH")
+        self._parent_staging_only = parent_staging_only
         if self.path.suffix not in {".db", ".sqlite"}:
             raise InvalidInput("V126_PRIVATE_DB_FILE_REQUIRED")
         if not self.path.parent.is_dir():
@@ -138,6 +146,12 @@ class PrivateKnowledgeStore:
         decision in addition to V6's pending prior relation. Existing private
         knowledge can be referenced only by its exact immutable ID.
         """
+        # The older per-child API may never publish a partial long-video
+        # source scope directly. Only V128's disposable, private parent
+        # staging clone may accept partial children pending whole-parent COMMIT.
+        if (source.scope_first_cue != 1 or
+                source.scope_last_cue != len(source.cues)) and not self._parent_staging_only:
+            _stop("PARTIAL_SOURCE_REQUIRES_FULL_PARENT_ATOMIC_PUBLICATION")
         gate = require_chat_final_release(
             source, exchange, host_receipt=host_receipt, chat_review=chat_review,
             store=source_store, official_evidence_bodies=official_evidence_bodies)
@@ -269,6 +283,8 @@ class PrivateKnowledgeStore:
 
     def revoke(self, knowledge_id, *, chat_review_sha256, expected_knowledge_head):
         """Tombstone without deleting immutable history or making user advice."""
+        if self._parent_staging_only:
+            _stop("UNPUBLISHED_PARENT_STAGING_CANNOT_REVOKE")
         if not all(type(x) is str and SHA.fullmatch(x or "")
                    for x in (knowledge_id,chat_review_sha256,expected_knowledge_head)):
             raise InvalidInput("V126_REVOCATION_REQUIRES_VALID_SHA_PINS")
@@ -289,6 +305,8 @@ class PrivateKnowledgeStore:
         Lexical scores support discovery only. ChatGPT must independently
         check relevant sources, up-to-date primary law and current facts.
         """
+        if self._parent_staging_only:
+            _stop("UNPUBLISHED_PARENT_STAGING_NOT_QUERYABLE")
         if type(question) is not str or not question.strip() or len(question)>4000:
             raise InvalidInput("V126_QUESTION_REQUIRED")
         if type(max_items) is not int or not 1<=max_items<=30:

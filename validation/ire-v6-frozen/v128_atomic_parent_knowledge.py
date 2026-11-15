@@ -225,7 +225,7 @@ def publish_parent_once(checkpoint, knowledge_store, packets, seam_reviews,
                 con.backup(target)  # read-consistent owner-private copy
             finally:
                 target.close()
-            staging=PrivateKnowledgeStore(staging_path)
+            staging=PrivateKnowledgeStore(staging_path,parent_staging_only=True)
             head=expected_knowledge_head
             # Exact V123 and frozen V6 source-to-relations replay occurs here.
             for packet in packets:
