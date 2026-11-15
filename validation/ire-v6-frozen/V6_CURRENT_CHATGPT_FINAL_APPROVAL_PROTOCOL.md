@@ -95,3 +95,10 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - 신규 영상 연구 **Phase R**은 전체 영상 자동·ChatGPT 검증·증거 검증·지식 영속 누적·중복/충돌 해결·실제 질문 검색/최신규정 자문·실물 E2E 수용검사까지 성공한 뒤에만 허용한다.
 - **Google Drive 포트폴리오 연계 Phase P는 엔진 완성 이후 별도 단계**다. 기존 자료의 읽기 전용 점검 기록이 있다고 해서 연계 코드를 개발하거나 포트폴리오 분석을 엔진 완성의 필수 과제로 바꾸지 않는다.
 - 이 단계는 문서와 차단 정책·회귀검사만 추가하며 엔진 완성 또는 Phase R/P 승인으로 주장하지 않는다. 동결 V6 코드, `main`, V5, Master116, P4 미변경.
+
+## 13. V126 비공개 ChatGPT 검증 지식 누적 원장 부분 구현 (2026-11-15)
+
+- [V126 개발·실증 보고서](V6_V126_CHAT_FINAL_PRIVATE_KNOWLEDGE_ACCUMULATION_REPORT.md): [코드](v126_chat_approved_knowledge_store.py), [합성 실물 배치 및 거부 회귀검사](test_v126_chat_approved_knowledge_store.py).
+- `V123 require_chat_final_release`가 실물 최신 V6 호스트 저장소에 대해 **PASS**를 내야만 `PrivateKnowledgeStore.add_chat_final_batch`가 별도 비공개 SQLite 누적원장에 후보를 저장한다. 지식 관계는 ChatGPT 추가 의견 SHA와 기존 Master116/P4 원본검문을 통해 연결하며, 충돌 격리·철회·멱등성·개정 이력을 보존한다.
+- 누적 증거 조회 결과는 **ChatGPT의 추가 사실검토 및 현재 공식규정 검색을 요구하는 비공개 맥락 패킷**이지 자동 개인 투자자문이 아니다. 기존 금융 OPEN 12건과 V122 실제 ChatGPT HOLD는 그대로이므로 신규 실물 승인/반출 **0**.
+- V125 E6–E8 중 신규 검증·누적·검색 부문은 프로토타입 개발을 시작했으나 미완성 상태 `OPEN`; 대량 영상 일괄 처리와 Q&A 실제 최종 답변 연결 미완성. **신규 영상 연구 및 Google Drive 포트폴리오 연결은 시작하지 않는다.**
