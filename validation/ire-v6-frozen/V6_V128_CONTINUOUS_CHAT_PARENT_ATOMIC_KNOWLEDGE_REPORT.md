@@ -41,3 +41,9 @@ The second V128 CI successfully entered all 15 tests and exposed (1) a Python \`
 ## V128.3 — close the old per-child direct-write bypass
 
 The V126 **public/private production** \`PrivateKnowledgeStore.add_chat_final_batch\` path now rejects **partial source scopes** by default, even if a child V123 review PASS exists. Only the disposable \`v128_staging_*/staging.db\` instance used by the V128 atomic parent publisher may temporarily assemble partial children; such staging instances cannot answer questions or revoke knowledge. Thus older clients cannot accidentally store a long-video child before other children and the parent ChatGPT final review pass. Two additional negative tests verify direct partial publication and temporary DB Q&A/revocation are blocked. This flag is an in-process programming boundary, not a tamper-proof identity attestation against arbitrary malicious Python execution.
+
+
+## V128.4 — Public source-byte SHA receipt alignment
+
+The files connector's extracted text dropped the final LF during Git tree construction. Restored the canonical POSIX newline on V126/V128 Python source and test files without changing program semantics. The public V128 SHA receipt's three content hashes are now intended to match the actual Git blob UTF-8 bytes, not only the local pre-upload files; validated by direct GitHub content readback. Original owner-private data remain absent.
+
