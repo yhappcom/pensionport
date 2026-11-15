@@ -6,9 +6,9 @@ research candidate interface: software PASS without chat review is insufficient.
 """
 from __future__ import annotations
 
-from .chat_final_gate import require_chat_final_release
-from .codec import json_digest
-from .prior_knowledge import audit_prior_candidates
+from v123_chat_final_gate import require_chat_final_release
+from ire.v6.codec import json_digest
+from ire.v6.prior_knowledge import audit_prior_candidates
 
 
 def preview_chat_validated_candidates(source, exchange, knowledge, *,

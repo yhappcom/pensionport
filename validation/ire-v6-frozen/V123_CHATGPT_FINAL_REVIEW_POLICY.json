@@ -35,8 +35,8 @@
   "V122_chat_final_pass": false,
   "p0_go": false,
   "implementation": {
-    "gate": "ire/v6/chat_final_gate.py",
-    "readonly_p1_entrypoint": "ire/v6/chat_validated_knowledge_preview.py",
+    "gate": "validation/ire-v6-frozen/v123_chat_final_gate.py",
+    "readonly_p1_entrypoint": "validation/ire-v6-frozen/v123_chat_validated_knowledge_preview.py",
     "unit_tests": "validation/ire-v6-frozen/test_v123_chat_final_gate.py"
   },
   "requires_current_v6_owner_store_head_and_window_proofs": true,
@@ -44,5 +44,6 @@
   "requires_private_primary_official_document_bytes_replay_for_finance_pass": true,
   "hash_without_body_is_open": true,
   "rejected_atom_result": "CHAT_FINAL_REJECTED",
-  "conditional_use_requires_conditions_recorded": true
+  "conditional_use_requires_conditions_recorded": true,
+  "frozen_core_ire_v6_source_tree_untouched": true
 }

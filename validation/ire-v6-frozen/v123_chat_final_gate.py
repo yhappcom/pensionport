@@ -16,11 +16,11 @@ from __future__ import annotations
 from datetime import date
 import re
 
-from .atomic_exchange import audit_host_atomic_exchange
-from .claim_census import FINANCIAL
-from .codec import json_digest, require_hash, sha256
-from .errors import InvalidInput, QualityNotProven
-from .source import VerifiedSource
+from ire.v6.atomic_exchange import audit_host_atomic_exchange
+from ire.v6.claim_census import FINANCIAL
+from ire.v6.codec import json_digest, require_hash, sha256
+from ire.v6.errors import InvalidInput, QualityNotProven
+from ire.v6.source import VerifiedSource
 
 SCHEMA = "IRE_V6_CHAT_FINAL_REVIEW_V123"
 RECEIPT_SCHEMA = "IRE_V6_CHAT_FINAL_GATE_RECEIPT_V123"

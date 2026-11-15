@@ -7,7 +7,7 @@ import copy
 import unittest
 
 from ire.v6.atomic_exchange import audit_host_atomic_exchange
-from ire.v6.chat_final_gate import (
+from v123_chat_final_gate import (
     assess_chat_final_gate, require_chat_final_release, SCHEMA,
 )
 from ire.v6.codec import json_digest, sha256
@@ -272,7 +272,7 @@ class ChatValidatedPriorPreviewTests(unittest.TestCase):
         self.addCleanup(self.base.doCleanups)
 
     def test_24_final_chat_gate_blocks_p1_preview_without_chat(self):
-        from ire.v6.chat_validated_knowledge_preview import preview_chat_validated_candidates
+        from v123_chat_validated_knowledge_preview import preview_chat_validated_candidates
         with self.assertRaises(QualityNotProven):
             preview_chat_validated_candidates(
                 self.base.source,self.base.exchange,self.base.parent.knowledge,
@@ -280,7 +280,7 @@ class ChatValidatedPriorPreviewTests(unittest.TestCase):
                 official_evidence_bodies=self.base.evidence_bodies)
 
     def test_25_final_chat_gate_allows_only_readonly_p1(self):
-        from ire.v6.chat_validated_knowledge_preview import preview_chat_validated_candidates
+        from v123_chat_validated_knowledge_preview import preview_chat_validated_candidates
         got = preview_chat_validated_candidates(
             self.base.source,self.base.exchange,self.base.parent.knowledge,
             host_receipt=self.base.host,chat_review=self.base.review,store=self.base.parent.fx.store,

@@ -53,4 +53,4 @@
 
 사용자 결정에 따라 **V6 구조 검증·원자 주장 분해·금융 근거 확인은 ChatGPT 검증 이전 단계**이고, 새 연구 후보의 활용을 허용하는 **최종 품질 관문은 ChatGPT 채팅에서 작성한 원본 전수·원자별 판정**이다. 상세 기준: [`V6_V123_CHATGPT_FINAL_REVIEW_GATE_REPORT.md`](V6_V123_CHATGPT_FINAL_REVIEW_GATE_REPORT.md), [`V123_CHATGPT_FINAL_REVIEW_POLICY.json`](V123_CHATGPT_FINAL_REVIEW_POLICY.json).
 
-새 V6 연구 후보의 지원되는 P1 읽기 전용 반출 함수는 `ire/v6/chat_validated_knowledge_preview.py`이며 내부에서 `require_chat_final_release`를 필수 호출한다. 엔진 CI·`host_batch`만 성공해도 최종 승인되지 않는다. ChatGPT 판정·소유자 원본 DB 최신 HEAD·공식 법령 적용범위가 누락되거나 고위험 OPEN이 있으면 **HOLD**다. 단, 채팅 PASS도 외부 독립 평가 인증·정식 금융 사실 승인·Master116/P4 자동 병합·개인 투자 자문·전체 P0 GO가 아니다. V122 실물 47개 자막과 금융 OPEN 12건은 승인되지 않았다.
+새 V6 연구 후보의 지원되는 P1 읽기 전용 반출 함수는 `validation/ire-v6-frozen/v123_chat_validated_knowledge_preview.py`이며 내부에서 `require_chat_final_release`를 필수 호출한다. 엔진 CI·`host_batch`만 성공해도 최종 승인되지 않는다. ChatGPT 판정·소유자 원본 DB 최신 HEAD·공식 법령 적용범위가 누락되거나 고위험 OPEN이 있으면 **HOLD**다. 단, 채팅 PASS도 외부 독립 평가 인증·정식 금융 사실 승인·Master116/P4 자동 병합·개인 투자 자문·전체 P0 GO가 아니다. V122 실물 47개 자막과 금융 OPEN 12건은 승인되지 않았다.
