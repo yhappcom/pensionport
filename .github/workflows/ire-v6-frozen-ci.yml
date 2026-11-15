@@ -1950,3 +1950,6 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v128_continuous_chat_atomic_parent.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v129_real_fourtrack_acceptance_hold.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v130_real_acceptance_metadata.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v131_explicit_chat_cue_dispositions.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v131_owner_db_readonly_acceptance.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v131_real_source_sha_only_metadata.py' -v
