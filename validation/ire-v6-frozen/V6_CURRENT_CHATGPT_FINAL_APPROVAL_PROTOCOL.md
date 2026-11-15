@@ -55,3 +55,11 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - **현재 실물 V6 `host_batch` 소유자 DB 최신 HEAD·완전한 창별 증거는 미검증**, 공식 금융 원문 HTTP 바이트·시행일 및 상품 적용성 확정도 미완료다. 실제 `assess_chat_final_gate`의 소유자 운영 저장소 판정을 수행했다고 주장하지 않는다.
 - 따라서 현재 준비도 판정은 `HOLD_MISSING_V6_HOST_BATCH_OR_STORE`이며, 저장 근거가 확보되더라도 금융 OPEN 12건을 해소하지 않으면 `CHAT_FINAL_HOLD_OPEN`이다. **읽기 전용 신규 연구 후보 반출 0, 금융사실 승인 0, 전체 P0 NO-GO**다.
 - V123.4 SHA-only 영수증과 운영기준서 간 무결성은 `test_v1234_real_owner_rereview_checkpoint.py`로 별도 회귀검사한다. 이는 실물 금융 의미 정답/공식 원문 인증 시험의 대체물이 아니다.
+
+
+## 7. V123.6 실물 V6 격리 저장 및 ChatGPT 관문 실행 (2026-11-15)
+
+- [V123.6 실물 검증 기록](V6_V123_6_REAL_SOURCE_HOST_BATCH_STAGING_CHAT_FINAL_HOLD_REPORT.md), [SHA 전용 영수증](V123_6_V122_REAL_NATIVE_V6_SHA_ONLY_RESULT.json): 사용자 비공개 V122 원본 47 cue와 동일 채팅 참조 17개 원자 후보를 실제 V6 `atomic_exchange`·`host_batch`에 적용. 새 **격리된 비공개 운영자 잠정 DB**에서 `W00001` 모델·구조 영수증 1/1 원자 저장, HEAD 검증, 멱등 재실행 성공. 실제 `assess_chat_final_gate` 실행 결과는 **`CHAT_FINAL_HOLD_OPEN`**, 읽기 전용 반출 0.
+- 이 DB는 기존 소유자 운영 DB가 아니며, 인벤토리 핀은 ChatGPT가 사용자 보관 원본에서 생성한 **운영자 유래 잠정 핀**으로 소유자 독립 서명이 아니다. 기존 소유자 운영 DB의 최신 HEAD 검증을 대신하지 않는다. V123.4의 `HOLD_MISSING_V6_HOST_BATCH_OR_STORE`는 당시의 준비도 분류로 유지하고, 이번 격리 실물 실행이 반환한 상태와 구분한다.
+- 금융 OPEN 12건은 기존 고위험 증거 원장 기준이며, V123 관문은 17개 후보 전부를 보수적으로 금융 민감 `OPEN`으로 분류했다. 원음·화면 확인, 조건 cue 32 누락 위험, 숫자 범위 cue 14, 공식 원문 HTTP 바이트와 현행 법령 적용성은 미종결. 따라서 **정식 금융 승인 0, Master116/P4/V5 편입 0, P0 NO-GO**를 유지한다.
+- 비공개 원본·검토표·SQLite 스냅샷은 사용자 비공개 Library에 저장하고, GitHub에는 SHA 및 보류 사유만 저장한다. 공개 CI의 회귀검사는 **메타데이터 일치**만 확인하며 실제 비공개 실증을 재수행했다고 주장하지 않는다.

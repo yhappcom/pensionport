@@ -1934,3 +1934,4 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v123_final_protocol_docs.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1234_real_owner_rereview_checkpoint.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1235_owner_window_preflight_hold.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1236_native_original_staging_hold_metadata.py' -v
