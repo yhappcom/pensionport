@@ -143,3 +143,11 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - [V127.3 SHA-only 장편 검문 영수증](V127_3_EXISTING_LONG_VIDEO_1481CUE_SEGMENTATION_SHA_ONLY.json): 기존 사용자 비공개 \`1-70.zip\` 속 한 원본(1,481 cue)으로 **연구·의미 추출 없이** 전체 V6 구조 검증과 120 cue 제한 분할 계획만 실행하였다.
 - 25개 부모 창을 13개 자식 구간으로 제안했고 원본 1,481/1,481 cue가 빠짐없이 해당 구간에 포함되는 것을 확인했다. 전체 영상의 직접 호스트 입력은 차단, 첫 120 cue 구간만 \`HOST_TURN_READY_NOT_EXECUTED\`로 준비됨. 원본/자식 인벤토리는 운영자 파생 잠정 핀이며 독립 소유자 승인이나 ChatGPT 의미 검증 결과가 아니다.
 - 실제 분할 장편 실행 시간·모델 검토 정확도·공식근거 검증·전체 지식 반영은 여전히 미완성. E1/E10 \`OPEN\`, 금융 OPEN 12, 신규 연구 지식 승인 0, P0 NO-GO 유지. 다른 영상 **연구** 및 포트폴리오 연계는 엔진 완료 전 시행 금지.
+
+## 20. V128 장편 전구간 ChatGPT 동기 실행 및 전체 승인 후 지식 원자적 저장 (2026-11-16)
+
+- [V128 개발·검증 보고서](V6_V128_CONTINUOUS_CHAT_PARENT_ATOMIC_KNOWLEDGE_REPORT.md), [검문/저장 코드](v128_atomic_parent_knowledge.py), [채팅 동기 실행 인터페이스](v128_host_continuous_video.py), [전구간 원자성 실험](test_v128_continuous_chat_atomic_parent.py).
+- \`run_all_video_scopes_in_chat\`는 **실제 채팅 ChatGPT가 연결할 동기식 심사 콜백**을 차례로 호출해 기존 V6 원본+V123 최종 관문으로 각 창을 보류/승인하고 SHA 체크포인트로 재시작을 관리한다. 콜백이 ChatGPT를 실행하지 않으면 검토가 자동 생성되지 않는다. 구간 중 하나라도 \`OPEN\`이면 부모 지식 반출 0.
+- 모든 창 PASS와 구간 경계 반박·조건 ChatGPT 판정 후에도 **별도 부모 ChatGPT 최종 PASS**가 필수다. 검문 코드가 자체적으로 부모 승인 플래그를 true로 만들지 않는다.
+- \`publish_parent_once\`는 **임시 비공개 V126 SQLite**에 전 구간 지식/충돌을 먼저 검문하고, 전체 성공 후에만 실제 누적 지식 DB에 단일 \`BEGIN IMMEDIATE\`으로 전체 신규 지식·증거체인·부모 승인 영수증을 저장한다. 부모 영수증 INSERT 오류도 전체 ROLLBACK, 정확한 재실행은 멱등 처리.
+- 이 기능은 **ChatGPT가 제공한 연구 후보만** 누적하는 경로다. 코드 자체가 모델 호출, 현재 법령 조회, 실제 금융 사실 인증을 수행하지 않는다. 사용자 실제 장편 전체 종단간 수용검사, 외부 독립 소유자 핀은 계속 \`OPEN\`; 다른 영상 연구와 Google Drive 포트폴리오 연계 금지, P0 NO-GO.

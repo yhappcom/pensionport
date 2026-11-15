@@ -1947,3 +1947,4 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1271_parent_resume_checkpoint.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1272_v122_private_checkpoint_sha_only.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1273_long_existing_source_sha_only.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v128_continuous_chat_atomic_parent.py' -v
