@@ -1939,3 +1939,4 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1237_numeric_split_original_staging_hold.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v124_finance12_primary_provenance_guard.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1241_r009_tax_year_exception.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v125_engine_first_phase_gate.py' -v

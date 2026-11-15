@@ -88,3 +88,10 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - [V124.1 R009 SHA-only 영수증](V124_1_R009_PRIOR_TAX_YEAR_CREDIT_EXCEPTION_SHA_ONLY.json), [V124 실물 근거 보고서](V6_V124_FINANCE12_PRIMARY_BODY_RELEVANCE_AND_OWNER_OPEN_REPORT.md). R009의 과거 설명에서 **ISA 전환 연도 세액공제와 비공제 납입금의 이후 과세연도 전환 신청**을 구분하지 않은 예외 누락을 식별했다.
 - 현행 소득세법 시행령 **제118조의3**([법제처](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lspttninfSeq=126655)) 및 국세청의 **서면-2024-법규소득-1973**([공식 질의회신](https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000006505))에 따르면, 이전 과세기간에 공제받지 않은 적격 연금계좌 납입금에 대해 신청·요건 충족 시 해당 연도 납입금 간주 전환이 가능하고 ISA 만기 전환금액도 그 검토 대상에 포함될 수 있다. 이것은 **ISA 3~5년마다 공제 자동 반복·같은 공제한도 자동 재발생·비공제금액 무조건 공제**와 전혀 다르다.
 - 해당 규정/해석의 새 2026년 원본 HTTPS 바이트·개별 계좌 공제 미적용 내역·전환 신청서·원음 확인은 여전히 미확보다. 새 **비공개 수정 판정표**만 사용자 Library에 보존하고 GitHub에는 SHA만 기록한다. R009 포함 금융 OPEN 12, 공식 승인 0, ChatGPT 최종 HOLD, P0 NO-GO 유지.
+
+## 12. V125 사용자 최종 개발 순서 확정 — 엔진 우선·포트폴리오 후속 (2026-11-15)
+
+- [실행 가능한 단계 차단 정책](V125_ENGINE_FIRST_PORTFOLIO_DEFERRED_POLICY.json) 및 [E1-E10 엔진 완료 정의서](V6_V125_ENGINE_FIRST_REQUIREMENTS_AND_PHASE_ORDER.md)에 따라 **Phase E 연구 엔진 완성이 선결 조건**이다.
+- 신규 영상 연구 **Phase R**은 전체 영상 자동·ChatGPT 검증·증거 검증·지식 영속 누적·중복/충돌 해결·실제 질문 검색/최신규정 자문·실물 E2E 수용검사까지 성공한 뒤에만 허용한다.
+- **Google Drive 포트폴리오 연계 Phase P는 엔진 완성 이후 별도 단계**다. 기존 자료의 읽기 전용 점검 기록이 있다고 해서 연계 코드를 개발하거나 포트폴리오 분석을 엔진 완성의 필수 과제로 바꾸지 않는다.
+- 이 단계는 문서와 차단 정책·회귀검사만 추가하며 엔진 완성 또는 Phase R/P 승인으로 주장하지 않는다. 동결 V6 코드, `main`, V5, Master116, P4 미변경.
