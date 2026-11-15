@@ -82,3 +82,9 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - [V124 SHA-only 영수증](V124_REAL_FINANCE12_PRIMARY_BYTE_RELEVANCE_SHA_ONLY.json) / [검문 보고서](V6_V124_FINANCE12_PRIMARY_BODY_RELEVANCE_AND_OWNER_OPEN_REPORT.md): 실제 비공개 V123.7 소유자 영상 47 cue와 금융 OPEN 12건에 대해 2026-11-08 아카이브 정부 원문 바이트 2건의 SHA·주장 적용 가능 범위를 재검문했다.
 - §40조의3 인출순서 원문은 R011의 **규정 텍스트 부분**을 확인하지만 개인의 세액공제 미적용 원금 확정까지 허가하지 않는다. R004·R010에는 법령 문맥 참고만 가능하며 일반 중도인출 자유·무벌칙 등을 입증하지 않는다. 나머지 9건은 해당 아카이브 원문 바이트에 직접 대응하는 근거가 없다. 일반 국세청 연금소득 안내를 ISA 전환 60일 기한 R014의 공식 원문 증거로 재사용해서는 안 된다.
 - \`v124_finance12_primary_provenance_guard.py\`를 추가하여 이 원문 오연결·보류 상태의 잘못된 승인·중복 및 누락을 거부한다. 해당 모듈은 기존 V123 ChatGPT 최종 관문을 대신하거나 자동 금융 사실 승인하지 않는다. 개인별 상품/계좌, 시행일·종료일, 원음 및 소유자 운영 DB는 여전히 OPEN. 공식 금융 승인 0, 12건 OPEN, P0 NO-GO 유지.
+
+## 11. V124.1 R009 과세연도 전환 특례 의미 보완 (2026-11-15)
+
+- [V124.1 R009 SHA-only 영수증](V124_1_R009_PRIOR_TAX_YEAR_CREDIT_EXCEPTION_SHA_ONLY.json), [V124 실물 근거 보고서](V6_V124_FINANCE12_PRIMARY_BODY_RELEVANCE_AND_OWNER_OPEN_REPORT.md). R009의 과거 설명에서 **ISA 전환 연도 세액공제와 비공제 납입금의 이후 과세연도 전환 신청**을 구분하지 않은 예외 누락을 식별했다.
+- 현행 소득세법 시행령 **제118조의3**([법제처](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lspttninfSeq=126655)) 및 국세청의 **서면-2024-법규소득-1973**([공식 질의회신](https://taxlaw.nts.go.kr/qt/USEQTA002P.do?ntstDcmId=200000000000006505))에 따르면, 이전 과세기간에 공제받지 않은 적격 연금계좌 납입금에 대해 신청·요건 충족 시 해당 연도 납입금 간주 전환이 가능하고 ISA 만기 전환금액도 그 검토 대상에 포함될 수 있다. 이것은 **ISA 3~5년마다 공제 자동 반복·같은 공제한도 자동 재발생·비공제금액 무조건 공제**와 전혀 다르다.
+- 해당 규정/해석의 새 2026년 원본 HTTPS 바이트·개별 계좌 공제 미적용 내역·전환 신청서·원음 확인은 여전히 미확보다. 새 **비공개 수정 판정표**만 사용자 Library에 보존하고 GitHub에는 SHA만 기록한다. R009 포함 금융 OPEN 12, 공식 승인 0, ChatGPT 최종 HOLD, P0 NO-GO 유지.
