@@ -243,7 +243,7 @@ def publish_parent_once(checkpoint, knowledge_store, packets, seam_reviews,
                 head=result["knowledge_head_sha256"]
             with staging._session() as staged_con:
                 staging_head,staged_statuses=staging._audit(staged_con)
-                if staged_head!=head:
+                if staging_head!=head:
                     _stop("STAGED_KNOWLEDGE_CHAIN_DRIFT")
                 staged_entries=[json.loads(x[0]) for x in staged_con.execute(
                     "SELECT entry_json FROM knowledge")]

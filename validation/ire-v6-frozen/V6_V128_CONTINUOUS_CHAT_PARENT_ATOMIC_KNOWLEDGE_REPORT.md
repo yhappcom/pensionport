@@ -31,3 +31,8 @@ Run V128 on previously acquired long private original with actual ChatGPT review
 ## V128.1 — unittest naming collision correction
 
 The first V128 CI run failed before executing its new tests because the helper \`V128HostRunAndAtomicParentTests.run(self, **kw)\` accidentally shadowed Python \`unittest.TestCase.run(result)\`. The helper is renamed \`run_engine\` throughout the dedicated test module and re-queued in CI. This is a test-harness invocation correction, not a semantic research approval.
+
+
+## V128.2 — Actual new full-path CI exceptions corrected
+
+The second V128 CI successfully entered all 15 tests and exposed (1) a Python \`staging_head\` variable typo in the full-knowledge-DB staging audit, (2) negative regression assertions that treated creation of an **empty** \`parent_publications\` metadata table as a publication, and (3) native V6 concurrency error \`ConcurrentHeadChanged\` being rightly rejected but not listed in the forged-replay test's expected exceptions. Corrected all three. The core safety invariant is **zero entries and zero events**, even when empty schema metadata exists.

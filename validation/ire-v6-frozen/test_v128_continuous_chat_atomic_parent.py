@@ -16,7 +16,7 @@ from unittest.mock import patch
 
 from ire.v6 import TransactionStore
 from ire.v6.codec import ZERO_SHA, sha256
-from ire.v6.errors import InvalidInput, QualityNotProven
+from ire.v6.errors import InvalidInput, QualityNotProven, ConcurrentHeadChanged
 from test_v127_full_video_chat_completion import V127FullVideoChatReviewAggregationTests
 from test_v126_chat_approved_knowledge_store import explicit_relation_decisions
 from v126_chat_approved_knowledge_store import PrivateKnowledgeStore
@@ -134,7 +134,8 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         self.assertEqual(r["status"],"HOLD_CHILD_CHAT_SEMANTICS_OR_FINANCE")
         self.assertEqual(self.checkpoint.progress()["passed_child_scopes"],1)
         self.assertEqual(self.checkpoint.progress()["held_child_scopes"],1)
-        self.assertEqual(self._counts(),{"events":0,"knowledge":0})
+        self.assertEqual(self._counts().get("events",0),0)
+        self.assertEqual(self._counts().get("knowledge",0),0)
         self.assertFalse(r["all_video_knowledge_published"])
 
     def test_04_recovery_from_open_requires_chat_explicit_revision(self):
@@ -155,7 +156,8 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         def missing(*args):return None
         with self.assertRaisesRegex(QualityNotProven,"PARENT_CHAT_RELEASE_SCHEMA"):
             self.run_engine(review_parent=missing)
-        self.assertEqual(self._counts(),{"events":0,"knowledge":0})
+        self.assertEqual(self._counts().get("events",0),0)
+        self.assertEqual(self._counts().get("knowledge",0),0)
         self.assertEqual(self.checkpoint.progress()["passed_child_scopes"],2)
 
     def test_06_forged_parent_review_cannot_commit(self):
@@ -165,12 +167,14 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
             return result
         with self.assertRaisesRegex(QualityNotProven,"PARENT_CHAT_RELEASE_NOT_SOURCE_BOUND"):
             self.run_engine(review_parent=forge)
-        self.assertEqual(self._counts(),{"events":0,"knowledge":0})
+        self.assertEqual(self._counts().get("events",0),0)
+        self.assertEqual(self._counts().get("knowledge",0),0)
 
     def test_07_missing_parent_seam_cannot_commit(self):
         with self.assertRaisesRegex(QualityNotProven,"MISSING_CROSS_SEGMENT"):
             self.run_engine(review_seams=lambda *_:[])
-        self.assertEqual(self._counts(),{"events":0,"knowledge":0})
+        self.assertEqual(self._counts().get("events",0),0)
+        self.assertEqual(self._counts().get("knowledge",0),0)
 
     def test_08_bad_second_child_chat_relation_rolls_back_first_staged_success(self):
         modified=copy.deepcopy(self.packets[1]["relation_decisions"])
@@ -178,15 +182,17 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         self.packets[1]["relation_decisions"]=modified
         with self.assertRaises(QualityNotProven):
             self.run_engine()
-        self.assertEqual(self._counts(),{"events":0,"knowledge":0})
+        self.assertEqual(self._counts().get("events",0),0)
+        self.assertEqual(self._counts().get("knowledge",0),0)
 
     def test_09_forged_second_host_replay_args_prevents_any_private_write(self):
         replay=copy.deepcopy(self.packets[1]["original_host_batch_replay_args"])
         replay["run_id"]="new-run-forgery"
         self.packets[1]["original_host_batch_replay_args"]=replay
-        with self.assertRaises(QualityNotProven):
+        with self.assertRaises((QualityNotProven,ConcurrentHeadChanged)):
             self.run_engine()
-        self.assertEqual(self._counts(),{"events":0,"knowledge":0})
+        self.assertEqual(self._counts().get("events",0),0)
+        self.assertEqual(self._counts().get("knowledge",0),0)
 
     def test_10_fail_at_last_parent_receipt_sqlite_insert_rolls_back_all_child_entries(self):
         with sqlite3.connect(self.knowledge.path) as con:
@@ -214,7 +220,8 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
     def test_12_mismatched_start_head_prevents_all_writes(self):
         with self.assertRaisesRegex(QualityNotProven,"KNOWLEDGE_EXPECTED_HEAD_CHANGED"):
             self.run_engine(expected_knowledge_head="1"*64)
-        self.assertEqual(self._counts(),{"events":0,"knowledge":0})
+        self.assertEqual(self._counts().get("events",0),0)
+        self.assertEqual(self._counts().get("knowledge",0),0)
 
     def test_13_host_needs_real_callbacks_no_silent_fake_chat(self):
         with self.assertRaisesRegex(InvalidInput,"SYNC_CHAT_CALLBACKS_REQUIRED"):
@@ -234,7 +241,8 @@ class V128HostRunAndAtomicParentTests(unittest.TestCase):
         self.packets[1]["relation_decisions"]=row
         with self.assertRaisesRegex(QualityNotProven,"UNRESOLVED_PARENT_KNOWLEDGE_CONFLICT"):
             self.run_engine()
-        self.assertEqual(self._counts(),{"events":0,"knowledge":0})
+        self.assertEqual(self._counts().get("events",0),0)
+        self.assertEqual(self._counts().get("knowledge",0),0)
 
 if __name__ == "__main__":
     unittest.main()

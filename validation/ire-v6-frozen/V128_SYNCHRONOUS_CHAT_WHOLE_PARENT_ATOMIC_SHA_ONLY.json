@@ -1,5 +1,5 @@
 {
-  "schema": "IRE_V128_1_CHATGPT_SYNCHRONOUS_FULL_VIDEO_ATOMIC_PARENT_CANDIDATES_SHA_ONLY_V1",
+  "schema": "IRE_V128_2_CHATGPT_SYNCHRONOUS_FULL_VIDEO_ATOMIC_PARENT_CANDIDATES_SHA_ONLY_V1",
   "as_of": "2026-11-16",
   "previous_commit": "ddfca19c69cb7bebffed66967186e5afd874a9e8",
   "code_paths": [
@@ -8,9 +8,9 @@
     "validation/ire-v6-frozen/test_v128_continuous_chat_atomic_parent.py"
   ],
   "source_code_sha256": [
-    "feca1a946ef75b53859db32c0e52af90b024ae6f6a82a1108d01602f95188b1a",
+    "ab634fffa93c8fb8462659f3b5e125a64325ef6773e70e9b943782ddc52b2628",
     "51e066aa089589478a20b9f69cda20e0e16f0dd36d6d67cb3ad6b25b8f2a823b",
-    "9883833356f4c59b08bcf6c4bf098994c8ef2418a6b72034ed2ea4c5c3985f31"
+    "b84984182aaa44f4323dde6c0ee6dd4c738bc4838780a622c2b379c6c634ca48"
   ],
   "expected_dedicated_synthetic_test_methods": 15,
   "all_children_source_bound_real_v6_v123_gate_synthetic_fixture": true,
@@ -29,5 +29,8 @@
   "knowledge_released_from_real_videos": 0,
   "full_engine_p0_go": false,
   "ci_initial_run_failed_test_class_unittest_run_override": true,
-  "test_class_helper_run_collision_corrected": true
+  "test_class_helper_run_collision_corrected": true,
+  "staging_head_name_defect_corrected": true,
+  "expected_native_v6_concurrency_exception_in_negative_test": true,
+  "empty_parent_proof_schema_not_misread_as_published_knowledge": true
 }
