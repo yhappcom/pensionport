@@ -302,8 +302,13 @@ class PrivateKnowledgeStore:
         with self._session() as con:
             head, statuses = self._audit(con)
             entries = [json.loads(v[0]) for v in con.execute("SELECT entry_json FROM knowledge")]
+            # A newly detected cross-video conflict must quarantine the old
+            # active target too. Review-only status never becomes auto approval.
+            from v127_cumulative_knowledge_graph import inspect_cumulative_knowledge_graph
+            graph = inspect_cumulative_knowledge_graph(entries, statuses)
+        approved_for_lookup = set(graph["active_knowledge_ids"])
         active = {x["knowledge_id"]:x for x in entries
-                  if statuses[x["knowledge_id"]] == "ACTIVE" and x["relation"] != "CONFLICT"}
+                  if x["knowledge_id"] in approved_for_lookup}
         if selected_knowledge_ids is not None:
             if not set(selected_knowledge_ids) <= active.keys():
                 _stop("QUESTION_REFERENCES_UNVERIFIED_OR_QUARANTINED_KNOWLEDGE")

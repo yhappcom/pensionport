@@ -114,3 +114,10 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - [V126.2 공개 해시 영수증](V126_2_CHAT_RESEARCH_QA_BRIDGE_SHA_ONLY.json) 및 [Q&A 검문 코드](v126_chat_research_answer_bridge.py), [합성 원본→질문 응답 부정검사](test_v126_chat_research_answer_bridge.py).
 - `prepare_question_packet`은 비공개 누적 지식 원장의 최신 HEAD, 정확한 연구 지식 ID, 질문 SHA를 묶는다. `check_chat_research_answer`는 ChatGPT가 작성·검토한 답변 SHA와 원본 근거를 다시 대조하고, 금융 주장은 공식기관 HTML **실제 바이트·SHA·발효일·문구·기관 도메인**을 입력으로 요구한다. 미제공/불일치/지식 철회 시 답변을 보류한다.
 - 문서 바이트의 **실제 인터넷 제공 출처 인증 및 금융 법령 적용성 독립 검증은 아직 구현되지 않았으며**, 공공기관 도메인 문자열 자체를 신원/진위로 인정하지 않는다. 해당 경로는 계좌별 개인 자문·주문·금융사실 승인 엔진이 아니다. 실제 신규 영상/실거래 연결 없음; E8 `OPEN`, P0 NO-GO.
+
+## 16. V127 장편 영상 구간 합본 검문 및 충돌 지식 양측 조회 격리 (2026-11-15)
+
+- [V127 SHA-only 영수증](V127_FULL_VIDEO_CHAT_CHILD_CENSUS_GRAPH_SHA_ONLY.json) / [실행·결함 보고서](V6_V127_FULL_VIDEO_CHAT_ASSEMBLY_AND_GRAPH_QUARANTINE_REPORT.md). 실제 V6 동결 원본/인벤토리/host 영수증을 ChatGPT 최종 관문에 통과시킨 **모든 자식 구간**에 대해 \`v127_full_video_chat_completion.assess_full_video_chat_assembly\`가 부모 원문 범위·창 누락/중복·원자 ID·구간 경계 조건/반박 검토를 합본 검문한다. 누락이나 OPEN이 있으면 부모 후보는 HOLD. 전부 PASS라도 **비공개 임시 합본 검문만** 가능하며 실제 한 요청의 장편 의미 생성·중단 복구·지식 원자 통합 저장이 완료됐다는 뜻은 아니다.
+- \`v127_cumulative_knowledge_graph\`는 비공개 V126 누적 원장의 충돌한 **기존·신규 주장 모두**, 철회된 근거의 의존 주장, 의미 동치 미해결 동일 문구 별도 개념을 질의 조회에서 격리한다. \`v126_chat_approved_knowledge_store.evidence_for_question\`이 이 검문을 반드시 수행한다.
+- 공개 합성 4cue/2구간 V6+V123 수용회귀 8개 신규, 누적 지식 교차 영상 오류 격리 9개 신규 PASS(기존 V126 11+8 포함 **36개 고유 시험 메서드**). 구간 간 ChatGPT 의미 판정과 법령 진위는 자동 검증되지 않는다.
+- V125 E1/E7은 여전히 \`OPEN\`, 실제 영상 신규 연구 0, 금융 OPEN 12, 실물 신규 지식 승인 0, P0 NO-GO. Phase P 포트폴리오 연결 금지 유지.
