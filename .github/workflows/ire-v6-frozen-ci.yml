@@ -1929,3 +1929,4 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v119_chat_native_review_policy.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v120_chat_internal_score_guard.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v121_source_atomic_repair_guard.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v122_host_input_bridge.py' -v
