@@ -1954,3 +1954,5 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v131_owner_db_readonly_acceptance.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v131_real_source_sha_only_metadata.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v131_b0001_explicit_review_sha_only.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v132_cross_segment_chat_seam.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v132_existing_source_sha_only.py' -v
