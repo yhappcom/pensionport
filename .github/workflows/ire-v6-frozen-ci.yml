@@ -13,6 +13,7 @@ on:
       - verify/ire-v6-p0e-v151-remediation-20261116
       - verify/ire-v6-p0e-v152-source-seam-20261116
       - verify/ire-v6-p0e-v153-semantic-202-20261116
+      - verify/ire-v6-p0e-v154-real-integration-20261116
   workflow_dispatch:
 permissions:
   contents: read
@@ -2284,3 +2285,28 @@ jobs:
           assert status["p0e_go"] is False
           print(json.dumps(status,ensure_ascii=False,sort_keys=True))
           PY
+  v154-frozen-code-recovery-only:
+    name: V154 snapshot public V6 engine code for owner-local private replay
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Package public source code only (NEVER owner SRT)
+        run: |
+          tar -czf /tmp/v154-public-ire-v6-replay-src.tgz \
+            ire/v6 validation/ire-v6-frozen \
+            data/claims.jsonl \
+            ire/v5/advisory_knowledge/p4_integrated_scoped_education22_20261106.json \
+            ire/v5/advisory_knowledge/p4_p3_incremental_education29_20261106.json
+          sha256sum /tmp/v154-public-ire-v6-replay-src.tgz
+          test ! -f private/5NvtBlmt93Y_1481_cues.srt
+          ls -lh /tmp/v154-public-ire-v6-replay-src.tgz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v154-public-engine-code-only-no-owner-source
+          path: /tmp/v154-public-ire-v6-replay-src.tgz
+          if-no-files-found: error
+          retention-days: 1
