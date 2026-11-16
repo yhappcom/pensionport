@@ -205,6 +205,28 @@ class V143V128AtomicParentTests(unittest.TestCase):
         self.assertEqual(second["publication_receipt"]["status"],"IDEMPOTENT_PARENT_KNOWLEDGE_COMMIT")
         self.assertEqual(first["knowledge_head_sha256"],second["knowledge_head_sha256"])
 
+class V143PolicyDocumentationTests(unittest.TestCase):
+    def test_14_canonical_v123_v128_protocol_explicit_quarantine(self):
+        from pathlib import Path
+        text=(Path(__file__).parent/"V6_CURRENT_CHATGPT_FINAL_APPROVAL_PROTOCOL.md").read_text("utf-8")
+        for marker in ("## 29. V143", "EXCLUDED_FROM_RESEARCH",
+                       "EXCLUDE_FROM_RESEARCH", "V128", "원음", "P0 GO"):
+            self.assertIn(marker,text)
+
+    def test_15_policy_json_matches_code_nonpromotion(self):
+        import json
+        from pathlib import Path
+        root=Path(__file__).parent
+        policy=json.loads((root/"V123_CHATGPT_FINAL_REVIEW_POLICY.json").read_text("utf-8"))
+        q=policy["v143_explicit_source_quarantine"]
+        self.assertEqual(q["schema"],"IRE_V123_SOURCE_PINNED_QUARANTINE_V1")
+        for key in ("requires_original_cue_sha_and_atom_digest_for_each_exclusion",
+                    "accepted_atom_must_not_depend_on_excluded_source_cue",
+                    "v126_storage_only_accept_for_research_subset",
+                    "v128_parent_final_chat_review_binds_entire_exclusion_manifest"):
+            self.assertIs(q[key],True)
+        self.assertIs(q["real_source_p0_go"],False)
+
 
 if __name__=="__main__":
     unittest.main(verbosity=2)

@@ -19,9 +19,10 @@
 | --- | --- | --- |
 | `HOLD_MISSING_V6_HOST_BATCH_OR_STORE` | 실제 소유자 원본에 대한 V6 DB·최신 HEAD·창별 검문 영수증이 없음 | 신규 후보 반출 불가 |
 | `HOLD_MISSING_CHAT_FINAL_REVIEW` | 완전한 ChatGPT 최종 검토표가 없음 | 신규 후보 반출 불가 |
-| `CHAT_FINAL_HOLD_OPEN` | cue/주장·조건/예외·고위험 FN·원음/화면·금융 원문 중 필수 확인이 OPEN | 신규 후보 반출 불가, 근거·미해결 사유 보존 |
-| `CHAT_FINAL_REJECTED` | ChatGPT가 원자 주장 하나 이상을 반려 | 해당 배치 신규 후보 반출 불가, 수정 후 새 검토 |
-| `CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY` | 실제 V6 원본·DB 영수증 및 전수 ChatGPT 검토가 일치하고 모든 필수 OPEN이 해소 | **P1 읽기 전용 신규 연구 후보 미리보기만** 허용 |
+| `CHAT_FINAL_HOLD_OPEN` | 승인 대상으로 남은 cue/주장·조건/예외·고위험 FN·금융 원문 중 필수 확인이 OPEN이거나, 원음 미확인 cue가 출처·이유와 함께 명시적으로 격리되지 않음 | 신규 후보 반출 불가, 근거·미해결 사유 보존 |
+| `CHAT_FINAL_REJECTED` | ChatGPT가 원자 주장 하나 이상을 반려했지만 연구 제외로 명시적 처분하지 않음 | 해당 배치 신규 후보 반출 불가, 수정 후 새 검토 |
+| `EXCLUDED_FROM_RESEARCH` / `EXCLUDE_FROM_RESEARCH` (개별 처분) | 원문 귀속·이유·오디오 미확인 범위·의미 의존성을 ChatGPT가 전수 검토해 별도 원장에 기록 | **해당 cue/주장은 승인·저장·조회·자문에서 제외**; 전체 최종 승인 여부는 다른 조건도 검문 |
+| `CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY` | 실제 V6 원본·DB 영수증 및 전수 ChatGPT 검토가 일치하고, 승인 대상의 OPEN이 해소되며, 불확실한 cue/주장은 원문 SHA·해시·사유와 함께 **명시적 격리**됨 | **ACCEPT된 신규 연구 후보만** P1 미리보기 및 전체 부모 승인 후 V128 사적 누적 저장 대상으로 허용 |
 
 ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관문**이다. 통과해도 **정식 금융 사실 승인, Master116/P4 병합, 개인 투자자문·주문 실행, 외부 독립 정확도 인증, 791편 연구 완료 또는 전체 P0 GO가 아니다**. 별도 승인 게이트를 거치지 않은 모든 후속 활용은 금지한다.
 
@@ -37,7 +38,7 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 
 원본 자막·문장별 판정·공식 원문 바이트·개인 계좌 정보는 비공개 보관한다. 공개 GitHub에는 SHA, 건수, 판정 범위와 *개인 정보를 포함하지 않는* 합성 회귀시험만 저장한다. 데이터가 존재하지 않으면 비공개 사실을 암묵적으로 생성하지 않는다. ChatGPT의 검토 기록은 실제 채팅에서 수행한 판단일 뿐 제3자의 독립 블라인드 정답셋이 아니다.
 
-**반드시 기록할 최소 증빙:** `video_id`, `source_sha256`, `manifest_sha256`, `host_bundle_sha256`, `host_event_sha256`, `chat_final_review_digest_sha256`, 전수 cue·원자 주장 수, ACCEPT/REJECT/OPEN 개수, 금융 OPEN·고위험 OPEN, 적용 기준일, 공식 원문 바이트 SHA, 보류 사유, 최신 DB HEAD와 CI 커밋 SHA.
+**반드시 기록할 최소 증빙:** `video_id`, `source_sha256`, `manifest_sha256`, `host_bundle_sha256`, `host_event_sha256`, `chat_final_review_digest_sha256`, 전수 cue·원자 주장 수, ACCEPT/REJECT/OPEN/EXCLUDE 개수, 금융 OPEN·고위험 OPEN, 격리 cue·원자 ID 및 원문 해시·사유·원음 미확인 범위와 비공개 ChatGPT 검토 해시, 적용 기준일, 공식 원문 바이트 SHA, 보류 사유, 최신 DB HEAD와 CI 커밋 SHA.
 
 ## 5. 역사적 자료의 해석과 미완료 현황
 
@@ -228,3 +229,11 @@ ChatGPT 최종 검토는 **연구 후보 반출의 마지막 필수 품질 관�
 - **비공개 실물 원본·ChatGPT 자막별 판정·변조 차단 14건**을 사용자 Library \`/박곰희TV_원본확보/V134_PRIVATE_B0003_120CUE_REVIEW_HOLD.zip\`에 보관. GitHub에는 원문이나 비공개 상세 검토표를 올리지 않음. 공개 SHA-only 검사 8건은 원본 근거 판정 또는 완전 독립 정답셋을 주장하지 않는다.
 - V123 정식 PASS 0/13, 개인별 금융근거 OPEN 12, 실물 승인 연구 원자 0, 운영 DB 소유자 인벤토리 인증 없음, 종단간 개인 투자자문 HOLD, **P0 NO-GO**, 신규 영상 확대·Drive 포트폴리오 연계 금지 유지.
 
+
+## 29. V143 ChatGPT 원문 기반 명시적 격리·V128 승인 주장만 일괄 저장 정책 (2026-11-16)
+
+- [V143 구현·정책 보고서](V143_QUARANTINE_POLICY_AND_RELEASE_REPORT.md), [격리 검문](v143_source_pinned_quarantine.py), [최종 관문](v123_chat_final_gate.py), [승인 부분집합 저장](v126_chat_approved_knowledge_store.py), [전체 부모 승인·원자적 저장](v128_atomic_parent_knowledge.py), [합성 회귀검사](test_v143_v123_v128_quarantine.py).
+- **구정책의 원음 필수 해제를 변경한다.** 원음·자막이 불명확한 발화의 정확성을 추정 승인하는 것이 아니라, **모든 원본 cue와 원자 주장을 검토한 뒤 해당 cue를 `EXCLUDED_FROM_RESEARCH`, 관련 주장을 `EXCLUDE_FROM_RESEARCH`로 명시적으로 처분**할 수 있다. 원문 SHA·원자 digest·사유·비공개 ChatGPT 검토 영수증·원음 미확인 인덱스·조건/예외 문맥 의존 검사가 필수다. 제외된 cue에 의존하는 원자는 승인 불가.
+- 기존 `OPEN`을 아무 근거 없이 0으로 바꾸거나, 원음 미확인을 확인 완료로 표시하는 행위는 거부한다. 제외된 발화의 실제 음성 정확성은 여전히 **미확인**이며 고위험 투자 주장을 개인 자문에 사용하는 것도 금지한다. **격리되지 않은 OPEN, 고위험 누락, 승인 주장 공식 금융원문 바이트 부족은 계속 전체 HOLD**다.
+- V126은 전체 원본 V6·기존 지식 관계를 그대로 재검문하지만 **`ACCEPT_FOR_RESEARCH` 원자만 저장**한다. 제외가 전부인 구간은 후보 저장 0건으로 지나가며 부분 저장은 불가능하다. V128은 13개 원본 구간·경계·전체 ChatGPT 최종 검토에 더해 격리 원장 SHA와 구간 간 제외 의존성이 승인된 뒤에만 실제 운영자 비공개 DB에 **단일 트랜잭션**으로 승인 부분집합을 저장한다.
+- 기존 `main`/동결 V6 코어/기존 V5·Master116·P4/개인 포트폴리오와 분리한다. **합성 시험 PASS는 실물 1,481 cue/13구간 V123 승인, 정밀도·재현율, 원음·공식 발행기관 인증, 실제 DB 발행 또는 P0 GO가 아니다.** 실제 88개 원음·ASR OPEN은 이 코드 변경만으로 자동 종결되지 않았고, 비공개 원본에 관한 추가 ChatGPT 처분이 필요하다.

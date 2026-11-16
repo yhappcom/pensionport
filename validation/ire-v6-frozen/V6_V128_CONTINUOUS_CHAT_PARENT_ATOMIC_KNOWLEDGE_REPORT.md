@@ -47,3 +47,11 @@ The V126 **public/private production** \`PrivateKnowledgeStore.add_chat_final_ba
 
 The files connector's extracted text dropped the final LF during Git tree construction. Restored the canonical POSIX newline on V126/V128 Python source and test files without changing program semantics. The public V128 SHA receipt's three content hashes are now intended to match the actual Git blob UTF-8 bytes, not only the local pre-upload files; validated by direct GitHub content readback. Original owner-private data remain absent.
 
+
+## V143 — Exact source-bound quarantine and approved-subset parent-only publication
+
+The optional V123 quarantine profile gives each ambiguous or disproven cue/atom an explicit **excluded** disposition with original SHA, reason, private ChatGPT review digest and dependency verification. The V6 original exchange and prior-knowledge audit remain intact. V126 writes only `ACCEPT_FOR_RESEARCH` atoms, never quarantined atoms. A child with no accepted atoms contributes zero staging events and cannot publish on its own.
+
+The V128 parent release now requires independent ChatGPT review of an exact **SHA-bound quarantine manifest** and resolution of any cross-segment dependency before a one-transaction accepted-only commit. Missing/forged manifest, unreviewed parent, accepted atom depending on excluded cue, or unresolved admitted finance/open claim causes fail-closed HOLD and zero durable partial writes. Legacy all-accept packets still follow the previous strict path.
+
+Original audio remains **unverified** for quarantined cues; no original video in this commit receives V123 real-source approval. Synthetic integration tests certify software behavior only, not correctness, financial law, private owner DB or P0 completion.
