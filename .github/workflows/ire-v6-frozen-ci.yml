@@ -2310,3 +2310,35 @@ jobs:
           path: /tmp/v154-public-ire-v6-replay-src.tgz
           if-no-files-found: error
           retention-days: 1
+  v154-real-owner-replay-public-hold:
+    name: V154 real owner replay SHA-only: 13 V6 host commits, V123/V128 HOLD
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Compile and run 10 source/host/V123/V128 no-false-GO adversarial tests
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v154_real_source_host_release_hold.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v154_real_source_host_release_hold.py' -v
+      - name: Validate source-only private replay pins and preserve unapproved status
+        run: |
+          PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from v154_real_source_host_release_hold import audit_v154_public_owner_replay_hold
+          d=json.loads(Path("validation/ire-v6-frozen/V154_REAL_ONE_TURN_OWNER_REPLAY_SHA_ONLY.json").read_text(encoding="utf-8"))
+          result=audit_v154_public_owner_replay_hold(d)
+          assert result["real_original_source_scopes_native_host_structural_committed"] == 13
+          assert result["v123_real_final_pass_scopes"] == 0
+          assert result["v128_research_publications"] == 0
+          assert result["p0e_go"] is False
+          print(json.dumps(result,ensure_ascii=False,sort_keys=True))
+          PY
+
