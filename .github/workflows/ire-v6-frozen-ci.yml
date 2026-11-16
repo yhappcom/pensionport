@@ -14,6 +14,7 @@ on:
       - verify/ire-v6-p0e-v152-source-seam-20261116
       - verify/ire-v6-p0e-v153-semantic-202-20261116
       - verify/ire-v6-p0e-v154-real-integration-20261116
+      - verify/ire-v6-p0e-v155-75-cue-adjudication-20261117
   workflow_dispatch:
 permissions:
   contents: read
@@ -2342,3 +2343,37 @@ jobs:
           print(json.dumps(result,ensure_ascii=False,sort_keys=True))
           PY
 
+  v155-real-owner-cue-audit-public-hold:
+    name: "V155 owner-original 75 source cues, 284 provisional claims, 13 native host receipts — release HOLD"
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Run V155 SHA-only owner provenance and false research completion tests
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v155_real_owner_cue_semantic_release_gate.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v155_real_owner_cue_semantic_release_gate.py' -v
+      - name: Verify all original counts but block blind gold, V123 V128 and personal advice
+        run: |
+          PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from v155_real_owner_cue_semantic_release_gate import audit_v155_public_hold
+          row=json.loads(Path("validation/ire-v6-frozen/V155_OWNER_SOURCE_75_REAL_REPLAY_SHA_ONLY.json").read_text(encoding="utf-8"))
+          outcome=audit_v155_public_hold(row)
+          assert outcome["source_first_reexamined"]==75
+          assert outcome["original_108_remaining_open"]==13
+          assert outcome["provisional_claims"]==284
+          assert outcome["private_native_v6_host"]==13
+          assert outcome["v123_final_pass"]==0 and outcome["v128_published"]==0
+          assert outcome["gold_precision_recall_certified"] is False
+          assert outcome["p0e_go"] is False
+          print(json.dumps(outcome,sort_keys=True))
+          PY
