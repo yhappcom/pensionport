@@ -1,0 +1,62 @@
+name: V155 safe code-only V6 owner host runtime transfer
+on:
+  push:
+    branches:
+      - verify/ire-v6-p0e-v155-host-integration-20261117
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  code-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Create exact-commit code-only runtime artifact, excluding owner private source
+        run: |
+          python - <<'PY'
+          import zipfile,subprocess,hashlib,json
+          from pathlib import Path
+          whitelist = (
+              'ire/v6/',
+              'ire/v5/',
+              'ire/requirements-evidence-ci.txt',
+              'data/claims.jsonl',
+              'validation/ire-v6-frozen/v123_',
+              'validation/ire-v6-frozen/v124_',
+              'validation/ire-v6-frozen/v125_',
+              'validation/ire-v6-frozen/v126_',
+              'validation/ire-v6-frozen/v127_',
+              'validation/ire-v6-frozen/v128_',
+              'validation/ire-v6-frozen/v129_',
+              'validation/ire-v6-frozen/v143_',
+              'validation/ire-v6-frozen/v145_',
+              'validation/ire-v6-frozen/v146_',
+          )
+          files=subprocess.check_output(['git','ls-files','-z']).split(b'\0')
+          selected=[]
+          with zipfile.ZipFile('V155_CODE_ONLY_EXACT_COMMIT.zip','w',zipfile.ZIP_DEFLATED,compresslevel=8) as z:
+              for raw in files:
+                  if not raw:continue
+                  path=raw.decode()
+                  if not path.startswith(whitelist) or not Path(path).is_file():continue
+                  if not (path.endswith('.py') or path.endswith('.json') or path.endswith('.jsonl') or path.endswith('.txt')):continue
+                  if any(s in path.lower() for s in ('secret','private','owner_original','srt','token','.env')):continue
+                  selected.append(path)
+                  z.write(path)
+              meta={'git_sha':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                    'selected_files':len(selected),
+                    'selected_sha256':hashlib.sha256('\n'.join(sorted(selected)).encode()).hexdigest(),
+                    'private_owner_source_included':False}
+              z.writestr('V155_CODE_TRANSFER_RECEIPT.json',json.dumps(meta,indent=2))
+          print(json.dumps(meta))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v155-exact-commit-code-only-host-runtime
+          path: V155_CODE_ONLY_EXACT_COMMIT.zip
+          retention-days: 3
+          if-no-files-found: error
