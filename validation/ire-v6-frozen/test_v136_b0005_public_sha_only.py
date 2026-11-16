@@ -17,7 +17,7 @@ class V136B0005MetadataOnly(unittest.TestCase):
   self.assertEqual(R['combined_first_600_cues'],480+120)
   self.assertEqual(R['new_provisional_occurrence_atoms'],27)
   self.assertEqual(R['combined_first_600_provisional_occurrence_atoms'],110+27)
-  self.assertEqual(R['cross_claim_provisional_relations'],15)
+  self.assertEqual(R['cross_claim_provisional_relations'],21)
   self.assertFalse(R['independent_claim_recall_proven'])
  def test_04_asr_and_fact_open(self):
   self.assertEqual(R['asr_open_indices'],[489,515,517,522,532,534,556,593])
