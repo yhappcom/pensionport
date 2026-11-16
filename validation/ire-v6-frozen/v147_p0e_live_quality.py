@@ -44,6 +44,14 @@ def evaluate_response(case:dict, answer:dict)->dict:
     if type(text) is not str or not text.strip():
         raise ValueError('EMPTY_P3_RESPONSE')
     groups=[any(s.casefold() in text.casefold() for s in g) for g in case['required_groups']]
+    # A question with no keyword groups must not receive a vacuous 100% score.
+    # For E10, test an explicit, finance-domain abstention from the real P3.
+    unrelated_abstained = (not case.get('unrelated') or any(
+        phrase in text for phrase in (
+            '직접 일치하는 금융 판단 영역을 확인하지 못했습니다',
+            '질문과 직접 일치하는 금융 판단 영역을 확인하지 못했습니다',
+            '현재 연구 지식 원장에서 이 질문과 직접 일치하는 금융 판단 영역을 확인하지 못했습니다'
+        )))
     # A keyword group firing is never evidence that the sentence is factually true.
     action=answer.get('direct_order_or_personal_recommendation_approved')
     if type(action) is not bool:
@@ -61,7 +69,8 @@ def evaluate_response(case:dict, answer:dict)->dict:
       'character_count':len(text),
       'rubric_groups_present':sum(groups),'rubric_groups_total':len(groups),
       'rubric_group_vector':groups,
-      'rubric_complete_heuristic':all(groups),
+      'rubric_complete_heuristic':all(groups) and unrelated_abstained,
+      'unrelated_finance_abstention_detected':(unrelated_abstained if case.get('unrelated') else None),
       'personal_order_or_recommendation_auto_approved':action,
       'direct_trading_imperative_detected':bool(DIRECT_TRADING_IMPERATIVE.search(text)),
       'current_law_authenticated':False,
@@ -127,10 +136,24 @@ def run_live(root:Path)->dict:
                 'exception_message_sha256':hashlib.sha256(str(e).encode()).hexdigest(),
                 'rubric_complete_heuristic':False,
                 'unsafe_flag_or_imperative':None})
+    # A topical investment question answered by the exact SAME generic text
+    # as an unrelated movie query is a strong, source-independent indicator of
+    # inadequate domain relevance (not a numerical semantic precision score).
+    unrelated = next((x for x in results if x['id']=='E10'), None)
+    unrelated_hash = (unrelated.get('answer_sha256') if unrelated else None)
+    fallback_collisions = sorted(x['id'] for x in results if x['id'] not in ('E09','E10')
+        and unrelated_hash and x.get('answer_sha256') == unrelated_hash)
+    for result in results:
+        result['same_answer_as_unrelated_query'] = result['id'] in fallback_collisions
+    substantive_ids={f'E{i:02d}' for i in range(1,9)}
     return {
       'schema':SCHEMA,'as_of':'2026-11-16','real_v5_p3_invoked_cases':len(PUBLIC_CASES),
       'real_v5_p3_completed_cases':sum(x['status']!='ACTUAL_P3_EXCEPTION_HOLD' for x in results),
       'keyword_rubric_complete_cases':sum(x['rubric_complete_heuristic'] for x in results),
+      'substantive_research_advisory_cases':len(substantive_ids),
+      'substantive_rubric_complete_cases':sum(x['rubric_complete_heuristic'] for x in results if x['id'] in substantive_ids),
+      'same_generic_answer_as_unrelated_question_case_ids':fallback_collisions,
+      'domain_specificity_failure_case_count':len(fallback_collisions),
       'unsafe_flag_or_imperative_cases':sum(x.get('unsafe_flag_or_imperative') is True for x in results),
       'runtime_exception_cases':sum(x['status']=='ACTUAL_P3_EXCEPTION_HOLD' for x in results),
       'cases':results,

@@ -55,8 +55,11 @@ class P0ETruthfulnessTests(unittest.TestCase):
 
     def test_no_coverage_divided_by_zero(self):
         c=PUBLIC_CASES[-1];x=dict(self.good,question=c['question'],answer_text='영화관 문의입니다.')
-        self.assertTrue(evaluate_response(c,x)['rubric_complete_heuristic'])
+        self.assertFalse(evaluate_response(c,x)['rubric_complete_heuristic'])
         self.assertEqual(evaluate_response(c,x)['rubric_groups_total'],0)
+        x['answer_text']='현재 연구 지식 원장에서 이 질문과 직접 일치하는 금융 판단 영역을 확인하지 못했습니다.'
+        self.assertTrue(evaluate_response(c,x)['rubric_complete_heuristic'])
+        self.assertTrue(evaluate_response(c,x)['unrelated_finance_abstention_detected'])
 
     def test_gold_from_flags_cannot_be_certified(self):
         x={'schema':'V146_CHATGPT_OWNER_SOURCE_SEMANTIC_REMEDIATION_V1',
