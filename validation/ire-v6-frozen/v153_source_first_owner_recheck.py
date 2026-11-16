@@ -88,7 +88,7 @@ def audit_public_sha_only(manifest):
     }
 
 
-def private_owner_source_recheck(manifest, owner_cue_text_by_index,
+def private_owner_source_recheck(manifest, original_srt_bytes, owner_cue_text_by_index,
                                  v145_atoms_by_id, v152_unresolved_cue_by_id,
                                  prior42, reviewed160, triaged108):
     """Verify original literal quotes, surrounding SHA and exact private set.
@@ -98,6 +98,22 @@ def private_owner_source_recheck(manifest, owner_cue_text_by_index,
     assess, correct and finally sign V123 before any V128 publication.
     """
     audit_public_sha_only(manifest)
+    _check(type(original_srt_bytes) is bytes and
+           hashlib.sha256(original_srt_bytes).hexdigest() ==
+           manifest["original_source_sha256"], "REAL_RAW_SRT_HASH_REQUIRED")
+    try:
+        blocks = re.split(r"\\r?\\n\\r?\\n",
+                          original_srt_bytes.decode("utf-8-sig").strip())
+        parsed = {}
+        for block in blocks:
+            rows = block.splitlines()
+            i = int(rows[0])
+            _check(i not in parsed and len(rows) >= 3, "SRT_DUP_OR_EMPTY_CUE")
+            parsed[i] = " ".join(rows[2:])
+    except (UnicodeError, ValueError, IndexError) as exc:
+        raise V153SourceReviewError("V153_SRT_PARSE_ORIGINAL_FAILED") from exc
+    _check(parsed == owner_cue_text_by_index and
+           set(parsed) == set(range(1, 1482)), "RAW_SOURCE_CUE_TEXT_DRIFT")
     _check(type(owner_cue_text_by_index) is dict and
            set(owner_cue_text_by_index) == set(range(1,1482)), "OWNER_1481_CUES")
     _check(type(v145_atoms_by_id) is dict and len(v145_atoms_by_id) == 274,
