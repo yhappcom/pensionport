@@ -1,0 +1,25 @@
+name: IRE V145 temporary source-only runtime bundle
+on:
+  push:
+    branches:
+      - verify/ire-v6-p1-atomic-host-batch-20261109
+    paths:
+      - .github/workflows/ire-v145-temporary-runtime-export.yml
+jobs:
+  gather-published-runtime-inputs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload repository-managed V6 input fixtures and validation source only
+        uses: actions/upload-artifact@v4
+        with:
+          name: v145-public-prior-and-validation-runtime
+          path: |
+            data/claims.jsonl
+            ire/v5/advisory_knowledge/p4_integrated_scoped_education22_20261106.json
+            ire/v5/advisory_knowledge/p4_p3_incremental_education29_20261106.json
+            validation/ire-v6-frozen/*.py
+          if-no-files-found: error
+          retention-days: 1
