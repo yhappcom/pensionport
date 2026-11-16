@@ -1438,9 +1438,32 @@ jobs:
               "private_raw_zip_or_subtitle_published",
               "main_v5_approved_master116_or_p4_modified","p0_go"):
               assert v42[flag] is False,"V42_FALSE_FINANCIAL_GO:"+flag
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40)|set(added41)|set(added42)|{"ire/v6/research_pipeline_v114.py","ire/v6/host_quarantine_preflight.py"},"V6_FILE_CENSUS_DRIFT:V39_FILE_CENSUS_DRIFT:V40_FILE_CENSUS_DRIFT:V41_FILE_CENSUS_DRIFT:V42_FILE_CENSUS_DRIFT"
-          assert len(actual)==108 and v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40)|set(added41)|set(added42)|{"ire/v6/research_pipeline_v114.py","ire/v6/host_quarantine_preflight.py","ire/v6/guarded_question_advisory_v148.py"},"V6_FILE_CENSUS_DRIFT:V39_FILE_CENSUS_DRIFT:V40_FILE_CENSUS_DRIFT:V41_FILE_CENSUS_DRIFT:V42_FILE_CENSUS_DRIFT"
+          assert len(actual)==109 and v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           assert subprocess.check_output(["git","hash-object","ire/v6/research_pipeline_v114.py"],text=True).strip()=="1819c984248563e3b7c14762f8c2cd467c2461d4","V114_ADDITIVE_CODE_GIT_BLOB_DRIFT"
+          # V148 is an explicitly SHA-pinned additive educational-only
+          # V5-P3 wrapper; no historical V5/V6 code or manifest was modified.
+          v148=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V148_P0E_CONTEXTUAL_ADVICE_PATCH_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v148["schema"]=="IRE_V148_P0E_CONTEXTUAL_ADVICE_ADD_V1"
+          assert v148["parent_commit_sha"]=="22a3f0520f304175bb4695bcb51bce036973ebe9"
+          assert v148["scope"]=="VERIFICATION_BRANCH_ONLY"
+          assert v148["historical_v5_core_untouched"] is True
+          assert v148["historical_v6_manifest_unchanged"] is True
+          for flag in ("real_owner_advice_authorized","full_gold_precision_recall_verified",
+                       "current_issuer_original_bytes_authenticated","p0e_go","p0_go"):
+              assert v148[flag] is False,"V148_FAKE_COMPLETION:"+flag
+          expected148={
+            "ire/v6/guarded_question_advisory_v148.py",
+            "validation/ire-v6-frozen/v148_quality_probe.py",
+            "validation/ire-v6-frozen/test_v148_guarded_advice.py"}
+          assert {z["path"] for z in v148["added"]}==expected148,"V148_ADDITIVE_SCOPE_DRIFT"
+          for row in v148["added"]:
+              path=row["path"]
+              assert pathlib.Path(path).stat().st_size==row["bytes"],"V148_SOURCE_SIZE_DRIFT"
+              assert subprocess.check_output(["git","hash-object",path],
+                  text=True).strip()==row["git_blob_sha"],"V148_SOURCE_SHA_DRIFT"
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -2031,6 +2054,7 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v145_native_host_quarantine_e2e.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v146_*.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v147_p0e_quality.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v148_guarded_advice.py' -v
 
   p0e-real-p3-advisory-probe:
     name: V147 real V5 P3 advisory answers (NOT an accuracy certificate)
@@ -2054,4 +2078,30 @@ jobs:
         with:
           name: v147-p0e-real-p3-nonprivate-metrics
           path: /tmp/v147_p0e_live_summary.json
+          if-no-files-found: warn
+
+  v148-real-p3-educational-coverage:
+    name: V148 18 real P3 calls plus educational counterexamples (NOT P0-E GO)
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install unchanged V5 dependencies
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Reexecute actual V5 P3 10 frozen + 8 preregistered variants
+        env:
+          PYTHONPATH: .:validation/ire-v6-frozen
+        run: python validation/ire-v6-frozen/v148_quality_probe.py --root . --assert-coverage --output /tmp/v148_real_p3_educational_metrics.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v148-real-p3-educational-nonprivate-metrics
+          path: /tmp/v148_real_p3_educational_metrics.json
           if-no-files-found: warn
