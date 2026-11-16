@@ -1,0 +1,37 @@
+{
+  "schema": "V152_AS_OF_2026_11_16_ELIGIBILITY_GATE_REQUIRED_V1",
+  "as_of": "2026-11-16",
+  "mandatory_validated_issuers": [
+    "NATIONAL_LAW_ISA_91_18",
+    "NATIONAL_LAW_PENSION_59_3"
+  ],
+  "isa_questions_required": [
+    "tax_year",
+    "tax_residence",
+    "age_at_isa_open_or_extension",
+    "prior_year_wage",
+    "prior_year_combined_income",
+    "rural_fisherman_status_if_claimed",
+    "one_account",
+    "contract_start_and_maturity",
+    "net_isa_income_and_included_instruments",
+    "early_withdrawals",
+    "year_of_tax_liability"
+  ],
+  "pension_questions_required": [
+    "tax_year",
+    "residence",
+    "gross_salary",
+    "combined_income",
+    "prior_year_conversion_related_amount",
+    "pension_savings_personal_contribution",
+    "irp_eligible_personal_contribution",
+    "tax_liability_and_credits",
+    "other_account_transfers_and_disallowed_contributions"
+  ],
+  "user_provided_verifiable_eligibility_data_available": false,
+  "official_body_source_only_is_not_suitability": true,
+  "user_transaction_or_tax_approval": false,
+  "personal_recommendation_authorized": false,
+  "portfolio_or_approved_knowledge_db_accessed": false
+}
