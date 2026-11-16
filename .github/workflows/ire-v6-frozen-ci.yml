@@ -1490,8 +1490,41 @@ jobs:
           for row in v145["modified_from_v144"]+v145["added"]:
               p=row["path"]
               assert pathlib.Path(p).is_file(),"V145_SOURCE_MISSING:"+p
-              assert subprocess.check_output(["git","hash-object",p],text=True).strip()==row["git_blob_sha"],"V145_SOURCE_DRIFT:"+p
-              assert pathlib.Path(p).stat().st_size==row["bytes"],"V145_SOURCE_SIZE_DRIFT:"+p
+              if p=="validation/ire-v6-frozen/v123_chat_final_gate.py":
+                  # V146 reviewed speaker/stance ambiguity on top of V145.
+                  # The exact prior V145 file stays reachable in Git history.
+                  subprocess.run(["git","cat-file","-e",row["git_blob_sha"]+"^{blob}"],check=True)
+              else:
+                  assert subprocess.check_output(["git","hash-object",p],text=True).strip()==row["git_blob_sha"],"V145_SOURCE_DRIFT:"+p
+                  assert pathlib.Path(p).stat().st_size==row["bytes"],"V145_SOURCE_SIZE_DRIFT:"+p
+              if "previous_git_blob_sha" in row:
+                  subprocess.run(["git","cat-file","-e",row["previous_git_blob_sha"]+"^{blob}"],check=True)
+          v146=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V146_SOURCE_MEANING_PROVENANCE_PATCH_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v146["schema"]=="IRE_V146_SOURCE_MEANING_PROVENANCE_PATCH_MANIFEST_V1"
+          assert v146["previous_v145_manifest_git_blob_sha"]==subprocess.check_output(
+              ["git","hash-object","validation/ire-v6-frozen/V145_NATIVE_SOURCE_QUARANTINE_PATCH_MANIFEST.json"],
+              text=True).strip(),"V145_HISTORICAL_MANIFEST_DRIFT"
+          assert v146["previous_v145_commit_sha"]=="81b2d49006b31fd3dfc4eb4bd067792bae3606dd"
+          assert v146["scope"]=="VERIFICATION_BRANCH_ONLY"
+          for field in ("actual_gold_precision_recall_measured","original_audio_authenticity_verified",
+                        "issuer_original_body_bytes_verified","p0_go"):
+              assert v146[field] is False,"V146_FALSE_P0_COMPLETE:"+field
+          assert v146["v123_real_approved_scopes"]==0 and v146["real_knowledge_published"]==0
+          assert v146["source_cue_semantic_dockets"]==72 and v146["source_semantic_untriaged"]==202
+          assert {x["path"] for x in v146["modified_from_v145"]}=={"validation/ire-v6-frozen/v123_chat_final_gate.py"}
+          assert {x["path"] for x in v146["added"]}=={
+              "validation/ire-v6-frozen/v146_source_meaning_provenance.py",
+              "validation/ire-v6-frozen/test_v146_source_meaning_provenance.py",
+              "validation/ire-v6-frozen/v146_meaning_release_safety_gate.py",
+              "validation/ire-v6-frozen/test_v146_meaning_release_safety_gate.py"}
+          for row in v146["modified_from_v145"]+v146["added"]+v146["sha_only_public"]:
+              p=row["path"]
+              assert pathlib.Path(p).is_file(),"V146_PUBLIC_FILE_MISSING:"+p
+              assert pathlib.Path(p).stat().st_size==row["bytes"],"V146_PUBLIC_LENGTH_DRIFT:"+p
+              assert subprocess.check_output(
+                  ["git","hash-object",p],text=True).strip()==row["git_blob_sha"],"V146_PUBLIC_SHA_DRIFT:"+p
               if "previous_git_blob_sha" in row:
                   subprocess.run(["git","cat-file","-e",row["previous_git_blob_sha"]+"^{blob}"],check=True)
           v16=json.loads(pathlib.Path(
