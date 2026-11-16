@@ -17,6 +17,7 @@ from .prior_knowledge import audit_prior_candidates
 from .proof import audit_model_anchors
 from .semantic_frontier import source_first_semantic_frontier
 from .semantic_risk import audit_semantic_risks
+from .host_quarantine_preflight import audit_host_quarantine_preflight
 from .state_machine import reduce_event
 from .trust import verify_owner_inventory
 
@@ -28,7 +29,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                              inventory_bytes: bytes,
                              expected_inventory_sha256: str,
                              exchange: dict, knowledge: dict,
-                             window_models: dict, window_reviews: dict) -> dict:
+                             window_models: dict, window_reviews: dict,
+                             quarantine_preflight: dict | None = None) -> dict:
     """Commit a complete, source-bound host batch or no events at all.
 
     Requires current operator-pinned source and complete non-empty models
@@ -107,9 +109,10 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 "financial_law_as_of_verified":False,
                 "semantic_entailment_independently_verified":False,
             }
-            if (atom_audit["unresolved_cues"] or
-                atom_audit["suspicious_no_atom_cues"]):
-                raise QualityNotProven("HOST_BATCH_UNRESOLVED_SOURCE_RESIDUALS")
+            prequarantine_pin=audit_host_quarantine_preflight(
+                source,exchange,quarantine_preflight)
+            # Receipt remains structural-only. Actual V123 must explicitly
+            # quarantine every unresolved cue before any knowledge export.
             windows=[wid for wid,_,_ in source.primary_windows]
             if set(window_models)!=set(windows) or set(window_reviews)!=set(windows):
                 raise InvalidInput("HOST_BATCH_ALL_PLANNED_WINDOWS_REQUIRED")
@@ -140,7 +143,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                              "structural_audit_sha256":json_digest(audit)})
             if model_claim_ids!=set(atomic_claims):
                 raise InvalidInput("HOST_BATCH_MISSING_HOST_ATOMS")
-            commitment=json_digest({
+            commitment_fields={
                 "base_head_sha256":expected_head,
                 "source_sha256":source.source_sha256,
                 "manifest_sha256":source.manifest_sha256,
@@ -153,7 +156,10 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 "prior_p4_22_blob":prior_audit["p4_prior22_git_blob_sha1"],
                 "prior_p4_7_blob":prior_audit["p4_new7_git_blob_sha1"],
                 "window_model_review_pins":pins,
-            })
+            }
+            if prequarantine_pin is not None:
+                commitment_fields["host_source_prequarantine_pin"]=prequarantine_pin
+            commitment=json_digest(commitment_fields)
             seal_id=run_id+"_seal"
             prior=con.execute(
                 "SELECT * FROM events WHERE scope_id=? AND command_id=?",
@@ -167,10 +173,11 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     review.get("original_expected_head")!=expected_head or
                     review.get("source_first_semantic_frontier_pin")!=frontier_pin or
                     review.get("source_semantic_risk_pin")!=risk_pin or
+                    review.get("host_source_prequarantine_pin")!=prequarantine_pin or
                     review.get("semantic_truth_certified") is not False or
                     review.get("engine_quality_certified") is not False):
                     raise IdempotencyConflict("HOST_BATCH_RETRY_INPUT_CHANGED")
-                return {"schema":"IRE_V6_HOST_BATCH_RECEIPT_V1",
+                receipt_fields={"schema":"IRE_V6_HOST_BATCH_RECEIPT_V1",
                         "scope_id":scope_id, "event_sha256":prior["event_sha256"],
                         "bundle_sha256":commitment,"idempotent_replay":True,
                         "is_current":head==prior["event_sha256"],
@@ -182,6 +189,9 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                         "semantic_truth_certified":False,
                         "independent_gold_recall_measured":False,
                         "research_complete":False,"p0_go":False}
+                if prequarantine_pin is not None:
+                    receipt_fields["host_source_prequarantine_pin"]=prequarantine_pin
+                return receipt_fields
             for wid in windows:
                 for suffix in ("model","proof"):
                     command=run_id+"_"+suffix+"_"+wid
@@ -226,6 +236,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     "human_semantic_review_pending":True,
                     "semantic_truth_certified":False,
                     "engine_quality_certified":False}
+            if prequarantine_pin is not None:
+                marker["host_source_prequarantine_pin"]=prequarantine_pin
             payload={"window_id":last,
                      "model_revision_event_sha256":state["models"][last]["revision_event_sha256"],
                      "review":marker}
@@ -237,7 +249,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 or after["research_report_closed"] is not False or
                 json_digest(after)!=receipt["state_sha256"]):
                 raise LedgerCorrupted("HOST_BATCH_POST_WRITE_REPLAY_MISMATCH")
-            return {"schema":"IRE_V6_HOST_BATCH_RECEIPT_V1",
+            receipt_fields={"schema":"IRE_V6_HOST_BATCH_RECEIPT_V1",
                     "scope_id":scope_id, "event_sha256":receipt["event_sha256"],
                     "bundle_sha256":commitment,"idempotent_replay":False,
                     "is_current":True,"atomic_batch_committed":True,
@@ -248,6 +260,9 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     "semantic_truth_certified":False,
                     "independent_gold_recall_measured":False,
                     "research_complete":False,"p0_go":False}
+            if prequarantine_pin is not None:
+                receipt_fields["host_source_prequarantine_pin"]=prequarantine_pin
+            return receipt_fields
         return store._commit(con,work)
     finally:
         con.close()

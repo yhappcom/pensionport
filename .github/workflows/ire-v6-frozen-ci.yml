@@ -1438,8 +1438,8 @@ jobs:
               "private_raw_zip_or_subtitle_published",
               "main_v5_approved_master116_or_p4_modified","p0_go"):
               assert v42[flag] is False,"V42_FALSE_FINANCIAL_GO:"+flag
-          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40)|set(added41)|set(added42)|{"ire/v6/research_pipeline_v114.py"},"V6_FILE_CENSUS_DRIFT:V39_FILE_CENSUS_DRIFT:V40_FILE_CENSUS_DRIFT:V41_FILE_CENSUS_DRIFT:V42_FILE_CENSUS_DRIFT"
-          assert len(actual)==107 and v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
+          assert actual==set(old)|set(new)|set(v10_added)|set(v11_added)|set(added12)|set(added13)|set(v14_added)|set(added15)|set(added17)|set(added18)|set(added19)|set(added20)|set(added21)|set(added22)|set(added23)|set(added24)|set(added25)|set(added26)|set(added27)|set(added28)|set(added29)|set(added30)|set(added31)|set(added32)|set(added33)|set(added34)|set(added35)|set(added36)|set(added37)|set(added39)|set(added40)|set(added41)|set(added42)|{"ire/v6/research_pipeline_v114.py","ire/v6/host_quarantine_preflight.py"},"V6_FILE_CENSUS_DRIFT:V39_FILE_CENSUS_DRIFT:V40_FILE_CENSUS_DRIFT:V41_FILE_CENSUS_DRIFT:V42_FILE_CENSUS_DRIFT"
+          assert len(actual)==108 and v37["new_ire_v6_tracked_file_count"]==98 and v36["new_ire_v6_tracked_file_count"]==96 and v35["expected_ire_v6_tracked_file_count"]==94 and v34["new_ire_v6_tracked_file_count"]==92 and v33["new_v6_tracked_file_count"]==90 and v32["new_total_ire_v6_tracked_files"]==86 and v31["new_ire_v6_tracked_file_total"]==82 and v30["new_total_ire_v6_tracked_files"]==80 and v29["new_ire_v6_file_count"]==78 and v28["new_ire_v6_file_count"]==76 and v27["new_ire_v6_file_count"]==74 and v26["new_v6_tracked_file_total"]==72 and v25["new_total_ire_v6_tracked_files"]==70 and v24["new_total_ire_v6_tracked_files"]==68 and v23["new_total_ire_v6_tracked_files"]==66 and v22["new_total_ire_v6_tracked_files"]==64 and v21["new_total_ire_v6_tracked_files"]==62 and v20["new_total_ire_v6_tracked_files"]==60 and v19["new_total_ire_v6_tracked_files"]==58 and v18["new_total_ire_v6_tracked_files"]==54 and v17["new_total_ire_v6_tracked_files"]==52 and v15["new_total_ire_v6_tracked_files"]==50
           assert subprocess.check_output(["git","hash-object","ire/v6/research_pipeline_v114.py"],text=True).strip()=="1819c984248563e3b7c14762f8c2cd467c2461d4","V114_ADDITIVE_CODE_GIT_BLOB_DRIFT"
           for path,item in old.items():
               f=pathlib.Path(path)
@@ -1462,10 +1462,38 @@ jobs:
               assert pathlib.Path(path).is_file()
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
               assert actual_sha==sha,"UNAUTHORIZED_PREVIOUS_PATCH_BYTES:"+path
+          # V145 authorized an additive versioned host quarantine patch.
+          # Historical V14 blob remains immutable and accessible in Git.
           for path,sha in (v14_modified|v14_added|added15).items():
               assert pathlib.Path(path).is_file()
+              if path=="ire/v6/host_batch.py":
+                  subprocess.run(["git","cat-file","-e",sha+"^{blob}"],check=True)
+                  continue
               actual_sha=subprocess.check_output(["git","hash-object",path],text=True).strip()
               assert actual_sha==sha,"UNAUTHORIZED_V15_PATCH_BYTES:"+path
+          v145=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V145_NATIVE_SOURCE_QUARANTINE_PATCH_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v145["schema"]=="IRE_V145_REAL_SOURCE_HOST_QUARANTINE_PATCH_MANIFEST_V1"
+          assert v145["scope"]=="VERIFICATION_BRANCH_ONLY"
+          for flag in ("p0_go","precision_recall_measured","financial_fact_certified"):
+              assert v145[flag] is False,"V145_FALSE_RESEARCH_APPROVAL:"+flag
+          assert v145["previous_v144_commit_sha"]=="0c49a5a8b4d00932fae1cc8bbc1478bd8ce163a5"
+          changed145={x["path"]:x for x in v145["modified_from_v144"]}
+          new145={x["path"]:x for x in v145["added"]}
+          assert set(changed145)=={"ire/v6/host_batch.py",
+              "validation/ire-v6-frozen/v123_chat_final_gate.py",
+              "validation/ire-v6-frozen/v126_chat_approved_knowledge_store.py",
+              "validation/ire-v6-frozen/v128_host_continuous_video.py"}
+          assert set(new145)=={"ire/v6/host_quarantine_preflight.py",
+              "validation/ire-v6-frozen/test_v145_native_host_quarantine_e2e.py"}
+          for row in v145["modified_from_v144"]+v145["added"]:
+              p=row["path"]
+              assert pathlib.Path(p).is_file(),"V145_SOURCE_MISSING:"+p
+              assert subprocess.check_output(["git","hash-object",p],text=True).strip()==row["git_blob_sha"],"V145_SOURCE_DRIFT:"+p
+              assert pathlib.Path(p).stat().st_size==row["bytes"],"V145_SOURCE_SIZE_DRIFT:"+p
+              if "previous_git_blob_sha" in row:
+                  subprocess.run(["git","cat-file","-e",row["previous_git_blob_sha"]+"^{blob}"],check=True)
           v16=json.loads(pathlib.Path(
               "validation/ire-v6-frozen/V6_CHAT_ONLY_EXECUTION_PLAN_MANIFEST_V16.json"
           ).read_text(encoding="utf-8"))
@@ -1967,3 +1995,4 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v142_p0_public.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v143_v123_v128_quarantine.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v144_owner_quarantine_readiness_gate.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v145_native_host_quarantine_e2e.py' -v

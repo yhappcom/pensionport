@@ -66,6 +66,16 @@ def run_all_video_scopes_in_chat(checkpoint, knowledge_store, *,
                expected_checkpoint_head=current["checkpoint_head_sha256"],
                allow_hold_revision=(supplied["explicit_hold_revision"] and
                                     previous is not None and previous["decision"]!="PASS"))
+        # An idempotent replay of a HELD/REJECTED checkpoint is *not* a PASS.
+        # Previously its IDEMPOTENT_* status fell through and erroneously
+        # advanced to the next segment after a restart. Fail closed instead.
+        if row["status"]=="IDEMPOTENT_CHILD_CHECKPOINT_REPLAY" and previous is not None and previous["decision"] != "PASS":
+            return {"schema":"IRE_V128_HOST_SINGLE_INVOCATION_RUN_V1",
+                    "status":"HOLD_CHILD_CHAT_SEMANTICS_OR_FINANCE",
+                    "next_segment_id":segment_id,
+                    "checkpoint_head_sha256":row["checkpoint_head_sha256"],
+                    "child_scopes_supplied":len(packets)+1,
+                    "all_video_knowledge_published":False,"p0_go":False}
         if row["status"]=="CHILD_CHAT_CHECKPOINT_HOLD" or row["status"]=="CHILD_CHAT_CHECKPOINT_REJECT":
             return {"schema":"IRE_V128_HOST_SINGLE_INVOCATION_RUN_V1",
                     "status":"HOLD_CHILD_CHAT_SEMANTICS_OR_FINANCE",

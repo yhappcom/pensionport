@@ -178,6 +178,10 @@ class PrivateKnowledgeStore:
             "scope_id", "run_id", "expected_head", "raw", "manifest",
             "inventory_bytes", "expected_inventory_sha256", "exchange",
             "knowledge", "window_models", "window_reviews"
+        } and set(replay) != {
+            "scope_id", "run_id", "expected_head", "raw", "manifest",
+            "inventory_bytes", "expected_inventory_sha256", "exchange",
+            "knowledge", "window_models", "window_reviews", "quarantine_preflight"
         } or replay["knowledge"] != prior_knowledge or
                 replay["exchange"] != exchange or replay["scope_id"] != host_receipt["scope_id"]):
             _stop("SOURCE_HOST_BATCH_REPLAY_INPUT_DRIFT")

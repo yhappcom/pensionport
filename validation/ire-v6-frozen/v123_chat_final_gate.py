@@ -94,6 +94,38 @@ def _stage_receipt(source, atom_audit, host, store):
            frontier.get("review_case_census_sha256") is not None and
            type(frontier.get("review_case_count")) is int, "HOST_FRONTIER_UNVERIFIED")
     _pin(frontier["review_case_census_sha256"], "HOST_FRONTIER")
+    # V145 permits structurally staged UNRESOLVED source cues only with a
+    # pinned source-first preflight. Neither source pin nor host receipt
+    # approves their semantic content; V123 must explicitly quarantine them.
+    pre = host.get("host_source_prequarantine_pin")
+    if atom_audit["unresolved_cues"] or atom_audit["suspicious_no_atom_cues"]:
+        _check(type(pre) is dict and
+               pre.get("schema") == "IRE_V6_HOST_SOURCE_PREQUARANTINE_RECEIPT_V145" and
+               pre.get("source_sha256") == source.source_sha256 and
+               pre.get("manifest_sha256") == source.manifest_sha256 and
+               pre.get("host_structural_staging_only") is True and
+               pre.get("original_audio_authenticated") is False and
+               pre.get("all_claim_semantics_approved") is False and
+               pre.get("p0_go") is False and
+               type(pre.get("unresolved_original_cue_indices")) is list and
+               pre.get("unresolved_original_cue_count") == len(pre["unresolved_original_cue_indices"]),
+               "HOST_PREQUARANTINE_RECEIPT_MISSING_OR_INVALID")
+        _pin(pre.get("preflight_ledger_sha256"), "HOST_PREQUARANTINE_PIN")
+        _check(callable(getattr(store, "_connection", None)),
+               "HOST_PREQUARANTINE_CURRENT_STORE_READ_REQUIRED")
+        import json
+        con = store._connection()
+        try:
+            row = con.execute("SELECT event_json FROM events WHERE scope_id=? AND event_sha256=?",
+                              (host["scope_id"],host["event_sha256"])).fetchone()
+        finally:
+            con.close()
+        _check(row is not None and
+               json.loads(row["event_json"])["payload"]["review"].get(
+                   "host_source_prequarantine_pin") == pre,
+               "HOST_PREQUARANTINE_EVENT_PIN_DRIFT")
+    else:
+        _check(pre is None, "HOST_PREQUARANTINE_WITHOUT_UNRESOLVED_SOURCE")
     return True
 
 
@@ -243,6 +275,12 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                    "UNVERIFIED_SEMANTIC_ACCEPTANCE")
     _check(seen == set(atoms), "CHAT_ATOM_MISSING")
     quarantine = audit_explicit_quarantine(source, exchange, chat_review, atoms)
+    pre = host_receipt.get("host_source_prequarantine_pin")
+    if pre is not None:
+        _check(quarantine is not None and
+               set(pre["unresolved_original_cue_indices"]).issubset(
+                   {r["cue_index"] for r in chat_review["quarantine"]["cue_rows"]}),
+               "HOST_PENDING_SOURCE_NOT_EXPLICITLY_QUARANTINED_BY_CHAT")
     all_pass = (accepted + (quarantine["atoms"] if quarantine else 0) == len(atoms) and not rejected and not opened and
                 not missing_cues and not finance_open and not risk_open and
                 not hrf and (not av or (quarantine is not None and
