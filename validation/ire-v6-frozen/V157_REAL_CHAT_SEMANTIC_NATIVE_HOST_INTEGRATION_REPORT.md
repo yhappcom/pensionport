@@ -39,3 +39,10 @@ V6 원본 연결과 호스트 구조 커밋은 실제 성공. 그러나 284개 �
 - main, 승인 Master116/P4, 개인 포트폴리오 변경 없음.
 
 최종 판정: ChatGPT source-first 일부 원자구조 정정과 실제 V6 host batch 13/13 커밋 완료 / V123 최종 의미 승인 및 P0-E는 NO-GO.
+
+## 5. 재사용 가능한 ChatGPT→V6 필드 변환기 실증
+
+- v157_semantic_to_v6_adapter.py: 실제 원본 VerifiedSource와 SHA로 고정된 ChatGPT 검토결정(SET_KIND, EXTEND_QUESTION, SET_CONDITIONAL)을 받아 원자/자막 연결을 복제 정정하고 audit_host_atomic_exchange를 의무 재실행한다.
+- 별도 비공개 V157 실제 자료 재생에서 13개 구간에 이 변환기를 적용한 결과, **24개 필드 패치가 기존에 원장에 커밋한 284개 원자 교환자료와 정규화 SHA 기준 정확히 일치**했다.
+- 공개 CI는 비공개 원본 대신 가상 합성 원본으로 재사용 변환기를 6개 정상/비정상 사례에 시험한다. 이 시험은 ChatGPT 전수 의미정확도 인증이 아니다.
+- 변환기가 반환하는 결과는 native_host_committed=false / chat_v123_final_approved=false로 고정되며, 실제 데이터 원장 커밋은 별도 TransactionStore.submit_host_atomic_batch가 수행한다.
