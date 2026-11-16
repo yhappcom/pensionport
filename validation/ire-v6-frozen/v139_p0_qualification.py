@@ -15,10 +15,11 @@ class EvidenceError(ValueError): pass
 
 
 def score_atoms(*, gold=None, predicted=None, expected_cues=720, source_sha256=None):
-    """Use exact adjudicated same-granularity identity sets.
+    """Compute declared-ID arithmetic, NEVER confer real P0 approval.
 
-    Abstain on missing complete independent gold; no selected-sample projection.
-    Only certified source-aware one-to-one adjudication can produce TP/FP/FN.
+    Caller-supplied boolean flags and 720 count cannot authenticate a truly
+    complete independent source goldset. For real acceptance, another audited
+    source/semantics provenance gate must validate underlying records first.
     """
     hold={'status':'UNMEASURABLE_NO_COMPLETE_INDEPENDENT_GOLD', 'tp':None,'fp':None,
           'fn':None,'precision':None,'recall':None,'high_risk_fn':None,'p0_1_pass':False}
@@ -38,9 +39,19 @@ def score_atoms(*, gold=None, predicted=None, expected_cues=720, source_sha256=N
     precision=tp/(tp+fp) if tp+fp else 0.0
     recall=tp/(tp+fn) if tp+fn else 0.0
     high_risk_fn=len(set(h)-set(p))
-    return {'status':'ADJUDICATED_GOLD_MEASURED','tp':tp,'fp':fp,'fn':fn,
-            'precision':precision,'recall':recall,'high_risk_fn':high_risk_fn,
-            'p0_1_pass':precision>=0.95 and recall>=0.98 and high_risk_fn==0}
+    # A caller-supplied `external_independent=True` and covered_cue_count=720
+    # do not authenticate any original 720-cue goldset. This function only
+    # calculates *arithmetic* overlap on declared unit IDs, which may be tiny,
+    # duplicated semantically or adversarially fabricated. P0 approval must
+    # be performed by a separate live source+adjudication evidence verifier.
+    numeric_targets_met=(precision>=0.95 and recall>=0.98 and high_risk_fn==0)
+    return {'status':'DECLARED_UNIT_OVERLAP_ARITHMETIC_ONLY_UNVERIFIED_GOLD',
+            'tp':tp,'fp':fp,'fn':fn,'precision':precision,'recall':recall,
+            'high_risk_fn':high_risk_fn,
+            'numeric_targets_met_on_declared_units_only':numeric_targets_met,
+            'genuine_720_source_gold_authenticated':False,
+            'p0_1_pass':False}
+
 
 
 def parent_preflight(children, *, actual_source_sha256, parent_review_receipt=None,
