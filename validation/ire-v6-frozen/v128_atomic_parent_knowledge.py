@@ -37,6 +37,19 @@ def _hash(value):
     return json_digest(value)
 
 
+def _quarantine_manifest(packets):
+    """SHA-only, child-bound exclusion census for whole-parent ChatGPT review."""
+    result = []
+    for packet in packets:
+        case = packet["case"]
+        quarantine = case["chat_review"].get("quarantine")
+        if quarantine is not None:
+            result.append({"source_sha256": case["source"].source_sha256,
+                           "manifest_sha256": _hash(case["manifest"]),
+                           "quarantine_sha256": _hash(quarantine)})
+    return result
+
+
 def _validate_release(release, assembly, checkpoint_head, seams, packets):
     """Check source-pinned parent-level CHATGPT decision, never self-generate it."""
     allowed = {"schema", "review_executor", "parent_source_sha256",
@@ -47,6 +60,11 @@ def _validate_release(release, assembly, checkpoint_head, seams, packets):
                "unresolved_high_risk_semantic_omissions", "unresolved_cross_segment_cases",
                "private_chat_parent_review_sha256", "financial_fact_auto_approved",
                "personal_advice_auto_approved"}
+    quarantine_manifest = _quarantine_manifest(packets)
+    if quarantine_manifest:
+        allowed |= {"quarantine_manifest_sha256",
+                    "quarantine_dispositions_reviewed",
+                    "quarantine_cross_segment_dependencies_resolved"}
     if type(release) is not dict or set(release) != allowed:
         _stop("PARENT_CHAT_RELEASE_SCHEMA")
     cases = [p["case"] for p in packets]
@@ -70,6 +88,10 @@ def _validate_release(release, assembly, checkpoint_head, seams, packets):
         "financial_fact_auto_approved":False,
         "personal_advice_auto_approved":False,
     }
+    if quarantine_manifest:
+        expected.update(quarantine_manifest_sha256=_hash(quarantine_manifest),
+                        quarantine_dispositions_reviewed=True,
+                        quarantine_cross_segment_dependencies_resolved=True)
     for key, value in expected.items():
         if type(release.get(key)) is not type(value) or release.get(key) != value:
             _stop("PARENT_CHAT_RELEASE_NOT_SOURCE_BOUND_" + key.upper())
@@ -88,7 +110,7 @@ def construct_parent_release_review(checkpoint_head, assembly, seams, packets,
     host filling and synthetic fixtures.
     """
     cases=[p["case"] for p in packets]
-    return {"schema":PARENT_RELEASE_SCHEMA,"review_executor":"CHATGPT_IN_CHAT",
+    template = {"schema":PARENT_RELEASE_SCHEMA,"review_executor":"CHATGPT_IN_CHAT",
             "parent_source_sha256":assembly["source_sha256"],
             "parent_replay_sha256":assembly["parent_replay_sha256"],
             "checkpoint_head_sha256":checkpoint_head,
@@ -106,6 +128,13 @@ def construct_parent_release_review(checkpoint_head, assembly, seams, packets,
             "private_chat_parent_review_sha256":private_chat_parent_review_sha256,
             "financial_fact_auto_approved":False,
             "personal_advice_auto_approved":False}
+    quarantine_manifest = _quarantine_manifest(packets)
+    if quarantine_manifest:
+        # Only ChatGPT-hosted final semantic review can set these to True.
+        template.update(quarantine_manifest_sha256=_hash(quarantine_manifest),
+                        quarantine_dispositions_reviewed=False,
+                        quarantine_cross_segment_dependencies_resolved=False)
+    return template
 
 
 def _parent_id(checkpoint):
@@ -181,11 +210,15 @@ def publish_parent_once(checkpoint, knowledge_store, packets, seam_reviews,
         _stop("PARENT_REPLAY_NOT_PASSED")
     review_sha=_validate_release(parent_chat_release,assembly,expected_checkpoint_head,
                                  seam_reviews,packets)
-    if any(d.get("relation")=="CONFLICT" for p in packets for d in p["relation_decisions"]):
+    if any(d.get("relation")=="CONFLICT" and d.get("claim_id") not in {
+             r["claim_id"] for r in p["case"]["chat_review"]["atom_verdicts"]
+             if r["status"] == "EXCLUDE_FROM_RESEARCH"}
+           for p in packets for d in p["relation_decisions"]):
         _stop("UNRESOLVED_PARENT_KNOWLEDGE_CONFLICT")
     if externally_pinned_knowledge_head is not None and externally_pinned_knowledge_head!=expected_knowledge_head:
         _stop("EXTERNAL_KNOWLEDGE_HEAD_NOT_CURRENT")
     pid=_parent_id(checkpoint)
+    quarantine_manifest = _quarantine_manifest(packets)
     stable_request={
         "parent_id":pid,
         "checkpoint_head_sha256":expected_checkpoint_head,
@@ -199,6 +232,8 @@ def publish_parent_once(checkpoint, knowledge_store, packets, seam_reviews,
             "prior_relations_sha256":_hash(p["case"]["prior_knowledge"]["relations"]),
             "relation_decisions_sha256":_hash(p["relation_decisions"])} for p in packets]),
     }
+    if quarantine_manifest:
+        stable_request["quarantine_manifest_sha256"] = _hash(quarantine_manifest)
     # A validated prior publication is idempotent; modifications require a
     # separately adjudicated retirement/revision process, not duplicate source.
     with knowledge_store._session() as con:
@@ -284,6 +319,8 @@ def publish_parent_once(checkpoint, knowledge_store, packets, seam_reviews,
                        "to_head_sha256":applied_head,"entry_count":len(new_rows),
                        "child_segment_count":len(packets),"chat_release_sha256":review_sha,
                        "candidate_only_not_finance_fact":True,"p0_go":False}
+                if quarantine_manifest:
+                    proof["quarantine_manifest_sha256"] = _hash(quarantine_manifest)
                 con.execute("INSERT INTO parent_publications VALUES(?,?,?,?,?,?)",
                             (pid,canonical(proof).decode("utf-8"),_hash(proof),
                              expected_knowledge_head,applied_head,len(new_rows)))

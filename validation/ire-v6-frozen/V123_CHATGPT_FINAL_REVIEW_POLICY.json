@@ -1,6 +1,6 @@
 {
   "schema": "IRE_V6_V123_CHATGPT_FINAL_REVIEW_POLICY_V1",
-  "as_of": "2026-11-15",
+  "as_of": "2026-11-16",
   "governing_predecessor": "validation/ire-v6-frozen/V119_CHAT_NATIVE_REVIEW_GOVERNANCE.md",
   "user_selected_final_review_executor": "CHATGPT_IN_CHAT",
   "external_reviewer_required": false,
@@ -49,5 +49,21 @@
   "canonical_operating_standard": "validation/ire-v6-frozen/V6_CURRENT_CHATGPT_FINAL_APPROVAL_PROTOCOL.md",
   "final_review_execution_scope": "SUPPORTED_NEW_V6_P1_READONLY_CANDIDATE_PREVIEW_ONLY",
   "legacy_v3_v5_publication_paths_already_wrapped": false,
-  "docs_and_code_contract_test": "validation/ire-v6-frozen/test_v123_final_protocol_docs.py"
+  "docs_and_code_contract_test": "validation/ire-v6-frozen/test_v123_final_protocol_docs.py",
+  "v143_explicit_source_quarantine": {
+    "schema": "IRE_V123_SOURCE_PINNED_QUARANTINE_V1",
+    "source_unresolved_audio_is_not_automatically_approved": true,
+    "excluded_cue_status": "EXCLUDED_FROM_RESEARCH",
+    "excluded_atom_status": "EXCLUDE_FROM_RESEARCH",
+    "requires_original_cue_sha_and_atom_digest_for_each_exclusion": true,
+    "requires_chat_reason_note_and_context_dependency_review": true,
+    "requires_audio_open_indices_equal_quarantined_audio_count": true,
+    "accepted_atom_must_not_depend_on_excluded_source_cue": true,
+    "v126_storage_only_accept_for_research_subset": true,
+    "v128_parent_final_chat_review_binds_entire_exclusion_manifest": true,
+    "all_children_source_seams_and_parent_still_required": true,
+    "zero_approved_candidate_child_creates_zero_knowledge_entries": true,
+    "formal_finance_personal_advice_auto_approved": false,
+    "real_source_p0_go": false
+  }
 }

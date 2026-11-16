@@ -21,12 +21,13 @@ from ire.v6.claim_census import FINANCIAL
 from ire.v6.codec import json_digest, require_hash, sha256
 from ire.v6.errors import InvalidInput, QualityNotProven
 from ire.v6.source import VerifiedSource
+from v143_source_pinned_quarantine import audit_explicit_quarantine
 
 SCHEMA = "IRE_V6_CHAT_FINAL_REVIEW_V123"
 RECEIPT_SCHEMA = "IRE_V6_CHAT_FINAL_GATE_RECEIPT_V123"
-REVIEW_STATUSES = {"ACCEPT_FOR_RESEARCH", "REJECT", "OPEN"}
+REVIEW_STATUSES = {"ACCEPT_FOR_RESEARCH", "REJECT", "OPEN", "EXCLUDE_FROM_RESEARCH"}
 FINANCE_STATUSES = {"NOT_APPLICABLE", "PRIMARY_BODY_AND_DATE_CHAT_CHECKED", "OPEN"}
-CUE_STATUSES = {"REVIEWED", "OPEN"}
+CUE_STATUSES = {"REVIEWED", "OPEN", "EXCLUDED_FROM_RESEARCH"}
 BLINDNESS = {"PRIOR_EXPOSED", "BLIND_NOT_ESTABLISHED", "SOURCE_FIRST_WITH_LOCKED_PREDICTION"}
 
 
@@ -117,7 +118,7 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                        accepted=0, rejected=0, opened=len(exchange["atoms"]),
                        missing_cues=source.scope_last_cue-source.scope_first_cue+1,
                        finance_open=0, risk_open=0, digest=None)
-    _check(type(chat_review) is dict and set(chat_review) == {
+    required_review = {
         "schema", "review_executor", "as_of", "source_sha256", "manifest_sha256",
         "host_event_sha256", "host_bundle_sha256", "atom_candidate_digest",
         "cue_disposition_digest", "blindness", "source_first_pass_completed",
@@ -125,7 +126,10 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
         "source_cues", "atom_verdicts", "unresolved_high_risk_omissions",
         "unresolved_audio_visual", "external_independent_certified",
         "personalized_advice_approved", "p0_go", "review_private_evidence_sha256",
-    }, "CHAT_REVIEW_SCHEMA")
+    }
+    _check(type(chat_review) is dict and set(chat_review) in
+           (required_review, required_review | {"quarantine"}),
+           "CHAT_REVIEW_SCHEMA")
     _check(chat_review["schema"] == SCHEMA and
            chat_review["review_executor"] == "CHATGPT_IN_CHAT" and
            chat_review["source_sha256"] == source.source_sha256 and
@@ -223,10 +227,12 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
         accepted += int(row["status"] == "ACCEPT_FOR_RESEARCH")
         rejected += int(row["status"] == "REJECT")
         opened += int(row["status"] == "OPEN")
-        finance_open += int(row["financial_claim"] and
+        finance_open += int(row["status"] != "EXCLUDE_FROM_RESEARCH" and
+                            row["financial_claim"] and
                             (row["finance_evidence_status"] != "PRIMARY_BODY_AND_DATE_CHAT_CHECKED"
                              or not body_replayed))
-        risk_open += int(row["high_risk"] and (
+        risk_open += int(row["status"] != "EXCLUDE_FROM_RESEARCH" and
+                         row["high_risk"] and (
             row["status"] != "ACCEPT_FOR_RESEARCH" or
             row["financial_claim"] and
             (row["finance_evidence_status"] != "PRIMARY_BODY_AND_DATE_CHAT_CHECKED"
@@ -236,21 +242,32 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                                          "numeric_period_checked", "counterexample_checked")),
                    "UNVERIFIED_SEMANTIC_ACCEPTANCE")
     _check(seen == set(atoms), "CHAT_ATOM_MISSING")
-    all_pass = (accepted == len(atoms) and not rejected and not opened and
+    quarantine = audit_explicit_quarantine(source, exchange, chat_review, atoms)
+    all_pass = (accepted + (quarantine["atoms"] if quarantine else 0) == len(atoms) and not rejected and not opened and
                 not missing_cues and not finance_open and not risk_open and
-                not hrf and not av and
+                not hrf and (not av or (quarantine is not None and
+                                      av == quarantine["audio_unverified"])) and
                 chat_review["source_first_pass_completed"] and
                 chat_review["counterexample_pass_completed"] and
                 chat_review["disagreements_adjudicated"] and
-                not atomic["unresolved_cues"] and not atomic["suspicious_no_atom_cues"])
+                ((not atomic["unresolved_cues"] and
+                  not atomic["suspicious_no_atom_cues"]) or quarantine is not None))
     final_status = ("CHAT_FINAL_REJECTED" if rejected else
                     "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY" if all_pass else
                     "CHAT_FINAL_HOLD_OPEN")
-    return _result(source, atomic,
-                   status=final_status,
-                   reviewed=len(cues)-missing_cues, accepted=accepted, rejected=rejected,
-                   opened=opened, missing_cues=missing_cues, finance_open=finance_open,
-                   risk_open=risk_open+hrf, digest=json_digest(chat_review))
+    result = _result(source, atomic,
+                     status=final_status,
+                     reviewed=len(cues)-missing_cues, accepted=accepted, rejected=rejected,
+                     opened=opened, missing_cues=missing_cues, finance_open=finance_open,
+                     risk_open=risk_open+hrf, digest=json_digest(chat_review))
+    if quarantine is not None:
+        result.update(atoms_excluded=quarantine["atoms"],
+                      cues_excluded=quarantine["cues"],
+                      audio_unverified_quarantined=quarantine["audio_unverified"],
+                      quarantined_claim_ids=quarantine["excluded_claim_ids"],
+                      quarantine_digest_sha256=quarantine["quarantine_digest_sha256"],
+                      audio_authenticity_verified=False)
+    return result
 
 
 def _result(source, atomic, *, status, reviewed, accepted, rejected, opened,

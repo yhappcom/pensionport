@@ -214,13 +214,18 @@ class PrivateKnowledgeStore:
         if set(decisions) != set(atoms):
             _stop("CHAT_RELATION_MISSING_ATOM")
         finance = {r["claim_id"]:r["financial_claim"] for r in chat_review["atom_verdicts"]}
+        accepted_ids = {r["claim_id"] for r in chat_review["atom_verdicts"]
+                        if r["status"] == "ACCEPT_FOR_RESEARCH"}
+        excluded_ids = set(gate.get("quarantined_claim_ids", []))
+        if accepted_ids != set(atoms) - excluded_ids:
+            _stop("APPROVED_SUBSET_NOT_BOUND_TO_FINAL_CHAT_QUARANTINE")
         with self._session() as con:
             con.execute("BEGIN IMMEDIATE")
             head, statuses = self._audit(con)
             current = {x[0]:json.loads(x[1]) for x in con.execute(
                 "SELECT knowledge_id,entry_json FROM knowledge")}
             entries = []
-            for cid in sorted(atoms):
+            for cid in sorted(accepted_ids):
                 atom, decision = atoms[cid], decisions[cid]
                 candidates = pending.get(cid, [])
                 if len(candidates) != 1:
@@ -270,6 +275,14 @@ class PrivateKnowledgeStore:
                          "research_candidate_only":True,
                          "personal_advice_approved":False}
                 entries.append(entry)
+            if not entries:
+                if head != expected_knowledge_head:
+                    _stop("NO_APPROVED_CHILD_HEAD_CHANGED")
+                # No publication/event for a child with only explicit exclusions.
+                # V128 can still commit other children in its final transaction.
+                return {"status": "CHILD_ALL_CLAIMS_EXCLUDED_NO_KNOWLEDGE_WRITE",
+                        "knowledge_head_sha256": head, "entries": 0,
+                        "idempotent_replay": False, "p0_go": False}
             prior_complete = all(e["knowledge_id"] in current and
                                  current[e["knowledge_id"]] == e for e in entries)
             if prior_complete:
