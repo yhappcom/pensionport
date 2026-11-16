@@ -2395,6 +2395,7 @@ jobs:
         run: |
           python -m compileall -q validation/ire-v6-frozen/v157_actual_source_native_semantic_release_gate.py
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v157_actual_source_native_semantic_release_gate.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v157_semantic_to_v6_adapter.py' -v
       - name: Verify actual private host 13 SHA-only but V123 research and advice HOLD
         run: |
           PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
