@@ -1,0 +1,37 @@
+{
+  "schema": "V149_REAL_OWNER_QUALITY_AND_READ_GATE_EVIDENCE_V1",
+  "source_sha256": "638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d",
+  "original_cues": 1481,
+  "native_atoms": 274,
+  "b0013_source_only_exact_score": {
+    "schema": "IRE_V149_ATOMIC_SCORE_V1",
+    "source_scope": [
+      1441,
+      1481
+    ],
+    "source_cues_audited": 41,
+    "tp_exact": 4,
+    "fp_unmatched": 1,
+    "fn_unmatched": 2,
+    "high_risk_fn_unmatched": 1,
+    "precision": 0.8,
+    "recall": 0.666667,
+    "evaluation_type": "INTERNAL_SAME_CHAT_ATOMIC_SLICE",
+    "full_video_complete": false,
+    "independently_certified": false,
+    "claim_granularity_checked_by_human_or_chat_not_by_code": true,
+    "p0_e_pass": false,
+    "p0_go": false,
+    "status": "EXACT_ATOMIC_SCOPE_MEASURED_NOT_FULL_VIDEO_P0_CERTIFIED"
+  },
+  "actual_owner_private_db_knowledge_rows": 0,
+  "actual_owner_private_db_parent_publications": 0,
+  "actual_owner_private_db_head_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "owner_verified_answer_gateway_result": "V6_REQUIRED_PROOFS_NOT_VERIFIED: V149_OWNER_EVIDENCE_NO_RELEASED_RESEARCH_KNOWLEDGE",
+  "owner_full_v123_approved_scopes": 0,
+  "owner_v128_published_entries": 0,
+  "real_v23_owner_specific_current_law_answer_executed": false,
+  "full_source_gold_complete": false,
+  "p0_e_go": false,
+  "p0_go": false
+}

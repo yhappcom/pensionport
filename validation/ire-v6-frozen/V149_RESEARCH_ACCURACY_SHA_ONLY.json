@@ -1,0 +1,46 @@
+{
+  "approved_parent_publications": 0,
+  "b0013_composite_atom_count": 1,
+  "b0013_gold_investment_atoms": 6,
+  "b0013_internal_atomic_score": {
+    "claim_granularity_checked_by_human_or_chat_not_by_code": true,
+    "evaluation_type": "INTERNAL_SAME_CHAT_ATOMIC_SLICE",
+    "fn_unmatched": 2,
+    "fp_unmatched": 1,
+    "full_video_complete": false,
+    "high_risk_fn_unmatched": 1,
+    "independently_certified": false,
+    "p0_e_pass": false,
+    "p0_go": false,
+    "precision": 0.8,
+    "recall": 0.666667,
+    "schema": "IRE_V149_ATOMIC_SCORE_V1",
+    "source_cues_audited": 41,
+    "source_scope": [
+      1441,
+      1481
+    ],
+    "status": "EXACT_ATOMIC_SCOPE_MEASURED_NOT_FULL_VIDEO_P0_CERTIFIED",
+    "tp_exact": 4
+  },
+  "b0013_source_cues": 41,
+  "b0013_v145_atom_count": 5,
+  "candidate_cue_covered": 1227,
+  "candidate_cue_not_referenced": 254,
+  "full_video_high_risk_fn": null,
+  "full_video_precision": null,
+  "full_video_recall": null,
+  "internal_b0013_blind_frozen_sha256": "10e79f4afe68e8bd211ef370f734642bc57aa2190cb3528c2526014c32cd6db1",
+  "original_cues": 1481,
+  "original_source_sha256": "638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d",
+  "p0_go": false,
+  "p0e_go": false,
+  "schema": "IRE_V149_REAL_OWNER_ATOMIC_RECONCILIATION_RECEIPT_V1",
+  "unreferenced_risk_expression_counts": {
+    "CONDITION_OR_EXCEPTION": 20,
+    "NEGATION_OR_RISK": 17,
+    "NUMBER": 1
+  },
+  "v145_candidate_atoms": 274,
+  "whole_video_gold_complete": false
+}

@@ -1464,6 +1464,34 @@ jobs:
               assert pathlib.Path(path).stat().st_size==row["bytes"],"V148_SOURCE_SIZE_DRIFT"
               assert subprocess.check_output(["git","hash-object",path],
                   text=True).strip()==row["git_blob_sha"],"V148_SOURCE_SHA_DRIFT"
+          # V149 is an additive research-quality/owner-read/official-body gate.
+          # It never alters original V5/V6 knowledge or authorizes personal advice.
+          v149=json.loads(pathlib.Path(
+              "validation/ire-v6-frozen/V149_P0E_MANIFEST.json"
+          ).read_text(encoding="utf-8"))
+          assert v149["schema"]=="IRE_V149_THREE_GATE_BRANCH_ONLY_CODE_AND_EVIDENCE_MANIFEST_V1"
+          assert v149["parent_commit_sha"]=="b45b79e7147105282f68925d1cfa1a6739216d9e"
+          assert v149["owner_source_sha256"]=="638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d"
+          for claim in ("p0e_go","p0_go","actual_owner_gold_complete",
+                        "actual_owner_parent_published","original_issuer_https_bytes_attested"):
+              assert v149[claim] is False,"V149_FALSE_FINANCIAL_RESEARCH_GO:"+claim
+          expected149={
+            "validation/ire-v6-frozen/v149_research_gold_gate.py",
+            "validation/ire-v6-frozen/v149_official_https_body.py",
+            "validation/ire-v6-frozen/v149_owner_approved_evidence.py",
+            "validation/ire-v6-frozen/test_v149_quality_and_official.py",
+            "validation/ire-v6-frozen/test_v149_owner_approved_evidence.py",
+            "validation/ire-v6-frozen/V149_RESEARCH_ACCURACY_SHA_ONLY.json",
+            "validation/ire-v6-frozen/V149_REAL_OWNER_GATES_SHA_ONLY.json",
+            "validation/ire-v6-frozen/V149_P0E_THREE_GATE_SHA_ONLY.json",
+            "validation/ire-v6-frozen/V149_P0_E_REAL_SOURCE_GOLD_PARENT_AND_OFFICIAL_EVIDENCE_REPORT.md"}
+          assert {z["path"] for z in v149["code_and_public_evidence"]}==expected149,"V149_ADDITIVE_FILE_SCOPE_DRIFT"
+          for row in v149["code_and_public_evidence"]:
+              p=row["path"]
+              assert pathlib.Path(p).is_file(),"V149_REQUIRED_PUBLIC_FILE_MISSING:"+p
+              assert pathlib.Path(p).stat().st_size==row["bytes"],"V149_SOURCE_SIZE_DRIFT:"+p
+              assert subprocess.check_output(["git","hash-object",p],
+                  text=True).strip()==row["git_blob_sha"],"V149_SOURCE_SHA_DRIFT:"+p
           for path,item in old.items():
               f=pathlib.Path(path)
               if path not in changes:
@@ -2055,6 +2083,7 @@ jobs:
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v146_*.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v147_p0e_quality.py' -v
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v148_guarded_advice.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v149_*.py' -v
 
   p0e-real-p3-advisory-probe:
     name: V147 real V5 P3 advisory answers (NOT an accuracy certificate)
@@ -2104,4 +2133,29 @@ jobs:
         with:
           name: v148-real-p3-educational-nonprivate-metrics
           path: /tmp/v148_real_p3_educational_metrics.json
+          if-no-files-found: warn
+
+  v149-official-raw-source-probe:
+    name: V149 issuer HTTPS original bytes + SHA capture (HOLD if unreachable; NOT individual advice)
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: TLS-fetch 2 official primary-law responses and preserve original bytes with their SHA receipts
+        run: python validation/ire-v6-frozen/v149_official_https_body.py --live --as-of 2026-11-16 --raw-dir /tmp/v149_official_raw --output /tmp/v149_official_body_receipts.json
+      - name: Preserve public official-law original bytes and SHA receipt for source audit
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v149-public-official-original-http-bodies-not-owner-srt
+          path: |
+            /tmp/v149_official_body_receipts.json
+            /tmp/v149_official_raw/
           if-no-files-found: warn
