@@ -1,0 +1,70 @@
+{
+  "schema": "IRE_V6_V29_ACTUAL_PRIVATE_ORIGINAL_THREE_CASE_HASH_ONLY_RECEIPTS",
+  "as_of": "2026-11-10",
+  "video_id": "8Zh1q4Ziv4c",
+  "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "source_srt_sha256": "cbb57d372bc0fb5965052a776b5b945a5b82df3178d5c40dcd30cdcc8b0d8239",
+  "source_srt_bytes": 2643,
+  "source_cue_count": 34,
+  "source_plan_sha256": "b9eaf0c528f159ec62159fa6e509f27628bfc4f3dc4c194ef639f22d7ae74aaf",
+  "source_cue_census_sha256": "b43fe8ef0c82cac7c608aa58a6740466e9b0ca097ff72b063ccbb6b64b941ea2",
+  "initial_censored_candidate_count": 16,
+  "private_owner_original_on_git": false,
+  "temporary_source_export_git_sha": "21b421d2229d73414b44d992159b47109957f7bf",
+  "temporary_source_export_zip_sha256": "7bff54a451af61dff05a35478bdd2b5631b579e88c49d23cf1e4b11d23ddf66f",
+  "verified_core_git_blobs": 11,
+  "verified_v29_code_git_blob_sha": "28f0c10420c5c80b31f78751ee6dec1affbff3e4",
+  "original_full_video_atom_candidate_count": 16,
+  "source_original_structural_replay_pass": true,
+  "cases": [
+    {
+      "case_id": "IRP_WITHDRAWAL",
+      "selected_claim_ids": [
+        "C00012",
+        "C00013"
+      ],
+      "e2e_receipt_sha256": "ce7bcf01cabfb5c8fcd4e6c8b8da19da5f75c5a7a6d6deb45e1d7f18b6825c7a",
+      "final_answer_sha256": "1bf3bc09d3207be7a36b060a7a5db0d8688468fe43149a3c79b58bf5b47e9364",
+      "v5_p3_executed": true,
+      "p0_go": false
+    },
+    {
+      "case_id": "ETF_TAX",
+      "selected_claim_ids": [
+        "C00005"
+      ],
+      "e2e_receipt_sha256": "5572c4c9ba410b5cc57d32d9955f03051be0e861383ef461b12bbf5a35f562f9",
+      "final_answer_sha256": "9e75bc50440ea99d8e4ae25bea8927aba6bffbd6d360351c471715910bacfece",
+      "v5_p3_executed": true,
+      "p0_go": false
+    },
+    {
+      "case_id": "PENSION_EXCLUDED_BASIS",
+      "selected_claim_ids": [
+        "C00009",
+        "C00015"
+      ],
+      "e2e_receipt_sha256": "1dc49fd0636efefac93603b8b7662bc4a931c319da898029a7708b717c4834b3",
+      "final_answer_sha256": "e29aacc237212b9ee452f75c996944fd1e82c95a57311f442f34ff3325bdd0db",
+      "v5_p3_executed": true,
+      "p0_go": false
+    }
+  ],
+  "private_hash_only_three_case_bundle_sha256": "b6278a8859df9a3e5049a21df644af646411ba8100e45bf86f327d36ef3c3f94",
+  "negative_controls_rejected": [
+    "V29_PENSION_BASIS_CONTEXT_ELISION_UNSELECTED",
+    "V28_ORIGINAL_SRT_BYTES_MISMATCH",
+    "V28_ORIGINAL_ARCHIVE_BYTES_MISMATCH",
+    "V26_CENSUS_MISSING_CANDIDATE",
+    "V29_CODE_BLOB_SHA_MISMATCH"
+  ],
+  "private_raw_subtitle_published": false,
+  "private_host_exchange_published": false,
+  "privileged_trade_or_tax_approval": false,
+  "independent_semantic_gold": false,
+  "full_source_proposition_recall_proven": false,
+  "official_rule_body_externally_attested": false,
+  "entire_repository_dependency_tree_attested": false,
+  "personal_advice_approved": false,
+  "p0_go": false
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "IRE_V6_V31_1_REAL_OWNER_FIRST_FIVE_PARTIAL_HOST_SMOKE_AND_PRIOR_GUARD",
+  "on_validation_branch_only": true,
+  "base_v31_commit": "ae73ea79cff76a185143b850d50d38e08a750185",
+  "historical_v31_manifest_sha": "301f52a02df37b40e264c9c994bd17bfb8cc67aa",
+  "changed_code": [
+    {
+      "path": "ire/v6/chat_led_evidence_v31.py",
+      "historical_blob_sha": "8bd23f2f9c576ad15b463a1f9b283f427d008d79",
+      "corrected_blob_sha": "fac311f70249315ea4942313a038599aebfca819"
+    },
+    {
+      "path": "ire/v6/tests/test_chat_led_evidence_v31.py",
+      "historical_blob_sha": "8130f00a2b8c307c8e2fc131d8d71f76cccffbfb",
+      "corrected_blob_sha": "bb4ce1f1d944b3da079219195e14401968547c96"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_V31_1_OWNER_FIVE_VIDEO_REAL_SMOKE_REPORT.md",
+  "report_git_blob_sha": "8e0ff800cfadfd0d39b6418ae4105b6d3984e4c1",
+  "receipt_path": "validation/ire-v6-frozen/V6_V31_1_OWNER_FIVE_VIDEO_HASH_ONLY_RECEIPT.json",
+  "receipt_git_blob_sha": "2102b38c65252438dd002df06e6d848c58933f44",
+  "owner_source_zip_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "legacy_116_source_git_blob_sha": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "original_five_video_count": 5,
+  "original_total_cues": 5129,
+  "actual_private_scoped_cue_count": 28,
+  "actual_scoped_candidates": 6,
+  "actual_v31_host_review_cases": 5,
+  "real_v31_to_unmocked_v5_p3_answer_count": 1,
+  "numeric_unknown_stays_pending": true,
+  "unreviewed_or_possible_prior_relation_guard_fixed": true,
+  "lexical_IRP_question_and_generic_topic_gaps_recorded": true,
+  "test_count_prior_v31": 445,
+  "new_synthetic_test_count": 2,
+  "expected_unique_v6_tests": 447,
+  "new_v6_tracked_file_total": 82,
+  "actual_full_five_video_extraction": false,
+  "all_791_researched": false,
+  "independent_semantic_gold_verified": false,
+  "whole_original_to_final_archive_pinned_one_transaction": false,
+  "live_official_rule_fullbody_publisher_authenticated": false,
+  "individual_tax_or_trade_authorized": false,
+  "auto_knowledge_master116_merged": false,
+  "source_or_private_original_in_github": false,
+  "p0_go": false
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "IRE_V6_SEMANTIC_FRONTIER_PATCH_V10",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v9_manifest_git_blob_sha": "f83fc5005992558fdd2b733e8c692b22e756075e",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "Conservative source-first, review-only P0-1/P0-2 challenge docket; no auto semantic approval",
+  "added": [
+    {
+      "path": "ire/v6/semantic_frontier.py",
+      "git_blob_sha": "a9b9b87224174ee95508f0f3f6eda74546ab70c8"
+    },
+    {
+      "path": "ire/v6/tests/test_semantic_frontier.py",
+      "git_blob_sha": "5b42364d14220eddff5bc528f2f629491de81176"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 40,
+  "independent_gold_available": false,
+  "independent_semantic_meaning_certified": false,
+  "full_engine_p0_go": false,
+  "protect_existing_116_and_p4": true,
+  "private_srt_in_public_repo": false
+}

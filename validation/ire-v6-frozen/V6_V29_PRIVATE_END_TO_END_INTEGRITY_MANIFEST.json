@@ -1,0 +1,48 @@
+{
+  "schema": "IRE_V6_V29_OWNER_PRIVATE_ORIGINAL_REAL_V5_P3_E2E_HASH_RECEIPTS",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "base_validated_v28_head_sha": "0332ca278cdacdf5e2c78d8ebd11e1a4c147d64c",
+  "temporary_source_export_commit_sha": "21b421d2229d73414b44d992159b47109957f7bf",
+  "previous_v28_manifest_git_blob_sha": "67b4e13d3019969dcd9f8dc5a7b3d3599ff59760",
+  "removed_temporary_code_export_workflow": true,
+  "added": [
+    {
+      "path": "ire/v6/private_replay_receipt_v29.py",
+      "git_blob_sha": "28f0c10420c5c80b31f78751ee6dec1affbff3e4"
+    },
+    {
+      "path": "ire/v6/tests/test_private_replay_receipt_v29.py",
+      "git_blob_sha": "0827bc4e2debd9561e7da69241810fe9d3206bb6"
+    }
+  ],
+  "receipt_path": "validation/ire-v6-frozen/V6_V29_REAL_PRIVATE_REPLAY_HASH_ONLY_RECEIPTS.json",
+  "receipt_git_blob_sha": "2865f72ea13828bfaad4f44429487c4e29f43657",
+  "report_path": "validation/ire-v6-frozen/V6_V29_ACTUAL_PRIVATE_END_TO_END_INTEGRITY_REPORT.md",
+  "report_git_blob_sha": "ab9ff8dc76169adc3b5812d3ac91bfdcfe29f61e",
+  "as_of": "2026-11-10",
+  "actual_private_srt_sha256": "cbb57d372bc0fb5965052a776b5b945a5b82df3178d5c40dcd30cdcc8b0d8239",
+  "actual_private_zip_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "video_id": "8Zh1q4Ziv4c",
+  "actual_cues": 34,
+  "host_candidate_count": 16,
+  "selected_real_question_paths": 3,
+  "real_v5_p3_executed_for_all_three_local_paths": true,
+  "private_original_structural_replay_executed": true,
+  "real_runtime_git_blob_files_verified": 11,
+  "real_negative_controls_rejected": 5,
+  "local_hash_bundle_sha256": "b6278a8859df9a3e5049a21df644af646411ba8100e45bf86f327d36ef3c3f94",
+  "original_private_srt_published": false,
+  "private_exchange_published": false,
+  "same_chat_evidence_only": true,
+  "independent_human_semantic_gold": false,
+  "complete_original_atom_recall_certified": false,
+  "official_signed_legal_full_body_verified": false,
+  "full_repository_dependency_tree_verified": false,
+  "personal_financial_tax_order_approved": false,
+  "protected_main_v5_master116_p4_changed": false,
+  "all_791_researched": false,
+  "p0_go": false,
+  "new_synthetic_tests": 13,
+  "expected_unique_v6_tests": 404,
+  "new_ire_v6_file_count": 78
+}

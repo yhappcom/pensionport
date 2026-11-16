@@ -1,0 +1,140 @@
+{
+  "schema": "IRE_V6_V60_NEW_FIVE_SELECTED_WINDOWS_SOURCE_PINNED_EXACT_V39_V40_SHA_ONLY",
+  "as_of": "2026-11-12",
+  "source_only_presemantic_commit": "a1edd103b37c4fe2cf5197536cb87e4beb4f486d",
+  "original_owner_private_zip_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "github_original_v39_v40_module_pins": {
+    "v39_git_blob": "12b38f413e0d19b35dc6d0ec4cd660d0a9a68650",
+    "v40_git_blob": "44415ca2051396010a5ade33b7326daaebafee37"
+  },
+  "exact_core_modules_imported_and_run": true,
+  "compatible_helper_modules_not_exact_full_repo": true,
+  "new_pilot_video_count": 5,
+  "new_pilot_video_original_cues_full": 4109,
+  "new_pilot_videos_all_v33_provisional_candidates": 1290,
+  "selected_windows": 5,
+  "selected_cues": 200,
+  "selected_v33_speech_candidates": 56,
+  "selected_semantic_notes": 62,
+  "context_only_fragments": 8,
+  "numeric_source_candidates": 11,
+  "v39_semantic_receipt_sha256": "8a90f8f51e62f0eea880e5ecc710c15a039de0dec1fbfe3b830d3848d53c0b80",
+  "per_video": [
+    {
+      "video_no": 6,
+      "video_id": "3MyhYE2jmuE",
+      "cue_count": 807,
+      "all_v33_candidates_on_video": 252,
+      "window_id": "W00008",
+      "selected_cues": 40,
+      "reviewed_candidates": 15,
+      "chat_notes": 17
+    },
+    {
+      "video_no": 8,
+      "video_id": "OfkY343OaNs",
+      "cue_count": 1039,
+      "all_v33_candidates_on_video": 358,
+      "window_id": "W00006",
+      "selected_cues": 40,
+      "reviewed_candidates": 14,
+      "chat_notes": 16
+    },
+    {
+      "video_no": 9,
+      "video_id": "YNOSY15ppf8",
+      "cue_count": 1277,
+      "all_v33_candidates_on_video": 468,
+      "window_id": "W00025",
+      "selected_cues": 40,
+      "reviewed_candidates": 12,
+      "chat_notes": 13
+    },
+    {
+      "video_no": 15,
+      "video_id": "uiauof6tOFk",
+      "cue_count": 650,
+      "all_v33_candidates_on_video": 140,
+      "window_id": "W00014",
+      "selected_cues": 40,
+      "reviewed_candidates": 7,
+      "chat_notes": 8
+    },
+    {
+      "video_no": 36,
+      "video_id": "cSNjKKdtp6M",
+      "cue_count": 336,
+      "all_v33_candidates_on_video": 72,
+      "window_id": "W00004",
+      "selected_cues": 40,
+      "reviewed_candidates": 8,
+      "chat_notes": 8
+    }
+  ],
+  "v40_new_atomic_checkpoints": 5,
+  "v40_idempotent_replays": 5,
+  "v40_valid_source_chain_per_video": 5,
+  "v40_records_hash_only": [
+    {
+      "video_id": "3MyhYE2jmuE",
+      "window_id": "W00008",
+      "run_id": "V60_V6_ONEWINDOW",
+      "event_sha256": "74c1ebd48eb80bf2cb2d5ce6f8e5e30017c9d59ce2310b1592ad61df29e07b3c",
+      "semantic_custody_sha256": "e5e1fa35fd5322e1856448e778ead5884962a2e0cb579365b98f7a1336952fcf",
+      "reviewed_candidates": 15,
+      "chat_notes": 17
+    },
+    {
+      "video_id": "OfkY343OaNs",
+      "window_id": "W00006",
+      "run_id": "V60_V8_ONEWINDOW",
+      "event_sha256": "d6b6e4048c95df36c6737b6b2fcbcc70fc9d590b66183131705480fc7b3bd762",
+      "semantic_custody_sha256": "a524ade00b4cf4c839ed83291284cb75f828fdc5f36e1042fe5afd30eb1dc61e",
+      "reviewed_candidates": 14,
+      "chat_notes": 16
+    },
+    {
+      "video_id": "YNOSY15ppf8",
+      "window_id": "W00025",
+      "run_id": "V60_V9_ONEWINDOW",
+      "event_sha256": "8dfd13de9aa57b9777c7cea6d6bbbb915430063b14db10aac1133e7e504a1f0f",
+      "semantic_custody_sha256": "328648c4cc85451d8e8e4d93fef533b09f5e6f7df9bc93238fa9b03a4961d717",
+      "reviewed_candidates": 12,
+      "chat_notes": 13
+    },
+    {
+      "video_id": "uiauof6tOFk",
+      "window_id": "W00014",
+      "run_id": "V60_V15_ONEWINDOW",
+      "event_sha256": "a9cb38ecb7ffbe56bdf1c88d14ea493362350b3222d0e1a14fb592aee6e5700a",
+      "semantic_custody_sha256": "c70c5bdfa24f0ed8e498084d1ad2c2b94e1cdf374e465e4ab4b477a9dc720661",
+      "reviewed_candidates": 7,
+      "chat_notes": 8
+    },
+    {
+      "video_id": "cSNjKKdtp6M",
+      "window_id": "W00004",
+      "run_id": "V60_V36_ONEWINDOW",
+      "event_sha256": "ce3980a1ebdd98f531cb41f5a83a900102e824a8e15058e07b7ec3c9ac374739",
+      "semantic_custody_sha256": "5fe805950e308a44eaa1f60c398856896cd774f92bd92fc4d1d6c0f02f8a9d7e",
+      "reviewed_candidates": 8,
+      "chat_notes": 8
+    }
+  ],
+  "v39_invalid_input_denials": 6,
+  "v40_invalid_input_denials": 2,
+  "private_semantic_notes_sha256": "28736c503f181124d90f93d0f1e1c8aa6c5c498e9a4f9edab44d4841025dae25",
+  "private_sqlite_sha256": "a7ad3b18a216317ae6e9a56f2b83bc8858e2de2784de7a69ee40b31b668c33bb",
+  "private_sqlite_bytes": 24576,
+  "private_risk_docket_sha256": "030779a001da84d91fba74f87f0ca473c802c68aa1b77ea3ca2336dfa1026986",
+  "risk_cases_triaged": 10,
+  "private_recovery_zip_sha256": "b384a505e05cef517bfc30db03ecdd3ba1a368d9dfd71c559e539610f4b2c7bc",
+  "all_five_video_semantic_reviewed": false,
+  "full_new_five_video_atomic_claims_exhaustive": false,
+  "independent_gold": false,
+  "true_precision_recall_measured": false,
+  "finance_fact_truth_certified": false,
+  "personal_advice_approved": false,
+  "master116_auto_merge": false,
+  "p0_go": false
+}

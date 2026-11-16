@@ -1,0 +1,697 @@
+{
+  "schema": "IRE_V6_V55_38_SOURCE_CLAIM_FINANCIAL_REVIEW_MASTER116_NONMERGED",
+  "as_of": "2026-11-12",
+  "source_zip_sha256": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+  "actual_master116_file": "data/claims.jsonl",
+  "actual_master116_git_blob": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "verified_master_claim_count": 116,
+  "meaning_cases_source_window_count": 10,
+  "reviewed_source_v33_utterance_candidates": 131,
+  "nonindependent_ChatGPT_meaning_items": 170,
+  "candidate_high_consequence_cases": 38,
+  "unique_existing_master116_ids_tentatively_linked": 19,
+  "master116_ids": [
+    "GOMHEE-C03",
+    "GOMHEE-C09",
+    "GOMHEE-C103",
+    "GOMHEE-C14",
+    "GOMHEE-C21",
+    "GOMHEE-C26",
+    "GOMHEE-C30",
+    "GOMHEE-C31",
+    "GOMHEE-C34",
+    "GOMHEE-C38",
+    "GOMHEE-C40",
+    "GOMHEE-C42",
+    "GOMHEE-C50",
+    "GOMHEE-C51",
+    "GOMHEE-C54",
+    "GOMHEE-C62",
+    "GOMHEE-C63",
+    "GOMHEE-C76",
+    "GOMHEE-C78"
+  ],
+  "source_candidate_conditional_cases": [
+    {
+      "video_no": 1,
+      "window_id": "W00013",
+      "v33_original_candidate_id": "C00148",
+      "proposed_atomic_financial_meaning": "세금보다 세후로 얻는 금액에 주목하라는 화자의 재무 가치판단",
+      "financial_meaning_risk_or_condition": "AFTER_TAX_IS_NOT_RISK_ADJUSTED_RETURN",
+      "existing_master116_ids": [
+        "GOMHEE-C21",
+        "GOMHEE-C38"
+      ],
+      "current_primary_context_urls": [
+        "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605"
+      ],
+      "missing_scope_or_exception": "세후 순자산은 미래 수익률·손실확률과 구분",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00013",
+      "v33_original_candidate_id": "C00155",
+      "proposed_atomic_financial_meaning": "46세부터 연금저축을 시작해 후회와 만족을 동시에 느끼는 청취자 경험",
+      "financial_meaning_risk_or_condition": "ANECDOTE_NOT_PENSION_ADEQUACY",
+      "existing_master116_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C76"
+      ],
+      "current_primary_context_urls": [
+        "https://www.fsc.go.kr/po010105/87144"
+      ],
+      "missing_scope_or_exception": "개인별 은퇴연령·적립규모·연금수령액",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00013",
+      "v33_original_candidate_id": "C00161",
+      "proposed_atomic_financial_meaning": "연금저축 등 세 계좌에 월 50·25·75만원을 넣는다는 사례",
+      "financial_meaning_risk_or_condition": "CONTRIBUTION_AMOUNT_IS_NOT_PENSION_PAYOUT",
+      "existing_master116_ids": [
+        "GOMHEE-C40",
+        "GOMHEE-C42"
+      ],
+      "current_primary_context_urls": [
+        "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605"
+      ],
+      "missing_scope_or_exception": "월 합계150만·연1800만과 연금수령 연1500만 기준 구별",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00013",
+      "v33_original_candidate_id": "C00162",
+      "proposed_atomic_financial_meaning": "연금수령액을 연간 1500만원 미만으로 유지해야 하는지 묻는 질문",
+      "financial_meaning_risk_or_condition": "UNRESOLVED_QUESTION_NOT_LEGAL_FACT",
+      "existing_master116_ids": [
+        "GOMHEE-C42",
+        "GOMHEE-C78"
+      ],
+      "current_primary_context_urls": [
+        "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605"
+      ],
+      "missing_scope_or_exception": "비공제원금과 해당 사적연금 과세소득·분리과세 선택 구분",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00025",
+      "v33_original_candidate_id": "C00309",
+      "proposed_atomic_financial_meaning": "연금저축보험 납입 20년 중 잔여 2년일 때 펀드로 옮기는 의사결정",
+      "financial_meaning_risk_or_condition": "TRANSFER_VS_CANCELLATION_CRITICAL",
+      "existing_master116_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C14",
+        "GOMHEE-C42"
+      ],
+      "current_primary_context_urls": [
+        "https://www.fsc.go.kr/po010105/87144"
+      ],
+      "missing_scope_or_exception": "적법한 계좌이체는 통상 인출로 보지 않으나 이체 제한·보장·상품 약관 확인",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00025",
+      "v33_original_candidate_id": "C00311",
+      "proposed_atomic_financial_meaning": "계약을 장기 유지한 점을 칭찬하며 해지 사례를 회고",
+      "financial_meaning_risk_or_condition": "NO_DEFAULT_INSURANCE_SURRENDER",
+      "existing_master116_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C14"
+      ],
+      "current_primary_context_urls": [
+        "https://www.fsc.go.kr/po010105/87144"
+      ],
+      "missing_scope_or_exception": "공시이율·최저보증이율·예상연금액·해지수수료·사업비·특약",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00029",
+      "v33_original_candidate_id": "C00370",
+      "proposed_atomic_financial_meaning": "패시브·액티브 투자비중을 반반으로 제안",
+      "financial_meaning_risk_or_condition": "ARBITRARY_ALLOCATION_NOT_OPTIMAL",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "current_primary_context_urls": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "missing_scope_or_exception": "상품별 기초자산·투자기간·상관·손실여력",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00029",
+      "v33_original_candidate_id": "C00373",
+      "proposed_atomic_financial_meaning": "패시브와 액티브 비중에 관한 연구가 없을 것이라는 단정",
+      "financial_meaning_risk_or_condition": "UNSUPPORTED_RESEARCH_ABSENCE",
+      "existing_master116_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_primary_context_urls": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "missing_scope_or_exception": "학술·시장연구 전수검색 없음",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00029",
+      "v33_original_candidate_id": "C00374",
+      "proposed_atomic_financial_meaning": "패시브 주식투자 자금을 완전히 안전하다고 묘사",
+      "financial_meaning_risk_or_condition": "PASSIVE_STILL_MARKET_RISK",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "current_primary_context_urls": [
+        "https://www.krx.co.kr/contents/OPN/01/01030205/OPN01030205T4.jsp",
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "missing_scope_or_exception": "추종지수 하락·환노출·채권 듀레이션 등의 가격손실",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00029",
+      "v33_original_candidate_id": "C00376",
+      "proposed_atomic_financial_meaning": "모든 투자자가 패시브 투자를 해야 한다는 보편권고",
+      "financial_meaning_risk_or_condition": "UNIVERSAL_ALLOCATION_NOT_APPROVED",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C40"
+      ],
+      "current_primary_context_urls": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "missing_scope_or_exception": "개인 채무·단기 지출·위험 감내·연금수령 기간",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00029",
+      "v33_original_candidate_id": "C00379",
+      "proposed_atomic_financial_meaning": "주도주 집중 매수의 대규모 손실 가능성",
+      "financial_meaning_risk_or_condition": "CONCENTRATION_RISK_EDUCATIONAL",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "current_primary_context_urls": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "missing_scope_or_exception": "최대낙폭과 단일기업 실적 변동",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00033",
+      "v33_original_candidate_id": "C00415",
+      "proposed_atomic_financial_meaning": "상승 주도주에 전액 투자하려는 사람을 만류하는 행동권고",
+      "financial_meaning_risk_or_condition": "FULL_CONCENTRATION_REJECTED_BUT_NO_PERSONAL_ORDER",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "current_primary_context_urls": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "missing_scope_or_exception": "투자 예산이 전체 순자산인지 확인",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00033",
+      "v33_original_candidate_id": "C00418",
+      "proposed_atomic_financial_meaning": "기업 공부가 미래 예측 정확도를 높일 수 있다는 추정",
+      "financial_meaning_risk_or_condition": "INFORMATION_ADVANTAGE_NOT_GUARANTEED",
+      "existing_master116_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_primary_context_urls": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "missing_scope_or_exception": "시장가격이 정보를 선반영했는지·가치평가 오류",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00033",
+      "v33_original_candidate_id": "C00422",
+      "proposed_atomic_financial_meaning": "주도주 투자 공부를 외부 인터뷰 채널에서 하라는 권고",
+      "financial_meaning_risk_or_condition": "EXTERNAL_MEDIA_NOT_VERIFIED_OFFICIAL_EVIDENCE",
+      "existing_master116_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "언급된 채널들의 투자정보 정확성·광고성 확인 필요",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00033",
+      "v33_original_candidate_id": "C00423",
+      "proposed_atomic_financial_meaning": "가치주 투자를 스터디에서 배우라는 경험적 조언",
+      "financial_meaning_risk_or_condition": "EDUCATION_CANNOT_CERTIFY_FINANCIAL_ATOMS",
+      "existing_master116_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "동치·출처검증·실제 수익 검증 필요",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00012",
+      "v33_original_candidate_id": "C00136",
+      "proposed_atomic_financial_meaning": "계좌정보 통합조회로 예적금을 파악해 은퇴 전 현금흐름을 정리",
+      "financial_meaning_risk_or_condition": "PROCEDURAL_BANK_ACCOUNT_CENSUS",
+      "existing_master116_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C38"
+      ],
+      "current_primary_context_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/educator-tool/your-money-your-goals/toolkit/"
+      ],
+      "missing_scope_or_exception": "조회 가능한 금융회사·잔액·명의 차이",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00012",
+      "v33_original_candidate_id": "C00139",
+      "proposed_atomic_financial_meaning": "예적금 만기일을 기록한 뒤 만기별 통합계획을 수립",
+      "financial_meaning_risk_or_condition": "NO_EARLY_WITHDRAWAL_AUTOMATION",
+      "existing_master116_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C31"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "중도해지 이자·예금보험·단기 지출 관리",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00012",
+      "v33_original_candidate_id": "C00144",
+      "proposed_atomic_financial_meaning": "보험의 연1% 수익이 10년 후 10%가 됐다는 설명",
+      "financial_meaning_risk_or_condition": "CONFLATES_SIMPLIFIED_RETURN_AND_CONTRACT",
+      "existing_master116_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C14"
+      ],
+      "current_primary_context_urls": [
+        "https://www.fsc.go.kr/po010105/87144"
+      ],
+      "missing_scope_or_exception": "연 1% 실제 복리라면 10년 약10.46% 예시이나 계약사업비·환급금 다름",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00012",
+      "v33_original_candidate_id": "C00145",
+      "proposed_atomic_financial_meaning": "장기유지 보험의 해지환급률이 높을 것이라는 가정",
+      "financial_meaning_risk_or_condition": "ISSUER_SURRENDER_SCHEDULE_NOT_PROVEN",
+      "existing_master116_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C14"
+      ],
+      "current_primary_context_urls": [
+        "https://www.fsc.go.kr/po010105/87144"
+      ],
+      "missing_scope_or_exception": "약관·납입·계약자 지위·보장기간 확인 필요",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00017",
+      "v33_original_candidate_id": "C00193",
+      "proposed_atomic_financial_meaning": "월배당 포트가 있는 부모가 시장 불안을 느끼지 않았다는 관찰",
+      "financial_meaning_risk_or_condition": "FEELING_SAFE_NOT_PAYOUT_SAFE",
+      "existing_master116_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C34"
+      ],
+      "current_primary_context_urls": [
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2"
+      ],
+      "missing_scope_or_exception": "개인 경험은 원금손실·월 분배금삭감 부재의 증거 아님",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00017",
+      "v33_original_candidate_id": "C00196",
+      "proposed_atomic_financial_meaning": "은퇴자는 자녀에게 자산을 남기기보다 현재의 삶을 즐긴다는 견해",
+      "financial_meaning_risk_or_condition": "INDIVIDUAL_PREFERENCE_NOT_UNIVERSAL",
+      "existing_master116_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C76"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "의료비·장수·상속의향·현재가치 필요",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00017",
+      "v33_original_candidate_id": "C00201",
+      "proposed_atomic_financial_meaning": "적립·증식 단계와 은퇴 이후 인출 단계를 구분",
+      "financial_meaning_risk_or_condition": "LIFECYCLE_DECUMULATION_EDUCATIONAL",
+      "existing_master116_ids": [
+        "GOMHEE-C31",
+        "GOMHEE-C76"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "필요현금·수익률순서·장수 위험",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00006",
+      "v33_original_candidate_id": "C00072",
+      "proposed_atomic_financial_meaning": "큰 비중의 손실종목에 소액 물타기해도 단가 변화가 적음",
+      "financial_meaning_risk_or_condition": "POSITION_SIZE_AND_CONCENTRATION",
+      "existing_master116_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "평균단가 산술과 리스크 비중 변화 구별",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00006",
+      "v33_original_candidate_id": "C00075",
+      "proposed_atomic_financial_meaning": "AI 산업의 최종 승패가 확인될 때까지 보유하는 가정",
+      "financial_meaning_risk_or_condition": "INDUSTRY_WINNER_UNCERTAINTY",
+      "existing_master116_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "승자·산업 표준·현금흐름·규제 불확실",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00006",
+      "v33_original_candidate_id": "C00077",
+      "proposed_atomic_financial_meaning": "산업 최종승자가 확인될 때 매도하면 늦는지 묻는 반론",
+      "financial_meaning_risk_or_condition": "REBUTTAL_QUESTION_NOT_HOST_FACT",
+      "existing_master116_ids": [
+        "GOMHEE-C50",
+        "GOMHEE-C54"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "불완전 예측을 단정 매도지시로 변환 금지",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00006",
+      "v33_original_candidate_id": "C00083",
+      "proposed_atomic_financial_meaning": "메모리 반도체 업황종료 예상이 시장 하락의 주원인이라는 가설",
+      "financial_meaning_risk_or_condition": "MULTICAUSAL_PRICE_EXPLANATION",
+      "existing_master116_ids": [
+        "GOMHEE-C54",
+        "GOMHEE-C103"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "금리·주도주 실적·유동성·기술 경쟁",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00015",
+      "v33_original_candidate_id": "C00182",
+      "proposed_atomic_financial_meaning": "한국과 중국 펀드는 높은 확률로 동행한다는 주관적 설명",
+      "financial_meaning_risk_or_condition": "UNPROVEN_HISTORIC_CORRELATION",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "기간·환율·지수 구성에 따른 정량상관도 필요",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00015",
+      "v33_original_candidate_id": "C00184",
+      "proposed_atomic_financial_meaning": "마이너스32라는 중간 자막 수치",
+      "financial_meaning_risk_or_condition": "UNCLEAR_ASR_NUMERIC_UNIT",
+      "existing_master116_ids": [
+        "GOMHEE-C50",
+        "GOMHEE-C54"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "수익률·원금·시점 미확인",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00015",
+      "v33_original_candidate_id": "C00189",
+      "proposed_atomic_financial_meaning": "최악의 순간 공포매도를 피하도록 한 과거 상담",
+      "financial_meaning_risk_or_condition": "HISTORICAL_HOLD_ADVICE_WITH_EXCEPTIONS",
+      "existing_master116_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C63"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "구조적 기업가치 훼손·자금필요시 매도 합리적",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00011",
+      "v33_original_candidate_id": "C00155",
+      "proposed_atomic_financial_meaning": "사회초년생에게 S&P500 적립식 월10만원 투자 권유",
+      "financial_meaning_risk_or_condition": "PERSON_SPECIFIC_MONTHLY_AMOUNT_NOT_LAW",
+      "existing_master116_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C40"
+      ],
+      "current_primary_context_urls": [
+        "https://www.krx.co.kr/contents/OPN/01/01030205/OPN01030205T4.jsp"
+      ],
+      "missing_scope_or_exception": "소득·환율·투자기간·비상금",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00011",
+      "v33_original_candidate_id": "C00156",
+      "proposed_atomic_financial_meaning": "자기 직업 관련 업종 ETF 매수를 긍정하는 사례",
+      "financial_meaning_risk_or_condition": "CORRELATED_HUMAN_AND_MARKET_CAPITAL_RISK",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C26"
+      ],
+      "current_primary_context_urls": [
+        "https://www.sec.gov/investor/pubs/assetallocation.htm"
+      ],
+      "missing_scope_or_exception": "업종 고용위험이 투자자산과 함께 움직임",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00011",
+      "v33_original_candidate_id": "C00160",
+      "proposed_atomic_financial_meaning": "관리종목을 오를 것 같다는 이유만으로 매수한다는 관찰",
+      "financial_meaning_risk_or_condition": "PENNY_SPECULATION_AND_DISTRESS_RISK",
+      "existing_master116_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C54"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "실제 관리지정 기업·매매행동 증명 없음",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00011",
+      "v33_original_candidate_id": "C00163",
+      "proposed_atomic_financial_meaning": "자녀가 입사해도 좋을 기업의 주식을 사라는 비유",
+      "financial_meaning_risk_or_condition": "QUALITY_IS_NOT_FAIR_PRICE",
+      "existing_master116_ids": [
+        "GOMHEE-C51",
+        "GOMHEE-C54"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "인적자원 관리와 주식의 현금흐름 할인·가격 구분",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00011",
+      "v33_original_candidate_id": "C00165",
+      "proposed_atomic_financial_meaning": "취업하고 싶지 않은 회사 주식은 사면 안 된다는 권고",
+      "financial_meaning_risk_or_condition": "EMPLOYER_HEURISTIC_NOT_INVESTMENT_RULE",
+      "existing_master116_ids": [
+        "GOMHEE-C09",
+        "GOMHEE-C30"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "기업가치·가격·직업 적합성 별개",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00017",
+      "v33_original_candidate_id": "C00232",
+      "proposed_atomic_financial_meaning": "가계부로 실제 소비를 파악하고 저축·투자비율을 결정",
+      "financial_meaning_risk_or_condition": "CASHFLOW_PLANNING_PRACTICE",
+      "existing_master116_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C62"
+      ],
+      "current_primary_context_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/educator-tool/your-money-your-goals/toolkit/"
+      ],
+      "missing_scope_or_exception": "계좌자동이체·부채·필수비용 반영",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00017",
+      "v33_original_candidate_id": "C00236",
+      "proposed_atomic_financial_meaning": "월말 가계부 결산으로 다음 달 지출을 조절",
+      "financial_meaning_risk_or_condition": "BUDGET_ADJUSTMENT_NOT_RIGID_RULE",
+      "existing_master116_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C76"
+      ],
+      "current_primary_context_urls": [
+        "https://www.consumerfinance.gov/consumer-tools/educator-tool/your-money-your-goals/toolkit/"
+      ],
+      "missing_scope_or_exception": "건강·주거비 등 필수지출을 과도하게 삭감 금지",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00017",
+      "v33_original_candidate_id": "C00239",
+      "proposed_atomic_financial_meaning": "보복소비를 스트레스 완화수단으로 본 미완결 발화",
+      "financial_meaning_risk_or_condition": "INCOMPLETE_ASR_NOT_MEDICAL_OR_SPENDING_ADVICE",
+      "existing_master116_ids": [
+        "GOMHEE-C38",
+        "GOMHEE-C76"
+      ],
+      "current_primary_context_urls": [],
+      "missing_scope_or_exception": "미완성 원문을 소비 강요로 추론하지 않음",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00012",
+      "v33_original_candidate_id": "C00148",
+      "proposed_atomic_financial_meaning": "고령층은 반드시 기존 보험을 유지해야 한다는 다른 화자의 주장",
+      "financial_meaning_risk_or_condition": "INSURANCE_CONTRACT_CONDITIONS_NOT_UNIVERSAL",
+      "existing_master116_ids": [
+        "GOMHEE-C03",
+        "GOMHEE-C14"
+      ],
+      "current_primary_context_urls": [
+        "https://www.fsc.go.kr/po010105/87144"
+      ],
+      "missing_scope_or_exception": "연령만으로 보험 유지가 최선인지 알 수 없고 면책·갱신·보험료·실제 보장금액·해지환급금을 확인해야 함",
+      "human_independent_gold_semantic_equivalence_proven": false,
+      "financial_truth_approved": false,
+      "automatic_master116_p4_merge_allowed": false
+    }
+  ],
+  "independent_finance_gold_adjudicated_count": 0,
+  "semantic_entailment_equivalence_approved_count": 0,
+  "new_approved_financial_fact_count": 0,
+  "master116_p4_merge_count": 0,
+  "private_original_or_semantic_notes_uploaded": false,
+  "historical_audio_issuer_contract_eight_source_proofs_closed": 0,
+  "p0_go": false
+}

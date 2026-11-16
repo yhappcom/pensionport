@@ -1,0 +1,56 @@
+{
+  "schema": "IRE_V6_V41_V40_TO_V6_ATOMIC_CROSSWALK_AND_OWNER_NEXT_WINDOWS",
+  "as_of": "2026-11-11",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "parent_v41_source_research_commit": "fcd0253c9503e03ae860f0e221db38bb5ae73c8c",
+  "previous_v40_manifest_git_blob_sha": "3f26fb6b3ed11f2f2097be5a64331a79dba3491d",
+  "previous_v40_code_sha": "44415ca2051396010a5ade33b7326daaebafee37",
+  "previous_unique_v6_tests": 611,
+  "new_synthetic_regression_tests": 18,
+  "expected_unique_v6_tests": 629,
+  "prior_ire_v6_tracked_file_count": 102,
+  "new_ire_v6_tracked_file_count": 104,
+  "added": [
+    {
+      "path": "ire/v6/semantic_atom_handoff_v41.py",
+      "git_blob_sha": "e053228c7a68591dddce4b5e3c08a74b81a87e0c"
+    },
+    {
+      "path": "ire/v6/tests/test_semantic_atom_handoff_v41.py",
+      "git_blob_sha": "88bb8cdf4c664b83005859cd9ee2cf6a0a5b3f5b"
+    }
+  ],
+  "public_safe_real_owner_receipt": {
+    "path": "validation/ire-v6-frozen/V6_V41_REAL_OWNER_TWO_WINDOWS_AND_ATOM_HANDOFF_SHA_ONLY.json",
+    "git_blob_sha": "8f0ee0be5cd93a3e75f662d234dde4de70308531",
+    "new_source_windows": 2,
+    "new_original_cues": 80,
+    "new_v33_candidates": 35,
+    "new_chat_review_notes": 51,
+    "cumulative_source_windows": 8,
+    "cumulative_original_cues": 320,
+    "cumulative_v33_candidates": 113,
+    "cumulative_chat_review_notes": 172,
+    "owner_preliminary_v41_atom_candidates": 4,
+    "owner_preliminary_v41_open_notes": 14,
+    "true_gold_precision_recall_measured": false
+  },
+  "public_safe_report": {
+    "path": "validation/ire-v6-frozen/V6_V41_TWO_WINDOWS_AND_PRE_ATOMIC_HANDOFF_REPORT.md",
+    "git_blob_sha": "c90d314610391319909037755c3532cd5c170a63"
+  },
+  "actual_owner_private_partial_crosswalk_sha256": "5969335f816747d31c7f2a1f89c58a9b54e18278ed81e53072dfb55f210ec207",
+  "same_original_SRT_speech_as_V37": true,
+  "v40_private_checkpoint_required_before_atom_proposal": true,
+  "new_real_window_private_checkpoints": 2,
+  "actual_source_specific_historical_audio_issuer_eight_case_closed": 0,
+  "remnant_122_source_windows_unatomized": true,
+  "remaining_v33_utterances": 1490,
+  "whole_video_v6_atom_exchange_submitted": false,
+  "v6_final_model_commit_allowed": false,
+  "real_independent_blind_gold": false,
+  "true_finance_accuracy_certified": false,
+  "main_v5_master116_p4_mutated": false,
+  "raw_private_srt_or_chat_reasoning_uploaded": false,
+  "p0_go": false
+}

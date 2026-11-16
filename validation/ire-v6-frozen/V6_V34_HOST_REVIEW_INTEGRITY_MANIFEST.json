@@ -1,0 +1,69 @@
+{
+  "schema": "IRE_V6_V34_ORIGINAL_SOURCE_RISK_AND_CHAT_FIRSTPASS_ATOM_CUSTODY",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "as_of": "2026-11-10",
+  "parent_v33_commit_sha": "826c3c125ae444280978dadd9c3acb969ede1d45",
+  "previous_v33_manifest_git_blob_sha": "df2d269e54d3cf28c591ebc77cfdf121a6c447ec",
+  "added": [
+    {
+      "path": "ire/v6/chat_risk_reassessment_v34.py",
+      "git_blob_sha": "42876e66a728c66033925ff98bc1c3e394200826"
+    },
+    {
+      "path": "ire/v6/tests/test_chat_risk_reassessment_v34.py",
+      "git_blob_sha": "0e2fae57c1ff8a9151a127337a95bff19d9d271f"
+    }
+  ],
+  "report": {
+    "path": "validation/ire-v6-frozen/V6_V34_SOURCE_RISK_REASSESSMENT_REAL_ORIGINAL_REPORT.md",
+    "sha": "88afffdb361b09d86efb76dbdf2bccb5c72e59dd"
+  },
+  "risk": {
+    "path": "validation/ire-v6-frozen/V6_V34_ALL40_RISK_HASH_ONLY.json",
+    "sha": "b73b091fb54417f4cfcefb1f292dd528be9265de"
+  },
+  "old_open": {
+    "path": "validation/ire-v6-frozen/V6_V34_TWO_CONDITIONAL_REASSESSMENTS_HASH_ONLY.json",
+    "sha": "0ceef3924878c08b2a2d12431ed919144efe7c94"
+  },
+  "split": {
+    "path": "validation/ire-v6-frozen/V6_V34_SELECTED_ATOM_SPLIT_HASH_ONLY.json",
+    "sha": "74e83fdbede2a7b9bb116a37a012a088dea83b47"
+  },
+  "progress": {
+    "path": "validation/ire-v6-frozen/V6_V34_PROGRESS_HASH_ONLY.json",
+    "sha": "b13d8496ed70a9bb44491bb84a8878839bf2bad2"
+  },
+  "source_original_zip_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "original_video_count": 5,
+  "original_cue_count": 5129,
+  "original_windows_count": 130,
+  "v33_provisional_asr_utterances": 1603,
+  "original_heuristic_risk_alerts": 40,
+  "source_first_triaged_alerts": 40,
+  "discourse_boundary_only_alerts": 3,
+  "finance_asr_condition_risks_remaining_open": 37,
+  "prior_core_open_case_count": 2,
+  "conditioned_educational_reassessments": 2,
+  "individual_provider_or_company_applicability_unverified": 2,
+  "host_split_window_count": 3,
+  "host_split_original_cues": 120,
+  "original_utterance_candidates_reexamined": 41,
+  "firstpass_source_bound_claim_frames": 28,
+  "source_numeric_occurrences_linked": 14,
+  "source_wide_claim_splitting_completed": false,
+  "source_wide_chat_semantic_review_completed": false,
+  "independent_semantic_gold_present": false,
+  "independent_precision_recall_measured": false,
+  "master116_auto_merge_permitted": false,
+  "personal_tax_trade_approval": false,
+  "private_raw_source_published": false,
+  "main_or_protected_v5_116_p4_changed": false,
+  "all_791_researched": false,
+  "p0_go": false,
+  "prior_unique_v6_tests": 503,
+  "new_synthetic_tests": 25,
+  "expected_unique_v6_tests": 528,
+  "new_ire_v6_tracked_file_count": 92,
+  "research_release_status": "V34_PARTIAL_HIGH_RISK_SOURCE_REVIEW_WITH_37_ALERTS_OPEN_P0_NO_GO"
+}

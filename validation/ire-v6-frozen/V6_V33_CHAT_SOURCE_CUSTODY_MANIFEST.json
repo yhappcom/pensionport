@@ -1,0 +1,68 @@
+{
+  "schema": "IRE_V6_V33_OWNER_FIVE_FULL_ASR_DRAFT_AND_CHAT17_FINANCE_KNOWLEDGE_CUSTODY",
+  "branch_scope": "VALIDATION_ONLY",
+  "date": "2026-11-10",
+  "base_v32_head_sha": "38ff8d3fa9e966fc10b13096f6f191f58bfae4f4",
+  "previous_v32_manifest_git_blob_sha": "9d885a0b01830431774af0b29c7f592dfe538104",
+  "added": [
+    {
+      "path": "ire/v6/provisional_full_source_v33.py",
+      "sha": "07bb801cd4e8c2fd8314cbf7e3bc0cf7518234af"
+    },
+    {
+      "path": "ire/v6/chat_review_custody_v33.py",
+      "sha": "025485f0b3cedb07f5eff95092a98d5a4e49a877"
+    },
+    {
+      "path": "ire/v6/tests/test_provisional_full_source_v33.py",
+      "sha": "b777b6754ad4ebde1acd7b3ff7e15d95f29e58b2"
+    },
+    {
+      "path": "ire/v6/tests/test_chat_review_custody_v33.py",
+      "sha": "2cebedc626a8de47662cb5d1241b7d9a184e62e9"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_V33_ORIGINAL5_SOURCE_CHAT_FINANCE_AND_LEGACY116_REPORT.md",
+  "report_git_blob_sha": "5b897f1b1c614a5c0349e5cffa5612ba8ba468a8",
+  "source_queue_path": "validation/ire-v6-frozen/V6_V33_FIVE_VIDEO_FULL_DRAFT_SOURCE_HASH_ONLY.json",
+  "source_queue_git_blob_sha": "8736e5f795c395d687b2b5c5bd180fcc0937596f",
+  "host_review_path": "validation/ire-v6-frozen/V6_V33_CHAT17_SOURCE_RULE_MASTER116_HASH_ONLY.json",
+  "host_review_git_blob_sha": "0a201535ca07ed927cab4720873d2e72ab609b0f",
+  "progress_path": "validation/ire-v6-frozen/V6_V33_PROGRESS_AND_MASTER_TRIAGE_HASH_ONLY.json",
+  "progress_git_blob_sha": "d3daf5363e3e4c2bca13178a4ea296d8a7f3f1ac",
+  "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "originals": 5,
+  "original_cues": 5129,
+  "full_source_windows": 130,
+  "provisional_asr_utterance_candidates": 1603,
+  "provisional_cue_anchors": 5025,
+  "short_no_atom_cues": 104,
+  "finance_keyword_utterances": 580,
+  "heuristic_semantic_risk_cases_pending": 40,
+  "actual_chat_host_review_rows": 17,
+  "actual_chat_review_open_cases": 2,
+  "chat_case_touched_windows": 11,
+  "existing_master_claims": 116,
+  "existing_master_source_blob": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+  "lexical_master_suggestion_candidates": 1603,
+  "chat_host_review_receipt_sha256": "d25e5a8ac021e2722dc8b9f0e52fe4df879cbbb20da17adc6c77d2914e28faf5",
+  "progress_receipt_sha256": "150af404895c4ec441f9990015453db875ca29205692949b3f16e12f0605ae7e",
+  "full_source_atom_splitting_complete": false,
+  "full_source_chat_semantic_review_complete": false,
+  "any_full_window_semantic_completed": false,
+  "actual_original_independent_human_gold": false,
+  "independent_precision_recall_measured": false,
+  "all_heuristic_semantic_risks_resolved": false,
+  "external_issuer_signed_rule_body_authenticated": false,
+  "master116_p4_knowledge_auto_merged": false,
+  "private_srt_transcript_committed": false,
+  "personal_investment_tax_order_approved": false,
+  "main_or_protected_knowledge_changed": false,
+  "all_791_researched": false,
+  "p0_go": false,
+  "new_synthetic_tests": 24,
+  "old_unique_v6_tests": 479,
+  "expected_unique_v6_tests": 503,
+  "new_v6_tracked_file_count": 90,
+  "status": "COMPLETE_ORIGINAL_CUE_PROVISIONAL_DRAFT_WITH_PARTIAL_HOST_MEANING_REVIEW_P0_NO_GO"
+}

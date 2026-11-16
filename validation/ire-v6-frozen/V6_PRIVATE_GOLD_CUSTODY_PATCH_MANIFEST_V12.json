@@ -1,0 +1,24 @@
+{
+  "schema": "IRE_V6_PRIVATE_GOLD_CUSTODY_PATCH_V12",
+  "base_manifest_sha256": "471000bbe99c9b7b27f2b00fcae46d01ad1c9110ecf66be38e99cb7d1b1fd340",
+  "previous_v11_manifest_git_blob_sha": "719e8c744642d70be1d9b895fd44be40047bb34c",
+  "original_prereg_sha256": "77280d7f917a7f8a25437157b78081147d17088f0b269a90275bac8bc1cbe296",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "reason": "Private two-reviewer one-adjudicator Ed25519 gold document custody, linked to source-grounded blind arithmetic, no false identity or P0 GO",
+  "added": [
+    {
+      "path": "ire/v6/blind_custody.py",
+      "git_blob_sha": "3355411bbfe4299670a05e079ec7e3ddc9e18d6c"
+    },
+    {
+      "path": "ire/v6/tests/test_blind_custody.py",
+      "git_blob_sha": "d8d97fd4ec9ea39705e74353ec552b56c814766a"
+    }
+  ],
+  "new_total_ire_v6_tracked_files": 43,
+  "private_srt_or_review_documents_committed": false,
+  "independent_real_world_review_verified": false,
+  "gold_sealed_by_real_reviewers": false,
+  "prereg_gold_commitment_sha256_still_null": true,
+  "p0_go": false
+}

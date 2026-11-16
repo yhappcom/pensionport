@@ -1,0 +1,50 @@
+# V85 — First 10 original-video source gaps 295 and 31 additional source-bound financial meaning reviews
+
+**2026-11-13 KST · owner-provided private `1-70.zip`, SHA-256 `00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd` · verification PR #53 remains Draft/unmerged · P0 NO-GO.**
+
+## 1. Actual source replay and scope
+
+The same original archive used in V84 was SHA-pinned and read again. First five videos remain **5,129 subtitle cues / 130 40-cue windows / 1,603 provisional V33 candidate utterances / 104 candidate-unassigned cues**. For videos **#6–#10**, independently replayed **13,885 cues, 349 windows, 4,426 V33 candidate utterances, and 295 candidate-unassigned cues**, matching V84's actual source cohort. No claim is made that V33 utterance splitting is an exhaustive or meaning-correct atomic-claim extractor.
+
+| Video | Provisional V33 candidates | Unassigned cues | Assent | Discourse | Courtesy | Laughter | Lexical fragments | New actual meaning reviews |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| #6 child gifts | 252 | 21 | 8 | 6 | 1 | 1 | 5 | 5 |
+| #7 investment case compilation, 5 h 44 min | 3,341 | 186 | 108 | 29 | 14 | 3 | 32 | 15 |
+| #8 JPY investment part 2 | 358 | 29 | 11 | 13 | 1 | 0 | 4 | 4 |
+| #9 JPY investment part 1 | 468 | 59 | 30 | 24 | 0 | 0 | 5 | 5 |
+| #10 pension savings short | 7 | 0 | 0 | 0 | 0 | 0 | 0 | 2 |
+| **Total** | **4,426** | **295** | **157** | **72** | **16** | **4** | **46** | **31** |
+
+Every one of the **295 unassigned cues** was matched to its exact original SRT number, video identity, time stamps, transcript text hash, original ±2 neighboring cue texts, and nearest assigned V33 candidate IDs on both sides (when present). Speech-act classification labels were checked against the original text. Of the 295, **46 incomplete lexical fragments** are **OPEN_NEEDS_CONTEXT_OR_AUDIO** and **18** were individually flagged as higher priority because they can change subject, negation, year, pension timing, product name, or action interpretation. Other 249 are source-classified conversational reactions, courtesy or laughter—not independent gold-certified negative claims. Thus, 295 provenance links are complete; **the 46 ambiguous fragments have not been certified as semantically resolved atomic nonclaims**.
+
+## 2. New financial meaning interpretation — 31 original candidate utterances
+
+**31 newly reviewed source parents** were individually read with adjacent context; source text and detailed interpretation are in the private archive. Their V33 parent keys do not overlap the **six** V84 #6–#10 original-reviewed parents. **Combined #6–#10 pilot: 37 distinct source-bound provisional meaning reviews.** The user-provided original SRT remains only in private storage; no original transcripts or human/chat interpretation prose is in the public Git checkout.
+
+Actual critical distinctions in source:
+
+1. **#6 `W00009:C00111` / `C00118` — listed shares gift valuation and filing:** The first is a *procedural explanation* of reference prices around gifting; the second is a *question*, not a filing-rule assertion. The current National Tax Service describes listed-stock reference prices around **two months before and after** the valuation date, while general gift-tax filing is normally **within three months from the end of the month containing the gift date**. Do not confuse the two-month stock valuation interval with the legal filing deadline. [NTS stock valuation](https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7731&mi=2297) · [NTS filing deadline](https://g.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7727&mi=2339).
+2. **#6 `W00016:C00189` and `W00019:C00226` — 6:4 ETF example and child wealth projection:** An educational allocation proposal and a future-money illustration are not an individual's suitable portfolio, legally unrestricted management of gifted assets, or a guaranteed future balance. No real donation or return is approved.
+3. **#7 `W00144:C01865` — pension retroactive payments:** The source relates payment levels to application timing, but this is **not safely portable to the 2026 contribution rate**. The National Pension Service announcement dated **2025-11-25** says the *premium-rate reference month* moved from application month to **payment-due month**, while other statutory parameters and installment mechanics require separate checks. [NPS primary announcement](https://m.nps.or.kr/pnsgdnc/nscvrgdata/getOHAE0002M1.do?menuId=MN24000898&pstId=ZZ202500000000001465). Treating the older wording as an unqualified current rule is barred.
+4. **#7 `W00106:C01449` — 10% expected return:** A high **scenario input** in a personal spreadsheet, not observed or guaranteed annual return. **#7 `W00240:C03028`** proposes a counterfactual ~KRW 8 million improvement over a bank-only approach; without matching dated bank rates, deposit schedules and cash flows, this is not verified portfolio alpha.
+5. **#7 `W00163:C02084` — IRP KRW 18 million:** A personal saving/deposit description; neither the entire stated contribution nor transferred severance payments may be automatically treated as tax-credit eligible. The NTS distinguishes tax-credit limits and pension-account exclusions. [NTS pension-account tax credits](https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=2238).
+6. **#7 `W00221:C02839` and `C02840` — BBB bond and 1–2-year maturity:** A contributor's private *selection filter*, not a regulator-recommended minimum or a risk-free investment. BBB credit risk, pre-maturity pricing and deposit-insurance differences remain separate.
+7. **#8 `W00002:C00016` — futures-based ETF in IRP:** Not all JPY-linked products have the same pension eligibility. Product structure and current IRP restrictions must be checked before suggesting a ticker. [Current issuer pension-investment eligibility table](https://prod.investments.miraeasset.com/tigeretf/ko/pension/investment/list.do).
+8. **#8 `W00015:C00209` — currency hedge and time horizon:** Personal conditional inference that short term may favor hedging and long term nonhedging; not an unconditional law of returns. **#8 `W00024:C00332`** advises split buying despite currency uncertainty, not loss prevention.
+9. **#9 `W00013:C00195` and `W00030:C00429` — Japanese 10-year yields and 1.75% JPY FX fee:** These are historical numbers/claims heard in the original subtitle. No dated Japanese sovereign yield data, institution-specific exchange rate quote or financial-institution cost schedule was acquired for independent fact confirmation. **OPEN: issuer/time-specific numeric truth**.
+10. **#10 `W00001:C00002` and `C00003` — non-tax-credit pension saving:** A general account advice and comparative tax-deferral explanation. It does not establish automatic superiority against every ordinary account/instrument, nor does it apply low pension withholding rates to every early withdrawal. Distinguish contribution origin, underlying fund type, distributions, gains and legal pension withdrawal eligibility. [NTS pension-income requirements](https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605).
+
+Each private semantic row separates original speaker meaning, question / opinion / scenario / numerical claim / report type, source cue range + adjacent context, reviewer limitations and open evidence. None is certified financial truth.
+
+## 3. Chain of custody and adversarial checks
+
+- Actual **V83 private ZIP** + **V84 private ZIP** revalidated by pinned SHA. Their **104 first-five gap anchors**, **94 context reviews** and **six #6–#10 earlier semantic source parents** were recomputed against the private original. V84 six and V85 new 31 source parents have **zero duplicate keys**.
+- V85 private **295 gap JSON**, **31 manual semantics JSON**, **326-event separate SQLite** and **10-entry private deterministic ZIP** were generated twice independently with **byte-identical SHA-256 across all files**, SQLite `PRAGMA integrity_check=ok`, and complete event hash chain. This SQLite is deliberately **not** the missing historical V40 original 108-window DB.
+- The new **61 synthetic-only regression tests** pass normally and with `python -O`, covering source SHA and timestamp tampering, duplicate and missing items, adjacency changes, false gold / false negative gold, forged V75 membership, false personalized investment approval, and previous-six duplicate prevention. Synthetic test PASS does not prove true semantic precision or recall.
+- Source-only public V85 guard, public synthetic tests, aggregate SHA-only JSON and this report are safe for GitHub verification branch. Private transcript excerpt / individual meaning notes / SQLite remain in user Library private recovery ZIP.
+
+## 4. Strict status and scalability assessment
+
+**V78–V82 first-five shadow 130 parents** remain independent of **V84–V85 #6–#10 37 parents**. The latter 37 are only preliminary, and no formal history V75 queue has been reconciled. The **V75 first-five official pending baseline remains 298 high-risk P2 + 501 other P2 + 88 P1 = 887**; no official numerator or denominator was adjusted. No 791-video gold precision/recall or actual human 2+1 blind adjudication is available. Four primary financial cases, eight historical audio/issuer cases, missing private V75 membership roster, and missing V40 canonical events remain open. Automated individualized advice approval and Master116/P4 approval stay blocked. **P0 NO-GO.**
+
+**Research expansion limit:** #7 alone has **3,341 provisional utterance candidates** across **269 source windows**. Reviewing 15 additional parent utterances does not certify the remaining thousands, and lexical cue linking is not the same as atomic-claim completeness. Next priority is resolving the 18 high-risk lexical anchors with full neighbor/voice context and expanding semantically calibrated sampling across #7's entire five-hour compilation. Confirm #6 gifts, #7 historical NPS, #8 product-specific IRP eligibility and #9 historic numeric claims from primary issuer/source evidence before they become approved knowledge.

@@ -53,19 +53,69 @@ jobs:
       - name: Enforce prior-research non-citation, no historical import and no protected changes
         run: |
           python - <<'PY'
-          import ast, json, pathlib, subprocess
+          import ast, hashlib, json, os, pathlib, subprocess
           root=pathlib.Path(".")
           base="d613fd201f4bb077f1ccc74d28dee937b11bfcb2"
           cp=subprocess.run(["git","diff","--name-only",base,"HEAD"],
                             capture_output=True,text=True,check=True)
           files=[f for f in cp.stdout.splitlines() if f]
           assert files, "EMPTY_INDEPENDENT_ENGINE_DIFF"
-          assert all(f.startswith("ire/") or
-                     f in {".github/workflows/ire-cleanroom-gate.yml",
-                   ".github/workflows/ire-v5-transaction-core.yml",
-                   ".github/workflows/ire-v5-app-control.yml",
-                   ".github/workflows/ire-v5-p3-p4-one-turn.yml"}
+          # The original V1/V2/V5 allowlist remains unchanged for ALL old
+          # cleanroom PRs. A single validation-only V6 Draft branch can also
+          # carry SHA-controlled V6 public tests/manifests and its own required
+          # frozen-CI workflow. No old research, data or V5 path is allowed.
+          legacy={".github/workflows/ire-cleanroom-gate.yml",
+                  ".github/workflows/ire-v5-transaction-core.yml",
+                  ".github/workflows/ire-v5-app-control.yml",
+                  ".github/workflows/ire-v5-p3-p4-one-turn.yml"}
+          v6_pr=os.environ.get("GITHUB_HEAD_REF")=="verify/ire-v6-p1-atomic-host-batch-20261109"
+          v6_extra={f for f in files if
+                    f==".github/workflows/ire-v6-frozen-ci.yml" or
+                    f.startswith("validation/ire-v6-frozen/")}
+          assert all(f.startswith("ire/") or f in legacy or
+                     (v6_pr and f in v6_extra)
                      for f in files), "HISTORICAL_OR_OTHER_FILE_MODIFIED"
+          if v6_pr:
+              assert ".github/workflows/ire-v6-frozen-ci.yml" in v6_extra
+              assert any(f.startswith("validation/ire-v6-frozen/") for f in v6_extra)
+              for f in v6_extra:
+                  if f==".github/workflows/ire-v6-frozen-ci.yml":
+                      continue
+                  item=root/f
+                  # Two frozen first-party PUBLIC rule snapshots are HTML,
+                  # not owner-private SRT. Whitelist their exact archive paths,
+                  # not arbitrary HTML or external source imports.
+                  public_html=f in {
+                      "validation/ire-v6-frozen/public_official_raw_20261108/decree_40_3.html",
+                      "validation/ire-v6-frozen/public_official_raw_20261108/nts_pension.html"}
+                  assert (item.is_file() and not item.is_symlink() and
+                          (item.suffix.lower() in {".py",".json",".md"} or public_html) and
+                          item.stat().st_size<4*1024*1024), "V6_UNSAFE_VALIDATION_ARTIFACT"
+              for f in subprocess.check_output(
+                      ["git","ls-files","validation/ire-v6-frozen"],
+                      text=True).splitlines():
+                  assert pathlib.Path(f).suffix.lower() not in {
+                      ".srt",".zip",".db",".sqlite",".pem",".key",".p12",
+                      ".xls",".xlsx",".csv",".env"}, "V6_PRIVATE_ARTIFACT_TRACKED"
+              original_prereg=root/"validation/ire-v6-frozen/BLIND_PREREGISTRATION_V1.json"
+              assert hashlib.sha256(original_prereg.read_bytes()).hexdigest()==(
+                  "77280d7f917a7f8a25437157b78081147d17088f0b269a90275bac8bc1cbe296"
+              ), "V6_FROZEN_PREREG_CHANGED"
+              v13=json.loads((root/"validation/ire-v6-frozen/V6_PRIVATE_HOST_TURN_PATCH_MANIFEST_V13.json").read_text())
+              assert v13["schema"]=="IRE_V6_PRIVATE_HOST_TURN_PATCH_V13"
+              assert v13["p0_go"] is False and v13["full_chat_model_semantic_extraction_automated"] is False
+              assert v13["previous_v12_manifest_git_blob_sha"]==subprocess.check_output(
+                  ["git","hash-object","validation/ire-v6-frozen/V6_PRIVATE_GOLD_CUSTODY_PATCH_MANIFEST_V12.json"],
+                  text=True).strip(), "V6_V12_HISTORICAL_MANIFEST_CHANGED"
+              for entry in v13["added"]:
+                  f=entry["path"]
+                  assert f.startswith("ire/v6/") and pathlib.Path(f).is_file()
+                  assert subprocess.check_output(["git","hash-object",f],
+                     text=True).strip()==entry["git_blob_sha"],"V6_V13_SOURCE_SHA_MISMATCH"
+              frozen_ci=(root/".github/workflows/ire-v6-frozen-ci.yml").read_text()
+              assert "python -m ire.v6.prepush --strict" in frozen_ci
+              assert "V6_FILE_CENSUS_DRIFT" in frozen_ci
+              print("PASS: V6 branch-only historical-protection-compatible SHA-pinned validation scope")
           forbidden={"scripts","v30","v5","data","synthesis"}
           modules=list(pathlib.Path("ire").rglob("*.py"))
           assert len(modules)>=6

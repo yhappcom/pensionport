@@ -1,0 +1,60 @@
+{
+  "schema": "IRE_V145_REAL_SOURCE_HOST_QUARANTINE_PATCH_MANIFEST_V1",
+  "as_of": "2026-11-16",
+  "scope": "VERIFICATION_BRANCH_ONLY",
+  "historical_frozen_engine_manifests_unchanged": true,
+  "modified_from_v144": [
+    {
+      "path": "ire/v6/host_batch.py",
+      "git_blob_sha": "0f71c6251ca07e89e4ca03a289d412343793d4ea",
+      "bytes": 15922,
+      "sha256": "1b88cea1e9a3565306bf6d9ea1ad56c684bbd9a72bd388b8041c794634a66c32",
+      "previous_git_blob_sha": "6dc5ed75145eabe401e89adea8426f21a7947555"
+    },
+    {
+      "path": "validation/ire-v6-frozen/v123_chat_final_gate.py",
+      "git_blob_sha": "17bc0463a870a99b086c0fe7fb2b1f02eaa1a618",
+      "bytes": 19218,
+      "sha256": "2ef78d475b17de236b1817a79e6ce435b9d67b3df834d81c82fe2c50ac284ba6",
+      "previous_git_blob_sha": "6d074730ababc2975fc92bb5fa27d8f87ef69ee9"
+    },
+    {
+      "path": "validation/ire-v6-frozen/v126_chat_approved_knowledge_store.py",
+      "git_blob_sha": "0c83a4259a92cbb4ca052a6a4fd5b810e1c638d9",
+      "bytes": 21870,
+      "sha256": "7615a35bec03a1ba31d6f38dff266df4f9da8a8c562d7580bb2394464ee62aab",
+      "previous_git_blob_sha": "546823a24df2f62a49ba5a2daca966e49e71dcca"
+    },
+    {
+      "path": "validation/ire-v6-frozen/v128_host_continuous_video.py",
+      "git_blob_sha": "fb2568ec183c5b8b991475be61dbed61f5b13616",
+      "bytes": 6798,
+      "sha256": "dd818a2d867e7cc481401d231b1673315803b6de730d704401b155c274015add",
+      "previous_git_blob_sha": "36e4204d1dd5409a10ae5c334a1c8b256b428387"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/host_quarantine_preflight.py",
+      "git_blob_sha": "e45e51aa4a165010e837456b8a1553aaa3e30237",
+      "bytes": 4040,
+      "sha256": "97030ef2f0c04b1e8a3b3a2fd06dbba4644279483f18419e41395cc56a2d6183"
+    },
+    {
+      "path": "validation/ire-v6-frozen/test_v145_native_host_quarantine_e2e.py",
+      "git_blob_sha": "1c969fe460000eb8420aab36c8f62e029026b5a7",
+      "bytes": 9681,
+      "sha256": "a154674d34131119ee38aa00b34a258ef785978d118a17986b5364640f8524ff"
+    }
+  ],
+  "actual_private_source_video_sha256": "638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d",
+  "real_original_cues": 1481,
+  "real_source_host_batches_committed": 13,
+  "real_v123_final_pass": 0,
+  "real_v128_knowledge_rows_written": 0,
+  "precision_recall_measured": false,
+  "original_audio_verified": false,
+  "financial_fact_certified": false,
+  "p0_go": false,
+  "previous_v144_commit_sha": "0c49a5a8b4d00932fae1cc8bbc1478bd8ce163a5"
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "IRE_V6_PRIVATE_UNUSED_REPAIR_COHORT_AND_KOREAN_MONEY_PATCH_V19",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "previous_v18_manifest_git_blob_sha": "19feb6d1136bf778bfa2adbecba4ecb79568af8d",
+  "base_head_sha": "89065846c848d6948c5232306afd2c0f30f0c3cf",
+  "modified_from_v18": [
+    {
+      "path": "ire/v6/atomic_exchange.py",
+      "previous_git_blob_sha": "710a79f7e3083c38bb68b24358b7e4c9d6d7d625",
+      "git_blob_sha": "735bdf501fc01bb5757421d43217b842bdf53d69"
+    },
+    {
+      "path": "ire/v6/semantic_frontier.py",
+      "previous_git_blob_sha": "a9b9b87224174ee95508f0f3f6eda74546ab70c8",
+      "git_blob_sha": "107431f4af26bf74a5824fa2e0cc72c87d4607aa"
+    },
+    {
+      "path": "ire/v6/stage_repair.py",
+      "previous_git_blob_sha": "bff294d8fba1130b10d60253793996a56e8ba79b",
+      "git_blob_sha": "424f55a7b4f46b192f616d7b3b3575f23fa7fb41"
+    }
+  ],
+  "added": [
+    {
+      "path": "ire/v6/tests/test_korean_amount_units.py",
+      "git_blob_sha": "38a8ec8a4acbc7fddca76c689bf1321d61f2752b"
+    },
+    {
+      "path": "ire/v6/tests/test_multi_number_split_frontier.py",
+      "git_blob_sha": "c21230dcb6040dd31ffeee916d338c3553910ed5"
+    },
+    {
+      "path": "ire/v6/tests/test_same_cue_clause_review.py",
+      "git_blob_sha": "5735b435df9e7f7de13dbff975df6e55942d7d74"
+    },
+    {
+      "path": "ire/v6/tests/test_stage_repair_extended.py",
+      "git_blob_sha": "78f327064ed2253a9ae6191fe524ebc8eaed0aaf"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_V19_UNUSED_REPAIR_COHORT_REPLAY_REPORT.md",
+  "report_git_blob_sha": "47aff01e3fb7977564c376723a80bebe69c14133",
+  "new_total_ire_v6_tracked_files": 58,
+  "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "selection_sha256": "a1948b7c1f03d81231b834b71f68a1d5cf4055196ba979fdfcdc9a8b926cdead",
+  "cohort_unused_by_v18_repair": true,
+  "original_unique_videos_replayed": 5,
+  "original_cues_replayed": 184,
+  "chat_atomic_candidates": 67,
+  "initial_raw_semantic_alerts": 12,
+  "after_raw_semantic_alerts": 9,
+  "original_alerts_directly_remodeled": 4,
+  "original_alerts_cross_clause_reviewed": 7,
+  "new_same_cue_alert_reviewed": 1,
+  "remaining_explicit_open_alerts": 1,
+  "source_first_frontier_cases": 73,
+  "num_70_video_original_cues_replayed": 56045,
+  "changed_numeric_cue_count": 145,
+  "videos_with_changed_numeric_tokens": 30,
+  "v18_numeric_tokens": 8457,
+  "v19_numeric_tokens": 8415,
+  "guided_real_source_split_regression_only": true,
+  "external_model_api_calls": 0,
+  "real_private_original_published": false,
+  "independent_human_gold_available": false,
+  "true_semantic_recall_measured": false,
+  "owner_provenance_independently_signed": false,
+  "official_finance_facts_approved": false,
+  "full_791_researched": false,
+  "p0_go": false
+}

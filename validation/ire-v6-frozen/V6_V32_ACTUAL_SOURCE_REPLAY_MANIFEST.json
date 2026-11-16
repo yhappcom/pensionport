@@ -1,0 +1,73 @@
+{
+  "schema": "IRE_V6_V32_ORIGINAL_FIVE_CUE_QUEUE_NUMERIC_CONTEXT_AND_GENERAL_EDUCATION",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "based_on_commit": "a371dc29209f3bf386f9cda4ad118ef58eee88b7",
+  "as_of": "2026-11-10",
+  "historic_v31_1_manifest_git_blob_sha": "1a8abe4b93645e9eee1588b3c00616da29ee8371",
+  "added": [
+    {
+      "path": "ire/v6/source_census_queue_v32.py",
+      "sha": "c9aadb94d60a16d5b8fe0ef201c1689a798950c6"
+    },
+    {
+      "path": "ire/v6/chat_general_answer_v32.py",
+      "sha": "d987bd0f58756f165fc2f5d80d99bfc828d9446a"
+    },
+    {
+      "path": "ire/v6/tests/test_source_census_queue_v32.py",
+      "sha": "4ce51539111b4688eed65b5e86a07b496e390715"
+    },
+    {
+      "path": "ire/v6/tests/test_chat_general_answer_v32.py",
+      "sha": "e2e7e47095f7528c5c5dab5ae0448ca799cfd1c5"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_V32_FIVE_VIDEO_FINANCE_CHAT_REPORT.md",
+  "report_blob_sha": "43e48ec09f2d30a52f913ee5f17f58beed6d9f62",
+  "queue_path": "validation/ire-v6-frozen/V6_V32_FULL_ORIGINAL_130_WINDOWS_HASH_ONLY.json",
+  "queue_blob_sha": "529f9371c73d367e18b6efc3cf36974bcac59b54",
+  "actual_receipt_path": "validation/ire-v6-frozen/V6_V32_FIVE_VIDEO_ACTUAL_ROUTE_HASH_ONLY.json",
+  "actual_receipt_blob_sha": "ba3d1c25380f1d9e57de092574f79b5c19a7275e",
+  "private_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "original_video_count": 5,
+  "original_source_cues_structurally_registered": 5129,
+  "source_review_queue_windows_total": 130,
+  "all_full_video_windows_meaning_review_completed": false,
+  "original_video_1_cues": 1195,
+  "original_video_2_cues": 1347,
+  "original_video_3_cues": 785,
+  "original_video_4_cues": 758,
+  "original_video_5_cues": 1044,
+  "source_review_window_counts": [
+    30,
+    34,
+    20,
+    19,
+    27
+  ],
+  "prior_v31_1_sample_cues": 28,
+  "prior_v31_1_claim_candidates": 6,
+  "actual_v32_unit_example_context_cue_range": [
+    173,
+    181
+  ],
+  "actual_v32_unit_example_chat_inference": true,
+  "original_audio_independent_unit_verification": false,
+  "original_video2_v31_contextual_review_ready": true,
+  "actual_v32_generic_host_general_education_answer_count": 2,
+  "actual_v32_nonmock_v5_p3_irp_paraphrase_answer_count": 1,
+  "actual_host_question_semantic_equivalence_independently_certified": false,
+  "actual_full_original_atomic_extraction_completed": false,
+  "host_edited_text_or_original_srt_on_github": false,
+  "historical_main_v5_master116_p4_changed": false,
+  "original_full_v31_1_manifest_overwritten": false,
+  "independent_precision_recall_measured": false,
+  "current_law_official_signed_body_authenticated": false,
+  "current_personal_trade_tax_advice_approved": false,
+  "all_791_researched": false,
+  "p0_go": false,
+  "new_tests": 32,
+  "previous_unique_v6_tests": 447,
+  "expected_unique_v6_tests": 479,
+  "new_total_ire_v6_tracked_files": 86
+}

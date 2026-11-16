@@ -1,0 +1,46 @@
+{
+  "schema": "IRE_V6_V27_PRIVATE_CUE_AUDIT_AND_SOURCE_FACET_RESIDUAL_GATE",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "base_head_sha": "39a11312369bc816c2cb7c6a22b4c2c30f67bbe1",
+  "previous_v26_1_manifest_git_blob_sha": "00ee83e43553de6542910358851ec03d7b3851a2",
+  "added": [
+    {
+      "path": "ire/v6/source_facet_audit_v27.py",
+      "git_blob_sha": "c00f6a69c8058bef8ce796bb150bac6f29bc2ffd"
+    },
+    {
+      "path": "ire/v6/tests/test_source_facet_audit_v27.py",
+      "git_blob_sha": "6fa61b29253d08055ee4be52ead8ea4e73f141cf"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_V27_REAL_34CUE_SOURCE_AND_FACET_GUARD_REPORT.md",
+  "report_git_blob_sha": "bf212c2419e23f5580b6e4ad892a3ca517925eaf",
+  "asof": "2026-11-10",
+  "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "source_srt_sha256": "cbb57d372bc0fb5965052a776b5b945a5b82df3178d5c40dcdcc8b0d8239",
+  "video_id": "8Zh1q4Ziv4c",
+  "private_actual_cues_checked": 34,
+  "same_chat_bounded_candidate_count": 16,
+  "source_cues_with_candidate_spans": 33,
+  "original_cues_without_independent_financial_claim": 1,
+  "source_candidate_groups": {
+    "IRP_WITHDRAWAL": 4,
+    "ETF_TAX_CONTEXT": 3,
+    "PENSION_EXCLUDED_BASIS": 2,
+    "PENSION_TAX_AND_DRAWDOWN": 4
+  },
+  "private_receipt_sha256": "4ef52f8439dab7375386cd93b2912027b6a4db970f006956290c1fe13f885ccb",
+  "private_actual_v26_python_e2e_executed": false,
+  "independent_human_gold": false,
+  "original_full_semantic_recall_certified": false,
+  "private_original_raw_text_committed": false,
+  "true_semantic_precision_recall_measured": false,
+  "current_official_law_body_signatures_verified": false,
+  "personal_investment_or_tax_approval": false,
+  "new_synthetic_tests": 12,
+  "expected_unique_v6_tests": 376,
+  "new_ire_v6_file_count": 74,
+  "main_v5_master116_p4_29_changed": false,
+  "all_791_researched": false,
+  "p0_go": false
+}

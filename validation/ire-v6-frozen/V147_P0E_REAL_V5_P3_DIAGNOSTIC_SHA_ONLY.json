@@ -1,0 +1,93 @@
+{
+  "actual_v5_p3_invocations": 10,
+  "actual_v5_p3_successful": 10,
+  "as_of": "2026-11-16",
+  "case_keyword_groups": {
+    "E01": [
+      true,
+      false,
+      false
+    ],
+    "E02": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "E03": [
+      false,
+      false,
+      true
+    ],
+    "E04": [
+      false,
+      false,
+      false,
+      true
+    ],
+    "E05": [
+      true,
+      true,
+      true
+    ],
+    "E06": [
+      false,
+      true
+    ],
+    "E07": [
+      false,
+      true,
+      true
+    ],
+    "E08": [
+      false,
+      false,
+      false
+    ],
+    "E09": [
+      true,
+      true
+    ],
+    "E10": []
+  },
+  "current_official_issuer_original_bytes_authenticated": 0,
+  "direct_trading_imperative_or_action_autoapproval_detected": 0,
+  "evaluated_commit_sha": "7df993a1ecebad4e8cca959f5bd4a9f190fee66c",
+  "github_workflow_run_id": 43825570036,
+  "high_risk_false_negative_count": null,
+  "identical_to_unrelated_question_fallback_cases": [
+    "E03",
+    "E06",
+    "E07",
+    "E08"
+  ],
+  "initial_heuristic_full_groups": 4,
+  "latest_quality_rerun": {
+    "commit_sha": "c04606b562a153c04832bffd092b5787476aa77c",
+    "completed_cases": 10,
+    "direct_trade_autoapproval_detected": 0,
+    "genuine_independent_accuracy_measured": false,
+    "p0e_go": false,
+    "same_generic_answer_as_unrelated_query_case_ids": [
+      "E03",
+      "E06",
+      "E07",
+      "E08"
+    ],
+    "substantive_case_count": 8,
+    "substantive_heuristic_complete": 2,
+    "unrelated_negative_control_abstention_verified": true,
+    "workflow_run_id": 43826417701
+  },
+  "owner_v123_approved_knowledge_attached": false,
+  "owner_v23_e2e_executed": false,
+  "p0_go": false,
+  "p0e_go": false,
+  "question_and_rubric_sha256": "c661be11f0c931b7abd1777e5abba9a7a9fa4fb62c55f487c476a4ecdfd61847",
+  "runtime_exceptions": 0,
+  "same_generic_answer_as_unrelated_fallback_count": 4,
+  "schema": "IRE_V147_REAL_P3_SHA_ONLY_RESULT_V1",
+  "semantic_precision": null,
+  "semantic_recall": null,
+  "substantive_8_question_keyword_group_complete": 2
+}

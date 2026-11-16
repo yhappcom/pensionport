@@ -690,6 +690,69 @@ class TransactionStore:
         finally:
             con.close()
 
+    def snapshot_with_atomic_exchange(self, *, scope_id: str, raw: bytes,
+                                      manifest: dict, inventory_bytes: bytes,
+                                      expected_inventory_sha256: str,
+                                      exchange: dict,
+                                      knowledge: dict | None = None) -> dict:
+        """Verify host-supplied atomic candidates on one owner-bound read snapshot.
+
+        No claim text or original subtitle is persisted; this does not create
+        model events, independent gold, approved financial facts, or a GO flag.
+        """
+        from .trust import verify_owner_inventory
+        from .atomic_exchange import audit_host_atomic_exchange
+        scope_id = require_identifier(scope_id, name="SCOPE_ID")
+        con = self._connection()
+        try:
+            con.execute("BEGIN")
+            try:
+                state, seq, head = self._replay(con, scope_id)
+                owner = state["owner_pin"]
+                att = state["source_attestation"]
+                if owner is None or att is None:
+                    raise DomainConflict("ATOMIC_OWNER_AND_SOURCE_PIN_REQUIRED")
+                pinned = verify_owner_inventory(
+                    raw, manifest, inventory_bytes,
+                    expected_inventory_sha256=expected_inventory_sha256)
+                source = pinned.source
+                if (pinned.attestation() != {k:v for k,v in owner.items()
+                                              if k != "event_sha256"} or
+                    source.attestation() != {k:v for k,v in att.items()
+                                               if k != "event_sha256"}):
+                    raise DomainConflict("ATOMIC_SOURCE_OWNER_LEDGER_DRIFT")
+                report = audit_host_atomic_exchange(source, exchange)
+                knowledge_audit = None
+                if knowledge is not None:
+                    from .prior_knowledge import audit_prior_candidates
+                    knowledge_audit = audit_prior_candidates(source, exchange, knowledge)
+                result = {
+                    "schema":"IRE_V6_PRIVATE_HOST_ATOMIC_SNAPSHOT_V1",
+                    "scope_id":scope_id, "sequence":seq,
+                    "ledger_head_sha256":head,
+                    "state_sha256":json_digest(state),
+                    "source_original_bytes_verified_this_call":True,
+                    "atomic_audit":report,
+                    "knowledge_audit":knowledge_audit,
+                    "independent_semantic_recall_verified":False,
+                    "financial_facts_approved":False,
+                    "research_complete":False,
+                    "engine_quality_certified":False,
+                    "p0_go":False}
+                con.execute("COMMIT")
+                return result
+            except BaseException:
+                if con.in_transaction:
+                    con.execute("ROLLBACK")
+                raise
+        finally:
+            con.close()
+
+    def submit_host_atomic_batch(self, **kwargs) -> dict:
+        """One-transaction ChatGPT-host model+proof batch, no semantic approval."""
+        from .host_batch import submit_host_atomic_batch
+        return submit_host_atomic_batch(self, **kwargs)
+
     def freeze_blind_plan(self, *, scope_id: str, command_id: str,
                           expected_head: str, raw: bytes, manifest: dict,
                           inventory_bytes: bytes, expected_inventory_sha256: str,

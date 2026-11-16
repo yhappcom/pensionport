@@ -1,0 +1,59 @@
+{
+  "schema": "IRE_V146_SOURCE_MEANING_PROVENANCE_PATCH_MANIFEST_V1",
+  "as_of": "2026-11-16",
+  "scope": "VERIFICATION_BRANCH_ONLY",
+  "previous_v145_manifest_git_blob_sha": "865782ddbd14b6f9c9480ac6140ec50f83e37201",
+  "previous_v145_commit_sha": "81b2d49006b31fd3dfc4eb4bd067792bae3606dd",
+  "modified_from_v145": [
+    {
+      "path": "validation/ire-v6-frozen/v123_chat_final_gate.py",
+      "previous_git_blob_sha": "17bc0463a870a99b086c0fe7fb2b1f02eaa1a618",
+      "git_blob_sha": "17da9fae7d4fcc48087c55ca0d2031ba72a0bb3c",
+      "bytes": 19793
+    }
+  ],
+  "added": [
+    {
+      "path": "validation/ire-v6-frozen/v146_source_meaning_provenance.py",
+      "git_blob_sha": "9ef560db657b740975e5c1b75a191449d2c1c05d",
+      "bytes": 4741
+    },
+    {
+      "path": "validation/ire-v6-frozen/test_v146_source_meaning_provenance.py",
+      "git_blob_sha": "ae01d3c1b757f6ab880031d424eb01e9739de258",
+      "bytes": 6289
+    },
+    {
+      "path": "validation/ire-v6-frozen/v146_meaning_release_safety_gate.py",
+      "git_blob_sha": "3d7a0710633a5243aa70d65cb859d6f16492285d",
+      "bytes": 2699
+    },
+    {
+      "path": "validation/ire-v6-frozen/test_v146_meaning_release_safety_gate.py",
+      "git_blob_sha": "b4eafc966ace38ba021cbb86b2a8435369966e44",
+      "bytes": 2692
+    }
+  ],
+  "sha_only_public": [
+    {
+      "path": "validation/ire-v6-frozen/V146_SEMANTIC_REVIEW_SHA_ONLY.json",
+      "git_blob_sha": "f55c1f97814ebeabf0911836e002f37f569d0179",
+      "bytes": 2871
+    },
+    {
+      "path": "validation/ire-v6-frozen/V146_P0_C_SEMANTIC_QUALITY_REMEDIATION_REPORT.md",
+      "git_blob_sha": "3e2819060f74c0a868ef559f69900d07b5a64ef2",
+      "bytes": 7191
+    }
+  ],
+  "private_source_sha256": "638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d",
+  "source_srt_cues": 1481,
+  "source_cue_semantic_dockets": 72,
+  "source_semantic_untriaged": 202,
+  "v123_real_approved_scopes": 0,
+  "real_knowledge_published": 0,
+  "actual_gold_precision_recall_measured": false,
+  "original_audio_authenticity_verified": false,
+  "issuer_original_body_bytes_verified": false,
+  "p0_go": false
+}

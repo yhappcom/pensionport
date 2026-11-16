@@ -1,0 +1,35 @@
+{
+  "schema": "IRE_V6_V25_CHAT_RELEVANCE_AND_ISA_ILLUSTRATIVE_BASE",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "base_head_sha": "96fa870de76e7ac4420dc15c9784ac6f762ccdba",
+  "previous_v24_manifest_git_blob_sha": "bc1b3938b3d60a20d944dd5c5affb7c0865afed5",
+  "added": [
+    {
+      "path": "ire/v6/semantic_finance_decision_v25.py",
+      "git_blob_sha": "4e909f9d1c04ebb035b483181b3a633f84fec2cd"
+    },
+    {
+      "path": "ire/v6/tests/test_semantic_finance_decision_v25.py",
+      "git_blob_sha": "2ad08708c1087985a3044e4ed04ffaab9c4c191e"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_V25_SEMANTIC_RELEVANCE_ISA_BASE_REPORT.md",
+  "report_git_blob_sha": "2d4fbbc2b05d5a6ed37a02ee673ee20711bebdd1",
+  "new_total_ire_v6_tracked_files": 70,
+  "new_synthetic_tests": 18,
+  "current_as_of": "2026-11-10",
+  "requires_explicit_chat_claim_relevance_review": true,
+  "supports_isa_nominal_base_only": true,
+  "isa_60_day_general_rule": true,
+  "isa_extra_base_10pct_cap_3000000": true,
+  "isa_cross_tax_year_calculation_deferred": true,
+  "host_generated_review_is_independent_gold": false,
+  "lexical_facet_prefilter_is_semantic_entailment": false,
+  "official_primary_full_bytes_authenticated": false,
+  "personal_tax_credit_or_refund_calculated": false,
+  "actual_private_v25_srt_replay_completed": false,
+  "independent_precision_recall_measured": false,
+  "all_791_videos_researched": false,
+  "main_v5_116_p4_changed": false,
+  "p0_go": false
+}

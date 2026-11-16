@@ -1,0 +1,87 @@
+{
+  "schema": "IRE_V6_V59_REAL70_SOURCE_WEIGHTED_CAPACITY_PRECHECK_HASH_ONLY_NOT_SEMANTIC_CERTIFICATION",
+  "as_of": "2026-11-12",
+  "previous_v58_commit": "35b079f7b5519b07b938885f7c86bfc71c9a0aa0",
+  "roster_basis": "VIDEO_INVENTORY_2026-10-07.md",
+  "roster_total_videos": 791,
+  "roster_long_form": 703,
+  "roster_shorts": 88,
+  "source_archive_name_private": "1-70.zip",
+  "original_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "physical_archive_srt_entries": 71,
+  "distinct_video_id_srt_count": 70,
+  "duplicate_srt_files_one_byte_identical_pair": 1,
+  "ambiguous_conflicting_duplicate_srt_source_ids": 0,
+  "video_count_source_parser_pass": 70,
+  "first_five_existing_v37_cue_window_candidate_counts_verified": 5,
+  "full_repository_v33_and_source_modules_directly_executed": false,
+  "compatible_v33_draft_spans_and_srt_parser_used": true,
+  "full_clean_checkout_verified_by_current_source_probe": false,
+  "sample_70": {
+    "long_videos": 49,
+    "short_videos": 21,
+    "original_cues": 56045,
+    "windows_at_40_cues": 1431,
+    "v33_provisional_speech_candidates": 15866,
+    "packets_at_most_120_cues": 506,
+    "worst_packet_v33_candidate_count": 58,
+    "all_70_packets_within_v40_4_window_160_candidate_software_bound": true,
+    "counts_by_type": {
+      "long": {
+        "n": 49,
+        "cues": 55330,
+        "windows": 1407,
+        "candidates": 15722,
+        "packets": 485,
+        "median_cues_per_video": 807,
+        "max_cues_single_video": 10728,
+        "max_windows_single_video": 269,
+        "max_candidates_single_video": 3341,
+        "max_packets_single_video": 90
+      },
+      "short": {
+        "n": 21,
+        "cues": 715,
+        "windows": 24,
+        "candidates": 144,
+        "packets": 21,
+        "median_cues_per_video": 34,
+        "max_cues_single_video": 51,
+        "max_packets_single_video": 1
+      }
+    },
+    "source_only_processing_probe_seconds": 0.62
+  },
+  "illustrative_population_scaling_not_validated_prediction": {
+    "method": "stratum means of 49 long and 21 short source sample applied to roster 703 Long-form+88 Short",
+    "with_very_long_compilation_source_sample": {
+      "approx_cues": 796810,
+      "approx_windows": 20283,
+      "approx_drafts": 226168,
+      "approx_120_cue_host_packets": 7048
+    },
+    "excluded_one_10728_cue_compilation_for_sensitivity": {
+      "approx_cues": 656231,
+      "approx_windows": 16768,
+      "approx_drafts": 181936,
+      "approx_120_cue_host_packets": 5874
+    },
+    "samples_not_random_and_not_certified_representative": true,
+    "actual_complete_791_source_scope_not_reverified_this_turn": true,
+    "human_meaning_annotation_throughput_not_measured": true,
+    "actual_791_completion_date_not_estimated": true
+  },
+  "engineering_constraints": {
+    "v40_max_windows_per_submit": 4,
+    "v40_max_candidates_per_submit": 160,
+    "conservative_host_original_cues_per_packet": 120,
+    "current_chat_only_no_external_model_api": true,
+    "model_meaning_cannot_be_certified_by_regex_only": true,
+    "source_count_not_equivalent_to_atom_completeness": true,
+    "signed_independent_human_gold_unavailable": true,
+    "p0_go": false
+  },
+  "protected_assets_unchanged": true,
+  "private_source_srt_or_private_per_video_sha_uploaded": false,
+  "private_reproduction_bundle_zip_sha256": "c9cf0f259f493d655f159280cfffd4962f0756147ac02da0a012912fa674d68b"
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "IRE_V6_CURRENT_LAW_VS_OLD_SOURCE_CHAT_REASSESSMENT_PATCH_V22",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "base_head_sha": "c94defcf648baa3ec1266a42a460abfac76f59ce",
+  "previous_v21_manifest_git_blob_sha": "0363c1f6757cc38619a6cc9e720079c995eb1b58",
+  "added": [
+    {
+      "path": "ire/v6/current_law_reassessment.py",
+      "git_blob_sha": "d3fc437c6761d40e415e3df4286a2b49056dfeab"
+    },
+    {
+      "path": "ire/v6/tests/test_current_law_reassessment.py",
+      "git_blob_sha": "9f8880a87cbd64d659da106f1447392325bfa95d"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_V22_CURRENT_LAW_CHAT_REASSESSMENT_REPORT.md",
+  "report_git_blob_sha": "2f02d77711a9c648261918542678e868fe6a36eb",
+  "new_total_ire_v6_tracked_files": 64,
+  "source_archive_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+  "current_asof": "2026-11-10",
+  "current_advisory_uses_law_effective_today": true,
+  "historical_accuracy_temporal_gate_preserved": true,
+  "private_chat_review_fallback_required": true,
+  "official_host_interpretation_not_auto_approved": true,
+  "reviewed_private_original_videos": 2,
+  "actual_private_source_cues": 66,
+  "candidate_claims": 27,
+  "current_asof_chat_reviewed_claims": 17,
+  "open_chat_review_claims": 10,
+  "two_video_replay_receipt_sha256": [
+    "e936d43f0b5b280a6c2a9f4e8c7cdfa90f4650dfc4c9a444cef972add7181e84",
+    "a172adb4f530f143908dcd8fed17d698f7be988400738ce131e65673916df693"
+  ],
+  "new_synthetic_tests": 16,
+  "related_local_synthetic_tests": 68,
+  "primary_law_full_body_external_sha_authentication": false,
+  "independent_human_gold_available": false,
+  "actual_independent_precision_recall_measured": false,
+  "individual_financial_law_applicability_approved": false,
+  "external_model_api_called": false,
+  "private_raw_srt_or_chat_labels_uploaded": false,
+  "previous_nine_video_blind_prereg_changed": false,
+  "main_v5_116_p4_changed": false,
+  "s6_frozen_nine_video_original_available": false,
+  "all_791_videos_researched": false,
+  "p0_go": false
+}

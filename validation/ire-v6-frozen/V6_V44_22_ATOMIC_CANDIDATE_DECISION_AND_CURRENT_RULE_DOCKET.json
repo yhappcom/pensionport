@@ -1,0 +1,439 @@
+{
+  "schema": "IRE_V6_V44_SOURCE_BOUND_FINANCE_ASSERTION_CANDIDATE_DECISION_DOCKET_NOT_APPROVED",
+  "as_of": "2026-11-11",
+  "reference_v43_head": "15f40e8eda391994279f6227656bd6689f86725d",
+  "source_video_cohort": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "case_count": 22,
+  "current_rule_or_advice_cases": [
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "source_candidate_id": "C00266",
+      "public_paraphrased_financial_unit": "국내주식형 ETF 일반계좌 매매차익과 분배금은 과세유형을 달리 판단한다.",
+      "current_rule_or_advice_disposition": "CURRENT_GENERAL_RULE_SUPPORTED_WITH_SCOPE",
+      "conditions_exceptions": [
+        "국내주식형 ETF 여부",
+        "장내매매와 분배금 구별",
+        "일반계좌인지 연금계좌인지"
+      ],
+      "official_or_regulator_urls": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+        "https://www.nabo.go.kr/board/file/down.do?fid=33319156"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "source_candidate_id": "C00268",
+      "public_paraphrased_financial_unit": "일반계좌 비과세 매매차익도 연금계좌에서 인출 시 과세재원이 될 수 있는가?",
+      "current_rule_or_advice_disposition": "QUESTION_NOT_FINANCIAL_ASSERTION",
+      "conditions_exceptions": [
+        "연금계좌 운용수익과 과세제외 원금의 차이",
+        "퇴직소득 재원 및 연금수령 조건"
+      ],
+      "official_or_regulator_urls": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "source_candidate_id": "C00270",
+      "public_paraphrased_financial_unit": "이연퇴직소득 인출과 세액공제납입금 운용수익 인출은 세무상 다른 재원이다.",
+      "current_rule_or_advice_disposition": "CURRENT_GENERAL_RULE_SUPPORTED_WITH_SCOPE",
+      "conditions_exceptions": [
+        "납입 시 세액공제 여부",
+        "이연퇴직소득 구분",
+        "퇴직금 연금수령 연차와 세율"
+      ],
+      "official_or_regulator_urls": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "source_candidate_id": "C00272",
+      "public_paraphrased_financial_unit": "국내주식만 담은 ETF의 일반계좌 매매차익은 항상 비과세라는 단순화가 가능하다.",
+      "current_rule_or_advice_disposition": "OVERGENERALIZED_PRODUCT_CLASSIFICATION",
+      "conditions_exceptions": [
+        "KRX 국내주식형 ETF 세법상 분류 확인",
+        "국내 상장 해외주식·채권·원자재 ETF 제외",
+        "세법 시행일"
+      ],
+      "official_or_regulator_urls": [
+        "https://regulation.krx.co.kr/contents/RGL/03/03060105/RGL03060105.jsp",
+        "https://www.nabo.go.kr/board/file/down.do?fid=33319156"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 1,
+      "window_id": "W00022",
+      "source_candidate_id": "C00274",
+      "public_paraphrased_financial_unit": "연금계좌 수익·원금을 단순 2분류하여 모두 동일하게 과세한다고 볼 수 있다.",
+      "current_rule_or_advice_disposition": "CURRENT_RULE_REQUIRES_SOURCE_TYPE_SPLIT",
+      "conditions_exceptions": [
+        "세액공제받지 않은 원금 과세제외",
+        "이연퇴직소득",
+        "세액공제 납입금·운용수익",
+        "과세연도"
+      ],
+      "official_or_regulator_urls": [
+        "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312",
+        "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7889&mi=6453"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00005",
+      "source_candidate_id": "C00057",
+      "public_paraphrased_financial_unit": "사회초년생에게 CMA·ISA·연금저축 계좌 세 가지는 반드시 필요하다.",
+      "current_rule_or_advice_disposition": "PERSONAL_ALLOCATION_NOT_UNIVERSAL",
+      "conditions_exceptions": [
+        "비상자금·부채",
+        "ISA 가입대상 및 의무가입기간",
+        "연금저축 중도 인출 제약"
+      ],
+      "official_or_regulator_urls": [],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00005",
+      "source_candidate_id": "C00059",
+      "public_paraphrased_financial_unit": "매월 50만원 투자자금은 ISA 40만원·연금저축 10만원으로 배분한다.",
+      "current_rule_or_advice_disposition": "HYPOTHETICAL_ALLOCATION_NOT_OPTIMALITY_PROVEN",
+      "conditions_exceptions": [
+        "세액공제 가능한 납부세액",
+        "투자기간과 인출 필요 시기",
+        "현금흐름"
+      ],
+      "official_or_regulator_urls": [
+        "https://pension.kebhana.com/rpc/hhom/kr/rpc02080001.do"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00007",
+      "source_candidate_id": "C00085",
+      "public_paraphrased_financial_unit": "퇴직급여 300만원 기준 때문에 퇴직 IRP는 전부 의무이다.",
+      "current_rule_or_advice_disposition": "CURRENT_STATUTORY_RULE_WITH_EXCEPTIONS",
+      "conditions_exceptions": [
+        "2022-04-14 시행 기준",
+        "퇴직급여 300만원 이하",
+        "55세 이후 퇴직",
+        "기타 법정 이전 예외"
+      ],
+      "official_or_regulator_urls": [
+        "https://1350.moel.go.kr/rtmview.do?id=1000317131",
+        "https://easylaw.go.kr/CSP/OnhunqueansInfoRetrieve.laf?onhunqnaAstSeq=82&onhunqueSeq=4846"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 2,
+      "window_id": "W00007",
+      "source_candidate_id": "C00089",
+      "public_paraphrased_financial_unit": "대다수 사람이 투자계좌 5개를 갖는 것이 필수 재무규칙이다.",
+      "current_rule_or_advice_disposition": "PERSONAL_ACCOUNT_COUNT_NOT_REQUIRED_BY_LAW",
+      "conditions_exceptions": [
+        "개인의 금융자산 용도",
+        "계좌관리 비용과 중복",
+        "연금저축·IRP 대체 및 병행 가능"
+      ],
+      "official_or_regulator_urls": [],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00003",
+      "source_candidate_id": "C00034",
+      "public_paraphrased_financial_unit": "은행 IRP에 있는 퇴직금은 전부 증권사 IRP로 이전하는 게 좋다.",
+      "current_rule_or_advice_disposition": "PERSONAL_SWITCH_NOT_UNIVERSALLY_SUITABLE",
+      "conditions_exceptions": [
+        "운용상품·수수료·해지 또는 이전비용",
+        "현물이전 가능성과 대상계좌",
+        "보유기간·수익률 변동"
+      ],
+      "official_or_regulator_urls": [
+        "https://eiec.kdi.re.kr/policy/materialView.do?num=233201",
+        "https://1350.moel.go.kr/rtmview.do?id=1000317131"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00003",
+      "source_candidate_id": "C00036",
+      "public_paraphrased_financial_unit": "증권사 IRP의 관리수수료는 모두 0원이다.",
+      "current_rule_or_advice_disposition": "PRODUCT_CONTRACT_SPECIFIC_NO_UNIVERSAL_ZERO",
+      "conditions_exceptions": [
+        "금융회사·채널·가입금 출처",
+        "운용관리/자산관리/상품보수 구별",
+        "영상 당시 시행 약관"
+      ],
+      "official_or_regulator_urls": [
+        "https://eiec.kdi.re.kr/policy/materialView.do?num=233201",
+        "https://pension.kebhana.com/rpc/hhom/kr/rpc02080001.do"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00004",
+      "source_candidate_id": "C00049",
+      "public_paraphrased_financial_unit": "1만원 수준의 최소 연금수령을 미리 신청하는 방안이 언제, 누구에게 유리한가?",
+      "current_rule_or_advice_disposition": "2026_SHINHAN_ANNUAL_MINIMUM_CONTEXT_PERSONAL_OPTIMALITY_UNPROVEN",
+      "conditions_exceptions": [
+        "원문에는 1만원 수령 빈도를 특정하지 않음",
+        "신한투자증권 2026 자료는 연간 최소 1만원의 실제 연금수령 인정",
+        "퇴직금 포함 IRP인지, 세법상 연금수령 가능연령 및 연차",
+        "다른 사업자 계약과 실제 고객 연금개시 제한"
+      ],
+      "official_or_regulator_urls": [
+        "https://www.samsungpop.com/ux/kor/pension/introduce/taxation/tab_irp.pop",
+        "https://file.shinhansec.com/filedoc/mtscon/irp_guide.pdf"
+      ],
+      "review_note": "Corrected prior unsupported word 'monthly'; annual minimum 10000 KRW corroborated only by a current product booklet, video-era and personal tax outcome OPEN.",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00004",
+      "source_candidate_id": "C00050",
+      "public_paraphrased_financial_unit": "연금개시 이후 같은 IRP에 새 돈을 추가 납입할 수 없다는 상품 운영 주장.",
+      "current_rule_or_advice_disposition": "ONE_PROVIDER_OPERATION_GUIDE_SUPPORTS_NOT_UNIVERSAL",
+      "conditions_exceptions": [
+        "신한투자증권 2026 안내에 동일 제한 명시",
+        "다른 사업자·계좌 유형은 계약 확인",
+        "추가 퇴직금 수령용 신규 계좌 가능성"
+      ],
+      "official_or_regulator_urls": [
+        "https://file.shinhansec.com/filedoc/mtscon/irp_guide.pdf"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 3,
+      "window_id": "W00004",
+      "source_candidate_id": "C00052",
+      "public_paraphrased_financial_unit": "기존 IRP 대신 새 IRP를 개설하고 나중에 은행에서 증권사로 이전할 수 있다.",
+      "current_rule_or_advice_disposition": "ACCOUNT_AND_PRODUCT_CONDITIONS_REQUIRED",
+      "conditions_exceptions": [
+        "추가 IRP 개설 조건",
+        "상품 현물이전 가능 여부",
+        "회사별 비용·시차",
+        "사업자별 계약"
+      ],
+      "official_or_regulator_urls": [
+        "https://1350.moel.go.kr/rtmview.do?id=1000317131",
+        "https://eiec.kdi.re.kr/policy/materialView.do?num=233201"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00011",
+      "source_candidate_id": "C00132",
+      "public_paraphrased_financial_unit": "손실 종목을 즉시 매도하지 말고 투자 지속을 우선해야 한다.",
+      "current_rule_or_advice_disposition": "PERSONAL_TRADING_RECOMMENDATION_UNSUPPORTED",
+      "conditions_exceptions": [
+        "종목 가치평가 및 투자 논리 변화",
+        "손실 감내능력·포트폴리오 집중",
+        "재투자 기회비용"
+      ],
+      "official_or_regulator_urls": [],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00011",
+      "source_candidate_id": "C00137",
+      "public_paraphrased_financial_unit": "금리 인상 이후 배당수익률이 높아져 지금 사면 수익이 좋아진다.",
+      "current_rule_or_advice_disposition": "HISTORICAL_MARKET_AND_DIVIDEND_YIELD_HYPOTHESIS",
+      "conditions_exceptions": [
+        "배당 규모와 주가 분모 효과 구별",
+        "배당 삭감·금리와 시장위험",
+        "영상 당시 날짜 및 채권·주식가격"
+      ],
+      "official_or_regulator_urls": [],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 4,
+      "window_id": "W00011",
+      "source_candidate_id": "C00143",
+      "public_paraphrased_financial_unit": "연 9% 배당수익률로 손실 포지션을 복구할 수 있다.",
+      "current_rule_or_advice_disposition": "HYPOTHETICAL_YIELD_NOT_GUARANTEED",
+      "conditions_exceptions": [
+        "9%는 목표 수치이지 보장 수익률이 아님",
+        "배당락·원금 손실·세금·수수료",
+        "새 계좌 잔고 증가와 기존 종목 회복 구별"
+      ],
+      "official_or_regulator_urls": [],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00007",
+      "source_candidate_id": "C00103",
+      "public_paraphrased_financial_unit": "취업 초기 3개월 월급 전액을 소비해도 된다.",
+      "current_rule_or_advice_disposition": "PERSONAL_SPENDING_ADVICE_UNSUPPORTED",
+      "conditions_exceptions": [
+        "고정비·부채상환·비상자금",
+        "필수생활비",
+        "소비습관·일회성 지출"
+      ],
+      "official_or_regulator_urls": [],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00007",
+      "source_candidate_id": "C00107",
+      "public_paraphrased_financial_unit": "사회초년생 월급 절반은 소비하고 절반은 투자해야 한다.",
+      "current_rule_or_advice_disposition": "PERSONAL_BUDGET_RATIO_NOT_UNIVERSAL",
+      "conditions_exceptions": [
+        "실수령 급여·필수지출·부채",
+        "투자기간·위험감내력",
+        "생활비 예비자금"
+      ],
+      "official_or_regulator_urls": [],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00008",
+      "source_candidate_id": "C00115",
+      "public_paraphrased_financial_unit": "ISA 40만원·연금저축 10만원으로 월투자 50만원을 배분하는 게 기본이다.",
+      "current_rule_or_advice_disposition": "HYPOTHETICAL_ALLOCATION_NOT_OPTIMALITY_PROVEN",
+      "conditions_exceptions": [
+        "소득세 세액공제 한도 및 세액",
+        "단기 자금 필요와 원금손실 위험",
+        "ISA 가입·연금계좌 제한"
+      ],
+      "official_or_regulator_urls": [
+        "https://pension.kebhana.com/rpc/hhom/kr/rpc02080001.do"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00008",
+      "source_candidate_id": "C00122",
+      "public_paraphrased_financial_unit": "고용주 회사 주식에 투자하는 것을 사회초년생에게 권한다.",
+      "current_rule_or_advice_disposition": "CORRELATED_HUMAN_CAPITAL_AND_STOCK_RISK",
+      "conditions_exceptions": [
+        "급여·고용안정과 보유주식의 상관위험",
+        "미공개정보 및 사내거래 제한",
+        "개별회사 가치평가·집중투자"
+      ],
+      "official_or_regulator_urls": [
+        "https://syndication.finra.org/content/concentrate-concentration-risk-0"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    },
+    {
+      "video_no": 5,
+      "window_id": "W00008",
+      "source_candidate_id": "C00123",
+      "public_paraphrased_financial_unit": "고용주 종목이 없으면 관련 계열사·공급사 주식을 매수한다.",
+      "current_rule_or_advice_disposition": "SECTOR_AND_JOB_CONCENTRATION_RISK",
+      "conditions_exceptions": [
+        "고용주·업종 연관성",
+        "보유자산·근로소득 노출",
+        "분산투자 가능성"
+      ],
+      "official_or_regulator_urls": [
+        "https://syndication.finra.org/content/concentrate-concentration-risk-0"
+      ],
+      "review_note": "",
+      "historical_video_law_reconstructed": false,
+      "owner_specific_finance_truth_approved": false,
+      "independent_human_gold_verified": false
+    }
+  ],
+  "conditions_preserved": true,
+  "all_video_historical_issuance_terms_authenticated": false,
+  "all_22_claims_truth_certified": false,
+  "publish_private_original_srt": false,
+  "personal_advice_or_master_knowledge_auto_approval": false,
+  "precommitted_independent_gold_human_reviews": 0,
+  "p0_go": false,
+  "reviewer_correction": "The original video C00049 says 10000 won payout application without monthly frequency. 2026 Shinhan guide speaks annual 10000 won minimum."
+}

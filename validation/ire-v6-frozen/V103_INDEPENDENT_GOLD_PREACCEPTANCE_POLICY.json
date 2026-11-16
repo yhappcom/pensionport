@@ -1,0 +1,28 @@
+{
+  "blind_reviewer_attestation": null,
+  "criteria": [
+    "all source financial atomic claims and exclusions annotated including no-alert cues",
+    "speaker stance and rebuttal scope",
+    "numerical amount-period-unit and basis",
+    "historical vs current applicability",
+    "independent official issuer reference for factual verification",
+    "two reviewers adjudicate disagreements and freeze gold before seeing predictions",
+    "explicitly score TP FP FN and high-risk FN with counts"
+  ],
+  "external_rater_validated": false,
+  "gold_source_digest": null,
+  "high_risk_recall": null,
+  "independent_gold_requires_external_blind_reviewer": true,
+  "independent_precision": null,
+  "independent_recall": null,
+  "p0_go": false,
+  "prohibited": [
+    "internal ChatGPT notes promoted to gold",
+    "historical V75 guessed",
+    "unreviewed cues silently negative",
+    "promote risk signal to true error",
+    "approve individual advice"
+  ],
+  "reviewer_id": null,
+  "schema": "V103_INDEPENDENT_GOLD_ACCEPTANCE_POLICY_PRE_ADJUDICATION_V1"
+}

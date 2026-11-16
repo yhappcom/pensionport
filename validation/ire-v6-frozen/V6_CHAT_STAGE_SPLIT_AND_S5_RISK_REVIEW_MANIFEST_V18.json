@@ -1,0 +1,36 @@
+{
+  "schema": "IRE_V6_CHAT_STAGE_SPLIT_AND_S5_RISK_REVIEW_PATCH_V18",
+  "scope": "VALIDATION_BRANCH_ONLY",
+  "previous_v17_manifest_git_blob_sha": "d615c091e2a803dc97cd74d91f43256ce47847cc",
+  "base_head_sha": "1549d3adb815c5997ddbe7490031c0cd8317609c",
+  "added": [
+    {
+      "path": "ire/v6/stage_repair.py",
+      "git_blob_sha": "bff294d8fba1130b10d60253793996a56e8ba79b"
+    },
+    {
+      "path": "ire/v6/tests/test_stage_repair.py",
+      "git_blob_sha": "e8de51f0332af0b2e7ddd094b77181ab5ef1d930"
+    }
+  ],
+  "report_path": "validation/ire-v6-frozen/V6_S3_SPLIT_S5_SEMANTIC_REVIEW_V18.md",
+  "report_git_blob_sha": "737974a03d65c86be81897cdc64859c8817e4667",
+  "new_total_ire_v6_tracked_files": 54,
+  "real_s3_merged_atoms_split": 2,
+  "real_s3_split_children": 4,
+  "real_s3_additional_unresolved_high_risk_atom": 1,
+  "real_s3_baseline_candidates": 17,
+  "real_s3_posthoc_candidates": 20,
+  "s5_original_risks": 6,
+  "s5_source_context_amended": 3,
+  "s5_cross_clause_scoped_chat_only": 3,
+  "s5_raw_risks_still_visible": 3,
+  "s5_unreviewed_original_risks": 0,
+  "source_only_self_signed_owner_inventory": true,
+  "private_raw_srt_committed": false,
+  "chat_reference_is_independent_gold": false,
+  "semantic_truth_independently_verified": false,
+  "s6_9_video_original_obtained": false,
+  "s7_rollout_approved": false,
+  "p0_go": false
+}
