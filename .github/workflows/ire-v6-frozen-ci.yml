@@ -2237,6 +2237,7 @@ jobs:
         run: |
           python -m compileall -q validation/ire-v6-frozen/v152_p0e_quality_release_gate.py
           python -m unittest discover -s validation/ire-v6-frozen -p 'test_v152_p0e_quality_release_gate.py' -v
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v1521_focused_source_risk_hold.py' -v
       - name: Verify public source-only lineage receipt cannot grant completion
         run: |
           PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
