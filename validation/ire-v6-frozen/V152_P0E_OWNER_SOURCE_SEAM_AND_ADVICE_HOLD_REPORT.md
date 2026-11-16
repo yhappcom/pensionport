@@ -42,3 +42,12 @@ These are current-law educational guardrails, **NOT user-specific tax calculatio
 - CI PASS on source/manifest/hash guard is *not* owner-private meaning review PASS; public CI cannot see owner-private SRT. Do not import V152 private ZIP into Actions or leak its contents.
 - \`main\`, existing V145/V151 manifests, previously approved knowledge, and user portfolio remain unchanged.
 - **Final V152 judgment: verified original source repartition and literal citation anchors / full-video accuracy + V123/V128/advisory suitability NO-GO.**
+
+## 5. V152.1 incremental source-first focused meaning review (same ChatGPT, not gold)
+
+- Reopened actual user-private 202 pending V146 atoms, matched the original 1–1481 SRT, reviewed **42 risk-flagged propositions** with adjacent source-cue context.
+- Recorded specific speech-act dispositions and limits for book quotations, personal opinions, analogies, historical unaudited market facts, conditional recommendations, uncertainty/risk claims, and the mixed question/answer claim C00221.
+- Particularly **C00226 is a question** about a falling stock, not a fact; **C00187 '랜드' ASR** may mean NAND but requires audio/source evidence; **C00225** subjective conviction cannot be a capital-loss guarantee; **C00256** normative investment advice cannot be promoted to an independent fact.
+- Actual ChatGPT-authored 42 individual risk notes and source excerpts retained only in \`V152_1_PRIVATE_42_SOURCE_FIRST_CHAT_RISK_HOLD.zip\` in the private Library; public \`V1521_FOCUSED_42_SOURCE_RISK_SHA_ONLY.json\` contains aggregate numbers and one SHA commitment only.
+- **42 targeted source-first risk observations do not amount to 42 V123 final approvals. The same-chat review is not externally independent gold. 160 of the original 202 have not undergone this additional targeted review, and all 202 remain open for final V123 approval.**
+- V152.1 five synthetic regression tests reject fabricated 42/202 ChatGPT final approval, precision/recall certification or high-risk FN zero. The actual private original is not available to CI.
