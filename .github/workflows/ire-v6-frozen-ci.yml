@@ -2311,7 +2311,7 @@ jobs:
           if-no-files-found: error
           retention-days: 1
   v154-real-owner-replay-public-hold:
-    name: V154 real owner replay SHA-only: 13 V6 host commits, V123/V128 HOLD
+    name: "V154 real owner replay SHA-only: 13 V6 host commits, V123/V128 HOLD"
     needs: canonical-environment
     runs-on: ubuntu-latest
     timeout-minutes: 10
