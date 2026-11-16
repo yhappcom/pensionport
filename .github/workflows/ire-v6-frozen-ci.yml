@@ -12,6 +12,7 @@ on:
       - verify/ire-v6-p1-atomic-host-batch-20261109
       - verify/ire-v6-p0e-v151-remediation-20261116
       - verify/ire-v6-p0e-v152-source-seam-20261116
+      - verify/ire-v6-p0e-v153-semantic-202-20261116
   workflow_dispatch:
 permissions:
   contents: read
@@ -2251,3 +2252,35 @@ jobs:
           print(json.dumps(result,sort_keys=True))
           PY
 
+  v153-source-first-202-owner-hold:
+    name: V153 SHA-only 202 claim notes and 108 unresolved source cues (no gold approval)
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Test V153 original-source review proof and false-completion negatives
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v153_source_first_owner_recheck.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v153_source_first_owner_recheck.py' -v
+      - name: Audit public SHA-only 202 and 108 cue review HOLD status
+        run: |
+          PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from v153_source_first_owner_recheck import audit_public_sha_only
+          manifest=json.loads(Path("validation/ire-v6-frozen/V153_SOURCE_FIRST_SEMANTIC_202_SHA_ONLY.json").read_text())
+          status=audit_public_sha_only(manifest)
+          assert status["source_first_chat_pending_claim_notes"] == 202
+          assert status["private_unresolved_cue_recheck"] == 108
+          assert status["v123_scopes_approved"] == 0
+          assert status["gold_precision_or_recall_measured"] is False
+          assert status["p0e_go"] is False
+          print(json.dumps(status,ensure_ascii=False,sort_keys=True))
+          PY
