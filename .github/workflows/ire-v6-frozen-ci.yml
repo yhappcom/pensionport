@@ -13,6 +13,7 @@ on:
       - verify/ire-v6-p0e-v151-remediation-20261116
       - verify/ire-v6-p0e-v152-source-seam-20261116
       - verify/ire-v6-p0e-v153-semantic-202-20261116
+      - verify/ire-v6-p0e-v154-integration-20261117
   workflow_dispatch:
 permissions:
   contents: read
@@ -2283,4 +2284,37 @@ jobs:
           assert status["gold_precision_or_recall_measured"] is False
           assert status["p0e_go"] is False
           print(json.dumps(status,ensure_ascii=False,sort_keys=True))
+          PY
+
+  v154-real-source-correction-sha-hold:
+    name: V154 corrected owner-source 276 atom draft and 102 OPEN cue hold
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Execute V154 12 source integration and real-host evidence negative controls
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v154_actual_source_integration_hold.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v154_actual_source_integration_hold.py' -v
+      - name: Reject false V6/V123/V128 GO and verify 102 source cue hold
+        run: |
+          PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from v154_actual_source_integration_hold import audit_v154_sha_only
+          v=json.loads(Path("validation/ire-v6-frozen/V154_SOURCE_CORRECTION_AND_DISPOSITION_SHA_ONLY.json").read_text())
+          result=audit_v154_sha_only(v)
+          assert result["remaining_original_unresolved_cues"] == 102
+          assert result["actual_source_bound_atom_corrections"] == 1
+          assert result["source_first_no_atom_dispositions"] == 6
+          assert result["new_native_v6_host_receipts"] == 0
+          assert result["p0e_go"] is False
+          print(json.dumps(result,sort_keys=True))
           PY
