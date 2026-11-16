@@ -11,6 +11,7 @@ on:
       - verify/ire-v6-p1-prior-relation-20261109
       - verify/ire-v6-p1-atomic-host-batch-20261109
       - verify/ire-v6-p0e-v151-remediation-20261116
+      - verify/ire-v6-p0e-v152-source-seam-20261116
   workflow_dispatch:
 permissions:
   contents: read
@@ -2219,3 +2220,33 @@ jobs:
           assert result["v128_published"] == 0 and result["gold_precision_or_recall_certified"] is False
           print(json.dumps(result,ensure_ascii=False,sort_keys=True))
           PY
+  v152-private-source-seam-public-hold:
+    name: V152 actual-source SHA-only 13-child resegmentation and personal eligibility HOLD checks
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Compile and test 12 source, V123/V128 and suitability negative controls
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v152_p0e_quality_release_gate.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v152_p0e_quality_release_gate.py' -v
+      - name: Verify public source-only lineage receipt cannot grant completion
+        run: |
+          PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from v152_p0e_quality_release_gate import audit_sha_only_source_repartition,gate_approved_knowledge_based_answer
+          r=json.loads(Path("validation/ire-v6-frozen/V152_SOURCE_ONLY_SHA_RECEIPT.json").read_text())
+          result=audit_sha_only_source_repartition(r)
+          assert result["V123_chat_scopes_final_passed"]==0 and result["V128_parent_published"]==0
+          assert result["P0_E_GO"] is False
+          print(json.dumps(result,sort_keys=True))
+          PY
+
