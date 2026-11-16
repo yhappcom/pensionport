@@ -15,6 +15,7 @@ on:
       - verify/ire-v6-p0e-v153-semantic-202-20261116
       - verify/ire-v6-p0e-v154-real-integration-20261116
       - verify/ire-v6-p0e-v155-75-cue-adjudication-20261117
+      - verify/ire-v6-p0e-v157-actual-284-host-semantic-fields-20261117
   workflow_dispatch:
 permissions:
   contents: read
@@ -2377,3 +2378,35 @@ jobs:
           assert outcome["p0e_go"] is False
           print(json.dumps(outcome,sort_keys=True))
           PY
+  v157-real-host-source-semantic-public-gate:
+    name: V157 actual owner-host SHA-only 284 claims and ChatGPT semantic field HOLD
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Test 12 false-completion controls on private real-host evidence commitments
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v157_actual_source_native_semantic_release_gate.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v157_actual_source_native_semantic_release_gate.py' -v
+      - name: Verify actual private host 13 SHA-only but V123 research and advice HOLD
+        run: |
+          PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from v157_actual_source_native_semantic_release_gate import audit_v157_sha_only,can_publish_research_or_personal_advice
+          data=json.loads(Path("validation/ire-v6-frozen/V157_ACTUAL_V6_CHAT_FIELD_HOST_SHA_ONLY.json").read_text(encoding="utf8"))
+          result=audit_v157_sha_only(data)
+          assert result["native_host_events"]==13
+          assert result["candidate_atoms"]==284
+          assert result["v123_approved_scopes"]==0
+          assert can_publish_research_or_personal_advice(data)["research_candidate_export_allowed"] is False
+          print(json.dumps(result,sort_keys=True))
+          PY
+
