@@ -22,6 +22,7 @@ from ire.v6.codec import json_digest, require_hash, sha256
 from ire.v6.errors import InvalidInput, QualityNotProven
 from ire.v6.source import VerifiedSource
 from v143_source_pinned_quarantine import audit_explicit_quarantine
+from v146_source_meaning_provenance import audit_source_meaning_provenance
 
 SCHEMA = "IRE_V6_CHAT_FINAL_REVIEW_V123"
 RECEIPT_SCHEMA = "IRE_V6_CHAT_FINAL_GATE_RECEIPT_V123"
@@ -159,8 +160,9 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
         "unresolved_audio_visual", "external_independent_certified",
         "personalized_advice_approved", "p0_go", "review_private_evidence_sha256",
     }
-    _check(type(chat_review) is dict and set(chat_review) in
-           (required_review, required_review | {"quarantine"}),
+    _check(type(chat_review) is dict and
+           required_review <= set(chat_review) and
+           set(chat_review) - required_review <= {"quarantine", "source_meaning_provenance"},
            "CHAT_REVIEW_SCHEMA")
     _check(chat_review["schema"] == SCHEMA and
            chat_review["review_executor"] == "CHATGPT_IN_CHAT" and
@@ -275,6 +277,7 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                    "UNVERIFIED_SEMANTIC_ACCEPTANCE")
     _check(seen == set(atoms), "CHAT_ATOM_MISSING")
     quarantine = audit_explicit_quarantine(source, exchange, chat_review, atoms)
+    semantic_provenance = audit_source_meaning_provenance(source, exchange, chat_review)
     pre = host_receipt.get("host_source_prequarantine_pin")
     if pre is not None:
         _check(quarantine is not None and
@@ -298,6 +301,10 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                      reviewed=len(cues)-missing_cues, accepted=accepted, rejected=rejected,
                      opened=opened, missing_cues=missing_cues, finance_open=finance_open,
                      risk_open=risk_open+hrf, digest=json_digest(chat_review))
+    if semantic_provenance is not None:
+        result.update(source_meaning_provenance_sha256=semantic_provenance["ledger_hash_sha256"],
+                      source_unknown_speaker_stance_accepted_claims_checked=semantic_provenance["source_identity_unresolved_claims_reviewed"],
+                      independent_semantic_accuracy_certified=False)
     if quarantine is not None:
         result.update(atoms_excluded=quarantine["atoms"],
                       cues_excluded=quarantine["cues"],
