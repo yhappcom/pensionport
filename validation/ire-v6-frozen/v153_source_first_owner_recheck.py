@@ -102,7 +102,7 @@ def private_owner_source_recheck(manifest, original_srt_bytes, owner_cue_text_by
            hashlib.sha256(original_srt_bytes).hexdigest() ==
            manifest["original_source_sha256"], "REAL_RAW_SRT_HASH_REQUIRED")
     try:
-        blocks = re.split(r"\\r?\\n\\r?\\n",
+        blocks = re.split(r"\r?\n\r?\n",
                           original_srt_bytes.decode("utf-8-sig").strip())
         parsed = {}
         for block in blocks:
