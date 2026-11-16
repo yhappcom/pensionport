@@ -74,10 +74,48 @@ def audit_v154_sha_only(receipt: dict):
 
 
 def require_actual_native_host_for_v123(v154_public_receipt: dict,
-                                       actual_host_receipts: list):
-    """Enforce native event-backed receipts and block arbitrary hash-only rows."""
+                                       actual_host_receipts: list,
+                                       ledger_snapshots_by_scope: dict | None = None):
+    """Require 13 verifiable native V6 receipt heads before V123 review.
+
+    The caller must supply actual private ledger replay snapshots, not user-
+    supplied unverified SHA-only claims. Passing this gate permits V123 REVIEW
+    only; it does not approve any ChatGPT meaning or V128 knowledge.
+    """
     status = audit_v154_sha_only(v154_public_receipt)
     _need(type(actual_host_receipts) is list, "HOST_RECEIPTS_REQUIRED")
     _need(len(actual_host_receipts) == 13, "THIRTEEN_NATIVE_RECEIPTS_MISSING")
-    _need(False, "OWNER_PRIVATE_VERIFIED_LEDGER_REPLAY_REQUIRED")
-    return status
+    _need(type(ledger_snapshots_by_scope) is dict, "PRIVATE_LEDGER_REPLAY_REQUIRED")
+    scopes = set()
+    for receipt in actual_host_receipts:
+        _need(type(receipt) is dict and
+              receipt.get("schema") == "IRE_V6_HOST_BATCH_RECEIPT_V1" and
+              receipt.get("atomic_batch_committed") is True and
+              receipt.get("is_current") is True and
+              receipt.get("human_semantic_review_pending") is True and
+              receipt.get("semantic_truth_certified") is False and
+              receipt.get("p0_go") is False, "NATIVE_RECEIPT_SCHEMA_OR_STATUS")
+        scope = receipt.get("scope_id")
+        _need(type(scope) is str and scope not in scopes, "HOST_SCOPE_DUPLICATE")
+        scopes.add(scope)
+        event = receipt.get("event_sha256")
+        _need(type(event) is str and HEX64.fullmatch(event) is not None,
+              "HOST_EVENT_SHA")
+        snap = ledger_snapshots_by_scope.get(scope)
+        _need(type(snap) is dict and
+              snap.get("ledger_head_sha256") == event and
+              type(snap.get("progress")) is dict and
+              snap["progress"].get("model_windows_recorded") ==
+              receipt.get("source_and_proof_model_windows") and
+              snap["progress"].get("current_revision_structural_proof_records") ==
+              receipt.get("source_and_proof_model_windows"),
+              "REAL_LEDGER_HEAD_OR_PROOF_MISSING")
+    return {
+        **status,
+        "new_native_v6_host_receipts": 13,
+        "native_receipt_heads_replayed": True,
+        "v123_review_permitted": True,
+        "v123_review_completed": False,
+        "v128_published": 0,
+        "p0e_go": False,
+    }
