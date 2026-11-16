@@ -43,7 +43,7 @@ def audit_v155_public_hold(p):
     _req(p.get("video_id")=="5NvtBlmt93Y" and
          p.get("original_source_sha256")==SOURCE,"ORIGINAL_SOURCE")
     exact={
-      "original_cues":1481,"parent_scopes":13,"v154_pending_cues":75,
+      "source_cues":1481,"parent_scopes":13,"v154_pending_cues":75,
       "v155_source_first_cues_examined":75,"v155_new_links_to_source_pinned_atoms":57,
       "v155_new_no_independent_atom_cues":5,"v155_still_unresolved_from_75":13,
       "original_108_queue_now_claim_linked":72,
