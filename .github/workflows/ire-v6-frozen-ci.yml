@@ -10,6 +10,7 @@ on:
       - verify/ire-v6-p1-legacy-readonly-20261109
       - verify/ire-v6-p1-prior-relation-20261109
       - verify/ire-v6-p1-atomic-host-batch-20261109
+      - verify/ire-v6-p0e-v151-remediation-20261116
   workflow_dispatch:
 permissions:
   contents: read
@@ -2188,3 +2189,33 @@ jobs:
             /tmp/v150_live_v23_receipt.json
             /tmp/v150_original_issuer_bytes/
           if-no-files-found: warn
+
+  v151-p0e-private-remediation-public-contract:
+    name: V151 SHA-only hold & cross-seam synthetic negative controls
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Compile and run V151 negative controls (synthetic, no private source)
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v151_p0e_private_remediation_guard.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v151_p0e_private_remediation_guard.py' -v
+      - name: Audit V151 public manifest without promoting research status
+        run: |
+          PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from v151_p0e_private_remediation_guard import audit_public_hold_receipt
+          p=Path("validation/ire-v6-frozen/V151_P0E_SOURCE_REMEDIATION_SHA_ONLY.json")
+          result=audit_public_hold_receipt(json.loads(p.read_text(encoding="utf-8")))
+          assert result["p0e_go"] is False and result["v123_approved_scopes"] == 0
+          assert result["v128_published"] == 0 and result["gold_precision_or_recall_certified"] is False
+          print(json.dumps(result,ensure_ascii=False,sort_keys=True))
+          PY
