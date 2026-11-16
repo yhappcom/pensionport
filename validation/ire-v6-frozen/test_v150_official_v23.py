@@ -4,6 +4,7 @@ import copy,hashlib, tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
 from v150_real_issuer_v23_bridge import evidence_from_exact_live_bytes,synthetic_current_question,ASOF
+from ire.v6.errors import InvalidInput
 from v149_official_https_body import SPECS,audit_original_bytes
 
 
@@ -63,14 +64,14 @@ class V150LiveLawBridgeContracts(unittest.TestCase):
         source,ex,dec=synthetic_current_question()
         ev=evidence_from_exact_live_bytes(self.root,self.receipts)
         dec[0]['proposition_sha256']='0'*64
-        with self.assertRaisesRegex(ValueError,'PROPOSITION_DRIFT'):
+        with self.assertRaisesRegex(InvalidInput,'PROPOSITION_DRIFT'):
             audit_current_law_reassessment(source,ex,current_as_of=ASOF,primary_evidence=ev,chat_decisions=dec)
 
     def test_08_future_rule_not_misrepresented_as_current(self):
         from ire.v6.current_law_reassessment import audit_current_law_reassessment
         source,ex,dec=synthetic_current_question();ev=evidence_from_exact_live_bytes(self.root,self.receipts)
         ev[0]['effective_from']='2027-11-16'
-        with self.assertRaisesRegex(ValueError,'RULE_NOT_CURRENT'):
+        with self.assertRaisesRegex(InvalidInput,'RULE_NOT_CURRENT'):
             audit_current_law_reassessment(source,ex,current_as_of=ASOF,primary_evidence=ev,chat_decisions=dec)
 
 if __name__=='__main__':unittest.main()
