@@ -5,7 +5,7 @@
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
   "current_step": "E3",
-  "current_engine_verdict": "E1_E2_VERIFIED_PASS_E3_NOT_RUN_ENGINE_NO_GO",
+  "current_engine_verdict": "E1_E2_PASS_E3_TRANSPORT_UNDER_TEST_NO_GO",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -106,11 +106,12 @@
       "step": "E3",
       "target": "ChatGPT 최종 검증",
       "criterion": "승인·보류·격리 결과가 정확히 전달",
-      "status": "NOT_RUN",
+      "status": "IN_PROGRESS",
       "completed_at": null,
       "evidence_paths": [],
       "blockers": [],
-      "retest_required": false
+      "retest_required": false,
+      "discovered_diagnostic": "V1271 child CHECKPOINT_REJECT becomes generic HOLD_CHILD_CHAT_SEMANTICS_OR_FINANCE at V128 host response boundary; per-atom disposition not exposed by V128 response"
     },
     {
       "step": "E4",
