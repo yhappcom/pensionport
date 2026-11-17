@@ -101,8 +101,9 @@ class V166E4CertifiedE2ContextRealSqliteTests(unittest.TestCase):
         with sqlite3.connect(str(self.fx.knowledge.path)) as con:
             rows=[json.loads(r[0]) for r in
                   con.execute("SELECT entry_json FROM knowledge")]
+        reviewed_ids={a["claim_id"] for a in self.e2.exchange["atoms"]}
         mismatched=[r["knowledge_id"] for r in rows
-                    if r["source_sha256"] != self.e2.source.source_sha256]
+                    if r["claim_id"] not in reviewed_ids]
         self.assertTrue(mismatched)
         with self.assertRaises(InvalidInput):
             self._read(pin,mismatched[:1])
