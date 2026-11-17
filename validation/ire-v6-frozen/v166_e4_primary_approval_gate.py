@@ -113,6 +113,15 @@ def _holding(case, native, code, *, verified=0):
         "source_sha256":case["source"].source_sha256,
         "native_chat_decision":native["decision"],
         "chat_review_sha256":native["chat_review_sha256"],
+        "native_unapproved_open_claim_ids":sorted(
+            v["claim_id"] for v in case["chat_review"]["atom_verdicts"]
+            if v["status"]=="OPEN"),
+        "native_unapproved_open_claim_count":sum(
+            v["status"]=="OPEN" for v in case["chat_review"]["atom_verdicts"]),
+        "native_excluded_claim_count":sum(
+            v["status"]=="EXCLUDE_FROM_RESEARCH"
+            for v in case["chat_review"]["atom_verdicts"]),
+        "partial_primary_context_not_an_approval":True,
         "approved_research_candidate_claims":0,
         "official_primary_claims_replayed":verified,
         "research_export_authorized":False,
@@ -337,7 +346,13 @@ def run_e4_guarded_parent(checkpoint, knowledge_store, *, review_or_load_child,
             typed_manifest=typed_manifest_for_child(segment_id,packet["case"]))
         guarded.append({"segment_id":segment_id,"e4_status":verified["status"],
                         "reason_code":verified.get("reason_code"),
-                        "source_sha256":verified["source_sha256"]})
+                        "source_sha256":verified["source_sha256"],
+                        "unapproved_open_claim_ids":verified.get(
+                            "native_unapproved_open_claim_ids",[]),
+                        "unapproved_open_claim_count":verified.get(
+                            "native_unapproved_open_claim_count",0),
+                        "partial_evidence_may_not_release_parent": (
+                            verified["status"]!="E4_PASS_RESEARCH_CANDIDATES_ONLY")})
         if verified["status"]!="E4_PASS_RESEARCH_CANDIDATES_ONLY":
             raise E4ApprovalBlocked("V166_E4_CHILD_PRIMARY_NOT_APPROVED")
         knowledge_store.record_e4_validated_child(segment_id,verified,packet["case"])
