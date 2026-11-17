@@ -21,6 +21,7 @@ on:
       - verify/ire-v6-p0e-v161-source-evidence-recovery-20261117
       - verify/ire-v6-p0e-v162-one-video-repeat-proof-20261117
       - verify/ire-v6-p0e-v163-b0001-final-meaning-audit-20261117
+      - verify/ire-v6-p0e-v164-b0001-typed-final-20261117
   workflow_dispatch:
 permissions:
   contents: read
@@ -2604,3 +2605,51 @@ jobs:
           path: ${{ runner.temp }}/v163_b0001_primary/
           retention-days: 1
           if-no-files-found: error
+  v164-b0001-typed-chat-final-semantic-safety:
+    name: V164 B0001 typed source meaning with 32 synthetic safety controls and native V123 HOLD
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Verify typed original-source review contract and 32 fail-closed controls
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v164_typed_v123.py
+          PYTHONPATH=validation/ire-v6-frozen python -m unittest discover -s validation/ire-v6-frozen -p 'test_v164_typed_v123.py' -v
+      - name: Confirm owner SHA-only receipt never claims V123 or V128 research approval
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('validation/ire-v6-frozen/V164_B0001_ACTUAL_SOURCE_TYPED_V123_SHA_ONLY_HOLD.json').read_text())
+          assert r['original_srt_cues']==1481 and r['b0001_original_cues']==120
+          assert r['b0001_atom_candidates']==16
+          assert r['native_v123_claims_accepted_for_research']==7
+          assert r['new_v164_original_speech_type_only_count']==5
+          assert len(r['new_v164_original_speech_type_only_claim_ids'])==5
+          assert len(r['objective_historical_original_evidence_open_claim_ids'])==3
+          assert r['native_v123_atoms_open_unchanged']==8
+          assert r['native_high_risk_omissions_unresolved']==12
+          assert r['native_disagreements_adjudicated'] is False
+          assert r['native_v123_B0001_final_pass'] is False
+          assert r['v164_typed_semantic_scope_final_pass'] is False
+          assert r['actual_v1271_child_scopes_held']==13
+          assert r['actual_v128_knowledge_events']==0
+          assert r['actual_v128_knowledge_entries']==0
+          assert r['actual_v128_parent_publications']==0
+          assert r['independent_precision_95_recall_98_or_zero_high_risk_FN_certified'] is False
+          assert r['personal_investment_advice_approved'] is False
+          assert r['p0e_go'] is False
+          assert all(len(r[k])==64 for k in (
+             'original_owner_source_sha256','b0001_actual_native_v6_host_event_sha256',
+             'owner_private_rows_sha256','owner_private_typed_result_sha256',
+             'independent_private_readonly_replay_sha256','owner_private_packet_sha256'))
+          print({'B0001':'5 source speech acts reviewed','native_V123_PASS':0,
+                 'owner_high_risk_unresolved':12,'V128_knowledge_published':0,'P0E_GO':False})
+          PY
