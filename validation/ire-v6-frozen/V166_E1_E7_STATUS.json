@@ -5,7 +5,7 @@
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
   "current_step": "E4",
-  "current_engine_verdict": "E1_E2_E3_PASS_E4_FAIL_OWNER_REAL_LEGAL_APPROVAL_AND_OPERATIONAL_DEPLOYMENT_NO_GO",
+  "current_engine_verdict": "E1_E2_E3_PASS_E4_FAIL_TYPED_AUTHORITY_ROUTING_AND_REAL_PARENT_APPROVAL_UNFINISHED_NO_GO",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -153,18 +153,20 @@
         "validation/ire-v6-frozen/V166_E4_APPROVAL_GATE_REAL_PRIMARY_CI_AND_REMAINING_FAIL_20261117.md",
         "validation/ire-v6-frozen/V166_E4_SECOND_REPAIR_GUARDED_STORE_AND_OWNER_BOOK_SOURCE_20261117.md",
         "validation/ire-v6-frozen/V166_E4_THIRD_REPAIR_OWNER_PIN_SEALED_SQLITE_AND_BOOK_EVIDENCE_20261117.md",
-        "validation/ire-v6-frozen/V166_E4_FOURTH_REPAIR_SEMANTIC_ENTAILMENT_CERTIFIED_E2_READ_AND_OWNER_HISTORY_20261117.md"
+        "validation/ire-v6-frozen/V166_E4_FOURTH_REPAIR_SEMANTIC_ENTAILMENT_CERTIFIED_E2_READ_AND_OWNER_HISTORY_20261117.md",
+        "validation/ire-v6-frozen/V166_E4_FIFTH_REPAIR_OWNER_EVIDENCE_TYPE_VAULT_AND_NATIVE_HOLD_20261118.md"
       ],
       "blockers": [
-        "Actual B0001 native V123 remains HOLD: C00002 author ASR/audio, C00009 broad shareholder anthology/capital-era claim, C00010 third-party 1957 partnership reproduction and UNRESOLVED speaker stance; 3 original OPEN claims remain and 0 actual approved knowledge is issued",
-        "E4 ChatGPT source-to-official paraphrase proof now passes synthetic positive/negative tests, but no current genuine legal primary fact and applicable effective-period claim has passed actual owner source → ChatGPT final V123 → E4 → V128 private commit",
-        "E4 sealed HMAC owner pin and E2 safe retrieval tested on real SQLite synthetic parent, but operator production signing secret, externally retained current owner pin, and mandatory trusted access route not deployed or verified on actual owner's research knowledge",
-        "Raw legacy V126/plain SQLite can still write physical bytes; these are not E4-certified without external owner pin but any unguarded legacy advisory consumer must be kept separate from certified knowledge"
+        "E4 primary-authority source routing still not integrated into official parent gate: actual B0001 has 0 statutory-law claims and 13 generic financial/highrisk screening flags but documentary publisher, business history, speech-only opinions and questions require distinct primary policies",
+        "Actual B0001 frozen V123 original review still HOLD (7 accept, 8 open, 1 exclude); later source-only quarantine view 7/3/6 also HOLD; C00002 C00009 C00010 objective source/audio/history OPEN and no real parent E4 approval or publication",
+        "Actual permitted law/financial-rule claims in other video scopes not yet tested from original owner subtitle through up-to-date applicable official original bytes + ChatGPT entailment → native V123 → E4 full valid commit",
+        "Operator signing secret and external latest owner PIN 0600/CAS access succeeded only in synthetic CI; production long-lived secret, external pinned owner state and all canonical knowledge/advice service read routes are not provisioned or verified",
+        "Plain V126 raw SQLite can still physically write, but those bytes fail E4 certificate; direct unguarded legacy research/advice readers must not be treated as certified release"
       ],
       "retest_required": true,
       "initial_hazard": "Frozen V123 permits synthetic fake government body when bytes SHA and dated flags match; no authenticated publisher/authority/scope evidence enforced",
       "synthetic_only_approval_must_not_certify_legality": true,
-      "latest_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44072177360",
+      "latest_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44161615816",
       "ordered_ci_jobs_passed": 9,
       "live_origin_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44037778904",
       "live_official_source_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6449",
@@ -273,7 +275,40 @@
         "C00009",
         "C00010"
       ],
-      "private_owner_srt_sha256": "638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d"
+      "private_owner_srt_sha256": "638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d",
+      "typed_evidence_authority_module": "v166_e4_typed_authority.audit_e4_source_type_inventory",
+      "actual_owner_16_typed_source_census_sha256": "58fab2d319e11c32e5f0b481d656835ba948df06283b50086ef7131506412f17",
+      "actual_owner_16_statutory_law_claims": 0,
+      "actual_owner_16_nonstatutory_screened_financial_or_highrisk": 13,
+      "actual_owner_16_atom_source_refs_direct_verified": true,
+      "e4_legal_primary_only_root_cause_confirmed": true,
+      "type_aware_e4_parent_gate_authority_routing_completed": false,
+      "actual_owner_c00006_wiley_primary_book_title_match_sha256": "3bfe86799d6d4480cea2dbe29991b774a1115124f52299dd62f018e9c62edf28",
+      "actual_owner_c00006_native_research_candidate_verdict_unchanged": "ACCEPT_FOR_RESEARCH",
+      "actual_owner_c00006_entire_video_release_allowed": false,
+      "actual_owner_original_v164_native_replay": {
+        "status": "CHAT_FINAL_HOLD_OPEN",
+        "accepted": 7,
+        "open": 8,
+        "excluded": 1,
+        "finance_open": 8,
+        "owner_db_original_unchanged": true,
+        "private_receipt_sha256": "13f88c8c581f34719fe12638107fc97f8fb300e81e26fd2d2cbc59b7af5a17e9",
+        "native_gate_receipt_sha256": "5fc08dcfc2acd728987ad67ff555e02c71af16c71aa76041b9878773fd74c71d",
+        "source_sha256": "638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d"
+      },
+      "actual_owner_subsequent_v143_source_only_quarantine_effective": {
+        "accepted": 7,
+        "open": 3,
+        "excluded": 6,
+        "version_note": "separate source-only-disposition view, not a change to original frozen V164 review"
+      },
+      "e4_operator_external_key_pin_module": "v166_e4_operator_trust.E4OperatorTrust",
+      "e4_operator_private_file_acl_and_pin_cas_synthetic_pass": true,
+      "e4_operator_v128_parent_e2_signed_safe_read_synthetic_pass": true,
+      "e4_operational_operator_key_deployed": false,
+      "e4_latest_owner_pin_external_storage_deployed": false,
+      "e4_all_advisory_routes_enforced": false
     },
     {
       "step": "E5",
