@@ -65,15 +65,21 @@ def audit_pabrai_fund_first_party_words(primary_body):
         _fail("ORIGINAL_FIRST_PARTY_BODY_REQUIRED")
     body=html.unescape(primary_body.decode("utf-8",errors="replace"))
     text=WHITESPACE.sub(" ",TAGS.sub(" ",body)).lower()
-    if not all(x in text for x in (
-        "pabrai investment funds",
-        "were inspired by the original",
-        "close replica of the original buffett partnership rules",
-        "1950s buffett partnerships",
-    )):
+    # Dynamic website tokens can change the COMPLETE raw HTTPS body
+    # without changing the issuer's specific fund-rules sentence.
+    # Preserve BOTH hashes; stable excerpt hash never substitutes for the
+    # original bytes in frozen V123 or owner-bound E4 certificate.
+    scope=re.search(
+        r"the pabrai investment funds\\s*\\(pif\\)\\s*were inspired by the original\\s+"
+        r"1950s buffett partnerships\\s+and are a close replica of the original\\s+"
+        r"buffett partnership rules",text)
+    if not scope:
         raise QualityNotProven("V166_E4_PABRAI_OWNER_ORIGINAL_STRUCTURE_WORDING_ABSENT")
     return {
         "schema":"IRE_V166_E4_PABRAI_FUND_ISSUER_RULES_ONLY_V1",
+        "normalised_issuer_claim_sha256":sha256(scope.group(0).encode("utf-8")),
+        "normalised_issuer_claim_not_raw_body_substitute":True,
+        "raw_body_sha256_may_change_between_https_fetches":True,
         "first_party_url":PABRAI_ABOUT_URL,
         "raw_body_sha256":sha256(primary_body),
         "fund_management_rules_based_on_buffett_claimed_by_issuer":True,
