@@ -131,8 +131,8 @@ def audit_e4_source_type_inventory(source,exchange,chat_review,inventory):
         # High risk and generic 'financial_claim' in frozen V123 are
         # screening flags. A question/opinion/book citation is not a
         # current statute solely because of those flags.
-        if (verdict["financial_claim"] or verdict["high_risk"]) and
-            cat!="STATUTORY_FINANCIAL_RULE":
+        if ((verdict["financial_claim"] or verdict["high_risk"]) and
+                cat!="STATUTORY_FINANCIAL_RULE"):
             attention.append(cid)
         classes[cat]+=1
     _require(seen==set(atoms),"MISSING_REVIEWED_ATOM")
