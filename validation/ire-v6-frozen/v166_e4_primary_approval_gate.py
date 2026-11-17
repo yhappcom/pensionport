@@ -199,7 +199,9 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
                  (until is None or as_of<=until), "PRIMARY_NOT_APPLICABLE_ASOF")
         idx=r["original_claim_cue_index"]
         atom=atoms[cid]
-        _require(type(idx) is int and idx in atom["context_cue_indices"]
+        _require(type(idx) is int
+                 and idx in {x["cue_index"] for x in atom["source_refs"]}
+                 and idx in atom["context_cue_indices"]
                  and type(r["original_claim_quote"]) is str
                  and len(r["original_claim_quote"])>=5
                  and r["original_claim_quote"] in case["source"].cues[idx-1].text,
