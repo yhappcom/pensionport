@@ -31,7 +31,7 @@ def audit_v158_public_receipt(record:dict):
         "quarantined_source_cues":27,"native_v6_host_committed_scopes":13,
         "native_v6_host_idempotent_replay_scopes":13,
         "actual_v123_chat_hold_scopes":13,"actual_v123_chat_pass_scopes":0,
-        "actual_v128_parent_publication_count":0,
+        "actual_v128_parent_publication_count":0,"V128_real_child_checkpoints_hold":13,
     }
     for key,v in expected.items():
         _need(type(record.get(key)) is int and record[key]==v,
@@ -49,6 +49,13 @@ def audit_v158_public_receipt(record:dict):
                   "zero_high_risk_FN_certified","personal_financial_suitability_verified",
                   "p0e_go"):
         _need(record.get(field) is False,"UNSUPPORTED_APPROVAL_"+field.upper())
+    _need(record.get("V128_no_partial_publish_real_verified") is True and
+          record.get("V128_real_host_result")=="HOLD_CHILD_CHAT_SEMANTICS_OR_FINANCE" and
+          record.get("V128_knowledge_db_zero_head")=="0"*64,
+          "V128_ZERO_KNOWLEDGE_EVENT_REPLAY_INCOMPLETE")
+    receipt_pin=record.get("private_V128_checkpoint_and_knowledge_event_sha256")
+    _need(type(receipt_pin) is str and SHA64.fullmatch(receipt_pin) is not None,
+          "V128_REAL_CHECKPOINT_PRIVATE_SHA_REQUIRED")
     for k in ("private_review_129_row_digest_sha256",
               "private_unresolved_13_docket_sha256","private_owner_package_sha256"):
         v=record.get(k)
@@ -66,7 +73,7 @@ def audit_v158_public_receipt(record:dict):
             "explicit_chat_source_first_changes":129,
             "remaining_unresolved_stances":77,"unknown_speaker_roles":282,
             "original_audio_or_official_open":13,"V123_final_pass_scopes":0,
-            "V128_parent_published":0,"gold_accuracy_certified":False,
+            "V128_parent_published":0,"V128_real_child_HOLD_checkpoints":13, "V128_private_knowledge_head_is_zero":True,"gold_accuracy_certified":False,
             "individual_advice_approved":False,"p0e_go":False}
 
 def research_release_allowed(record:dict):
