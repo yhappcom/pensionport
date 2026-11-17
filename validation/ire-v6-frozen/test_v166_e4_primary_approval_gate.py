@@ -357,8 +357,9 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
         self.assertEqual(allowed["status"],"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED")
         initial=self.fx._counts()
         with self.assertRaises(sqlite3.DatabaseError):
-            self.fx.knowledge._session().__enter__().execute(
-                "INSERT INTO knowledge VALUES(?,?,?)",("fake","{}","0"*64))
+            with self.fx.knowledge._session() as con:
+                con.execute("INSERT INTO knowledge VALUES(?,?,?)",
+                            ("fake","{}","0"*64))
         self.assertEqual(self.fx._counts(),initial)
 
     def test_16_invalid_source_redirect_also_blocks_parent_approval(self):
