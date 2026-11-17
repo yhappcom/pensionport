@@ -197,5 +197,68 @@ class V166E4OperatorCertifiedE2ReadIntegration(unittest.TestCase):
                 ledger=bad,selected_knowledge_ids=ids)
 
 
+class V166E4OperatorOneTurnParentTests(unittest.TestCase):
+    def setUp(self):
+        from test_v166_e4_primary_approval_gate import (
+            V166E4E3V128RealSQLiteIntegration)
+        self.pilot=V166E4E3V128RealSQLiteIntegration(
+            "test_14_both_valid_synthetic_children_do_publish_research_only")
+        self.pilot.setUp()
+        self.addCleanup(self.pilot.doCleanups)
+        self.tmp=tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        root=Path(self.tmp.name)/"private-operator"
+        root.mkdir(mode=0o700)
+        key=root/"operator.key"
+        key.write_bytes(os.urandom(48))
+        key.chmod(0o600)
+        self.pin=root/"latest.pin"
+        self.operator=E4OperatorTrust(
+            self.pilot.fx.knowledge.path,
+            key_path=str(key),latest_pin_path=str(self.pin))
+
+    def run_parent(self):
+        from unittest.mock import patch
+        from test_v166_e4_primary_approval_gate import BODY
+        from v166_e4_operator_trust import run_e4_with_external_owner_pin
+        fx=self.pilot.fx
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=BODY):
+            return run_e4_with_external_owner_pin(
+                self.operator,fx.checkpoint,
+                review_or_load_child=fx.child,
+                review_seams=fx.seams,
+                review_parent=fx.parent_review,
+                primary_manifest_for_child=lambda sid,case:self.pilot.manifests.get(sid),
+                expected_knowledge_head="0"*64,
+                now_as_of="2026-11-17")
+
+    def test_16_one_turn_e4_publishes_only_after_private_external_pin_durable(self):
+        r=self.run_parent()
+        self.assertEqual(r["schema"],"IRE_V166_E4_OPERATOR_PARENT_RELEASE_V1")
+        self.assertEqual(r["status"],"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED")
+        self.assertTrue(r["external_owner_pin_committed"])
+        self.assertEqual(r["certified_child_scope_count"],2)
+        self.assertEqual(self.operator.read_latest_pin(),
+                         r["operator_latest_pin_sha256"])
+        self.assertFalse(r["formal_financial_law_certified"])
+        self.assertFalse(r["personal_advice_approved"])
+
+    def test_17_unverified_second_child_does_not_commit_pin_or_knowledge(self):
+        del self.pilot.manifests[self.pilot.fx.checkpoint.child_ids[1]]
+        r=self.run_parent()
+        self.assertEqual(r["status"],"E4_HOLD_UNVERIFIED_CHILD")
+        self.assertFalse(r["external_owner_pin_committed"])
+        self.assertFalse(self.pin.exists())
+        self.assertEqual(self.pilot.fx._counts().get("knowledge",0),0)
+
+    def test_18_missing_external_pin_after_parent_commit_cannot_be_trusted(self):
+        r=self.run_parent()
+        self.pin.unlink()
+        self.assertTrue(r["all_video_knowledge_published"])
+        with self.assertRaises(QualityNotProven):
+            self.operator.open_verified_read()
+
+
 if __name__=="__main__":
     unittest.main()
