@@ -70,8 +70,8 @@ def audit_pabrai_fund_first_party_words(primary_body):
     # Preserve BOTH hashes; stable excerpt hash never substitutes for the
     # original bytes in frozen V123 or owner-bound E4 certificate.
     scope=re.search(
-        r"the pabrai investment funds\\s*\\(pif\\)\\s*were inspired by the original\\s+"
-        r"1950s buffett partnerships\\s+and are a close replica of the original\\s+"
+        r"the pabrai investment funds\s*\(pif\)\s*were inspired by the original\s+"
+        r"1950s buffett partnerships\s+and are a close replica of the original\s+"
         r"buffett partnership rules",text)
     if not scope:
         raise QualityNotProven("V166_E4_PABRAI_OWNER_ORIGINAL_STRUCTURE_WORDING_ABSENT")
