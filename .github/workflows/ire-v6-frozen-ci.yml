@@ -19,6 +19,7 @@ on:
       - verify/ire-v6-p0e-v158-129-source-stances-20261117
       - verify/ire-v6-p0e-v159-v123-source-first-20261117
       - verify/ire-v6-p0e-v161-source-evidence-recovery-20261117
+      - verify/ire-v6-p0e-v162-one-video-repeat-proof-20261117
   workflow_dispatch:
 permissions:
   contents: read
@@ -2529,4 +2530,30 @@ jobs:
           assert m['p0e_go'] is False
           print(json.dumps({'source_only':1,'finance_evidence_work_queue':counts,'v123_approved':0,'v128_knowledge_published':0,'p0e_go':False},sort_keys=True))
           PY
-
+  v162-source-first-review-and-primary-body-attempt:
+    name: V162 one video source-first evidence route 10 tests and official HTTPS body attempt
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: V162 Python code parse and 10 synthetic evidence routing tests
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v162_meaning_routed_evidence.py validation/ire-v6-frozen/v162_capture_official_public_page_bytes.py
+          PYTHONPATH=validation/ire-v6-frozen python -m unittest discover -s validation/ire-v6-frozen -p 'test_v162_synthetic_public.py' -v
+      - name: Real original HTTPS public issuer and publisher raw body attempt
+        run: |
+          python validation/ire-v6-frozen/v162_capture_official_public_page_bytes.py "${RUNNER_TEMP}/v162_official_public_bytes"
+      - name: Archive public issuer originals for bounded owner-private replay
+        uses: actions/upload-artifact@v4
+        with:
+          name: v162-public-issuer-raw-body-original-https-short-retention
+          path: ${{ runner.temp }}/v162_official_public_bytes/
+          if-no-files-found: error
+          retention-days: 1
