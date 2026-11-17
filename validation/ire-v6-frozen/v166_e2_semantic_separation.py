@@ -240,3 +240,74 @@ def build_e2_source_separated_context_packet(source, exchange, ledger):
         "independent_gold_certified": False,
         "p0_go": False,
     }
+
+
+DISCOURSE_TYPES = {
+    "QUESTION_REFINEMENT", "CONTRAST", "QUESTION_COMPARISON",
+    "SPECULATION_VS_SOURCE_DESCRIPTION", "QUALIFIER", "REBUTTAL",
+}
+
+
+def audit_e2_cross_atom_discourse(source, exchange, ledger, discourse):
+    """Keep rebuttal/contrast/qualification spanning DIFFERENT atoms.
+
+    An original V6 exception list may be empty even when a neighboring
+    speaker explicitly contrasts two sentences. This supplemental ChatGPT
+    ledger makes those relationships source-auditable without fabricating
+    original condition/exception cue indices or a financial-fact approval.
+    """
+    base = audit_e2_semantic_ledger(source, exchange, ledger)
+    _need(type(discourse) is dict and set(discourse) == {
+        "schema","source_sha256","review_executor","rows",
+        "private_chat_review_sha256","financial_fact_auto_approved",
+    } and discourse["schema"] == "IRE_V166_E2_CROSS_ATOM_DISCOURSE_V1"
+        and discourse["source_sha256"] == source.source_sha256
+        and discourse["review_executor"] == "CHATGPT_IN_CHAT"
+        and discourse["financial_fact_auto_approved"] is False
+        and type(discourse["private_chat_review_sha256"]) is str
+        and HEX64.fullmatch(discourse["private_chat_review_sha256"])
+        and type(discourse["rows"]) is list, "DISCOURSE_SCHEMA")
+    atoms = {a["claim_id"]:a for a in exchange["atoms"]}
+    required = {"left_claim_id","right_claim_id","relation_type",
+                "source_cue_index","source_quote","source_cue_sha256",
+                "chat_meaning_note","chat_meaning_note_sha256",
+                "source_checked","financial_fact_verified"}
+    seen = set()
+    for item in discourse["rows"]:
+        _need(type(item) is dict and set(item) == required, "DISCOURSE_ROW_SCHEMA")
+        left,right = item["left_claim_id"],item["right_claim_id"]
+        idx = item["source_cue_index"]
+        key = (left,right,item["relation_type"],idx)
+        _need(left in atoms and right in atoms and left != right
+              and key not in seen and item["relation_type"] in DISCOURSE_TYPES,
+              "DISCOURSE_ATOM_IDS_OR_TYPE")
+        seen.add(key)
+        union = set(atoms[left]["context_cue_indices"]) | set(
+            atoms[right]["context_cue_indices"])
+        _need(type(idx) is int and idx in union
+              and type(item["source_quote"]) is str
+              and len(item["source_quote"]) >= 5
+              and item["source_quote"] in source.cues[idx-1].text
+              and item["source_cue_sha256"] ==
+                  sha256(source.cues[idx-1].text.encode("utf-8")),
+              "DISCOURSE_ORIGINAL_CUE_NOT_BOUND")
+        note = item["chat_meaning_note"]
+        _need(type(note) is str and len(note) >= 30
+              and sha256(note.encode("utf-8")) ==
+                  item["chat_meaning_note_sha256"]
+              and item["source_checked"] is True
+              and item["financial_fact_verified"] is False,
+              "DISCOURSE_UNVERIFIED_MEANING")
+    return {
+        "schema":"IRE_V166_E2_DISCOURSE_AUDIT_RECEIPT_V1",
+        "source_sha256":source.source_sha256,
+        "semantic_ledger_sha256":base["ledger_sha256"],
+        "discourse_ledger_sha256":json_digest(discourse),
+        "cross_atom_relations_verified":len(seen),
+        "source_conditions_preserved":base["conditioned_atoms_accounted"],
+        "source_exceptions_preserved":base["exception_atoms_accounted"],
+        "new_exception_or_financial_fact_invented":False,
+        "independent_semantic_gold_certified":False,
+        "research_knowledge_release_authorized":False,
+        "p0_go":False,
+    }
