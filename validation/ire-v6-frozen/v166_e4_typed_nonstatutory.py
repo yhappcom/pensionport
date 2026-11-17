@@ -112,17 +112,38 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
         if cat in NO_PUBLISH:
             _hold("UNSUPPORTED_PRIMARY_KIND_"+cat)
         if cat in SOURCE_ONLY:
-            _need(row["verification_mode"]=="SOURCE_ONLY_SPEAKER_ATTRIBUTION" and
+            speculative=(cid=="C00284" and
+                         cat=="PERSONAL_SUBJECTIVE_OPINION" and
+                         atom["kind"]=="OPINION" and
+                         atom["stance"]=="UNRESOLVED")
+            expected_mode=("SPECULATIVE_TITLE_REASON_SOURCE_ONLY_NOT_PUBLISHER_FACT"
+                           if speculative else
+                           "SOURCE_ONLY_SPEAKER_ATTRIBUTION")
+            _need(row["verification_mode"]==expected_mode and
                   row["primary_url"] is None and
                   row["primary_body_sha256"] is None,
                   "OPINION_OR_QUESTION_MUST_NOT_BORROW_FINANCIAL_PRIMARY")
+            if atom["stance"]=="UNRESOLVED":
+                direct_quotes=" ".join(ref["quote"] for ref in atom["source_refs"])
+                # Only the already-accepted owner's narrow published-title
+                # guess. Its causal explanation remains an unproven
+                # publisher decision; no other UNRESOLVED stance may enter.
+                _need(speculative and
+                      "아마" in direct_quotes and
+                      "제목" in direct_quotes and
+                      "생각" in direct_quotes and
+                      "추측" in note and
+                      "출판사" in note and
+                      "확인" in note,
+                      "C00284_EXPLICIT_SPECULATION_NOT_PUBLISHER_MOTIVE")
             if cat=="HYPOTHETICAL_OR_QUESTION":
                 _need(atom["kind"] in ("QUESTION","HYPOTHETICAL") and
                       atom["stance"] in ("QUESTION","HYPOTHETICAL"),
                       "QUESTION_STANCE_NOT_PROVEN")
             else:
                 _need(atom["kind"]=="OPINION" and
-                      atom["stance"] in ("AFFIRMED","CONDITIONAL","HYPOTHETICAL"),
+                      (atom["stance"] in ("AFFIRMED","CONDITIONAL","HYPOTHETICAL")
+                       or speculative),
                       "OPINION_NOT_THE_SPEAKERS_STANCE")
                 # Numeric strategies, statutory claims disguised as opinion,
                 # and empirical guarantees require actual primary evidence.
