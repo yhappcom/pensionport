@@ -33,3 +33,14 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: python -m unittest -v test_v128_continuous_chat_atomic_parent.V128HostRunAndAtomicParentTests.test_01_two_native_v6_children_seam_and_atomic_private_parent_publication
+  e1-typed-contract-connection-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Identify E1 broken typed approval-to-storage route (expected E1 FAIL)
+        working-directory: validation/ire-v6-frozen
+        run: python v166_e1_connectivity_audit.py
