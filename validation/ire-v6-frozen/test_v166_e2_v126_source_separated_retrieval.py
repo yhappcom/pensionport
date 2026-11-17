@@ -15,6 +15,7 @@ from ire.v6.codec import json_digest,sha256
 from ire.v6.errors import InvalidInput
 from ire.v6.tests.test_atomic_exchange import HostAtomExchangeTests
 from test_v128_continuous_chat_atomic_parent import V128HostRunAndAtomicParentTests
+from v146_source_meaning_provenance import SCHEMA as V146_SCHEMA, _source_anchor_hash
 from v166_e2_semantic_separation import (
     SCHEMA, source_separated_evidence_for_question,
 )
@@ -35,6 +36,41 @@ class V166E2ActualV126SafeAnswerContext(unittest.TestCase):
         with patch.object(HostAtomExchangeTests,"sample",unknown_speaker_source):
             self.fx.setUp()
         self.addCleanup(self.fx.doCleanups)
+        # Frozen V146 demands explicit provenance for every accepted V6 atom
+        # whose speaker is UNKNOWN. This is a synthetic reviewer provenance
+        # fixture, not audio authentication and not independent semantic gold.
+        for packet in self.fx.packets:
+            case=packet["case"]
+            atoms={a["claim_id"]:a for a in case["exchange"]["atoms"]}
+            selected=[v["claim_id"] for v in case["chat_review"]["atom_verdicts"]
+                      if v["status"]=="ACCEPT_FOR_RESEARCH"
+                      and atoms[v["claim_id"]]["speaker"]=="UNKNOWN"]
+            if selected:
+                rows=[]
+                for cid in selected:
+                    atom=atoms[cid]
+                    indices=sorted(set(atom["context_cue_indices"]))
+                    rows.append({
+                        "claim_id":cid,"atom_sha256":json_digest(atom),
+                        "source_cue_indices":indices,
+                        "source_context_sha256":_source_anchor_hash(
+                            case["source"],indices),
+                        "resolved_speaker_role":"UNATTRIBUTED_VIDEO_SPEAKER",
+                        "resolved_speech_act":"ASSERTION",
+                        "speaker_identity_not_inferred":True,
+                        "source_condition_exception_checked":True,
+                        "private_review_note_sha256":
+                            sha256(("synthetic reviewed unknown "+cid).encode("utf-8")),
+                    })
+                case["chat_review"]["source_meaning_provenance"]={
+                    "schema":V146_SCHEMA,
+                    "source_sha256":case["source"].source_sha256,
+                    "manifest_sha256":case["source"].manifest_sha256,
+                    "review_executor":"CHATGPT_IN_CHAT",
+                    "atom_rows":rows,
+                    "private_chat_source_meaning_sha256":
+                        sha256(b"synthetic V146 ChatGPT input, not owner audio")
+                }
         self.case=self.fx.packets[0]["case"]
         self.source=self.case["source"]
         self.exchange=self.case["exchange"]
