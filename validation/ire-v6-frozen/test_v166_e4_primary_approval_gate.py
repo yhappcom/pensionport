@@ -146,8 +146,8 @@ def prepare_synthetic_paraphrase_case(case):
                 "cue_index":x["cue_index"],
                 "source_token":x["token"],
                 "official_token":x["token"],
-                "unit":"percentage",
-                "period":"hypothetical case 2026"
+                "unit":"PERCENT",
+                "period":"PERIOD_NOT_EXPRESSED_IN_SOURCE"
             } for x in a["numeric_references"]],
             "claim_stance":a["stance"],
             "official_scope_stance":a["stance"],
@@ -390,6 +390,21 @@ class V166E4NativeGatePolicyUnitTests(unittest.TestCase):
         doc["rows"][0]["chat_entailment_proof"]["numeric_claim_mappings"][0][
             "official_token"]="8%"
         with self.assertRaisesRegex(InvalidInput,"NUMERIC_RATE_AMOUNT_UNIT"):
+            self._paraphrase_check(doc)
+
+    def test_35_numeric_unit_cannot_be_reclassified_as_money(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["numeric_claim_mappings"][0][
+            "unit"]="KRW"
+        with self.assertRaisesRegex(InvalidInput,"NUMERIC_RATE_AMOUNT_UNIT"):
+            self._paraphrase_check(doc)
+
+    def test_36_numeric_period_not_spoken_cannot_be_fabricated_from_legal_date(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["numeric_claim_mappings"][0][
+            "period"]="SOURCE_YEAR:2026"
+        with self.assertRaisesRegex(InvalidInput,
+                                    "NUMERIC_PERIOD_FABRICATED_FROM_OFFICIAL_DATE"):
             self._paraphrase_check(doc)
 
     def test_28_original_conditional_cue_cannot_be_omitted(self):
