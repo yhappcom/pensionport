@@ -230,6 +230,8 @@ class V166E4OperatorOneTurnParentTests(unittest.TestCase):
                 review_seams=fx.seams,
                 review_parent=fx.parent_review,
                 primary_manifest_for_child=lambda sid,case:self.pilot.manifests.get(sid),
+                typed_inventory_for_child=lambda sid,case:self.pilot.typed_inventories.get(sid),
+                typed_manifest_for_child=lambda sid,case:self.pilot.typed_manifests.get(sid),
                 expected_knowledge_head="0"*64,
                 now_as_of="2026-11-17")
 
