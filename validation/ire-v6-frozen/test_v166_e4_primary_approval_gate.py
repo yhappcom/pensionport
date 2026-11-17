@@ -104,18 +104,19 @@ def make_manifest(case, body=BODY):
     }
 
 
-def make_typed_inventory_for_legal_synthetic_case(case):
-    """CI-only legal type fixture, never a real financial classification."""
+def make_typed_inventory_for_legal_synthetic_case(case, evidence_classes=None):
+    """CI-only source types, never a real financial classification."""
     from v166_e4_typed_authority import SCHEMA as TYPED_SCHEMA,CLASS_TO_KIND
     atoms=case["exchange"]["atoms"]
     verdicts={v["claim_id"]:v for v in case["chat_review"]["atom_verdicts"]}
     rows=[]
     for atom in atoms:
         v=verdicts[atom["claim_id"]]
-        assert atom["kind"]=="FACT"
+        cat=(evidence_classes or {}).get(atom["claim_id"],
+                                         "STATUTORY_FINANCIAL_RULE")
+        assert atom["kind"] in CLASS_TO_KIND[cat][0]
         ix=atom["source_refs"][0]["cue_index"]
         quote=atom["source_refs"][0]["quote"]
-        cat="STATUTORY_FINANCIAL_RULE"
         note=("이 검증 입력은 실제 법령이 아닌 합성 금융 설명용 사실 원자입니다. "
               "발화 원문과 숫자·시점·조건·검토자 기록만 구분하는 코드 경계 시험이며 "
               "해당 금융주장이 실제 적법하다거나 개인에게 적용된다고 보증하지 않습니다.")
