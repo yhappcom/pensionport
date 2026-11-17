@@ -138,7 +138,7 @@ def audit_e4_claim_entailment(case, original_row, fetched_body):
               type(m["period"]) is str,
               "NUMERIC_RATE_AMOUNT_UNIT_OR_PERIOD_NOT_EQUIVALENT")
         original_cue_text=case["source"].cues[m["cue_index"]-1].text
-        explicit_years=set(re.findall(r"(?<!\\d)(?:19|20)\\d{2}(?!\\d)",
+        explicit_years=set(re.findall(r"(?<!\d)(?:19|20)\d{2}(?!\d)",
                                       original_cue_text))
         if explicit_years:
             _need(m["period"] in {"SOURCE_YEAR:"+y for y in explicit_years}
