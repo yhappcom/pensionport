@@ -98,7 +98,7 @@
   - `POC_PASS_P0E_GO`: 위 요건과 별도의 독립 고정 정답셋 정확도 기준도 입증.
   - `POC_FAIL_ENGINE_DESIGN`: 실제 원본을 사용해도 승인·발행·질의 연결이 성립하지 않음.
   - `POC_BLOCKED_SOURCE_ACCESS`: 필수 비공개 원본/DB 확보 불가하여 실증 미실행.
-- **현재 분류**: `POC_BLOCKED_SOURCE_ACCESS` (이 대화에서 비공개 패킷 검색 불가) + 확인된 구조적 발행 장애. 코드 읽기만으로 PoC를 PASS로 처리하지 않는다.
+- **현재 분류 (G1 실물 접근 후 사실 정정)**: `NO-GO / G1_INPUT_PASS` — 사용자 라이브러리의 `1-70.zip`, V164·V160 비공개 패킷 실물 바이트에 접근해 SRT 1,481 cue SHA 및 B0001 120 cue/16원자, 5 typed 인용과 13개 SQLite 무결성을 검산했다. **3개 외부 원전·12개 고위험 검문·의견 불일치 및 정식 승인/발행은 미해결**. 실물 출처 접근 성공은 PoC 합격이 아니다. 상세: `V165_G1_REAL_OWNER_SOURCE_ACCESS_MECHANICAL_REPLAY_20261117.md`.
 
 ## 6. 이 문서를 바꾸려면
 
