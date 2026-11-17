@@ -311,3 +311,88 @@ def audit_e2_cross_atom_discourse(source, exchange, ledger, discourse):
         "research_knowledge_release_authorized":False,
         "p0_go":False,
     }
+
+
+def source_separated_evidence_for_question(store, question, *,
+                                            source, exchange, ledger,
+                                            discourse=None,
+                                            selected_knowledge_ids=None):
+    """Read the REAL V126 active knowledge, then remove mixed propositions.
+
+    V126's historically stored atom.proposition may include a reviewer
+    caution alongside a speaker paraphrase. Never hand that string to an
+    answer generator as a verbatim speaker claim. Reconstruct a distinct,
+    source-checked quotation and a separate ChatGPT caution. This is a
+    research-context *read*, never final financial advice or knowledge write.
+    Mixed-video results without their matching E2 source/atom ledger FAIL
+    closed rather than being silently reported as validated.
+    """
+    context = build_e2_source_separated_context_packet(source, exchange, ledger)
+    inspected = None
+    if discourse is not None:
+        inspected = audit_e2_cross_atom_discourse(source, exchange, ledger, discourse)
+    v126 = store.evidence_for_question(
+        question, selected_knowledge_ids=selected_knowledge_ids)
+    _need(type(v126) is dict and v126.get("schema") ==
+          "IRE_V126_PRIVATE_CHAT_ADVISORY_EVIDENCE_PACKET_V1"
+          and v126.get("status") == "HOST_CHAT_EVIDENCE_REVIEW_REQUIRED"
+          and v126.get("no_auto_personal_advice") is True
+          and v126.get("chatgpt_final_answer_review_required") is True
+          and type(v126.get("claims")) is list,
+          "V126_NOT_A_TRUSTED_EVIDENCE_PACKET")
+    by_id = {r["claim_id"]:r for r in context["entries"]}
+    result = []
+    for entry in v126["claims"]:
+        _need(type(entry) is dict and
+              entry.get("source_sha256") == source.source_sha256
+              and entry.get("claim_id") in by_id
+              and entry.get("research_candidate_only") is True
+              and entry.get("personal_advice_approved") is False
+              and type(entry.get("atom")) is dict
+              and entry["claim_id"] == entry["atom"].get("claim_id"),
+              "V126_CLAIM_NOT_BOUND_TO_CURRENT_E2_SOURCE")
+        row = by_id[entry["claim_id"]]
+        _need(json_digest(entry["atom"]) == row["atom_sha256"],
+              "V126_ATOM_AND_E2_MEANING_MISMATCH")
+        # No `atom.proposition` or raw `atom` object appears in the output.
+        # Only E2's original-text quote and separately labeled reviewer
+        # paraphrase/caution are available to the later ChatGPT answer gate.
+        result.append({
+            "knowledge_id":entry["knowledge_id"],
+            "claim_id":entry["claim_id"],
+            "source_sha256":entry["source_sha256"],
+            "host_event_sha256":entry["host_event_sha256"],
+            "chat_review_sha256":entry["chat_review_sha256"],
+            "source_verbatim_quote":row["source_verbatim_quote"],
+            "source_quote_cue_index":row["source_quote_cue_index"],
+            "source_quote_sha256":row["source_quote_sha256"],
+            "source_summary_role":row["source_summary_role"],
+            "speaker_paraphrase":row["source_speech_paraphrase"],
+            "reviewer_role":row["reviewer_role"],
+            "reviewer_caution":row["reviewer_caution"],
+            "original_condition_cue_indices":row["original_condition_cue_indices"],
+            "original_exception_cue_indices":row["original_exception_cue_indices"],
+            "unverified_fact_dependencies":row["unverified_fact_dependencies"],
+            "source_numeric_token_roles":row["source_numeric_token_roles"],
+            "source_speech_type":row["speech_act"],
+            "legacy_mixed_proposition_exposed_to_answer_generator":False,
+            "current_primary_law_recheck_required":
+                entry["finance_current_law_review_required"],
+        })
+    _need(v126["count"] == len(result), "V126_RETRIEVAL_CENSUS_DRIFT")
+    return {
+        "schema":"IRE_V166_E2_SOURCE_SEPARATED_V126_EVIDENCE_V1",
+        "question_sha256":v126["question_sha256"],
+        "source_sha256":source.source_sha256,
+        "knowledge_head_sha256":v126["knowledge_head_sha256"],
+        "semantic_ledger_sha256":context["semantic_review_ledger_sha256"],
+        "discourse_ledger_sha256":(
+            inspected["discourse_ledger_sha256"] if inspected else None),
+        "count":len(result),
+        "claims":result,
+        "reviewed_financial_facts_authorized":False,
+        "requires_live_official_source_recheck":True,
+        "chatgpt_final_answer_review_required":True,
+        "personalized_advice_auto_approved":False,
+        "p0_go":False,
+    }
