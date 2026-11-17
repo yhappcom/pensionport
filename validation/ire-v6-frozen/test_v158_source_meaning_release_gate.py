@@ -66,3 +66,15 @@ class V158PublicHostAccuracyGuardTests(unittest.TestCase):
     def test_12_audio_cue_not_cleared_by_fiat(self):
         x=copy.deepcopy(self.r);x["unresolved_original_audio_cues"]=0
         with self.assertRaises(V158ReleaseEvidenceError):audit_v158_public_receipt(x)
+
+    def test_13_real_v128_zero_event_head_is_required(self):
+        x=copy.deepcopy(self.r);x["V128_knowledge_db_zero_head"]="a"*64
+        with self.assertRaises(V158ReleaseEvidenceError):audit_v158_public_receipt(x)
+
+    def test_14_real_v128_child_HOLD_census_is_required(self):
+        x=copy.deepcopy(self.r);x["V128_real_child_checkpoints_hold"]=0
+        with self.assertRaises(V158ReleaseEvidenceError):audit_v158_public_receipt(x)
+
+    def test_15_real_v128_nonpublication_status_is_required(self):
+        x=copy.deepcopy(self.r);x["V128_real_host_result"]="PUBLISHED"
+        with self.assertRaises(V158ReleaseEvidenceError):audit_v158_public_receipt(x)
