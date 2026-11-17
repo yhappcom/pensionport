@@ -37,3 +37,13 @@
 
 **공식 결론: E1/E2/E3 PASS, E4 FAIL(상당한 개선이 있으나 정식 전수 운영 합격 아님), E5/E6/E7 NOT_RUN.**  
 다음 턴에도 E4 남은 3가지 원인 해결부터 시작하고, 실제 단일 원본에 대한 정식 승인/불승인 과정을 재현하여 E4를 합격시킨 뒤에만 E5로 넘어간다.
+
+
+## 5. 추가 실측 — 같은 SQLite 파일의 레거시 재개방 가능성
+
+`test_v166_e4_primary_approval_gate.V166E4E3V128RealSQLiteIntegration.test_23_same_file_plain_legacy_reopen_still_bypasses_object_only_guard`로 다음을 실제 실행했다.
+
+- E4 보호 객체 `E4GuardedKnowledgeStore`가 생성한 **동일 SQLite 파일**을 일반 V126 `PrivateKnowledgeStore` 객체로 다시 열고, E4 원전 검문 없이 구 E3→V128 호출.
+- 합성 연구후보 3개·부모발행 1개를 쓸 수 있음을 재현. **그 결과를 E4 PASS라고 표기하지 않음**. 금융 사실 정식 승인도 False.
+- 최신 종합 CI https://github.com/yhappcom/pensionport/actions/runs/44041183772 **9/9 jobs success**. 우회 진단의 성공은 **지속적 승인 강제성이 아직 없다는 실패 증명**이다.
+- 그러므로 E4는 진입점 수준의 안전성은 향상됐으나 **저장소 수준의 지속적 E4 승인 영수증 결합 및 레거시 무권한 파일 접근 차단이 미완료**다. E5 착수 금지.
