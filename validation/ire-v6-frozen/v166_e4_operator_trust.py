@@ -206,3 +206,58 @@ class E4OperatorTrust:
         finally:
             fcntl.flock(fd,fcntl.LOCK_UN)
             os.close(fd)
+
+
+def run_e4_with_external_owner_pin(operator, checkpoint, *,
+                                   review_or_load_child,
+                                   review_seams, review_parent,
+                                   primary_manifest_for_child,
+                                   expected_knowledge_head, now_as_of):
+    """Single E4 operational entrypoint: all children -> signed DB -> owner pin.
+
+    A valid E4 research release is reported ONLY after its independently
+    managed latest external pin has been durably committed and re-audited.
+    If the parent DB commits but the owner pin cannot commit, the function
+    fails closed; the unpinned DB must NOT feed any research/advice consumer.
+    """
+    from v166_e4_primary_approval_gate import run_e4_guarded_parent
+
+    _require(isinstance(operator,E4OperatorTrust),
+             "OPERATOR_TRUST_OBJECT_REQUIRED")
+    previous_pin=operator.read_latest_pin(allow_missing=True)
+    store=operator.open_for_new_parent()
+    if store._trusted_prior_owner_pin!=previous_pin:
+        _error("OWNER_PIN_CHANGED_BEFORE_E4_PARENT_START")
+    result=run_e4_guarded_parent(
+        checkpoint,store,
+        review_or_load_child=review_or_load_child,
+        review_seams=review_seams,review_parent=review_parent,
+        primary_manifest_for_child=primary_manifest_for_child,
+        expected_knowledge_head=expected_knowledge_head,
+        now_as_of=now_as_of)
+    if result["status"]!="E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED":
+        return {
+            **result,
+            "schema":"IRE_V166_E4_OPERATOR_PARENT_RELEASE_V1",
+            "external_owner_pin_committed":False,
+            "formal_financial_law_certified":False,
+            "personal_advice_approved":False,
+        }
+    latest=result["e4_external_owner_pin_sha256"]
+    op_receipt=operator.commit_signed_parent_pin(
+        store,latest,expected_previous_pin=previous_pin)
+    _,recovered_pin,certified=operator.open_verified_read()
+    if recovered_pin!=latest:
+        _error("POST_RELEASE_PIN_READBACK_MISMATCH")
+    return {
+        **result,
+        "schema":"IRE_V166_E4_OPERATOR_PARENT_RELEASE_V1",
+        "external_owner_pin_committed":True,
+        "operator_latest_pin_sha256":latest,
+        "operator_approval_receipt_schema":op_receipt["schema"],
+        "certified_knowledge_head_sha256":certified["knowledge_head_sha256"],
+        "certified_child_scope_count":certified["approved_child_receipts_count"],
+        "formal_financial_law_certified":False,
+        "personal_advice_approved":False,
+        "p0_go":False,
+    }
