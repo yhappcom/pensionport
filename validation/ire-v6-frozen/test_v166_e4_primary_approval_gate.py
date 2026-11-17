@@ -645,6 +645,45 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
                             ("fake","{}","0"*64))
         self.assertEqual(self.fx._counts(),initial)
 
+    def test_37_missing_typed_source_inventory_blocks_entire_official_parent(self):
+        second=self.fx.checkpoint.child_ids[1]
+        del self.typed_inventories[second]
+        with self.assertRaises((InvalidInput,TypeError)):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_38_reclassify_financial_fact_as_publisher_cannot_borrow_wiley(self):
+        second=self.fx.checkpoint.child_ids[1]
+        typed=self.typed_inventories[second]
+        row=typed["rows"][0]
+        row["evidence_class"]="PUBLISHER_BOOK_BIBLIOGRAPHY"
+        row["authority_route"]="ORIGINAL_PUBLISHER_PRIMARY"
+        with self.assertRaises(InvalidInput):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_39_financial_primary_without_nonlegal_type_manifest_denied(self):
+        second=self.fx.checkpoint.child_ids[1]
+        del self.typed_manifests[second]
+        with self.assertRaises(InvalidInput):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_40_wrong_typed_inventory_review_hash_cannot_rescope_law(self):
+        second=self.fx.checkpoint.child_ids[1]
+        self.typed_inventories[second]["chat_review_sha256"]="0"*64
+        with self.assertRaisesRegex(InvalidInput,"SOURCE_TYPE_REVIEW_PIN"):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_41_original_v123_open_still_holds_even_with_valid_type(self):
+        second=self.fx.checkpoint.child_ids[1]
+        row=self.fx.packets[1]["case"]["chat_review"]["atom_verdicts"][0]
+        row["status"]="OPEN"
+        with self.assertRaises((InvalidInput,QualityNotProven)):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
     def test_16_invalid_source_redirect_also_blocks_parent_approval(self):
         second=self.fx.checkpoint.child_ids[1]
         self.manifests[second]["rows"][0]["official_url"] = (
