@@ -37,7 +37,7 @@ ROW_KEYS = {
     "effective_from","effective_until","original_claim_cue_index",
     "original_claim_quote","primary_scope_excerpt",
     "chat_primary_scope_note","chat_primary_scope_note_sha256",
-    "primary_claim_support_mode",
+    "primary_claim_support_mode","primary_effective_date_excerpt",
     "chat_scope_conditions_reviewed",
     "chat_exceptions_reviewed",
     "chat_source_asof_reviewed",
@@ -227,6 +227,15 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
         _require(r["primary_claim_support_mode"]=="EXACT_PRIMARY_QUOTE"
                  and r["original_claim_quote"].encode("utf-8") in fetched_bytes,
                  "OFFICIAL_ORIGINAL_DOES_NOT_SUPPORT_CLAIM_QUOTE")
+        # A ChatGPT-entered effective date is insufficient. Demand that the
+        # issuer's *original* page explicitly contains the very same date.
+        # Official guidance without a date-qualified applicability passage is
+        # not independently proof of a legal effective period.
+        dated=r["primary_effective_date_excerpt"]
+        _require(type(dated) is str and len(dated.strip())>=12
+                 and r["effective_from"] in dated
+                 and dated.encode("utf-8") in fetched_bytes,
+                 "LEGAL_EFFECTIVE_DATE_NOT_PRESENT_IN_PRIMARY")
         excerpt=r["primary_scope_excerpt"]
         _require(type(excerpt) is str and len(excerpt.strip())>=15
                  and excerpt.encode("utf-8") in fetched_bytes,
