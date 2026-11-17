@@ -128,3 +128,20 @@ jobs:
         run: |
           python -m unittest -v test_v166_e3_chat_decision_delivery
           python -m unittest -v test_v166_e1_same_typed_review_to_sqlite
+  e4-primary-authenticity-and-parent-release-policy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install native engine E4 prerequisites
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Mocked HTTPS official fixture policy PASS and E3/V128 ACID reject paths
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m unittest -v test_v166_e4_primary_approval_gate
+          python -m unittest -v test_v166_e3_chat_decision_delivery
