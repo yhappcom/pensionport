@@ -56,6 +56,33 @@ def fetch_pabrai_fund_original_bytes(url=PABRAI_ABOUT_URL):
     return body
 
 
+def audit_pabrai_fund_first_party_words(primary_body):
+    """First-party evidence only for Pabrai FUND RULES copied from Buffett.
+
+    Company self-report is not an independently audited return/causality fact.
+    """
+    if type(primary_body) is not bytes or not 400<=len(primary_body)<=2*1024*1024:
+        _fail("ORIGINAL_FIRST_PARTY_BODY_REQUIRED")
+    body=html.unescape(primary_body.decode("utf-8",errors="replace"))
+    text=WHITESPACE.sub(" ",TAGS.sub(" ",body)).lower()
+    if not all(x in text for x in (
+        "pabrai investment funds",
+        "were inspired by the original",
+        "close replica of the original buffett partnership rules",
+        "1950s buffett partnerships",
+    )):
+        raise QualityNotProven("V166_E4_PABRAI_OWNER_ORIGINAL_STRUCTURE_WORDING_ABSENT")
+    return {
+        "schema":"IRE_V166_E4_PABRAI_FUND_ISSUER_RULES_ONLY_V1",
+        "first_party_url":PABRAI_ABOUT_URL,
+        "raw_body_sha256":sha256(primary_body),
+        "fund_management_rules_based_on_buffett_claimed_by_issuer":True,
+        "actual_investment_performance_independently_audited":False,
+        "causal_success_proven":False,
+        "personalized_investment_advice_approved":False,
+    }
+
+
 def audit_first_party_buffett_partnership_structure(
     source,atom,v123_verdict,primary_body,*,original_cue_indices=None
 ):
@@ -90,15 +117,7 @@ def audit_first_party_buffett_partnership_structure(
             "벤치마킹" in joined and
             "성공" in joined):
         _fail("C00011_WHOLE_SOURCE_MEANING_NOT_PINNED")
-    body=html.unescape(primary_body.decode("utf-8",errors="replace"))
-    text=WHITESPACE.sub(" ",TAGS.sub(" ",body)).lower()
-    if not all(x in text for x in (
-        "pabrai investment funds",
-        "were inspired by the original",
-        "close replica of the original buffett partnership rules",
-        "1950s buffett partnerships",
-    )):
-        raise QualityNotProven("V166_E4_PABRAI_OWNER_ORIGINAL_STRUCTURE_WORDING_ABSENT")
+    issuer=audit_pabrai_fund_first_party_words(primary_body)
     return {
         "schema":SCHEMA,
         "claim_id":"C00011",
@@ -109,7 +128,7 @@ def audit_first_party_buffett_partnership_structure(
         "frozen_v123_status_before":v123_verdict["status"],
         "frozen_v123_status_after":v123_verdict["status"],
         "first_party_source_url":PABRAI_ABOUT_URL,
-        "first_party_original_body_sha256":sha256(primary_body),
+        "first_party_original_body_sha256":issuer["raw_body_sha256"],
         "fund_operator_self_description_original":True,
         "fund_rules_modeled_on_1950s_buffett_partnerships":True,
         "investment_stock_selection_same_as_buffett_verified":False,
