@@ -22,7 +22,10 @@ from v166_e4_primary_approval_gate import (
 
 BODY=("<html><title>SYNTHETIC ONLY - NOT LAW</title>"
       "<p>가상의 금융 교육 문서: 납입 한도와 공제율은 "
-      "사람별·과세기간별로 검토해야 한다는 시험용 텍스트</p></html>").encode("utf-8")
+      "사람별·과세기간별로 검토해야 한다는 시험용 텍스트. "
+      "연금저축의 예상 수익은 10%입니다. "
+      "하지만 실제로는 8%일 수 있습니다. "
+      "다만 세금 조건은 소득에 따라 달라집니다.</p></html>").encode("utf-8")
 EXCERPT="납입 한도와 공제율은 사람별·과세기간별로 검토"
 NOTE=("ChatGPT의 합성 시험 확인: 본문 문서가 해당 투자계좌의 일반 정책설명이라는 "
       "문맥을 검문했으나 실제 법령 효력이나 사람별 적합성 판단은 인증하지 않는다. "
@@ -53,6 +56,7 @@ def make_manifest(case, body=BODY):
             "original_claim_quote":full[:min(50,len(full))],
             "primary_scope_excerpt":EXCERPT,
             "chat_primary_scope_note":NOTE,
+            "primary_claim_support_mode":"EXACT_PRIMARY_QUOTE",
             "chat_primary_scope_note_sha256":sha256(NOTE.encode("utf-8")),
             "chat_scope_conditions_reviewed":True,
             "chat_exceptions_reviewed":True,
@@ -227,6 +231,33 @@ class V166E4NativeGatePolicyUnitTests(unittest.TestCase):
             with self.assertRaises(QualityNotProven):
                 assess_e4_primary_authority_gate(
                     self.case,self.manifest,now_as_of=self.now)
+
+    def test_17_even_matching_official_https_bytes_cannot_support_unrelated_claim(self):
+        # Strong negative: no digest, issuer, as-of or origin mismatch.
+        # The official fixture text truly exists but does NOT contain the
+        # original speaker's exact assertion. No borrowed authority allowed.
+        unrelated=("<html>가상의 정부 사이트 교육 안내: 납입 한도와 공제율은 "
+                   "사람별·과세기간별로 검토해야 하는 시험용 안내입니다.</html>").encode("utf-8")
+        doc=copy.deepcopy(self.manifest)
+        for row in self.case["chat_review"]["atom_verdicts"]:
+            row["official_body_sha256"]=sha256(unrelated)
+        for cid in self.case["official_evidence_bodies"]:
+            self.case["official_evidence_bodies"][cid]=unrelated
+        doc["chat_review_sha256"]=json_digest(self.case["chat_review"])
+        for row in doc["rows"]:
+            row["body_sha256"]=sha256(unrelated)
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=unrelated):
+            with self.assertRaisesRegex(
+                    InvalidInput,"OFFICIAL_ORIGINAL_DOES_NOT_SUPPORT_CLAIM_QUOTE"):
+                assess_e4_primary_authority_gate(
+                    self.case,doc,now_as_of=self.now)
+
+    def test_18_unreviewed_paraphrase_cannot_replace_exact_authority_support(self):
+        doc=copy.deepcopy(self.manifest)
+        doc["rows"][0]["primary_claim_support_mode"]="UNREVIEWED_PARAPHRASE"
+        with self.assertRaises(InvalidInput):
+            self.check(doc)
 
     def test_13_source_or_host_review_pin_drift_fails_closed(self):
         doc=copy.deepcopy(self.manifest)
