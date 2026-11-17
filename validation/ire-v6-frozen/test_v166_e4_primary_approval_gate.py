@@ -365,6 +365,94 @@ class V166E4NativeGatePolicyUnitTests(unittest.TestCase):
         with self.assertRaises(InvalidInput):
             self.check(doc)
 
+    def _paraphrase_check(self,doc):
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=PARAPHRASE_BODY):
+            return assess_e4_primary_authority_gate(
+                self.case,doc,now_as_of=self.now)
+
+    def test_25_chat_semantic_paraphrase_with_source_bound_numbers_and_conditions(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        result=self._paraphrase_check(doc)
+        self.assertEqual(result["status"],"E4_PASS_RESEARCH_CANDIDATES_ONLY")
+        self.assertEqual(result["chat_entailment_claims_replayed"],3)
+        self.assertFalse(result["formal_financial_fact_approved"])
+        self.assertFalse(result["personal_advice_approved"])
+
+    def test_26_paraphrase_missing_numeric_mapping_is_blocked(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["numeric_claim_mappings"]=[]
+        with self.assertRaisesRegex(InvalidInput,"NUMERIC_CENSUS"):
+            self._paraphrase_check(doc)
+
+    def test_27_paraphrase_wrong_percentage_is_blocked(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["numeric_claim_mappings"][0][
+            "official_token"]="8%"
+        with self.assertRaisesRegex(InvalidInput,"NUMERIC_RATE_AMOUNT_UNIT"):
+            self._paraphrase_check(doc)
+
+    def test_28_original_conditional_cue_cannot_be_omitted(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        conditional=next(r for r in doc["rows"]
+                         if r["chat_entailment_proof"]["original_condition_cue_indices"])
+        conditional["chat_entailment_proof"]["original_condition_cue_indices"]=[]
+        with self.assertRaisesRegex(InvalidInput,"SOURCE_CONDITION_EXCEPTION_LOST"):
+            self._paraphrase_check(doc)
+
+    def test_29_official_primary_condition_quote_must_be_genuine(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        conditional=next(r for r in doc["rows"]
+                         if r["chat_entailment_proof"]["original_condition_cue_indices"])
+        conditional["chat_entailment_proof"]["official_condition_passages"]=[
+            "원전 속에 존재하지 않는 조건입니다"]
+        with self.assertRaisesRegex(InvalidInput,"UNPROVEN_OFFICIAL_CONDITION"):
+            self._paraphrase_check(doc)
+
+    def test_30_counterexample_or_disagreement_cannot_be_unreviewed(self):
+        for key in ("reviewed_counterexamples",
+                    "meaning_disagreements_adjudicated",
+                    "reviewed_primary_conditions_and_exceptions",
+                    "reviewed_source_and_official_time_scope",
+                    "no_unresolved_material_mismatch"):
+            doc=prepare_synthetic_paraphrase_case(self.case)
+            doc["rows"][0]["chat_entailment_proof"][key]=False
+            with self.subTest(key=key),self.assertRaisesRegex(
+                    InvalidInput,"CHAT_ENTAILMENT_MISSING_OR_FALSE_APPROVAL"):
+                self._paraphrase_check(doc)
+
+    def test_31_unverified_entailment_discussion_cannot_approve(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["entailment_conclusion"]="UNKNOWN"
+        with self.assertRaisesRegex(InvalidInput,"CHAT_ENTAILMENT_MISSING_OR_FALSE_APPROVAL"):
+            self._paraphrase_check(doc)
+
+    def test_32_paraphrase_source_and_official_body_digest_replay(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["source_context_digest_sha256"]="0"*64
+        with self.assertRaisesRegex(InvalidInput,"SOURCE_CONDITION_EXCEPTION_LOST"):
+            self._paraphrase_check(doc)
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["official_body_sha256"]="0"*64
+        with self.assertRaisesRegex(InvalidInput,"CLAIM_SOURCE_REVIEW_ORIGINAL_HASH"):
+            self._paraphrase_check(doc)
+
+    def test_33_cross_atom_context_cue_does_not_bind_a_different_claim(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        other=doc["rows"][1]
+        other["original_claim_cue_index"]=1
+        other["original_claim_quote"]=self.case["source"].cues[0].text
+        with self.assertRaisesRegex(InvalidInput,"CLAIM_CONTEXT_QUOTE_NOT_SOURCE_PINNED"):
+            self._paraphrase_check(doc)
+
+    def test_34_hypothetical_or_corrected_polarity_cannot_be_unconditional(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        qualified=next(r for r in doc["rows"]
+                       if r["chat_entailment_proof"]["claim_stance"]!="AFFIRMED")
+        qualified["chat_entailment_proof"]["official_scope_stance"]="AFFIRMED"
+        with self.assertRaisesRegex(InvalidInput,"QUALIFIED_OR_QUESTION_REBRANDED"):
+            self._paraphrase_check(doc)
+
     def test_13_source_or_host_review_pin_drift_fails_closed(self):
         doc=copy.deepcopy(self.manifest)
         doc["host_event_sha256"]="a"*64
