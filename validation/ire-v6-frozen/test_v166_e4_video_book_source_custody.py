@@ -88,5 +88,16 @@ class V166E4OwnerBookEvidenceCustodyTests(unittest.TestCase):
             self.check(chat_note_sha256="c"*64)
 
 
+    def test_09_context_neighbor_cannot_replace_atom_direct_book_quote(self):
+        self.atom["context_cue_indices"].append(2)
+        # Same real source cue, but that cue was never referenced by the
+        # original atom itself. The V123 atom hash is recomputed only to
+        # exercise the material source_ref gate, not to impersonate V123.
+        self.verdict["atom_sha256"]=json_digest(self.atom)
+        with self.assertRaisesRegex(InvalidInput,"BOOK_SOURCE_QUOTE_NOT_PINNED"):
+            self.check(source_quote_cue_index=2,
+                       source_quote=self.source.cues[1].text)
+
+
 if __name__=="__main__":
     unittest.main()
