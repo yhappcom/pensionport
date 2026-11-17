@@ -1,0 +1,101 @@
+name: V166 E4 live official source bytes (NOT legal approval)
+on:
+  push:
+    branches:
+      - verify/ire-v6-v166-e1-e7-sequential-gates-20261117
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  e4-live-official-https-body:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Native v6 source audit dependencies
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: LIVE official authority TLS origin and original byte SHA
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m unittest -v test_v166_e4_live_official_origin
+  e4-live-wiley-primary-book-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install source checker dependencies
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: LIVE Wiley original publisher title/author/ISBN (not source-video approval)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m unittest -v test_v166_e4_live_wiley_publisher
+  e4-live-berkshire-company-letter-timeline-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install native verification requirements
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Live Berkshire company source; B0001 video claims remain OPEN
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m unittest -v test_v166_e4_live_berkshire_primary
+  e4-live-wiley-author-chapter-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Source verification requirements
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Live original Wiley chapter 1 PDF and no-guarantee caveat
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m unittest -v test_v166_e4_live_wiley_chapter
+          python -m unittest -v test_v166_e4_live_book_scope
+  e4-live-pabrai-first-party-structure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Native original-source verification requirements
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Live Pabrai Funds HTTPS source; model-of-Buffett-rules ONLY
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m unittest -v test_v166_e4_live_pabrai_partnership
+  e4-live-buffett-partnership-retrospectives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Source verification requirements
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Official 2001 and 2020 issuer retrospective evidence
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m unittest -v test_v166_e4_live_buffett_retrospective

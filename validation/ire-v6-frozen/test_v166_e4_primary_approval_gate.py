@@ -1,0 +1,699 @@
+"""V166 E4 approval gate: mock HTTPS is SYNTHETIC, never genuine law.
+
+Runs real frozen V123 checks and real V128/V126 SQLite paths. A monkeypatched
+official fetch in unit tests is used only to exercise policy; NO test may
+label fake source bytes legally authentic or an actual investment opinion.
+"""
+from __future__ import annotations
+
+import copy
+import sqlite3
+import unittest
+from unittest.mock import patch
+
+from ire.v6.codec import ZERO_SHA, json_digest, sha256
+from ire.v6.errors import InvalidInput, QualityNotProven
+from test_v123_chat_final_gate import ChatFinalGateTests
+from test_v166_e3_chat_decision_delivery import V166E3NativeDecisionDelivery
+from v166_e4_guarded_knowledge_store import E4GuardedKnowledgeStore
+from v166_e4_sealed_knowledge import E4SealedKnowledgeStore
+from v126_chat_approved_knowledge_store import PrivateKnowledgeStore
+from v166_e4_primary_approval_gate import (
+    SCHEMA, assess_e4_primary_authority_gate,
+    run_e4_guarded_parent, _canonical_official_url,
+    _fetch_approved_primary_https,
+)
+
+BODY=("<html><title>SYNTHETIC ONLY - NOT LAW</title>"
+      "<p>시행 2026-11-10</p><p>시행 2026-11-01</p>"
+      "<p>가상의 금융 교육 문서: 납입 한도와 공제율은 "
+      "사람별·과세기간별로 검토해야 한다는 시험용 텍스트. "
+      "연금저축의 예상 수익은 10%입니다. "
+      "하지만 실제로는 8%일 수 있습니다. "
+      "다만 세금 조건은 소득에 따라 달라집니다.</p></html>").encode("utf-8")
+EXCERPT="납입 한도와 공제율은 사람별·과세기간별로 검토"
+PARAPHRASE_BODY=(
+    "<html><title>SYNTHETIC CHAT-ONLY CASE, NOT LEGAL ADVICE</title>"
+    "<p>시행 2026-11-10</p><p>시행 2026-11-01</p>"
+    "<p>납입 한도와 공제율은 사람별·과세기간별로 검토해야 합니다. "
+    "연금저축의 예상 수익률 10%는 가정된 수치입니다. "
+    "실제로 8%의 수익 가능성도 고려합니다. "
+    "소득 수준에 따라 세제 조건이 달라질 수 있습니다.</p></html>"
+).encode("utf-8")
+ENTAILMENT_NOTE=(
+    "이 자료는 합성 연구용 문장입니다. 원문 음성을 독립 인증한 자료가 아니며 "
+    "연금저축의 예상 수익 10% 가정과 실제 수익 8% 가능성은 서로 다른 주장입니다. "
+    "소득에 따라 달라지는 세제 조건은 조건부 발언으로만 남기고, 모든 시행시점과 "
+    "적용 범위의 차이, 원문·출판사·법령에 존재하는 예외 및 반례를 비교한 뒤 "
+    "개별 적용이나 수익 보장을 결코 승인하지 않습니다. "
+    "확인되지 않은 의미상의 차이가 존재한다면 반드시 보류해야 합니다."
+)
+
+NOTE=("ChatGPT의 합성 시험 확인: 본문 문서가 해당 투자계좌의 일반 정책설명이라는 "
+      "문맥을 검문했으나 실제 법령 효력이나 사람별 적합성 판단은 인증하지 않는다. "
+      "원문 조건·예외·적용일의 차이가 존재하면 결론을 보류해야 한다.")
+
+
+def make_manifest(case, body=BODY):
+    review=case["chat_review"]
+    atoms={a["claim_id"]:a for a in case["exchange"]["atoms"]}
+    rows=[]
+    for v in review["atom_verdicts"]:
+        if v["status"]!="ACCEPT_FOR_RESEARCH":
+            continue
+        a=atoms[v["claim_id"]]
+        if not (v["financial_claim"] or v["high_risk"] or a["kind"]=="FACT"):
+            continue
+        index=a["source_refs"][0]["cue_index"]
+        full=case["source"].cues[index-1].text
+        rows.append({
+            "claim_id":v["claim_id"],
+            "official_url":"https://www.nts.go.kr/nts/cm/cntnts/"
+                           "cntntsView.do?synthetic_approval_fixture="+v["claim_id"],
+            "issuer_code":"NTS",
+            "body_sha256":sha256(body),
+            "effective_from":v["official_effective_as_of"],
+            "effective_until":None,
+            "primary_effective_date_excerpt":"시행 "+v["official_effective_as_of"],
+            "original_claim_cue_index":index,
+            "original_claim_quote":full[:min(50,len(full))],
+            "primary_scope_excerpt":EXCERPT,
+            "chat_primary_scope_note":NOTE,
+            "primary_claim_support_mode":"EXACT_PRIMARY_QUOTE",
+            "chat_entailment_proof":None,
+            "chat_primary_scope_note_sha256":sha256(NOTE.encode("utf-8")),
+            "chat_scope_conditions_reviewed":True,
+            "chat_exceptions_reviewed":True,
+            "chat_source_asof_reviewed":True,
+            "general_education_only":True,
+            "personal_applicability_confirmed":False,
+            "formal_financial_truth_certified":False,
+        })
+    return {
+        "schema":SCHEMA,
+        "owner_source_sha256":case["source"].source_sha256,
+        "host_event_sha256":case["host_receipt"]["event_sha256"],
+        "chat_review_sha256":json_digest(review),
+        "review_as_of":review["as_of"],
+        "rows":rows,
+        "private_chat_primary_applicability_note_sha256":
+            sha256(b"SYNTHETIC ChatGPT scoped note; not law"),
+        "formal_financial_fact_approved":False,
+        "personal_advice_approved":False,
+        "independent_gold_certified":False,
+    }
+
+
+def make_typed_inventory_for_legal_synthetic_case(case, evidence_classes=None):
+    """CI-only source types, never a real financial classification."""
+    from v166_e4_typed_authority import SCHEMA as TYPED_SCHEMA,CLASS_TO_KIND
+    atoms=case["exchange"]["atoms"]
+    verdicts={v["claim_id"]:v for v in case["chat_review"]["atom_verdicts"]}
+    rows=[]
+    for atom in atoms:
+        v=verdicts[atom["claim_id"]]
+        cat=(evidence_classes or {}).get(atom["claim_id"],
+                                         "STATUTORY_FINANCIAL_RULE")
+        assert atom["kind"] in CLASS_TO_KIND[cat][0]
+        ix=atom["source_refs"][0]["cue_index"]
+        quote=atom["source_refs"][0]["quote"]
+        note=("이 검증 입력은 실제 법령이 아닌 합성 금융 설명용 사실 원자입니다. "
+              "발화 원문과 숫자·시점·조건·검토자 기록만 구분하는 코드 경계 시험이며 "
+              "해당 금융주장이 실제 적법하다거나 개인에게 적용된다고 보증하지 않습니다.")
+        rows.append({
+            "claim_id":atom["claim_id"],
+            "atom_sha256":json_digest(atom),
+            "original_cue_index":ix,
+            "original_cue_quote":quote,
+            "original_cue_quote_sha256":sha256(quote.encode("utf-8")),
+            "evidence_class":cat,
+            "authority_route":CLASS_TO_KIND[cat][1],
+            "source_evidence_scope_note":note,
+            "source_evidence_scope_note_sha256":sha256(note.encode("utf-8")),
+            "v123_original_status":v["status"],
+            "unchanged_v123_review_note_sha256":v["private_review_note_sha256"],
+            "financial_claim_flag_only_screening_not_legal_proof":True,
+            "reviewer_not_speaker_quote":True,
+            "primary_verification_complete":False,
+            "independent_gold_certified":False,
+            "personal_advice_approved":False,
+        })
+    return {
+        "schema":TYPED_SCHEMA,
+        "source_sha256":case["source"].source_sha256,
+        "manifest_sha256":case["source"].manifest_sha256,
+        "chat_review_sha256":json_digest(case["chat_review"]),
+        "review_executor":"CHATGPT_IN_CHAT",
+        "rows":rows,
+        "private_reviewer_custody_sha256":sha256(b"CI-only typed synthetic legal scope"),
+        "any_v123_status_changed":False,
+        "any_fact_autoapproved":False,
+        "formal_current_law_certified":False,
+        "personal_advice_approved":False,
+    }
+
+
+def make_nonlegal_manifest_for_case(case, typed_inventory, rows=None):
+    from v166_e4_typed_nonstatutory import SCHEMA as NONLEGAL_SCHEMA
+    return {
+        "schema":NONLEGAL_SCHEMA,
+        "source_sha256":case["source"].source_sha256,
+        "chat_review_sha256":json_digest(case["chat_review"]),
+        "type_inventory_sha256":json_digest(typed_inventory),
+        "as_of":case["chat_review"]["as_of"],
+        "rows":[] if rows is None else rows,
+        "formal_financial_fact_certified":False,
+        "personal_advice_approved":False,
+    }
+
+
+def prepare_synthetic_paraphrase_case(case):
+    """Construct a synthetic in-chat review; NOT real governmental truth."""
+    review=case["chat_review"]
+    case["official_evidence_bodies"]={
+        a["claim_id"]:PARAPHRASE_BODY for a in case["exchange"]["atoms"]}
+    for v in review["atom_verdicts"]:
+        if v["finance_evidence_status"]=="PRIMARY_BODY_AND_DATE_CHAT_CHECKED":
+            v["official_body_sha256"]=sha256(PARAPHRASE_BODY)
+    manifest=make_manifest(case,body=PARAPHRASE_BODY)
+    atoms={a["claim_id"]:a for a in case["exchange"]["atoms"]}
+    for row in manifest["rows"]:
+        a=atoms[row["claim_id"]]
+        assert row["original_claim_quote"].encode("utf-8") not in PARAPHRASE_BODY
+        cond=("소득 수준에 따라 세제 조건이 달라질 수 있습니다."
+              if a["condition_cue_indices"] else None)
+        row["primary_claim_support_mode"]="CHATGPT_CUE_TO_PRIMARY_ENTAILMENT"
+        row["chat_entailment_proof"]={
+            "schema":"IRE_V166_E4_CHAT_PRIMARY_ENTAILMENT_SOURCE_PINNED_V1",
+            "review_executor":"CHATGPT_IN_CHAT",
+            "claim_id":row["claim_id"],
+            "atom_sha256":json_digest(a),
+            "source_sha256":case["source"].source_sha256,
+            "host_event_sha256":case["host_receipt"]["event_sha256"],
+            "chat_review_sha256":json_digest(case["chat_review"]),
+            "official_body_sha256":sha256(PARAPHRASE_BODY),
+            "source_quote_sha256":sha256(
+                row["original_claim_quote"].encode("utf-8")),
+            "source_context_cue_indices":a["context_cue_indices"],
+            "source_context_digest_sha256":json_digest([
+                {"cue_index":idx,
+                 "cue_text_sha256":sha256(case["source"].cues[idx-1].text.encode("utf-8"))}
+                for idx in a["context_cue_indices"]]),
+            "primary_scope_excerpt_sha256":sha256(
+                row["primary_scope_excerpt"].encode("utf-8")),
+            "original_condition_cue_indices":a["condition_cue_indices"],
+            "original_exception_cue_indices":a["exception_cue_indices"],
+            "official_condition_passages":[cond] if cond is not None else [],
+            "official_exception_passages":[],
+            "numeric_claim_mappings":[{
+                "cue_index":x["cue_index"],
+                "source_token":x["token"],
+                "official_token":x["token"],
+                "unit":"PERCENT",
+                "period":"PERIOD_NOT_EXPRESSED_IN_SOURCE"
+            } for x in a["numeric_references"]],
+            "claim_stance":a["stance"],
+            "official_scope_stance":a["stance"],
+            "applicability_as_of":review["as_of"],
+            "official_effective_from":row["effective_from"],
+            "reviewer_reasoning":ENTAILMENT_NOTE,
+            "reviewer_reasoning_sha256":sha256(ENTAILMENT_NOTE.encode("utf-8")),
+            "meaning_disagreements_adjudicated":True,
+            "reviewed_counterexamples":True,
+            "reviewed_primary_conditions_and_exceptions":True,
+            "reviewed_source_and_official_time_scope":True,
+            "no_unresolved_material_mismatch":True,
+            "entailment_conclusion":"SUPPORTED_ONLY_WITH_EXACT_QUALIFIERS",
+            "reviewer_not_speaker_quote":True,
+            "independent_gold_certified":False,
+            "legal_truth_certified":False,
+            "personal_advice_approved":False,
+        }
+    return manifest
+
+
+def replace_synthetic_official_body(case):
+    case["chat_review"]["as_of"]="2026-11-17"
+    case["official_evidence_bodies"]={
+        a["claim_id"]:BODY for a in case["exchange"]["atoms"]}
+    for row in case["chat_review"]["atom_verdicts"]:
+        if row["finance_evidence_status"]=="PRIMARY_BODY_AND_DATE_CHAT_CHECKED":
+            row["official_body_sha256"]=sha256(BODY)
+
+
+class V166E4NativeGatePolicyUnitTests(unittest.TestCase):
+    def setUp(self):
+        fx=ChatFinalGateTests(
+            "test_01_real_native_v6_batch_then_synthetic_chat_final_pass")
+        fx.setUp()
+        self.addCleanup(fx.doCleanups)
+        self.fx=fx
+        self.case={
+            "source":fx.source,
+            "exchange":fx.exchange,
+            "host_receipt":fx.host,
+            "chat_review":fx.review,
+            "source_store":fx.parent.fx.store,
+            "official_evidence_bodies":fx.evidence_bodies,
+        }
+        replace_synthetic_official_body(self.case)
+        self.manifest=make_manifest(self.case)
+        self.now="2026-11-17"
+
+    def check(self,manifest=None):
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=BODY):
+            return assess_e4_primary_authority_gate(
+                self.case,self.manifest if manifest is None else manifest,
+                now_as_of=self.now)
+
+    def test_01_native_v123_accepts_fake_government_bytes_without_provenance(self):
+        # This is the vulnerability E4 closes: frozen V123 is not changed.
+        from v123_chat_final_gate import assess_chat_final_gate
+        native=assess_chat_final_gate(
+            self.case["source"],self.case["exchange"],
+            host_receipt=self.case["host_receipt"],
+            chat_review=self.case["chat_review"],store=self.case["source_store"],
+            official_evidence_bodies=self.case["official_evidence_bodies"])
+        self.assertEqual(native["status"],"CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY")
+        blocked=assess_e4_primary_authority_gate(
+            self.case,None,now_as_of=self.now)
+        self.assertEqual(blocked["status"],"E4_HOLD_INELIGIBLE_APPROVAL")
+        self.assertEqual(blocked["reason_code"],"PRIMARY_PROVENANCE_MISSING")
+        self.assertFalse(blocked["research_export_authorized"])
+
+    def test_02_complete_synthetic_policy_approval_passes_research_only(self):
+        r=self.check()
+        self.assertEqual(r["status"],"E4_PASS_RESEARCH_CANDIDATES_ONLY")
+        self.assertEqual(r["approved_research_candidate_claims"],3)
+        self.assertEqual(r["official_primary_claims_replayed"],3)
+        self.assertTrue(r["research_export_authorized"])
+        self.assertFalse(r["formal_financial_fact_approved"])
+        self.assertFalse(r["personal_advice_approved"])
+
+    def test_03_no_untrusted_domains_or_scheme_or_subdomain_phishing(self):
+        for url in ("http://www.nts.go.kr/a",
+                    "https://www.nts.go.kr.attacker.tld/a",
+                    "https://evil.nts.go.kr/a",
+                    "https://www.nts.go.kr:8443/a",
+                    "https://127.0.0.1/a",
+                    "https://www.nts.go.kr@evil.example/a"):
+            with self.subTest(url=url),self.assertRaises(InvalidInput):
+                _canonical_official_url(url)
+
+    def test_04_official_issuer_claim_must_match_canonical_domain(self):
+        doc=copy.deepcopy(self.manifest)
+        doc["rows"][0]["issuer_code"]="FSC"
+        with self.assertRaises(InvalidInput):
+            self.check(doc)
+
+    def test_05_forged_or_omitted_primary_body_cannot_approve(self):
+        doc=copy.deepcopy(self.manifest)
+        doc["rows"][0]["body_sha256"]="0"*64
+        with self.assertRaises(InvalidInput):
+            self.check(doc)
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=b"Forged primary content"*20):
+            with self.assertRaises(InvalidInput):
+                assess_e4_primary_authority_gate(
+                    self.case,self.manifest,now_as_of=self.now)
+
+    def test_06_future_effective_law_and_wrong_asof_blocked(self):
+        doc=copy.deepcopy(self.manifest)
+        doc["rows"][0]["effective_until"]="2026-01-01"
+        with self.assertRaises(InvalidInput):
+            self.check(doc)
+        doc=copy.deepcopy(self.manifest)
+        doc["review_as_of"]="2026-11-18"
+        with self.assertRaises(InvalidInput):
+            self.check(doc)
+
+    def test_07_missing_primary_scope_quote_is_not_legal_evidence(self):
+        doc=copy.deepcopy(self.manifest)
+        doc["rows"][0]["primary_scope_excerpt"]="이 문장은 이 원본 문서에 없습니다"
+        with self.assertRaises(InvalidInput):
+            self.check(doc)
+
+    def test_08_missing_chat_conditions_and_personal_flags_rejected(self):
+        for field,value in (("chat_exceptions_reviewed",False),
+                            ("chat_scope_conditions_reviewed",False),
+                            ("personal_applicability_confirmed",True),
+                            ("formal_financial_truth_certified",True),
+                            ("general_education_only",False)):
+            doc=copy.deepcopy(self.manifest)
+            doc["rows"][0][field]=value
+            with self.subTest(field=field),self.assertRaises(InvalidInput):
+                self.check(doc)
+
+    def test_09_missing_or_extra_primary_claims_rejected(self):
+        for mod in ("missing","extra"):
+            doc=copy.deepcopy(self.manifest)
+            if mod=="missing":
+                doc["rows"].pop()
+            else:
+                doc["rows"].append(copy.deepcopy(doc["rows"][0]))
+            with self.subTest(mod=mod),self.assertRaises(InvalidInput):
+                self.check(doc)
+
+    def test_10_fake_source_claim_quote_or_review_sha_rejected(self):
+        doc=copy.deepcopy(self.manifest)
+        doc["rows"][0]["original_claim_quote"]="원본에서 찾을 수 없는 발화"
+        with self.assertRaises(InvalidInput):self.check(doc)
+        doc=copy.deepcopy(self.manifest)
+        doc["rows"][0]["chat_primary_scope_note_sha256"]="1"*64
+        with self.assertRaises(InvalidInput):self.check(doc)
+
+    def test_11_native_open_or_rejected_never_promoted_by_valid_manifest(self):
+        case=self.case
+        row=case["chat_review"]["atom_verdicts"][0]
+        row.update(status="OPEN",finance_evidence_status="OPEN",
+                   official_body_sha256=None,official_effective_as_of=None,
+                   financial_scope_checked=False)
+        blocked=self.check()
+        self.assertEqual(blocked["status"],"E4_HOLD_INELIGIBLE_APPROVAL")
+        self.assertEqual(blocked["reason_code"],"NATIVE_CHAT_NOT_PASS")
+        row["status"]="REJECT"
+        blocked=self.check()
+        self.assertEqual(blocked["status"],"E4_HOLD_INELIGIBLE_APPROVAL")
+        self.assertEqual(blocked["native_chat_decision"],"REJECTED")
+
+    def test_12_fetch_failure_fails_closed(self):
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   side_effect=TimeoutError("simulated official timeout")):
+            with self.assertRaises(QualityNotProven):
+                assess_e4_primary_authority_gate(
+                    self.case,self.manifest,now_as_of=self.now)
+
+    def test_17_even_matching_official_https_bytes_cannot_support_unrelated_claim(self):
+        # Strong negative: no digest, issuer, as-of or origin mismatch.
+        # The official fixture text truly exists but does NOT contain the
+        # original speaker's exact assertion. No borrowed authority allowed.
+        unrelated=("<html>가상의 정부 사이트 교육 안내: 납입 한도와 공제율은 "
+                   "사람별·과세기간별로 검토해야 하는 시험용 안내입니다.</html>").encode("utf-8")
+        doc=copy.deepcopy(self.manifest)
+        for row in self.case["chat_review"]["atom_verdicts"]:
+            row["official_body_sha256"]=sha256(unrelated)
+        for cid in self.case["official_evidence_bodies"]:
+            self.case["official_evidence_bodies"][cid]=unrelated
+        doc["chat_review_sha256"]=json_digest(self.case["chat_review"])
+        for row in doc["rows"]:
+            row["body_sha256"]=sha256(unrelated)
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=unrelated):
+            with self.assertRaisesRegex(
+                    InvalidInput,"OFFICIAL_ORIGINAL_DOES_NOT_SUPPORT_CLAIM_QUOTE"):
+                assess_e4_primary_authority_gate(
+                    self.case,doc,now_as_of=self.now)
+
+    def test_19_effective_date_must_be_in_issuer_original_bytes(self):
+        fake=("<html><p>납입 한도와 공제율은 사람별·과세기간별로 검토</p>"
+              "<p>연금저축의 예상 수익은 10%입니다.</p></html>").encode("utf-8")
+        # Changes to host/review SHA cannot disguise missing dated law text.
+        doc=copy.deepcopy(self.manifest)
+        for row in self.case["chat_review"]["atom_verdicts"]:
+            row["official_body_sha256"]=sha256(fake)
+        for cid in self.case["official_evidence_bodies"]:
+            self.case["official_evidence_bodies"][cid]=fake
+        doc["chat_review_sha256"]=json_digest(self.case["chat_review"])
+        for row in doc["rows"]:
+            row["body_sha256"]=sha256(fake)
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=fake):
+            with self.assertRaises(InvalidInput):
+                assess_e4_primary_authority_gate(self.case,doc,now_as_of=self.now)
+
+    def test_18_unreviewed_paraphrase_cannot_replace_exact_authority_support(self):
+        doc=copy.deepcopy(self.manifest)
+        doc["rows"][0]["primary_claim_support_mode"]="UNREVIEWED_PARAPHRASE"
+        with self.assertRaises(InvalidInput):
+            self.check(doc)
+
+    def _paraphrase_check(self,doc):
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=PARAPHRASE_BODY):
+            return assess_e4_primary_authority_gate(
+                self.case,doc,now_as_of=self.now)
+
+    def test_25_chat_semantic_paraphrase_with_source_bound_numbers_and_conditions(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        result=self._paraphrase_check(doc)
+        self.assertEqual(result["status"],"E4_PASS_RESEARCH_CANDIDATES_ONLY")
+        self.assertEqual(result["chat_entailment_claims_replayed"],3)
+        self.assertFalse(result["formal_financial_fact_approved"])
+        self.assertFalse(result["personal_advice_approved"])
+
+    def test_26_paraphrase_missing_numeric_mapping_is_blocked(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["numeric_claim_mappings"]=[]
+        with self.assertRaisesRegex(InvalidInput,"NUMERIC_CENSUS"):
+            self._paraphrase_check(doc)
+
+    def test_27_paraphrase_wrong_percentage_is_blocked(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["numeric_claim_mappings"][0][
+            "official_token"]="8%"
+        with self.assertRaisesRegex(InvalidInput,"NUMERIC_RATE_AMOUNT_UNIT"):
+            self._paraphrase_check(doc)
+
+    def test_35_numeric_unit_cannot_be_reclassified_as_money(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["numeric_claim_mappings"][0][
+            "unit"]="KRW"
+        with self.assertRaisesRegex(InvalidInput,"NUMERIC_RATE_AMOUNT_UNIT"):
+            self._paraphrase_check(doc)
+
+    def test_36_numeric_period_not_spoken_cannot_be_fabricated_from_legal_date(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["numeric_claim_mappings"][0][
+            "period"]="SOURCE_YEAR:2026"
+        with self.assertRaisesRegex(InvalidInput,
+                                    "NUMERIC_PERIOD_FABRICATED_FROM_OFFICIAL_DATE"):
+            self._paraphrase_check(doc)
+
+    def test_28_original_conditional_cue_cannot_be_omitted(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        conditional=next(r for r in doc["rows"]
+                         if r["chat_entailment_proof"]["original_condition_cue_indices"])
+        conditional["chat_entailment_proof"]["original_condition_cue_indices"]=[]
+        with self.assertRaisesRegex(InvalidInput,"SOURCE_CONDITION_EXCEPTION_LOST"):
+            self._paraphrase_check(doc)
+
+    def test_29_official_primary_condition_quote_must_be_genuine(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        conditional=next(r for r in doc["rows"]
+                         if r["chat_entailment_proof"]["original_condition_cue_indices"])
+        conditional["chat_entailment_proof"]["official_condition_passages"]=[
+            "원전 속에 존재하지 않는 조건입니다"]
+        with self.assertRaisesRegex(InvalidInput,"UNPROVEN_OFFICIAL_CONDITION"):
+            self._paraphrase_check(doc)
+
+    def test_30_counterexample_or_disagreement_cannot_be_unreviewed(self):
+        for key in ("reviewed_counterexamples",
+                    "meaning_disagreements_adjudicated",
+                    "reviewed_primary_conditions_and_exceptions",
+                    "reviewed_source_and_official_time_scope",
+                    "no_unresolved_material_mismatch"):
+            doc=prepare_synthetic_paraphrase_case(self.case)
+            doc["rows"][0]["chat_entailment_proof"][key]=False
+            with self.subTest(key=key),self.assertRaisesRegex(
+                    InvalidInput,"CHAT_ENTAILMENT_MISSING_OR_FALSE_APPROVAL"):
+                self._paraphrase_check(doc)
+
+    def test_31_unverified_entailment_discussion_cannot_approve(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["entailment_conclusion"]="UNKNOWN"
+        with self.assertRaisesRegex(InvalidInput,"CHAT_ENTAILMENT_MISSING_OR_FALSE_APPROVAL"):
+            self._paraphrase_check(doc)
+
+    def test_32_paraphrase_source_and_official_body_digest_replay(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["source_context_digest_sha256"]="0"*64
+        with self.assertRaisesRegex(InvalidInput,"SOURCE_CONDITION_EXCEPTION_LOST"):
+            self._paraphrase_check(doc)
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        doc["rows"][0]["chat_entailment_proof"]["official_body_sha256"]="0"*64
+        with self.assertRaisesRegex(InvalidInput,"CLAIM_SOURCE_REVIEW_ORIGINAL_HASH"):
+            self._paraphrase_check(doc)
+
+    def test_33_cross_atom_context_cue_does_not_bind_a_different_claim(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        other=doc["rows"][1]
+        other["original_claim_cue_index"]=1
+        other["original_claim_quote"]=self.case["source"].cues[0].text
+        with self.assertRaisesRegex(InvalidInput,"CLAIM_CONTEXT_QUOTE_NOT_SOURCE_PINNED"):
+            self._paraphrase_check(doc)
+
+    def test_34_hypothetical_or_corrected_polarity_cannot_be_unconditional(self):
+        doc=prepare_synthetic_paraphrase_case(self.case)
+        qualified=next(r for r in doc["rows"]
+                       if r["chat_entailment_proof"]["claim_stance"]!="AFFIRMED")
+        qualified["chat_entailment_proof"]["official_scope_stance"]="AFFIRMED"
+        with self.assertRaisesRegex(InvalidInput,"QUALIFIED_OR_QUESTION_REBRANDED"):
+            self._paraphrase_check(doc)
+
+    def test_13_source_or_host_review_pin_drift_fails_closed(self):
+        doc=copy.deepcopy(self.manifest)
+        doc["host_event_sha256"]="a"*64
+        with self.assertRaises(InvalidInput):self.check(doc)
+        doc=copy.deepcopy(self.manifest)
+        doc["chat_review_sha256"]="b"*64
+        with self.assertRaises(InvalidInput):self.check(doc)
+
+
+class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
+    def setUp(self):
+        self.e3=V166E3NativeDecisionDelivery(
+            "test_01_all_chat_approved_children_preserve_research_only_pass")
+        self.e3.setUp()
+        self.addCleanup(self.e3.doCleanups)
+        self.fx=self.e3.fx
+        self.fx.knowledge=E4SealedKnowledgeStore(
+            self.fx.knowledge.path,
+            external_signing_key=b"SYNTHETIC_TEST_KEY_FOR_GUARDED_CI_"*2)
+        for packet in self.fx.packets:
+            replace_synthetic_official_body(packet["case"])
+        self.manifests={
+            segment_id:make_manifest(packet["case"])
+            for segment_id,packet in zip(self.fx.checkpoint.child_ids,self.fx.packets)
+        }
+        self.typed_inventories={
+            segment_id:make_typed_inventory_for_legal_synthetic_case(packet["case"])
+            for segment_id,packet in zip(self.fx.checkpoint.child_ids,self.fx.packets)
+        }
+        self.typed_manifests={
+            segment_id:make_nonlegal_manifest_for_case(
+                packet["case"],self.typed_inventories[segment_id])
+            for segment_id,packet in zip(self.fx.checkpoint.child_ids,self.fx.packets)
+        }
+
+    def run_guarded(self):
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=BODY):
+            return run_e4_guarded_parent(
+                self.fx.checkpoint,self.fx.knowledge,
+                review_or_load_child=self.fx.child,
+                review_seams=self.fx.seams,
+                review_parent=self.fx.parent_review,
+                primary_manifest_for_child=lambda sid,case:self.manifests.get(sid),
+                typed_inventory_for_child=lambda sid,case:self.typed_inventories.get(sid),
+                typed_manifest_for_child=lambda sid,case:self.typed_manifests.get(sid),
+                expected_knowledge_head=ZERO_SHA,
+                now_as_of="2026-11-17")
+
+    def test_14_both_valid_synthetic_children_do_publish_research_only(self):
+        r=self.run_guarded()
+        self.assertEqual(r["status"],"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED")
+        self.assertEqual([x["e4_status"] for x in r["child_preflights"]],
+                         ["E4_PASS_RESEARCH_CANDIDATES_ONLY"]*2)
+        self.assertTrue(r["all_video_knowledge_published"])
+        self.assertEqual(self.fx._counts(),
+                         {"events":3,"knowledge":3,"parent_publications":1})
+        self.assertFalse(r["personal_advice_approved"])
+
+    def test_15_one_child_missing_primary_blocks_entire_private_knowledge(self):
+        sid=self.fx.checkpoint.child_ids[1]
+        del self.manifests[sid]
+        r=self.run_guarded()
+        self.assertEqual(r["status"],"E4_HOLD_UNVERIFIED_CHILD")
+        self.assertEqual(self.fx._counts().get("events",0),0)
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+        self.assertEqual(self.fx._counts().get("parent_publications",0),0)
+
+    def test_20_historical_e3_v128_direct_write_rejected_by_e4_guarded_sqlite(self):
+        # This uses the SAME V128 synthetic positive fixture that historically
+        # inserted 3 research candidates even with forged government bytes.
+        # The protected DB must reject durable INSERTs without E4 receipts.
+        with self.assertRaises(sqlite3.DatabaseError):
+            self.e3.run_host()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+        self.assertEqual(self.fx._counts().get("events",0),0)
+        self.assertEqual(self.fx._counts().get("parent_publications",0),0)
+
+    def test_21_guarded_official_runner_rejects_plain_legacy_store(self):
+        self.fx.knowledge=PrivateKnowledgeStore(self.fx.knowledge.path)
+        with self.assertRaisesRegex(InvalidInput,"SEALED_E4_OFFICIAL_STORE_REQUIRED"):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_24_unsealed_guarded_store_cannot_enter_official_e4_publication(self):
+        self.fx.knowledge=E4GuardedKnowledgeStore(self.fx.knowledge.path)
+        with self.assertRaisesRegex(InvalidInput,
+                                    "SEALED_E4_OFFICIAL_STORE_REQUIRED"):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_23_same_file_plain_legacy_reopen_still_bypasses_object_only_guard(self):
+        # Red-test receipt: an attacker/process that ignores the official E4
+        # Store class can still open the EXACT SAME sqlite file using V126.
+        # This must remain an E4 blocker until durable canonical file-level
+        # receipts/guarding (or production removal of legacy entrypoint) exist.
+        database=self.fx.knowledge.path
+        self.fx.knowledge=PrivateKnowledgeStore(database)
+        native=self.e3.run_host()
+        self.assertEqual(native["explicit_e3_status"],
+                         "PUBLISHED_RESEARCH_CANDIDATES_ONLY")
+        self.assertEqual(self.fx._counts()["knowledge"],3)
+        self.assertEqual(self.fx._counts()["parent_publications"],1)
+        self.assertFalse(native["formal_financial_fact_approved"])
+
+    def test_22_verified_e4_scope_resets_after_commit_and_denies_new_unreviewed_batch(self):
+        allowed=self.run_guarded()
+        self.assertEqual(allowed["status"],"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED")
+        initial=self.fx._counts()
+        with self.assertRaises(sqlite3.DatabaseError):
+            with self.fx.knowledge._session() as con:
+                con.execute("INSERT INTO knowledge VALUES(?,?,?)",
+                            ("fake","{}","0"*64))
+        self.assertEqual(self.fx._counts(),initial)
+
+    def test_37_missing_typed_source_inventory_blocks_entire_official_parent(self):
+        second=self.fx.checkpoint.child_ids[1]
+        del self.typed_inventories[second]
+        with self.assertRaises((InvalidInput,TypeError)):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_38_reclassify_financial_fact_as_publisher_cannot_borrow_wiley(self):
+        second=self.fx.checkpoint.child_ids[1]
+        typed=self.typed_inventories[second]
+        row=typed["rows"][0]
+        row["evidence_class"]="PUBLISHER_BOOK_BIBLIOGRAPHY"
+        row["authority_route"]="ORIGINAL_PUBLISHER_PRIMARY"
+        with self.assertRaises(InvalidInput):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_39_financial_primary_without_nonlegal_type_manifest_denied(self):
+        second=self.fx.checkpoint.child_ids[1]
+        del self.typed_manifests[second]
+        with self.assertRaises(InvalidInput):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_40_wrong_typed_inventory_review_hash_cannot_rescope_law(self):
+        second=self.fx.checkpoint.child_ids[1]
+        self.typed_inventories[second]["chat_review_sha256"]="0"*64
+        with self.assertRaisesRegex(InvalidInput,"SOURCE_TYPE_REVIEW_PIN"):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_41_original_v123_open_still_holds_even_with_valid_type(self):
+        second=self.fx.checkpoint.child_ids[1]
+        row=self.fx.packets[1]["case"]["chat_review"]["atom_verdicts"][0]
+        row["status"]="OPEN"
+        result=self.run_guarded()
+        self.assertEqual(result["status"],"E4_HOLD_UNVERIFIED_CHILD")
+        self.assertFalse(result["research_export_authorized"])
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_16_invalid_source_redirect_also_blocks_parent_approval(self):
+        second=self.fx.checkpoint.child_ids[1]
+        self.manifests[second]["rows"][0]["official_url"] = (
+            "https://www.nts.go.kr.attacker.test/fake")
+        with self.assertRaises(InvalidInput):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+
+if __name__=="__main__":
+    unittest.main()
