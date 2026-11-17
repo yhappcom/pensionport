@@ -5,7 +5,7 @@
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
   "current_step": "E4",
-  "current_engine_verdict": "E1_E2_E3_PASS_E4_FAIL_NONSTATUTORY_TYPED_EVIDENCE_PARENT_ROUTING_NOT_DONE_NO_GO",
+  "current_engine_verdict": "E1_E2_E3_PASS_E4_FAIL_REAL_OWNER_UNRESOLVED_PRIMARY_AND_PRODUCTION_TRUST_NO_GO",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -154,19 +154,20 @@
         "validation/ire-v6-frozen/V166_E4_SECOND_REPAIR_GUARDED_STORE_AND_OWNER_BOOK_SOURCE_20261117.md",
         "validation/ire-v6-frozen/V166_E4_THIRD_REPAIR_OWNER_PIN_SEALED_SQLITE_AND_BOOK_EVIDENCE_20261117.md",
         "validation/ire-v6-frozen/V166_E4_FOURTH_REPAIR_SEMANTIC_ENTAILMENT_CERTIFIED_E2_READ_AND_OWNER_HISTORY_20261117.md",
-        "validation/ire-v6-frozen/V166_E4_FIFTH_REPAIR_OWNER_EVIDENCE_TYPE_VAULT_AND_NATIVE_HOLD_20261118.md"
+        "validation/ire-v6-frozen/V166_E4_FIFTH_REPAIR_OWNER_EVIDENCE_TYPE_VAULT_AND_NATIVE_HOLD_20261118.md",
+        "validation/ire-v6-frozen/V166_E4_SIXTH_REPAIR_TYPED_AUTHORITY_MANDATORY_PARENT_MIXED_NATIVE_OWNER_REPLAY_20261118.md"
       ],
       "blockers": [
-        "E4 primary-authority source routing still not integrated into official parent gate: actual B0001 has 0 statutory-law claims and 13 generic financial/highrisk screening flags but documentary publisher, business history, speech-only opinions and questions require distinct primary policies",
-        "Actual B0001 frozen V123 original review still HOLD (7 accept, 8 open, 1 exclude); later source-only quarantine view 7/3/6 also HOLD; C00002 C00009 C00010 objective source/audio/history OPEN and no real parent E4 approval or publication",
-        "Actual permitted law/financial-rule claims in other video scopes not yet tested from original owner subtitle through up-to-date applicable official original bytes + ChatGPT entailment → native V123 → E4 full valid commit",
-        "Operator signing secret and external latest owner PIN 0600/CAS access succeeded only in synthetic CI; production long-lived secret, external pinned owner state and all canonical knowledge/advice service read routes are not provisioned or verified",
-        "Plain V126 raw SQLite can still physically write, but those bytes fail E4 certificate; direct unguarded legacy research/advice readers must not be treated as certified release"
+        "Typed authority inventory and source-specific accepted-atom evidence routing are now MANDATORY for official E4 parent, validated with real native V6→V123→E3→E4→V128 synthetic two-child mixed law/opinion parent and atomicity; however 13 nonstatutory type tests and five parent tests do not constitute genuine source approvals",
+        "Actual B0001 frozen V123 still HOLD (7 ACCEPT/8 OPEN/1 EXCLUDE, source-only classification later 7/3/6 also HOLD), 69/69 original source refs verified; of seven prior candidate ACCEPT atoms, four (C00007 C00008 C00011 C00284) still require type-specific authentic primary or ChatGPT meaning adjudication",
+        "Actual financial-law claim from an owner video has not been approved end-to-end with live government source bytes, actual effective date/conditions, in-chat ChatGPT entailment, and official E4/127/128 knowledge publication",
+        "Official publisher evidence supports C00006 original English book title only; C00002 author audio, C00009 third-party letters anthology and C00010 early partnership claims remain OPEN; zero actual B0001 E4 owner knowledge records",
+        "Production operator external secret/latest-owner-pin long-term custody and all trusted research/advice consumer migration is not deployed; unsafe raw V126/SQLite legacy paths remain physically possible though independently certified E4 reads reject their rows"
       ],
       "retest_required": true,
       "initial_hazard": "Frozen V123 permits synthetic fake government body when bytes SHA and dated flags match; no authenticated publisher/authority/scope evidence enforced",
       "synthetic_only_approval_must_not_certify_legality": true,
-      "latest_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44162413868",
+      "latest_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44170980034",
       "ordered_ci_jobs_passed": 9,
       "live_origin_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44037778904",
       "live_official_source_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6449",
@@ -314,7 +315,39 @@
       "e4_operator_unverified_child_db_zero_pin_absent_test_pass": true,
       "e4_operator_missing_external_pin_after_commit_rejected": true,
       "e4_operator_vault_test_cases": 18,
-      "e4_evidence_authority_taxonomy_cases": 11
+      "e4_evidence_authority_taxonomy_cases": 11,
+      "e4_typed_parent_mandatory_callbacks": true,
+      "e4_statutory_evidence_scoped_by_accepted_typed_law_atoms": true,
+      "e4_nonstatutory_authorities_module": "v166_e4_typed_nonstatutory.audit_typed_nonstatutory_research",
+      "e4_nonstatutory_source_type_check_synthetic_cases_passed": 13,
+      "e4_native_mixed_law_and_opinion_parent_tests_passed": 5,
+      "e4_native_mixed_synthetic_actual_sqlite_knowledge_candidates": 3,
+      "e4_native_mixed_synthetic_parent_publications": 1,
+      "e4_native_mixed_one_unverified_opinion_blocks_all_writes": true,
+      "e4_verified_parent_receipt_contains_typed_manifest_hashes": true,
+      "e4_owner_69_actual_original_source_refs_verified": true,
+      "e4_owner_original_srt_sha256": "638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d",
+      "e4_owner_16_source_type_private_receipt_sha256": "ada4bd6cf3beb86ee8979a38c90c8769b40aaffd480565c2a92842449be96ac0",
+      "e4_owner_16_actual_statutory_claims": 0,
+      "e4_owner_7_v123_candidates_by_type_preliminarily_supported_only_as_citation_or_speech": [
+        "C00004",
+        "C00005",
+        "C00006"
+      ],
+      "e4_owner_7_v123_candidates_needing_additional_nonstat_primary": [
+        "C00007",
+        "C00008",
+        "C00011",
+        "C00284"
+      ],
+      "e4_owner_c00006_wiley_original_body_sha256": "0b444a35f1f3d6a4355188c4dcfd0d7327c00ba73e75e4c6c0cccb1379525bd2",
+      "e4_owner_c00006_wiley_body_bytes": 61883,
+      "e4_owner_original_native_review_status": {
+        "accepted": 7,
+        "open": 8,
+        "excluded": 1,
+        "full_child_status": "CHAT_FINAL_HOLD_OPEN"
+      }
     },
     {
       "step": "E5",
