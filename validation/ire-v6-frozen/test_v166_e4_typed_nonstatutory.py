@@ -53,13 +53,14 @@ def synthetic_wiley_chapter(*,include_caveat=True):
     return buf.getvalue()
 
 
-def case_with_type(quote,kind,stance,category,body=None,status="ACCEPT_FOR_RESEARCH"):
+def case_with_type(quote,kind,stance,category,body=None,status="ACCEPT_FOR_RESEARCH",
+                   claim_id=claim_id):
     raw=make_srt([quote,"후속 발언은 검토자 주장과 분리합니다."])
     manifest=make_manifest(raw)
     source=verify_source(raw,manifest,
         expected_source_sha256=sha256(raw),
         expected_manifest_sha256=json_digest(manifest))
-    atom={"claim_id":"C00001","kind":kind,"stance":stance,
+    atom={"claim_id":claim_id,"kind":kind,"stance":stance,
           "speaker":"NARRATOR",
           "context_cue_indices":[1],
           "source_refs":[{"cue_index":1,"quote":quote}],
@@ -67,7 +68,7 @@ def case_with_type(quote,kind,stance,category,body=None,status="ACCEPT_FOR_RESEA
           "numeric_references":[],
           "proposition":quote,"owner_window_id":source.owner(1),"as_of":None}
     review_verdict={
-        "claim_id":"C00001","atom_sha256":json_digest(atom),
+        "claim_id":claim_id,"atom_sha256":json_digest(atom),
         "status":status,"private_review_note_sha256":sha256(b"synthetic ChatGPT"),
         "high_risk":True,"financial_claim":True,
         "official_body_sha256":sha256(body) if body else None,
@@ -75,9 +76,9 @@ def case_with_type(quote,kind,stance,category,body=None,status="ACCEPT_FOR_RESEA
     review={"as_of":"2026-11-17","atom_verdicts":[review_verdict]}
     c={"source":source,"exchange":{"atoms":[atom]},
        "chat_review":review,
-       "official_evidence_bodies":{"C00001":body} if body else {}}
+       "official_evidence_bodies":{claim_id:body} if body else {}}
     type_row={
-        "claim_id":"C00001","atom_sha256":json_digest(atom),
+        "claim_id":claim_id,"atom_sha256":json_digest(atom),
         "original_cue_index":1,"original_cue_quote":quote,
         "original_cue_quote_sha256":sha256(quote.encode("utf-8")),
         "evidence_class":category,"authority_route":CLASS_TO_KIND[category][1],
@@ -103,7 +104,7 @@ def case_with_type(quote,kind,stance,category,body=None,status="ACCEPT_FOR_RESEA
         "formal_current_law_certified":False,"personal_advice_approved":False,
     }
     evidence={
-        "claim_id":"C00001","evidence_class":category,
+        "claim_id":claim_id,"evidence_class":category,
         "authority_route":CLASS_TO_KIND[category][1],
         "source_quote_sha256":sha256(quote.encode("utf-8")),
         "chat_meaning_note":NOTE,
@@ -321,6 +322,55 @@ class V166E4TypedNonStatutoryClaimSources(unittest.TestCase):
                    sha256(pdf)):
             with self.assertRaises(InvalidInput):
                 self.check(c,t,m)
+
+    def test_20_owner_title_reason_guess_is_attributed_not_publisher_verified(self):
+        c,t,m=case_with_type(
+            "단도라는 말이 낯설어 아마 번역 제목이 바뀐게 아닐까 생각합니다",
+            "OPINION","UNRESOLVED","PERSONAL_SUBJECTIVE_OPINION",
+            claim_id="C00284")
+        note=(NOTE+" 해당 제목이 바뀐 이유에 관한 발언은 화자의 추측이며 "
+              "출판사의 실제 번역제목 변경 사유는 확인되지 않았습니다. "
+              "원문 직접 인용 외 사실 및 매매판단 근거로 사용하지 않습니다.")
+        m["rows"][0].update(
+            verification_mode="SPECULATIVE_TITLE_REASON_SOURCE_ONLY_NOT_PUBLISHER_FACT",
+            chat_meaning_note=note,
+            chat_meaning_note_sha256=sha256(note.encode("utf-8")))
+        r=self.check(c,t,m)
+        self.assertEqual(r["source_only_speaker_statements"],1)
+        self.assertFalse(r["financial_truth_certified"])
+        self.assertFalse(r["personal_advice_approved"])
+
+    def test_21_broad_unresolved_opinion_no_explicit_guess_stays_blocked(self):
+        c,t,m=case_with_type(
+            "번역서 제목을 출판사가 실제 결정했다고 단정합니다",
+            "OPINION","UNRESOLVED","PERSONAL_SUBJECTIVE_OPINION",
+            claim_id="C00284")
+        note=(NOTE+" 출판사 사유는 확인되지 않은 화자의 추측이라는 "
+              "한계와 검토자 주의사항입니다.")
+        m["rows"][0].update(
+            verification_mode="SPECULATIVE_TITLE_REASON_SOURCE_ONLY_NOT_PUBLISHER_FACT",
+            chat_meaning_note=note,
+            chat_meaning_note_sha256=sha256(note.encode("utf-8")))
+        with self.assertRaisesRegex(InvalidInput,"C00284_EXPLICIT_SPECULATION"):
+            self.check(c,t,m)
+
+    def test_22_other_unresolved_financial_opinion_cannot_borrow_title_exemption(self):
+        c,t,m=case_with_type(
+            "아마 이 주식의 수익률은 언제나 보장될 거라 생각합니다",
+            "OPINION","UNRESOLVED","INVESTMENT_STRATEGY_OPINION",
+            claim_id="C12345")
+        m["rows"][0]["verification_mode"]=(
+            "SPECULATIVE_TITLE_REASON_SOURCE_ONLY_NOT_PUBLISHER_FACT")
+        with self.assertRaisesRegex(InvalidInput,"OPINION_OR_QUESTION_MUST_NOT_BORROW"):
+            self.check(c,t,m)
+
+    def test_23_title_guess_native_open_cannot_be_accepted_by_type_only(self):
+        c,t,m=case_with_type(
+            "아마 번역 제목이 바뀐 게 아닐까 생각합니다",
+            "OPINION","UNRESOLVED","PERSONAL_SUBJECTIVE_OPINION",
+            status="OPEN",claim_id="C00284")
+        self.assertEqual(self.check(c,t,m)["nonstatutory_accepted_claims"],0)
+        self.assertFalse(self.check(c,t,m)["financial_truth_certified"])
 
     def test_19_same_wiley_domain_chapter_changed_without_signed_revision_holds(self):
         pdf=synthetic_wiley_chapter()
