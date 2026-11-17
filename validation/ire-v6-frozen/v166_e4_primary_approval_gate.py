@@ -19,6 +19,7 @@ from ire.v6.errors import InvalidInput, QualityNotProven
 from v166_e3_chat_decision_delivery import (
     replay_chat_decision_envelope, run_full_video_with_e3_decisions)
 from v166_e4_guarded_knowledge_store import E4GuardedKnowledgeStore
+from v166_e4_sealed_knowledge import E4SealedKnowledgeStore
 
 SCHEMA = "IRE_V166_E4_TRUSTED_PRIMARY_EVIDENCE_APPLICATION_V1"
 RECEIPT = "IRE_V166_E4_VERIFIED_RESEARCH_CANDIDATE_GATE_V1"
@@ -297,6 +298,11 @@ def run_e4_guarded_parent(checkpoint, knowledge_store, *, review_or_load_child,
                 review_or_load_child=checked_child,
                 review_seams=review_seams,review_parent=review_parent,
                 expected_knowledge_head=expected_knowledge_head)
+            owner_pin = None
+            if isinstance(knowledge_store,E4SealedKnowledgeStore):
+                owner_pin=knowledge_store.certify_completed_parent(
+                    child_ids=checkpoint.child_ids,
+                    e3_downstream_result=downstream)
     except E4ApprovalBlocked:
         return {"schema":"IRE_V166_E4_PARENT_APPROVAL_V1",
                 "status":"E4_HOLD_UNVERIFIED_CHILD",
@@ -313,6 +319,8 @@ def run_e4_guarded_parent(checkpoint, knowledge_store, *, review_or_load_child,
             "status":"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED",
             "child_preflights":guarded,
             "e3_parent_status":downstream["explicit_e3_status"],
+            "e4_external_owner_pin_sha256":owner_pin,
+            "e4_durable_certification_verified":owner_pin is not None,
             "all_video_knowledge_published":True,
             "research_export_authorized":True,
             "financial_fact_formally_approved":False,
