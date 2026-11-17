@@ -18,6 +18,9 @@ from v166_e4_corporate_historical_primary import (
     _validate_url as validate_berkshire_url,
     fetch_official_berkshire_letters_index)
 from v166_e4_typed_authority import CLASS_TO_KIND
+from v166_e4_attributed_book_snapshot import (
+    MODE as BOOK_ATTRIBUTION_MODE,audit_book_attribution_snapshot,
+    verify_live_book_attribution)
 from v166_e4_wiley_author_chapter import (
     CHAPTER_URL,fetch_wiley_original_chapter_pdf,audit_author_original_chapter)
 
@@ -93,6 +96,8 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
     company=0
     original_chapter=0
     author_strategy=0
+    book_scope_proofs=[]
+    book_live_cache={}
     for cid in sorted(candidates):
         row=keyed[cid]
         typed=route_by_id[cid]
@@ -210,6 +215,23 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
                   "GUJARATI_WILEY_ORIGINAL_PDF_NOT_V123_PINNED")
             original_chapter+=1
         elif cat=="BOOK_ORIGINAL_AUTHOR_PRINCIPLE":
+            if row["verification_mode"]==BOOK_ATTRIBUTION_MODE:
+                # Actual in-chat reviewed book scope, pinned exact atom/note,
+                # archived bytes and live scope remain distinct. No unrelated
+                # source, missing primary, or investment efficacy approval.
+                archive=case["official_evidence_bodies"].get(cid)
+                _need(type(archive) is bytes,"REGISTERED_BOOK_ARCHIVE_REQUIRED")
+                proof=audit_book_attribution_snapshot(
+                    source,atom,verdicts[cid],note,archive,row)
+                url=proof["primary_scope"]["source_url"]
+                if url not in book_live_cache:
+                    book_live_cache[url]=(fetch_wiley_original_chapter_pdf(url)
+                        if proof["primary_scope"]["format"]=="chapter"
+                        else fetch_wiley_publisher_bytes(url))
+                book_scope_proofs.append(verify_live_book_attribution(
+                    proof,book_live_cache[url]))
+                proofs+=1
+                continue
             # The HTML is already pinned by original V123, but author's
             # loss/return asymmetric principle is supported by a separate
             # ORIGINAL Wiley chapter PDF, including its no-guarantee caveat.
@@ -269,6 +291,8 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
         "original_company_chronology_claims":company,
         "original_author_chapter_word_descriptions":original_chapter,
         "original_author_asymmetric_risk_descriptions":author_strategy,
+        "registered_attributed_book_claims":len(book_scope_proofs),
+        "registered_attributed_book_scope_proofs":book_scope_proofs,
         "financial_truth_certified":False,
         "personal_advice_approved":False,
         "p0_go":False,
