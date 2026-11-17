@@ -20,6 +20,7 @@ from v166_e3_chat_decision_delivery import (
     replay_chat_decision_envelope, run_full_video_with_e3_decisions)
 from v166_e4_guarded_knowledge_store import E4GuardedKnowledgeStore
 from v166_e4_sealed_knowledge import E4SealedKnowledgeStore
+from v166_e4_semantic_entailment import audit_e4_claim_entailment
 
 SCHEMA = "IRE_V166_E4_TRUSTED_PRIMARY_EVIDENCE_APPLICATION_V1"
 RECEIPT = "IRE_V166_E4_VERIFIED_RESEARCH_CANDIDATE_GATE_V1"
@@ -40,6 +41,7 @@ ROW_KEYS = {
     "original_claim_quote","primary_scope_excerpt",
     "chat_primary_scope_note","chat_primary_scope_note_sha256",
     "primary_claim_support_mode","primary_effective_date_excerpt",
+    "chat_entailment_proof",
     "chat_scope_conditions_reviewed",
     "chat_exceptions_reviewed",
     "chat_source_asof_reviewed",
@@ -173,6 +175,7 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
                           if v["status"]=="ACCEPT_FOR_RESEARCH"},
              "NATIVE_ACCEPTANCE_CHANGED")
     fetched=0
+    paraphrase_verified=0
     for r in rows:
         _require(type(r) is dict and set(r)==ROW_KEYS, "PRIMARY_ROW_SCHEMA")
         cid=r["claim_id"]
@@ -226,9 +229,16 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
         # in the original official bytes is required. A real *paraphrase*
         # needs a separate ChatGPT entailment proof; a URL + arbitrary
         # excerpt cannot certify that the primary source supports this claim.
-        _require(r["primary_claim_support_mode"]=="EXACT_PRIMARY_QUOTE"
-                 and r["original_claim_quote"].encode("utf-8") in fetched_bytes,
-                 "OFFICIAL_ORIGINAL_DOES_NOT_SUPPORT_CLAIM_QUOTE")
+        mode=r["primary_claim_support_mode"]
+        if mode=="EXACT_PRIMARY_QUOTE":
+            _require(r["chat_entailment_proof"] is None and
+                     r["original_claim_quote"].encode("utf-8") in fetched_bytes,
+                     "OFFICIAL_ORIGINAL_DOES_NOT_SUPPORT_CLAIM_QUOTE")
+        elif mode=="CHATGPT_CUE_TO_PRIMARY_ENTAILMENT":
+            audit_e4_claim_entailment(case,r,fetched_bytes)
+            paraphrase_verified+=1
+        else:
+            _require(False,"UNREVIEWED_PARAPHRASE_OR_UNSUPPORTED_SUPPORT_MODE")
         # A ChatGPT-entered effective date is insufficient. Demand that the
         # issuer's *original* page explicitly contains the very same date.
         # Official guidance without a date-qualified applicability passage is
@@ -252,6 +262,7 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
         "primary_manifest_sha256":json_digest(primary_manifest),
         "native_v123_status":native["native_gate_status"],
         "official_primary_claims_replayed":fetched,
+        "chat_entailment_claims_replayed":paraphrase_verified,
         "approved_research_candidate_claims":len(accepted),
         "quarantined_source_only_atoms":native["quarantined_source_only_atoms"],
         "research_export_authorized":True,
