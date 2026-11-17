@@ -680,8 +680,9 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
         second=self.fx.checkpoint.child_ids[1]
         row=self.fx.packets[1]["case"]["chat_review"]["atom_verdicts"][0]
         row["status"]="OPEN"
-        with self.assertRaises((InvalidInput,QualityNotProven)):
-            self.run_guarded()
+        result=self.run_guarded()
+        self.assertEqual(result["status"],"E4_HOLD_UNVERIFIED_CHILD")
+        self.assertFalse(result["research_export_authorized"])
         self.assertEqual(self.fx._counts().get("knowledge",0),0)
 
     def test_16_invalid_source_redirect_also_blocks_parent_approval(self):
