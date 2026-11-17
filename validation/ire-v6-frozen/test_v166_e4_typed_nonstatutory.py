@@ -185,6 +185,22 @@ class V166E4TypedNonStatutoryClaimSources(unittest.TestCase):
         self.assertEqual(r["source_only_speaker_statements"],1)
         self.assertFalse(r["financial_truth_certified"])
 
+    def test_24_buffett_shareholder_anthology_not_just_speaker_opinion(self):
+        c,t,m=case_with_type(
+            "버핏 주주서한 책은 규모가 이미 커진 이후 내용이라고 생각합니다",
+            "OPINION","AFFIRMED","PERSONAL_SUBJECTIVE_OPINION")
+        with self.assertRaisesRegex(
+            InvalidInput,"THIRD_PARTY_HISTORY_OR_ANTHOLOGY_FACT_NOT_SOURCE_ONLY"):
+            self.check(c,t,m)
+
+    def test_25_partnership_aggressive_history_not_unverified_personal_opinion(self):
+        c,t,m=case_with_type(
+            "버핏 파트너십은 초기 공격적 운용으로 목표 수익을 올렸다고 생각합니다",
+            "OPINION","AFFIRMED","INVESTMENT_STRATEGY_OPINION")
+        with self.assertRaisesRegex(
+            InvalidInput,"THIRD_PARTY_HISTORY_OR_ANTHOLOGY_FACT_NOT_SOURCE_ONLY"):
+            self.check(c,t,m)
+
     def test_05_tax_statute_cannot_be_rebranded_source_only_opinion(self):
         c,t,m=case_with_type("세율과 세금 공제는 자동으로 확정된다고 생각합니다",
             "OPINION","AFFIRMED","INVESTMENT_STRATEGY_OPINION")
