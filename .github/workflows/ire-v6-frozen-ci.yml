@@ -17,6 +17,7 @@ on:
       - verify/ire-v6-p0e-v155-75-cue-adjudication-20261117
       - verify/ire-v6-p0e-v157-actual-284-host-semantic-fields-20261117
       - verify/ire-v6-p0e-v158-129-source-stances-20261117
+      - verify/ire-v6-p0e-v159-v123-source-first-20261117
   workflow_dispatch:
 permissions:
   contents: read
@@ -2446,3 +2447,36 @@ jobs:
           print(json.dumps(out,sort_keys=True))
           PY
 
+  v159-private-real-v123-source-first-sha-hold:
+    name: V159 real 286 owner atoms, 18 restricted ChatGPT rows, 13 final V123 HOLD (SHA-only)
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Run 15 negative source-first V123 and V128 release controls
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v159_source_first_v123_release_guard.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v159_source_first_v123_release_guard.py' -v
+      - name: Validate public owner SHA-only 13 real ledger hashes and exact no-GO status
+        run: |
+          PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from v159_source_first_v123_release_guard import audit_v159_public_source_first,research_release_or_personal_advice_allowed
+          row=json.loads(Path("validation/ire-v6-frozen/V159_V123_286_SOURCE_FIRST_PARTIAL_SHA_ONLY.json").read_text())
+          out=audit_v159_public_source_first(row)
+          release=research_release_or_personal_advice_allowed(row)
+          assert out["provisional_atom_count"]==286
+          assert out["candidate_row_accepted_educational_not_finally_released"]==18
+          assert out["V123_final_scope_PASSES"]==0
+          assert release["V128_atomic_knowledge_publish_allowed"] is False
+          assert out["P0E_GO"] is False
+          print(json.dumps(out,sort_keys=True))
+          PY
