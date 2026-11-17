@@ -73,6 +73,8 @@ class E4GuardedKnowledgeStore(PrivateKnowledgeStore):
             len(verified["typed_source_inventory_sha256"])!=64 or
             type(verified.get("typed_nonlegal_manifest_sha256")) is not str or
             len(verified["typed_nonlegal_manifest_sha256"])!=64 or
+            type(verified.get("typed_nonstatutory_proof_sha256")) is not str or
+            len(verified["typed_nonstatutory_proof_sha256"])!=64 or
             verified.get("native_v123_status") !=
                 "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY" or
             type(verified.get("primary_manifest_sha256")) is not str or
@@ -89,5 +91,6 @@ class E4GuardedKnowledgeStore(PrivateKnowledgeStore):
             "primary_manifest_sha256":verified["primary_manifest_sha256"],
             "typed_source_inventory_sha256":verified["typed_source_inventory_sha256"],
             "typed_nonlegal_manifest_sha256":verified["typed_nonlegal_manifest_sha256"],
+            "typed_nonstatutory_proof_sha256":verified["typed_nonstatutory_proof_sha256"],
             "chat_review_sha256":verified["chat_review_sha256"],
         }
