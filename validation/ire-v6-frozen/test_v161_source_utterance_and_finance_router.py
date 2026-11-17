@@ -152,5 +152,47 @@ class V161SourceOnlyTests(unittest.TestCase):
         self.assertFalse(q["finance_evidence_approved"])
 
 
+
+    def test_17_additive_overlay_keeps_native_v123_open_and_blocks_v128(self):
+        from unittest.mock import patch
+        from v161_source_review_overlay import assess_source_only_overlay_then_v123
+        original = {"atom_verdicts":[{"claim_id":"C00001","status":"OPEN","financial_claim":True}],
+                    "source_cues":self.cues}
+        fake_native={"status":"CHAT_FINAL_HOLD_OPEN","atoms_open":1,"finance_open":1,
+                     "research_candidate_export_allowed":False}
+        with patch("v161_source_review_overlay.audit_host_atomic_exchange",return_value={}), \
+             patch("v161_source_review_overlay.assess_chat_final_gate",return_value=fake_native):
+            got=assess_source_only_overlay_then_v123(
+                self.source,{"atoms":[self.atom]},host_receipt=None,chat_review=original,
+                store=None,official_evidence_bodies={},source_only_reviews=[self.row])
+        self.assertEqual(got["native_v123_atoms_open_unchanged"],1)
+        self.assertEqual(got["native_finance_fact_evidence_open_unchanged"],1)
+        self.assertEqual(got["source_first_semantic_tasks_remaining"],0)
+        self.assertEqual(original["atom_verdicts"][0]["status"],"OPEN")
+        self.assertFalse(got["research_export_allowed"])
+        self.assertFalse(got["v126_v128_knowledge_publish_allowed"])
+
+    def test_18_additive_overlay_cannot_repeat_source_only_proof(self):
+        from unittest.mock import patch
+        from v161_source_review_overlay import assess_source_only_overlay_then_v123
+        original = {"atom_verdicts":[{"claim_id":"C00001","status":"OPEN","financial_claim":True}],
+                    "source_cues":self.cues}
+        with patch("v161_source_review_overlay.audit_host_atomic_exchange",return_value={}):
+            with self.assertRaises(InvalidInput):
+                assess_source_only_overlay_then_v123(
+                    self.source,{"atoms":[self.atom]},host_receipt=None,chat_review=original,
+                    store=None,official_evidence_bodies={},source_only_reviews=[self.row,self.row])
+
+    def test_19_additive_overlay_rejects_nonopen_native_atom(self):
+        from unittest.mock import patch
+        from v161_source_review_overlay import assess_source_only_overlay_then_v123
+        original = {"atom_verdicts":[{"claim_id":"C00001","status":"ACCEPT_FOR_RESEARCH","financial_claim":True}],
+                    "source_cues":self.cues}
+        with patch("v161_source_review_overlay.audit_host_atomic_exchange",return_value={}):
+            with self.assertRaises(InvalidInput):
+                assess_source_only_overlay_then_v123(
+                    self.source,{"atoms":[self.atom]},host_receipt=None,chat_review=original,
+                    store=None,official_evidence_bodies={},source_only_reviews=[self.row])
+
 if __name__=="__main__":
     unittest.main()
