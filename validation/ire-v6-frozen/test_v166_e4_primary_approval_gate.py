@@ -20,7 +20,7 @@ from v166_e4_primary_approval_gate import (
     _fetch_approved_primary_https,
 )
 
-BODY=("<html><title>SYNTHETIC ONLY - NOT LAW</title>"
+BODY=("<html><title>SYNTHETIC ONLY - NOT LAW</title><p>시행 2026-11-10</p>"
       "<p>가상의 금융 교육 문서: 납입 한도와 공제율은 "
       "사람별·과세기간별로 검토해야 한다는 시험용 텍스트. "
       "연금저축의 예상 수익은 10%입니다. "
@@ -52,6 +52,7 @@ def make_manifest(case, body=BODY):
             "body_sha256":sha256(body),
             "effective_from":v["official_effective_as_of"],
             "effective_until":None,
+            "primary_effective_date_excerpt":"시행 2026-11-10",
             "original_claim_cue_index":index,
             "original_claim_quote":full[:min(50,len(full))],
             "primary_scope_excerpt":EXCERPT,
@@ -252,6 +253,23 @@ class V166E4NativeGatePolicyUnitTests(unittest.TestCase):
                     InvalidInput,"OFFICIAL_ORIGINAL_DOES_NOT_SUPPORT_CLAIM_QUOTE"):
                 assess_e4_primary_authority_gate(
                     self.case,doc,now_as_of=self.now)
+
+    def test_19_effective_date_must_be_in_issuer_original_bytes(self):
+        fake=("<html><p>납입 한도와 공제율은 사람별·과세기간별로 검토</p>"
+              "<p>연금저축의 예상 수익은 10%입니다.</p></html>").encode("utf-8")
+        # Changes to host/review SHA cannot disguise missing dated law text.
+        doc=copy.deepcopy(self.manifest)
+        for row in self.case["chat_review"]["atom_verdicts"]:
+            row["official_body_sha256"]=sha256(fake)
+        for cid in self.case["official_evidence_bodies"]:
+            self.case["official_evidence_bodies"][cid]=fake
+        doc["chat_review_sha256"]=json_digest(self.case["chat_review"])
+        for row in doc["rows"]:
+            row["body_sha256"]=sha256(fake)
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=fake):
+            with self.assertRaises(InvalidInput):
+                assess_e4_primary_authority_gate(self.case,doc,now_as_of=self.now)
 
     def test_18_unreviewed_paraphrase_cannot_replace_exact_authority_support(self):
         doc=copy.deepcopy(self.manifest)
