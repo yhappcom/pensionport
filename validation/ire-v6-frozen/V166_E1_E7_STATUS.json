@@ -5,7 +5,7 @@
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
   "current_step": "E4",
-  "current_engine_verdict": "E1_E2_E3_PASS_E4_FAIL_REAL_OWNER_LEGAL_SOURCE_AND_OPERATIONAL_CERTIFICATION_NO_GO",
+  "current_engine_verdict": "E1_E2_E3_PASS_E4_FAIL_OWNER_REAL_LEGAL_APPROVAL_AND_OPERATIONAL_DEPLOYMENT_NO_GO",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -152,18 +152,19 @@
       "evidence_paths": [
         "validation/ire-v6-frozen/V166_E4_APPROVAL_GATE_REAL_PRIMARY_CI_AND_REMAINING_FAIL_20261117.md",
         "validation/ire-v6-frozen/V166_E4_SECOND_REPAIR_GUARDED_STORE_AND_OWNER_BOOK_SOURCE_20261117.md",
-        "validation/ire-v6-frozen/V166_E4_THIRD_REPAIR_OWNER_PIN_SEALED_SQLITE_AND_BOOK_EVIDENCE_20261117.md"
+        "validation/ire-v6-frozen/V166_E4_THIRD_REPAIR_OWNER_PIN_SEALED_SQLITE_AND_BOOK_EVIDENCE_20261117.md",
+        "validation/ire-v6-frozen/V166_E4_FOURTH_REPAIR_SEMANTIC_ENTAILMENT_CERTIFIED_E2_READ_AND_OWNER_HISTORY_20261117.md"
       ],
       "blockers": [
-        "Real B0001 V123 ChatGPT final remains HOLD: 3 objective/historical/source-book atoms OPEN (C00002,C00009,C00010), remaining risk/adjudication unresolved; no complete owner-source E4 accepted parent publication",
-        "True official financial source for a semantically paraphrased legal claim with historical/current effective dates and scope has not been end-to-end accepted through E4; E4 exact source-quote policy is conservative",
-        "E4 HMAC seal/pin and official only-sealed runner pass synthetic CI; production secret, independently latest external pin retention and all advisory/knowledge access routing through certified E4 are not deployed or verified on actual owner data",
-        "Legacy V126/plain SQLite can physically write research rows to same file. Those rows are now rejected by E4 certified reader but direct legacy consumers must remain segregated/disabled in trusted operating path"
+        "Actual B0001 native V123 remains HOLD: C00002 author ASR/audio, C00009 broad shareholder anthology/capital-era claim, C00010 third-party 1957 partnership reproduction and UNRESOLVED speaker stance; 3 original OPEN claims remain and 0 actual approved knowledge is issued",
+        "E4 ChatGPT source-to-official paraphrase proof now passes synthetic positive/negative tests, but no current genuine legal primary fact and applicable effective-period claim has passed actual owner source → ChatGPT final V123 → E4 → V128 private commit",
+        "E4 sealed HMAC owner pin and E2 safe retrieval tested on real SQLite synthetic parent, but operator production signing secret, externally retained current owner pin, and mandatory trusted access route not deployed or verified on actual owner's research knowledge",
+        "Raw legacy V126/plain SQLite can still write physical bytes; these are not E4-certified without external owner pin but any unguarded legacy advisory consumer must be kept separate from certified knowledge"
       ],
       "retest_required": true,
       "initial_hazard": "Frozen V123 permits synthetic fake government body when bytes SHA and dated flags match; no authenticated publisher/authority/scope evidence enforced",
       "synthetic_only_approval_must_not_certify_legality": true,
-      "latest_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44047834586",
+      "latest_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44072177360",
       "ordered_ci_jobs_passed": 9,
       "live_origin_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44037778904",
       "live_official_source_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6449",
@@ -245,7 +246,34 @@
         "actual_wiley_tls_ci": "https://github.com/yhappcom/pensionport/actions/runs/44040578048",
         "video_fact_autoapproved": false,
         "e4_complete_real_owner_positive": false
-      }
+      },
+      "e4_chat_primary_semantic_entailment_module": "v166_e4_semantic_entailment.audit_e4_claim_entailment",
+      "e4_semantically_paraphrased_source_first_synthetic_pass": true,
+      "e4_claim_source_ref_not_only_context_verified": true,
+      "e4_financial_number_unit_period_and_condition_negative_tests_pass": true,
+      "e4_semantic_real_current_law_claim_positive_pass": false,
+      "e4_certified_e2_read_method": "v166_e4_sealed_knowledge.E4SealedKnowledgeStore.certified_e2_source_separated_context",
+      "e4_e2_pinned_read_test_cases_passed": 5,
+      "e4_pinned_read_legacy_proposition_exposed": false,
+      "e4_authenticated_live_berkshire_primary": {
+        "official_origin": "https://www.berkshirehathaway.com/letters/letters.html",
+        "original_bytes": 53854,
+        "body_sha256": "329a5087fa6c2beb5ce4863bde163d5923cb283690fc2b16f5318bf071e93a9c",
+        "live_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44071857584",
+        "company_official_archive_visible_from": 1977,
+        "company_described_compilation_start": 1965,
+        "company_described_compilation_end": 2024,
+        "owner_video_C00009_verified": false,
+        "owner_video_C00010_verified": false
+      },
+      "private_owner_three_open_docket_sha256": "59394f9f99dafb63571bda7c9a98825a85b38fc923730f7180eb4e35a5d281bd",
+      "private_owner_docket_new_acceptances": 0,
+      "private_owner_three_claim_ids": [
+        "C00002",
+        "C00009",
+        "C00010"
+      ],
+      "private_owner_srt_sha256": "638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d"
     },
     {
       "step": "E5",
