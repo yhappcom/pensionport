@@ -4,8 +4,8 @@
   "repository": "yhappcom/pensionport",
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
-  "current_step": "E1",
-  "current_engine_verdict": "NO_GO_E1_INCOMPLETE",
+  "current_step": "E2",
+  "current_engine_verdict": "E1_STRUCTURAL_PASS_E2_SEMANTIC_PENDING_FULL_ENGINE_NO_GO",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -17,22 +17,19 @@
       "step": "E1",
       "target": "엔진 전체 구조",
       "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
-      "status": "FAIL",
-      "completed_at": null,
+      "status": "PASS",
+      "completed_at": "2026-11-17T14:32:20+09:00",
       "evidence_paths": [
         "validation/ire-v6-frozen/V165_ONE_VIDEO_FEASIBILITY_BASELINE_AUDIT_20261117.md",
         "validation/ire-v6-frozen/V166_E1_BASELINE_FAILED_CONNECTIVITY_REPORT_20261117.md",
-        "validation/ire-v6-frozen/V166_E1_QUARANTINE_COMPILER_REPAIR_AND_CI_REPORT_20261117.md"
+        "validation/ire-v6-frozen/V166_E1_QUARANTINE_COMPILER_REPAIR_AND_CI_REPORT_20261117.md",
+        "validation/ire-v6-frozen/V166_E1_FINAL_SINGLE_INPUT_ACID_AND_OWNER_HOLD_PROOF_20261117.md"
       ],
-      "blockers": [
-        "V164 typed direct publication remains false; V166 source-only to native quarantine draft route exists",
-        "Native V123 must replay the transformed review with 3 facts evidence, actual risk review and disagreement resolution",
-        "No single combined synthetic E1 test has proven typed compiler output travels through actual V126/V127/V128 committed store"
-      ],
-      "retest_required": true,
+      "blockers": [],
+      "retest_required": false,
       "ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44021729254",
       "tested_legacy_v128_synthetic_children": 2,
-      "typed_end_to_end_test_pass": false,
+      "typed_end_to_end_test_pass": true,
       "observed_legacy_private_store_result": {
         "events": 3,
         "knowledge": 3,
@@ -43,13 +40,32 @@
       "source_only_conversion_synthetic_cases_passed": 7,
       "v143_native_quarantine_v126_v128_regression_passed": true,
       "compiler_release_authorization": false,
-      "remaining_e1_blocker": "same typed compiler review -> native V123 -> V127/V126/V128 SQLite commit has not been executed as one combined positive test"
+      "remaining_e1_blocker": "NONE_FOR_SYNTHETIC_STRUCTURAL_CONNECTIVITY; owner_real_final_PASS_not_in_E1",
+      "final_connected_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44024787646",
+      "typed_same_input_result": {
+        "synthetic_scopes": 2,
+        "private_sqlite_events": 2,
+        "private_sqlite_knowledge": 2,
+        "atomic_parent_publications": 1,
+        "unverified_parent_publications": 0,
+        "synthetic_only": true
+      },
+      "owner_real_b0001_source_only_v123_replay": {
+        "status": "CHAT_FINAL_HOLD_OPEN",
+        "accepted": 7,
+        "open": 3,
+        "quarantined": 6,
+        "finance_open": 3,
+        "high_risk_legacy_counter": 12,
+        "knowledge_published": false,
+        "receipt_sha256": "816402908b17055bbdba3839309c7a3def5e6449afcd1b5c7ce9acb23871eb90"
+      }
     },
     {
       "step": "E2",
       "target": "원자 주장 처리",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
-      "status": "NOT_RUN",
+      "status": "IN_PROGRESS",
       "completed_at": null,
       "evidence_paths": [],
       "blockers": [],
