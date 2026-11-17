@@ -21,13 +21,13 @@
       "completed_at": null,
       "evidence_paths": [
         "validation/ire-v6-frozen/V165_ONE_VIDEO_FEASIBILITY_BASELINE_AUDIT_20261117.md",
-        "validation/ire-v6-frozen/V166_E1_BASELINE_FAILED_CONNECTIVITY_REPORT_20261117.md"
+        "validation/ire-v6-frozen/V166_E1_BASELINE_FAILED_CONNECTIVITY_REPORT_20261117.md",
+        "validation/ire-v6-frozen/V166_E1_QUARANTINE_COMPILER_REPAIR_AND_CI_REPORT_20261117.md"
       ],
       "blockers": [
-        "V164 typed release always false",
-        "V126 storage requires frozen V123 acceptance",
-        "V1271/V127 parent assembly replays frozen V123 only",
-        "V128 stages V126 frozen-only path"
+        "V164 typed direct publication remains false; V166 source-only to native quarantine draft route exists",
+        "Native V123 must replay the transformed review with 3 facts evidence, actual risk review and disagreement resolution",
+        "No single combined synthetic E1 test has proven typed compiler output travels through actual V126/V127/V128 committed store"
       ],
       "retest_required": true,
       "ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44021729254",
@@ -38,7 +38,12 @@
         "knowledge": 3,
         "parent_publications": 1
       },
-      "ci_green_is_engine_pass": false
+      "ci_green_is_engine_pass": false,
+      "last_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44022494206",
+      "source_only_conversion_synthetic_cases_passed": 7,
+      "v143_native_quarantine_v126_v128_regression_passed": true,
+      "compiler_release_authorization": false,
+      "remaining_e1_blocker": "same typed compiler review -> native V123 -> V127/V126/V128 SQLite commit has not been executed as one combined positive test"
     },
     {
       "step": "E2",
