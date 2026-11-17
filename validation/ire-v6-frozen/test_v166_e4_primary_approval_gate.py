@@ -104,6 +104,68 @@ def make_manifest(case, body=BODY):
     }
 
 
+def make_typed_inventory_for_legal_synthetic_case(case):
+    """CI-only legal type fixture, never a real financial classification."""
+    from v166_e4_typed_authority import SCHEMA as TYPED_SCHEMA,CLASS_TO_KIND
+    atoms=case["exchange"]["atoms"]
+    verdicts={v["claim_id"]:v for v in case["chat_review"]["atom_verdicts"]}
+    rows=[]
+    for atom in atoms:
+        v=verdicts[atom["claim_id"]]
+        assert atom["kind"]=="FACT"
+        ix=atom["source_refs"][0]["cue_index"]
+        quote=atom["source_refs"][0]["quote"]
+        cat="STATUTORY_FINANCIAL_RULE"
+        note=("이 검증 입력은 실제 법령이 아닌 합성 금융 설명용 사실 원자입니다. "
+              "발화 원문과 숫자·시점·조건·검토자 기록만 구분하는 코드 경계 시험이며 "
+              "해당 금융주장이 실제 적법하다거나 개인에게 적용된다고 보증하지 않습니다.")
+        rows.append({
+            "claim_id":atom["claim_id"],
+            "atom_sha256":json_digest(atom),
+            "original_cue_index":ix,
+            "original_cue_quote":quote,
+            "original_cue_quote_sha256":sha256(quote.encode("utf-8")),
+            "evidence_class":cat,
+            "authority_route":CLASS_TO_KIND[cat][1],
+            "source_evidence_scope_note":note,
+            "source_evidence_scope_note_sha256":sha256(note.encode("utf-8")),
+            "v123_original_status":v["status"],
+            "unchanged_v123_review_note_sha256":v["private_review_note_sha256"],
+            "financial_claim_flag_only_screening_not_legal_proof":True,
+            "reviewer_not_speaker_quote":True,
+            "primary_verification_complete":False,
+            "independent_gold_certified":False,
+            "personal_advice_approved":False,
+        })
+    return {
+        "schema":TYPED_SCHEMA,
+        "source_sha256":case["source"].source_sha256,
+        "manifest_sha256":case["source"].manifest_sha256,
+        "chat_review_sha256":json_digest(case["chat_review"]),
+        "review_executor":"CHATGPT_IN_CHAT",
+        "rows":rows,
+        "private_reviewer_custody_sha256":sha256(b"CI-only typed synthetic legal scope"),
+        "any_v123_status_changed":False,
+        "any_fact_autoapproved":False,
+        "formal_current_law_certified":False,
+        "personal_advice_approved":False,
+    }
+
+
+def make_nonlegal_manifest_for_case(case, typed_inventory, rows=None):
+    from v166_e4_typed_nonstatutory import SCHEMA as NONLEGAL_SCHEMA
+    return {
+        "schema":NONLEGAL_SCHEMA,
+        "source_sha256":case["source"].source_sha256,
+        "chat_review_sha256":json_digest(case["chat_review"]),
+        "type_inventory_sha256":json_digest(typed_inventory),
+        "as_of":case["chat_review"]["as_of"],
+        "rows":[] if rows is None else rows,
+        "formal_financial_fact_certified":False,
+        "personal_advice_approved":False,
+    }
+
+
 def prepare_synthetic_paraphrase_case(case):
     """Construct a synthetic in-chat review; NOT real governmental truth."""
     review=case["chat_review"]
@@ -493,6 +555,15 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
             segment_id:make_manifest(packet["case"])
             for segment_id,packet in zip(self.fx.checkpoint.child_ids,self.fx.packets)
         }
+        self.typed_inventories={
+            segment_id:make_typed_inventory_for_legal_synthetic_case(packet["case"])
+            for segment_id,packet in zip(self.fx.checkpoint.child_ids,self.fx.packets)
+        }
+        self.typed_manifests={
+            segment_id:make_nonlegal_manifest_for_case(
+                packet["case"],self.typed_inventories[segment_id])
+            for segment_id,packet in zip(self.fx.checkpoint.child_ids,self.fx.packets)
+        }
 
     def run_guarded(self):
         with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
@@ -503,6 +574,8 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
                 review_seams=self.fx.seams,
                 review_parent=self.fx.parent_review,
                 primary_manifest_for_child=lambda sid,case:self.manifests.get(sid),
+                typed_inventory_for_child=lambda sid,case:self.typed_inventories.get(sid),
+                typed_manifest_for_child=lambda sid,case:self.typed_manifests.get(sid),
                 expected_knowledge_head=ZERO_SHA,
                 now_as_of="2026-11-17")
 
