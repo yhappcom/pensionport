@@ -5,7 +5,7 @@ import unittest
 from ire.v6.codec import sha256,json_digest
 from ire.v6.errors import InvalidInput
 from ire.v6.tests.test_atomic_exchange import HostAtomExchangeTests
-from v166_e2_semantic_separation import SCHEMA,audit_e2_semantic_ledger
+from v166_e2_semantic_separation import SCHEMA,audit_e2_semantic_ledger,build_e2_source_separated_context_packet
 
 
 class V166E2SourceAndReviewerSeparationTests(unittest.TestCase):
@@ -157,6 +157,39 @@ class V166E2SourceAndReviewerSeparationTests(unittest.TestCase):
         l=copy.deepcopy(self.ledger)
         l["rows"][0]["fact_dependencies"][0]["status"]="PRIMARY_VERIFIED_SEPARATELY"
         with self.assertRaises(InvalidInput):self.audit(ledger=l)
+
+    def test_16_source_quote_and_chat_review_note_never_merge_in_context(self):
+        packet=build_e2_source_separated_context_packet(
+            self.source,self.exchange,self.ledger)
+        self.assertEqual(packet["entry_census"],3)
+        self.assertFalse(packet["knowledge_publication_authorized"])
+        self.assertFalse(packet["final_chat_semantic_approval_authorized"])
+        for item in packet["entries"]:
+            self.assertIn(item["source_verbatim_quote"],
+                          self.source.cues[item["source_quote_cue_index"]-1].text)
+            self.assertEqual(item["reviewer_role"],
+                             "CHATGPT_CAUTION_NOT_ORIGINAL_SPEAKER_QUOTE")
+            self.assertFalse(item["legacy_v6_proposition_exported_as_speaker_quote"])
+            self.assertNotIn(item["reviewer_caution"],item["source_verbatim_quote"])
+            self.assertTrue(all(dep["evidence_status"] == "OPEN_PRIMARY_REQUIRED"
+                                for dep in item["unverified_fact_dependencies"]))
+
+    def test_17_review_risk_cannot_be_rebranded_as_original_speaker_quote(self):
+        l=copy.deepcopy(self.ledger)
+        l["rows"][0]["verbatim_excerpt"]=l["rows"][0]["reviewer_caution_note"]
+        with self.assertRaises(InvalidInput):
+            build_e2_source_separated_context_packet(self.source,self.exchange,l)
+
+    def test_18_no_legacy_proposition_as_speaker_quote(self):
+        # The V6 proposition is deliberately a mixture of paraphrase and
+        # reviewer caution, so it cannot be used as an exact source quotation.
+        packet=build_e2_source_separated_context_packet(
+            self.source,self.exchange,self.ledger)
+        for item in packet["entries"]:
+            original=next(x for x in self.exchange["atoms"]
+                          if x["claim_id"] == item["claim_id"])
+            self.assertNotEqual(item["source_verbatim_quote"],
+                                original["proposition"])
 
     def test_13_unauthenticated_speaker_name_rejected(self):
         l=copy.deepcopy(self.ledger)
