@@ -45,3 +45,14 @@
 - `main`, 기존 승인 Master116/P4, 개인 포트폴리오 **변경 없음**.
 
 **판정: ChatGPT 의미 필드→V6 실제 호스트 재커밋 PASS. V123 전체 금융/화자 의미 최종 승인, 지식 발행, 품질 인증은 NO-GO.**
+
+## V158.1 추가 실물 V128 실패-폐쇄 재현 (최신 V158 호스트 수정본)
+
+- GitHub Actions V158 코드 전용 아카이브에서 누락됐던 원본 `v1271_parent_resume_checkpoint.py`를 복구하여, 실제 ChatGPT 129건 수정·V6 신규 커밋·13구간 V123 HOLD를 같은 비공개 격리 환경에 입력했다.
+- `PrivateFullVideoCheckpoint.record`: **13/13 실제 CHILD_CHAT_CHECKPOINT_HOLD**.
+- `run_all_video_scopes_in_chat`: 실제 반환값 **HOLD_CHILD_CHAT_SEMANTICS_OR_FINANCE**. seam 검토·부모 승인 콜백 호출 단계로 진행하지 않았다.
+- 별도 비공개 `PrivateKnowledgeStore` SQLite에서 **events=0 / knowledge=0 / parent_publications=0** 및 head SHA **64자리 0**을 실제 쿼리로 확인했다. 사용자 기존 승인 지식은 조작하지 않았다.
+- 추가 비공개 저장: V128 13구간 체크포인트 SQLite·영수증·지식 미발행 DB·재실행 스크립트. 최종 비공개 ZIP SHA-256 **33b54ceecd2c1c474901e72c533b96897782be5315a64b1741d84d2fb158b2a7**; 사용자 라이브러리에 덮어쓰기 완료.
+- 공개 SHA-only 수치와 관련 15개 부정시험은 **잘못된 부모 지식 발행이나 P0-E 성공 주장**을 거부하도록 유지된다. CI 자체는 비공개 실물 SQLite를 재생하지 않는다.
+
+**연구 완료 판정은 여전히 NO-GO**. 실제 V6 13/13 구조 성공, V123 0/13, V128 발행 0, 금융 법규 개인 적용성 및 정확도 95/98/고위험 FN 0 미인증.
