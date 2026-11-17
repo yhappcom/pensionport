@@ -212,6 +212,8 @@ def run_e4_with_external_owner_pin(operator, checkpoint, *,
                                    review_or_load_child,
                                    review_seams, review_parent,
                                    primary_manifest_for_child,
+                                   typed_inventory_for_child,
+                                   typed_manifest_for_child,
                                    expected_knowledge_head, now_as_of):
     """Single E4 operational entrypoint: all children -> signed DB -> owner pin.
 
@@ -233,6 +235,8 @@ def run_e4_with_external_owner_pin(operator, checkpoint, *,
         review_or_load_child=review_or_load_child,
         review_seams=review_seams,review_parent=review_parent,
         primary_manifest_for_child=primary_manifest_for_child,
+        typed_inventory_for_child=typed_inventory_for_child,
+        typed_manifest_for_child=typed_manifest_for_child,
         expected_knowledge_head=expected_knowledge_head,
         now_as_of=now_as_of)
     if result["status"]!="E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED":
