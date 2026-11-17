@@ -181,4 +181,81 @@ class TypedReviewSyntheticTests(unittest.TestCase):
         self.assertFalse(x['typed_full_scope_semantic_pass'])
         self.assertFalse(x['v128_parent_publication_authorized'])
 
+
+    def _future_ledgers(self):
+        risk_cases=[]
+        for i in range(1,13):
+            note=f'완전히 합성된 위험 원문 {i}번 발화에 대한 조건과 반례, 투자손실 및 불확실성을 직접 검문했다는 비개인화 검토 기록입니다.'
+            risk_cases.append({
+                'risk_case_id':f'RISK_{i:03d}', 'cue_index':i,
+                'cue_text_sha256':sha256(self.source.cues[i-1].text.encode()),
+                'chat_reconciliation_note':note,
+                'chat_reconciliation_note_sha256':sha256(note.encode()),
+                'source_context_risk_checked':True,
+                'harmful_finance_claim_not_factually_certified':True,
+            })
+        risk={'schema':'IRE_V164_RISK_12_SOURCE_RECONCILIATION_V1',
+              'source_sha256':self.source.source_sha256,
+              'baseline_unresolved_count':12,'cases':risk_cases,
+              'all_original_risks_reconciled':True,'independent_gold_certified':False}
+        note='합성된 출처 우선 의견 불일치 검문은 원본과 조건을 다시 비교해 문장별 충돌을 설명했지만 독립 평가 정답셋은 아닙니다.'
+        dispute={'schema':'IRE_V164_CONFLICT_RESOLUTION_SOURCE_REVIEW_V1',
+                 'source_sha256':self.source.source_sha256,
+                 'chat_review_note':note,'chat_review_note_sha256':sha256(note.encode()),
+                 'all_conflicts_resolved':True,'not_external_independent_gold':True}
+        return risk,dispute
+
+    def _future_full(self,risk=None,dispute=None,legacy_open=5):
+        from v164_typed_v123 import assess_typed_chat_final_v164
+        review={'atom_verdicts':[copy.deepcopy(r) for r in self.legacy.values()],
+                'source_cues':[{'cue_index':i,'status':'REVIEWED'} for i in range(1,121)],
+                'unresolved_high_risk_omissions':0,
+                'disagreements_adjudicated':True,
+                'source_first_pass_completed':True,
+                'counterexample_pass_completed':True}
+        for r in review['atom_verdicts']:
+            if r['claim_id'] in {'C00002','C00009','C00010'}:
+                r['status']='ACCEPT_FOR_RESEARCH'
+        native={'status':'CHAT_FINAL_HOLD_OPEN','atoms_accepted':10,'atoms_open':legacy_open,
+                'finance_open':5,'research_candidate_export_allowed':False,
+                'cues_reviewed':120,'atoms_excluded':1}
+        with patch('v164_typed_v123.audit_host_atomic_exchange',return_value={}),             patch('v164_typed_v123.assess_chat_final_gate',return_value=native):
+            return assess_typed_chat_final_v164(self.source,
+                {'atoms':list(self.atoms.values())},host_receipt={'event_sha256':'e'*64},
+                store=object(),legacy_chat_review=review,official_evidence_bodies={},
+                typed_rows=self.rows,risk_reconciliation=risk,
+                disagreement_resolution=dispute)
+
+    def test_27_future_typed_full_pass_research_precheck_is_reachable_but_never_v128(self):
+        # Artificial future fixture: native finance facts were accepted with
+        # primary bytes (native function mocked), all 12 original risk cases
+        # pinned, disagreements documented. No owner evidence is involved.
+        risk,dispute=self._future_ledgers()
+        res=self._future_full(risk=risk,dispute=dispute)
+        self.assertTrue(res['typed_full_scope_semantic_pass'])
+        self.assertFalse(res['typed_final_knowledge_release_authorized'])
+        self.assertFalse(res['v128_parent_publication_authorized'])
+        self.assertFalse(res['independent_gold_accuracy_certified'])
+
+    def test_28_zero_legacy_risk_but_missing_case_reconciliation_holds(self):
+        risk,dispute=self._future_ledgers()
+        self.assertFalse(self._future_full(risk=None,dispute=dispute)['typed_full_scope_semantic_pass'])
+
+    def test_29_zero_conflicts_but_missing_disagreement_ledger_holds(self):
+        risk,dispute=self._future_ledgers()
+        self.assertFalse(self._future_full(risk=risk,dispute=None)['typed_full_scope_semantic_pass'])
+
+    def test_30_changed_risk_case_original_cue_hash_rejected(self):
+        risk,dispute=self._future_ledgers();risk['cases'][0]['cue_text_sha256']='0'*64
+        with self.assertRaises(InvalidInput):self._future_full(risk=risk,dispute=dispute)
+
+    def test_31_duplicate_risk_case_id_rejected(self):
+        risk,dispute=self._future_ledgers()
+        risk['cases'][1]['risk_case_id']=risk['cases'][0]['risk_case_id']
+        with self.assertRaises(InvalidInput):self._future_full(risk=risk,dispute=dispute)
+
+    def test_32_forged_disagreement_note_hash_rejected(self):
+        risk,dispute=self._future_ledgers();dispute['chat_review_note_sha256']='0'*64
+        with self.assertRaises(InvalidInput):self._future_full(risk=risk,dispute=dispute)
+
 if __name__=='__main__':unittest.main()
