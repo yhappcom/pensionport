@@ -22,9 +22,10 @@ SCHEMA="IRE_V166_E4_OWNER_OPEN_PARTIAL_SOURCE_FIRST_V1"
 OPEN_CLAIMS={
     "C00002":{
         "kind":"FACT","stance":"AFFIRMED",
-        "supported":"BOOK_ORIGINAL_PUBLISHER_TITLE_AUTHOR_AND_KOREAN_BIBLIOGRAPHY",
+        "supported":"ORIGINAL_ENGLISH_PUBLISHER_TITLE_AUTHOR_ONLY",
         "missing":(
             "SPEAKER_ORIGINAL_AUDIO_AUTHOR_PRONUNCIATION_NOT_VERIFIED",
+            "KOREAN_TRANSLATION_RECORD_SECONDARY_NOT_ORIGINAL_PUBLISHER_ATTESTATION",
             "KOREAN_ASR_PROPER_NAME_NOT_LITERAL_PUBLISHER_SPELLING",
         ),
         "role":"ORIGINAL_PUBLISHER_AND_KOREAN_BIBLIOGRAPHIC_LISTING",
@@ -99,7 +100,6 @@ def assess_open_partial_claim(source,atom,v123_verdict,*,original_body,
              "NATIVE_V123_OPEN_OR_ATOM_TYPE_CHANGED")
     refs=atom.get("source_refs")
     _require(type(refs) is list and len(refs)>=3
-             and len({r["cue_index"] for r in refs})==len(refs)
              and all(
                  type(r) is dict and set(r)=={"cue_index","quote"}
                  and type(r["cue_index"]) is int
@@ -107,7 +107,8 @@ def assess_open_partial_claim(source,atom,v123_verdict,*,original_body,
                  and r["cue_index"] in atom["context_cue_indices"]
                  and type(r["quote"]) is str and len(r["quote"])>=5
                  and r["quote"] in source.cues[r["cue_index"]-1].text
-                 for r in refs),
+                 for r in refs)
+             and len({r["cue_index"] for r in refs})==len(refs),
              "DIRECT_SOURCE_CUE_MISSING_OR_CROSS_ATOM")
     quotes=" ".join(r["quote"] for r in refs)
     _require(all(s in quotes for s in SRC_KEYWORDS[cid]),
@@ -132,7 +133,9 @@ def assess_open_partial_claim(source,atom,v123_verdict,*,original_body,
         "original_direct_refs_sha256":json_digest(refs),
         "direct_source_quote_count":len(refs),
         "original_primary_body_sha256":sha256(original_body),
-        "original_verified_source_role":evidence_source_role,
+        "caller_declared_source_role":evidence_source_role,
+        "caller_asserts_prior_origin_verification":True,
+        "transport_origin_independently_verified_by_this_function":False,
         "review_note_sha256":review_note_sha256,
         "limited_supported_subclaim":spec["supported"],
         "still_unproven_components":list(spec["missing"]),
@@ -154,8 +157,12 @@ def audit_partial_open_video_census(source,exchange,review,receipts):
     atoms={a["claim_id"]:a for a in exchange["atoms"]}
     verdicts={v["claim_id"]:v for v in review["atom_verdicts"]}
     _require(len(receipts)==len(OPEN_CLAIMS)
+             and all(type(r) is dict and r.get("claim_id") in OPEN_CLAIMS
+                     for r in receipts)
              and {r["claim_id"] for r in receipts}==set(OPEN_CLAIMS)
              and len({r["claim_id"] for r in receipts})==len(receipts)
+             and set(OPEN_CLAIMS).issubset(atoms)
+             and set(OPEN_CLAIMS).issubset(verdicts)
              and all(
                  r.get("schema")==SCHEMA and
                  r.get("native_v123_status_after")=="OPEN" and
