@@ -29,6 +29,7 @@ ROW_KEYS={
     "original_speaker_audio_verified","formal_financial_fact_certified",
     "personal_advice_approved",
 }
+WILEY_APPROVED_CHAPTER_SHA256="870be11899036a19351d1ce8644f833748e9b9618d67233d6a0c162144397024"
 NOTE_MIN=90
 NO_PUBLISH={
     "HISTORICAL_PARTNERSHIP_CLAIM",
@@ -163,6 +164,8 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
                   and "단도" in quotes and "구자라트" in quotes,
                   "GUJARATI_AUTHOR_WORD_ASSERTION_NOT_SOURCE_BOUND")
             chapter=fetch_wiley_original_chapter_pdf(row["primary_url"])
+            _need(sha256(chapter)==WILEY_APPROVED_CHAPTER_SHA256,
+                  "WILEY_ORIGINAL_CHAPTER_SNAPSHOT_DIGEST_DRIFT")
             receipt=audit_author_original_chapter(
                 chapter,owner_source_sha256=source.source_sha256)
             _need(receipt["official_original_pdf_body_sha256"]==
@@ -190,6 +193,8 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
                   case["official_evidence_bodies"].get(cid)==first,
                   "AUTHOR_BOOK_HTML_NOT_FROZEN_V123_PINNED")
             chapter=fetch_wiley_original_chapter_pdf(CHAPTER_URL)
+            _need(sha256(chapter)==WILEY_APPROVED_CHAPTER_SHA256,
+                  "WILEY_ORIGINAL_CHAPTER_SNAPSHOT_DIGEST_DRIFT")
             chapter_scope=audit_author_original_chapter(
                 chapter,owner_source_sha256=source.source_sha256)
             _need(chapter_scope["original_author_also_discusses_nonzero_loss_risk"]
