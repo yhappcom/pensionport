@@ -30,9 +30,17 @@ class V166E4CertifiedE2ContextRealSqliteTests(unittest.TestCase):
         self.fx.knowledge=E4SealedKnowledgeStore(
             self.fx.knowledge.path,external_signing_key=TEST_KEY)
         self.manifests={}
+        self.typed_inventories={}
+        self.typed_manifests={}
         for sid,packet in zip(self.fx.checkpoint.child_ids,self.fx.packets):
             replace_synthetic_official_body(packet["case"])
             self.manifests[sid]=make_manifest(packet["case"])
+            from test_v166_e4_primary_approval_gate import (
+                make_typed_inventory_for_legal_synthetic_case,
+                make_nonlegal_manifest_for_case)
+            self.typed_inventories[sid]=make_typed_inventory_for_legal_synthetic_case(packet["case"])
+            self.typed_manifests[sid]=make_nonlegal_manifest_for_case(
+                packet["case"],self.typed_inventories[sid])
 
     def _approved_pin_and_ids(self):
         from unittest.mock import patch
@@ -45,6 +53,8 @@ class V166E4CertifiedE2ContextRealSqliteTests(unittest.TestCase):
                 review_seams=self.fx.seams,
                 review_parent=self.fx.parent_review,
                 primary_manifest_for_child=lambda sid,case:self.manifests[sid],
+                typed_inventory_for_child=lambda sid,case:self.typed_inventories[sid],
+                typed_manifest_for_child=lambda sid,case:self.typed_manifests[sid],
                 expected_knowledge_head=ZERO_SHA,
                 now_as_of="2026-11-17")
         self.assertEqual(published["status"],"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED")
