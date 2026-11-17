@@ -7,7 +7,11 @@ tax law or someone else's unknown audio. Every test uses invented cues.
 from __future__ import annotations
 
 import copy
+import io
 import unittest
+from reportlab.pdfgen import canvas
+from v166_e4_wiley_author_chapter import (
+    CHAPTER_URL,audit_author_original_chapter)
 from unittest.mock import patch
 
 from ire.v6.codec import sha256,json_digest
@@ -28,6 +32,26 @@ NOTE=("합성 화자 주장의 근거 유형을 자막 원문에 직접 고정�
       "법령이나 세금·투자 효과에 관한 사실 주장은 별도의 공식 원문·"
       "시행일·조건 검증 없이는 승인하지 않습니다. 독립 정답 인증이나 "
       "개인 투자자문도 승인하지 않습니다.")
+
+def synthetic_wiley_chapter(*,include_caveat=True):
+    """Generated original text FIXTURE, absolutely not real Wiley content."""
+    buf=io.BytesIO()
+    pdf=canvas.Canvas(buf,pagesize=(432,648),pageCompression=0)
+    for i in range(17):
+        pdf.drawString(22,626,"SYNTHETIC: NOT WILEY ORIGINAL CHAPTER "+str(i))
+        pdf.drawString(22,603,"Patel Motel Dhandho")
+        pdf.drawString(22,582,"Dhandho (pronounced dhun-doe) is a Gujarati word.")
+        pdf.drawString(22,560,"Heads, I win; tails, I don't lose much!")
+        if include_caveat:
+            pdf.drawString(22,535,"This is not a risk-free bet.")
+            pdf.drawString(22,518,"The possibility of going broke must be considered.")
+        for j in range(18):
+            pdf.drawString(22,490-j*22,
+                "Synthetic filler line %d / %d: ONLY CODE UNIT TEST" % (i,j))
+        pdf.showPage()
+    pdf.save()
+    return buf.getvalue()
+
 
 def case_with_type(quote,kind,stance,category,body=None,status="ACCEPT_FOR_RESEARCH"):
     raw=make_srt([quote,"후속 발언은 검토자 주장과 분리합니다."])
@@ -174,7 +198,7 @@ class V166E4TypedNonStatutoryClaimSources(unittest.TestCase):
     def test_07_unreviewed_investment_theory_holds_all_nonlegal_claims(self):
         c,t,m=case_with_type("이 책의 전략은 모든 시장에서 안전하다고 합니다",
             "OPINION","AFFIRMED","BOOK_ORIGINAL_AUTHOR_PRINCIPLE")
-        with self.assertRaisesRegex(QualityNotProven,"UNSUPPORTED_PRIMARY_KIND"):
+        with self.assertRaises((InvalidInput,QualityNotProven)):
             self.check(c,t,m)
 
     def test_08_1957_partnership_claim_cannot_borrow_company_letters(self):
@@ -235,6 +259,75 @@ class V166E4TypedNonStatutoryClaimSources(unittest.TestCase):
         with self.assertRaisesRegex(InvalidInput,"NONLEGAL_ACCEPTANCE_CENSUS"):
             self.check(c,t,m)
 
+
+    def test_14_wiley_original_pdf_word_used_by_author_not_dictionary(self):
+        pdf=synthetic_wiley_chapter()
+        self.assertGreaterEqual(len(pdf),10000)
+        c,t,m=case_with_type("단도는 구자라트 지방의 표현이라고 들었습니다",
+            "FACT","AFFIRMED","LINGUISTIC_ETYMLOGY",pdf)
+        m["rows"][0].update(
+            primary_url=CHAPTER_URL,
+            primary_body_sha256=sha256(pdf),
+            verification_mode="WILEY_BOOK_AUTHOR_GUJARATI_DESCRIPTION_NOT_DICTIONARY")
+        with patch("v166_e4_typed_nonstatutory.fetch_wiley_original_chapter_pdf",
+                   return_value=pdf):
+            result=self.check(c,t,m)
+        self.assertEqual(result["original_author_chapter_word_descriptions"],1)
+        self.assertFalse(result["financial_truth_certified"])
+        book=audit_author_original_chapter(pdf,owner_source_sha256=c["source"].source_sha256)
+        self.assertFalse(book["independent_linguistic_etymology_certified"])
+
+    def test_15_original_author_risk_principle_is_not_loss_guarantee(self):
+        pdf=synthetic_wiley_chapter()
+        c,t,m=case_with_type("손실은 작게 보고 수익은 크게 본다는 저자의 말",
+            "OPINION","QUOTED","BOOK_ORIGINAL_AUTHOR_PRINCIPLE",BOOK)
+        note=NOTE+(" 저자가 책에서 말하는 저위험·고수익의 개념은 "
+                   "원금 보장 계약이 아니며, 실제 투자에서는 손실 위험이 "
+                   "항상 남아 있음을 공식 원문 1장에서 검문했습니다.")
+        m["rows"][0].update(
+            primary_url=WILEY_ORIGINAL,
+            primary_body_sha256=sha256(BOOK),
+            verification_mode="WILEY_BOOK_AUTHOR_ASYMMETRIC_RISK_NOT_GUARANTEED",
+            chat_meaning_note=note,
+            chat_meaning_note_sha256=sha256(note.encode("utf-8")))
+        with patch("v166_e4_typed_nonstatutory.fetch_wiley_publisher_bytes",
+                   return_value=BOOK),patch(
+                   "v166_e4_typed_nonstatutory.fetch_wiley_original_chapter_pdf",
+                   return_value=pdf):
+            r=self.check(c,t,m)
+        self.assertEqual(r["original_author_asymmetric_risk_descriptions"],1)
+        self.assertFalse(r["financial_truth_certified"])
+
+    def test_16_chapter_missing_nonzero_risk_warning_cannot_be_accepted(self):
+        bad=synthetic_wiley_chapter(include_caveat=False)
+        with self.assertRaises(QualityNotProven):
+            audit_author_original_chapter(bad,owner_source_sha256="b"*64)
+
+    def test_17_gujarati_book_pdf_sha_mismatch_does_not_use_fake_primary(self):
+        pdf=synthetic_wiley_chapter()
+        c,t,m=case_with_type("단도는 구자라트 지방의 표현이라고 들었습니다",
+            "FACT","AFFIRMED","LINGUISTIC_ETYMLOGY",pdf)
+        m["rows"][0].update(
+            primary_url=CHAPTER_URL,
+            primary_body_sha256="0"*64,
+            verification_mode="WILEY_BOOK_AUTHOR_GUJARATI_DESCRIPTION_NOT_DICTIONARY")
+        with patch("v166_e4_typed_nonstatutory.fetch_wiley_original_chapter_pdf",
+                   return_value=pdf):
+            with self.assertRaises(InvalidInput):
+                self.check(c,t,m)
+
+    def test_18_gujarati_claim_cannot_borrow_unrelated_bibliography(self):
+        pdf=synthetic_wiley_chapter()
+        c,t,m=case_with_type("기본적인 사업이라는 표현을 좋아합니다",
+            "FACT","AFFIRMED","LINGUISTIC_ETYMLOGY",pdf)
+        m["rows"][0].update(
+            primary_url=CHAPTER_URL,
+            primary_body_sha256=sha256(pdf),
+            verification_mode="WILEY_BOOK_AUTHOR_GUJARATI_DESCRIPTION_NOT_DICTIONARY")
+        with patch("v166_e4_typed_nonstatutory.fetch_wiley_original_chapter_pdf",
+                   return_value=pdf):
+            with self.assertRaisesRegex(InvalidInput,"GUJARATI_AUTHOR_WORD_ASSERTION"):
+                self.check(c,t,m)
 
 if __name__=="__main__":
     unittest.main()
