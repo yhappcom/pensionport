@@ -21,6 +21,8 @@ from v166_e3_chat_decision_delivery import (
 from v166_e4_guarded_knowledge_store import E4GuardedKnowledgeStore
 from v166_e4_sealed_knowledge import E4SealedKnowledgeStore
 from v166_e4_semantic_entailment import audit_e4_claim_entailment
+from v166_e4_typed_authority import audit_e4_source_type_inventory
+from v166_e4_typed_nonstatutory import audit_typed_nonstatutory_research
 
 SCHEMA = "IRE_V166_E4_TRUSTED_PRIMARY_EVIDENCE_APPLICATION_V1"
 RECEIPT = "IRE_V166_E4_VERIFIED_RESEARCH_CANDIDATE_GATE_V1"
@@ -121,7 +123,8 @@ def _holding(case, native, code, *, verified=0):
     }
 
 
-def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
+def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of,
+                                     typed_inventory=None,typed_manifest=None):
     """Pass precisely the eligible native V123 review and primary metadata.
 
     No external LLM is invoked. Accepted facts must match a freshly fetched,
@@ -157,12 +160,29 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
              "PRIMARY_REVIEW_IN_FUTURE")
     verdicts={v["claim_id"]:v for v in case["chat_review"]["atom_verdicts"]}
     atoms={a["claim_id"]:a for a in case["exchange"]["atoms"]}
-    must_verify={
-        cid for cid,v in verdicts.items()
-        if v["status"]=="ACCEPT_FOR_RESEARCH"
-        and (v["financial_claim"] is True or v["high_risk"] is True
-             or atoms[cid]["kind"]=="FACT")
-    }
+    if typed_inventory is not None:
+        # A high-risk/financial SCREENING flag is not a source-authority
+        # decision. Only a full, original-cue-pinned and V123-unchanged
+        # typed inventory can narrow the government legal primary census.
+        typed_audit=audit_e4_source_type_inventory(
+            case["source"],case["exchange"],case["chat_review"],
+            typed_inventory)
+        types={r["claim_id"]:r["evidence_class"]
+               for r in typed_inventory["rows"]}
+        must_verify={
+            cid for cid,v in verdicts.items()
+            if v["status"]=="ACCEPT_FOR_RESEARCH"
+            and types[cid]=="STATUTORY_FINANCIAL_RULE"
+        }
+    else:
+        _require(typed_manifest is None,"TYPED_MANIFEST_WITHOUT_SOURCE_TYPE")
+        typed_audit=None
+        must_verify={
+            cid for cid,v in verdicts.items()
+            if v["status"]=="ACCEPT_FOR_RESEARCH"
+            and (v["financial_claim"] is True or v["high_risk"] is True
+                 or atoms[cid]["kind"]=="FACT")
+        }
     rows=primary_manifest.get("rows")
     _require(type(rows) is list and len(rows)==len(must_verify),
              "PRIMARY_FACTUAL_CENSUS")
@@ -255,6 +275,12 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
                  and excerpt.encode("utf-8") in fetched_bytes,
                  "PRIMARY_SCOPE_EXCERPT_NOT_IN_ORIGINAL")
         fetched+=1
+    typed_nonlegal=None
+    if typed_inventory is not None:
+        # Every accepted non-legal atom is validated against the correct
+        # primary/utterance route, never silently exempted from review.
+        typed_nonlegal=audit_typed_nonstatutory_research(
+            case,typed_inventory,typed_manifest,as_of=primary_manifest["review_as_of"])
     return {
         "schema":RECEIPT,
         "status":"E4_PASS_RESEARCH_CANDIDATES_ONLY",
@@ -265,6 +291,12 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
         "native_v123_status":native["native_gate_status"],
         "official_primary_claims_replayed":fetched,
         "chat_entailment_claims_replayed":paraphrase_verified,
+        "typed_source_inventory_sha256": (
+            typed_audit["source_type_inventory_sha256"] if typed_audit else None),
+        "typed_nonlegal_manifest_sha256": (
+            typed_nonlegal["type_manifest_sha256"] if typed_nonlegal else None),
+        "typed_nonstatutory_claims_verified": (
+            typed_nonlegal["nonstatutory_primary_checked"] if typed_nonlegal else 0),
         "approved_research_candidate_claims":len(accepted),
         "quarantined_source_only_atoms":native["quarantined_source_only_atoms"],
         "research_export_authorized":True,
@@ -281,12 +313,16 @@ class E4ApprovalBlocked(QualityNotProven):
 
 def run_e4_guarded_parent(checkpoint, knowledge_store, *, review_or_load_child,
                           review_seams, review_parent, primary_manifest_for_child,
+                          typed_inventory_for_child, typed_manifest_for_child,
                           expected_knowledge_head, now_as_of):
     """Run E4 before each E3→V128 child; any bad primary prevents publication.
 
     No permission to skip the E3 path or 'fix' rejected ChatGPT evidence.
     """
-    _require(callable(primary_manifest_for_child), "PRIMARY_MANIFEST_CALLBACK")
+    _require(callable(primary_manifest_for_child)
+             and callable(typed_inventory_for_child)
+             and callable(typed_manifest_for_child),
+             "MANDATORY_TYPED_PRIMARY_INVENTORY_AND_EVIDENCE_CALLBACKS")
     _require(isinstance(knowledge_store, E4SealedKnowledgeStore),
              "SEALED_E4_OFFICIAL_STORE_REQUIRED_NO_UNPINNED_WRITES")
     guarded=[]
@@ -296,7 +332,9 @@ def run_e4_guarded_parent(checkpoint, knowledge_store, *, review_or_load_child,
                  "CHILD_PACKET")
         verified=assess_e4_primary_authority_gate(
             packet["case"],primary_manifest_for_child(segment_id,packet["case"]),
-            now_as_of=now_as_of)
+            now_as_of=now_as_of,
+            typed_inventory=typed_inventory_for_child(segment_id,packet["case"]),
+            typed_manifest=typed_manifest_for_child(segment_id,packet["case"]))
         guarded.append({"segment_id":segment_id,"e4_status":verified["status"],
                         "reason_code":verified.get("reason_code"),
                         "source_sha256":verified["source_sha256"]})
