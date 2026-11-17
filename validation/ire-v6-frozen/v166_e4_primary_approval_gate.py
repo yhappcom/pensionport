@@ -18,6 +18,7 @@ from ire.v6.codec import json_digest, sha256
 from ire.v6.errors import InvalidInput, QualityNotProven
 from v166_e3_chat_decision_delivery import (
     replay_chat_decision_envelope, run_full_video_with_e3_decisions)
+from v166_e4_guarded_knowledge_store import E4GuardedKnowledgeStore
 
 SCHEMA = "IRE_V166_E4_TRUSTED_PRIMARY_EVIDENCE_APPLICATION_V1"
 RECEIPT = "IRE_V166_E4_VERIFIED_RESEARCH_CANDIDATE_GATE_V1"
@@ -272,6 +273,8 @@ def run_e4_guarded_parent(checkpoint, knowledge_store, *, review_or_load_child,
     No permission to skip the E3 path or 'fix' rejected ChatGPT evidence.
     """
     _require(callable(primary_manifest_for_child), "PRIMARY_MANIFEST_CALLBACK")
+    _require(isinstance(knowledge_store, E4GuardedKnowledgeStore),
+             "GUARDED_OFFICIAL_STORE_REQUIRED_NO_LEGACY_WRITES")
     guarded=[]
     def checked_child(segment_id,manifest,stage,original_raw):
         packet=review_or_load_child(segment_id,manifest,stage,original_raw)
@@ -285,13 +288,15 @@ def run_e4_guarded_parent(checkpoint, knowledge_store, *, review_or_load_child,
                         "source_sha256":verified["source_sha256"]})
         if verified["status"]!="E4_PASS_RESEARCH_CANDIDATES_ONLY":
             raise E4ApprovalBlocked("V166_E4_CHILD_PRIMARY_NOT_APPROVED")
+        knowledge_store.record_e4_validated_child(segment_id,verified,packet["case"])
         return packet
     try:
-        downstream=run_full_video_with_e3_decisions(
-            checkpoint,knowledge_store,
-            review_or_load_child=checked_child,
-            review_seams=review_seams,review_parent=review_parent,
-            expected_knowledge_head=expected_knowledge_head)
+        with knowledge_store.begin_e4_parent_approval(checkpoint.child_ids):
+            downstream=run_full_video_with_e3_decisions(
+                checkpoint,knowledge_store,
+                review_or_load_child=checked_child,
+                review_seams=review_seams,review_parent=review_parent,
+                expected_knowledge_head=expected_knowledge_head)
     except E4ApprovalBlocked:
         return {"schema":"IRE_V166_E4_PARENT_APPROVAL_V1",
                 "status":"E4_HOLD_UNVERIFIED_CHILD",
