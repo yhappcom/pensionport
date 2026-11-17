@@ -18,6 +18,8 @@ from v166_e4_corporate_historical_primary import (
     _validate_url as validate_berkshire_url,
     fetch_official_berkshire_letters_index)
 from v166_e4_typed_authority import CLASS_TO_KIND
+from v166_e4_wiley_author_chapter import (
+    CHAPTER_URL,fetch_wiley_original_chapter_pdf,audit_author_original_chapter)
 
 SCHEMA="IRE_V166_E4_TYPED_NONSTATUTORY_PRIMARY_V1"
 ROW_KEYS={
@@ -29,10 +31,8 @@ ROW_KEYS={
 }
 NOTE_MIN=90
 NO_PUBLISH={
-    "BOOK_ORIGINAL_AUTHOR_PRINCIPLE",
     "HISTORICAL_PARTNERSHIP_CLAIM",
     "THIRD_PARTY_LETTER_ANTHOLOGY_SCOPE",
-    "LINGUISTIC_ETYMLOGY",
     "UNRESOLVED_CONTEXT",
 }
 SOURCE_ONLY={
@@ -90,6 +90,8 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
     source_only=0
     book=0
     company=0
+    original_chapter=0
+    author_strategy=0
     for cid in sorted(candidates):
         row=keyed[cid]
         typed=route_by_id[cid]
@@ -149,6 +151,51 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
             # Only title, never a speaker's ASR pronunciation of author
             # or attributed investment outcomes.
             book+=1
+        elif cat=="LINGUISTIC_ETYMLOGY":
+            # This confirms the ORIGINAL BOOK AUTHOR'S use of Gujarati.
+            # It does NOT independently prove the etymology through an
+            # authoritative Gujarati linguistic dictionary.
+            quotes=" ".join(r["quote"] for r in atom["source_refs"])
+            _need(row["verification_mode"]==
+                  "WILEY_BOOK_AUTHOR_GUJARATI_DESCRIPTION_NOT_DICTIONARY"
+                  and row["primary_url"]==CHAPTER_URL
+                  and atom["kind"]=="FACT"
+                  and "단도" in quotes and "구자라트" in quotes,
+                  "GUJARATI_AUTHOR_WORD_ASSERTION_NOT_SOURCE_BOUND")
+            chapter=fetch_wiley_original_chapter_pdf(row["primary_url"])
+            receipt=audit_author_original_chapter(
+                chapter,owner_source_sha256=source.source_sha256)
+            _need(receipt["official_original_pdf_body_sha256"]==
+                  row["primary_body_sha256"] and
+                  verdicts[cid]["official_body_sha256"]==sha256(chapter)
+                  and case["official_evidence_bodies"].get(cid)==chapter,
+                  "GUJARATI_WILEY_ORIGINAL_PDF_NOT_V123_PINNED")
+            original_chapter+=1
+        elif cat=="BOOK_ORIGINAL_AUTHOR_PRINCIPLE":
+            # The HTML is already pinned by original V123, but author's
+            # loss/return asymmetric principle is supported by a separate
+            # ORIGINAL Wiley chapter PDF, including its no-guarantee caveat.
+            quotes=" ".join(r["quote"] for r in atom["source_refs"])
+            _need(row["verification_mode"]==
+                  "WILEY_BOOK_AUTHOR_ASYMMETRIC_RISK_NOT_GUARANTEED"
+                  and row["primary_url"]==WILEY_ORIGINAL
+                  and atom["kind"]=="OPINION"
+                  and atom["stance"]=="QUOTED"
+                  and "손실" in quotes and "수익" in quotes and
+                  "보장" in note and "위험" in note,
+                  "WILEY_AUTHOR_PRINCIPLE_NOT_ORIGINAL_SCOPE")
+            first=fetch_wiley_publisher_bytes(row["primary_url"])
+            _need(sha256(first)==row["primary_body_sha256"]==
+                  verdicts[cid]["official_body_sha256"] and
+                  case["official_evidence_bodies"].get(cid)==first,
+                  "AUTHOR_BOOK_HTML_NOT_FROZEN_V123_PINNED")
+            chapter=fetch_wiley_original_chapter_pdf(CHAPTER_URL)
+            chapter_scope=audit_author_original_chapter(
+                chapter,owner_source_sha256=source.source_sha256)
+            _need(chapter_scope["original_author_also_discusses_nonzero_loss_risk"]
+                  and chapter_scope["real_world_loss_or_return_limits_certified"] is False,
+                  "ASYMMETRIC_RISK_FACT_FALSE_GUARANTEE")
+            author_strategy+=1
         elif cat=="HISTORICAL_CORPORATE_FACT":
             _need(row["verification_mode"]=="BERKSHIRE_ARCHIVE_START_YEAR_1977" and
                   row["primary_url"]==BERKSHIRE_ORIGINAL and
@@ -180,6 +227,8 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
         "source_only_speaker_statements":source_only,
         "original_publisher_book_titles":book,
         "original_company_chronology_claims":company,
+        "original_author_chapter_word_descriptions":original_chapter,
+        "original_author_asymmetric_risk_descriptions":author_strategy,
         "financial_truth_certified":False,
         "personal_advice_approved":False,
         "p0_go":False,
