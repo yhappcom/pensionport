@@ -18,6 +18,21 @@ SPEECH_TYPES = {
     "SPECULATIVE_UNVERIFIED_FACT","PERSONAL_READING_IMPRESSION",
     "FINANCIAL_ASSERTION",
 }
+ALLOWED_ATOM_KINDS = {
+    "QUESTION_ONLY":{"QUESTION"},
+    "HYPOTHETICAL_RISK_QUESTION":{"QUESTION","HYPOTHETICAL"},
+    "PERSONAL_OPINION":{"OPINION"},
+    "META_PROPOSAL":{"OPINION"},
+    "CONDITIONAL_PAYOFF_HYPOTHESIS":{"OPINION","HYPOTHETICAL"},
+    "BOOK_TITLE_FACT":{"FACT"},
+    "BIBLIOGRAPHIC_FACT":{"FACT"},
+    "HISTORICAL_OR_ETYMOL_FACT":{"FACT"},
+    "QUOTED_SOURCE_PRINCIPLE":{"OPINION","FACT"},
+    "MIXED_OPINION_WITH_FACTUAL_DEPENDENCY":{"OPINION"},
+    "SPECULATIVE_UNVERIFIED_FACT":{"OPINION","HYPOTHETICAL"},
+    "PERSONAL_READING_IMPRESSION":{"OPINION"},
+    "FINANCIAL_ASSERTION":{"FACT"},
+}
 NUMERIC_ROLES = {
     "ASR_NUMERIC_AMBIGUITY", "REPORTED_QUANTITY_UNVERIFIED",
     "FINANCIAL_QUANTITY_UNVERIFIED", "VERIFIED_QUANTITY_WITH_PRIMARY",
@@ -84,7 +99,8 @@ def audit_e2_semantic_ledger(source, exchange, ledger):
         seen.add(cid)
         atom = atoms[cid]
         _need(row["atom_sha256"] == json_digest(atom) and
-              row["source_speech_type"] in SPEECH_TYPES,
+              row["source_speech_type"] in SPEECH_TYPES and
+              atom["kind"] in ALLOWED_ATOM_KINDS[row["source_speech_type"]],
               "ATOM_SHA_OR_SPEECH_TYPE")
         _need(row["source_speaker_identity"] == "UNKNOWN_NOT_AUDIO_AUTHENTICATED"
               and atom["speaker"] == "UNKNOWN", "UNVERIFIED_SPEAKER")
