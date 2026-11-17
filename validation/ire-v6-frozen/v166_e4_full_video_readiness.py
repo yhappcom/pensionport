@@ -6,6 +6,7 @@ unadjudicated omissions are reported separately. No status gets changed.
 """
 import hashlib
 import json
+import re
 from collections import Counter
 
 def digest(x):
@@ -19,7 +20,7 @@ def need(ok,reason):
     if not ok:
         raise ValueError("E4_VIDEO_READINESS_"+reason)
 
-def audit_video_readiness(raw, cues, segments):
+def audit_video_readiness(raw, cues, segments, *, expected_source_sha256):
     """cues: owner-parsed {absolute cue index: text}; segments: plan, exchange,
     V123 review, host receipt, legacy risk provenance (metadata only).
     Host pins are checked here but actual durable host verification and
@@ -30,6 +31,20 @@ def audit_video_readiness(raw, cues, segments):
          and all(type(t) is str for t in cues.values()),"SOURCE_CENSUS")
     need(type(segments) is list and bool(segments),"NO_SEGMENTS")
     source=h(raw)
+    need(source==expected_source_sha256,"OWNER_SOURCE_PIN_MISMATCH")
+    # Reparse the raw SRT text independently of the supplied cue mapping.
+    # This is text-census verification, not the native V6 timing/host audit.
+    parsed={}
+    for block in re.split(r"\n\s*\n",raw.decode("utf-8-sig").replace(
+            "\r\n","\n").replace("\r","\n").strip()):
+        lines=block.split("\n")
+        need(len(lines)>=3 and lines[0].strip().isdecimal()
+             and int(lines[0].strip())==len(parsed)+1
+             and "-->" in lines[1],"RAW_SRT_BLOCK_OR_ORDER")
+        value=" ".join(t.strip() for t in lines[2:] if t.strip())
+        need(bool(value),"RAW_SRT_EMPTY_TEXT")
+        parsed[int(lines[0].strip())]=value
+    need(parsed==cues,"CUE_MAP_NOT_RAW_SOURCE_TEXT")
     seen_claims=set()
     seen_segments=set()
     previous=0
@@ -81,7 +96,7 @@ def audit_video_readiness(raw, cues, segments):
             need(row["atom_sha256"]==digest(atom),"ATOM_DIGEST_DRIFT")
             ctx=atom["context_cue_indices"]
             need(type(ctx) is list and bool(ctx) and all(
-                type(i) is int and 1<=i<=len(cues) for i in ctx),"CONTEXT_SCOPE")
+                type(i) is int and first<=i<=last for i in ctx),"CONTEXT_SCOPE")
             refs=atom["source_refs"]
             need(type(refs) is list and bool(refs) and all(
                  r["cue_index"] in ctx and r["cue_index"] in cues
