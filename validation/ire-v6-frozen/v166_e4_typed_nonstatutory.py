@@ -149,6 +149,20 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
                 # and empirical guarantees require actual primary evidence.
                 _need(not atom["numeric_references"],
                       "NUMERIC_INVESTMENT_OPINION_CANNOT_BYPASS_PRIMARY")
+                # The presence of an opinion stance never downgrades claims
+                # about an independently checkable third-party historical
+                # event, letter-collection scope, financial performance or
+                # named fund's investment process into source-only evidence.
+                # Inspect ALL direct source_refs, not just a convenient
+                # short typed quote from one cue.
+                full_direct_text=" ".join(
+                    r["quote"] for r in atom["source_refs"])
+                _need(not any(marker in full_direct_text for marker in (
+                    "주주서한", "오렌핏", "법핏", "버핏 파트너십",
+                    "파트너십", "포트폴리오 수익", "연간 수익",
+                    "투자 규모 확대", "수익 목표", "공격적 운용",
+                    "투자 원금 보장", "대부분의 편지")),
+                    "THIRD_PARTY_HISTORY_OR_ANTHOLOGY_FACT_NOT_SOURCE_ONLY")
                 # A statute, taxation condition or returns guarantee remains
                 # a factual matter even when someone labels its V6 kind OPINION.
                 _need(not any(term in typed["original_cue_quote"] for term in (
