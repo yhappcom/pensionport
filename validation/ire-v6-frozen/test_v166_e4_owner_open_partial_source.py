@@ -50,7 +50,10 @@ BODY={
 
 def owner_fixture():
     flat=[s for cid in OPEN_CLAIMS for s in TEXTS[cid]]
-    raw=make_srt(flat)
+    # Native V6 make_srt defaults to FOUR synthetic timestamps. Explicitly
+    # bind all NINE original-cue surrogate rows; otherwise zip() silently
+    # drops five cues and a test artifact is not an honest whole-cue test.
+    raw=make_srt(flat,timestamps=[1000*i for i in range(1,len(flat)+1)])
     m=make_manifest(raw)
     source=verify_source(raw,m,expected_source_sha256=sha256(raw),
                          expected_manifest_sha256=json_digest(m))
