@@ -198,6 +198,52 @@ class E4SealedKnowledgeStore(E4GuardedKnowledgeStore):
     def evidence_for_question(self, *args, **kwargs):
         _fail("RAW_V126_EVIDENCE_REQUIRES_E4_OWNER_PIN_AND_E2_CONTEXT")
 
+    def certified_e2_source_separated_context(self, question, *,
+                                              externally_pinned_seal_sha256,
+                                              source, exchange, ledger,
+                                              selected_knowledge_ids=None,
+                                              discourse=None):
+        """Owner-pinned E4 research evidence only; never unfiltered V126 atoms.
+
+        Two certificate audits bracket the exact V126 internal read.
+        The only returned language is E2 source-anchored quote / marked
+        ChatGPT paraphrase / marked reviewer caution, never V6 proposition.
+        Financial facts and personalized advice remain unapproved.
+        """
+        from v126_chat_approved_knowledge_store import PrivateKnowledgeStore
+        from v166_e2_semantic_separation import source_separated_evidence_for_question
+        first=self.verify_e4_certificate(
+            externally_pinned_seal_sha256=externally_pinned_seal_sha256)
+        host=self
+
+        class _PinnedReadOnlyV126:
+            def evidence_for_question(self, *args, **kwargs):
+                return PrivateKnowledgeStore.evidence_for_question(
+                    host,*args,**kwargs)
+
+        packet=source_separated_evidence_for_question(
+            _PinnedReadOnlyV126(),question,source=source,
+            exchange=exchange,ledger=ledger,discourse=discourse,
+            selected_knowledge_ids=selected_knowledge_ids)
+        second=self.verify_e4_certificate(
+            externally_pinned_seal_sha256=externally_pinned_seal_sha256)
+        if (first["knowledge_head_sha256"]!=second["knowledge_head_sha256"]
+            or first["owner_pin_sha256"]!=second["owner_pin_sha256"]):
+            _fail("TRUSTED_RESEARCH_EVIDENCE_CHANGED_DURING_READ")
+        return {
+            **packet,
+            "schema":"IRE_V166_E4_E2_CERTIFIED_RESEARCH_CONTEXT_V1",
+            "e4_external_owner_pin_sha256":externally_pinned_seal_sha256,
+            "e4_knowledge_head_sha256":second["knowledge_head_sha256"],
+            "e4_db_rows_certified_twice":True,
+            "original_legacy_v6_proposition_exposed":False,
+            "research_candidates_only":True,
+            "chatgpt_final_advice_review_required":True,
+            "official_financial_law_must_be_rechecked":True,
+            "personal_investment_advice_approved":False,
+            "p0_go":False,
+        }
+
     def audit_authorized_research(self, *, externally_pinned_seal_sha256):
         return self.verify_e4_certificate(
             externally_pinned_seal_sha256=externally_pinned_seal_sha256)
