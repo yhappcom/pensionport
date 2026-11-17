@@ -23,10 +23,11 @@ from ire.v6.errors import InvalidInput, QualityNotProven
 from ire.v6.source import VerifiedSource
 from v143_source_pinned_quarantine import audit_explicit_quarantine
 from v146_source_meaning_provenance import audit_source_meaning_provenance
+from v161_source_utterance_scope import audit_source_utterance_only
 
 SCHEMA = "IRE_V6_CHAT_FINAL_REVIEW_V123"
 RECEIPT_SCHEMA = "IRE_V6_CHAT_FINAL_GATE_RECEIPT_V123"
-REVIEW_STATUSES = {"ACCEPT_FOR_RESEARCH", "REJECT", "OPEN", "EXCLUDE_FROM_RESEARCH"}
+REVIEW_STATUSES = {"ACCEPT_FOR_RESEARCH", "REJECT", "OPEN", "EXCLUDE_FROM_RESEARCH", "SOURCE_ATTESTED_ONLY"}
 FINANCE_STATUSES = {"NOT_APPLICABLE", "PRIMARY_BODY_AND_DATE_CHAT_CHECKED", "OPEN"}
 CUE_STATUSES = {"REVIEWED", "OPEN", "EXCLUDED_FROM_RESEARCH"}
 BLINDNESS = {"PRIOR_EXPOSED", "BLIND_NOT_ESTABLISHED", "SOURCE_FIRST_WITH_LOCKED_PREDICTION"}
@@ -212,16 +213,24 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
     _check(type(rows) is list and len(rows) == len(atoms), "CHAT_ATOM_CENSUS")
     seen = set()
     accepted = rejected = opened = finance_open = risk_open = 0
+    source_attested_only = 0
+    source_only_ids = []
     _check(set(official_evidence_bodies).issubset(atoms), "OFFICIAL_BODY_UNKNOWN_CLAIM")
     for row in rows:
-        _check(type(row) is dict and set(row) == {
+        required_atom_fields = {
             "claim_id", "atom_sha256", "status", "speaker_stance_checked",
             "conditions_exceptions_checked", "numeric_period_checked",
             "counterexample_checked", "high_risk", "financial_claim",
             "finance_evidence_status", "official_body_sha256",
             "official_effective_as_of", "financial_scope_checked",
             "private_review_note_sha256",
-        }, "CHAT_ATOM_ROW_SCHEMA")
+        }
+        _check(type(row) is dict and required_atom_fields <= set(row) and
+               set(row) - required_atom_fields <= {"source_utterance_attestation"},
+               "CHAT_ATOM_ROW_SCHEMA")
+        _check((row["status"] == "SOURCE_ATTESTED_ONLY") ==
+               ("source_utterance_attestation" in row),
+               "CHAT_SOURCE_ONLY_ATTESTATION_MUST_MATCH_DISPOSITION")
         cid = row["claim_id"]
         _check(type(cid) is str and cid in atoms and cid not in seen and
                row["atom_sha256"] == json_digest(atoms[cid]), "CHAT_ATOM_SOURCE_OR_DUPLICATE")
@@ -258,14 +267,18 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                    row["official_effective_as_of"] is None and
                    row["financial_scope_checked"] is False,
                    "FINANCE_EVIDENCE_FAKED_OR_INCONSISTENT")
+        if row["status"] == "SOURCE_ATTESTED_ONLY":
+            audit_source_utterance_only(source, atoms[cid], row, cues)
+            source_attested_only += 1
+            source_only_ids.append(cid)
         accepted += int(row["status"] == "ACCEPT_FOR_RESEARCH")
         rejected += int(row["status"] == "REJECT")
         opened += int(row["status"] == "OPEN")
-        finance_open += int(row["status"] != "EXCLUDE_FROM_RESEARCH" and
+        finance_open += int(row["status"] not in {"EXCLUDE_FROM_RESEARCH", "SOURCE_ATTESTED_ONLY"} and
                             row["financial_claim"] and
                             (row["finance_evidence_status"] != "PRIMARY_BODY_AND_DATE_CHAT_CHECKED"
                              or not body_replayed))
-        risk_open += int(row["status"] != "EXCLUDE_FROM_RESEARCH" and
+        risk_open += int(row["status"] not in {"EXCLUDE_FROM_RESEARCH", "SOURCE_ATTESTED_ONLY"} and
                          row["high_risk"] and (
             row["status"] != "ACCEPT_FOR_RESEARCH" or
             row["financial_claim"] and
@@ -305,6 +318,9 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
         result.update(source_meaning_provenance_sha256=semantic_provenance["ledger_hash_sha256"],
                       source_unknown_speaker_stance_accepted_claims_checked=semantic_provenance["source_identity_unresolved_claims_reviewed"],
                       independent_semantic_accuracy_certified=False)
+    result.update(atoms_source_attested_only=source_attested_only,
+                  source_only_claim_ids=source_only_ids,
+                  source_only_research_export_allowed=False)
     if quarantine is not None:
         result.update(atoms_excluded=quarantine["atoms"],
                       cues_excluded=quarantine["cues"],
