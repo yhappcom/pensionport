@@ -199,6 +199,28 @@ class V166E4PartialSourceNativeOpenTests(unittest.TestCase):
                 self.source,{"atoms":self.atoms},
                 {"atom_verdicts":self.verdicts},docs)
 
+    def test_14_e4_native_hold_lists_every_original_open_atom_and_denies_export(self):
+        from v166_e4_primary_approval_gate import _holding
+        case={"source":self.source,
+              "chat_review":{"atom_verdicts":self.verdicts}}
+        native={"decision":"HOLD","chat_review_sha256":"0"*64}
+        held=_holding(case,native,"NATIVE_CHAT_NOT_PASS")
+        self.assertEqual(held["native_unapproved_open_claim_ids"],
+                         sorted(OPEN_CLAIMS))
+        self.assertEqual(held["native_unapproved_open_claim_count"],3)
+        self.assertTrue(held["partial_primary_context_not_an_approval"])
+        self.assertFalse(held["research_export_authorized"])
+
+    def test_15_open_to_accept_evidence_cannot_change_native_hold_census(self):
+        from v166_e4_primary_approval_gate import _holding
+        self.verdicts[0]["status"]="ACCEPT_FOR_RESEARCH"
+        case={"source":self.source,
+              "chat_review":{"atom_verdicts":self.verdicts}}
+        native={"decision":"HOLD","chat_review_sha256":"0"*64}
+        held=_holding(case,native,"NATIVE_CHAT_NOT_PASS")
+        self.assertEqual(held["native_unapproved_open_claim_count"],2)
+        self.assertFalse(held["research_export_authorized"])
+
     def test_13_any_fake_first_party_origin_stays_unverified(self):
         with self.assertRaisesRegex(InvalidInput,"ORIGIN_AUDIO_OR_SOURCE_ROLE"):
             self.check("C00002",body_origin_verified=False)
