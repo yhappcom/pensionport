@@ -20,7 +20,8 @@ from test_v166_e4_owner_open_partial_source import (
 from v166_e4_owner_open_partial_source import (
     OPEN_CLAIMS,assess_open_partial_claim)
 from v166_e4_full_eight_open_census import (
-    audit_b0001_eight_open,EXPECTED_OPEN,TYPED_IDS,DOCUMENT_IDS)
+    audit_b0001_eight_open,EXPECTED_OPEN,TYPED_IDS,DOCUMENT_IDS,
+    SOURCE_ONLY_FROZEN_STANCES)
 
 
 def synthetic_full_owner_case():
@@ -65,6 +66,13 @@ def synthetic_full_owner_case():
             ids=a["context_cue_indices"]
             a["source_refs"]=[
                 {"cue_index":i,"quote":source.cues[i-1].text} for i in ids]
+            if cid in TYPED_IDS:
+                kind,stance,has_conditions=SOURCE_ONLY_FROZEN_STANCES[cid]
+                a["kind"]=kind
+                a["stance"]=stance
+                a["speaker"]="UNKNOWN"
+                a["condition_cue_indices"]=list(ids) if has_conditions else []
+                a["exception_cue_indices"]=[]
         verdicts[cid]["atom_sha256"]=json_digest(a)
     rows=copy.deepcopy(pilot.rows)
     for row in rows:
@@ -176,6 +184,45 @@ class V166E4AllEightNativeOpenReconciledTests(unittest.TestCase):
     def test_11_unreviewed_cue_cannot_pass_full_census(self):
         self.review["source_cues"][0]["status"]="OPEN"
         with self.assertRaisesRegex(InvalidInput,"REVIEWED_CUE_NOT_SOURCE_BYTE"):
+            self.check()
+
+    def test_13_original_conditional_payoff_cue_cannot_disappear(self):
+        a=next(a for a in self.exchange["atoms"] if a["claim_id"]=="C00277")
+        a["condition_cue_indices"]=[]
+        self.review["atom_verdicts"][
+            next(i for i,v in enumerate(self.review["atom_verdicts"])
+                 if v["claim_id"]=="C00277")
+        ]["atom_sha256"]=json_digest(a)
+        self.typed[next(i for i,r in enumerate(self.typed)
+                        if r["claim_id"]=="C00277")]["atom_sha256"]=json_digest(a)
+        with self.assertRaisesRegex(InvalidInput,
+                                    "SOURCE_ONLY_ORIGINAL_CONDITIONS_EXCEPTIONS_LOST"):
+            self.check()
+
+    def test_14_unapproved_quoted_question_cannot_be_relabelled_fact(self):
+        a=next(a for a in self.exchange["atoms"] if a["claim_id"]=="C00293")
+        a["stance"]="AFFIRMED"
+        self.review["atom_verdicts"][
+            next(i for i,v in enumerate(self.review["atom_verdicts"])
+                 if v["claim_id"]=="C00293")
+        ]["atom_sha256"]=json_digest(a)
+        self.typed[next(i for i,r in enumerate(self.typed)
+                        if r["claim_id"]=="C00293")]["atom_sha256"]=json_digest(a)
+        with self.assertRaisesRegex(InvalidInput,
+                                    "SOURCE_ONLY_ORIGINAL_KIND_STANCE_SPEAKER_CHANGED"):
+            self.check()
+
+    def test_15_unknown_original_speaker_cannot_be_named_without_audio(self):
+        a=next(a for a in self.exchange["atoms"] if a["claim_id"]=="C00003")
+        a["speaker"]="SPEAKER_1"
+        self.review["atom_verdicts"][
+            next(i for i,v in enumerate(self.review["atom_verdicts"])
+                 if v["claim_id"]=="C00003")
+        ]["atom_sha256"]=json_digest(a)
+        self.typed[next(i for i,r in enumerate(self.typed)
+                        if r["claim_id"]=="C00003")]["atom_sha256"]=json_digest(a)
+        with self.assertRaisesRegex(InvalidInput,
+                                    "SOURCE_ONLY_ORIGINAL_KIND_STANCE_SPEAKER_CHANGED"):
             self.check()
 
     def test_12_passing_partial_three_cannot_be_a_full_gate(self):
