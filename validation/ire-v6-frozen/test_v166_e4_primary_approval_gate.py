@@ -20,7 +20,8 @@ from v166_e4_primary_approval_gate import (
     _fetch_approved_primary_https,
 )
 
-BODY=("<html><title>SYNTHETIC ONLY - NOT LAW</title><p>시행 2026-11-10</p>"
+BODY=("<html><title>SYNTHETIC ONLY - NOT LAW</title>"
+      "<p>시행 2026-11-10</p><p>시행 2026-11-01</p>"
       "<p>가상의 금융 교육 문서: 납입 한도와 공제율은 "
       "사람별·과세기간별로 검토해야 한다는 시험용 텍스트. "
       "연금저축의 예상 수익은 10%입니다. "
@@ -52,7 +53,7 @@ def make_manifest(case, body=BODY):
             "body_sha256":sha256(body),
             "effective_from":v["official_effective_as_of"],
             "effective_until":None,
-            "primary_effective_date_excerpt":"시행 2026-11-10",
+            "primary_effective_date_excerpt":"시행 "+v["official_effective_as_of"],
             "original_claim_cue_index":index,
             "original_claim_quote":full[:min(50,len(full))],
             "primary_scope_excerpt":EXCERPT,
