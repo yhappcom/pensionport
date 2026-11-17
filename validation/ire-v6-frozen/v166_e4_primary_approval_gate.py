@@ -37,6 +37,7 @@ ROW_KEYS = {
     "effective_from","effective_until","original_claim_cue_index",
     "original_claim_quote","primary_scope_excerpt",
     "chat_primary_scope_note","chat_primary_scope_note_sha256",
+    "primary_claim_support_mode",
     "chat_scope_conditions_reviewed",
     "chat_exceptions_reviewed",
     "chat_source_asof_reviewed",
@@ -219,6 +220,13 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of):
         _require(sha256(fetched_bytes)==r["body_sha256"]
                  and case["official_evidence_bodies"].get(cid)==fetched_bytes,
                  "PRIMARY_ORIGINAL_BYTES_MISMATCH")
+        # E4 conservative substantive linkage: for now an exact quotation
+        # in the original official bytes is required. A real *paraphrase*
+        # needs a separate ChatGPT entailment proof; a URL + arbitrary
+        # excerpt cannot certify that the primary source supports this claim.
+        _require(r["primary_claim_support_mode"]=="EXACT_PRIMARY_QUOTE"
+                 and r["original_claim_quote"].encode("utf-8") in fetched_bytes,
+                 "OFFICIAL_ORIGINAL_DOES_NOT_SUPPORT_CLAIM_QUOTE")
         excerpt=r["primary_scope_excerpt"]
         _require(type(excerpt) is str and len(excerpt.strip())>=15
                  and excerpt.encode("utf-8") in fetched_bytes,
