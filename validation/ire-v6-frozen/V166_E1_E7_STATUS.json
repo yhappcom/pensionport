@@ -5,7 +5,7 @@
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
   "current_step": "E4",
-  "current_engine_verdict": "E1_E2_E3_PASS_E4_FAIL_OWNER_END_TO_END_AND_PERSISTENT_ENFORCEMENT_PENDING_FULL_NO_GO",
+  "current_engine_verdict": "E1_E2_E3_PASS_E4_FAIL_REAL_OWNER_APPROVAL_AND_SAME_DB_LEGACY_BYPASS_FULL_NO_GO",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -154,14 +154,14 @@
         "validation/ire-v6-frozen/V166_E4_SECOND_REPAIR_GUARDED_STORE_AND_OWNER_BOOK_SOURCE_20261117.md"
       ],
       "blockers": [
-        "No whole real owner B0001 E4 positive: historical/author-name C00002 and Buffett narrative C00009/C00010 native V123 OPEN, 13 total children not approved",
-        "Paraphrased financial/legal claims require ChatGPT source-entailment and temporal applicability acceptance, rather than exact quotation and mock HTTPS",
-        "Protected V166 E4 store blocks direct legacy calls only when using its protected SQLite connection; ordinary V126 or raw SQLite opening the file can bypass application-only enforcement; official receipt persistence and canonical DB route not yet certified"
+        "Real owner B0001 facts C00002/C00009/C00010 still OPEN: authenticated publisher supports book metadata but native V123 final has not approved the whole owner segment",
+        "Current E4 strict legal basis recognizes exact quotation only; current-law applicability and ChatGPT semantically equivalent paraphrase proof not yet completed",
+        "Same guarded SQLite file reopened using plain V126 PrivateKnowledgeStore has been shown to publish three synthetic research candidates without E4: durable file-level approval enforcement required"
       ],
       "retest_required": true,
       "initial_hazard": "Frozen V123 permits synthetic fake government body when bytes SHA and dated flags match; no authenticated publisher/authority/scope evidence enforced",
       "synthetic_only_approval_must_not_certify_legality": true,
-      "latest_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44040577989",
+      "latest_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44041183772",
       "ordered_ci_jobs_passed": 9,
       "live_origin_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44037778904",
       "live_official_source_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6449",
@@ -209,7 +209,11 @@
         "legal_finance_truth_approved": false,
         "actual_owner_e4_full_pass": false
       },
-      "real_publisher_origin_ci": "https://github.com/yhappcom/pensionport/actions/runs/44040578048"
+      "real_publisher_origin_ci": "https://github.com/yhappcom/pensionport/actions/runs/44040578048",
+      "same_file_legacy_v126_reopen_bypass_confirmed": true,
+      "same_file_reopen_synthetic_candidate_entries": 3,
+      "same_file_reopen_synthetic_parent_publications": 1,
+      "guarded_object_not_durable_database_authorization": true
     },
     {
       "step": "E5",
