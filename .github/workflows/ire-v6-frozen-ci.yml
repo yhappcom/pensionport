@@ -2494,9 +2494,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11.18'
-      - name: Execute V161 16 synthetic source utterance and finance route safety checks
+      - name: Execute V161 19 additive source speech and finance classification safety checks
         run: |
-          python -m compileall -q validation/ire-v6-frozen/v123_chat_final_gate.py validation/ire-v6-frozen/v161_source_utterance_scope.py validation/ire-v6-frozen/v161_finance_evidence_router.py
+          python -m compileall -q validation/ire-v6-frozen/v123_chat_final_gate.py validation/ire-v6-frozen/v161_source_utterance_scope.py validation/ire-v6-frozen/v161_finance_evidence_router.py validation/ire-v6-frozen/v161_source_review_overlay.py
           PYTHONPATH=validation/ire-v6-frozen python -m unittest discover -s validation/ire-v6-frozen -p 'test_v161_source_utterance_and_finance_router.py' -v
       - name: Recheck existing V123 approval safety and original counterexample tests
         run: |
@@ -2512,9 +2512,11 @@ jobs:
           assert m['atom_candidates']==292
           assert m['actual_v6_existing_host_receipts_replayed']==13
           assert m['actual_chat_v123_scope_checks']==13
-          assert m['source_only_nonpublishable_claims_new']==1
-          assert m['atom_open_after_source_only']==248
-          assert m['finance_open_after_source_only']==133
+          assert m['source_only_nonpublishable_chat_attestations']==1
+          assert m['native_v123_atoms_open_unchanged']==249
+          assert m['semantic_review_tasks_after_speech_overlay']==248
+          assert m['native_v123_finance_open_unchanged']==134
+          assert m['financial_evidence_work_tasks_after_source_attribution']==133
           assert m['V123_final_approved_scopes']==0
           assert m['v128_parent_knowledge_events']==0
           assert m['v128_parent_knowledge_entries']==0
