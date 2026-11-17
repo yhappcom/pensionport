@@ -274,8 +274,8 @@ def run_e4_guarded_parent(checkpoint, knowledge_store, *, review_or_load_child,
     No permission to skip the E3 path or 'fix' rejected ChatGPT evidence.
     """
     _require(callable(primary_manifest_for_child), "PRIMARY_MANIFEST_CALLBACK")
-    _require(isinstance(knowledge_store, E4GuardedKnowledgeStore),
-             "GUARDED_OFFICIAL_STORE_REQUIRED_NO_LEGACY_WRITES")
+    _require(isinstance(knowledge_store, E4SealedKnowledgeStore),
+             "SEALED_E4_OFFICIAL_STORE_REQUIRED_NO_UNPINNED_WRITES")
     guarded=[]
     def checked_child(segment_id,manifest,stage,original_raw):
         packet=review_or_load_child(segment_id,manifest,stage,original_raw)
@@ -298,11 +298,9 @@ def run_e4_guarded_parent(checkpoint, knowledge_store, *, review_or_load_child,
                 review_or_load_child=checked_child,
                 review_seams=review_seams,review_parent=review_parent,
                 expected_knowledge_head=expected_knowledge_head)
-            owner_pin = None
-            if isinstance(knowledge_store,E4SealedKnowledgeStore):
-                owner_pin=knowledge_store.certify_completed_parent(
-                    child_ids=checkpoint.child_ids,
-                    e3_downstream_result=downstream)
+            owner_pin=knowledge_store.certify_completed_parent(
+                child_ids=checkpoint.child_ids,
+                e3_downstream_result=downstream)
     except E4ApprovalBlocked:
         return {"schema":"IRE_V166_E4_PARENT_APPROVAL_V1",
                 "status":"E4_HOLD_UNVERIFIED_CHILD",
