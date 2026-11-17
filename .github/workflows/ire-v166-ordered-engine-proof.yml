@@ -60,5 +60,5 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
         run: |
           python -m unittest -v test_v166_typed_to_native_quarantine
-          python -m unittest -v test_v143_v123_v128_quarantine.V143SourceBoundV123Tests.test_08_only_accepted_original_claims_are_stored_and_retrievable
-          python -m unittest -v test_v143_v123_v128_quarantine.V143SourceBoundV123Tests.test_10_all_excluded_child_stages_zero_then_one_parent_commit
+          python -m unittest -v test_v143_v123_v128_quarantine.V143V126StoreTests.test_08_only_accepted_original_claims_are_stored_and_retrievable
+          python -m unittest -v test_v143_v123_v128_quarantine.V143V128AtomicParentTests.test_10_all_excluded_child_stages_zero_then_one_parent_commit
