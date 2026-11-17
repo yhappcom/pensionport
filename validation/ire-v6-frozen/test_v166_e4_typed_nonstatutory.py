@@ -270,7 +270,9 @@ class V166E4TypedNonStatutoryClaimSources(unittest.TestCase):
             primary_body_sha256=sha256(pdf),
             verification_mode="WILEY_BOOK_AUTHOR_GUJARATI_DESCRIPTION_NOT_DICTIONARY")
         with patch("v166_e4_typed_nonstatutory.fetch_wiley_original_chapter_pdf",
-                   return_value=pdf):
+                   return_value=pdf),patch(
+                   "v166_e4_typed_nonstatutory.WILEY_APPROVED_CHAPTER_SHA256",
+                   sha256(pdf)):
             result=self.check(c,t,m)
         self.assertEqual(result["original_author_chapter_word_descriptions"],1)
         self.assertFalse(result["financial_truth_certified"])
@@ -293,7 +295,9 @@ class V166E4TypedNonStatutoryClaimSources(unittest.TestCase):
         with patch("v166_e4_typed_nonstatutory.fetch_wiley_publisher_bytes",
                    return_value=BOOK),patch(
                    "v166_e4_typed_nonstatutory.fetch_wiley_original_chapter_pdf",
-                   return_value=pdf):
+                   return_value=pdf),patch(
+                   "v166_e4_typed_nonstatutory.WILEY_APPROVED_CHAPTER_SHA256",
+                   sha256(pdf)):
             r=self.check(c,t,m)
         self.assertEqual(r["original_author_asymmetric_risk_descriptions"],1)
         self.assertFalse(r["financial_truth_certified"])
@@ -312,8 +316,25 @@ class V166E4TypedNonStatutoryClaimSources(unittest.TestCase):
             primary_body_sha256="0"*64,
             verification_mode="WILEY_BOOK_AUTHOR_GUJARATI_DESCRIPTION_NOT_DICTIONARY")
         with patch("v166_e4_typed_nonstatutory.fetch_wiley_original_chapter_pdf",
-                   return_value=pdf):
+                   return_value=pdf),patch(
+                   "v166_e4_typed_nonstatutory.WILEY_APPROVED_CHAPTER_SHA256",
+                   sha256(pdf)):
             with self.assertRaises(InvalidInput):
+                self.check(c,t,m)
+
+    def test_19_same_wiley_domain_chapter_changed_without_signed_revision_holds(self):
+        pdf=synthetic_wiley_chapter()
+        c,t,m=case_with_type("단도는 구자라트 지방의 표현이라고 들었습니다",
+            "FACT","AFFIRMED","LINGUISTIC_ETYMLOGY",pdf)
+        m["rows"][0].update(
+            primary_url=CHAPTER_URL,
+            primary_body_sha256=sha256(pdf),
+            verification_mode="WILEY_BOOK_AUTHOR_GUJARATI_DESCRIPTION_NOT_DICTIONARY")
+        # The mocked origin serves valid publisher-text bytes, but it is not
+        # the PREVIOUSLY witnessed approved first-party chapter SHA.
+        with patch("v166_e4_typed_nonstatutory.fetch_wiley_original_chapter_pdf",
+                   return_value=pdf):
+            with self.assertRaisesRegex(InvalidInput,"SNAPSHOT_DIGEST_DRIFT"):
                 self.check(c,t,m)
 
     def test_18_gujarati_claim_cannot_borrow_unrelated_bibliography(self):
