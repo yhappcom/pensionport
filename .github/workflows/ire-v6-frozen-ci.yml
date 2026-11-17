@@ -16,6 +16,7 @@ on:
       - verify/ire-v6-p0e-v154-real-integration-20261116
       - verify/ire-v6-p0e-v155-75-cue-adjudication-20261117
       - verify/ire-v6-p0e-v157-actual-284-host-semantic-fields-20261117
+      - verify/ire-v6-p0e-v158-129-source-stances-20261117
   workflow_dispatch:
 permissions:
   contents: read
@@ -2409,5 +2410,39 @@ jobs:
           assert result["v123_approved_scopes"]==0
           assert can_publish_research_or_personal_advice(data)["research_candidate_export_allowed"] is False
           print(json.dumps(result,sort_keys=True))
+          PY
+  v158-owner-original-chat-semantic-host-custody:
+    name: V158 129 owner-source speech-act changes and 13 native host SHA evidence HOLD
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: V158 semantic original-source adapter synthetic checks
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v158_semantic_to_v6_adapter.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v158_semantic_to_v6_adapter.py' -v
+      - name: V158 original-private host release SHA-only negative controls
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v158_source_meaning_release_gate.py
+          python -m unittest discover -s validation/ire-v6-frozen -p 'test_v158_source_meaning_release_gate.py' -v
+          PYTHONPATH=validation/ire-v6-frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from v158_source_meaning_release_gate import audit_v158_public_receipt
+          row=json.loads(Path('validation/ire-v6-frozen/V158_REAL_CHATGPT_STANCE_129_SOURCE_HOST_SHA_ONLY.json').read_text())
+          out=audit_v158_public_receipt(row)
+          assert out["real_native_v6_event_heads"]==13
+          assert out["explicit_chat_source_first_changes"]==129
+          assert out["remaining_unresolved_stances"]==77
+          assert out["V123_final_pass_scopes"]==0
+          assert out["p0e_go"] is False
+          print(json.dumps(out,sort_keys=True))
           PY
 
