@@ -5,7 +5,7 @@ not proof of factual accuracy, and not a V123/V128 release token.
 """
 from __future__ import annotations
 
-from ire.v6.codec import json_digest, sha256
+from ire.v6.codec import HEX64, json_digest, sha256
 from ire.v6.errors import InvalidInput
 from ire.v6.source import VerifiedSource
 
@@ -35,16 +35,15 @@ ALLOWED_ATOM_KINDS = {
 }
 NUMERIC_ROLES = {
     "ASR_NUMERIC_AMBIGUITY", "REPORTED_QUANTITY_UNVERIFIED",
-    "FINANCIAL_QUANTITY_UNVERIFIED", "VERIFIED_QUANTITY_WITH_PRIMARY",
+    "FINANCIAL_QUANTITY_UNVERIFIED",
     "NONFINANCIAL_CONTEXT_NUMBER",
 }
 FACTUAL_REQUIRED_TYPES = {
     "BOOK_TITLE_FACT","BIBLIOGRAPHIC_FACT","HISTORICAL_OR_ETYMOL_FACT",
     "MIXED_OPINION_WITH_FACTUAL_DEPENDENCY","SPECULATIVE_UNVERIFIED_FACT",
-    "FINANCIAL_ASSERTION",
+    "FINANCIAL_ASSERTION","QUOTED_SOURCE_PRINCIPLE",
 }
-FACT_STATUS = {"OPEN_PRIMARY_REQUIRED","SOURCE_SPEECH_ONLY_NOT_VERIFIED",
-               "PRIMARY_VERIFIED_SEPARATELY"}
+FACT_STATUS = {"OPEN_PRIMARY_REQUIRED","SOURCE_SPEECH_ONLY_NOT_VERIFIED"}
 ROW_KEYS = {
     "claim_id","atom_sha256","source_speech_type","source_context_cue_indices",
     "source_context_sha256","verbatim_cue_index","verbatim_excerpt",
@@ -80,7 +79,7 @@ def audit_e2_semantic_ledger(source, exchange, ledger):
           ledger["semantic_accuracy_independent_gold_certified"] is False and
           ledger["personal_advice_approved"] is False and
           type(ledger["private_review_note_sha256"]) is str and
-          len(ledger["private_review_note_sha256"]) == 64,
+          HEX64.fullmatch(ledger["private_review_note_sha256"]) is not None,
           "REVIEW_OR_SOURCE_PIN")
     atoms = {a["claim_id"]:a for a in exchange["atoms"]}
     _need(len(atoms) == len(exchange["atoms"]) and
@@ -151,9 +150,9 @@ def audit_e2_semantic_ledger(source, exchange, ledger):
                       source.cues[dep["cue_index"]-1].text and
                   dep["status"] in FACT_STATUS and
                   type(dep["reviewer_note_sha256"]) is str and
-                  len(dep["reviewer_note_sha256"])==64,
+                  dep["reviewer_note_sha256"] == row["reviewer_note_sha256"],
                   "FACTUAL_DEPENDENCY_SOURCE_OR_EVIDENCE")
-            facts_open += int(dep["status"] != "PRIMARY_VERIFIED_SEPARATELY")
+            facts_open += 1
         nr = row["numeric_token_roles"]
         _need(type(nr) is list and len(nr)==len(atom["numeric_references"]),
               "NUMERIC_TOKEN_CENSUS")
