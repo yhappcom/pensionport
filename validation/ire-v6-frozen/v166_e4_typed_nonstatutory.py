@@ -125,6 +125,12 @@ def audit_typed_nonstatutory_research(case,inventory,manifest,*,as_of):
                 # and empirical guarantees require actual primary evidence.
                 _need(not atom["numeric_references"],
                       "NUMERIC_INVESTMENT_OPINION_CANNOT_BYPASS_PRIMARY")
+                # A statute, taxation condition or returns guarantee remains
+                # a factual matter even when someone labels its V6 kind OPINION.
+                _need(not any(term in typed["original_cue_quote"] for term in (
+                    "세금","세율","공제","비과세","납입한도",
+                    "연금저축","원금보장","수익률","보장됩니다")),
+                      "OBJECTIVE_FINANCIAL_RULE_REBRANDED_AS_OPINION")
             source_only+=1
         elif cat=="PUBLISHER_BOOK_BIBLIOGRAPHY":
             _need(row["verification_mode"]=="PUBLISHER_ORIGINAL_ENGLISH_TITLE" and
