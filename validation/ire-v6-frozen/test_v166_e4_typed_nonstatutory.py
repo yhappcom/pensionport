@@ -54,7 +54,7 @@ def synthetic_wiley_chapter(*,include_caveat=True):
 
 
 def case_with_type(quote,kind,stance,category,body=None,status="ACCEPT_FOR_RESEARCH",
-                   claim_id=claim_id):
+                   claim_id="C00001"):
     raw=make_srt([quote,"후속 발언은 검토자 주장과 분리합니다."])
     manifest=make_manifest(raw)
     source=verify_source(raw,manifest,
