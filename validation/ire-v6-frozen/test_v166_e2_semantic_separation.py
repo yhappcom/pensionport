@@ -5,7 +5,7 @@ import unittest
 from ire.v6.codec import sha256,json_digest
 from ire.v6.errors import InvalidInput
 from ire.v6.tests.test_atomic_exchange import HostAtomExchangeTests
-from v166_e2_semantic_separation import SCHEMA,audit_e2_semantic_ledger,build_e2_source_separated_context_packet
+from v166_e2_semantic_separation import SCHEMA,audit_e2_semantic_ledger,build_e2_source_separated_context_packet,audit_e2_cross_atom_discourse
 
 
 class V166E2SourceAndReviewerSeparationTests(unittest.TestCase):
@@ -190,6 +190,54 @@ class V166E2SourceAndReviewerSeparationTests(unittest.TestCase):
                           if x["claim_id"] == item["claim_id"])
             self.assertNotEqual(item["source_verbatim_quote"],
                                 original["proposition"])
+
+    def _discourse_fixture(self):
+        idx=2
+        quote=self.source.cues[idx-1].text
+        note=("원문 두 발언의 대비 관계만 확인하며 서로 다른 주장 사이의 "
+              "차이를 실제 금융 손익 보장이나 공식적 반증으로 승인하지 않습니다.")
+        return {
+            "schema":"IRE_V166_E2_CROSS_ATOM_DISCOURSE_V1",
+            "source_sha256":self.source.source_sha256,
+            "review_executor":"CHATGPT_IN_CHAT",
+            "rows":[{
+                "left_claim_id":"C00001","right_claim_id":"C00002",
+                "relation_type":"CONTRAST","source_cue_index":idx,
+                "source_quote":quote,
+                "source_cue_sha256":sha256(quote.encode("utf-8")),
+                "chat_meaning_note":note,
+                "chat_meaning_note_sha256":sha256(note.encode("utf-8")),
+                "source_checked":True,"financial_fact_verified":False,
+            }],
+            "private_chat_review_sha256":sha256(b"synthetic review notes"),
+            "financial_fact_auto_approved":False,
+        }
+
+    def test_19_cross_atom_contrast_remains_source_pinned(self):
+        d=self._discourse_fixture()
+        result=audit_e2_cross_atom_discourse(
+            self.source,self.exchange,self.ledger,d)
+        self.assertEqual(result["cross_atom_relations_verified"],1)
+        self.assertEqual(result["source_conditions_preserved"],1)
+        self.assertFalse(result["research_knowledge_release_authorized"])
+
+    def test_20_forged_cross_atom_contrast_quote_rejected(self):
+        d=self._discourse_fixture()
+        d["rows"][0]["source_quote"]="원문에 없는 허위 금융 보장 문구"
+        with self.assertRaises(InvalidInput):
+            audit_e2_cross_atom_discourse(self.source,self.exchange,self.ledger,d)
+
+    def test_21_cross_atom_claim_id_substitution_rejected(self):
+        d=self._discourse_fixture()
+        d["rows"][0]["right_claim_id"]="C99999"
+        with self.assertRaises(InvalidInput):
+            audit_e2_cross_atom_discourse(self.source,self.exchange,self.ledger,d)
+
+    def test_22_false_financial_factual_certification_rejected(self):
+        d=self._discourse_fixture()
+        d["rows"][0]["financial_fact_verified"]=True
+        with self.assertRaises(InvalidInput):
+            audit_e2_cross_atom_discourse(self.source,self.exchange,self.ledger,d)
 
     def test_13_unauthenticated_speaker_name_rejected(self):
         l=copy.deepcopy(self.ledger)
