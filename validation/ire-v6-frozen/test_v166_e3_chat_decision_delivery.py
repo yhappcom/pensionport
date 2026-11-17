@@ -72,13 +72,16 @@ class V166E3NativeDecisionDelivery(unittest.TestCase):
         self.assertEqual(self.fx._counts().get("knowledge",0),0)
 
     def test_04_reject_has_priority_even_when_another_atom_open(self):
-        case=self.fx.packets[1]["case"]
+        # B0002 has one synthetic atom. B0001 carries two independent
+        # atoms, so this is the correct composite REJECT + OPEN fixture.
+        case=self.fx.packets[0]["case"]
+        self.assertGreaterEqual(len(case["chat_review"]["atom_verdicts"]),2)
         case["chat_review"]["atom_verdicts"][0]["status"]="REJECT"
         case["chat_review"]["atom_verdicts"][1]["status"]="OPEN"
         result=self.run_host()
         self.assertEqual(result["explicit_e3_status"],"CHILD_REJECTED_FINAL_CHAT")
-        self.assertEqual(result["child_decisions"][1]["decision"],"REJECTED")
-        self.assertGreaterEqual(result["child_decisions"][1]["open"],1)
+        self.assertEqual(result["child_decisions"][0]["decision"],"REJECTED")
+        self.assertGreaterEqual(result["child_decisions"][0]["open"],1)
 
     def test_05_chat_review_missing_fails_closed(self):
         self.fx.packets[0]["case"]["chat_review"]=None
