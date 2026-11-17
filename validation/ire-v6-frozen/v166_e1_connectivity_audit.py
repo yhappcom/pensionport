@@ -7,6 +7,7 @@ owner HOLD proof, referenced by the persistent ordered state ledger.
 from __future__ import annotations
 import json
 from pathlib import Path
+from v166_gate_sequence import check_phase_order
 
 ROOT = Path(__file__).resolve().parent
 FROZEN_PATH = {
@@ -54,7 +55,7 @@ def audit_e1():
     if not base or not bridge:
         raise AssertionError("V166_E1_PROTECTED_BASE_OR_SHARED_BRIDGE_CODE_MISSING")
     if pass_claim and not (proof and run_url.endswith("/44024787646") and
-                           state["current_step"] == "E2" and
+                           check_phase_order(state)["passed_steps"] >= 1 and
                            e1["retest_required"] is False and
                            not e1["blockers"]):
         raise AssertionError("V166_E1_PREMATURE_PASS_WITHOUT_BOTH_EVIDENCE_PATHS")
