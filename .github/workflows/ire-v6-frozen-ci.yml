@@ -2501,7 +2501,7 @@ jobs:
       - name: Recheck existing V123 approval safety and original counterexample tests
         run: |
           PYTHONPATH=validation/ire-v6-frozen python -m unittest discover -s validation/ire-v6-frozen -p 'test_v123_chat_final_gate.py' -v
-      - name: Public SHA-only: no owner SRT and absolutely no fake financial approval
+      - name: Public SHA-only check with no owner SRT and no false financial approval
         run: |
           python - <<'PY'
           import json
