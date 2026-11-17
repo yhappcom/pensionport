@@ -352,6 +352,20 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
             self.run_guarded()
         self.assertEqual(self.fx._counts().get("knowledge",0),0)
 
+    def test_23_same_file_plain_legacy_reopen_still_bypasses_object_only_guard(self):
+        # Red-test receipt: an attacker/process that ignores the official E4
+        # Store class can still open the EXACT SAME sqlite file using V126.
+        # This must remain an E4 blocker until durable canonical file-level
+        # receipts/guarding (or production removal of legacy entrypoint) exist.
+        database=self.fx.knowledge.path
+        self.fx.knowledge=PrivateKnowledgeStore(database)
+        native=self.e3.run_host()
+        self.assertEqual(native["explicit_e3_status"],
+                         "PUBLISHED_RESEARCH_CANDIDATES_ONLY")
+        self.assertEqual(self.fx._counts()["knowledge"],3)
+        self.assertEqual(self.fx._counts()["parent_publications"],1)
+        self.assertFalse(native["formal_financial_fact_approved"])
+
     def test_22_verified_e4_scope_resets_after_commit_and_denies_new_unreviewed_batch(self):
         allowed=self.run_guarded()
         self.assertEqual(allowed["status"],"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED")
