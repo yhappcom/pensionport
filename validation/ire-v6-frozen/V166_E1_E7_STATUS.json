@@ -5,7 +5,7 @@
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
   "current_step": "E2",
-  "current_engine_verdict": "E1_STRUCTURAL_PASS_E2_SEMANTIC_FAIL_NEXT_STEP_BLOCKED",
+  "current_engine_verdict": "E1_STRUCTURAL_PASS_E2_SEMANTIC_FAIL_GUARDED_NO_GO",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -68,15 +68,26 @@
       "status": "FAIL",
       "completed_at": null,
       "evidence_paths": [
-        "validation/ire-v6-frozen/V166_E2_B0001_SOURCE_SEMANTIC_LAYER_BASELINE_FAIL_20261117.md"
+        "validation/ire-v6-frozen/V166_E2_B0001_SOURCE_SEMANTIC_LAYER_BASELINE_FAIL_20261117.md",
+        "validation/ire-v6-frozen/V166_E2_SEMANTIC_LAYER_REPAIR_AND_OWNER_16_DOCKET_20261117.md"
       ],
       "blockers": [
-        "Observed speaker claim/reviewer risk limitation conflation in B0001 propositions C00008 and C00277",
-        "Existing OPINION atoms C00009 and C00010 embed externally verifiable historical facts",
-        "Numeric token in C00004 is not yet labeled as ASR ambiguity distinct from quantitative finance fact",
-        "No complete source/atom/condition/exception-bound E2 semantic sidecar + negative controls"
+        "Exact current E2 semantic sidecar implementation has not been run directly against all 16 real B0001 source/atom rows",
+        "Source speaker statement versus reviewer caution layer needs confirmed integration into approved knowledge retrieval/answer output rather than only a sidecar",
+        "Mixed fact-in-opinion, conditional qualifiers, ASR numerical ambiguity require actual ChatGPT final semantic quality adjudication; no independent gold"
       ],
-      "retest_required": true
+      "retest_required": true,
+      "last_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44026049789",
+      "synthetic_semantic_contract_tests_passed": 15,
+      "private_owner_16_atom_docket_sha256": "d970713e83116af3baafc07459eb6856145e7d4ea67340821e577f796c50113e",
+      "private_source_mechanical_checks": {
+        "owner_atom_rows": 16,
+        "conditioned_atoms_preserved": 2,
+        "explicit_exception_atoms_in_existing_v6": 0,
+        "embedded_factual_dependencies_open": 9,
+        "asr_ambiguous_number_tokens": 1,
+        "source_tamper_tests_rejected": 7
+      }
     },
     {
       "step": "E3",
