@@ -133,9 +133,20 @@ def audit_e4_claim_entailment(case, original_row, fetched_body):
               (PERCENT.fullmatch(st) and PERCENT.fullmatch(ot) or
                AMOUNT.fullmatch(st) and AMOUNT.fullmatch(ot)) and
               _number_core(st)==_number_core(ot) and
-              type(m["unit"]) is str and len(m["unit"])>=1 and
-              type(m["period"]) is str and len(m["period"])>=4,
+              m["unit"]==("PERCENT" if st.endswith("%")
+                         else "RAW_NUMBER_UNIT_NOT_AUTHENTICATED") and
+              type(m["period"]) is str,
               "NUMERIC_RATE_AMOUNT_UNIT_OR_PERIOD_NOT_EQUIVALENT")
+        original_cue_text=case["source"].cues[m["cue_index"]-1].text
+        explicit_years=set(re.findall(r"(?<!\\d)(?:19|20)\\d{2}(?!\\d)",
+                                      original_cue_text))
+        if explicit_years:
+            _need(m["period"] in {"SOURCE_YEAR:"+y for y in explicit_years}
+                  and m["period"].split(":",1)[1].encode("utf-8") in fetched_body,
+                  "NUMERIC_PERIOD_NOT_SOURCE_AND_PRIMARY_PINNED")
+        else:
+            _need(m["period"]=="PERIOD_NOT_EXPRESSED_IN_SOURCE",
+                  "NUMERIC_PERIOD_FABRICATED_FROM_OFFICIAL_DATE")
     _need(gotnum==neednum,"NUMERIC_REFERENCE_OMITTED")
     note=proof["reviewer_reasoning"]
     _need(type(note) is str and len(note)>=120 and
