@@ -306,6 +306,8 @@ def assess_e4_primary_authority_gate(case, primary_manifest, *, now_as_of,
             typed_nonlegal["type_manifest_sha256"] if typed_nonlegal else None),
         "typed_nonstatutory_claims_verified": (
             typed_nonlegal["nonstatutory_primary_checked"] if typed_nonlegal else 0),
+        "typed_nonstatutory_proof_sha256": (
+            json_digest(typed_nonlegal) if typed_nonlegal else None),
         "approved_research_candidate_claims":len(accepted),
         "quarantined_source_only_atoms":native["quarantined_source_only_atoms"],
         "research_export_authorized":True,
