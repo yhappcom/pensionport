@@ -1,0 +1,240 @@
+"""Synthetic typed E4 non-statutory primary provenance, NOT genuine factual approval.
+
+A genuine first-party book title or Berkshire chronology can back its narrow
+fact type; neither can prove investment returns, historical opinions, current
+tax law or someone else's unknown audio. Every test uses invented cues.
+"""
+from __future__ import annotations
+
+import copy
+import unittest
+from unittest.mock import patch
+
+from ire.v6.codec import sha256,json_digest
+from ire.v6.errors import InvalidInput,QualityNotProven
+from ire.v6.source import verify_source
+from ire.v6.tests.test_source_and_proof import make_srt,make_manifest
+from v166_e4_typed_authority import (
+    SCHEMA as TYPE_SCHEMA,CLASS_TO_KIND,audit_e4_source_type_inventory)
+from v166_e4_typed_nonstatutory import (
+    SCHEMA as NONSTAT_SCHEMA,audit_typed_nonstatutory_research)
+from v166_e4_bibliographic_primary import WILEY_ORIGINAL
+from v166_e4_corporate_historical_primary import URL as BERKSHIRE_URL
+from test_v166_e4_bibliographic_primary import BOOK
+from test_v166_e4_corporate_historical_primary import FAKE as BERKSHIRE_FAKE
+
+NOTE=("합성 화자 주장의 근거 유형을 자막 원문에 직접 고정하였습니다. "
+      "출판사 서지나 회사 연혁을 투자수익의 증거로 확대하지 않으며, "
+      "법령이나 세금·투자 효과에 관한 사실 주장은 별도의 공식 원문·"
+      "시행일·조건 검증 없이는 승인하지 않습니다. 독립 정답 인증이나 "
+      "개인 투자자문도 승인하지 않습니다.")
+
+def case_with_type(quote,kind,stance,category,body=None,status="ACCEPT_FOR_RESEARCH"):
+    raw=make_srt([quote,"후속 발언은 검토자 주장과 분리합니다."])
+    manifest=make_manifest(raw)
+    source=verify_source(raw,manifest,
+        expected_source_sha256=sha256(raw),
+        expected_manifest_sha256=json_digest(manifest))
+    atom={"claim_id":"C00001","kind":kind,"stance":stance,
+          "speaker":"NARRATOR",
+          "context_cue_indices":[1],
+          "source_refs":[{"cue_index":1,"quote":quote}],
+          "condition_cue_indices":[],"exception_cue_indices":[],
+          "numeric_references":[],
+          "proposition":quote,"owner_window_id":source.owner(1),"as_of":None}
+    review_verdict={
+        "claim_id":"C00001","atom_sha256":json_digest(atom),
+        "status":status,"private_review_note_sha256":sha256(b"synthetic ChatGPT"),
+        "high_risk":True,"financial_claim":True,
+        "official_body_sha256":sha256(body) if body else None,
+    }
+    review={"as_of":"2026-11-17","atom_verdicts":[review_verdict]}
+    c={"source":source,"exchange":{"atoms":[atom]},
+       "chat_review":review,
+       "official_evidence_bodies":{"C00001":body} if body else {}}
+    type_row={
+        "claim_id":"C00001","atom_sha256":json_digest(atom),
+        "original_cue_index":1,"original_cue_quote":quote,
+        "original_cue_quote_sha256":sha256(quote.encode("utf-8")),
+        "evidence_class":category,"authority_route":CLASS_TO_KIND[category][1],
+        "source_evidence_scope_note":NOTE,
+        "source_evidence_scope_note_sha256":sha256(NOTE.encode("utf-8")),
+        "v123_original_status":status,
+        "unchanged_v123_review_note_sha256":review_verdict["private_review_note_sha256"],
+        "financial_claim_flag_only_screening_not_legal_proof":True,
+        "reviewer_not_speaker_quote":True,
+        "primary_verification_complete":False,
+        "independent_gold_certified":False,
+        "personal_advice_approved":False,
+    }
+    type_inventory={
+        "schema":TYPE_SCHEMA,
+        "source_sha256":source.source_sha256,
+        "manifest_sha256":source.manifest_sha256,
+        "chat_review_sha256":json_digest(review),
+        "review_executor":"CHATGPT_IN_CHAT",
+        "rows":[type_row],
+        "private_reviewer_custody_sha256":sha256(b"synthetic primary type"),
+        "any_v123_status_changed":False,"any_fact_autoapproved":False,
+        "formal_current_law_certified":False,"personal_advice_approved":False,
+    }
+    evidence={
+        "claim_id":"C00001","evidence_class":category,
+        "authority_route":CLASS_TO_KIND[category][1],
+        "source_quote_sha256":sha256(quote.encode("utf-8")),
+        "chat_meaning_note":NOTE,
+        "chat_meaning_note_sha256":sha256(NOTE.encode("utf-8")),
+        "primary_url":None,"primary_body_sha256":None,
+        "verification_mode":"SOURCE_ONLY_SPEAKER_ATTRIBUTION",
+        "original_speaker_audio_verified":False,
+        "formal_financial_fact_certified":False,
+        "personal_advice_approved":False,
+    }
+    if category=="PUBLISHER_BOOK_BIBLIOGRAPHY":
+        evidence.update(
+            primary_url=WILEY_ORIGINAL,
+            primary_body_sha256=sha256(body) if body else None,
+            verification_mode="PUBLISHER_ORIGINAL_ENGLISH_TITLE")
+    elif category=="HISTORICAL_CORPORATE_FACT":
+        evidence.update(
+            primary_url=BERKSHIRE_URL,
+            primary_body_sha256=sha256(body) if body else None,
+            verification_mode="BERKSHIRE_ARCHIVE_START_YEAR_1977")
+    nonlegal={
+        "schema":NONSTAT_SCHEMA,
+        "source_sha256":source.source_sha256,
+        "chat_review_sha256":json_digest(review),
+        "type_inventory_sha256":json_digest(type_inventory),
+        "as_of":"2026-11-17",
+        "rows":[evidence] if status=="ACCEPT_FOR_RESEARCH" else [],
+        "formal_financial_fact_certified":False,
+        "personal_advice_approved":False,
+    }
+    return c,type_inventory,nonlegal
+
+
+class V166E4TypedNonStatutoryClaimSources(unittest.TestCase):
+    def check(self,c,typed,manifest):
+        audit_e4_source_type_inventory(
+            c["source"],c["exchange"],c["chat_review"],typed)
+        return audit_typed_nonstatutory_research(
+            c,typed,manifest,as_of="2026-11-17")
+
+    def test_01_real_component_publisher_bibliography_narrow_title_positive(self):
+        c,t,m=case_with_type("단도 인베스터 원서 제목이 무엇인가요",
+            "FACT","AFFIRMED","PUBLISHER_BOOK_BIBLIOGRAPHY",BOOK)
+        with patch("v166_e4_typed_nonstatutory.fetch_wiley_publisher_bytes",
+                   return_value=BOOK):
+            r=self.check(c,t,m)
+        self.assertEqual(r["original_publisher_book_titles"],1)
+        self.assertEqual(r["source_only_speaker_statements"],0)
+        self.assertFalse(r["financial_truth_certified"])
+
+    def test_02_same_wiley_domain_cannot_support_unrelated_book(self):
+        c,t,m=case_with_type("단도 인베스터 원서 제목이 무엇인가요",
+            "FACT","AFFIRMED","PUBLISHER_BOOK_BIBLIOGRAPHY",BOOK)
+        unrelated=BOOK.replace(b"The Dhandho Investor",b"Other Book")
+        m["rows"][0]["primary_body_sha256"]=sha256(unrelated)
+        c["official_evidence_bodies"]["C00001"]=unrelated
+        c["chat_review"]["atom_verdicts"][0]["official_body_sha256"]=sha256(unrelated)
+        t["chat_review_sha256"]=json_digest(c["chat_review"])
+        m["chat_review_sha256"]=json_digest(c["chat_review"])
+        m["type_inventory_sha256"]=json_digest(t)
+        with patch("v166_e4_typed_nonstatutory.fetch_wiley_publisher_bytes",
+                   return_value=unrelated):
+            with self.assertRaises(QualityNotProven):
+                self.check(c,t,m)
+
+    def test_03_publisher_title_does_not_prove_author_pronunciation(self):
+        c,t,m=case_with_type("작가는 모니시 바브라라고 들었습니다",
+            "FACT","AFFIRMED","PUBLISHER_BOOK_BIBLIOGRAPHY",BOOK)
+        with patch("v166_e4_typed_nonstatutory.fetch_wiley_publisher_bytes",
+                   return_value=BOOK):
+            with self.assertRaisesRegex(InvalidInput,"PUBLISHER_TITLE_AND_VIDEO_QUOTE"):
+                self.check(c,t,m)
+
+    def test_04_non_numeric_speaker_opinion_is_source_only(self):
+        c,t,m=case_with_type("개인적으로는 꾸준한 투자 습관이 더 중요하다고 생각합니다",
+            "OPINION","AFFIRMED","PERSONAL_SUBJECTIVE_OPINION")
+        r=self.check(c,t,m)
+        self.assertEqual(r["source_only_speaker_statements"],1)
+        self.assertFalse(r["financial_truth_certified"])
+
+    def test_05_tax_statute_cannot_be_rebranded_source_only_opinion(self):
+        c,t,m=case_with_type("세율과 세금 공제는 자동으로 확정된다고 생각합니다",
+            "OPINION","AFFIRMED","INVESTMENT_STRATEGY_OPINION")
+        with self.assertRaisesRegex(InvalidInput,"OBJECTIVE_FINANCIAL_RULE"):
+            self.check(c,t,m)
+
+    def test_06_hypothetical_question_remains_not_an_approved_answer(self):
+        c,t,m=case_with_type("일정한 금액을 나누어서 투자하는 것이 좋을까요?",
+            "QUESTION","QUESTION","HYPOTHETICAL_OR_QUESTION")
+        self.assertEqual(self.check(c,t,m)["source_only_speaker_statements"],1)
+
+    def test_07_unreviewed_investment_theory_holds_all_nonlegal_claims(self):
+        c,t,m=case_with_type("이 책의 전략은 모든 시장에서 안전하다고 합니다",
+            "OPINION","AFFIRMED","BOOK_ORIGINAL_AUTHOR_PRINCIPLE")
+        with self.assertRaisesRegex(QualityNotProven,"UNSUPPORTED_PRIMARY_KIND"):
+            self.check(c,t,m)
+
+    def test_08_1957_partnership_claim_cannot_borrow_company_letters(self):
+        c,t,m=case_with_type("1957년 파트너십은 공격적인 전략이었습니다",
+            "FACT","AFFIRMED","HISTORICAL_PARTNERSHIP_CLAIM")
+        with self.assertRaisesRegex(QualityNotProven,"UNSUPPORTED_PRIMARY_KIND"):
+            self.check(c,t,m)
+
+    def test_09_bh_original_archive_year_supported_but_no_strategy_truth(self):
+        c,t,m=case_with_type("버크셔 주주서한은 1977년에 있었습니다",
+            "FACT","AFFIRMED","HISTORICAL_CORPORATE_FACT",BERKSHIRE_FAKE)
+        with patch("v166_e4_typed_nonstatutory.fetch_official_berkshire_letters_index",
+                   return_value=BERKSHIRE_FAKE):
+            r=self.check(c,t,m)
+        self.assertEqual(r["original_company_chronology_claims"],1)
+        self.assertFalse(r["financial_truth_certified"])
+
+    def test_10_bad_source_quote_digest_refused(self):
+        c,t,m=case_with_type("개인적으로 장기 투자가 편합니다",
+            "OPINION","AFFIRMED","PERSONAL_SUBJECTIVE_OPINION")
+        m["rows"][0]["source_quote_sha256"]="1"*64
+        with self.assertRaisesRegex(InvalidInput,"CLAIM_SPECIFIC_SOURCE_TYPE"):
+            self.check(c,t,m)
+
+    def test_11_missing_nonlegal_row_refuses_faux_legal_exemption(self):
+        c,t,m=case_with_type("개인적으로 분할 투자가 편합니다",
+            "OPINION","AFFIRMED","PERSONAL_SUBJECTIVE_OPINION")
+        m["rows"]=[]
+        with self.assertRaisesRegex(InvalidInput,"ALL_ACCEPTED_NONLEGAL"):
+            self.check(c,t,m)
+
+    def test_12_open_nonlegal_claim_may_not_be_exported_as_accept(self):
+        c,t,m=case_with_type("단도 인베스터의 저자 발음을 정확히 모릅니다",
+            "FACT","AFFIRMED","PUBLISHER_BOOK_BIBLIOGRAPHY",BOOK,
+            status="OPEN")
+        self.assertEqual(self.check(c,t,m)["nonstatutory_accepted_claims"],0)
+        m["rows"]=[{
+            "claim_id":"C00001",
+            "evidence_class":"PUBLISHER_BOOK_BIBLIOGRAPHY",
+            "authority_route":"ORIGINAL_PUBLISHER_PRIMARY",
+            "source_quote_sha256":"0"*64,
+            "chat_meaning_note":NOTE,
+            "chat_meaning_note_sha256":sha256(NOTE.encode("utf-8")),
+            "primary_url":WILEY_ORIGINAL,
+            "primary_body_sha256":sha256(BOOK),
+            "verification_mode":"PUBLISHER_ORIGINAL_ENGLISH_TITLE",
+            "original_speaker_audio_verified":False,
+            "formal_financial_fact_certified":False,
+            "personal_advice_approved":False,
+        }]
+        with self.assertRaisesRegex(InvalidInput,"ALL_ACCEPTED_NONLEGAL"):
+            self.check(c,t,m)
+
+    def test_13_nonlegal_row_type_replay_across_atoms_refused(self):
+        c,t,m=case_with_type("개인적으로 분할 투자가 편합니다",
+            "OPINION","AFFIRMED","PERSONAL_SUBJECTIVE_OPINION")
+        m["rows"][0]["claim_id"]="C99999"
+        with self.assertRaisesRegex(InvalidInput,"NONLEGAL_ACCEPTANCE_CENSUS"):
+            self.check(c,t,m)
+
+
+if __name__=="__main__":
+    unittest.main()
