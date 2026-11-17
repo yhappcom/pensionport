@@ -32,6 +32,23 @@ BODY=("<html><title>SYNTHETIC ONLY - NOT LAW</title>"
       "하지만 실제로는 8%일 수 있습니다. "
       "다만 세금 조건은 소득에 따라 달라집니다.</p></html>").encode("utf-8")
 EXCERPT="납입 한도와 공제율은 사람별·과세기간별로 검토"
+PARAPHRASE_BODY=(
+    "<html><title>SYNTHETIC CHAT-ONLY CASE, NOT LEGAL ADVICE</title>"
+    "<p>시행 2026-11-10</p><p>시행 2026-11-01</p>"
+    "<p>납입 한도와 공제율은 사람별·과세기간별로 검토해야 합니다. "
+    "연금저축의 예상 수익률 10%는 가정된 수치입니다. "
+    "실제로 8%의 수익 가능성도 고려합니다. "
+    "소득 수준에 따라 세제 조건이 달라질 수 있습니다.</p></html>"
+).encode("utf-8")
+ENTAILMENT_NOTE=(
+    "이 자료는 합성 연구용 문장입니다. 원문 음성을 독립 인증한 자료가 아니며 "
+    "연금저축의 예상 수익 10% 가정과 실제 수익 8% 가능성은 서로 다른 주장입니다. "
+    "소득에 따라 달라지는 세제 조건은 조건부 발언으로만 남기고, 모든 시행시점과 "
+    "적용 범위의 차이, 원문·출판사·법령에 존재하는 예외 및 반례를 비교한 뒤 "
+    "개별 적용이나 수익 보장을 결코 승인하지 않습니다. "
+    "확인되지 않은 의미상의 차이가 존재한다면 반드시 보류해야 합니다."
+)
+
 NOTE=("ChatGPT의 합성 시험 확인: 본문 문서가 해당 투자계좌의 일반 정책설명이라는 "
       "문맥을 검문했으나 실제 법령 효력이나 사람별 적합성 판단은 인증하지 않는다. "
       "원문 조건·예외·적용일의 차이가 존재하면 결론을 보류해야 한다.")
@@ -63,6 +80,7 @@ def make_manifest(case, body=BODY):
             "primary_scope_excerpt":EXCERPT,
             "chat_primary_scope_note":NOTE,
             "primary_claim_support_mode":"EXACT_PRIMARY_QUOTE",
+            "chat_entailment_proof":None,
             "chat_primary_scope_note_sha256":sha256(NOTE.encode("utf-8")),
             "chat_scope_conditions_reviewed":True,
             "chat_exceptions_reviewed":True,
@@ -84,6 +102,71 @@ def make_manifest(case, body=BODY):
         "personal_advice_approved":False,
         "independent_gold_certified":False,
     }
+
+
+def prepare_synthetic_paraphrase_case(case):
+    """Construct a synthetic in-chat review; NOT real governmental truth."""
+    review=case["chat_review"]
+    case["official_evidence_bodies"]={
+        a["claim_id"]:PARAPHRASE_BODY for a in case["exchange"]["atoms"]}
+    for v in review["atom_verdicts"]:
+        if v["finance_evidence_status"]=="PRIMARY_BODY_AND_DATE_CHAT_CHECKED":
+            v["official_body_sha256"]=sha256(PARAPHRASE_BODY)
+    manifest=make_manifest(case,body=PARAPHRASE_BODY)
+    atoms={a["claim_id"]:a for a in case["exchange"]["atoms"]}
+    for row in manifest["rows"]:
+        a=atoms[row["claim_id"]]
+        assert row["original_claim_quote"].encode("utf-8") not in PARAPHRASE_BODY
+        cond=("소득 수준에 따라 세제 조건이 달라질 수 있습니다."
+              if a["condition_cue_indices"] else None)
+        row["primary_claim_support_mode"]="CHATGPT_CUE_TO_PRIMARY_ENTAILMENT"
+        row["chat_entailment_proof"]={
+            "schema":"IRE_V166_E4_CHAT_PRIMARY_ENTAILMENT_SOURCE_PINNED_V1",
+            "review_executor":"CHATGPT_IN_CHAT",
+            "claim_id":row["claim_id"],
+            "atom_sha256":json_digest(a),
+            "source_sha256":case["source"].source_sha256,
+            "host_event_sha256":case["host_receipt"]["event_sha256"],
+            "chat_review_sha256":json_digest(case["chat_review"]),
+            "official_body_sha256":sha256(PARAPHRASE_BODY),
+            "source_quote_sha256":sha256(
+                row["original_claim_quote"].encode("utf-8")),
+            "source_context_cue_indices":a["context_cue_indices"],
+            "source_context_digest_sha256":json_digest([
+                {"cue_index":idx,
+                 "cue_text_sha256":sha256(case["source"].cues[idx-1].text.encode("utf-8"))}
+                for idx in a["context_cue_indices"]]),
+            "primary_scope_excerpt_sha256":sha256(
+                row["primary_scope_excerpt"].encode("utf-8")),
+            "original_condition_cue_indices":a["condition_cue_indices"],
+            "original_exception_cue_indices":a["exception_cue_indices"],
+            "official_condition_passages":[cond] if cond is not None else [],
+            "official_exception_passages":[],
+            "numeric_claim_mappings":[{
+                "cue_index":x["cue_index"],
+                "source_token":x["token"],
+                "official_token":x["token"],
+                "unit":"percentage",
+                "period":"hypothetical case 2026"
+            } for x in a["numeric_references"]],
+            "claim_stance":a["stance"],
+            "official_scope_stance":a["stance"],
+            "applicability_as_of":review["as_of"],
+            "official_effective_from":row["effective_from"],
+            "reviewer_reasoning":ENTAILMENT_NOTE,
+            "reviewer_reasoning_sha256":sha256(ENTAILMENT_NOTE.encode("utf-8")),
+            "meaning_disagreements_adjudicated":True,
+            "reviewed_counterexamples":True,
+            "reviewed_primary_conditions_and_exceptions":True,
+            "reviewed_source_and_official_time_scope":True,
+            "no_unresolved_material_mismatch":True,
+            "entailment_conclusion":"SUPPORTED_ONLY_WITH_EXACT_QUALIFIERS",
+            "reviewer_not_speaker_quote":True,
+            "independent_gold_certified":False,
+            "legal_truth_certified":False,
+            "personal_advice_approved":False,
+        }
+    return manifest
 
 
 def replace_synthetic_official_body(case):
