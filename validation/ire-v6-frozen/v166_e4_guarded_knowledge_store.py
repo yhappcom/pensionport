@@ -14,6 +14,7 @@ from contextlib import contextmanager
 import sqlite3
 
 from ire.v6.errors import InvalidInput, QualityNotProven
+from ire.v6.codec import json_digest
 from v126_chat_approved_knowledge_store import PrivateKnowledgeStore
 
 
@@ -66,7 +67,16 @@ class E4GuardedKnowledgeStore(PrivateKnowledgeStore):
             verified.get("status")!="E4_PASS_RESEARCH_CANDIDATES_ONLY" or
             verified.get("research_export_authorized") is not True or
             verified.get("source_sha256")!=case["source"].source_sha256 or
-            verified.get("host_event_sha256")!=case["host_receipt"]["event_sha256"]):
+            verified.get("host_event_sha256")!=case["host_receipt"]["event_sha256"] or
+            verified.get("chat_review_sha256")!=json_digest(case["chat_review"]) or
+            verified.get("native_v123_status") !=
+                "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY" or
+            type(verified.get("primary_manifest_sha256")) is not str or
+            len(verified["primary_manifest_sha256"])!=64 or
+            type(verified.get("approved_research_candidate_claims")) is not int or
+            verified["approved_research_candidate_claims"]<1 or
+            verified.get("personal_advice_approved") is not False or
+            verified.get("formal_financial_fact_approved") is not False):
             raise QualityNotProven("V166_E4_CHILD_UNVERIFIED_PRIMARY_RELEASE")
         scope["approved"][child_id]={
             "status":verified["status"],
