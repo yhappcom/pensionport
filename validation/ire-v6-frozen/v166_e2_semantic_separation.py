@@ -183,3 +183,60 @@ def audit_e2_semantic_ledger(source, exchange, ledger):
         "release_authorized":False,
         "p0_go":False,
     }
+
+
+def build_e2_source_separated_context_packet(source, exchange, ledger):
+    """Expose source speech and reviewer caution in non-interchangeable fields.
+
+    The original V6 `proposition` may mix a speaker paraphrase with a
+    reviewer financial caution. It is deliberately NEVER copied into the
+    `source_verbatim_quote` field. A consumer can only attribute that field
+    to the actual subtitle; all other narrative is clearly reviewer metadata.
+    This is a NOT-PUBLISHED review-context packet, NOT a knowledge export.
+    """
+    checked = audit_e2_semantic_ledger(source, exchange, ledger)
+    atoms = {a["claim_id"]: a for a in exchange["atoms"]}
+    entries = []
+    for row in ledger["rows"]:
+        atom = atoms[row["claim_id"]]
+        idx = row["verbatim_cue_index"]
+        quote = row["verbatim_excerpt"]
+        _need(quote in source.cues[idx - 1].text, "PACKET_SOURCE_QUOTE_DRIFT")
+        entries.append({
+            "claim_id": row["claim_id"],
+            "atom_sha256": row["atom_sha256"],
+            "speech_act": row["source_speech_type"],
+            "source_verbatim_quote": quote,
+            "source_quote_cue_index": idx,
+            "source_quote_sha256": sha256(quote.encode("utf-8")),
+            "speaker_identity": "UNKNOWN_NOT_AUDIO_AUTHENTICATED",
+            "source_summary_role": "CHATGPT_PARAPHRASE_NOT_ORIGINAL_SPEAKER_QUOTE",
+            "source_speech_paraphrase": row["source_speech_summary"],
+            "reviewer_role": "CHATGPT_CAUTION_NOT_ORIGINAL_SPEAKER_QUOTE",
+            "reviewer_caution": row["reviewer_caution_note"],
+            "reviewer_caution_note_sha256": row["reviewer_note_sha256"],
+            "original_context_cue_indices": row["source_context_cue_indices"],
+            "original_condition_cue_indices": row["original_condition_cue_indices"],
+            "original_exception_cue_indices": row["original_exception_cue_indices"],
+            "unverified_fact_dependencies": [
+                {"cue_index": dep["cue_index"],
+                 "evidence_status": dep["status"],
+                 "source_text_sha256": sha256(dep["verbatim_excerpt"].encode("utf-8"))}
+                for dep in row["fact_dependencies"]],
+            "source_numeric_token_roles": row["numeric_token_roles"],
+            "legacy_v6_proposition_exported_as_speaker_quote": False,
+            "released_financial_fact": False,
+            "personal_advice_authorized": False,
+        })
+    return {
+        "schema": "IRE_V166_E2_SOURCE_SEPARATED_REVIEW_CONTEXT_V1",
+        "source_sha256": checked["source_sha256"],
+        "semantic_review_ledger_sha256": checked["ledger_sha256"],
+        "entry_census": len(entries),
+        "entries": entries,
+        "research_only_not_approved_for_investment_advice": True,
+        "knowledge_publication_authorized": False,
+        "final_chat_semantic_approval_authorized": False,
+        "independent_gold_certified": False,
+        "p0_go": False,
+    }
