@@ -144,5 +144,6 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
         run: |
           python -m unittest -v test_v166_e4_primary_approval_gate
+          python -m unittest -v test_v166_e4_bibliographic_primary
           python -m unittest -v test_v166_e4_legacy_ungated_path_diagnostic
           python -m unittest -v test_v166_e3_chat_decision_delivery
