@@ -1,4 +1,4 @@
-"""Order-control tests: green does not mean E1 engine passed."""
+"""Phase order must follow the persisted E1-E7 ledger; no automatic GO."""
 import copy
 import json
 import unittest
@@ -13,21 +13,24 @@ class V166OrderedGateTests(unittest.TestCase):
     def setUp(self):
         self.document = json.loads((HERE / "V166_E1_E7_STATUS.json").read_text(encoding="utf-8"))
 
-    def test_01_persisted_status_valid_and_e1_not_pass(self):
+    def test_01_persisted_e1_structural_pass_e2_started(self):
         r = read_and_check(HERE / "V166_E1_E7_STATUS.json")
-        self.assertEqual(r["current_step"], "E1")
-        self.assertEqual(r["passed_steps"], 0)
+        self.assertEqual(r["current_step"], "E2")
+        self.assertEqual(r["passed_steps"], 1)
         self.assertFalse(r["semantic_or_financial_success_certified"])
 
     def test_02_cannot_start_e2_before_e1_pass(self):
         d = copy.deepcopy(self.document)
-        d["sequence"][1]["status"] = "IN_PROGRESS"
+        d["sequence"][0].update(status="FAIL",completed_at=None,
+                blockers=["structural regression"],retest_required=True)
+        d["current_step"] = "E1"
         with self.assertRaises(PhaseOrderViolation):
             check_phase_order(d)
 
     def test_03_cannot_invent_e1_pass_without_evidence_and_date(self):
         d = copy.deepcopy(self.document)
-        d["sequence"][0].update(status="PASS", blockers=[], retest_required=False)
+        d["sequence"][0]["evidence_paths"] = []
+        d["sequence"][0]["completed_at"] = None
         with self.assertRaises(PhaseOrderViolation):
             check_phase_order(d)
 
@@ -45,20 +48,25 @@ class V166OrderedGateTests(unittest.TestCase):
 
     def test_06_failure_requires_blocker_and_retest(self):
         d = copy.deepcopy(self.document)
-        d["sequence"][0]["blockers"] = []
+        d["sequence"][1]["status"] = "FAIL"
+        d["sequence"][1]["blockers"] = []
+        d["sequence"][1]["retest_required"] = True
         with self.assertRaises(PhaseOrderViolation):
             check_phase_order(d)
 
     def test_07_real_ordered_progress_transition(self):
         d = copy.deepcopy(self.document)
-        d["sequence"][0].update(status="PASS", blockers=[], retest_required=False,
-                                completed_at="2026-11-17T00:00:00+09:00")
-        d["current_step"] = "E2"
-        self.assertEqual(check_phase_order(d)["current_step"], "E2")
-        d["sequence"][1]["status"] = "IN_PROGRESS"
-        self.assertEqual(check_phase_order(d)["current_step"], "E2")
+        self.assertEqual(check_phase_order(d)["current_step"],"E2")
+        d["sequence"][1].update(status="PASS", completed_at="2026-11-17T00:00:00+09:00",
+               evidence_paths=["validation/ire-v6-frozen/example_e2_proof.md"],
+               blockers=[],retest_required=False)
+        d["sequence"][1]["retest_required"]=False
+        d["current_step"]="E3"
+        self.assertEqual(check_phase_order(d)["current_step"],"E3")
+        d["sequence"][2]["status"]="IN_PROGRESS"
+        self.assertEqual(check_phase_order(d)["current_step"],"E3")
 
-    def test_08_v166_status_cannot_claim_independent_gold(self):
+    def test_08_cannot_claim_independent_gold_before_all_steps(self):
         d = copy.deepcopy(self.document)
         d["independent_gold_certified"] = True
         with self.assertRaises(PhaseOrderViolation):
