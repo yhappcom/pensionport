@@ -156,6 +156,11 @@ def audit_partial_open_video_census(source,exchange,review,receipts):
              and type(receipts) is list,"COMPLETE_EVIDENCE_SCHEMA")
     atoms={a["claim_id"]:a for a in exchange["atoms"]}
     verdicts={v["claim_id"]:v for v in review["atom_verdicts"]}
+    # Native V123 may contain additional OPEN atoms. These three partial
+    # source receipts are NEVER a complete census of all OPEN claims.
+    native_open={cid for cid,v in verdicts.items() if v["status"]=="OPEN"}
+    _require(set(OPEN_CLAIMS).issubset(native_open),
+             "FROZEN_V123_OPEN_UNIVERSE_CHANGED")
     _require(len(receipts)==len(OPEN_CLAIMS)
              and all(type(r) is dict and r.get("claim_id") in OPEN_CLAIMS
                      for r in receipts)
@@ -178,8 +183,13 @@ def audit_partial_open_video_census(source,exchange,review,receipts):
         "source_sha256":source.source_sha256,
         "review_sha256":json_digest(review),
         "partial_evidence_receipts_sha256":json_digest(receipts),
-        "still_open_claim_ids":sorted(OPEN_CLAIMS),
-        "n_open_unapproved":len(OPEN_CLAIMS),
+        "still_open_claim_ids":sorted(native_open),
+        "n_open_unapproved":len(native_open),
+        "targeted_partial_claim_ids":sorted(OPEN_CLAIMS),
+        "n_targeted_partial_claims":len(OPEN_CLAIMS),
+        "other_native_open_claim_ids":sorted(native_open-set(OPEN_CLAIMS)),
+        "n_other_native_open_claims":len(native_open-set(OPEN_CLAIMS)),
+        "partial_corroboration_never_full_open_approval":True,
         "original_v123_review_modified":False,
         "real_owner_parent_release_allowed":False,
         "e4_status":"FAIL_ACTUAL_OWNER_PARENT_STILL_HOLD",
