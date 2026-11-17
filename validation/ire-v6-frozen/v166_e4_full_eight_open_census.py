@@ -26,6 +26,13 @@ EXPECTED_NATIVE_COUNTS={
     "OPEN":8,
     "EXCLUDE_FROM_RESEARCH":1,
 }
+SOURCE_ONLY_FROZEN_STANCES={
+    "C00001":("HYPOTHETICAL","CONDITIONAL",True),
+    "C00003":("OPINION","AFFIRMED",False),
+    "C00277":("OPINION","CONDITIONAL",True),
+    "C00285":("OPINION","AFFIRMED",False),
+    "C00293":("QUESTION","QUOTED",False),
+}
 
 def _need(condition,code):
     if not condition:
@@ -108,6 +115,22 @@ def audit_b0001_eight_open(source,exchange,original_v123_review,
     for r in v164_source_only_rows:
         cid=r["claim_id"]
         atom=A[cid]
+        expected_kind,expected_stance,needs_conditions=(
+            SOURCE_ONLY_FROZEN_STANCES[cid])
+        _need(atom.get("kind")==expected_kind and
+              atom.get("stance")==expected_stance and
+              atom.get("speaker")=="UNKNOWN",
+              "SOURCE_ONLY_ORIGINAL_KIND_STANCE_SPEAKER_CHANGED")
+        cnd=atom.get("condition_cue_indices")
+        exc=atom.get("exception_cue_indices")
+        refs_idx={ref["cue_index"] for ref in atom["source_refs"]}
+        _need(type(cnd) is list and type(exc) is list and
+              (bool(cnd) if needs_conditions else not cnd) and
+              set(cnd).issubset(refs_idx) and
+              set(cnd).issubset(set(r["source_cue_indices"])) and
+              set(exc).issubset(refs_idx) and
+              set(exc).issubset(set(r["source_cue_indices"])),
+              "SOURCE_ONLY_ORIGINAL_CONDITIONS_EXCEPTIONS_LOST")
         anchor=r["verbatim_anchor"]
         idx=r["verbatim_anchor_cue_index"]
         _need(any(ref["cue_index"]==idx and
