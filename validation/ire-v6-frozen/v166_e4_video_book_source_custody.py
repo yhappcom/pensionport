@@ -33,6 +33,10 @@ def assess_book_citation_against_primary(source, atom, v123_verdict, body, *,
         _fail("BOOK_ATOM_OR_V123_HASH_MISMATCH")
     if (type(source_quote_cue_index) is not int or
         source_quote_cue_index not in atom["context_cue_indices"] or
+        not any(type(ref) is dict and
+                ref.get("cue_index")==source_quote_cue_index and
+                ref.get("quote")==source_quote
+                for ref in atom["source_refs"]) or
         type(source_quote) is not str or
         source_quote not in source.cues[source_quote_cue_index-1].text or
         not any(w in source_quote for w in
