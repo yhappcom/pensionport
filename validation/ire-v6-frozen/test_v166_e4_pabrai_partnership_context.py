@@ -64,6 +64,23 @@ class V166E4PabraiOriginalFundCustodyTests(unittest.TestCase):
         self.assertEqual(d["frozen_v123_status_before"],
                          d["frozen_v123_status_after"])
 
+    def test_09_same_issuer_scope_different_raw_html_has_distinct_sha(self):
+        first=audit_pabrai_fund_first_party_words(BODY)
+        # Cosmetic website counters/cookies change HTTP bytes. The
+        # first-party STRUCTURE words remain, but raw original does not.
+        updated=BODY+b"<span>Dynamic server marker 2026-11-18</span>"
+        newer=audit_pabrai_fund_first_party_words(updated)
+        self.assertNotEqual(first["raw_body_sha256"],newer["raw_body_sha256"])
+        self.assertEqual(first["normalised_issuer_claim_sha256"],
+                         newer["normalised_issuer_claim_sha256"])
+        self.assertTrue(first["normalised_issuer_claim_not_raw_body_substitute"])
+        self.assertFalse(newer["causal_success_proven"])
+
+    def test_10_changed_fund_issuer_claim_is_not_same_source_meaning(self):
+        changed=BODY.replace(b"close replica",b"completely unrelated")
+        with self.assertRaises(QualityNotProven):
+            audit_pabrai_fund_first_party_words(changed)
+
     def test_02_original_fund_rules_missing_fails_closed(self):
         with self.assertRaises(QualityNotProven):
             audit_pabrai_fund_first_party_words(
