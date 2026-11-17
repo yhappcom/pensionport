@@ -5,7 +5,7 @@
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
   "current_step": "E4",
-  "current_engine_verdict": "E1_E2_E3_PASS_E4_APPROVAL_GATE_IN_PROGRESS_FULL_NO_GO",
+  "current_engine_verdict": "E1_E2_E3_PASS_E4_FAIL_APPROVAL_ENFORCEMENT_REAL_SOURCE_GAP_FULL_NO_GO",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -147,13 +147,35 @@
       "step": "E4",
       "target": "승인 관문",
       "criterion": "적법한 승인 입력은 통과하고 부적합 입력은 차단",
-      "status": "IN_PROGRESS",
+      "status": "FAIL",
       "completed_at": null,
-      "evidence_paths": [],
-      "blockers": [],
-      "retest_required": false,
+      "evidence_paths": [
+        "validation/ire-v6-frozen/V166_E4_APPROVAL_GATE_REAL_PRIMARY_CI_AND_REMAINING_FAIL_20261117.md"
+      ],
+      "blockers": [
+        "Real official original HTTPS bytes collected, but no approved real financial claim has been source-bound and passed the same E4→E3→V128 knowledge write path",
+        "Owner B0001 historical/book facts C00002 C00009 C00010 still OPEN; government-law-only publisher allowlist cannot authenticate original book facts",
+        "Exact-primary-quote only: financially accurate paraphrases require new ChatGPT entailment, conditions, exceptions and source-effective-date adjudication",
+        "Legacy V128/V126 research-only writer can publish synthetic candidates without E4; E4 receipt must be enforced by all new official research-publication paths"
+      ],
+      "retest_required": true,
       "initial_hazard": "Frozen V123 permits synthetic fake government body when bytes SHA and dated flags match; no authenticated publisher/authority/scope evidence enforced",
-      "synthetic_only_approval_must_not_certify_legality": true
+      "synthetic_only_approval_must_not_certify_legality": true,
+      "latest_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44038747789",
+      "ordered_ci_jobs_passed": 9,
+      "live_origin_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44037778904",
+      "live_official_source_url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7875&mi=6449",
+      "live_official_original_bytes": 202644,
+      "live_official_sha256": "80b32c9465fab2b581a4920c418a315b3b8462ba9cc4a54b3f8ee522fa6abb49",
+      "e4_mocked_policy_positive_pass": true,
+      "e4_mocked_two_child_atomic_parent_pass": true,
+      "e4_untrusted_source_negative_cases_pass": true,
+      "e4_owner_real_positive_pass": false,
+      "e4_legacy_bypass_detected": true,
+      "legacy_bypass_synthetic_research_candidates_created": 3,
+      "actual_owner_b0001_finance_open": 3,
+      "actual_owner_b0001_research_knowledge_published": 0,
+      "next_step_e5_authorized": false
     },
     {
       "step": "E5",
