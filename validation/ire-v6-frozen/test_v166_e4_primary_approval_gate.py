@@ -64,7 +64,7 @@ def make_manifest(case, body=BODY):
         a=atoms[v["claim_id"]]
         if not (v["financial_claim"] or v["high_risk"] or a["kind"]=="FACT"):
             continue
-        index=a["context_cue_indices"][0]
+        index=a["source_refs"][0]["cue_index"]
         full=case["source"].cues[index-1].text
         rows.append({
             "claim_id":v["claim_id"],
