@@ -45,7 +45,7 @@ Mandatory nonstatutory typed route now invokes v166_e4_attributed_book_snapshot 
 Ordered regression: https://github.com/yhappcom/pensionport/actions/runs/44198762848 (completed success including new book-attribution test).
 Latest code+workflow ordered run: https://github.com/yhappcom/pensionport/actions/runs/44198772775
 Live publisher scope run: https://github.com/yhappcom/pensionport/actions/runs/44198772534
-The two latest runs are not counted as successful until completed.
+Both latest runs completed successfully: ordered regression including the seven new synthetic tests, and live issuer replay including all 23 registered scope keys. These are not an actual E4 parent approval.
 
 ## Private evidence custody
 
