@@ -1,0 +1,97 @@
+{
+  "schema": "IRE_V166_E1_E7_ORDERED_ENGINE_VERIFICATION_STATUS_V1",
+  "as_of": "2026-11-17",
+  "repository": "yhappcom/pensionport",
+  "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
+  "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
+  "current_step": "E1",
+  "current_engine_verdict": "NO_GO_E1_INCOMPLETE",
+  "pending_advance_approval": false,
+  "protected": {
+    "main_unchanged": true,
+    "original_v123_git_blob_sha": "17da9fae7d4fcc48087c55ca0d2031ba72a0bb3c",
+    "private_owner_source_not_committed": true
+  },
+  "sequence": [
+    {
+      "step": "E1",
+      "target": "엔진 전체 구조",
+      "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
+      "status": "FAIL",
+      "completed_at": null,
+      "evidence_paths": [
+        "validation/ire-v6-frozen/V165_ONE_VIDEO_FEASIBILITY_BASELINE_AUDIT_20261117.md"
+      ],
+      "blockers": [
+        "V164 typed release always false",
+        "V126 storage requires frozen V123 acceptance",
+        "V1271/V127 parent assembly replays frozen V123 only",
+        "V128 stages V126 frozen-only path"
+      ],
+      "retest_required": true
+    },
+    {
+      "step": "E2",
+      "target": "원자 주장 처리",
+      "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
+      "status": "NOT_RUN",
+      "completed_at": null,
+      "evidence_paths": [],
+      "blockers": [],
+      "retest_required": false
+    },
+    {
+      "step": "E3",
+      "target": "ChatGPT 최종 검증",
+      "criterion": "승인·보류·격리 결과가 정확히 전달",
+      "status": "NOT_RUN",
+      "completed_at": null,
+      "evidence_paths": [],
+      "blockers": [],
+      "retest_required": false
+    },
+    {
+      "step": "E4",
+      "target": "승인 관문",
+      "criterion": "적법한 승인 입력은 통과하고 부적합 입력은 차단",
+      "status": "NOT_RUN",
+      "completed_at": null,
+      "evidence_paths": [],
+      "blockers": [],
+      "retest_required": false
+    },
+    {
+      "step": "E5",
+      "target": "지식 통합",
+      "criterion": "승인된 13개 구간만 원자적으로 저장",
+      "status": "NOT_RUN",
+      "completed_at": null,
+      "evidence_paths": [],
+      "blockers": [],
+      "retest_required": false
+    },
+    {
+      "step": "E6",
+      "target": "오류·재실행 검증",
+      "criterion": "중복 저장·부분 발행·원문 변조 방지",
+      "status": "NOT_RUN",
+      "completed_at": null,
+      "evidence_paths": [],
+      "blockers": [],
+      "retest_required": false
+    },
+    {
+      "step": "E7",
+      "target": "실제 자문 연결",
+      "criterion": "저장된 지식을 검색하고 원문 근거까지 역추적",
+      "status": "NOT_RUN",
+      "completed_at": null,
+      "evidence_paths": [],
+      "blockers": [],
+      "retest_required": false
+    }
+  ],
+  "independent_gold_certified": false,
+  "one_video_poc_pass": false,
+  "v128_actual_video_new_publications": 0
+}
