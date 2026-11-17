@@ -13,10 +13,10 @@ class V166OrderedGateTests(unittest.TestCase):
     def setUp(self):
         self.document = json.loads((HERE / "V166_E1_E7_STATUS.json").read_text(encoding="utf-8"))
 
-    def test_01_e1_and_e2_evidenced_pass_e3_not_run(self):
+    def test_01_e1_e2_e3_evidenced_pass_e4_not_run(self):
         r = read_and_check(HERE / "V166_E1_E7_STATUS.json")
-        self.assertEqual(r["current_step"], "E3")
-        self.assertEqual(r["passed_steps"], 2)
+        self.assertEqual(r["current_step"], "E4")
+        self.assertEqual(r["passed_steps"], 3)
         self.assertFalse(r["semantic_or_financial_success_certified"])
 
     def test_02_cannot_start_e3_if_e2_regresses(self):
@@ -26,7 +26,8 @@ class V166OrderedGateTests(unittest.TestCase):
         d["current_step"] = "E2"
         # E2 FAIL and E3 NOT_RUN is legitimately fail-closed. The regression
         # is a premature E3 start despite E2 still failing.
-        d["sequence"][2]["status"] = "IN_PROGRESS"
+        d["sequence"][2].update(status="IN_PROGRESS",completed_at=None,
+                evidence_paths=[],blockers=[],retest_required=False)
         with self.assertRaises(PhaseOrderViolation):
             check_phase_order(d)
 
@@ -51,26 +52,41 @@ class V166OrderedGateTests(unittest.TestCase):
 
     def test_06_failure_requires_blocker_and_retest(self):
         d = copy.deepcopy(self.document)
-        d["sequence"][2]["status"] = "FAIL"
-        d["sequence"][2]["blockers"] = []
-        d["sequence"][2]["retest_required"] = True
+        d["sequence"][3]["status"] = "FAIL"
+        d["sequence"][3]["blockers"] = []
+        d["sequence"][3]["retest_required"] = True
         with self.assertRaises(PhaseOrderViolation):
             check_phase_order(d)
 
     def test_07_real_ordered_progress_transition(self):
         d = copy.deepcopy(self.document)
-        self.assertEqual(check_phase_order(d)["current_step"],"E3")
-        d["sequence"][2].update(status="PASS", completed_at="2026-11-17T17:00:00+09:00",
-               evidence_paths=["validation/ire-v6-frozen/example_e3_proof.md"],
+        self.assertEqual(check_phase_order(d)["current_step"],"E4")
+        d["sequence"][3].update(status="PASS", completed_at="2026-11-17T17:00:00+09:00",
+               evidence_paths=["validation/ire-v6-frozen/example_e4_proof.md"],
                blockers=[],retest_required=False)
-        d["current_step"]="E4"
-        self.assertEqual(check_phase_order(d)["current_step"],"E4")
-        d["sequence"][3]["status"]="IN_PROGRESS"
-        self.assertEqual(check_phase_order(d)["current_step"],"E4")
+        d["current_step"]="E5"
+        self.assertEqual(check_phase_order(d)["current_step"],"E5")
+        d["sequence"][4]["status"]="IN_PROGRESS"
+        self.assertEqual(check_phase_order(d)["current_step"],"E5")
 
     def test_08_cannot_claim_independent_gold_before_all_steps(self):
         d = copy.deepcopy(self.document)
         d["independent_gold_certified"] = True
+        with self.assertRaises(PhaseOrderViolation):
+            check_phase_order(d)
+
+    def test_09_e3_regression_prevents_starting_e4(self):
+        d=copy.deepcopy(self.document)
+        d["sequence"][2].update(status="FAIL",completed_at=None,
+            blockers=["unresolved ChatGPT decision transport"],retest_required=True)
+        d["sequence"][3]["status"]="IN_PROGRESS"
+        d["current_step"]="E3"
+        with self.assertRaises(PhaseOrderViolation):
+            check_phase_order(d)
+
+    def test_10_e3_cannot_be_marked_pass_without_evidence(self):
+        d=copy.deepcopy(self.document)
+        d["sequence"][2]["evidence_paths"]=[]
         with self.assertRaises(PhaseOrderViolation):
             check_phase_order(d)
 
