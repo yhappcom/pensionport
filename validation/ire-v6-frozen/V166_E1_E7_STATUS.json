@@ -5,7 +5,7 @@
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
   "current_step": "E2",
-  "current_engine_verdict": "E1_STRUCTURAL_PASS_E2_SEMANTIC_PENDING_FULL_ENGINE_NO_GO",
+  "current_engine_verdict": "E1_STRUCTURAL_PASS_E2_SEMANTIC_FAIL_NEXT_STEP_BLOCKED",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -65,11 +65,18 @@
       "step": "E2",
       "target": "원자 주장 처리",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
-      "status": "IN_PROGRESS",
+      "status": "FAIL",
       "completed_at": null,
-      "evidence_paths": [],
-      "blockers": [],
-      "retest_required": false
+      "evidence_paths": [
+        "validation/ire-v6-frozen/V166_E2_B0001_SOURCE_SEMANTIC_LAYER_BASELINE_FAIL_20261117.md"
+      ],
+      "blockers": [
+        "Observed speaker claim/reviewer risk limitation conflation in B0001 propositions C00008 and C00277",
+        "Existing OPINION atoms C00009 and C00010 embed externally verifiable historical facts",
+        "Numeric token in C00004 is not yet labeled as ASR ambiguity distinct from quantitative finance fact",
+        "No complete source/atom/condition/exception-bound E2 semantic sidecar + negative controls"
+      ],
+      "retest_required": true
     },
     {
       "step": "E3",
