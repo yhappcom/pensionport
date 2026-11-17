@@ -20,6 +20,7 @@ on:
       - verify/ire-v6-p0e-v159-v123-source-first-20261117
       - verify/ire-v6-p0e-v161-source-evidence-recovery-20261117
       - verify/ire-v6-p0e-v162-one-video-repeat-proof-20261117
+      - verify/ire-v6-p0e-v163-b0001-final-meaning-audit-20261117
   workflow_dispatch:
 permissions:
   contents: read
@@ -2579,3 +2580,27 @@ jobs:
           path: ${{ runner.temp }}/v162_official_public_bytes/
           if-no-files-found: error
           retention-days: 1
+  v163-b0001-public-origin-raw-evidence:
+    name: V163 B0001 actual Wiley excerpt and Korean catalog HTTPS raw evidence
+    needs: canonical-environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Capture source-first publisher and public library original bytes, not financial approval
+        run: |
+          python -m compileall -q validation/ire-v6-frozen/v163_capture_b0001_primary.py
+          python validation/ire-v6-frozen/v163_capture_b0001_primary.py "${RUNNER_TEMP}/v163_b0001_primary"
+      - name: Retain bounded public original bytes for owner-private V123 replay
+        uses: actions/upload-artifact@v4
+        with:
+          name: v163-b0001-public-origin-excerpt-catalog-original-bodies
+          path: ${{ runner.temp }}/v163_b0001_primary/
+          retention-days: 1
+          if-no-files-found: error
