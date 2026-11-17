@@ -113,8 +113,6 @@ class V166E4NativeGatePolicyUnitTests(unittest.TestCase):
 
     def test_01_native_v123_accepts_fake_government_bytes_without_provenance(self):
         # This is the vulnerability E4 closes: frozen V123 is not changed.
-        raw=self.fx.assess()
-        self.assertEqual(raw["status"],"CHAT_FINAL_HOLD_OPEN") if False else None
         from v123_chat_final_gate import assess_chat_final_gate
         native=assess_chat_final_gate(
             self.case["source"],self.case["exchange"],
