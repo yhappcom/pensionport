@@ -5,7 +5,7 @@
   "branch": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
   "proof_plan_path": "validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md",
   "current_step": "E4",
-  "current_engine_verdict": "E1_E2_E3_PASS_E4_NOT_RUN_ENGINE_NO_GO",
+  "current_engine_verdict": "E1_E2_E3_PASS_E4_APPROVAL_GATE_IN_PROGRESS_FULL_NO_GO",
   "pending_advance_approval": false,
   "protected": {
     "main_unchanged": true,
@@ -147,11 +147,13 @@
       "step": "E4",
       "target": "승인 관문",
       "criterion": "적법한 승인 입력은 통과하고 부적합 입력은 차단",
-      "status": "NOT_RUN",
+      "status": "IN_PROGRESS",
       "completed_at": null,
       "evidence_paths": [],
       "blockers": [],
-      "retest_required": false
+      "retest_required": false,
+      "initial_hazard": "Frozen V123 permits synthetic fake government body when bytes SHA and dated flags match; no authenticated publisher/authority/scope evidence enforced",
+      "synthetic_only_approval_must_not_certify_legality": true
     },
     {
       "step": "E5",
