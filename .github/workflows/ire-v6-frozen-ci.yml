@@ -2547,6 +2547,28 @@ jobs:
         run: |
           python -m compileall -q validation/ire-v6-frozen/v162_meaning_routed_evidence.py validation/ire-v6-frozen/v162_capture_official_public_page_bytes.py
           PYTHONPATH=validation/ire-v6-frozen python -m unittest discover -s validation/ire-v6-frozen -p 'test_v162_synthetic_public.py' -v
+      - name: Validate V162 owner SHA-only research and nonpublication evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('validation/ire-v6-frozen/V162_REAL_ONE_VIDEO_REPEATED_RESEARCH_SHA_ONLY.json').read_text())
+          assert r['candidate_atoms']==292 and r['source_cues']==1481
+          assert r['source_first_reclassified_finance_tickets']==3
+          assert r['untouched_not_adjudicated_tickets']==131
+          assert sum(r['finance_evidence_work_queues_after_correction'].values())==134
+          assert r['previous_native_V123_research_candidate_atoms_accepted']==43
+          assert r['new_native_V123_research_candidate_atoms_accepted']==47
+          assert r['new_native_V123_atom_rows_open']==245
+          assert r['new_native_V123_finance_open']==130
+          assert r['real_V123_final_scope_passes']==0
+          assert r['real_V128_parent_publications']==0
+          assert r['human_independent_gold_precision_certified'] is False
+          assert r['real_personal_advice_18_scenarios_approved'] is False
+          assert r['p0e_go'] is False
+          assert all(x['body_bytes']>1000 and len(x['original_body_sha256'])==64 for x in r['source_original_page_bytes'])
+          print({'native_V123_review_only_accepted':47,'native_V123_scope_PASS':0,'V128_publications':0,'p0e_go':False})
+          PY
       - name: Real original HTTPS public issuer and publisher raw body attempt
         run: |
           python validation/ire-v6-frozen/v162_capture_official_public_page_bytes.py "${RUNNER_TEMP}/v162_official_public_bytes"
