@@ -133,5 +133,69 @@ class V166E4OperatorTrustFileTests(unittest.TestCase):
         self.op.commit_signed_parent_pin(
             self.store,pin,expected_previous_pin=None)
 
+class V166E4OperatorCertifiedE2ReadIntegration(unittest.TestCase):
+    def setUp(self):
+        from test_v166_e4_certified_source_retrieval import (
+            V166E4CertifiedE2ContextRealSqliteTests)
+        self.pilot=V166E4CertifiedE2ContextRealSqliteTests(
+            "test_01_certified_source_quote_separate_chat_caution_not_legacy_proposition")
+        self.pilot.setUp()
+        self.addCleanup(self.pilot.doCleanups)
+        self.tmp=tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        path=Path(self.tmp.name)/"owner-private"
+        path.mkdir(mode=0o700)
+        self.key=path/"owner.key"
+        self.pin=path/"latest.pin"
+        self.key.write_bytes(os.urandom(48))
+        self.key.chmod(0o600)
+        self.op=E4OperatorTrust(
+            self.pilot.fx.knowledge.path,key_path=str(self.key),
+            latest_pin_path=str(self.pin))
+        self.pilot.fx.knowledge=self.op.open_for_new_parent()
+
+    def publish(self):
+        pin,ids=self.pilot._approved_pin_and_ids()
+        self.op.commit_signed_parent_pin(
+            self.pilot.fx.knowledge,pin,expected_previous_pin=None)
+        return pin,ids
+
+    def test_13_real_sqlite_e2_source_separated_operational_read(self):
+        pin,ids=self.publish()
+        d=self.op.certified_research_context(
+            "투자 수익 가정과 조건 검토",
+            source=self.pilot.e2.source,
+            exchange=self.pilot.e2.exchange,
+            ledger=self.pilot.e2.ledger,
+            selected_knowledge_ids=ids)
+        self.assertEqual(d["e4_operator_schema"],
+                         "IRE_V166_E4_SEPARATE_OPERATOR_TRUST_STORE_V1")
+        self.assertEqual(d["e4_external_owner_pin_sha256"],pin)
+        self.assertTrue(d["operator_external_latest_pin_verified"])
+        self.assertEqual(d["count"],1)
+        self.assertNotIn("proposition",d["claims"][0])
+        self.assertFalse(d["personal_investment_advice_approved"])
+
+    def test_14_operator_read_without_pin_before_commit_denied(self):
+        pin,ids=self.pilot._approved_pin_and_ids()
+        with self.assertRaises(QualityNotProven):
+            self.op.certified_research_context(
+                "수익",source=self.pilot.e2.source,
+                exchange=self.pilot.e2.exchange,
+                ledger=self.pilot.e2.ledger,
+                selected_knowledge_ids=ids)
+
+    def test_15_operator_read_refuses_wrong_e2_reviewer_hash(self):
+        import copy
+        pin,ids=self.publish()
+        bad=copy.deepcopy(self.pilot.e2.ledger)
+        bad["rows"][0]["reviewer_note_sha256"]="f"*64
+        with self.assertRaises(InvalidInput):
+            self.op.certified_research_context(
+                "수익",source=self.pilot.e2.source,
+                exchange=self.pilot.e2.exchange,
+                ledger=bad,selected_knowledge_ids=ids)
+
+
 if __name__=="__main__":
     unittest.main()
