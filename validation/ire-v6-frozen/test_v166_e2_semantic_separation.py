@@ -142,6 +142,22 @@ class V166E2SourceAndReviewerSeparationTests(unittest.TestCase):
         l["rows"].pop()
         with self.assertRaises(InvalidInput):self.audit(ledger=l)
 
+    def test_14_quoted_principle_keeps_verifiable_source_dependency(self):
+        e=copy.deepcopy(self.exchange)
+        l=copy.deepcopy(self.ledger)
+        a=e["atoms"][0]
+        a["kind"]="OPINION"
+        l["rows"][0]["atom_sha256"]=json_digest(a)
+        l["rows"][0]["source_speech_type"]="QUOTED_SOURCE_PRINCIPLE"
+        self.assertEqual(self.audit(ledger=l,exchange=e)["checked_atom_count"],3)
+        l["rows"][0]["fact_dependencies"]=[]
+        with self.assertRaises(InvalidInput):self.audit(ledger=l,exchange=e)
+
+    def test_15_e2_cannot_self_certify_primary_original_evidence(self):
+        l=copy.deepcopy(self.ledger)
+        l["rows"][0]["fact_dependencies"][0]["status"]="PRIMARY_VERIFIED_SEPARATELY"
+        with self.assertRaises(InvalidInput):self.audit(ledger=l)
+
     def test_13_unauthenticated_speaker_name_rejected(self):
         l=copy.deepcopy(self.ledger)
         l["rows"][0]["source_speaker_identity"]="PRESENTER"
