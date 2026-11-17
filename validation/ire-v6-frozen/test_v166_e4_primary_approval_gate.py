@@ -16,6 +16,7 @@ from ire.v6.errors import InvalidInput, QualityNotProven
 from test_v123_chat_final_gate import ChatFinalGateTests
 from test_v166_e3_chat_decision_delivery import V166E3NativeDecisionDelivery
 from v166_e4_guarded_knowledge_store import E4GuardedKnowledgeStore
+from v166_e4_sealed_knowledge import E4SealedKnowledgeStore
 from v126_chat_approved_knowledge_store import PrivateKnowledgeStore
 from v166_e4_primary_approval_gate import (
     SCHEMA, assess_e4_primary_authority_gate,
@@ -297,7 +298,9 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
         self.e3.setUp()
         self.addCleanup(self.e3.doCleanups)
         self.fx=self.e3.fx
-        self.fx.knowledge=E4GuardedKnowledgeStore(self.fx.knowledge.path)
+        self.fx.knowledge=E4SealedKnowledgeStore(
+            self.fx.knowledge.path,
+            external_signing_key=b"SYNTHETIC_TEST_KEY_FOR_GUARDED_CI_"*2)
         for packet in self.fx.packets:
             replace_synthetic_official_body(packet["case"])
         self.manifests={
@@ -348,7 +351,14 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
 
     def test_21_guarded_official_runner_rejects_plain_legacy_store(self):
         self.fx.knowledge=PrivateKnowledgeStore(self.fx.knowledge.path)
-        with self.assertRaisesRegex(InvalidInput,"GUARDED_OFFICIAL_STORE_REQUIRED"):
+        with self.assertRaisesRegex(InvalidInput,"SEALED_E4_OFFICIAL_STORE_REQUIRED"):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_24_unsealed_guarded_store_cannot_enter_official_e4_publication(self):
+        self.fx.knowledge=E4GuardedKnowledgeStore(self.fx.knowledge.path)
+        with self.assertRaisesRegex(InvalidInput,
+                                    "SEALED_E4_OFFICIAL_STORE_REQUIRED"):
             self.run_guarded()
         self.assertEqual(self.fx._counts().get("knowledge",0),0)
 
