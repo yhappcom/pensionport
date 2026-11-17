@@ -24,6 +24,9 @@ class V166OrderedGateTests(unittest.TestCase):
         d["sequence"][1].update(status="FAIL",completed_at=None,
                 blockers=["E2 source meaning failure"],retest_required=True)
         d["current_step"] = "E2"
+        # E2 FAIL and E3 NOT_RUN is legitimately fail-closed. The regression
+        # is a premature E3 start despite E2 still failing.
+        d["sequence"][2]["status"] = "IN_PROGRESS"
         with self.assertRaises(PhaseOrderViolation):
             check_phase_order(d)
 
