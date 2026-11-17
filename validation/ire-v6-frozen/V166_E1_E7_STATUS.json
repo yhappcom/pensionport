@@ -20,7 +20,8 @@
       "status": "FAIL",
       "completed_at": null,
       "evidence_paths": [
-        "validation/ire-v6-frozen/V165_ONE_VIDEO_FEASIBILITY_BASELINE_AUDIT_20261117.md"
+        "validation/ire-v6-frozen/V165_ONE_VIDEO_FEASIBILITY_BASELINE_AUDIT_20261117.md",
+        "validation/ire-v6-frozen/V166_E1_BASELINE_FAILED_CONNECTIVITY_REPORT_20261117.md"
       ],
       "blockers": [
         "V164 typed release always false",
@@ -28,7 +29,16 @@
         "V1271/V127 parent assembly replays frozen V123 only",
         "V128 stages V126 frozen-only path"
       ],
-      "retest_required": true
+      "retest_required": true,
+      "ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44021729254",
+      "tested_legacy_v128_synthetic_children": 2,
+      "typed_end_to_end_test_pass": false,
+      "observed_legacy_private_store_result": {
+        "events": 3,
+        "knowledge": 3,
+        "parent_publications": 1
+      },
+      "ci_green_is_engine_pass": false
     },
     {
       "step": "E2",
