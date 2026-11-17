@@ -7,6 +7,7 @@ label fake source bytes legally authentic or an actual investment opinion.
 from __future__ import annotations
 
 import copy
+import sqlite3
 import unittest
 from unittest.mock import patch
 
@@ -14,6 +15,8 @@ from ire.v6.codec import ZERO_SHA, json_digest, sha256
 from ire.v6.errors import InvalidInput, QualityNotProven
 from test_v123_chat_final_gate import ChatFinalGateTests
 from test_v166_e3_chat_decision_delivery import V166E3NativeDecisionDelivery
+from v166_e4_guarded_knowledge_store import E4GuardedKnowledgeStore
+from v126_chat_approved_knowledge_store import PrivateKnowledgeStore
 from v166_e4_primary_approval_gate import (
     SCHEMA, assess_e4_primary_authority_gate,
     run_e4_guarded_parent, _canonical_official_url,
@@ -294,6 +297,7 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
         self.e3.setUp()
         self.addCleanup(self.e3.doCleanups)
         self.fx=self.e3.fx
+        self.fx.knowledge=E4GuardedKnowledgeStore(self.fx.knowledge.path)
         for packet in self.fx.packets:
             replace_synthetic_official_body(packet["case"])
         self.manifests={
@@ -331,6 +335,31 @@ class V166E4E3V128RealSQLiteIntegration(unittest.TestCase):
         self.assertEqual(self.fx._counts().get("events",0),0)
         self.assertEqual(self.fx._counts().get("knowledge",0),0)
         self.assertEqual(self.fx._counts().get("parent_publications",0),0)
+
+    def test_20_historical_e3_v128_direct_write_rejected_by_e4_guarded_sqlite(self):
+        # This uses the SAME V128 synthetic positive fixture that historically
+        # inserted 3 research candidates even with forged government bytes.
+        # The protected DB must reject durable INSERTs without E4 receipts.
+        with self.assertRaises(sqlite3.DatabaseError):
+            self.e3.run_host()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+        self.assertEqual(self.fx._counts().get("events",0),0)
+        self.assertEqual(self.fx._counts().get("parent_publications",0),0)
+
+    def test_21_guarded_official_runner_rejects_plain_legacy_store(self):
+        self.fx.knowledge=PrivateKnowledgeStore(self.fx.knowledge.path)
+        with self.assertRaisesRegex(InvalidInput,"GUARDED_OFFICIAL_STORE_REQUIRED"):
+            self.run_guarded()
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+
+    def test_22_verified_e4_scope_resets_after_commit_and_denies_new_unreviewed_batch(self):
+        allowed=self.run_guarded()
+        self.assertEqual(allowed["status"],"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED")
+        initial=self.fx._counts()
+        with self.assertRaises(sqlite3.DatabaseError):
+            self.fx.knowledge._session().__enter__().execute(
+                "INSERT INTO knowledge VALUES(?,?,?)",("fake","{}","0"*64))
+        self.assertEqual(self.fx._counts(),initial)
 
     def test_16_invalid_source_redirect_also_blocks_parent_approval(self):
         second=self.fx.checkpoint.child_ids[1]
