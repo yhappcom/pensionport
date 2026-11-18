@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - verify/ire-v6-v167-chat-research-loop-20261118
+  pull_request:
+    branches:
+      - verify/ire-v6-v166-e1-e7-sequential-gates-20261117
   workflow_dispatch:
 permissions:
   contents: read
