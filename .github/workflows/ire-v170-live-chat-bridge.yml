@@ -1,0 +1,30 @@
+name: V170 explicit live ChatGPT review transport (synthetic only)
+on:
+  push:
+    branches:
+      - verify/ire-v6-v170-live-chat-bridge-20261119
+  pull_request:
+    paths:
+      - 'validation/ire-v6-frozen/v170_in_chat_review_bridge.py'
+      - 'validation/ire-v6-frozen/test_v170_in_chat_review_bridge.py'
+      - '.github/workflows/ire-v170-live-chat-bridge.yml'
+permissions:
+  contents: read
+jobs:
+  source-pinned-two-phase-chat-transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install native frozen V6 test dependencies
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Validate new transport, durable journal and frozen native V123 regressions
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m py_compile v167_chat_research_loop.py v168_chat_native_replay.py v169_chat_research_journal.py v170_in_chat_review_bridge.py
+          python -m unittest -v test_v170_in_chat_review_bridge test_v169_chat_research_journal test_v169_native_interop test_v168_chat_native_replay test_v167_chat_research_loop
