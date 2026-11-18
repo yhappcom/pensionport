@@ -13,8 +13,6 @@ proof of legal authority. Frozen V123 and E4 must be run separately.
 from __future__ import annotations
 
 import copy
-from typing import Mapping
-
 from v166_e4_full_video_readiness import digest
 from v167_chat_research_loop import _evidence_summary
 from v169_chat_research_journal import ChatReviewJournal
@@ -106,6 +104,19 @@ def ingest_chat_responses(journal, *, prepared_batch, evidence_by_claim,
           all(type(item) is dict for item in chat_responses) and
           [r.get("claim_id") for r in chat_responses] == ids,
           "ANSWER_ORDER_OR_CENSUS_MISMATCH")
+    # The durable cursor is checked *before* consulting evidence. A stale
+    # response must be rejected as a replay, not misreported as missing
+    # evidence for a now-different next task.
+    current = _receipt_head(journal)
+    _need(prepared_batch.get("root_docket_sha256") ==
+          journal.docket["docket_sha256"] and
+          prepared_batch.get("owner_source_sha256") ==
+          journal.docket["owner_source_sha256"] and
+          prepared_batch.get("previous_journal_head_sha256") ==
+          current["journal_head_sha256"] and
+          prepared_batch.get("previous_processed_count") ==
+          current["processed_count"],
+          "STALE_OR_CHANGED_REVIEW_CONTEXT")
     # Restore exact batch using unchanged original bytes and the live cursor.
     # Any source/evidence/journal/head drift is a failure, not a silent replay.
     reconstructed = prepare_chat_batch(journal, evidence_by_claim=evidence_by_claim,
