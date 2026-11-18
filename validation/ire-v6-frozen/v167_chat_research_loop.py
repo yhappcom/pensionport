@@ -135,7 +135,7 @@ def _evidence_summary(rows):
 
 
 def execute_chat_review_round(docket, *, evidence_retriever, chat_reviewer,
-                              limit=None):
+                              limit=None, start_after=None):
     """Synchronous host-adapter call: retrieve -> ChatGPT -> validate -> HOLD.
 
     The callbacks MUST be supplied by the live chat host. Test doubles prove
@@ -158,7 +158,15 @@ def execute_chat_review_round(docket, *, evidence_retriever, chat_reviewer,
     _need(callable(evidence_retriever) and callable(chat_reviewer),
           "CHAT_HOST_CALLBACK_REQUIRED")
     _need(limit is None or (type(limit) is int and limit >= 1), "LIMIT")
-    selected = items if limit is None else items[:limit]
+    if start_after is None:
+        offset = 0
+    else:
+        _need(type(start_after) is str and
+              start_after in {x["claim_id"] for x in items},
+              "START_AFTER_NOT_IN_DOCKET")
+        offset = next(i for i, x in enumerate(items)
+                      if x["claim_id"] == start_after) + 1
+    selected = items[offset:] if limit is None else items[offset:offset+limit]
     proposed = []
     for task in selected:
         evidence = _evidence_summary(evidence_retriever(task))
