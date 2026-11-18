@@ -29,3 +29,9 @@ CI tests are synthetic and prove structural software behavior, not model semanti
 1. Load latest private V166 193-OPEN exact revision, reconcile whether `C00018` still exists in the same form and allocate a globally unique new child ID without overwriting the owner review or SHA.
 2. Execute a **genuine private native V6 restaging** of the revised B0002 exchange and re-check all 13 segments and inter-atom qualification links; then author complete new ChatGPT V123 review rows rather than converting one OPEN to ACCEPT by rule.
 3. Authenticate first-party evidence and effective law where relevant. Require all 13 actual native V123/E4 approvals before ACID E5 parent publication. Until then: **E4 FAIL; E5/E6/E7 NOT_RUN; zero new knowledge**.
+
+## V171.1 full-video semantic-risk triage (real V162, read-only)
+
+A reusable `v171_semantic_disagreement_screen.py` first performs the whole-video V166 original source/cue/atom/host diagnostic, then screens `FACT` candidates for subjective, recalled or speculative language in the source or atom paraphrase. **It does NOT reclassify anything**, estimate true errors, or issue native approval. It returns only source-pinned IDs, contextual cue indices and risk level, with no private quoted subtitle text.
+
+A separate read-only private raw-video scan of all 13 V162 child exchanges counted **292 candidate atoms, including 107 FACT**. Of those FACT atoms, **17 were flagged**: 4 high-priority (`C00018`, `C00049`, `C00053`, `C00149`) and 13 medium-priority. These are *review candidates, not 17 proven mistakes*. `C00018` was independently inspected above; `C00049` may simply be correctly recording a remembered price, so simplistic relabeling would be wrong. The latest V166 has a changed census and has NOT been scanned with this edition.
