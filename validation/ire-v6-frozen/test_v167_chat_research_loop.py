@@ -26,7 +26,7 @@ def fixture():
                   'numeric_references':[]} for i in (first, first+1)]
         statuses = ('OPEN','ACCEPT_FOR_RESEARCH') if j == 0 else ('OPEN','EXCLUDE_FROM_RESEARCH')
         verdicts = [{'claim_id': a['claim_id'],'atom_sha256':digest(a),
-                     'status': s, 'high_risk': i == 0 and s == 'OPEN'}
+                     'status': s, 'high_risk': j == 0 and i == 0 and s == 'OPEN'}
                     for i,(a,s) in enumerate(zip(atoms,statuses))]
         event,bundle = digest(['e',j]), digest(['b',j])
         review = {'source_sha256':source, 'manifest_sha256':digest(plan),
