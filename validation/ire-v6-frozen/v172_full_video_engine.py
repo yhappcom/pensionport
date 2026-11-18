@@ -3,16 +3,16 @@
 ENGINE CONTRACT: inspect *every* child, even when an earlier child has a V123
 HOLD or E4 missing original. Do not transform OPEN to PASS, write research
 knowledge or generate fictitious ChatGPT input. A host must supply the actual
-source-pinned child cases. Only the frozen V166 E4-sealed parent can publish.
+source-pinned child cases. No E5 publishing is permitted in this E4 preflight.
 
 Production call must pin `expected_scope_count` to the actual owner's complete
 manifest (13 for the B0001..B0013 video), not a convenient test fraction.
 """
 from __future__ import annotations
 
-from ire.v6.errors import InvalidInput, QualityNotProven
+from ire.v6.errors import InvalidInput
 from v166_e4_primary_approval_gate import (
-    assess_e4_primary_authority_gate, run_e4_guarded_parent,
+    assess_e4_primary_authority_gate,
 )
 from v166_e4_sealed_knowledge import E4SealedKnowledgeStore
 
@@ -31,7 +31,7 @@ def run_exhaustive_full_video(
     typed_manifest_for_child, expected_knowledge_head,
     now_as_of, expected_scope_count,
 ) -> dict:
-    """One command: inspect every pinned child, then *conditionally* publish.
+    """One command: inspect every pinned child, then return an E4-only preflight result.
 
     HOLD, REJECT, incomplete source and a per-child verifier error all remain
     non-releasing results. The preflight is read-only for both checkpoint and
@@ -126,45 +126,16 @@ def run_exhaustive_full_video(
             "e5_authorized": False,
         }
 
-    def pinned_child(sid, manifest, stage, raw):
-        _require(sid in supplied and manifest == manifests[ids.index(sid)]
-                 and raw == original_raw,
-                 "CHILD_PACKET_CHANGED_BETWEEN_PREFLIGHT_AND_PUBLICATION")
-        # It is safe to re-use the same immutable chat-produced packet; the
-        # existing V128 checkpoint makes the final stage decision.
-        return supplied[sid]
-
-    # No custom ad-hoc publishing path. The *original* E4 approval runner
-    # re-fetches original issuer bytes and runs E3->V128 parent ACID release.
-    try:
-        committed = run_e4_guarded_parent(
-            checkpoint, knowledge_store,
-            review_or_load_child=pinned_child,
-            review_seams=review_seams, review_parent=review_parent,
-            primary_manifest_for_child=primary_manifest_for_child,
-            typed_inventory_for_child=typed_inventory_for_child,
-            typed_manifest_for_child=typed_manifest_for_child,
-            expected_knowledge_head=expected_knowledge_head,
-            now_as_of=now_as_of,
-        )
-    except (InvalidInput, QualityNotProven, OSError, ValueError) as exc:
-        return {**base,
-            "status": "PARENT_REPLAY_FAILED_NO_CERTIFIED_RELEASE",
-            "parent_error_type": type(exc).__name__,
-            "official_parent_invoked": True,
-            "all_video_knowledge_published": False,
-            "e5_authorized": False,
-        }
-    authorized = (
-        committed.get("status") == "E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED"
-        and committed.get("e4_durable_certification_verified") is True
-        and committed.get("all_video_knowledge_published") is True
-    )
+    # E4 and E5 cannot share a command. Full V123/E4 child PASS is only
+    # preflight; V173 must separately verify cross-segment source/seams and
+    # explicit ChatGPT parent review, then require an owner-keyed E4 receipt.
+    # No publishing function is reachable in this preflight.
     return {**base,
-        "status": "E4_SEALED_PARENT_PUBLISHED_RESEARCH_ONLY" if authorized
-                  else "PARENT_REPLAY_FAILED_NO_CERTIFIED_RELEASE",
-        "official_parent_invoked": True,
-        "all_video_knowledge_published": authorized,
-        "e4_owner_pin_sha256": committed.get("e4_external_owner_pin_sha256") if authorized else None,
-        "e5_authorized": authorized,
+        "status": "E4_PREFLIGHT_PASS_REQUIRES_STANDALONE_PARENT_AND_OWNER_SEAL",
+        "official_parent_invoked": False,
+        "e4_final_approved": False,
+        "e4_parent_review_checked": False,
+        "all_video_knowledge_published": False,
+        "e5_authorized": False,
+        "e4_only_gate": "v173_e4_only_parent.run_e4_only_parent",
     }
