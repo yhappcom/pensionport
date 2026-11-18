@@ -164,6 +164,41 @@ class V172FullVideoEngineTests(unittest.TestCase):
         self.assertNotIn("private sensitive detail", str(r))
         self.assertFalse(r["all_video_knowledge_published"])
 
+    def test_13_thirteen_scope_control_plane_inspects_all_after_first_hold(self):
+        # Synthetic 13-scope scheduling stress; the native V123/E4 logic for
+        # individual scopes is verified in the other non-mocked integration tests.
+        from types import SimpleNamespace
+        parent = SimpleNamespace(
+            child_ids=[f"B{i:04d}" for i in range(1,14)],
+            child_manifests=[{"test_scope":i} for i in range(1,14)],
+            raw=b"synthetic stub, never a genuine owner SRT",
+            progress=lambda: {"checkpoint_head_sha256":"0"*64})
+        seen=[]
+        def child(sid,manifest,stage,raw):
+            seen.append(sid)
+            return {"case":{"manifest":manifest}}
+        def gate(case, primary, **kwargs):
+            i=case["manifest"]["test_scope"]
+            if i in (1,7,13):
+                return {"status":"E4_HOLD_INELIGIBLE_APPROVAL",
+                        "reason_code":"SYNTHETIC_MISSING_PRIMARY",
+                        "native_chat_decision":"HOLD_UNRELEASED",
+                        "native_unapproved_open_claim_count":1}
+            return {"status":"E4_PASS_RESEARCH_CANDIDATES_ONLY"}
+        with patch("v172_full_video_engine.assess_e4_primary_authority_gate",gate):
+            result=self.run_engine(
+                checkpoint=parent,expected_scope_count=13,
+                review_or_load_child=child,
+                primary_manifest_for_child=lambda sid,case: None,
+                typed_inventory_for_child=lambda sid,case: None,
+                typed_manifest_for_child=lambda sid,case: None)
+        self.assertEqual(len(seen),13)
+        self.assertEqual(seen,parent.child_ids)
+        self.assertEqual(result["child_scopes_examined"],13)
+        self.assertEqual(result["blocked_scope_ids"],["B0001","B0007","B0013"])
+        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+        self.assertFalse(result["all_video_knowledge_published"])
+
     def test_12_full_e4_pins_work_without_a_new_model_invocation(self):
         r = self.run_engine()
         self.assertEqual(len(self.issued), 2)
