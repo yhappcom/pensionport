@@ -267,3 +267,105 @@ def compile_and_replay_native(docket, proposals, *, cases_by_segment,
         "original_reviews_mutated":False}
     return {"receipt":{**result,"receipt_sha256":_digest(result)},
             "native_private_drafts":compiled}
+
+
+def run_v168_one_turn_review(raw, cues, segments, *, expected_source_sha256,
+                             as_of, cases_by_segment, evidence_retriever,
+                             chat_reviewer, secondary_chat_reviewer=None,
+                             primary_manifest_for_segment=None,
+                             typed_inventory_for_segment=None,
+                             typed_manifest_for_segment=None,
+                             limit=None):
+    """ONE synchronous *host-supplied* command: OPEN→chat→V123→E4 preflight.
+
+    The hosting conversation must implement evidence retrieval and both actual
+    ChatGPT callbacks. In the absence of such a host, no model is invoked and
+    no candidate is promoted. A zero-authority E4 preflight on every child
+    returns HOLD; a real complete primary manifest may pass the *preflight*
+    but this routine NEVER calls the V128 parent nor permits E5 publication.
+    """
+    from v167_chat_research_loop import prepare_open_docket, execute_chat_review_round
+    from v166_e4_primary_approval_gate import assess_e4_primary_authority_gate
+    docket = prepare_open_docket(raw,cues,segments,
+        expected_source_sha256=expected_source_sha256,as_of=as_of)
+    proposal = execute_chat_review_round(docket,
+        evidence_retriever=evidence_retriever,chat_reviewer=chat_reviewer,
+        limit=limit)
+    tasks = {x["claim_id"]:x for x in docket["items"]}
+    required = [p for p in proposal["proposals"] if p["proposed_decision"] in
+                ("CANDIDATE_NEEDS_NATIVE_REVIEW", "REJECT_PROPOSAL")]
+    _need(not required or callable(secondary_chat_reviewer),
+          "SECONDARY_CHAT_HOST_NOT_CONNECTED")
+    secondary = {}
+    for p in required:
+        # The host callback must make a fresh meaning decision: a proposal
+        # receipt can never be used as a pre-approved V123 native row.
+        task = tasks[p["claim_id"]]
+        scope = task["segment_id"]
+        review_request = {
+            "schema":"IRE_V168_SECONDARY_IN_CHAT_MEANING_REQUEST_V1",
+            "owner_source_sha256":docket["owner_source_sha256"],
+            "docket_sha256":docket["docket_sha256"],
+            "prior_chat_review_sha256":task["prior_review_sha256"],
+            "proposal_receipt_sha256":proposal["proposal_receipt_sha256"],
+            "proposal":p,
+            "original_source_context":task["source_context"],
+            "original_condition_cue_indices":task["condition_cue_indices"],
+            "original_exception_cue_indices":task["exception_cue_indices"],
+            "original_numeric_references":task["numeric_references"],
+            "prior_native_verdict":copy.deepcopy(next(v for v in
+                cases_by_segment[scope]["chat_review"]["atom_verdicts"]
+                if v["claim_id"]==p["claim_id"])),
+            "must_reassess_native_v123":True,
+            "cannot_authorize_publication":True,
+        }
+        secondary[p["claim_id"]] = secondary_chat_reviewer(review_request)
+    compiled = compile_and_replay_native(docket,proposal,
+        cases_by_segment=cases_by_segment,
+        secondary_chat_reviews=secondary)
+    per_scope = []
+    for item in compiled["receipt"]["native_results"]:
+        sid=item["segment_id"]
+        native_case={**cases_by_segment[sid],
+            "chat_review":compiled["native_private_drafts"][sid]["review"]}
+        manifest=(primary_manifest_for_segment(sid,native_case)
+                  if primary_manifest_for_segment else None)
+        typed=(typed_inventory_for_segment(sid,native_case)
+               if typed_inventory_for_segment else None)
+        typed_manifest=(typed_manifest_for_segment(sid,native_case)
+                        if typed_manifest_for_segment else None)
+        e4 = assess_e4_primary_authority_gate(native_case,manifest,
+             now_as_of=as_of,typed_inventory=typed,typed_manifest=typed_manifest)
+        per_scope.append({"segment_id":sid,
+            "native_v123_status":item["native_status"],
+            "e4_preflight_status":e4["status"],
+            "e4_preflight_reason":e4.get("reason_code"),
+            "e4_preflight_is_not_parent_publication":True})
+    all_e4_preflight = all(r["e4_preflight_status"] ==
+         "E4_PASS_RESEARCH_CANDIDATES_ONLY" for r in per_scope)
+    result={
+        "schema":"IRE_V168_ONE_TURN_CHAT_NATIVE_E4_NO_PUBLICATION_V1",
+        "source_sha256":docket["owner_source_sha256"],
+        "docket_sha256":docket["docket_sha256"],
+        "proposal_receipt_sha256":proposal["proposal_receipt_sha256"],
+        "native_replay_receipt_sha256":compiled["receipt"]["receipt_sha256"],
+        "original_scopes":docket["original_segment_count"],
+        "original_atoms":docket["original_atom_count"],
+        "original_open_count":docket["original_open_count"],
+        "proposals_checked":proposal["proposals_created"],
+        "unprocessed_open_count":proposal["unprocessed_open_count"],
+        "secondary_chat_reviews_received":len(secondary),
+        "native_rows_changed":compiled["receipt"]["native_rows_changed"],
+        "native_all_scopes_pass":compiled["receipt"]["all_native_scopes_pass"],
+        "e4_preflight_all_scopes_pass":all_e4_preflight,
+        "scope_receipts":per_scope,
+        "complete_real_parent_approval_proven":False,
+        "model_identity_independently_attested":False,
+        "research_knowledge_published":False,
+        "e5_authorized":False,
+        "personal_advice_authorized":False,
+        "status":("E4_PREFLIGHT_ONLY_PARENT_NOT_RUN" if all_e4_preflight else
+                  "E4_HOLD_NO_PUBLICATION")}
+    return {"receipt":{**result,"receipt_sha256":_digest(result)},
+            "private_docket":docket, "private_proposals":proposal,
+            "private_native_reviews":compiled["native_private_drafts"]}
