@@ -27,4 +27,4 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
         run: |
           python -m py_compile v167_chat_research_loop.py v168_chat_native_replay.py v169_chat_research_journal.py v170_in_chat_review_bridge.py
-          python -m unittest -v test_v170_in_chat_review_bridge test_v169_chat_research_journal test_v169_native_interop test_v168_chat_native_replay test_v167_chat_research_loop
+          python -m unittest -v test_v170_in_chat_review_bridge test_v170_native_interop test_v169_chat_research_journal test_v169_native_interop test_v168_chat_native_replay test_v167_chat_research_loop
