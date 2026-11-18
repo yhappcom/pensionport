@@ -184,4 +184,48 @@ class V168NativeBridgeTests(unittest.TestCase):
         with self.assertRaisesRegex(InvalidInput,"SECONDARY_MEANING_REVIEW_REQUIRED"):
             self.compile(p,{self.claim:sec})
 
+class V168SingleTurnHostProtocolTests(unittest.TestCase):
+    setUp = V168NativeBridgeTests.setUp
+    evidence = V168NativeBridgeTests.evidence
+    secondary = V168NativeBridgeTests.secondary
+
+    """Only test doubles feed the callbacks. No actual LLM/issuer connection."""
+    def single(self, decision="KEEP_OPEN", secondary=None, **kwargs):
+        from v168_chat_native_replay import run_v168_one_turn_review
+        return run_v168_one_turn_review(
+            self.fx.parent.fx.raw,
+            {c.index:c.text for c in self.case["source"].cues},self.segments,
+            expected_source_sha256=self.case["source"].source_sha256,
+            as_of="2026-11-18",cases_by_segment={"B0001":self.case},
+            evidence_retriever=self.evidence,
+            chat_reviewer=lambda req:proposal_reviewer(req,decision),
+            secondary_chat_reviewer=secondary,**kwargs)
+
+    def test_13_complete_host_calls_native_hold_and_e4_hold(self):
+        out=self.single()
+        r=out["receipt"]
+        self.assertEqual(r["proposals_checked"],1)
+        self.assertEqual(r["secondary_chat_reviews_received"],0)
+        self.assertEqual(r["scope_receipts"][0]["native_v123_status"],
+                         "CHAT_FINAL_HOLD_OPEN")
+        self.assertEqual(r["scope_receipts"][0]["e4_preflight_status"],
+                         "E4_HOLD_INELIGIBLE_APPROVAL")
+        self.assertFalse(r["research_knowledge_published"])
+
+    def test_14_missing_secondary_host_is_explicit_failure(self):
+        with self.assertRaisesRegex(InvalidInput,"SECONDARY_CHAT_HOST_NOT_CONNECTED"):
+            self.single("CANDIDATE_NEEDS_NATIVE_REVIEW")
+
+    def test_15_callback_receipt_not_a_native_or_e4_release(self):
+        def sec(req):
+            p={"proposals":[req["proposal"]]}
+            return self.secondary(p)
+        r=self.single("CANDIDATE_NEEDS_NATIVE_REVIEW",secondary=sec)["receipt"]
+        self.assertEqual(r["native_rows_changed"],1)
+        self.assertTrue(r["native_all_scopes_pass"])
+        self.assertFalse(r["e4_preflight_all_scopes_pass"])
+        self.assertEqual(r["status"],"E4_HOLD_NO_PUBLICATION")
+        self.assertFalse(r["e5_authorized"])
+
+
 if __name__ == "__main__": unittest.main()
