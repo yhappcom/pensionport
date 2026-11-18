@@ -1,0 +1,29 @@
+name: V168 in-chat proposal to frozen V123 native replay (synthetic)
+on:
+  push:
+    branches:
+      - verify/ire-v6-v168-chat-native-replay-20261118
+  pull_request:
+    branches:
+      - verify/ire-v6-v167-chat-research-loop-20261118
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  frozen-native-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install matching native V6 engine requirements
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Compile and execute source-pinned native V123 / E4 HOLD regressions
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m py_compile v168_chat_native_replay.py test_v168_chat_native_replay.py
+          python -m unittest -v test_v168_chat_native_replay test_v167_chat_research_loop
