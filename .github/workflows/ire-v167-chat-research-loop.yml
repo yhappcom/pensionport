@@ -1,0 +1,25 @@
+name: V167 in-chat research loop protocol (synthetic only)
+on:
+  push:
+    branches:
+      - verify/ire-v6-v167-chat-research-loop-20261118
+  pull_request:
+    branches:
+      - verify/ire-v6-v166-e1-e7-sequential-gates-20261117
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  protocol-synthetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Compile protocol and execute negative control tests (NO semantic approval)
+        working-directory: validation/ire-v6-frozen
+        run: |
+          python -m py_compile v167_chat_research_loop.py test_v167_chat_research_loop.py
+          python -m unittest -v test_v167_chat_research_loop
