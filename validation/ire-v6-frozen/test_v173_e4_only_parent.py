@@ -152,7 +152,8 @@ class E4OnlyNativeVideoTests(unittest.TestCase):
         ids=[f'B{i:04d}' for i in range(1,14)]
         parent=SimpleNamespace(child_ids=ids,
             child_manifests=[{'scope':i} for i in range(1,14)],raw=root,
-            parent=SimpleNamespace(source_sha256=sha256(root)),
+            parent=SimpleNamespace(source_sha256=sha256(root),
+                cues=['synthetic']*13, manifest_sha256='0'*64),
             progress=lambda:{'checkpoint_head_sha256':'0'*64})
         seen=[]
         def child(sid,manifest,stage,raw):
