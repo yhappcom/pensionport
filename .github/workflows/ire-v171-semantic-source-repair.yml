@@ -26,6 +26,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
         run: |
           python -m unittest -v test_v171_source_bound_reatomization
+          python -m unittest -v test_v171_semantic_disagreement_screen
           python -m unittest -v test_v170_native_in_chat_interop
           python -m unittest -v test_v170_evidence_revisit
           python -m unittest -v test_v169_native_interop
