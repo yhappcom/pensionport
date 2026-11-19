@@ -138,4 +138,44 @@ class SourceRiskRevisit(unittest.TestCase):
                               owner_source_sha256=sha256(self.raw),window_size=3)
 
 
+    def test_09_explicit_quote_and_reason_allow_lexically_unflagged_recheck(self):
+        reason=('원문 키워드 탐지로는 누락된 발화를 ChatGPT가 직접 재검문하고 '
+                '기존 판정을 지우지 않고 원문에 묶어 보존해야 합니다.')
+        q=self.engine.prepare_nonresearch_risk_revisit(
+              1,context_radius=4,manual_source_quote='안녕하세요.',
+              manual_semantic_reason=reason)
+        self.assertTrue(q['response_requirements']['manual_semantics_only_no_auto_promotion'])
+        r=self.engine.submit_context_revisit(q,risk_answer(q,disposition='NON_RESEARCH'))
+        self.assertFalse(r['e4_approved'])
+        self.assertEqual(self.engine.compile_native_v6_stage()[1]['native_v6_audit']['proposed_atomic_claims'],1)
+        with sqlite3.connect(self.db) as con:
+            self.assertEqual(con.execute('SELECT disposition FROM cue_reviews WHERE cue_index=1').fetchone()[0],'NON_RESEARCH')
+            self.assertEqual(con.execute('SELECT COUNT(*) FROM cue_revisions').fetchone()[0],1)
+
+    def test_10_manual_quote_and_reason_must_both_be_original_grounded(self):
+        reason=('서로 다른 금융 사실이 인접 발화에 연결될 수 있어 '
+                '독립 원문과 의미를 명시적으로 다시 검문해야 합니다.')
+        for quote,explanation in [('없는 인용입니다',reason),('안녕하세요.','짧음')]:
+            with self.assertRaisesRegex(InvalidInput,'MANUAL_EXCERPT_REASON_NOT_GROUNDED'):
+                self.engine.prepare_nonresearch_risk_revisit(
+                    1,context_radius=4,manual_source_quote=quote,
+                    manual_semantic_reason=explanation)
+        with sqlite3.connect(self.db) as con:
+            self.assertEqual(con.execute('SELECT COUNT(*) FROM cue_revisions').fetchone()[0],0)
+
+    def test_11_manual_source_revisit_reopens_and_stays_unreleased(self):
+        reason=('원문에는 일반 키워드가 없더라도 독립 명제가 포함될 수 있으므로 '
+                'ChatGPT가 출처 인용을 붙여 누락 여부를 재판정해야 합니다.')
+        q=self.engine.prepare_nonresearch_risk_revisit(
+              1,context_radius=4,manual_source_quote='안녕하세요.',
+              manual_semantic_reason=reason)
+        r=self.engine.submit_context_revisit(q,risk_answer(q,disposition='NON_RESEARCH'))
+        reopened=EngineChatSession(self.db,self.raw,'AbCdEf12345',
+                 owner_source_sha256=sha256(self.raw),window_size=3,expected_window_count=2)
+        self.assertEqual(reopened.progress()['checkpoint_head_sha256'],r['checkpoint_head_sha256'])
+        self.assertFalse(reopened.progress()['e4_pass_claimed'])
+        with self.assertRaises(InvalidInput):
+            reopened.prepare_nonresearch_risk_revisit(1,context_radius=4,
+              manual_source_quote='안녕하세요.',manual_semantic_reason=reason)
+
 if __name__=='__main__': unittest.main()

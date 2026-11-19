@@ -53,6 +53,8 @@ def main(argv=None):
     submit.add_argument('--answer',required=True)
     risk=sub.add_parser('repair-noatom');risk.add_argument('--cue',type=int,required=True)
     risk.add_argument('--radius',type=int,default=10);risk.add_argument('--out')
+    risk.add_argument('--quote',help='Exact original cue text for lexically missed omissions')
+    risk.add_argument('--reason',help='Explicit ChatGPT semantic omission rationale')
     repair=sub.add_parser('repair-atom');repair.add_argument('--cue',type=int,required=True)
     repair.add_argument('--radius',type=int,default=10)
     repair.add_argument('--out')
@@ -95,7 +97,8 @@ def main(argv=None):
         result=engine.prepare_atom_repair(args.cue,context_radius=args.radius)
         if args.out:_private_json(args.out,result)
     elif args.action=='repair-noatom':
-        result=engine.prepare_nonresearch_risk_revisit(args.cue,context_radius=args.radius)
+        result=engine.prepare_nonresearch_risk_revisit(args.cue,context_radius=args.radius,
+                 manual_source_quote=args.quote,manual_semantic_reason=args.reason)
         if args.out:_private_json(args.out,result)
     elif args.action=='commit':
         task=json.loads(Path(args.challenge).read_text(encoding='utf8'))

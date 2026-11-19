@@ -391,12 +391,14 @@ class EngineChatSession:
                   "no_financial_fact_or_E4_auto_approval":True}}
         return {**task,"challenge_sha256":_digest(task)}
 
-    def prepare_nonresearch_risk_revisit(self, cue_index, *, context_radius=10):
-        """Explicit ChatGPT correction for a suspicious original NO_ATOM cue.
+    def prepare_nonresearch_risk_revisit(self, cue_index, *, context_radius=10,
+                                         manual_source_quote=None,
+                                         manual_semantic_reason=None):
+        """Re-review suspicious NO_ATOM, including lexical false negatives.
 
-        Reject arbitrary unflagged NON_RESEARCH and already revised records.
-        The request does NOT infer an atom, call a model, or certify source
-        completeness; a live ChatGPT review must author the complete answer.
+        Keywords may trigger a review; an explicitly pinned original quote
+        and an explanatory ChatGPT reason may also trigger a review request.
+        No model answer, approval or financial claim is invented here.
         """
         from ire.v6.claim_census import FINANCIAL, QUALIFIER, MULTI_CLAIM
         _need(type(cue_index) is int and 1 <= cue_index <= len(self.source.cues)
@@ -410,9 +412,19 @@ class EngineChatSession:
         finally:con.close()
         cue=self.source.cues[cue_index-1]
         row=reviewed.get(cue_index)
+        keyword_risk=any(p.search(cue.text) for p in (
+                      FINANCIAL,QUALIFIER,MULTI_CLAIM))
+        manual_requested=(manual_source_quote is not None or
+                          manual_semantic_reason is not None)
+        manually_grounded=(type(manual_source_quote) is str and
+             len(manual_source_quote.strip())>=3 and
+             " ".join(manual_source_quote.split()) in " ".join(cue.text.split()) and
+             type(manual_semantic_reason) is str and
+             len(manual_semantic_reason.strip())>=32)
+        _need(not manual_requested or manually_grounded,
+              "NONRESEARCH_MANUAL_EXCERPT_REASON_NOT_GROUNDED")
         _need(row is not None and row[1]["disposition"]=="NON_RESEARCH"
-              and revised is None and any(p.search(cue.text) for p in (
-                  FINANCIAL,QUALIFIER,MULTI_CLAIM)),
+              and revised is None and (keyword_risk or manually_grounded),
               "NONRESEARCH_REVISIT_REQUIRES_SUSPECT_UNREVISED_CUE")
         ctx=list(range(max(1,cue_index-context_radius),
                        min(len(self.source.cues),cue_index+context_radius)+1))
@@ -436,6 +448,10 @@ class EngineChatSession:
                   "real_chat_must_verify_new_meaning_or_keep_no_atom":True,
                   "previous_no_atom_decision_must_be_preserved":True,
                   "no_automatic_v123_e4_or_e5":True}}
+        if manually_grounded:
+            task['manual_source_quote']=manual_source_quote
+            task['manual_semantic_reason']=manual_semantic_reason
+            task['response_requirements']['manual_semantics_only_no_auto_promotion']=True
         return {**task,"challenge_sha256":_digest(task)}
 
     def submit_context_revisit(self, challenge, answer):
@@ -524,7 +540,9 @@ class EngineChatSession:
                                          context_radius=challenge["context_radius"])
                 if repair else
                 self.prepare_nonresearch_risk_revisit(checked[0]["cue_index"],
-                                             context_radius=challenge["context_radius"])
+                         context_radius=challenge["context_radius"],
+                         manual_source_quote=challenge.get("manual_source_quote"),
+                         manual_semantic_reason=challenge.get("manual_semantic_reason"))
                 if nonresearch_revisit else
                 self.prepare_context_revisit([r["cue_index"] for r in checked],
                                              context_radius=challenge["context_radius"]))
