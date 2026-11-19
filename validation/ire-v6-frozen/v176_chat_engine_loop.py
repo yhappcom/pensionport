@@ -153,8 +153,11 @@ class EngineChatSession:
             elif frame["schema"]==REVISION:
                 for item in frame["revisions"]:
                     i=item["cue_index"]
-                    _need(i in source_rows and i not in revised_rows and
-                          source_rows[i][1]["disposition"]=="OPEN" and
+                    allow=(i in source_rows and (
+                        source_rows[i][1]["disposition"]=="OPEN" or
+                        (source_rows[i][1]["disposition"]=="ASSERTION" and
+                         frame.get("review_task_type")=="REPAIR_ATOM_SOURCE_CONTEXT")))
+                    _need(allow and i not in revised_rows and
                           item["prior_review_event_sha256"]==source_rows[i][0] and
                           item["source_text_sha256"]==sha256(self.source.cues[i-1].text.encode("utf8")),
                           "REVISIT_PRIOR_SOURCE_DRIFT")
@@ -216,9 +219,10 @@ class EngineChatSession:
         finally:
             con.close()
 
-    def prepare(self, *, limit=6, context_radius=3):
+    def prepare(self, *, limit=6, context_radius=3, source_first_only=False):
         _need(type(limit) is int and 1<=limit<=20 and
-              type(context_radius) is int and 0<=context_radius<=12,
+              type(context_radius) is int and 0<=context_radius<=12 and
+              type(source_first_only) is bool,
               "CHALLENGE_SIZE")
         con=self._connect()
         try:
@@ -233,7 +237,7 @@ class EngineChatSession:
             revisited={r[0] for r in con.execute("SELECT cue_index FROM cue_revisions")}
         finally:
             con.close()
-        for wid,seg_start,seg_end in self.source.primary_windows:
+        for wid,seg_start,seg_end in ([] if source_first_only else self.source.primary_windows):
             pending=[i for i in unreviewed if seg_start<=i<=seg_end]
             if pending:
                 break
@@ -249,6 +253,16 @@ class EngineChatSession:
             if evidence_task is not None:
                 return evidence_task
         if not unreviewed:
+            if source_first_only:
+                return {"schema":SCHEMA,"type":"SOURCE_FIRST_PASS_COMPLETE_NEEDS_E4_SEMANTIC_REVIEW",
+                        "owner_source_sha256":self.source.source_sha256,
+                        "checkpoint_head_sha256":head,
+                        "original_cue_count":len(self.source.cues),
+                        "reviewed_original_cues":len(reviewed),
+                        "unresolved_open_cues":sum(r[1]["disposition"]=="OPEN" for r in reviewed.values()),
+                        "review_phase":"SOURCE_FIRST_ONLY",
+                        "source_meaning_completed":False,
+                        "v123_approved":False,"e4_approved":False,"e5_authorized":False}
             still_open=[i for i,r in reviewed.items()
                         if r[1]["disposition"]=="OPEN"]
             if still_open:
@@ -288,6 +302,8 @@ class EngineChatSession:
                     "semantic_provenance_not_assumed":True,
                     "financial_evidence_must_be_separately_verified":True,
                     "no_auto_accept_or_e5":True}}
+        if source_first_only:
+            prepared["review_phase"]="SOURCE_FIRST_ONLY"
         return {**prepared,"challenge_sha256":_digest(prepared)}
 
     def prepare_context_revisit(self, cue_indices, *, context_radius=8):
@@ -331,9 +347,52 @@ class EngineChatSession:
                  "never_auto_approve_financial_facts":True}}
         return {**obj,"challenge_sha256":_digest(obj)}
 
+    def prepare_atom_repair(self, cue_index, *, context_radius=10):
+        """Engine issues a source-bound correction for a committed assertion.
+
+        No previous event is erased. No semantic/financial approval is created.
+        The requested cue must be an un-revised original assertion. The
+        source-wide cue and quote verification is repeated after the repair.
+        """
+        _need(type(cue_index) is int and 1<=cue_index<=len(self.source.cues)
+              and type(context_radius) is int and 4<=context_radius<=20,
+              "ATOM_REPAIR_REQUEST_INVALID")
+        con=self._connect()
+        try:
+            head,reviewed=self._audit(con)
+            prior=con.execute("SELECT 1 FROM cue_revisions WHERE cue_index=?",(cue_index,)).fetchone()
+        finally:con.close()
+        row=reviewed.get(cue_index)
+        _need(row is not None and row[1]["disposition"]=="ASSERTION" and prior is None,
+              "ATOM_REPAIR_REQUIRES_UNREVISED_ASSERTION")
+        indices=list(range(max(1,cue_index-context_radius),
+                           min(len(self.source.cues),cue_index+context_radius)+1))
+        def view(i):
+            cue=self.source.cues[i-1]
+            return {"cue_index":i,"text":cue.text,
+                    "source_text_sha256":sha256(cue.text.encode("utf8"))}
+        task={"schema":SCHEMA,"type":"REPAIR_ATOM_SOURCE_CONTEXT",
+              "owner_source_sha256":self.source.source_sha256,
+              "manifest_sha256":self.source.manifest_sha256,
+              "checkpoint_head_sha256":head,
+              "window_id":self.source.owner(cue_index),
+              "context_radius":context_radius,
+              "target_cues":[{**view(cue_index),
+                              "prior_review_event_sha256":row[0],
+                              "prior_analysis":row[1]["analysis"],
+                              "original_claims":row[1]["claims"]}],
+              "surrounding_context":[view(i) for i in indices],
+              "response_requirements":{
+                  "append_only_original_decision_preserved":True,
+                  "review_source_numeric_references_and_conditions":True,
+                  "all_proposition_numbers_must_exist_in_context":True,
+                  "no_financial_fact_or_E4_auto_approval":True}}
+        return {**task,"challenge_sha256":_digest(task)}
+
     def submit_context_revisit(self, challenge, answer):
         """Append one source-pinned CHATGPT correction per previously OPEN cue."""
-        _need(type(challenge) is dict and challenge.get("type")=="RESOLVE_CONTEXT_CUES" and
+        _need(type(challenge) is dict and challenge.get("type") in {
+                  "RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT"} and
               challenge.get("schema")==SCHEMA and
               challenge.get("challenge_sha256")==_digest({k:v for k,v in challenge.items()
                                                             if k!="challenge_sha256"}),
@@ -346,6 +405,9 @@ class EngineChatSession:
               type(answer["responses"]) is list and
               len(answer["responses"])==len(challenge["target_cues"]),
               "CONTEXT_RESPONSE_SCHEMA")
+        repair=challenge["type"]=="REPAIR_ATOM_SOURCE_CONTEXT"
+        _need(not repair or len(challenge["target_cues"])==1,
+              "ATOM_REPAIR_EXACTLY_ONE_CUE")
         checked=[]
         valid_context={r["cue_index"] for r in challenge["surrounding_context"]}
         for expected,r in zip(challenge["target_cues"],answer["responses"]):
@@ -367,16 +429,37 @@ class EngineChatSession:
                   (r["claims"]==[] if r["disposition"]!="ASSERTION" else
                    len(r["claims"])>=1),
                   "CONTEXT_REVISION_NOT_GROUNDED")
+            if repair:
+                _need(r["disposition"]=="ASSERTION" and r["limitations_checked"] is True,
+                      "ATOM_REPAIR_CANNOT_DOWNGRADE_OR_APPROVE")
             if r["disposition"]=="ASSERTION":
-                # Claim revisions still need normal cue/quote grounding; these
-                # cannot be turned into native PASS by a context correction.
+                # Claim revisions must provide the same complete source/number
+                # constraints as original host submissions; no accept flag exists.
+                from ire.v6.atomic_exchange import NUMBER
                 for atom in r["claims"]:
-                    _need(type(atom) is dict and
-                          atom.get("kind") in KIND and
-                          type(atom.get("quote")) is str and
-                          atom["quote"] in self.source.cues[r["cue_index"]-1].text and
-                          r["cue_index"] in atom.get("context_cue_indices",[]),
-                          "CONTEXT_CLAIM_QUOTE_NOT_IN_SOURCE")
+                    _need(type(atom) is dict and set(atom)=={
+                          "proposition","kind","quote","context_cue_indices",
+                          "conditions","exceptions","numeric_tokens","high_risk",
+                          "needs_official_source"} and
+                          type(atom["proposition"]) is str and len(atom["proposition"].strip())>=8 and
+                          atom["kind"] in KIND and type(atom["quote"]) is str and
+                          len(atom["quote"].strip())>=3 and
+                          " ".join(atom["quote"].split()) in
+                              " ".join(self.source.cues[r["cue_index"]-1].text.split()) and
+                          type(atom["context_cue_indices"]) is list and
+                          r["cue_index"] in atom["context_cue_indices"] and
+                          atom["context_cue_indices"]==sorted(set(atom["context_cue_indices"])) and
+                          set(atom["context_cue_indices"])<=valid_context and
+                          all(type(atom[k]) is list and all(type(x) is str for x in atom[k])
+                              for k in ("conditions","exceptions","numeric_tokens")) and
+                          type(atom["high_risk"]) is bool and
+                          type(atom["needs_official_source"]) is bool and
+                          all(n in self.source.cues[r["cue_index"]-1].text
+                              for n in atom["numeric_tokens"]) and
+                          set(NUMBER.findall(atom["proposition"]))<=set(
+                              t for j in atom["context_cue_indices"]
+                              for t in NUMBER.findall(self.source.cues[j-1].text)),
+                          "CONTEXT_CLAIM_QUOTE_OR_NUMBER_NOT_IN_SOURCE")
             checked.append(r)
         con=self._connect()
         try:
@@ -384,15 +467,19 @@ class EngineChatSession:
             head,effective=self._audit(con)
             _need(head==challenge["checkpoint_head_sha256"],"CONTEXT_HEAD_STALE")
             # Untrusted challenge hash alone is not enough. Rebuild from DB.
-            expected_current=self.prepare_context_revisit(
-                [r["cue_index"] for r in checked],
-                context_radius=challenge["context_radius"])
+            expected_current=(
+                self.prepare_atom_repair(checked[0]["cue_index"],
+                                         context_radius=challenge["context_radius"])
+                if repair else
+                self.prepare_context_revisit([r["cue_index"] for r in checked],
+                                             context_radius=challenge["context_radius"]))
             _need(challenge==expected_current,"CONTEXT_NOT_ENGINE_ISSUED")
             seq=con.execute("SELECT COUNT(*) FROM events").fetchone()[0]+1
             frame={"schema":REVISION,"seq":seq,"prev_sha":head,
                    "source_sha256":self.source.source_sha256,
                    "manifest_sha256":self.source.manifest_sha256,
                    "challenge_sha256":challenge["challenge_sha256"],
+                   "review_task_type":challenge["type"],
                    "review_executor":"CHATGPT_IN_CHAT","revisions":checked,
                    "final_semantic_approval":False,"e4_approval":False,
                    "e5_published":False}
@@ -613,9 +700,12 @@ class EngineChatSession:
         # engine-issued challenge from pinned original bytes and live state;
         # otherwise a forged client may self-hash arbitrary target/context.
         live_head=self.progress()["checkpoint_head_sha256"]
+        _need(challenge.get("review_phase") in (None,"SOURCE_FIRST_ONLY"),
+              "UNKNOWN_SOURCE_FIRST_MODE")
         if live_head==challenge["checkpoint_head_sha256"]:
             _need(self.prepare(limit=challenge["request_limit"],
-                               context_radius=challenge["context_radius"]) == challenge,
+                               context_radius=challenge["context_radius"],
+                               source_first_only=(challenge.get("review_phase")=="SOURCE_FIRST_ONLY")) == challenge,
                   "CHALLENGE_NOT_ENGINE_ISSUED")
         con=self._connect()
         try:
@@ -762,7 +852,7 @@ class EngineChatSession:
                 break
             answer=chat_host(challenge)
             _need(type(answer) is dict,"HOST_CHAT_RESULT_NOT_SUPPLIED")
-            if challenge["type"]=="RESOLVE_CONTEXT_CUES":
+            if challenge["type"] in {"RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT"}:
                 receipt=self.submit_context_revisit(challenge,answer)
                 n=receipt["cues_revisited"]
             elif challenge["type"]=="SEARCH_ORIGINAL_PRIMARY_EVIDENCE":
