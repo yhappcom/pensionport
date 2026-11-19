@@ -249,6 +249,16 @@ class EngineChatSession:
             if evidence_task is not None:
                 return evidence_task
         if not unreviewed:
+            still_open=[i for i,r in reviewed.items()
+                        if r[1]["disposition"]=="OPEN"]
+            if still_open:
+                return {"schema":SCHEMA,"type":"E4_HOLD_UNRESOLVED_SOURCE",
+                        "owner_source_sha256":self.source.source_sha256,
+                        "checkpoint_head_sha256":head,
+                        "unresolved_cue_count":len(still_open),
+                        "unresolved_cue_indices":sorted(still_open),
+                        "v123_approved":False,"e4_approved":False,
+                        "e5_authorized":False}
             return {"schema":SCHEMA,"type":"SOURCE_FIRST_REVIEW_COMPLETE",
                     "owner_source_sha256":self.source.source_sha256,
                     "checkpoint_head_sha256":head,
@@ -747,7 +757,8 @@ class EngineChatSession:
         for _ in range(max_batches):
             challenge=self.prepare(limit=batch_size,
                                    context_radius=context_radius)
-            if challenge["type"]=="SOURCE_FIRST_REVIEW_COMPLETE":
+            if challenge["type"] in {"SOURCE_FIRST_REVIEW_COMPLETE",
+                                     "E4_HOLD_UNRESOLVED_SOURCE"}:
                 break
             answer=chat_host(challenge)
             _need(type(answer) is dict,"HOST_CHAT_RESULT_NOT_SUPPLIED")
@@ -775,6 +786,7 @@ class EngineChatSession:
     def work_summary(self):
         p=self.progress()
         p["next_required_step"]=("CHAT_SOURCE_REVIEW" if p["cue_remaining"] else
+                                  "E4_HOLD_UNRESOLVED_SOURCE" if p["unresolved_open_cues"] else
                                   "FINAL_NATIVE_V6_V123_E4_REVIEW_REQUIRED")
         p["research_finished"]=False
         return p
