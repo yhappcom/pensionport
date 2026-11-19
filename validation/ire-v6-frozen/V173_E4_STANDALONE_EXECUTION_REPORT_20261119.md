@@ -21,3 +21,19 @@
 - 별도 API 없이 Python이 ChatGPT 모델을 자동 호출하지 못하므로, 실제 채팅 호스트가 검색·의미 검토·부모 판정을 넘겨줘야 한다.
 - GitHub CI의 가짜 정부 원문·부모 채팅 판정은 전부 **합성 테스트**. 원본 금융 근거나 실제 최신 V166 13구간 승인은 인증되지 않았다.
 - E4 실제 프로젝트 운영 상태 **FAIL**, E5~E7 **NOT_RUN**, 승인 지식 0건. `main`/동결 V123/V126/V128 변경 없음.
+
+## 최신 검증과 실원본 차단 원인 (추가 확정)
+
+- GitHub **draft PR #62**: `https://github.com/yhappcom/pensionport/pull/62`, V172 기반 E4 전용 검증 브랜치 `verify/ire-v6-v173-e4-only-final-gate-20261119`.
+- V172의 종전 **E4 PASS 즉시 E5/V128 호출** 코드를 V173 브랜치에서 완전히 제거했다. 기존 `run_exhaustive_full_video()`는 모든 구간 E4 사전검문 PASS라도 `E4_PREFLIGHT_PASS_REQUIRES_STANDALONE_PARENT_AND_OWNER_SEAL`을 반환하며 출판 함수 호출이 불가하다. 종단간 E4 완료/봉인은 V173 별도 경로만 허용한다. 동결 V123/V126/V128은 변경하지 않았다.
+- GitHub CI 최종 실행 `https://github.com/yhappcom/pensionport/actions/runs/44425113627`: **162개** 통과(신규 V173 명령 25개, 동결 V123 35개, 동결 E4 76개, V172 사전검문 26개). CI는 합성 입력에 대한 소프트웨어 구조 검증이다.
+- 로컬 비공개 실물 ZIP을 재계산하여 원본 SRT SHA-256 `638fefee007aa9122e68717b922194410ebbd7913a619bb9354f09af14468a0d`, cue 1,481개, 서로 겹치지 않는 원본 계획 13구간, **과거 V162에서** 원자 292개(OPEN 245, 연구 후보 47)를 검증했다. 개별 구간의 카운트만 `/mnt/data/v173/V173_PRIVATE_E4_OWNER_INPUT_BLOCKER_CENSUS.json`에 비공개로 보존했으며 실제 자막은 GitHub에 포함하지 않았다.
+- 최신 V166 별도 비공개 원장 전체(보고된 `70/193/30` 상태를 실제로 다시 구성할 서명된 13개 바이트 세트)는 현재 접근할 수 없다. 따라서 최신 13구간 native V123 재실행, E4 공식 원전 SHA·시행일 검증, owner seal은 **실제로 수행하지 못함**. 아직 E4 완료 아님.
+
+## E4 완료로 인정할 마지막 조건
+
+1. `latest V166 private source/exchange/V123/typed inventory/official original body` 전체 실물 바이트와 외부 소유자 SHA 핀 복구. 현재 193 OPEN 처리 및 화자·조건·반례 보존을 실제 ChatGPT가 검증하고, 전체 영상 고위험 누락 0을 확인.
+2. 이 **최신** 13개 구간이 동결 native V123 및 E4 공식 발행기관·시행일·적용 범위 검문에서 전부 PASS. V127 원문 전체 구간 경계 및 부모 의미 검토 영수증 일치.
+3. 소유자 키로 별도 E4 승인 영수증을 생성하고 외부 PIN 검증. 이때도 지식 DB 변화 0건. **그다음 턴에서만** E5 시작 검토.
+
+최종 판정: `E4 SOFTWARE-PATH PASS / E4 REAL-OWNER APPROVAL FAIL / E5 NOT_RUN`. 실제 승인과 소프트웨어 시험을 혼동하지 않는다.
