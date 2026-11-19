@@ -71,6 +71,119 @@ class TestCollaborativeEngine(unittest.TestCase):
         self.session=EngineChatSession(self.db,self.raw,'AbCdEf12345',
           owner_source_sha256=sha256(self.raw),window_size=3,expected_window_count=2)
 
+    def test_18_meaning_only_crosses_segment_before_evidence_without_e4(self):
+        # B0001 can have a genuine sourced claim awaiting publisher evidence;
+        # the user-requested meaning-only pass must continue to B0002 first.
+        c1=self.session.prepare(source_first_only=True,limit=3)
+        self.assertEqual(c1['review_phase'],'SOURCE_FIRST_ONLY')
+        self.session.submit(c1,respond(c1,add_claim=True))
+        # The general E4 runner first requests evidence, as before.
+        self.assertEqual(self.session.prepare(limit=2)['type'],
+                         'SEARCH_ORIGINAL_PRIMARY_EVIDENCE')
+        # Stage-2 meaning-only runner can safely continue with the original.
+        c2=self.session.prepare(source_first_only=True,limit=2)
+        self.assertEqual(c2['type'],'CLASSIFY_SOURCE_CUES')
+        self.assertEqual([r['cue_index'] for r in c2['target_cues']],[4,5])
+        self.session.submit(c2,respond(c2))
+        result=self.session.prepare(source_first_only=True)
+        self.assertEqual(result['type'],'SOURCE_FIRST_PASS_COMPLETE_NEEDS_E4_SEMANTIC_REVIEW')
+        self.assertEqual(result['reviewed_original_cues'],5)
+        self.assertEqual(result['unresolved_open_cues'],1)
+        self.assertFalse(result['source_meaning_completed'])
+        self.assertFalse(result['e5_authorized'])
+        self.assertFalse(self.session.progress()['e4_pass_claimed'])
+        self.assertEqual(self.session.prepare()['type'],'SEARCH_ORIGINAL_PRIMARY_EVIDENCE')
+
+    def test_19_source_only_forgery_rejected_even_with_self_hash(self):
+        from v176_chat_engine_loop import _digest
+        c=self.session.prepare(source_first_only=True,limit=3)
+        v=respond(c,add_claim=True)
+        forged=copy.deepcopy(c)
+        forged['surrounding_context']=forged['surrounding_context'][:-1]
+        forged['challenge_sha256']=_digest({k:v for k,v in forged.items()
+                                            if k!='challenge_sha256'})
+        bad=respond(forged,add_claim=True)
+        with self.assertRaisesRegex(InvalidInput,'CHALLENGE_NOT_ENGINE_ISSUED'):
+            self.session.submit(forged,bad)
+        self.assertEqual(self.session.progress()['cue_reviewed'],0)
+
+    def test_20_default_challenge_compatible_and_mode_conflict_rejected(self):
+        from v176_chat_engine_loop import _digest
+        c=self.session.prepare(limit=3)
+        self.assertNotIn('review_phase',c)
+        self.session.submit(c,respond(c,add_claim=True))
+        full=self.session.prepare(source_first_only=True,limit=2)
+        forged=copy.deepcopy(full)
+        forged['review_phase']='E5_SKIP_ALL_VALIDATION'
+        forged['challenge_sha256']=_digest({k:v for k,v in forged.items()
+                                            if k!='challenge_sha256'})
+        with self.assertRaisesRegex(InvalidInput,'UNKNOWN_SOURCE_FIRST_MODE'):
+            self.session.submit(forged,respond(forged))
+        self.assertEqual(self.session.progress()['cue_reviewed'],3)
+
+    def test_21_engine_repair_existing_assertion_append_only_source_bound(self):
+        original=self.session.prepare(limit=3,source_first_only=True)
+        self.session.submit(original,respond(original,add_claim=True))
+        repair=self.session.prepare_atom_repair(2,context_radius=4)
+        self.assertEqual(repair['type'],'REPAIR_ATOM_SOURCE_CONTEXT')
+        t=repair['target_cues'][0]
+        claim=copy.deepcopy(t['original_claims'][0])
+        claim['context_cue_indices']=[1,2]
+        revised={'cue_index':2,'source_text_sha256':t['source_text_sha256'],
+            'disposition':'ASSERTION','speaker_role':'UNKNOWN','claims':[claim],
+            'analysis':'원본 첫 발화도 함께 참고하여 조건·시점 문맥을 넓혔으나 수익률 사실은 승인하지 않는다.',
+            'limitations_checked':True,
+            'prior_review_event_sha256':t['prior_review_event_sha256'],
+            'new_context_cue_indices':[1,2],
+            'change_reason':'해당 주장과 이어지는 전후의 원본 문맥을 재검토하고 근거 범위를 확대한다.'}
+        answer={'schema':REVISION,'challenge_sha256':repair['challenge_sha256'],
+                'review_executor':'CHATGPT_IN_CHAT','responses':[revised]}
+        self.session.submit_context_revisit(repair,answer)
+        src,receipt=self.session.compile_native_v6_stage()
+        self.assertEqual(len(src['atoms']),1)
+        self.assertEqual(src['atoms'][0]['context_cue_indices'],[1,2])
+        self.assertFalse(receipt['final_approval'])
+        with sqlite3.connect(self.db) as con:
+            orig=json.loads(con.execute('SELECT record FROM cue_reviews WHERE cue_index=2').fetchone()[0])
+            self.assertEqual(orig['claims'][0]['context_cue_indices'],[2])
+            self.assertEqual(con.execute('SELECT COUNT(*) FROM cue_revisions').fetchone()[0],1)
+        reopened=EngineChatSession(self.db,self.raw,'AbCdEf12345',
+             owner_source_sha256=sha256(self.raw),window_size=3,expected_window_count=2)
+        self.assertEqual(reopened.progress()['cue_reviewed'],3)
+        with self.assertRaisesRegex(InvalidInput,'ATOM_REPAIR_REQUIRES_UNREVISED_ASSERTION'):
+            reopened.prepare_atom_repair(2)
+
+    def test_22_atom_repair_invalid_numeric_and_quote_fail_closed(self):
+        c=self.session.prepare(limit=3,source_first_only=True)
+        self.session.submit(c,respond(c,add_claim=True))
+        repair=self.session.prepare_atom_repair(2,context_radius=4)
+        t=repair['target_cues'][0]
+        claim=copy.deepcopy(t['original_claims'][0])
+        claim['proposition']='원본에 없는 999% 수익을 확정한다고 주장한다.'
+        v={'cue_index':2,'source_text_sha256':t['source_text_sha256'],
+           'disposition':'ASSERTION','speaker_role':'UNKNOWN','claims':[claim],
+           'analysis':'원문에 없는 999% 숫자를 넣으면 차단되어야 하며 승인 근거가 될 수 없습니다.',
+           'limitations_checked':True,
+           'prior_review_event_sha256':t['prior_review_event_sha256'],
+           'new_context_cue_indices':[2,3],
+           'change_reason':'원문에 없는 수치가 섞인 주장은 서명된 기존 판단과 다르게 간주되어야 합니다.'}
+        response={'schema':REVISION,'challenge_sha256':repair['challenge_sha256'],
+                  'review_executor':'CHATGPT_IN_CHAT','responses':[v]}
+        with self.assertRaisesRegex(InvalidInput,'CONTEXT_CLAIM_QUOTE_OR_NUMBER_NOT_IN_SOURCE'):
+            self.session.submit_context_revisit(repair,response)
+        self.assertEqual(self.session.progress()['cue_reviewed'],3)
+        self.assertEqual(self.session.progress()['dispositions']['ASSERTION'],1)
+        with sqlite3.connect(self.db) as con:
+            self.assertEqual(con.execute('SELECT COUNT(*) FROM cue_revisions').fetchone()[0],0)
+
+    def test_23_atom_repair_nonassertion_cannot_be_issued(self):
+        c=self.session.prepare(limit=3)
+        self.session.submit(c,respond(c,add_claim=True))
+        with self.assertRaisesRegex(InvalidInput,'ATOM_REPAIR_REQUIRES_UNREVISED_ASSERTION'):
+            self.session.prepare_atom_repair(1)
+        with self.assertRaisesRegex(InvalidInput,'ATOM_REPAIR_REQUIRES_UNREVISED_ASSERTION'):
+            self.session.prepare_atom_repair(3)
+
     def test_01_frozen_v6_source_before_any_chat_and_real_review_exchange(self):
         p=self.session.progress()
         self.assertEqual(p['cue_total'],5)
