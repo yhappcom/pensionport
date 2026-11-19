@@ -32,3 +32,10 @@ Date: 2026-11-20 KST. Research status: **SOURCE_FIRST_HOLD / V123-E4=0 / E5=0**.
 ## Test/approval status
 - Synthetic fixture tests verify semantic loss detection, private restart consistency, and no-approval property. They do not constitute a ChatGPT-independent gold set or financial approval.
 - `main` and user data remain untouched; PR remains draft. E5 publication remains 0.
+
+## High-risk factual counterexamples found, still source-only HOLD
+
+- Cue 123 says the divergence-rate concept is not used in stocks and is exclusive to ETFs. The absolute ETF-only formulation is **not reliable for investor advice**: KRX describes the **ETN** market-price vs indicator-value divergence rate separately at https://www.krx.co.kr/contents/OPN/01/01030302/OPN01030302.jsp . The product-specific formulas are different; the source transcript must not be silently rewritten into another product definition. Keep original cue 123 **OPEN**, annotate `FACT_SCOPE_CONTRADICTION_RISK`, and defer to an independently verified current regulatory/issuer source and V123 ChatGPT review.
+- Cue 126 says all ETFs comprise multiple stocks. KRX ETF market resources expressly list underlying assets including bonds, commodities, currencies and mixed assets at https://data.krx.co.kr/contents/MDC/EASY/main/MDCEASY008.jsp and https://m.krx.co.kr/contents/06/060901/JHPETP060901M01.jsp . Do not treat a pedagogical stock-ETF example as a universal ETF definition. Keep original cue 126 **OPEN**, annotate `ETF_ASSET_CLASS_OVERGENERALIZATION_RISK`; no automatic financial truth approval.
+- Existing official HTML capture in V181 verified actual HTTPS response bytes for three KRX pages but not source-effective dates, legal applicability, or specific ETF prospectuses. The two additional KRX citations above were checked as public descriptions, not yet independently certified via stored raw response SHA in this branch.
+- Both findings are **evidence for continued review and correction**, not evidence that video audio/screen or effective legal rules were exhaustively verified.
