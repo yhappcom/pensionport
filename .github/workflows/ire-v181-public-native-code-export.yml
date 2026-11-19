@@ -1,4 +1,4 @@
-name: V181 export public native replay code only
+name: V187 export public E3 replay and source provenance code only
 on:
   push:
     branches:
@@ -21,7 +21,7 @@ jobs:
             cp "$p" "export/$p"
           done
           if test -f ire/__init__.py; then cp ire/__init__.py export/ire/__init__.py; fi
-          for f in v176_chat_engine_loop.py v176_chat_engine_cli.py v177_private_turn_checkpoint.py v178_coldstart_chat_packet_bridge.py; do
+          for f in v176_chat_engine_loop.py v176_chat_engine_cli.py v177_private_turn_checkpoint.py v178_coldstart_chat_packet_bridge.py v183_e3_two_turn_audit.py v183_e3_two_turn_cli.py v184_e3_adjudication.py v184_e3_adjudication_cli.py v185_e3_parent_qualifier_audit.py v185_e3_parent_qualifier_cli.py v186_e3_qualifier_provenance.py v186_e3_qualifier_cli.py v187_e3_parent_scope_bridge.py v187_e3_parent_scope_cli.py; do
             cp "validation/ire-v6-frozen/$f" "export/validation/ire-v6-frozen/$f"
           done
           if find export -type f \( -iname '*.srt' -o -iname '*.sqlite' -o -iname '*.zip' -o -iname '*.db' \) | grep .; then exit 1; fi
@@ -29,7 +29,7 @@ jobs:
           test -s export/validation/ire-v6-frozen/v176_chat_engine_loop.py
       - uses: actions/upload-artifact@v4
         with:
-          name: v181-public-native-code-only
+          name: v187-public-e3-code-only
           path: export/
           retention-days: 1
           if-no-files-found: error

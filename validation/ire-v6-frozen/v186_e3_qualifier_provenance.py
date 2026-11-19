@@ -10,7 +10,7 @@ import json
 import os
 import sqlite3
 import stat
-from contextlib import contextmanager
+from contextlib import contextmanager, closing
 from pathlib import Path
 
 from ire.v6.codec import sha256
@@ -98,7 +98,7 @@ class E3QualifierProvenance:
         _need(self.engine.progress()['checkpoint_head_sha256']==self.expected_owner_head
               and self.engine.progress()['source_first_review_complete'],
               'OWNER_JOURNAL_CHANGED_OR_INCOMPLETE')
-        with self.engine._connect() as con:
+        with closing(self.engine._connect()) as con:
             head,rows=self.engine._audit(con)
         _need(head==self.expected_owner_head,'OWNER_EVENT_CHAIN_MISMATCH')
         entries={}

@@ -826,7 +826,7 @@ class EngineChatSession:
         finally:
             con.close()
 
-    def compile_native_v6_stage(self, *, qualifier_provenance=None):
+    def compile_native_v6_stage(self, *, qualifier_provenance=None, cross_cue_scope_bridge=None):
         """Replay the ORIGINAL frozen V6 audit over active-chat decisions.
 
         Unreviewed cues stay UNRESOLVED and no item is accepted by V123/E4.
@@ -847,6 +847,33 @@ class EngineChatSession:
             verified_preview=qualifier_provenance.projected_source_anchors()
             qualified=verified_preview['by_claim']
             provenance_status=verified_preview['status']
+        # A V187 cross-cue parent condition is admissible only after an
+        # independent, source-quoted, append-only E3 *provisional* attestation.
+        # The original V176 and V186 judgments remain immutable and unapproved.
+        scope_status=None
+        inherited_scope_terms=0
+        if cross_cue_scope_bridge is not None:
+            _need(qualifier_provenance is not None and
+                  cross_cue_scope_bridge.engine is self and
+                  cross_cue_scope_bridge.qualifier_provenance is qualifier_provenance and
+                  cross_cue_scope_bridge.expected_owner_head==head and
+                  cross_cue_scope_bridge.expected_qualifier_head==
+                     provenance_status['journal_head_sha256'],
+                  "CROSS_CUE_SCOPE_BRIDGE_NOT_PINNED_TO_E3_ORIGINAL")
+            verified_scopes=cross_cue_scope_bridge.projected_source_anchors()
+            scope_status=cross_cue_scope_bridge.status()
+            for key,link in verified_scopes.items():
+                _need(key in qualified and
+                      qualified[key].get('source_explicit_condition_terms',0)==0 and
+                      qualified[key]['unmapped_terms']>=link['inherited_explicit_terms'],
+                      "SCOPE_CLAIM_NOT_UNRESOLVED_OR_DOUBLE_MAPPED")
+                q={**qualified[key]}
+                q['conditions']=sorted(set(q.get('conditions',[])+link['conditions']))
+                q['source_explicit_terms']+=link['inherited_explicit_terms']
+                q['source_explicit_condition_terms']+=link['inherited_explicit_terms']
+                q['unmapped_terms']-=link['inherited_explicit_terms']
+                qualified[key]=q
+                inherited_scope_terms+=link['inherited_explicit_terms']
         cue_rows=[]
         atoms=[]
         unsafely_typed=[]
@@ -885,10 +912,14 @@ class EngineChatSession:
                     for claim_ordinal,claim in enumerate(record["claims"],1):
                         cid=f"C{next_id:05d}";next_id+=1
                         ids.append(cid)
-                        context=claim["context_cue_indices"]
                         q=qualified.get((idx,claim_ordinal),{})
                         condition_anchors=q.get('conditions',[])
                         exception_anchors=q.get('exceptions',[])
+                        # A parent example's verified scope cue must be in
+                        # the atom's context as well as its condition index.
+                        # Never inject parent scope without V187 attestation.
+                        context=sorted(set(claim["context_cue_indices"]+
+                                           condition_anchors+exception_anchors))
                         qualified_source_terms+=q.get('source_explicit_terms',0)
                         excluded_reviewer_terms+=q.get('reviewer_added_terms',0)
                         source_context_terms+=q.get('source_context_terms',0)
@@ -962,8 +993,22 @@ class EngineChatSession:
                          "reviewer_added_excluded_terms":excluded_reviewer_terms,
                          "source_context_not_source_condition_terms":source_context_terms,
                          "source_spoken_qualifier_verification_is_chat_only":True,
+                         "origin_counts":None if provenance_status is None
+                            else provenance_status['reviewed_origin_counts'],
+                         "fully_reviewed_terms":False if provenance_status is None
+                            else provenance_status['fully_covered'],
+                         "excluded_terms_are_not_missing_source_conditions":True,
+                         "source_explicit_without_anchor_terms":0 if provenance_status is not None
+                            else None,
                          "e3_quality_certified":False,
                          "v123_e4_approval_permitted":False},
+                     "v187_source_parent_scope_bridge":{
+                         "used_audited_source_parent_scope":scope_status is not None,
+                         "scope_journal_head_sha256":None if scope_status is None
+                            else scope_status['journal_head_sha256'],
+                         "inherited_source_explicit_condition_terms":inherited_scope_terms,
+                         "scope_review_is_in_chat_not_independent_gold":True,
+                         "e3_certified":False,"v123_e4_approval_permitted":False},
                      "unresolved_stance_atoms":sum(x["stance"]=="UNRESOLVED" for x in atoms),
                      "unknown_speaker_atoms":sum(x["speaker"]=="UNKNOWN" for x in atoms),
                      # Only indexes and hashes leave the private journal; no
