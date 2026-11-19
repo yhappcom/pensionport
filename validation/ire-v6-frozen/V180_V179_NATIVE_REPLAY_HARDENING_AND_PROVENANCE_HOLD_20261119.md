@@ -1,6 +1,6 @@
 # V180 — V179 원본 실증과 V176 네이티브 재생 코드의 증빙 분리
 검토일: 2026-11-19 KST. 대상: `LVE7XN_esTc`, 소유자 원본 SHA-256 `e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b`.
-상태: **CODE_PATCH_PROPOSED / CI_PENDING / PRIVATE_NATIVE_PROOF_NOT_RECONCILED / V123-E4 HOLD / E5=0**.
+상태: **CODE_PATCH_APPLIED / SYNTHETIC_CI_69_OF_69_PASS / PRIVATE_NATIVE_PROOF_NOT_RECONCILED / V123-E4 HOLD / E5=0**.
 
 ## 확인된 GitHub 근거
 - PR #71의 현재 공개 보고서는 250개 원본 자막 1차 의미검토, 62개 예비 원자, 두 턴 14개 별도 SQLite 이벤트, 12개의 최초 분류 보류를 주장하며, 실제 V176 `prepare → submit`은 NOT_RUN이라고 명시한다.
@@ -20,3 +20,10 @@
 - 금융 원문 바이트·효력 시점·적용 범위 원천증빙 후 V123/E4 승인 관문 검증. 모든 필수 구간 PASS 전에 E5 발행 금지.
 
 **금지:** V176 합성 CI를 실물 의미 검토의 정밀도/재현율 또는 금융규정 승인으로 표시하지 않는다. `main`, 동결 V123/V126/V128 및 사용자의 비공개 원본은 변경하지 않는다.
+
+## 실제 GitHub Actions 검증
+- 수정 검증 HEAD `23465918bf0b34d38a834aa61101c90628ebd208` 기준, Push/PR 워크플로 각각 `completed/success`.
+- Python 3.11.18: 신규 V179 15/15, 기존 V176~V178 54/54, 총 **69/69 테스트 PASS**.
+- Push: https://github.com/yhappcom/pensionport/actions/runs/44519931783
+- PR: https://github.com/yhappcom/pensionport/actions/runs/44519942336
+- 실물 250자막 비공개 SRT/판정 DB는 CI에 투입하지 않았다. 따라서 실물 V176 재생의 독립 재실행 PASS와는 구분한다.
