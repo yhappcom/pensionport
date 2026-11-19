@@ -35,9 +35,4 @@ jobs:
           if-no-files-found: error
           retention-days: 1
           path: |
-            ire/v6/__init__.py
-            ire/v6/atomic_exchange.py
-            ire/v6/source.py
-            ire/v6/codec.py
-            ire/v6/errors.py
-            ire/v6/claim_census.py
+            ire/v6/*.py
