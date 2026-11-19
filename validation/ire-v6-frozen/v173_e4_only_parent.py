@@ -65,7 +65,7 @@ def run_e4_only_parent(checkpoint, *, review_or_load_child,
           'EXTERNALLY_PINNED_OWNER_SOURCE_REQUIRED')
     checkpoint.progress()  # Ensure original checkpoints are internally valid.
     before_head=checkpoint.progress()['checkpoint_head_sha256']
-    scoped=[]; supplied={}; e4_digests=[]
+    scoped=[]; supplied={}; e4_digests=[]; child_input_pins={}
     for sid, manifest in zip(ids,manifests):
         status='E4_CHILD_VERIFIER_ERROR'; reason='UNKNOWN'; native=None
         digest=None
@@ -90,6 +90,13 @@ def run_e4_only_parent(checkpoint, *, review_or_load_child,
             native=assessment.get('native_chat_decision')
             if status=='E4_PASS_RESEARCH_CANDIDATES_ONLY':
                 digest=json_digest(assessment)
+                child_input_pins[sid]={
+                    'exchange_sha':json_digest(case['exchange']),
+                    'review_sha':json_digest(case['chat_review']),
+                    'host_event_sha':case['host_receipt']['event_sha256'],
+                    'official_bytes_sha':{k:sha256(v) for k,v in
+                        case['official_evidence_bodies'].items()},
+                }
                 supplied[sid]=packet
         except Exception as exc:
             # The only recorded exception datum is its type, never private
@@ -133,6 +140,15 @@ def run_e4_only_parent(checkpoint, *, review_or_load_child,
     try:
         for sid in ids:
             packet=supplied[sid]
+            case=packet['case']
+            original=child_input_pins[sid]
+            _need(original=={
+                'exchange_sha':json_digest(case['exchange']),
+                'review_sha':json_digest(case['chat_review']),
+                'host_event_sha':case['host_receipt']['event_sha256'],
+                'official_bytes_sha':{k:sha256(v) for k,v in
+                    case['official_evidence_bodies'].items()},
+            }, 'CHILD_INPUT_CHANGED_AFTER_PRIMARY_E4_PASS')
             cp=checkpoint.progress()
             checkpoint.record(sid,packet['case'],
                 expected_checkpoint_head=cp['checkpoint_head_sha256'],
@@ -170,7 +186,8 @@ def run_e4_only_parent(checkpoint, *, review_or_load_child,
     return {**result,'e4_result_sha256':json_digest(result)}
 
 
-def seal_e4_only(e4_result, *, owner_signing_key, independent_owner_source_sha256):
+def seal_e4_only(e4_result, *, owner_signing_key, independent_owner_source_sha256,
+                 independently_pinned_child_count, independent_parent_manifest_sha256):
     """Explicit stand-alone owner authorization; never opens a V126 store.
 
     Keep the HMAC signing key OUTSIDE the source bundle, Git repo and SQLite.
@@ -196,8 +213,16 @@ def seal_e4_only(e4_result, *, owner_signing_key, independent_owner_source_sha25
     _need(type(independent_owner_source_sha256) is str and
           independent_owner_source_sha256 == e4_result['owner_source_sha256'],
           'EXTERNAL_SOURCE_PIN_MISMATCH')
+    _need(type(independently_pinned_child_count) is int and
+          independently_pinned_child_count == e4_result['child_count'],
+          'INDEPENDENT_FULL_VIDEO_SCOPE_COUNT_MISMATCH')
+    _need(type(independent_parent_manifest_sha256) is str and
+          independent_parent_manifest_sha256 == e4_result['owner_manifest_sha256'],
+          'INDEPENDENT_PARENT_MANIFEST_MISMATCH')
     data={'schema':SEAL_SCHEMA,'e4_result_sha256':e4_result['e4_result_sha256'],
           'owner_source_sha256':independent_owner_source_sha256,
+          'child_count':independently_pinned_child_count,
+          'parent_manifest_sha256':independent_parent_manifest_sha256,
           'all_children_and_parent_verified':True,
           'e5_authorized':False,'knowledge_published':False,
           'personal_advice_approved':False}
@@ -208,7 +233,8 @@ def seal_e4_only(e4_result, *, owner_signing_key, independent_owner_source_sha25
             'e5_publication_called':False,'e5_authorized':False}
 
 
-def verify_e4_only_seal(certified, *, owner_signing_key, externally_pinned_certificate_sha256):
+def verify_e4_only_seal(certified, *, owner_signing_key, externally_pinned_certificate_sha256,
+                        independently_pinned_child_count, independent_parent_manifest_sha256):
     _need(type(certified) is dict and set(certified)=={'payload','signature'}
           and type(certified['payload']) is dict and
           certified['payload'].get('schema')==SEAL_SCHEMA and
@@ -218,6 +244,12 @@ def verify_e4_only_seal(certified, *, owner_signing_key, externally_pinned_certi
           'EXTERNAL_OWNER_SIGNING_KEY_REQUIRED')
     _need(sha256(canonical(certified))==externally_pinned_certificate_sha256,
           'EXTERNAL_OWNER_PIN_MISMATCH')
+    _need(type(independently_pinned_child_count) is int and
+          certified['payload'].get('child_count')==independently_pinned_child_count,
+          'EXTERNAL_WHOLE_VIDEO_CHILD_COUNT_MISMATCH')
+    _need(type(independent_parent_manifest_sha256) is str and
+          certified['payload'].get('parent_manifest_sha256')==independent_parent_manifest_sha256,
+          'EXTERNAL_PARENT_MANIFEST_MISMATCH')
     mac=hmac.new(owner_signing_key,canonical(certified['payload']),hashlib.sha256).hexdigest()
     _need(hmac.compare_digest(mac,certified['signature']),
           'EXTERNAL_OWNER_MAC_INVALID')
