@@ -61,9 +61,13 @@ class E4OnlyNativeVideoTests(unittest.TestCase):
         self.assertFalse(r['e4_externally_certified'])
         self.assertFalse(r['e5_publication_called'])
         p=seal_e4_only(r,owner_signing_key=TEST_SECRET,
-                       independent_owner_source_sha256=r['owner_source_sha256'])
+                       independent_owner_source_sha256=r['owner_source_sha256'],
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
         status=verify_e4_only_seal(p['certificate'],owner_signing_key=TEST_SECRET,
-                       externally_pinned_certificate_sha256=p['external_owner_pin_sha256'])
+                       externally_pinned_certificate_sha256=p['external_owner_pin_sha256'],
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
         self.assertEqual(status['status'],'E4_CERTIFIED_ONLY_NO_E5')
         self.assertFalse(status['e5_authorized'])
         self.assertEqual(self.counts().get('knowledge',0),0)
@@ -78,7 +82,9 @@ class E4OnlyNativeVideoTests(unittest.TestCase):
         self.assertEqual(self.counts().get('knowledge',0),0)
         with self.assertRaises(InvalidInput):
             seal_e4_only(r,owner_signing_key=TEST_SECRET,
-                independent_owner_source_sha256=r['owner_source_sha256'])
+                independent_owner_source_sha256=r['owner_source_sha256'],
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
 
     def test_03_last_child_missing_primary_blocks_but_examines_both(self):
         del self.owner.manifests[self.fx.checkpoint.child_ids[-1]]
@@ -127,24 +133,56 @@ class E4OnlyNativeVideoTests(unittest.TestCase):
         r['child_reviews'][0]['e4_status']='E4_HOLD_INELIGIBLE_APPROVAL'
         with self.assertRaisesRegex(InvalidInput,'ONLY_UNALTERED_PARENT_APPROVED_E4_ELIGIBLE'):
             seal_e4_only(r,owner_signing_key=TEST_SECRET,
-                independent_owner_source_sha256=r['owner_source_sha256'])
+                independent_owner_source_sha256=r['owner_source_sha256'],
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
 
     def test_11_wrong_key_pin_or_original_source_blocks_certificate(self):
         r=self.engine()
         with self.assertRaises(InvalidInput):
             seal_e4_only(r,owner_signing_key=b'short',
-                independent_owner_source_sha256=r['owner_source_sha256'])
+                independent_owner_source_sha256=r['owner_source_sha256'],
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
         with self.assertRaises(InvalidInput):
             seal_e4_only(r,owner_signing_key=TEST_SECRET,
                 independent_owner_source_sha256='a'*64)
         p=seal_e4_only(r,owner_signing_key=TEST_SECRET,
-                independent_owner_source_sha256=r['owner_source_sha256'])
+                independent_owner_source_sha256=r['owner_source_sha256'],
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
         with self.assertRaises(InvalidInput):
             verify_e4_only_seal(p['certificate'],owner_signing_key=b'z'*32,
-                externally_pinned_certificate_sha256=p['external_owner_pin_sha256'])
+                externally_pinned_certificate_sha256=p['external_owner_pin_sha256'],
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
         with self.assertRaises(InvalidInput):
             verify_e4_only_seal(p['certificate'],owner_signing_key=TEST_SECRET,
-                externally_pinned_certificate_sha256='a'*64)
+                externally_pinned_certificate_sha256='a'*64,
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
+
+    def test_13_cannot_sign_partial_scope_or_wrong_parent_manifest(self):
+        r=self.engine()
+        with self.assertRaisesRegex(InvalidInput,'INDEPENDENT_FULL_VIDEO_SCOPE_COUNT_MISMATCH'):
+            seal_e4_only(r,owner_signing_key=TEST_SECRET,
+                independent_owner_source_sha256=r['owner_source_sha256'],
+                independently_pinned_child_count=13,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
+        with self.assertRaisesRegex(InvalidInput,'INDEPENDENT_PARENT_MANIFEST_MISMATCH'):
+            seal_e4_only(r,owner_signing_key=TEST_SECRET,
+                independent_owner_source_sha256=r['owner_source_sha256'],
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256='0'*64)
+        cert=seal_e4_only(r,owner_signing_key=TEST_SECRET,
+                independent_owner_source_sha256=r['owner_source_sha256'],
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
+        with self.assertRaisesRegex(InvalidInput,'EXTERNAL_WHOLE_VIDEO_CHILD_COUNT_MISMATCH'):
+            verify_e4_only_seal(cert['certificate'],owner_signing_key=TEST_SECRET,
+                externally_pinned_certificate_sha256=cert['external_owner_pin_sha256'],
+                independently_pinned_child_count=13,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
 
     def test_12_thirteen_scope_control_plane_finishes_after_first_hold(self):
         # Control-plane isolation; the two-scope cases above exercise native E4.
