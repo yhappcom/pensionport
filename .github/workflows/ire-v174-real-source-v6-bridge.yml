@@ -38,6 +38,8 @@ jobs:
           retention-days: 1
           path: |
             ire/v6/*.py
+            validation/ire-v6-frozen/v143_source_pinned_quarantine.py
+            validation/ire-v6-frozen/v146_source_meaning_provenance.py
             validation/ire-v6-frozen/v123_chat_final_gate.py
             validation/ire-v6-frozen/test_v123_chat_final_gate.py
             data/claims.jsonl
