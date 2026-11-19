@@ -1,0 +1,39 @@
+name: V179 public native V176 code bundle for offline owner-original replay
+on:
+  push:
+    branches:
+      - verify/ire-v6-v179-owner-two-turn-native-replay-20261119
+  pull_request:
+    branches:
+      - verify/ire-v6-v178-source-only-coldstart-20261119
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pack-public-engine-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate public code paths and exclude private data
+        run: |
+          test -f validation/ire-v6-frozen/v176_chat_engine_loop.py
+          test -f validation/ire-v6-frozen/v178_coldstart_chat_packet_bridge.py
+          test -f ire/v6/source.py
+          mkdir -p public-native-replay/validation/ire-v6-frozen public-native-replay/ire
+          find ire/v6 -type f -name "*.py" | while read -r f; do
+            mkdir -p "public-native-replay/$(dirname "$f")"
+            cp "$f" "public-native-replay/$f"
+          done
+          cp validation/ire-v6-frozen/v176_chat_engine_loop.py public-native-replay/validation/ire-v6-frozen/
+          cp validation/ire-v6-frozen/v176_chat_engine_cli.py public-native-replay/validation/ire-v6-frozen/
+          cp validation/ire-v6-frozen/v177_private_turn_checkpoint.py public-native-replay/validation/ire-v6-frozen/
+          cp validation/ire-v6-frozen/v178_coldstart_chat_packet_bridge.py public-native-replay/validation/ire-v6-frozen/
+          find public-native-replay -type f \( -name '*PRIVATE*' -o -name '*.srt' -o -name '*.sqlite' \) | grep . && exit 1 || true
+          find public-native-replay -type f | sort | head -30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v179-public-native-v176-python-modules-only
+          path: public-native-replay/
+          retention-days: 1
+          if-no-files-found: error
