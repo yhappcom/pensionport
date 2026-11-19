@@ -841,6 +841,10 @@ class EngineChatSession:
         cue_rows=[]
         atoms=[]
         unsafely_typed=[]
+        # V182: frozen V6 has cue-indexed qualifiers, whereas a V176
+        # decision records free-text conditions and exceptions. Never
+        # silently imply those conditions were semantically preserved.
+        unprojected_constraints=[]
         next_id=1
         for cue in self.source.cues:
             idx=cue.index
@@ -870,6 +874,14 @@ class EngineChatSession:
                         cid=f"C{next_id:05d}";next_id+=1
                         ids.append(cid)
                         context=claim["context_cue_indices"]
+                        if claim["conditions"] or claim["exceptions"]:
+                            unprojected_constraints.append({
+                                "claim_id":cid,"cue_index":idx,
+                                "condition_terms":len(claim["conditions"]),
+                                "exception_terms":len(claim["exceptions"]),
+                                "source_meaning_digest_sha256":_digest({
+                                    "conditions":claim["conditions"],
+                                    "exceptions":claim["exceptions"]})})
                         number_refs=[]
                         for j in context:
                             for tok in NUMBER.findall(self.source.cues[j-1].text):
@@ -901,6 +913,21 @@ class EngineChatSession:
                  "native_v6_audit":audit,
                  "pending_original_cues":audit["unresolved_cues"],
                  "unsupported_claim_cues":unsafely_typed,
+                 "semantic_projection_gate":{
+                     "schema":"IRE_V182_NATIVE_SEMANTIC_CONSTRAINT_LOSS_GATE_V1",
+                     "status":"HOLD_UNMAPPED_SOURCE_QUALIFIERS_AND_UNRESOLVED_STANCE_ROLE",
+                     "staged_atoms":len(atoms),
+                     "unprojected_claims":len(unprojected_constraints),
+                     "unprojected_condition_terms":sum(x["condition_terms"] for x in unprojected_constraints),
+                     "unprojected_exception_terms":sum(x["exception_terms"] for x in unprojected_constraints),
+                     "unresolved_stance_atoms":sum(x["stance"]=="UNRESOLVED" for x in atoms),
+                     "unknown_speaker_atoms":sum(x["speaker"]=="UNKNOWN" for x in atoms),
+                     # No private sentence, SRT, or free-text review leaves
+                     # the owner journal in this hash-only diagnostics frame.
+                     "repair_candidates":unprojected_constraints,
+                     "source_meaning_still_stored_in_private_journal":True,
+                     "full_semantic_projection_verified":False,
+                     "v123_e4_approval_permitted":False},
                  "v123_invoked":False,"e4_invoked":False,"e5_invoked":False,
                  "final_approval":False}
         return exchange, summary

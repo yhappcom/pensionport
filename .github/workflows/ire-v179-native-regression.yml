@@ -27,4 +27,5 @@ jobs:
         run: |
           python -m compileall -q v176_chat_engine_loop.py v176_chat_engine_cli.py v178_coldstart_chat_packet_bridge.py
           python -m unittest -v test_v179_noatom_risk_revisit test_v179_provisional_claim_projection
+          python -m unittest -v test_v182_native_semantic_projection_gate
           python -m unittest -v test_v178_coldstart_chat_packet_bridge test_v177_private_turn_checkpoint test_v176_chat_engine_loop
