@@ -51,6 +51,12 @@ def main(argv=None):
     meaning.add_argument('--out')
     submit=sub.add_parser('commit');submit.add_argument('--challenge',required=True)
     submit.add_argument('--answer',required=True)
+    over=sub.add_parser('revisit-overextract');over.add_argument('--cue',type=int,required=True)
+    over.add_argument('--quote',required=True);over.add_argument('--reason',required=True)
+    over.add_argument('--radius',type=int,default=10);over.add_argument('--out')
+    gap=sub.add_parser('repair-semantic-gap');gap.add_argument('--cue',type=int,required=True)
+    gap.add_argument('--quote',required=True);gap.add_argument('--reason',required=True)
+    gap.add_argument('--radius',type=int,default=10);gap.add_argument('--out')
     risk=sub.add_parser('repair-noatom');risk.add_argument('--cue',type=int,required=True)
     risk.add_argument('--radius',type=int,default=10);risk.add_argument('--out')
     repair=sub.add_parser('repair-atom');repair.add_argument('--cue',type=int,required=True)
@@ -94,13 +100,23 @@ def main(argv=None):
     elif args.action=='repair-atom':
         result=engine.prepare_atom_repair(args.cue,context_radius=args.radius)
         if args.out:_private_json(args.out,result)
+    elif args.action=='revisit-overextract':
+        result=engine.prepare_overextracted_atom_revisit(
+            args.cue,source_quote=args.quote,removal_rationale=args.reason,
+            context_radius=args.radius)
+        if args.out:_private_json(args.out,result)
+    elif args.action=='repair-semantic-gap':
+        result=engine.prepare_nonresearch_semantic_gap_revisit(
+            args.cue,source_quote=args.quote,gap_hypothesis=args.reason,
+            context_radius=args.radius)
+        if args.out:_private_json(args.out,result)
     elif args.action=='repair-noatom':
         result=engine.prepare_nonresearch_risk_revisit(args.cue,context_radius=args.radius)
         if args.out:_private_json(args.out,result)
     elif args.action=='commit':
         task=json.loads(Path(args.challenge).read_text(encoding='utf8'))
         answer=json.loads(Path(args.answer).read_text(encoding='utf8'))
-        if task.get('type') in ('RESOLVE_CONTEXT_CUES','REPAIR_ATOM_SOURCE_CONTEXT','REVISIT_NONRESEARCH_ATOM_RISK'):
+        if task.get('type') in ('RESOLVE_CONTEXT_CUES','REPAIR_ATOM_SOURCE_CONTEXT','REVISIT_NONRESEARCH_ATOM_RISK','REVISIT_NONRESEARCH_SEMANTIC_GAP','REVISIT_OVEREXTRACTED_ATOM'):
             result=engine.submit_context_revisit(task,answer)
         elif task.get('type')=='SEARCH_ORIGINAL_PRIMARY_EVIDENCE':
             result=engine.submit_evidence_proposals(task,answer)
