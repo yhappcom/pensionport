@@ -38,6 +38,8 @@ jobs:
           retention-days: 1
           path: |
             ire/v6/*.py
+            validation/ire-v6-frozen/v123_chat_final_gate.py
+            validation/ire-v6-frozen/test_v123_chat_final_gate.py
             data/claims.jsonl
             ire/v5/advisory_knowledge/p4_integrated_scoped_education22_20261106.json
             ire/v5/advisory_knowledge/p4_p3_incremental_education29_20261106.json
