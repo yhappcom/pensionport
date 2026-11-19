@@ -38,3 +38,8 @@
 - Private V187 ZIP SHA-256: `c5c5eff4459b8ca2e4ecfa4f8c1433bca5a43e2a1d2baab34d9ce680d83b867a`. Private manifest SHA-256: `15e29ceaf5afd19a5fb7db57e05f71ac5ee8a7bc7396f0184ae3484731fcd463`. **Never upload this unencrypted owner package to a public repository or CI**.
 - E3 **HOLD**: 158/250 original captions still lack separate second-pass review; 17 effective OPEN, parent assertion boundary disagreement and 69 unresolved speaker/stance flags remain; independent fixed answer-set precision>=95%, recall>=98%, high-risk omissions 0 **not measured**. A full 138/138 provenance census is **not** E3 final acceptance.
 - V123/E4 **not invoked**, E5 publication **zero**, `main` unchanged. Continue E3 second-pass, source-attributed parent boundaries and independent gold before any E4 test.
+## GitHub validation results (verified at V187 implementation commit)
+- Public synthetic CI **132/132 PASS**, split 18 + 3 + 12 + 9 + 12 + 12 + 12 + 54: https://github.com/yhappcom/pensionport/actions/runs/44635533674 .
+- The expanded public E3 code-only export workflow succeeded: https://github.com/yhappcom/pensionport/actions/runs/44635533638 . It exports only repository-tracked Python code, **not** any owner SRT or private SQLite/ChatGPT adjudications.
+- Local V187 replay check and re-extract proof: 40 member hashes and 5 SQLite databases PASS; 250 first-review cue records, 69 provisional atoms, 138/138 term origins, 5 explicit hypothetical links, E3/E4/E5 gates all still HOLD.
+- This is a **software and owner-source provenance execution claim**, not proof of a 95%/98% gold-set accuracy threshold.
