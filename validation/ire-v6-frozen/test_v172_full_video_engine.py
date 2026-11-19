@@ -1,4 +1,4 @@
-"""V172 engine-path regression: all children audited before any publication.
+"""V172 E4-only preflight regression: no E5 even with all children approved.
 
 All video cues, ChatGPT replies and official HTTPS bodies here are SYNTHETIC.
 The V123, E4, sealed SQLite and V128 parent code under test are REAL.
@@ -61,22 +61,21 @@ class V172FullVideoEngineTests(unittest.TestCase):
                    return_value=BODY):
             return run_exhaustive_full_video(**kwargs)
 
-    def test_01_two_children_full_native_e4_parent_atomic_success(self):
+    def test_01_two_children_e4_preflight_does_not_publish(self):
         r = self.run_engine()
-        self.assertEqual(r["status"], "E4_SEALED_PARENT_PUBLISHED_RESEARCH_ONLY")
+        self.assertEqual(r["status"], "E4_PREFLIGHT_PASS_REQUIRES_STANDALONE_PARENT_AND_OWNER_SEAL")
         self.assertEqual(self.issued, list(self.fx.checkpoint.child_ids))
-        self.assertEqual(r["owner_video_scope_count"], 2)
         self.assertEqual(r["child_scopes_examined"], 2)
         self.assertEqual(r["blocked_scope_count"], 0)
-        self.assertTrue(r["official_parent_invoked"])
-        self.assertTrue(r["all_video_knowledge_published"])
-        self.assertEqual(self.fx._counts(),
-                         {"events": 3, "knowledge": 3, "parent_publications": 1})
-        self.assertTrue(self.fx.knowledge.verify_e4_certificate(
-            externally_pinned_seal_sha256=r["e4_owner_pin_sha256"])[
-                "all_original_sqlite_rows_unchanged"])
-        self.assertEqual(self.parent_review_count, 1)
-        self.assertEqual(self.seam_count, 1)
+        self.assertFalse(r["official_parent_invoked"])
+        self.assertFalse(r["all_video_knowledge_published"])
+        self.assertFalse(r["e5_authorized"])
+        self.assertFalse(r["e4_final_approved"])
+        self.assertEqual(self.fx._counts().get("knowledge", 0), 0)
+        self.assertEqual(self.fx._counts().get("parent_publications", 0), 0)
+        self.assertEqual(self.fx.checkpoint.progress()["passed_child_scopes"], 0)
+        self.assertEqual(self.parent_review_count, 0)
+        self.assertEqual(self.seam_count, 0)
         self.assertFalse(r["chatgpt_automatically_invoked_by_python"])
 
     def test_02_first_child_primary_missing_does_not_skip_second(self):
@@ -138,19 +137,19 @@ class V172FullVideoEngineTests(unittest.TestCase):
             self.run_engine(review_or_load_child=None)
         self.assertEqual(self.issued, [])
 
-    def test_09_missing_parent_review_never_certifies_publication(self):
+    def test_09_preflight_cannot_call_parent_even_if_review_missing(self):
         r = self.run_engine(review_parent=lambda *args: None)
-        self.assertEqual(r["child_scopes_examined"], 2)
-        self.assertTrue(r["official_parent_invoked"])
-        self.assertEqual(r["status"], "PARENT_REPLAY_FAILED_NO_CERTIFIED_RELEASE")
+        self.assertEqual(r["status"], "E4_PREFLIGHT_PASS_REQUIRES_STANDALONE_PARENT_AND_OWNER_SEAL")
+        self.assertFalse(r["official_parent_invoked"])
         self.assertFalse(r["all_video_knowledge_published"])
-        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+        self.assertEqual(self.fx._counts().get("knowledge", 0), 0)
 
-    def test_10_missing_cross_segment_chat_review_no_publication(self):
+    def test_10_preflight_cannot_auto_call_seam_review(self):
         r = self.run_engine(review_seams=lambda *args: [])
-        self.assertEqual(len(self.issued), 2)
+        self.assertFalse(r["e4_final_approved"])
         self.assertFalse(r["all_video_knowledge_published"])
-        self.assertEqual(self.fx._counts().get("knowledge",0),0)
+        self.assertEqual(self.seam_count, 0)
+        self.assertEqual(self.fx._counts().get("knowledge", 0), 0)
 
     def test_11_callback_exception_on_first_child_does_not_hide_second(self):
         def bad(sid, manifest, stage, raw):
@@ -199,15 +198,16 @@ class V172FullVideoEngineTests(unittest.TestCase):
         self.assertEqual(self.fx._counts().get("knowledge",0),0)
         self.assertFalse(result["all_video_knowledge_published"])
 
-    def test_12_full_e4_pins_work_without_a_new_model_invocation(self):
+    def test_12_e4_preflight_never_generates_e5_owner_pin(self):
         r = self.run_engine()
         self.assertEqual(len(self.issued), 2)
-        self.assertEqual(self.parent_review_count, 1)
-        self.assertEqual(self.seam_count, 1)
-        self.assertTrue(r["e4_owner_pin_sha256"])
+        self.assertEqual(self.parent_review_count, 0)
+        self.assertEqual(self.seam_count, 0)
+        self.assertFalse(r["e4_final_approved"])
+        self.assertFalse(r["e5_authorized"])
+        self.assertFalse(r["all_video_knowledge_published"])
         self.assertFalse(r["personal_advice_approved"])
         self.assertFalse(r["p0_go"])
-
 
 if __name__ == "__main__":
     unittest.main()
