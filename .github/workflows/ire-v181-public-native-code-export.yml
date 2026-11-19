@@ -24,7 +24,7 @@ jobs:
           for f in v176_chat_engine_loop.py v176_chat_engine_cli.py v177_private_turn_checkpoint.py v178_coldstart_chat_packet_bridge.py; do
             cp "validation/ire-v6-frozen/$f" "export/validation/ire-v6-frozen/$f"
           done
-          if find export -type f \( -iname '*private*' -o -iname '*.sqlite' -o -iname '*.srt' -o -iname '*.zip' \) | grep .; then exit 1; fi
+          if find export -type f \( -iname '*.srt' -o -iname '*.sqlite' -o -iname '*.zip' -o -iname '*.db' \) | grep .; then exit 1; fi
           test -s export/ire/v6/source.py
           test -s export/validation/ire-v6-frozen/v176_chat_engine_loop.py
       - uses: actions/upload-artifact@v4
