@@ -42,8 +42,14 @@ def main(argv=None):
     next_=sub.add_parser('next');next_.add_argument('--limit',type=int,default=8)
     next_.add_argument('--radius',type=int,default=3)
     next_.add_argument('--out')
+    meaning=sub.add_parser('next-meaning');meaning.add_argument('--limit',type=int,default=20)
+    meaning.add_argument('--radius',type=int,default=5)
+    meaning.add_argument('--out')
     submit=sub.add_parser('commit');submit.add_argument('--challenge',required=True)
     submit.add_argument('--answer',required=True)
+    repair=sub.add_parser('repair-atom');repair.add_argument('--cue',type=int,required=True)
+    repair.add_argument('--radius',type=int,default=10)
+    repair.add_argument('--out')
     sub.add_parser('progress')
     staged=sub.add_parser('native-stage');staged.add_argument('--out',help='PRIVATE ONLY: full exchange JSON path')
     args=ap.parse_args(argv)
@@ -51,13 +57,17 @@ def main(argv=None):
     engine=EngineChatSession(args.db,raw,args.video_id,owner_source_sha256=args.sha,
                              window_size=args.window_size,
                              expected_window_count=args.windows)
-    if args.action=='next':
-        result=engine.prepare(limit=args.limit,context_radius=args.radius)
+    if args.action in ('next','next-meaning'):
+        result=engine.prepare(limit=args.limit,context_radius=args.radius,
+                              source_first_only=(args.action=='next-meaning'))
         if args.out: _private_json(args.out,result)
+    elif args.action=='repair-atom':
+        result=engine.prepare_atom_repair(args.cue,context_radius=args.radius)
+        if args.out:_private_json(args.out,result)
     elif args.action=='commit':
         task=json.loads(Path(args.challenge).read_text(encoding='utf8'))
         answer=json.loads(Path(args.answer).read_text(encoding='utf8'))
-        if task.get('type')=='RESOLVE_CONTEXT_CUES':
+        if task.get('type') in ('RESOLVE_CONTEXT_CUES','REPAIR_ATOM_SOURCE_CONTEXT'):
             result=engine.submit_context_revisit(task,answer)
         elif task.get('type')=='SEARCH_ORIGINAL_PRIMARY_EVIDENCE':
             result=engine.submit_evidence_proposals(task,answer)
