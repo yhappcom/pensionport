@@ -25,6 +25,6 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          python -m compileall -q v177_private_turn_checkpoint.py
+          python -m compileall -q v177_private_turn_checkpoint.py v176_chat_engine_cli.py
           python -m unittest -v test_v177_private_turn_checkpoint
           python -m unittest -v test_v176_chat_engine_loop
