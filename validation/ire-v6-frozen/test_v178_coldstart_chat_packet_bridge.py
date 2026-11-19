@@ -22,11 +22,11 @@ class TestV178NativeChatPacketColdStart(unittest.TestCase):
         source.submit(q,self.a)
         q2=source.prepare(limit=2,source_first_only=True)
         self.b=respond(q2)
-    def packet(self,rows,start):
+    def packet(self,rows,start,*,prior_head=ZERO):
         return {'schema':SCHEMA,'owner_source_sha256':self.sha,
                 'first_cue':start,'last_cue':start+len(rows)-1,
                 'chat_authored_review_source':'ACTIVE_CONVERSATION_NONCRYPTO',
-                'original_journal_head_sha256':'0'*64,
+                'original_journal_head_sha256':prior_head,
                 'supplied_prior_research':False,'native_approval':False,
                 'rows':copy.deepcopy(rows)}
     def runit(self,packet,*,head=ZERO,count=0,create=False,raw=None,db=None):
@@ -42,7 +42,8 @@ class TestV178NativeChatPacketColdStart(unittest.TestCase):
         self.assertFalse(r['prior_research_imported'])
     def test_02_native_two_turn_resume_same_source(self):
         first=self.runit(self.packet(self.a['responses'],1),create=True)
-        second=self.runit(self.packet(self.b['responses'],4),
+        second=self.runit(self.packet(self.b['responses'],4,
+                 prior_head=first['native_checkpoint_head_sha256']),
                  head=first['native_checkpoint_head_sha256'],count=3)
         self.assertEqual(second['last_cue_committed'],5)
         self.assertEqual(second['remaining_original_cues'],0)
@@ -81,7 +82,8 @@ class TestV178NativeChatPacketColdStart(unittest.TestCase):
     def test_09_wrong_resume_head_blocks_without_writing(self):
         f=self.runit(self.packet(self.a['responses'],1),create=True)
         with self.assertRaisesRegex(InvalidInput,'PREVIOUS_TURN_HEAD_OR_COUNT_MISMATCH'):
-            self.runit(self.packet(self.b['responses'],4),head='1'*64,count=3)
+            self.runit(self.packet(self.b['responses'],4,prior_head='1'*64),
+                       head='1'*64,count=3)
         self.assertEqual(EngineChatSession(self.db,self.raw,self.video,
                         owner_source_sha256=self.sha,window_size=3).progress()['cue_reviewed'],3)
     def test_10_original_source_syntax_is_native_audited(self):
