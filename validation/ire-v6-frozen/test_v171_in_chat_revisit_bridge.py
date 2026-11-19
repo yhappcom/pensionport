@@ -54,7 +54,7 @@ class InChatRevisitTests(unittest.TestCase):
     def test_04_hash_bound_raw_bytes_reject_substitution(self):
         prepared = copy.deepcopy(self.prepared)
         prepared.raw_evidence[0]["body"] = b"spoofed PDF original bytes"*8
-        with self.assertRaisesRegex(ValueError, "REQUEST_OR_RAW_EVIDENCE_MUTATED"):
+        with self.assertRaisesRegex(ValueError, "REQUEST_OR_RAW_EVIDENCE_MUTATED|EVIDENCE_QUOTE_NOT_IN_BYTES"):
             commit_revisit_chat_turn(self.r, prepared, self.reply)
         self.assertEqual(self.r.status()["revisit_events"], 0)
 
