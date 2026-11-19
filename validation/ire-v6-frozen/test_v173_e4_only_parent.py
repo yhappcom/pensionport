@@ -146,7 +146,9 @@ class E4OnlyNativeVideoTests(unittest.TestCase):
                 independent_parent_manifest_sha256=r['owner_manifest_sha256'])
         with self.assertRaises(InvalidInput):
             seal_e4_only(r,owner_signing_key=TEST_SECRET,
-                independent_owner_source_sha256='a'*64)
+                independent_owner_source_sha256='a'*64,
+                independently_pinned_child_count=2,
+                independent_parent_manifest_sha256=r['owner_manifest_sha256'])
         p=seal_e4_only(r,owner_signing_key=TEST_SECRET,
                 independent_owner_source_sha256=r['owner_source_sha256'],
                 independently_pinned_child_count=2,
@@ -197,7 +199,10 @@ class E4OnlyNativeVideoTests(unittest.TestCase):
         def child(sid,manifest,stage,raw):
             seen.append(sid)
             return {'case':{'manifest':manifest,'source':SimpleNamespace(
-                source_sha256=sha256(root))},
+                source_sha256=sha256(root)),
+                'exchange':{},'chat_review':{},
+                'host_receipt':{'event_sha256':'0'*64},
+                'official_evidence_bodies':{}},
                 'relation_decisions':[],
                 'original_host_batch_replay_args':{},
                 'explicit_hold_revision':False}
