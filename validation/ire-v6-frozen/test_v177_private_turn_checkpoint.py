@@ -194,4 +194,67 @@ class TestActualTwoProcessHandoff(unittest.TestCase):
         self.assertFalse(self.bundle.exists())
 
 
+class TestV176OperatorCliNeverSilentlyResets(unittest.TestCase):
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.path=Path(self.temp.name)
+        self.raw=fixture()
+        self.srt=self.path / "owner.srt"
+        self.srt.write_bytes(self.raw)
+        self.db=self.path / "private.sqlite"
+        self.video="AbCdEf12345"
+        self.sha=sha256(self.raw)
+        self.cli=Path(__file__).with_name('v176_chat_engine_cli.py')
+
+    def call(self,*opts,db=None,action='progress'):
+        command=[sys.executable,str(self.cli),'--srt',str(self.srt),
+             '--sha',self.sha,'--video-id',self.video,
+             '--db',str(db or self.db),'--window-size','3',
+             '--windows','2',*opts,action]
+        return subprocess.run(command,capture_output=True,text=True,timeout=15)
+
+    def test_16_operator_cli_cannot_silently_start_empty_on_resume(self):
+        p=self.call()
+        self.assertNotEqual(p.returncode,0)
+        self.assertIn('V177_MISSING_EXISTING_JOURNAL_DO_NOT_RESET',p.stderr)
+        self.assertFalse(self.db.exists())
+
+    def test_17_explicit_new_session_is_the_only_new_db_path(self):
+        p=self.call('--new-session',action='next-meaning')
+        self.assertEqual(p.returncode,0,p.stderr)
+        self.assertTrue(self.db.is_file())
+        self.assertEqual(stat.S_IMODE(self.db.stat().st_mode),0o600)
+        self.assertEqual(json.loads(p.stdout)['target_cues'][0]['cue_index'],1)
+        self.assertEqual(self.call().returncode,0)
+
+    def test_18_new_session_flag_refuses_to_overwrite_existing(self):
+        self.assertEqual(self.call('--new-session',action='next').returncode,0)
+        p=self.call('--new-session',action='next')
+        self.assertNotEqual(p.returncode,0)
+        self.assertIn('V177_NEW_SESSION_REQUIRES_ABSENT_JOURNAL',p.stderr)
+
+    def test_19_restore_external_head_check_and_wrong_head(self):
+        self.assertEqual(self.call('--new-session',action='next-meaning').returncode,0)
+        e=EngineChatSession(self.db,self.raw,self.video,
+            owner_source_sha256=self.sha,window_size=3,expected_window_count=2)
+        ch=e.prepare(limit=3,source_first_only=True)
+        e.submit(ch,respond(ch))
+        progress=e.progress()
+        proper=self.call('--resume-head',progress['checkpoint_head_sha256'],
+                         '--resume-reviewed','3')
+        self.assertEqual(proper.returncode,0,proper.stderr)
+        bad=self.call('--resume-head','0'*64,'--resume-reviewed','3')
+        self.assertNotEqual(bad.returncode,0)
+        self.assertIn('V177_RESUME_PIN_MISMATCH_DO_NOT_RESET',bad.stderr)
+        self.assertEqual(e.progress()['cue_reviewed'],3)
+
+    def test_20_partial_external_checkpoint_pins_fail_closed(self):
+        self.assertEqual(self.call('--new-session',action='next').returncode,0)
+        p=self.call('--resume-reviewed','3')
+        self.assertNotEqual(p.returncode,0)
+        self.assertIn('V177_RESUME_HEAD_AND_COUNT_MUST_BOTH_BE_GIVEN',p.stderr)
+
+
+
 if __name__ == "__main__": unittest.main()
