@@ -38,3 +38,8 @@ V186은 `v186_e3_qualifier_provenance.py`에 **화자 발언의 조건인지, �
 - 남은 일: **106개 조건/예외**의 원문 검토, 부모 발화 정식 동치 확인, 2차 자막 검토 **158개**, 17개 OPEN의 근거 또는 격리, 독립 확정 정답셋 마련 및 P/R 계측. 아직 **E3=HOLD, V123/E4=NOT RUN, E5=0**.
 
 결론: 그동안 하나의 원자 `conditions`/`exceptions`에 섞여 있던 *화자의 명시적 제한, 문맥 근거, 검토자의 주의사항*을 실제 원문에 연결해 분리했다. 2건의 초안 조건 위치가 원문과 연결됐지만, 금융 사실 승인이나 전체 E3 품질 합격으로 승격하지 않는다.
+## 실제 CI 및 재개 증빙 (추가 확인)
+- GitHub synthetic adversarial 회귀시험 **120/120 PASS**: https://github.com/yhappcom/pensionport/actions/runs/44627221482 (기존 108 + V186 신규 12).
+- 실제 원문 32개 검토는 별도 네이티브 실행 검증이며 합성 120건에 포함된 금융 정확도 측정이 아니다.
+- 소유자 비공개 V186 체크포인트 ZIP SHA-256 `e504e235fd02fe0bc42e36bf3365b1e7ac03529b9f3cdd655163a63221cc260b`, manifest SHA-256 `9211b943c5851de6de9f3f5bc8b94a862ce9569d6fb106e3e83b50f4cb5bd36f`, 21개 private payload SHA 및 4개 SQLite integrity PASS. 공개 저장소에는 바이트를 저장하지 않고 사용자에게만 제공한다.
+- E3 2차 전체 재검토는 여전히 92/250, 원자 69개는 미승인, E4/E5로 이관하지 않는다.
