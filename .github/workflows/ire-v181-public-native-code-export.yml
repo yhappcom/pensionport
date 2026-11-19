@@ -1,0 +1,35 @@
+name: V181 export public native replay code only
+on:
+  push:
+    branches:
+      - verify/ire-v6-v179-real-two-turn-source-firstpass-20261119
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export-public-engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect only tracked public Python modules
+        run: |
+          set -euo pipefail
+          mkdir -p export/ire/v6 export/validation/ire-v6-frozen
+          find ire/v6 -type f -name '*.py' | while read -r p; do
+            mkdir -p "export/$(dirname "$p")"
+            cp "$p" "export/$p"
+          done
+          if test -f ire/__init__.py; then cp ire/__init__.py export/ire/__init__.py; fi
+          for f in v176_chat_engine_loop.py v176_chat_engine_cli.py v177_private_turn_checkpoint.py v178_coldstart_chat_packet_bridge.py; do
+            cp "validation/ire-v6-frozen/$f" "export/validation/ire-v6-frozen/$f"
+          done
+          if find export -type f \( -iname '*private*' -o -iname '*.sqlite' -o -iname '*.srt' -o -iname '*.zip' \) | grep .; then exit 1; fi
+          test -s export/ire/v6/source.py
+          test -s export/validation/ire-v6-frozen/v176_chat_engine_loop.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v181-public-native-code-only
+          path: export/
+          retention-days: 1
+          if-no-files-found: error
