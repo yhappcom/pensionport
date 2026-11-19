@@ -31,4 +31,5 @@ jobs:
           python -m unittest -v test_v183_e3_two_turn_audit
           python -m unittest -v test_v184_e3_adjudication
           python -m unittest -v test_v185_e3_parent_qualifier_audit
+          python -m unittest -v test_v186_e3_qualifier_provenance
           python -m unittest -v test_v178_coldstart_chat_packet_bridge test_v177_private_turn_checkpoint test_v176_chat_engine_loop

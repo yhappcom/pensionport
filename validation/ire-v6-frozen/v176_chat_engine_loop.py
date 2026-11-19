@@ -826,7 +826,7 @@ class EngineChatSession:
         finally:
             con.close()
 
-    def compile_native_v6_stage(self):
+    def compile_native_v6_stage(self, *, qualifier_provenance=None):
         """Replay the ORIGINAL frozen V6 audit over active-chat decisions.
 
         Unreviewed cues stay UNRESOLVED and no item is accepted by V123/E4.
@@ -838,12 +838,24 @@ class EngineChatSession:
             head,reviewed=self._audit(con)
         finally:
             con.close()
+        qualified={}
+        provenance_status=None
+        if qualifier_provenance is not None:
+            _need(qualifier_provenance.engine is self and
+                  qualifier_provenance.expected_owner_head==head,
+                  "QUALIFIER_PROVENANCE_NOT_PINNED_TO_OWNER_JOURNAL")
+            verified_preview=qualifier_provenance.projected_source_anchors()
+            qualified=verified_preview['by_claim']
+            provenance_status=verified_preview['status']
         cue_rows=[]
         atoms=[]
         unsafely_typed=[]
-        # V182: frozen V6 has cue-indexed qualifiers, whereas a V176
-        # decision records free-text conditions and exceptions. Never
-        # silently imply those conditions were semantically preserved.
+        qualified_source_terms=0
+        excluded_reviewer_terms=0
+        source_context_terms=0
+        # V182: The V176 cue decision stores free-text conditions/exceptions,
+        # but the frozen V6 contract requires distinct, source-anchored cue
+        # indices. Never silently imply those constraints were preserved.
         unprojected_constraints=[]
         next_id=1
         for cue in self.source.cues:
@@ -870,15 +882,29 @@ class EngineChatSession:
                     disposition="CANDIDATES"
                     note="ChatGPT 신규 주장 후보; V123/E4 아직 미승인"
                     ids=[]
-                    for claim in record["claims"]:
+                    for claim_ordinal,claim in enumerate(record["claims"],1):
                         cid=f"C{next_id:05d}";next_id+=1
                         ids.append(cid)
                         context=claim["context_cue_indices"]
+                        q=qualified.get((idx,claim_ordinal),{})
+                        condition_anchors=q.get('conditions',[])
+                        exception_anchors=q.get('exceptions',[])
+                        qualified_source_terms+=q.get('source_explicit_terms',0)
+                        excluded_reviewer_terms+=q.get('reviewer_added_terms',0)
+                        source_context_terms+=q.get('source_context_terms',0)
+                        unresolved_count=q.get('unmapped_terms',
+                            len(claim['conditions'])+len(claim['exceptions']))
                         if claim["conditions"] or claim["exceptions"]:
                             unprojected_constraints.append({
                                 "claim_id":cid,"cue_index":idx,
                                 "condition_terms":len(claim["conditions"]),
                                 "exception_terms":len(claim["exceptions"]),
+                                "source_explicit_terms":q.get('source_explicit_terms',0),
+                                "not_mapped_as_source_terms":unresolved_count,
+                                "unmapped_condition_terms":len(claim['conditions'])-
+                                    q.get('source_explicit_condition_terms',0),
+                                "unmapped_exception_terms":len(claim['exceptions'])-
+                                    q.get('source_explicit_exception_terms',0),
                                 "source_meaning_digest_sha256":_digest({
                                     "conditions":claim["conditions"],
                                     "exceptions":claim["exceptions"]})})
@@ -895,7 +921,8 @@ class EngineChatSession:
                             "speaker":"UNKNOWN",
                             "source_refs":[{"cue_index":idx,"quote":claim["quote"]}],
                             "context_cue_indices":context,
-                            "condition_cue_indices":[],"exception_cue_indices":[],
+                            "condition_cue_indices":condition_anchors,
+                            "exception_cue_indices":exception_anchors,
                             "numeric_references":number_refs,"as_of":None,
                         })
             cue_rows.append({"cue_index":idx,"cue_text_sha256":text_hash,
@@ -917,13 +944,30 @@ class EngineChatSession:
                      "schema":"IRE_V182_NATIVE_SEMANTIC_CONSTRAINT_LOSS_GATE_V1",
                      "status":"HOLD_UNMAPPED_SOURCE_QUALIFIERS_AND_UNRESOLVED_STANCE_ROLE",
                      "staged_atoms":len(atoms),
-                     "unprojected_claims":len(unprojected_constraints),
-                     "unprojected_condition_terms":sum(x["condition_terms"] for x in unprojected_constraints),
-                     "unprojected_exception_terms":sum(x["exception_terms"] for x in unprojected_constraints),
+                     "unprojected_claims":sum(x["not_mapped_as_source_terms"]>0
+                         for x in unprojected_constraints),
+                     "unprojected_condition_terms":sum(x["unmapped_condition_terms"]
+                         for x in unprojected_constraints),
+                     "unprojected_exception_terms":sum(x["unmapped_exception_terms"]
+                         for x in unprojected_constraints),
+                     "v186_source_qualifier_projection":{
+                         "used_verified_chat_source_anchors":bool(qualifier_provenance),
+                         "qualifier_journal_head_sha256":None if provenance_status is None
+                            else provenance_status['journal_head_sha256'],
+                         "reviewed_terms":0 if provenance_status is None
+                            else provenance_status['reviewed_terms'],
+                         "total_terms":sum(x['condition_terms']+x['exception_terms']
+                                           for x in unprojected_constraints),
+                         "source_explicit_mapped_terms":qualified_source_terms,
+                         "reviewer_added_excluded_terms":excluded_reviewer_terms,
+                         "source_context_not_source_condition_terms":source_context_terms,
+                         "source_spoken_qualifier_verification_is_chat_only":True,
+                         "e3_quality_certified":False,
+                         "v123_e4_approval_permitted":False},
                      "unresolved_stance_atoms":sum(x["stance"]=="UNRESOLVED" for x in atoms),
                      "unknown_speaker_atoms":sum(x["speaker"]=="UNKNOWN" for x in atoms),
-                     # No private sentence, SRT, or free-text review leaves
-                     # the owner journal in this hash-only diagnostics frame.
+                     # Only indexes and hashes leave the private journal; no
+                     # paraphrased source, condition text or original SRT.
                      "repair_candidates":unprojected_constraints,
                      "source_meaning_still_stored_in_private_journal":True,
                      "full_semantic_projection_verified":False,
