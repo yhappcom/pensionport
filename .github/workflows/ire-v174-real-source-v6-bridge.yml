@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - verify/ire-v6-v174-fresh-source-native-e4-20261119
+      - verify/ire-v6-v175-fresh-native-host-batch-20261119
   pull_request:
     branches:
       - verify/ire-v6-v173-e4-only-final-gate-20261119
@@ -36,3 +37,6 @@ jobs:
           retention-days: 1
           path: |
             ire/v6/*.py
+            data/claims.jsonl
+            ire/v5/advisory_knowledge/p4_integrated_scoped_education22_20261106.json
+            ire/v5/advisory_knowledge/p4_p3_incremental_education29_20261106.json
