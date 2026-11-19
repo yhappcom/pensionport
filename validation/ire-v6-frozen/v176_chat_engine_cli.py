@@ -38,7 +38,8 @@ def main(argv=None):
     ap.add_argument('--video-id',required=True)
     ap.add_argument('--window-size',type=int,default=120)
     ap.add_argument('--windows',type=int,default=13)
-    ap.add_argument('--new-session',action='store_true',\n                    help='Explicit permission to create a NEW empty research journal; NEVER set when resuming')
+    ap.add_argument('--new-session',action='store_true',
+                    help='Explicit permission to create a NEW empty research journal; NEVER set when resuming')
     ap.add_argument('--resume-head',help='Externally retained last 64-character journal head for old session')
     ap.add_argument('--resume-reviewed',type=int,help='Externally retained count of reviewed source cues')
     sub=ap.add_subparsers(dest='action',required=True)
