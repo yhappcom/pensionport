@@ -99,7 +99,7 @@ class TestCollaborativeEngine(unittest.TestCase):
         original,evidence=self.session.compile_native_v6_stage()
         self.assertEqual(evidence['native_v6_audit']['proposed_atomic_claims'],1)
         self.assertEqual(evidence['pending_original_cues'],1)
-        self.assertEqual(self.session.prepare()['type'],'SOURCE_FIRST_REVIEW_COMPLETE')
+        self.assertEqual(self.session.prepare()['type'],'E4_HOLD_UNRESOLVED_SOURCE')
 
     def test_03_restart_pins_source_and_preserves_cursor(self):
         c=self.session.prepare(limit=2)
@@ -252,5 +252,17 @@ class TestCollaborativeEngine(unittest.TestCase):
         with self.assertRaisesRegex(InvalidInput,'MISSING_SOURCE_FAKED'):
             self.session.submit_evidence_proposals(task,answer)
         self.assertEqual(self.session.progress()['source_evidence_proposals_recorded'],0)
+
+    def test_17_real_engine_holds_when_source_review_complete_but_open_remains(self):
+        cycle=self.session.run_host_cycle(lambda c:respond(c,add_claim=True),
+                                          max_batches=9,batch_size=2)
+        self.assertTrue(cycle['all_source_cues_reviewed'])
+        self.assertFalse(cycle['e4_approved'])
+        marker=self.session.prepare(limit=2)
+        self.assertEqual(marker['type'],'E4_HOLD_UNRESOLVED_SOURCE')
+        self.assertEqual(marker['unresolved_cue_indices'],[4])
+        self.assertFalse(marker['e5_authorized'])
+        self.assertEqual(self.session.work_summary()['next_required_step'],
+                         'E4_HOLD_UNRESOLVED_SOURCE')
 
 if __name__=='__main__':unittest.main()
