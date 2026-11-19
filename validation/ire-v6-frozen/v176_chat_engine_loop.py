@@ -156,7 +156,9 @@ class EngineChatSession:
                     allow=(i in source_rows and (
                         source_rows[i][1]["disposition"]=="OPEN" or
                         (source_rows[i][1]["disposition"]=="ASSERTION" and
-                         frame.get("review_task_type")=="REPAIR_ATOM_SOURCE_CONTEXT")))
+                         frame.get("review_task_type")=="REPAIR_ATOM_SOURCE_CONTEXT") or
+                        (source_rows[i][1]["disposition"]=="NON_RESEARCH" and
+                         frame.get("review_task_type")=="REVISIT_NONRESEARCH_ATOM_RISK")))
                     _need(allow and i not in revised_rows and
                           item["prior_review_event_sha256"]==source_rows[i][0] and
                           item["source_text_sha256"]==sha256(self.source.cues[i-1].text.encode("utf8")),
@@ -389,10 +391,58 @@ class EngineChatSession:
                   "no_financial_fact_or_E4_auto_approval":True}}
         return {**task,"challenge_sha256":_digest(task)}
 
+    def prepare_nonresearch_risk_revisit(self, cue_index, *, context_radius=10):
+        """Explicit ChatGPT correction for a suspicious original NO_ATOM cue.
+
+        Reject arbitrary unflagged NON_RESEARCH and already revised records.
+        The request does NOT infer an atom, call a model, or certify source
+        completeness; a live ChatGPT review must author the complete answer.
+        """
+        from ire.v6.claim_census import FINANCIAL, QUALIFIER, MULTI_CLAIM
+        _need(type(cue_index) is int and 1 <= cue_index <= len(self.source.cues)
+              and type(context_radius) is int and 4 <= context_radius <= 20,
+              "NONRESEARCH_RISK_REQUEST_INVALID")
+        con=self._connect()
+        try:
+            head,reviewed=self._audit(con)
+            revised=con.execute("SELECT 1 FROM cue_revisions WHERE cue_index=?",
+                                (cue_index,)).fetchone()
+        finally:con.close()
+        cue=self.source.cues[cue_index-1]
+        row=reviewed.get(cue_index)
+        _need(row is not None and row[1]["disposition"]=="NON_RESEARCH"
+              and revised is None and any(p.search(cue.text) for p in (
+                  FINANCIAL,QUALIFIER,MULTI_CLAIM)),
+              "NONRESEARCH_REVISIT_REQUIRES_SUSPECT_UNREVISED_CUE")
+        ctx=list(range(max(1,cue_index-context_radius),
+                       min(len(self.source.cues),cue_index+context_radius)+1))
+        def view(i):
+            c=self.source.cues[i-1]
+            return {"cue_index":i,"text":c.text,
+                    "source_text_sha256":sha256(c.text.encode("utf8"))}
+        task={"schema":SCHEMA,"type":"REVISIT_NONRESEARCH_ATOM_RISK",
+              "owner_source_sha256":self.source.source_sha256,
+              "manifest_sha256":self.source.manifest_sha256,
+              "checkpoint_head_sha256":head,
+              "window_id":self.source.owner(cue_index),
+              "context_radius":context_radius,
+              "target_cues":[{**view(cue_index),
+                   "prior_review_event_sha256":row[0],
+                   "prior_analysis":row[1]["analysis"],
+                   "original_claims":row[1]["claims"]}],
+              "surrounding_context":[view(i) for i in ctx],
+              "response_requirements":{
+                  "risk_indicator_is_only_a_recheck_trigger":True,
+                  "real_chat_must_verify_new_meaning_or_keep_no_atom":True,
+                  "previous_no_atom_decision_must_be_preserved":True,
+                  "no_automatic_v123_e4_or_e5":True}}
+        return {**task,"challenge_sha256":_digest(task)}
+
     def submit_context_revisit(self, challenge, answer):
-        """Append one source-pinned CHATGPT correction per previously OPEN cue."""
+        """Append source-pinned chat correction of OPEN/ASSERTION/risky NO_ATOM."""
         _need(type(challenge) is dict and challenge.get("type") in {
-                  "RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT"} and
+                  "RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT",
+                  "REVISIT_NONRESEARCH_ATOM_RISK"} and
               challenge.get("schema")==SCHEMA and
               challenge.get("challenge_sha256")==_digest({k:v for k,v in challenge.items()
                                                             if k!="challenge_sha256"}),
@@ -406,7 +456,9 @@ class EngineChatSession:
               len(answer["responses"])==len(challenge["target_cues"]),
               "CONTEXT_RESPONSE_SCHEMA")
         repair=challenge["type"]=="REPAIR_ATOM_SOURCE_CONTEXT"
-        _need(not repair or len(challenge["target_cues"])==1,
+        nonresearch_revisit=challenge["type"]=="REVISIT_NONRESEARCH_ATOM_RISK"
+        _need(not (repair or nonresearch_revisit) or
+              len(challenge["target_cues"])==1,
               "ATOM_REPAIR_EXACTLY_ONE_CUE")
         checked=[]
         valid_context={r["cue_index"] for r in challenge["surrounding_context"]}
@@ -471,6 +523,9 @@ class EngineChatSession:
                 self.prepare_atom_repair(checked[0]["cue_index"],
                                          context_radius=challenge["context_radius"])
                 if repair else
+                self.prepare_nonresearch_risk_revisit(checked[0]["cue_index"],
+                                             context_radius=challenge["context_radius"])
+                if nonresearch_revisit else
                 self.prepare_context_revisit([r["cue_index"] for r in checked],
                                              context_radius=challenge["context_radius"]))
             _need(challenge==expected_current,"CONTEXT_NOT_ENGINE_ISSUED")
@@ -852,7 +907,7 @@ class EngineChatSession:
                 break
             answer=chat_host(challenge)
             _need(type(answer) is dict,"HOST_CHAT_RESULT_NOT_SUPPLIED")
-            if challenge["type"] in {"RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT"}:
+            if challenge["type"] in {"RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT", "REVISIT_NONRESEARCH_ATOM_RISK"}:
                 receipt=self.submit_context_revisit(challenge,answer)
                 n=receipt["cues_revisited"]
             elif challenge["type"]=="SEARCH_ORIGINAL_PRIMARY_EVIDENCE":

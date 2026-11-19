@@ -1,0 +1,30 @@
+name: V179 two-turn original review adapters and frozen V6 regression (synthetic)
+on:
+  push:
+    branches:
+      - verify/ire-v6-v179-real-two-turn-source-firstpass-20261119
+  pull_request:
+    branches:
+      - verify/ire-v6-v178-source-only-coldstart-20261119
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-source-and-noatom-resubmission:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install frozen V6 test requirements
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Verify V179 real issue regressions and V176-V178 compatibility
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m compileall -q v176_chat_engine_loop.py v176_chat_engine_cli.py v178_coldstart_chat_packet_bridge.py
+          python -m unittest -v test_v179_noatom_risk_revisit test_v179_provisional_claim_projection
+          python -m unittest -v test_v178_coldstart_chat_packet_bridge test_v177_private_turn_checkpoint test_v176_chat_engine_loop

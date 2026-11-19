@@ -11,6 +11,7 @@ part of GitHub CI. This is a *transport*, not a new semantics engine.
 """
 from __future__ import annotations
 import hashlib
+import copy
 from pathlib import Path
 from ire.v6.errors import InvalidInput
 from v176_chat_engine_loop import EngineChatSession, COMMIT, ZERO
@@ -18,6 +19,44 @@ from v176_chat_engine_loop import EngineChatSession, COMMIT, ZERO
 SCHEMA = 'CS178_IN_CHAT_V176_FORMATTED_SOURCE_ONLY_ROWS_V1'
 ROW_KEYS={'cue_index','source_text_sha256','disposition','analysis',
           'speaker_role','limitations_checked','claims'}
+NATIVE_CLAIM_FIELDS={'proposition','kind','quote','context_cue_indices',
+                     'conditions','exceptions','numeric_tokens','high_risk',
+                     'needs_official_source'}
+PROVISIONAL_ONLY_FIELDS={'claim_id','evidence_verified','native_v123_approved'}
+
+
+def _native_rows_with_safe_provenance_projection(rows):
+    """Only remove explicitly unapproved research metadata, not semantics.
+
+    A prior CHATGPT source-first packet contains optional recording fields that
+    frozen V176 deliberately does not accept as native atom keys. Reject any
+    true authority flags. Preserve original input object and exact native
+    semantic fields, including limitations, quote, numbers, conditions.
+    """
+    result, converted, source_ids = [], 0, set()
+    for r in rows:
+        rr=copy.deepcopy(r)
+        claims=[]
+        for c in rr['claims']:
+            _need(type(c) is dict, 'CHAT_ATOM_NOT_DICT')
+            fields=set(c)
+            if fields==NATIVE_CLAIM_FIELDS:
+                claims.append(c)
+            else:
+                _need(fields==NATIVE_CLAIM_FIELDS|PROVISIONAL_ONLY_FIELDS,
+                      'UNEXPECTED_RESEARCH_TO_NATIVE_ATOM_FIELD')
+                _need(c['evidence_verified'] is False and
+                      c['native_v123_approved'] is False and
+                      type(c['claim_id']) is str and bool(c['claim_id'].strip()) and
+                      c['claim_id'] not in source_ids,
+                      'FORGED_OR_DUPLICATE_RESEARCH_CLAIM_AUTHORITY')
+                source_ids.add(c['claim_id'])
+                claims.append({k:copy.deepcopy(v) for k,v in c.items()
+                               if k in NATIVE_CLAIM_FIELDS})
+                converted+=1
+        rr['claims']=claims
+        result.append(rr)
+    return result,converted
 
 
 def _need(x,reason):
@@ -51,6 +90,8 @@ def import_chat_packet(db_path,raw,video_id,packet,*,original_sha256,
           all(ch in '0123456789abcdef' for ch in expected_head) and
           type(expected_cues_reviewed) is int and expected_cues_reviewed>=0,
           'EXTERNAL_RESUME_PINS_REQUIRED')
+    _need(packet['original_journal_head_sha256']==expected_head,
+          'PACKET_PRIOR_JOURNAL_HEAD_MISMATCH')
     path=Path(db_path)
     if path.exists() or path.is_symlink():
         _need(not allow_new_session,'NEW_SESSION_MUST_NOT_OVERWRITE')
@@ -71,6 +112,7 @@ def import_chat_packet(db_path,raw,video_id,packet,*,original_sha256,
              list(range(packet['first_cue'],packet['last_cue']+1)) and
           all(type(r) is dict and set(r)==ROW_KEYS for r in rows),
           'EXACT_CONTIGUOUS_PACKET_CENSUS')
+    native_rows, normalized_chat_claim_count = _native_rows_with_safe_provenance_projection(rows)
     engine=EngineChatSession(path,raw,video_id,
                  owner_source_sha256=original_sha256,window_size=window_size)
     status=engine.progress()
@@ -85,7 +127,7 @@ def import_chat_packet(db_path,raw,video_id,packet,*,original_sha256,
         _need(challenge['type']=='CLASSIFY_SOURCE_CUES',
               'NATIVE_ENGINE_NOT_ISSUING_CLASSIFY_CHALLENGE')
         selected=challenge['target_cues']
-        segment_rows=rows[index:index+len(selected)]
+        segment_rows=native_rows[index:index+len(selected)]
         _need(len(selected)==len(segment_rows) and
               [r['cue_index'] for r in segment_rows]==
               [r['cue_index'] for r in selected] and
@@ -120,4 +162,5 @@ def import_chat_packet(db_path,raw,video_id,packet,*,original_sha256,
             'remaining_original_cues':final['cue_remaining'],
             'v123_approved':False,'e4_approved':False,'e5_released':False,
             'prior_research_imported':False,
-            'actual_chat_identity_cryptographically_authenticated':False}
+            'actual_chat_identity_cryptographically_authenticated':False,
+            'provisional_claim_fields_safely_projected':normalized_chat_claim_count}
