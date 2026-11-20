@@ -1,12 +1,12 @@
 {
-  "schema": "IRE_V203_E1_E5_CURRENT_ROUTE_VERIFIED_V1",
+  "schema": "IRE_V206_E1_E5_E2_WORK_IN_PROGRESS_V1",
   "as_of": "2026-11-20",
   "repository": "yhappcom/pensionport",
-  "branch": "verify/ire-v6-v201-e1-native-source-bridge-20261120",
+  "branch": "verify/ire-v6-e2-source-census-adversarial-20261120",
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_READY_NOT_STARTED",
+  "current_step": "E2_SOURCE_SEMANTIC_IN_PROGRESS_HOLD_REAL_VIDEO",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -57,7 +57,8 @@
     {
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
-      "status": "READY_NOT_STARTED_CURRENT_ROUTE"
+      "status": "IN_PROGRESS_HOLD_REAL_SOURCE_AND_GOLD",
+      "scope": "V206 original cue census and explicit nonassertion repair docket; 104 synthetic software tests PASS, real source and blind semantic truth unverified"
     },
     {
       "step": "E3",
@@ -121,5 +122,29 @@
     "e2_e3_e4_e5_completed": false,
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
+  },
+  "current_e2_verdict": "HOLD_INDEPENDENT_REAL_SOURCE_GOLD_AND_MISSING_ATOM_REPAIRS",
+  "e2_evidence": {
+    "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
+    "e1_pass_prior_untouched": true,
+    "original_full_cue_census_implemented": true,
+    "question_quote_embedded_claim_loss_detected": true,
+    "original_qualifier_condition_exception_distinguished": true,
+    "repeated_numbers_unaccounted_blocked": true,
+    "unsupported_anecdote_explicit_hold": true,
+    "private_sqlite_hashchain_resume_and_idempotency_tested": true,
+    "private_sqlite_owner_real_run_performed": false,
+    "real_owner_srt_bytes_available_in_current_runtime": false,
+    "real_13_segment_e2_review_completed": false,
+    "independent_real_semantic_gold_certified": false,
+    "e2_semantic_accuracy_approved": false,
+    "native_fact_correction_and_relations_transferred": false,
+    "knowledge_published": 0,
+    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44729836774",
+    "ci_result": "success",
+    "ci_total_tests": 104,
+    "ci_new_v206_tests": 33,
+    "ci_existing_e2_and_e1_regression": 71,
+    "stage": "IN_PROGRESS_HOLD"
   }
 }
