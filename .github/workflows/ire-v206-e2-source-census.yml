@@ -50,8 +50,8 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          python -m compileall -q v206_e2_full_cue_semantic_census.py test_v206_e2_full_cue_semantic_census.py v206_e2_private_cue_checkpoint.py test_v206_e2_private_cue_checkpoint.py test_v206_e2_stage_sequence_status.py v207_e2_unreleased_chat_repair.py test_v207_e2_unreleased_chat_repair.py
-          python -m unittest -v test_v206_e2_full_cue_semantic_census test_v206_e2_private_cue_checkpoint test_v206_e2_stage_sequence_status test_v207_e2_unreleased_chat_repair
+          python -m compileall -q v206_e2_full_cue_semantic_census.py test_v206_e2_full_cue_semantic_census.py v206_e2_private_cue_checkpoint.py test_v206_e2_private_cue_checkpoint.py test_v206_e2_stage_sequence_status.py v207_e2_unreleased_chat_repair.py test_v207_e2_unreleased_chat_repair.py v208_e2_private_source_repair_journal.py test_v208_e2_private_source_repair_journal.py
+          python -m unittest -v test_v206_e2_full_cue_semantic_census test_v206_e2_private_cue_checkpoint test_v206_e2_stage_sequence_status test_v207_e2_unreleased_chat_repair test_v208_e2_private_source_repair_journal
       - name: Existing V166 E2 semantics and frozen V176 source review regressions
         working-directory: validation/ire-v6-frozen
         env:
