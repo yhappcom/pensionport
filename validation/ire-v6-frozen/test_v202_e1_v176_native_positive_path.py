@@ -105,27 +105,19 @@ class TestV202SameInputE1Route(unittest.TestCase):
                           if name in existing else 0)
                     for name in ("events","knowledge","parent_publications")}
 
-    def test_01_same_original_review_reaches_frozen_gate_and_atomic_sqlite(self):
-        r=run_connected_e1_route(**self.args())
-        self.assertEqual(r["e1_structural_route"],"PASS_SYNTHETIC_ROUTE")
-        self.assertEqual(r["checked_cues"],4)
-        self.assertEqual(r["checked_atoms"],3)
-        self.assertEqual(r["knowledge_sqlite_counts"],{
-            "events":2,"knowledge":2,"parent_publications":1})
-        self.assertTrue(r["legacy_v123_v127_v128_v126_invoked"])
-        self.assertEqual(r["native_v128_status"],
-                         "WHOLE_VIDEO_RESEARCH_CANDIDATE_PUBLISHED_ATOMICALLY")
-        self.assertEqual(self._counts(),r["knowledge_sqlite_counts"])
-        self.assertFalse(r["e3_independent_gold_verified"])
-        self.assertFalse(r["e5_real_13_segment_pub_verified"])
+    def test_01_preseeded_native_v166_cannot_impersonate_v176_verdict(self):
+        # The legacy positive fixture is authored BEFORE the V176 source-first
+        # journal. Same source words do not authorize narrator/stance upgrades.
+        with self.assertRaisesRegex(InvalidInput,"SEMANTIC_FRAME_UNATTESTED"):
+            run_connected_e1_route(**self.args())
+        self.assertEqual(self._counts(),{
+            "events":0,"knowledge":0,"parent_publications":0})
 
-    def test_02_missing_child_official_bytes_hold_zero_publication(self):
+    def test_02_missing_official_bytes_cannot_bypass_unattested_semantics(self):
         self.fx.fx.packets[1]["case"]["official_evidence_bodies"]={}
-        r=run_connected_e1_route(**self.args())
-        self.assertEqual(r["e1_structural_route"],"SAFE_HOLD_NO_PUBLICATION")
-        self.assertEqual(r["native_v128_status"],
-                         "HOLD_CHILD_CHAT_SEMANTICS_OR_FINANCE")
-        self.assertEqual(r["knowledge_sqlite_counts"],{
+        with self.assertRaisesRegex(InvalidInput,"SEMANTIC_FRAME_UNATTESTED"):
+            run_connected_e1_route(**self.args())
+        self.assertEqual(self._counts(),{
             "events":0,"knowledge":0,"parent_publications":0})
 
     def test_03_native_child_claim_substitution_fails_closed_before_release(self):
@@ -151,17 +143,20 @@ class TestV202SameInputE1Route(unittest.TestCase):
         self.assertEqual(self._counts(),{
             "events":0,"knowledge":0,"parent_publications":0})
 
-    def test_06_separate_private_reopen_keeps_source_and_owner_digest(self):
-        r=run_connected_e1_route(**self.args())
+    def test_06_reopened_owner_and_native_anchor_stay_valid_after_hold(self):
+        before=self.owner.progress()["checkpoint_head_sha256"]
+        with self.assertRaisesRegex(InvalidInput,"SEMANTIC_FRAME_UNATTESTED"):
+            run_connected_e1_route(**self.args())
         reopened=EngineChatSession(self.root/"owner.sqlite",self.fx.fx.p.raw,
             "AbCdEf12345",owner_source_sha256=sha256(self.fx.fx.p.raw),
             window_size=2,expected_window_count=2)
-        self.assertEqual(r["owner_head_sha256"],
-                         reopened.progress()["checkpoint_head_sha256"])
+        self.assertEqual(before,reopened.progress()["checkpoint_head_sha256"])
         native_reopen=TransactionStore(self.root/"parent_native.db")
-        self.assertEqual(r["native_source_ledger_head_sha256"],
-                         native_reopen.snapshot("e1_v202_same_source")["ledger_head_sha256"])
-        self.assertEqual(r["knowledge_sqlite_counts"],self._counts())
+        self.assertEqual(native_reopen.snapshot(
+            "e1_v202_same_source")["state"]["owner_pin"]["source_sha256"],
+            sha256(self.fx.fx.p.raw))
+        self.assertEqual(self._counts(),{
+            "events":0,"knowledge":0,"parent_publications":0})
 
     def test_08_unattested_speaker_and_stance_cannot_become_native_approval(self):
         """V202 formerly ignored speaker/stance drift from V176 source review."""
@@ -183,10 +178,13 @@ class TestV202SameInputE1Route(unittest.TestCase):
         self.assertEqual(self._counts(),{
             "events":0,"knowledge":0,"parent_publications":0})
 
-    def test_07_cannot_restart_approval_by_resetting_private_native(self):
-        run_connected_e1_route(**self.args())
+    def test_07_cannot_reset_native_scope_after_failed_semantic_handoff(self):
+        with self.assertRaisesRegex(InvalidInput,"SEMANTIC_FRAME_UNATTESTED"):
+            run_connected_e1_route(**self.args())
         with self.assertRaisesRegex(InvalidInput,"NEW_SCOPE_ALREADY_EXISTS"):
             run_connected_e1_route(**self.args())
+        self.assertEqual(self._counts(),{
+            "events":0,"knowledge":0,"parent_publications":0})
 
 
 if __name__=="__main__":
