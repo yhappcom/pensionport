@@ -323,5 +323,47 @@ class TestV203ActualNativeHostOrigin(unittest.TestCase):
         self.assertEqual(self._knowledge_counts(),
                          {"events":0,"knowledge":0,"parent_publications":0})
 
+    def test_11_runtime_exception_after_native_host_is_safe_to_retry(self):
+        """A temporary host error may interrupt between child 2 and parent.
+
+        On retry the original V176 owner and committed V6 child host hashes
+        must be reused exactly, without partial or duplicate V126 knowledge.
+        """
+        original_callback=self.native_review
+        fault_once=[True]
+
+        def interrupted_chat_host(segment_id,source,exchange,host,ledger,prior):
+            if segment_id=="B0002" and fault_once[0]:
+                fault_once[0]=False
+                raise RuntimeError("SYNTHETIC_TRANSIENT_CHAT_HOST_INTERRUPT")
+            return original_callback(segment_id,source,exchange,host,ledger,prior)
+
+        with self.assertRaisesRegex(RuntimeError,
+                                    "SYNTHETIC_TRANSIENT_CHAT_HOST_INTERRUPT"):
+            run_origin_native_e1(**self.args(
+                review_native_child=interrupted_chat_host))
+        self.assertEqual(self._knowledge_counts(),
+                         {"events":0,"knowledge":0,"parent_publications":0})
+        # Both native child host batches have committed, but no research
+        # knowledge has been released. Restarting is idempotent.
+        before={
+            segment:TransactionStore(
+                self.root/("actual_"+segment+".db")).snapshot(
+                "actual_scope_"+segment.lower())["ledger_head_sha256"]
+            for segment in ("B0001","B0002")}
+        result=run_origin_native_e1(**self.args(
+            review_native_child=original_callback,new_parent_scope=False))
+        self.assertTrue(result["structural_synthetic_positive_path_pass"])
+        self.assertEqual(result["knowledge_sqlite_delta"],
+                         {"events":2,"knowledge":2,"parent_publications":1})
+        self.assertEqual(before,dict(zip(
+            ("B0001","B0002"),
+            result["native_child_host_event_sha256s"])))
+        second=run_origin_native_e1(**self.args(
+            review_native_child=original_callback,new_parent_scope=False))
+        self.assertTrue(second["parent_publication_idempotent"])
+        self.assertEqual(second["knowledge_sqlite_delta"],
+                         {"events":0,"knowledge":0,"parent_publications":0})
+
 if __name__=="__main__":
     unittest.main()
