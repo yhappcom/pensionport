@@ -62,7 +62,7 @@ V214의 초기 코드가 `json_digest(private_v210_inventory)`를 호출했다. 
 - 비공개 원본 입력/해시 누락 시 Python `TypeError` 대신 거부
 - 원문 밖 숫자·위조 quote·원문 cue 인덱스 위조·검토자 주의사항의 원문 조건 승격 차단
 
-최신 [GitHub Actions 44759374878](https://github.com/yhappcom/pensionport/actions/runs/44759374878) **280/280 PASS** (현행 E2 209, 기존 V176/E2 53, E1 18), 외부 네트워크/LLM API 없는 실제 frozen native Python을 private 원본과 함께 직접 로컬 실행해 추가 실측했다. 이 개선은 **연구 엔진의 입력 처리·런타임 예외를 줄이는 조치**이지 ChatGPT 플랫폼 UI의 모든 RunFail을 제어한다는 보증은 아니다.
+최신 [GitHub Actions 44760963605](https://github.com/yhappcom/pensionport/actions/runs/44760963605) **281/281 PASS** (현행 E2 210, 기존 V176/E2 53, E1 18), 외부 네트워크/LLM API 없는 실제 frozen native Python을 private 원본과 함께 직접 로컬 실행해 추가 실측했다. 이 개선은 **연구 엔진의 입력 처리·런타임 예외를 줄이는 조치**이지 ChatGPT 플랫폼 UI의 모든 RunFail을 제어한다는 보증은 아니다.
 
 ## 6. 네 가지 사용자 완료조건에 대한 정직한 단계 판정
 
@@ -74,3 +74,7 @@ V214의 초기 코드가 `json_digest(private_v210_inventory)`를 호출했다. 
 | 독립 정답 기반 precision·recall·고위험 누락 | 외부 독립 원자 골드 부재, 분모 고정 불가. **미측정** |
 
 **E2 최종 판정 HOLD**, E1 구조 PASS 유지, E3~E5 현행 순차 경로 미진행. GitHub에 실물 SRT, 개인 비공개 검토·동결 owner SQLite, 사실성 확정 데이터를 올리지 않았으며 `main`을 수정하지 않았다.
+
+### CI 시점 보완 기록
+
+V214 단계 상태 검증에서 처음 [run 44760775601](https://github.com/yhappcom/pensionport/actions/runs/44760775601)은 V213 이전 시험의 E2 테스트 건수 `185` 고정값 때문에 실패했다. 실제 실물 V6 구조나 native qualifier 투영 오류가 아니라 이전 시험의 누적 테스트 건수 가정이다. 이후 V213 역사 검문은 최소 보장 건수 `>=185`로, 최신 V214 단계 검문은 현재 총수 `281`로 구분하여 수정했다. 최종 [run 44760963605](https://github.com/yhappcom/pensionport/actions/runs/44760963605) **281/281 PASS**, Python Traceback·KeyError·TypeError 없음. 과거 실패 이력을 지우지 않는다.
