@@ -16,7 +16,7 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertEqual(self.status["sequence"][0]["status"],"PASS")
         self.assertTrue(self.status["current_e1_verdict"].startswith("PASS_V203_"))
         self.assertEqual(self.status["current_step"],
-                         "E2_V212_V182_17OPEN_CROSSWALK_5_MISSED_RISKS_HOLD_V179_OWNER_GOLD")
+                         "E2_V213_NATIVE_V6_EXPLICIT_SOURCE_QUALIFIERS_REPAIRED_BUT_REAL_OWNER_GOLD_HOLD")
         self.assertTrue(self.status["current_e2_verdict"].startswith("HOLD_"))
 
     def test_02_real_source_and_gold_not_falsely_certified(self):
@@ -31,7 +31,7 @@ class TestV206E2StageGate(unittest.TestCase):
 
     def test_03_e3_e4_e5_stay_not_run_no_premature_release(self):
         self.assertEqual(self.status["sequence"][1]["status"],
-                         "IN_PROGRESS_HOLD_HISTORICAL_OWNER_AUDIO_VISUAL_GOLD")
+                         "IN_PROGRESS_HOLD_REAL_NATIVE_OWNER_SPEAKER_STANCE_AND_GOLD")
         self.assertEqual([x["status"] for x in self.status["sequence"][2:]],
                          ["NOT_RUN_CURRENT_ROUTE"]*3)
         self.assertTrue(E2_REPORT.is_file())
@@ -48,8 +48,8 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertTrue(e["v208_malformed_hash_rejected_without_runtime_exception"])
         self.assertTrue(e["v208_cross_census_temporal_history_check_tested"])
         self.assertTrue(e["v208_real_srt_private_resume_not_tested"])
-        self.assertEqual(e["ci_total_tests"],236)
-        self.assertEqual(e["ci_current_e2_tests"],165)
+        self.assertEqual(e["ci_total_tests"],256)
+        self.assertEqual(e["ci_current_e2_tests"],185)
         self.assertEqual(e["ci_existing_e2_and_e1_regression"],71)
         self.assertTrue((ROOT/"V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md").is_file())
         self.assertFalse(e["independent_real_semantic_gold_certified"])
@@ -113,6 +113,23 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertFalse(e["e2_semantic_accuracy_approved"])
         self.assertTrue(e["v212_krx_concept_scope_explored_not_e4_certified"])
         self.assertTrue((ROOT/"V212_E2_REAL_V182_17_OPEN_5_SOURCE_RISK_GAPS_HOLD_20261120.md").is_file())
+
+
+    def test_08_v213_native_qualifier_fix_pass_is_not_actual_e2_semantic_pass(self):
+        e=self.status["e2_evidence"]
+        self.assertTrue(e["v213_native_v176_to_frozen_v6_qualifier_bridge_tested"])
+        self.assertTrue(e["v213_native_v6_condition_and_exception_cue_indices_mapped_synthetic"])
+        self.assertTrue(e["v213_source_context_and_reviewer_cautions_excluded_from_native_qualifiers"])
+        self.assertTrue(e["v213_owner_original_journal_unchanged_in_tests"])
+        self.assertTrue(e["v213_private_append_only_source_qualifier_custody_tested"])
+        self.assertTrue(e["v213_invalid_schema_types_fail_closed_without_typeerror"])
+        self.assertFalse(e["v213_verified_all_original_etf_250_native_qualifiers"])
+        self.assertFalse(e["v213_real_v176_owner_checkpoint_reloaded"])
+        self.assertFalse(e["v213_all_speaker_stance_resolved"])
+        self.assertFalse(e["v213_e2_independent_semantic_gold_passed"])
+        self.assertFalse(e["v213_e2_approved"])
+        self.assertEqual(e["ci_current_e2_tests"],185)
+        self.assertTrue((ROOT/"V213_E2_NATIVE_SOURCE_QUALIFIER_BRIDGE_REAL_V182_DEFECT_REPAIRED_20261120.md").is_file())
 
 
 if __name__=="__main__":
