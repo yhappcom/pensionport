@@ -133,7 +133,7 @@ class TestV208PrivateSourceCorrection(unittest.TestCase):
     def test_06_repair_only_for_originally_checkpointed_review(self):
         h=self.checkpoint()
         alternate=answered(self.c1,source_risks={
-            1:("QUESTION_WITH_EMBEDDED_ASSERTION","8%"),
+            1:("QUESTION_WITH_EMBEDDED_ASSERTION","8%가"),
             2:("QUOTE_WITH_FACT_DEPENDENCY","모든 소득이 비과세"),
         })
         alternate_plan=authored_plan(
