@@ -5,8 +5,8 @@
   "branch": "verify/ire-v6-v201-e1-native-source-bridge-20261120",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_READY_NOT_STARTED",
-  "current_e1_verdict": "PASS_SYNTHETIC_STRUCTURAL_CONNECTIVITY_ONLY",
+  "current_step": "E1_REPAIR_ONLY",
+  "current_e1_verdict": "FAIL_CURRENT_ROUTE_UNATTESTED_REVIEW_TO_APPROVAL",
   "e1_evidence": {
     "native_owner_cues": 4,
     "native_source_atoms": 3,
@@ -31,35 +31,46 @@
     "independent_semantic_quality_certified": false,
     "ci_run_url": "https://github.com/yhappcom/pensionport/actions/runs/44692267523",
     "ci_test_count": 395,
-    "ci_conclusion": "success",
-    "report_path": "validation/ire-v6-frozen/V202_E1_CURRENT_V176_ROUTE_STRUCTURAL_PASS_20261120.md"
+    "ci_conclusion": "success_fail_closed_negative_regressions_only_not_e1_pass",
+    "report_path": "validation/ire-v6-frozen/V202_E1_INDEPENDENT_REAUDIT_FAIL_20261120.md",
+    "original_prior_pass_retracted": true,
+    "original_prior_ci_test_count": 395,
+    "prior_same_input_link_is_only_partial": true,
+    "v176_review_to_native_host_batch_direct_delivery_proven": false,
+    "native_meaning_field_drift_reproduced": true,
+    "adversarial_red_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44705219505",
+    "fail_closed_repair_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44706008466",
+    "fail_closed_repair_ci_tests": 398,
+    "owner_journal_change_during_callback_rejected": true,
+    "native_unattested_speaker_stance_asof_change_rejected": true,
+    "current_approval_to_knowledge_positive_path_proven": false
   },
   "sequence": [
     {
       "step": "E1",
       "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
-      "status": "PASS",
-      "scope": "synthetic structural integration, verified real frozen code"
+      "status": "FAIL",
+      "scope": "current V176 review-to-approval handoff FAIL; historical V166 standalone synthetic PASS retained"
     },
     {
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
-      "status": "READY_NOT_STARTED_CURRENT_ROUTE"
+      "status": "BLOCKED_BY_E1"
     },
     {
       "step": "E3",
       "criterion": "승인·보류·격리 결과가 정확히 전달",
-      "status": "NOT_RUN_CURRENT_ROUTE"
+      "status": "NOT_RUN_BLOCKED_BY_E1"
     },
     {
       "step": "E4",
       "criterion": "적법한 승인 입력은 통과하고 부적합 입력은 차단",
-      "status": "NOT_RUN_CURRENT_ROUTE"
+      "status": "NOT_RUN_BLOCKED_BY_E1"
     },
     {
       "step": "E5",
       "criterion": "승인된 13개 구간만 원자적으로 저장",
-      "status": "NOT_RUN_CURRENT_ROUTE"
+      "status": "NOT_RUN_BLOCKED_BY_E1"
     }
   ],
   "main_unchanged": true,
