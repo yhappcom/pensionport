@@ -75,7 +75,7 @@ class V202FrozenE1Transport(unittest.TestCase):
                 "review_executor":"CHATGPT_IN_CHAT",
                 "responses":rows})
 
-    def run(self,**kw):
+    def _execute_transport(self,**kw):
         params=dict(
             engine=self.engine,
             checkpoint=self.fx.fx.checkpoint,
@@ -89,7 +89,7 @@ class V202FrozenE1Transport(unittest.TestCase):
         return run_source_pinned_parent(**params)
 
     def test_01_real_frozen_full_transport_writes_only_synthetic_approved_atoms(self):
-        result=self.run()
+        result=self._execute_transport()
         self.assertEqual(result["native_parent_status"],
                          "WHOLE_VIDEO_RESEARCH_CANDIDATE_PUBLISHED_ATOMICALLY")
         self.assertTrue(result["native_knowledge_published"])
@@ -99,8 +99,8 @@ class V202FrozenE1Transport(unittest.TestCase):
         self.assertFalse(result["e5_real_13_child_knowledge_certified"])
 
     def test_02_resume_idempotent_does_not_duplicate_native_publication(self):
-        first=self.run()
-        second=self.run()
+        first=self._execute_transport()
+        second=self._execute_transport()
         self.assertEqual(second["native_parent_result"]["publication_receipt"]["status"],
                          "IDEMPOTENT_PARENT_KNOWLEDGE_COMMIT")
         self.assertEqual(first["native_parent_result"]["knowledge_head_sha256"],
@@ -110,7 +110,7 @@ class V202FrozenE1Transport(unittest.TestCase):
 
     def test_03_wrong_owner_checkpoint_blocks_before_knowledge_write(self):
         with self.assertRaisesRegex(InvalidInput,"FROZEN_OWNER_HEAD_MISMATCH"):
-            self.run(expected_owner_head="f"*64)
+            self._execute_transport(expected_owner_head="f"*64)
         self.fx._assert_zero()
 
     def test_04_child_atom_injection_blocks_before_parent_publication(self):
@@ -120,20 +120,20 @@ class V202FrozenE1Transport(unittest.TestCase):
             packet["case"]["exchange"]["atoms"][0]["proposition"]="Forged 99% guaranteed return"
             return packet
         with self.assertRaisesRegex(InvalidInput,"UNREVIEWED_CHILD_ATOM_INJECTED"):
-            self.run(review_or_load_child=altered)
+            self._execute_transport(review_or_load_child=altered)
         self.fx._assert_zero()
 
     def test_05_original_source_differs_blocks_before_all_callbacks(self):
         class BadCheckpoint:
             raw=b"wrong source"
         with self.assertRaisesRegex(InvalidInput,"PARENT_SOURCE_BYTES_DIFFER"):
-            self.run(checkpoint=BadCheckpoint())
+            self._execute_transport(checkpoint=BadCheckpoint())
         self.fx._assert_zero()
 
     def test_06_unverified_financial_child_holds_and_keeps_knowledge_empty(self):
         second=self.fx.fx.packets[1]["case"]
         second["official_evidence_bodies"]={}
-        result=self.run()
+        result=self._execute_transport()
         self.assertEqual(result["native_parent_status"],
                          "HOLD_CHILD_CHAT_SEMANTICS_OR_FINANCE")
         self.assertFalse(result["native_knowledge_published"])
@@ -148,12 +148,12 @@ class V202FrozenE1Transport(unittest.TestCase):
             con.execute("""CREATE TRIGGER reject_parent_insert BEFORE INSERT ON parent_publications
                 BEGIN SELECT RAISE(ABORT,'forced E1 parent failure'); END""")
         with self.assertRaises(sqlite3.IntegrityError):
-            self.run()
+            self._execute_transport()
         self.fx._assert_zero()
 
     def test_08_missing_chat_callbacks_no_silent_approval(self):
         with self.assertRaisesRegex(InvalidInput,"ACTUAL_HOST_CALLBACKS_REQUIRED"):
-            self.run(review_parent=None)
+            self._execute_transport(review_parent=None)
         self.fx._assert_zero()
 
 
