@@ -9,6 +9,7 @@ The store cannot resolve semantic disagreements or launch model API tasks.
 from __future__ import annotations
 
 import json
+from contextlib import closing
 import os
 from pathlib import Path
 import sqlite3
@@ -50,7 +51,7 @@ class PrivateE2CensusCheckpoint:
             "cue_total":len(owner.source.cues),
         }
         self._check_owner()
-        with self._connect() as db:
+        with closing(self._connect()) as db:
             db.execute("BEGIN IMMEDIATE")
             db.execute("""CREATE TABLE IF NOT EXISTS e2_identity(
                 singleton INTEGER PRIMARY KEY CHECK(singleton=1),
@@ -128,10 +129,13 @@ class PrivateE2CensusCheckpoint:
             prev=digest
         return prev,covered,saved
 
-    def progress(self):
+    def progress(self,*,externally_pinned_private_head=None):
         self._check_owner()
-        with self._connect() as db:
+        with closing(self._connect()) as db:
             head,covered,saved=self._audit(db)
+        if externally_pinned_private_head is not None:
+            must(head==externally_pinned_private_head,
+                 "EXTERNAL_PRIVATE_CHECKPOINT_HEAD_CHANGED")
         missing=[cue for cue in range(1,self.identity["cue_total"]+1)
                  if cue not in covered]
         statuses=[item["audit_status"] for _,item in saved.values()]
@@ -163,7 +167,7 @@ class PrivateE2CensusCheckpoint:
                     "end_cue":challenge["end_cue"],
                     "challenge":challenge,"answer":answer,
                     "audit_status":audited["status"]}
-        with self._connect() as db:
+        with closing(self._connect()) as db:
             db.execute("BEGIN IMMEDIATE")
             head,covered,saved=self._audit(db)
             first,last=challenge["start_cue"],challenge["end_cue"]
