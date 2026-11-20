@@ -114,6 +114,15 @@ def reconcile_private_native_source_splits(raw_srt,inventory,prior_exchange,
     for pid in held:
         require(any("VISUAL" in risk for risk in byid[pid]["risks"]),
                 "VISUAL_HOLD_WITHOUT_DOCUMENTED_SOURCE_RISK")
+    # V215.2 real-original defect: a chart-dependent C00037 was
+    # missed by an earlier hand-authored two-item quarantine list.
+    # Require *all* video-only V210 parents to be held before staging.
+    source_visual_required={
+        pid for pid,c in byid.items()
+        if any("VISUAL_NOT_AVAILABLE" in risk for risk in c["risks"])
+    }
+    require(held==source_visual_required,
+            "VIDEO_ONLY_SOURCE_EVIDENCE_QUARANTINE_INCOMPLETE")
     orig_ids={a["claim_id"] for a in prior_exchange["atoms"]}
     bycode={x["provisional_id"]:f"C{i:05d}"
             for i,x in enumerate(candidates,1)}
