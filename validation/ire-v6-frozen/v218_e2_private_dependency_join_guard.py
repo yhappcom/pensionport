@@ -154,7 +154,12 @@ def audit_private_cross_atom_join(raw_srt,exchange,exchange_bytes,ledger,
                  not prior.get("same_native_context_ids") and
                  not prior.get("target_native_ids"),
                  "UNMAPPED_VISUAL_EVIDENCE_NOT_HELD")
+            source_ids=prior.get("source_native_ids")
+            need(type(source_ids) is list and
+                 all(type(x) is str and x in atom_ids for x in source_ids),
+                 "VISUAL_SOURCE_CONTEXT_INVALID")
             held.append({"relation_id":rid,"target_cue":row["target_cue"],
+                 "origin_atom_ids":sorted(source_ids),
                  "evidence_required":"ORIGINAL_VIDEO_OR_AUDIO",
                  "financial_claim_approved":False})
         counts[state]+=1
@@ -226,10 +231,28 @@ def prepare_research_dependency_closure(requested_atom_ids,receipt):
         raise InvalidInput("V218_E2_RESEARCH_GRAPH_CYCLE_BOUND")
     affected=[x["relation_id"] for x in edges if
               x["from_atom_id"] in selected or x["to_atom_id"] in selected]
+    intra=[x["relation_id"] for x in receipt.get("same_atom_relations",[])
+           if type(x) is dict and x.get("atom_id") in selected]
+    held=[];global_unmapped=[]
+    for item in receipt["evidence_quarantines"]:
+        need(type(item) is dict and type(item.get("relation_id")) is str and
+             type(item.get("origin_atom_ids")) is list and
+             all(type(x) is str for x in item["origin_atom_ids"]) and
+             item.get("financial_claim_approved") is False,
+             "VISUAL_QUARANTINE_RECEIPT_UNTRUSTED")
+        origin=set(item["origin_atom_ids"])
+        if not origin:
+            global_unmapped.append(item["relation_id"])
+        elif origin & selected:
+            held.append(item["relation_id"])
     return {"schema":"IRE_V218_E2_UNAPPROVED_CONTEXT_CLOSURE_V1",
         "requested_atom_ids":sorted(requested_atom_ids),
         "mandatory_context_atom_ids":sorted(selected),
         "source_relation_ids":sorted(affected),
+        "intra_atom_relation_ids":sorted(intra),
+        "media_evidence_quarantine_relation_ids":sorted(held),
+        "global_unmapped_quarantine_relation_ids":sorted(global_unmapped),
+        "media_quarantine_present":bool(held or global_unmapped),
         "knowledge_approval_authorized":False,
         "independent_gold_certified":False,
         "e2_final_pass":False}
