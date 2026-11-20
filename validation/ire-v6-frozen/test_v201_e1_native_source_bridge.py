@@ -106,7 +106,7 @@ class TestV201NativeE1Bridge(unittest.TestCase):
 
     def test_03_cannot_use_false_owner_head(self):
         with self.assertRaisesRegex(InvalidInput, "EXTERNAL_OWNER_HEAD_DRIFT"):
-            bridge_v176_to_v6(**self.args(expected_owner_head="0" * 64))
+            bridge_v176_to_v6(**self.args(expected_owner_head="f" * 64))
 
     def test_04_cannot_accept_unpinned_owner_inventory(self):
         with self.assertRaises(InvalidInput):
