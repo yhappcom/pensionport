@@ -50,8 +50,8 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          python -m compileall -q v206_e2_full_cue_semantic_census.py test_v206_e2_full_cue_semantic_census.py v206_e2_private_cue_checkpoint.py test_v206_e2_private_cue_checkpoint.py test_v206_e2_stage_sequence_status.py v207_e2_unreleased_chat_repair.py test_v207_e2_unreleased_chat_repair.py v208_e2_private_source_repair_journal.py test_v208_e2_private_source_repair_journal.py v209_e2_blind_original_cue_reconciliation.py test_v209_e2_blind_original_cue_reconciliation.py
-          python -m unittest -v test_v206_e2_full_cue_semantic_census test_v206_e2_private_cue_checkpoint test_v206_e2_stage_sequence_status test_v207_e2_unreleased_chat_repair test_v208_e2_private_source_repair_journal test_v209_e2_blind_original_cue_reconciliation
+          python -m compileall -q v206_e2_full_cue_semantic_census.py test_v206_e2_full_cue_semantic_census.py v206_e2_private_cue_checkpoint.py test_v206_e2_private_cue_checkpoint.py test_v206_e2_stage_sequence_status.py v207_e2_unreleased_chat_repair.py test_v207_e2_unreleased_chat_repair.py v208_e2_private_source_repair_journal.py test_v208_e2_private_source_repair_journal.py v209_e2_blind_original_cue_reconciliation.py test_v209_e2_blind_original_cue_reconciliation.py v210_e2_private_original_source_inventory.py test_v210_e2_private_original_source_inventory.py
+          python -m unittest -v test_v206_e2_full_cue_semantic_census test_v206_e2_private_cue_checkpoint test_v206_e2_stage_sequence_status test_v207_e2_unreleased_chat_repair test_v208_e2_private_source_repair_journal test_v209_e2_blind_original_cue_reconciliation test_v210_e2_private_original_source_inventory
       - name: Existing V166 E2 semantics and frozen V176 source review regressions
         working-directory: validation/ire-v6-frozen
         env:
