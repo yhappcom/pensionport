@@ -12,7 +12,7 @@ from ire.v6.errors import InvalidInput
 from v176_chat_engine_loop import EngineChatSession,COMMIT
 from v206_e2_full_cue_semantic_census import (
     prepare_e2_cue_challenge,audit_e2_cue_answer,audit_full_e2_video,
-    ANSWER,
+    ANSWER,build_e2_source_repair_docket,
 )
 import test_v202_e1_v176_native_positive_path as original_e1
 
@@ -330,6 +330,22 @@ class TestV206KoreanQuestionQuoteMeaningGap(unittest.TestCase):
             audit_e2_cue_answer(self.owner,self.packet,bad,
                                 expected_owner_head=self.head)
 
+    def test_22_embedded_question_and_quote_become_explicit_repair_docket(self):
+        reply=answered(self.packet,source_risks={
+            1:("QUESTION_WITH_EMBEDDED_ASSERTION","8%가 무조건 비과세"),
+            2:("QUOTE_WITH_FACT_DEPENDENCY","모든 소득이 비과세"),
+        })
+        docket=build_e2_source_repair_docket(
+            self.owner,self.packet,reply,expected_owner_head=self.head)
+        self.assertEqual(docket["issue_count"],2)
+        self.assertTrue(all(x["required_action"]==
+            "EXPLICIT_SOURCE_BOUND_CHAT_ADJUDICATION_AND_APPEND_ONLY_REPAIR"
+            for x in docket["issues"]))
+        self.assertTrue(all(x["native_claim_auto_created"] is False
+                            for x in docket["issues"]))
+        self.assertFalse(docket["e2_pass"])
+        self.assertFalse(docket["e3_e4_e5_authorized"])
+
     def test_19_repeated_numeric_token_cannot_lose_one_occurrence(self):
         original=answered(self.packet)
         self.assertEqual([x["token"] for x in original["rows"][0]["cue_numeric_roles"]],
@@ -370,6 +386,17 @@ class TestV206UnsupportedAnecdote(unittest.TestCase):
         self.assertEqual(result["counts"]["native_atom_reviews"],0)
         self.assertIn({"cue_index":2,"reason":"UNSUPPORTED_SOURCE_ANECDOTE_NOT_IN_V6"},
                       result["hold_reasons"])
+
+    def test_23_unsupported_anecdote_gives_review_queue_without_fake_native_id(self):
+        packet=prepare_e2_cue_challenge(self.owner,
+            expected_owner_head=self.head,start_cue=2,limit=1)
+        docket=build_e2_source_repair_docket(self.owner,packet,answered(packet),
+            expected_owner_head=self.head)
+        self.assertEqual(docket["issue_count"],1)
+        row=docket["issues"][0]
+        self.assertEqual(row["original_native_projection"],"UNSUPPORTED_ANECDOTE")
+        self.assertEqual(row["reason"],"UNSUPPORTED_SOURCE_ANECDOTE_NOT_IN_V6")
+        self.assertFalse(row["native_claim_auto_created"])
 
     def test_21_unsupported_source_claim_must_not_gain_a_fake_v6_id(self):
         packet=prepare_e2_cue_challenge(self.owner,
