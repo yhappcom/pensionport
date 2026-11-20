@@ -75,11 +75,14 @@ def audit_private_unapproved_evidence_risks(
              "CUE_POSITION_OR_TEXT_HASH_CHANGED")
         primary = cue.get("native_unapproved_primary_claim_ids")
         context = cue.get("native_unapproved_context_claim_ids")
+        disp_ids = disp.get("claim_ids")
         need(type(primary) is list and type(context) is list and
-             all(type(x) is str for x in primary + context) and
+             type(disp_ids) is list and
+             all(type(x) is str for x in primary + context + disp_ids) and
              len(primary) == len(set(primary)) and
              len(context) == len(set(context)) and
-             sorted(primary) == sorted(disp.get("claim_ids", [])) and
+             len(disp_ids) == len(set(disp_ids)) and
+             sorted(primary) == sorted(disp_ids) and
              type(cue.get("needs_original_audio_or_screen")) is bool,
              "CUE_NATIVE_PRIMARY_OR_RISK_FLAGS")
         by_cue[index] = cue
