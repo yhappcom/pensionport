@@ -156,22 +156,23 @@ class TestV203ActualNativeHostOrigin(unittest.TestCase):
         }
 
     def args(self, **updates):
-        p=self.fx.fx
+        p=self.fx
+        native=p.fx.fx
         args={
             "owner":p.owner,
             "parent_native_store":p.native,
-            "checkpoint":p.fx.checkpoint,
-            "knowledge_store":p.fx.knowledge,
+            "checkpoint":native.checkpoint,
+            "knowledge_store":native.knowledge,
             "scope_id":"e1_v203_true_origin",
-            "inventory_bytes":p.fx.p.inventory,
-            "expected_inventory_sha256":p.fx.p.inventory_sha,
+            "inventory_bytes":native.p.inventory,
+            "expected_inventory_sha256":native.p.inventory_sha,
             "expected_owner_head":p.owner.progress()["checkpoint_head_sha256"],
             "qualifier_attestation":self.qualifiers,
             "expected_qualifier_sha256":self.qualifier_pin,
             "native_child_inputs":self.child_inputs,
             "review_native_child":self.native_review,
-            "review_seams":p.fx.seams,
-            "review_parent":p.fx.parent_review,
+            "review_seams":native.seams,
+            "review_parent":native.parent_review,
             "expected_knowledge_head":ZERO_SHA,
             "new_parent_scope":True,
         }
