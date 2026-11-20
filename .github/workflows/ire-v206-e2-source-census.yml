@@ -70,6 +70,9 @@ jobs:
             validation/ire-v6-frozen/v176_chat_engine_loop.py
             validation/ire-v6-frozen/v210_e2_private_original_source_inventory.py
             validation/ire-v6-frozen/v214_e2_real_srt_provisional_native_v6.py
+            validation/ire-v6-frozen/v215_e2_source_atom_split_reconciliation.py
+            validation/ire-v6-frozen/v2151_e2_private_pairwise_source_screen.py
+            validation/ire-v6-frozen/v216_e2_private_residual_evidence_guard.py
           include-hidden-files: false
       - name: E1 passed native bridge smoke remains unchanged
         working-directory: validation/ire-v6-frozen
