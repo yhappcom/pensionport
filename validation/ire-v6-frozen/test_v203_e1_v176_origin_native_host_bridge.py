@@ -262,5 +262,66 @@ class TestV203ActualNativeHostOrigin(unittest.TestCase):
                 run["native_child_host_event_sha256s"][i])
 
 
+
+    def test_08_same_owner_replay_publishes_no_duplicate_knowledge(self):
+        first=run_origin_native_e1(**self.args())
+        baseline=self._knowledge_counts()
+        second=run_origin_native_e1(**self.args(new_parent_scope=False))
+        self.assertTrue(first["structural_synthetic_positive_path_pass"])
+        self.assertTrue(second["structural_synthetic_positive_path_pass"])
+        self.assertTrue(second["parent_publication_idempotent"])
+        self.assertEqual(second["knowledge_sqlite_delta"],
+                         {"events":0,"knowledge":0,"parent_publications":0})
+        self.assertEqual(self._knowledge_counts(),baseline)
+        self.assertEqual(first["native_child_host_event_sha256s"],
+                         second["native_child_host_event_sha256s"])
+
+    def test_09_cross_child_source_qualifier_cannot_be_silently_discarded(self):
+        from v203_e1_v176_origin_native_host_bridge import _child_exchange
+        parent,_=self.fx.owner.compile_native_v6_stage()
+        for atom in parent["atoms"]:
+            if atom["claim_id"]=="C00003":
+                atom["condition_cue_indices"]=[2]
+                atom["context_cue_indices"]=[2,3]
+        with self.assertRaisesRegex(InvalidInput,
+                                    "CROSS_CHILD_QUALIFIER_NEEDS_EXPLICIT_SEAM"):
+            _child_exchange(parent,self.fx.fx.fx.checkpoint.child_manifests[1])
+
+    def test_10_owner_event_during_post_host_chat_review_blocks_release(self):
+        did=[False]
+        original=self.native_review
+
+        def updated_owner_during_native_review(segment_id,source,exchange,host,ledger,prior):
+            if not did[0]:
+                task=self.fx.owner.prepare_evidence_request("W00001")
+                self.assertIsNotNone(task)
+                rows=[{
+                    "cue_index":r["cue_index"],"claim_index":r["claim_index"],
+                    "claim_sha256":r["claim_sha256"],
+                    "evidence_state":"NOT_FOUND_KEEP_OPEN",
+                    "official_source_url":None,
+                    "source_excerpt":None,"effective_as_of":None,
+                    "context_and_counterexamples":
+                        "SYNTHETIC: source-first finance context remains unresolved without an actual primary issuer source.",
+                    "original_body_sha256":None,
+                    "final_financial_truth_certified":False,
+                } for r in task["claim_evidence_tasks"]]
+                from v176_chat_engine_loop import EVIDENCE
+                self.fx.owner.submit_evidence_proposals(task,{
+                    "schema":EVIDENCE,
+                    "review_executor":"CHATGPT_IN_CHAT",
+                    "challenge_sha256":task["challenge_sha256"],
+                    "responses":rows})
+                did[0]=True
+            return original(segment_id,source,exchange,host,ledger,prior)
+
+        with self.assertRaisesRegex(InvalidInput,
+                                    "OWNER_REVIEW_HEAD_CHANGED_IN_FLIGHT"):
+            run_origin_native_e1(**self.args(
+                review_native_child=updated_owner_during_native_review))
+        self.assertTrue(did[0])
+        self.assertEqual(self._knowledge_counts(),
+                         {"events":0,"knowledge":0,"parent_publications":0})
+
 if __name__=="__main__":
     unittest.main()
