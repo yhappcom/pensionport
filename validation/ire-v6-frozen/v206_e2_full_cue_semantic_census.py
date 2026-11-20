@@ -84,12 +84,22 @@ def prepare_e2_cue_challenge(owner, *, expected_owner_head,
         event,row=reviewed.get(i,(None,None))
         claims=[] if row is None else row["claims"]
         native=atoms.get(i,[])
-        check(len(claims)==len(native),"NATIVE_ATOM_CENSUS_MISMATCH")
-        if row is not None and row["disposition"]=="ASSERTION":
-            check(all(native[j]["kind"]==claims[j]["kind"] and
-                      native[j]["proposition"]==claims[j]["proposition"]
-                      for j in range(len(claims))),
-                  "V176_V6_ATOM_ORDER_OR_MEANING_DRIFT")
+        unsupported=(row is not None and
+                     row["disposition"]=="ASSERTION" and
+                     any(c["kind"]=="ANECDOTE" for c in claims))
+        if unsupported:
+            # V176 deliberately has NO V6 native atom for an anecdote.
+            # E2 must still REVIEW this source speech rather than crash on
+            # the zero-native-atom projection or silently omit the cue.
+            check(len(claims)>0 and native==[],
+                  "UNSUPPORTED_ANECDOTE_NATIVE_NOT_QUARANTINED")
+        else:
+            check(len(claims)==len(native),"NATIVE_ATOM_CENSUS_MISMATCH")
+            if row is not None and row["disposition"]=="ASSERTION":
+                check(all(native[j]["kind"]==claims[j]["kind"] and
+                          native[j]["proposition"]==claims[j]["proposition"]
+                          for j in range(len(claims))),
+                      "V176_V6_ATOM_ORDER_OR_MEANING_DRIFT")
         targets.append({
             "cue_index":i,
             "original_text":cue.text,
@@ -97,10 +107,12 @@ def prepare_e2_cue_challenge(owner, *, expected_owner_head,
             "v176_event_sha256":event,
             "v176_disposition":None if row is None else row["disposition"],
             "v176_speaker_role":None if row is None else row["speaker_role"],
+            "native_projection_status":("UNSUPPORTED_ANECDOTE"
+               if unsupported else "PROJECTED" if native else "NO_NATIVE_ATOM"),
             "v176_claims":[{
                 "claim_ordinal":j+1,
                 "claim_sha256":json_digest(claim),
-                "claim_id":native[j]["claim_id"],
+                "claim_id":None if unsupported else native[j]["claim_id"],
                 "kind":claim["kind"],
                 "verbatim_quote":claim["quote"],
                 "conditions":claim["conditions"],
@@ -198,6 +210,10 @@ def audit_e2_cue_answer(owner,packet,answer,*,expected_owner_head):
               len(row["claim_judgments"])==len(target["v176_claims"]),
               "CLAIM_REVIEW_CENSUS")
         a=target["v176_disposition"]
+        if target["native_projection_status"]=="UNSUPPORTED_ANECDOTE":
+            check(a=="ASSERTION" and row["claim_judgments"],
+                  "UNSUPPORTED_ANECDOTE_NEEDS_EXPLICIT_REVIEW")
+            holds.append((i,"UNSUPPORTED_SOURCE_ANECDOTE_NOT_IN_V6"))
         if a=="ASSERTION":
             check(row["speech_act"] not in {
                 "QUESTION_ONLY","QUOTE_ONLY","NON_RESEARCH_ONLY"},
@@ -293,6 +309,8 @@ def audit_e2_cue_answer(owner,packet,answer,*,expected_owner_head):
                 "REBUTTAL_OR_CONTEXT_QUOTE_FORGED")
         counts["cues_checked"]+=1
         counts["original_claims_checked"]+=len(target["v176_claims"])
+        counts["native_atom_reviews"]+=sum(
+            c["claim_id"] is not None for c in target["v176_claims"])
         counts["source_"+str(a)]+=1
         counts["speech_"+row["speech_act"]]+=1
     check(owner.progress()["checkpoint_head_sha256"]==expected_owner_head,
@@ -340,7 +358,9 @@ def audit_full_e2_video(owner, reviewed_packets, *,
         "owner_head_sha256":expected_owner_head,
         "original_cues_checked":total,
         "batch_count":len(receipts),
-        "native_atom_reviews":sum(r["counts"]["original_claims_checked"] for r in receipts),
+        "native_atom_reviews":sum(r["counts"]["native_atom_reviews"] for r in receipts),
+        "original_source_claims_checked":sum(
+            r["counts"]["original_claims_checked"] for r in receipts),
         "semantic_holds":holds,
         "status":("HOLD_SOURCE_SEMANTIC_ERRORS" if holds else
                   "MECHANICAL_FULL_CUE_CENSUS_PASS_INDEPENDENT_GOLD_PENDING"),
