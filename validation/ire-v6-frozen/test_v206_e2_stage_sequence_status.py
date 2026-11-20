@@ -16,7 +16,7 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertEqual(self.status["sequence"][0]["status"],"PASS")
         self.assertTrue(self.status["current_e1_verdict"].startswith("PASS_V203_"))
         self.assertEqual(self.status["current_step"],
-                         "E2_REAL_ORIGINAL_250_CUE_RISK_AND_RELATIONS_HOLD_V179_RECONCILIATION")
+                         "E2_V212_V182_17OPEN_CROSSWALK_5_MISSED_RISKS_HOLD_V179_OWNER_GOLD")
         self.assertTrue(self.status["current_e2_verdict"].startswith("HOLD_"))
 
     def test_02_real_source_and_gold_not_falsely_certified(self):
@@ -31,7 +31,7 @@ class TestV206E2StageGate(unittest.TestCase):
 
     def test_03_e3_e4_e5_stay_not_run_no_premature_release(self):
         self.assertEqual(self.status["sequence"][1]["status"],
-                         "IN_PROGRESS_HOLD_PRIOR_OWNER_GOLD_AND_NATIVE_REPAIR")
+                         "IN_PROGRESS_HOLD_HISTORICAL_OWNER_AUDIO_VISUAL_GOLD")
         self.assertEqual([x["status"] for x in self.status["sequence"][2:]],
                          ["NOT_RUN_CURRENT_ROUTE"]*3)
         self.assertTrue(E2_REPORT.is_file())
@@ -48,8 +48,8 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertTrue(e["v208_malformed_hash_rejected_without_runtime_exception"])
         self.assertTrue(e["v208_cross_census_temporal_history_check_tested"])
         self.assertTrue(e["v208_real_srt_private_resume_not_tested"])
-        self.assertEqual(e["ci_total_tests"],220)
-        self.assertEqual(e["ci_current_e2_tests"],149)
+        self.assertEqual(e["ci_total_tests"],236)
+        self.assertEqual(e["ci_current_e2_tests"],165)
         self.assertEqual(e["ci_existing_e2_and_e1_regression"],71)
         self.assertTrue((ROOT/"V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md").is_file())
         self.assertFalse(e["independent_real_semantic_gold_certified"])
@@ -91,6 +91,28 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertFalse(e["independent_real_semantic_gold_certified"])
         self.assertFalse(e["e2_semantic_accuracy_approved"])
         self.assertTrue((ROOT/"V211_E2_REAL_ETF_250CUE_61_RISK_32_CROSSCUE_HOLD_20261120.md").is_file())
+
+
+    def test_07_v212_real_v182_17_open_and_five_missed_risks_never_e2_go(self):
+        e=self.status["e2_evidence"]
+        self.assertEqual(e["v212_real_v182_effective_open_cue_count"],17)
+        self.assertEqual(e["v212_v182_open_evidence_classes"],{
+            "asr_audio":9,"video_screen":5,"historical_statistics":1,
+            "fact_scope_overgeneralization":2})
+        self.assertEqual(e["v212_prior_v211_risk_cues_intersect"],12)
+        self.assertEqual(e["v212_newly_discovered_v211_missed_open_count"],5)
+        self.assertEqual(e["v212_newly_discovered_v211_missed_open_cue_ids"],
+                         [126,149,153,160,232])
+        self.assertTrue(e["v212_private_original_crosswalk_saved_to_library"])
+        self.assertTrue(e["v212_actual_original_source_250cue_hash_audit_pass"])
+        self.assertTrue(e["v212_v182_historical_open_different_from_v179_24"])
+        self.assertFalse(e["v212_v179_24_open_reconciled"])
+        self.assertFalse(e["v212_v179_68_noatom_reconciled"])
+        self.assertFalse(e["v212_real_v176_historical_owner_recovered"])
+        self.assertFalse(e["v212_independent_gold_available"])
+        self.assertFalse(e["e2_semantic_accuracy_approved"])
+        self.assertFalse(e["v212_krx_concept_scope_explored_not_e4_certified"] is False)
+        self.assertTrue((ROOT/"V212_E2_REAL_V182_17_OPEN_5_SOURCE_RISK_GAPS_HOLD_20261120.md").is_file())
 
 
 if __name__=="__main__":
