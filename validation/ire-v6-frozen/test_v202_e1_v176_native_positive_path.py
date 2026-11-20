@@ -99,7 +99,10 @@ class TestV202SameInputE1Route(unittest.TestCase):
 
     def _counts(self):
         with sqlite3.connect(self.fx.fx.knowledge.path) as con:
-            return {name:con.execute("SELECT COUNT(*) FROM "+name).fetchone()[0]
+            existing={x[0] for x in con.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'")}
+            return {name:(con.execute("SELECT COUNT(*) FROM "+name).fetchone()[0]
+                          if name in existing else 0)
                     for name in ("events","knowledge","parent_publications")}
 
     def test_01_same_original_review_reaches_frozen_gate_and_atomic_sqlite(self):
