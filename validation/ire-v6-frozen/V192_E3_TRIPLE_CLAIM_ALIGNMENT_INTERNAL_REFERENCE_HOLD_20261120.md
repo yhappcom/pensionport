@@ -30,3 +30,10 @@
 - V192 두 모듈 및 사설 재개 CLI에 대한 **신규 합성 적대 시험 29개**를 로컬에서 통과했다. 이는 금융 의미 정밀도/재현율과 다르다. GitHub 전체 회귀는 별도 CI로 최종 확인한다.
 - 평가상 주요 위험은 **자막 앵커가 다른 동일 명제의 '누락' 오판**, 하나의 구절에 묶인 두 독립 명제, `OPINION`/`RECOMMENDATION`/`FACT` 간 태도 차이, 가상 예제의 실물 오인이다.
 - 다음: 잠정 49/44 대응 중 금융고위험·발화유형 불일치 11개를 우선 정밀 검문, `MISSING_IN_OLDER` 19/14와 미연결 기존 원자 15/10의 **부모 경계 밖 연결** 재평가, CMA 내부 기준의 불완전성을 검증하고 실제로 미사용한 별도 평가 원본 및 독립 확정 정답셋 확보. E4는 E3 실측 합격 이전 **계속 미실행**, E5=0.
+## 최종 CI 및 owner-private 체크포인트 무결성
+- GitHub 합성·보안 회귀시험 **222/222 PASS** (기존 193 + V192 신규 29), 출처: https://github.com/yhappcom/pensionport/actions/runs/44662305926 . 이 숫자는 **투자 원자 의미 정확도나 정밀도/재현율 점수와 전혀 다르다.**
+- V192 공개 E3 코드만 내보내는 CI 성공: https://github.com/yhappcom/pensionport/actions/runs/44662305999 .
+- 비공개 압축 파일 `V192_PRIVATE_ETF_TRIPLE_72_AND_CMA_INTERNAL_REFERENCE_HOLD.zip` SHA-256 `8b770b164f6f3aab7c620f40584201b092a35f866d75746324dd22f6c83e73e3`, 내부 manifest SHA-256 `e82156fa5043a15878783ee351a3170f4806858f4d147843567bec9553dbf255`.
+- 별도 디렉터리에서 **117/117 파일 해시 및 SQLite 9/9 `integrity_check=ok`**, 새 프로세스 V176/V183/V191/V192 재개로 250자막·부모 36개·72원자·3중 정렬 원장 head `73782738f3bfdf28e41550cff2e1d4de38e9002d2ddac44c1c04a56edec3f59d` 재현. CMA 영상 336자막·내부 참고 주장 11개 SHA도 확인.
+- 압축 파일에는 암호화되지 않은 사용자 원문·개별 판단·SQLite가 포함돼 있으므로 **공개 저장소나 Actions에 업로드 금지**. 압축 해제 후 SQLite 및 `*_SEALED.json`은 접근권한 `0600`으로 복원해야 한다.
+- **E3=HOLD, V123/E4=NOT_RUN, E5=0**. `main` 미수정, PR Draft 유지.
