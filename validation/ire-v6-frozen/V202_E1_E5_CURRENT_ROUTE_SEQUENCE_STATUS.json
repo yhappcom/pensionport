@@ -52,7 +52,7 @@
       "step": "E1",
       "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
       "status": "PASS",
-      "scope": "V176-origin native-host exact synthetic end-to-end structural test, 413/413 CI"
+      "scope": "final E1 structural: V176→new native V6 host→V123/V127/V128→V126 synthetic real code, 435 E1 checks + strict 8 + cleanroom"
     },
     {
       "step": "E2",
@@ -80,5 +80,46 @@
     "frozen_gates_modified": false,
     "owner_private_source_published": false,
     "real_financial_knowledge_published": 0
+  },
+  "e1_final_closeout": {
+    "schema": "IRE_E1_SYNTHETIC_STRUCTURAL_CLOSEOUT_20261120",
+    "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
+    "verdict": "PASS_SYNTHETIC_INPUT_NATIVE_REVIEW_APPROVAL_ATOMIC_STORAGE",
+    "source_branch": "verify/ire-v6-v201-e1-native-source-bridge-20261120",
+    "report_path": "validation/ire-v6-frozen/E1_FINAL_STRUCTURAL_CLOSEOUT_AND_STRICT_GATE_20261120.md",
+    "baseline_tested_head_sha": "fe0120f99899a93ee61f857647d6c11e18063798",
+    "ci_native": {
+      "url": "https://github.com/yhappcom/pensionport/actions/runs/44720035936",
+      "conclusion": "success",
+      "tests": 435
+    },
+    "ci_cleanroom": {
+      "url": "https://github.com/yhappcom/pensionport/actions/runs/44720035791",
+      "conclusion": "success",
+      "tests": 1224
+    },
+    "ci_strict": {
+      "url": "https://github.com/yhappcom/pensionport/actions/runs/44720035936",
+      "status": "ALL_MANDATORY_SOFTWARE_CHECKS_PASS_ENGINE_QUALITY_NOT_CERTIFIED",
+      "gates_passed": 8,
+      "gates_total": 8
+    },
+    "v203_original_host_batches_from_v176": true,
+    "v126_synthetic_private_sqlite": {
+      "knowledge": 2,
+      "events": 2,
+      "parent_publications": 1
+    },
+    "same_input_replay_added_knowledge": 0,
+    "missing_official_evidence_added_knowledge": 0,
+    "noatom_window_explicitly_allowed": true,
+    "unresolved_window_rejected": true,
+    "cross_child_numeric_context_loss_rejected": true,
+    "owner_private_real_original_tested": false,
+    "approved_real_13_segments": false,
+    "financial_meaning_accuracy_certified": false,
+    "e2_e3_e4_e5_completed": false,
+    "main_unchanged": true,
+    "duplicate_pr74_closed_unmerged": true
   }
 }
