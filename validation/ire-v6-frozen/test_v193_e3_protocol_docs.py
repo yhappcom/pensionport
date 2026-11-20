@@ -13,11 +13,12 @@ class TestTwoTurnOperatingDocumentation(unittest.TestCase):
         self.assertIn('validation/ire-v6-frozen/' + POLICY, s)
         self.assertIn('별개의 사용자 메시지', s)
 
-    def test_02_legacy_v3_readme_has_scope_warning(self):
-        s = (REPO/'ire'/'README.md').read_text(encoding='utf-8')
+    def test_02_root_readme_overrides_protected_v3_one_turn_history(self):
+        # ire/README.md is protected historical V3 documentation: do not edit it.
+        s = (REPO/'README.md').read_text(encoding='utf-8')
         self.assertIn(POLICY, s)
-        self.assertIn('V3', s)
-        self.assertIn('E3', s)
+        self.assertIn('과거 V3 한 턴', s)
+        self.assertIn('최신 V6 E3', s)
 
     def test_03_e3_policy_clearly_distinguishes_two_turns_from_batches(self):
         s = (HERE/POLICY).read_text(encoding='utf-8')
