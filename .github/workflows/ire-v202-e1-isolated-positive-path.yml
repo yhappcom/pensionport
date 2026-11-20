@@ -1,0 +1,30 @@
+name: E1 isolated V176-to-frozen V128 provenance transport
+on:
+  push:
+    branches:
+      - verify/ire-v6-e1-v202-source-to-frozen-parent-isolated-20261120
+  pull_request:
+    branches:
+      - verify/ire-v6-v200-e1-e5-live-gate-20261120
+permissions:
+  contents: read
+jobs:
+  e1-only-exact-reviewed-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install pinned V6 requirements
+        run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: E1 only - source journal to frozen V123 and SQLite
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m compileall -q v201_e1_native_source_bridge.py v202_e1_frozen_parent_transport.py
+          python -m unittest -v test_v201_e1_native_source_bridge
+          python -m unittest -v test_v202_e1_frozen_parent_transport
+          python -m unittest -v test_v166_e1_same_typed_review_to_sqlite
