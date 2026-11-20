@@ -1,0 +1,68 @@
+{
+  "schema": "IRE_V202_SEQUENTIAL_E1_E5_CURRENT_ROUTE_STATUS_V1",
+  "as_of": "2026-11-20",
+  "repository": "yhappcom/pensionport",
+  "branch": "verify/ire-v6-v201-e1-native-source-bridge-20261120",
+  "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
+  "historical_v166_e1_pass_preserved": true,
+  "current_step": "E2_READY_NOT_STARTED",
+  "current_e1_verdict": "PASS_SYNTHETIC_STRUCTURAL_CONNECTIVITY_ONLY",
+  "e1_evidence": {
+    "native_owner_cues": 4,
+    "native_source_atoms": 3,
+    "synthetic_child_scopes": 2,
+    "v123_gate_invoked": true,
+    "v127_child_parent_invoked": true,
+    "v128_atomic_writer_invoked": true,
+    "v126_private_sqlite_counts": {
+      "events": 2,
+      "knowledge": 2,
+      "parent_publications": 1
+    },
+    "financial_evidence_missing_negative_counts": {
+      "events": 0,
+      "knowledge": 0,
+      "parent_publications": 0
+    },
+    "provenance_mutation_rejected": true,
+    "owner_restart_reverified": true,
+    "fully_private_owner_real_replay_completed": false,
+    "real_video_13_segments_published": false,
+    "independent_semantic_quality_certified": false,
+    "ci_run_url": "https://github.com/yhappcom/pensionport/actions/runs/44692267523",
+    "ci_test_count": 395,
+    "ci_conclusion": "success",
+    "report_path": "validation/ire-v6-frozen/V202_E1_CURRENT_V176_ROUTE_STRUCTURAL_PASS_20261120.md"
+  },
+  "sequence": [
+    {
+      "step": "E1",
+      "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
+      "status": "PASS",
+      "scope": "synthetic structural integration, verified real frozen code"
+    },
+    {
+      "step": "E2",
+      "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
+      "status": "READY_NOT_STARTED_CURRENT_ROUTE"
+    },
+    {
+      "step": "E3",
+      "criterion": "승인·보류·격리 결과가 정확히 전달",
+      "status": "NOT_RUN_CURRENT_ROUTE"
+    },
+    {
+      "step": "E4",
+      "criterion": "적법한 승인 입력은 통과하고 부적합 입력은 차단",
+      "status": "NOT_RUN_CURRENT_ROUTE"
+    },
+    {
+      "step": "E5",
+      "criterion": "승인된 13개 구간만 원자적으로 저장",
+      "status": "NOT_RUN_CURRENT_ROUTE"
+    }
+  ],
+  "main_unchanged": true,
+  "private_original_published": false,
+  "frozen_gates_modified": false
+}
