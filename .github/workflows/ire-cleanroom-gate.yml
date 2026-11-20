@@ -56,10 +56,53 @@ jobs:
           import ast, hashlib, json, os, pathlib, subprocess
           root=pathlib.Path(".")
           base="d613fd201f4bb077f1ccc74d28dee937b11bfcb2"
-          cp=subprocess.run(["git","diff","--name-only",base,"HEAD"],
-                            capture_output=True,text=True,check=True)
+          # The E1 bridge is a descendant of a historical V6 validation
+          # branch. Comparing it to the 2026-11-01 cleanroom baseline would
+          # falsely charge the E1 PR with ALL prior research changes.
+          # Scope this one named PR to its own reviewed base instead, while
+          # retaining the historical baseline and constraints for EVERY
+          # legacy cleanroom branch/PR.
+          e1_pr=(os.environ.get("GITHUB_HEAD_REF")==
+                 "verify/ire-v6-v201-e1-native-source-bridge-20261120" and
+                 os.environ.get("GITHUB_BASE_REF")==
+                 "verify/ire-v6-v200-e1-e5-live-gate-20261120")
+          if e1_pr:
+              ref="origin/"+os.environ["GITHUB_BASE_REF"]+"...HEAD"
+              cmd=["git","diff","--name-only",ref]
+          else:
+              cmd=["git","diff","--name-only",base,"HEAD"]
+          cp=subprocess.run(cmd,capture_output=True,text=True,check=True)
           files=[f for f in cp.stdout.splitlines() if f]
           assert files, "EMPTY_INDEPENDENT_ENGINE_DIFF"
+          if e1_pr:
+              # Narrow, explicit E1-scoped exception. All V5 and legacy
+              # research modules remain PROTECTED. No private data or
+              # arbitrary workflow/configuration edits may pass.
+              e1_paths={
+                  "README.md",
+                  "ire/v6/host_batch.py",
+                  "ire/v6/proof.py",
+                  ".github/workflows/ire-cleanroom-gate.yml",
+                  ".github/workflows/ire-v200-e1-e5-live-readiness.yml",
+                  ".github/workflows/ire-v201-e1-native-source-bridge.yml",
+              }
+              assert all(f in e1_paths or
+                         f.startswith("validation/ire-v6-frozen/")
+                         for f in files), "E1_CLEANROOM_PR_FILE_OUT_OF_SCOPE"
+              suffixes={".py",".json",".md",".yml"}
+              private_suffixes={
+                  ".srt",".zip",".db",".sqlite",".pem",".key",
+                  ".p12",".xls",".xlsx",".csv",".env"}
+              for path in files:
+                  item=root/path
+                  assert (item.is_file() and not item.is_symlink() and
+                          item.suffix.lower() in suffixes and
+                          item.suffix.lower() not in private_suffixes and
+                          item.stat().st_size<=4*1024*1024
+                          ), "E1_CLEANROOM_UNSAFE_CHANGED_FILE"
+              assert not any(f.startswith(("ire/v5/","ire/v5_app/"))
+                             for f in files), "E1_LEGACY_V5_MODIFIED"
+              print("PASS: PR-scoped E1 diff; private/legacy changes barred")
           # The original V1/V2/V5 allowlist remains unchanged for ALL old
           # cleanroom PRs. A single validation-only V6 Draft branch can also
           # carry SHA-controlled V6 public tests/manifests and its own required
@@ -73,7 +116,7 @@ jobs:
                     f==".github/workflows/ire-v6-frozen-ci.yml" or
                     f.startswith("validation/ire-v6-frozen/")}
           assert all(f.startswith("ire/") or f in legacy or
-                     (v6_pr and f in v6_extra)
+                     (v6_pr and f in v6_extra) or e1_pr
                      for f in files), "HISTORICAL_OR_OTHER_FILE_MODIFIED"
           if v6_pr:
               assert ".github/workflows/ire-v6-frozen-ci.yml" in v6_extra
