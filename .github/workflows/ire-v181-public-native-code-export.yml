@@ -1,4 +1,4 @@
-name: V194 export public first-user-turn freeze and audit code only
+name: V195 export public separate second-user E3 review gate code only
 on:
   push:
     branches:
@@ -21,7 +21,7 @@ jobs:
             cp "$p" "export/$p"
           done
           if test -f ire/__init__.py; then cp ire/__init__.py export/ire/__init__.py; fi
-          for f in v176_chat_engine_loop.py v176_chat_engine_cli.py v177_private_turn_checkpoint.py v178_coldstart_chat_packet_bridge.py v183_e3_two_turn_audit.py v183_e3_two_turn_cli.py v184_e3_adjudication.py v184_e3_adjudication_cli.py v185_e3_parent_qualifier_audit.py v185_e3_parent_qualifier_cli.py v186_e3_qualifier_provenance.py v186_e3_qualifier_cli.py v187_e3_parent_scope_bridge.py v187_e3_parent_scope_cli.py v188_e3_quality_gate.py v188_e3_quality_cli.py v189_e3_omission_repair_overlay.py v189_e3_parent_alignment_screen.py v189_e3_repair_cli.py v190_e3_parent_graph.py v190_e3_parent_cli.py v191_e3_parent_first.py v191_e3_parent_first_cli.py v192_e3_triplet_alignment.py v192_e3_triplet_cli.py v192_e3_frozen_reference.py v193_e3_two_user_turn_contract.py v194_e3_turn1_freeze.py v194_e3_turn1_freeze_cli.py; do
+          for f in v176_chat_engine_loop.py v176_chat_engine_cli.py v177_private_turn_checkpoint.py v178_coldstart_chat_packet_bridge.py v183_e3_two_turn_audit.py v183_e3_two_turn_cli.py v184_e3_adjudication.py v184_e3_adjudication_cli.py v185_e3_parent_qualifier_audit.py v185_e3_parent_qualifier_cli.py v186_e3_qualifier_provenance.py v186_e3_qualifier_cli.py v187_e3_parent_scope_bridge.py v187_e3_parent_scope_cli.py v188_e3_quality_gate.py v188_e3_quality_cli.py v189_e3_omission_repair_overlay.py v189_e3_parent_alignment_screen.py v189_e3_repair_cli.py v190_e3_parent_graph.py v190_e3_parent_cli.py v191_e3_parent_first.py v191_e3_parent_first_cli.py v192_e3_triplet_alignment.py v192_e3_triplet_cli.py v192_e3_frozen_reference.py v193_e3_two_user_turn_contract.py v194_e3_turn1_freeze.py v194_e3_turn1_freeze_cli.py v195_e3_second_user_turn_audit.py; do
             cp "validation/ire-v6-frozen/$f" "export/validation/ire-v6-frozen/$f"
           done
           if find export -type f \( -iname '*.srt' -o -iname '*.sqlite' -o -iname '*.zip' -o -iname '*.db' \) | grep .; then exit 1; fi
@@ -29,7 +29,7 @@ jobs:
           test -s export/validation/ire-v6-frozen/v176_chat_engine_loop.py
       - uses: actions/upload-artifact@v4
         with:
-          name: v194-public-e3-code-only
+          name: v195-public-e3-code-only
           path: export/
           retention-days: 1
           if-no-files-found: error
