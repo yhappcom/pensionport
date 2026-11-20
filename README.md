@@ -11,15 +11,17 @@ An evidence-based investment research project that builds a knowledge base from 
 - `data/analysis_events/<video_id>.json`: the final V3 research record for each newly reviewed video, including sources, claims, risks, and independent verification.
 - `knowledge/` and `synthesis/`: consolidated investment knowledge organized by topic.
 
-## E1→E5 순차 검증 — 2026-11-20 E1 재검문 실패 (현행 V176 경로)
+## E1→E5 순차 검증 — V203 E1 정식 구조 연결 재검증 PASS (2026-11-20)
 
-사용자 동결 원칙: **E1→E2→E3→E4→E5 순차 진행. 이전 단계가 합격하지 못하면 다음 단계에 진입하지 않는다.** E1 완료 기준은 **입력·검토·승인·저장 경로가 하나로 연결**이다.
+사용자 동결 원칙: **E1→E2→E3→E4→E5**, 이전 단계 미합격 시 다음 단계 금지. E1 완료 문구 **"입력·검토·승인·저장 경로가 하나로 연결"**를 변경하지 않는다.
 
-**최신 판정: 현행 V176→V202 E1 `FAIL`, E2 `BLOCKED_BY_E1`, E3~E5 `NOT_RUN`.** 기존 V166의 역사적 합성 구조 연결 E1 PASS는 보존하지만 V202로 옮겨온 승인·저장 입력에서 **화자·발언 입장·조건·시점이 원래 V176 원장과 달라도 합성 저장이 가능했던 오류**가 독립 재검문에서 입증됐다. [반례가 CI 실패를 유발함](https://github.com/yhappcom/pensionport/actions/runs/44705219505); 방어 패치 후 [398/398 회귀 PASS](https://github.com/yhappcom/pensionport/actions/runs/44706008466)는 **불합격 입력의 안전한 차단 증명**일 뿐 E1 정상 종단간 PASS가 아니다. E1 실제 동일 검토 레코드가 정식 V6 host→V123→V126로 전달되는 합성 양성 경로를 재구축하기 전 E2 금지.
+2026-11-20의 [V202 E1 독립 재검문 FAIL](validation/ire-v6-frozen/V202_E1_INDEPENDENT_REAUDIT_FAIL_20261120.md)과 옛 V202 PASS 철회 기록은 그대로 보존한다. 새 **V203**은 V176 원본 검토 원장에서 각 V6 native 자식의 **실제 `submit_host_atomic_batch`**를 먼저 생성하고, 별도 채팅 승인 입력·V123·V127·V128을 거쳐 V126 SQLite에 **동일 합성 입력**의 연구 후보 2건과 부모 발행 1건을 원자적으로 저장했다. 두 번째 동일 실행은 중복 저장 0이고, 공식 근거 누락·원본 해시/조건 앵커 변경·구간 경계 의미 누락은 차단. [GitHub Actions 413/413 PASS](https://github.com/yhappcom/pensionport/actions/runs/44716365269). **이 합격은 합성 E1 구조 연결만 증명**한다.
 
-- [현행 E1 독립 재검문 FAIL 및 후속 E1 수리 조건](validation/ire-v6-frozen/V202_E1_INDEPENDENT_REAUDIT_FAIL_20261120.md)
-- [동결된 E1~E5 최신 단계 판정 원장](validation/ire-v6-frozen/V202_E1_E5_CURRENT_ROUTE_SEQUENCE_STATUS.json)
-- [V166 원래 순차 검증 운영 계약](validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md)
+- [V203 E1 최종 합격 증빙](validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md)
+- [E1~E5 최신 단일 순서 판정](validation/ire-v6-frozen/V202_E1_E5_CURRENT_ROUTE_SEQUENCE_STATUS.json)
+- [V166 불변 사용자 순차 검증 계약](validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md)
+
+**현행 단계:** E1 PASS (합성 구조), E2 READY/NOT_RUN, E3·E4·E5 NOT_RUN. 실제 원본 13구간 지식 승인, 금융 법률 의미 정확성, 실전 E3 ChatGPT 2턴은 여기에 포함되지 않으며 E2 PASS 전 E3 진행 금지.
 
 ## V6 E3 현행 필수 규칙 — 실제 사용자 메시지 두 번
 
