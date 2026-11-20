@@ -15,6 +15,7 @@ from ire.v6.atomic_exchange import NUMBER, KINDS, audit_host_atomic_exchange
 from ire.v6.codec import sha256
 from ire.v6.errors import InvalidInput
 from v176_chat_engine_loop import make_original_plan
+from v210_e2_private_original_source_inventory import audit_private_e2_source_first_inventory
 
 SCHEMA="IRE_V215_E2_REAL_SOURCE_ATOMIC_SPLIT_ADDITION_HOLD_V1"
 TOP_FIELDS={
@@ -73,6 +74,8 @@ def reconcile_private_native_source_splits(raw_srt,inventory,prior_exchange,
             sha256(raw_srt)==expected_source_sha256,"SOURCE_BYTES_CHANGED")
     require(type(window_size) is int and 1<=window_size<=1000,"BAD_WINDOW_SIZE")
     pinned(v210_original_bytes,inventory,expected_v210_bytes_sha256,"V210")
+    audit_private_e2_source_first_inventory(
+        raw_srt,inventory,expected_source_sha256=expected_source_sha256)
     pinned(v214_original_bytes,prior_exchange,expected_v214_bytes_sha256,"V214")
     pinned(patch_original_bytes,patch,expected_patch_bytes_sha256,"PATCH")
     source,_=make_original_plan(
