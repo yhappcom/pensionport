@@ -60,3 +60,8 @@ jobs:
           python -m unittest -v test_v204_e1_independent_realistic_input_red
           python -m unittest -v test_v202_e1_frozen_parent_transport
           python -m unittest -v test_v205_e1_runtime_preflight
+      - name: Strict full V6 canonical pipeline and legacy 8-gate validation
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m ire.v6.prepush --strict --expected-sha "$(git rev-parse HEAD)"
