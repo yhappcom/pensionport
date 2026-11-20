@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import unittest
 
 from ire.v6.errors import InvalidInput
@@ -19,16 +20,29 @@ class TestV214PrivateRealOriginalV6Staging(unittest.TestCase):
     def setUp(self):
         self.inventory=synthetic()
 
+    def inventory_bytes(self,inventory=None):
+        value=self.inventory if inventory is None else inventory
+        return json.dumps(value,ensure_ascii=False,indent=2).encode("utf-8")
+
     def build(self,inventory=None,raw=RAW,window_size=2,
-              qualifier_source_review=None):
+              qualifier_source_review=None,
+              private_v210_source_bytes=None,
+              expected_v210_source_sha256=None):
+        v=self.inventory if inventory is None else inventory
+        raw_v210=(self.inventory_bytes(v)
+                  if private_v210_source_bytes is None else
+                  private_v210_source_bytes)
         return construct_provisional_native_v6(
-            raw,self.inventory if inventory is None else inventory,
+            raw,v,
             expected_source_sha256=sha256(RAW),
+            private_v210_source_bytes=raw_v210,
+            expected_v210_source_sha256=(
+                sha256(raw_v210) if expected_v210_source_sha256 is None
+                else expected_v210_source_sha256),
             window_size=window_size,
             qualifier_source_review=qualifier_source_review)
 
     def qualifier_review(self,origin="SOURCE_EXPLICIT"):
-        from ire.v6.codec import json_digest
         from ire.v6.source import parse_srt
         cues=parse_srt(RAW)
         rows=[]
@@ -54,7 +68,7 @@ class TestV214PrivateRealOriginalV6Staging(unittest.TestCase):
         return {
             "schema":PROVENANCE_SCHEMA,
             "source_sha256":self.inventory["source_sha256"],
-            "v210_review_sha256":json_digest(self.inventory),
+            "v210_review_sha256":sha256(self.inventory_bytes()),
             "review_executor":"CHATGPT_IN_CHAT",
             "responses":rows,
             "independent_gold_certified":False,
@@ -219,6 +233,37 @@ class TestV214PrivateRealOriginalV6Staging(unittest.TestCase):
         review["responses"][0]["origin"]=["SOURCE_EXPLICIT"]
         with self.assertRaisesRegex(InvalidInput,"QUALIFIER_REVIEW_ROW_DRIFT"):
             self.build(qualifier_source_review=review)
+
+
+    def test_21_realistic_v210_decimal_illustration_with_original_bytes_no_runfail(self):
+        d=copy.deepcopy(self.inventory)
+        d["computed_illustration"]={"derived_percent":0.4682}
+        exchange,receipt=self.build(d)
+        self.assertEqual(receipt["native_v6_unapproved_proposals_staged"],2)
+        self.assertEqual(receipt["v210_review_sha256"],
+                         sha256(self.inventory_bytes(d)))
+        self.assertFalse(receipt["e2_final_pass"])
+
+    def test_22_replaced_private_file_bytes_rejected_before_audit(self):
+        original_bytes=self.inventory_bytes()
+        with self.assertRaisesRegex(InvalidInput,
+                                    "V210_PRIVATE_BYTES_OR_EXTERNAL_SHA_CHANGED"):
+            self.build(private_v210_source_bytes=original_bytes+b" ",
+                       expected_v210_source_sha256=sha256(original_bytes))
+
+    def test_23_no_v210_original_bytes_explicit_input_error_not_typeerror(self):
+        with self.assertRaisesRegex(InvalidInput,
+                                    "V210_ORIGINAL_BYTES_AND_EXTERNAL_HEAD_REQUIRED"):
+            construct_provisional_native_v6(
+                RAW,self.inventory,
+                expected_source_sha256=sha256(RAW),
+                private_v210_source_bytes=None,
+                expected_v210_source_sha256="f"*64)
+
+    def test_24_wrong_pin_blocks_even_when_parsed_json_matches(self):
+        with self.assertRaisesRegex(InvalidInput,
+                                    "V210_PRIVATE_BYTES_OR_EXTERNAL_SHA_CHANGED"):
+            self.build(expected_v210_source_sha256="f"*64)
 
 
 if __name__=="__main__":
