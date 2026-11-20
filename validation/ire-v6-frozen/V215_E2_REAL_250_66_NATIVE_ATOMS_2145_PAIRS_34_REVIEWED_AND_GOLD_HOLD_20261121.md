@@ -49,3 +49,7 @@ V215.2 private SHA:
 신규 V215 엔진은 원본 SRT, V210/V214/패치 비공개 JSON 원본 파일 바이트를 외부 SHA256으로 고정하고, V210 250개 전체 인용·숫자 원본 감사를 재실행한다. 자막 범위를 벗어난 원자, 원문에 없는 숫자·인용, 화자 음성 승인 또는 금융 사실 승인 위장, 화면 원자 격리 누락은 InvalidInput으로 차단한다. V215.1 pair screen은 512원자/영상과 상위 100쌍 반환 한도로 실행 폭증을 방지하며, 큰 영상은 청크별 처리가 필요하다. GitHub CI는 합성 자막만 사용하고 개인 SRT와 비공개 검토 내용을 전송하지 않는다.
 
 **최종:** 66개 source-bound native V6 미승인 후보는 구조검사 PASS. 독립 의미 정확도·과거 owner 원장 동치·화자 음성은 미완료. E2 HOLD, E3~E5 NOT RUN, main과 동결 승인/금융 엔진 무수정, Draft PR #75 미병합.
+
+## 6. 최종 소프트웨어 검증
+
+[GitHub Actions run 44827971722](https://github.com/yhappcom/pensionport/actions/runs/44827971722): **309/309 PASS** (현행 E2 238, 기존 V166/V176 53, E1 18). 첫 V215.2 전체 영상 시각 증거 누락 차단 회귀시험까지 포함했으며 Python Traceback/FAIL/ERROR 없음. 공개 CI는 합성 소스 전용이고 실제 사용자 SRT·비공개 연구 JSON은 GitHub에 없음. 이 합격은 **형식·검문 소프트웨어**의 실행 성공이지 외부 독립 원자 의미 검증 완료가 아니다.
