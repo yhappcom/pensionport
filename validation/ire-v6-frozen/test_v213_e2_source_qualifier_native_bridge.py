@@ -236,5 +236,45 @@ class TestV213NativeQualifierBridge(unittest.TestCase):
         self.assertFalse(receipt["e2_final_pass"])
 
 
+    def test_16_missing_task_ids_returns_invalidinput_not_typeerror(self):
+        packet,answer=self.prepare_answers()
+        packet["term_ids"]=None
+        with self.assertRaisesRegex(InvalidInput,
+                                    "QUALIFIER_TASK_NOT_ISSUED_OR_STALE"):
+            self.journal.submit(packet,answer,expected_private_head=ZERO)
+
+    def test_17_unhashable_task_ids_return_invalidinput_not_typeerror(self):
+        packet,answer=self.prepare_answers()
+        packet["term_ids"]=[{"unhashable":"old-schema"}]
+        with self.assertRaisesRegex(InvalidInput,
+                                    "QUALIFIER_TASK_NOT_ISSUED_OR_STALE"):
+            self.journal.submit(packet,answer,expected_private_head=ZERO)
+
+    def test_18_corrupted_private_event_with_list_term_id_fail_closed(self):
+        from ire.v6.codec import canonical,json_digest
+        self.submit_reviewer()
+        with sqlite3.connect(self.private) as db:
+            frame=json.loads(db.execute(
+                "SELECT payload FROM events WHERE seq=1").fetchone()[0])
+            frame["challenge"]["term_ids"]=[{"bad":"historical schema"}]
+            db.execute("UPDATE events SET payload=?,event_sha=? WHERE seq=1",
+                (canonical(frame).decode("utf-8"),json_digest(frame)))
+        with self.assertRaisesRegex(InvalidInput,"TERM_TASK_INDEX_SCHEMA"):
+            self.journal.progress()
+
+    def test_19_stage_summary_remains_e2_hold_even_with_full_source_mapping(self):
+        self.submit_reviewer()
+        exchange,receipt=compile_e2_safe_native_stage(self.owner,self.journal)
+        _,native=self.owner.compile_native_v6_stage(
+            qualifier_provenance=self.journal)
+        self.assertFalse(native["semantic_projection_gate"][
+            "full_semantic_projection_verified"])
+        self.assertFalse(native["semantic_projection_gate"][
+            "v123_e4_approval_permitted"])
+        self.assertTrue(receipt["all_original_owner_terms_reviewed"])
+        self.assertFalse(receipt["speaker_and_stance_finalized"])
+        self.assertEqual(len(exchange["atoms"]),1)
+
+
 if __name__=="__main__":
     unittest.main()
