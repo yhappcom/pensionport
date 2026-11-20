@@ -170,7 +170,7 @@ def audit_e2_chat_repairs(owner, challenge, answer, plan, *,
                 ci=relation["cue_index"]
                 require(ci in draft["context_cue_indices"] and
                         type(ci) is int and 1<=ci<=len(owner.source.cues) and
-                        relation["source_cue_sha256"]==
+                        relation["source_text_sha256"]==
                             sha256(owner.source.cues[ci-1].text.encode("utf-8")) and
                         relation["source_quote"] in owner.source.cues[ci-1].text and
                         relation["relation_type"] in {
