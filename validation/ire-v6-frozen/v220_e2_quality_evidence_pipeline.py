@@ -12,6 +12,7 @@ from typing import Any
 
 try:
     from ire.v6.errors import InvalidInput
+    from ire.v6.source import parse_srt
 except ImportError:  # avoid hiding missing frozen package in real CI
     raise
 
@@ -189,22 +190,30 @@ def assess_claim_precision_recall(gold: dict, native: dict, adjudications: dict,
         "status":"MEASURED_UNCERTIFIED_REQUIRES_BLIND_INDEPENDENCE_AND_CHATGPT_FINAL_GATE"}
 
 
-def audit_media_claim_quarantine(census: dict, packet: dict, *,expected_source_sha256: str) -> dict:
+def audit_media_claim_quarantine(census: dict, packet: dict, *,
+                                raw_original_srt: bytes,
+                                expected_source_sha256: str) -> dict:
     """Require every previously unmapped audiovisual cue be retained in a source-only claim packet."""
     _require(type(census) is dict and type(packet) is dict and
              census.get("original_source_sha256")==expected_source_sha256 and
              packet.get("source_sha256")==expected_source_sha256 and
              packet.get("schema")=="IRE_V220_E2_UNAPPROVED_MEDIA_SPEECH_DOCKET_V1",
              "MEDIA_PACKET_SOURCE_INVALID")
+    _require(type(raw_original_srt) is bytes and
+             _hash(raw_original_srt)==expected_source_sha256,
+             "ORIGINAL_SRT_BYTES_CHANGED")
+    original_cues=parse_srt(raw_original_srt)
     rows=census.get("rows");items=packet.get("unapproved_speech_claims")
-    _require(_list(rows,2000) and _list(items,100) and len(items)>0,
-             "MEDIA_PACKET_INPUTS")
+    _require(_list(rows,2000) and _list(items,100) and len(items)>0 and
+             len(rows)==len(original_cues), "MEDIA_PACKET_INPUTS")
     bycue={};expected=set()
     for row in rows:
         _require(type(row) is dict and type(row.get("cue_index")) is int and
                  type(row.get("source_quote")) is str, "MEDIA_BAD_CUE_ROW")
         idx=row["cue_index"]
-        _require(idx not in bycue,"MEDIA_DUPLICATE_CUE")
+        _require(idx not in bycue and 1<=idx<=len(original_cues) and
+                 row["source_quote"]==original_cues[idx-1].text,
+                 "MEDIA_DUPLICATE_OR_CHANGED_ORIGINAL_CUE")
         bycue[idx]=row
         if row.get("classification")=="MEDIA_DEPENDENT_UNMAPPED_QUARANTINE":expected.add(idx)
     used=set();seen=set()
