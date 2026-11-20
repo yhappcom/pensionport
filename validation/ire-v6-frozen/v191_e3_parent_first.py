@@ -274,8 +274,11 @@ class E3ParentFirst:
     def compare_unapproved(self):
         """Diagnostic only: parent location and old cue-local claim occurrence."""
         with self._db() as db:_,records,_=self._audit(db)
-        with self.owner._connect() as conn:
+        conn=self.owner._connect()
+        try:
             _,effective=self.owner._audit(conn)
+        finally:
+            conn.close()
         with self.second._db() as conn:
             _,second_reviews=self.second._audit(conn)
         out=[]

@@ -7,11 +7,11 @@ from ire.v6.errors import InvalidInput
 from v176_chat_engine_loop import _digest
 from v183_e3_two_turn_audit import E3TwoTurnAudit,ANSWER_SCHEMA as SECOND_ANSWER
 from v191_e3_parent_first import E3ParentFirst,ANSWER
-from test_v184_e3_adjudication import TestAdjudication
+import test_v184_e3_adjudication as v184fixture
 
 class TestParentFirst(unittest.TestCase):
     def setUp(self):
-        fix=TestAdjudication('test_packet_has_first_and_second_with_original_context')
+        fix=v184fixture.TestAdjudication('test_packet_has_first_and_second_with_original_context')
         fix.setUp()
         self.addCleanup(fix.doCleanups)
         q=fix.audit.prepare(limit=1)
