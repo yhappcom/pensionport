@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_REAL_ORIGINAL_250_CUE_RISK_AND_RELATIONS_HOLD_V179_RECONCILIATION",
+  "current_step": "E2_V212_V182_17OPEN_CROSSWALK_5_MISSED_RISKS_HOLD_V179_OWNER_GOLD",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -57,8 +57,8 @@
     {
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
-      "status": "IN_PROGRESS_HOLD_PRIOR_OWNER_GOLD_AND_NATIVE_REPAIR",
-      "scope": "V210 real 250 SRT original source 57 unapproved candidates, V211 61 private source-attested risk cues (44 high,14 medium,3 low), V211.1 32 private cross-cue source links; actual independent gold and V179 24 OPEN/68 NO_ATOM individual matching still HOLD"
+      "status": "IN_PROGRESS_HOLD_HISTORICAL_OWNER_AUDIO_VISUAL_GOLD",
+      "scope": "V210 real ETF 250/250 original source; V211 61 source-anchored caution cues; V211.1 32 cross-cue links; V212 historical V182 17 actual OPEN crosswalk (12 already in V211, five newly exposed cue 126,149,153,160,232). V179 24 OPEN/68 NO_ATOM separate private owner unavailable; no independent gold; E2 HOLD"
     },
     {
       "step": "E3",
@@ -123,7 +123,7 @@
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
   },
-  "current_e2_verdict": "HOLD_V179_INDIVIDUAL_24_68_MAPPING_V6_REPAIRS_AND_INDEPENDENT_GOLD",
+  "current_e2_verdict": "HOLD_V179_24_68_INDIVIDUAL_OWNER_AND_V182_17_OPEN_REAL_AUDIO_VISUAL_GOLD",
   "e2_evidence": {
     "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
     "e1_pass_prior_untouched": true,
@@ -140,9 +140,9 @@
     "e2_semantic_accuracy_approved": false,
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
-    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44742111143",
+    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44746346192",
     "ci_result": "success",
-    "ci_total_tests": 220,
+    "ci_total_tests": 236,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -153,7 +153,7 @@
     "v208_malformed_hash_rejected_without_runtime_exception": true,
     "v208_cross_census_temporal_history_check_tested": true,
     "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
-    "ci_current_e2_tests": 149,
+    "ci_current_e2_tests": 165,
     "v208_real_srt_private_resume_not_tested": true,
     "real_owner_srt_bytes_loaded_in_chat_private_runtime": true,
     "real_owner_srt_bytes_available_in_github_ci": false,
@@ -190,6 +190,33 @@
     "v211_same_as_v179_61_native_atoms_certified": false,
     "v211_relation_semantic_truth_approved": false,
     "v211_private_source_data_uploaded_to_github": false,
-    "v211_report_path": "validation/ire-v6-frozen/V211_E2_REAL_ETF_250CUE_61_RISK_32_CROSSCUE_HOLD_20261120.md"
+    "v211_report_path": "validation/ire-v6-frozen/V211_E2_REAL_ETF_250CUE_61_RISK_32_CROSSCUE_HOLD_20261120.md",
+    "v212_real_v182_effective_open_cue_count": 17,
+    "v212_v182_open_evidence_classes": {
+      "asr_audio": 9,
+      "video_screen": 5,
+      "historical_statistics": 1,
+      "fact_scope_overgeneralization": 2
+    },
+    "v212_prior_v211_risk_cues_intersect": 12,
+    "v212_newly_discovered_v211_missed_open_count": 5,
+    "v212_newly_discovered_v211_missed_open_cue_ids": [
+      126,
+      149,
+      153,
+      160,
+      232
+    ],
+    "v212_private_original_crosswalk_saved_to_library": true,
+    "v212_private_original_crosswalk_sha256": "22e3fdb9157b7fb9012691299b40385b67a768b9195f22331fd27528dee07dbd",
+    "v212_actual_original_source_250cue_hash_audit_pass": true,
+    "v212_source_speaker_audio_and_visual_unverified": true,
+    "v212_krx_concept_scope_explored_not_e4_certified": true,
+    "v212_v182_historical_open_different_from_v179_24": true,
+    "v212_v179_24_open_reconciled": false,
+    "v212_v179_68_noatom_reconciled": false,
+    "v212_real_v176_historical_owner_recovered": false,
+    "v212_independent_gold_available": false,
+    "v212_report_path": "validation/ire-v6-frozen/V212_E2_REAL_V182_17_OPEN_5_SOURCE_RISK_GAPS_HOLD_20261120.md"
   }
 }
