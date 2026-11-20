@@ -126,7 +126,10 @@ class TestV212PriorOpenCrosswalk(unittest.TestCase):
             self.audit(raw=RAW+b" ")
 
     def test_03_previous_private_docket_bytes_changed_fails(self):
-        with self.assertRaisesRegex(InvalidInput,"SOURCE_RISK_HEAD_OR_FALSE_APPROVAL"):
+        # The V212 source-chain hash must reject changed private bytes
+        # before deeper V211.1 logic; this is intentionally fail-closed.
+        with self.assertRaisesRegex(InvalidInput,
+                                    "PRIVATE_INPUT_SHA_OR_HISTORICAL_CUSTODY_MISMATCH"):
             self.audit(v2111=self.v2111+b" ")
 
     def test_04_forged_historical_cue_index_fails(self):
