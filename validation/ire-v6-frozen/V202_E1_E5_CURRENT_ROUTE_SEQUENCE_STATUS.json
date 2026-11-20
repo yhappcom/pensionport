@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_V217_REAL_250_NATIVE66_32_SOURCE_CROSSCUE_17_INTERATOM_5_VISUAL_UNMAPPED_HOLD",
+  "current_step": "E2_V218_REAL_ETF250_32_RELATIONS_17_EXPLICIT_UNAPPROVED_LINKS_5_MEDIA_HOLD",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -58,7 +58,7 @@
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
       "status": "IN_PROGRESS_HOLD_REAL_SEMANTIC_GOLD_HISTORIC_OWNER_AND_SPEAKER",
-      "scope": "V217 actual owner ETF 250 SRT hash-pinned, 66 native unapproved atoms frozen V6 structural PASS after source qualifier corrections C00018/C00025. Historical V211 32 cue-to-cue relations checked: 10 intra-atom context, 17 cross-atom dependencies HOLD, 5 unbound/visual relations HOLD. 187 no-primary cues not equated with missing claims. Native atom-to-source linkage improved; V176 private owner/audio-video/independent gold absent. E2 final HOLD."
+      "scope": "V218 actual owner ETF 250 SRT rechecked against unchanged 66 unapproved native; exact 32 original ChatGPT discourse relations individually audited: 10 intra-atom, 17 cross-atom explicit source-bound join edges (not semantic approval), 5 video/audio evidence quarantines preserved and carried into context closure. No relation lost from known V211 docket; 187 no-primary cues still require independent omission review. Owner V176 SQLite, audio/video, blind independent gold absent. E2 final HOLD."
     },
     {
       "step": "E3",
@@ -123,7 +123,7 @@
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
   },
-  "current_e2_verdict": "HOLD_V217_NATIVE66_SOURCE_QUALIFIERS_REPAIRED_17_CROSSATOM_5_UNMAPPED_V176_OWNER_GOLD_MISSING",
+  "current_e2_verdict": "HOLD_V218_GRAPH_CUSTODY_ALL_32_LINKED_OR_QUARANTINED_NATIVE66_UNAPPROVED_V176_OWNER_AND_GOLD_MISSING",
   "e2_evidence": {
     "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
     "e1_pass_prior_untouched": true,
@@ -141,8 +141,8 @@
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
     "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44832937085",
-    "ci_result": "success",
-    "ci_total_tests": 339,
+    "ci_result": "pending_latest_v218_ci",
+    "ci_total_tests": 361,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -153,7 +153,7 @@
     "v208_malformed_hash_rejected_without_runtime_exception": true,
     "v208_cross_census_temporal_history_check_tested": true,
     "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
-    "ci_current_e2_tests": 268,
+    "ci_current_e2_tests": 290,
     "v208_real_srt_private_resume_not_tested": true,
     "real_owner_srt_bytes_loaded_in_chat_private_runtime": true,
     "real_owner_srt_bytes_available_in_github_ci": false,
@@ -391,6 +391,30 @@
     "v217_ci_total_expected": 339,
     "v217_ci_success_on_339_tests": true,
     "v217_ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44832937085",
-    "v217_ci_tests_total": 339
+    "v217_ci_tests_total": 339,
+    "v218_report_path": "validation/ire-v6-frozen/V218_E2_REAL_ETF_250_32_RELATIONS_17_LINKED_5_VISUAL_HOLD_20261121.md",
+    "v218_source_srt_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "v218_native_exchange_sha256": "904d6d6aecddd20374018beb274af7bbced372a49002fa7646e9e921f6b1da0c",
+    "v218_original_relation_ledger_sha256": "5ff03745663140ea64155e3db82e8c1e785494d71dab811c2d77e92742e12465",
+    "v218_private_review_sha256": "892d8f4c22342cad71a711605f0475828872bb17ce60c918e02d7d16092a06bb",
+    "v218_private_graph_receipt_sha256": "8b9e2016e28e096a898723be09e44e6f53d51b004747aa963ae00f044a7072c9",
+    "v218_private_review_and_receipt_saved_to_library": true,
+    "v218_original_relation_count": 32,
+    "v218_inter_atom_dependency_edges_explicit_unapproved": 17,
+    "v218_intra_atom_context_relations_unapproved": 10,
+    "v218_audio_visual_quarantines": 5,
+    "v218_relation_census_unreviewed": 0,
+    "v218_source_to_native_original_cues": 250,
+    "v218_unapproved_native_atoms": 66,
+    "v218_context_closure_c00063_atom_count": 7,
+    "v218_context_closure_c00019_atom_count": 3,
+    "v218_media_evidence_quarantine_propagated_in_closure": true,
+    "v218_automatic_atom_merges": 0,
+    "v218_real_original_owner_v176_sqlite_recovered": false,
+    "v218_independent_gold_certified": false,
+    "v218_financial_truth_approved": false,
+    "v218_v123_approval_handoff": false,
+    "v218_knowledge_published": 0,
+    "v218_new_synthetic_regression_tests": 22
   }
 }
