@@ -128,7 +128,9 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertFalse(e["v213_all_speaker_stance_resolved"])
         self.assertFalse(e["v213_e2_independent_semantic_gold_passed"])
         self.assertFalse(e["v213_e2_approved"])
-        self.assertEqual(e["ci_current_e2_tests"],185)
+        # V213 is a historical minimum; V214+ may append new tests.
+        # Do not make a previous stage regression depend on future totals.
+        self.assertGreaterEqual(e["ci_current_e2_tests"],185)
         self.assertTrue((ROOT/"V213_E2_NATIVE_SOURCE_QUALIFIER_BRIDGE_REAL_V182_DEFECT_REPAIRED_20261120.md").is_file())
 
 
