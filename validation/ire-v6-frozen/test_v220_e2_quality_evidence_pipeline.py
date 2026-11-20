@@ -8,13 +8,15 @@ from v220_e2_quality_evidence_pipeline import (
     diagnose_e2_proof_gaps, assess_claim_precision_recall, audit_media_claim_quarantine,
 )
 
-SOURCE_SHA='a'*64
+SOURCE_TEXT=["ETF는 펀드입니다.", "하지만 예외가 있습니다.", "그래프를 보면 차이가 있습니다.", "감사합니다."]
+RAW_SRT=(''.join(f'{i}\n00:00:{i:02d},000 --> 00:00:{i:02d},500\n{s}\n\n' for i,s in enumerate(SOURCE_TEXT,1))).encode('utf-8')
+SOURCE_SHA=sha256(RAW_SRT).hexdigest()
 
 def source_hash(s):return sha256(s.encode('utf8')).hexdigest()
 
 
 def fixture():
-    source=['ETF는 펀드입니다.', '하지만 예외가 있습니다.', '그래프를 보면 차이가 있습니다.', '감사합니다.']
+    source=SOURCE_TEXT
     classes=['PRIMARY_UNAPPROVED','CONTEXT_UNAPPROVED_NEEDS_CLAIM_OMISSION_REVIEW',
              'MEDIA_DEPENDENT_UNMAPPED_QUARANTINE','DISCOURSE_OR_NONCLAIM_PROVISIONAL']
     rows=[]
@@ -70,7 +72,7 @@ class V220E2EvidenceQualityTests(unittest.TestCase):
 
     def check_media(self):
         return audit_media_claim_quarantine(self.census,self.media,
-                                             expected_source_sha256=SOURCE_SHA)
+                                             raw_original_srt=RAW_SRT,expected_source_sha256=SOURCE_SHA)
 
     def test_01_realistic_blocker_census_separates_independent_and_owner(self):
         result=self.diagnose()
@@ -186,6 +188,16 @@ class V220E2EvidenceQualityTests(unittest.TestCase):
     def test_24_gold_wrong_type_is_handled_not_runfail(self):
         self.pairs['pairs'][0]['claim_id']=[]
         with self.assertRaisesRegex(InvalidInput,'ADJUDICATION_INVALID_OR_DUPLICATED'):self.measure()
+
+    def test_26_actual_srt_bytes_tampering_blocked(self):
+        with self.assertRaisesRegex(InvalidInput,'ORIGINAL_SRT_BYTES_CHANGED'):
+            audit_media_claim_quarantine(self.census,self.media,
+                raw_original_srt=RAW_SRT+b" ",expected_source_sha256=SOURCE_SHA)
+
+    def test_27_taxonomy_modified_but_source_sha_unchanged_blocked(self):
+        self.census['rows'][2]['source_quote']='부동산 투자 원금을 보장합니다'
+        with self.assertRaisesRegex(InvalidInput,'MEDIA_DUPLICATE_OR_CHANGED_ORIGINAL_CUE'):
+            self.check_media()
 
     def test_25_malformed_census_rows_is_invalidinput(self):
         self.census['rows']=[None]*4
