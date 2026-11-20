@@ -47,9 +47,14 @@ class PrivateE2RepairJournal:
         owners={}
         for _,(event_hash,event) in saved.items():
             owners[event_hash]=event
-        known_census_heads={ZERO_SHA}
-        for _,(digest,_) in saved.items():
-            known_census_heads.add(digest)
+        # The checkpoint head used for a repair must be at or AFTER the
+        # specific review it cites. A forged event cannot claim an older
+        # snapshot that did not yet contain that source review.
+        ordered_census=[digest for _,(digest,_) in saved.items()]
+        census_positions={ZERO_SHA:0}
+        census_positions.update({
+            digest:index for index,digest in enumerate(ordered_census,1)
+        })
         prev=ZERO_SHA
         repaired={}
         projections={}
@@ -77,9 +82,22 @@ class PrivateE2RepairJournal:
                 json_digest(event)==rdigest and
                 canonical(event).decode("utf-8")==payload,
                 "CHAIN_RECORD_OR_HASH_CHANGED")
+            # All indexed custody fields MUST be hash-shaped strings before
+            # any dict or set lookup. Otherwise malformed private SQLite
+            # payloads can trigger KeyError/TypeError instead of fail-closed.
+            hashes=(
+                "census_event_sha256","census_head_sha256",
+                "challenge_sha256","answer_sha256",
+                "unreleased_projection_sha256")
+            need(all(type(event[k]) is str and len(event[k])==64 and
+                     all(c in "0123456789abcdef" for c in event[k])
+                     for k in hashes),
+                 "INVALID_REPAIR_HASH_FIELD_SCHEMA")
             census_event=owners.get(event["census_event_sha256"])
             need(census_event is not None and
-                 event["census_head_sha256"] in known_census_heads and
+                 event["census_head_sha256"] in census_positions and
+                 census_positions[event["census_head_sha256"]]>=
+                    census_positions[event["census_event_sha256"]] and
                  event["census_event_sha256"] not in repaired,
                  "UNLINKED_OR_DUPLICATED_CENSUS_REPAIR")
             challenge=census_event["challenge"]
