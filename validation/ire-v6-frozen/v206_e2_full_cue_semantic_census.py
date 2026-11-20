@@ -368,3 +368,63 @@ def audit_full_e2_video(owner, reviewed_packets, *,
         "e3_e4_e5_authorized":False,
         "private_source_text_written_to_public_files":False,
     }
+
+
+def build_e2_source_repair_docket(owner,packet,answer,*,
+                                 expected_owner_head):
+    """Describe exactly what a future in-chat semantic repair must adjudicate.
+
+    No native atom, V176 revision, V123 token or financial fact is created.
+    Return a private in-memory work packet, not a public SRT data file.
+    """
+    audited=audit_e2_cue_answer(
+        owner,packet,answer,expected_owner_head=expected_owner_head)
+    bycue={t["cue_index"]:t for t in packet["target_cues"]}
+    rows={r["cue_index"]:r for r in answer["rows"]}
+    issues=[]
+    for idx,r in enumerate(audited["hold_reasons"],1):
+        cue=r["cue_index"]
+        original=bycue[cue]
+        adjudicated=rows[cue]
+        reason=r["reason"]
+        quote=(adjudicated["embedded_assertion_quote"]
+               if reason=="EMBEDDED_ASSERTION_EXCLUDED_BY_V176" else
+               adjudicated["source_quote"])
+        check(type(quote) is str and quote in original["original_text"],
+              "REPAIR_DOCKET_ORIGINAL_QUOTE_MISSING")
+        issues.append({
+            "issue_id":f"E2-{packet['start_cue']:05d}-{idx:04d}",
+            "cue_index":cue,
+            "source_cue_sha256":original["source_text_sha256"],
+            "original_v176_event_sha256":original["v176_event_sha256"],
+            "original_disposition":original["v176_disposition"],
+            "original_native_projection":original["native_projection_status"],
+            "reason":reason,
+            "original_source_quote":quote,
+            "source_quote_sha256":sha256(quote.encode("utf-8")),
+            "chat_review_note_sha256":adjudicated["source_meaning_note_sha256"],
+            "required_action":(
+                "EXPLICIT_SOURCE_BOUND_CHAT_ADJUDICATION_AND_APPEND_ONLY_REPAIR"
+                if reason in {
+                    "EMBEDDED_ASSERTION_EXCLUDED_BY_V176",
+                    "UNSUPPORTED_SOURCE_ANECDOTE_NOT_IN_V6",
+                    "UNMAPPED_CONDITIONS","UNMAPPED_EXCEPTIONS",
+                } else "INDEPENDENT_SOURCE_MEANING_RECHECK"),
+            "native_claim_auto_created":False,
+            "finance_approved":False,
+        })
+    check(owner.progress()["checkpoint_head_sha256"]==expected_owner_head,
+          "REPAIR_DOCKET_OWNER_HEAD_CHANGED")
+    return {
+        "schema":"IRE_V206_E2_PRIVATE_UNRESOLVED_SOURCE_DOCKET_V1",
+        "source_sha256":packet["source_sha256"],
+        "owner_head_sha256":expected_owner_head,
+        "e2_challenge_sha256":packet["challenge_sha256"],
+        "e2_answer_sha256":audited["response_sha256"],
+        "issue_count":len(issues),
+        "issues":issues,
+        "original_private_source_must_not_be_uploaded":True,
+        "v176_native_atoms_mutated":False,
+        "e2_pass":False,
+        "e3_e4_e5_authorized":False,
+    }
