@@ -32,7 +32,7 @@
 - 비공개 개인 Library `V212_PRIVATE_ETF_V182_17OPEN_V211_FIVE_GAPS_SOURCE_CROSSWALK_20261120.json`, 원장 SHA-256 `22e3fdb9157b7fb9012691299b40385b67a768b9195f22331fd27528dee07dbd`, 실제 소스 250개 대조 **17/17·기존 12·신규 공백 5** 검문 PASS.
 - 기존 `V210_PRIVATE_ETF_250_REAL_SOURCE_FIRST_DRAFT_20261120.json`, `V211_PRIVATE_ETF_250_CUE_SOURCE_RISK_ADJUDICATION_DOCKET_20261120.json`, `V211_1_PRIVATE_ETF_CROSS_CUE_CONDITION_EXCEPTION_REBUTTAL_LINKS_20261120.json`의 원문·파일 SHA 연결을 검사했다. 모든 사유증거는 GitHub에 공개하지 않았다.
 - 공개 `v212_e2_private_historical_open_crosswalk.py`: **기존 3개 비공개 원장 바이트의 실제 재검문, 원본 17개 인용·SHA·전후 2 cue·후보 맵·관계 맵·필요 증거 종류**를 검문하는 일반화 가능한 source-bound 관문과 해당 영상 전용 고정 17개 OPEN wrapper. 분실/위조/검증 승인 위장 입력은 fail-closed.
-- `test_v212_e2_private_historical_open_crosswalk.py`는 **합성 SRT**로 진행한 회귀 15건. 첫 RED는 테스트가 하위 예외 문구를 기대했지만 앞단의 개인 원장 SHA 가드가 먼저 차단한 이유이며, 승인 기준 변경 없이 기대 오류를 정정했다. [수정 후 CI run 44746346192](https://github.com/yhappcom/pensionport/actions/runs/44746346192) **235/235 PASS** (현행 E2 164/164 + 과거 E2/V176 53/53 + E1 18/18).
+- `test_v212_e2_private_historical_open_crosswalk.py`는 **합성 SRT**로 진행한 회귀 15건. 첫 RED는 테스트가 하위 예외 문구를 기대했지만 앞단의 개인 원장 SHA 가드가 먼저 차단한 이유이며, 승인 기준 변경 없이 기대 오류를 정정했다. [최신 CI run 44746802146](https://github.com/yhappcom/pensionport/actions/runs/44746802146) **236/236 PASS** (현행 E2 165/165 + 과거 E2/V176 53/53 + E1 18/18).
 
 ## E2 완료까지 남은 실제 요건
 
