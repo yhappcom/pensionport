@@ -61,7 +61,7 @@ V217 ledger sidecar SHA `a919ef297221c20d14cb596a1a630263bed174b1fd93c2d55d15519
 - 승인 인계 시 교차·unmapped 관계가 남아 있는 경우 **명시적으로 차단**. 설령 이 관계가 모두 해결돼도 독립 gold 없이 E2 PASS를 제공하지 않음. 기존 동결 V123/E4/E5 코드를 바꾸거나 실제 승인 경로로 자동 연결했다고 주장하지 않는다.
 - 최대 2,000개 cue·512개 원자·1,000개 관계의 입력 제한. 큰 장편은 분할 처리 필요. 개인 원본을 공개 CI에서 읽지 않으며 합성 테스트만 실행한다.
 
-새로운 테스트 `test_v217_e2_private_crosscue_discourse_guard.py` 15개를 E2 CI에 포함하도록 워크플로를 수정했다. 이전 기준 324개 + 신규 15개 = **총 339개 검사 예정**. 최종 CI 결과는 별도 실행결과로 확인하며, 예정 수치를 통과 실적으로 표현하지 않는다.
+새로운 테스트 `test_v217_e2_private_crosscue_discourse_guard.py` 15개를 E2 CI에 포함하도록 워크플로를 수정했다. **최종 GitHub Actions [run 44832937085](https://github.com/yhappcom/pensionport/actions/runs/44832937085) 339/339 PASS** (현행 E2 268개 + 기존 V166/V176 E2 53개 + E1 18개). RunFail/Traceback/FAIL/ERROR 없이 완료했다. GitHub CI는 합성 자료만 사용한다. ETF 실물 250 cue·32 관계·native 66개 재검사는 비공개 로컬에서 별도로 수행한 것으로 CI가 독립 gold 의미 정확도를 입증한 것은 아니다.
 
 ## 6. E2 완료 조건
 
