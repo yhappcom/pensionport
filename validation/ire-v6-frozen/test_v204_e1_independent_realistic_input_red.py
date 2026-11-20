@@ -131,11 +131,18 @@ class IndependentE1AuditV204(unittest.TestCase):
     def test_04_unreviewed_window_never_sneaks_through_empty_model(self):
         ledger,kwargs=self._prepare_legitimate_empty_window_host(
             with_unresolved=True)
-        with self.assertRaisesRegex(Exception,
-                                    "EMPTY_WINDOW_NOT_EXPLICITLY_NO_ATOM"):
+        # Both native preflight outcomes are fail-closed: unresolved source
+        # can be rejected BEFORE the empty-window invariant is reached.
+        # Do not require a downstream error message if an earlier mandatory
+        # source-census guard has already rejected the input.
+        with self.assertRaisesRegex(
+                Exception,
+                "HOST_BATCH_UNRESOLVED_SOURCE_RESIDUALS"
+                "|EMPTY_WINDOW_NOT_EXPLICITLY_NO_ATOM"):
             ledger.submit_host_atomic_batch(**kwargs)
         snap=ledger.snapshot(kwargs["scope_id"])
         self.assertEqual(snap["progress"]["model_windows_recorded"],0)
+        self.assertEqual(snap["progress"]["current_revision_structural_proof_records"],0)
 
 
 if __name__=="__main__":
