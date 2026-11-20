@@ -20,6 +20,7 @@ from v146_source_meaning_provenance import SCHEMA as V146_SCHEMA
 from v166_shared_source_only_native_contract import compile_attested_source_only_quarantine
 from v203_e1_v176_origin_native_host_bridge import (
     QUAL_SCHEMA,run_origin_native_e1)
+from test_v126_chat_approved_knowledge_store import explicit_relation_decisions
 import test_v202_e1_v176_native_positive_path as v202_fixture
 
 
@@ -150,8 +151,9 @@ class TestV203ActualNativeHostOrigin(unittest.TestCase):
         return {
             "chat_review":row,
             "official_evidence_bodies":official,
-            "relation_decisions":copy.deepcopy(
-                self.fx.fx.fx.packets[index]["relation_decisions"]),
+            # ChatGPT fixture explicitly signs relation decisions for the
+            # ACTUAL owner-origin atoms, not pre-seeded V166 atom hashes.
+            "relation_decisions":explicit_relation_decisions(exchange,prior),
             "explicit_hold_revision":False,
         }
 
