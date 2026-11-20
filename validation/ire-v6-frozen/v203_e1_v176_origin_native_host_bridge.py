@@ -139,15 +139,17 @@ def _child_exchange(parent, child_manifest):
                  "condition_cue_indices","exception_cue_indices")
                  for n in atom[key]),
                  "CROSS_CHILD_QUALIFIER_NEEDS_EXPLICIT_SEAM")
-            # General parent context can extend across children. Only context
-            # (not meaning-critical qualifiers) may be local to each child
-            # pending the mandatory later parent seam review.
-            for key in ("context_cue_indices","condition_cue_indices",
-                        "exception_cue_indices"):
-                atom[key]=[i for i in atom[key] if first<=i<=last]
-            atom["numeric_references"]=[
-                x for x in atom["numeric_references"]
-                if first<=x["cue_index"]<=last]
+            # The original source-first owner journal may explicitly
+            # reference a number or context in an adjacent child. Trimming
+            # these would silently mutate the ChatGPT-reviewed proposition.
+            # No parent-seam transport proof is supplied at this E1 boundary.
+            # Reject the crossing rather than converting it into a claim with
+            # weaker or missing original context.
+            need(all(first<=n<=last
+                     for n in atom["context_cue_indices"]) and
+                 all(first<=r["cue_index"]<=last
+                     for r in atom["numeric_references"]),
+                 "CROSS_CHILD_CONTEXT_OR_NUMBER_LOST")
             result["atoms"].append(atom)
     return result
 
