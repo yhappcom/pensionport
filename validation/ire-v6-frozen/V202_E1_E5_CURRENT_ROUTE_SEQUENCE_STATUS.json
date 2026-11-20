@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_V216_REAL_250_CUE_PRIVATE_COVERAGE_RECHECK_RESIDUAL_RISK_3_PRIMARY_2_PAIR_INTERNAL_CI_321_GOLD_HOLD",
+  "current_step": "E2_V216_REAL_250_SRT_BYTE_RECHECK_NATIVE66_FROZEN_PASS_RESIDUAL_ANCHOR_HOLD_GOLD_HOLD",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -58,7 +58,7 @@
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
       "status": "IN_PROGRESS_HOLD_REAL_SEMANTIC_GOLD_HISTORIC_OWNER_AND_SPEAKER",
-      "scope": "V216 source-text recheck of V215.2 private 250-cue coverage: native 66 unchanged. 24 audio/video-risk cues, 3 native primary anchors on risk cues (C00034/61/72), 13 context-touched atoms, 2 partial pairs chat-reviewed as retain-distinct not gold, 9 semantic holds. C00072 text-only reanchor proposed not committed/re-audited. Native E2 final HOLD. Synthetic code-only CI 321 PASS; V176 owner/gold/audio/video missing."
+      "scope": "V216 owner original ETF SRT bytes SHA rechecked: 250/250 text+hash match private V215.2, previously drafted native 66 re-audited by exact frozen V6 PASS (187 primary unresolved). Residual evidence guard detects 24 audio/video risk cues and 3 primary-anchored atoms including C00072 chart bleed. 2 partial pairs internal no-merge and 9 finance risks HOLD. New C00072 corrected native exchange NOT yet built, historical owner and gold missing. E2 final HOLD."
     },
     {
       "step": "E3",
@@ -142,7 +142,7 @@
     "knowledge_published": 0,
     "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44829221685",
     "ci_result": "success",
-    "ci_total_tests": 321,
+    "ci_total_tests": 322,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -153,7 +153,7 @@
     "v208_malformed_hash_rejected_without_runtime_exception": true,
     "v208_cross_census_temporal_history_check_tested": true,
     "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
-    "ci_current_e2_tests": 250,
+    "ci_current_e2_tests": 251,
     "v208_real_srt_private_resume_not_tested": true,
     "real_owner_srt_bytes_loaded_in_chat_private_runtime": true,
     "real_owner_srt_bytes_available_in_github_ci": false,
@@ -308,7 +308,7 @@
     "v216_private_owner_library_delta_saved": true,
     "v216_private_delta_sha256": "98436b9c127863e62c6cfcba0f78e8cfcbfe9247c802d132b7107bcc3ac9af59",
     "v216_rechecked_v2152_private_coverage_text_cues": 250,
-    "v216_original_srt_bytes_reopened_this_turn": false,
+    "v216_original_srt_bytes_reopened_this_turn": true,
     "v216_source_flags_audio_or_video_cues": 24,
     "v216_primary_risky_source_claim_ids": [
       "C00034",
@@ -319,11 +319,16 @@
     "v216_c00072_visual_dependency_leak_detected": true,
     "v216_c00072_text_only_reanchor_proposed_not_native_committed": true,
     "v216_new_native_exchange_compiled": false,
-    "v216_frozen_real_original_native_audit_reexecuted": false,
+    "v216_frozen_real_original_native_audit_reexecuted": true,
     "v216_two_partial_pairs_internal_meaning_review_no_merge": true,
     "v216_independent_gold_certified": false,
     "v216_additional_financial_semantic_risk_claim_count": 9,
     "v216_synthetic_regression_test_count": 12,
-    "v216_code_only_ci_success": true
+    "v216_code_only_ci_success": true,
+    "v216_original_zip_sha256": "00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd",
+    "v216_original_srt_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "v216_actual_original_to_250_coverage_text_and_sha_matches": 250,
+    "v216_original_v2152_native_structural_audit_pass": true,
+    "v216_original_v2152_native_atom_digest": "211cfcf0283afb788e913e4e9758f73118299a54da2042fbaa5808bc4b28b898"
   }
 }
