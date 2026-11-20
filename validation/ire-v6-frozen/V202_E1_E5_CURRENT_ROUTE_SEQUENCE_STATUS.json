@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_V219_ONE_PASS_ORIGINAL_ETF250_NATIVE66_32_REL_V18217OPEN_SOURCE_CENSUS_9_FIELD_CORRECTIONS_GOLD_HOLD",
+  "current_step": "E2_V220_PROOF_GAP_DIAGNOSIS_MEDIA_11_CUES_3_SPEECH_HOLD_GOLD_METRICS_EXECUTABLE_HISTORY_SEPARATED",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -58,7 +58,7 @@
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
       "status": "IN_PROGRESS_HOLD_REAL_SEMANTIC_GOLD_HISTORIC_OWNER_AND_SPEAKER",
-      "scope": "V219 one-pass actual ETF original 250 cues, all source SHA verified. Original 66 V6 unapproved atoms re-read and 9 semantic/number field corrections independently replayed against frozen V6. 63 primary-candidate cues, 157 context-cues, 11 unmapped media/visual holds, 19 provisional discourse/nonclaim; 187 without primary NOT all missed claims. 39/66 finance risk tagged, 32 source relation edges preserved, 17 V182 historical OPEN source-relinked not resolved. V176 historical owner SQLite, audio/screen and separate blind gold unavailable. E2 final HOLD; E3-E5 NOT_RUN."
+      "scope": "V220 exact original ETF 250 SRT + unchanged 66 unapproved native frozen audit PASS, 187 primary-unresolved; 24 AV risk cues, 11 unmapped visual cues with 3 source-quoted unapproved speech claims retained, 39/66 finance risk flagged and 66/66 speaker and stance UNKNOWN/UNRESOLVED. Source-only blind review 13 windows prepared but no gold labels; conditional TP/FP/FN precision/recall/high-risk-miss evaluator implemented, external independent provenance NOT certified. V176 missing owner SQLite is separated from NEW video gold measurement but remains blocker for historical knowledge integration. E2 final HOLD; E3-E5 NOT_RUN."
     },
     {
       "step": "E3",
@@ -123,7 +123,7 @@
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
   },
-  "current_e2_verdict": "HOLD_V219_REAL250_SOURCE_AND_ATOMIC_STRUCTURAL_PASS_39_FINANCE_RISKS_V176_OWNER_AUDIO_SCREEN_GOLD_MISSING",
+  "current_e2_verdict": "HOLD_V220_SOURCE_CODE_PASS_66_UNKNOWN_SPEAKERS_24_AV_CUES_39_RISK_ATOMS_NO_INDEPENDENT_GOLD",
   "e2_evidence": {
     "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
     "e1_pass_prior_untouched": true,
@@ -141,8 +141,8 @@
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
     "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44837166817",
-    "ci_result": "success",
-    "ci_total_tests": 391,
+    "ci_result": "pending_latest_v220_ci",
+    "ci_total_tests": 418,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -153,7 +153,7 @@
     "v208_malformed_hash_rejected_without_runtime_exception": true,
     "v208_cross_census_temporal_history_check_tested": true,
     "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
-    "ci_current_e2_tests": 320,
+    "ci_current_e2_tests": 347,
     "v208_real_srt_private_resume_not_tested": true,
     "real_owner_srt_bytes_loaded_in_chat_private_runtime": true,
     "real_owner_srt_bytes_available_in_github_ci": false,
@@ -449,6 +449,33 @@
     "v219_financial_facts_approved": 0,
     "v219_knowledge_published": 0,
     "v219_new_synthetic_regression_tests": 30,
-    "v219_ci_391_success_checkpoint_url": "https://github.com/yhappcom/pensionport/actions/runs/44837166817"
+    "v219_ci_391_success_checkpoint_url": "https://github.com/yhappcom/pensionport/actions/runs/44837166817",
+    "v220_report_path": "validation/ire-v6-frozen/V220_E2_ROOT_CAUSE_EVIDENCE_AWARE_PASS_PATH_AND_MEDIA_SPEECH_REPAIR_20261121.md",
+    "v220_private_proof_diagnosis_sha256": "266b574faf8967fe8d7010a3d67bcef95345e4140161789e7be29337451c3f1d",
+    "v220_private_11cue_3_unapproved_media_claims_sha256": "f11b5f785e73432813d8ad3b5021cee42117f130788a61028538822f6635f6bc",
+    "v220_private_media_replay_receipt_sha256": "5b72165b38da8b3579a591d616f81b154825100a4e441c91036ee9629f4707b3",
+    "v220_private_13_source_blind_windows_unfilled_sha256": "fa0c04bc4e2aa2669f6be17e779713fd0a51f9633867d39a2fe30fd9c72994f9",
+    "v220_actual_original_srt_frozen_v6_replay_pass": true,
+    "v220_actual_source_cues": 250,
+    "v220_unapproved_native_atoms": 66,
+    "v220_native_speaker_unknown": 66,
+    "v220_native_stance_unresolved": 66,
+    "v220_financial_risk_atoms": 39,
+    "v220_original_audio_screen_unsafe_cues": 24,
+    "v220_media_unmapped_cues_now_retained_as_unapproved_speech": 11,
+    "v220_media_unapproved_speech_candidates": 3,
+    "v220_gold_review_source_only_cues_ready_unfilled": 250,
+    "v220_gold_source_only_window_count": 13,
+    "v220_gold_claims_adjudicated": 0,
+    "v220_source_gold_independence_certified": false,
+    "v220_actual_precision_recall_measured": false,
+    "v220_independent_source_gold_evaluator_implemented": true,
+    "v220_legacy_owner_missing_separated_from_new_source_accuracy_gate": true,
+    "v220_prior_historical_V182_open_remain": 17,
+    "v220_v176_owner_sqlite_recovered": false,
+    "v220_financial_facts_approved": false,
+    "v220_e3_e4_e5_authorized": false,
+    "v220_private_owner_source_written_to_public_repo": false,
+    "v220_new_synthetic_regression_tests": 27
   }
 }
