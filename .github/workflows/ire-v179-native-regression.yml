@@ -1,4 +1,4 @@
-name: V197 E3 source-repaired read-model and all 84 high-risk fail-closed guard (synthetic)
+name: V198 E3 real source correction adjudication and 84 evidence triage (synthetic)
 on:
   push:
     branches:
@@ -25,7 +25,7 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          python -m compileall -q v176_chat_engine_loop.py v176_chat_engine_cli.py v178_coldstart_chat_packet_bridge.py v186_e3_qualifier_provenance.py v187_e3_parent_scope_bridge.py v187_e3_parent_scope_cli.py v188_e3_quality_gate.py v188_e3_quality_cli.py v189_e3_omission_repair_overlay.py v189_e3_parent_alignment_screen.py v189_e3_repair_cli.py v190_e3_parent_graph.py v190_e3_parent_cli.py v191_e3_parent_first.py v191_e3_parent_first_cli.py v192_e3_triplet_alignment.py v192_e3_triplet_cli.py v192_e3_frozen_reference.py v193_e3_two_user_turn_contract.py v194_e3_turn1_freeze.py v194_e3_turn1_freeze_cli.py v195_e3_second_user_turn_audit.py v196_e3_second_review_repair.py v197_e3_repaired_source_projection.py v197_e3_repaired_source_cli.py
+          python -m compileall -q v176_chat_engine_loop.py v176_chat_engine_cli.py v178_coldstart_chat_packet_bridge.py v186_e3_qualifier_provenance.py v187_e3_parent_scope_bridge.py v187_e3_parent_scope_cli.py v188_e3_quality_gate.py v188_e3_quality_cli.py v189_e3_omission_repair_overlay.py v189_e3_parent_alignment_screen.py v189_e3_repair_cli.py v190_e3_parent_graph.py v190_e3_parent_cli.py v191_e3_parent_first.py v191_e3_parent_first_cli.py v192_e3_triplet_alignment.py v192_e3_triplet_cli.py v192_e3_frozen_reference.py v193_e3_two_user_turn_contract.py v194_e3_turn1_freeze.py v194_e3_turn1_freeze_cli.py v195_e3_second_user_turn_audit.py v196_e3_second_review_repair.py v197_e3_repaired_source_projection.py v197_e3_repaired_source_cli.py v198_e3_final_correction_adjudication.py v198_e3_final_review_cli.py
           python -m unittest -v test_v179_noatom_risk_revisit test_v179_provisional_claim_projection
           python -m unittest -v test_v182_native_semantic_projection_gate
           python -m unittest -v test_v183_e3_two_turn_audit
@@ -43,4 +43,5 @@ jobs:
           python -m unittest -v test_v195_e3_second_user_turn_audit
           python -m unittest -v test_v196_e3_second_review_repair
           python -m unittest -v test_v197_e3_repaired_source_projection
+          python -m unittest -v test_v198_e3_final_correction_adjudication
           python -m unittest -v test_v178_coldstart_chat_packet_bridge test_v177_private_turn_checkpoint test_v176_chat_engine_loop
