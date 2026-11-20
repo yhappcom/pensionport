@@ -50,8 +50,8 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          python -m compileall -q v206_e2_full_cue_semantic_census.py test_v206_e2_full_cue_semantic_census.py v206_e2_private_cue_checkpoint.py test_v206_e2_private_cue_checkpoint.py
-          python -m unittest -v test_v206_e2_full_cue_semantic_census test_v206_e2_private_cue_checkpoint
+          python -m compileall -q v206_e2_full_cue_semantic_census.py test_v206_e2_full_cue_semantic_census.py v206_e2_private_cue_checkpoint.py test_v206_e2_private_cue_checkpoint.py test_v206_e2_stage_sequence_status.py
+          python -m unittest -v test_v206_e2_full_cue_semantic_census test_v206_e2_private_cue_checkpoint test_v206_e2_stage_sequence_status
       - name: Existing V166 E2 semantics and frozen V176 source review regressions
         working-directory: validation/ire-v6-frozen
         env:
