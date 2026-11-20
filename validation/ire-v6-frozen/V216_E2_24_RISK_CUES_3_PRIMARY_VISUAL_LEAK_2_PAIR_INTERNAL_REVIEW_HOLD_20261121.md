@@ -6,7 +6,7 @@
 
 - 이전 기준: V215.2 커밋 `62718016d9af44b45bbc7c75157bbca88e7ec8c7`, 검증 브랜치의 Draft PR #75.
 - 원본 영상 ID: `LVE7XN_esTc`; 기존 ETF SRT 원본 SHA-256: `e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b`.
-- **이번 턴에 실제 SRT 바이트를 다시 열었다고 주장하지 않는다.** 개인 Library의 V215.2 전수 coverage JSON에 수록된 250개 자막 텍스트와 각 텍스트 SHA-256을 재계산하고, 원장 66개 원자와 기본 출처 연결을 대조했다.
+- **후속 실물 원본 재검증 추가:** 개인 Library의 `박곰희TV_원본확보/1-70.zip`을 직접 다시 열었다. ZIP SHA-256 `00024d54bbca57c8c9f528d3c6c2f4766052ad2dc37bf4f132280dbd223dd8fd`; 내부 실제 `youtube-transcript-LVE7XN_esTc.srt` SHA-256 `e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b`. 원본 SRT 250개 문장과 V215.2 coverage 250개 `original_text` 및 각 cue SHA가 **250/250 일치, 불일치 0**. 실제 CI에서 추출된 동결 V6 코드(ire.v6.atomic_exchange.audit_host_atomic_exchange)를 같은 SRT와 기존 V215.2 미승인 66원자에 다시 실행하여 **실물 구조 PASS(66원자, primary unresolved 187, atom digest `211cfcf0283afb788e913e4e9758f73118299a54da2042fbaa5808bc4b28b898`)**를 확인했다. 이 통과는 C00072의 화면 근거 혼입을 의미상 승인하는 결과가 아니다.
 - 검증한 **기존 비공개** 바이트 SHA: native 66원자 `a4079f9ded76a280614f83d3e84bfddf49b2bf98ac5e81ff810ea5f259bf01ad`; 250 cue coverage `f88fb79e9e86fc0e3c7e56aedae4cb55ab2f26630421baa4d3cf75ab1bc5f302`; 34쌍 의미 검토 `da477f5b1099e43642b6e0593de38437a2cbf876ccbe4fcfeccfe9cbfb419274`.
 - **신규 비공개 원장** `V216_PRIVATE_REAL_ETF_250_RESIDUAL_EVIDENCE_REVIEW_HOLD_20261121.json` SHA-256 `98436b9c127863e62c6cfcba0f78e8cfcbfe9247c802d132b7107bcc3ac9af59`를 개인 Library에 보존. 이 원장은 기존 V215.2를 수정하지 않는 검토 델타다.
 
@@ -55,7 +55,7 @@
 - `test_v216_e2_private_residual_evidence_guard.py`: **12개 합성 케이스**. 시각 anchor 혼입·텍스트 재앵커·해시 변조·원문 없는 인용·고아 원자·가짜 gold/화자·타입 오류·재현성 검사.
 - 기존 E2 워크플로에 12개 테스트를 추가. 새로운 원본 SRT를 GitHub CI에 올리지 않음.
 
-[GitHub Actions 44829221685](https://github.com/yhappcom/pensionport/actions/runs/44829221685): **총 321/321 PASS** (현행 E2 250, 기존 V166/V176 E2 53, E1 18). RunFail/Traceback 없이 완료. 공개 CI의 신규 12개는 합성 자료이고, **실물 ETF의 native 전체 재감사 성공을 뜻하지는 않는다**.
+[GitHub Actions 44829221685](https://github.com/yhappcom/pensionport/actions/runs/44829221685): **해당 V216 초기 실행은 총 321/321 PASS** (현행 E2 250, 기존 V166/V176 E2 53, E1 18). 이후 현행 단계 원장 회귀시험을 1개 추가했으므로 다음 CI는 322개를 검사한다. RunFail/Traceback 없이 완료. 공개 CI의 신규 12개는 합성 자료이고, **실물 ETF의 native 전체 재감사 성공을 뜻하지는 않는다**.
 
 ## 6. 후속 완료 조건 (실적과 엄격히 구분)
 
