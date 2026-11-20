@@ -12,6 +12,7 @@ knowledge publication and not a substitute for verified V176 event replay.
 from __future__ import annotations
 
 from collections import Counter,defaultdict
+import json
 import re
 
 from ire.v6.atomic_exchange import NUMBER,audit_host_atomic_exchange
@@ -27,7 +28,7 @@ BLOCK_RISKS={"COMPUTED_NOT_SPOKEN","DERIVED_MATH_NOT_SPOKEN"}
 PROVENANCE_SCHEMA="IRE_V214_E2_SOURCE_QUALIFIER_SEPARATE_CHAT_REVIEW_V1"
 REVIEW_ORIGINS={"SOURCE_EXPLICIT","SOURCE_CONTEXT","REVIEWER_ADDED","UNRESOLVED"}
 
-def _qualifier_source_context(source,inventory,review):
+def _qualifier_source_context(source,inventory,review,v210_original_sha256):
     """Prove exact original source text before any V6 qualifier index is used.
 
     Even SOURCE_EXPLICIT certifies only written SRT provenance, NOT the
@@ -44,7 +45,7 @@ def _qualifier_source_context(source,inventory,review):
         "e2_final_pass","e3_e4_e5_authorized"} and
         review["schema"]==PROVENANCE_SCHEMA and
         review["source_sha256"]==source.source_sha256 and
-        review["v210_review_sha256"]==json_digest(inventory) and
+        review["v210_review_sha256"]==v210_original_sha256 and
         review["review_executor"]=="CHATGPT_IN_CHAT" and
         all(review[k] is False for k in (
              "independent_gold_certified","financial_fact_approved",
@@ -108,8 +109,10 @@ def _missing_numbers(proposition,original_context):
 
 
 def construct_provisional_native_v6(raw_srt,private_v210_inventory,*,
-                                    expected_source_sha256,window_size=20,
-                                    qualifier_source_review=None):
+                                    expected_source_sha256,
+                                    private_v210_source_bytes,
+                                    expected_v210_source_sha256,
+                                    window_size=20,qualifier_source_review=None):
     """Return private exchange plus hash/count-only HOLD receipt.
 
     Never present the exchange as historical owner V176 or as an approved
@@ -118,6 +121,21 @@ def construct_provisional_native_v6(raw_srt,private_v210_inventory,*,
     """
     require(type(window_size) is int and 1<=window_size<=1000,
             "WINDOW_SIZE")
+    # The real V210 review includes a finite decimal in a derived
+    # illustration. Frozen json_digest intentionally disallows floats.
+    # Hash the ORIGINAL private JSON bytes, not a reserialized dict.
+    require(type(private_v210_source_bytes) is bytes and
+            type(expected_v210_source_sha256) is str and
+            len(expected_v210_source_sha256)==64,
+            "V210_ORIGINAL_BYTES_AND_EXTERNAL_HEAD_REQUIRED")
+    try:
+        recovered=json.loads(private_v210_source_bytes)
+    except (ValueError,UnicodeError,TypeError) as exc:
+        raise InvalidInput("V214_E2_V210_ORIGINAL_JSON_NOT_READABLE") from exc
+    require(type(recovered) is dict and
+            recovered==private_v210_inventory and
+            sha256(private_v210_source_bytes)==expected_v210_source_sha256,
+            "V210_PRIVATE_BYTES_OR_EXTERNAL_SHA_CHANGED")
     summary=audit_private_e2_source_first_inventory(
         raw_srt,private_v210_inventory,
         expected_source_sha256=expected_source_sha256)
@@ -130,7 +148,8 @@ def construct_provisional_native_v6(raw_srt,private_v210_inventory,*,
             "SOURCE_PLAN_AND_INVENTORY_DIFFER")
     source_qualifiers,qualifiers_awaiting,qualifiers_excluded=(
         _qualifier_source_context(source,private_v210_inventory,
-                                  qualifier_source_review))
+                                  qualifier_source_review,
+                                  expected_v210_source_sha256))
     indexed=defaultdict(list)
     atoms=[]
     blocked=[]
@@ -219,7 +238,7 @@ def construct_provisional_native_v6(raw_srt,private_v210_inventory,*,
     receipt={
         "schema":SCHEMA,
         "real_source_sha256":source.source_sha256,
-        "v210_review_sha256":json_digest(private_v210_inventory),
+        "v210_review_sha256":expected_v210_source_sha256,
         "manifest_sha256":source.manifest_sha256,
         "native_v6_atom_sha256":native["atom_candidate_digest"],
         "native_v6_cue_dispositions_sha256":
