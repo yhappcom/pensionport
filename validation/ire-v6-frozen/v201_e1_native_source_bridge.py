@@ -61,6 +61,16 @@ def bridge_v176_to_v6(
           "OWNER_SOURCE_SCOPE_DRIFT")
 
     if new_scope:
+        # V6 create_scope is deliberately idempotent for identical command IDs.
+        # The E1 operator explicitly requesting a *new* session must NOT
+        # silently replay or reuse an already existing scope.
+        try:
+            ledger.snapshot(scope_id)
+        except InvalidInput as exc:
+            if "SCOPE_UNKNOWN" not in str(exc):
+                raise
+        else:
+            raise InvalidInput("V201_E1_NEW_SCOPE_ALREADY_EXISTS")
         created = ledger.create_scope(
             scope_id=scope_id,
             video_id=engine.source.video_id,
