@@ -166,6 +166,9 @@ class TestV218PrivateDependencyJoinGuard(unittest.TestCase):
     def test_15_cross_atom_closure_requires_joined_context(self):
         result=prepare_research_dependency_closure(['C00002'],self.run_guard())
         self.assertEqual(result['mandatory_context_atom_ids'],['C00001','C00002'])
+        self.assertEqual(result['media_evidence_quarantine_relation_ids'],['V217R-003'])
+        self.assertEqual(result['intra_atom_relation_ids'],['V217R-002'])
+        self.assertTrue(result['media_quarantine_present'])
         self.assertFalse(result['knowledge_approval_authorized'])
 
     def test_16_unknown_atom_cannot_get_context(self):
@@ -189,6 +192,20 @@ class TestV218PrivateDependencyJoinGuard(unittest.TestCase):
 
     def test_20_repeat_same_original_input_same_receipt(self):
         self.assertEqual(self.run_guard(),self.run_guard())
+
+    def test_21_visual_source_atom_lineage_not_silently_dropped(self):
+        receipt=self.run_guard()
+        self.assertEqual(receipt['evidence_quarantines'][0]['origin_atom_ids'],
+                         ['C00002'])
+        result=prepare_research_dependency_closure(['C00002'],receipt)
+        self.assertIn('V217R-003',result['media_evidence_quarantine_relation_ids'])
+
+    def test_22_unsafe_mutation_of_quarantine_origin_rejected_on_bundle(self):
+        receipt=self.run_guard()
+        receipt['evidence_quarantines'][0]['origin_atom_ids']=[777]
+        with self.assertRaisesRegex(InvalidInput,'VISUAL_QUARANTINE_RECEIPT_UNTRUSTED'):
+            prepare_research_dependency_closure(['C00002'],receipt)
+
 
 
 if __name__=='__main__':
