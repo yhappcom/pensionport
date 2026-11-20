@@ -163,6 +163,26 @@ class TestV202SameInputE1Route(unittest.TestCase):
                          native_reopen.snapshot("e1_v202_same_source")["ledger_head_sha256"])
         self.assertEqual(r["knowledge_sqlite_counts"],self._counts())
 
+    def test_08_unattested_speaker_and_stance_cannot_become_native_approval(self):
+        """V202 formerly ignored speaker/stance drift from V176 source review."""
+        owner_exchange,_=self.owner.compile_native_v6_stage()
+        native_atoms=[a for p in self.fx.fx.packets
+                      for a in p["case"]["exchange"]["atoms"]]
+        self.assertEqual(len(owner_exchange["atoms"]),len(native_atoms))
+        self.assertTrue(all(a["speaker"]=="UNKNOWN" and
+                            a["stance"]=="UNRESOLVED"
+                            for a in owner_exchange["atoms"]))
+        self.assertTrue(any(a["speaker"]!="UNKNOWN" and
+                            a["stance"]!="UNRESOLVED"
+                            for a in native_atoms))
+        # The original V176 ChatGPT journal never authorized these changes.
+        # No native approval or knowledge write is allowed.
+        with self.assertRaisesRegex(InvalidInput,
+                                    "SEMANTIC_FRAME_UNATTESTED"):
+            run_connected_e1_route(**self.args())
+        self.assertEqual(self._counts(),{
+            "events":0,"knowledge":0,"parent_publications":0})
+
     def test_07_cannot_restart_approval_by_resetting_private_native(self):
         run_connected_e1_route(**self.args())
         with self.assertRaisesRegex(InvalidInput,"NEW_SCOPE_ALREADY_EXISTS"):
