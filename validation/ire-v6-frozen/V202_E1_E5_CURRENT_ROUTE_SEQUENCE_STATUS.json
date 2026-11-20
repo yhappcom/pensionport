@@ -58,7 +58,7 @@
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
       "status": "IN_PROGRESS_HOLD_REAL_SOURCE_AND_GOLD",
-      "scope": "V206 full original cue audit→V207 source-bound ChatGPT repair→V208 private SQLite append-only resume; 157/157 synthetic software tests PASS; real original-SRT and independent semantic gold HOLD"
+      "scope": "V206 original cue audit→V207 ChatGPT unapproved source repair→V208 private append-only SQLite and restored head; 158/158 synthetic tests PASS, real original and independent semantic gold HOLD"
     },
     {
       "step": "E3",
@@ -140,7 +140,7 @@
     "e2_semantic_accuracy_approved": false,
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
-    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44734116948",
+    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44734562026",
     "ci_result": "success",
     "ci_total_tests": 158,
     "ci_new_v206_tests": 36,
