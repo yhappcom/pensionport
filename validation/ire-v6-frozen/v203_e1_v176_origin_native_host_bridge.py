@@ -131,8 +131,17 @@ def _child_exchange(parent, child_manifest):
             need(all(first<=x<=last for x in sources),
                  "CROSS_CHILD_SOURCE_ANCHOR_NEEDS_SEAM_REVIEW")
             atom=copy.deepcopy(candidate)
-            # The parent's context may include adjacent children. Keep only
-            # inside-child references and REQUIRE explicit parent seam review.
+            # Never discard a condition or exception that belongs to a
+            # different child. Its meaning is not safely transported merely
+            # by trimming the context. A future parent-seam proof must carry
+            # this across the boundary explicitly; until then E1 fails closed.
+            need(all(first<=n<=last for key in (
+                 "condition_cue_indices","exception_cue_indices")
+                 for n in atom[key]),
+                 "CROSS_CHILD_QUALIFIER_NEEDS_EXPLICIT_SEAM")
+            # General parent context can extend across children. Only context
+            # (not meaning-critical qualifiers) may be local to each child
+            # pending the mandatory later parent seam review.
             for key in ("context_cue_indices","condition_cue_indices",
                         "exception_cue_indices"):
                 atom[key]=[i for i in atom[key] if first<=i<=last]
@@ -333,11 +342,21 @@ def run_origin_native_e1(owner, parent_native_store, checkpoint, knowledge_store
     counts=_counts(knowledge_store)
     delta={k:counts[k]-baseline[k] for k in counts}
     published=result["all_video_knowledge_published"] is True
+    idempotent=False
     if published:
         need(used_cues==set(range(1,progress["cue_total"]+1)) and
-             used_claims=={a["claim_id"] for a in exchange["atoms"]} and
-             delta["knowledge"]>0 and delta["events"]==delta["knowledge"] and
-             delta["parent_publications"]==1,
+             used_claims=={a["claim_id"] for a in exchange["atoms"]},
+             "PARENT_NOT_CONSUMING_ALL_OWNER_SOURCE")
+        new_publication=(
+            delta["knowledge"]>0 and
+            delta["events"]==delta["knowledge"] and
+            delta["parent_publications"]==1)
+        idempotent=(
+            baseline["parent_publications"]>0 and
+            all(v==0 for v in delta.values()))
+        # Frozen V128 verifies the exact preexisting parent request and native
+        # child replay before returning published=True on an idempotent run.
+        need(new_publication or idempotent,
              "INCOMPLETE_OR_NONATOMIC_PARENT_PUBLICATION")
     else:
         need(all(v==0 for v in delta.values()),
@@ -357,6 +376,7 @@ def run_origin_native_e1(owner, parent_native_store, checkpoint, knowledge_store
             "knowledge_sqlite_before":baseline,
             "knowledge_sqlite_delta":delta,
             "structural_synthetic_positive_path_pass":published,
+            "parent_publication_idempotent":idempotent,
             "formal_financial_fact_approved":False,
             "independent_meaning_quality_certified":False,
             "user_video_13_scopes_published":False,
