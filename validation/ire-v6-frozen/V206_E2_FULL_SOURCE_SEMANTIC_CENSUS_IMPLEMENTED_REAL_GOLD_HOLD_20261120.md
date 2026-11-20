@@ -15,14 +15,14 @@
 
 ## 2. 실행 검증
 
-**새 E2 전용 CI:** https://github.com/yhappcom/pensionport/actions/runs/44729836774 **SUCCESS — 104/104**.
+**최신 E2 전용 CI:** https://github.com/yhappcom/pensionport/actions/runs/44730243865 **SUCCESS — 107/107** (직전 안전·원장 회귀 https://github.com/yhappcom/pensionport/actions/runs/44729836774, **104/104**도 통과).
 
 | 시험군 | 개수 | 관찰 |
 |---|---:|---|
-| V206 신규 원본 전수 의미·다중 숫자·질문 인용·조건 예외·일화·비공개 SQLite | **33** | 전부 PASS |
+| V206 신규 원본 전수 의미·다중 숫자·질문 인용·조건 예외·일화·비공개 SQLite·단계 상태 보호 3건 | **36** | 전부 PASS |
 | 기존 V166 E2 의미 필드 분리 및 V176 원장/재방문 회귀 | **53** | 전부 PASS |
 | E1 V203/V204/V205 정상·음성·재실행 호환 | **18** | 전부 PASS |
-| **합계** | **104** | 전부 PASS |
+| **합계** | **107** | 전부 PASS |
 
 확인한 실패 폐쇄: cue 중복/누락, 질문→검증된 금융사실 위장, QA 검토자의 경고를 원문 인용으로 바꾸기, 원문에 없는 수익률, 가짜 예외/반박, 원본 바이트/claim SHA 교환, 원문 검토 head 위조, 동일 숫자 반복 누락, 미검토 사실 근거 자동승인, private SQLite SHA/기록 조작, 동일 cue 판정 덮어쓰기. **양성/부정 테스트 데이터는 모두 합성 한국어 SRT**.
 
