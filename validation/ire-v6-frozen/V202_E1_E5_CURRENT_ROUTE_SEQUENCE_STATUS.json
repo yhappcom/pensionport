@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_V212_V182_17OPEN_CROSSWALK_5_MISSED_RISKS_HOLD_V179_OWNER_GOLD",
+  "current_step": "E2_V213_NATIVE_V6_EXPLICIT_SOURCE_QUALIFIERS_REPAIRED_BUT_REAL_OWNER_GOLD_HOLD",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -57,8 +57,8 @@
     {
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
-      "status": "IN_PROGRESS_HOLD_HISTORICAL_OWNER_AUDIO_VISUAL_GOLD",
-      "scope": "V210 real ETF 250/250 original source; V211 61 source-anchored caution cues; V211.1 32 cross-cue links; V212 historical V182 17 actual OPEN crosswalk (12 already in V211, five newly exposed cue 126,149,153,160,232). V179 24 OPEN/68 NO_ATOM separate private owner unavailable; no independent gold; E2 HOLD"
+      "status": "IN_PROGRESS_HOLD_REAL_NATIVE_OWNER_SPEAKER_STANCE_AND_GOLD",
+      "scope": "V213 source-explicit E2 conditions/exceptions truly map into frozen native V6 cue indices through audited V176 owner; reviewer-added and ungrounded terms excluded. 19 new V213 tests including source-to-native regression. Real ETF 250 V176 owner SQLite and independent gold not restored; E2 HOLD"
     },
     {
       "step": "E3",
@@ -123,7 +123,7 @@
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
   },
-  "current_e2_verdict": "HOLD_V179_24_68_INDIVIDUAL_OWNER_AND_V182_17_OPEN_REAL_AUDIO_VISUAL_GOLD",
+  "current_e2_verdict": "HOLD_NATIVE_SOURCE_QUALIFIERS_SYNTHETIC_REPAIR_PASS_REAL_OWNER_17OPEN_V179_24_68_GOLD",
   "e2_evidence": {
     "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
     "e1_pass_prior_untouched": true,
@@ -140,9 +140,9 @@
     "e2_semantic_accuracy_approved": false,
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
-    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44746802146",
+    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44754575656",
     "ci_result": "success",
-    "ci_total_tests": 236,
+    "ci_total_tests": 256,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -153,7 +153,7 @@
     "v208_malformed_hash_rejected_without_runtime_exception": true,
     "v208_cross_census_temporal_history_check_tested": true,
     "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
-    "ci_current_e2_tests": 165,
+    "ci_current_e2_tests": 185,
     "v208_real_srt_private_resume_not_tested": true,
     "real_owner_srt_bytes_loaded_in_chat_private_runtime": true,
     "real_owner_srt_bytes_available_in_github_ci": false,
@@ -217,6 +217,18 @@
     "v212_v179_68_noatom_reconciled": false,
     "v212_real_v176_historical_owner_recovered": false,
     "v212_independent_gold_available": false,
-    "v212_report_path": "validation/ire-v6-frozen/V212_E2_REAL_V182_17_OPEN_5_SOURCE_RISK_GAPS_HOLD_20261120.md"
+    "v212_report_path": "validation/ire-v6-frozen/V212_E2_REAL_V182_17_OPEN_5_SOURCE_RISK_GAPS_HOLD_20261120.md",
+    "v213_native_v176_to_frozen_v6_qualifier_bridge_tested": true,
+    "v213_native_v6_condition_and_exception_cue_indices_mapped_synthetic": true,
+    "v213_source_context_and_reviewer_cautions_excluded_from_native_qualifiers": true,
+    "v213_owner_original_journal_unchanged_in_tests": true,
+    "v213_private_append_only_source_qualifier_custody_tested": true,
+    "v213_invalid_schema_types_fail_closed_without_typeerror": true,
+    "v213_verified_all_original_etf_250_native_qualifiers": false,
+    "v213_real_v176_owner_checkpoint_reloaded": false,
+    "v213_all_speaker_stance_resolved": false,
+    "v213_e2_independent_semantic_gold_passed": false,
+    "v213_e2_approved": false,
+    "v213_report_path": "validation/ire-v6-frozen/V213_E2_NATIVE_SOURCE_QUALIFIER_BRIDGE_REAL_V182_DEFECT_REPAIRED_20261120.md"
   }
 }
