@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_V2161_ETF250_REAL_NATIVE66_C00072_TEXT_ONLY_PRIMARY_REANCHOR_STRUCTURAL_PASS_GOLD_HOLD",
+  "current_step": "E2_V2162_ETF250_REAL_C00072_REANCHOR_66_FROZEN_PASS_MALFORMED_GUARD_HARDENED_GOLD_HOLD",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -123,7 +123,7 @@
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
   },
-  "current_e2_verdict": "HOLD_V2161_REAL_SOURCE_NATIVE_66_C00072_VISUAL_PRIMARY_FIXED_PRIOR_OWNER_AND_INDEPENDENT_GOLD_MISSING",
+  "current_e2_verdict": "HOLD_V2162_NATIVE66_REAL_STRUCTURAL_PASS_C00072_REANCHORED_BUT_OWNER_GOLD_AUDIO_SCREEN_MISSING",
   "e2_evidence": {
     "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
     "e1_pass_prior_untouched": true,
@@ -142,7 +142,7 @@
     "knowledge_published": 0,
     "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44829221685",
     "ci_result": "success",
-    "ci_total_tests": 322,
+    "ci_total_tests": 324,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -153,7 +153,7 @@
     "v208_malformed_hash_rejected_without_runtime_exception": true,
     "v208_cross_census_temporal_history_check_tested": true,
     "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
-    "ci_current_e2_tests": 251,
+    "ci_current_e2_tests": 253,
     "v208_real_srt_private_resume_not_tested": true,
     "real_owner_srt_bytes_loaded_in_chat_private_runtime": true,
     "real_owner_srt_bytes_available_in_github_ci": false,
@@ -357,6 +357,8 @@
     "v216_1_financial_truth_approved": false,
     "v216_1_knowledge_published": false,
     "v216_1_ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44829869066",
-    "v216_1_ci_total_tests": 322
+    "v216_1_ci_total_tests": 322,
+    "v216_2_guard_malformed_disposition_typeerror_blocked": true,
+    "v216_2_extra_synthetic_regression_tests": 2
   }
 }
