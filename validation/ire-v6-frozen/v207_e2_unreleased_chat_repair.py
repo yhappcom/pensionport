@@ -65,6 +65,9 @@ def audit_e2_chat_repairs(owner, challenge, answer, plan, *,
             type(plan["decisions"]) is list and
             len(plan["decisions"])==docket["issue_count"],
             "PIN_OR_FALSE_RELEASE")
+    # Retain ALL previously source-checked cross-cue rebuttals, exceptions
+    # and conditions in the new unapproved draft, not just the main quote.
+    e2_rows={r["cue_index"]:r for r in answer["rows"]}
     issues={row["issue_id"]:row for row in docket["issues"]}
     visited=set()
     projected=[]
@@ -122,7 +125,8 @@ def audit_e2_chat_repairs(owner, challenge, answer, plan, *,
             require(type(draft) is dict and set(draft)=={
                 "draft_id","kind","proposition","source_cue_index",
                 "verbatim_quote","context_cue_indices","conditions",
-                "exceptions","numeric_references","speaker",
+                "exceptions","source_discourse_links",
+                "numeric_references","speaker",
                 "stance","as_of","epistemic_status",
                 "fact_dependency_open","not_native_v6_atom",
                 "financial_fact_approved",
@@ -154,6 +158,24 @@ def audit_e2_chat_repairs(owner, challenge, answer, plan, *,
                     draft["not_native_v6_atom"] is True and
                     draft["financial_fact_approved"] is False,
                     "DRAFT_MEANING_OR_SOURCE_DRIFT")
+            # An explicit relation already reviewed at cue-census stage
+            # may never vanish during E2 candidate construction. Across-child
+            # context is preserved, never truncated to the owning cue.
+            discourse=draft["source_discourse_links"]
+            prior=e2_rows[index]["rebuttal_source_links"]
+            require(type(discourse) is list and discourse==prior and
+                    len({json_digest(x) for x in discourse})==len(discourse),
+                    "CROSS_CUE_DISCOURSE_LOST_OR_DUPLICATED")
+            for relation in discourse:
+                ci=relation["cue_index"]
+                require(ci in draft["context_cue_indices"] and
+                        type(ci) is int and 1<=ci<=len(owner.source.cues) and
+                        relation["source_cue_sha256"]==
+                            sha256(owner.source.cues[ci-1].text.encode("utf-8")) and
+                        relation["source_quote"] in owner.source.cues[ci-1].text and
+                        relation["relation_type"] in {
+                            "REBUTTAL","EXCEPTION","CONTRAST","CONDITION"},
+                        "CROSS_CUE_DISCOURSE_NOT_ORIGINAL")
             for key in ("conditions","exceptions"):
                 terms=draft[key]
                 require(type(terms) is list and
@@ -197,6 +219,7 @@ def audit_e2_chat_repairs(owner, challenge, answer, plan, *,
                 "candidate_sha256":json_digest(draft),
                 "potential_conditions":draft["conditions"],
                 "potential_exceptions":draft["exceptions"],
+                "source_discourse_links":discourse,
                 "numeric_references":draft["numeric_references"],
                 "needs_explicit_native_owner_repair":True,
                 "finance_verified":False,
