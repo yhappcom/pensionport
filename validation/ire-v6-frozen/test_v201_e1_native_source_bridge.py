@@ -29,7 +29,7 @@ class TestV201NativeE1Bridge(unittest.TestCase):
             self.root / "owner.sqlite", self.raw, "AbCdEf12345",
             owner_source_sha256=sha256(self.raw),
             window_size=2, expected_window_count=1)
-        self.ledger = TransactionStore(self.root / "native.sqlite")
+        self.ledger = TransactionStore(self.root / "native.db")
         inventory = {
             "schema": "IRE_V6_OWNER_INVENTORY_V1",
             "entries": [{
@@ -141,7 +141,7 @@ class TestV201NativeE1Bridge(unittest.TestCase):
             self.root / "owner.sqlite", self.raw, "AbCdEf12345",
             owner_source_sha256=sha256(self.raw),
             window_size=2, expected_window_count=1)
-        new_ledger = TransactionStore(self.root / "native.sqlite")
+        new_ledger = TransactionStore(self.root / "native.db")
         second = bridge_v176_to_v6(
             new_owner, new_ledger, scope_id=self.scope,
             inventory_bytes=self.inventory_bytes,
