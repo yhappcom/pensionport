@@ -14,6 +14,7 @@ from ire.v6.codec import HEX64, json_digest, sha256
 from ire.v6.errors import InvalidInput
 from v206_e2_full_cue_semantic_census import (
     audit_e2_cue_answer, build_e2_source_repair_docket,
+    DISCOURSE_LINK_FIELDS,
 )
 
 SCHEMA="IRE_V207_E2_CHAT_SOURCE_REPAIR_PLAN_V1"
@@ -163,7 +164,16 @@ def audit_e2_chat_repairs(owner, challenge, answer, plan, *,
             # context is preserved, never truncated to the owning cue.
             discourse=draft["source_discourse_links"]
             prior=e2_rows[index]["rebuttal_source_links"]
-            require(type(discourse) is list and discourse==prior and
+            # Schema validation precedes direct indexing, even for malicious
+            # or outdated review packets. This prevents Python KeyError from
+            # masking an ordinary, recoverable version-contract mismatch.
+            require(type(discourse) is list and
+                    type(prior) is list and
+                    all(type(x) is dict and
+                        set(x)==DISCOURSE_LINK_FIELDS
+                        for x in discourse+prior),
+                    "CROSS_CUE_LINK_SCHEMA_DRIFT")
+            require(discourse==prior and
                     len({json_digest(x) for x in discourse})==len(discourse),
                     "CROSS_CUE_DISCOURSE_LOST_OR_DUPLICATED")
             for relation in discourse:
