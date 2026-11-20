@@ -26,7 +26,11 @@ def audit_model_anchors(source: VerifiedSource, window_id: str,
        model["schema"] != "IRE_V6_ATOMIC_MODEL_V1":
         raise InvalidInput("STRUCTURAL_MODEL_SCHEMA_INVALID")
     claims = model["claims"]
-    if type(claims) is not list or not 1 <= len(claims) <= 256:
+    # A fully source-reviewed window may have zero research claims. This
+    # structural verifier permits an empty claim list; the native host batch
+    # MUST separately prove that every cue in that window is NO_ATOM.
+    # A blank model never implies finance/semantic approval.
+    if type(claims) is not list or not 0 <= len(claims) <= 256:
         raise InvalidInput("STRUCTURAL_CLAIMS_REQUIRED")
     if type(review) is not dict or set(review) != {
         "schema", "review_scope", "reviewed_claim_ids", "independent_gold_verified"

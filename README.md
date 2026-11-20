@@ -11,6 +11,19 @@ An evidence-based investment research project that builds a knowledge base from 
 - `data/analysis_events/<video_id>.json`: the final V3 research record for each newly reviewed video, including sources, claims, risks, and independent verification.
 - `knowledge/` and `synthesis/`: consolidated investment knowledge organized by topic.
 
+## E1→E5 순차 검증 — E1 구조 연결 최종 마감 PASS (2026-11-20)
+
+사용자 동결 원칙: **E1→E2→E3→E4→E5**, 이전 단계 미합격 시 다음 단계 금지. E1 완료 문구 **"입력·검토·승인·저장 경로가 하나로 연결"**를 변경하지 않는다.
+
+2026-11-20의 [V202 E1 독립 재검문 FAIL](validation/ire-v6-frozen/V202_E1_INDEPENDENT_REAUDIT_FAIL_20261120.md)과 옛 V202 PASS 철회 기록은 그대로 보존한다. 새 **V203**은 V176 원본 검토 원장에서 각 V6 native 자식의 **실제 `submit_host_atomic_batch`**를 먼저 생성하고, 별도 채팅 승인 입력·V123·V127·V128을 거쳐 V126 SQLite에 **동일 합성 입력**의 연구 후보 2건과 부모 발행 1건을 원자적으로 저장했다. 두 번째 동일 실행은 중복 저장 0이고, 공식 근거 누락·원본 해시/조건 앵커 변경·구간 경계 의미 누락은 차단. [GitHub Actions 413/413 PASS](https://github.com/yhappcom/pensionport/actions/runs/44716365269). **이 합격은 합성 E1 구조 연결만 증명**한다.
+
+- [E1 최종 구조적 마감·엄격 8관문·클린룸·재현 증빙](validation/ire-v6-frozen/E1_FINAL_STRUCTURAL_CLOSEOUT_AND_STRICT_GATE_20261120.md)
+- [V203 E1 최종 합격 증빙](validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md)
+- [E1~E5 최신 단일 순서 판정](validation/ire-v6-frozen/V202_E1_E5_CURRENT_ROUTE_SEQUENCE_STATUS.json)
+- [V166 불변 사용자 순차 검증 계약](validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md)
+
+**현행 단계:** E1 PASS (합성 구조; V6 strict 8/8, E1 435/435, cleanroom 1,224/1,224), E2 READY/NOT_RUN, E3·E4·E5 NOT_RUN. 실제 원본 13구간 지식 승인, 금융 법률 의미 정확성, 실전 E3 ChatGPT 2턴은 여기에 포함되지 않으며 E2 PASS 전 E3 진행 금지.
+
 ## V6 E3 현행 필수 규칙 — 실제 사용자 메시지 두 번
 
 최신 V6 E3는 **별개의 사용자 메시지 2턴** — **사용자의 연구 명령 1턴 → 별도 사용자 메시지로 시작하는 ChatGPT 최종 의미 검증 1턴** — 을 필수로 합니다. 같은 턴에서 두 배치/두 프로세스/두 번째 의미 분석을 수행해도 두 개의 사용자 턴이 아닙니다. 연구 결과를 턴 1에서 동결하고 턴 2에서 원본·근거·동결 결과를 검증해야 합니다. 확인 전에는 **E3 HOLD / E4 NOT RUN / E5=0**입니다.

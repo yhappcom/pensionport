@@ -1,16 +1,21 @@
-name: V200 E1-E5 pinned native live readiness and V176-V199 compatibility
+name: V201 E1-only bridge (with V200 compatibility)
 on:
   push:
     branches:
-      - verify/ire-v6-v200-e1-e5-live-gate-20261120
+      - verify/ire-v6-v201-e1-native-source-bridge-20261120
   pull_request:
     branches:
-      - verify/ire-v6-v179-real-two-turn-source-firstpass-20261119
+      - verify/ire-v6-v200-e1-e5-live-gate-20261120
   workflow_dispatch:
 permissions:
   contents: read
+# One live E1 run per PR or branch. Stale runs may be cancelled, not retried
+# as if they were new finance approval attempts.
+concurrency:
+  group: ire-e1-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
-  native-e1-e5-readiness:
+  native-e1-bridge:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -20,12 +25,13 @@ jobs:
           python-version: '3.11.18'
       - name: Install frozen V6 test requirements
         run: python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
-      - name: Verify V200 E1-E5 and V176-V199 native regression
+      - name: Verify V201 E1-only and V176-V200 compatibility
         working-directory: validation/ire-v6-frozen
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          python -m compileall -q v176_chat_engine_loop.py v176_chat_engine_cli.py v178_coldstart_chat_packet_bridge.py v186_e3_qualifier_provenance.py v187_e3_parent_scope_bridge.py v187_e3_parent_scope_cli.py v188_e3_quality_gate.py v188_e3_quality_cli.py v189_e3_omission_repair_overlay.py v189_e3_parent_alignment_screen.py v189_e3_repair_cli.py v190_e3_parent_graph.py v190_e3_parent_cli.py v191_e3_parent_first.py v191_e3_parent_first_cli.py v192_e3_triplet_alignment.py v192_e3_triplet_cli.py v192_e3_frozen_reference.py v193_e3_two_user_turn_contract.py v194_e3_turn1_freeze.py v194_e3_turn1_freeze_cli.py v195_e3_second_user_turn_audit.py v196_e3_second_review_repair.py v197_e3_repaired_source_projection.py v197_e3_repaired_source_cli.py v198_e3_final_correction_adjudication.py v198_e3_final_review_cli.py v199_e3_residual_source_verdict.py v199_e3_residual_source_cli.py v200_e1_e5_live_gate.py
+          python -m compileall -q v176_chat_engine_loop.py v176_chat_engine_cli.py v178_coldstart_chat_packet_bridge.py v186_e3_qualifier_provenance.py v187_e3_parent_scope_bridge.py v187_e3_parent_scope_cli.py v188_e3_quality_gate.py v188_e3_quality_cli.py v189_e3_omission_repair_overlay.py v189_e3_parent_alignment_screen.py v189_e3_repair_cli.py v190_e3_parent_graph.py v190_e3_parent_cli.py v191_e3_parent_first.py v191_e3_parent_first_cli.py v192_e3_triplet_alignment.py v192_e3_triplet_cli.py v192_e3_frozen_reference.py v193_e3_two_user_turn_contract.py v194_e3_turn1_freeze.py v194_e3_turn1_freeze_cli.py v195_e3_second_user_turn_audit.py v196_e3_second_review_repair.py v197_e3_repaired_source_projection.py v197_e3_repaired_source_cli.py v198_e3_final_correction_adjudication.py v198_e3_final_review_cli.py v199_e3_residual_source_verdict.py v199_e3_residual_source_cli.py v200_e1_e5_live_gate.py v201_e1_native_source_bridge.py v202_e1_v176_native_positive_path.py v203_e1_v176_origin_native_host_bridge.py
+          python v205_e1_runtime_preflight.py
           python -m unittest -v test_v179_noatom_risk_revisit test_v179_provisional_claim_projection
           python -m unittest -v test_v182_native_semantic_projection_gate
           python -m unittest -v test_v183_e3_two_turn_audit
@@ -47,3 +53,15 @@ jobs:
           python -m unittest -v test_v199_e3_residual_source_verdict
           python -m unittest -v test_v178_coldstart_chat_packet_bridge test_v177_private_turn_checkpoint test_v176_chat_engine_loop
           python -m unittest -v test_v200_e1_e5_live_gate
+          python -m unittest -v test_v201_e1_native_source_bridge
+          python -m unittest -v test_v202_e1_v176_native_positive_path
+          python -m unittest -v test_v202_e1_stage_sequence_audit
+          python -m unittest -v test_v203_e1_v176_origin_native_host_bridge
+          python -m unittest -v test_v204_e1_independent_realistic_input_red
+          python -m unittest -v test_v202_e1_frozen_parent_transport
+          python -m unittest -v test_v205_e1_runtime_preflight
+      - name: Strict full V6 canonical pipeline and legacy 8-gate validation
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m ire.v6.prepush --strict --expected-sha "$(git rev-parse HEAD)"

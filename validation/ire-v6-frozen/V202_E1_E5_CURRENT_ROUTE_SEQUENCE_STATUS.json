@@ -1,0 +1,125 @@
+{
+  "schema": "IRE_V203_E1_E5_CURRENT_ROUTE_VERIFIED_V1",
+  "as_of": "2026-11-20",
+  "repository": "yhappcom/pensionport",
+  "branch": "verify/ire-v6-v201-e1-native-source-bridge-20261120",
+  "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
+  "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
+  "historical_v166_e1_pass_preserved": true,
+  "current_step": "E2_READY_NOT_STARTED",
+  "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
+  "e1_evidence": {
+    "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
+    "preceding_independent_red_report_preserved": "validation/ire-v6-frozen/V202_E1_INDEPENDENT_REAUDIT_FAIL_20261120.md",
+    "prior_v202_false_pass_retracted": true,
+    "exact_owner_journal_derived_native_exchange": true,
+    "original_v176_owner_cues": 4,
+    "original_v176_source_atoms": 3,
+    "native_child_scope_count": 2,
+    "native_child_host_bundles_newly_committed_from_v176": true,
+    "original_v166_preseed_host_not_reused": true,
+    "frozen_v123_native_invoked": true,
+    "frozen_v127_parent_seam_invoked": true,
+    "frozen_v128_atomic_parent_invoked": true,
+    "frozen_v126_exact_host_replay_invoked": true,
+    "native_child_host_receipts_reopened_and_verified": true,
+    "positive_synthetic_sqlite_added": {
+      "events": 2,
+      "knowledge": 2,
+      "parent_publications": 1
+    },
+    "missing_primary_bytes_parent_hold_delta": {
+      "events": 0,
+      "knowledge": 0,
+      "parent_publications": 0
+    },
+    "altered_qualifier_pin_blocked": true,
+    "dropped_qualifier_term_blocked": true,
+    "concurrent_source_journal_change_blocked": true,
+    "cross_child_condition_loss_blocked": true,
+    "identical_repeat_idempotent_no_second_publication": true,
+    "native_financial_fact_approved": false,
+    "real_owner_original_srt_runtime_confirmed": false,
+    "real_13_child_video_knowledge_published": false,
+    "independent_semantic_gold_certified": false,
+    "evidence_ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44716365269",
+    "evidence_ci_total_tests": 413,
+    "evidence_ci_result": "success",
+    "scope_note": "synthetic 4-cue 2-child structural route using real frozen V6/V123/V127/V128/V126; no real financial truth certified"
+  },
+  "sequence": [
+    {
+      "step": "E1",
+      "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
+      "status": "PASS",
+      "scope": "final E1 structural: V176→new native V6 host→V123/V127/V128→V126 synthetic real code, 435 E1 checks + strict 8 + cleanroom"
+    },
+    {
+      "step": "E2",
+      "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
+      "status": "READY_NOT_STARTED_CURRENT_ROUTE"
+    },
+    {
+      "step": "E3",
+      "criterion": "승인·보류·격리 결과가 정확히 전달",
+      "status": "NOT_RUN_CURRENT_ROUTE"
+    },
+    {
+      "step": "E4",
+      "criterion": "적법한 승인 입력은 통과하고 부적합 입력은 차단",
+      "status": "NOT_RUN_CURRENT_ROUTE"
+    },
+    {
+      "step": "E5",
+      "criterion": "승인된 13개 구간만 원자적으로 저장",
+      "status": "NOT_RUN_CURRENT_ROUTE"
+    }
+  ],
+  "protected": {
+    "main_unchanged": true,
+    "frozen_gates_modified": false,
+    "owner_private_source_published": false,
+    "real_financial_knowledge_published": 0
+  },
+  "e1_final_closeout": {
+    "schema": "IRE_E1_SYNTHETIC_STRUCTURAL_CLOSEOUT_20261120",
+    "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
+    "verdict": "PASS_SYNTHETIC_INPUT_NATIVE_REVIEW_APPROVAL_ATOMIC_STORAGE",
+    "source_branch": "verify/ire-v6-v201-e1-native-source-bridge-20261120",
+    "report_path": "validation/ire-v6-frozen/E1_FINAL_STRUCTURAL_CLOSEOUT_AND_STRICT_GATE_20261120.md",
+    "baseline_tested_head_sha": "fe0120f99899a93ee61f857647d6c11e18063798",
+    "ci_native": {
+      "url": "https://github.com/yhappcom/pensionport/actions/runs/44720035936",
+      "conclusion": "success",
+      "tests": 435
+    },
+    "ci_cleanroom": {
+      "url": "https://github.com/yhappcom/pensionport/actions/runs/44720035791",
+      "conclusion": "success",
+      "tests": 1224
+    },
+    "ci_strict": {
+      "url": "https://github.com/yhappcom/pensionport/actions/runs/44720035936",
+      "status": "ALL_MANDATORY_SOFTWARE_CHECKS_PASS_ENGINE_QUALITY_NOT_CERTIFIED",
+      "gates_passed": 8,
+      "gates_total": 8
+    },
+    "v203_original_host_batches_from_v176": true,
+    "v126_synthetic_private_sqlite": {
+      "knowledge": 2,
+      "events": 2,
+      "parent_publications": 1
+    },
+    "same_input_replay_added_knowledge": 0,
+    "missing_official_evidence_added_knowledge": 0,
+    "noatom_window_explicitly_allowed": true,
+    "unresolved_window_rejected": true,
+    "cross_child_numeric_context_loss_rejected": true,
+    "owner_private_real_original_tested": false,
+    "approved_real_13_segments": false,
+    "financial_meaning_accuracy_certified": false,
+    "e2_e3_e4_e5_completed": false,
+    "main_unchanged": true,
+    "duplicate_pr74_closed_unmerged": true
+  }
+}

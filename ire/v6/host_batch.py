@@ -124,9 +124,23 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 model,review=window_models[wid],window_reviews[wid]
                 if (type(model) is not dict or
                     model.get("schema")!="IRE_V6_ATOMIC_MODEL_V1" or
-                    type(model.get("claims")) is not list or
-                    not model["claims"]):
-                    raise QualityNotProven("HOST_BATCH_EMPTY_WINDOW_MODEL_UNSUPPORTED")
+                    type(model.get("claims")) is not list):
+                    raise QualityNotProven("HOST_BATCH_WINDOW_MODEL_INVALID")
+                if not model["claims"]:
+                    # Zero-claim windows are legal only when the source-first
+                    # exchange explicitly marks EVERY original cue NO_ATOM.
+                    # UNRESOLVED/CANDIDATES in a blank window cannot silently
+                    # pass as an empty model or shed a factual assertion.
+                    window_cues={i for i in range(
+                        source.scope_first_cue,source.scope_last_cue+1)
+                        if source.owner(i)==wid}
+                    rows=[r for r in exchange["cue_dispositions"]
+                          if r["cue_index"] in window_cues]
+                    if (not window_cues or len(rows)!=len(window_cues) or
+                        any(r["disposition"]!="NO_ATOM" or r["claim_ids"]
+                            for r in rows)):
+                        raise QualityNotProven(
+                            "HOST_BATCH_EMPTY_WINDOW_NOT_EXPLICITLY_NO_ATOM")
                 audit=audit_model_anchors(source,wid,model,review)
                 audits[wid]=audit
                 for claim in model["claims"]:
