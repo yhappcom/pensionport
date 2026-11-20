@@ -45,7 +45,7 @@ V211.1은 V211 위험 검토 원장과 분리된 비공개 추가 기록이다. 
 - Private Library: `V211_1_PRIVATE_ETF_CROSS_CUE_CONDITION_EXCEPTION_REBUTTAL_LINKS_20261120.json` SHA-256 `5ff03745663140ea64155e3db82e8c1e785494d71dab811c2d77e92742e12465`
 - 이전 V210 private origin inventory SHA-256 `fb82a04335d5ef2bdc99f3eb502f3453eedaa76693cc5a14c55d668d5bdee71b`
 - GitHub `v211_e2_private_real_source_risk_docket.py`, `v2111_e2_private_crosscue_link_custody.py`: 실제 원본 바이트·기존 비공개 파일 2개의 SHA chain을 다시 검사하는 보호 엔진. 인용 위조, 자막 번호 바꾸기, 조건/예외의 부정확한 출처, 문맥 링크 중복·누락, 금융 사실 승인 위장 차단. 원문/해석을 공개 영수증 또는 CI 로그에 기록하지 않는다.
-- 새로운 공개 CI 테스트는 **합성 원본만 사용**한다. [GitHub Actions run 44741609718](https://github.com/yhappcom/pensionport/actions/runs/44741609718) **219/219 PASS** (현행 E2 148, V166/V176 53, E1 18). 라이브 개인 SRT는 Actions에 업로드하지 않았다.
+- 새로운 공개 CI 테스트는 **합성 원본만 사용**한다. [GitHub Actions run 44742111143](https://github.com/yhappcom/pensionport/actions/runs/44742111143) **220/220 PASS** (현행 E2 149, V166/V176 53, E1 18). 라이브 개인 SRT는 Actions에 업로드하지 않았다.
 
 ## 5. 아직 해결되지 않은 E2 최종 관문
 
