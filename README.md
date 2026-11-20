@@ -11,13 +11,15 @@ An evidence-based investment research project that builds a knowledge base from 
 - `data/analysis_events/<video_id>.json`: the final V3 research record for each newly reviewed video, including sources, claims, risks, and independent verification.
 - `knowledge/` and `synthesis/`: consolidated investment knowledge organized by topic.
 
-## V202 E1→E5 현행 단계별 검증 (2026-11-20)
+## E1→E5 순차 검증 — 2026-11-20 E1 재검문 실패 (현행 V176 경로)
 
-사용자 합의: **단계별 PASS 증거가 없으면 다음 단계에 진입하지 않는다.** E1의 원래 구조적 합격 문구는 '입력·검토·승인·저장 경로가 하나로 연결'이다. V166의 역사적 E1 PASS와 최신 V202 신규 V176 경로의 **동일 합성 입력 구조 연결 PASS**를 구분해 보존한다. V202에서 출처 원장→원자 검토→동결 V123→V127/V128→V126 PRIVATE SQLite까지 합성 전수 검증 395/395 CI PASS다. **실물 금융 사실 승인, E2 의미 정확도, E3 독립 검증, E4 금융 자격, E5 13개 구간 실제 통합은 PASS가 아니다.** 현재 새 경로 다음 단계는 E2 준비 상태다.
+사용자 동결 원칙: **E1→E2→E3→E4→E5 순차 진행. 이전 단계가 합격하지 못하면 다음 단계에 진입하지 않는다.** E1 완료 기준은 **입력·검토·승인·저장 경로가 하나로 연결**이다.
 
-- [V202 E1 구조 PASS 상세 증빙](validation/ire-v6-frozen/V202_E1_CURRENT_V176_ROUTE_STRUCTURAL_PASS_20261120.md)
-- [V202 현행 E1~E5 순서 상태](validation/ire-v6-frozen/V202_E1_E5_CURRENT_ROUTE_SEQUENCE_STATUS.json)
-- [V166 원본 E1~E7 합격 계약](validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md)
+**최신 판정: 현행 V176→V202 E1 `FAIL`, E2 `BLOCKED_BY_E1`, E3~E5 `NOT_RUN`.** 기존 V166의 역사적 합성 구조 연결 E1 PASS는 보존하지만 V202로 옮겨온 승인·저장 입력에서 **화자·발언 입장·조건·시점이 원래 V176 원장과 달라도 합성 저장이 가능했던 오류**가 독립 재검문에서 입증됐다. [반례가 CI 실패를 유발함](https://github.com/yhappcom/pensionport/actions/runs/44705219505); 방어 패치 후 [398/398 회귀 PASS](https://github.com/yhappcom/pensionport/actions/runs/44706008466)는 **불합격 입력의 안전한 차단 증명**일 뿐 E1 정상 종단간 PASS가 아니다. E1 실제 동일 검토 레코드가 정식 V6 host→V123→V126로 전달되는 합성 양성 경로를 재구축하기 전 E2 금지.
+
+- [현행 E1 독립 재검문 FAIL 및 후속 E1 수리 조건](validation/ire-v6-frozen/V202_E1_INDEPENDENT_REAUDIT_FAIL_20261120.md)
+- [동결된 E1~E5 최신 단계 판정 원장](validation/ire-v6-frozen/V202_E1_E5_CURRENT_ROUTE_SEQUENCE_STATUS.json)
+- [V166 원래 순차 검증 운영 계약](validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md)
 
 ## V6 E3 현행 필수 규칙 — 실제 사용자 메시지 두 번
 
