@@ -3,54 +3,43 @@
   "as_of": "2026-11-20",
   "repository": "yhappcom/pensionport",
   "branch": "verify/ire-v6-v201-e1-native-source-bridge-20261120",
+  "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
   "current_step": "E1_REPAIR_ONLY",
   "current_e1_verdict": "FAIL_CURRENT_ROUTE_UNATTESTED_REVIEW_TO_APPROVAL",
   "e1_evidence": {
-    "native_owner_cues": 4,
-    "native_source_atoms": 3,
-    "synthetic_child_scopes": 2,
-    "v123_gate_invoked": true,
-    "v127_child_parent_invoked": true,
-    "v128_atomic_writer_invoked": true,
-    "v126_private_sqlite_counts": {
+    "report_path": "validation/ire-v6-frozen/V202_E1_INDEPENDENT_REAUDIT_FAIL_20261120.md",
+    "source_origin": "public frozen code plus synthetic regression; owner private source unavailable",
+    "original_source_attested_in_synthetic_test": true,
+    "same_synthetic_cue_and_candidate_text_compared": true,
+    "current_owner_review_to_native_host_batch_proven": false,
+    "current_owner_review_to_native_v123_proven": false,
+    "source_speaker_stance_attribution_drift_found": true,
+    "silent_stance_speaker_asof_change_now_blocked": true,
+    "source_owner_head_mid_callback_change_now_blocked": true,
+    "native_current_same_input_positive_storage_test_pass": false,
+    "native_invalid_input_no_knowledge_publication_test_pass": true,
+    "adversarial_red_ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44705219505",
+    "defensive_green_ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44706008466",
+    "defensive_green_ci_test_count": 398,
+    "previous_v202_synthetic_pass_report_retracted": true,
+    "previous_v202_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44692583623",
+    "previous_v202_synthetic_only_counts": {
       "events": 2,
       "knowledge": 2,
       "parent_publications": 1
     },
-    "financial_evidence_missing_negative_counts": {
-      "events": 0,
-      "knowledge": 0,
-      "parent_publications": 0
-    },
-    "provenance_mutation_rejected": true,
-    "owner_restart_reverified": true,
-    "fully_private_owner_real_replay_completed": false,
-    "real_video_13_segments_published": false,
-    "independent_semantic_quality_certified": false,
-    "ci_run_url": "https://github.com/yhappcom/pensionport/actions/runs/44692267523",
-    "ci_test_count": 395,
-    "ci_conclusion": "success_fail_closed_negative_regressions_only_not_e1_pass",
-    "report_path": "validation/ire-v6-frozen/V202_E1_INDEPENDENT_REAUDIT_FAIL_20261120.md",
-    "original_prior_pass_retracted": true,
-    "original_prior_ci_test_count": 395,
-    "prior_same_input_link_is_only_partial": true,
-    "v176_review_to_native_host_batch_direct_delivery_proven": false,
-    "native_meaning_field_drift_reproduced": true,
-    "adversarial_red_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44705219505",
-    "fail_closed_repair_ci_run": "https://github.com/yhappcom/pensionport/actions/runs/44706008466",
-    "fail_closed_repair_ci_tests": 398,
-    "owner_journal_change_during_callback_rejected": true,
-    "native_unattested_speaker_stance_asof_change_rejected": true,
-    "current_approval_to_knowledge_positive_path_proven": false
+    "previous_v202_failure_reason": "V166 native review/approval cases were pre-authored before V176 journal and not actually transmitted from it",
+    "actual_real_owner_video_13_segments_approved": false,
+    "independent_semantic_quality_certified": false
   },
   "sequence": [
     {
       "step": "E1",
       "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
       "status": "FAIL",
-      "scope": "current V176 review-to-approval handoff FAIL; historical V166 standalone synthetic PASS retained"
+      "reason": "UNATTESTED_REVIEW_TO_APPROVAL"
     },
     {
       "step": "E2",
@@ -73,7 +62,10 @@
       "status": "NOT_RUN_BLOCKED_BY_E1"
     }
   ],
-  "main_unchanged": true,
-  "private_original_published": false,
-  "frozen_gates_modified": false
+  "protected": {
+    "main_unchanged": true,
+    "frozen_gates_modified": false,
+    "owner_private_source_published": false,
+    "real_financial_knowledge_published": 0
+  }
 }
