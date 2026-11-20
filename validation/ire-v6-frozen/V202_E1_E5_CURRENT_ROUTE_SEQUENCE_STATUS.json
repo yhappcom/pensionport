@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_V213_NATIVE_V6_EXPLICIT_SOURCE_QUALIFIERS_REPAIRED_BUT_REAL_OWNER_GOLD_HOLD",
+  "current_step": "E2_V214_REAL_ETF250_FROZEN_NATIVE55_SOURCE_ATTESTED_HOLD_HIST_OWNER_GOLD",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -57,8 +57,8 @@
     {
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
-      "status": "IN_PROGRESS_HOLD_REAL_NATIVE_OWNER_SPEAKER_STANCE_AND_GOLD",
-      "scope": "V213 source-explicit E2 conditions/exceptions truly map into frozen native V6 cue indices through audited V176 owner; reviewer-added and ungrounded terms excluded. 19 new V213 tests including source-to-native regression. Real ETF 250 V176 owner SQLite and independent gold not restored; E2 HOLD"
+      "status": "IN_PROGRESS_HOLD_REAL_SEMANTIC_GOLD_HISTORIC_OWNER_AND_SPEAKER",
+      "scope": "V214 private real original 250 SRT/13 owner windows: exact latest frozen V6 native audit PASS on 55 unapproved draft atoms; two unspoken computed numeric propositions blocked, 195 cues UNRESOLVED. 15 source-attested condition and 2 exception links; speaker UNKNOWN stance UNRESOLVED. Eight source-overlap pairs reviewed in chat, nonoverlap 1588 and historical 69/71 unresolved. V179/V181 private owner+independent gold not available; E2 HOLD."
     },
     {
       "step": "E3",
@@ -123,7 +123,7 @@
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
   },
-  "current_e2_verdict": "HOLD_NATIVE_SOURCE_QUALIFIERS_SYNTHETIC_REPAIR_PASS_REAL_OWNER_17OPEN_V179_24_68_GOLD",
+  "current_e2_verdict": "HOLD_REAL_V6_55_UNAPPROVED_195_CUE_UNRESOLVED_STANCE_SPEAKER_HIST_OWNER_AND_GOLD",
   "e2_evidence": {
     "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
     "e1_pass_prior_untouched": true,
@@ -140,9 +140,9 @@
     "e2_semantic_accuracy_approved": false,
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
-    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44755058801",
+    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44759374878",
     "ci_result": "success",
-    "ci_total_tests": 256,
+    "ci_total_tests": 281,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -153,7 +153,7 @@
     "v208_malformed_hash_rejected_without_runtime_exception": true,
     "v208_cross_census_temporal_history_check_tested": true,
     "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
-    "ci_current_e2_tests": 185,
+    "ci_current_e2_tests": 210,
     "v208_real_srt_private_resume_not_tested": true,
     "real_owner_srt_bytes_loaded_in_chat_private_runtime": true,
     "real_owner_srt_bytes_available_in_github_ci": false,
@@ -229,6 +229,38 @@
     "v213_all_speaker_stance_resolved": false,
     "v213_e2_independent_semantic_gold_passed": false,
     "v213_e2_approved": false,
-    "v213_report_path": "validation/ire-v6-frozen/V213_E2_NATIVE_SOURCE_QUALIFIER_BRIDGE_REAL_V182_DEFECT_REPAIRED_20261120.md"
+    "v213_report_path": "validation/ire-v6-frozen/V213_E2_NATIVE_SOURCE_QUALIFIER_BRIDGE_REAL_V182_DEFECT_REPAIRED_20261120.md",
+    "v214_exact_frozen_native_v6_private_real_srt_executed": true,
+    "v214_real_srt_original_cues_checked": 250,
+    "v214_real_srt_plan_windows": 13,
+    "v214_real_v210_unapproved_candidates": 57,
+    "v214_real_native_unapproved_atoms_audited": 55,
+    "v214_real_native_blocked_unspoken_derived_claims": 2,
+    "v214_real_native_blocked_ids": [
+      "E2REAL-036",
+      "E2REAL-050"
+    ],
+    "v214_real_native_cues_unresolved": 195,
+    "v214_real_native_source_explicit_condition_cue_links": 15,
+    "v214_real_native_source_explicit_exception_cue_links": 2,
+    "v214_real_native_speaker_and_stance_finalized": false,
+    "v214_real_v176_historical_owner_sqlite_recovered": false,
+    "v214_real_gold_independent_reference_available": false,
+    "v214_real_precision_recall_measured": false,
+    "v214_real_8_overlap_pairs_reviewed": true,
+    "v214_real_1588_nonoverlap_pairs_not_independently_adjudicated": true,
+    "v214_v182_open_cue_count_rechecked": 17,
+    "v214_v182_open_native_candidate_cues": 4,
+    "v214_v182_open_native_unresolved_cues": 13,
+    "v214_v182_all_cases_still_open": true,
+    "v214_real_private_srt_uploaded_to_github": false,
+    "v214_real_v210_decimal_runfail_fixed_by_byte_sha": true,
+    "v214_real_native_atom_digest": "9fdbf16ed64ce39ac5385482135ae3b7cc6115ef16761aab57f52b0a024ca09a",
+    "v214_real_native_attested_receipt_private_sha256": "9ca7327ade4a1faa2475d977ff0d0deeb3da3c000da7fb34368ef7fc1f122f4a",
+    "v214_real_e2_qualifier_chat_source_review_private_sha256": "948a033a2b086ae8b65095ce268308940b72458af548bedc096bc3a562fe7545",
+    "v214_real_overlap_review_private_sha256": "25c5287a566069eab2018975da390eae08320a2d183b04e2d97781dc3c62263c",
+    "v214_private_real_open17_crosswalk_sha256": "17cf80f1e51ca47b85bd0aef5529ae8f0cca6014ac45b01eb0cbda0c847167e4",
+    "v214_code_only_native_validator_actions_artifact_id": 14640087173,
+    "v214_report_path": "validation/ire-v6-frozen/V214_E2_REAL_250_EXACT_FROZEN_NATIVE_V6_55_SOURCE_ATTESTED_17_HOLD_20261120.md"
   }
 }
