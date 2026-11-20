@@ -326,3 +326,42 @@ def review_blind_and_reconcile(owner,challenge,answer,*,expected_owner_head):
         "e2_final_pass":False,"e3_e4_e5_authorized":False,
         "original_v176_mutated":False,"financial_knowledge_published":False,
     }
+
+
+def reconcile_full_blind_video(owner, reviewed_batches, *, expected_owner_head):
+    """Require 1:1 coverage of EVERY source cue by independently authored batches."""
+    need(type(reviewed_batches) is list and bool(reviewed_batches),
+         "FULL_BLIND_BATCHES_REQUIRED")
+    observed=set()
+    receipts=[]
+    for batch in reviewed_batches:
+        need(type(batch) is dict and set(batch)=={"challenge","answer"},
+             "FULL_BLIND_BATCH_SCHEMA")
+        c=batch["challenge"]
+        r=review_blind_and_reconcile(
+            owner,c,batch["answer"],
+            expected_owner_head=expected_owner_head)
+        ids=set(range(c["start_cue"],c["end_cue"]+1))
+        need(not (observed & ids),"FULL_BLIND_CUE_DOUBLE_COUNT")
+        observed.update(ids)
+        receipts.append(r)
+    need(observed==set(range(1,len(owner.source.cues)+1)),
+         "FULL_BLIND_SOURCE_CUE_MISSING")
+    all_gaps=[item for receipt in receipts
+              for item in receipt["disagreements"]]
+    return {
+        "schema":"IRE_V209_E2_FULL_BLIND_SOURCE_RECONCILIATION_V1",
+        "source_sha256":owner.source.source_sha256,
+        "owner_head_sha256":expected_owner_head,
+        "original_cues_covered":len(observed),
+        "source_batches":len(receipts),
+        "blind_claims_proposed":sum(r["blind_original_claims_proposed"]
+                                     for r in receipts),
+        "semantic_disagreements":len(all_gaps),
+        "disagreements":all_gaps,
+        "status":("HOLD_BLIND_SOURCE_DISAGREEMENT_AND_GOLD"
+                  if all_gaps else "HOLD_INDEPENDENT_GOLD_STILL_REQUIRED"),
+        "actual_independent_human_gold_available":False,
+        "e2_final_pass":False,
+        "e3_e4_e5_authorized":False,
+    }
