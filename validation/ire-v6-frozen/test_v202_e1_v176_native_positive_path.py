@@ -15,12 +15,12 @@ from ire.v6.codec import ZERO_SHA, sha256
 from ire.v6.errors import InvalidInput
 from v176_chat_engine_loop import EngineChatSession, COMMIT
 from v202_e1_v176_native_positive_path import run_connected_e1_route
-from test_v166_e1_same_typed_review_to_sqlite import V166E1SameTypedReviewToSQLite
+import test_v166_e1_same_typed_review_to_sqlite as v166_fixture
 
 
 class TestV202SameInputE1Route(unittest.TestCase):
     def setUp(self):
-        self.fx=V166E1SameTypedReviewToSQLite(
+        self.fx=v166_fixture.V166E1SameTypedReviewToSQLite(
             "test_01_same_typed_review_native_v123_v127_v128_private_sqlite_commit")
         self.fx.setUp()
         self.addCleanup(self.fx.doCleanups)
