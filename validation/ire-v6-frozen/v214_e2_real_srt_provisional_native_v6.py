@@ -24,6 +24,73 @@ from v210_e2_private_original_source_inventory import (
 
 SCHEMA="IRE_V214_E2_REAL_ORIGINAL_NATIVE_V6_DRAFT_RECONSTRUCTION_V1"
 BLOCK_RISKS={"COMPUTED_NOT_SPOKEN","DERIVED_MATH_NOT_SPOKEN"}
+PROVENANCE_SCHEMA="IRE_V214_E2_SOURCE_QUALIFIER_SEPARATE_CHAT_REVIEW_V1"
+REVIEW_ORIGINS={"SOURCE_EXPLICIT","SOURCE_CONTEXT","REVIEWER_ADDED","UNRESOLVED"}
+
+def _qualifier_source_context(source,inventory,review):
+    """Prove exact original source text before any V6 qualifier index is used.
+
+    Even SOURCE_EXPLICIT certifies only written SRT provenance, NOT the
+    speaker's audio, finance truth, independent gold or final stance.
+    """
+    expected=[(c["provisional_id"],field,i) for c in inventory["claims"]
+              for field in ("condition_anchor_cues","exception_anchor_cues")
+              for i in c[field]]
+    if review is None:
+        return {},len(expected),0
+    require(type(review) is dict and set(review)=={
+        "schema","source_sha256","v210_review_sha256","review_executor",
+        "responses","independent_gold_certified","financial_fact_approved",
+        "e2_final_pass","e3_e4_e5_authorized"} and
+        review["schema"]==PROVENANCE_SCHEMA and
+        review["source_sha256"]==source.source_sha256 and
+        review["v210_review_sha256"]==json_digest(inventory) and
+        review["review_executor"]=="CHATGPT_IN_CHAT" and
+        all(review[k] is False for k in (
+             "independent_gold_certified","financial_fact_approved",
+             "e2_final_pass","e3_e4_e5_authorized")) and
+        type(review["responses"]) is list and
+        len(review["responses"])==len(expected),
+        "QUALIFIER_REVIEW_SOURCE_SCHEMA_OR_COUNT")
+    mapping=defaultdict(list)
+    excluded=0
+    rowschema={"provisional_id","qualifier_field","cue_index",
+               "source_text_sha256","source_quote","origin",
+               "meaning_rationale","speaker_audio_verified",
+               "independent_gold_certified","financial_fact_approved",
+               "e2_final_pass","e3_e4_e5_authorized"}
+    for (cid,field,i),item in zip(expected,review["responses"]):
+        require(type(item) is dict and set(item)==rowschema and
+                item["provisional_id"]==cid and
+                item["qualifier_field"]==field and
+                type(item["cue_index"]) is int and
+                item["cue_index"]==i and
+                item["source_text_sha256"]==
+                    sha256(source.cues[i-1].text.encode("utf-8")) and
+                type(item["origin"]) is str and
+                item["origin"] in REVIEW_ORIGINS and
+                type(item["meaning_rationale"]) is str and
+                len(item["meaning_rationale"].strip())>=25 and
+                all(item[k] is False for k in (
+                    "speaker_audio_verified","independent_gold_certified",
+                    "financial_fact_approved","e2_final_pass",
+                    "e3_e4_e5_authorized")),
+                "QUALIFIER_REVIEW_ROW_DRIFT")
+        if item["origin"] in {"SOURCE_EXPLICIT","SOURCE_CONTEXT"}:
+            require(type(item["source_quote"]) is str and
+                    len(item["source_quote"].strip())>=3 and
+                    " ".join(item["source_quote"].split()) in
+                    " ".join(source.cues[i-1].text.split()),
+                    "QUALIFIER_QUOTE_NOT_IN_ORIGINAL")
+        else:
+            require(item["source_quote"] is None,
+                    "REVIEWER_WARNING_NOT_SPOKEN_SOURCE")
+        if item["origin"]=="SOURCE_EXPLICIT":
+            mapping[(cid,field)].append(i)
+        else:
+            excluded+=1
+    return mapping,0,excluded
+
 
 
 def require(ok,code):
@@ -41,7 +108,8 @@ def _missing_numbers(proposition,original_context):
 
 
 def construct_provisional_native_v6(raw_srt,private_v210_inventory,*,
-                                    expected_source_sha256,window_size=20):
+                                    expected_source_sha256,window_size=20,
+                                    qualifier_source_review=None):
     """Return private exchange plus hash/count-only HOLD receipt.
 
     Never present the exchange as historical owner V176 or as an approved
@@ -60,6 +128,9 @@ def construct_provisional_native_v6(raw_srt,private_v210_inventory,*,
     require(source.source_sha256==summary["source_sha256"] and
             len(source.cues)==summary["original_cues_checked"],
             "SOURCE_PLAN_AND_INVENTORY_DIFFER")
+    source_qualifiers,qualifiers_awaiting,qualifiers_excluded=(
+        _qualifier_source_context(source,private_v210_inventory,
+                                  qualifier_source_review))
     indexed=defaultdict(list)
     atoms=[]
     blocked=[]
@@ -100,8 +171,15 @@ def construct_provisional_native_v6(raw_srt,private_v210_inventory,*,
             "speaker":"UNKNOWN",
             "source_refs":refs,
             "context_cue_indices":context,
-            "condition_cue_indices":c["condition_anchor_cues"],
-            "exception_cue_indices":c["exception_anchor_cues"],
+            # The V210 candidate-only anchor is NOT enough to make a
+            # native V6 source-spoken qualifier. Require separate ChatGPT
+            # source/role origin and verbatim cue attestation.
+            "condition_cue_indices":
+                source_qualifiers.get((c["provisional_id"],
+                                       "condition_anchor_cues"),[]),
+            "exception_cue_indices":
+                source_qualifiers.get((c["provisional_id"],
+                                       "exception_anchor_cues"),[]),
             "numeric_references":num_refs,
             "as_of":None,
         }
@@ -157,10 +235,19 @@ def construct_provisional_native_v6(raw_srt,private_v210_inventory,*,
             sum(bool(r["claim_ids"]) for r in cue_rows),
         "cues_left_unresolved":sum(
             r["disposition"]=="UNRESOLVED" for r in cue_rows),
+        "v210_unverified_condition_exception_anchor_hypotheses":sum(
+            len(c["condition_anchor_cues"])+len(c["exception_anchor_cues"])
+            for c in private_v210_inventory["claims"]),
+        "qualifier_source_role_reviews_required_but_missing":
+            qualifiers_awaiting,
+        "non_source_spoken_qualifier_reviews_retained_outside_v6":
+            qualifiers_excluded,
         "source_explicit_provisional_condition_cue_links":sum(
             len(a["condition_cue_indices"]) for a in atoms),
         "source_explicit_provisional_exception_cue_links":sum(
             len(a["exception_cue_indices"]) for a in atoms),
+        "all_v6_qualifiers_from_separately_reviewed_original_cues":True,
+        "qualifier_source_review_is_not_independent_gold":True,
         "speaker_and_stance_source_finalized":False,
         "old_v179_v181_v176_private_owner_recovered":False,
         "original_v176_owner_journal_mutated":False,
