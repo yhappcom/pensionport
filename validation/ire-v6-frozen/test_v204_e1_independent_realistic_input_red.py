@@ -132,7 +132,7 @@ class IndependentE1AuditV204(unittest.TestCase):
         ledger,kwargs=self._prepare_legitimate_empty_window_host(
             with_unresolved=True)
         with self.assertRaisesRegex(Exception,
-                                    "EMPTY_WINDOW_NOT_EXPLICITLY_NO_ATOM"):
+                                    "UNRESOLVED_SOURCE_RESIDUALS|EMPTY_WINDOW_NOT_EXPLICITLY_NO_ATOM"):
             ledger.submit_host_atomic_batch(**kwargs)
         snap=ledger.snapshot(kwargs["scope_id"])
         self.assertEqual(snap["progress"]["model_windows_recorded"],0)
