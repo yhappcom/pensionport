@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_REAL_ORIGINAL_FIRST_PASS_COMPLETED_HOLD_LIVE_OWNER_GOLD",
+  "current_step": "E2_REAL_ORIGINAL_250_CUE_RISK_AND_RELATIONS_HOLD_V179_RECONCILIATION",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -57,8 +57,8 @@
     {
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
-      "status": "IN_PROGRESS_HOLD_LIVE_OWNER_AND_GOLD",
-      "scope": "V209 V176-label-hidden comparison and V210 actual LVE7XN_esTc owner-original 250 cue/57 provisional source-first claims (47 flagged); complete source SHA/quote custody, actual V176 owner SQLite and independent gold absent; E2 HOLD"
+      "status": "IN_PROGRESS_HOLD_PRIOR_OWNER_GOLD_AND_NATIVE_REPAIR",
+      "scope": "V210 real 250 SRT original source 57 unapproved candidates, V211 61 private source-attested risk cues (44 high,14 medium,3 low), V211.1 32 private cross-cue source links; actual independent gold and V179 24 OPEN/68 NO_ATOM individual matching still HOLD"
     },
     {
       "step": "E3",
@@ -123,7 +123,7 @@
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
   },
-  "current_e2_verdict": "HOLD_V179_V210_SEMANTIC_RECONCILIATION_LIVE_OWNER_AND_INDEPENDENT_GOLD",
+  "current_e2_verdict": "HOLD_V179_INDIVIDUAL_24_68_MAPPING_V6_REPAIRS_AND_INDEPENDENT_GOLD",
   "e2_evidence": {
     "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
     "e1_pass_prior_untouched": true,
@@ -140,9 +140,9 @@
     "e2_semantic_accuracy_approved": false,
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
-    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44738346899",
+    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44741609718",
     "ci_result": "success",
-    "ci_total_tests": 195,
+    "ci_total_tests": 220,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -153,7 +153,7 @@
     "v208_malformed_hash_rejected_without_runtime_exception": true,
     "v208_cross_census_temporal_history_check_tested": true,
     "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
-    "ci_current_e2_tests": 124,
+    "ci_current_e2_tests": 149,
     "v208_real_srt_private_resume_not_tested": true,
     "real_owner_srt_bytes_loaded_in_chat_private_runtime": true,
     "real_owner_srt_bytes_available_in_github_ci": false,
@@ -170,6 +170,26 @@
     "real_etf_v179_61_provisional_claims_semantically_reconciled": false,
     "v209_blind_v176_label_hidden_challenge_tested": true,
     "v210_actual_original_source_sha_and_private_claim_anchor_verified": true,
-    "v210_report_path": "validation/ire-v6-frozen/V210_E2_REAL_ETF_250_CUES_SOURCE_FIRST_57_DRAFT_HOLD_20261120.md"
+    "v210_report_path": "validation/ire-v6-frozen/V210_E2_REAL_ETF_250_CUES_SOURCE_FIRST_57_DRAFT_HOLD_20261120.md",
+    "v211_private_source_risk_docket_created": true,
+    "v211_original_cues_rechecked": 250,
+    "v211_new_risk_review_items": 61,
+    "v211_risk_priority": {
+      "high": 44,
+      "medium": 14,
+      "low": 3
+    },
+    "v211_private_risk_docket_sha256": "04977e5609861d1eac0e3a1ce6b9f2d8ee93d1b3ec8317e09f09119923d96ad2",
+    "v2111_private_crosscue_relations_created": true,
+    "v2111_private_crosscue_relation_count": 32,
+    "v2111_private_crosscue_sha256": "5ff03745663140ea64155e3db82e8c1e785494d71dab811c2d77e92742e12465",
+    "v211_code_custody_synthetic_tested": true,
+    "v2111_code_custody_synthetic_tested": true,
+    "v179_prior_unresolved_24_individual_cue_ids_recovered": false,
+    "v179_prior_suspicious_68_individual_cue_ids_recovered": false,
+    "v211_same_as_v179_61_native_atoms_certified": false,
+    "v211_relation_semantic_truth_approved": false,
+    "v211_private_source_data_uploaded_to_github": false,
+    "v211_report_path": "validation/ire-v6-frozen/V211_E2_REAL_ETF_250CUE_61_RISK_32_CROSSCUE_HOLD_20261120.md"
   }
 }
