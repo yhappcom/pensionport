@@ -135,7 +135,10 @@ class E2QualifierCustody:
                 "manifest_sha256":self.engine.source.manifest_sha256}
 
     def _packet(self,ids,prior_head,terms):
+        # Validate types before set/len operations: malformed or old input
+        # must be a controlled InvalidInput, never an unhashable TypeError.
         require(type(ids) is list and
+                all(type(t) is str for t in ids) and
                 ids==sorted(set(ids)) and
                 all(t in terms for t in ids) and type(prior_head) is str and
                 len(prior_head)==64,"TERM_TASK_INDEX_SCHEMA")
@@ -276,12 +279,15 @@ class E2QualifierCustody:
             db.execute("BEGIN IMMEDIATE")
             head,terms,done=self._audit(db)
             require(head==expected_private_head,"QUALIFIER_HEAD_STALE")
-            require(packet==self._packet(
-                [x for x in sorted(terms) if x not in done][:
-                    len(packet.get("term_ids",[]))],head,terms) and
-                len(packet["term_ids"])>=1 and
-                len(packet["term_ids"])<=40,
-                "QUALIFIER_TASK_NOT_ISSUED_OR_STALE")
+            # Schema gate before any length/index/set or regenerated task.
+            ids=packet.get("term_ids")
+            require(type(ids) is list and
+                    all(type(t) is str for t in ids) and
+                    1<=len(ids)<=40,
+                    "QUALIFIER_TASK_NOT_ISSUED_OR_STALE")
+            pending=[x for x in sorted(terms) if x not in done][:len(ids)]
+            require(packet==self._packet(pending,head,terms),
+                    "QUALIFIER_TASK_NOT_ISSUED_OR_STALE")
             self._validate_rows(packet,answer,terms)
             next_seq=db.execute("SELECT COUNT(*) FROM events").fetchone()[0]+1
             event={"schema":EVENT,"seq":next_seq,"prev_sha":head,
@@ -350,7 +356,8 @@ def compile_e2_safe_native_stage(owner,custody):
     q=custody.projected_source_anchors()
     from ire.v6.atomic_exchange import audit_host_atomic_exchange
     audit=audit_host_atomic_exchange(owner.source,exchange)
-    assert audit["proposed_atomic_claims"]==len(exchange["atoms"])
+    require(audit["proposed_atomic_claims"]==len(exchange["atoms"]),
+            "NATIVE_V6_ATOM_AUDIT_COUNT_DRIFT")
     # Reconstruct the exact V176 ordinal assignment without modifying owner.
     with closing(owner._connect()) as db:
         _,reviewed=owner._audit(db)
