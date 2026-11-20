@@ -1,11 +1,8 @@
-name: V201 E1 native source bridge and compatibility regression
+# Archived manual-only V201 compatibility job.
+# The V200/V201 E1 suite is already run by ire-v200-e1-e5-live-readiness.yml.
+# Avoid duplicate push jobs and misleading stale/cancelled CI statuses.
+name: V201 E1 archived compatibility (manual only)
 on:
-  push:
-    branches:
-      - verify/ire-v6-v201-e1-native-source-bridge-20261120
-  pull_request:
-    branches:
-      - verify/ire-v6-v179-real-two-turn-source-firstpass-20261119
   workflow_dispatch:
 permissions:
   contents: read
