@@ -209,5 +209,39 @@ class TestV215RealNativeReconciling(unittest.TestCase):
             self.run_patch(patch=bad)
 
 
+    def test_17_all_visual_only_cues_must_be_quarantined_before_native_stage(self):
+        d=copy.deepcopy(self.inventory)
+        d["claims"][1]["risks"]=["VISUAL_NOT_AVAILABLE"]
+        v210bytes=self.dumps(d)
+        base,_=construct_provisional_native_v6(
+            RAW,d,expected_source_sha256=sha256(RAW),
+            private_v210_source_bytes=v210bytes,
+            expected_v210_source_sha256=sha256(v210bytes),window_size=2)
+        basebytes=self.dumps(base)
+        patch=copy.deepcopy(self.patch)
+        patch["v210_original_bytes_sha256"]=sha256(v210bytes)
+        patch["v214_previous_native_bytes_sha256"]=sha256(basebytes)
+
+        def check():
+            patchbytes=self.dumps(patch)
+            return reconcile_private_native_source_splits(
+                RAW,d,base,patch,expected_source_sha256=sha256(RAW),
+                v210_original_bytes=v210bytes,
+                expected_v210_bytes_sha256=sha256(v210bytes),
+                v214_original_bytes=basebytes,
+                expected_v214_bytes_sha256=sha256(basebytes),
+                patch_original_bytes=patchbytes,
+                expected_patch_bytes_sha256=sha256(patchbytes),window_size=2)
+
+        with self.assertRaisesRegex(
+                InvalidInput,"VIDEO_ONLY_SOURCE_EVIDENCE_QUARANTINE_INCOMPLETE"):
+            check()
+        patch["video_only_parent_ids_held"]=["E2REAL-002"]
+        ex,r=check()
+        self.assertEqual(r["visual_source_unverified_atoms_quarantined"],1)
+        self.assertEqual(r["native_v6_unapproved_atoms_after_reconciliation"],2)
+        self.assertFalse(r["e2_final_pass"])
+
+
 if __name__=="__main__":
     unittest.main()
