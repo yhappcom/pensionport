@@ -111,7 +111,7 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertFalse(e["v212_real_v176_historical_owner_recovered"])
         self.assertFalse(e["v212_independent_gold_available"])
         self.assertFalse(e["e2_semantic_accuracy_approved"])
-        self.assertFalse(e["v212_krx_concept_scope_explored_not_e4_certified"] is False)
+        self.assertTrue(e["v212_krx_concept_scope_explored_not_e4_certified"])
         self.assertTrue((ROOT/"V212_E2_REAL_V182_17_OPEN_5_SOURCE_RISK_GAPS_HOLD_20261120.md").is_file())
 
 
