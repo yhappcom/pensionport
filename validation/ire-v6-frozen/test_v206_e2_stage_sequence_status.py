@@ -16,7 +16,7 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertEqual(self.status["sequence"][0]["status"],"PASS")
         self.assertTrue(self.status["current_e1_verdict"].startswith("PASS_V203_"))
         self.assertEqual(self.status["current_step"],
-                         "E2_REAL_ORIGINAL_FIRST_PASS_COMPLETED_HOLD_LIVE_OWNER_GOLD")
+                         "E2_REAL_ORIGINAL_250_CUE_RISK_AND_RELATIONS_HOLD_V179_RECONCILIATION")
         self.assertTrue(self.status["current_e2_verdict"].startswith("HOLD_"))
 
     def test_02_real_source_and_gold_not_falsely_certified(self):
@@ -31,7 +31,7 @@ class TestV206E2StageGate(unittest.TestCase):
 
     def test_03_e3_e4_e5_stay_not_run_no_premature_release(self):
         self.assertEqual(self.status["sequence"][1]["status"],
-                         "IN_PROGRESS_HOLD_LIVE_OWNER_AND_GOLD")
+                         "IN_PROGRESS_HOLD_PRIOR_OWNER_GOLD_AND_NATIVE_REPAIR")
         self.assertEqual([x["status"] for x in self.status["sequence"][2:]],
                          ["NOT_RUN_CURRENT_ROUTE"]*3)
         self.assertTrue(E2_REPORT.is_file())
@@ -48,8 +48,8 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertTrue(e["v208_malformed_hash_rejected_without_runtime_exception"])
         self.assertTrue(e["v208_cross_census_temporal_history_check_tested"])
         self.assertTrue(e["v208_real_srt_private_resume_not_tested"])
-        self.assertEqual(e["ci_total_tests"],195)
-        self.assertEqual(e["ci_current_e2_tests"],124)
+        self.assertEqual(e["ci_total_tests"],220)
+        self.assertEqual(e["ci_current_e2_tests"],149)
         self.assertEqual(e["ci_existing_e2_and_e1_regression"],71)
         self.assertTrue((ROOT/"V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md").is_file())
         self.assertFalse(e["independent_real_semantic_gold_certified"])
@@ -71,6 +71,26 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertFalse(e["independent_real_semantic_gold_certified"])
         self.assertFalse(e["e2_semantic_accuracy_approved"])
         self.assertTrue((ROOT/"V210_E2_REAL_ETF_250_CUES_SOURCE_FIRST_57_DRAFT_HOLD_20261120.md").is_file())
+
+    def test_06_v211_real_source_risk_and_crosscue_context_not_gold(self):
+        e=self.status["e2_evidence"]
+        self.assertTrue(e["v211_private_source_risk_docket_created"])
+        self.assertEqual(e["v211_original_cues_rechecked"],250)
+        self.assertEqual(e["v211_new_risk_review_items"],61)
+        self.assertEqual(e["v211_risk_priority"],
+                         {"high":44,"medium":14,"low":3})
+        self.assertTrue(e["v2111_private_crosscue_relations_created"])
+        self.assertEqual(e["v2111_private_crosscue_relation_count"],32)
+        self.assertTrue(e["v211_code_custody_synthetic_tested"])
+        self.assertTrue(e["v2111_code_custody_synthetic_tested"])
+        self.assertFalse(e["v179_prior_unresolved_24_individual_cue_ids_recovered"])
+        self.assertFalse(e["v179_prior_suspicious_68_individual_cue_ids_recovered"])
+        self.assertFalse(e["v211_same_as_v179_61_native_atoms_certified"])
+        self.assertFalse(e["v211_relation_semantic_truth_approved"])
+        self.assertFalse(e["v211_private_source_data_uploaded_to_github"])
+        self.assertFalse(e["independent_real_semantic_gold_certified"])
+        self.assertFalse(e["e2_semantic_accuracy_approved"])
+        self.assertTrue((ROOT/"V211_E2_REAL_ETF_250CUE_61_RISK_32_CROSSCUE_HOLD_20261120.md").is_file())
 
 
 if __name__=="__main__":
