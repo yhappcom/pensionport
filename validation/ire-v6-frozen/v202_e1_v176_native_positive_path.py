@@ -180,14 +180,19 @@ def run_connected_e1_route(
                   candidate["owner_window_id"] ==
                   owner.source.owner(candidate["source_refs"][0]["cue_index"]),
                   "SOURCE_WINDOW_MAPPING_UNATTESTED")
-            # Explicit source-first qualifier strings cannot simply disappear
-            # when they are not native cue anchors. This check is intentionally
-            # lexical/structural; real semantic entailment belongs to E2.
-            for source_term in owner_quote_terms(owner, atom):
-                anchors = atom["condition_cue_indices"] + atom["exception_cue_indices"]
-                _need(any(source_term in owner.source.cues[i-1].text
-                          for i in anchors),
-                      "SOURCE_QUALIFIER_DROPPED")
+            # A source-first exception must remain an EXCEPTION anchor,
+            # not be disguised as a condition (and vice versa). E1 ensures
+            # transport fidelity, not whether the original sentence was
+            # classified correctly. E2 validates the underlying semantics.
+            terms=owner_quote_terms(owner, atom)
+            for field,anchor_key in (
+                ("conditions","condition_cue_indices"),
+                ("exceptions","exception_cue_indices")):
+                anchors=atom[anchor_key]
+                for source_term in terms[field]:
+                    _need(any(source_term in owner.source.cues[i-1].text
+                              for i in anchors),
+                          "SOURCE_QUALIFIER_DROPPED")
         challenged_cues.update(expected_cues)
         bound_ids.update(child_ids)
         return child
@@ -271,4 +276,5 @@ def owner_quote_terms(owner, native_atom):
            c["quote"] == native_atom["source_refs"][0]["quote"]
     ]
     _need(len(candidates)==1, "QUALIFIER_SOURCE_CLAIM_NOT_UNIQUE")
-    return candidates[0]["conditions"]+candidates[0]["exceptions"]
+    return {"conditions": candidates[0]["conditions"],
+            "exceptions": candidates[0]["exceptions"]}
