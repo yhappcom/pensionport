@@ -190,6 +190,60 @@ class TestV208PrivateSourceCorrection(unittest.TestCase):
                 self.path,self.owner,expected_owner_head="f"*64)
         self.assertEqual(self.journal.progress()["repair_batches_recorded"],0)
 
+    def _rewrite_stored_repair_with_recomputed_hash(self,mutate):
+        import json
+        from ire.v6.codec import canonical,json_digest
+        with sqlite3.connect(self.path) as db:
+            record=db.execute(
+                "SELECT event_json FROM e2_repairs WHERE seq=1").fetchone()
+            payload=json.loads(record[0])
+            mutate(payload)
+            db.execute(
+                "UPDATE e2_repairs SET event_sha256=?,event_json=? WHERE seq=1",
+                (json_digest(payload),canonical(payload).decode("utf-8")))
+
+    def test_12_malformed_repair_head_type_is_validation_not_typeerror(self):
+        h=self.checkpoint()
+        self.store_repair(expected_census_head=h)
+        self._rewrite_stored_repair_with_recomputed_hash(
+            lambda event:event.update(census_event_sha256=[]))
+        with self.assertRaisesRegex(InvalidInput,
+                                    "INVALID_REPAIR_HASH_FIELD_SCHEMA"):
+            self.journal.progress()
+
+    def test_13_list_as_snapshot_head_never_causes_unhashable_typeerror(self):
+        h=self.checkpoint()
+        self.store_repair(expected_census_head=h)
+        self._rewrite_stored_repair_with_recomputed_hash(
+            lambda event:event.update(census_head_sha256=["bad"]))
+        with self.assertRaisesRegex(InvalidInput,
+                                    "INVALID_REPAIR_HASH_FIELD_SCHEMA"):
+            self.journal.progress()
+
+    def test_14_repair_cannot_claim_census_head_before_its_source_review(self):
+        self.checkpoint(all_cues=True)
+        head=self.census.progress()["private_e2_head_sha256"]
+        self.store_repair(expected_census_head=head)
+        with sqlite3.connect(self.path) as db:
+            hashes=[row[0] for row in db.execute(
+                "SELECT event_sha256 FROM e2_events ORDER BY seq")]
+        def change(event):
+            event["census_event_sha256"]=hashes[1]
+            event["census_head_sha256"]=hashes[0]
+        self._rewrite_stored_repair_with_recomputed_hash(change)
+        with self.assertRaisesRegex(InvalidInput,
+                                    "UNLINKED_OR_DUPLICATED_CENSUS_REPAIR"):
+            self.journal.progress()
+
+    def test_15_complete_cue_census_with_missing_repair_is_still_e2_hold(self):
+        self.checkpoint(all_cues=True)
+        p=self.journal.progress()
+        self.assertEqual(p["source_review_batches"],2)
+        self.assertEqual(p["held_review_batches"],1)
+        self.assertEqual(p["held_batches_awaiting_explicit_chat_repair"],1)
+        self.assertFalse(p["e2_final_pass"])
+        self.assertFalse(p["independent_semantic_gold_certified"])
+
 
 if __name__=="__main__":
     unittest.main()
