@@ -38,14 +38,18 @@ def authored_plan(owner,challenge,answer,head,*,actions=None):
         draft=[]
         if action=="DRAFT_UNVERIFIED_EMBEDDED_CLAIM":
             from ire.v6.atomic_exchange import NUMBER
+            reviewed_row=next(r for r in answer["rows"] if r["cue_index"]==cue)
+            links=reviewed_row["rebuttal_source_links"]
+            ctx=sorted({cue}|{r["cue_index"] for r in links})
             draft=[{
                 "draft_id":f"E2DRAFT-{cue:05d}-01",
                 "kind":kind,
                 "proposition":"원문에서 인용하거나 질문한 검증되지 않은 투자 과세 주장입니다.",
                 "source_cue_index":cue,
                 "verbatim_quote":quote,
-                "context_cue_indices":[cue],
+                "context_cue_indices":ctx,
                 "conditions":[],"exceptions":[],
+                "source_discourse_links":copy.deepcopy(links),
                 "numeric_references":[{"cue_index":cue,"token":token}
                                       for token in NUMBER.findall(quote)],
                 "speaker":"UNKNOWN","stance":"UNRESOLVED","as_of":None,
@@ -196,6 +200,44 @@ class E2V207RepairTests(unittest.TestCase):
         result=self.run_audit(p)
         self.assertEqual(result["unreleased_draft_claims"],1)
         self.assertEqual(result["still_open_issues"],1)
+
+    def test_16_explicit_neighboring_exception_survives_draft_projection(self):
+        from ire.v6.codec import sha256
+        answer=copy.deepcopy(self.answer)
+        quote=self.owner.source.cues[3].text
+        answer["rows"][0]["rebuttal_source_links"]=[{
+            "cue_index":4,
+            "source_quote":quote,
+            "source_text_sha256":sha256(quote.encode("utf-8")),
+            "relation_type":"EXCEPTION",
+        }]
+        plan=authored_plan(
+            self.owner,self.challenge,answer,self.head)
+        out=self.run_audit(plan,answer)
+        first=out["unreleased_drafts"][0]
+        self.assertEqual(first["source_discourse_links"][0]["cue_index"],4)
+        self.assertEqual(first["source_discourse_links"][0]["relation_type"],"EXCEPTION")
+        bad=copy.deepcopy(plan)
+        bad["decisions"][0]["draft_claims"][0]["source_discourse_links"]=[]
+        with self.assertRaisesRegex(InvalidInput,
+                                    "CROSS_CUE_DISCOURSE_LOST_OR_DUPLICATED"):
+            self.run_audit(bad,answer)
+
+    def test_17_cross_cue_rebuttal_must_remain_in_context(self):
+        answer=copy.deepcopy(self.answer)
+        quote=self.owner.source.cues[3].text
+        answer["rows"][0]["rebuttal_source_links"]=[{
+            "cue_index":4,
+            "source_quote":quote,
+            "source_text_sha256":sha256(quote.encode("utf-8")),
+            "relation_type":"REBUTTAL",
+        }]
+        plan=authored_plan(self.owner,self.challenge,answer,self.head)
+        bad=copy.deepcopy(plan)
+        bad["decisions"][0]["draft_claims"][0]["context_cue_indices"]=[1]
+        with self.assertRaisesRegex(InvalidInput,
+                                    "CROSS_CUE_DISCOURSE_NOT_ORIGINAL"):
+            self.run_audit(bad,answer)
 
     def test_13_quarantine_requires_no_proposed_atom(self):
         p=copy.deepcopy(self.plan)
