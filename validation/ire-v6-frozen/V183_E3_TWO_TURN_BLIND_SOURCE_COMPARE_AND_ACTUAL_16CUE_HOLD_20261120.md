@@ -30,3 +30,8 @@
 - Synthetic security/adversarial tests cover source-only packet isolation, separate-process resume, forged self-hash, stale/duplicate, tampering, quote/numeric forgery, qualifier mismatch, permission guard, targeted sample labeling and original-journal immutability.
 - Next: source-anchored E3 semantic adjudication of 12 flagged cues and full 250 independent second review, then a separately fixed answer set/precision-recall evaluation. Only afterward decide whether E3 can pass; **E4 must not advance**.
 - PR remains draft; main and owner-private files untouched.
+
+
+## V193 운영 계약 정정 (역사적 기록 보존)
+
+이 보고서의 두 프로세스·2차 분석은 **별도 사용자 명령**을 받은 최종 E3 검증이 아니며, 파일명의 two-turn 표현만으로 실제 사용자 메시지 2턴을 주장할 수 없습니다. E3 HOLD 유지. [V193 실제 사용자 두 턴 필수 계약](V193_E3_TWO_ACTUAL_USER_TURNS_MANDATORY_PROTOCOL_20261120.md).

@@ -1,4 +1,4 @@
-name: V192 E3 source-pinned triple alignment and frozen internal reference (synthetic)
+name: V193 actual two-USER-turn E3 protocol and source regression (synthetic)
 on:
   push:
     branches:
@@ -25,7 +25,7 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          python -m compileall -q v176_chat_engine_loop.py v176_chat_engine_cli.py v178_coldstart_chat_packet_bridge.py v186_e3_qualifier_provenance.py v187_e3_parent_scope_bridge.py v187_e3_parent_scope_cli.py v188_e3_quality_gate.py v188_e3_quality_cli.py v189_e3_omission_repair_overlay.py v189_e3_parent_alignment_screen.py v189_e3_repair_cli.py v190_e3_parent_graph.py v190_e3_parent_cli.py v191_e3_parent_first.py v191_e3_parent_first_cli.py v192_e3_triplet_alignment.py v192_e3_triplet_cli.py v192_e3_frozen_reference.py
+          python -m compileall -q v176_chat_engine_loop.py v176_chat_engine_cli.py v178_coldstart_chat_packet_bridge.py v186_e3_qualifier_provenance.py v187_e3_parent_scope_bridge.py v187_e3_parent_scope_cli.py v188_e3_quality_gate.py v188_e3_quality_cli.py v189_e3_omission_repair_overlay.py v189_e3_parent_alignment_screen.py v189_e3_repair_cli.py v190_e3_parent_graph.py v190_e3_parent_cli.py v191_e3_parent_first.py v191_e3_parent_first_cli.py v192_e3_triplet_alignment.py v192_e3_triplet_cli.py v192_e3_frozen_reference.py v193_e3_two_user_turn_contract.py
           python -m unittest -v test_v179_noatom_risk_revisit test_v179_provisional_claim_projection
           python -m unittest -v test_v182_native_semantic_projection_gate
           python -m unittest -v test_v183_e3_two_turn_audit
@@ -38,4 +38,5 @@ jobs:
           python -m unittest -v test_v190_e3_parent_graph
           python -m unittest -v test_v191_e3_parent_first
           python -m unittest -v test_v192_e3_triplet_alignment test_v192_e3_frozen_reference
+          python -m unittest -v test_v193_e3_two_user_turn_contract test_v193_e3_protocol_docs
           python -m unittest -v test_v178_coldstart_chat_packet_bridge test_v177_private_turn_checkpoint test_v176_chat_engine_loop
