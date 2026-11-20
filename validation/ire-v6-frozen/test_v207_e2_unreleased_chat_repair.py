@@ -239,6 +239,49 @@ class E2V207RepairTests(unittest.TestCase):
                                     "CROSS_CUE_DISCOURSE_NOT_ORIGINAL"):
             self.run_audit(bad,answer)
 
+    def test_18_legacy_discordant_sha_alias_is_validation_error_not_keyerror(self):
+        reviewed=copy.deepcopy(self.answer)
+        quote=self.owner.source.cues[3].text
+        reviewed["rows"][0]["rebuttal_source_links"]=[{
+            "cue_index":4,
+            "source_quote":quote,
+            "source_text_sha256":sha256(quote.encode("utf-8")),
+            "relation_type":"REBUTTAL",
+        }]
+        plan=authored_plan(self.owner,self.challenge,reviewed,self.head)
+        link=plan["decisions"][0]["draft_claims"][0]["source_discourse_links"][0]
+        link["source_cue_sha256"]=link.pop("source_text_sha256")
+        with self.assertRaisesRegex(InvalidInput,"CROSS_CUE_LINK_SCHEMA_DRIFT"):
+            self.run_audit(plan,reviewed)
+
+    def test_19_missing_link_sha_causes_controlled_invalidinput_not_crash(self):
+        reviewed=copy.deepcopy(self.answer)
+        quote=self.owner.source.cues[3].text
+        reviewed["rows"][0]["rebuttal_source_links"]=[{
+            "cue_index":4,
+            "source_quote":quote,
+            "source_text_sha256":sha256(quote.encode("utf-8")),
+            "relation_type":"EXCEPTION",
+        }]
+        plan=authored_plan(self.owner,self.challenge,reviewed,self.head)
+        plan["decisions"][0]["draft_claims"][0]["source_discourse_links"][0].pop(
+            "source_text_sha256")
+        with self.assertRaisesRegex(InvalidInput,"CROSS_CUE_LINK_SCHEMA_DRIFT"):
+            self.run_audit(plan,reviewed)
+
+    def test_20_v206_answer_with_old_alias_rejected_before_v207(self):
+        reviewed=copy.deepcopy(self.answer)
+        quote=self.owner.source.cues[3].text
+        reviewed["rows"][0]["rebuttal_source_links"]=[{
+            "cue_index":4,
+            "source_quote":quote,
+            "source_cue_sha256":sha256(quote.encode("utf-8")),
+            "relation_type":"EXCEPTION",
+        }]
+        with self.assertRaisesRegex(InvalidInput,
+                                    "REBUTTAL_OR_CONTEXT_QUOTE_FORGED"):
+            authored_plan(self.owner,self.challenge,reviewed,self.head)
+
     def test_13_quarantine_requires_no_proposed_atom(self):
         p=copy.deepcopy(self.plan)
         p["decisions"][1]["review_action"]="SOURCE_ONLY_QUARANTINE"
