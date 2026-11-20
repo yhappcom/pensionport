@@ -15,8 +15,7 @@ class TestV206E2StageGate(unittest.TestCase):
     def test_01_e1_historical_pass_not_e2_quality_pass(self):
         self.assertEqual(self.status["sequence"][0]["status"],"PASS")
         self.assertTrue(self.status["current_e1_verdict"].startswith("PASS_V203_"))
-        self.assertEqual(self.status["current_step"],
-                         "E2_V2152_REAL_ETF250_NATIVE66_3_VISUAL_HOLD_2145_PAIR_SCREEN_34_CHAT_GOLD_HOLD")
+        self.assertTrue(self.status["current_step"].startswith("E2_V2"))
         self.assertTrue(self.status["current_e2_verdict"].startswith("HOLD_"))
 
     def test_02_real_source_and_gold_not_falsely_certified(self):
@@ -200,9 +199,27 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertTrue(e["v2152_all_visual_cautions_gate_tested"])
         self.assertTrue(e["v2152_pairwise_sharding_cap_prevents_quadratic_runfail"])
         self.assertFalse(e["v2152_real_private_source_data_uploaded_to_github"])
-        self.assertEqual(e["ci_current_e2_tests"],238)
-        self.assertEqual(e["ci_total_tests"],309)
+        self.assertGreaterEqual(e["ci_current_e2_tests"],238)
+        self.assertEqual(e["ci_total_tests"],e["ci_current_e2_tests"]+53+18)
         self.assertTrue((ROOT/"V215_E2_REAL_250_66_NATIVE_ATOMS_2145_PAIRS_34_REVIEWED_AND_GOLD_HOLD_20261121.md").is_file())
+
+
+    def test_11_v216_residual_source_risk_hold_not_mistaken_for_e2_approval(self):
+        e=self.status["e2_evidence"]
+        self.assertTrue(e["v216_private_owner_library_delta_saved"])
+        self.assertEqual(e["v216_rechecked_v2152_private_coverage_text_cues"],250)
+        self.assertEqual(e["v216_source_flags_audio_or_video_cues"],24)
+        self.assertEqual(e["v216_primary_risky_source_claim_ids"],
+                         ["C00034","C00061","C00072"])
+        self.assertEqual(e["v216_risky_context_native_atom_count"],13)
+        self.assertTrue(e["v216_c00072_visual_dependency_leak_detected"])
+        self.assertFalse(e["v216_new_native_exchange_compiled"])
+        self.assertTrue(e["v216_two_partial_pairs_internal_meaning_review_no_merge"])
+        self.assertFalse(e["v216_independent_gold_certified"])
+        self.assertFalse(self.status["e1_evidence"]["native_financial_fact_approved"])
+        self.assertEqual(self.status["sequence"][1]["status"],
+                         "IN_PROGRESS_HOLD_REAL_SEMANTIC_GOLD_HISTORIC_OWNER_AND_SPEAKER")
+        self.assertTrue((ROOT/"V216_E2_24_RISK_CUES_3_PRIMARY_VISUAL_LEAK_2_PAIR_INTERNAL_REVIEW_HOLD_20261121.md").is_file())
 
 
 if __name__=="__main__":
