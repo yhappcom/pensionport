@@ -58,7 +58,7 @@
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
       "status": "IN_PROGRESS_HOLD_REAL_SOURCE_AND_GOLD",
-      "scope": "V206 original cue census and explicit nonassertion repair docket; 104 synthetic software tests PASS, real source and blind semantic truth unverified"
+      "scope": "V206 full original cue audit→V207 source-bound ChatGPT repair→V208 private SQLite append-only resume; 157/157 synthetic software tests PASS; real original-SRT and independent semantic gold HOLD"
     },
     {
       "step": "E3",
@@ -140,11 +140,20 @@
     "e2_semantic_accuracy_approved": false,
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
-    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44730243865",
+    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44734116948",
     "ci_result": "success",
-    "ci_total_tests": 107,
+    "ci_total_tests": 157,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
-    "stage": "IN_PROGRESS_HOLD"
+    "stage": "IN_PROGRESS_HOLD",
+    "v207_source_bound_unreleased_chat_draft_tested": true,
+    "v208_private_source_review_repair_chain_tested": true,
+    "v208_source_review_before_repair_enforced": true,
+    "v208_private_restart_idempotent_replay_tested": true,
+    "v208_malformed_hash_rejected_without_runtime_exception": true,
+    "v208_cross_census_temporal_history_check_tested": true,
+    "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
+    "ci_current_e2_tests": 86,
+    "v208_real_srt_private_resume_not_tested": true
   }
 }
