@@ -178,6 +178,61 @@ class TestV202SameInputE1Route(unittest.TestCase):
         self.assertEqual(self._counts(),{
             "events":0,"knowledge":0,"parent_publications":0})
 
+    def test_09_finance_asof_substitution_requires_frozen_owner_attestation(self):
+        original,_=self.owner.compile_native_v6_stage()
+        candidates={a["claim_id"]:a for a in original["atoms"]}
+        for packet in self.fx.fx.packets:
+            for atom in packet["case"]["exchange"]["atoms"]:
+                candidate=candidates[atom["claim_id"]]
+                # Remove the previous explicit speaker/stance mismatch so the
+                # negative test isolates a forged date rather than earlier drift.
+                for k in ("stance","speaker","condition_cue_indices",
+                          "exception_cue_indices","numeric_references","as_of"):
+                    atom[k]=copy.deepcopy(candidate[k])
+        self.fx.fx.packets[0]["case"]["exchange"]["atoms"][0]["as_of"]="2026-01-01"
+        with self.assertRaisesRegex(InvalidInput,"SEMANTIC_FRAME_UNATTESTED"):
+            run_connected_e1_route(**self.args())
+        self.assertEqual(self._counts(),{
+            "events":0,"knowledge":0,"parent_publications":0})
+
+    def test_10_private_source_event_during_child_review_revokes_frozen_head(self):
+        original_callback=self.fx.fx.child
+        did_write=[False]
+
+        def competing_ongoing_evidence(segment_id,manifest,stage,raw):
+            if not did_write[0]:
+                task=self.owner.prepare_evidence_request("W00001")
+                self.assertIsNotNone(task)
+                responses=[{
+                    "cue_index":t["cue_index"],
+                    "claim_index":t["claim_index"],
+                    "claim_sha256":t["claim_sha256"],
+                    "evidence_state":"NOT_FOUND_KEEP_OPEN",
+                    "official_source_url":None,
+                    "source_excerpt":None,
+                    "effective_as_of":None,
+                    "context_and_counterexamples":
+                        "원문만으로 현행 금융 사실을 확정할 수 없으며 관련 반례와 세부 조건의 원문 추가 검증이 필요합니다.",
+                    "original_body_sha256":None,
+                    "final_financial_truth_certified":False,
+                } for t in task["claim_evidence_tasks"]]
+                from v176_chat_engine_loop import EVIDENCE
+                self.owner.submit_evidence_proposals(task,{
+                    "schema":EVIDENCE,
+                    "review_executor":"CHATGPT_IN_CHAT",
+                    "challenge_sha256":task["challenge_sha256"],
+                    "responses":responses})
+                did_write[0]=True
+            return original_callback(segment_id,manifest,stage,raw)
+
+        with self.assertRaisesRegex(InvalidInput,
+                                    "OWNER_HEAD_CHANGED_DURING_GATE"):
+            run_connected_e1_route(**self.args(
+                review_or_load_child=competing_ongoing_evidence))
+        self.assertTrue(did_write[0])
+        self.assertEqual(self._counts(),{
+            "events":0,"knowledge":0,"parent_publications":0})
+
     def test_07_cannot_reset_native_scope_after_failed_semantic_handoff(self):
         with self.assertRaisesRegex(InvalidInput,"SEMANTIC_FRAME_UNATTESTED"):
             run_connected_e1_route(**self.args())
