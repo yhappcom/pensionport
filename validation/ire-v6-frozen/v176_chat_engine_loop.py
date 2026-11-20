@@ -156,7 +156,9 @@ class EngineChatSession:
                     allow=(i in source_rows and (
                         source_rows[i][1]["disposition"]=="OPEN" or
                         (source_rows[i][1]["disposition"]=="ASSERTION" and
-                         frame.get("review_task_type")=="REPAIR_ATOM_SOURCE_CONTEXT")))
+                         frame.get("review_task_type")=="REPAIR_ATOM_SOURCE_CONTEXT") or
+                        (source_rows[i][1]["disposition"]=="NON_RESEARCH" and
+                         frame.get("review_task_type")=="REVISIT_NONRESEARCH_ATOM_RISK")))
                     _need(allow and i not in revised_rows and
                           item["prior_review_event_sha256"]==source_rows[i][0] and
                           item["source_text_sha256"]==sha256(self.source.cues[i-1].text.encode("utf8")),
@@ -389,10 +391,74 @@ class EngineChatSession:
                   "no_financial_fact_or_E4_auto_approval":True}}
         return {**task,"challenge_sha256":_digest(task)}
 
+    def prepare_nonresearch_risk_revisit(self, cue_index, *, context_radius=10,
+                                         manual_source_quote=None,
+                                         manual_semantic_reason=None):
+        """Re-review suspicious NO_ATOM, including lexical false negatives.
+
+        Keywords may trigger a review; an explicitly pinned original quote
+        and an explanatory ChatGPT reason may also trigger a review request.
+        No model answer, approval or financial claim is invented here.
+        """
+        from ire.v6.claim_census import FINANCIAL, QUALIFIER, MULTI_CLAIM
+        _need(type(cue_index) is int and 1 <= cue_index <= len(self.source.cues)
+              and type(context_radius) is int and 4 <= context_radius <= 20,
+              "NONRESEARCH_RISK_REQUEST_INVALID")
+        con=self._connect()
+        try:
+            head,reviewed=self._audit(con)
+            revised=con.execute("SELECT 1 FROM cue_revisions WHERE cue_index=?",
+                                (cue_index,)).fetchone()
+        finally:con.close()
+        cue=self.source.cues[cue_index-1]
+        row=reviewed.get(cue_index)
+        keyword_risk=any(p.search(cue.text) for p in (
+                      FINANCIAL,QUALIFIER,MULTI_CLAIM))
+        manual_requested=(manual_source_quote is not None or
+                          manual_semantic_reason is not None)
+        manually_grounded=(type(manual_source_quote) is str and
+             len(manual_source_quote.strip())>=3 and
+             " ".join(manual_source_quote.split()) in " ".join(cue.text.split()) and
+             type(manual_semantic_reason) is str and
+             len(manual_semantic_reason.strip())>=32)
+        _need(not manual_requested or manually_grounded,
+              "NONRESEARCH_MANUAL_EXCERPT_REASON_NOT_GROUNDED")
+        _need(row is not None and row[1]["disposition"]=="NON_RESEARCH"
+              and revised is None and (keyword_risk or manually_grounded),
+              "NONRESEARCH_REVISIT_REQUIRES_SUSPECT_UNREVISED_CUE")
+        ctx=list(range(max(1,cue_index-context_radius),
+                       min(len(self.source.cues),cue_index+context_radius)+1))
+        def view(i):
+            c=self.source.cues[i-1]
+            return {"cue_index":i,"text":c.text,
+                    "source_text_sha256":sha256(c.text.encode("utf8"))}
+        task={"schema":SCHEMA,"type":"REVISIT_NONRESEARCH_ATOM_RISK",
+              "owner_source_sha256":self.source.source_sha256,
+              "manifest_sha256":self.source.manifest_sha256,
+              "checkpoint_head_sha256":head,
+              "window_id":self.source.owner(cue_index),
+              "context_radius":context_radius,
+              "target_cues":[{**view(cue_index),
+                   "prior_review_event_sha256":row[0],
+                   "prior_analysis":row[1]["analysis"],
+                   "original_claims":row[1]["claims"]}],
+              "surrounding_context":[view(i) for i in ctx],
+              "response_requirements":{
+                  "risk_indicator_is_only_a_recheck_trigger":True,
+                  "real_chat_must_verify_new_meaning_or_keep_no_atom":True,
+                  "previous_no_atom_decision_must_be_preserved":True,
+                  "no_automatic_v123_e4_or_e5":True}}
+        if manually_grounded:
+            task['manual_source_quote']=manual_source_quote
+            task['manual_semantic_reason']=manual_semantic_reason
+            task['response_requirements']['manual_semantics_only_no_auto_promotion']=True
+        return {**task,"challenge_sha256":_digest(task)}
+
     def submit_context_revisit(self, challenge, answer):
-        """Append one source-pinned CHATGPT correction per previously OPEN cue."""
+        """Append source-pinned chat correction of OPEN/ASSERTION/risky NO_ATOM."""
         _need(type(challenge) is dict and challenge.get("type") in {
-                  "RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT"} and
+                  "RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT",
+                  "REVISIT_NONRESEARCH_ATOM_RISK"} and
               challenge.get("schema")==SCHEMA and
               challenge.get("challenge_sha256")==_digest({k:v for k,v in challenge.items()
                                                             if k!="challenge_sha256"}),
@@ -406,7 +472,9 @@ class EngineChatSession:
               len(answer["responses"])==len(challenge["target_cues"]),
               "CONTEXT_RESPONSE_SCHEMA")
         repair=challenge["type"]=="REPAIR_ATOM_SOURCE_CONTEXT"
-        _need(not repair or len(challenge["target_cues"])==1,
+        nonresearch_revisit=challenge["type"]=="REVISIT_NONRESEARCH_ATOM_RISK"
+        _need(not (repair or nonresearch_revisit) or
+              len(challenge["target_cues"])==1,
               "ATOM_REPAIR_EXACTLY_ONE_CUE")
         checked=[]
         valid_context={r["cue_index"] for r in challenge["surrounding_context"]}
@@ -471,6 +539,11 @@ class EngineChatSession:
                 self.prepare_atom_repair(checked[0]["cue_index"],
                                          context_radius=challenge["context_radius"])
                 if repair else
+                self.prepare_nonresearch_risk_revisit(checked[0]["cue_index"],
+                         context_radius=challenge["context_radius"],
+                         manual_source_quote=challenge.get("manual_source_quote"),
+                         manual_semantic_reason=challenge.get("manual_semantic_reason"))
+                if nonresearch_revisit else
                 self.prepare_context_revisit([r["cue_index"] for r in checked],
                                              context_radius=challenge["context_radius"]))
             _need(challenge==expected_current,"CONTEXT_NOT_ENGINE_ISSUED")
@@ -753,7 +826,7 @@ class EngineChatSession:
         finally:
             con.close()
 
-    def compile_native_v6_stage(self):
+    def compile_native_v6_stage(self, *, qualifier_provenance=None, cross_cue_scope_bridge=None):
         """Replay the ORIGINAL frozen V6 audit over active-chat decisions.
 
         Unreviewed cues stay UNRESOLVED and no item is accepted by V123/E4.
@@ -765,9 +838,52 @@ class EngineChatSession:
             head,reviewed=self._audit(con)
         finally:
             con.close()
+        qualified={}
+        provenance_status=None
+        if qualifier_provenance is not None:
+            _need(qualifier_provenance.engine is self and
+                  qualifier_provenance.expected_owner_head==head,
+                  "QUALIFIER_PROVENANCE_NOT_PINNED_TO_OWNER_JOURNAL")
+            verified_preview=qualifier_provenance.projected_source_anchors()
+            qualified=verified_preview['by_claim']
+            provenance_status=verified_preview['status']
+        # A V187 cross-cue parent condition is admissible only after an
+        # independent, source-quoted, append-only E3 *provisional* attestation.
+        # The original V176 and V186 judgments remain immutable and unapproved.
+        scope_status=None
+        inherited_scope_terms=0
+        if cross_cue_scope_bridge is not None:
+            _need(qualifier_provenance is not None and
+                  cross_cue_scope_bridge.engine is self and
+                  cross_cue_scope_bridge.qualifier_provenance is qualifier_provenance and
+                  cross_cue_scope_bridge.expected_owner_head==head and
+                  cross_cue_scope_bridge.expected_qualifier_head==
+                     provenance_status['journal_head_sha256'],
+                  "CROSS_CUE_SCOPE_BRIDGE_NOT_PINNED_TO_E3_ORIGINAL")
+            verified_scopes=cross_cue_scope_bridge.projected_source_anchors()
+            scope_status=cross_cue_scope_bridge.status()
+            for key,link in verified_scopes.items():
+                _need(key in qualified and
+                      qualified[key].get('source_explicit_condition_terms',0)==0 and
+                      qualified[key]['unmapped_terms']>=link['inherited_explicit_terms'],
+                      "SCOPE_CLAIM_NOT_UNRESOLVED_OR_DOUBLE_MAPPED")
+                q={**qualified[key]}
+                q['conditions']=sorted(set(q.get('conditions',[])+link['conditions']))
+                q['source_explicit_terms']+=link['inherited_explicit_terms']
+                q['source_explicit_condition_terms']+=link['inherited_explicit_terms']
+                q['unmapped_terms']-=link['inherited_explicit_terms']
+                qualified[key]=q
+                inherited_scope_terms+=link['inherited_explicit_terms']
         cue_rows=[]
         atoms=[]
         unsafely_typed=[]
+        qualified_source_terms=0
+        excluded_reviewer_terms=0
+        source_context_terms=0
+        # V182: The V176 cue decision stores free-text conditions/exceptions,
+        # but the frozen V6 contract requires distinct, source-anchored cue
+        # indices. Never silently imply those constraints were preserved.
+        unprojected_constraints=[]
         next_id=1
         for cue in self.source.cues:
             idx=cue.index
@@ -793,10 +909,36 @@ class EngineChatSession:
                     disposition="CANDIDATES"
                     note="ChatGPT 신규 주장 후보; V123/E4 아직 미승인"
                     ids=[]
-                    for claim in record["claims"]:
+                    for claim_ordinal,claim in enumerate(record["claims"],1):
                         cid=f"C{next_id:05d}";next_id+=1
                         ids.append(cid)
-                        context=claim["context_cue_indices"]
+                        q=qualified.get((idx,claim_ordinal),{})
+                        condition_anchors=q.get('conditions',[])
+                        exception_anchors=q.get('exceptions',[])
+                        # A parent example's verified scope cue must be in
+                        # the atom's context as well as its condition index.
+                        # Never inject parent scope without V187 attestation.
+                        context=sorted(set(claim["context_cue_indices"]+
+                                           condition_anchors+exception_anchors))
+                        qualified_source_terms+=q.get('source_explicit_terms',0)
+                        excluded_reviewer_terms+=q.get('reviewer_added_terms',0)
+                        source_context_terms+=q.get('source_context_terms',0)
+                        unresolved_count=q.get('unmapped_terms',
+                            len(claim['conditions'])+len(claim['exceptions']))
+                        if claim["conditions"] or claim["exceptions"]:
+                            unprojected_constraints.append({
+                                "claim_id":cid,"cue_index":idx,
+                                "condition_terms":len(claim["conditions"]),
+                                "exception_terms":len(claim["exceptions"]),
+                                "source_explicit_terms":q.get('source_explicit_terms',0),
+                                "not_mapped_as_source_terms":unresolved_count,
+                                "unmapped_condition_terms":len(claim['conditions'])-
+                                    q.get('source_explicit_condition_terms',0),
+                                "unmapped_exception_terms":len(claim['exceptions'])-
+                                    q.get('source_explicit_exception_terms',0),
+                                "source_meaning_digest_sha256":_digest({
+                                    "conditions":claim["conditions"],
+                                    "exceptions":claim["exceptions"]})})
                         number_refs=[]
                         for j in context:
                             for tok in NUMBER.findall(self.source.cues[j-1].text):
@@ -810,7 +952,8 @@ class EngineChatSession:
                             "speaker":"UNKNOWN",
                             "source_refs":[{"cue_index":idx,"quote":claim["quote"]}],
                             "context_cue_indices":context,
-                            "condition_cue_indices":[],"exception_cue_indices":[],
+                            "condition_cue_indices":condition_anchors,
+                            "exception_cue_indices":exception_anchors,
                             "numeric_references":number_refs,"as_of":None,
                         })
             cue_rows.append({"cue_index":idx,"cue_text_sha256":text_hash,
@@ -828,6 +971,52 @@ class EngineChatSession:
                  "native_v6_audit":audit,
                  "pending_original_cues":audit["unresolved_cues"],
                  "unsupported_claim_cues":unsafely_typed,
+                 "semantic_projection_gate":{
+                     "schema":"IRE_V182_NATIVE_SEMANTIC_CONSTRAINT_LOSS_GATE_V1",
+                     "status":"HOLD_UNMAPPED_SOURCE_QUALIFIERS_AND_UNRESOLVED_STANCE_ROLE",
+                     "staged_atoms":len(atoms),
+                     "unprojected_claims":sum(x["not_mapped_as_source_terms"]>0
+                         for x in unprojected_constraints),
+                     "unprojected_condition_terms":sum(x["unmapped_condition_terms"]
+                         for x in unprojected_constraints),
+                     "unprojected_exception_terms":sum(x["unmapped_exception_terms"]
+                         for x in unprojected_constraints),
+                     "v186_source_qualifier_projection":{
+                         "used_verified_chat_source_anchors":bool(qualifier_provenance),
+                         "qualifier_journal_head_sha256":None if provenance_status is None
+                            else provenance_status['journal_head_sha256'],
+                         "reviewed_terms":0 if provenance_status is None
+                            else provenance_status['reviewed_terms'],
+                         "total_terms":sum(x['condition_terms']+x['exception_terms']
+                                           for x in unprojected_constraints),
+                         "source_explicit_mapped_terms":qualified_source_terms,
+                         "reviewer_added_excluded_terms":excluded_reviewer_terms,
+                         "source_context_not_source_condition_terms":source_context_terms,
+                         "source_spoken_qualifier_verification_is_chat_only":True,
+                         "origin_counts":None if provenance_status is None
+                            else provenance_status['reviewed_origin_counts'],
+                         "fully_reviewed_terms":False if provenance_status is None
+                            else provenance_status['fully_covered'],
+                         "excluded_terms_are_not_missing_source_conditions":True,
+                         "source_explicit_without_anchor_terms":0 if provenance_status is not None
+                            else None,
+                         "e3_quality_certified":False,
+                         "v123_e4_approval_permitted":False},
+                     "v187_source_parent_scope_bridge":{
+                         "used_audited_source_parent_scope":scope_status is not None,
+                         "scope_journal_head_sha256":None if scope_status is None
+                            else scope_status['journal_head_sha256'],
+                         "inherited_source_explicit_condition_terms":inherited_scope_terms,
+                         "scope_review_is_in_chat_not_independent_gold":True,
+                         "e3_certified":False,"v123_e4_approval_permitted":False},
+                     "unresolved_stance_atoms":sum(x["stance"]=="UNRESOLVED" for x in atoms),
+                     "unknown_speaker_atoms":sum(x["speaker"]=="UNKNOWN" for x in atoms),
+                     # Only indexes and hashes leave the private journal; no
+                     # paraphrased source, condition text or original SRT.
+                     "repair_candidates":unprojected_constraints,
+                     "source_meaning_still_stored_in_private_journal":True,
+                     "full_semantic_projection_verified":False,
+                     "v123_e4_approval_permitted":False},
                  "v123_invoked":False,"e4_invoked":False,"e5_invoked":False,
                  "final_approval":False}
         return exchange, summary
@@ -852,7 +1041,7 @@ class EngineChatSession:
                 break
             answer=chat_host(challenge)
             _need(type(answer) is dict,"HOST_CHAT_RESULT_NOT_SUPPLIED")
-            if challenge["type"] in {"RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT"}:
+            if challenge["type"] in {"RESOLVE_CONTEXT_CUES","REPAIR_ATOM_SOURCE_CONTEXT", "REVISIT_NONRESEARCH_ATOM_RISK"}:
                 receipt=self.submit_context_revisit(challenge,answer)
                 n=receipt["cues_revisited"]
             elif challenge["type"]=="SEARCH_ORIGINAL_PRIMARY_EVIDENCE":
