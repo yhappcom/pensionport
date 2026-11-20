@@ -244,7 +244,7 @@ class TestV206LiveSourceCensusFromCurrentE1(unittest.TestCase):
 class TestV206KoreanQuestionQuoteMeaningGap(unittest.TestCase):
     def setUp(self):
         rawtext=[
-            "ISA는 8%가 무조건 비과세라는 주장이 사실인가요?",
+            "ISA는 8%가, 또 8%가 무조건 비과세라는 주장이 사실인가요?",
             "모든 소득이 비과세된다고 누군가 말했습니다.",
             "제 생각에는 ISA가 유리하지만 조건에 따라 과세될 수 있습니다.",
             "다만 한도 초과분은 과세될 수 있다는 설명입니다.",
@@ -300,7 +300,7 @@ class TestV206KoreanQuestionQuoteMeaningGap(unittest.TestCase):
         reasons={(x["cue_index"],x["reason"]) for x in r["hold_reasons"]}
         self.assertIn((1,"EMBEDDED_ASSERTION_EXCLUDED_BY_V176"),reasons)
         self.assertIn((2,"EMBEDDED_ASSERTION_EXCLUDED_BY_V176"),reasons)
-        self.assertEqual(r["counts"]["numerical_tokens"],1)
+        self.assertEqual(r["counts"]["numerical_tokens"],2)
         self.assertEqual(r["counts"]["original_claims_checked"],2)
         self.assertFalse(r["e2_real_video_quality_pass"])
 
@@ -328,6 +328,56 @@ class TestV206KoreanQuestionQuoteMeaningGap(unittest.TestCase):
         with self.assertRaisesRegex(InvalidInput,
                                    "NONASSERTION_MISLABELLED_AS_APPROVED_FACT"):
             audit_e2_cue_answer(self.owner,self.packet,bad,
+                                expected_owner_head=self.head)
+
+    def test_19_repeated_numeric_token_cannot_lose_one_occurrence(self):
+        original=answered(self.packet)
+        self.assertEqual([x["token"] for x in original["rows"][0]["cue_numeric_roles"]],
+                         ["8%","8%"])
+        original["rows"][0]["cue_numeric_roles"].pop()
+        with self.assertRaisesRegex(InvalidInput,"WHOLE_CUE_NUMBER_CENSUS"):
+            audit_e2_cue_answer(self.owner,self.packet,original,
+                                expected_owner_head=self.head)
+
+
+class TestV206UnsupportedAnecdote(unittest.TestCase):
+    def setUp(self):
+        from test_v176_chat_engine_loop import (
+            TestCollaborativeEngine,respond)
+        self.fixture=TestCollaborativeEngine(
+            "test_12_unmappable_anecdote_remains_unresolved")
+        self.fixture.setUp()
+        self.addCleanup(self.fixture.doCleanups)
+        self.owner=self.fixture.session
+        task=self.owner.prepare(limit=3)
+        result=respond(task,add_claim=True)
+        result["responses"][1]["claims"][0]["kind"]="ANECDOTE"
+        self.owner.submit(task,result)
+        self.head=self.owner.progress()["checkpoint_head_sha256"]
+
+    def test_20_unmappable_anecdote_still_has_its_source_claim_in_e2(self):
+        packet=prepare_e2_cue_challenge(self.owner,
+            expected_owner_head=self.head,start_cue=2,limit=1)
+        original=packet["target_cues"][0]
+        self.assertEqual(original["native_projection_status"],"UNSUPPORTED_ANECDOTE")
+        self.assertEqual(len(original["v176_claims"]),1)
+        self.assertIsNone(original["v176_claims"][0]["claim_id"])
+        reviewed=answered(packet)
+        result=audit_e2_cue_answer(self.owner,packet,reviewed,
+                                  expected_owner_head=self.head)
+        self.assertEqual(result["status"],"HOLD_SEMANTIC_OR_EXTRACTION_LOSS")
+        self.assertEqual(result["counts"]["original_claims_checked"],1)
+        self.assertEqual(result["counts"]["native_atom_reviews"],0)
+        self.assertIn({"cue_index":2,"reason":"UNSUPPORTED_SOURCE_ANECDOTE_NOT_IN_V6"},
+                      result["hold_reasons"])
+
+    def test_21_unsupported_source_claim_must_not_gain_a_fake_v6_id(self):
+        packet=prepare_e2_cue_challenge(self.owner,
+            expected_owner_head=self.head,start_cue=2,limit=1)
+        reply=answered(packet)
+        reply["rows"][0]["claim_judgments"][0]["claim_id"]="C00001"
+        with self.assertRaisesRegex(InvalidInput,"CLAIM_KIND_OR_ORIGINAL_SHA_DRIFT"):
+            audit_e2_cue_answer(self.owner,packet,reply,
                                 expected_owner_head=self.head)
 
 
