@@ -40,5 +40,22 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertIn("HOLD_REAL_SOURCE_AND_INDEPENDENT_GOLD",txt)
 
 
+    def test_04_v208_repairs_persist_but_e2_semantics_not_certified(self):
+        e=self.status["e2_evidence"]
+        self.assertTrue(e["v208_private_source_review_repair_chain_tested"])
+        self.assertTrue(e["v208_source_review_before_repair_enforced"])
+        self.assertTrue(e["v208_private_restart_idempotent_replay_tested"])
+        self.assertTrue(e["v208_malformed_hash_rejected_without_runtime_exception"])
+        self.assertTrue(e["v208_cross_census_temporal_history_check_tested"])
+        self.assertTrue(e["v208_real_srt_private_resume_not_tested"])
+        self.assertEqual(e["ci_total_tests"],157)
+        self.assertEqual(e["ci_current_e2_tests"],86)
+        self.assertEqual(e["ci_existing_e2_and_e1_regression"],71)
+        self.assertTrue((ROOT/"V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md").is_file())
+        self.assertFalse(e["independent_real_semantic_gold_certified"])
+        self.assertFalse(e["e2_semantic_accuracy_approved"])
+
+
+
 if __name__=="__main__":
     unittest.main()
