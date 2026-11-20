@@ -1,3 +1,5 @@
+> **2026-11-20 후속 정정:** 이 문서의 V202 FAIL은 **역사적 반례로 유효하게 보존**한다. 이후 [V203 E1 원본유래 정식 native host 구조 PASS](V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md)가 별도 정상·부정·멱등 검증으로 확정되었다. **현재 공식 순서 상태 원장**은 [최신 판정 파일](V202_E1_E5_CURRENT_ROUTE_SEQUENCE_STATUS.json)을 적용한다. 이 과거 FAIL 문서를 임의 삭제/변조하지 않는다.
+
 # E1 독립 재검문 — V202 현행 V176 경로 합격 철회 / FAIL
 
 **2026-11-20 KST · 동일 단계 재검증 · 사용자 합의 E1→E2→E3→E4→E5 절대 순서 준수.** 이전 보고서 `V202_E1_CURRENT_V176_ROUTE_STRUCTURAL_PASS_20261120.md`의 **현행 경로 E1 PASS 판정은 재검문 반례로 무효**다. 이전 문서를 삭제하거나 과거 커밋을 재작성하지 않는다.
