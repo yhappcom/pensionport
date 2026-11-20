@@ -173,5 +173,24 @@ class TestV216ResidualEvidence(unittest.TestCase):
         self.assertFalse(result["e2_final_pass"])
 
 
+    def test_13_nonlist_disposition_claim_ids_fail_closed(self):
+        d = copy.deepcopy(self.exchange)
+        d["cue_dispositions"][0]["claim_ids"] = 777
+        cv = copy.deepcopy(self.coverage)
+        cv["new_native_v6_exchange_sha256"] = sha256(self.raw(d))
+        with self.assertRaisesRegex(InvalidInput,
+                                    "CUE_NATIVE_PRIMARY_OR_RISK_FLAGS"):
+            self.run_guard(ex=d, cv=cv, exp_ex_sha=sha256(self.raw(d)))
+
+    def test_14_nested_disposition_claim_ids_fail_closed(self):
+        d = copy.deepcopy(self.exchange)
+        d["cue_dispositions"][0]["claim_ids"] = [["C00001"]]
+        cv = copy.deepcopy(self.coverage)
+        cv["new_native_v6_exchange_sha256"] = sha256(self.raw(d))
+        with self.assertRaisesRegex(InvalidInput,
+                                    "CUE_NATIVE_PRIMARY_OR_RISK_FLAGS"):
+            self.run_guard(ex=d, cv=cv, exp_ex_sha=sha256(self.raw(d)))
+
+
 if __name__ == "__main__":
     unittest.main()
