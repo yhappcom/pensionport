@@ -132,10 +132,17 @@ class TestV208PrivateSourceCorrection(unittest.TestCase):
 
     def test_06_repair_only_for_originally_checkpointed_review(self):
         h=self.checkpoint()
+        alternate=answered(self.c1,source_risks={
+            1:("QUESTION_WITH_EMBEDDED_ASSERTION","8%"),
+            2:("QUOTE_WITH_FACT_DEPENDENCY","모든 소득이 비과세"),
+        })
+        alternate_plan=authored_plan(
+            self.owner,self.c1,alternate,self.head)
         with self.assertRaisesRegex(InvalidInput,
                                     "REPAIR_NOT_LINKED_TO_SAVED_CUE_REVIEW"):
             self.store_repair(
-                expected_census_head=h,answer=answered(self.c1))
+                expected_census_head=h,answer=alternate,
+                plan=alternate_plan)
         self.assertEqual(self.journal.progress()["repair_batches_recorded"],0)
 
     def test_07_stale_census_head_after_second_review_fails_closed(self):
@@ -175,15 +182,12 @@ class TestV208PrivateSourceCorrection(unittest.TestCase):
             self.store_repair(expected_census_head=h,plan=altered)
         self.assertEqual(self.journal.progress()["repair_batches_recorded"],0)
 
-    def test_11_owner_head_drift_never_releases_repair(self):
-        h=self.checkpoint()
+    def test_11_wrong_owner_head_on_reopen_cannot_consume_private_review(self):
+        self.checkpoint()
         with self.assertRaisesRegex(InvalidInput,
-                                    "EXTERNAL_OWNER_HEAD_STALE"):
-            self.journal.record_chat_repair(
-                self.c1,self.a1,self.plan,
-                expected_census_head=h,
-                expected_repair_head=ZERO_SHA)
-        # In this specific test the original owner remains unchanged.
+                                    "ORIGINAL_OWNER_JOURNAL_CHANGED"):
+            PrivateE2RepairJournal(
+                self.path,self.owner,expected_owner_head="f"*64)
         self.assertEqual(self.journal.progress()["repair_batches_recorded"],0)
 
 
