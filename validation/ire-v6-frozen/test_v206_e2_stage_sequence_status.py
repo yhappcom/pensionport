@@ -16,7 +16,7 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertEqual(self.status["sequence"][0]["status"],"PASS")
         self.assertTrue(self.status["current_e1_verdict"].startswith("PASS_V203_"))
         self.assertEqual(self.status["current_step"],
-                         "E2_V214_REAL_ETF250_FROZEN_NATIVE55_SOURCE_ATTESTED_HOLD_HIST_OWNER_GOLD")
+                         "E2_V2152_REAL_ETF250_NATIVE66_3_VISUAL_HOLD_2145_PAIR_SCREEN_34_CHAT_GOLD_HOLD")
         self.assertTrue(self.status["current_e2_verdict"].startswith("HOLD_"))
 
     def test_02_real_source_and_gold_not_falsely_certified(self):
@@ -48,8 +48,8 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertTrue(e["v208_malformed_hash_rejected_without_runtime_exception"])
         self.assertTrue(e["v208_cross_census_temporal_history_check_tested"])
         self.assertTrue(e["v208_real_srt_private_resume_not_tested"])
-        self.assertEqual(e["ci_total_tests"],281)
-        self.assertEqual(e["ci_current_e2_tests"],210)
+        self.assertGreaterEqual(e["ci_total_tests"],281)
+        self.assertGreaterEqual(e["ci_current_e2_tests"],210)
         self.assertEqual(e["ci_existing_e2_and_e1_regression"],71)
         self.assertTrue((ROOT/"V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md").is_file())
         self.assertFalse(e["independent_real_semantic_gold_certified"])
@@ -163,6 +163,46 @@ class TestV206E2StageGate(unittest.TestCase):
                          14640087173)
         self.assertFalse(e["e2_semantic_accuracy_approved"])
         self.assertTrue((ROOT/"V214_E2_REAL_250_EXACT_FROZEN_NATIVE_V6_55_SOURCE_ATTESTED_17_HOLD_20261120.md").is_file())
+
+
+    def test_10_v2152_reconciled_66_native_and_independent_semantic_gold_hold(self):
+        e=self.status["e2_evidence"]
+        self.assertEqual(e["v2152_actual_real_original_cues_verified"],250)
+        self.assertEqual(e["v2152_previous_native_unapproved_atoms"],55)
+        self.assertEqual(e["v2152_new_source_anchored_children"],16)
+        self.assertEqual(e["v2152_replaced_multi_atom_parents"],2)
+        self.assertEqual(e["v2152_video_only_quarantine_count"],3)
+        self.assertEqual(e["v2152_video_only_quarantine_ids"],
+                         ["E2REAL-037","E2REAL-054","E2REAL-055"])
+        self.assertTrue(e["v2151_initial_67_native_draft_superseded_but_preserved"])
+        self.assertEqual(e["v2152_native_v6_unapproved_atoms"],66)
+        self.assertEqual(e["v2152_native_primary_cues_unresolved"],187)
+        self.assertEqual(e["v2152_all_native_pairs_lexically_screened"],2145)
+        self.assertEqual(e["v2152_pairs_similarity_above_or_equal_0_2"],13)
+        self.assertEqual(e["v2152_pairs_chat_semantically_reviewed"],34)
+        self.assertEqual(e["v2152_pairs_not_manually_semantically_reviewed"],2111)
+        self.assertEqual(e["v2152_pairwise_partial_equivalence_remain_open"],2)
+        self.assertEqual(e["v2152_duplicate_atoms_automatically_merged"],0)
+        self.assertEqual(e["v2152_speaker_stance_textual_hypotheses"],66)
+        self.assertFalse(e["v2152_audio_diarization_verified"])
+        self.assertFalse(e["v2152_native_speaker_stance_finalized"])
+        self.assertEqual(e["v2152_v182_open_total"],17)
+        self.assertEqual(e["v2152_v182_open_native_primary"],2)
+        self.assertEqual(e["v2152_v182_open_unresolved"],15)
+        self.assertFalse(e["v2152_v179_24_open_individually_resolved"])
+        self.assertFalse(e["v2152_v179_68_noatom_individually_resolved"])
+        self.assertFalse(e["v2152_historical_v176_owner_sqlite_replayed"])
+        self.assertFalse(e["v2152_independent_gold_certified"])
+        self.assertFalse(e["v2152_precision_measured"])
+        self.assertFalse(e["v2152_recall_measured"])
+        self.assertFalse(e["v2152_high_risk_zero_misses_certified"])
+        self.assertTrue(e["v2152_source_original_bytes_sha_guard_tested"])
+        self.assertTrue(e["v2152_all_visual_cautions_gate_tested"])
+        self.assertTrue(e["v2152_pairwise_sharding_cap_prevents_quadratic_runfail"])
+        self.assertFalse(e["v2152_real_private_source_data_uploaded_to_github"])
+        self.assertEqual(e["ci_current_e2_tests"],238)
+        self.assertEqual(e["ci_total_tests"],309)
+        self.assertTrue((ROOT/"V215_E2_REAL_250_66_NATIVE_ATOMS_2145_PAIRS_34_REVIEWED_AND_GOLD_HOLD_20261121.md").is_file())
 
 
 if __name__=="__main__":
