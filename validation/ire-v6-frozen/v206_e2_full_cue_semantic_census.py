@@ -26,6 +26,10 @@ SPEECH_ACTS={
 CUE_NUMBER_ROLES={"QUANTITY_SPOKEN_UNVERIFIED","ASR_NUMERIC_AMBIGUITY",
                   "NONFINANCIAL_CONTEXT_NUMBER"}
 TERM_STATUS={"SOURCE_EXPLICIT","UNMAPPED_KEEP_OPEN"}
+# Shared V206→V207 contract. Do not substitute source_cue_sha256 here.
+DISCOURSE_LINK_FIELDS=frozenset({
+    "cue_index","source_quote","source_text_sha256","relation_type",
+})
 KIND_TYPES={
     "FACT":{"FINANCIAL_FACT_ASSERTION","OTHER_FACT_ASSERTION","MIXED_ASSERTION","UNRESOLVED_MEANING"},
     "OPINION":{"OPINION_ASSERTION","MIXED_ASSERTION","UNRESOLVED_MEANING"},
@@ -295,9 +299,7 @@ def audit_e2_cue_answer(owner,packet,answer,*,expected_owner_head):
         check(type(row["rebuttal_source_links"]) is list,
               "REBUTTAL_LINKS_REQUIRED")
         for link in row["rebuttal_source_links"]:
-            check(type(link) is dict and set(link)=={
-                "cue_index","source_quote","source_text_sha256",
-                "relation_type"} and
+            check(type(link) is dict and set(link)==DISCOURSE_LINK_FIELDS and
                 link["relation_type"] in {
                     "REBUTTAL","EXCEPTION","CONTRAST","CONDITION"} and
                 link["cue_index"] in context and
