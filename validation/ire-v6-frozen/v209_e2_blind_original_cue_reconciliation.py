@@ -148,6 +148,7 @@ def review_blind_and_reconcile(owner,challenge,answer,*,expected_owner_head):
         i=original["cue_index"]
         need(row["cue_index"]==i and
              row["source_text_sha256"]==original["source_text_sha256"] and
+             type(row["speech_act"]) is str and
              row["speech_act"] in ACTS and
              type(row["original_quote"]) is str and
              len(row["original_quote"].strip())>=3 and
@@ -168,7 +169,8 @@ def review_blind_and_reconcile(owner,challenge,answer,*,expected_owner_head):
         for atom in row["atoms"]:
             need(type(atom) is dict and set(atom)==ATOM_FIELDS,
                  "BLIND_ATOM_FRAME_SCHEMA")
-            need(atom["kind"] in KINDS and
+            need(type(atom["kind"]) is str and
+                 atom["kind"] in KINDS and
                  type(atom["proposition"]) is str and
                  len(atom["proposition"].strip())>=8 and
                  type(atom["source_quote"]) is str and
@@ -245,6 +247,24 @@ def review_blind_and_reconcile(owner,challenge,answer,*,expected_owner_head):
         prior=decision["claims"]
         blind=row["atoms"]
         kind=decision["disposition"]
+        if row["speech_act"]=="UNRESOLVED_MEANING":
+            mark(i,"BLIND_SOURCE_MEANING_STILL_UNRESOLVED")
+        if (kind=="QUESTION" and
+            row["speech_act"] not in {
+                "QUESTION_ONLY","QUESTION_WITH_EMBEDDED_ASSERTION",
+                "UNRESOLVED_MEANING"} or
+            kind=="QUOTE" and
+            row["speech_act"] not in {
+                "QUOTE_ONLY","QUOTE_WITH_FACT_DEPENDENCY",
+                "UNRESOLVED_MEANING"} or
+            kind=="NON_RESEARCH" and
+            row["speech_act"] not in {
+                "NON_RESEARCH_ONLY","UNRESOLVED_MEANING"} or
+            kind=="ASSERTION" and
+            row["speech_act"] in NO_ATOMS):
+            mark(i,"SOURCE_SPEECH_ACT_DISAGREEMENT",
+                 {"original_v176_disposition":kind,
+                  "blind_speech_act":row["speech_act"]})
         if kind in {"QUESTION","QUOTE","NON_RESEARCH"} and blind:
             mark(i,"ATOM_HIDDEN_BY_V176_NONASSERTION",
                  {"v176_disposition":kind,"blind_count":len(blind)})
@@ -279,6 +299,13 @@ def review_blind_and_reconcile(owner,challenge,answer,*,expected_owner_head):
                       "link_count":len(after["rebuttal_links"])})
         if kind=="ASSERTION" and any(p["kind"]=="ANECDOTE" for p in prior):
             mark(i,"ANECDOTE_NOT_PROJECTABLE_IN_V6")
+        # Even if V176 had no atoms, new E2-only rebuttal links need
+        # explicit resolution. Do not let the zip(prior,blind) suppress them.
+        for ordinal,blind_atom in enumerate(blind[len(prior):],len(prior)+1):
+            if blind_atom["rebuttal_links"]:
+                mark(i,"NEW_BLIND_DISCOURSE_NEEDS_V176_RECHECK",
+                     {"ordinal":ordinal,
+                      "link_count":len(blind_atom["rebuttal_links"])})
     need(owner.progress()["checkpoint_head_sha256"]==expected_owner_head,
          "OWNER_CHANGED_AFTER_RECONCILIATION")
     return {
