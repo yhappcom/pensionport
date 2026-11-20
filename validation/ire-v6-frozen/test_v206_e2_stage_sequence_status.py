@@ -16,7 +16,7 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertEqual(self.status["sequence"][0]["status"],"PASS")
         self.assertTrue(self.status["current_e1_verdict"].startswith("PASS_V203_"))
         self.assertEqual(self.status["current_step"],
-                         "E2_V213_NATIVE_V6_EXPLICIT_SOURCE_QUALIFIERS_REPAIRED_BUT_REAL_OWNER_GOLD_HOLD")
+                         "E2_V214_REAL_ETF250_FROZEN_NATIVE55_SOURCE_ATTESTED_HOLD_HIST_OWNER_GOLD")
         self.assertTrue(self.status["current_e2_verdict"].startswith("HOLD_"))
 
     def test_02_real_source_and_gold_not_falsely_certified(self):
@@ -31,7 +31,7 @@ class TestV206E2StageGate(unittest.TestCase):
 
     def test_03_e3_e4_e5_stay_not_run_no_premature_release(self):
         self.assertEqual(self.status["sequence"][1]["status"],
-                         "IN_PROGRESS_HOLD_REAL_NATIVE_OWNER_SPEAKER_STANCE_AND_GOLD")
+                         "IN_PROGRESS_HOLD_REAL_SEMANTIC_GOLD_HISTORIC_OWNER_AND_SPEAKER")
         self.assertEqual([x["status"] for x in self.status["sequence"][2:]],
                          ["NOT_RUN_CURRENT_ROUTE"]*3)
         self.assertTrue(E2_REPORT.is_file())
@@ -48,8 +48,8 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertTrue(e["v208_malformed_hash_rejected_without_runtime_exception"])
         self.assertTrue(e["v208_cross_census_temporal_history_check_tested"])
         self.assertTrue(e["v208_real_srt_private_resume_not_tested"])
-        self.assertEqual(e["ci_total_tests"],256)
-        self.assertEqual(e["ci_current_e2_tests"],185)
+        self.assertEqual(e["ci_total_tests"],281)
+        self.assertEqual(e["ci_current_e2_tests"],210)
         self.assertEqual(e["ci_existing_e2_and_e1_regression"],71)
         self.assertTrue((ROOT/"V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md").is_file())
         self.assertFalse(e["independent_real_semantic_gold_certified"])
@@ -130,6 +130,37 @@ class TestV206E2StageGate(unittest.TestCase):
         self.assertFalse(e["v213_e2_approved"])
         self.assertEqual(e["ci_current_e2_tests"],185)
         self.assertTrue((ROOT/"V213_E2_NATIVE_SOURCE_QUALIFIER_BRIDGE_REAL_V182_DEFECT_REPAIRED_20261120.md").is_file())
+
+
+    def test_09_v214_exact_private_real_source_native_pass_is_not_gold(self):
+        e=self.status["e2_evidence"]
+        self.assertTrue(e["v214_exact_frozen_native_v6_private_real_srt_executed"])
+        self.assertEqual(e["v214_real_srt_original_cues_checked"],250)
+        self.assertEqual(e["v214_real_srt_plan_windows"],13)
+        self.assertEqual(e["v214_real_v210_unapproved_candidates"],57)
+        self.assertEqual(e["v214_real_native_unapproved_atoms_audited"],55)
+        self.assertEqual(e["v214_real_native_blocked_unspoken_derived_claims"],2)
+        self.assertEqual(e["v214_real_native_blocked_ids"],
+                         ["E2REAL-036","E2REAL-050"])
+        self.assertEqual(e["v214_real_native_cues_unresolved"],195)
+        self.assertEqual(e["v214_real_native_source_explicit_condition_cue_links"],15)
+        self.assertEqual(e["v214_real_native_source_explicit_exception_cue_links"],2)
+        self.assertFalse(e["v214_real_native_speaker_and_stance_finalized"])
+        self.assertFalse(e["v214_real_v176_historical_owner_sqlite_recovered"])
+        self.assertFalse(e["v214_real_gold_independent_reference_available"])
+        self.assertFalse(e["v214_real_precision_recall_measured"])
+        self.assertTrue(e["v214_real_8_overlap_pairs_reviewed"])
+        self.assertTrue(e["v214_real_1588_nonoverlap_pairs_not_independently_adjudicated"])
+        self.assertEqual(e["v214_v182_open_cue_count_rechecked"],17)
+        self.assertEqual(e["v214_v182_open_native_candidate_cues"],4)
+        self.assertEqual(e["v214_v182_open_native_unresolved_cues"],13)
+        self.assertTrue(e["v214_v182_all_cases_still_open"])
+        self.assertFalse(e["v214_real_private_srt_uploaded_to_github"])
+        self.assertTrue(e["v214_real_v210_decimal_runfail_fixed_by_byte_sha"])
+        self.assertEqual(e["v214_code_only_native_validator_actions_artifact_id"],
+                         14640087173)
+        self.assertFalse(e["e2_semantic_accuracy_approved"])
+        self.assertTrue((ROOT/"V214_E2_REAL_250_EXACT_FROZEN_NATIVE_V6_55_SOURCE_ATTESTED_17_HOLD_20261120.md").is_file())
 
 
 if __name__=="__main__":
