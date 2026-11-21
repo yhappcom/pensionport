@@ -9,6 +9,7 @@ from pathlib import Path
 
 from ire.v6 import TransactionStore
 from ire.v6.codec import sha256
+from ire.v6.claim_census import FINANCIAL, QUALIFIER, MULTI_CLAIM
 from ire.v6.errors import InvalidInput
 from ire.v6.trust import verify_owner_inventory
 from test_v227_e2_source_semantic_reconciliation import synthetic
@@ -217,6 +218,36 @@ class TestV230RealSourceNativeBoundary(unittest.TestCase):
             "independent_semantic_review_verified": False,
             "personalized_action_approved": False,
         } for a in self.origin["exchange"]["atoms"]]
+        # Synthetic fixture ONLY: explicitly authored source-first ChatGPT
+        # quarantine attestation, not constructed by the production bridge.
+        mandatory = []
+        for row in self.origin["exchange"]["cue_dispositions"]:
+            idx = row["cue_index"]
+            cue = self.origin["source"].cues[idx-1].text
+            risky = bool(FINANCIAL.search(cue) or QUALIFIER.search(cue) or
+                         MULTI_CLAIM.search(cue))
+            if row["disposition"] == "UNRESOLVED" or (
+                    row["disposition"] == "NO_ATOM" and risky):
+                mandatory.append(idx)
+        prequarantine = {
+            "schema": "IRE_V6_HOST_SOURCE_PREQUARANTINE_V145",
+            "source_sha256": self.origin["source_sha256"],
+            "manifest_sha256": self.origin["source"].manifest_sha256,
+            "review_executor": "CHATGPT_IN_CHAT",
+            "private_review_sha256": sha256(b"SYNTHETIC explicit cue review"),
+            "cue_rows": [{
+                "cue_index": idx,
+                "cue_text_sha256": sha256(
+                    self.origin["source"].cues[idx-1].text.encode("utf8")),
+                "reason_code": "OTHER_SOURCE_FIRST_RISK",
+                "private_chat_cue_review_sha256": sha256(
+                    f"SYNTHETIC risk cue {idx}".encode()),
+                "source_first_context_reviewed": True,
+            } for idx in mandatory],
+            "audio_authenticity_verified": False,
+            "semantic_claims_independently_verified": False,
+            "p0_go": False,
+        }
         stage = TransactionStore(self.root / "new_source" / "v230.db")
         out = stage_unapproved_v228_native_host(
             origin=self.origin,
@@ -225,6 +256,7 @@ class TestV230RealSourceNativeBoundary(unittest.TestCase):
             run_id="v230_unapproved_synthetic_trial",
             externally_pinned_inventory_sha256=self.origin["inventory_sha256"],
             prior_knowledge=pending,
+            source_prequarantine=prequarantine,
             explicit_private_host_stage=True)
         self.assertEqual(out["status"],
                          "V228_ACTUAL_SOURCE_NATIVE_V6_HOST_STAGED_UNAPPROVED")
