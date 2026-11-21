@@ -142,8 +142,8 @@
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
     "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44860150238",
-    "ci_result": "success",
-    "ci_total_tests": 734,
+    "ci_result": "PENDING_REPLAY_AFTER_HISTORIC_FIELD_FIX",
+    "ci_total_tests": 676,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -799,6 +799,11 @@
     "v228_real_second_user_turn_claims_adjudicated": 0,
     "v228_root_readme_frozen_bytes_restored": true,
     "v228_root_readme_frozen_blob_sha": "32b059d14383a52e7dcba0e2b53abf7e8c467857",
-    "v228_e1_boundary_failure_from_temp_readme_edit_fixed": true
+    "v228_e1_boundary_failure_from_temp_readme_edit_fixed": true,
+    "v228_mandatory_two_turn_tests_total": 58,
+    "v228_all_workflow_ci_tests": 734,
+    "v228_full_workflow_total_excludes_from_legacy_ci_total_field": true,
+    "v228_historic_test_total_contract_preserved": true,
+    "v228_latest_full_workflow_ci_result": "PENDING"
   }
 }
