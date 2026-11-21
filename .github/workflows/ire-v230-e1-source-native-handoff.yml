@@ -1,4 +1,4 @@
-name: E1 V230 V228 source-native operational seam
+name: E1 V230-V231 V228 source-native turn2 custody
 on:
   push:
     branches:
@@ -51,6 +51,13 @@ jobs:
         run: |
           python -m compileall -q v230_e1_v228_source_native_handoff.py test_v230_e1_v228_source_native_handoff.py
           python -m unittest -v test_v230_e1_v228_source_native_handoff
+      - name: V231 private source-first second-turn attestation (synthetic tests only)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v231_e1_v228_private_turn2_custody_bridge.py test_v231_e1_v228_private_turn2_custody_bridge.py
+          python -m unittest -v test_v231_e1_v228_private_turn2_custody_bridge
       - name: Existing source freeze, E1 V229 fail-closed and V203 E1 structural regressions
         working-directory: validation/ire-v6-frozen
         env:
