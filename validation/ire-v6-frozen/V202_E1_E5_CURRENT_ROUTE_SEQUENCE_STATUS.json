@@ -45,14 +45,39 @@
     "evidence_ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44716365269",
     "evidence_ci_total_tests": 413,
     "evidence_ci_result": "success",
-    "scope_note": "synthetic 4-cue 2-child structural route using real frozen V6/V123/V127/V128/V126; no real financial truth certified"
+    "scope_note": "synthetic 4-cue 2-child structural route using real frozen V6/V123/V127/V128/V126; no real financial truth certified",
+    "v229_independent_reaudit_report_path": "validation/ire-v6-frozen/V229_E1_INDEPENDENT_REAUDIT_SYNTHETIC_PASS_LIVE_V228_OWNER_HANDOFF_HOLD_20261121.md",
+    "v229_read_only_preflight_path": "validation/ire-v6-frozen/v229_e1_v228_operational_handoff_preflight.py",
+    "v229_owner_original_source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "v229_owner_turn1_zip_sha256": "9f5a281191502bb30cb78ff17d2b08f6887f55b836cee67e00d7309770efa397",
+    "v229_owner_first_head_sha256": "c7edf0a2ffffcdb2654c6f6006efe16254ee06afa5cd16b5481b8d2edee620d2",
+    "v229_owner_private_reaudit_receipt_sha256": "8ed1e30fd372f382a451bbf7bca4312e640c1becc815b91037768ad078085a8f",
+    "v229_private_srt_cue_count_verified": 250,
+    "v229_private_unapproved_native_atom_count_verified": 68,
+    "v229_private_e3_context_task_count_verified": 68,
+    "v229_private_lexical_pairs_verified": 2278,
+    "v229_actual_owner_archive_integrity_checks_pass": 12,
+    "v229_existing_v203_synthetic_e1_architecture_pass_rechecked": true,
+    "v229_existing_v203_v204_v205_e1_regressions_pass": 18,
+    "v229_new_actual_owner_handoff_negative_regressions_pass": 12,
+    "v229_no_genuine_v176_sqlite_in_actual_v228_archive": true,
+    "v229_no_v127_parent_checkpoint_in_actual_v228_archive": true,
+    "v229_v228_frozen_head_is_not_real_v176_journal_head": true,
+    "v229_v228_real_owner_path_to_v203_v123_v126_approved_and_stored": false,
+    "v229_real_owner_e1_operational_handoff_verdict": "HOLD_NO_GENUINE_V176_OWNER_PARENT_AND_VERIFIED_SEPARATE_CHATGPT_TURN2",
+    "v229_real_user_turn2_completed": false,
+    "v229_e3_e4_e5_approval_or_publication": 0,
+    "v229_ci_new_owner_handoff_tests": 12,
+    "v229_ci_full_workflow_tests": 746,
+    "v229_first_observed_ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44864574523",
+    "v229_code_only_ci_result": "success"
   },
   "sequence": [
     {
       "step": "E1",
       "criterion": "입력·검토·승인·저장 경로가 하나로 연결",
       "status": "PASS",
-      "scope": "final E1 structural: V176→new native V6 host→V123/V127/V128→V126 synthetic real code, 435 E1 checks + strict 8 + cleanroom"
+      "scope": "final E1 structural: V176→new native V6 host→V123/V127/V128→V126 synthetic real code, 435 E1 checks + strict 8 + cleanroom V229 independent 2026-11-21 rereview: historic E1 synthetic end-to-end PASS reaffirmed (V203 11 + V204 4 + V205 3 regression tests), V228 actual ETF 250cue source+68 unapproved atoms and freeze intact, BUT V228 private first-turn ZIP does NOT contain authenticated V176 SQLite owner journal or V127 parent checkpoint, and separate real E3 ChatGPT TURN2 has not occurred. The actual owner turn1→V203 native V123/V126 E1 operational handoff is HOLD, not certified or published. Added read-only fail-closed V229 preflight with 12 tests. E1 synthetic PASS must never be described as V228 real-owner full pipeline PASS."
     },
     {
       "step": "E2",
