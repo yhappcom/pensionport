@@ -1,8 +1,5 @@
 name: Full tracked repository read-only audit snapshot
 on:
-  push:
-    branches:
-      - audit/full-repository-snapshot-20261122
   workflow_dispatch:
 permissions:
   contents: read
