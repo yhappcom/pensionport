@@ -128,6 +128,13 @@ jobs:
         run: |
           python -m compileall -q v241_e1_unapproved_child_host_writer.py test_v241_e1_unapproved_child_host_writer.py
           python -m unittest -v test_v241_e1_unapproved_child_host_writer
+      - name: V242 parent-qualified local provisional child host with pinned external cues
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v242_e1_condition_linked_host_bridge.py test_v242_e1_condition_linked_host_bridge.py
+          python -m unittest -v test_v242_e1_condition_linked_host_bridge
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
           mkdir -p /tmp/e1-v6-public-code/validation /tmp/e1-v6-public-code/data
