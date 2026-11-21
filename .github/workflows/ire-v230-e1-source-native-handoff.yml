@@ -1,0 +1,56 @@
+name: E1 V230 V228 source-native operational seam
+on:
+  push:
+    branches:
+      - verify/ire-v6-e1-v230-v228-source-native-handoff-20261121
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ire-v230-e1-source-native
+  cancel-in-progress: true
+jobs:
+  e1-real-owner-source-admission:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install pinned deterministic IRE dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Protect original E1 engines and all source bytes
+        run: |
+          python - <<'PY'
+          import pathlib,subprocess
+          base="c9d2a676d3e3002ea2132ce690ee8d75c7a65286"
+          changed=subprocess.check_output(["git","diff","--name-only",base,"HEAD"],text=True).splitlines()
+          allowed_prefix="validation/ire-v6-frozen/"
+          allowed_workflow=".github/workflows/ire-v230-e1-source-native-handoff.yml"
+          assert changed, "E1_V230_NO_CHANGE"
+          assert all((p.startswith(allowed_prefix) and
+                      pathlib.Path(p).suffix in {".py",".json",".md"}) or
+                     p==allowed_workflow for p in changed), "PROTECTED_E1_CODE_CHANGED"
+          assert all(pathlib.Path(p).suffix.lower() not in
+                     {".srt",".zip",".sqlite",".db",".env",".csv",".xlsx",".pem"}
+                     for p in changed), "PRIVATE_BYTES_TRACKED"
+          print("E1_V230_FROZEN_ENGINE_PROTECTION_PASS",len(changed))
+          PY
+      - name: V230 genuinely separate V228 input and 2-turn receipt (synthetic)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v230_e1_v228_source_native_handoff.py test_v230_e1_v228_source_native_handoff.py
+          python -m unittest -v test_v230_e1_v228_source_native_handoff
+      - name: Existing source freeze, E1 V229 fail-closed and V203 E1 structural regressions
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m unittest -v test_v228_v193_actual_two_turn_runtime_gate test_v229_e1_v228_operational_handoff_preflight test_v203_e1_v176_origin_native_host_bridge test_v204_e1_independent_realistic_input_red test_v205_e1_runtime_preflight
