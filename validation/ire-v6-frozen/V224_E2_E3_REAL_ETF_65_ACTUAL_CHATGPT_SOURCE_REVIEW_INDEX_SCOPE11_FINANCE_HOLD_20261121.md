@@ -66,7 +66,7 @@ V223의 `E3 review intake READY`는 **실제 원자별 최종 의미 검토가 �
 6. E3 미승인 검토 패킷의 27개 근거 관계와 5개 미확정 원화면/원음 quarantines가 유실되지 않는지 검문; 기존 확정 E4/E5는 차단.
 7. 오디오/화면 없는 화자 인증, 허위 독립 gold, 허위 금융승인, 가상의 현물가격 승격, reviewer-only 계산 조작을 거부.
 
-**실제 원본 250cue 동결 V6+새 원장+E3 text-review 통합 재생 PASS**. 승인 우회 시 `InvalidInput`으로 차단 확인. 공개 CI 합성 출처·누락·변조·허위 인증 회귀시험 **35개** 로컬 PASS. 기존 V223의 521 + 35 = **556개**를 공개 GitHub CI에 연결. *실제 CI 실행 완료 전에는 최종 PASS라고 적지 않는다.*
+**실제 원본 250cue 동결 V6+새 원장+E3 text-review 통합 재생 PASS**. 승인 우회 시 `InvalidInput`으로 차단 확인. 공개 CI 합성 출처·누락·변조·허위 인증 회귀시험 **35개** 로컬 PASS. 기존 V223의 521 + 35 = **556개**를 공개 GitHub CI에 연결. 검증 브랜치 [GitHub Actions run 44851143064](https://github.com/yhappcom/pensionport/actions/runs/44851143064)의 실제 실행 로그에서 **556/556 PASS**(현행 E2 485 + 이전 E2 53 + E1 18)를 확인했다. 이 결과는 합성 코드·데이터 경로 회귀시험 PASS로, 비공개 금융 사실 승인 또는 독립 정답 기반 정확도 PASS는 아니다.
 
 ## 5. 비공개 개인 Library 증거
 
@@ -77,7 +77,7 @@ V223의 `E3 review intake READY`는 **실제 원자별 최종 의미 검토가 �
 - `V224_PRIVATE_ETF250_ACTUAL_CHATGPT_65_CLAIM_MEANING_FINANCE_DISPOSITIONS_HOLD.json` SHA `17b9d81cec3403a80f51617ebd1332c4a3c31a2f94a584edce113bc654af5ee4`
 - `V224_PRIVATE_ETF250_E3_CHATGPT_65_ACTUAL_REVIEW_HOLD_PACKET.json` SHA `84de53900a66c0aad08a60e60c4b833a688fd6f840d17cfc758d051511f546a3`
 - `V224_PRIVATE_ETF250_REAL_SOURCE_REVIEW_SCOPE_FROZEN_V6_RECEIPT_HOLD.json` SHA `7beabc1160db8c6a2cfa70d760691cfc4c5b155b708723efcc52508b2ac00b55`
-- `V224_PRIVATE_ETF250_FULL_ONE_PASS_CUSTODY_RECEIPT_HOLD.json` — 실제 11종 바이트/원본/V6/E3 일괄 재생 영수증 (SHA는 비공개 Library 저장 파일 기준).
+- `V224_PRIVATE_ETF250_FULL_ONE_PASS_CUSTODY_RECEIPT_HOLD.json` — SHA `dc60ebc7fb1b32830e9642ca967dd342c7dd631744d09224dbfa3d66bb78ac5d`, 실제 11종 바이트/원본/V6/E3 일괄 재생 영수증.
 
 이들 파일은 **이전 V223 산출물을 바꾸지 않는 append-only** 기록이다.
 
