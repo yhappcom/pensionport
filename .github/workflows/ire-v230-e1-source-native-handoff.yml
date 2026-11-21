@@ -67,12 +67,13 @@ jobs:
 
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
-          mkdir -p /tmp/e1-v6-public-code/validation
+          mkdir -p /tmp/e1-v6-public-code/validation /tmp/e1-v6-public-code/data
           cp -a ire /tmp/e1-v6-public-code/
+          cp data/claims.jsonl /tmp/e1-v6-public-code/data/
           cp -a validation/ire-v6-frozen /tmp/e1-v6-public-code/validation/
           cd /tmp/e1-v6-public-code
           python -c "from pathlib import Path; blocked=[str(p) for p in Path('.').rglob('*') if p.is_file() and p.suffix.lower() in {'.srt','.zip','.db','.sqlite'}]; assert not blocked, blocked"
-          zip -q -r /tmp/e1-v6-public-code.zip ire validation
+          zip -q -r /tmp/e1-v6-public-code.zip ire validation data
       - name: Publish isolated public engine package (NO owner data)
         uses: actions/upload-artifact@v4
         with:
