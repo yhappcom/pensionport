@@ -277,5 +277,13 @@ class TestV227SourceFirstCoverage(unittest.TestCase):
         docs=change_doc(self.docs,'native',lambda d:d['atoms'][0].update(proposition='신규 문맥에서 몰래 바뀐 의미'))
         with self.assertRaises(InvalidInput):run(docs,self.reasons,self.reviews)
 
+    def test_43_manifest_window_partition_mismatch_detected(self):
+        raw='\n\n'.join(
+            f'{i}\n00:00:{i:02d},000 --> 00:00:{i:02d},900\n모의 ETF 자막 {i} 입니다.'
+            for i in range(1,22)).encode('utf-8')
+        s20,_=make_original_plan(raw,'SYNTHET0001',expected_source_sha256=sha(raw),window_size=20)
+        s120,_=make_original_plan(raw,'SYNTHET0001',expected_source_sha256=sha(raw),window_size=120)
+        self.assertNotEqual(s20.manifest_sha256,s120.manifest_sha256)
+
 
 if __name__=='__main__':unittest.main()
