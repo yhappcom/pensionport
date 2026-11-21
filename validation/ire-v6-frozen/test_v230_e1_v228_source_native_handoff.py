@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import copy
 import tempfile
+import test_v202_e1_v176_native_positive_path as v202_fixture
 import unittest
 from pathlib import Path
 
@@ -193,6 +194,46 @@ class TestV230RealSourceNativeBoundary(unittest.TestCase):
                 scope_id="v230_scope", run_id="v230_trial",
                 externally_pinned_inventory_sha256=self.origin["inventory_sha256"],
                 prior_knowledge={}, explicit_private_host_stage=True)
+
+
+    def test_16_real_v6_host_only_structural_synthetic_positive(self):
+        # The native inputs are from fresh V228 freeze, NOT the V176 test owner.
+        # Protected legacy bytes come from the V202 fixture, and all current
+        # 8-cue atomic relations are explicitly OPEN/novel, not approved.
+        fx = v202_fixture.TestV202SameInputE1Route(
+            "test_01_preseeded_native_v166_cannot_impersonate_v176_verdict")
+        fx.setUp()
+        self.addCleanup(fx.doCleanups)
+        previous = fx.fx.fx.packets[0]["case"]["prior_knowledge"]
+        pending = copy.deepcopy(previous)
+        pending["relations"] = [{
+            "claim_id": a["claim_id"],
+            "candidate_source_sha256": self.origin["source_sha256"],
+            "target_kind": "NONE",
+            "target_id": None,
+            "target_content_sha256": None,
+            "relationship": "NOVEL_PENDING",
+            "rationale": "SYNTHETIC novel relation remains unapproved",
+            "independent_semantic_review_verified": False,
+            "personalized_action_approved": False,
+        } for a in self.origin["exchange"]["atoms"]]
+        stage = TransactionStore(self.root / "new_source" / "v230.db")
+        out = stage_unapproved_v228_native_host(
+            origin=self.origin,
+            native_store=stage,
+            scope_id="v230_real_native_source_scope",
+            run_id="v230_unapproved_synthetic_trial",
+            externally_pinned_inventory_sha256=self.origin["inventory_sha256"],
+            prior_knowledge=pending,
+            explicit_private_host_stage=True)
+        self.assertEqual(out["status"],
+                         "V228_ACTUAL_SOURCE_NATIVE_V6_HOST_STAGED_UNAPPROVED")
+        self.assertEqual(stage.snapshot("v230_real_native_source_scope")[
+            "ledger_head_sha256"], out["new_v6_host_event_sha256"])
+        self.assertFalse(out["recovered_v176_owner_journal"])
+        self.assertFalse(out["e1_full_approval_store_path_proven"])
+        self.assertFalse(out["e3_final_approved"])
+        self.assertEqual(out["e5_published"], 0)
 
 
 if __name__ == "__main__":
