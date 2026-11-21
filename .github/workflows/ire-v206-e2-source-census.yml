@@ -1,0 +1,113 @@
+name: E2 V206 source-first original cue meaning and atomic-claim census
+on:
+  push:
+    branches:
+      - verify/ire-v6-e2-source-census-adversarial-20261120
+  pull_request:
+    branches:
+      - verify/ire-v6-v201-e1-native-source-bridge-20261120
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ire-v206-e2-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  e2-independent-source-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Install pinned deterministic IRE dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r ire/requirements-evidence-ci.txt 'cryptography==46.0.4'
+      - name: Verify E1 base remains unchanged and no owner SRT/SQLite is tracked
+        run: |
+          python - <<'PY'
+          import pathlib,subprocess
+          base="0232419c224e55bd1f557c8e9677375dad7fd7cb"
+          changed=subprocess.check_output(
+              ["git","diff","--name-only",base,"HEAD"],text=True).splitlines()
+          allowed_prefix="validation/ire-v6-frozen/"
+          allowed_files={".github/workflows/ire-v206-e2-source-census.yml"}
+          assert changed, "E2_NO_CHANGE"
+          assert all((x.startswith(allowed_prefix) and
+                      pathlib.Path(x).suffix in {".py",".json",".md"}) or
+                     x in allowed_files for x in changed), "E1_FROZEN_OR_LEGACY_CHANGED"
+          forbidden={".srt",".zip",".db",".sqlite",".pem",".env",".csv",".xlsx"}
+          assert all(pathlib.Path(x).suffix.lower() not in forbidden
+                     for x in changed),"E2_PRIVATE_ORIGINAL_COMMITTED"
+          print("E1_FROZEN_BOUNDARY_PASS",len(changed))
+          PY
+      - name: MANDATORY V193 real two USER-turn operating contract guard (synthetic, no host spoofing)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m compileall -q v193_e3_two_user_turn_contract.py v228_v193_actual_two_turn_runtime_gate.py test_v193_e3_two_user_turn_contract.py test_v193_e3_protocol_docs.py test_v228_v193_actual_two_turn_runtime_gate.py
+          python -m unittest -v test_v193_e3_two_user_turn_contract test_v193_e3_protocol_docs test_v228_v193_actual_two_turn_runtime_gate
+      - name: E2 question, quotation, hidden claim, numbers and qualifiers
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m compileall -q v206_e2_full_cue_semantic_census.py test_v206_e2_full_cue_semantic_census.py v206_e2_private_cue_checkpoint.py test_v206_e2_private_cue_checkpoint.py test_v206_e2_stage_sequence_status.py v207_e2_unreleased_chat_repair.py test_v207_e2_unreleased_chat_repair.py v208_e2_private_source_repair_journal.py test_v208_e2_private_source_repair_journal.py v209_e2_blind_original_cue_reconciliation.py test_v209_e2_blind_original_cue_reconciliation.py v210_e2_private_original_source_inventory.py test_v210_e2_private_original_source_inventory.py v211_e2_private_real_source_risk_docket.py test_v211_e2_private_real_source_risk_docket.py v2111_e2_private_crosscue_link_custody.py test_v2111_e2_private_crosscue_link_custody.py v212_e2_private_historical_open_crosswalk.py test_v212_e2_private_historical_open_crosswalk.py v213_e2_source_qualifier_native_bridge.py test_v213_e2_source_qualifier_native_bridge.py v214_e2_real_srt_provisional_native_v6.py test_v214_e2_real_srt_provisional_native_v6.py v215_e2_source_atom_split_reconciliation.py test_v215_e2_source_atom_split_reconciliation.py v2151_e2_private_pairwise_source_screen.py test_v2151_e2_private_pairwise_source_screen.py v216_e2_private_residual_evidence_guard.py test_v216_e2_private_residual_evidence_guard.py v217_e2_private_crosscue_discourse_guard.py test_v217_e2_private_crosscue_discourse_guard.py v218_e2_private_dependency_join_guard.py test_v218_e2_private_dependency_join_guard.py v219_e2_integrated_source_claim_quality_guard.py test_v219_e2_integrated_source_claim_quality_guard.py v220_e2_quality_evidence_pipeline.py test_v220_e2_quality_evidence_pipeline.py v221_e2_source_first_semantic_anchor_guard.py test_v221_e2_source_first_semantic_anchor_guard.py v222_e2_source_nonclaim_filter_guard.py test_v222_e2_source_nonclaim_filter_guard.py test_v222_postfilter_source_sidecars.py v223_e2_semantic_convergence_engine.py test_v223_e2_semantic_convergence_engine.py v224_e2_e3_inherited_scope_review_gate.py test_v224_e2_e3_inherited_scope_review_gate.py v225_e2_legacy_multi_endpoint_closure.py test_v225_e2_legacy_multi_endpoint_closure.py v226_e2_speech_only_media_bridge_and_finance_quarantine.py test_v226_e2_speech_only_media_bridge_and_finance_quarantine.py v227_e2_source_semantic_reconciliation.py test_v227_e2_source_semantic_reconciliation.py
+          python -m unittest -v test_v206_e2_full_cue_semantic_census test_v206_e2_private_cue_checkpoint test_v206_e2_stage_sequence_status test_v207_e2_unreleased_chat_repair test_v208_e2_private_source_repair_journal test_v209_e2_blind_original_cue_reconciliation test_v210_e2_private_original_source_inventory test_v211_e2_private_real_source_risk_docket test_v2111_e2_private_crosscue_link_custody test_v212_e2_private_historical_open_crosswalk test_v213_e2_source_qualifier_native_bridge test_v214_e2_real_srt_provisional_native_v6 test_v215_e2_source_atom_split_reconciliation test_v2151_e2_private_pairwise_source_screen test_v216_e2_private_residual_evidence_guard test_v217_e2_private_crosscue_discourse_guard test_v218_e2_private_dependency_join_guard test_v219_e2_integrated_source_claim_quality_guard test_v220_e2_quality_evidence_pipeline test_v221_e2_source_first_semantic_anchor_guard test_v222_e2_source_nonclaim_filter_guard test_v222_postfilter_source_sidecars test_v223_e2_semantic_convergence_engine test_v224_e2_e3_inherited_scope_review_gate test_v225_e2_legacy_multi_endpoint_closure test_v226_e2_speech_only_media_bridge_and_finance_quarantine test_v227_e2_source_semantic_reconciliation
+      - name: Existing V166 E2 semantics and frozen V176 source review regressions
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m unittest -v test_v166_e2_semantic_separation test_v176_chat_engine_loop
+      - name: Export public code-only native V6 local verification kit
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2-v214-code-only-native-validator
+          retention-days: 2
+          if-no-files-found: error
+          path: |
+            ire/v6/*.py
+            validation/ire-v6-frozen/v176_chat_engine_loop.py
+            validation/ire-v6-frozen/v210_e2_private_original_source_inventory.py
+            validation/ire-v6-frozen/v214_e2_real_srt_provisional_native_v6.py
+            validation/ire-v6-frozen/v215_e2_source_atom_split_reconciliation.py
+            validation/ire-v6-frozen/v2151_e2_private_pairwise_source_screen.py
+            validation/ire-v6-frozen/v216_e2_private_residual_evidence_guard.py
+            validation/ire-v6-frozen/v217_e2_private_crosscue_discourse_guard.py
+            validation/ire-v6-frozen/v218_e2_private_dependency_join_guard.py
+            validation/ire-v6-frozen/v219_e2_integrated_source_claim_quality_guard.py
+            validation/ire-v6-frozen/v220_e2_quality_evidence_pipeline.py
+            validation/ire-v6-frozen/v221_e2_source_first_semantic_anchor_guard.py
+            validation/ire-v6-frozen/v222_e2_source_nonclaim_filter_guard.py
+            validation/ire-v6-frozen/v223_e2_semantic_convergence_engine.py
+            validation/ire-v6-frozen/v224_e2_e3_inherited_scope_review_gate.py
+            validation/ire-v6-frozen/v225_e2_legacy_multi_endpoint_closure.py
+            validation/ire-v6-frozen/v226_e2_speech_only_media_bridge_and_finance_quarantine.py
+            validation/ire-v6-frozen/v227_e2_source_semantic_reconciliation.py
+            validation/ire-v6-frozen/v193_e3_two_user_turn_contract.py
+            validation/ire-v6-frozen/v228_v193_actual_two_turn_runtime_gate.py
+            validation/ire-v6-frozen/test_v228_v193_actual_two_turn_runtime_gate.py
+            validation/ire-v6-frozen/v229_e1_v228_operational_handoff_preflight.py
+            validation/ire-v6-frozen/test_v229_e1_v228_operational_handoff_preflight.py
+            validation/ire-v6-frozen/test_v217_e2_private_crosscue_discourse_guard.py
+          include-hidden-files: false
+      - name: E1 V229 independent REAL OWNER transport re-audit (synthetic no-owner negative path)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m compileall -q v229_e1_v228_operational_handoff_preflight.py test_v229_e1_v228_operational_handoff_preflight.py
+          python -m unittest -v test_v229_e1_v228_operational_handoff_preflight
+      - name: E1 passed native bridge smoke remains unchanged
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m unittest -v test_v203_e1_v176_origin_native_host_bridge test_v204_e1_independent_realistic_input_red test_v205_e1_runtime_preflight
