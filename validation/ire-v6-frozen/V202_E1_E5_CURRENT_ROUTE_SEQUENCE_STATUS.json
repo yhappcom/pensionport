@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_V227_REAL_250_CUE_UNRESOLVED177_DISAMBIGUATED_E3_68_SCHEMA_UNIFIED_PAIRWISE2278_28_REVIEW_GOLD_HOLD",
+  "current_step": "E2_V228_V193_MANDATORY_TWO_DISTINCT_USER_TURNS_REAL_ETF250_TURN1_FROZEN_AWAIT_SEPARATE_USER_TURN2",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -58,13 +58,13 @@
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
       "status": "IN_PROGRESS_HOLD_REAL_SEMANTIC_GOLD_HISTORIC_OWNER_AND_SPEAKER",
-      "scope": "V227 actual owner 250 original ETF cues SHA exact and 68 V226 unapproved native atoms replay PASS. Found frozen V6 'UNRESOLVED' 177 means without primary cue, NOT 177 missing claims: 154 source-linked context, 3 visual-hold context, 20 provisional discourse, plus one separately suspicious NO_ATOM (total 250 = 64 normal primary + 8 media spoken primary +154 context +3 AV context +20 narrative +1 NOATOM). 24 urgent follow-up cue reviews, NOT certified absence of subclaims within 154 contexts. Normalized 68 E3 review tasks where old 65 source_context lists and 3 new media dicts mismatched (all 68 list source quote+SHA). 68 choose 2=2278 lexical pairs scanned, 28 source reviewed internally, 2250 not semantically adjudicated; no automatic merges. V6 manuscript window-size 20 pinned against source default120 to avoid manifest run fails. Actual source replay PASS, 43 extra synthetic negatives, code CI 676 PASS. E2 final independent P/R/high-risk FN unmeasured, financial truth/audio/visual/legacy owner HOLD."
+      "scope": "V228 user command one: ETF owner original 250/250 SRT, V226 68 unapproved source atoms, V227 250 full source triage, canonical E3 68 task source_context and 2278 lexical candidate pairs rechecked against frozen V6 13×20cue windows. One private 0600 O_EXCL source+study ZIP frozen (externally pinned ZIP, manifest, head and source SHA). Current operator did not execute distinct second user turn, did not conduct independent blind gold and does not claim E2 semantic P/R or original audio/financial facts. E2 research source custody PASS, final gold HOLD; see V193 and V228 report."
     },
     {
       "step": "E3",
       "criterion": "승인·보류·격리 결과가 정확히 전달",
       "status": "NOT_RUN_CURRENT_ROUTE",
-      "scope": "V227 canonical review packet with all 68 task source_context fields lists, source SRT quotes and SHA; three previous media dicts normalized. Existing 65 text meaning reviews, four finance contradictions and two tracking terms HOLD retained. This is only preapproval E3 input normalization, not E3 final approval; E4/E5 NOT_RUN. V193 mandatory two *actual distinct user-message* protocol is the authoritative E3 operating contract: owner-private full turn-1 study and hash/head freeze, then only a separate later user instruction can start turn-2 ChatGPT final meaning verification. V227 68-task normalization, same-model 28 pair reviews, 676/676 synthetic CI and previous V224 65 source reviews are NOT evidence of an actual V193 turn-2 final verification. No immutable V193-compliant turn1 receipt and distinct-turn2 independent final-review receipt has been certified for V227. Thus E3 NOT_RUN_CURRENT_ROUTE, E4/E5 NOT_RUN and E2 independent semantic gold HOLD remain unchanged. Do not retroactively label turns or use two-process/two-batch runs as two conversation turns."
+      "scope": "V193 mandatory two REAL distinct user-message instructions (study and freeze TURN1, next user command verification TURN2); V228 now executes validate_manual_turn_receipt for first-turn freeze and records external source/head. At current conversation turn only TURN1 is completed and source-only candidate reviewing in TURN2 has NOT begun. New canonical guard requires externally pinned original ZIP/manifest/head and a next distinct USER message. E3 final NOT_RUN; no retrospective V223-V227 internal packet or second Python process certified as separate CHAT TURN. Host user-message identity cryptographic proof unavailable. E4/E5 NOT_RUN."
     },
     {
       "step": "E4",
@@ -124,7 +124,7 @@
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
   },
-  "current_e2_verdict": "HOLD_V227_SOURCE_CUE_RECONCILIATION_250_PASS_E3_SCHEMA68_PASS_ALL_2278_LEXICAL_ONLY_28_INTERNAL_REVIEW_GOLD_QUALITY_UNMEASURED",
+  "current_e2_verdict": "HOLD_V228_REAL_OWNER_ETF250_68_V6_FIRST_USER_TURN_FROZEN_V193_SECOND_USER_TURN_REQUIRED_INDEPENDENT_GOLD_AV_FINANCE_UNCERTIFIED",
   "e2_evidence": {
     "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
     "e1_pass_prior_untouched": true,
@@ -752,6 +752,44 @@
     "v193_v227_turn2_distinct_user_command_verified": false,
     "v193_v227_final_chatgpt_turn2_e3_verdict_executed": false,
     "v193_v227_internal_review_not_a_turn2_result": true,
-    "v193_turn_contract_correction_note": "V193 mandatory two *actual distinct user-message* protocol is the authoritative E3 operating contract: owner-private full turn-1 study and hash/head freeze, then only a separate later user instruction can start turn-2 ChatGPT final meaning verification. V227 68-task normalization, same-model 28 pair reviews, 676/676 synthetic CI and previous V224 65 source reviews are NOT evidence of an actual V193 turn-2 final verification. No immutable V193-compliant turn1 receipt and distinct-turn2 independent final-review receipt has been certified for V227. Thus E3 NOT_RUN_CURRENT_ROUTE, E4/E5 NOT_RUN and E2 independent semantic gold HOLD remain unchanged. Do not retroactively label turns or use two-process/two-batch runs as two conversation turns."
+    "v193_turn_contract_correction_note": "V193 mandatory two *actual distinct user-message* protocol is the authoritative E3 operating contract: owner-private full turn-1 study and hash/head freeze, then only a separate later user instruction can start turn-2 ChatGPT final meaning verification. V227 68-task normalization, same-model 28 pair reviews, 676/676 synthetic CI and previous V224 65 source reviews are NOT evidence of an actual V193 turn-2 final verification. No immutable V193-compliant turn1 receipt and distinct-turn2 independent final-review receipt has been certified for V227. Thus E3 NOT_RUN_CURRENT_ROUTE, E4/E5 NOT_RUN and E2 independent semantic gold HOLD remain unchanged. Do not retroactively label turns or use two-process/two-batch runs as two conversation turns.",
+    "v228_operation_report_path": "validation/ire-v6-frozen/V228_V193_TWO_REAL_CHAT_TURN_ENFORCEMENT_ETF250_TURN1_FROZEN_20261121.md",
+    "v228_mandatory_two_turn_contract_path": "validation/ire-v6-frozen/V193_E3_TWO_ACTUAL_USER_TURNS_MANDATORY_PROTOCOL_20261120.md",
+    "v228_runtime_gate_path": "validation/ire-v6-frozen/v228_v193_actual_two_turn_runtime_gate.py",
+    "v228_uses_v193_validate_manual_turn_receipt_in_turn1": true,
+    "v228_ci_invokes_original_v193_contract_tests": true,
+    "v228_ci_invokes_original_v193_docs_tests": true,
+    "v228_ci_invokes_runtime_guard_tests": true,
+    "v228_owner_private_turn1_frozen": true,
+    "v228_turn1_actual_user_command_manual_ref": "user:observed-20261121-v228-turn1-request-manual-unverified",
+    "v228_turn1_bundle_sha256": "9f5a281191502bb30cb78ff17d2b08f6887f55b836cee67e00d7309770efa397",
+    "v228_turn1_manifest_sha256": "497f1d03987e59deec92066b6b68a528838230617e49ac98f208f2a85249820c",
+    "v228_turn1_frozen_head_sha256": "c7edf0a2ffffcdb2654c6f6006efe16254ee06afa5cd16b5481b8d2edee620d2",
+    "v228_turn1_original_etf_srt_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "v228_turn1_native68_sha256": "c8bec3354702cad0e85d4b111d2627ae2978806f3a4111c94a689d3b9e25baeb",
+    "v228_turn1_prior_canonical_e3_sha256": "6b60360a051cc022af138570fdd7e04e684a61636152496c727cae727cf03c14",
+    "v228_original_cues_direct_audited": 250,
+    "v228_v6_unapproved_atoms_frozen": 68,
+    "v228_all_atom_pair_lexical_ledger_rows_frozen": 2278,
+    "v228_turn1_source_context_tasks_audited": 68,
+    "v228_turn1_attention_cue_review_pending": 24,
+    "v228_owner_source_zip_saved_to_private_user_library": true,
+    "v228_owner_archive_is_private_unencrypted_zip": true,
+    "v228_owner_frozen_head_is_v228_bundle_not_historic_v176_sqlite": true,
+    "v228_first_turn_uses_previous_v227_candidates_not_blind_gold": true,
+    "v228_first_turn_host_user_message_id_verified": false,
+    "v228_second_distinct_user_command_observed": false,
+    "v228_second_user_turn_source_only_review_executed": false,
+    "v228_second_user_turn_e3_review_head_sha256": null,
+    "v228_e3_final_approved": false,
+    "v228_e4_approved": false,
+    "v228_e5_published": 0,
+    "v228_actual_two_turns_completed": false,
+    "v228_independent_gold_accuracy_certified": false,
+    "v228_new_synthetic_runtime_tests": 29,
+    "v228_newly_mandatory_existing_v193_contract_tests": 14,
+    "v228_newly_mandatory_existing_v193_docs_tests": 5,
+    "v228_code_only_ci_total_expected": 724,
+    "v228_ci_result": "PENDING_CURRENT_HEAD"
   }
 }
