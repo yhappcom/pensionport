@@ -87,6 +87,7 @@ def read_v228_source_native(*, private_zip: Path,
         "exchange": exchange, "inventory_bytes": inventory_bytes,
         "inventory_sha256": registry_pin,
         "native_sha256": sha256(frozen["content"]["native.json"]),
+        "native_exchange_digest": json_digest(exchange),
         "frozen_zip_sha256": externally_pinned_zip_sha256,
         "frozen_turn1_head_sha256": externally_pinned_first_head_sha256,
         "turn1_manual_user_ref": frozen["turn1_receipt"]["user_message_ref"],
@@ -111,6 +112,7 @@ def safe_preflight_summary(origin: dict) -> dict:
     return {k: origin[k] for k in (
         "schema", "source_sha256", "frozen_zip_sha256",
         "frozen_turn1_head_sha256", "inventory_sha256", "native_sha256",
+        "native_exchange_digest",
         "cue_count", "unapproved_atoms", "status",
         "recovered_v176_owner_journal", "turn2_chatgpt_review_verified",
         "e1_full_approval_store_path_proven", "e2_gold_approved",
@@ -219,6 +221,7 @@ def stage_unapproved_v228_native_host(*, origin: dict,
     source, manifest = origin["source"], origin["manifest"]
     raw, exchange = origin["source_raw"], origin["exchange"]
     require(sha256(raw) == origin["source_sha256"] and
+            json_digest(exchange) == origin["native_exchange_digest"] and
             audit_host_atomic_exchange(source, exchange)["proposed_atomic_claims"] ==
             origin["unapproved_atoms"], "SOURCE_NATIVE_DRIFT")
     verify_owner_inventory(raw, manifest, origin["inventory_bytes"],
