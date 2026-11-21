@@ -64,7 +64,7 @@
       "step": "E3",
       "criterion": "승인·보류·격리 결과가 정확히 전달",
       "status": "NOT_RUN_CURRENT_ROUTE",
-      "scope": "V193 mandatory two REAL distinct user-message instructions (study and freeze TURN1, next user command verification TURN2); V228 now executes validate_manual_turn_receipt for first-turn freeze and records external source/head. At current conversation turn only TURN1 is completed and source-only candidate reviewing in TURN2 has NOT begun. New canonical guard requires externally pinned original ZIP/manifest/head and a next distinct USER message. E3 final NOT_RUN; no retrospective V223-V227 internal packet or second Python process certified as separate CHAT TURN. Host user-message identity cryptographic proof unavailable. E4/E5 NOT_RUN."
+      "scope": "V193 mandatory two REAL distinct user-message instructions (study and freeze TURN1, next user command verification TURN2); V228 now executes validate_manual_turn_receipt for first-turn freeze and records external source/head. At current conversation turn only TURN1 is completed and source-only candidate reviewing in TURN2 has NOT begun. New canonical guard requires externally pinned original ZIP/manifest/head and a next distinct USER message. E3 final NOT_RUN; no retrospective V223-V227 internal packet or second Python process certified as separate CHAT TURN. Host user-message identity cryptographic proof unavailable. E4/E5 NOT_RUN. V228 runtime now includes a separate V193.validate_manual_turn_receipt(first,second) check on a complete 250-cue and 68-atom CHATGPT-authored second-turn review receipt; that API is implemented and passes synthetic tests, but no real new user TURN2 has been observed or executed. No E3 final authority granted."
     },
     {
       "step": "E4",
@@ -141,9 +141,9 @@
     "e2_semantic_accuracy_approved": false,
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
-    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44856993390",
+    "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44860150238",
     "ci_result": "success",
-    "ci_total_tests": 676,
+    "ci_total_tests": 734,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -786,10 +786,19 @@
     "v228_e5_published": 0,
     "v228_actual_two_turns_completed": false,
     "v228_independent_gold_accuracy_certified": false,
-    "v228_new_synthetic_runtime_tests": 29,
+    "v228_new_synthetic_runtime_tests": 39,
     "v228_newly_mandatory_existing_v193_contract_tests": 14,
     "v228_newly_mandatory_existing_v193_docs_tests": 5,
-    "v228_code_only_ci_total_expected": 724,
-    "v228_ci_result": "PENDING_CURRENT_HEAD"
+    "v228_code_only_ci_total_expected": 734,
+    "v228_ci_result": "PENDING_CURRENT_HEAD",
+    "v228_code_only_ci_734_verified": true,
+    "v228_verified_ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44860150238",
+    "v228_completed_second_turn_review_record_api_implemented": true,
+    "v228_real_second_user_turn_verdict_recorded": false,
+    "v228_real_second_user_turn_source_rows_reviewed": 0,
+    "v228_real_second_user_turn_claims_adjudicated": 0,
+    "v228_root_readme_frozen_bytes_restored": true,
+    "v228_root_readme_frozen_blob_sha": "32b059d14383a52e7dcba0e2b53abf7e8c467857",
+    "v228_e1_boundary_failure_from_temp_readme_edit_fixed": true
   }
 }
