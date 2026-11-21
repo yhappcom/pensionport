@@ -64,7 +64,7 @@
 ### E1. 검증된 현재 통제와 한계
 - 2026-11-22 직접 조회 기준 브랜치 `main`, `audit/full-repository-snapshot-20261122` **2개**, GitHub 저장소 Ruleset **0개**, 열린 PR **0개**. `main` HEAD는 `d613fd201f4bb077f1ccc74d28dee937b11bfcb2`.
 - [정리 작업 영수증](BRANCH_RETIREMENT_DURABLE_ATTESTATION_20261122.json)은 삭제 96건/실패 0건, 원래 HEAD 98개 보존, 원본 아티팩트 SHA-256 검증을 보유한다. 원본 GitHub Actions artifact는 만료될 수 있으므로, SHA와 요약을 Git 파일로 보존하고 원래 Git commit 계보·PR 이관 원장으로 독립 재검문한다.
-- 현재 `.github/workflows/full-all-branch-history-audit-20261122.yml`은 통합 브랜치에 대한 **push 또는 수동 workflow_dispatch** 때만 실행한다. 다른 브랜치가 **생성만** 되거나 `main`만 수정된 경우 즉시 실행되지 않을 수 있다. **이 CI를 상시 감시/생성 사전 차단으로 표현하지 않는다.**
+- 현재 `.github/workflows/full-all-branch-history-audit-20261122.yml`의 **실제로 확인된 자동 실행 조건은 통합 브랜치 push**이다. YAML에 `workflow_dispatch`가 있더라도 GitHub는 해당 수동 트리거의 파일이 기본 브랜치에 있어야 한다고 규정하므로, 현 상태에서 **수동 실행을 보장하지 않는다**. 다른 브랜치가 **생성만** 되거나 `main`만 수정된 경우 즉시 실행되지 않을 수 있다. **이 CI를 상시 감시/생성 사전 차단으로 표현하지 않는다.**
 - workflow가 기본 브랜치가 아닌 감사 브랜치에만 있는 동안, `schedule`이나 `create` 트리거를 파일에 추가하는 것만으로 GitHub의 기본 브랜치 이벤트 제약이 해결되지 않는다. `main` 수정 금지 조건 하에서는 외부 주기 점검 또는 관리자 GitHub Ruleset이 필요하다.
 
 ### E2. 사용자/관리자의 브랜치 생성 사전 차단 절차
