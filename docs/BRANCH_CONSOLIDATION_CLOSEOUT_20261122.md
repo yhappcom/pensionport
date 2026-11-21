@@ -46,3 +46,12 @@
 - 기존 PR 42건은 모두 상태 `closed`; 본문에는 원래 SHA·연구 HOLD 이관·`main` 미병합 안내를 기록.
 - 삭제용 workflow가 제거돼 이후 무단 삭제가 자동 재발하지 않음.
 - 기계 검사: Git branch ancestry 98/98, 최초 octopus tree(first parent) 일치, 시점 고정 `main` HEAD 유지; 최신 읽기 전용 정책 CI.
+
+
+## 6. 후속 감사: 삭제 영수증 원본 재조회·지속 관리 보강 (2026-11-22)
+
+- GitHub Actions `44961824077`의 실제 아티팩트 `14730251026`(`ire-branch-retirement-evidence-20261122.zip`)를 다운로드해 ZIP 내 `branch-retirement-result.json`을 확인했다. `original_count=98`, `original_heads_reachable=98`, `deleted=96`, `skipped=0`, `failed=0`, `all_open_prs_closed_before_deletion=true`; `main` SHA는 `d613fd201f4bb077f1ccc74d28dee937b11bfcb2`.
+- GitHub에 표시된 아티팩트 ZIP SHA-256과 다운로드 실물 해시가 `5828cea7a4bfd71ec6f10fc8b0839607fae92c115435c612eddc0f318c6ea98b`로 일치했다. 원본 아티팩트 만료 예정일은 2026-12-21 UTC이므로 [영구 요약·검증값](BRANCH_RETIREMENT_DURABLE_ATTESTATION_20261122.json)을 Git에 고정했다. **Git의 요약값은 원본 ZIP 자체를 대체하지 않으며, 그 이후에도 Git 조상/브랜치/PR 실물 검사가 필요하다.**
+- 별도 브랜치를 만들지 않고 현행 `.github/workflows/full-all-branch-history-audit-20261122.yml`을 강화하여 42개 기존 PR 이관 자료의 동치/OPEN·E3/E4/E5 미승인 보존, 96개 삭제 영수증, 98개 HEAD/변경 목록과 `main` 불변을 같은 감사에서 검문하도록 했다.
+- 2026-11-22 기준 Ruleset은 **0개**이며 현재 workflow는 통합 브랜치 push/수동 실행만 감지한다. **새 브랜치의 생성 자체를 사전 차단하거나 독립적인 실시간 감시를 제공하지 않는다.** GitHub 관리자 Ruleset 설정 또는 별도 외부 정기 점검이 필요하다. [운영 정책 E절](BRANCH_LIFECYCLE_AND_RESEARCH_CLOSEOUT_POLICY_20261122.md)에 관리자 설정 절차와 예외·정리 규칙을 기록했다.
+- 42개 기존 PR의 종료 영수증은 **기술적 이력 정리**이며 원자 검증·금융 사실 승인·E1~E5 합격이 아니다. 자료가 없는 개별 연구의 승인 확정 금지; 먼저 OPEN을 중앙 연구 큐에서 소스 기준으로 재판정한다.
