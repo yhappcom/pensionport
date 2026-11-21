@@ -22,13 +22,23 @@ An evidence-based investment research project that builds a knowledge base from 
 - [E1~E5 최신 단일 순서 판정](validation/ire-v6-frozen/V202_E1_E5_CURRENT_ROUTE_SEQUENCE_STATUS.json)
 - [V166 불변 사용자 순차 검증 계약](validation/ire-v6-frozen/V166_E1_E7_SEQUENTIAL_ENGINE_VERIFICATION_PLAN.md)
 
-**현행 단계:** E1 PASS (합성 구조; V6 strict 8/8, E1 435/435, cleanroom 1,224/1,224), E2 READY/NOT_RUN, E3·E4·E5 NOT_RUN. 실제 원본 13구간 지식 승인, 금융 법률 의미 정확성, 실전 E3 ChatGPT 2턴은 여기에 포함되지 않으며 E2 PASS 전 E3 진행 금지.
+**현행 단계 (2026-11-21, V228):** E1 구조 PASS. **E2 실물 ETF 250cue·68원자 1턴 연구/동결 완료, 독립 정답 기반 의미 정확도 HOLD**. **E3 최종 의미 검증은 별도 실제 사용자 명령 2턴 대기**이며 아직 NOT_RUN. E4/E5 NOT_RUN, 승인·발행 0. E2 HOLD에서는 E3 최종 승인·E4/E5는 금지하되, 미승인 E3 검토 준비와 별도 턴의 원문 대조·보류 판정은 허용한다. 금융 법률 원문·원음/원화면·독립 gold의 실제 검증을 대체하지 않는다.
 
 ## V6 E3 현행 필수 규칙 — 실제 사용자 메시지 두 번
 
 최신 V6 E3는 **별개의 사용자 메시지 2턴** — **사용자의 연구 명령 1턴 → 별도 사용자 메시지로 시작하는 ChatGPT 최종 의미 검증 1턴** — 을 필수로 합니다. 같은 턴에서 두 배치/두 프로세스/두 번째 의미 분석을 수행해도 두 개의 사용자 턴이 아닙니다. 연구 결과를 턴 1에서 동결하고 턴 2에서 원본·근거·동결 결과를 검증해야 합니다. 확인 전에는 **E3 HOLD / E4 NOT RUN / E5=0**입니다.
 
 [현행 V193 실제 사용자 2턴 운영 계약](validation/ire-v6-frozen/V193_E3_TWO_ACTUAL_USER_TURNS_MANDATORY_PROTOCOL_20261120.md)을 우선 적용합니다. 과거 V3 한 턴 연구와 V183~V192의 2차 분석 기록은 역사적 개발 자료입니다.
+
+### 강제 실행 경로 — V228 (V193 우선, 신규 ETF 실물 1턴 동결)
+
+1. **TURN1_RESEARCH_AND_FREEZE:** 현재 사용자 메시지에서 원본 SRT 전수 및 이전 연구 후보·조건·예외·위험 검토 후 원본·전체 250cue 분류·미승인 68 V6 원자·E3 검토 입력·2,278 원자쌍을 포함한 **소유자 비공개 ZIP**을 원자적으로 동결한다. 첫 사용자 명령 참조, 원본 SHA, ZIP SHA, manifest SHA, head SHA를 별도 기록한다. **기존 V227 원자 후보를 참고했으므로 독립 blind gold 아님**. 동결된 첫 턴 자료의 덮어쓰기 금지.
+2. **AWAIT_DISTINCT_USER_TURN2:** 첫 턴과 같은 응답에서 또 분석을 실행하거나 두 번째 배치/프로세스를 실행해도 새 사용자 2턴으로 인정하지 않는다. 유효한 첫 ZIP/manifest/head 외부 체크포인트가 없거나 원본 SHA가 다르면 **실패로 닫는다**. 2턴 입력을 임의로 만들어 출력하지 않는다.
+3. **TURN2_CHATGPT_SOURCE_FIRST_REVIEW:** **다음 별도 사용자 메시지**에서만 동결 ZIP을 검증·복구하고 후보 원자 명제는 가린 **원문만 포함한 리뷰 챌린지**를 만든다. ChatGPT가 새로운 원문 의미 판정을 작성한 후에만 기존 원자/금융 근거·한정·예외와 대조한다. 실제 새로운 사용자 지시를 ChatGPT가 관찰한 것은 수동 기록하며 **플랫폼 호스트 메시지 ID 암호 인증이라고 주장하지 않는다**.
+4. **HOLD_OR_EXPLICIT_E3_GATE:** 모든 불확실성·위험·금융 원문 근거와 독립 평가가 충족되지 않으면 E3 HOLD, E4/E5 NOT_RUN. 2턴에서 차이가 나면 원본 1턴을 수정하지 않고 append-only 교정. 원천 자료를 새로 생산해야 할 때만 새로운 턴1→턴2 실증을 시작한다.
+
+**필수 CI:** `.github/workflows/ire-v206-e2-source-census.yml`은 기존 E2 회귀와 별개로 `v193_e3_two_user_turn_contract.py`, `test_v193_e3_two_user_turn_contract.py`, `test_v193_e3_protocol_docs.py`, `v228_v193_actual_two_turn_runtime_gate.py`와 검증시험을 **별도 선행 관문**으로 실행한다. CI 성공만으로 실제 채팅 두 턴/정확도 PASS를 인증하지 않는다. [V228 1턴 동결·런타임 관문 실증 보고서](validation/ire-v6-frozen/V228_V193_TWO_REAL_CHAT_TURN_ENFORCEMENT_ETF250_TURN1_FROZEN_20261121.md).
+
 
 ## Operations
 
