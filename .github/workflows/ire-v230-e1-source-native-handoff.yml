@@ -107,6 +107,20 @@ jobs:
         run: |
           python -m compileall -q v238_e1_child_native_scope_draft.py test_v238_e1_child_native_scope_draft.py
           python -m unittest -v test_v238_e1_child_native_scope_draft
+      - name: V239 actual separate-turn internal review routing, no fabricated V123 approval
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v239_e1_source_bound_second_turn_child_intake.py test_v239_e1_source_bound_second_turn_child_intake.py
+          python -m unittest -v test_v239_e1_source_bound_second_turn_child_intake
+      - name: V240 sealed E4-only publication route (never legacy V126)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v240_e1_mandatory_e4_sealed_parent_gateway.py test_v240_e1_mandatory_e4_sealed_parent_gateway.py
+          python -m unittest -v test_v240_e1_mandatory_e4_sealed_parent_gateway
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
           mkdir -p /tmp/e1-v6-public-code/validation /tmp/e1-v6-public-code/data
