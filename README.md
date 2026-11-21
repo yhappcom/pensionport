@@ -44,3 +44,7 @@ Each research cycle follows **select an unfinished long-form video → obtain th
 - For time-sensitive matters such as pensions, ISA accounts, and taxation, distinguish historical statements from current rules verified against official sources.
 
 Preserve historical canonical events. An earlier analysis-only record for `09R29vsv6to` may count as a V3 completion if it satisfies the V3 data requirements. Do not recreate the previously blocked canonical event #232.
+
+
+
+**브랜치 정리 완료 (2026-11-22):** 역사적 브랜치 98개를 단일 Git 이력으로 보존한 후 안전하게 96개를 종료하여 `main` + `audit/full-repository-snapshot-20261122` **2개만 유지**한다. 이전 열린 PR 42개는 `main` 병합 없이 연구 HOLD를 중앙으로 이관하고 종료했다. [최종 정리 보고서](docs/BRANCH_CONSOLIDATION_CLOSEOUT_20261122.md) · [연구 종료 영수증 양식](docs/RESEARCH_RUN_CLOSEOUT_RECEIPT_TEMPLATE_20261122.md). 기존 실제 E1/E2/E3/E4/E5 최종 연구 승인은 계속 HOLD다.
