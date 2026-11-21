@@ -1,0 +1,564 @@
+{
+  "schema": "IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_V1",
+  "as_of": "2026-11-22",
+  "source_plan": "docs/IRE_CANONICAL_FULL_DEVELOPMENT_MASTER_PLAN_20261122.md",
+  "target_branch": "audit/full-repository-snapshot-20261122",
+  "protected_main_sha": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+  "workflow_rule": "Only the next item after a contiguous PASS prefix may be READY/IN_PROGRESS/FAIL/HOLD. Fail/Hold remains on same item until validated PASS with user-start/end reports; downstream items are BLOCKED.",
+  "stage_order": [
+    "P0-0",
+    "P0-1",
+    "P0-2",
+    "P0-3",
+    "P0-4",
+    "P0-5",
+    "P0-6",
+    "P1-1",
+    "P1-2",
+    "P1-3",
+    "P2",
+    "P3"
+  ],
+  "items": [
+    {
+      "id": "P0-0-01",
+      "sequence": 1,
+      "stage_id": "P0-0",
+      "stage_title": "개발 기준 동결·안전·통합 CI",
+      "title": "기준 HEAD·main 보존·2브랜치·전수 파일·98 HEAD 증거 고정",
+      "acceptance": "tree inventory, HEAD SHA, ancestry 기록, main 변경 0",
+      "required_evidence_kind": "git"
+    },
+    {
+      "id": "P0-0-02",
+      "sequence": 2,
+      "stage_id": "P0-0",
+      "stage_title": "개발 기준 동결·안전·통합 CI",
+      "title": "E1~E5·자문·영상 분모의 단일 상태 원장 확정",
+      "acceptance": "합성/실물/독립정확도 PASS/HOLD를 분리하고 791/703/88 기준 혼동 0",
+      "required_evidence_kind": "audit"
+    },
+    {
+      "id": "P0-0-03",
+      "sequence": 3,
+      "stage_id": "P0-0",
+      "stage_title": "개발 기준 동결·안전·통합 CI",
+      "title": "기존 Actions 27개·사용 권한·실행 브랜치 전수 정리",
+      "acceptance": "각 워크플로 active/legacy/permission/trigger 분류와 삭제 브랜치 의존 해소안",
+      "required_evidence_kind": "audit"
+    },
+    {
+      "id": "P0-0-04",
+      "sequence": 4,
+      "stage_id": "P0-0",
+      "stage_title": "개발 기준 동결·안전·통합 CI",
+      "title": "Python 3.11.18 동일 HEAD 전체 통합 CI 연결·실행",
+      "acceptance": "V3/V5/V6/cleanroom/E1~E5 양성·음성 검사가 하나의 SHA에 연결되며 실패 원인 재현 가능",
+      "required_evidence_kind": "ci"
+    },
+    {
+      "id": "P0-0-05",
+      "sequence": 5,
+      "stage_id": "P0-0",
+      "stage_title": "개발 기준 동결·안전·통합 CI",
+      "title": "11개 독립 분기 코드와 42 PR HOLD·Issue #48/#50 등록",
+      "acceptance": "ADOPT/TEST_ONLY/ARCHIVE/HOLD 및 결함 ID·원래 SHA·OPEN 이관 영수증",
+      "required_evidence_kind": "audit"
+    },
+    {
+      "id": "P0-0-06",
+      "sequence": 6,
+      "stage_id": "P0-0",
+      "stage_title": "개발 기준 동결·안전·통합 CI",
+      "title": "공개 b64 6개·보안·비공개 아카이브 36개 재현성 점검",
+      "acceptance": "공개 적합성/접근·복구 경로·보안 HOLD 또는 조치·비공개 유출 0",
+      "required_evidence_kind": "security"
+    },
+    {
+      "id": "P0-0-07",
+      "sequence": 7,
+      "stage_id": "P0-0",
+      "stage_title": "개발 기준 동결·안전·통합 CI",
+      "title": "P0-0 전체 기준 충족·CI 재조회·단계 종료 보고",
+      "acceptance": "앞 6개 PASS + 동일 커밋 CI + 사용자 종료 보고 후 다음 단계 개방",
+      "required_evidence_kind": "ci"
+    },
+    {
+      "id": "P0-1-01",
+      "sequence": 8,
+      "stage_id": "P0-1",
+      "stage_title": "E1 단일 실행 엔진",
+      "title": "입력→ChatGPT 검토→E4 승인→E5 저장의 정식 API 통일",
+      "acceptance": "실행/승인/저장 경로 1종, 우회 CLI 외부 공개 0",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-1-02",
+      "sequence": 9,
+      "stage_id": "P0-1",
+      "stage_title": "E1 단일 실행 엔진",
+      "title": "원본 250 cue·13 child·부모/자식 source graph 연결",
+      "acceptance": "250/250 cue, 13 child, 원본 SHA·인용·가계보 역추적",
+      "required_evidence_kind": "source"
+    },
+    {
+      "id": "P0-1-03",
+      "sequence": 10,
+      "stage_id": "P0-1",
+      "stage_title": "E1 단일 실행 엔진",
+      "title": "21 cross 원자·49 edge·B0013 조건의 typed overlay 구현",
+      "acceptance": "C00057 인덱스 ETF 조건·숫자·예외가 정식 입력까지 손실 0",
+      "required_evidence_kind": "source"
+    },
+    {
+      "id": "P0-1-04",
+      "sequence": 11,
+      "stage_id": "P0-1",
+      "stage_title": "E1 단일 실행 엔진",
+      "title": "합성 긍정과 변조·미승인·복구·재실행 부정시험",
+      "acceptance": "검토/승인/저장 전 과정 실제 SQLite 회귀 및 부분발행 0",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-1-05",
+      "sequence": 12,
+      "stage_id": "P0-1",
+      "stage_title": "E1 단일 실행 엔진",
+      "title": "E1 구조와 실물 미승인 상태를 구분한 최종 판정",
+      "acceptance": "E1 구조 PASS 증거 + ETF 승인 HOLD 상태 유지, 오류 재현 0",
+      "required_evidence_kind": "ci"
+    },
+    {
+      "id": "P0-2-01",
+      "sequence": 13,
+      "stage_id": "P0-2",
+      "stage_title": "E2 원자 주장 의미 품질",
+      "title": "ETF 250 cue 전수 원본 선행 처분",
+      "acceptance": "자막별 질문·의견·FACT·NO_ATOM·OPEN 근거 및 250/250 회수",
+      "required_evidence_kind": "source"
+    },
+    {
+      "id": "P0-2-02",
+      "sequence": 14,
+      "stage_id": "P0-2",
+      "stage_title": "E2 원자 주장 의미 품질",
+      "title": "68 후보와 21 교차원자·49 edge 재판정",
+      "acceptance": "KEEP/REATOMIZE/QUARANTINE/OPEN 및 조건·숫자·예외 계보 보존",
+      "required_evidence_kind": "source"
+    },
+    {
+      "id": "P0-2-03",
+      "sequence": 15,
+      "stage_id": "P0-2",
+      "stage_title": "E2 원자 주장 의미 품질",
+      "title": "화자·부정·인용·반박·시점·중복/누락 처리",
+      "acceptance": "원문과 의미가 상충하는 판정 0 및 위험 원자 재심사",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-2-04",
+      "sequence": 16,
+      "stage_id": "P0-2",
+      "stage_title": "E2 원자 주장 의미 품질",
+      "title": "Issue #48/#50 적대적 케이스 및 거짓 완료 차단",
+      "acceptance": "NONFACT 자기라벨·숨은 세금 주장·반박 인용·중복/상태 드리프트 RED→GREEN",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-2-05",
+      "sequence": 17,
+      "stage_id": "P0-2",
+      "stage_title": "E2 원자 주장 의미 품질",
+      "title": "사전 고정 독립 골드·정량 지표 측정",
+      "acceptance": "precision≥95%, recall≥98%, 고위험 FN=0; 독립 평가 부재면 HOLD",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P0-2-06",
+      "sequence": 18,
+      "stage_id": "P0-2",
+      "stage_title": "E2 원자 주장 의미 품질",
+      "title": "E2 실제 원본 전수·정확도 최종 검수",
+      "acceptance": "250 cue/원자·OPEN·오분류·증거 집계 PASS 후 E3 허용",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P0-3-01",
+      "sequence": 19,
+      "stage_id": "P0-3",
+      "stage_title": "E3 실제 사용자 2턴·V123 최종 의미 판정",
+      "title": "TURN1 원본·원자·13 child·OPEN·지식 HEAD 비공개 동결",
+      "acceptance": "source SHA·체크포인트 SHA·cue 수·private 보관 위치/복원 성공",
+      "required_evidence_kind": "source"
+    },
+    {
+      "id": "P0-3-02",
+      "sequence": 20,
+      "stage_id": "P0-3",
+      "stage_title": "E3 실제 사용자 2턴·V123 최종 의미 판정",
+      "title": "별도 실제 사용자 TURN2 및 신뢰 수준 기록",
+      "acceptance": "이전 TURN1과 구별되는 사용자 메시지, 서명 미확보 여부 명시",
+      "required_evidence_kind": "turn2"
+    },
+    {
+      "id": "P0-3-03",
+      "sequence": 21,
+      "stage_id": "P0-3",
+      "stage_title": "E3 실제 사용자 2턴·V123 최종 의미 판정",
+      "title": "ChatGPT 원문 중심 원자별 승인·수정·격리·보류 판정",
+      "acceptance": "화자·조건·예외·금융 근거·인용·관계와 원자 수정 전후 SHA",
+      "required_evidence_kind": "turn2"
+    },
+    {
+      "id": "P0-3-04",
+      "sequence": 22,
+      "stage_id": "P0-3",
+      "stage_title": "E3 실제 사용자 2턴·V123 최종 의미 판정",
+      "title": "V123 13 child·seam·parent 접수 및 재조회",
+      "acceptance": "13/13 valid case, stale/위조/해시 조작 차단·미해결 격리",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-3-05",
+      "sequence": 23,
+      "stage_id": "P0-3",
+      "stage_title": "E3 실제 사용자 2턴·V123 최종 의미 판정",
+      "title": "E3 최종 판정·사용자 보고",
+      "acceptance": "실제 TURN2 결과와 V123 저장값 일치 및 미승인 E4 진입 0",
+      "required_evidence_kind": "turn2"
+    },
+    {
+      "id": "P0-4-01",
+      "sequence": 24,
+      "stage_id": "P0-4",
+      "stage_title": "E4 공식 금융근거·승인 관문",
+      "title": "공식기관 원문 바이트와 효력일·조회일·관할 검증",
+      "acceptance": "HTTPS/PDF/HTML 실제 body SHA·법령·대상·상품·시점 일치",
+      "required_evidence_kind": "official"
+    },
+    {
+      "id": "P0-4-02",
+      "sequence": 25,
+      "stage_id": "P0-4",
+      "stage_title": "E4 공식 금융근거·승인 관문",
+      "title": "영상 제작 시점과 현재 법령·발언 의미 구별",
+      "acceptance": "화자 주장/인용/법령 사실·현재 효력/조건의 동치 검증",
+      "required_evidence_kind": "official"
+    },
+    {
+      "id": "P0-4-03",
+      "sequence": 26,
+      "stage_id": "P0-4",
+      "stage_title": "E4 공식 금융근거·승인 관문",
+      "title": "권한 있는 E4 봉인 결과만 E5 입구로 전달",
+      "acceptance": "구형 직접 출판 경로 차단, owner authorization 확인, 임의 TRUE 금지",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-4-04",
+      "sequence": 27,
+      "stage_id": "P0-4",
+      "stage_title": "E4 공식 금융근거·승인 관문",
+      "title": "만료·변조·적용불가·사칭·규정 충돌 부정시험",
+      "acceptance": "부정 입력 정식 승인 0, 정상 입력만 조건부 성공",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-4-05",
+      "sequence": 28,
+      "stage_id": "P0-4",
+      "stage_title": "E4 공식 금융근거·승인 관문",
+      "title": "E4 합법 승인·차단 결과 검수",
+      "acceptance": "공식근거와 승인권한 둘 다 검증되며 개인자문 GO와 혼동 0",
+      "required_evidence_kind": "official"
+    },
+    {
+      "id": "P0-5-01",
+      "sequence": 29,
+      "stage_id": "P0-5",
+      "stage_title": "E5 13구간 원자적 지식 통합",
+      "title": "13 child 최종 승인/격리/보류 출판 계약 고정",
+      "acceptance": "12/13 또는 OPEN unresolved에서 전체 원자 출판 0",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-5-02",
+      "sequence": 30,
+      "stage_id": "P0-5",
+      "stage_title": "E5 13구간 원자적 지식 통합",
+      "title": "승인된 합성 부모 exactly-once SQLite 커밋",
+      "acceptance": "parent_publications=1, delta 정확, 중복 재실행 추가 0",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-5-03",
+      "sequence": 31,
+      "stage_id": "P0-5",
+      "stage_title": "E5 13구간 원자적 지식 통합",
+      "title": "부분실패·E4 우회·동시성·재시작 부정시험",
+      "acceptance": "불변 HEAD/원장, 0 부분 저장, crash/reopen 동일 결과",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-5-04",
+      "sequence": 32,
+      "stage_id": "P0-5",
+      "stage_title": "E5 13구간 원자적 지식 통합",
+      "title": "V2 과거 DB 재생·버전 마이그레이션 안전성",
+      "acceptance": "구형 로그를 파괴 없이 읽고 유효 신규 상태로 복원·검문",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P0-5-05",
+      "sequence": 33,
+      "stage_id": "P0-5",
+      "stage_title": "E5 13구간 원자적 지식 통합",
+      "title": "SAME/SUPPORTS/EXTENDS/CONFLICTS 등 관계 통합·검수",
+      "acceptance": "승인된 원자만 KB 통합, 이전 116·P4 29 무단 승격 0",
+      "required_evidence_kind": "publication"
+    },
+    {
+      "id": "P0-6-01",
+      "sequence": 34,
+      "stage_id": "P0-6",
+      "stage_title": "ETF 실물 한 편 E1~E5 완결 증명",
+      "title": "실물 ETF 250 cue→13 child·68 후보 전수 재현",
+      "acceptance": "원문 SHA, cue, 원자, 조건/예외 의미검사 일치",
+      "required_evidence_kind": "source"
+    },
+    {
+      "id": "P0-6-02",
+      "sequence": 35,
+      "stage_id": "P0-6",
+      "stage_title": "ETF 실물 한 편 E1~E5 완결 증명",
+      "title": "실제 TURN2·V123·공식근거·owner 심사 완주",
+      "acceptance": "13/13 V123 및 E4 증거·실제 2턴 한계 기록",
+      "required_evidence_kind": "turn2"
+    },
+    {
+      "id": "P0-6-03",
+      "sequence": 36,
+      "stage_id": "P0-6",
+      "stage_title": "ETF 실물 한 편 E1~E5 완결 증명",
+      "title": "E5 실제 승인 원자만 원자적 발행·재개봉",
+      "acceptance": "정식 publication=1, 복구·재실행 중복 0, 미승인 출판 0",
+      "required_evidence_kind": "publication"
+    },
+    {
+      "id": "P0-6-04",
+      "sequence": 37,
+      "stage_id": "P0-6",
+      "stage_title": "ETF 실물 한 편 E1~E5 완결 증명",
+      "title": "승인 지식 기반 질의→원문·공식근거 역추적",
+      "acceptance": "질의 답변 문장별 원자/cue/법령/시점/제한 연결",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P0-6-05",
+      "sequence": 38,
+      "stage_id": "P0-6",
+      "stage_title": "ETF 실물 한 편 E1~E5 완결 증명",
+      "title": "전체 P0 독립 재감사·실패 0·연구 종료 영수증",
+      "acceptance": "E1~E5 실물별 PASS/OPEN 0 확인, 미충족이면 HOLD 유지",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P1-1-01",
+      "sequence": 39,
+      "stage_id": "P1-1",
+      "stage_title": "새 미노출 영상 5편 교차검증",
+      "title": "ETF와 독립된 새로운 원본 5편 사전 등록",
+      "acceptance": "중복 제외·영상 ID·SRT SHA·범위·독립 표본 확보",
+      "required_evidence_kind": "source"
+    },
+    {
+      "id": "P1-1-02",
+      "sequence": 40,
+      "stage_id": "P1-1",
+      "stage_title": "새 미노출 영상 5편 교차검증",
+      "title": "각 영상 TURN1 의미·근거·기존 지식 대조 동결",
+      "acceptance": "5/5 cue 전수·조건·예외·시점·기존 지식 HEAD 고정",
+      "required_evidence_kind": "source"
+    },
+    {
+      "id": "P1-1-03",
+      "sequence": 41,
+      "stage_id": "P1-1",
+      "stage_title": "새 미노출 영상 5편 교차검증",
+      "title": "각 영상 별도 TURN2→E1~E5 승인 전 경로 실행",
+      "acceptance": "5/5 정식 의미·공식근거·원자 승인/OPEN·출판 기록",
+      "required_evidence_kind": "turn2"
+    },
+    {
+      "id": "P1-1-04",
+      "sequence": 42,
+      "stage_id": "P1-1",
+      "stage_title": "새 미노출 영상 5편 교차검증",
+      "title": "신규/동치/상충·품질·회귀 종합 평가",
+      "acceptance": "연구 종료 영수증 5개, 미승인 중복·충돌·손실 0",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P1-2-01",
+      "sequence": 43,
+      "stage_id": "P1-2",
+      "stage_title": "안정성·장편 처리 성능",
+      "title": "250→1000+ cue 장편·5편·10편 벤치마크",
+      "acceptance": "각 단위 단계별 원본/모델/검색/DB 시간·소요 자원 측정",
+      "required_evidence_kind": "performance"
+    },
+    {
+      "id": "P1-2-02",
+      "sequence": 44,
+      "stage_id": "P1-2",
+      "stage_title": "안정성·장편 처리 성능",
+      "title": "원자/금융근거/검토/저장 단계별 지표 분리",
+      "acceptance": "평균·P95·오류율·도구·모델 소요/복구 시간 기록",
+      "required_evidence_kind": "performance"
+    },
+    {
+      "id": "P1-2-03",
+      "sequence": 45,
+      "stage_id": "P1-2",
+      "stage_title": "안정성·장편 처리 성능",
+      "title": "중단·중복·재시도·동시성·장시간 재개 회귀",
+      "acceptance": "원본 변조·중복·누락·부분발행 없는 재시작 확인",
+      "required_evidence_kind": "test"
+    },
+    {
+      "id": "P1-2-04",
+      "sequence": 46,
+      "stage_id": "P1-2",
+      "stage_title": "안정성·장편 처리 성능",
+      "title": "791편 확대 실측 용량·처리계획 승인",
+      "acceptance": "실측 바탕 일괄 처리 비용/성공률/차단 조건 보고",
+      "required_evidence_kind": "performance"
+    },
+    {
+      "id": "P1-3-01",
+      "sequence": 47,
+      "stage_id": "P1-3",
+      "stage_title": "검증 지식 기반 투자자문",
+      "title": "ISA·IRP·ETF·연금·리밸런싱 질문 정답/평가계획 고정",
+      "acceptance": "사전 고정 복합 질의 및 판정 기준·적합성·고위험 시나리오",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P1-3-02",
+      "sequence": 48,
+      "stage_id": "P1-3",
+      "stage_title": "검증 지식 기반 투자자문",
+      "title": "E5 승인 지식+답변일 최신 공식자료 검색",
+      "acceptance": "문장별 source cue/원자 SHA·법령·적용 조건 역추적",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P1-3-03",
+      "sequence": 49,
+      "stage_id": "P1-3",
+      "stage_title": "검증 지식 기반 투자자문",
+      "title": "금융 정합성·개인 적합성·환각 위험 평가",
+      "acceptance": "오인 유발 자문·미승인 지식 인용 0, 미확정 답변 보류",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P1-3-04",
+      "sequence": 50,
+      "stage_id": "P1-3",
+      "stage_title": "검증 지식 기반 투자자문",
+      "title": "지식 기반 자문 GO/HOLD 판정",
+      "acceptance": "재현 가능한 독립 평가와 위험통제 후에만 승인",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P2-01",
+      "sequence": 51,
+      "stage_id": "P2",
+      "stage_title": "791편 전체 연구 확장·장기 운영",
+      "title": "703 롱폼·88 Shorts 로스터·중복/누락 고정",
+      "acceptance": "정식 E5 승인/임시 분석/미처리 편수 구별",
+      "required_evidence_kind": "audit"
+    },
+    {
+      "id": "P2-02",
+      "sequence": 52,
+      "stage_id": "P2",
+      "stage_title": "791편 전체 연구 확장·장기 운영",
+      "title": "단일 브랜치 다편 연구 큐와 2턴 종료 영수증 표준화",
+      "acceptance": "연구 ID·HOLD·OPEN·private 보관·버전/재실행 이력",
+      "required_evidence_kind": "audit"
+    },
+    {
+      "id": "P2-03",
+      "sequence": 53,
+      "stage_id": "P2",
+      "stage_title": "791편 전체 연구 확장·장기 운영",
+      "title": "791편을 단계별 2턴 원본 분석·E1~E5 실행",
+      "acceptance": "편별 실제 source→승인 지식/격리·미완료 영수증 유지",
+      "required_evidence_kind": "source"
+    },
+    {
+      "id": "P2-04",
+      "sequence": 54,
+      "stage_id": "P2",
+      "stage_title": "791편 전체 연구 확장·장기 운영",
+      "title": "신규 법령/기존 지식 정정·관계 리빌드",
+      "acceptance": "과거 주장 임의 덮어쓰기 없이 변경·충돌·시점 추적",
+      "required_evidence_kind": "official"
+    },
+    {
+      "id": "P2-05",
+      "sequence": 55,
+      "stage_id": "P2",
+      "stage_title": "791편 전체 연구 확장·장기 운영",
+      "title": "791편 연구 품질·운영 통합 종료 판정",
+      "acceptance": "분모/분자·정밀도·누락·진척·OPEN·발행수 검증",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P3-01",
+      "sequence": 56,
+      "stage_id": "P3",
+      "stage_title": "개인 포트폴리오·Google Drive 연결",
+      "title": "개인정보·접근권한·법적 제한·동의 구조 확정",
+      "acceptance": "개인 자료 공개 Git 0, 최소권한·파기·감사 규칙",
+      "required_evidence_kind": "security"
+    },
+    {
+      "id": "P3-02",
+      "sequence": 57,
+      "stage_id": "P3",
+      "stage_title": "개인 포트폴리오·Google Drive 연결",
+      "title": "Google Drive 보유계좌·종목·잔고 읽기전용 연결",
+      "acceptance": "사용자 권한 확인, 정확한 파일·스냅샷·시점 검문",
+      "required_evidence_kind": "security"
+    },
+    {
+      "id": "P3-03",
+      "sequence": 58,
+      "stage_id": "P3",
+      "stage_title": "개인 포트폴리오·Google Drive 연결",
+      "title": "계좌/종목/비중/집중도·세금·위험 분석",
+      "acceptance": "현금·중복·가격·계좌합계·세금조건 테스트",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P3-04",
+      "sequence": 59,
+      "stage_id": "P3",
+      "stage_title": "개인 포트폴리오·Google Drive 연결",
+      "title": "목표·위험성향·현금흐름과 자문 적합성 연결",
+      "acceptance": "개인화 판단 근거·예외·손실 위험·현재 법령 표시",
+      "required_evidence_kind": "assessment"
+    },
+    {
+      "id": "P3-05",
+      "sequence": 60,
+      "stage_id": "P3",
+      "stage_title": "개인 포트폴리오·Google Drive 연결",
+      "title": "최종 개인 투자 의사결정 지원 출시 검문",
+      "acceptance": "안전/개인화/보안·변조·재현성 PASS, 자동매매 별도 금지",
+      "required_evidence_kind": "assessment"
+    }
+  ]
+}
