@@ -288,3 +288,113 @@ def reject_final_approval_without_trusted_evidence(*,e3_final_approved:bool=Fals
     # A documented two-turn procedure is not an independent financial fact/gold certification.
     need(not any([e3_final_approved,e4_approved,e5_published]),'FINAL_APPROVAL_NOT_AUTHORIZED')
     return {'e3_final_approved':False,'e4_approved':False,'e5_published':False}
+
+def record_completed_turn2_review(*,private_zip:Path,externally_pinned_zip_sha256:str,
+      externally_pinned_manifest_sha256:str,externally_pinned_first_head_sha256:str,
+      externally_pinned_source_sha256:str,second_user_ref:str,second_user_text:str,
+      current_actual_user_message_observed:bool,
+      source_only_review_rows:list,atom_adjudication_rows:list,
+      private_turn2_receipt:Path)->dict:
+    """Append-only *actual second USER command* review receipt; NO approvals.
+
+    This cannot be called in turn 1 without a new real ChatGPT/user interaction.
+    A boolean from a caller does not independently prove an actual host turn;
+    the resulting receipt explicitly says so. All source material stays PRIVATE.
+    """
+    challenge=prepare_turn2_source_only_review(private_zip=private_zip,
+      externally_pinned_zip_sha256=externally_pinned_zip_sha256,
+      externally_pinned_manifest_sha256=externally_pinned_manifest_sha256,
+      externally_pinned_first_head_sha256=externally_pinned_first_head_sha256,
+      externally_pinned_source_sha256=externally_pinned_source_sha256,
+      second_user_ref=second_user_ref,second_user_text=second_user_text,
+      current_actual_user_message_observed=current_actual_user_message_observed)
+    study=verify_turn1_frozen(private_zip=private_zip,
+      externally_pinned_zip_sha256=externally_pinned_zip_sha256,
+      externally_pinned_manifest_sha256=externally_pinned_manifest_sha256,
+      externally_pinned_first_head_sha256=externally_pinned_first_head_sha256,
+      externally_pinned_source_sha256=externally_pinned_source_sha256)
+    originals=challenge['source_only_cues']
+    need(type(source_only_review_rows) is list and len(source_only_review_rows)==len(originals),
+         'TURN2_FULL_ORIGINAL_CUE_REVIEW_REQUIRED')
+    dispositions={'ASSERTION_CANDIDATE','QUESTION','QUOTE','NONCLAIM_PROVISIONAL',
+                  'CONTEXT_OF_ANOTHER_CLAIM','OPEN_AUDIO_OR_SCREEN'}
+    for a,b in zip(source_only_review_rows,originals):
+        need(type(a) is dict and a.get('cue_index')==b['cue_index'] and
+             a.get('quote')==b['quote'] and a.get('quote_sha256')==b['quote_sha256'],
+             'TURN2_ORIGINAL_CUE_QUOTE_DRIFT')
+        need(a.get('disposition') in dispositions and
+             type(a.get('review_reason')) is str and len(a['review_reason'].strip())>=12,
+             'TURN2_SOURCE_FIRST_MEANING_REASON_MISSING')
+        need(a.get('is_independent_blind_gold') is False and
+             a.get('financial_fact_approved') is False,
+             'TURN2_CUE_FALSE_GOLD_OR_FINANCE')
+    native=load(study['content']['native.json'],'NATIVE')
+    ids={a['claim_id'] for a in native['atoms']}
+    need(type(atom_adjudication_rows) is list and len(atom_adjudication_rows)==len(ids),
+         'TURN2_EVERY_NATIVE_CLAIM_REVIEW_REQUIRED')
+    need({a.get('claim_id') for a in atom_adjudication_rows if type(a) is dict}==ids,
+         'TURN2_ATOM_ID_COVERAGE')
+    decisions={'HOLD','QUARANTINE','REQUIRES_SOURCE_MEANING_REPAIR',
+               'APPROVE_CANDIDATE_PENDING_INDEPENDENT_EVIDENCE'}
+    for a in atom_adjudication_rows:
+        need(type(a) is dict and a.get('disposition') in decisions and
+             type(a.get('source_grounded_reason')) is str and
+             len(a['source_grounded_reason'].strip())>=12,'TURN2_ATOM_REASON_MISSING')
+        need(a.get('e3_final_approved') is False and
+             a.get('financial_fact_approved') is False and
+             a.get('independent_gold_certified') is False,
+             'TURN2_ATOM_FORGED_APPROVAL')
+    review={'schema':'IRE_V228_PRIVATE_SECOND_USER_CHATGPT_SOURCE_AND_ATOM_VERDICT_V1',
+        'phase':'CHATGPT_FINAL_SEMANTIC_VERIFICATION',
+        'turn1_frozen_head_sha256':externally_pinned_first_head_sha256,
+        'source_sha256':externally_pinned_source_sha256,
+        'second_user_ref_manual':second_user_ref,
+        'second_user_text_sha256':digest(second_user_text.encode('utf8')),
+        'source_only_review_rows':source_only_review_rows,
+        'atom_adjudication_rows':atom_adjudication_rows,
+        'review_complete_as_internal_not_blind_gold':True,
+        'host_user_turn_proven_by_cryptographic_id':False,
+        'e3_final_approved':False,'e4_approved':False,'e5_published':False}
+    review_head=digest(canonical(review))
+    first=study['turn1_receipt']
+    second={'phase':'CHATGPT_FINAL_SEMANTIC_VERIFICATION',
+       'user_message_ref':second_user_ref,
+       'user_message_sha256':digest(second_user_text.encode('utf8')),
+       'source_sha256':externally_pinned_source_sha256,
+       'owner_head_sha256':externally_pinned_first_head_sha256,
+       'review_recorded':True,'review_head_sha256':review_head}
+    contract=validate_manual_turn_receipt(first=first,second=second,
+        source_sha256=externally_pinned_source_sha256,
+        owner_head_sha256=externally_pinned_first_head_sha256)
+    need(contract['phase']=='TWO_DISTINCT_USER_COMMANDS_CLAIMED_UNVERIFIED' and
+         contract['two_user_turns_proven'] is False and
+         contract['e3_semantic_accuracy_certified'] is False,
+         'V193_TURN2_CONTRACT_NOT_SATISFIED')
+    record={'schema':'IRE_V228_TWO_DISTINCT_USER_MESSAGE_E3_REVIEW_HOLD_RECEIPT_V1',
+        'v193_contract_receipt':contract,'source_sha256':externally_pinned_source_sha256,
+        'first_frozen_head_sha256':externally_pinned_first_head_sha256,
+        'second_review_head_sha256':review_head,
+        'turn1_manual_message_ref':first['user_message_ref'],
+        'turn2_manual_message_ref':second_user_ref,
+        'turn2_review':review,'e3_formal_approved':False,
+        'e4_authorized':False,'e5_published':False,
+        'independent_blind_gold_certified':False}
+    target=Path(private_turn2_receipt)
+    need(not target.exists() and not target.is_symlink(),'SECOND_REVIEW_ALREADY_FROZEN')
+    target.parent.mkdir(parents=True,exist_ok=True)
+    content=canonical(record)
+    fd=os.open(target,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600)
+    try:
+        with os.fdopen(fd,'wb') as f:f.write(content);f.flush();os.fsync(f.fileno())
+    except BaseException:
+        target.unlink(missing_ok=True);raise
+    return {'schema':record['schema'],
+      'status':'TURN2_CHATGPT_REVIEW_RECORDED_E3_FINAL_HOLD',
+      'first_frozen_head_sha256':externally_pinned_first_head_sha256,
+      'second_review_head_sha256':review_head,
+      'second_receipt_sha256':digest(content),
+      'original_cues_reviewed':len(originals),
+      'native_claim_adjudications_recorded':len(ids),
+      'host_distinct_user_turns_cryptographically_verified':False,
+      'independent_blind_gold_certified':False,
+      'e3_final_approved':False,'e4_authorized':False,'e5_published':False}
