@@ -72,6 +72,13 @@ jobs:
         run: |
           python -m compileall -q test_v232_e1_real_source_v6_host_only.py
           python -m unittest -v test_v232_e1_real_source_v6_host_only
+      - name: V233 genuine source-native V6 host to V127 parent checkpoint (synthetic tests)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v233_e1_v228_actual_parent_checkpoint_preflight.py test_v233_e1_v228_actual_parent_checkpoint_preflight.py
+          python -m unittest -v test_v233_e1_v228_actual_parent_checkpoint_preflight
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
           mkdir -p /tmp/e1-v6-public-code/validation /tmp/e1-v6-public-code/data
