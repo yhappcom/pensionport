@@ -69,11 +69,11 @@ V227은 **68개 E3 task 모두 동일한 원문 문맥 목록 구조**를 갖는
 - 한 영상 원자 68개의 전수 쌍 **2,278행**을 결정론적으로 다시 계산하고, 28건의 수동 검토 이유와 남은 2,250건 미검증 상태를 분리.
 - 잘못된 입력과 형식 누락은 `InvalidInput`으로 차단. 너무 큰 한 번의 원자 집합(512개 초과)은 무리하게 O(N²) 실행하지 않고 별도 샤드가 필요함을 명시적 실패로 반환.
 - **원본 매니페스트 창 크기 불일치 방지:** 실제 V226 native 원장 window=20, 오래된 원본 계획 생성의 기본 window=120으로 호출하면 같은 SRT라도 manifest SHA가 바뀌어 V6 구조실패가 발생한다. `window_size`를 명시 입력으로 전달하고 값·원본 manifest를 검사함. 21 cue 합성 입력으로 20 vs 120 창 분할이 달라지는 회귀시험 추가.
-- 공개 CI는 원본 금융 문장 없는 **합성 데이터 43개** 회귀시험만 실행. 실제 금융 원본 전체 재실행은 GitHub 밖 개인 컨테이너에서 완료. 이전 V226 633개에서 **총 676개**(현행 E2 605 + 이전 E2 53 + E1 18) CI에 연결. 실제 Actions 성공 이전에 최종 PASS라고 단정하지 않는다.
+- 공개 CI는 원본 금융 문장 없는 **합성 데이터 43개** 회귀시험만 실행. 실제 금융 원본 전체 재실행은 GitHub 밖 개인 컨테이너에서 완료. 이전 V226 633개에서 **총 676개**(현행 E2 605 + 이전 E2 53 + E1 18) CI에 연결. GitHub Actions [실행 44856993390](https://github.com/yhappcom/pensionport/actions/runs/44856993390)에서 **676/676 PASS**(현행 E2 605 + 이전 E2 53 + E1 18)를 확인했다. 이 결과는 합성입력 코드검사이며 독립 정답 기반 의미 정확도 인증은 아니다.
 
 ## 5. 개인 원장(비공개 Library append-only)
 
-1. `V227_PRIVATE_ETF250_CUE250_SEMANTIC_TRIAGE_177_RECONCILED_GOLD_HOLD.json` — 원문 250 cue 전수 의미/근거 유형, 기존 원자/문맥 ID, 21개 비주장 잠정 사유, CTA 24 검토 우선 cue, SHA `2d1f42052e8609089a1b2263e61a1bcdeeaf1efb23554963bd8b75f26f490458`.
+1. `V227_PRIVATE_ETF250_CUE250_SEMANTIC_TRIAGE_177_RECONCILED_GOLD_HOLD.json` — 원문 250 cue 전수 의미/근거 유형, 기존 원자/문맥 ID, 21개 비주장 잠정 사유, 검토 우선 24 cue, SHA `2d1f42052e8609089a1b2263e61a1bcdeeaf1efb23554963bd8b75f26f490458`.
 2. `V227_PRIVATE_ETF250_E3_68_CANONICAL_UNIFORM_SOURCE_CONTEXT_UNAPPROVED.json` — 68 E3 미승인 원자 task 자료형 통일, 새 화면발화 3개 인용·SHA 복구, SHA `6b60360a051cc022af138570fdd7e04e684a61636152496c727cae727cf03c14`.
 3. `V227_PRIVATE_ETF250_ALL_2278_LEXICAL_PAIRS_28_SOURCE_REVIEW_NOT_GOLD.json` — 68 native 모든 2,278쌍 lexical 선별과 내부 심화검토 28쌍, SHA `6dfcc9c7dd2c81cee1a446f7fb692df658a520c3cfbfaccfde4d83dee8630731`.
 4. `V227_PRIVATE_ETF250_REAL_SOURCE_68_E3_SHAPE_2278_PAIR_AUDIT_RECEIPT_HOLD.json` — 원본·계보·전수 행수 일치와 승인 차단 재실행 영수증, SHA `1ea37ea834bd2ca5814f148128694ea69295aaec3a4ae2059f5ece3c80378811`.
