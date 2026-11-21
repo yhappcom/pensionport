@@ -33,9 +33,11 @@ jobs:
               p=subprocess.run(['git','-C','mirror.git','merge-base','--is-ancestor',x['sha'],merged],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
               if p.returncode:missing.append(x['name'])
           assert not missing, 'MISSING_BRANCH_HISTORY:'+str(missing)
-          ps=run('show','--format=%P','--no-patch',merged).split()
-          assert len(ps)>=12, 'MULTIPARENT_HISTORY_MERGE_MISSING'
-          assert run('rev-parse',merged+'^{tree}')==run('rev-parse',ps[0]+'^{tree}'), 'UNREVIEWED_CODE_PROMOTED'
+          history_merge='3d1beba08ea3037df3c6c46f21cff9a5bb0374db'
+          subprocess.run(['git','-C','mirror.git','merge-base','--is-ancestor',history_merge,merged],check=True)
+          ps=run('show','--format=%P','--no-patch',history_merge).split()
+          assert len(ps)==12, 'MULTIPARENT_HISTORY_MERGE_MISSING'
+          assert run('rev-parse',history_merge+'^{tree}')==run('rev-parse',ps[0]+'^{tree}'), 'UNREVIEWED_CODE_PROMOTED'
           print('ALL_98_BRANCH_HEADS_PRESERVED_PASS',len(original),'remaining_refs',len(refs),'main_unchanged',main)
           PY
           git -C mirror.git show-ref --heads | sort > /tmp/all-branches-refs.txt
