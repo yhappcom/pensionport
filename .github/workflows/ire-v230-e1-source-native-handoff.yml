@@ -79,6 +79,13 @@ jobs:
         run: |
           python -m compileall -q v233_e1_v228_actual_parent_checkpoint_preflight.py test_v233_e1_v228_actual_parent_checkpoint_preflight.py
           python -m unittest -v test_v233_e1_v228_actual_parent_checkpoint_preflight
+      - name: V234 cross-child source/context/qualifier/number custody (synthetic)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v234_e1_cross_child_context_custody.py test_v234_e1_cross_child_context_custody.py
+          python -m unittest -v test_v234_e1_cross_child_context_custody
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
           mkdir -p /tmp/e1-v6-public-code/validation /tmp/e1-v6-public-code/data
