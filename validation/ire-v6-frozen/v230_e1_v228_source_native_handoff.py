@@ -88,6 +88,7 @@ def read_v228_source_native(*, private_zip: Path,
         "native_sha256": sha256(frozen["content"]["native.json"]),
         "frozen_zip_sha256": externally_pinned_zip_sha256,
         "frozen_turn1_head_sha256": externally_pinned_first_head_sha256,
+        "turn1_manual_user_ref": frozen["turn1_receipt"]["user_message_ref"],
         "source_sha256": source.source_sha256,
         "cue_count": frozen["audit"]["original_cues"],
         "unapproved_atoms": verified["proposed_atomic_claims"],
@@ -144,6 +145,40 @@ def check_v228_real_turn2_receipt(origin: dict, second_receipt: dict) -> dict:
             {a["claim_id"] for a in origin["exchange"]["atoms"]} and
             [x.get("cue_index") for x in rows if type(x) is dict] ==
             list(range(1, origin["cue_count"] + 1)), "TURN2_SOURCE_ATOM_CENSUS")
+    for row, cue in zip(rows, origin["source"].cues):
+        require(type(row) is dict and row.get("quote") == cue.text and
+                row.get("quote_sha256") == sha256(cue.text.encode("utf8")) and
+                row.get("disposition") in {
+                    "ASSERTION_CANDIDATE", "QUESTION", "QUOTE",
+                    "NONCLAIM_PROVISIONAL", "CONTEXT_OF_ANOTHER_CLAIM",
+                    "OPEN_AUDIO_OR_SCREEN"
+                } and type(row.get("review_reason")) is str and
+                len(row["review_reason"].strip()) >= 12 and
+                row.get("is_independent_blind_gold") is False and
+                row.get("financial_fact_approved") is False,
+                "SECOND_RECEIPT_SOURCE_MEANING_ROW")
+    for atom in atoms:
+        require(type(atom) is dict and
+                atom.get("disposition") in {
+                    "HOLD", "QUARANTINE",
+                    "REQUIRES_SOURCE_MEANING_REPAIR",
+                    "APPROVE_CANDIDATE_PENDING_INDEPENDENT_EVIDENCE"
+                } and type(atom.get("source_grounded_reason")) is str and
+                len(atom["source_grounded_reason"].strip()) >= 12 and
+                atom.get("e3_final_approved") is False and
+                atom.get("financial_fact_approved") is False and
+                atom.get("independent_gold_certified") is False,
+                "SECOND_RECEIPT_ATOM_SEMANTIC_ROW")
+    require(second_receipt.get("turn1_manual_message_ref") ==
+            origin["turn1_manual_user_ref"] and
+            type(second_receipt.get("turn2_manual_message_ref")) is str and
+            second_receipt["turn2_manual_message_ref"] !=
+            origin["turn1_manual_user_ref"] and
+            review.get("second_user_ref_manual") ==
+            second_receipt["turn2_manual_message_ref"] and
+            review.get("review_complete_as_internal_not_blind_gold") is True and
+            second_receipt.get("independent_blind_gold_certified") is False,
+            "SECOND_RECEIPT_DISTINCT_MANUAL_REF_REQUIRED")
     require(review.get("e3_final_approved") is False and
             review.get("e4_approved") is False and
             review.get("e5_published") is False and
