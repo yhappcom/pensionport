@@ -17,6 +17,7 @@ from ire.v6.atomic_exchange import audit_host_atomic_exchange
 from ire.v6.codec import canonical, json_digest, sha256
 from ire.v6.errors import InvalidInput
 from ire.v6.prior_knowledge import audit_prior_candidates
+from ire.v6.host_quarantine_preflight import audit_host_quarantine_preflight
 from ire.v6.trust import verify_owner_inventory
 from v176_chat_engine_loop import make_original_plan
 from v203_e1_v176_origin_native_host_bridge import _native_models
@@ -200,6 +201,7 @@ def stage_unapproved_v228_native_host(*, origin: dict,
                                      scope_id: str, run_id: str,
                                      externally_pinned_inventory_sha256: str,
                                      prior_knowledge: dict,
+                                     source_prequarantine: dict | None = None,
                                      explicit_private_host_stage: bool = False) -> dict:
     """Optional REAL V6 model/proof/host transaction from original V228 bytes.
 
@@ -222,6 +224,9 @@ def stage_unapproved_v228_native_host(*, origin: dict,
     verify_owner_inventory(raw, manifest, origin["inventory_bytes"],
                            expected_inventory_sha256=externally_pinned_inventory_sha256)
     audit_prior_candidates(source, exchange, prior_knowledge)
+    # Every unresolved/suspicious original cue needs a separately authored
+    # source-bound ChatGPT quarantine ledger. Do not auto-generate it here.
+    audit_host_quarantine_preflight(source, exchange, source_prequarantine)
     # No synthetic ChatGPT approval callback, and no knowledge store here.
     first = native_store.create_scope(
         scope_id=scope_id, video_id=source.video_id,
@@ -241,7 +246,8 @@ def stage_unapproved_v228_native_host(*, origin: dict,
         raw=raw, manifest=manifest, inventory_bytes=origin["inventory_bytes"],
         expected_inventory_sha256=externally_pinned_inventory_sha256,
         exchange=exchange, knowledge=prior_knowledge,
-        window_models=origin["models"], window_reviews=origin["reviews"])
+        window_models=origin["models"], window_reviews=origin["reviews"],
+        quarantine_preflight=source_prequarantine)
     require(host["atomic_batch_committed"] is True and
             host["semantic_truth_certified"] is False and
             native_store.snapshot(scope_id)["ledger_head_sha256"] ==
