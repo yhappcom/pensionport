@@ -21,7 +21,7 @@
 ## B. 전수 검사 결과와 범위의 정확한 한계
 
 ### B1. 현재 HEAD 파일 인벤토리
-GitHub 재귀 트리 결과 **2,364개 blob / 22,343,449바이트 / tree truncated=false**. 17개 최상위 그룹: `.github` 27, 루트 6, `data` 303, `docs` 12, `ire` 654, `knowledge` 31, `pending` 9, `research` 1, `sources` 5, `state` 46, `synthesis` 23, `validation` 1,007, `videos` 241. 전체 경로·Git blob SHA·바이트 크기는 [동결 전체 트리 인벤토리](IRE_FULL_CURRENT_TRACKED_TREE_MANIFEST_20261122.json)에 모두 기록했다.
+GitHub 재귀 트리 결과 **2,364개 blob / 22,343,449바이트 / tree truncated=false**. 17개 최상위 그룹: `.github` 27, 루트 5, `data` 303, `docs` 12, `ire` 654, `knowledge` 31, `pending` 9, `research` 1, `sources` 5, `state` 46, `synthesis` 23, `validation` 1,007, `videos` 241. 전체 경로·Git blob SHA·바이트 크기는 [동결 전체 트리 인벤토리](IRE_FULL_CURRENT_TRACKED_TREE_MANIFEST_20261122.json)에 모두 기록했다.
 
 이전 전체 추적 백업 `3fd99c8d47af1163c5a788bf9630658ccf2eda43`에서 **2,360/2,360개를 모두 읽고 SHA-256·바이트 길이를 대조**, 누락/손상/읽기 오류 0. 그 후 위 기준 HEAD까지 **변경/신규 10개 파일**을 GitHub에서 별도 재조회했다. 구성: Python 825개 AST 구문 PASS, JSON 759개 파싱 PASS, JSONL 6개 유효, Markdown 697개 UTF-8 판독, YAML 27개, HTML 2개, 텍스트 1개, 36개 암호화/바이너리 아카이브 바이트 확인, 6개 `.b64` 압축 JSON은 디코딩 가능한 구조임을 확인(민감 내용 공개 금지).
 
