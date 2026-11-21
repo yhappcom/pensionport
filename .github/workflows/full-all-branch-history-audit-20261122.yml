@@ -1,0 +1,33 @@
+name: Full all-branch git history offline consolidation snapshot
+on:
+  push:
+    branches:
+      - audit/full-repository-snapshot-20261122
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  git_bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Fetch all branch refs and git history (read-only)
+        run: |
+          git clone --mirror https://github.com/yhappcom/pensionport.git mirror.git
+          git -C mirror.git show-ref --heads | sort > /tmp/all-branches-refs.txt
+          test "$(wc -l </tmp/all-branches-refs.txt)" -ge 90
+          git -C mirror.git bundle create /tmp/pensionport-all-branches.bundle --all
+          git -C mirror.git bundle verify /tmp/pensionport-all-branches.bundle
+          sha256sum /tmp/pensionport-all-branches.bundle /tmp/all-branches-refs.txt > /tmp/all-branch-shas.txt
+          cat /tmp/all-branch-shas.txt
+          wc -l /tmp/all-branches-refs.txt
+      - name: Upload offline history and branch head manifest (no source modification)
+        uses: actions/upload-artifact@v4
+        with:
+          name: pensionport-complete-branch-history-20261122
+          path: |
+            /tmp/pensionport-all-branches.bundle
+            /tmp/all-branches-refs.txt
+            /tmp/all-branch-shas.txt
+          if-no-files-found: error
+          retention-days: 1
