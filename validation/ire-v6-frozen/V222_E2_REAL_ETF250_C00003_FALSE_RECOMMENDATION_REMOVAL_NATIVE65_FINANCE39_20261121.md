@@ -51,7 +51,7 @@
 - `test_v222_e2_source_nonclaim_filter_guard.py` **27개**, `test_v222_postfilter_source_sidecars.py` **16개** = **43개 합성 실패방지 회귀검사**, 로컬 43/43 PASS. 실제 사용자 원문은 비공개 로컬 실물 재생; 공개 CI에서는 합성 사례만 이용.
 - `require_approved_e2_disposition`은 원음/독립 gold/금융 근거가 없는 새 native를 최종 E3/E4/E5로 승격시키지 않음. 기존 동결 V6/V123/V126/V127/V128은 바꾸지 않았음.
 
-공개 CI 총 검사는 V221 **440개**에 V222 신규 **43개**를 더한 **483개**(현행 E2 412 + 역사 E2 53 + E1 18). GitHub 실제 결과가 확인되기 전 예정 수치를 통과 실적으로 주장하지 않는다.
+공개 CI 총 검사는 V221 **440개**에 V222 신규 **43개**를 더한 **483개**(현행 E2 412 + 역사 E2 53 + E1 18). GitHub Actions [run 44846138358](https://github.com/yhappcom/pensionport/actions/runs/44846138358) **483/483 PASS**, 실제 job logs에서 412/412 + 53/53 + 18/18의 OK를 확인했다. 이 공개 CI는 합성 입력만 검증하고 개인 원본 E2 의미 품질의 독립 정확도를 증명하지 않는다.
 
 ## 5. 비공개 owner Library append-only 결과
 
