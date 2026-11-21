@@ -1,59 +1,44 @@
-name: Full all-branch git history offline consolidation snapshot
+name: IRE single integration branch, legacy history and research governance guard
 on:
   push:
-    branches:
-      - audit/full-repository-snapshot-20261122
+    branches: [audit/full-repository-snapshot-20261122]
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  git_bundle:
+  branch_governance:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 12
     steps:
-      - name: Fetch all branch refs and git history (read-only)
+      - name: Verify no branch proliferation, unchanged main, all 98 historic heads, research policy
         run: |
           git clone --mirror https://github.com/yhappcom/pensionport.git mirror.git
           python - <<'PY'
-          import json, subprocess, sys
-          def run(*a):
-              return subprocess.check_output(['git','-C','mirror.git',*a],text=True).strip()
-          ledger=json.loads(run('show','refs/heads/audit/full-repository-snapshot-20261122:docs/BRANCH_HEADS_CONSOLIDATION_REGISTRY_20261122.json'))
-          merged=run('rev-parse','refs/heads/audit/full-repository-snapshot-20261122')
-          main=run('rev-parse','refs/heads/main')
-          assert main==ledger['preserved_main_sha'], 'MAIN_MOVED'
-          refs=dict(l.split(' ',1)[::-1] for l in run('for-each-ref','refs/heads','--format=%(objectname) %(refname:short)').splitlines())
-          original={x['name']:x['sha'] for x in ledger['branches']}
-          assert len(original)==98 and ledger['branch_count']==98
-          illegal=set(refs)-set(original)
-          assert not illegal, 'NEW_BRANCHES_FORBIDDEN: '+str(sorted(illegal))
-          assert len(refs)<=98, 'BRANCH_COUNT_INCREASED'
+          import json, subprocess
+          base=['git','-C','mirror.git']
+          def git(*args):
+              return subprocess.check_output(base+list(args),text=True).strip()
+          integration='audit/full-repository-snapshot-20261122'
+          hist='3d1beba08ea3037df3c6c46f21cff9a5bb0374db'
+          registry=json.loads(git('show','refs/heads/'+integration+':docs/BRANCH_HEADS_CONSOLIDATION_REGISTRY_20261122.json'))
+          original={x['name']:x['sha'] for x in registry['branches']}
+          assert registry['branch_count']==len(original)==98
+          refs=set(git('for-each-ref','refs/heads','--format=%(refname:short)').splitlines())
+          assert refs=={'main',integration}, 'BRANCH_COUNT_OR_NAME_POLICY_VIOLATION:'+str(sorted(refs))
+          assert git('rev-parse','refs/heads/main')==registry['preserved_main_sha'], 'MAIN_MOVED'
+          head=git('rev-parse','refs/heads/'+integration)
+          assert subprocess.run(base+['merge-base','--is-ancestor',hist,head]).returncode==0
+          parent=git('show','--format=%P','--no-patch',hist).split()
+          assert len(parent)==12
+          assert git('rev-parse',hist+'^{tree}')==git('rev-parse',parent[0]+'^{tree}'), 'UNREVIEWED_LEGACY_CODE_PROMOTED'
           missing=[]
-          for x in ledger['branches']:
-              p=subprocess.run(['git','-C','mirror.git','merge-base','--is-ancestor',x['sha'],merged],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
-              if p.returncode:missing.append(x['name'])
-          assert not missing, 'MISSING_BRANCH_HISTORY:'+str(missing)
-          history_merge='3d1beba08ea3037df3c6c46f21cff9a5bb0374db'
-          subprocess.run(['git','-C','mirror.git','merge-base','--is-ancestor',history_merge,merged],check=True)
-          ps=run('show','--format=%P','--no-patch',history_merge).split()
-          assert len(ps)==12, 'MULTIPARENT_HISTORY_MERGE_MISSING'
-          assert run('rev-parse',history_merge+'^{tree}')==run('rev-parse',ps[0]+'^{tree}'), 'UNREVIEWED_CODE_PROMOTED'
-          print('ALL_98_BRANCH_HEADS_PRESERVED_PASS',len(original),'remaining_refs',len(refs),'main_unchanged',main)
+          for name,sha in original.items():
+              if subprocess.run(base+['merge-base','--is-ancestor',sha,head],
+                 stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:missing.append(name)
+          assert not missing, 'ORIGINAL_BRANCH_HEAD_NOT_REACHABLE:'+str(missing)
+          policy=git('show','refs/heads/'+integration+':docs/BRANCH_LIFECYCLE_AND_RESEARCH_CLOSEOUT_POLICY_20261122.md')
+          assert '2턴' in policy and '연구' in policy and '브랜치' in policy
+          names=git('show','refs/heads/'+integration+':docs/BRANCH_DIVERGENT_BLOB_CATALOG_20261122.tsv').splitlines()
+          assert len(names)==5940, 'DIVERGENT_FILE_CATALOG_TRUNCATED'
+          print('BRANCH_GOVERNANCE_PASS active=2 archived_heads=98 all_legacy_files_indexed=5939 main_unchanged='+registry['preserved_main_sha'])
           PY
-          git -C mirror.git show-ref --heads | sort > /tmp/all-branches-refs.txt
-          test "$(wc -l </tmp/all-branches-refs.txt)" -ge 90
-          git -C mirror.git bundle create /tmp/pensionport-all-branches.bundle --all
-          git -C mirror.git bundle verify /tmp/pensionport-all-branches.bundle
-          sha256sum /tmp/pensionport-all-branches.bundle /tmp/all-branches-refs.txt > /tmp/all-branch-shas.txt
-          cat /tmp/all-branch-shas.txt
-          wc -l /tmp/all-branches-refs.txt
-      - name: Upload offline history and branch head manifest (no source modification)
-        uses: actions/upload-artifact@v4
-        with:
-          name: pensionport-complete-branch-history-20261122
-          path: |
-            /tmp/pensionport-all-branches.bundle
-            /tmp/all-branches-refs.txt
-            /tmp/all-branch-shas.txt
-          if-no-files-found: error
-          retention-days: 1
