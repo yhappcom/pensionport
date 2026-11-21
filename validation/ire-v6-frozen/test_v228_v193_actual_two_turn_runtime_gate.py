@@ -167,3 +167,76 @@ class TestV228ActualTwoUserTurn(unittest.TestCase):
         return prepare_turn2_source_only_review(**args)
 
 if __name__=='__main__':unittest.main()
+
+# Additional second-turn *synthetic-only* custody tests; never execute a live
+# second user request during first-turn research.
+class TestV228SecondTurnReviewCompletion(unittest.TestCase):
+    def setUp(self):
+        self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
+        self.d=Path(self.tmp.name);docs,*_=synthetic()
+        self.frozen=freeze_turn1_private(**make_input(docs,self.d))
+        self.pins=pins(self.frozen,self.d/'first.zip')
+        from v228_v193_actual_two_turn_runtime_gate import prepare_turn2_source_only_review
+        pkt=prepare_turn2_source_only_review(**dict(self.pins,
+            second_user_ref='user:manually-observed-message-2',second_user_text=USER2,
+            current_actual_user_message_observed=True))
+        self.source_rows=[dict(x,disposition='OPEN_AUDIO_OR_SCREEN',
+            review_reason='원문 의미와 별도의 음성·화면 증거가 부족하여 검토 보류로 기록함',
+            is_independent_blind_gold=False,financial_fact_approved=False)
+            for x in pkt['source_only_cues']]
+        native=json.loads(docs['native'])
+        self.atom_rows=[{'claim_id':a['claim_id'],'disposition':'HOLD',
+             'source_grounded_reason':'현재 금융 근거와 원문 의미의 추가 검증이 필요하여 보류로 판정함',
+             'e3_final_approved':False,'financial_fact_approved':False,
+             'independent_gold_certified':False} for a in native['atoms']]
+        self.out=self.d/'review.json'
+
+    def record(self,**changes):
+        from v228_v193_actual_two_turn_runtime_gate import record_completed_turn2_review
+        kw=dict(self.pins,second_user_ref='user:manually-observed-message-2',second_user_text=USER2,
+             current_actual_user_message_observed=True,source_only_review_rows=self.source_rows,
+             atom_adjudication_rows=self.atom_rows,private_turn2_receipt=self.out)
+        kw.update(changes);return record_completed_turn2_review(**kw)
+
+    def test_30_source_and_all_claims_second_turn_review_recorded_unapproved(self):
+        result=self.record();self.assertEqual(result['original_cues_reviewed'],8)
+        self.assertEqual(result['native_claim_adjudications_recorded'],3)
+        self.assertEqual(result['status'],'TURN2_CHATGPT_REVIEW_RECORDED_E3_FINAL_HOLD')
+        self.assertFalse(result['host_distinct_user_turns_cryptographically_verified'])
+        self.assertFalse(result['e3_final_approved'])
+        record=json.loads(self.out.read_bytes())
+        self.assertEqual(record['v193_contract_receipt']['phase'],
+            'TWO_DISTINCT_USER_COMMANDS_CLAIMED_UNVERIFIED')
+
+    def test_31_incomplete_source_cues_rejected(self):
+        with self.assertRaises(InvalidInput):self.record(source_only_review_rows=self.source_rows[:-1])
+
+    def test_32_incomplete_atom_set_rejected(self):
+        with self.assertRaises(InvalidInput):self.record(atom_adjudication_rows=self.atom_rows[:-1])
+
+    def test_33_wrong_source_quote_rejected(self):
+        rows=copy.deepcopy(self.source_rows);rows[0]['quote']='fabricated'
+        with self.assertRaises(InvalidInput):self.record(source_only_review_rows=rows)
+
+    def test_34_false_independent_gold_rejected(self):
+        rows=copy.deepcopy(self.source_rows);rows[0]['is_independent_blind_gold']=True
+        with self.assertRaises(InvalidInput):self.record(source_only_review_rows=rows)
+
+    def test_35_final_e3_approval_forgery_rejected(self):
+        rows=copy.deepcopy(self.atom_rows);rows[0]['e3_final_approved']=True
+        with self.assertRaises(InvalidInput):self.record(atom_adjudication_rows=rows)
+
+    def test_36_old_first_turn_user_message_rejected(self):
+        with self.assertRaises(InvalidInput):self.record(second_user_ref='user:manual-message-1-not-host-authenticated')
+
+    def test_37_claimed_new_turn_not_observed_rejected(self):
+        with self.assertRaises(InvalidInput):self.record(current_actual_user_message_observed=False)
+
+    def test_38_turn2_review_receipt_append_only_no_overwrite(self):
+        self.record()
+        with self.assertRaises(InvalidInput):self.record()
+
+    def test_39_manual_ref_alone_is_not_host_proof(self):
+        self.record();review=json.loads(self.out.read_text())
+        self.assertFalse(review['v193_contract_receipt']['host_separate_turns_verified'])
+        self.assertFalse(review['v193_contract_receipt']['two_user_turns_proven'])
