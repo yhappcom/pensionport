@@ -23,7 +23,7 @@
 3. `verify_turn1_frozen`에서 원본 source·ZIP·manifest·연구 head의 **별도 보관 해시 4종을 필수 입력**으로 사용해 모든 ZIP 멤버 재검문 및 frozen V6·250cue·68 task·2,278쌍 다시 검증. 파일이 없거나 SHA/권한/소스/윈도 크기가 틀리면 **이전 상태를 새로 만들지 않고 즉시 실패**.
 4. `prepare_turn2_source_only_review`는 별도 사용자 명령이 **이번에는 실제로 관찰됐다는 수동 조건**, 첫 수동 ref와 다른 명령 ref 및 외부 핀을 모두 요구. 과거 원자 명제를 숨긴 **원문만 포함한 재판정 입력**을 다음 턴에서 생성하도록 준비. 코드는 호스트 메시지 ID를 갖고 있지 않으므로 `host_two_turns_verified=false`; **실제 TURN2 결과가 없으면 승인하지 않는다**.
 5. 최종 허위 승인 우회는 `InvalidInput`으로 차단. 기존 V193 합성 14개 및 문서 계약 5개 회귀시험을 신규 E2 workflow의 **MANDATORY V193 선행 단계**로 추가하고 V228 합성 29개 시험도 함께 실행한다. 검토 자료 자체는 GitHub에 올리지 않는다.
-6. 루트 README의 오래된 'E2 READY/NOT_RUN' 문구를 실제 V227 HOLD 상태로 정정하고, **E2 HOLD일 때 E3 실제 검토 준비는 가능하지만 E3 최종 승인·E4/E5는 금지**로 구분했다. V193 본문과 frozen V6/V123/V126/V127/V128는 변경하지 않는다.
+6. **E1 보호 규칙에 따라 루트 README.md는 수정하지 않고 바이트 단위로 원상 복구했다.** README의 과거 'E2 READY/NOT_RUN' 문장은 역사적 안내이며 최신 상태 판정은 이 V228 검증 보고서와 `V202_E1_E5_CURRENT_ROUTE_SEQUENCE_STATUS.json`을 우선한다. **E2 HOLD일 때 E3 준비·별도 실제 사용자 2턴의 원문 검토는 가능하지만 E3 최종 승인·E4/E5는 금지**한다. V193 본문과 frozen V6/V123/V126/V127/V128는 변경하지 않는다.
 
 > 범위 경계: 이번 새 관문은 **신규 V228 운영 진입점에 강제 연결**한 것이다. V223~V227의 과거 연구 보조 함수들을 제거·재작성하거나 frozen 승인 경로를 직접 수정한 것은 아니며, 이전 작성된 내부 E3 packets를 2턴 검증 완료로 소급 인정하지 않는다. GitHub 합성 CI 자체가 실제 ChatGPT 사용자 2턴을 증명한다고 주장하지 않는다.
 
@@ -57,4 +57,4 @@
 
 이 문서는 **TURN1 실제 사용자 연구·동결을 끝낸 현재**에 작성되었다. **새 사용자 메시지는 아직 오지 않았다. TURN2 미실행**. 두 프로세스를 돌렸거나 CI가 통과했다는 이유로 실질 2턴을 완료했다고 표시해서는 안 된다.
 
-**최종 상태: E1 구조 PASS / E2 원문 250cue·68 미승인 원자 저장·출처 구조 검사 PASS, 정확도 GOLD HOLD / TURN1 FROZEN / TURN2 AWAIT USER MESSAGE / E3 FINAL NOT_RUN / E4 E5 NOT_RUN.**
+**보호 경계 재검증:** 초기 README 수정 시 CI의 E1 `E1_FROZEN_OR_LEGACY_CHANGED` 경고를 받았으며, 보호 경계를 넓히지 않고 README를 원본 SHA `32b059d14383a52e7dcba0e2b53abf7e8c467857`로 완전히 복구했다. 해당 RunFail은 소프트웨어 의미 검증 실패가 아니라 변경 허용 경로 위반이었으며, 복구한 최신 커밋에서 전체 CI를 재확인해야 한다.\n\n**최종 상태: E1 구조 PASS / E2 원문 250cue·68 미승인 원자 저장·출처 구조 검사 PASS, 정확도 GOLD HOLD / TURN1 FROZEN / TURN2 AWAIT USER MESSAGE / E3 FINAL NOT_RUN / E4 E5 NOT_RUN.**
