@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - verify/ire-v6-e1-v230-v228-source-native-handoff-20261121
+  pull_request:
+    branches:
+      - verify/ire-v6-e2-source-census-adversarial-20261120
   workflow_dispatch:
 permissions:
   contents: read
