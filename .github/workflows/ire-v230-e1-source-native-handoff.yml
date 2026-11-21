@@ -135,6 +135,13 @@ jobs:
         run: |
           python -m compileall -q v242_e1_condition_linked_host_bridge.py test_v242_e1_condition_linked_host_bridge.py
           python -m unittest -v test_v242_e1_condition_linked_host_bridge
+      - name: V242 source-pinned B0013 native host with inherited qualifier (synthetic)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v242_e1_cross_scope_unapproved_host_projection.py test_v242_e1_cross_scope_unapproved_host_projection.py
+          python -m unittest -v test_v242_e1_cross_scope_unapproved_host_projection
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
           mkdir -p /tmp/e1-v6-public-code/validation /tmp/e1-v6-public-code/data
