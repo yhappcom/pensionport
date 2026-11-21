@@ -86,6 +86,13 @@ jobs:
         run: |
           python -m compileall -q v234_e1_cross_child_context_custody.py test_v234_e1_cross_child_context_custody.py
           python -m unittest -v test_v234_e1_cross_child_context_custody
+      - name: V235 exact V127 to V123/V128/V126 source-native release gateway (synthetic)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v235_e1_real_parent_release_gateway.py test_v235_e1_real_parent_release_gateway.py
+          python -m unittest -v test_v235_e1_real_parent_release_gateway
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
           mkdir -p /tmp/e1-v6-public-code/validation /tmp/e1-v6-public-code/data
