@@ -10,9 +10,7 @@ from ire.v6 import TransactionStore
 from ire.v6.claim_census import FINANCIAL, QUALIFIER, MULTI_CLAIM
 from ire.v6.codec import sha256
 from ire.v6.errors import InvalidInput
-from test_v230_e1_v228_source_native_handoff import (
-    TestV230RealSourceNativeBoundary,
-)
+import test_v230_e1_v228_source_native_handoff as v230_fixture
 from v228_v193_actual_two_turn_runtime_gate import canonical
 from v231_e1_v228_private_turn2_custody_bridge import (
     verify_real_turn2_private_custody, stage_after_verified_private_turn2,
@@ -21,7 +19,7 @@ from v231_e1_v228_private_turn2_custody_bridge import (
 
 class TestV231Turn2ReviewCustody(unittest.TestCase):
     def setUp(self):
-        base = TestV230RealSourceNativeBoundary(
+        base = v230_fixture.TestV230RealSourceNativeBoundary(
             "test_01_genuine_v228_source_is_native_v6_input_not_v176")
         base.setUp()
         self.addCleanup(base.doCleanups)
@@ -168,7 +166,23 @@ class TestV231Turn2ReviewCustody(unittest.TestCase):
                                     "PRIVATE_NOTE_SOURCE_OR_AUTHORITY"):
             self.verify(note=note, escrow=escrow, pins=pins)
 
-    def test_08_native_host_remains_blocked_without_prior_bytes(self):
+    def test_08_note_and_escrow_repinning_cannot_rewrite_source_review(self):
+        note = copy.deepcopy(self.synthetic_note)
+        note["cue_rows"][0]["source_grounded_review_reason"] += " fake"
+        escrow = copy.deepcopy(self.escrow)
+        escrow["private_review_sha256"] = sha256(canonical(note))
+        escrow["cue_rows"][0]["private_chat_cue_review_sha256"] = (
+            sha256(canonical(note["cue_rows"][0])))
+        pins = dict(self.pins,
+                    externally_pinned_source_note_sha256=
+                        sha256(canonical(note)),
+                    externally_pinned_prequarantine_sha256=
+                        sha256(canonical(escrow)))
+        with self.assertRaisesRegex(
+                InvalidInput, "PRIVATE_NOTE_CUE_MEANING_OR_QUOTE_DRIFT"):
+            self.verify(note=note, escrow=escrow, pins=pins)
+
+    def test_09_native_host_remains_blocked_without_prior_bytes(self):
         with tempfile.TemporaryDirectory() as d:
             store = TransactionStore(Path(d)/"real.db")
             with self.assertRaisesRegex(InvalidInput,
@@ -186,7 +200,7 @@ class TestV231Turn2ReviewCustody(unittest.TestCase):
             with self.assertRaisesRegex(InvalidInput, "SCOPE_UNKNOWN"):
                 store.snapshot("v231_hold")
 
-    def test_09_no_implicit_stage_permission(self):
+    def test_10_no_implicit_stage_permission(self):
         with tempfile.TemporaryDirectory() as d:
             store = TransactionStore(Path(d)/"real.db")
             with self.assertRaisesRegex(InvalidInput,
