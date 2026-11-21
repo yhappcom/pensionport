@@ -6,7 +6,7 @@
   "stage_contract": "E1→E2→E3→E4→E5; no later step if previous fails",
   "official_frozen_e1_criterion": "입력·검토·승인·저장 경로가 하나로 연결",
   "historical_v166_e1_pass_preserved": true,
-  "current_step": "E2_V224_ACTUAL_ETF65_CHATGPT_TEXT_FINANCE_REVIEW_INDEX_ONLY_GLOBAL_SCOPE11_INHERITED_E3_PREAPPROVAL_REVIEW_HOLD",
+  "current_step": "E2_V225_ACTUAL_ETF250_65_NATIVE_32_RELATIONS_22_ENDPOINT_OCCURRENCES_RESTORED_OFFICIAL21_REFERENCE_HOLD",
   "current_e1_verdict": "PASS_V203_ACTUAL_V176_ORIGIN_NATIVE_HOST_SYNTHETIC_STRUCTURAL",
   "e1_evidence": {
     "report_path": "validation/ire-v6-frozen/V203_E1_REAL_V176_ORIGIN_TO_NATIVE_V128_STRUCTURAL_PASS_20261120.md",
@@ -58,13 +58,13 @@
       "step": "E2",
       "criterion": "질문·의견·가설·금융 사실을 구분하고 조건·예외 보존",
       "status": "IN_PROGRESS_HOLD_REAL_SEMANTIC_GOLD_HISTORIC_OWNER_AND_SPEAKER",
-      "scope": "V224 actual 250-cue ETF owner SRT and 65 V6 native atoms audited source-first; inherited global INDEX_ETF_ONLY_SCOPE cues45-47 to 11 affected index-ETF recommendations, original frozen V6 PASS and source-risk/cue250/27 relation+5 visual holds repinned. ChatGPT actually reviewed 65/65 claim propositions, producing 40 spoken text supported, 17 material-qualification needed, 8 ASR/media/source holds; no approved financial claims. Reviewer-only hypothetical NAV-price -83 won (-0.4682%) excluded as speaker utterance or real quote. No independent blind gold/official legal original byte snapshot/original audio or video/speaker verification; E2 final semantic accuracy HOLD."
+      "scope": "V225 actual original SRT 250 and V224 65 unapproved native frozen V6 audited PASS. Found 17 of 32 V217/V218 relationships had 22 additional candidate endpoint occurrences silently dropped from downstream E3 per-atom task. Retained selected V218 pair unchanged; reattached all 22 original candidate IDs with 10 textual possibilities NOT independently gold, 6 context-only pending, 6 media-unverified, missing now 0. All 65 ChatGPT E3 preapproval tasks now have full candidate relation ID closure. KRX/FSC public pages conceptually reviewed 21 priority financial claims, 5 consistent, 9 material qualifications, 4 overbroad/contradictory, 2 terminology unresolved, 1 opinion; 2026 FSC vs older KRX regulation page effective-date conflict explicitly HOLD. No official original legal bytes, independent gold or AV/speaker, E2 final still HOLD."
     },
     {
       "step": "E3",
       "criterion": "승인·보류·격리 결과가 정확히 전달",
       "status": "NOT_RUN_CURRENT_ROUTE",
-      "scope": "V224 real ChatGPT 65-claim source-only preliminary semantic review executed and saved privately with full 27 context relations + 5 visual holds. Formal E3 final authorization has NOT run; NOT_RUN_CURRENT_ROUTE status applies to formal E3 gate, not initial ChatGPT review."
+      "scope": "V225 ChatGPT V224 65-atom preliminary semantic review preserved, with restored 32 original relation candidate sets and 22 lost endpoint occurrences exposed as individual review tasks. E3 formal final approval NOT_RUN because independent gold/media/official primary regulatory version evidence lacking. E4-E5 NOT_RUN."
     },
     {
       "step": "E4",
@@ -124,7 +124,7 @@
     "main_unchanged": true,
     "duplicate_pr74_closed_unmerged": true
   },
-  "current_e2_verdict": "HOLD_V224_REAL_ETF65_TEXT_SEMANTIC_REVIEW_COMPLETED_INDEX_SCOPE11_REPAIRED_NO_BLIND_GOLD_AUDIO_SCREEN_OFFICIAL_BYTE_APPROVAL",
+  "current_e2_verdict": "HOLD_V225_RELATION_CANDIDATE_CLOSURE_PASS_21_KRX_FSC_CONCEPT_REVIEW_UNAPPROVED_GOLD_AUDIO_SCREEN_HIST_OWNER_MISSING",
   "e2_evidence": {
     "report_path": "validation/ire-v6-frozen/V206_E2_FULL_SOURCE_SEMANTIC_CENSUS_IMPLEMENTED_REAL_GOLD_HOLD_20261120.md",
     "e1_pass_prior_untouched": true,
@@ -142,8 +142,8 @@
     "native_fact_correction_and_relations_transferred": false,
     "knowledge_published": 0,
     "ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44851143064",
-    "ci_result": "success",
-    "ci_total_tests": 556,
+    "ci_result": "pending_latest_v225_ci",
+    "ci_total_tests": 592,
     "ci_new_v206_tests": 36,
     "ci_existing_e2_and_e1_regression": 71,
     "stage": "IN_PROGRESS_HOLD",
@@ -154,7 +154,7 @@
     "v208_malformed_hash_rejected_without_runtime_exception": true,
     "v208_cross_census_temporal_history_check_tested": true,
     "v208_report_path": "validation/ire-v6-frozen/V208_E2_PRIVATE_SOURCE_REPAIR_CHAIN_AND_CONTINUATION_HOLD_20261120.md",
-    "ci_current_e2_tests": 485,
+    "ci_current_e2_tests": 521,
     "v208_real_srt_private_resume_not_tested": true,
     "real_owner_srt_bytes_loaded_in_chat_private_runtime": true,
     "real_owner_srt_bytes_available_in_github_ci": false,
@@ -626,6 +626,42 @@
     "v224_historic_v176_owner_sqlite_recovered": false,
     "v224_new_synthetic_regression_tests": 35,
     "v224_real_source_local_onepass_custody_pass": true,
-    "v224_ci_556_success_checkpoint_url": "https://github.com/yhappcom/pensionport/actions/runs/44851143064"
+    "v224_ci_556_success_checkpoint_url": "https://github.com/yhappcom/pensionport/actions/runs/44851143064",
+    "v225_report_path": "validation/ire-v6-frozen/V225_E2_ACTUAL_ETF_32_REL_22_ENDPOINT_RESTORATION_OFFICIAL21_GOLD_HOLD_20261121.md",
+    "v225_source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "v225_native65_sha256": "757fb276be907d57405a005d503f7518609e985fc9322de95bced8158d947072",
+    "v225_historical_original_relation_v217_sha256": "a919ef297221c20d14cb596a1a630263bed174b1fd93c2d55d15519a54cb2f56",
+    "v225_historical_v218_review_sha256": "892d8f4c22342cad71a711605f0475828872bb17ce60c918e02d7d16092a06bb",
+    "v225_private_full_candidate_graph_sha256": "9eb22359f224de9a48e671a242f7f52ada7e19a81dbde9f96e348026b0bd8094",
+    "v225_private_21_official_context_docket_sha256": "a00d10f0e7fd337e29856638c4120b12078193694e6a3477a978f957c4bcf129",
+    "v225_private_e3_full_candidate_review_sha256": "bdc491ba1ebaf3305f1b2b5c628ae8df6780ecafa280f32c40992f7a84ea390b",
+    "v225_private_original_replay_receipt_sha256": "c55f09fabecc1d43b6662d438031b9fe0c394046f00da3390d91959447938c5b",
+    "v225_real_etf_source_cues_rechecked": 250,
+    "v225_real_etf_unapproved_native_atoms": 65,
+    "v225_original_legacy_relation_count": 32,
+    "v225_previous_relations_with_lost_endpoints": 17,
+    "v225_previous_lost_endpoint_occurrences": 22,
+    "v225_new_relation_endpoint_occurrences_lost": 0,
+    "v225_extra_text_related_review_candidates_not_gold": 10,
+    "v225_extra_context_pending_review_candidates": 6,
+    "v225_extra_media_unverified_candidates": 6,
+    "v225_actual_official_website_concept_priority_claim_review_count": 21,
+    "v225_official_concept_supported_not_financial_approved": 5,
+    "v225_official_concept_material_limitations": 9,
+    "v225_official_concept_overgeneralized_or_contradicted": 4,
+    "v225_official_concept_terminology_unresolved": 2,
+    "v225_official_concept_investment_opinion": 1,
+    "v225_krx_vs_fsc_regulation_time_conflict_retained": true,
+    "v225_official_page_response_original_bytes_not_certified": true,
+    "v225_speaker_audio_or_screen_verified": 0,
+    "v225_independent_source_blind_gold_certified": false,
+    "v225_precision_recall_measured": false,
+    "v225_financial_facts_approved": 0,
+    "v225_e3_semantic_review_preapproval_packet_complete": true,
+    "v225_e3_final_approved": false,
+    "v225_e4_e5_authorized": false,
+    "v225_knowledge_published": 0,
+    "v225_actual_original_frozen_v6_relation_replay_pass": true,
+    "v225_new_synthetic_regression_tests": 36
   }
 }
