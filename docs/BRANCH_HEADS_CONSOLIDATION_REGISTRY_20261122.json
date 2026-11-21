@@ -1,0 +1,1039 @@
+{
+  "schema": "IRE_BRANCH_HEADS_FROZEN_20261122_V1",
+  "timestamp_basis": "2026-11-22_KST",
+  "repo": "yhappcom/pensionport",
+  "branch_count": 98,
+  "preserved_main_sha": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+  "source_e1_sha": "b6aae4a75832d2c467be262cfac79e1ae7522890",
+  "audit_branch_sha_before_consolidation": "e91f457817bf9d74e13c76cf08fa535f0a0a8b34",
+  "divergent_count": 18,
+  "maximal_divergent_count": 11,
+  "maximal_divergent_branches": [
+    {
+      "name": "feat/ire-v4-execution-design-20261103",
+      "sha": "8d8a76ecd5c0072036bba2276ee7e54089c6263c"
+    },
+    {
+      "name": "feat/v34-001-005-sourceonly-research-replay-20261101",
+      "sha": "6632efafad16a9f352a652131387469f130a01a2"
+    },
+    {
+      "name": "feat/v5-p0-cross-audit-ownership-20261107",
+      "sha": "735fa1336738b3c4c6c833ef90e8dbb096d057e2"
+    },
+    {
+      "name": "feat/v5-p0-p24-w25-w36-20261107",
+      "sha": "148d00abc2c4bdc12ff372f3dc616c98f881995a"
+    },
+    {
+      "name": "research/v5-p0-video24-w37-w44-quality-20261107",
+      "sha": "a08d7256eff6ce0e93763471af6887fbda6f0448"
+    },
+    {
+      "name": "v4/evidence-based-pilot-20261008",
+      "sha": "08fa35761fd53520ed9d3b4d2b088d23b4c8201f"
+    },
+    {
+      "name": "verify/ire-v6-e1-v202-source-to-frozen-parent-isolated-20261120",
+      "sha": "2829a109c458e346789dce4b39bc75547f3d0b2a"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v155-host-integration-20261117",
+      "sha": "6e05c4cf9b2ed0a9e1f79beca09c252008649712"
+    },
+    {
+      "name": "verify/ire-v6-v170-live-chat-bridge-20261119",
+      "sha": "5aa8eaf017f7d5e62fd3467cf4be45a35f40c949"
+    },
+    {
+      "name": "verify/ire-v6-v171-revisit-pdf-provenance-20261119",
+      "sha": "a62ba0b29cb9ce7293620051844e59033e0d0100"
+    },
+    {
+      "name": "verify/ire-v6-v180-source-gap-kind-semantic-20261119",
+      "sha": "6c4ba8350eeffdb99b8ad106aa3c3f0f78acfca0"
+    }
+  ],
+  "branches": [
+    {
+      "name": "audit/full-repository-snapshot-20261122",
+      "sha": "e91f457817bf9d74e13c76cf08fa535f0a0a8b34",
+      "class": "AUDIT",
+      "exclusive_commits_vs_e1": 3,
+      "differing_candidate_count": 3,
+      "unique_path_candidates": 3,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/ire-chat-assisted-noapi-20261101",
+      "sha": "dcdcca9337b75e4350b6c2e992198906df3493af",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/ire-cleanroom-engine-20261101",
+      "sha": "1a3d4a729229feab049f64973d9619b8c875d30d",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/ire-incremental-advisory-20261101",
+      "sha": "4f20f2aa230b8c1c542701b22e9b951c5a9a4d16",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/ire-live-evidence-verification-20261101",
+      "sha": "98bcfb236c4e074ed94565282af518375f3f0fd1",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/ire-v2-advisory-system-redesign-20261101",
+      "sha": "6ac3d65333c77588e183f47e9f87dbece1b51c7e",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/ire-v3-chat-orchestration-20261102",
+      "sha": "be4cc19a692a670e74bc4a37906cdba4abdc408d",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/ire-v4-execution-design-20261103",
+      "sha": "8d8a76ecd5c0072036bba2276ee7e54089c6263c",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 48,
+      "differing_candidate_count": 28,
+      "unique_path_candidates": 28,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/ire-v5-vertical-slice-20261103",
+      "sha": "f753ba57a1afabaa849f3eeca88170938c0b51f6",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/subtitles-incremental-registry-20261009",
+      "sha": "5c5266e78425acbc17ff330f3b451333d1d558e5",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 1240,
+      "differing_candidate_count": 850,
+      "unique_path_candidates": 845,
+      "overlapping_path_candidates": 5,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v30-integrated-research-engine-20261031",
+      "sha": "692c61334f1b410eb3daea78f8b3dfce73e13c30",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 1568,
+      "differing_candidate_count": 1004,
+      "unique_path_candidates": 999,
+      "overlapping_path_candidates": 5,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v33-holdout-overlap-preflight-20261031",
+      "sha": "dd458b2eec39391b1df62e47cd60404879d68873",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 1579,
+      "differing_candidate_count": 1008,
+      "unique_path_candidates": 1003,
+      "overlapping_path_candidates": 5,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v34-001-005-sourceonly-research-replay-20261101",
+      "sha": "6632efafad16a9f352a652131387469f130a01a2",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 1601,
+      "differing_candidate_count": 1019,
+      "unique_path_candidates": 1014,
+      "overlapping_path_candidates": 5,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v34-integrated-atomic-semantic-retrieval-20261101",
+      "sha": "4e31b0b9f2d07ce3bddcb584bdace841d13ac6fd",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 1599,
+      "differing_candidate_count": 1017,
+      "unique_path_candidates": 1012,
+      "overlapping_path_candidates": 5,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-all5129-risk-cue-22-claims-audit-20261106",
+      "sha": "ca252229d3405fdb4247f0d2f4742c8e008e4e55",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-extra369-65low-signal-semantic-review-20261107",
+      "sha": "3f421095dcb9862b5936297e6e52132bee4ef0f1",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-extra369-linked97-partial-cue-audit-20261107",
+      "sha": "cf4f207d665e398fa9f73ee2fdc9a8dbcb96e28b",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-extra369-unanchored-13-review-20261107",
+      "sha": "25f185931dea39ce78b1c76d2211ba81dc7b51ec",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-first-five-atomic-residual-audit-20261106",
+      "sha": "58011f369935a2014f967e820a140723d3aaf78e",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-gap13-master116-crosswalk-20261107",
+      "sha": "aff3f7867017f9b8f2fa466e971db84a68c963da",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-internal-source-verification-policy-20261106",
+      "sha": "14daff5f4d048e386c9e813edd1ab164bf60b193",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-claim-ownership-reconcile-20261107",
+      "sha": "37d2fed9c2763adadb9817b4d36b10a2e9068e42",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-cross-audit-ownership-20261107",
+      "sha": "735fa1336738b3c4c6c833ef90e8dbb096d057e2",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 7,
+      "differing_candidate_count": 5,
+      "unique_path_candidates": 2,
+      "overlapping_path_candidates": 3,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-hard-closure-recall-gate-20261107",
+      "sha": "22479963d404a7b49c36e6d65a5a6e3e64411656",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-hourly-first12-semantic-20261107",
+      "sha": "c8e9cbe98170ab16ae1814289a6f4c40dd819a17",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-hourly22-final8-20261107",
+      "sha": "0d5aab46a8ad2286c2b6af39a215198d967a37a0",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-hourly22-w13-w24-20261107",
+      "sha": "49eea9caf798dd5457019778989d393ef4ad06e5",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-hourly22-w25-w36-attribution-20261107",
+      "sha": "27000d9270cf2d56396b1c7647010fa957a3b8b8",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-multicue-span-contract-20261107",
+      "sha": "13028d83abad3ef0831564ce0195cf4c45e6552d",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-p24-w25-w36-20261107",
+      "sha": "148d00abc2c4bdc12ff372f3dc616c98f881995a",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 4,
+      "differing_candidate_count": 4,
+      "unique_path_candidates": 4,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-private-cue-replay-gate-20261107",
+      "sha": "be99d8c43fdf72eb156b4a6b038ca1fbd371b285",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-quality-path-gate-20261107",
+      "sha": "0cc28f5e3f282aa2c811b28216f24fe77b6d7660",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-real10-adaptive-audit-20261107",
+      "sha": "cf94b7934ebb7fc3f8812caa91ccecdba601499c",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-real10-claims-evidence-20261107",
+      "sha": "887e3a71108455072e46d306f75d852896a70876",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-replay-count-reconciliation-20261108",
+      "sha": "4bbf013d5bc37976cac97a3eadbebb6e0428430e",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-run3-w37-w50-source-review-20261107",
+      "sha": "2bb182cb73d159d7318e676e055baddcc281bcee",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-semantic-context-completeness-20261107",
+      "sha": "ff496b41fccc8484dca388515496f559ec98b3b3",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p0-video24-w01-w24-20261107",
+      "sha": "84ad25356f8c005340ca0351651f5f91de62f3ad",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-p3-original-p4-live-20261106",
+      "sha": "ebbd43be0d49939b3a6f2fbefd5a895c8390389c",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-personal-investment-advisor-20261030",
+      "sha": "f978f5e70b166d4da6663566251aaa0084534932",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 1433,
+      "differing_candidate_count": 944,
+      "unique_path_candidates": 939,
+      "overlapping_path_candidates": 5,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-receipt-scope-no-false-completion-20261107",
+      "sha": "72e0d7295397776ffdc72090d6809189d1b38104",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-six-stage-source-crossvalidation-20261106",
+      "sha": "2cea941c0dd89045f81f561b2a73352ded02023d",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-video10-full34-cue-atomic-scope-20261106",
+      "sha": "91570d5402069191b6beaf146c62d2cb531a17be",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-video6-8-9-source-scope-20261107",
+      "sha": "c4f326ce0a6b77b8cf77ea3622e09762afab1a64",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "feat/v5-video7-compilation-dedup-20261107",
+      "sha": "f76c2e03991a9656a0023a18613248866169ef6e",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "fix/v5-receipt-blind-review-required-20261107",
+      "sha": "dd00356a25b51fe46d18aeea253bd41aa85870ab",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "fix/v5-receipt-nested-p0-claims-20261108",
+      "sha": "6d75db205e7d938f10cae133615cca0e879b9b00",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "fix/v5-receipt-quality-claims-20261107",
+      "sha": "38a38688de09cd13bdf4ae2a6a6c9f09a276ac4e",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "main",
+      "sha": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+      "class": "MAIN",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "research/v5-p0-video24-w37-w44-quality-20261107",
+      "sha": "a08d7256eff6ce0e93763471af6887fbda6f0448",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 1,
+      "differing_candidate_count": 1,
+      "unique_path_candidates": 1,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "v4/evidence-based-pilot-20261008",
+      "sha": "08fa35761fd53520ed9d3b4d2b088d23b4c8201f",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 8,
+      "differing_candidate_count": 12,
+      "unique_path_candidates": 11,
+      "overlapping_path_candidates": 1,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-e1-v202-source-to-frozen-parent-isolated-20261120",
+      "sha": "2829a109c458e346789dce4b39bc75547f3d0b2a",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 5,
+      "differing_candidate_count": 5,
+      "unique_path_candidates": 2,
+      "overlapping_path_candidates": 3,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-e1-v230-v228-source-native-handoff-20261121",
+      "sha": "b6aae4a75832d2c467be262cfac79e1ae7522890",
+      "class": "IDENTICAL",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-e2-source-census-adversarial-20261120",
+      "sha": "c9d2a676d3e3002ea2132ce690ee8d75c7a65286",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-frozen-ci-20261108",
+      "sha": "b5e32f238c0897b83b4693f00376ca396aecaaa5",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0-atomic-exchange-20261109",
+      "sha": "dd88dd57df223197755d95fbd63fce947eb8a93f",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0-false-completion-20261109",
+      "sha": "81fdcb88a37ecb9ca65ad3808a0cf1f2c689e771",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0-integrity-hardening-20261109",
+      "sha": "c42dcce3c450f75d1957bfb9939170dc2001a9ef",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0-sourcefrontier-20261109",
+      "sha": "ccac3a3ef9a7b91ec01244432e594412af54e37a",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v151-remediation-20261116",
+      "sha": "40308b956fcba76602df30fd12e02636c8d490a3",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v152-source-seam-20261116",
+      "sha": "b9c6f85934c832b42bdcc38501d9cf224d2386f6",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v153-semantic-202-20261116",
+      "sha": "cf0df1edc12d5806f9f5d7ef327866405295ecca",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v154-integration-20261117",
+      "sha": "212c558203d84024d1455757dcea1e756dddc817",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 6,
+      "differing_candidate_count": 5,
+      "unique_path_candidates": 4,
+      "overlapping_path_candidates": 1,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v154-real-integration-20261116",
+      "sha": "4a9ecb3e7bd69f5afeea9035247afe8507d0ad34",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v155-75-cue-adjudication-20261117",
+      "sha": "9be53a9f443c42e4aef199ddbde325f4db4dccb8",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v155-host-integration-20261117",
+      "sha": "6e05c4cf9b2ed0a9e1f79beca09c252008649712",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 7,
+      "differing_candidate_count": 6,
+      "unique_path_candidates": 5,
+      "overlapping_path_candidates": 1,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v157-actual-284-host-semantic-fields-20261117",
+      "sha": "4de4edb8a9017a2b5c569b0f4ed0ffdaaf8eb94a",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v158-129-source-stances-20261117",
+      "sha": "a8c72beb95fa23b4cc68eb052235fbce74027987",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v159-v123-source-first-20261117",
+      "sha": "0cd6473e1abd03fa0d59c004f986dc23447c019c",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v160-one-video-full-source-e2e-20261117",
+      "sha": "804b55a037fe5227ac2daee715a2147e9067583e",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v161-source-evidence-recovery-20261117",
+      "sha": "7f9b54869ff32ca6f0e02b3e8b3b9770aa9f3fb9",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v162-one-video-repeat-proof-20261117",
+      "sha": "101cc59563912606b9370bdbc5b184fd349749a6",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v163-b0001-final-meaning-audit-20261117",
+      "sha": "f3b93c2059cef6da10ab8cbd2234526e0a23729d",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p0e-v164-b0001-typed-final-20261117",
+      "sha": "552d0a812201b9fd7e4184e25fa97f59036ac0d3",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p1-atomic-host-batch-20261109",
+      "sha": "30c5b9e2b0753a5990b66f8ffd789d7af987e510",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p1-legacy-readonly-20261109",
+      "sha": "76584d60718e3597fa557d7f747c460855a11865",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-p1-prior-relation-20261109",
+      "sha": "a988bdc5209ce7de99822fb311cf3f3f1a3aac44",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v165-one-video-feasibility-20261117",
+      "sha": "8048816962887cfd0c2fe76ac62b87d8dac13175",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v166-e1-e7-sequential-gates-20261117",
+      "sha": "4398e171daece83cce12565d78f31eee5a56d603",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v167-chat-research-loop-20261118",
+      "sha": "bcfa6619cda7623bfe14723ffdaf569a98219583",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v168-chat-native-replay-20261118",
+      "sha": "5f11ad07c5c99cca2d2880bd79c33d26f2e98e4b",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v169-chat-resumable-20261118",
+      "sha": "9a15d893888fe8572b08a8b6c8329bfdc8e7b592",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v170-chat-boundary-revisit-20261119",
+      "sha": "48e891272816b3e25c98bf73440b97003ecc3e16",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v170-live-chat-bridge-20261119",
+      "sha": "5aa8eaf017f7d5e62fd3467cf4be45a35f40c949",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 9,
+      "differing_candidate_count": 5,
+      "unique_path_candidates": 3,
+      "overlapping_path_candidates": 2,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v171-revisit-pdf-provenance-20261119",
+      "sha": "a62ba0b29cb9ce7293620051844e59033e0d0100",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 7,
+      "differing_candidate_count": 6,
+      "unique_path_candidates": 6,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v171-source-semantic-split-20261119",
+      "sha": "907364e1e5d769fcbe8edc5cf1341877beef0d16",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v172-exhaustive-video-engine-20261119",
+      "sha": "65fc5a1cdfedbe8433c6f0300c38bce861b64653",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v173-e4-only-final-gate-20261119",
+      "sha": "b68d5683e6bb1ea9cb6ec21d4005d12ed3500299",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v174-fresh-source-native-e4-20261119",
+      "sha": "75ba49d780c0e6f233fe75f51da7cfee405d14b3",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v175-fresh-native-host-batch-20261119",
+      "sha": "83a3a877419c5d8dff4593ffa883365bc79c1a24",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v176-engine-driven-chat-e4-20261119",
+      "sha": "92859fb704ae02acd16e7bd8bb38fbad8dccfb6d",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v177-private-two-turn-checkpoint-20261119",
+      "sha": "c28ba0772c6c4d1b3998da949e359524f065799b",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v178-source-only-coldstart-20261119",
+      "sha": "1437cb79e6de82d5b1484328641551bc68b19f16",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v179-owner-two-turn-native-replay-20261119",
+      "sha": "14ed2451f4febd5de128b6be6a5cd5360750c99d",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 9,
+      "differing_candidate_count": 8,
+      "unique_path_candidates": 2,
+      "overlapping_path_candidates": 6,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v179-real-two-turn-source-firstpass-20261119",
+      "sha": "cef91f97882b328f03873ad654a593dc4cfc707e",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v180-source-gap-kind-semantic-20261119",
+      "sha": "6c4ba8350eeffdb99b8ad106aa3c3f0f78acfca0",
+      "class": "DIVERGED",
+      "exclusive_commits_vs_e1": 15,
+      "differing_candidate_count": 12,
+      "unique_path_candidates": 6,
+      "overlapping_path_candidates": 6,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v200-e1-e5-live-gate-20261120",
+      "sha": "07eb944eaa59a700163c2fcfd817d58edf69a5bd",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    },
+    {
+      "name": "verify/ire-v6-v201-e1-native-source-bridge-20261120",
+      "sha": "0232419c224e55bd1f557c8e9677375dad7fd7cb",
+      "class": "ANCESTOR",
+      "exclusive_commits_vs_e1": 0,
+      "differing_candidate_count": 0,
+      "unique_path_candidates": 0,
+      "overlapping_path_candidates": 0,
+      "original_retirement_state": "ACTIVE_OR_ARCHIVE_PENDING"
+    }
+  ]
+}
