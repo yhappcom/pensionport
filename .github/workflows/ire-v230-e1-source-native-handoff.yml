@@ -93,6 +93,20 @@ jobs:
         run: |
           python -m compileall -q v235_e1_real_parent_release_gateway.py test_v235_e1_real_parent_release_gateway.py
           python -m unittest -v test_v235_e1_real_parent_release_gateway
+      - name: V237 all parent atoms to source-backed child ChatGPT review tasks
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v237_e1_parent_child_review_contract.py test_v237_e1_parent_child_review_contract.py
+          python -m unittest -v test_v237_e1_parent_child_review_contract
+      - name: V238 native partial child source draft and 21 pending cross-claim escrow
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v238_e1_child_native_scope_draft.py test_v238_e1_child_native_scope_draft.py
+          python -m unittest -v test_v238_e1_child_native_scope_draft
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
           mkdir -p /tmp/e1-v6-public-code/validation /tmp/e1-v6-public-code/data
