@@ -1,3 +1,5 @@
+> **현행 연구·개발 브랜치 운영 기준 (2026-11-22):** [브랜치·연구 종료 정책](docs/BRANCH_LIFECYCLE_AND_RESEARCH_CLOSEOUT_POLICY_20261122.md)과 [98개 브랜치 이력 통합 장부](docs/BRANCH_CONSOLIDATION_20261122.md)를 우선 적용합니다. `main`은 변경하지 않습니다. 신규 영상/검증 작업마다 브랜치를 만들지 않으며, 통합 실행 기준은 `audit/full-repository-snapshot-20261122` (일시적인 통합 브랜치)로 단일화합니다. 과거 E1 합성 PASS는 **실제 E1~E5 최종 승인 PASS가 아님**. E1 실물 종단간 HOLD. **별도 두 사용자 턴의 ChatGPT 의미 검토** 필수. 연구 브랜치 종료 전 원본/검토/OPEN/지식계보 영수증 정리 필수.
+
 # pensionport
 
 An evidence-based investment research project that builds a knowledge base from educational video content and authoritative primary sources.
