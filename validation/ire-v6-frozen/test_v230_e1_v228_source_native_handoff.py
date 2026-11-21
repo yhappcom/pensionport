@@ -268,5 +268,38 @@ class TestV230RealSourceNativeBoundary(unittest.TestCase):
         self.assertEqual(out["e5_published"], 0)
 
 
+    def test_17_equal_count_claim_replacement_cannot_pass_staging(self):
+        altered = copy.deepcopy(self.origin)
+        altered["exchange"]["atoms"][0]["proposition"] = (
+            "SYNTHETIC silently changed investment recommendation")
+        store = TransactionStore(self.root / "stage" / "mutated.db")
+        with self.assertRaisesRegex(InvalidInput, "SOURCE_NATIVE_DRIFT"):
+            stage_unapproved_v228_native_host(
+                origin=altered, native_store=store,
+                scope_id="v230_silent_mutation", run_id="v230_trial",
+                externally_pinned_inventory_sha256=self.origin["inventory_sha256"],
+                prior_knowledge={}, explicit_private_host_stage=True)
+        with self.assertRaisesRegex(InvalidInput, "SCOPE_UNKNOWN"):
+            store.snapshot("v230_silent_mutation")
+
+    def test_18_source_context_qualifier_mutation_cannot_pass_staging(self):
+        altered = copy.deepcopy(self.origin)
+        a = altered["exchange"]["atoms"][0]
+        a["context_cue_indices"] = list(reversed(a["context_cue_indices"]))
+        # No assumption about how many indices exist in one fixture atom;
+        # force an actual semantic mutation if reversing is a no-op.
+        if a["context_cue_indices"] == self.origin["exchange"]["atoms"][0]["context_cue_indices"]:
+            a["proposition"] += " 조건예외 변경"
+        store = TransactionStore(self.root / "stage" / "context.db")
+        with self.assertRaisesRegex(InvalidInput, "SOURCE_NATIVE_DRIFT"):
+            stage_unapproved_v228_native_host(
+                origin=altered, native_store=store,
+                scope_id="v230_context_mutation", run_id="v230_trial",
+                externally_pinned_inventory_sha256=self.origin["inventory_sha256"],
+                prior_knowledge={}, explicit_private_host_stage=True)
+        with self.assertRaisesRegex(InvalidInput, "SCOPE_UNKNOWN"):
+            store.snapshot("v230_context_mutation")
+
+
 if __name__ == "__main__":
     unittest.main()
