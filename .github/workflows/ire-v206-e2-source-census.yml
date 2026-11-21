@@ -45,6 +45,13 @@ jobs:
                      for x in changed),"E2_PRIVATE_ORIGINAL_COMMITTED"
           print("E1_FROZEN_BOUNDARY_PASS",len(changed))
           PY
+      - name: MANDATORY V193 real two USER-turn operating contract guard (synthetic, no host spoofing)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m compileall -q v193_e3_two_user_turn_contract.py v228_v193_actual_two_turn_runtime_gate.py test_v193_e3_two_user_turn_contract.py test_v193_e3_protocol_docs.py test_v228_v193_actual_two_turn_runtime_gate.py
+          python -m unittest -v test_v193_e3_two_user_turn_contract test_v193_e3_protocol_docs test_v228_v193_actual_two_turn_runtime_gate
       - name: E2 question, quotation, hidden claim, numbers and qualifiers
         working-directory: validation/ire-v6-frozen
         env:
@@ -84,6 +91,9 @@ jobs:
             validation/ire-v6-frozen/v225_e2_legacy_multi_endpoint_closure.py
             validation/ire-v6-frozen/v226_e2_speech_only_media_bridge_and_finance_quarantine.py
             validation/ire-v6-frozen/v227_e2_source_semantic_reconciliation.py
+            validation/ire-v6-frozen/v193_e3_two_user_turn_contract.py
+            validation/ire-v6-frozen/v228_v193_actual_two_turn_runtime_gate.py
+            validation/ire-v6-frozen/test_v228_v193_actual_two_turn_runtime_gate.py
             validation/ire-v6-frozen/test_v217_e2_private_crosscue_discourse_guard.py
           include-hidden-files: false
       - name: E1 passed native bridge smoke remains unchanged
