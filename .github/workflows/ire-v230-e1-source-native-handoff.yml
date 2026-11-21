@@ -121,6 +121,13 @@ jobs:
         run: |
           python -m compileall -q v240_e1_mandatory_e4_sealed_parent_gateway.py test_v240_e1_mandatory_e4_sealed_parent_gateway.py
           python -m unittest -v test_v240_e1_mandatory_e4_sealed_parent_gateway
+      - name: V241 real V6 child-host staging and zero-local-atom prewrite HOLD (synthetic)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ../..
+        run: |
+          python -m compileall -q v241_e1_unapproved_child_host_writer.py test_v241_e1_unapproved_child_host_writer.py
+          python -m unittest -v test_v241_e1_unapproved_child_host_writer
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
           mkdir -p /tmp/e1-v6-public-code/validation /tmp/e1-v6-public-code/data
