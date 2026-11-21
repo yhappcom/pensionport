@@ -94,8 +94,17 @@ jobs:
             validation/ire-v6-frozen/v193_e3_two_user_turn_contract.py
             validation/ire-v6-frozen/v228_v193_actual_two_turn_runtime_gate.py
             validation/ire-v6-frozen/test_v228_v193_actual_two_turn_runtime_gate.py
+            validation/ire-v6-frozen/v229_e1_v228_operational_handoff_preflight.py
+            validation/ire-v6-frozen/test_v229_e1_v228_operational_handoff_preflight.py
             validation/ire-v6-frozen/test_v217_e2_private_crosscue_discourse_guard.py
           include-hidden-files: false
+      - name: E1 V229 independent REAL OWNER transport re-audit (synthetic no-owner negative path)
+        working-directory: validation/ire-v6-frozen
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m compileall -q v229_e1_v228_operational_handoff_preflight.py test_v229_e1_v228_operational_handoff_preflight.py
+          python -m unittest -v test_v229_e1_v228_operational_handoff_preflight
       - name: E1 passed native bridge smoke remains unchanged
         working-directory: validation/ire-v6-frozen
         env:
