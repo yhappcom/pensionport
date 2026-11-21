@@ -22,10 +22,12 @@
 2. `freeze_turn1_private`에서 V193 `validate_manual_turn_receipt(first,second=None)` **필수 호출**. 1턴 종료 상태는 항상 `AWAIT_SEPARATE_USER_VERIFICATION_COMMAND`; 첫 턴에서 E3/E4/E5 승인 코드 반환 금지.
 3. `verify_turn1_frozen`에서 원본 source·ZIP·manifest·연구 head의 **별도 보관 해시 4종을 필수 입력**으로 사용해 모든 ZIP 멤버 재검문 및 frozen V6·250cue·68 task·2,278쌍 다시 검증. 파일이 없거나 SHA/권한/소스/윈도 크기가 틀리면 **이전 상태를 새로 만들지 않고 즉시 실패**.
 4. `prepare_turn2_source_only_review`는 별도 사용자 명령이 **이번에는 실제로 관찰됐다는 수동 조건**, 첫 수동 ref와 다른 명령 ref 및 외부 핀을 모두 요구. 과거 원자 명제를 숨긴 **원문만 포함한 재판정 입력**을 다음 턴에서 생성하도록 준비. 코드는 호스트 메시지 ID를 갖고 있지 않으므로 `host_two_turns_verified=false`; **실제 TURN2 결과가 없으면 승인하지 않는다**.
-5. 최종 허위 승인 우회는 `InvalidInput`으로 차단. 기존 V193 합성 14개 및 문서 계약 5개 회귀시험을 신규 E2 workflow의 **MANDATORY V193 선행 단계**로 추가하고 V228 합성 29개 시험도 함께 실행한다. 검토 자료 자체는 GitHub에 올리지 않는다.
+5. 최종 허위 승인 우회는 `InvalidInput`으로 차단. 기존 V193 합성 14개 및 문서 계약 5개 회귀시험을 신규 E2 workflow의 **MANDATORY V193 선행 단계**로 추가하고 V228 합성 **39개** 시험도 함께 실행한다. **총 58개**의 2턴 전용 필수 회귀시험은 기존 E2/E1 시험과 별도로 실행된다. 검토 자료 자체는 GitHub에 올리지 않는다.
 6. **E1 보호 규칙에 따라 루트 README.md는 수정하지 않고 바이트 단위로 원상 복구했다.** README의 과거 'E2 READY/NOT_RUN' 문장은 역사적 안내이며 최신 상태 판정은 이 V228 검증 보고서와 `V202_E1_E5_CURRENT_ROUTE_SEQUENCE_STATUS.json`을 우선한다. **E2 HOLD일 때 E3 준비·별도 실제 사용자 2턴의 원문 검토는 가능하지만 E3 최종 승인·E4/E5는 금지**한다. V193 본문과 frozen V6/V123/V126/V127/V128는 변경하지 않는다.
 
 > 범위 경계: 이번 새 관문은 **신규 V228 운영 진입점에 강제 연결**한 것이다. V223~V227의 과거 연구 보조 함수들을 제거·재작성하거나 frozen 승인 경로를 직접 수정한 것은 아니며, 이전 작성된 내부 E3 packets를 2턴 검증 완료로 소급 인정하지 않는다. GitHub 합성 CI 자체가 실제 ChatGPT 사용자 2턴을 증명한다고 주장하지 않는다.
+
+**2턴 종료 관문까지 연결:** `record_completed_turn2_review`는 **다음 실제 사용자 명령에서만** 입력되는 새 ChatGPT source-only 250cue 판정과 원자 68개 판정을 모두 요구하고, 원본 인용·SHA·원자 ID를 확인한다. 이후 V193 `validate_manual_turn_receipt(first,second)`를 실제로 호출하고 미승인 `TWO_DISTINCT_USER_COMMANDS_CLAIMED_UNVERIFIED` 수동 결과를 가진 별도의 0600 append-only 비공개 2턴 영수증을 생성한다. 250 자막이나 68 원자 중 하나라도 빠지거나 가짜 공식 금융 승인·gold 인증이 있으면 차단한다. 이 코드의 **합성 2턴 시험은 실제 두 번째 사용자 메시지가 아님**. 현재 실물 TURN2 전수 판정·2턴 영수증은 아직 생성하지 않았다.
 
 ## 2. 이번 실제 사용자 지시에서 수행한 TURN1 연구·동결
 
