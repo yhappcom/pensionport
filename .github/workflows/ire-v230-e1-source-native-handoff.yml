@@ -1,4 +1,4 @@
-name: E1 V230-V231 V228 source-native turn2 custody
+name: E1 V230-V242 V228 source-native custody
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: ire-v230-e1-source-native
+  group: ire-v230-e1-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   e1-real-owner-source-admission:
