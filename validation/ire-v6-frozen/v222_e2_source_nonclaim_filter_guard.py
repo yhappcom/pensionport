@@ -215,3 +215,130 @@ def require_approved_e2_disposition(receipt):
          'NOT_A_V222_SOURCE_REVIEW_RECEIPT')
     # No gold claims or audio/video ground truth can be created by this sidecar.
     raise InvalidInput('V222_E2_GOLD_SPEAKER_AND_FINANCIAL_EVIDENCE_NOT_VERIFIED')
+
+
+def audit_postfilter_native_risk_and_cue_census(raw_srt,native,native_bytes,
+        finance,finance_bytes,census,census_bytes,*,expected_hashes,window_size=20):
+    """Bind 250 cue dispositions and 65 atom risk rows to the *same* native SHA.
+
+    Re-anchoring/suppression must not quietly leave the prior version's finance
+    or cue ledger in place. Flags remain human/model annotations, not gold.
+    """
+    data={'source':raw_srt,'native':native_bytes,'finance':finance_bytes,'census':census_bytes}
+    need(type(expected_hashes) is dict and set(expected_hashes)==set(data),'SIDECAR_EXPECTED_HASH_FIELDS')
+    for k,v in data.items():
+        h=expected_hashes[k]
+        need(type(v) is bytes and type(h) is str and re.fullmatch(r'[0-9a-f]{64}',h)
+             and sha256(v)==h,'SIDECAR_'+k.upper()+'_SHA_CHANGED')
+    for k,obj in [('native',native),('finance',finance),('census',census)]:
+        need(type(obj) is dict,'SIDECAR_'+k.upper()+'_SCHEMA')
+        try:d=json.loads(data[k])
+        except (UnicodeError,ValueError,TypeError) as exc:
+            raise InvalidInput('V222_SIDECAR_JSON_'+k.upper()) from exc
+        need(d==obj,'SIDECAR_'+k.upper()+'_OBJECT_CHANGED')
+    need(type(window_size) is int and 1<=window_size<=1000 and
+         type(native.get('video_id')) is str,'SIDECAR_SOURCE_PLAN')
+    source,_=make_original_plan(raw_srt,native['video_id'],
+         expected_source_sha256=expected_hashes['source'],window_size=window_size)
+    native_receipt=audit_host_atomic_exchange(source,native)
+    need(finance.get('schema')=='IRE_V219_PRIVATE_ALL_66_ATOMS_SEMANTIC_FINANCE_REVIEW_V1' and
+         census.get('schema')=='IRE_V219_PRIVATE_SOURCE_FIRST_250_CUE_REVIEW_V1' and
+         finance.get('source_sha256')==source.source_sha256 and
+         census.get('original_source_sha256')==source.source_sha256 and
+         finance.get('native_exchange_sha256')==expected_hashes['native'] and
+         census.get('native_exchange_sha256')==expected_hashes['native'] and
+         finance.get('original_audio_screen_available') is False and
+         finance.get('human_independent_gold_available') is False and
+         finance.get('external_independent_gold') is False and
+         finance.get('e2_final_pass') is False and
+         finance.get('knowledge_publication_authorized') is False and
+         census.get('original_audio_screen_available') is False and
+         census.get('independent_gold_available') is False and
+         census.get('financial_fact_approved') is False and
+         census.get('speaker_verified') is False and
+         census.get('e2_final_pass') is False,
+         'SIDECAR_CUSTODY_OR_FALSE_APPROVAL')
+    atom_map={a['claim_id']:a for a in native['atoms']}
+    finrows=finance.get('atoms')
+    need(type(finrows) is list and len(finrows)==len(atom_map) and
+         finance.get('all_atoms_reviewed_source_claims')==len(finrows),
+         'SIDECAR_FINANCE_ATOM_CENSUS')
+    present=set();risk=0;tag_types=set()
+    for row in finrows:
+        need(type(row) is dict and type(row.get('claim_id')) is str and
+             row['claim_id'] in atom_map and row['claim_id'] not in present,
+             'SIDECAR_FINANCE_ATOM_ID_MISSING_OR_DUPLICATE')
+        cid=row['claim_id'];present.add(cid);a=atom_map[cid]
+        refs=a['source_refs']
+        tags=row.get('risk_tags')
+        need(row.get('kind')==a['kind'] and
+             row.get('primary_cue_ids')==[r['cue_index'] for r in refs] and
+             row.get('primary_original_text_sha256')==[
+                 sha256(source.cues[r['cue_index']-1].text.encode('utf-8')) for r in refs] and
+             row.get('context_cue_indices')==a['context_cue_indices'] and
+             row.get('numeric_source_token_cue_pairs')==[
+                 {'cue_index':t['cue_index'],'source_token':t['token']} for t in a['numeric_references']] and
+             type(tags) is list and len(set(tags))==len(tags) and
+             all(type(t) is str and len(t)>2 for t in tags) and
+             row.get('risk_review_status')==('HOLD_REQUIRES_OFFICIAL_OR_MEDIA_REVIEW' if tags
+                                               else 'SOURCE_ANCHORED_BUT_NOT_INDEPENDENT_GOLD') and
+             row.get('speaker_verified') is False and
+             row.get('stance_confirmed') is False and
+             row.get('financial_truth_certified') is False and
+             row.get('semantically_gold_verified') is False and
+             row.get('claim_approved') is False,
+             'SIDECAR_FINANCE_RISK_SOURCE_OR_FALSE_GOLD')
+        tag_types.update(tags);risk+=int(bool(tags))
+    need(present==set(atom_map) and finance.get('risk_tagged_atom_count')==risk and
+         finance.get('risk_tag_types')==sorted(tag_types),
+         'SIDECAR_FINANCE_RISK_COUNT_DRIFT')
+    bycue={i:[] for i in range(1,len(source.cues)+1)}
+    ctx={i:[] for i in range(1,len(source.cues)+1)}
+    for a in native['atoms']:
+        for r in a['source_refs']:bycue[r['cue_index']].append(a['claim_id'])
+        for i in a['context_cue_indices']:ctx[i].append(a['claim_id'])
+    rows=census.get('rows')
+    need(type(rows) is list and len(rows)==len(source.cues) and
+         census.get('cue_count')==len(rows) and
+         census.get('distinct_primary_claim_ids')==len(atom_map),
+         'SIDECAR_CUE_CENSUS_INCOMPLETE')
+    counts=Counter();flag=0
+    for i,row in enumerate(rows,1):
+        q=source.cues[i-1].text
+        need(type(row) is dict and row.get('cue_index')==i and
+             row.get('source_quote')==q and
+             row.get('cue_text_sha256')==sha256(q.encode('utf-8')) and
+             row.get('source_anchor_claim_ids')==sorted(bycue[i]) and
+             row.get('context_claim_ids')==sorted(ctx[i]) and
+             row.get('independent_omission_review_complete') is False and
+             row.get('classification_is_chatgpt_source_review_not_external_gold') is True and
+             row.get('financial_fact_approved') is False and
+             row.get('e2_final_pass') is False,
+             'SIDECAR_CUE_SOURCE_OR_ID_MISMATCH')
+        kind=row.get('classification')
+        if kind=='MEDIA_DEPENDENT_UNMAPPED_QUARANTINE':
+            need(not bycue[i] and row.get('original_audio_or_screen_review_required') is True,
+                 'SIDECAR_MEDIA_UNRESOLVED_WAS_SILENCED')
+        else:
+            correct=('SOURCE_ANCHORED_NATIVE_UNAPPROVED' if bycue[i] else
+                     'SOURCE_CONTEXT_ONLY_UNAPPROVED' if ctx[i] else
+                     'DISCOURSE_OR_NONCLAIM_PROVISIONAL')
+            need(kind==correct,'SIDECAR_CUE_CLASSIFICATION_DRIFT')
+        if native['cue_dispositions'][i-1]['disposition']=='NO_ATOM':
+            need(not bycue[i] and kind in (
+                'DISCOURSE_OR_NONCLAIM_PROVISIONAL','SOURCE_CONTEXT_ONLY_UNAPPROVED'),
+                'SIDECAR_NONCLAIM_FALSE_APPROVAL')
+        counts[kind]+=1
+        flag+=int(row.get('original_audio_or_screen_review_required') is True)
+    need(census.get('classification_counts')==dict(counts) and
+         census.get('audio_screen_flagged_cue_count')==flag,
+         'SIDECAR_CUE_CLASS_COUNT_OR_MEDIA_FLAG_DRIFT')
+    return {'schema':'IRE_V222_POSTFILTER_SOURCE_RISK_CUE_CUSTODY_RECEIPT_V1',
+        'source_sha256':source.source_sha256,'native_sha256':expected_hashes['native'],
+        'cues_checked':len(source.cues),'native_atoms_checked':len(atom_map),
+        'finance_risk_tagged_atoms':risk,'cues_by_classification':dict(counts),
+        'audio_or_screen_risk_cues':flag,
+        'suspicious_noatom_cues':native_receipt['suspicious_no_atom_cues'],
+        'independent_gold_certified':False,'finance_truth_approved':False,
+        'e2_final_pass':False,'e3_e4_e5_authorized':False,'knowledge_published':False,
+        'status':'PASS_NEW_NATIVE_AND_SOURCE_SIDECARS_SYNCHRONIZED_GOLD_HOLD'}
