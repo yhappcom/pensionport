@@ -154,3 +154,13 @@
 - V242 실물 ETF: 13개 구조적 미승인 V6 호스트 기록 및 출처/해시 시험 통과, **E2/E3/E4/E5 실제 승인=0, E1 전체 HOLD**.
 - 본 통합은 기존 기능을 `main`으로 반영하지 않는다. 이전 문서에 기록된 E1/E2 PASS는 합성/실물 구분과 해당 브랜치 SHA 기준으로만 해석한다.
 - `[Git 전체 브랜치 bundle]` 보관본은 이력 감사/복구용이며 브랜치 종료 전에 통합 Git ancestry로 추가된 이후 참조 유지 여부를 재확인한다.
+
+
+## 7. 이력 병합·브랜치 정리 최종 실행 결과 (2026-11-22)
+
+- **98개 원래 브랜치 HEAD는 모두** 이력 통합 커밋 `3d1beba08ea3037df3c6c46f21cff9a5bb0374db`의 Git 조상으로 검증되었다.
+- **안전 삭제 96/96건**, 건너뜀 0건·실패 0건. GitHub 브랜치는 `main`과 `audit/full-repository-snapshot-20261122` **2개만 잔존**한다.
+- 과거 열린 Draft/기타 PR **42개 모두 종료**, `main` 직접 병합 0건. [42개 원래 HEAD 및 CLOSED_WITH_HOLD_TRANSFER 영수증](BRANCH_LEGACY_PR_CLOSEOUT_RESULT_20261122.json).
+- 일회성 브랜치 삭제 쓰기 권한을 가진 GitHub Actions 파일은 삭제했다. 현재 [읽기 전용 2-브랜치·98-원본 HEAD 지속 검증](https://github.com/yhappcom/pensionport/actions/runs/44962128892)이 실행된다.
+- **중요:** 분기된 18개 브랜치의 코드와 연구자료가 Git 이력으로 *보존*된 것이며, 과거 실험 코드를 최신 실행 루트에 무검토 통합한 것이 아니다. 실제 E2/E3/E4/E5의 연구 승인 상태는 변경되지 않았다.
+- [최종 정리 보고서](BRANCH_CONSOLIDATION_CLOSEOUT_20261122.md) 및 [연구 종료 필수 서식](RESEARCH_RUN_CLOSEOUT_RECEIPT_TEMPLATE_20261122.md)을 적용한다.
