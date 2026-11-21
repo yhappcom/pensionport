@@ -20,7 +20,7 @@ from ire.v6.prior_knowledge import audit_prior_candidates
 from ire.v6.trust import verify_owner_inventory
 from v176_chat_engine_loop import make_original_plan
 from v203_e1_v176_origin_native_host_bridge import _native_models
-from v228_v193_actual_two_turn_runtime_gate import verify_turn1_frozen
+from v228_v193_actual_two_turn_runtime_gate import verify_turn1_frozen, canonical as v228_canonical
 
 SCHEMA = "IRE_V230_E1_V228_SOURCE_NATIVE_ORIGIN_HANDOFF_V1"
 SECOND_SCHEMA = "IRE_V228_TWO_DISTINCT_USER_MESSAGE_E3_REVIEW_HOLD_RECEIPT_V1"
@@ -135,7 +135,7 @@ def check_v228_real_turn2_receipt(origin: dict, second_receipt: dict) -> dict:
             second_receipt.get("first_frozen_head_sha256") ==
             origin["frozen_turn1_head_sha256"] and
             second_receipt.get("second_review_head_sha256") ==
-            sha256(canonical(review)), "SECOND_RECEIPT_BINDING_OR_HASH")
+            sha256(v228_canonical(review)), "SECOND_RECEIPT_BINDING_OR_HASH")
     rows = review.get("source_only_review_rows")
     atoms = review.get("atom_adjudication_rows")
     require(type(rows) is list and len(rows) == origin["cue_count"] and
