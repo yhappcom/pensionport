@@ -40,5 +40,28 @@ jobs:
           assert '2턴' in policy and '연구' in policy and '브랜치' in policy
           names=git('show','refs/heads/'+integration+':docs/BRANCH_DIVERGENT_BLOB_CATALOG_20261122.tsv').splitlines()
           assert len(names)==5940, 'DIVERGENT_FILE_CATALOG_TRUNCATED'
+
+          # Preserve research HOLD across branch/PR closeout; history is not knowledge approval.
+          closed=json.loads(git('show','refs/heads/'+integration+':docs/BRANCH_LEGACY_PR_CLOSEOUT_RESULT_20261122.json'))
+          transferred=json.loads(git('show','refs/heads/'+integration+':docs/BRANCH_LEGACY_PR_RESEARCH_TRANSFER_20261122.json'))
+          receipt=json.loads(git('show','refs/heads/'+integration+':docs/BRANCH_RETIREMENT_DURABLE_ATTESTATION_20261122.json'))
+          citems={x['number']:x for x in closed['items']}
+          titems={x['number']:x for x in transferred['items']}
+          assert len(citems)==len(titems)==closed['original_open_prs']==closed['verified_closed_prs']==transferred['pr_count']==42, 'LEGACY_PR_CLOSEOUT_COUNT_OR_DUPLICATE'
+          assert set(citems)==set(titems), 'LEGACY_PR_TRANSFER_MISMATCH'
+          assert closed['main_merge_count']==0, 'MAIN_PR_MERGE_VIOLATION'
+          for n,c in citems.items():
+              t=titems[n]
+              assert c['head_branch']==t['head_branch'] and c['head_sha']==t['head_sha']==original[t['head_branch']], 'PR_ORIGINAL_HEAD_DRIFT:'+str(n)
+              assert c['closed_confirmed'] and c['history_integrated'] and not c['merged_into_main'], 'LEGACY_PR_NOT_ARCHIVED:'+str(n)
+              assert c['research_status'].startswith('CLOSED_WITH_EXPLICIT_HOLD_TRANSFER'), 'FALSE_RESEARCH_APPROVAL:'+str(n)
+              assert not t['e3_final_approved'] and not t['e4_authorized'] and not t['e5_knowledge_published'], 'FALSE_E3_E4_E5_PROMOTION:'+str(n)
+          assert receipt['original_branch_count']==98 and receipt['deleted_branch_count']==96 and receipt['failed_branch_count']==0 and receipt['skipped_branch_count']==0, 'RETIREMENT_RECEIPT_COUNT'
+          assert receipt['original_heads_reachable_before_deletion']==98 and receipt['original_open_pr_count']==42 and receipt['original_open_prs_closed_before_deletion'], 'RETIREMENT_RECEIPT_INCOMPLETE'
+          assert receipt['main_head']==registry['preserved_main_sha'] and receipt['octopus_history_commit']==hist, 'RETIREMENT_HISTORY_MISMATCH'
+          assert set(receipt['preserved_branches'])==refs, 'RETIREMENT_PRESERVED_BRANCH_MISMATCH'
+          assert receipt['source_artifact_zip_sha256']=='5828cea7a4bfd71ec6f10fc8b0839607fae92c115435c612eddc0f318c6ea98b', 'DELETION_ARTIFACT_DIGEST_DRIFT'
+          assert '## E. 브랜치 증가 탐지의 범위와 관리자 사전 차단' in policy, 'BRANCH_MONITORING_LIMITATIONS_UNDOCUMENTED'
+          print('RESEARCH_HOLD_ARCHIVE_PASS closed_legacy_prs=42 false_e3_e4_e5_approvals=0 retired=96 artifact_digest_pinned=1')
           print('BRANCH_GOVERNANCE_PASS active=2 archived_heads=98 all_legacy_files_indexed=5939 main_unchanged='+registry['preserved_main_sha'])
           PY
