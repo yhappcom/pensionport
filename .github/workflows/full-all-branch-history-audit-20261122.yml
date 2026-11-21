@@ -65,3 +65,20 @@ jobs:
           print('RESEARCH_HOLD_ARCHIVE_PASS closed_legacy_prs=42 false_e3_e4_e5_approvals=0 retired=96 artifact_digest_pinned=1')
           print('BRANCH_GOVERNANCE_PASS active=2 archived_heads=98 all_legacy_files_indexed=5939 main_unchanged='+registry['preserved_main_sha'])
           PY
+
+      - name: Checkout current single integration branch for strict execution gate
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Setup pinned Python for checklist enforcement
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Test all positive and negative sequential-policy cases
+        run: |
+          python -m unittest -v scripts.test_ire_checklist_gate
+      - name: Enforce current 60-item checklist and immutable past PASS
+        run: |
+          python scripts/ire_checklist_gate.py verify --compare-parent
+          python scripts/ire_checklist_gate.py status
