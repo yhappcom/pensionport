@@ -60,7 +60,7 @@ V219의 동결 `audit_host_atomic_exchange` 구조감사는 **인용문이 실�
 4. **전수 관계 누락 차단**: 62개 source-first unit의 cue coverage, native 66 전체의 대응·대표근거 재계산. 화면 3개 별도 HOLD, 유형 불일치 OPEN 1건 보존.
 5. **승인 인계 차단**: source-first 내부 리뷰만으로 독립 gold·화자 확인·금융 진실성·E3/E4/E5를 승인하지 못하게 강제. 기존 동결 운영 승인코드 직접 변조하지 않음.
 
-공개 합성 원문 회귀시험 **22개**를 워크플로에 추가했으며 최종 전체 회귀 **440개**(현행 E2 369 + 이전 E2 53 + E1 18)다. 소유자 원본/원자 파일은 공개 CI에 업로드하지 않았고, 실제 private native 재실행은 별도 로컬에서 성공했다.
+공개 합성 원문 회귀시험 **22개**를 워크플로에 추가했다. 최종 커밋 전 단계의 [GitHub Actions run 44840883202](https://github.com/yhappcom/pensionport/actions/runs/44840883202)에서 전체 **440/440 PASS**(현행 E2 369 + 이전 E2 53 + E1 18), Traceback/FAILED 없음. 소유자 원본/원자 파일은 공개 CI에 업로드하지 않았고, 실제 private native 재실행은 별도 로컬에서 성공했다. 코드-only CI PASS가 독립 gold 의미 판정 PASS는 아니다.
 
 ## 5. 새 비공개 자료 (owner Library append-only)
 
