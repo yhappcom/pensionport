@@ -67,7 +67,7 @@ jobs:
 
       - name: Bundle public engine code for isolated offline real-source verification
         run: |
-          mkdir -p /tmp/e1-v6-public-code
+          mkdir -p /tmp/e1-v6-public-code/validation
           cp -a ire /tmp/e1-v6-public-code/
           cp -a validation/ire-v6-frozen /tmp/e1-v6-public-code/validation/
           cd /tmp/e1-v6-public-code
