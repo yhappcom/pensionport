@@ -1,0 +1,151 @@
+{
+  "schema": "IRE_P0_1_03_ACTUAL_PRIVATE_ETF250_LOSSLESS_TYPED_OVERLAY_SOURCE_SHA_ONLY_V1",
+  "task_id": "P0-1-03",
+  "as_of": "2026-11-22",
+  "verdict": "PASS_E1_TYPED_REVIEW_INPUT_NOT_FINANCIAL_APPROVAL",
+  "source_provenance": "ACTUAL_OWNER_LIBRARY_V228_PRIVATE_ZIP_DIRECT_SOURCE_BYTE_REPLAY",
+  "private_source_zip_sha256": "9f5a281191502bb30cb78ff17d2b08f6887f55b836cee67e00d7309770efa397",
+  "source_srt_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "native_original_exchange_sha256": "c8bec3354702cad0e85d4b111d2627ae2978806f3a4111c94a689d3b9e25baeb",
+  "v244_owner_source_graph_sha256": "4f4ab61ddfdc7c1d9d4d7ef7b07568911ab198629d9299284fbd05fa73db5a8f",
+  "v245_full_private_typed_parent_review_overlay_sha256": "9d4b32d0850cf6f188b9bd77fd0cfc72d009c540422a9a2ae6b58b4dbdbd1662",
+  "cross_typed_edges_replayed_original_native_order_sha256": "eb284cb6fab5d02497afaa8789bdfa3e2ba4b3871e183dd3d90cd8dcb51905d8",
+  "actual_source_cue_count": 250,
+  "actual_child_scope_count": 13,
+  "actual_complete_unapproved_parent_atom_count": 68,
+  "actual_cross_child_atom_count": 21,
+  "actual_external_cue_edge_count": 49,
+  "source_cue_ownership_gaps": 0,
+  "source_quote_byte_drift_count": 0,
+  "foreign_reference_role_counts": {
+    "context": 49,
+    "condition": 29,
+    "numeric": 3,
+    "exception": 0,
+    "primary_source": 0
+  },
+  "child_formal_source_first_review_input_sha256s": [
+    {
+      "child_id": "B0001",
+      "review_input_sha256": "fbfee7dee548fa6defc8a3721746df491a2c245213738f67f2d03ee56efea44e",
+      "original_full_parent_atom_count": 5
+    },
+    {
+      "child_id": "B0002",
+      "review_input_sha256": "304e3cc9089c0fa549aa0c777cf6ffb3643bcb340296b0a563c9bec0266185",
+      "original_full_parent_atom_count": 7
+    },
+    {
+      "child_id": "B0003",
+      "review_input_sha256": "fe513a23e33c64368f96eef4a4a0623862ff2d6be53ff3c3777f932fd715e866",
+      "original_full_parent_atom_count": 4
+    },
+    {
+      "child_id": "B0004",
+      "review_input_sha256": "fa61e1225418a9973b2d44688c948b5e10a5d34e43e5d5736440d3fba357ace6",
+      "original_full_parent_atom_count": 6
+    },
+    {
+      "child_id": "B0005",
+      "review_input_sha256": "80cfef7cbe0c5ea2980b9e1fb087e84288f0afc945c538e6b1093dbf0269461b",
+      "original_full_parent_atom_count": 5
+    },
+    {
+      "child_id": "B0006",
+      "review_input_sha256": "be3f42d4d09ebf4be7bf33751c451b40e61a8c9d246f98fbb037d2e4e788de38",
+      "original_full_parent_atom_count": 3
+    },
+    {
+      "child_id": "B0007",
+      "review_input_sha256": "8dc2499c5cab45103cf3e9132e8239414a7ecf3ee9966c20507e25511b0d9f5c",
+      "original_full_parent_atom_count": 5
+    },
+    {
+      "child_id": "B0008",
+      "review_input_sha256": "ccec512150a363929a1629fc7e95689f68cbc4a6c90c0c4c27443bcb66da90e2",
+      "original_full_parent_atom_count": 5
+    },
+    {
+      "child_id": "B0009",
+      "review_input_sha256": "42cf0dfc31229f617386f77dadca45ddb242131c8ca3ceb0ff0bebcd7631a5b6",
+      "original_full_parent_atom_count": 6
+    },
+    {
+      "child_id": "B0010",
+      "review_input_sha256": "12a3e29fd18f36d015f3cf157befc43fdf0fe39f756916fe4084d5a874d5e83c",
+      "original_full_parent_atom_count": 7
+    },
+    {
+      "child_id": "B0011",
+      "review_input_sha256": "6821ff19a631693181742267c9f8237e7300f545108fca2dc03d0f02a601db9c",
+      "original_full_parent_atom_count": 6
+    },
+    {
+      "child_id": "B0012",
+      "review_input_sha256": "cd4b60d2112ef1a623b3df436cdf1ae1fdeabdcac550f9414bf752028817fe0c",
+      "original_full_parent_atom_count": 8
+    },
+    {
+      "child_id": "B0013",
+      "review_input_sha256": "d3f5a73cef1538fb8752f191093332f55bf3494075e8af005c983687db96b52f",
+      "original_full_parent_atom_count": 1
+    }
+  ],
+  "b0013_c00057": {
+    "owner_child_id": "B0013",
+    "primary_source_cue_index": 246,
+    "foreign_inherited_condition_source_cues": [
+      45,
+      46,
+      47
+    ],
+    "foreign_condition_source_child": "B0003",
+    "all_source_context_indices": [
+      45,
+      46,
+      47,
+      244,
+      245,
+      246,
+      247
+    ],
+    "all_condition_indices": [
+      45,
+      46,
+      47,
+      244,
+      245
+    ],
+    "numeric_references_count": 0,
+    "exception_indices_count": 0,
+    "parent_atom_sha256": "88f8d07be8844f1715e921faaa6c16950bd666fa99690f23038fbf51f20a7644",
+    "stance_unapproved": "UNRESOLVED",
+    "speaker_unapproved": "UNKNOWN",
+    "no_original_parent_atom_fields_dropped": true
+  },
+  "source_review_inputs_contain_full_original_parent_atoms_and_exact_external_cue_quotes": true,
+  "formal_v243_gateway_mandatory_full_typed_overlay_for_13_children": true,
+  "formal_gateway_pending_cross_scope_status": "HOLD_PARENT_CROSS_CHILD_SEMANTIC_REVIEW_REQUIRED",
+  "formal_gateway_pending_cross_e4_invoked": false,
+  "formal_gateway_pending_cross_e5_invoked": false,
+  "independent_local_replay_method": "byte-perfect owner ZIP member hashes; independently reconstructed V245 typed packets in private runtime; original native source order and exact 49 SHA roles checked",
+  "private_owner_data_uploaded_to_github": false,
+  "regressions": {
+    "v245_new_tests": 9,
+    "v245_new_tests_pass": 9,
+    "v243_total_tests": 25,
+    "v243_tests_pass": 25,
+    "frozen_v200_cohort": 891,
+    "code_head_sha": "c91b64f15f4b5655bbc1c0d9abc1f04f606f58d4",
+    "ci_run_id": 45003903131
+  },
+  "software_only": true,
+  "formal_etf_e3_approved_children": 0,
+  "formal_etf_e4_authorizations": 0,
+  "formal_etf_e5_parent_publications": 0,
+  "independent_etf_gold_verified": false,
+  "personal_investment_advice_approved": false,
+  "historical_v242_hold_preserved": true,
+  "next_item": "P0-1-04",
+  "following_blocked": 49
+}

@@ -365,16 +365,41 @@
     },
     {
       "id": "P0-1-03",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "source",
+          "ref": "docs/IRE_P0_1_03_OWNER_ETF250_TYPED_OVERLAY_SHA_ONLY_20261122.json",
+          "sha": "c91b64f15f4b5655bbc1c0d9abc1f04f606f58d4",
+          "verdict": "PASS",
+          "scope": "Actual owner Library V228 ETF original bytes 250 cues / 13 children / 68 preserved full original V6 parent atoms / 21 foreign cross atoms / 49 exact typed edges (29 conditional, 3 numeric, 0 exception). B0013 C00057 original full parent SHA and condition cues 45–47 remain in private V245 formal review inputs; live typed overlay SHA-only digest captured. V243 13-child route requires V245, source role mismatch blocked, pending source semantics returns private review input HOLD before E4 E5. CI synthetic V245 9/9, V243 25/25, 891 frozen cohort.",
+          "verified_by": "Private owner V228 original ZIP byte SHA replay and independent SHA-only overlay reconstruction; GitHub exact source V245 unit testing + V243 frozen V166 E4→V128 SQLite positive, missing context negative, partial typed ack and prohibited pending-cross publication. Actual ETF E3 0/13, E4 0, E5 0."
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-1-03",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "baseline_sha": "cfde4e79516546de264028b0edba81f764b5f5da",
+        "verdict": "START",
+        "user_visible_text": "[P0-1-03 시작] 선행 9/60 PASS, P0-1-03 READY, 후속 50 BLOCKED, 통합 HEAD cfde4e79, main d613fd20, 활성 브랜치 2. 실제 ETF 원본 21 cross atoms/49 edges/B0013 45–47 전체 부모 조건 보존 검증, typed overlay 정식 V243 입력 연계 후 정상·변조·미승인·SQLite 실제 실행시험 검증. 실패하면 동일 ID에서 수정, 다음 단계 차단."
+      },
+      "end_report": {
+        "task_id": "P0-1-03",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "baseline_sha": "c91b64f15f4b5655bbc1c0d9abc1f04f606f58d4",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-1-03 종료·PASS — E1 typed 원본 입력만] 실제 비공개 ETF 250cue/13child/68부모원자/21cross/49typed edge 전체 SHA 보존, C00057 B0013 원본 조건45~47과 numeric/exception 빈값 보존. V245로 source-first 원문 전체 typed review input 작성하고 V243 정식 API 13-child 입력 필수화, native V128 패킷 규격 변경 없이 (packet,ack) 확인. 교차 의미 미판정은 E4/E5 호출 전 HOLD. V245 9/9, V243 25/25, 동결 cohort 891, 동일 SHA CI 통과 후 판정. ETF E3 승인0/13 E4 0 E5 0; 10/60 PASS, P0-1-04 READY, 49 BLOCKED; main 불변 2브랜치."
+      },
       "failure_reason": null,
-      "remediation": null
+      "remediation": "E1 source-typed input complete: full parent atoms and original external conditions/numbers/exceptions preserved as private context, V243 mandatory for 13 children and fail closed on unapproved cross scope; V128 exact four-field packet preserved, typed acknowledgement separate. Actual E3 E4 E5 remain HOLD."
     },
     {
       "id": "P0-1-04",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,
