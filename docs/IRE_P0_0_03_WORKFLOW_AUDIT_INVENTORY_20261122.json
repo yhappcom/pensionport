@@ -31,6 +31,10 @@
     {
       "path": ".github/workflows/ire-v5-app-control.yml",
       "effect": "Drop historical GitHub Actions token contents write to read; legacy writeback would now fail closed"
+    },
+    {
+      "path": ".github/workflows/ire-v169-chat-resume.yml",
+      "effect": "Additional discovered broad legacy PR trigger restricted to retired v168 base after first CI RED"
     }
   ],
   "policy": [
@@ -145,7 +149,7 @@
     },
     {
       "path": ".github/workflows/ire-v169-chat-resume.yml",
-      "source_git_blob_sha": "24e788fa12d407e56df64e9549db698b425981f8",
+      "source_git_blob_sha": "b25bfbf93c03a9a18855c5d03a948a1e16972e47",
       "classification": "LEGACY_RETIRED",
       "expected_events": [
         "push",
