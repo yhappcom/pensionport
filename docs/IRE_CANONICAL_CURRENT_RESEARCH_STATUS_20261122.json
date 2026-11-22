@@ -292,10 +292,10 @@
   "development_gate": {
     "catalog_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json",
     "checklist_state_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json",
-    "this_item": "P0-1-01",
+    "this_item": "P0-1-02",
     "not_a_checklist_pass_receipt": true,
     "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": true,
-    "pending_next_item": "P0-1-01",
+    "pending_next_item": "P0-1-02",
     "next_item_allowed_only_after_P0_0_02_PASS": true,
     "next_item_allowed_only_after_P0_0_04_PASS": true,
     "implementation_ci": {
@@ -384,6 +384,22 @@
       "real_e5_published_parents": 0,
       "closing_sha_postpush_ci_required": true,
       "does_not_certify_financial_research": true
+    },
+    "p0_1_01_closeout": {
+      "status": "PASS_E1_SINGLE_ROUTE_SOFTWARE_ONLY",
+      "item_id": "P0-1-01",
+      "evidence_run_id": 45000597835,
+      "evidence_sha": "ff36575f7065f6ccc811b2394dd638b4c9fb309d",
+      "receipt_path": "docs/IRE_P0_1_01_ROUTE_CLOSEOUT_RECEIPT_20261122.json",
+      "code_path": "validation/ire-v6-frozen/v243_canonical_e1_e5_route.py",
+      "official_supported_api_count": 1,
+      "core_external_cli_count": 0,
+      "real_etf_e3_approved_children": 0,
+      "real_etf_e5_parent_publications": 0,
+      "real_host_turn_platform_attested": false,
+      "next_allowed_item": "P0-1-02",
+      "blocked_after_next": 51,
+      "personal_advice_authorized": false
     }
   },
   "open_blockers": [

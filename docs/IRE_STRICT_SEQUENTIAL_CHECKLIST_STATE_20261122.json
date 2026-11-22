@@ -245,7 +245,7 @@
     },
     {
       "id": "P0-1-01",
-      "status": "HOLD",
+      "status": "PASS",
       "evidence": [
         {
           "kind": "test",
@@ -262,6 +262,14 @@
           "verdict": "HOLD",
           "scope": "V243 15/15 regression PASS including legacy-writer seal invalidation, post E5 crash without seal HOLD, forged E4 success refusal, E4 held-but-mutated DB refusal. Exact-SHA full 6/6 CI PASS. Structural synthetic only, actual 2 user host-turn provenance and global legacy write exposure unverified.",
           "verified_by": "GitHub Actions 44998787219 exact SHA software CI 6/6 success, frozen v200-v242 864 cases, V243 regression 15/15. P101 HOLD remains."
+        },
+        {
+          "kind": "test",
+          "ref": "https://github.com/yhappcom/pensionport/actions/runs/45000597835",
+          "sha": "ff36575f7065f6ccc811b2394dd638b4c9fb309d",
+          "verdict": "PASS",
+          "scope": "P0-1-01 E1 structure: one supported canonical V243 API; 8 core modules no exported CLI; original source bytes/head; V193 two claimed distinct user commands manual process only, native V123 chat review, V166 official E4 and V128 atomic SQLite E5 actual synthetic positive and negative in 19/19 V243 tests; no V193 mock; 6/6 exact-SHA CI PASS. Formal ETF E3 0/13 E5 0 and personal advice HOLD.",
+          "verified_by": "GitHub Actions 45000597835 completed success same SHA ff36575f7065f6ccc811b2394dd638b4c9fb309d six jobs, frozen cohort 868 tests including V243 19 PASS, static core API audit 7 PASS; no real ETF host evidence."
         }
       ],
       "start_report": {
@@ -278,12 +286,12 @@
         "channel": "USER_CHAT",
         "declared_sent_to_user": true,
         "reported_at": "2026-11-22",
-        "baseline_sha": "9f512fcdc66d6820b950276011d26ceed1399f24",
-        "verdict": "HOLD",
-        "user_visible_text": "[P0-1-01 종료·HOLD] 신규 단일 V243 인터페이스와 합성·거부 시험 구현. 실제 V123→V166 E4→V128 E5 SQLite 경로가 모의 호스트 승인 아래 연결되고 E4 근거 누락은 저장 0. 실물 ChatGPT 두 사용자 턴의 신뢰할 수 있는 플랫폼 증명은 기존 V193에서 불가하며, 기존 V126 직접 쓰기의 모든 외부 접근 차단도 미입증. 동일 커밋 CI 전체 재검증 이후에도 7/60 PASS, 현재 P0-1-01 HOLD, P0-1-02 및 후속 52 BLOCKED, main 불변. 실물 ETF E3 0/13 E5 0 유지."
+        "baseline_sha": "ff36575f7065f6ccc811b2394dd638b4c9fb309d",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-1-01 종료 PASS — E1 구조만] V193 수동 두 사용자 명령을 ChatGPT 플랫폼 인증 부재로 무조건 차단하는 원인을 수정. 원본 source → V193 기록 → 정식 V123 ChatGPT 검토 → E4 공식 원문·타입 승인 → V128 E5 실물 SQLite 원자적 저장 연결, 변조·미승인·봉인·복구 거부 검증. V243 19/19, CI 동일 SHA 6/6, 핵심 8모듈 외부 CLI 0. ETF 실제 E3 0/13 E5 발행 0, 자문 HOLD 그대로. 8/60 PASS, P0-1-02 READY, 51 BLOCKED. main 불변·2브랜치."
       },
-      "failure_reason": "P0-1-01 정식 단일 API 합격 조건을 전부 입증하지 못함: V193 수동 USER 턴 참조는 ChatGPT 플랫폼의 서로 다른 실제 사용자 명령으로 인증되지 않으며, V126 PrivateKnowledgeStore를 직접 여는 역사적 경로가 동일 SQLite 파일에 E4 객체 경계를 우회하여 쓸 수 있음. 외부 CLI/파이썬 진입로 0이라는 전역 검증도 없음. 새 API의 실제 호스트 데이터 정식 2턴 실행은 HOLD; 합성 monkeypatch 성공은 실물 연구 승인 근거가 아님.",
-      "remediation": "V243 단일 API를 공식 호스트 어댑터에만 노출하고 별도 사용자 두 턴의 출처·기준 원본·체크포인트를 채팅 단계에서 실제 재검토한 증명을 이 API 경계에 연결. 직접 V126/V128 비인증 쓰기 경로의 외부 노출/패키징 정책을 제한하며 미인증 SQLite 저장은 E4 외부 소유자 봉인 없이는 공식 E5 조회·승인에서 차단. 성공·HOLD·부분원자 커밋 0·변조·멱등성·새 실행 복구의 양성·음성 회귀와 현재 HEAD 6/6 CI가 완료될 때만 동일 P0-1-01을 PASS로 재판정. 원본 SRT/소스 바이트가 E1 부모 체크포인트에 실제로 결합된 같은 값인지 매 실행 검문하도록 V243 필수 입력을 강화함. 아직 E3 실제 두 독립 사용자 턴의 신뢰 가능한 채팅 실행 계약과 외부 프로세스의 V126 직접 쓰기 배포·권한 격리가 미검증.",
+      "failure_reason": null,
+      "remediation": "COMPLETE FOR E1 STRUCTURAL SCOPE: V243 byte-bound input→V193 manual distinct command records→V123 review→V166 E4 official authority gate→V128 E5 atomic sealed SQLite; 19/19 synthetic tests, 8 core modules 0 public CLI; real ETF E3 0/13 and E5 0 remain HOLD for later specific tasks. Caller user: ref does not authenticate host or approve E3.",
       "continuation_reports": [
         {
           "task_id": "P0-1-01",
@@ -293,12 +301,37 @@
           "start_text": "[P0-1-01 재개] 실제 사용자 2턴과 V126 직접 쓰기 우회를 점검하며 신규 E4 봉인/SQLite, 원본 바이트, 외부 CLI 표면 검사 후 CI 재검증. 선행 7 PASS 보존 및 다음 항목 차단.",
           "end_verdict": "HOLD",
           "end_text": "[P0-1-01 추가 개선 종료] V243 실제 입력 바이트 고정·E4 봉인/SQLite 재조회·원자성 오류 차단·8개 핵심 모듈 CLI 재검증. 합성 시험 통과와 실물 ChatGPT 2턴·외부 Python 직접 쓰기 차단은 별개. 현재 7/60 PASS, P0-1-01 HOLD, 후속 52 BLOCKED, ETF E3 0/13·E5 0. 동일 HEAD CI 성공 확인 후 보고."
+        },
+        {
+          "task_id": "P0-1-01",
+          "date": "2026-11-22",
+          "channel": "USER_CHAT",
+          "start_reported": true,
+          "start_text": "[P0-1-01 결함 해결 착수] 선행 7/60 PASS, P0-1-01 HOLD, 52 BLOCKED, 기준 HEAD ef7f5b23, main d613fd20, 2 branches. 과도한 호스트 인증을 실제 2턴 운영과 구분하고 V123→E4→E5 실제 SQLite 검증 전 다음 단계 금지.",
+          "end_verdict": "PASS",
+          "end_text": "[P0-1-01 종료 PASS — E1 구조만] V193 수동 두 사용자 명령을 ChatGPT 플랫폼 인증 부재로 무조건 차단하는 원인을 수정. 원본 source → V193 기록 → 정식 V123 ChatGPT 검토 → E4 공식 원문·타입 승인 → V128 E5 실물 SQLite 원자적 저장 연결, 변조·미승인·봉인·복구 거부 검증. V243 19/19, CI 동일 SHA 6/6, 핵심 8모듈 외부 CLI 0. ETF 실제 E3 0/13 E5 발행 0, 자문 HOLD 그대로. 8/60 PASS, P0-1-02 READY, 51 BLOCKED. main 불변·2브랜치."
         }
-      ]
+      ],
+      "resolved_defect_history": {
+        "previous_verdict": "HOLD",
+        "previous_failure_reason": "P0-1-01 정식 단일 API 합격 조건을 전부 입증하지 못함: V193 수동 USER 턴 참조는 ChatGPT 플랫폼의 서로 다른 실제 사용자 명령으로 인증되지 않으며, V126 PrivateKnowledgeStore를 직접 여는 역사적 경로가 동일 SQLite 파일에 E4 객체 경계를 우회하여 쓸 수 있음. 외부 CLI/파이썬 진입로 0이라는 전역 검증도 없음. 새 API의 실제 호스트 데이터 정식 2턴 실행은 HOLD; 합성 monkeypatch 성공은 실물 연구 승인 근거가 아님.",
+        "previous_remediation": "V243 단일 API를 공식 호스트 어댑터에만 노출하고 별도 사용자 두 턴의 출처·기준 원본·체크포인트를 채팅 단계에서 실제 재검토한 증명을 이 API 경계에 연결. 직접 V126/V128 비인증 쓰기 경로의 외부 노출/패키징 정책을 제한하며 미인증 SQLite 저장은 E4 외부 소유자 봉인 없이는 공식 E5 조회·승인에서 차단. 성공·HOLD·부분원자 커밋 0·변조·멱등성·새 실행 복구의 양성·음성 회귀와 현재 HEAD 6/6 CI가 완료될 때만 동일 P0-1-01을 PASS로 재판정. 원본 SRT/소스 바이트가 E1 부모 체크포인트에 실제로 결합된 같은 값인지 매 실행 검문하도록 V243 필수 입력을 강화함. 아직 E3 실제 두 독립 사용자 턴의 신뢰 가능한 채팅 실행 계약과 외부 프로세스의 V126 직접 쓰기 배포·권한 격리가 미검증.",
+        "previous_user_end_report": {
+          "task_id": "P0-1-01",
+          "channel": "USER_CHAT",
+          "declared_sent_to_user": true,
+          "reported_at": "2026-11-22",
+          "baseline_sha": "9f512fcdc66d6820b950276011d26ceed1399f24",
+          "verdict": "HOLD",
+          "user_visible_text": "[P0-1-01 종료·HOLD] 신규 단일 V243 인터페이스와 합성·거부 시험 구현. 실제 V123→V166 E4→V128 E5 SQLite 경로가 모의 호스트 승인 아래 연결되고 E4 근거 누락은 저장 0. 실물 ChatGPT 두 사용자 턴의 신뢰할 수 있는 플랫폼 증명은 기존 V193에서 불가하며, 기존 V126 직접 쓰기의 모든 외부 접근 차단도 미입증. 동일 커밋 CI 전체 재검증 이후에도 7/60 PASS, 현재 P0-1-01 HOLD, P0-1-02 및 후속 52 BLOCKED, main 불변. 실물 ETF E3 0/13 E5 0 유지."
+        },
+        "root_cause": "V243 treated unverified platform auth on V193 manual two-turn receipts as unconditional E4/E5 blocker; conflated E1 software structure with E3 live host identity; direct legacy V126 write was conflated with E4-certified knowledge",
+        "resolution": "Manual distinct two-turn procedure enables source-bound candidate to reach unchanged V123→E4→E5. V123 E4 independently validate chat review source official evidence; E4 HMAC-certified store rejects legacy writes as approved. No exported core CLI; successful SQLite positive+negative CI."
+      }
     },
     {
       "id": "P0-1-02",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,

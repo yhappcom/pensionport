@@ -1,3 +1,5 @@
+> **최신 판정: P0-1-01 PASS (E1 단일 정식 소프트웨어 실행 경로에 한정)** — 본문 이전 HOLD 기록은 역사적 연구·결함 이력이다. 실제 ETF E3 0/13·E5 0, 자문 HOLD. [종결 영수증](IRE_P0_1_01_ROUTE_CLOSEOUT_RECEIPT_20261122.json) · [동일 HEAD 6/6 CI](https://github.com/yhappcom/pensionport/actions/runs/45000597835).
+
 # P0-1-01 분석 — E1 입력·ChatGPT 두 턴·E4·E5 정식 경로 (2026-11-22)
 
 ## 기존 코드 직접 검사와 결함

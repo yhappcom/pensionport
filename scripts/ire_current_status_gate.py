@@ -131,7 +131,13 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
     require(all(x.get("status") == "HOLD" and x.get("reason") for x in pending), "OPEN_BLOCKERS_LAUNDERED")
     require(len(set(x.get("id") for x in pending)) == len(pending), "OPEN_BLOCKER_IDS_DUPLICATE")
     dev = ledger.get("development_gate", {})
-    require(dev.get("this_item") == "P0-1-01", "WRONG_CHECKLIST_ITEM")
+    # Derive the one active development item; do not freeze the canonical
+    # cursor forever on P101 after the software defect is resolved.
+    cursor_state=load((root if root is not None else ROOT)/CHECKLIST_STATE)
+    cursor_rows=cursor_state["items"]
+    cursor_index=next((i for i,x in enumerate(cursor_rows) if x["status"]!="PASS"),len(cursor_rows))
+    cursor=cursor_rows[cursor_index]["id"] if cursor_index<len(cursor_rows) else "ALL_COMPLETE"
+    require(dev.get("this_item") == cursor, "WRONG_CHECKLIST_ITEM")
     require(dev.get("not_a_checklist_pass_receipt") is True, "STATUS_DOCUMENT_AS_CI_PASS")
     require(dev.get("implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run") is True, "P0_0_04_CI_NOT_RECORDED")
     ci = dev.get("implementation_ci", {})
@@ -184,7 +190,7 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             security.get("public_b64_confidentiality_certified") is False and
             security.get("entire_security_release_approved") is False and
             security.get("successor_P0_0_07_blocked") is False and
-            dev.get("pending_next_item") == "P0-1-01",
+            dev.get("pending_next_item") == cursor,
             "P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
     require({x.get("id") for x in ledger.get("historical_public_material_audit_findings", [])} ==
             {"P006-R01","P006-R02","P006-R03","P006-R04","P006-R05","P006-R06"},
@@ -230,7 +236,12 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             require(old_accuracy["b0013_internal_atomic_score"]["precision"] == other["internal_precision"], "INTERNAL_PRECISION_SCOPE_MISMATCH")
             checklist = load(root / CHECKLIST_STATE)
             require(checklist["items"][0]["status"] == "PASS", "PRECEDING_CHECKLIST_NOT_PASS")
-            require(checklist["items"][1]["status"] == "PASS" and checklist["items"][3]["id"] == "P0-0-04" and checklist["items"][3]["status"] == "PASS" and checklist["items"][4]["id"] == "P0-0-05" and checklist["items"][4]["status"] == "PASS" and checklist["items"][5]["id"] == "P0-0-06" and checklist["items"][5]["status"] == "PASS" and checklist["items"][6]["status"] == "PASS" and checklist["items"][7]["id"] == "P0-1-01" and checklist["items"][7]["status"] in {"READY","IN_PROGRESS","HOLD","FAIL","PASS"} and all(x["status"] == "BLOCKED" for x in checklist["items"][8:]), "CHECKLIST_P007_CLOSURE_OR_NEXT_INVALID")
+            require(checklist["items"][1]["status"] == "PASS" and checklist["items"][3]["id"] == "P0-0-04" and checklist["items"][3]["status"] == "PASS" and checklist["items"][4]["id"] == "P0-0-05" and checklist["items"][4]["status"] == "PASS" and checklist["items"][5]["id"] == "P0-0-06" and checklist["items"][5]["status"] == "PASS" and checklist["items"][6]["status"] == "PASS" and checklist["items"][7]["id"] == "P0-1-01" and checklist["items"][7]["status"] == "PASS" and
+                     cursor_index >= 8 and
+                     (cursor_index == len(checklist["items"]) or
+                      (checklist["items"][cursor_index]["status"] in
+                       {"READY","IN_PROGRESS","HOLD","FAIL"} and
+                       all(x["status"] == "BLOCKED" for x in checklist["items"][cursor_index+1:]))), "CHECKLIST_P007_CLOSURE_OR_NEXT_INVALID")
             p007 = load(root / closeout["receipt_path"])
             require(p007.get("schema") == "IRE_P0_0_07_P0_0_DEVELOPMENT_BASELINE_STAGE_CLOSEOUT_V1" and
                     p007.get("item_id") == "P0-0-07" and

@@ -62,9 +62,12 @@ def verify(root: pathlib.Path = ROOT, *, receipt: dict | None = None, state: dic
          finance.get("advisory")=="HOLD",
          "P007_FINANCIAL_RELEASE_FALSE_GO")
     rows=state.get("items",[])
+    index = next((i for i,x in enumerate(rows) if x.get("status")!="PASS"),len(rows))
     need(len(rows)==60 and all(x.get("status")=="PASS" for x in rows[:7]) and
-         rows[7].get("id")=="P0-1-01" and rows[7].get("status") in {"READY","IN_PROGRESS","HOLD","FAIL"} and
-         all(x.get("status")=="BLOCKED" for x in rows[8:]),
+         rows[7].get("id")=="P0-1-01" and
+         (index==len(rows) or
+          (index>=7 and rows[index].get("status") in {"READY","IN_PROGRESS","HOLD","FAIL"} and
+           all(x.get("status")=="BLOCKED" for x in rows[index+1:]))),
          "P007_CHECKLIST_SEQUENCE_FALSE_GO")
     need(not checklist_validate(catalog,state,root=root),"P007_STRICT_CHECKLIST_INVALID")
     need(not status_validate(ledger,root=root),"P007_CANONICAL_LEDGER_INVALID")

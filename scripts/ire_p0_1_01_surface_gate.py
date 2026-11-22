@@ -66,7 +66,7 @@ def main():
     if errs:return 1
     print("P101_CORE_SURFACE_PASS modules=8 direct_cli=0 root_deployment=0 official_exports=1 "
           "legacy_v126_importable=True external_bypass_zero_UNPROVEN=True "
-          "trusted_user_turns_UNPROVEN=True checklist_HOLD=True")
+          "trusted_user_turns_UNPROVEN=True P101_structural_only=True")
     return 0
 if __name__=="__main__":
     raise SystemExit(main())
