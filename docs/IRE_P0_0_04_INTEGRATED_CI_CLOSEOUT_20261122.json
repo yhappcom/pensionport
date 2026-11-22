@@ -1,0 +1,78 @@
+{
+  "schema": "IRE_P0_0_04_INTEGRATED_FULL_SOFTWARE_CI_CLOSEOUT_V1",
+  "as_of": "2026-11-22",
+  "item_id": "P0-0-04",
+  "status": "PASS_FOR_SOFTWARE_AND_CI_ONLY",
+  "repository": "yhappcom/pensionport",
+  "branch": "audit/full-repository-snapshot-20261122",
+  "source_commit": "f94fb5c8d59527abf531b5e774ffdaa7c5648b97",
+  "source_run_id": 44982460084,
+  "source_run_url": "https://github.com/yhappcom/pensionport/actions/runs/44982460084",
+  "ci_conclusion": "success",
+  "job_count": 6,
+  "python_version": "3.11.18",
+  "source_tests": {
+    "governance": {
+      "policy_unit_tests": 17,
+      "current_status_unit_tests": 23,
+      "workflow_scope_unit_tests": 19,
+      "total": 59
+    },
+    "frozen_v60_99": {
+      "tests": 871,
+      "files": 32
+    },
+    "frozen_v100_199": {
+      "tests": 2692,
+      "files": 153
+    },
+    "frozen_v200_242": {
+      "tests": 836,
+      "files": 50
+    },
+    "frozen_official": {
+      "tests": 89,
+      "files": 9
+    },
+    "v3_v5_v6_strict": {
+      "result": "ALL_MANDATORY_SOFTWARE_CHECKS_PASS_ENGINE_QUALITY_NOT_CERTIFIED",
+      "v6_atomic_and_adversarial": 647,
+      "ire_base_v3": 310,
+      "v5_core": 855,
+      "v5_core_skipped": 2,
+      "v5_app": 59,
+      "v5_preflight_checks": 59,
+      "v5_one_turn": "PASS_DETERMINISTIC_CHECKS_COMPLETED_RESEARCH_NOT_CERTIFIED",
+      "p4_active_knowledge_readonly": "PASS",
+      "same_sha_verified": true
+    }
+  },
+  "scope_notes": [
+    "Same commit in six GitHub Actions jobs: frozen 4,399 versioned tests + 89 official scope tests + 59 development governance tests, all PASS.",
+    "Strict driver additionally runs 647 V6, 310 IRE/V3, 855 V5 (2 skipped), 59 V5_app tests, plus 59 V5 preflight gates and bounded one-turn re-evaluations; nested/repeated checks must not be counted as independent tests or financial approvals.",
+    "2 V5 tests intentionally skipped; software CI PASS is not 100 percent tests executed and must explicitly disclose skips.",
+    "Entire frozen synthetic E1-E5 test files are partitioned 32+153+50 and all 9 non-v prefixed tests; not a replay of private original ETF source.",
+    "Current actual ETF E3 V123 final 0/13; E5 actual publications 0; E1-E5 real release and advisory HOLD; private SRT, current official live evidence, and owner E4 seal not certified.",
+    "Historical V202 test expected E2 READY even after V228 started E2 HOLD; updated test to preserve latter without falsely awarding E3.",
+    "V177 subprocess test failed to resolve repo package; fixed PYTHONPATH to github.workspace only for frozen subprocess tests. Both bugs verified red->green on CI.",
+    "Old governance ledger 27 workflows, 1 active full integration workflow, 1 manual, 25 dormant historical; no new branch nor main edits."
+  ],
+  "failed_runs_before_fix": [
+    {
+      "id": 44982311913,
+      "issue": "V202 old E2-ready test 2 FAIL; V177 subprocess path 6 FAIL"
+    },
+    {
+      "id": 44982398076,
+      "issue": "V177 subprocess path 6 FAIL after V202 correction"
+    }
+  ],
+  "policy_status": {
+    "checklist_prior_pass": 3,
+    "next_allowed_only_after_verified_pass": "P0-0-05",
+    "full_engine_business_release": "HOLD",
+    "independent_gold": "UNMEASURABLE",
+    "e3_final_etf_approvals": 0,
+    "e5_actual_parent_publications": 0
+  }
+}
