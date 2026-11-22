@@ -83,8 +83,8 @@ class TypedParentReviewTests(unittest.TestCase):
         for i in range(1,251):
             t=f"00:{i//60:02d}:{i%60:02d},000"
             e=f"00:{i//60:02d}:{i%60:02d},800"
-            rows.append(f"{i}\\n{t} --> {e}\\n합성 ETF 조건 {i}.")
-        raw="\\n\\n".join(rows).encode("utf8")
+            rows.append(f"{i}\n{t} --> {e}\n합성 ETF 조건 {i}.")
+        raw="\n\n".join(rows).encode("utf8")
         source=source_child_plan(raw,"SYNTHET0001",
                     expected_source_sha256=hh(raw))["source"]
         a={"claim_id":"C00057","owner_window_id":"W00013",
