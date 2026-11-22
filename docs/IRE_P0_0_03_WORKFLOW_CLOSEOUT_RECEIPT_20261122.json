@@ -1,0 +1,60 @@
+{
+  "schema": "IRE_P0_0_03_WORKFLOW_AUDIT_CLOSEOUT_RECEIPT_V1",
+  "date": "2026-11-22",
+  "item_id": "P0-0-03",
+  "result": "PASS_SCOPED_WORKFLOW_CLASSIFICATION_PERMISSION_HARDENING_AND_GATE",
+  "source_baseline_commit": "2ed02ce736f99f03669aaa166be8fc4da142b77c",
+  "validated_commit": "a0d7020104d72b4fd0a19ef026811ea34ba0c9d7",
+  "validating_ci": {
+    "run_id": 44982019346,
+    "url": "https://github.com/yhappcom/pensionport/actions/runs/44982019346",
+    "result": "success",
+    "python": "3.11.18",
+    "checklist_tests": 17,
+    "current_status_tests": 23,
+    "workflow_security_tests": 19,
+    "total_scoped_policy_tests": 59
+  },
+  "catalog": "docs/IRE_P0_0_03_WORKFLOW_AUDIT_INVENTORY_20261122.json",
+  "decision_document": "docs/IRE_P0_0_03_WORKFLOW_AUDIT_AND_CI_REMEDIATION_20261122.md",
+  "checks": {
+    "workflows_total": 27,
+    "current_push_governance": 1,
+    "manual_nondefault": 1,
+    "retired_historical": 25,
+    "contents_write": 0,
+    "broad_pull_request_base": 0,
+    "legacy_integration_branch_push": 0,
+    "main_unchanged": true,
+    "branch_count": 2,
+    "original_98_heads_preserved": true
+  },
+  "fixes": [
+    "Legacy cleanroom pull_request restricted to retired branches",
+    "Legacy V5 P3/P4 pull_request restricted to retired branch",
+    "Legacy V169 pull_request restricted to retired branch after first real RED CI",
+    "Legacy V5-app workflow contents permission changed from write to read"
+  ],
+  "failed_ci_before_fix": [
+    {
+      "run_id": 44981905814,
+      "cause": "Additional unscoped V169 pull_request discovered by new baseline audit; first run correctly failed"
+    },
+    {
+      "run_id": 44981940146,
+      "cause": "V169 workflow changed but catalog expected source Git blob SHA not yet updated; fail-closed version pin"
+    }
+  ],
+  "limitations": [
+    "This proves only GitHub Actions trigger and token policy for current integration branch; not full V3/V5/V6 or E1-E5 end-to-end software CI.",
+    "Manual workflow_dispatch presence does not guarantee runnable on a nondefault branch; do not count as current full CI.",
+    "No GitHub branch Ruleset currently enforces pre-creation or pre-push restrictions; branch governance is post-push verification.",
+    "The 25 historic YAML files are retained as archives with retired execution targets; they are not automatically executed on integration push.",
+    "Separate private original SRT, ChatGPT TURN2, financial official primary evidence, E4 seal and E5 publication remain HOLD.",
+    "The current source manifest (27 entries) is a classification snapshot; any future workflow edit must be reviewed and re-pinned before PASS."
+  ],
+  "next_allowed_item_only_after_commit": "P0-0-04 — pinned Python 3.11.18 V3/V5/V6/E1-E5 unified CI",
+  "user_reporting": "P0-0-03 started with user-visible progress and ends with a report of completed 59 tests, 3 remediated PR triggers, read-only token and next allowed ID",
+  "no_main_changes": true,
+  "no_new_branches": true
+}
