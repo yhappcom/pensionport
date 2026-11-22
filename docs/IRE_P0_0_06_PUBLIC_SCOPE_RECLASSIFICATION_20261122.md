@@ -12,3 +12,10 @@
 **근거:** [이전 통합 6/6 CI 검증](https://github.com/yhappcom/pensionport/actions/runs/44991967316), [기존 고정 42개 파일 원장](IRE_P0_0_06_42_FILE_SECURITY_INVENTORY_20261122.json), [기존 보안 감사](IRE_P0_0_06_ARCHIVE_SECURITY_AUDIT_20261122.md), [사용자 공개범위 정책 JSON](IRE_P0_0_06_OWNER_PUBLIC_SOURCE_SCOPE_20261122.json).
 
 **운영 결과:** P0-0-06은 범위 수정에 따른 조건부 PASS로 기록하고 P0-0-07은 READY. 단, 새 커밋의 동일 SHA 전체 CI 실패 시 P006은 재검토·HOLD로 복구하고 후속 진행 금지.
+
+## CI 실패 이력 정정 (P006 범위 재분류)
+
+- [44994578379](https://github.com/yhappcom/pensionport/actions/runs/44994578379): 이전 HOLD에서 PASS로 전환하는 커밋에 `remediation` 문자열이 없어서 순차 게이트가 거부. 이 전환은 유효 PASS가 아니었다.
+- [44994636551](https://github.com/yhappcom/pensionport/actions/runs/44994636551): 복구 설명을 기록한 수정본을 기존 불변 PASS로 오인하여 게이트가 `PREVIOUS_PASS_MUTATED`를 반환. 기존 선행 PASS 보호 자체는 정상 작동.
+- **정정:** 해당 잘못된 P006 PASS 기록의 `remediation` 값만 한 번 교정하도록, 원래 상태 필드·고정 `end_report.baseline_sha`·수정 대상 ID를 강하게 제한한 회귀 예외를 추가한다. 1~5번 PASS, 6번의 다른 증거·결과, 이후 유효 PASS는 계속 불변이다.
+- 정정된 커밋과 동일 SHA의 전체 통합 CI 6개 모두 PASS가 확인되지 않으면 P006 공개자료 분류 완료를 최종 인정하지 않는다.
