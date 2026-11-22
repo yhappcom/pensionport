@@ -11,7 +11,8 @@ on:
       - '.github/workflows/ire-v5-app-control.yml'
   workflow_dispatch:
 permissions:
-  contents: write
+  # Legacy writeback is retired; fail closed rather than grant bot push rights.
+  contents: read
 concurrency:
   group: ire-v5-app-control-${{ github.ref }}
   cancel-in-progress: false
