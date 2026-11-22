@@ -135,6 +135,10 @@ jobs:
   frozen_regression_matrix:
     name: P0-0-04 frozen E1-E5 offline regression / ${{ matrix.cohort }}
     needs: branch_governance
+    # Frozen V176/V177 CLI subprocesses execute a script path directly and
+    # require explicit project-root import visibility (not PYTHONPATH=tests).
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     runs-on: ubuntu-latest
     timeout-minutes: 35
     strategy:
