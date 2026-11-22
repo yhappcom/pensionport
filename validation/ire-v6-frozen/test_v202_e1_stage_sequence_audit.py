@@ -20,7 +20,10 @@ class TestCurrentE1SequenceStatus(unittest.TestCase):
 
     def test_01_preserve_old_v166_pass_and_v202_fail_without_faking_history(self):
         self.assertIs(self.data["historical_v166_e1_pass_preserved"],True)
-        self.assertEqual(self.data["current_step"],"E2_READY_NOT_STARTED")
+        # This is the V202→V228 historical status snapshot, NOT a static
+        # "E2 was never started" record. An unresolved E2 may be underway.
+        self.assertTrue(self.data["current_step"].startswith("E2_"))
+        self.assertNotIn("E3_FINAL_APPROVED",self.data["current_step"])
         self.assertEqual(self.data["sequence"][0]["status"],"PASS")
         self.assertTrue(self.data["current_e1_verdict"].startswith("PASS_V203_"))
         self.assertTrue(self.data["e1_evidence"]["prior_v202_false_pass_retracted"])
@@ -28,8 +31,13 @@ class TestCurrentE1SequenceStatus(unittest.TestCase):
     def test_02_following_stages_stay_unstarted_until_separately_verified(self):
         self.assertEqual([s["step"] for s in self.data["sequence"]],
                          ["E1","E2","E3","E4","E5"])
-        self.assertEqual(self.data["sequence"][1]["status"],
-                         "READY_NOT_STARTED_CURRENT_ROUTE")
+        # V228 legitimately began source-first E2, but independent gold
+        # and a distinct user TURN2 have NOT been completed or approved.
+        self.assertIn(self.data["sequence"][1]["status"],{
+            "READY_NOT_STARTED_CURRENT_ROUTE",
+            "IN_PROGRESS_HOLD_REAL_SEMANTIC_GOLD_HISTORIC_OWNER_AND_SPEAKER",
+        })
+        self.assertNotEqual(self.data["sequence"][1]["status"],"PASS")
         self.assertTrue(all(
             x["status"]=="NOT_RUN_CURRENT_ROUTE"
             for x in self.data["sequence"][2:]))
