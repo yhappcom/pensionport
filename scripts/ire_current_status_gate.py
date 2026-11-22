@@ -131,7 +131,7 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
     require(all(x.get("status") == "HOLD" and x.get("reason") for x in pending), "OPEN_BLOCKERS_LAUNDERED")
     require(len(set(x.get("id") for x in pending)) == len(pending), "OPEN_BLOCKER_IDS_DUPLICATE")
     dev = ledger.get("development_gate", {})
-    require(dev.get("this_item") == "P0-0-04", "WRONG_CHECKLIST_ITEM")
+    require(dev.get("this_item") == "P0-0-05", "WRONG_CHECKLIST_ITEM")
     require(dev.get("not_a_checklist_pass_receipt") is True, "STATUS_DOCUMENT_AS_CI_PASS")
     require(dev.get("implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run") is True, "P0_0_04_CI_NOT_RECORDED")
     ci = dev.get("implementation_ci", {})
@@ -144,6 +144,24 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             ci.get("v5_preflight_checks") == 59 and
             ci.get("strict_core_tests", {}).get("v5_skipped") == 2, "CI_COUNTER_OR_SKIP_DRIFT")
     require(ci.get("receipt_path") == "docs/IRE_P0_0_04_INTEGRATED_CI_CLOSEOUT_20261122.json", "P0_0_04_RECEIPT_PATH_INVALID")
+
+    handoff = dev.get("legacy_transfer", {})
+    require(handoff.get("status") == "PASS_REGISTRATION_ONLY_RESEARCH_HOLD" and
+            handoff.get("evidence_ci_run_id") == 44985673668 and
+            handoff.get("evidence_ci_success") is True and
+            handoff.get("source_snapshot_git_head") == "dd9bf7fc8d6645ee4fac93e20e84cffb8d486358",
+            "P005_HANDOFF_CI_PROVENANCE_INVALID")
+    require(handoff.get("maximal_independent_branch_count") == 11 and
+            handoff.get("maximal_path_candidate_rows") == 1103 and
+            handoff.get("formerly_open_now_closed_unmerged_pr_count") == 42 and
+            handoff.get("unresolved_issue_numbers") == [48, 50], "P005_HANDOFF_CENSUS_DRIFT")
+    require(handoff.get("path_decisions") == {"ADOPT": 0, "TEST_ONLY": 95, "ARCHIVE": 95, "HOLD": 913} and
+            handoff.get("code_adoption_from_historical_branches_approved") is False and
+            handoff.get("real_source_gold_replay_performed_in_this_gate") is False,
+            "P005_FALSE_CODE_ADOPTION_OR_GOLD")
+    require(handoff.get("handoff_receipt_path") == "docs/IRE_P0_0_05_CLOSEOUT_RECEIPT_20261122.json" and
+            handoff.get("next_allowed_after_checklist_pass") == "P0-0-06",
+            "P005_HANDOFF_RECEIPT_OR_NEXT_DRIFT")
 
     if root is not None:
         for path, source in ledger.get("evidence_sources", {}).items():
@@ -168,7 +186,15 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             require(old_accuracy["b0013_internal_atomic_score"]["precision"] == other["internal_precision"], "INTERNAL_PRECISION_SCOPE_MISMATCH")
             checklist = load(root / CHECKLIST_STATE)
             require(checklist["items"][0]["status"] == "PASS", "PRECEDING_CHECKLIST_NOT_PASS")
-            require(checklist["items"][1]["status"] == "PASS" and checklist["items"][3]["id"] == "P0-0-04" and checklist["items"][3]["status"] == "PASS", "CHECKLIST_P0_0_04_NOT_PASS")
+            require(checklist["items"][1]["status"] == "PASS" and checklist["items"][3]["id"] == "P0-0-04" and checklist["items"][3]["status"] == "PASS" and checklist["items"][4]["id"] == "P0-0-05" and checklist["items"][4]["status"] == "PASS" and checklist["items"][5]["id"] == "P0-0-06" and checklist["items"][5]["status"] == "READY", "CHECKLIST_P0_0_05_NOT_PASS")
+            p005 = load(root / handoff["handoff_receipt_path"])
+            require(p005.get("item_id") == "P0-0-05" and
+                    p005.get("disposition") == "PASS_INVENTORY_HANDOFF_ONLY_RESEARCH_NOT_APPROVED" and
+                    p005.get("exact_head_ci", {}).get("run_id") == handoff["evidence_ci_run_id"] and
+                    p005.get("counts", {}).get("maximal_divergent_path_rows") == handoff["maximal_path_candidate_rows"] and
+                    p005.get("counts", {}).get("code_automatically_adopted") == 0,
+                    "P005_RECEIPT_CONTRADICTS_STATUS")
+
             receipt = load(root / ci["receipt_path"])
             require(receipt.get("source_run_id") == ci["run_id"] and
                     receipt.get("source_commit") == ci["head_sha"] and

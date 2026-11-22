@@ -123,6 +123,14 @@ class CanonicalStatusGateTests(unittest.TestCase):
         self.ledger["stages"]["E5"]["actual_etf_parent_publications"] = 1
         self.bad("E5_FALSE_PUBLICATION")
 
+    def test_handoff_42_unmerged_prs_not_41(self):
+        self.ledger["development_gate"]["legacy_transfer"]["formerly_open_now_closed_unmerged_pr_count"] = 41
+        self.bad("P005_HANDOFF_CENSUS_DRIFT")
+
+    def test_handoff_no_fake_historical_adopt(self):
+        self.ledger["development_gate"]["legacy_transfer"]["path_decisions"]["ADOPT"] = 1
+        self.bad("P005_FALSE_CODE_ADOPTION_OR_GOLD")
+
     def test_open_blockers_cannot_be_silenced(self):
         self.ledger["open_blockers"] = []
         self.bad("OPEN_BLOCKERS_DROPPED")

@@ -277,10 +277,10 @@
   "development_gate": {
     "catalog_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json",
     "checklist_state_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json",
-    "this_item": "P0-0-04",
+    "this_item": "P0-0-05",
     "not_a_checklist_pass_receipt": true,
     "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": true,
-    "pending_next_item": "P0-0-05",
+    "pending_next_item": "P0-0-06",
     "next_item_allowed_only_after_P0_0_02_PASS": true,
     "next_item_allowed_only_after_P0_0_04_PASS": true,
     "implementation_ci": {
@@ -300,6 +300,30 @@
       },
       "v5_preflight_checks": 59,
       "receipt_path": "docs/IRE_P0_0_04_INTEGRATED_CI_CLOSEOUT_20261122.json"
+    },
+    "next_item_allowed_only_after_P0_0_05_PASS": true,
+    "legacy_transfer": {
+      "status": "PASS_REGISTRATION_ONLY_RESEARCH_HOLD",
+      "source_snapshot_git_head": "dd9bf7fc8d6645ee4fac93e20e84cffb8d486358",
+      "evidence_ci_run_id": 44985673668,
+      "evidence_ci_success": true,
+      "maximal_independent_branch_count": 11,
+      "maximal_path_candidate_rows": 1103,
+      "formerly_open_now_closed_unmerged_pr_count": 42,
+      "unresolved_issue_numbers": [
+        48,
+        50
+      ],
+      "path_decisions": {
+        "ADOPT": 0,
+        "TEST_ONLY": 95,
+        "ARCHIVE": 95,
+        "HOLD": 913
+      },
+      "code_adoption_from_historical_branches_approved": false,
+      "real_source_gold_replay_performed_in_this_gate": false,
+      "handoff_receipt_path": "docs/IRE_P0_0_05_CLOSEOUT_RECEIPT_20261122.json",
+      "next_allowed_after_checklist_pass": "P0-0-06"
     }
   },
   "open_blockers": [
