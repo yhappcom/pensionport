@@ -19,10 +19,10 @@ P102=Path("docs/IRE_P0_1_02_OWNER_ETF250_SOURCE_GRAPH_SHA_ONLY_20261122.json")
 P103=Path("docs/IRE_P0_1_03_OWNER_ETF250_TYPED_OVERLAY_SHA_ONLY_20261122.json")
 SOURCE="e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b"
 GRAPH="4f4ab61ddfdc7c1d9d4d7ef7b07568911ab198629d9299284fbd05fa73db5a8f"
-REVIEW="a80366eda8cbc14468ed284cfceb688d44de6fe8cd4111f830d0f8bb7946b636"
-PACKAGE="ae2b287b89bb927c71de6971f4f5a999a98de2d25e5a78f2b2e4beea5dce8d00"
+REVIEW="7c87f04af158196c6bff964c0634b029d81e23fc377825bcfc409f91fe354897"
+PACKAGE="df54f80d153c4f07a80a261344282681c6fb8ddb7bb9bd6fbc9aa6b99ddce8c8"
 VECTOR_SHA="d19a044fe17d5baba75ef7388dc948994c50396dd69c0a9c5adda23e3cca3336"
-CUE_ROWS_SHA="eb014274cf43fce79ec1171c0824e675f3b748dc622e64b7d150080a431b5f08"
+CUE_ROWS_SHA="5f049a34ede8ca5021060f314210698d0dfdbd2a7259ac23967b3d3b8c037fb7"
 LABEL_CODES={"F":"FACT","O":"OPINION","Q":"QUESTION","N":"NO_ATOM","U":"OPEN"}
 MAIN="d613fd201f4bb077f1ccc74d28dee937b11bfcb2"
 
@@ -73,8 +73,8 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None,p102=None,p103=None):
          "ORIGINAL_SOURCE_AND_GRAPH_PINS")
     need(receipt.get("private_source_first_review_canonical_sha256")==REVIEW
          and receipt.get("private_review_package_sha256")==PACKAGE
-         and receipt.get("private_source_first_review_file_sha256")=="faef144a6df6bda842002d651f3600ed4e12011867836a223acf471ff0361004"
-         and receipt.get("private_later_native_comparison_file_sha256")=="b5516179ca5e6744a534e33681b097d19aed603c951faed6044019b7ecf28593"
+         and receipt.get("private_source_first_review_file_sha256")=="94491c008bd409d4fef7d036083bb90e8b5bca6baab7141bf13114c0ca4c1525"
+         and receipt.get("private_later_native_comparison_file_sha256")=="0d87e591ffee0b8ff00ba495397e07fcaa2460b9528b996701e88098cdc4aeb9"
          and receipt.get("source_quote_rationale_rows_public_sha_only_census_sha256")==CUE_ROWS_SHA
          and receipt.get("private_library_file_id")=="libfile_e1711ec217008191bd183252ee58aab5"
          and receipt.get("private_library_uploaded_successfully") is True
@@ -116,6 +116,12 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None,p102=None,p103=None):
          and receipt.get("index_etf_only_scope_cues")==[45,46,47]
          and receipt.get("inherited_index_scope_comparative_cue_count")==123,
          "12_RISK_GROUPS_AND_INDEX_CONDITIONS")
+    # Every OPEN cue must be linked to at least one typed unresolved issue;
+    # a cue-specific rationale with no escalation docket is an incomplete gate.
+    issue_cues={i for x in issues if isinstance(x,dict)
+                for i in x.get("cue_indices",[]) if type(i) is int}
+    need(all(i in issue_cues for i,c in enumerate(vector,1) if c=="U"),
+         "OPEN_CUE_WITHOUT_ESCALATION_DOCKET")
     need(receipt.get("previous_unapproved_native_candidate_atoms")==68
          and receipt.get("previous_unapproved_native_primary_anchor_cues")==72
          and receipt.get("previous_native_primary_anchor_cues_now_OPEN_source_first")==32

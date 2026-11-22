@@ -72,6 +72,11 @@ class P201Cue250EvidenceTests(unittest.TestCase):
     def test_19_no_skip_to_next_p203(self):
         self.s["items"][14]["status"]="READY"
         self.bad("ONLY_P202_NEXT")
+    def test_21_open_cue_without_risk_docket_rejected(self):
+        group=next(x for x in self.r["unresolved_issue_groups"]
+                   if x["id"]=="P201-R07")
+        group["cue_indices"].remove(123)
+        self.bad("OPEN_CUE_WITHOUT_ESCALATION_DOCKET")
     def test_20_private_zip_sha_pin_required(self):
         self.r["private_review_package_sha256"]="0"*64
         self.bad("PRIVATE_EVIDENCE_SHA")
