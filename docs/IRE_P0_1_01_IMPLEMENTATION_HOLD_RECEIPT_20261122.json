@@ -1,0 +1,32 @@
+{
+  "schema": "IRE_P0_1_01_CANONICAL_ROUTE_PARTIAL_IMPLEMENTATION_HOLD_V1",
+  "as_of": "2026-11-22",
+  "item_id": "P0-1-01",
+  "verdict": "HOLD",
+  "source_snapshot_sha": "9f512fcdc66d6820b950276011d26ceed1399f24",
+  "initial_ci_run_id": 44997497881,
+  "code_path": "validation/ire-v6-frozen/v243_canonical_e1_e5_route.py",
+  "test_path": "validation/ire-v6-frozen/test_v243_canonical_e1_e5_route.py",
+  "document_path": "docs/IRE_P0_1_01_SINGLE_ROUTE_DESIGN_AND_RISK_20261122.md",
+  "e1_input_source_pinned": true,
+  "e3_review_v123_linked_through_v166": true,
+  "e4_official_primary_guard_linked": true,
+  "e5_atomic_parent_store_linked_under_synthetic": true,
+  "live_chatgpt_distinct_two_user_turns_platform_authenticated": false,
+  "unauthorized_v126_direct_sqlite_write_externally_unreachable_proven": false,
+  "approved_external_public_cli_bypass_count_proved_zero": false,
+  "legacy_v126_direct_write_can_modify_sqlite_but_cannot_produce_e4_owner_seal": true,
+  "strict_real_owner_e5_publications": 0,
+  "synthetic_test_actual_sqlite_publication_allowed_only_when_v193_mocked": true,
+  "original_42_file_integrity_unaffected": true,
+  "prior_passed_items_preserved": 7,
+  "next_item_remains_blocked": "P0-1-02",
+  "main_unchanged_sha": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+  "fixes_needed": [
+    "trusted real host turn1+turn2 evidence from separate actual user messages",
+    "external CLI/Python direct nonsealed V126 knowledge write exposure audit and isolation",
+    "negative tests for incomplete official authority, forged host turn receipts, crash/no-partial E5, replay",
+    "exact HEAD all six CI jobs success before PASS"
+  ],
+  "closing_sha_run_not_yet_attested": true
+}

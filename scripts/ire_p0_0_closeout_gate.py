@@ -63,7 +63,7 @@ def verify(root: pathlib.Path = ROOT, *, receipt: dict | None = None, state: dic
          "P007_FINANCIAL_RELEASE_FALSE_GO")
     rows=state.get("items",[])
     need(len(rows)==60 and all(x.get("status")=="PASS" for x in rows[:7]) and
-         rows[7].get("id")=="P0-1-01" and rows[7].get("status")=="READY" and
+         rows[7].get("id")=="P0-1-01" and rows[7].get("status") in {"READY","IN_PROGRESS","HOLD","FAIL"} and
          all(x.get("status")=="BLOCKED" for x in rows[8:]),
          "P007_CHECKLIST_SEQUENCE_FALSE_GO")
     need(not checklist_validate(catalog,state,root=root),"P007_STRICT_CHECKLIST_INVALID")

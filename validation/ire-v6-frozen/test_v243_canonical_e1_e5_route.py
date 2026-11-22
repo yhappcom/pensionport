@@ -106,7 +106,7 @@ class CanonicalRouteContractTests(unittest.TestCase):
         self.assertNotIn("e4_receipt",report)
         self.assertNotIn("publication_receipt",report)
         self.assertFalse(report["p0_go"])
-    def test_10_public_interface_has_no_cli():
+    def test_10_public_interface_has_no_cli(self):
         import v243_canonical_e1_e5_route as api
         self.assertEqual(api.__all__,("run_canonical_research_route",))
         self.assertFalse(hasattr(api,"main"))

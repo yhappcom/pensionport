@@ -19,6 +19,10 @@ class P007CloseoutTests(unittest.TestCase):
         self.assertTrue(any(code in x for x in issues),issues)
     def test_actual_stage_closeout_is_consistent(self):
         self.assertEqual([],verify(ROOT))
+    def test_p007_stays_closed_when_next_e1_item_is_holding(self):
+        self.assertEqual(self.s["items"][7]["status"], "HOLD")
+        self.assertEqual([], verify(ROOT))
+
     def test_bad_ci_sha_cannot_pass(self):
         self.r["source_exact_head_ci"]["sha"]="0"*40
         self.bad("P007_EVIDENCE_RUN_OR_SHA_WRONG")
