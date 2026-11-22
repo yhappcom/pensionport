@@ -7,16 +7,41 @@
   "items": [
     {
       "id": "P0-0-01",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "git",
+          "ref": "https://github.com/yhappcom/pensionport/blob/0c407bbc981ddc140d5963b7172a8e46d3997fe4/docs/IRE_P0_0_01_BASELINE_INTEGRITY_RECEIPT_20261122.json",
+          "sha": "0c407bbc981ddc140d5963b7172a8e46d3997fe4",
+          "scope": "P0-0-01 only: main HEAD, 2 branch refs, 2371 Git files, frozen 2364 path/blob/size exact match, 98 original heads and 42 PR archival; excludes private SRT bytes and E2-E5 semantic approvals",
+          "verified_by": "Direct live GitHub tree/refs API re-read and Actions 44964617604 branch_governance 17 policy tests & 98 ancestor checks",
+          "verdict": "PASS"
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-0-01",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "user_visible_text": "[P0-0-01 시작] 첫 번째 항목인 저장소 기준 동결·무결성 검증을 진행하겠습니다. 직전 상태 PASS 0/60, P0-0-01 READY, 후속 59개 차단. 통합 브랜치와 main의 HEAD, 전체 파일 목록과 해시, 기존 98개 브랜치 이력, 원본 보존 증거를 재검증합니다.",
+        "baseline_sha": "b30a7e5343fdfb3f1a21433cc9b24ceab9fc8d11",
+        "verdict": "START"
+      },
+      "end_report": {
+        "task_id": "P0-0-01",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "user_visible_text": "[P0-0-01 종료·검증 결과] main SHA 불변, 현재 브랜치 2개, 현재 추적 파일 2371개, 과거 고정 2364개 Git blob SHA/크기 전수 일치, 기존 98개 브랜치 HEAD가 통합 이력 조상(관리 CI PASS). 비공개 SRT·암호화 원본의 실물 바이트 확인은 해당 후속 단계로 보류하며 E2~E5 승인으로 오인하지 않음.",
+        "baseline_sha": "b30a7e5343fdfb3f1a21433cc9b24ceab9fc8d11",
+        "verdict": "PASS"
+      },
       "failure_reason": null,
       "remediation": null
     },
     {
       "id": "P0-0-02",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,
