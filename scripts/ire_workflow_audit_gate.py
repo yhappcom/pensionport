@@ -144,6 +144,14 @@ def audit(catalog: dict, root: pathlib.Path | None = ROOT,
             require("pull_request" not in result and "schedule" not in result, "GOVERNANCE_UNEXPECTED_EVENTS")
         elif typ == "MANUAL_ONLY":
             require(result == {"workflow_dispatch":[]}, "MANUAL_SNAPSHOT_AUTOEXECUTION")
+            # P0-0-06 containment: dispatch audit may upload metadata, never
+            # a second public copy of the tracked SRT/research/archive bytes.
+            require("NO_RAW_FILE_EXPORT" in raw and
+                    "IRE_FULL_TRACKED_METADATA_ONLY_20261122" in raw and
+                    "pensionport-tracked-metadata-only-20261122.json" in raw and
+                    "zipfile.ZipFile" not in raw and "writestr(" not in raw and
+                    "pensionport-full-tracked-audit.zip" not in raw,
+                    "P006_MANUAL_RAW_ARTIFACT_EXPORT_FORBIDDEN")
         else:
             require(TARGET not in result.get("push", []), "LEGACY_PUSH_REACTIVATED:" + path)
             require("main" not in result.get("push", []), "LEGACY_MAIN_PUSH_REACTIVATED:" + path)

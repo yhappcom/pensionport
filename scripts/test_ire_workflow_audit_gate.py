@@ -109,6 +109,17 @@ class WorkflowAuditGateTests(unittest.TestCase):
             "  push:\n    branches: [audit/full-repository-snapshot-20261122]\n  workflow_dispatch:")
         self.assert_bad("MANUAL_SNAPSHOT_AUTOEXECUTION", over)
 
+    def test_p006_manual_workflow_never_bulk_exports_tracked_bytes(self):
+        raw = (ROOT / MANUAL).read_text(encoding="utf-8")
+        self.assertIn("IRE_FULL_TRACKED_METADATA_ONLY_20261122", raw)
+        self.assertNotIn("zipfile.ZipFile", raw)
+        self.assertNotIn("writestr(", raw)
+        self.assertNotIn("pensionport-full-tracked-audit.zip", raw)
+
+    def test_p006_reject_reintroduced_raw_archive_upload(self):
+        over = self.replace(MANUAL, "NO_RAW_FILE_EXPORT", "ALLOW_RAW_FILE_EXPORT")
+        self.assert_bad("P006_MANUAL_RAW_ARTIFACT_EXPORT_FORBIDDEN", over)
+
     def test_detect_catalog_false_full_ci_claim(self):
         self.catalog["counts"]["full_v3_v5_v6_e1_e5_integration_ci"] = 1
         self.assert_bad("FULL_ENGINE_CI_FALSE_GO")

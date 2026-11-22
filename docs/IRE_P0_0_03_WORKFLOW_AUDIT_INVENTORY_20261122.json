@@ -64,7 +64,7 @@
     },
     {
       "path": ".github/workflows/full-repository-snapshot-audit-20261122.yml",
-      "source_git_blob_sha": "871f790513242dc58669242c75de2c366c0923d0",
+      "source_git_blob_sha": "442457cce3080d705b62f4c6a03af4c89aa0ee05",
       "classification": "MANUAL_ONLY",
       "expected_events": [
         "workflow_dispatch"
@@ -73,7 +73,9 @@
       "read_only_required": true,
       "execution_target": "workflow_dispatch defined on nondefault branch; not assumed runnable",
       "migration_decision": "ARCHIVE_READ_ONLY_MANUAL_TEMPLATE",
-      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI.",
+      "p006_pre_containment_source_git_blob_sha": "871f790513242dc58669242c75de2c366c0923d0",
+      "p006_containment_note": "Metadata-only audit replaces full tracked-byte ZIP export while security HOLD; historic P0-0-03 SHA preserved above."
     },
     {
       "path": ".github/workflows/ire-cleanroom-gate.yml",

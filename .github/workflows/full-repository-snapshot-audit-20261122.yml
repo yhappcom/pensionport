@@ -15,30 +15,37 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11.18'
-      - name: Capture complete tracked tree with content hashes
+      # P0-0-06 SECURITY HOLD: do not duplicate tracked research bytes into Actions artifacts.
+      - name: Capture tracked metadata only (NO_RAW_FILE_EXPORT)
         run: |
           python - <<'PY'
-          import pathlib, subprocess, json, hashlib, zipfile, os
+          import pathlib, subprocess, json, hashlib, os
           paths=[os.fsdecode(x) for x in subprocess.check_output(['git','ls-files','-z']).split(b'\0') if x]
           root=pathlib.Path('.')
           files=[]
-          with zipfile.ZipFile('/tmp/pensionport-full-tracked-audit.zip','w',zipfile.ZIP_DEFLATED,compresslevel=6) as dest:
-              for name in sorted(paths):
-                  fp=root/name
-                  if not fp.is_file():
-                      continue
-                  data=fp.read_bytes()
-                  files.append({'path':name,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
-                  dest.writestr(name, data)
-              manifest={'schema':'IRE_FULL_TRACKED_AUDIT_20261122','commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
-                        'file_count':len(files),'total_bytes':sum(x['bytes'] for x in files),'files':files}
-              dest.writestr('_audit_complete_tracked_manifest.json',json.dumps(manifest,ensure_ascii=False,sort_keys=True,indent=2))
-          print('COMPLETE_TRACKED_SNAPSHOT',manifest['commit'],manifest['file_count'],manifest['total_bytes'])
+          skipped_symlinks=0
+          for name in sorted(paths):
+              fp=root/name
+              if fp.is_symlink():
+                  skipped_symlinks+=1
+                  continue
+              if not fp.is_file():
+                  continue
+              data=fp.read_bytes()
+              files.append({'path':name,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+          manifest={'schema':'IRE_FULL_TRACKED_METADATA_ONLY_20261122','commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                    'tracked_regular_file_count':len(files),'skipped_symlinks':skipped_symlinks,
+                    'total_bytes_hashed_not_exported':sum(x['bytes'] for x in files),'files':files,
+                    'security_verdict':'HOLD_NO_PUBLIC_CONTENT_REEXPORT'}
+          output=pathlib.Path('/tmp/pensionport-tracked-metadata-only-20261122.json')
+          output.write_text(json.dumps(manifest,ensure_ascii=False,sort_keys=True,indent=2),encoding='utf-8')
+          print('METADATA_ONLY_AUDIT',manifest['commit'],manifest['tracked_regular_file_count'],
+                'security_release=HOLD', 'no_tracked_file_bytes_uploaded=TRUE')
           PY
-      - name: Export complete tracked repository only, no local secrets
+      - name: Upload metadata-only manifest; never upload original tracked files
         uses: actions/upload-artifact@v4
         with:
-          name: pensionport-full-tracked-audit-20261122
-          path: /tmp/pensionport-full-tracked-audit.zip
+          name: pensionport-tracked-metadata-only-20261122
+          path: /tmp/pensionport-tracked-metadata-only-20261122.json
           if-no-files-found: error
           retention-days: 1
