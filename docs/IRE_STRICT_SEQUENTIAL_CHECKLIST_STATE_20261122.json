@@ -399,16 +399,41 @@
     },
     {
       "id": "P0-1-04",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "docs/IRE_P0_1_04_REAL_SQLITE_END_TO_END_CLOSEOUT_20261123.json",
+          "sha": "96723d502ad373b1ebb04a2a0ab918a3606409ee",
+          "verdict": "PASS",
+          "scope": "P0-1-04 ONLY: genuine V123→V166 E4→V128→private V126 SQLite synthetic-host positive, rejected-source/gold/E4 missing-primary fail-closed, rollback after BEGIN IMMEDIATE, interrupted child checkpoint replay, old external E4 seal PIN-required idempotent parent replay with zero row delta, malicious legacy write detection. Explicit private forensic full unsealed SQLite orphan quarantine (SHA owner pin, mode0700/0600, transactional 0 active rows, postclear crash preserves backup). 19/19 V246 tests; 910 frozen cohort; 6/6 CI 45067162898. Actual owner ETF E3 0/13 E4 0 E5 0. Automatic physical rollback of hard crash is NOT certified.",
+          "verified_by": "GitHub Actions 45067162898 code SHA 96723d502ad373b1ebb04a2a0ab918a3606409ee; actual temporary SQLite tables and E4 HMAC seal readback; CI synthetic original and mocked official HTTPS, no real ETF law/semantic certification."
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-1-04",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "e106488bfae4da4ae25c4451aab98e085b2225d8",
+        "verdict": "START",
+        "user_visible_text": "[P0-1-04 시작] 10/60 PASS, 현재 P0-1-04 READY, 후속 49 BLOCKED. 정상·변조·미승인·체크포인트 복구·멱등 재실행을 V123/E4/V128 실제 SQLite로 시험하고 결함 우선 수정, 부분 부모 발행 0/외부봉인 검문. 결함 미해결 시 다음 항목 차단."
+      },
+      "end_report": {
+        "task_id": "P0-1-04",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "96723d502ad373b1ebb04a2a0ab918a3606409ee",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-1-04 종료·PASS — E1 합성 SQLite 종단간] 실제 SQLite 정상 부모 3지식·1증명, 불완전 자식·공식근거·SHA 변조 저장 0, 트랜잭션 내부 중단 롤백 0, 체크포인트 재개 성공, 동일 owner-pin 멱등 재발행 추가 행 0. seal 전 프로세스 중단으로 남는 미봉인 전체 부모는 공식 지식 아님; 외부 SHA핀·비공개 forensic 보존 후 활성 DB 0행으로 명시적 복구, 이후 전체 재실행 성공. V246 19/19, frozen cohort 910, CI 6/6 통과, 실물 ETF E3 0/13·E4 0·E5 0 유지. 11/60 PASS, P0-1-05 READY, 나머지 48 BLOCKED. main 불변·2 branches."
+      },
       "failure_reason": null,
-      "remediation": null
+      "remediation": "E1 P104 fixed: V243 owner-pinned idempotent replay and V166 unchanged E4 seal; actual SQLite all-or-nothing and scoped commit rollback; explicit owner-controlled unsealed-full-parent forensic quarantine with private archive and active zero rows; 19/19 real SQLite synthetic path tests. Remaining concern: abrupt pre-seal crash requires explicit recovery, no automatic OS-level atomicity across SQLite and sidecar. Financial semantic/governance not approved."
     },
     {
       "id": "P0-1-05",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,

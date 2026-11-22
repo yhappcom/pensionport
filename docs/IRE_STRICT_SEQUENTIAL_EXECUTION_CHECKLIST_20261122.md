@@ -79,10 +79,10 @@
 - [x] **P0-1-03 · 21 cross 원자·49 edge·B0013 조건의 typed overlay 구현** (PASS — 실물 원본 입력·typed 역할 손실 0, E3/E4/E5 HOLD)
   - **합격:** C00057 인덱스 ETF 조건·숫자·예외가 정식 입력까지 손실 0
   - **필수 증빙 종류:** `source` · SHA/검토 범위/재조회 가능한 영수증 및 사용자 시작·종료 보고
-- [ ] **P0-1-04 · 합성 긍정과 변조·미승인·복구·재실행 부정시험** (READY)
+- [x] **P0-1-04 · 합성 긍정과 변조·미승인·복구·재실행 부정시험** (PASS — 실제 합성 SQLite 19/19, 명시적 검역 복구)
   - **합격:** 검토/승인/저장 전 과정 실제 SQLite 회귀 및 부분발행 0
   - **필수 증빙 종류:** `test` · SHA/검토 범위/재조회 가능한 영수증 및 사용자 시작·종료 보고
-- [ ] **P0-1-05 · E1 구조와 실물 미승인 상태를 구분한 최종 판정** (BLOCKED)
+- [ ] **P0-1-05 · E1 구조와 실물 미승인 상태를 구분한 최종 판정** (READY)
   - **합격:** E1 구조 PASS 증거 + ETF 승인 HOLD 상태 유지, 오류 재현 0
   - **필수 증빙 종류:** `ci` · SHA/검토 범위/재조회 가능한 영수증 및 사용자 시작·종료 보고
 
@@ -296,4 +296,4 @@
 
 이전 E1 합성 구조·V6 deterministic 테스트 PASS는 참조용 배경 근거이지 **새 체크항목의 완료 도장을 자동 발급하지 않는다**. 현재 통합 브랜치에서 같은 SHA·계약으로 다시 재조회한 증거 및 사용자 보고가 있을 때 해당 항목만 PASS 가능. 실물 ETF E3 0/13, E5 실물 발행 0 기준은 별도 공식 영수증으로 변경되기 전까지 유지한다. 모든 단계가 종료되더라도 금융 자문/포트폴리오 공개·권고는 별도 적합성/법적 요건을 만족해야 한다.
 
-**최신 상태(2026-11-22):** **10/60 PASS** — P0-0-01~07, P0-1-01~03. P0-1-03에서 실제 ETF 비공개 원본 250/250 cue·13/13 child·68/68 미승인 원자·21 cross 원자·49 typed edges 및 B0013 C00057 조건 45–47을 원본 typed review input으로 손실 없이 연결. [SHA-only 실물 영수증](IRE_P0_1_03_OWNER_ETF250_TYPED_OVERLAY_SHA_ONLY_20261122.json) · [결함 수정과 정식 V243 연계](IRE_P0_1_03_TYPED_OVERLAY_IMPLEMENTATION_AND_REAL_SOURCE_VERIFICATION_20261122.md). 신규 V245 9/9, V243 25/25 및 frozen cohort 891 PASS. 실제 unresolved 21 cross 원자는 V243에서 정식 E4/E5 전에 HOLD로 차단하고, 전체 source-first 13개 PRIVATE 입력만 제공. **P0-1-04 READY**, 나머지 **49개 BLOCKED**. 실제 ETF E3 0/13, E4 0, E5 0, E2 독립 gold·개인 투자자문 HOLD. 최종 SHA GitHub Actions 6/6 확인 후 운영 종료 보고.
+**최신 상태(2026-11-23):** **11/60 PASS** — P0-0-01~07 + P0-1-01~04. 이번 P0-1-04 실제 합성 SQLite 종단간 정상·거부·변조·트랜잭션 실패·재시작·E4 owner-pin 멱등 재발행·미봉인 전체 부모 forensic 검역 및 명시적 복구 **19/19**, 동결 현재 E1~E5 cohort **910** PASS, [증빙 영수증](IRE_P0_1_04_REAL_SQLITE_END_TO_END_CLOSEOUT_20261123.json) · [결함·한계 분석](IRE_P0_1_04_SQLITE_FAULT_AND_PRIVATE_FORENSIC_RECOVERY_20261123.md) · [검증 CI](https://github.com/yhappcom/pensionport/actions/runs/45067162898) 6/6 성공. **P0-1-05 READY**, 뒤 **48개 BLOCKED**. 실제 ETF E3 0/13·E4 0·E5 0, 개인 자문 HOLD. 전체 SQLite 부모 커밋 이후 sidecar 봉인 전 강제 종료 시 전체 미봉인 DB는 명시적 SHA 검역 복구가 필요하며 운영 자동 무인 복구 미인증. 과거 합격 10개 유지·main 미병합.
