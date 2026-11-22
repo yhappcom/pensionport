@@ -66,6 +66,13 @@ class WorkflowAuditGateTests(unittest.TestCase):
             "")
         self.assert_bad("UNSCOPED_LEGACY_PULL_REQUEST", over)
 
+    def test_detect_unscoped_v169_legacy_pull_request_regression(self):
+        path = ".github/workflows/ire-v169-chat-resume.yml"
+        over = self.replace(path,
+            "    branches:\n      - verify/ire-v6-v168-chat-native-replay-20261118\n",
+            "")
+        self.assert_bad("UNSCOPED_LEGACY_PULL_REQUEST", over)
+
     def test_detect_integration_legacy_push(self):
         over = self.replace(LEGACY_V5,
             "      - feat/ire-v5-vertical-slice-20261103",
