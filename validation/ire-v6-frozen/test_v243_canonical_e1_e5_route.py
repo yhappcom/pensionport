@@ -213,6 +213,26 @@ class CanonicalRouteContractTests(unittest.TestCase):
             self.run_route(second_user_turn=turn2)
         self.assertEqual(self.f.fx._counts().get("events",0),0)
 
+    def test_20_thirteen_child_source_without_typed_parent_overlay_refused(self):
+        # P0-1-03: a real 13-child body may NOT omit 21 external atoms.
+        checkpoint=self.f.fx.checkpoint
+        original=list(checkpoint.child_ids)
+        checkpoint.child_ids=original+[
+            f"B{i:04d}" for i in range(3,14)]
+        try:
+            with self.assertRaisesRegex(InvalidInput,
+                                        "PARENT_TYPED_OVERLAY_REQUIRED"):
+                self.run_route()
+            self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
+        finally:
+            checkpoint.child_ids=original
+
+    def test_21_unpaired_overlay_parameters_refused_without_e4(self):
+        with self.assertRaisesRegex(InvalidInput,
+                                    "PARENT_TYPED_OVERLAY_REQUIRED"):
+            self.run_route(parent_typed_review_overlay={"untrusted":True})
+        self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
+
     def test_10_public_interface_has_no_cli(self):
         import v243_canonical_e1_e5_route as api
         self.assertEqual(api.__all__,("run_canonical_research_route",))

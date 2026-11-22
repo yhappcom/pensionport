@@ -15,6 +15,7 @@ CORE=(
 "validation/ire-v6-frozen/v166_e4_sealed_knowledge.py",
 "validation/ire-v6-frozen/v193_e3_two_user_turn_contract.py",
 "validation/ire-v6-frozen/v243_canonical_e1_e5_route.py",
+"validation/ire-v6-frozen/v245_e1_typed_parent_review_overlay.py",
 )
 CONFIGS=("pyproject.toml","setup.py","setup.cfg","Dockerfile","Procfile")
 FRAMEWORKS={"argparse","click","typer","flask","fastapi","uvicorn"}

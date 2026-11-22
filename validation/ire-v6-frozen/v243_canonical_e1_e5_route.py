@@ -15,7 +15,9 @@ cannot produce an externally pinned V166 E4 seal.
 """
 from __future__ import annotations
 
-from ire.v6.codec import ZERO_SHA, sha256
+from ire.v6.codec import ZERO_SHA, sha256, json_digest
+from copy import deepcopy
+from v245_e1_typed_parent_review_overlay import verify_typed_parent_review_overlay
 from ire.v6.errors import InvalidInput, QualityNotProven
 from v193_e3_two_user_turn_contract import validate_manual_turn_receipt
 from v166_e4_sealed_knowledge import E4SealedKnowledgeStore
@@ -53,6 +55,13 @@ def run_canonical_research_route(
     review_or_load_child, review_seams, review_parent,
     primary_manifest_for_child, typed_inventory_for_child,
     typed_manifest_for_child, now_as_of: str,
+    parent_typed_review_overlay=None,
+    expected_parent_typed_overlay_sha256=None,
+    parent_native_raw=None, parent_cue_raw=None,
+    parent_e3_raw=None, parent_pairs_raw=None,
+    expected_parent_native_sha256=None,
+    expected_parent_source_graph_sha256=None,
+    required_parent_condition_claim=None,
 ) -> dict:
     """One *supported* executable API; fail closed before all E4/E5 writes.
 
@@ -90,6 +99,76 @@ def run_canonical_research_route(
         len(set(checkpoint.child_ids))!=len(checkpoint.child_ids)):
         raise InvalidInput("V243_CHILD_CENSUS_INVALID")
 
+    # A 13-child real long-form input cannot silently pass a child-local
+    # V6 projection that discarded external conditions and numeric sources.
+    # A private full-parent V245 typed overlay is mandatory for this scope.
+    overlay_inputs=None
+    overlay_args=(parent_typed_review_overlay,
+        expected_parent_typed_overlay_sha256,parent_native_raw,parent_cue_raw,
+        parent_e3_raw,parent_pairs_raw,expected_parent_native_sha256,
+        expected_parent_source_graph_sha256)
+    if len(checkpoint.child_ids)>=13 or any(x is not None for x in overlay_args):
+        if any(x is None for x in overlay_args):
+            raise InvalidInput("V243_PARENT_TYPED_OVERLAY_REQUIRED_FOR_13_CHILD_SOURCE")
+        verification=verify_typed_parent_review_overlay(
+            parent_typed_review_overlay,
+            expected_overlay_sha256=expected_parent_typed_overlay_sha256,
+            source_raw=original_source_raw,
+            native_raw=parent_native_raw,cue_raw=parent_cue_raw,
+            e3_raw=parent_e3_raw,pairs_raw=parent_pairs_raw,
+            expected_source_sha256=source_sha256,
+            expected_native_sha256=expected_parent_native_sha256,
+            expected_graph_sha256=expected_parent_source_graph_sha256,
+            expected_cue_count=len(checkpoint.parent.cues),
+            expected_child_count=len(checkpoint.child_ids),
+            expected_atom_count=parent_typed_review_overlay.get("atom_count"),
+            expected_cross_atom_count=parent_typed_review_overlay.get("cross_atom_count"),
+            expected_cross_edge_count=parent_typed_review_overlay.get("cross_typed_edge_count"),
+            window_size=checkpoint.max_cues,
+            required_cross_scope_claim=required_parent_condition_claim)
+        if (verification["status"]!="PARENT_TYPED_CHILD_INPUTS_SOURCE_VERIFIED_NOT_APPROVED"
+                or parent_typed_review_overlay["source_sha256"]!=source_sha256
+                or parent_typed_review_overlay["child_count"]!=len(checkpoint.child_ids)):
+            raise QualityNotProven("V243_PARENT_TYPED_OVERLAY_INVALID")
+        overlay_inputs=parent_typed_review_overlay["child_review_inputs"]
+        for sid,m,inp in zip(checkpoint.child_ids,checkpoint.child_manifests,overlay_inputs):
+            if (inp["child_id"]!=sid or
+                inp["child_plan_sha256"]!=json_digest({
+                    "child_id":sid,
+                    "owner_window_id":f"W{int(sid[1:]):05d}",
+                    "first_cue":m["scope"]["first_cue"],
+                    "last_cue":m["scope"]["last_cue"],
+                    "cue_count":m["scope"]["last_cue"]-m["scope"]["first_cue"]+1,
+                    "original_window_text_sha256":sha256(" ".join(
+                        c.text for c in checkpoint.parent.cues[
+                            m["scope"]["first_cue"]-1:m["scope"]["last_cue"]]
+                    ).encode("utf-8")),
+                    "cue_byte_lineage_sha256":json_digest([
+                        {"cue_index":i,"child_id":sid,
+                         "owner_window_id":f"W{int(sid[1:]):05d}",
+                         "start_ms":checkpoint.parent.cues[i-1].start_ms,
+                         "end_ms":checkpoint.parent.cues[i-1].end_ms,
+                         "source_quote_sha256":sha256(
+                             checkpoint.parent.cues[i-1].text.encode("utf-8"))}
+                        for i in range(m["scope"]["first_cue"],
+                                       m["scope"]["last_cue"]+1)]),
+                })):
+                raise InvalidInput("V243_CHILD_INPUT_NOT_SAME_PINNED_PARENT_PLAN")
+    def typed_bound_child(segment_id,manifest,stage,original_raw):
+        if overlay_inputs is None:
+            return review_or_load_child(segment_id,manifest,stage,original_raw)
+        if segment_id not in checkpoint.child_ids:
+            raise InvalidInput("V243_TYPED_CHILD_UNKNOWN_SEGMENT")
+        inp=overlay_inputs[checkpoint.child_ids.index(segment_id)]
+        packet=review_or_load_child(
+            segment_id,manifest,stage,original_raw,deepcopy(inp))
+        if (type(packet) is not dict or
+            packet.get("parent_typed_review_input_sha256")!=inp["review_input_sha256"] or
+            packet.get("parent_typed_overlay_sha256")!=
+                parent_typed_review_overlay["typed_overlay_sha256"]):
+            raise InvalidInput("V243_CHILD_CHAT_INPUT_NOT_ACKNOWLEDGED_AS_FULL_PARENT")
+        return packet
+
     manual=validate_manual_turn_receipt(
         first=first_user_turn,second=second_user_turn,
         source_sha256=source_sha256,owner_head_sha256=owner_freeze_sha256,
@@ -116,7 +195,7 @@ def run_canonical_research_route(
     before_knowledge=knowledge_store._logical_fingerprint()
     outcome=run_e4_guarded_parent(
         checkpoint,knowledge_store,
-        review_or_load_child=review_or_load_child,
+        review_or_load_child=typed_bound_child,
         review_seams=review_seams,review_parent=review_parent,
         primary_manifest_for_child=primary_manifest_for_child,
         typed_inventory_for_child=typed_inventory_for_child,
@@ -170,6 +249,9 @@ def run_canonical_research_route(
         "trusted_host_two_user_turns_verified": False,
         "manual_two_user_commands_recorded_not_platform_authenticated": True,
         "v193_process_claim_is_not_e3_semantic_certification": True,
+        "typed_parent_full_context_delivered_to_each_child":overlay_inputs is not None,
+        "typed_parent_overlay_sha256":(parent_typed_review_overlay["typed_overlay_sha256"]
+                                          if overlay_inputs is not None else None),
         "e4_invoked": True,
         "e4_receipt": outcome,
         "e5_invoked": approved,
