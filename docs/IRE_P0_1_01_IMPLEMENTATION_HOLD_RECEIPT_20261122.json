@@ -28,5 +28,25 @@
     "negative tests for incomplete official authority, forged host turn receipts, crash/no-partial E5, replay",
     "exact HEAD all six CI jobs success before PASS"
   ],
-  "closing_sha_run_not_yet_attested": true
+  "closing_sha_run_not_yet_attested": true,
+  "followup_20261122": {
+    "status": "HOLD_MORE_CODE_HARDENED",
+    "new_source_byte_bind": "V243 now requires actual original source SRT bytes matching owner checkpoint and declared SHA",
+    "new_regression_tests_15_at_sha": "c100338a9fdc8cfa4695645f7de647e90bf2ac67",
+    "ci_for_15_tests": {
+      "id": 44998787219,
+      "conclusion": "success",
+      "successful_jobs": 6
+    },
+    "static_core_cli_gate": "scripts/ire_p0_1_01_surface_gate.py",
+    "scope_modules_checked": 8,
+    "known_module_cli_entrypoints": 0,
+    "external_legacy_python_writes_proven_absent": false,
+    "real_host_user_two_turn_attestation_available": false,
+    "independent_owner_pin_custody_proven": false,
+    "formal_etf_approvals": 0,
+    "formal_e5_publications": 0,
+    "post_committed_sha_ci_required": true,
+    "next_item": "P0-1-02 BLOCKED"
+  }
 }

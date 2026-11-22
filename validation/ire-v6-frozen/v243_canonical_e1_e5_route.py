@@ -13,7 +13,7 @@ cannot produce an externally pinned V166 E4 seal.
 """
 from __future__ import annotations
 
-from ire.v6.codec import ZERO_SHA
+from ire.v6.codec import ZERO_SHA, sha256
 from ire.v6.errors import InvalidInput, QualityNotProven
 from v193_e3_two_user_turn_contract import validate_manual_turn_receipt
 from v166_e4_sealed_knowledge import E4SealedKnowledgeStore
@@ -29,6 +29,7 @@ def _hold(checkpoint, *, reason, manual):
         "status": "HOLD_E3_HOST_TURN_PROVENANCE_NOT_VERIFIED",
         "reason_code": reason,
         "source_sha256": checkpoint.parent.source_sha256,
+        "original_source_bytes_rechecked": True,
         "checkpoint_head_sha256": checkpoint.progress()["checkpoint_head_sha256"],
         "claimed_distinct_user_commands": manual["recorded_distinct_user_commands"],
         "trusted_host_two_user_turns_verified": False,
@@ -44,7 +45,7 @@ def _hold(checkpoint, *, reason, manual):
 def run_canonical_research_route(
     checkpoint, knowledge_store, *,
     first_user_turn: dict, second_user_turn: dict | None,
-    source_sha256: str, owner_freeze_sha256: str,
+    original_source_raw: bytes, source_sha256: str, owner_freeze_sha256: str,
     expected_knowledge_head: str,
     review_or_load_child, review_seams, review_parent,
     primary_manifest_for_child, typed_inventory_for_child,
@@ -68,11 +69,15 @@ def run_canonical_research_route(
         primary_manifest_for_child,typed_inventory_for_child,typed_manifest_for_child
     )):
         raise InvalidInput("V243_MANDATORY_HOST_AND_PRIMARY_CALLBACKS")
+    if type(original_source_raw) is not bytes:
+        raise InvalidInput("V243_ORIGINAL_SOURCE_BYTES_REQUIRED")
     if (type(source_sha256) is not str or type(owner_freeze_sha256) is not str or
         type(expected_knowledge_head) is not str):
         raise InvalidInput("V243_SOURCE_AND_HEAD_PINS_REQUIRED")
     progress=checkpoint.progress(externally_pinned_checkpoint_head=owner_freeze_sha256)
-    if (checkpoint.parent.source_sha256 != source_sha256 or
+    if (sha256(original_source_raw) != source_sha256 or
+        original_source_raw != checkpoint.raw or
+        checkpoint.parent.source_sha256 != source_sha256 or
         progress["checkpoint_head_sha256"] != owner_freeze_sha256):
         raise QualityNotProven("V243_OWNER_SOURCE_OR_FREEZE_DRIFT")
     if (type(checkpoint.child_ids) is not list or not checkpoint.child_ids or
@@ -146,6 +151,7 @@ def run_canonical_research_route(
         "status": ("RESEARCH_CANDIDATE_PARENT_COMMITTED_AWAIT_OWNER_PIN_CUSTODY"
                    if approved else "HOLD_E4_PRIMARY_EVIDENCE"),
         "source_sha256": source_sha256,
+        "original_source_bytes_rechecked": True,
         "checkpoint_head_sha256": checkpoint.progress()["checkpoint_head_sha256"],
         "claimed_distinct_user_commands":manual["recorded_distinct_user_commands"],
         "trusted_host_two_user_turns_verified": True,

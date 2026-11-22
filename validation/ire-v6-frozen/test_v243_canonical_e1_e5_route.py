@@ -32,6 +32,7 @@ class CanonicalRouteContractTests(unittest.TestCase):
         f=self.f
         opts=dict(checkpoint=f.fx.checkpoint,knowledge_store=f.fx.knowledge,
                   first_user_turn=self.a,second_user_turn=self.b,
+                  original_source_raw=f.fx.checkpoint.raw,
                   source_sha256=self.source,owner_freeze_sha256=self.head,
                   expected_knowledge_head=ZERO_SHA,
                   review_or_load_child=f.fx.child,
@@ -192,6 +193,16 @@ class CanonicalRouteContractTests(unittest.TestCase):
         with self.assertRaises(QualityNotProven):
             self.f.fx.knowledge.verify_e4_certificate(
                 externally_pinned_seal_sha256="a"*64)
+
+    def test_16_original_source_byte_tamper_aborts_before_all_writes(self):
+        with self.assertRaisesRegex(QualityNotProven,"OWNER_SOURCE_OR_FREEZE_DRIFT"):
+            self.run_route(original_source_raw=self.f.fx.checkpoint.raw+b" ")
+        self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
+
+    def test_17_missing_original_bytes_aborts_before_all_writes(self):
+        with self.assertRaisesRegex(InvalidInput,"ORIGINAL_SOURCE_BYTES_REQUIRED"):
+            self.run_route(original_source_raw=None)
+        self.assertEqual(self.f.fx._counts().get("events",0),0)
 
     def test_15_success_e4_pin_is_not_a_user_custody_attestation(self):
         trusted={"host_separate_turns_verified":True,
