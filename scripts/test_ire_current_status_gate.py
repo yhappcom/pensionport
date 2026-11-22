@@ -156,7 +156,7 @@ class CanonicalStatusGateTests(unittest.TestCase):
         self.bad("P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
 
     def test_p007_next_staged_item_cannot_be_advanced(self):
-        self.ledger["development_gate"]["pending_next_item"] = "P0-2-01"
+        self.ledger["development_gate"]["pending_next_item"] = "P0-2-02"
         self.bad("P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
 
     def test_p007_release_receipt_must_not_claim_real_e5(self):

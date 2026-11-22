@@ -1,0 +1,105 @@
+{
+  "schema": "IRE_P0_1_05_E1_SOFTWARE_STRUCTURE_NOT_REAL_ETF_APPROVAL_V1",
+  "item_id": "P0-1-05",
+  "as_of": "2026-11-23",
+  "verdict": "PASS_E1_SOFTWARE_ONLY_ETF_E1_E5_ACTUAL_HOLD",
+  "evidence_source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "source_graph_sha256": "4f4ab61ddfdc7c1d9d4d7ef7b07568911ab198629d9299284fbd05fa73db5a8f",
+  "typed_review_overlay_sha256": "9d4b32d0850cf6f188b9bd77fd0cfc72d009c540422a9a2ae6b58b4dbdbd1662",
+  "software_route": "validation/ire-v6-frozen/v243_canonical_e1_e5_route.py::run_canonical_research_route",
+  "official_supported_api_count": 1,
+  "core_exported_cli_count": 0,
+  "E1_checklist_predecessors": [
+    {
+      "item": "P0-1-01",
+      "status": "PASS_SOFTWARE_SINGLE_API",
+      "receipt": "docs/IRE_P0_1_01_ROUTE_CLOSEOUT_RECEIPT_20261122.json",
+      "evidence_run_id": 45000597835
+    },
+    {
+      "item": "P0-1-02",
+      "status": "PASS_ORIGINAL_SOURCE_GRAPH_ONLY",
+      "receipt": "docs/IRE_P0_1_02_OWNER_ETF250_SOURCE_GRAPH_SHA_ONLY_20261122.json",
+      "actual_private_cues": 250,
+      "actual_parent_child": 13,
+      "candidate_atoms": 68,
+      "cross_atoms": 21,
+      "typed_edges": 49
+    },
+    {
+      "item": "P0-1-03",
+      "status": "PASS_UNAPPROVED_TYPED_CONTEXT_INPUT_ONLY",
+      "receipt": "docs/IRE_P0_1_03_OWNER_ETF250_TYPED_OVERLAY_SHA_ONLY_20261122.json",
+      "b0013_parent_claim": "C00057",
+      "external_condition_cues": [
+        45,
+        46,
+        47
+      ]
+    },
+    {
+      "item": "P0-1-04",
+      "status": "PASS_SYNTHETIC_ACTUAL_SQLITE_POSITIVE_NEGATIVE",
+      "receipt": "docs/IRE_P0_1_04_REAL_SQLITE_END_TO_END_CLOSEOUT_20261123.json",
+      "tested_native_sqlite_cases": 19,
+      "passed_cases": 19,
+      "frozen_e1_cohort_cases": 910
+    }
+  ],
+  "last_precloseout_ci": {
+    "run_id": 45067537678,
+    "head_sha": "bd8694618f04f41802c620aa216a29da603bc145",
+    "conclusion": "success",
+    "successful_jobs": 6,
+    "total_jobs": 6,
+    "url": "https://github.com/yhappcom/pensionport/actions/runs/45067537678"
+  },
+  "stage_result": {
+    "E1_structural_software": "PASS",
+    "ETF_real_owner_E1_end_to_end": "HOLD",
+    "E2_semantic": "HOLD",
+    "E3_final_chat": "HOLD",
+    "E4_owner_authority": "HOLD",
+    "E5_knowledge": "HOLD",
+    "personalized_investment_advice": "HOLD"
+  },
+  "actual_etf_approvals": {
+    "E3_v123_children": 0,
+    "E4_authorized_children": 0,
+    "E5_parent_publications": 0,
+    "E5_knowledge_rows": 0
+  },
+  "actual_etf_semantic_gold_verified": false,
+  "remaining_open_cross_atoms_for_semantic_review": 21,
+  "remaining_cross_qualifier_edges": 49,
+  "B0013_unresolved_parent_context": {
+    "claim_id": "C00057",
+    "primary_cue_index": 246,
+    "required_external_condition_cues": [
+      45,
+      46,
+      47
+    ],
+    "status": "SOURCE_PRESERVED_SEMANTIC_UNAPPROVED"
+  },
+  "live_host_signed_user_turn2_proven": false,
+  "owner_external_hmac_seal_actual_custody_proven": false,
+  "risk_register": {
+    "unsealed_whole_parent_after_e5_sqlite_commit": "MUST_EXPLICITLY_QUARANTINE_PRIVATE_FORENSIC_THEN_CLEAR_ACTIVE_WITH_EXTERNAL_PIN_NO_AUTO_ROLLBACK",
+    "unenforced_raw_V126_direct_sql_access": "CAN_WRITE_PHYSICALLY_BUT_E4_HMAC_CERTIFIED_READBACK_DENIES_TAMPER",
+    "manual_distinct_turn_refs": "PROCEDURAL_RECORD_ONLY_NOT_PLATFORM_ATTESTATION",
+    "semantics_and_law": "NO_SOURCE_FIRST_250_CUE_E2_GOLD_NO_REAL_E3_NO_CURRENT_OFFICIAL_E4_OWNER_APPROVAL",
+    "no_external_model_api_used": true
+  },
+  "post_commit_ci_necessary": true,
+  "post_commit_ci_auto_self_certified": false,
+  "no_main_merge": true,
+  "no_extra_branch_created": true,
+  "main_sha_unchanged": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+  "passed_items": 12,
+  "next_ready_item": "P0-2-01",
+  "blocked_following": 47,
+  "hold_not_evidence_of_engine_791_ready": true,
+  "scope": "E1 software integration only; actual ETF final E1-E5 and investment advice remain HOLD",
+  "next_step_approved": "P0-2-01 ETF250 cue-by-cue source-first semantic dispositions only"
+}

@@ -433,16 +433,41 @@
     },
     {
       "id": "P0-1-05",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "ci",
+          "ref": "https://github.com/yhappcom/pensionport/actions/runs/45067537678",
+          "sha": "bd8694618f04f41802c620aa216a29da603bc145",
+          "verdict": "PASS",
+          "scope": "P0-1-05 E1 software-only final closeout: previous exact-SHA full integrated 6/6 CI success, frozen current E1–E5 910 regressions PASS, V246 native synthetic actual SQLite 19/19; P101 one supported route 0 CLI, P102 real owner original 250/13/68/21/49 source SHA, P103 exact B0013 foreign 45-47 typed input, P104 fail-closed and private forensic recovery. Dedicated P105 18-case final scope gate will run in closing SHA CI. Actual ETF E3 0/13, E4 0, E5 0, advisory HOLD.",
+          "verified_by": "Verified GitHub Actions 45067537678 completed success 6/6 at bd8694618f04f41802c620aa216a29da603bc145; direct P101–104 receipts, canonical current status and checklist source; current closing SHA CI required and not pre-certified."
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-1-05",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "bd8694618f04f41802c620aa216a29da603bc145",
+        "verdict": "START",
+        "user_visible_text": "[P0-1-05 시작] 선행 11/60 PASS, P0-1-05 READY, 48 BLOCKED, audit HEAD bd8694618, main d613fd20, 브랜치 2개. P101~P104 전체 원본·typed·실제 SQLite 검증 영수증과 CI를 대조해 E1 구조 PASS 증거를 통합, ETF 실제 E2/E3/E4/E5 및 개인 자문 HOLD를 정확히 보존하는 최종 단계 검문. 결함이 생기면 같은 ID 해결·재검증 후에만 P0-2-01 허용."
+      },
+      "end_report": {
+        "task_id": "P0-1-05",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "8fde937d573e0eba01a141b884e2b1eac98e9953",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-1-05 종료·PASS — 소프트웨어 E1 구조만] P101~P104의 1 정식 V243 API/CLI 0, 실물 원본 250/13/68/21/49, B0013 C00057 외부 조건45~47, 합성 실제 SQLite 19/19 및 frozen cohort910, 이전 SHA CI6/6을 재확인. E1 구조 소프트웨어 PASS지만 실제 ETF E1 end-to-end 및 E2~E5 official HOLD, 실제 ETF E3 V123 0/13·E4 0·E5 0·독립 정답/개인자문 HOLD. P105 별도 18개 적대적 관문과 closing SHA 전체 CI 통과 후 최종 선언. 12/60 PASS, P0-2-01 READY, 이후 47 BLOCKED. main 불변, 2 branches."
+      },
       "failure_reason": null,
-      "remediation": null
+      "remediation": "P0-1-05 final structural assessment: E1 five software checkpoints actually verified, P101 P102 P103 P104 evidence consistent, no reproduced error on exact-SHA CI and new negative policy cases, prohibited status promotion to real ETF E3/E4/E5. Remaining HOLD: 21 cross atoms + 49 edges pending E2 semantics, actual separate-turn E3 0/13, owner official E4 0, approved E5 0, manual orphan recovery required."
     },
     {
       "id": "P0-2-01",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,

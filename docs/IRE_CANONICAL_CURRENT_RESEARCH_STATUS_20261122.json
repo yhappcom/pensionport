@@ -292,10 +292,10 @@
   "development_gate": {
     "catalog_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json",
     "checklist_state_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json",
-    "this_item": "P0-1-05",
+    "this_item": "P0-2-01",
     "not_a_checklist_pass_receipt": true,
     "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": true,
-    "pending_next_item": "P0-1-05",
+    "pending_next_item": "P0-2-01",
     "next_item_allowed_only_after_P0_0_02_PASS": true,
     "next_item_allowed_only_after_P0_0_04_PASS": true,
     "implementation_ci": {
@@ -464,6 +464,43 @@
       "actual_etf_e5_published": 0,
       "next_allowed_item": "P0-1-05",
       "following_blocked": 48
+    },
+    "p0_1_05_stage_closeout": {
+      "status": "PASS_E1_SOFTWARE_ONLY_ETF_REAL_E1_E5_HOLD",
+      "item_id": "P0-1-05",
+      "receipt_path": "docs/IRE_P0_1_05_FINAL_E1_STRUCTURE_ONLY_CLOSEOUT_20261123.json",
+      "report_path": "docs/IRE_P0_1_05_E1_STRUCTURE_FINAL_ASSESSMENT_20261123.md",
+      "stage_items": [
+        "P0-1-01",
+        "P0-1-02",
+        "P0-1-03",
+        "P0-1-04",
+        "P0-1-05"
+      ],
+      "software_verified": true,
+      "real_etf_source_cues": 250,
+      "child_scopes": 13,
+      "unapproved_parent_atoms": 68,
+      "cross_atoms_semantics_open": 21,
+      "cross_edges_source_bound": 49,
+      "real_etf_e3_final_approved_children": 0,
+      "real_etf_e4_owner_approved_children": 0,
+      "real_etf_e5_parent_publications": 0,
+      "real_etf_independent_gold_certified": false,
+      "official_stage_release_holds": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ],
+      "personalized_advice_authorized": false,
+      "known_risk_unsealed_full_parent_requires_manual_forensic_recovery": true,
+      "evidence_ci_run_id": 45067537678,
+      "evidence_sha": "bd8694618f04f41802c620aa216a29da603bc145",
+      "post_commit_same_sha_ci_required": true,
+      "next_ready_item": "P0-2-01",
+      "blocked_following": 47
     }
   },
   "open_blockers": [
