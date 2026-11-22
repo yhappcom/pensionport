@@ -16,6 +16,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CATALOG = pathlib.Path("docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json")
 STATE = pathlib.Path("docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json")
+CHECKLIST = pathlib.Path("docs/IRE_STRICT_SEQUENTIAL_EXECUTION_CHECKLIST_20261122.md")
 VALID = {"BLOCKED", "READY", "IN_PROGRESS", "FAIL", "HOLD", "PASS"}
 ACTIVE = {"READY", "IN_PROGRESS", "FAIL", "HOLD"}
 SHA = re.compile(r"^[a-fA-F0-9]{40}$")
@@ -155,6 +156,22 @@ def validate(catalog: dict, state: dict,
     for n in range(first_open + 1, len(rows)):
         if rows[n].get("status") != "BLOCKED":
             errors.append("OUT_OF_ORDER_PROGRESS:" + str(rows[n].get("id")))
+    if root is not None:
+        checklist_path = root / CHECKLIST
+        if not checklist_path.is_file():
+            errors.append("HUMAN_CHECKLIST_FILE_MISSING")
+        else:
+            # Prevent stale [ ] boxes from disguising machine-recorded PASS.
+            markdown = checklist_path.read_text(encoding="utf-8")
+            observed = re.findall(r"(?m)^- \\[([ xX])\\] \\*\\*([A-Z0-9-]+) · ", markdown)
+            if len(observed) != len(rows):
+                errors.append("MARKDOWN_CHECKBOX_COUNT_MISMATCH")
+            else:
+                for i, (mark, ident) in enumerate(observed):
+                    if ident != cats[i]["id"]:
+                        errors.append("MARKDOWN_CHECKBOX_ORDER_MISMATCH:" + ident)
+                    if (mark.lower() == "x") != (rows[i].get("status") == "PASS"):
+                        errors.append("MARKDOWN_CHECKBOX_STATE_MISMATCH:" + ident)
     if previous is not None:
         old = previous.get("items")
         if not isinstance(old, list) or len(old) != len(rows):
