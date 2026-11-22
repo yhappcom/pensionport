@@ -1,3 +1,5 @@
+> **P0-0-05 역사 자료 전수 이관 PASS:** [11개 독립 분기·1,103 후보 경로·42개 closed/unmerged PR·Issue #48/#50 OPEN 판정 보고서](docs/IRE_P0_0_05_CLOSEOUT_REPORT_20261122.md), [정식 영수증](docs/IRE_P0_0_05_CLOSEOUT_RECEIPT_20261122.json). 현재 5/60 PASS, P0-0-06 READY. 과거 코드 ADOPT 0건이며 비공개 원본 및 실물 E1~E5 승인/개인 자문은 HOLD입니다.
+
 > **P0-0-04 통합 소프트웨어 CI PASS:** [동일 커밋에서 Python 3.11.18 6개 GitHub Actions 작업 완료](docs/IRE_P0_0_04_INTEGRATED_CI_RUNBOOK_20261122.md), [증빙](docs/IRE_P0_0_04_INTEGRATED_CI_CLOSEOUT_20261122.json). 현재 순차 체크리스트 4/60 PASS, P0-0-05 READY. E3 실제 0/13, E5 발행 0, 자문 HOLD이며 V5 시험 2개 SKIPPED를 별도로 기록합니다.
 
 > **P0-0-03 Actions 전수 감사:** [27개 워크플로 분류·권한·삭제 브랜치 의존성 정리](docs/IRE_P0_0_03_WORKFLOW_AUDIT_AND_CI_REMEDIATION_20261122.md) / [실제 트리거 및 Git blob 전체 목록](docs/IRE_P0_0_03_WORKFLOW_AUDIT_INVENTORY_20261122.json). 1개 통합 관리 자동검사, 1개 수동 정의, 25개 역사 워크플로입니다. 과거 무제한 PR 트리거 3개를 한정하고 V5 bot write 권한을 제거했습니다. **관리 CI PASS는 P0-0-04에서 구축할 Python 3.11.18 전체 엔진 CI PASS가 아닙니다.**
