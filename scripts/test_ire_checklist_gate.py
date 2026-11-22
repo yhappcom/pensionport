@@ -131,35 +131,6 @@ class ChecklistGateTests(unittest.TestCase):
         repair_errors = validate(self.catalog, self.state, previous=previous)
         self.assertTrue(any('PREVIOUS_PASS_MUTATED' in x for x in repair_errors))
         # The immutable guard remains ON; next commit must not modify the state.
-    def test_p006_one_time_invalid_pass_remediation_correction_only(self):
-        self.pass_first()
-        for i in range(1,6):
-            row=self.state["items"][i]
-            row["status"]="PASS"
-            row["start_report"]=self.report(row,"START")
-            row["end_report"]=self.report(row,"PASS")
-            row["evidence"]=[self.evidence(i)]
-        self.state["items"][6]["status"]="READY"
-        row=self.state["items"][5]
-        row["end_report"]["baseline_sha"]="5e20d1de7db530c8ab2a3ab0a77f324d163f158b"
-        prev=copy.deepcopy(self.state)
-        row["remediation"]="Correct failed P006 HOLD-to-PASS transition with public material classification evidence."
-        self.assertEqual([],validate(self.catalog,self.state,previous=prev))
-        # A different field is never unlocked by this narrow exception.
-        row["evidence"][0]["scope"]="TAMPERED"
-        self.assert_bad("PREVIOUS_PASS_MUTATED",prev)
-
-    def test_p006_other_baseline_cannot_use_one_time_repair(self):
-        self.pass_first()
-        for i in range(1,6):
-            row=self.state["items"][i]
-            row.update(status="PASS",start_report=self.report(row,"START"),
-                       end_report=self.report(row,"PASS"),evidence=[self.evidence(i)])
-        self.state["items"][6]["status"]="READY"
-        prev=copy.deepcopy(self.state)
-        self.state["items"][5]["remediation"]="Attempt repair at unapproved SHA"
-        self.assert_bad("PREVIOUS_PASS_MUTATED",prev)
-
     def test_previous_pass_must_not_be_rewritten(self):
         self.pass_first()
         prev = copy.deepcopy(self.state)

@@ -182,23 +182,7 @@ def validate(catalog: dict, state: dict,
                 if before.get("id") != after.get("id"):
                     errors.append("HISTORIC_ITEM_ID_DRIFT:" + str(n))
                 if n < old_active and before != after:
-                    # One-time correction of the INVALID P006 PASS transition
-                    # which CI 44994578379 rejected (missing remediation).
-                    # No earlier PASS or another field can be rewritten.
-                    # The fixed baseline_sha pins this to that specific invalid
-                    # release transition; the exception is unusable afterward.
-                    p006_invalid_pass_repair = (
-                        n == 5 and before.get("id") == "P0-0-06"
-                        and before.get("status") == after.get("status") == "PASS"
-                        and before.get("remediation") is None
-                        and isinstance(after.get("remediation"), str)
-                        and bool(after["remediation"].strip())
-                        and before.get("end_report", {}).get("baseline_sha") ==
-                        "5e20d1de7db530c8ab2a3ab0a77f324d163f158b"
-                        and {**before, "remediation": after["remediation"]} == after
-                    )
-                    if not p006_invalid_pass_repair:
-                        errors.append("PREVIOUS_PASS_MUTATED:" + str(before.get("id")))
+                    errors.append("PREVIOUS_PASS_MUTATED:" + str(before.get("id")))
                 if n > old_active + 1 and before != after:
                     errors.append("MULTIPLE_ITEMS_CHANGED_WITHOUT_SEQUENTIAL_REVIEW:" + str(after.get("id")))
                 if n == old_active + 1 and before != after:
