@@ -218,8 +218,14 @@ def main():
         print("P105_GATE_FAIL",e,file=sys.stderr)
     if errors:
         return 1
+    state=load(args.root,STATE)
+    rows=state["items"]
+    current=next((x["id"] for x in rows if x["status"]!="PASS"),"ALL_DONE")
+    blocked=sum(x["status"]=="BLOCKED" for x in rows)
     print("P105_STAGE_GATE_PASS E1_SOFTWARE_ONLY=PASS ETF_E1_E5=HOLD "
-          "ETF_E3=0/13 ETF_E4=0 ETF_E5=0 P0-2-01=READY following=47")
+          f"ETF_E3=0/13 ETF_E4=0 ETF_E5=0 "
+          f"E1_STAGE_INITIAL_NEXT=P0-2-01 CURRENT_NEXT={current} "
+          f"CURRENT_BLOCKED={blocked}")
     return 0
 
 
