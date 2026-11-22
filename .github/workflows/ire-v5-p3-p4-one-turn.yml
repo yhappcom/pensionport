@@ -2,6 +2,10 @@ name: IRE V5 P3 P4 one-turn integration gate
 
 on:
   pull_request:
+    # Restrict legacy one-turn PR checks to its retired historical target.
+    # Current user-message two-turn E3 protocol is validated separately.
+    branches:
+      - feat/ire-v5-vertical-slice-20261103
     paths:
       - 'ire/v5/**'
       - '.github/workflows/ire-v5-p3-p4-one-turn.yml'
