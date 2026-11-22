@@ -52,6 +52,7 @@ class E4SealedKnowledgeStore(E4GuardedKnowledgeStore):
         super().__init__(path)
         self._seal_path=Path(str(self.path)+".e4seal.json")
         self._last_owner_pin=None
+        self._e4_start_snapshot=None
 
     def _logical_fingerprint(self):
         """V126 hash-chain AND V128 parent proofs replayed, no blind file SHA.
@@ -142,8 +143,12 @@ class E4SealedKnowledgeStore(E4GuardedKnowledgeStore):
         elif any(before[c] for c in
                  ("knowledge_count","events_count","parent_count")):
             _fail("EXISTING_UNCERTIFIED_LEGACY_ROWS")
-        with super().begin_e4_parent_approval(child_ids):
-            yield self
+        self._e4_start_snapshot=before
+        try:
+            with super().begin_e4_parent_approval(child_ids):
+                yield self
+        finally:
+            self._e4_start_snapshot=None
 
     def certify_completed_parent(self, *, child_ids, e3_downstream_result):
         """Called by the official E4 runner INSIDE an approved E4 scope."""
@@ -160,6 +165,25 @@ class E4SealedKnowledgeStore(E4GuardedKnowledgeStore):
             _fail("PARENT_SQLITE_PUBLICATION_NOT_DURABLE")
         receipts=[{"child_id":cid,**scope["approved"][cid]}
                   for cid in child_ids]
+        if (self._trusted_prior_owner_pin is not None and
+            self._e4_start_snapshot is not None and
+            state==self._e4_start_snapshot):
+            # The frozen V128 parent proof can be replayed idempotently.
+            # Never rewrite a previously owner-pinned certificate merely
+            # because a caller retried the same parent. In particular,
+            # changing previous_owner_pin_sha256 in a new sidecar would
+            # create a different untrusted pin for unchanged SQLite rows.
+            existing=self._read_seal()["payload"]
+            if (existing.get("database_snapshot")!=state or
+                existing.get("child_ids")!=list(child_ids) or
+                existing.get("approved_child_receipts")!=receipts or
+                existing.get("e3_checkpoint_head_sha256")!=
+                    e3_downstream_result["checkpoint_head_sha256"]):
+                _fail("IDEMPOTENT_REPLAY_NOT_IDENTICAL_TO_OWNER_PINNED_APPROVAL")
+            self.verify_e4_certificate(
+                externally_pinned_seal_sha256=self._trusted_prior_owner_pin)
+            self._last_owner_pin=self._trusted_prior_owner_pin
+            return self._trusted_prior_owner_pin
         payload={
             "schema":SCHEMA,
             "database_snapshot":state,
