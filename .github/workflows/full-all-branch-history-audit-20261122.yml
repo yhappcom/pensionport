@@ -113,6 +113,11 @@ jobs:
           python -m unittest -v scripts.test_ire_p0_0_closeout_gate
           python -m scripts.ire_p0_0_closeout_gate verify
 
+      - name: P0-1-01 verify one official API and no core CLI (external bypass still HOLD)
+        run: |
+          python -m unittest -v scripts.test_ire_p0_1_01_surface_gate
+          python -m scripts.ire_p0_1_01_surface_gate verify
+
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA
     needs: branch_governance
