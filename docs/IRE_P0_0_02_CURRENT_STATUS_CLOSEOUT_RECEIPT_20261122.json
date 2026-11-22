@@ -1,0 +1,49 @@
+{
+  "schema": "IRE_P0_0_02_CANONICAL_STATUS_CLOSEOUT_RECEIPT_V1",
+  "item_id": "P0-0-02",
+  "as_of": "2026-11-22",
+  "status": "PASS_FOR_CANONICAL_STATUS_GOVERNANCE_ONLY",
+  "status_ledger": "docs/IRE_CANONICAL_CURRENT_RESEARCH_STATUS_20261122.json",
+  "status_interpretation": "docs/IRE_CURRENT_STATUS_DECISION_RULES_20261122.md",
+  "source_frozen_commit": "6cf0c8859440de11f02ae9e48966322581b59ac3",
+  "verified_code_head": "076e0be2d38706ecabe4379613e3c1c61571688d",
+  "verified_ci_run_id": 44981432645,
+  "verified_ci_url": "https://github.com/yhappcom/pensionport/actions/runs/44981432645",
+  "verified_ci_conclusion": "success",
+  "verified_ci_job_id": 137082563552,
+  "checks": {
+    "current_status_adversarial_tests": 23,
+    "existing_order_gate_tests": 17,
+    "provenance_source_files_sha_verified": 14,
+    "roster_total": 791,
+    "roster_long_form": 703,
+    "roster_shorts": 88,
+    "legacy_video_rows": 157,
+    "legacy_claim_rows": 116,
+    "legacy_learning_queue_rows": 211,
+    "etf_cues": 250,
+    "etf_provisional_candidates": 68,
+    "etf_staged_structural_children": 13,
+    "etf_formal_v123_approved_children": 0,
+    "etf_e5_actual_publications": 0
+  },
+  "release_states": {
+    "E1": "HOLD",
+    "E2": "HOLD",
+    "E3": "HOLD",
+    "E4": "HOLD",
+    "E5": "HOLD",
+    "advisory": "HOLD",
+    "full_suite_ci": "NOT_RUN_IN_P0_0_02",
+    "independent_gold": "UNMEASURABLE"
+  },
+  "nonclaims": [
+    "Passing 23 tests proves consistency of public evidence snapshots and guarded status invariants; it does not certify semantics of private ETF source.",
+    "Private original SRT or SQLite bytes were not accessed in this turn.",
+    "The 157 historical video entries, 116 legacy claims and 211 learning queue entries do not define released E5 video count.",
+    "Actual full-roster E5 released video count and whole-video accuracy remain unknown.",
+    "Older V166 E1~E3 scoped tests cannot authorize actual ETF E3/E4/E5 or personalized investment advice.",
+    "Only current checklist item P0-0-02 is being closed; P0-0-03 is next and all other 57 remain blocked."
+  ],
+  "user_reporting_rule": "Start report shown to the user before source reads; end report must show exact commit, CI PASS, 2/60 count and next P0-0-03."
+}
