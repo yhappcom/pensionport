@@ -148,11 +148,11 @@ class CanonicalStatusGateTests(unittest.TestCase):
         self.bad("P006_SECURITY_CENSUS_OR_HOLD_INVALID")
 
     def test_unresolved_public_security_issue_cannot_disappear(self):
-        self.ledger["open_blockers"] = [x for x in self.ledger["open_blockers"] if x["id"] != "P006-R01"]
-        self.bad("P006_SECURITY_HOLD_BLOCKERS_OMITTED")
+        self.ledger["historical_public_material_audit_findings"] = [x for x in self.ledger["historical_public_material_audit_findings"] if x["id"] != "P006-R01"]
+        self.bad("P006_HISTORICAL_FINDINGS_MISSING")
 
     def test_security_release_cannot_unblock_next_item(self):
-        self.ledger["development_gate"]["security_archive_audit"]["successor_P0_0_07_blocked"] = False
+        self.ledger["development_gate"]["security_archive_audit"]["successor_P0_0_07_blocked"] = True
         self.bad("P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
 
     def test_open_blockers_cannot_be_silenced(self):

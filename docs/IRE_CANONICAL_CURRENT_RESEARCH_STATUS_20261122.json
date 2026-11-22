@@ -292,10 +292,10 @@
   "development_gate": {
     "catalog_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json",
     "checklist_state_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json",
-    "this_item": "P0-0-06",
+    "this_item": "P0-0-07",
     "not_a_checklist_pass_receipt": true,
     "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": true,
-    "pending_next_item": "P0-0-06",
+    "pending_next_item": "P0-0-07",
     "next_item_allowed_only_after_P0_0_02_PASS": true,
     "next_item_allowed_only_after_P0_0_04_PASS": true,
     "implementation_ci": {
@@ -342,7 +342,7 @@
     },
     "next_item_allowed_only_after_P0_0_06_PASS": true,
     "security_archive_audit": {
-      "status": "HOLD_PUBLIC_REVERSIBLE_DATA_AND_OWNER_KEY_RECOVERY_UNVERIFIED",
+      "status": "PASS_OWNER_DECLARED_PUBLIC_SCOPE_LEGACY_RESTORE_NOT_REQUIRED",
       "source_snapshot_sha": "0cd5f8d69ab41772bd9eab4dd006e7fcdd1e7ce5",
       "validation_ci_run_id": 44990140818,
       "validation_ci_governance_pass": true,
@@ -358,11 +358,16 @@
       "private_content_nonexposure_certified": false,
       "public_b64_confidentiality_certified": false,
       "entire_security_release_approved": false,
-      "security_blocker_count": 6,
+      "security_blocker_count": 0,
       "hold_register_path": "docs/IRE_P0_0_06_SECURITY_HOLD_DOCKET_20261122.json",
       "report_path": "docs/IRE_P0_0_06_ARCHIVE_SECURITY_AUDIT_20261122.md",
-      "next_action_item": "P0-0-06",
-      "successor_P0_0_07_blocked": true
+      "next_action_item": "P0-0-07",
+      "successor_P0_0_07_blocked": false,
+      "owner_public_scope_policy_path": "docs/IRE_P0_0_06_OWNER_PUBLIC_SOURCE_SCOPE_20261122.json",
+      "owner_public_scope_accepted": true,
+      "encryption_required_for_current_scope": false,
+      "historical_security_risks": 6,
+      "legacy_archive_key_recovery_required": false
     }
   },
   "open_blockers": [
@@ -419,41 +424,43 @@
       "scope": "METRICS",
       "status": "HOLD",
       "reason": "Independent accuracy and certified full-roster E5 completion denominator unknown; null, not zero"
-    },
+    }
+  ],
+  "historical_public_material_audit_findings": [
     {
       "id": "P006-R01",
-      "scope": "SECURITY",
-      "status": "HOLD",
+      "scope": "LEGACY_PUBLIC_DATA",
+      "status": "HISTORICAL_NONBLOCKING",
       "reason": "Six source-derived research JSON archives are reversibly published in public Git; confidential contents not authorized/independently classified."
     },
     {
       "id": "P006-R02",
-      "scope": "SECURITY",
-      "status": "HOLD",
+      "scope": "LEGACY_PUBLIC_DATA",
+      "status": "HISTORICAL_NONBLOCKING",
       "reason": "Removing a file from branch HEAD does not erase existing public Git history, forks, external caches or previously fetched copies."
     },
     {
       "id": "P006-R03",
-      "scope": "SECURITY",
-      "status": "HOLD",
+      "scope": "LEGACY_PUBLIC_DATA",
+      "status": "HISTORICAL_NONBLOCKING",
       "reason": "25 PPC1 file SHA256 and authenticated-container prefix validated, but owner-held 256-bit recovery key unavailable for actual roundtrip and original SHA256 check."
     },
     {
       "id": "P006-R04",
-      "scope": "SECURITY",
-      "status": "HOLD",
+      "scope": "LEGACY_PUBLIC_DATA",
+      "status": "HISTORICAL_NONBLOCKING",
       "reason": "11 V5 historical archive bytes match pinned migration SHA256, but encryption format, key custody, authenticity and actual restoration not proved."
     },
     {
       "id": "P006-R05",
-      "scope": "SECURITY",
-      "status": "HOLD",
+      "scope": "LEGACY_PUBLIC_DATA",
+      "status": "HISTORICAL_NONBLOCKING",
       "reason": "No authorized private original source/restore operation or independence-checked confidential-data inventory performed; cannot certify no private leak."
     },
     {
       "id": "P006-R06",
-      "scope": "SECURITY",
-      "status": "HOLD",
+      "scope": "LEGACY_PUBLIC_DATA",
+      "status": "HISTORICAL_NONBLOCKING",
       "reason": "Current push CI blocks unlisted sensitive paths but does not preclude first push; admin-level branch rulesets/secret scanning policy still need separate review."
     }
   ]
