@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """P0-0-06 public-safe byte audit: integrity is not confidentiality or recovery."""
 from __future__ import annotations
-import argparse, base64, hashlib, json, re, sys, zlib
+import argparse, base64, hashlib, json, re, subprocess, sys, zlib
 from collections import Counter
 from pathlib import Path, PurePosixPath
 
@@ -153,8 +153,35 @@ def parse_reversible_b64(encoded):
     return {"decoded_bytes":len(raw),"long_text":tally["long_text"],
             "semantic_text":tally["semantic_text"],"korean_text":tally["korean_text"]}
 
+PUBLIC_SENSITIVE_SUFFIXES = (
+    ".json.zlib.b64",".ppc1",".v5archive",".v5enc",".v5inc",".v5bundle",
+    ".v5pack",".srt",".sqlite",".sqlite3",".db",".p12",".pfx",".pem",".key",
+    ".env",".zip",".tar",".tar.gz",".tgz",".gpg",".7z",".rar"
+)
+
+def unregistered_public_sensitive_paths(tracked_paths, inventory):
+    """Fail closed on newly tracked private data/keys/archives anywhere in Git."""
+    authorized = {item["path"] for item in inventory.get("files",[])}
+    return sorted(path for path in tracked_paths
+                  if path.lower().endswith(PUBLIC_SENSITIVE_SUFFIXES)
+                  and path not in authorized)
+
+def check_public_track_paths(root,inventory):
+    try:
+        result=subprocess.run(["git","ls-files","-z"],cwd=root,
+                              stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,
+                              check=True)
+    except (OSError,subprocess.CalledProcessError):
+        raise AuditError("GIT_TRACKED_TREE_NOT_AVAILABLE") from None
+    paths=[p.decode("utf-8","surrogateescape")
+           for p in result.stdout.split(b"\x00") if p]
+    extra=unregistered_public_sensitive_paths(paths,inventory)
+    need(not extra,"UNREGISTERED_PUBLIC_PRIVATE_ARCHIVE_OR_SECRET_FILE")
+    return len(paths)
+
 def inspect(root,inventory):
     rows=validate_manifest(root,inventory)
+    check_public_track_paths(root,inventory)
     counts=Counter();nonces=set();sample=[]
     for row in rows:
         path=row["path"]
