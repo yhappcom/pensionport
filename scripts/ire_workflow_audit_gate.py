@@ -180,7 +180,7 @@ def main() -> int:
         for error in errors:
             print("WORKFLOW_AUDIT_GATE_FAIL", error, file=sys.stderr)
         return 1
-    print("WORKFLOW_AUDIT_GATE_PASS total=27 active_push=1 manual_nondefault=1 historic_dormant=25 contents_write=0 broad_pr=0 full_engine_ci=NOT_YET")
+    print("WORKFLOW_AUDIT_GATE_PASS total=27 active_push=1 manual_nondefault=1 historic_dormant=25 contents_write=0 broad_pr=0 p0_0_03_historical_full_engine_ci=NOT_YET_current_integrated_CI=SEPARATE_SIX_JOB_GATE")
     if args.command == "status":
         print("NEXT_IRE_WORK: P0-0-04 unified pinned Python 3.11.18 CI, NOT proven by this workflow audit")
     return 0

@@ -1,3 +1,5 @@
+> **P0-0-04 통합 소프트웨어 CI PASS:** [동일 커밋에서 Python 3.11.18 6개 GitHub Actions 작업 완료](docs/IRE_P0_0_04_INTEGRATED_CI_RUNBOOK_20261122.md), [증빙](docs/IRE_P0_0_04_INTEGRATED_CI_CLOSEOUT_20261122.json). 현재 순차 체크리스트 4/60 PASS, P0-0-05 READY. E3 실제 0/13, E5 발행 0, 자문 HOLD이며 V5 시험 2개 SKIPPED를 별도로 기록합니다.
+
 > **P0-0-03 Actions 전수 감사:** [27개 워크플로 분류·권한·삭제 브랜치 의존성 정리](docs/IRE_P0_0_03_WORKFLOW_AUDIT_AND_CI_REMEDIATION_20261122.md) / [실제 트리거 및 Git blob 전체 목록](docs/IRE_P0_0_03_WORKFLOW_AUDIT_INVENTORY_20261122.json). 1개 통합 관리 자동검사, 1개 수동 정의, 25개 역사 워크플로입니다. 과거 무제한 PR 트리거 3개를 한정하고 V5 bot write 권한을 제거했습니다. **관리 CI PASS는 P0-0-04에서 구축할 Python 3.11.18 전체 엔진 CI PASS가 아닙니다.**
 
 > **단일 현재 연구·엔진 상태 (P0-0-02):** [기계 판독 E1~E5·투자자문·791편 판정 원장](docs/IRE_CANONICAL_CURRENT_RESEARCH_STATUS_20261122.json)과 [상태 판정 규칙](docs/IRE_CURRENT_STATUS_DECISION_RULES_20261122.md)을 우선 확인하세요. E1 합성·실물 미승인 구조 PASS는 E2 의미, ETF E3 0/13, E4 승인 또는 E5 발행 0건의 PASS를 뜻하지 않습니다. 과거 버전별 PASS와 레거시 157/116/211 기록은 상태 원장에 출처·분모별로 분리했습니다.

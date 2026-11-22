@@ -111,6 +111,18 @@ class CanonicalStatusGateTests(unittest.TestCase):
         self.ledger["accuracy_and_context"]["current_complete_research_engine_go"] = True
         self.bad("RELEASE_GATE_FALSE_GO")
 
+    def test_full_ci_run_id_must_remain_actual_verified_run(self):
+        self.ledger["development_gate"]["implementation_ci"]["run_id"] = 1
+        self.bad("P0_0_04_CI_PROVENANCE_INVALID")
+
+    def test_full_ci_skipped_cases_cannot_be_erased(self):
+        self.ledger["development_gate"]["implementation_ci"]["strict_core_tests"]["v5_skipped"] = 0
+        self.bad("CI_COUNTER_OR_SKIP_DRIFT")
+
+    def test_software_ci_cannot_be_financial_e5_approval(self):
+        self.ledger["stages"]["E5"]["actual_etf_parent_publications"] = 1
+        self.bad("E5_FALSE_PUBLICATION")
+
     def test_open_blockers_cannot_be_silenced(self):
         self.ledger["open_blockers"] = []
         self.bad("OPEN_BLOCKERS_DROPPED")

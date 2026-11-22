@@ -42,7 +42,7 @@
 - 단일 최신 상태 원장 JSON의 근거 파일 14개 경로를 Git blob SHA로 검증한다. `python scripts/ire_current_status_gate.py verify`가 통과해야 한다.
 - `python -m unittest scripts.test_ire_current_status_gate`가 PASS/HOLD 과장, 다른 모집단 섞기, 독립 골드·개인 자문 GO 위조를 차단하는 긍정·음성 검사를 수행한다.
 - **현재 개발 체크리스트 선행 관문:** [실행 체크리스트](IRE_STRICT_SEQUENTIAL_EXECUTION_CHECKLIST_20261122.md) 및 [상태 원장](IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json). `P0-0-02`를 PASS하여 `P0-0-03`만 열기 전까지 다음 P0 개발 진행 금지. 사용자 작업 시작·종료 보고는 별도 의무다.
-- 현재 통합 CI는 GitHub 관리·상태검증 위주이며 **V3/V5/V6/E1~E5 전체 pinned Python 3.11.18 소프트웨어 시험이 아님**. 전체 CI 구축·실행은 별도 `P0-0-04` 과제다.
+- **P0-0-04 소프트웨어 전체 통합 CI PASS:** [Python 3.11.18 동일 SHA의 6개 작업 성공](https://github.com/yhappcom/pensionport/actions/runs/44982460084) 및 [종단간 소프트웨어 시험 영수증](IRE_P0_0_04_INTEGRATED_CI_CLOSEOUT_20261122.json)을 기록했다. 4,547개 frozen/정책 시험과 V3/V5/V6 strict 소프트웨어 시험이 PASS이며 V5 2개 SKIPPED를 명시한다. **실제 ETF E3 V123·E4 공식 금융 승인·E5 발행 및 자문은 HOLD**이다.
 
 ## 5. 새로운 상태를 확정할 때의 조건
 
