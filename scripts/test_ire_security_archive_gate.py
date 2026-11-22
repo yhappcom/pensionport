@@ -10,7 +10,7 @@ import zlib
 from scripts.ire_security_archive_gate import (
     ROOT,INVENTORY,V3,V5,B64,AuditError,
     blob_sha,sha256,validate_manifest,inspect,parse_reversible_b64,
-    parse_v5_readme,
+    parse_v5_readme,unregistered_public_sensitive_paths,
 )
 
 class ArchiveSecurityTests(unittest.TestCase):
@@ -143,6 +143,22 @@ class ArchiveSecurityTests(unittest.TestCase):
         self.assertEqual(len(paths),len(set(paths)))
         self.assertEqual(len(paths),42)
         validate_manifest(ROOT,self.item)
+
+    def test_25_new_public_srt_and_secret_file_rejected(self):
+        paths=[x["path"] for x in self.item["files"]]
+        paths+=["data/source/owner_private.srt","secrets/pensionport.key"]
+        extra=unregistered_public_sensitive_paths(paths,self.item)
+        self.assertEqual(len(extra),2)
+
+    def test_26_new_b64_in_unrelated_directory_rejected(self):
+        paths=[x["path"] for x in self.item["files"]]+[
+            "knowledge/old_original.json.zlib.b64"]
+        extra=unregistered_public_sensitive_paths(paths,self.item)
+        self.assertEqual(extra,["knowledge/old_original.json.zlib.b64"])
+
+    def test_27_existing_registered_42_paths_remain_allowed_for_hold_audit(self):
+        paths=[x["path"] for x in self.item["files"]]
+        self.assertEqual(unregistered_public_sensitive_paths(paths,self.item),[])
 
     def test_24_no_crypto_or_text_leak_from_digest_math(self):
         self.assertRegex(blob_sha(b"synthetic"),r"^[0-9a-f]{40}$")
