@@ -1,0 +1,59 @@
+{
+  "schema": "IRE_P0_0_01_REPOSITORY_BASELINE_INTEGRITY_RECEIPT_V1",
+  "as_of": "2026-11-22",
+  "item_id": "P0-0-01",
+  "result": "PASS_FOR_GIT_HISTORY_AND_FILE_INVENTORY_SCOPE",
+  "baseline_ref": "refs/heads/audit/full-repository-snapshot-20261122",
+  "baseline_commit": "b30a7e5343fdfb3f1a21433cc9b24ceab9fc8d11",
+  "baseline_tree_sha": "c6ef93430ee0baef7ae7a9f43bcd017986d780f3",
+  "preserved_main_sha": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+  "baseline_branch_count": 2,
+  "branch_names": [
+    "main",
+    "audit/full-repository-snapshot-20261122"
+  ],
+  "branch_write_scope": "audit integration branch only; no main write, no new branch",
+  "baseline_tracked_blob_count": 2371,
+  "baseline_tracked_tree_count": 75,
+  "baseline_tracked_total_blob_bytes": 22719172,
+  "baseline_recursive_git_tree_truncated": false,
+  "historical_tree_manifest": {
+    "path": "docs/IRE_FULL_CURRENT_TRACKED_TREE_MANIFEST_20261122.json",
+    "frozen_commit": "a9448166c84185f3e55f8e72d376594e533b27e8",
+    "file_count": 2364,
+    "bytes": 22343449,
+    "path_blob_sha_size_mismatches": 0,
+    "missing_count": 0,
+    "semantics": "Git blob SHA+size are verified for every manifest path against the exact GitHub tree at frozen commit; not a source SRT semantic audit."
+  },
+  "history": {
+    "original_branches": 98,
+    "unique_original_branch_names": 98,
+    "unique_original_head_shas": 98,
+    "maximal_divergent_tips": 11,
+    "octopus_history_commit": "3d1beba08ea3037df3c6c46f21cff9a5bb0374db",
+    "octopus_parent_count": 12,
+    "registry": "docs/BRANCH_HEADS_CONSOLIDATION_REGISTRY_20261122.json",
+    "ancestor_check": "GitHub Actions job 137030706332 in run 44964617604 performed git clone --mirror + is-ancestor for all 98 original heads against integration HEAD and passed.",
+    "deleted_branches": 96,
+    "retirement_receipt": "docs/BRANCH_RETIREMENT_DURABLE_ATTESTATION_20261122.json"
+  },
+  "github_actions": {
+    "run_id": 44964617604,
+    "url": "https://github.com/yhappcom/pensionport/actions/runs/44964617604",
+    "head_sha": "b30a7e5343fdfb3f1a21433cc9b24ceab9fc8d11",
+    "conclusion": "success",
+    "check_scope": "branch count, unchanged main, 98 heads ancestry, 42 PR HOLD archival, 5939 divergent blob index entries, 17 checklist policy unit tests, 60-item fail-closed state"
+  },
+  "live_open_pull_requests": 0,
+  "source_provenance": {
+    "source_manifest_git_objects_covered": true,
+    "private_original_srt_bytes_accessed": false,
+    "private_sqlite_and_encrypted_archives_accessed": false,
+    "asserted_original_video_semantic_completeness": false,
+    "asserted_e2_e3_e4_e5_approval": false,
+    "follow_up": "P0-0-06 private/archive recoverability and P0-1/P0-2 live original source semantics; if private SRT missing, fail closed at relevant stage. Public Git provenance does not establish private file custody."
+  },
+  "release_go": false,
+  "comment": "This receipt pins pre-task repository integrity only. Subsequent documentation commits change the active HEAD but do not alter original branch inventory baseline; each post-write CI must recheck current refs and main."
+}
