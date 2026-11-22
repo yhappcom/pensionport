@@ -292,10 +292,10 @@
   "development_gate": {
     "catalog_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json",
     "checklist_state_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json",
-    "this_item": "P0-1-02",
+    "this_item": "P0-1-03",
     "not_a_checklist_pass_receipt": true,
     "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": true,
-    "pending_next_item": "P0-1-02",
+    "pending_next_item": "P0-1-03",
     "next_item_allowed_only_after_P0_0_02_PASS": true,
     "next_item_allowed_only_after_P0_0_04_PASS": true,
     "implementation_ci": {
@@ -400,6 +400,21 @@
       "next_allowed_item": "P0-1-02",
       "blocked_after_next": 51,
       "personal_advice_authorized": false
+    },
+    "p0_1_02_source_graph": {
+      "status": "PASS_E1_ORIGINAL_SOURCE_GRAPH_ONLY",
+      "item_id": "P0-1-02",
+      "receipt_path": "docs/IRE_P0_1_02_OWNER_ETF250_SOURCE_GRAPH_SHA_ONLY_20261122.json",
+      "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+      "cue_count": 250,
+      "child_count": 13,
+      "unapproved_parent_atoms": 68,
+      "cross_child_atoms": 21,
+      "cross_child_edges": 49,
+      "graph_sha256": "4f4ab61ddfdc7c1d9d4d7ef7b07568911ab198629d9299284fbd05fa73db5a8f",
+      "real_etf_e3_approvals": 0,
+      "e5_publications": 0,
+      "next_allowed_item": "P0-1-03"
     }
   },
   "open_blockers": [

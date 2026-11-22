@@ -73,10 +73,10 @@
 - [x] **P0-1-01 · 입력→ChatGPT 검토→E4 승인→E5 저장의 정식 API 통일** (PASS — E1 소프트웨어 구조, ETF 실물 E3·E5 HOLD)
   - **합격:** 실행/승인/저장 경로 1종, 우회 CLI 외부 공개 0
   - **필수 증빙 종류:** `test` · SHA/검토 범위/재조회 가능한 영수증 및 사용자 시작·종료 보고
-- [ ] **P0-1-02 · 원본 250 cue·13 child·부모/자식 source graph 연결** (READY)
+- [x] **P0-1-02 · 원본 250 cue·13 child·부모/자식 source graph 연결** (PASS — 실물 250/13/68/21/49 SHA 귀속, 의미 승인 HOLD)
   - **합격:** 250/250 cue, 13 child, 원본 SHA·인용·가계보 역추적
   - **필수 증빙 종류:** `source` · SHA/검토 범위/재조회 가능한 영수증 및 사용자 시작·종료 보고
-- [ ] **P0-1-03 · 21 cross 원자·49 edge·B0013 조건의 typed overlay 구현** (BLOCKED)
+- [ ] **P0-1-03 · 21 cross 원자·49 edge·B0013 조건의 typed overlay 구현** (READY)
   - **합격:** C00057 인덱스 ETF 조건·숫자·예외가 정식 입력까지 손실 0
   - **필수 증빙 종류:** `source` · SHA/검토 범위/재조회 가능한 영수증 및 사용자 시작·종료 보고
 - [ ] **P0-1-04 · 합성 긍정과 변조·미승인·복구·재실행 부정시험** (BLOCKED)
@@ -296,4 +296,4 @@
 
 이전 E1 합성 구조·V6 deterministic 테스트 PASS는 참조용 배경 근거이지 **새 체크항목의 완료 도장을 자동 발급하지 않는다**. 현재 통합 브랜치에서 같은 SHA·계약으로 다시 재조회한 증거 및 사용자 보고가 있을 때 해당 항목만 PASS 가능. 실물 ETF E3 0/13, E5 실물 발행 0 기준은 별도 공식 영수증으로 변경되기 전까지 유지한다. 모든 단계가 종료되더라도 금융 자문/포트폴리오 공개·권고는 별도 적합성/법적 요건을 만족해야 한다.
 
-**최신 상태(2026-11-22):** P0-0-01~07 및 P0-1-01 **8/60 PASS**, **P0-1-02 READY**, 이후 **51개 BLOCKED**. [P0-1-01 API 구조 종결](IRE_P0_1_01_ROUTE_CLOSEOUT_RECEIPT_20261122.json), [근본 원인 수정](IRE_P0_1_01_SINGLE_ROUTE_DESIGN_AND_RISK_20261122.md). 정식 V123→E4→E5 합성 원본 SQLite 실행 **19/19**, CI 45000597835 동일 SHA **6/6 PASS**, 핵심 모듈 외부 CLI 0. **실제 ETF E3 승인 0/13, E5 발행 0, 공식 금융사실·개인 자문 HOLD**. V193 수동 명령의 ID는 호스트 출처 인증이 아니며 실제 별도 사용자 턴 E3 의미검토는 해당 단계에서만 평가. 이전 P0-1-01 HOLD 및 실패 원인은 Git 이력·원장에 보존.
+**최신 상태(2026-11-22):** 선행 **9/60 PASS**. P0-1-02 **실물 원본 ETF 250/250 cues·13 child·68 잠정 원자·21 교차 원자·49 typed source edges SHA 연결 PASS** ([실물 SHA-only 그래프 영수증](IRE_P0_1_02_OWNER_ETF250_SOURCE_GRAPH_SHA_ONLY_20261122.json), [검증 코드](../validation/ire-v6-frozen/v244_e1_private_parent_child_source_graph.py)). 신규 합성 회귀 8/8 PASS, GitHub Actions 45001850281 동일 SHA 검증. **P0-1-03 READY**, 이후 **50개 BLOCKED**. B0013 cue246의 부모 인덱스 ETF 적용 제한 45–47 및 나머지 20 교차 원자의 의미 확정은 차후 단계, **ETF E3 0/13·E4 0·E5 0·개인 자문 HOLD**. P0-0 및 P0-1-01 PASS 증거 유지. 실제 비공개 SRT 바이트·발화 문구는 GitHub에 업로드하지 않음.

@@ -331,16 +331,41 @@
     },
     {
       "id": "P0-1-02",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "source",
+          "ref": "docs/IRE_P0_1_02_OWNER_ETF250_SOURCE_GRAPH_SHA_ONLY_20261122.json",
+          "sha": "f93b003e193eea0aa43f6bc36854e06df2c99717",
+          "verdict": "PASS",
+          "scope": "ACTUAL owner Library V228 ZIP SHA 9f5a... directly reopened; exact original SRT e4aef... 250/250, 13 child 20-cue segments, 68 draft V6 atoms all source quote and source owner checks, 21 cross-child atoms and 49 typed context/condition/numeric edges preserved, original E3 68 task source contexts and 2278 pairs replayed; public SHA-only 13 child fingerprints & parent graph digest. Synthetic V244 8/8, full CI run 45001850281. ETF E3 0/13 E5 0.",
+          "verified_by": "Private user Library original ZIP independently pinned source+manifest+native SHA; full owner-only exact quote/hash/lineage replay; GitHub fixed V244 E1 source graph 8/8 pass and same-SHA action; user-visible P102 start and end report; not semantic approval."
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-1-02",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "baseline_sha": "0a5ce66abe669c1da8d16bde92a56543ad6619c3",
+        "verdict": "START",
+        "user_visible_text": "[P0-1-02 시작] 8/60 PASS, P0-1-02 READY, 후속 51 BLOCKED. 실제 사용자 Library ETF 250 cue V228 원본 ZIP 우선 검증하여 SHA·인용·부모/13 자식/21 교차원자의 source graph를 전수 재생, 발견 결함 수정 후 합성/실물 구분해 PASS 판정; E3/E5 승인 임의 생성 금지."
+      },
+      "end_report": {
+        "task_id": "P0-1-02",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "baseline_sha": "f93b003e193eea0aa43f6bc36854e06df2c99717",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-1-02 종료 PASS — E1 source graph only] 사용자 Library 원본 V228 ZIP SHA·source.srt SHA와 7부속 member SHA를 재검사. 원문 250/250 인용, native 원자68, 13 B0001~B0013 모든 자막 1회 귀속, 타 자식 조건·숫자·문맥 원자21/typed edge49 SHA 추적, source graph 4f4ab61d...; 그래프 파이썬 코드 B-ID/사전 조회 결함 고치고 8/8 합성 CI 통과. 실제 ETF E3 0/13·E5 0, 독립 gold HOLD; 9/60 PASS, P0-1-03 READY, 나머지 50 BLOCKED; main 불변·2브랜치."
+      },
       "failure_reason": null,
-      "remediation": null
+      "remediation": "COMPLETE_E1_SOURCE_SCOPE: valid original SRT + owner frozen SHA, parent 250 cues / 13 child ranges all covered, per-cue source quote/hash, 68 atom owner ancestry and 49 cross source typed edges all preserved. E2 semantic accuracy and parent cross-qualifier restoration NOT approved; P0-1-03 retains typed overlay task."
     },
     {
       "id": "P0-1-03",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,
