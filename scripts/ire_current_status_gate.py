@@ -131,9 +131,19 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
     require(all(x.get("status") == "HOLD" and x.get("reason") for x in pending), "OPEN_BLOCKERS_LAUNDERED")
     require(len(set(x.get("id") for x in pending)) == len(pending), "OPEN_BLOCKER_IDS_DUPLICATE")
     dev = ledger.get("development_gate", {})
-    require(dev.get("this_item") == "P0-0-02", "WRONG_CHECKLIST_ITEM")
+    require(dev.get("this_item") == "P0-0-04", "WRONG_CHECKLIST_ITEM")
     require(dev.get("not_a_checklist_pass_receipt") is True, "STATUS_DOCUMENT_AS_CI_PASS")
-    require(dev.get("implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run") is False, "FULL_CI_FALSELY_CLAIMED")
+    require(dev.get("implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run") is True, "P0_0_04_CI_NOT_RECORDED")
+    ci = dev.get("implementation_ci", {})
+    require(ci.get("status") == "PASS_SOFTWARE_ONLY_NOT_FINANCIAL_APPROVAL", "CI_FALSE_FINANCIAL_GO")
+    require(ci.get("run_id") == 44982460084 and
+            ci.get("head_sha") == "f94fb5c8d59527abf531b5e774ffdaa7c5648b97" and
+            ci.get("conclusion") == "success" and
+            ci.get("runner_python") == "3.11.18" and ci.get("jobs") == 6, "P0_0_04_CI_PROVENANCE_INVALID")
+    require(ci.get("frozen_and_policy_cases") == 4547 and
+            ci.get("v5_preflight_checks") == 59 and
+            ci.get("strict_core_tests", {}).get("v5_skipped") == 2, "CI_COUNTER_OR_SKIP_DRIFT")
+    require(ci.get("receipt_path") == "docs/IRE_P0_0_04_INTEGRATED_CI_CLOSEOUT_20261122.json", "P0_0_04_RECEIPT_PATH_INVALID")
 
     if root is not None:
         for path, source in ledger.get("evidence_sources", {}).items():
@@ -158,7 +168,12 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             require(old_accuracy["b0013_internal_atomic_score"]["precision"] == other["internal_precision"], "INTERNAL_PRECISION_SCOPE_MISMATCH")
             checklist = load(root / CHECKLIST_STATE)
             require(checklist["items"][0]["status"] == "PASS", "PRECEDING_CHECKLIST_NOT_PASS")
-            require(checklist["items"][1]["id"] == "P0-0-02" and checklist["items"][1]["status"] in {"READY", "IN_PROGRESS", "FAIL", "HOLD", "PASS"}, "CHECKLIST_STATE_NOT_P0_0_02")
+            require(checklist["items"][1]["status"] == "PASS" and checklist["items"][3]["id"] == "P0-0-04" and checklist["items"][3]["status"] == "PASS", "CHECKLIST_P0_0_04_NOT_PASS")
+            receipt = load(root / ci["receipt_path"])
+            require(receipt.get("source_run_id") == ci["run_id"] and
+                    receipt.get("source_commit") == ci["head_sha"] and
+                    receipt.get("ci_conclusion") == "success" and
+                    receipt.get("status") == "PASS_FOR_SOFTWARE_AND_CI_ONLY", "CI_RECEIPT_INVALID")
         except (KeyError, ValueError, OSError, json.JSONDecodeError) as exc:
             errors.append("EVIDENCE_EXCEPTION_" + str(exc))
     return errors

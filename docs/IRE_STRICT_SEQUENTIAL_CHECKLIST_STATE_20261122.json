@@ -109,16 +109,41 @@
     },
     {
       "id": "P0-0-04",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "ci",
+          "ref": "https://github.com/yhappcom/pensionport/actions/runs/44982460084",
+          "sha": "f94fb5c8d59527abf531b5e774ffdaa7c5648b97",
+          "scope": "Python 3.11.18 exact-SHA six-job V3/V5/V6/E1-E5 full software CI; 4547 frozen/policy, 647 V6, 310 V3, 855 V5 with 2 skipped, 59 app, 59 V5 preflight; no actual ETF E3/E4/E5 finance release",
+          "verified_by": "GitHub Actions 44982460084 all 6 jobs SUCCESS; docs/IRE_P0_0_04_INTEGRATED_CI_CLOSEOUT_20261122.json",
+          "verdict": "PASS"
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-0-04",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "START",
+        "baseline_sha": "b6584c76662e203631bbf7cecc8476dff71bc996",
+        "user_visible_text": "[P0-0-04 시작] Python 3.11.18 전체 통합 CI 구성·실행, 현재 3/60 PASS, P0-0-04 READY, 후속 56 BLOCKED. V3/V5/V6·E1~E5 실제 동일 SHA 검증, 오류 수정, E3/E4/E5 실물 금융 승인 별도."
+      },
+      "end_report": {
+        "task_id": "P0-0-04",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "PASS",
+        "baseline_sha": "f94fb5c8d59527abf531b5e774ffdaa7c5648b97",
+        "user_visible_text": "[P0-0-04 종료] 같은 Git SHA f94fb5c8d59527abf531b5e774ffdaa7c5648b97의 Actions 44982460084에서 6/6 작업 성공. 4547 frozen/정책 시험, V6 647, V3 310, V5 855(2 skipped), app 59, V5 사전검사 59 단계. V202 stale E2 test와 V177 subprocess PYTHONPATH 개선. 4/60 PASS, P0-0-05 READY, 후속 55 BLOCKED, main 불변, 실제 E1~E5 금융 승인 HOLD."
+      },
       "failure_reason": null,
       "remediation": null
     },
     {
       "id": "P0-0-05",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,

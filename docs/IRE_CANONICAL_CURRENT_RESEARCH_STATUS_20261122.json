@@ -277,11 +277,30 @@
   "development_gate": {
     "catalog_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json",
     "checklist_state_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json",
-    "this_item": "P0-0-02",
+    "this_item": "P0-0-04",
     "not_a_checklist_pass_receipt": true,
-    "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": false,
-    "pending_next_item": "P0-0-03",
-    "next_item_allowed_only_after_P0_0_02_PASS": true
+    "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": true,
+    "pending_next_item": "P0-0-05",
+    "next_item_allowed_only_after_P0_0_02_PASS": true,
+    "next_item_allowed_only_after_P0_0_04_PASS": true,
+    "implementation_ci": {
+      "status": "PASS_SOFTWARE_ONLY_NOT_FINANCIAL_APPROVAL",
+      "run_id": 44982460084,
+      "head_sha": "f94fb5c8d59527abf531b5e774ffdaa7c5648b97",
+      "conclusion": "success",
+      "runner_python": "3.11.18",
+      "jobs": 6,
+      "frozen_and_policy_cases": 4547,
+      "strict_core_tests": {
+        "v6": 647,
+        "ire_v3": 310,
+        "v5": 855,
+        "v5_skipped": 2,
+        "v5_app": 59
+      },
+      "v5_preflight_checks": 59,
+      "receipt_path": "docs/IRE_P0_0_04_INTEGRATED_CI_CLOSEOUT_20261122.json"
+    }
   },
   "open_blockers": [
     {
