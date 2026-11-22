@@ -118,6 +118,17 @@ class LegacyTransferGateTests(unittest.TestCase):
         self.data["issues"][0]["number"]=47
         self.fail_for("P005_ISSUE_48_50_REQUIRED")
 
+    def test_25_p006_hold_does_not_invalidate_prior_p005_pass(self):
+        # The earlier legacy transfer was genuinely PASS before the next
+        # task found security blockers and entered HOLD.
+        self.assertEqual([], verify(self.data, self.paths, ROOT))
+        checklist = __import__("scripts.ire_legacy_transfer_gate",
+                               fromlist=["load","CHECKLIST"])
+        statuses = checklist.load(ROOT, checklist.CHECKLIST)["items"]
+        self.assertEqual(statuses[4]["status"],"PASS")
+        self.assertEqual(statuses[5]["status"],"HOLD")
+        self.assertEqual(statuses[6]["status"],"BLOCKED")
+
     def test_24_original_transfer_pr_set_must_match(self):
         self.data["pull_requests"][2]["number"]=77
         self.fail_for("P005_PR_LIST_NOT_IDENTICAL",ROOT)
