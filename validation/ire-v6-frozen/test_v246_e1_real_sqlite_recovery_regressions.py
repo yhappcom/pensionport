@@ -161,8 +161,11 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         self.refresh_owner_checkpoint_head()
         self.reopen_with_owner_pin(pin)
         self.fx.packets[-1]["case"]["chat_review"]["atom_verdicts"][0]["status"]="OPEN"
-        with self.assertRaises((InvalidInput,QualityNotProven)):
-            self.run_route(expected_knowledge_head=ZERO_SHA)
+        # V166 may classify a changed CHAT verdict as a real E4 HOLD
+        # rather than raise. Neither response may alter the sealed store.
+        result=self.run_route(expected_knowledge_head=ZERO_SHA)
+        self.assertEqual(result["status"],"HOLD_E4_PRIMARY_EVIDENCE")
+        self.assertFalse(result["e5_invoked"])
         self.assertEqual(self.fx.knowledge._logical_fingerprint(),baseline)
         self.assertEqual(self.seal.read_bytes(),seal_bytes)
 
