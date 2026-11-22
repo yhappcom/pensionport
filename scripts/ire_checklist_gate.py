@@ -163,7 +163,7 @@ def validate(catalog: dict, state: dict,
         else:
             # Prevent stale [ ] boxes from disguising machine-recorded PASS.
             markdown = checklist_path.read_text(encoding="utf-8")
-            observed = re.findall(r"(?m)^- \\[([ xX])\\] \\*\\*([A-Z0-9-]+) · ", markdown)
+            observed = re.findall(r"(?m)^- \[([ xX])\] \*\*([A-Z0-9-]+) · ", markdown)
             if len(observed) != len(rows):
                 errors.append("MARKDOWN_CHECKBOX_COUNT_MISMATCH")
             else:
