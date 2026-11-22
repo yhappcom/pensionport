@@ -42,7 +42,7 @@ def validate(root=ROOT):
                     errors.append("P101_UNREVIEWED_SERVICE_FRAMEWORK:"+path)
             if isinstance(node,ast.ImportFrom) and (node.module or "").split(".")[0] in FRAMEWORKS:
                 errors.append("P101_UNREVIEWED_SERVICE_FRAMEWORK:"+path)
-        if path==CORE[-1]:
+        if path=="validation/ire-v6-frozen/v243_canonical_e1_e5_route.py":
             exports=[x for x in doc.body if isinstance(x,ast.Assign) and
                      any(isinstance(t,ast.Name) and t.id=="__all__" for t in x.targets)]
             if len(exports)!=1 or not isinstance(exports[0].value,(ast.Tuple,ast.List)) or [
