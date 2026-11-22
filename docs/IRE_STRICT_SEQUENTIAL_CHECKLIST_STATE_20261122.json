@@ -75,16 +75,41 @@
     },
     {
       "id": "P0-0-03",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "audit",
+          "ref": "https://github.com/yhappcom/pensionport/blob/9ece7cccfcd662cf37e708cdceaf6edeb7e9e2eb/docs/IRE_P0_0_03_WORKFLOW_CLOSEOUT_RECEIPT_20261122.json",
+          "sha": "9ece7cccfcd662cf37e708cdceaf6edeb7e9e2eb",
+          "scope": "P0-0-03 exactly 27 workflow YAML classifications + 1 active current push/1 manual/nondefault/25 retired; token contents write zero, broad pull_request zero; 19 workflow policy adversarial tests/23 scoped research ledger tests/17 checklist tests PASS, full engine E1-E5 CI still NOT_RUN",
+          "verified_by": "Live GitHub source SHA and CI 44982077002 success on 9ece7cccfcd662cf37e708cdceaf6edeb7e9e2eb; original 98 branch heads and main preserved",
+          "verdict": "PASS"
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-0-03",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "START",
+        "user_visible_text": "[P0-0-03 착수 전 재검토] 먼저 완료된 P0-0-01과 P0-0-02의 증빙·상태 원장·CI 결과를 다시 확인하겠습니다. 결함이 발견되면 해당 선행 항목부터 수정·재검증하고, 문제가 없을 때만 P0-0-03의 GitHub Actions 전수 정리로 진행하겠습니다. 현재 기록상 진척은 2/60 PASS, 다음 허용 항목은 P0-0-03이며, main은 변경하지 않겠습니다.",
+        "baseline_sha": "2ed02ce736f99f03669aaa166be8fc4da142b77c"
+      },
+      "end_report": {
+        "task_id": "P0-0-03",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-0-03 종료] 27개 워크플로 전수분류·기존 PASS 2항목 재감사·무제한 PR 트리거 3개 제한·V5 write token 제거. 발견된 V169 CI RED는 원인 수정, 최신 CI 44982077002에서 정책시험 59 PASS. 전체 엔진 CI는 아직 P0-0-04, E1~E5 실물/개인 자문 HOLD. 현재 3/60 PASS, 다음 P0-0-04 READY, main SHA 불변/브랜치 2개 유지.",
+        "baseline_sha": "9ece7cccfcd662cf37e708cdceaf6edeb7e9e2eb"
+      },
       "failure_reason": null,
       "remediation": null
     },
     {
       "id": "P0-0-04",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,

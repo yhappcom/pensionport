@@ -50,10 +50,10 @@
 - [x] **P0-0-02 · E1~E5·자문·영상 분모의 단일 상태 원장 확정** (PASS)
   - **합격:** 합성/실물/독립정확도 PASS/HOLD를 분리하고 791/703/88 기준 혼동 0
   - **필수 증빙 종류:** `audit` · SHA/검토 범위/재조회 가능한 영수증 및 사용자 시작·종료 보고
-- [ ] **P0-0-03 · 기존 Actions 27개·사용 권한·실행 브랜치 전수 정리** (READY)
+- [x] **P0-0-03 · 기존 Actions 27개·사용 권한·실행 브랜치 전수 정리** (PASS)
   - **합격:** 각 워크플로 active/legacy/permission/trigger 분류와 삭제 브랜치 의존 해소안
   - **필수 증빙 종류:** `audit` · SHA/검토 범위/재조회 가능한 영수증 및 사용자 시작·종료 보고
-- [ ] **P0-0-04 · Python 3.11.18 동일 HEAD 전체 통합 CI 연결·실행** (BLOCKED)
+- [ ] **P0-0-04 · Python 3.11.18 동일 HEAD 전체 통합 CI 연결·실행** (READY)
   - **합격:** V3/V5/V6/cleanroom/E1~E5 양성·음성 검사가 하나의 SHA에 연결되며 실패 원인 재현 가능
   - **필수 증빙 종류:** `ci` · SHA/검토 범위/재조회 가능한 영수증 및 사용자 시작·종료 보고
 - [ ] **P0-0-05 · 11개 독립 분기 코드와 42 PR HOLD·Issue #48/#50 등록** (BLOCKED)
@@ -296,4 +296,4 @@
 
 이전 E1 합성 구조·V6 deterministic 테스트 PASS는 참조용 배경 근거이지 **새 체크항목의 완료 도장을 자동 발급하지 않는다**. 현재 통합 브랜치에서 같은 SHA·계약으로 다시 재조회한 증거 및 사용자 보고가 있을 때 해당 항목만 PASS 가능. 실물 ETF E3 0/13, E5 실물 발행 0 기준은 별도 공식 영수증으로 변경되기 전까지 유지한다. 모든 단계가 종료되더라도 금융 자문/포트폴리오 공개·권고는 별도 적합성/법적 요건을 만족해야 한다.
 
-**최신 상태(2026-11-22):** `P0-0-01 PASS`, `P0-0-02 PASS`, `P0-0-03 READY`, `PASS 2/60`, `BLOCKED 57/60`. [P0-0-01 무결성 증빙](IRE_P0_0_01_BASELINE_INTEGRITY_RECEIPT_20261122.json) 및 [P0-0-02 단일 현황 원장·23개 시험 증빙](IRE_P0_0_02_CURRENT_STATUS_CLOSEOUT_RECEIPT_20261122.json)을 기록. 현재 ETF 정식 E3 승인 0/13·E5 발행 0이며 E1~E5 실제 최종 승인과 금융 자문 GO는 HOLD이다.
+**최신 상태(2026-11-22):** `P0-0-01 PASS`, `P0-0-02 PASS`, `P0-0-03 PASS`, `P0-0-04 READY`, `PASS 3/60`, `BLOCKED 56/60`. [P0-0-01 저장소 무결성](IRE_P0_0_01_BASELINE_INTEGRITY_RECEIPT_20261122.json), [P0-0-02 단일 단계 현황](IRE_P0_0_02_CURRENT_STATUS_CLOSEOUT_RECEIPT_20261122.json), [P0-0-03 27개 Actions 전수 감사](IRE_P0_0_03_WORKFLOW_CLOSEOUT_RECEIPT_20261122.json)을 완료 기록으로 보존. 전체 Python 3.11.18 V3/V5/V6/E1~E5 통합 품질 CI는 P0-0-04 미실시이며 ETF 실물 E3 승인 0/13·E5 발행 0, E1~E5 최종/자문 GO는 HOLD.
