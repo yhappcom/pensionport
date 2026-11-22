@@ -87,3 +87,9 @@ jobs:
           python -m unittest -v scripts.test_ire_current_status_gate
           python scripts/ire_current_status_gate.py verify
           python scripts/ire_current_status_gate.py status
+
+      - name: Audit all 27 workflows, retired triggers and read-only permissions
+        run: |
+          python -m unittest -v scripts.test_ire_workflow_audit_gate
+          python scripts/ire_workflow_audit_gate.py verify
+          python scripts/ire_workflow_audit_gate.py status
