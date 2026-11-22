@@ -206,8 +206,11 @@ def verify(register: dict, census: dict, root: Path | None = ROOT) -> list[str]:
                      and done["merged_into_main"] is False,
                      "P005_PR_ORIGINAL_HEAD_OR_CLOSEOUT_CHANGED:" + str(n))
             state = load(root, CHECKLIST)
-            need([x["status"] for x in state["items"][:6]] ==
-                 ["PASS", "PASS", "PASS", "PASS", "PASS", "READY"],
+            stages = [x["status"] for x in state["items"][:6]]
+            need(stages[:4] == ["PASS", "PASS", "PASS", "PASS"] and
+                 (stages[4:] == ["READY", "BLOCKED"] or
+                  stages[4:] == ["PASS", "READY"]) and
+                 all(x["status"] == "BLOCKED" for x in state["items"][6:]),
                  "P005_OUT_OF_ORDER_CHECKLIST_OR_NOT_PASS")
             current = load(root, RESEARCH_STATE)
             need(all(x["official_stage_release"] == "HOLD" for x in current["stages"].values())
