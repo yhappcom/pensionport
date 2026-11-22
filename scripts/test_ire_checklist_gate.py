@@ -119,6 +119,18 @@ class ChecklistGateTests(unittest.TestCase):
         self.state["items"][0]["remediation"] = None
         self.assert_bad("FAILED_ITEM_REOPENED_WITHOUT_REMEDIATION", prev)
 
+    def test_malformed_previous_pass_report_is_red_and_later_mutation_is_red(self):
+        # Reproduces P0-0-05 missing baseline_sha without allowing a hidden rewrite.
+        self.pass_first()
+        previous = copy.deepcopy(self.state)
+        previous['items'][0]['start_report'].pop('baseline_sha')
+        previous['items'][0]['end_report'].pop('baseline_sha')
+        old_errors = validate(self.catalog, previous)
+        self.assertTrue(any('PASS_MISSING_USER_START_REPORT' in x for x in old_errors))
+        self.assertTrue(any('PASS_MISSING_USER_END_REPORT' in x for x in old_errors))
+        repair_errors = validate(self.catalog, self.state, previous=previous)
+        self.assertTrue(any('PREVIOUS_PASS_MUTATED' in x for x in repair_errors))
+        # The immutable guard remains ON; next commit must not modify the state.
     def test_previous_pass_must_not_be_rewritten(self):
         self.pass_first()
         prev = copy.deepcopy(self.state)
