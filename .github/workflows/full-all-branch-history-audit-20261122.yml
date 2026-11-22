@@ -82,3 +82,8 @@ jobs:
         run: |
           python scripts/ire_checklist_gate.py verify --compare-parent
           python scripts/ire_checklist_gate.py status
+      - name: Reject false current E1-E5 advisory GO and denominator mixing
+        run: |
+          python -m unittest -v scripts.test_ire_current_status_gate
+          python scripts/ire_current_status_gate.py verify
+          python scripts/ire_current_status_gate.py status
