@@ -55,15 +55,23 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None,inputs=None):
     need(not status_validate(ledger,root=root),
          "CURRENT_STATUS_LEDGER_FAIL_CLOSED")
     tasks=state.get("items",[])
+    # Preserve immutable P105 E1 CLOSEOUT and its original E2 first item,
+    # without freezing the *current* 60-item cursor at the historical P201
+    # READY position. Every later P201/P202 PASS must remain contiguous.
+    first_open=next((i for i,v in enumerate(tasks)
+                     if v.get("status")!="PASS"),len(tasks))
     need(len(tasks)==60 and [t.get("id") for t in tasks[7:12]]==
          [f"P0-1-{i:02d}" for i in range(1,6)] and
          all(t.get("status")=="PASS" for t in tasks[:12]) and
-         tasks[12].get("id")=="P0-2-01" and
-         tasks[12].get("status")=="READY" and
-         all(x.get("status")=="BLOCKED" for x in tasks[13:]),
+         tasks[12].get("id")=="P0-2-01" and first_open>=12 and
+         (first_open==len(tasks) or
+          (tasks[first_open].get("status") in
+           {"READY","IN_PROGRESS","HOLD","FAIL"} and
+           all(x.get("status")=="BLOCKED" for x in tasks[first_open+1:]))),
          "E1_FIVE_PASS_E2_ONLY_NEXT")
-    need(ledger.get("development_gate",{}).get("this_item")=="P0-2-01" and
-         ledger.get("development_gate",{}).get("pending_next_item")=="P0-2-01",
+    current_cursor=tasks[first_open]["id"] if first_open<len(tasks) else None
+    need(ledger.get("development_gate",{}).get("this_item")==current_cursor and
+         ledger.get("development_gate",{}).get("pending_next_item")==current_cursor,
          "E2_CURSOR_NOT_FIRST_ITEM")
     need(state.get("protected_main_sha")==MAIN and
          catalog.get("protected_main_sha")==MAIN and
