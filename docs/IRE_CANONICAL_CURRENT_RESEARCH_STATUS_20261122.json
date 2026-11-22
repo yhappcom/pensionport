@@ -292,10 +292,10 @@
   "development_gate": {
     "catalog_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json",
     "checklist_state_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json",
-    "this_item": "P0-2-01",
+    "this_item": "P0-2-02",
     "not_a_checklist_pass_receipt": true,
     "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": true,
-    "pending_next_item": "P0-2-01",
+    "pending_next_item": "P0-2-02",
     "next_item_allowed_only_after_P0_0_02_PASS": true,
     "next_item_allowed_only_after_P0_0_04_PASS": true,
     "implementation_ci": {
@@ -501,6 +501,40 @@
       "post_commit_same_sha_ci_required": true,
       "next_ready_item": "P0-2-01",
       "blocked_following": 47
+    },
+    "p0_2_01_cue_source_first": {
+      "status": "PASS_SOURCE_FIRST_250_CUE_DISPOSITIONS_NOT_E2_ACCURACY",
+      "item_id": "P0-2-01",
+      "receipt_path": "docs/IRE_P0_2_01_ETF250_SOURCE_FIRST_SHA_ONLY_20261123.json",
+      "report_path": "docs/IRE_P0_2_01_ETF250_CUE_BY_CUE_SOURCE_FIRST_ASSESSMENT_20261123.md",
+      "original_source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+      "original_owner_zip_sha256": "9f5a281191502bb30cb78ff17d2b08f6887f55b836cee67e00d7309770efa397",
+      "private_review_sha256": "7c87f04af158196c6bff964c0634b029d81e23fc377825bcfc409f91fe354897",
+      "private_owner_archive_sha256": "df54f80d153c4f07a80a261344282681c6fb8ddb7bb9bd6fbc9aa6b99ddce8c8",
+      "private_library_file_id": "libfile_e1711ec217008191bd183252ee58aab5",
+      "source_cues_reviewed": 250,
+      "source_missing_or_duplicate": 0,
+      "source_quote_sha_mismatches": 0,
+      "source_first_dispositions": {
+        "FACT_SPEAKER_UNAPPROVED": 92,
+        "OPINION": 61,
+        "QUESTION": 3,
+        "NO_ATOM_PROVISIONAL": 27,
+        "OPEN": 67
+      },
+      "issues_open": 12,
+      "all_OPEN_issues_linked": true,
+      "original_unapproved_atoms": 68,
+      "existing_native_primary_cues_newly_OPEN": 32,
+      "cross_parent_atoms_pending": 21,
+      "cross_parent_cue_edges_pending": 49,
+      "real_E3_approved_children": 0,
+      "real_E4_owner_authorized": 0,
+      "real_E5_parent_publications": 0,
+      "independent_E2_gold_certified": false,
+      "source_media_audio_video_verified": false,
+      "next_allowed_item": "P0-2-02",
+      "blocked_following": 46
     }
   },
   "open_blockers": [

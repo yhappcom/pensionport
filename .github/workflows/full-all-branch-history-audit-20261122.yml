@@ -123,6 +123,11 @@ jobs:
           python -m unittest -v scripts.test_ire_p0_1_05_stage_gate
           python -m scripts.ire_p0_1_05_stage_gate verify
 
+      - name: P0-2-01 ETF real private cue 250 source-first SHA-only disposition and false-GO review
+        run: |
+          python -m unittest -v scripts.test_ire_p0_2_01_source_first_gate
+          python -m scripts.ire_p0_2_01_source_first_gate verify
+
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA
     needs: branch_governance
