@@ -131,7 +131,7 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
     require(all(x.get("status") == "HOLD" and x.get("reason") for x in pending), "OPEN_BLOCKERS_LAUNDERED")
     require(len(set(x.get("id") for x in pending)) == len(pending), "OPEN_BLOCKER_IDS_DUPLICATE")
     dev = ledger.get("development_gate", {})
-    require(dev.get("this_item") == "P0-0-07", "WRONG_CHECKLIST_ITEM")
+    require(dev.get("this_item") == "P0-1-01", "WRONG_CHECKLIST_ITEM")
     require(dev.get("not_a_checklist_pass_receipt") is True, "STATUS_DOCUMENT_AS_CI_PASS")
     require(dev.get("implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run") is True, "P0_0_04_CI_NOT_RECORDED")
     ci = dev.get("implementation_ci", {})
@@ -184,11 +184,28 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             security.get("public_b64_confidentiality_certified") is False and
             security.get("entire_security_release_approved") is False and
             security.get("successor_P0_0_07_blocked") is False and
-            dev.get("pending_next_item") == "P0-0-07",
+            dev.get("pending_next_item") == "P0-1-01",
             "P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
     require({x.get("id") for x in ledger.get("historical_public_material_audit_findings", [])} ==
             {"P006-R01","P006-R02","P006-R03","P006-R04","P006-R05","P006-R06"},
             "P006_HISTORICAL_FINDINGS_MISSING")
+
+    closeout = dev.get("p0_0_closeout", {})
+    require(closeout.get("status") == "PASS_DEVELOPMENT_GOVERNANCE_AND_SOFTWARE_ONLY_REAL_E1_E5_HOLD" and
+            closeout.get("item_id") == "P0-0-07" and
+            closeout.get("receipt_path") == "docs/IRE_P0_0_07_STAGE_CLOSEOUT_RECEIPT_20261122.json" and
+            closeout.get("baseline_review_commit") == "068f4097a2329a5c2b10f90435ca683f29f26f0c" and
+            closeout.get("baseline_ci_run_id") == 44995407175 and
+            closeout.get("baseline_ci_success") is True and
+            closeout.get("baseline_six_jobs_passed") == 6 and
+            closeout.get("stage_items_passed") == 7 and
+            closeout.get("next_allowed_item") == "P0-1-01" and
+            closeout.get("unapproved_etf_e3_children") == 13 and
+            closeout.get("real_e5_published_parents") == 0 and
+            closeout.get("closing_sha_postpush_ci_required") is True and
+            closeout.get("does_not_certify_financial_research") is True and
+            dev.get("next_item_allowed_only_after_P0_0_07_PASS") is True,
+            "P007_STAGE_CLOSEOUT_SCOPE_OR_CURSOR_INVALID")
 
     if root is not None:
         for path, source in ledger.get("evidence_sources", {}).items():
@@ -213,7 +230,21 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             require(old_accuracy["b0013_internal_atomic_score"]["precision"] == other["internal_precision"], "INTERNAL_PRECISION_SCOPE_MISMATCH")
             checklist = load(root / CHECKLIST_STATE)
             require(checklist["items"][0]["status"] == "PASS", "PRECEDING_CHECKLIST_NOT_PASS")
-            require(checklist["items"][1]["status"] == "PASS" and checklist["items"][3]["id"] == "P0-0-04" and checklist["items"][3]["status"] == "PASS" and checklist["items"][4]["id"] == "P0-0-05" and checklist["items"][4]["status"] == "PASS" and checklist["items"][5]["id"] == "P0-0-06" and checklist["items"][5]["status"] == "PASS" and checklist["items"][6]["status"] == "READY", "CHECKLIST_P006_PUBLIC_SCOPE_NOT_PASS")
+            require(checklist["items"][1]["status"] == "PASS" and checklist["items"][3]["id"] == "P0-0-04" and checklist["items"][3]["status"] == "PASS" and checklist["items"][4]["id"] == "P0-0-05" and checklist["items"][4]["status"] == "PASS" and checklist["items"][5]["id"] == "P0-0-06" and checklist["items"][5]["status"] == "PASS" and checklist["items"][6]["status"] == "PASS" and checklist["items"][7]["id"] == "P0-1-01" and checklist["items"][7]["status"] == "READY" and all(x["status"] == "BLOCKED" for x in checklist["items"][8:]), "CHECKLIST_P007_CLOSURE_OR_NEXT_INVALID")
+            p007 = load(root / closeout["receipt_path"])
+            require(p007.get("schema") == "IRE_P0_0_07_P0_0_DEVELOPMENT_BASELINE_STAGE_CLOSEOUT_V1" and
+                    p007.get("item_id") == "P0-0-07" and
+                    p007.get("result") == "PASS_P0_0_GOVERNANCE_AND_SOFTWARE_ONLY_FINANCIAL_RESEARCH_STILL_HOLD" and
+                    p007.get("source_exact_head") == "068f4097a2329a5c2b10f90435ca683f29f26f0c" and
+                    p007.get("source_exact_head_ci", {}).get("run_id") == 44995407175 and
+                    p007.get("source_exact_head_ci", {}).get("successful_jobs") == 6 and
+                    p007.get("next_ready_item") == "P0-1-01" and
+                    p007.get("blocked_following") == 52 and
+                    p007.get("checklist_pass_total_after_close") == 7 and
+                    p007.get("financial_scope", {}).get("actual_etf_formal_v123_child_approvals") == 0 and
+                    p007.get("financial_scope", {}).get("actual_e5_parent_publications") == 0 and
+                    p007.get("new_closeout_sha_ci_validation") == "POST_COMMIT_GITHUB_ACTIONS_REQUIRED_TO_CONFIRM_FINAL_VERDICT__NOT_SELF_ATTESTED",
+                    "P007_STAGE_RECEIPT_UNVERIFIED_OR_FALSE_FINANCIAL_GO")
             public_scope = load(root / security["owner_public_scope_policy_path"])
             require(public_scope.get("schema") == "IRE_P006_USER_PUBLIC_MATERIAL_SCOPE_V1" and
                     public_scope.get("source") == "SEPARATE_USER_CHAT_TURN_OWNER_DECLARATION" and

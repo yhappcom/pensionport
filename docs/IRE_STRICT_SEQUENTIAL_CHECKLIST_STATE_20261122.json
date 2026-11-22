@@ -211,16 +211,41 @@
     },
     {
       "id": "P0-0-07",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "ci",
+          "ref": "https://github.com/yhappcom/pensionport/actions/runs/44995407175",
+          "sha": "068f4097a2329a5c2b10f90435ca683f29f26f0c",
+          "scope": "P0-0-07 P0-0 entire baseline closure: predecessor six PASS independently reverified at 068f4097, exact SHA GitHub Actions 44995407175 6/6 success, main SHA and 2 branches unchanged. This is a software and governance release only; not E1-E5 financial knowledge approval.",
+          "verified_by": "GitHub exact-head action 44995407175 status completed conclusion success 6/6 jobs; 2364 tree entries and 42 current archive objects; 27 workflow inventory; 17 anchored research evidence; 42 PR live head verification; new P007 dedicated gate and following exact-SHA CI",
+          "verdict": "PASS"
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-0-07",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "START",
+        "baseline_sha": "068f4097a2329a5c2b10f90435ca683f29f26f0c",
+        "user_visible_text": "[P0-0-07 시작] 선행 6/60 PASS, 현재 READY, 후속 53 BLOCKED. 기준 통합 HEAD 068f4097, main d613fd20, 활성 2브랜치. P0-0-01~06 실제 증거·동일 SHA CI·문서·코드·연구 상태 차이를 검증하고 결함이 있으면 수정하여 7번째 PASS 전에는 다음 작업 금지."
+      },
+      "end_report": {
+        "task_id": "P0-0-07",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "PASS",
+        "baseline_sha": "068f4097a2329a5c2b10f90435ca683f29f26f0c",
+        "user_visible_text": "[P0-0-07 종료] P0-0-01~06 각 PASS 증거·main SHA·2브랜치·98 HEAD·27 workflows·동일 SHA 통합 CI·11 독립 분기·42 미병합 PR·공개 자료 42/42 검사를 다시 확인. 이전 체크리스트 P006 HOLD 문구와 P007 고정 상태검사 정정. 7/60 PASS, P0-1-01 READY, 나머지 52 BLOCKED. 2026-11-22 최종 종료 커밋의 Actions 6/6 success 확인 후 이 문장과 함께 보고, main 불변·E1~E5 실물 승인 0 유지."
+      },
       "failure_reason": null,
       "remediation": null
     },
     {
       "id": "P0-1-01",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,

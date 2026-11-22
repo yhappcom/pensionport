@@ -155,6 +155,23 @@ class CanonicalStatusGateTests(unittest.TestCase):
         self.ledger["development_gate"]["security_archive_audit"]["successor_P0_0_07_blocked"] = True
         self.bad("P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
 
+    def test_p007_next_staged_item_cannot_be_advanced(self):
+        self.ledger["development_gate"]["pending_next_item"] = "P0-1-02"
+        self.bad("P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
+
+    def test_p007_release_receipt_must_not_claim_real_e5(self):
+        self.ledger["development_gate"]["p0_0_closeout"]["real_e5_published_parents"] = 1
+        self.bad("P007_STAGE_CLOSEOUT_SCOPE_OR_CURSOR_INVALID")
+
+    def test_p007_end_of_stage_cannot_omit_final_sha_ci_requirement(self):
+        self.ledger["development_gate"]["p0_0_closeout"]["closing_sha_postpush_ci_required"] = False
+        self.bad("P007_STAGE_CLOSEOUT_SCOPE_OR_CURSOR_INVALID")
+
+    def test_p007_receipt_exists_and_scoped_to_nonfinancial_ci(self):
+        closeout = self.ledger["development_gate"]["p0_0_closeout"]
+        self.assertEqual(closeout["next_allowed_item"], "P0-1-01")
+        self.assertEqual([], validate(self.ledger, root=ROOT))
+
     def test_open_blockers_cannot_be_silenced(self):
         self.ledger["open_blockers"] = []
         self.bad("OPEN_BLOCKERS_DROPPED")

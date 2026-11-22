@@ -102,11 +102,16 @@ jobs:
           python scripts/ire_legacy_transfer_gate.py verify
           python scripts/ire_legacy_transfer_gate.py status
 
-      - name: P0-0-06 verify 42 public archive blobs and preserve security HOLD
+      - name: P0-0-06 verify 42 public archive blobs (historical recovery still unverified)
         run: |
           python -m unittest -v scripts.test_ire_security_archive_gate
           python scripts/ire_security_archive_gate.py verify
           # A passing audit does not imply content confidentiality or key recovery.
+
+      - name: P0-0-07 verify stage closeout, preserve financial HOLD, and open only E1 first item
+        run: |
+          python -m unittest -v scripts.test_ire_p0_0_closeout_gate
+          python scripts/ire_p0_0_closeout_gate.py verify
 
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA

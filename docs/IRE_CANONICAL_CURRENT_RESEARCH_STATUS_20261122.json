@@ -292,10 +292,10 @@
   "development_gate": {
     "catalog_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json",
     "checklist_state_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json",
-    "this_item": "P0-0-07",
+    "this_item": "P0-1-01",
     "not_a_checklist_pass_receipt": true,
     "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": true,
-    "pending_next_item": "P0-0-07",
+    "pending_next_item": "P0-1-01",
     "next_item_allowed_only_after_P0_0_02_PASS": true,
     "next_item_allowed_only_after_P0_0_04_PASS": true,
     "implementation_ci": {
@@ -368,6 +368,22 @@
       "encryption_required_for_current_scope": false,
       "historical_security_risks": 6,
       "legacy_archive_key_recovery_required": false
+    },
+    "next_item_allowed_only_after_P0_0_07_PASS": true,
+    "p0_0_closeout": {
+      "status": "PASS_DEVELOPMENT_GOVERNANCE_AND_SOFTWARE_ONLY_REAL_E1_E5_HOLD",
+      "item_id": "P0-0-07",
+      "receipt_path": "docs/IRE_P0_0_07_STAGE_CLOSEOUT_RECEIPT_20261122.json",
+      "baseline_review_commit": "068f4097a2329a5c2b10f90435ca683f29f26f0c",
+      "baseline_ci_run_id": 44995407175,
+      "baseline_ci_success": true,
+      "baseline_six_jobs_passed": 6,
+      "stage_items_passed": 7,
+      "next_allowed_item": "P0-1-01",
+      "unapproved_etf_e3_children": 13,
+      "real_e5_published_parents": 0,
+      "closing_sha_postpush_ci_required": true,
+      "does_not_certify_financial_research": true
     }
   },
   "open_blockers": [

@@ -1,0 +1,87 @@
+{
+  "schema": "IRE_P0_0_07_P0_0_DEVELOPMENT_BASELINE_STAGE_CLOSEOUT_V1",
+  "as_of": "2026-11-22",
+  "item_id": "P0-0-07",
+  "result": "PASS_P0_0_GOVERNANCE_AND_SOFTWARE_ONLY_FINANCIAL_RESEARCH_STILL_HOLD",
+  "repository": "yhappcom/pensionport",
+  "branch": "audit/full-repository-snapshot-20261122",
+  "unchanged_main_sha": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+  "active_branches": [
+    "main",
+    "audit/full-repository-snapshot-20261122"
+  ],
+  "source_exact_head": "068f4097a2329a5c2b10f90435ca683f29f26f0c",
+  "source_exact_head_ci": {
+    "run_id": 44995407175,
+    "sha": "068f4097a2329a5c2b10f90435ca683f29f26f0c",
+    "conclusion": "success",
+    "total_jobs": 6,
+    "successful_jobs": 6,
+    "runner_python": "3.11.18",
+    "url": "https://github.com/yhappcom/pensionport/actions/runs/44995407175"
+  },
+  "source_independent_audit_path": "docs/IRE_P0_0_01_06_INDEPENDENT_REVALIDATION_20261122.md",
+  "stage_item_ids": [
+    "P0-0-01",
+    "P0-0-02",
+    "P0-0-03",
+    "P0-0-04",
+    "P0-0-05",
+    "P0-0-06",
+    "P0-0-07"
+  ],
+  "stage_items_all_pass": true,
+  "checklist_pass_total_after_close": 7,
+  "checklist_total": 60,
+  "next_ready_item": "P0-1-01",
+  "blocked_following": 52,
+  "evidence_digests": {
+    "baseline_manifest_files": 2364,
+    "original_heads": 98,
+    "original_retired_branches": 96,
+    "active_branches": 2,
+    "canonical_research_evidence_sources": 17,
+    "workflow_total": 27,
+    "active_push_workflows": 1,
+    "manual_workflows": 1,
+    "retired_workflows": 25,
+    "legacy_prs_closed_unmerged": 42,
+    "maximal_independent_branches": 11,
+    "legacy_divergent_paths": 1103,
+    "legacy_hold_paths": 913,
+    "public_archive_inventory": 42,
+    "b64_reversible_files": 6,
+    "unrestored_historical_encrypted_archives": 36
+  },
+  "financial_scope": {
+    "actual_etf_formal_v123_child_approvals": 0,
+    "actual_etf_e4_owner_authorizations": 0,
+    "actual_e5_parent_publications": 0,
+    "independent_etf_gold_verified": false,
+    "final_stages": {
+      "E1": "HOLD",
+      "E2": "HOLD",
+      "E3": "HOLD",
+      "E4": "HOLD",
+      "E5": "HOLD"
+    },
+    "advisory": "HOLD"
+  },
+  "immutable_predecessors": true,
+  "new_closeout_sha_ci_validation": "POST_COMMIT_GITHUB_ACTIONS_REQUIRED_TO_CONFIRM_FINAL_VERDICT__NOT_SELF_ATTESTED",
+  "historical_open_items": [
+    "Issue #48",
+    "Issue #50",
+    "ETF E2 independent gold",
+    "ETF actual two user turns E3",
+    "Current official financial rule primary evidence E4",
+    "E5 authorized exactly-once publication"
+  ],
+  "remediations_in_stage": [
+    "Human checklist stale 5/60 and P006 HOLD text fixed",
+    "Canonical status gate P007 READY hardcoded transition fixed for P0-1-01 READY",
+    "P007 no-financial-release closeout regression added"
+  ],
+  "no_main_merge": true,
+  "no_new_branch": true
+}
