@@ -260,8 +260,9 @@ class E4SealedKnowledgeStore(E4GuardedKnowledgeStore):
         os.close(fd)
         forensic=Path(name)
         try:
-            with sqlite3.connect(str(self.path),timeout=10) as src:
-                with sqlite3.connect(str(forensic),timeout=10) as dst:
+            from contextlib import closing
+            with closing(sqlite3.connect(str(self.path),timeout=10)) as src:
+                with closing(sqlite3.connect(str(forensic),timeout=10)) as dst:
                     src.backup(dst)
             os.chmod(forensic,0o600)
             archive=E4SealedKnowledgeStore(
@@ -313,9 +314,14 @@ class E4SealedKnowledgeStore(E4GuardedKnowledgeStore):
                 "financial_fact_certified":False,"personal_advice_approved":False,
             }
         except BaseException:
-            # A partially made forensic copy is not a trusted recovery.
-            # If the transaction never committed the active DB is unchanged.
-            if forensic.exists():
+            # Protect the forensic copy after active cleanup has committed.
+            # Deleting it on a post-commit verification exception would
+            # irreversibly lose the original unsealed source evidence.
+            try:
+                active_still_original=(self._logical_fingerprint()==original)
+            except Exception:
+                active_still_original=False  # preserve forensic data on doubt
+            if active_still_original and forensic.exists():
                 forensic.unlink()
             raise
 

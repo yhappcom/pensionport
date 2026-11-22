@@ -250,6 +250,38 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         self.assertEqual(self.table_counts(),before)
         self.assertFalse(self.seal.exists())
 
+    def test_19_postcleanup_crash_never_destroys_private_forensic_backup(self):
+        import tempfile
+        with patch("v166_e4_sealed_knowledge.os.replace",
+                   side_effect=OSError("SYNTHETIC_SEAL_BREAK")):
+            with self.assertRaises(OSError):
+                self.run_route()
+        store=self.fx.knowledge
+        original=store._logical_fingerprint
+        calls=[0]
+        def injected():
+            calls[0]+=1
+            if calls[0]==2:  # immediately after active SQLite cleanup
+                raise RuntimeError("SYNTHETIC_POST_COMMIT_RECOVERY_EXCEPTION")
+            return original()
+        with tempfile.TemporaryDirectory(prefix="p104_private_",
+                                         dir=str(self.db.parent)) as private:
+            with patch.object(store,"_logical_fingerprint",side_effect=injected):
+                with self.assertRaisesRegex(RuntimeError,
+                                            "SYNTHETIC_POST_COMMIT_RECOVERY_EXCEPTION"):
+                    store.quarantine_unsealed_parent(
+                        expected_unsealed_rows_sha256=
+                            original()["canonical_sqlite_rows_sha256"],
+                        private_quarantine_dir=private)
+            self.assert_empty()
+            archives=list(Path(private).glob(".unsealed-parent-forensic-*.db"))
+            self.assertEqual(len(archives),1)
+            saved=E4SealedKnowledgeStore(archives[0],external_signing_key=KEY)
+            self.assertEqual(saved._logical_fingerprint()["parent_count"],1)
+            self.refresh_owner_checkpoint_head()
+            recovered=self.run_route()
+            self.assertTrue(recovered["e5_new_parent_committed"])
+
     def test_18_already_sealed_parent_cannot_be_quarantined_or_deleted(self):
         import tempfile
         result=self.run_route()
