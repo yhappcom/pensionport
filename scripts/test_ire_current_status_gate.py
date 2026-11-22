@@ -1,0 +1,120 @@
+"""Negative/positive tests for scope-safe E1-E5 canonical status. Not a financial fact audit."""
+from __future__ import annotations
+
+import copy
+import unittest
+
+from scripts.ire_current_status_gate import ROOT, LEDGER, load, validate
+
+
+class CanonicalStatusGateTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.good = load(ROOT / LEDGER)
+
+    def setUp(self):
+        self.ledger = copy.deepcopy(self.good)
+
+    def bad(self, code: str):
+        errors = validate(self.ledger, root=None)
+        self.assertTrue(any(code in error for error in errors), errors)
+
+    def test_unmodified_ledger_and_live_pinned_evidence(self):
+        self.assertEqual([], validate(self.ledger, root=ROOT))
+
+    def test_all_five_stages_are_individually_scoped(self):
+        self.assertEqual(["E1", "E2", "E3", "E4", "E5"], list(self.ledger["stages"]))
+        self.assertEqual([], validate(self.ledger, root=None))
+
+    def test_e1_synthetic_must_not_promote_to_real(self):
+        self.ledger["stages"]["E1"]["end_to_end_real_owner_approval_route"]["status"] = "PASS"
+        self.bad("E1_E2E5_REAL_FALSE_GO")
+
+    def test_e1_actual_child_provisional_cannot_disappear(self):
+        self.ledger["reference_cohort"]["parent_external_qualifier_provisional_child_hosts"] = 0
+        self.bad("ETF_B0013_PROVISIONAL_LOST")
+
+    def test_e1_missing_cross_parent_qualifier_rejected(self):
+        self.ledger["reference_cohort"]["cross_parent_qualifier_edges"] = 0
+        self.bad("ETF_QUALIFIER_EDGES_LOST")
+
+    def test_etf_source_cue_count_not_legacy_count(self):
+        self.ledger["reference_cohort"]["cue_count"] = 1481
+        self.bad("ETF_CUE_COUNT_MISREPRESENTED")
+
+    def test_etf_registered_candidate_atoms_not_certified(self):
+        self.ledger["reference_cohort"]["provisional_atom_candidates"] = 116
+        self.bad("ETF_ATOM_CANDIDATES_MISREPRESENTED")
+
+    def test_real_etf_formal_approval_must_not_be_invented(self):
+        self.ledger["reference_cohort"]["actual_formal_v123_child_approvals"] = 13
+        self.bad("ETFTURN_FINAL_APPROVAL_OR_PUBLICATION_FALSE_GO")
+
+    def test_real_etf_e5_publication_must_not_be_invented(self):
+        self.ledger["stages"]["E5"]["actual_etf_parent_publications"] = 1
+        self.bad("E5_FALSE_PUBLICATION")
+
+    def test_independent_accuracy_must_be_null(self):
+        self.ledger["stages"]["E2"]["independently_certified_recall"] = 0.98
+        self.bad("UNKNOWN_ACCURACY_REPLACED_WITH_NUMBER")
+
+    def test_etf_accuracy_not_copied_from_other_original(self):
+        self.ledger["accuracy_and_context"]["etf_source_first_gold"]["precision"] = 0.8
+        self.bad("ETF_ACCURACY_FAKE_NUMBER")
+
+    def test_unrelated_historical_cma_turn2_not_etf_proof(self):
+        self.ledger["reference_cohort"]["actual_user_etf_turn2_final_verdict_proven"] = True
+        self.bad("ETFTURN2_FALSELY_CLAIMED")
+
+    def test_roster_shorts_cannot_be_added_twice(self):
+        self.ledger["video_denominators"]["canonical_roster"]["total"] = 879
+        self.bad("ROSTER_COUNTS_INCONSISTENT")
+
+    def test_legacy_video_rows_not_roster_e5(self):
+        self.ledger["video_denominators"]["certified_e5_research_published_videos_total"] = 157
+        self.bad("UNKNOWN_ALL_ROSTER_APPROVAL_COUNT_FILLED")
+
+    def test_legacy_claims_not_e5_publications(self):
+        self.ledger["video_denominators"]["legacy_records"]["denominator_kind"] = "E5_APPROVED"
+        self.bad("LEGACY_RECORD_AS_E5")
+
+    def test_advisory_personalized_auto_approval_blocked(self):
+        self.ledger["advisory"]["personalized_recommendation_authorized"] = True
+        self.bad("ADVISORY_SCOPE_FALSE_GO")
+
+    def test_v149_internal_not_an_independent_gold(self):
+        self.ledger["accuracy_and_context"]["historical_v149_internal_other_original"]["independently_certified"] = True
+        self.bad("OTHER_SCOPE_P_R_LAUNDERED")
+
+    def test_source_provenance_cannot_claim_private_replay(self):
+        self.ledger["reference_cohort"]["original_private_srt_bytes_verified_in_this_turn"] = True
+        self.bad("PRIVATE_SRT_REPLAY_FALSELY_CLAIMED")
+
+    def test_evidence_key_missing(self):
+        self.ledger["stages"]["E3"]["evidence_keys"] = ["missing.json"]
+        self.bad("UNRESOLVED_STAGE_EVIDENCE")
+
+    def test_sourced_evidence_git_blob_mutation_caught(self):
+        path = "data/inventory_control.json"
+        self.ledger["evidence_sources"][path]["git_blob_sha"] = "0" * 40
+        self.bad_with_root("EVIDENCE_BLOB_CHANGED")
+
+    def bad_with_root(self, code: str):
+        errors = validate(self.ledger, root=ROOT)
+        self.assertTrue(any(code in error for error in errors), errors)
+
+    def test_e4_owner_authorization_must_not_be_invented(self):
+        self.ledger["stages"]["E4"]["actual_etf_owner_seal_verified"] = True
+        self.bad("E4_FALSE_SEAL")
+
+    def test_corpus_release_forbidden_without_e2_e5(self):
+        self.ledger["accuracy_and_context"]["current_complete_research_engine_go"] = True
+        self.bad("RELEASE_GATE_FALSE_GO")
+
+    def test_open_blockers_cannot_be_silenced(self):
+        self.ledger["open_blockers"] = []
+        self.bad("OPEN_BLOCKERS_DROPPED")
+
+
+if __name__ == "__main__":
+    unittest.main()
