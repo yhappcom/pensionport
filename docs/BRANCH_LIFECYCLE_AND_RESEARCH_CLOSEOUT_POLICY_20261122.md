@@ -77,3 +77,12 @@
 - 이력/삭제/CI 합격, PR 42개 닫힘은 연구 결과의 `V123/E3` 승인, `E4` 금융근거 승인, `E5` 발행을 **뜻하지 않는다**. 과거 42개 PR은 [중앙 HOLD 이관 원장](BRANCH_LEGACY_PR_RESEARCH_TRANSFER_20261122.json)을 기준으로 재판정한다.
 - 후속 개별 영상 연구는 통합 브랜치의 **연구 ID/영수증/OPEN 큐**로 관리한다. 1턴 동결 → 별도 실제 사용자 메시지 2턴 ChatGPT 검토 → 승인/보류 분리 → E1~E5 검문 → 연구 종료 영수증 등록을 종료 조건으로 한다.
 - 중앙 영수증이 없거나 원본 재현 불가이면 그 연구는 `APPROVED_AND_INTEGRATED`가 아니다. 비공개 원본을 공개 저장소에 복사하지 않고 해시/접근 통제된 보관 참조만 기록한다.
+
+## F. 순차 개발 체크리스트 및 필수 사용자 시작·종료 보고 (2026-11-22)
+
+1. [IRE 60개 순차 실행 체크리스트](IRE_STRICT_SEQUENTIAL_EXECUTION_CHECKLIST_20261122.md)를 2026-11-22 이후 **모든 E1~E5 개발·연구·확장·자문 업무의 우선 실행 규칙**으로 적용한다. 개발 마스터 계획의 P0-0→P0-6→P1-1→P1-2→P1-3→P2→P3를 60개 항목으로 세분화했으며, 수행자는 [카탈로그](IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json)와 [실행 상태 원장](IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json)을 함께 읽고 유일한 다음 허용 ID를 확인한다.
+2. **업무 시작 전 사용자 보고 필수:** 착수 ID/현재 상태/선행 완료 PASS x/60/기준 SHA·브랜치·main 불변/이번 목표/기존 FAIL·HOLD·OPEN/합격·실패 검증기준 및 후속 항목 차단 여부를 채팅에서 사용자에게 직접 보고한다.
+3. **업무 종료 후 사용자 보고 필수:** 변경 파일·최종 SHA/실행한 테스트·재조회한 증빙/PASS·FAIL·HOLD/미해결 원인·다음 재시험/선행 PASS x/60/다음 진행 허용 ID 또는 동일 차단 ID/E1~E5·실물 발행 건수/main·브랜치 변동 유무를 사용자에게 직접 보고한다. 한 턴 종료 시 완료할 수 없으면 정확히 IN_PROGRESS/HOLD/FAIL로 보고한다. 'start_report'·'end_report'의 Git 기록은 사용자에게 실제로 전달한 메시지를 대체하지 않는다.
+4. **실패 차단:** 오직 선행 모든 항목이 PASS인 바로 다음 1개 항목만 실행할 수 있다. 해당 항목이 FAIL/HOLD면 같은 ID에서 원인·수정·재실행·증빙으로 PASS가 나올 때까지 다음 ID와 다음 단계의 코드를 착수하지 않는다. 합성 CI PASS를 실제 독립 의미/공식 근거 승인으로 과장하거나 PASS를 일괄 소급 기입하지 않는다. 과거 실패는 Git 이력/정정 영수증으로 보존한다.
+5. 정책 검사: 'python3 scripts/ire_checklist_gate.py status', 'python3 scripts/ire_checklist_gate.py next', 'python3 scripts/ire_checklist_gate.py verify --compare-parent' 및 'python3 -m unittest scripts.test_ire_checklist_gate'. 통합 브랜치 push 시 읽기 전용 관리 CI가 순서 위반·보고/증빙 누락을 탐지한다. **정당한 FAIL/HOLD 기록 자체를 숨기지 않는다**. Ruleset 미설정 상태에선 CI 결과는 사후 검사이며 GitHub에 대한 사전 write 차단이 아니다.
+6. 사용자 실제 2턴과 비공개 원본·금융 적용성 등 기계가 독립적으로 증명할 수 없는 부분은 별도 실물 원장·ChatGPT 의미 검증·금융근거·owner 승인으로 검문한다. 자동 정책 검사의 PASS는 연구내용의 진실이나 호스트 메시지 서명 증거가 아니다.
