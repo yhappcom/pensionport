@@ -1,3 +1,5 @@
+> **2026-11-22 필수 실행 순서:** 기존 V3 한 턴 워크플로는 역사 자료입니다. 실제 신규 개발·연구는 [60개 항목의 엄격한 순차 체크리스트](docs/IRE_STRICT_SEQUENTIAL_EXECUTION_CHECKLIST_20261122.md)와 [상태 원장](docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json)을 최우선 적용합니다. **FAIL/HOLD 해결 전 다음 ID 착수 금지**, 매 사용자 요청 시 **작업 시작 전·종료 직후 채팅 보고 필수**, 정식 2턴/E1~E5 승인 분리, 단일 통합 브랜치 사용·main 불변을 지킵니다.
+
 > **최신 운영 정책 안내:** 이 문서는 2026-10-08의 V3 역사적 워크플로입니다. 신규 E1~E5 연구 개발은 [브랜치 운영·연구 종료 정책](docs/BRANCH_LIFECYCLE_AND_RESEARCH_CLOSEOUT_POLICY_20261122.md)과 [브랜치 통합 장부](docs/BRANCH_CONSOLIDATION_20261122.md)를 우선 적용합니다. 영상별/턴별 새 Git 브랜치를 만들지 않고 하나의 통합 브랜치에서 작업합니다. 2턴 분리, 승인 전 E5 발행 금지, 연구 종료 후 OPEN 이관·원본 계보 보존을 필수로 합니다. `main`은 수정하지 않습니다.
 
 # 박곰희TV 영상 학습 워크플로 — V3 단일 저장 (2026-10-08)
