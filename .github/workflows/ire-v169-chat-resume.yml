@@ -4,6 +4,9 @@ on:
     branches:
       - verify/ire-v6-v169-chat-resumable-20261118
   pull_request:
+    # Limit historical PR scope to a retired base; no integration/main PR trigger.
+    branches:
+      - verify/ire-v6-v168-chat-native-replay-20261118
     paths:
       - 'validation/ire-v6-frozen/v167_chat_research_loop.py'
       - 'validation/ire-v6-frozen/v169_chat_research_journal.py'
