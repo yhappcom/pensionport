@@ -240,6 +240,8 @@ def run_canonical_research_route(
         raise QualityNotProven("V243_E4_E5_STATUS_DIVERGENCE")
     after_knowledge=knowledge_store._logical_fingerprint()
     owner_pin=None
+    idempotent_owner_pinned_replay=False
+    new_parent_commit=False
     if approved:
         # An in-process HMAC seal does not prove separate owner custody. Reopen
         # the actual E4 certificate and exact SQLite logical rows. Never treat
@@ -250,9 +252,20 @@ def run_canonical_research_route(
             raise QualityNotProven("V243_E4_SEAL_OWNER_PIN_MISSING")
         certified=knowledge_store.verify_e4_certificate(
             externally_pinned_seal_sha256=owner_pin)
+        new_parent_commit=(
+            certified["parent_count"]==before_knowledge["parent_count"]+1
+            and certified["knowledge_count"]>before_knowledge["knowledge_count"]
+            and after_knowledge["events_count"]>before_knowledge["events_count"])
+        idempotent_owner_pinned_replay=(
+            certified["parent_count"]>=1
+            and certified["parent_count"]==before_knowledge["parent_count"]
+            and after_knowledge==before_knowledge
+            # A previous E4 certificate must be explicitly pinned and
+            # verified by the store; fresh output is never its own proof.
+            and knowledge_store._trusted_prior_owner_pin is not None
+            and knowledge_store._trusted_prior_owner_pin==owner_pin)
         if (certified["knowledge_head_sha256"]!=after_knowledge["knowledge_head_sha256"]
-                or certified["parent_count"]!=before_knowledge["parent_count"]+1
-                or certified["knowledge_count"]<=before_knowledge["knowledge_count"]
+                or not (new_parent_commit or idempotent_owner_pinned_replay)
                 or certified["parent_count"]!=after_knowledge["parent_count"]
                 or outcome.get("e4_durable_certification_verified") is not True
                 or outcome.get("e3_parent_status")!="PUBLISHED_RESEARCH_CANDIDATES_ONLY"
@@ -271,8 +284,11 @@ def run_canonical_research_route(
         raise QualityNotProven("V243_FALSE_FINANCIAL_FACT_OR_ADVISORY_GO")
     return {
         "schema": SCHEMA,
-        "status": ("RESEARCH_CANDIDATE_PARENT_COMMITTED_AWAIT_OWNER_PIN_CUSTODY"
-                   if approved else "HOLD_E4_PRIMARY_EVIDENCE"),
+        "status": (
+            "RESEARCH_CANDIDATE_PARENT_IDEMPOTENT_REPLAY_NO_NEW_WRITE"
+            if idempotent_owner_pinned_replay else
+            "RESEARCH_CANDIDATE_PARENT_COMMITTED_AWAIT_OWNER_PIN_CUSTODY"
+            if approved else "HOLD_E4_PRIMARY_EVIDENCE"),
         "source_sha256": source_sha256,
         "original_source_bytes_rechecked": True,
         "checkpoint_head_sha256": checkpoint.progress()["checkpoint_head_sha256"],
@@ -286,6 +302,8 @@ def run_canonical_research_route(
         "e4_invoked": True,
         "e4_receipt": outcome,
         "e5_invoked": approved,
+        "e5_new_parent_committed":new_parent_commit,
+        "e5_idempotent_replay_no_new_sqlite_rows":idempotent_owner_pinned_replay,
         "all_video_knowledge_published": approved,
         "e4_external_pin_returned_not_yet_owner_custodied": owner_pin,
         "externally_independent_owner_pin_reverified": False,
