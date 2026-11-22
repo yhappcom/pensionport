@@ -160,7 +160,8 @@
         "declared_sent_to_user": true,
         "reported_at": "2026-11-22",
         "verdict": "START",
-        "user_visible_text": "[P0-0-05 시작] 선행 P0-0-01~04 PASS 확인, 통합 브랜치에서 독립 11분기·42 PR·Issue #48/#50의 원본 SHA/연구 OPEN을 대조. ADOPT/TEST_ONLY/ARCHIVE/HOLD를 구분하고 실물 승인 오인 없이 근거·결함 ID 기록. main 불변."
+        "user_visible_text": "[P0-0-05 시작] 선행 P0-0-01~04 PASS 확인, 통합 브랜치에서 독립 11분기·42 PR·Issue #48/#50의 원본 SHA/연구 OPEN을 대조. ADOPT/TEST_ONLY/ARCHIVE/HOLD를 구분하고 실물 승인 오인 없이 근거·결함 ID 기록. main 불변.",
+        "baseline_sha": "dd9bf7fc8d6645ee4fac93e20e84cffb8d486358"
       },
       "end_report": {
         "task_id": "P0-0-05",
@@ -168,7 +169,8 @@
         "declared_sent_to_user": true,
         "reported_at": "2026-11-22",
         "verdict": "PASS",
-        "user_visible_text": "[P0-0-05 종료] 독립 11분기 1,103개 경로 전수 분류 ADOPT 0 / TEST_ONLY 95 / ARCHIVE 95 / HOLD 913, 원래 42 PR SHA 42/42 일치·closed/unmerged, Issue #48·#50 OPEN 9 리스크와 공통 OPEN 6건 이관. CI 44985673668 6/6 jobs PASS, 신규 24 시험 통과. main 불변, 2개 브랜치, 5/60 PASS, P0-0-06 READY, 54 BLOCKED; 실제 E3 0/13·E5 0 유지."
+        "user_visible_text": "[P0-0-05 종료] 독립 11분기 1,103개 경로 전수 분류 ADOPT 0 / TEST_ONLY 95 / ARCHIVE 95 / HOLD 913, 원래 42 PR SHA 42/42 일치·closed/unmerged, Issue #48·#50 OPEN 9 리스크와 공통 OPEN 6건 이관. CI 44985673668 6/6 jobs PASS, 신규 24 시험 통과. main 불변, 2개 브랜치, 5/60 PASS, P0-0-06 READY, 54 BLOCKED; 실제 E3 0/13·E5 0 유지.",
+        "baseline_sha": "7711fb3216bc5c91ea3c302fabc39a48eef86fdf"
       },
       "failure_reason": null,
       "remediation": null
