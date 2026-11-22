@@ -41,16 +41,41 @@
     },
     {
       "id": "P0-0-02",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "audit",
+          "ref": "https://github.com/yhappcom/pensionport/blob/21b0c244a020190766917a50504386c4c63ec739/docs/IRE_P0_0_02_CURRENT_STATUS_CLOSEOUT_RECEIPT_20261122.json",
+          "sha": "21b0c244a020190766917a50504386c4c63ec739",
+          "scope": "P0-0-02 canonical E1-E5/advisory/791 video denominator status ONLY, 14 pinned source Git blobs, 23 status tests +17 ordering tests; no actual private ETF TURN2/finance approval",
+          "verified_by": "GitHub exact SHA 076e0be2d38706ecabe4379613e3c1c61571688d management CI 44981432645 success; job 137082563552, source files checked against Git SHA",
+          "verdict": "PASS"
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-0-02",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "START",
+        "user_visible_text": "[P0-0-02 시작] 현재 허용된 작업은 E1~E5·투자자문·영상 연구의 단일 상태 판정 원장 확정입니다. 직전 기준 1/60 PASS, P0-0-02 READY, 후속 58개 차단입니다. 기존 원장·코드·검증 기록 대조, 분모·실물/합성 결과, OPEN 및 미완료 사유를 분리합니다.",
+        "baseline_sha": "6cf0c8859440de11f02ae9e48966322581b59ac3"
+      },
+      "end_report": {
+        "task_id": "P0-0-02",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-0-02 종료] E1~E5·자문·791편 단일 상태 원장을 생성하고 14개 Git blob SHA 검문, 적대시험 23건, 순서시험 17건, 고정 HEAD 관리 CI 성공을 확인했습니다. ETF E3 실제 0/13·E5 실물 0, E1~E5와 자문 HOLD, 독립 정확도 미측정, 전체 로스터 승인수 미확정 유지. 선행 2/60 PASS, 다음 P0-0-03 READY. main 불변, 두 브랜치 유지.",
+        "baseline_sha": "076e0be2d38706ecabe4379613e3c1c61571688d"
+      },
       "failure_reason": null,
       "remediation": null
     },
     {
       "id": "P0-0-03",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,
