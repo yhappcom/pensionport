@@ -22,13 +22,13 @@ class P101SurfaceTests(unittest.TestCase):
         p.write_text(p.read_text()+"\nimport fastapi\n")
         self.assertTrue(any("SERVICE_FRAMEWORK" in x for x in validate(self.r)))
     def test_public_api_export_cannot_multiply(self):
-        p=self.r/CORE[-1]
+        p=self.r/next(x for x in CORE if x.endswith("/v243_canonical_e1_e5_route.py"))
         p.write_text(p.read_text().replace(
             '__all__ = ("run_canonical_research_route",)',
             '__all__ = ("run_canonical_research_route","legacy_publish")'))
         self.assertTrue(any("SINGLE_OFFICIAL" in x for x in validate(self.r)))
     def test_e4_seal_readback_not_optional(self):
-        p=self.r/CORE[-1]
+        p=self.r/next(x for x in CORE if x.endswith("/v243_canonical_e1_e5_route.py"))
         p.write_text(p.read_text().replace("verify_e4_certificate(","no_verification("))
         self.assertTrue(any("READBACK_GATE" in x for x in validate(self.r)))
     def test_external_app_config_requires_reaudit(self):
