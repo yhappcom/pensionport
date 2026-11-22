@@ -93,6 +93,9 @@ def run_canonical_research_route(
     # This branch MUST NOT become reachable via untrusted user/CLI flags.
     # Host attestation and actual separate user turns are an unresolved P101
     # release prerequisite. In CI only, the verifier is mock-replaced.
+    # Capture the trustworthy logical row fingerprint BEFORE touching the E4
+    # store. A failed or HELD E4 must never leave a publishable knowledge row.
+    before_knowledge=knowledge_store._logical_fingerprint()
     outcome=run_e4_guarded_parent(
         checkpoint,knowledge_store,
         review_or_load_child=review_or_load_child,
@@ -107,13 +110,40 @@ def run_canonical_research_route(
     approved=outcome.get("status")=="E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED"
     if approved != (outcome.get("all_video_knowledge_published") is True):
         raise QualityNotProven("V243_E4_E5_STATUS_DIVERGENCE")
+    after_knowledge=knowledge_store._logical_fingerprint()
+    owner_pin=None
+    if approved:
+        # An in-process HMAC seal does not prove separate owner custody. Reopen
+        # the actual E4 certificate and exact SQLite logical rows. Never treat
+        # a returned dict with a success-looking status as a durable E5 write.
+        owner_pin=outcome.get("e4_external_owner_pin_sha256")
+        if (type(owner_pin) is not str or len(owner_pin)!=64 or
+            any(x not in "0123456789abcdef" for x in owner_pin)):
+            raise QualityNotProven("V243_E4_SEAL_OWNER_PIN_MISSING")
+        certified=knowledge_store.verify_e4_certificate(
+            externally_pinned_seal_sha256=owner_pin)
+        if (certified["knowledge_head_sha256"]!=after_knowledge["knowledge_head_sha256"]
+                or certified["parent_count"]!=before_knowledge["parent_count"]+1
+                or certified["knowledge_count"]<=before_knowledge["knowledge_count"]
+                or certified["parent_count"]!=after_knowledge["parent_count"]
+                or outcome.get("e4_durable_certification_verified") is not True
+                or outcome.get("e3_parent_status")!="PUBLISHED_RESEARCH_CANDIDATES_ONLY"
+                or len(outcome.get("child_preflights",[]))!=len(checkpoint.child_ids)
+                or any(x.get("e4_status")!="E4_PASS_RESEARCH_CANDIDATES_ONLY"
+                       for x in outcome["child_preflights"])):
+            raise QualityNotProven("V243_E4_E5_COMMIT_OR_SEAL_NOT_CONSISTENT")
+    elif before_knowledge!=after_knowledge:
+        # A hostile callback or legacy direct SQLite writer may still modify
+        # the same FILE. That event must be reported as an integrity incident,
+        # never silently downgraded to an ordinary HOLD.
+        raise QualityNotProven("V243_E4_HELD_BUT_KNOWLEDGE_DATABASE_MUTATED")
     if (outcome.get("formal_financial_fact_formally_approved") is True or
         outcome.get("financial_fact_formally_approved") is True or
         outcome.get("personal_advice_approved") is True or outcome.get("p0_go") is True):
         raise QualityNotProven("V243_FALSE_FINANCIAL_FACT_OR_ADVISORY_GO")
     return {
         "schema": SCHEMA,
-        "status": ("SYNTHETIC_PATH_REPLAYED_RESEARCH_CANDIDATES_ONLY"
+        "status": ("RESEARCH_CANDIDATE_PARENT_COMMITTED_AWAIT_OWNER_PIN_CUSTODY"
                    if approved else "HOLD_E4_PRIMARY_EVIDENCE"),
         "source_sha256": source_sha256,
         "checkpoint_head_sha256": checkpoint.progress()["checkpoint_head_sha256"],
@@ -121,8 +151,11 @@ def run_canonical_research_route(
         "trusted_host_two_user_turns_verified": True,
         "e4_invoked": True,
         "e4_receipt": outcome,
-        "e5_invoked": True,
+        "e5_invoked": approved,
         "all_video_knowledge_published": approved,
+        "e4_external_pin_returned_not_yet_owner_custodied": owner_pin,
+        "externally_independent_owner_pin_reverified": False,
+        "e4_sqlite_parent_logically_replayed_after_commit": approved,
         "formal_financial_fact_approved": False,
         "personal_advice_approved": False,
         "p0_go": False,

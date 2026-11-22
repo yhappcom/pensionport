@@ -83,7 +83,10 @@ class CanonicalRouteContractTests(unittest.TestCase):
                    "v166_e4_primary_approval_gate._fetch_approved_primary_https",
                    return_value=BODY):
             r=self.run_route()
-        self.assertEqual(r["status"],"SYNTHETIC_PATH_REPLAYED_RESEARCH_CANDIDATES_ONLY")
+        self.assertEqual(r["status"],"RESEARCH_CANDIDATE_PARENT_COMMITTED_AWAIT_OWNER_PIN_CUSTODY")
+        self.assertTrue(r["e4_sqlite_parent_logically_replayed_after_commit"])
+        self.assertFalse(r["externally_independent_owner_pin_reverified"])
+        self.assertIsInstance(r["e4_external_pin_returned_not_yet_owner_custodied"],str)
         self.assertTrue(r["all_video_knowledge_published"])
         self.assertEqual(self.f.fx._counts(),{"events":3,"knowledge":3,"parent_publications":1})
         self.assertFalse(r["formal_financial_fact_approved"])
@@ -100,12 +103,108 @@ class CanonicalRouteContractTests(unittest.TestCase):
             out=self.run_route()
         self.assertEqual(out["status"],"HOLD_E4_PRIMARY_EVIDENCE")
         self.assertFalse(out["all_video_knowledge_published"])
+        self.assertFalse(out["e5_invoked"])
         self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
     def test_09_untrusted_turn_refs_not_exported_as_e5_release(self):
         report=self.run_route()
         self.assertNotIn("e4_receipt",report)
         self.assertNotIn("publication_receipt",report)
         self.assertFalse(report["p0_go"])
+    def test_11_unsealed_legacy_write_after_certification_invalidates_e4_readback(self):
+        import sqlite3
+        from ire.v6.errors import QualityNotProven
+        from v126_chat_approved_knowledge_store import PrivateKnowledgeStore
+        trusted={"host_separate_turns_verified":True,
+                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
+        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
+                   return_value=trusted),patch(
+                   "v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=BODY):
+            r=self.run_route()
+        pin=r["e4_external_pin_returned_not_yet_owner_custodied"]
+        self.f.fx.knowledge.verify_e4_certificate(
+            externally_pinned_seal_sha256=pin)
+        # Same-file legacy store remains physically importable. An attacker who
+        # writes to its SQLite path must INVALIDATE the certified E4 readback.
+        legacy=PrivateKnowledgeStore(self.f.fx.knowledge.path)
+        with sqlite3.connect(legacy.path) as con:
+            con.execute("UPDATE knowledge SET entry_json='{}' WHERE "
+                        "knowledge_id=(SELECT knowledge_id FROM knowledge LIMIT 1)")
+        with self.assertRaises(QualityNotProven):
+            self.f.fx.knowledge.verify_e4_certificate(
+                externally_pinned_seal_sha256=pin)
+
+    def test_12_forged_e4_success_dict_without_sqlite_or_seal_rejected(self):
+        trusted={"host_separate_turns_verified":True,
+                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
+        evil={"schema":"IRE_V166_E4_PARENT_APPROVAL_V1",
+              "status":"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED",
+              "all_video_knowledge_published":True,
+              "e4_external_owner_pin_sha256":"b"*64,
+              "e4_durable_certification_verified":True,
+              "child_preflights":[],"e3_parent_status":"PUBLISHED_RESEARCH_CANDIDATES_ONLY",
+              "formal_financial_fact_approved":False,
+              "personal_advice_approved":False,"p0_go":False}
+        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
+                   return_value=trusted),patch(
+                   "v243_canonical_e1_e5_route.run_e4_guarded_parent",
+                   return_value=evil):
+            with self.assertRaises(QualityNotProven):
+                self.run_route()
+        self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
+
+    def test_13_e4_hold_with_legacy_direct_write_cannot_masquerade_as_clean_hold(self):
+        import sqlite3
+        trusted={"host_separate_turns_verified":True,
+                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
+        def unauthorized(*args,**kwargs):
+            with sqlite3.connect(self.f.fx.knowledge.path) as con:
+                con.execute("INSERT INTO knowledge VALUES(?,?,?)",
+                            ("unapproved","{}", "0"*64))
+            return {"schema":"IRE_V166_E4_PARENT_APPROVAL_V1",
+                    "status":"E4_HOLD_UNVERIFIED_CHILD",
+                    "all_video_knowledge_published":False,
+                    "formal_financial_fact_approved":False,
+                    "personal_advice_approved":False,"p0_go":False}
+        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
+                   return_value=trusted),patch(
+                   "v243_canonical_e1_e5_route.run_e4_guarded_parent",
+                   side_effect=unauthorized):
+            with self.assertRaises(QualityNotProven):
+                self.run_route()
+        self.assertEqual(self.f.fx._counts().get("knowledge",0),1)
+
+    def test_14_crash_after_e5_sqlite_commit_before_e4_seal_cannot_be_read_as_approved(self):
+        from pathlib import Path
+        from ire.v6.errors import QualityNotProven
+        trusted={"host_separate_turns_verified":True,
+                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
+        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
+                   return_value=trusted),patch(
+                   "v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=BODY),patch(
+                   "v166_e4_sealed_knowledge.os.replace",
+                   side_effect=OSError("SYNTHETIC_BEFORE_SEAL_REPLACE")):
+            with self.assertRaisesRegex(OSError,"BEFORE_SEAL_REPLACE"):
+                self.run_route()
+        self.assertEqual(self.f.fx._counts()["parent_publications"],1)
+        self.assertFalse(Path(str(self.f.fx.knowledge.path)+".e4seal.json").exists())
+        with self.assertRaises(QualityNotProven):
+            self.f.fx.knowledge.verify_e4_certificate(
+                externally_pinned_seal_sha256="a"*64)
+
+    def test_15_success_e4_pin_is_not_a_user_custody_attestation(self):
+        trusted={"host_separate_turns_verified":True,
+                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
+        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
+                   return_value=trusted),patch(
+                   "v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=BODY):
+            r=self.run_route()
+        self.assertTrue(r["all_video_knowledge_published"])
+        self.assertFalse(r["externally_independent_owner_pin_reverified"])
+        self.assertFalse(r["p0_go"])
+
     def test_10_public_interface_has_no_cli(self):
         import v243_canonical_e1_e5_route as api
         self.assertEqual(api.__all__,("run_canonical_research_route",))
