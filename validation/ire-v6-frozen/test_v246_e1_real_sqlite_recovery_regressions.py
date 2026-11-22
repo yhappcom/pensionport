@@ -50,7 +50,7 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
                          {"events":0,"knowledge":0,"parent_publications":0})
         self.assertFalse(self.seal.exists())
 
-    def run(self,**changes):
+    def run_route(self,**changes):
         with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
                    return_value=fixtures.BODY):
             return self.h.run_route(**changes)
@@ -67,7 +67,7 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
             self.db,external_signing_key=KEY,prior_owner_pin=pin)
 
     def test_01_native_full_parent_commit_and_owner_seal(self):
-        result=self.run()
+        result=self.run_route()
         self.assertTrue(result["e5_new_parent_committed"])
         self.assertFalse(result["e5_idempotent_replay_no_new_sqlite_rows"])
         self.assertEqual(self.table_counts(),
@@ -81,14 +81,14 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         self.assertFalse(result["personal_advice_approved"])
 
     def test_02_missing_second_user_command_writes_no_row(self):
-        r=self.run(second_user_turn=None)
+        r=self.run_route(second_user_turn=None)
         self.assertFalse(r["e4_invoked"])
         self.assert_empty()
 
     def test_03_missing_second_child_official_primary_never_partially_publishes(self):
         missing=self.fx.checkpoint.child_ids[-1]
         del self.h.f.manifests[missing]
-        result=self.run()
+        result=self.run_route()
         self.assertEqual(result["status"],"HOLD_E4_PRIMARY_EVIDENCE")
         self.assertFalse(result["e5_invoked"])
         self.assert_empty()
@@ -98,41 +98,41 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         self.h.f.manifests[sid]["rows"][0]["official_url"]=(
             "https://www.nts.go.kr.attacker.invalid/fake")
         with self.assertRaises(InvalidInput):
-            self.run()
+            self.run_route()
         self.assert_empty()
 
     def test_05_v123_open_not_reclassified_as_approved(self):
         case=self.fx.packets[1]["case"]
         case["chat_review"]["atom_verdicts"][0]["status"]="OPEN"
-        outcome=self.run()
+        outcome=self.run_route()
         self.assertEqual(outcome["status"],"HOLD_E4_PRIMARY_EVIDENCE")
         self.assert_empty()
 
     def test_06_original_source_tamper_fails_before_sqlite(self):
         with self.assertRaises(QualityNotProven):
-            self.run(original_source_raw=self.fx.checkpoint.raw+b"tamper")
+            self.run_route(original_source_raw=self.fx.checkpoint.raw+b"tamper")
         self.assert_empty()
 
     def test_07_interruption_after_all_child_checks_then_replay_with_new_owner_head(self):
         def interrupted(*_):
             raise RuntimeError("SYNTHETIC_AFTER_ALL_CHILD_CHECKPOINTS_BEFORE_PARENT")
         with self.assertRaisesRegex(RuntimeError,"SYNTHETIC_AFTER_ALL_CHILD"):
-            self.run(review_seams=interrupted)
+            self.run_route(review_seams=interrupted)
         self.assert_empty()
         self.assertEqual(self.fx.checkpoint.progress()["passed_child_scopes"],2)
         self.assertNotEqual(self.refresh_owner_checkpoint_head(),ZERO_SHA)
-        result=self.run()
+        result=self.run_route()
         self.assertTrue(result["e5_new_parent_committed"])
         self.assertEqual(self.table_counts()["parent_publications"],1)
 
     def test_08_identical_parent_replay_with_old_owner_pin_has_zero_new_rows(self):
-        first=self.run()
+        first=self.run_route()
         pin=first["e4_external_pin_returned_not_yet_owner_custodied"]
         baseline=self.fx.knowledge._logical_fingerprint()
         original_seal=self.seal.read_bytes()
         self.refresh_owner_checkpoint_head()
         self.reopen_with_owner_pin(pin)
-        result=self.run(expected_knowledge_head=ZERO_SHA)
+        result=self.run_route(expected_knowledge_head=ZERO_SHA)
         self.assertEqual(result["status"],
                          "RESEARCH_CANDIDATE_PARENT_IDEMPOTENT_REPLAY_NO_NEW_WRITE")
         self.assertFalse(result["e5_new_parent_committed"])
@@ -143,18 +143,18 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         self.assertEqual(self.table_counts()["parent_publications"],1)
 
     def test_09_existing_parent_requires_actual_prior_owner_pin_for_replay(self):
-        first=self.run()
+        first=self.run_route()
         counts=self.table_counts()
         self.refresh_owner_checkpoint_head()
         self.reopen_with_owner_pin(None)
         with self.assertRaisesRegex(QualityNotProven,
                                      "PREVIOUS_EXTERNAL_OWNER_PIN_REQUIRED"):
-            self.run(expected_knowledge_head=ZERO_SHA)
+            self.run_route(expected_knowledge_head=ZERO_SHA)
         self.assertEqual(self.table_counts(),counts)
         self.assertEqual(self.table_counts()["parent_publications"],1)
 
     def test_10_replay_tampered_child_review_cannot_change_pinned_seal(self):
-        first=self.run()
+        first=self.run_route()
         pin=first["e4_external_pin_returned_not_yet_owner_custodied"]
         baseline=self.fx.knowledge._logical_fingerprint()
         seal_bytes=self.seal.read_bytes()
@@ -162,7 +162,7 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         self.reopen_with_owner_pin(pin)
         self.fx.packets[-1]["case"]["chat_review"]["atom_verdicts"][0]["status"]="OPEN"
         with self.assertRaises((InvalidInput,QualityNotProven)):
-            self.run(expected_knowledge_head=ZERO_SHA)
+            self.run_route(expected_knowledge_head=ZERO_SHA)
         self.assertEqual(self.fx.knowledge._logical_fingerprint(),baseline)
         self.assertEqual(self.seal.read_bytes(),seal_bytes)
 
@@ -176,14 +176,14 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         with patch("v128_atomic_parent_knowledge._replay_parent_publications",
                    side_effect=fail_in_commit):
             with self.assertRaisesRegex(RuntimeError,"SYNTHETIC_FAILURE_INSIDE"):
-                self.run()
+                self.run_route()
         self.assert_empty()
 
     def test_12_after_sqlite_commit_before_seal_is_not_certified_or_republished(self):
         with patch("v166_e4_sealed_knowledge.os.replace",
                    side_effect=OSError("SYNTHETIC_SEAL_CRASH")):
             with self.assertRaisesRegex(OSError,"SYNTHETIC_SEAL_CRASH"):
-                self.run()
+                self.run_route()
         # Real limitation: FULL 3-row parent physically committed but NOT
         # CERTIFIED. No orphaned *partial subset* or authorized E5 exists.
         self.assertEqual(self.table_counts(),
@@ -196,11 +196,11 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         self.reopen_with_owner_pin(None)
         with self.assertRaisesRegex(QualityNotProven,
                                      "EXISTING_UNCERTIFIED_LEGACY_ROWS"):
-            self.run(expected_knowledge_head=ZERO_SHA)
+            self.run_route(expected_knowledge_head=ZERO_SHA)
         self.assertEqual(self.table_counts()["parent_publications"],1)
 
     def test_13_legacy_raw_sqlite_mutation_breaks_certified_readback(self):
-        result=self.run()
+        result=self.run_route()
         pin=result["e4_external_pin_returned_not_yet_owner_custodied"]
         with sqlite3.connect(str(self.db)) as con:
             con.execute("UPDATE knowledge SET entry_json='{}' WHERE "
@@ -214,7 +214,7 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         overlay,kwargs=self.h._synthetic_typed_parent_stub(cross_atoms=1)
         with patch("v243_canonical_e1_e5_route.verify_typed_parent_review_overlay",
                    return_value={"status":"PARENT_TYPED_CHILD_INPUTS_SOURCE_VERIFIED_NOT_APPROVED"}):
-            result=self.run(**kwargs)
+            result=self.run_route(**kwargs)
         self.assertEqual(result["status"],
                          "HOLD_PARENT_CROSS_CHILD_SEMANTIC_REVIEW_REQUIRED")
         self.assertEqual(result["unapproved_cross_child_parent_atoms"],1)
@@ -227,7 +227,7 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
         # durable E4 authorisation / child-only stored knowledge is allowed.
         self.fx.packets[-1]["case"]["chat_review"]["atom_verdicts"][0][
             "status"]="REJECT"
-        outcome=self.run()
+        outcome=self.run_route()
         self.assertFalse(outcome["e5_invoked"])
         self.assert_empty()
 
