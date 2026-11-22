@@ -219,6 +219,106 @@ class E4SealedKnowledgeStore(E4GuardedKnowledgeStore):
             externally_pinned_seal_sha256=self._last_owner_pin)
         return self._last_owner_pin
 
+    def quarantine_unsealed_parent(self, *,
+                                   expected_unsealed_rows_sha256,
+                                   private_quarantine_dir):
+        """Explicit owner-controlled recovery of a FULL but unsealed SQLite parent.
+
+        A crash after V128's atomic commit and before E4 sidecar replacement
+        can leave *complete* research rows with NO valid release certificate.
+        They must never be retroactively signed from the orphan database.
+        Copy exact full SQLite bytes to a private forensic DB, verify the
+        source and quarantine snapshots, then atomically clear the ACTIVE DB.
+
+        This is not automatic on startup, is NOT recovery of E3/financial
+        approval, and requires an independently retained original row digest.
+        All failure branches preserve the original active database.
+        """
+        import sqlite3
+        from stat import S_IMODE
+        directory=Path(private_quarantine_dir)
+        if (type(expected_unsealed_rows_sha256) is not str or
+            not _pin_ok(expected_unsealed_rows_sha256)):
+            raise InvalidInput("V166_E4_UNSEALED_ORPHAN_EXTERNAL_ROWS_PIN_REQUIRED")
+        if (not directory.is_dir() or directory.is_symlink() or
+            (S_IMODE(directory.stat().st_mode) & 0o077)!=0 or
+            directory.resolve()==self.path.parent.resolve()):
+            raise InvalidInput("V166_E4_PRIVATE_QUARANTINE_DIRECTORY_MODE_0700_REQUIRED")
+        if self._seal_path.exists():
+            _fail("SEALED_DATABASE_MUST_NOT_ENTER_ORPHAN_QUARANTINE")
+        original=self._logical_fingerprint()
+        if (original["canonical_sqlite_rows_sha256"]!=
+                expected_unsealed_rows_sha256 or
+            original["parent_count"]!=1 or
+            original["knowledge_count"]==0 or
+            original["knowledge_count"]!=original["events_count"]):
+            _fail("FULL_UNSEALED_PARENT_OR_SOURCE_OWNER_PIN_REQUIRED")
+        # A forensic copy is mandatory BEFORE the active database is reset.
+        fd,name=tempfile.mkstemp(
+            prefix=".unsealed-parent-forensic-",suffix=".db",
+            dir=str(directory))
+        os.close(fd)
+        forensic=Path(name)
+        try:
+            with sqlite3.connect(str(self.path),timeout=10) as src:
+                with sqlite3.connect(str(forensic),timeout=10) as dst:
+                    src.backup(dst)
+            os.chmod(forensic,0o600)
+            archive=E4SealedKnowledgeStore(
+                forensic,external_signing_key=self._external_secret)
+            if archive._logical_fingerprint()!=original:
+                _fail("FORENSIC_SQLITE_BACKUP_NOT_EXACT")
+            with forensic.open("rb") as handle:
+                os.fsync(handle.fileno())
+
+            # SQLite BEGIN IMMEDIATE excludes competing database writers;
+            # replay event + parent proofs and compare the pinned rows again
+            # INSIDE the lock before atomically deleting any active tables.
+            with sqlite3.connect(str(self.path),timeout=10) as con:
+                con.execute("PRAGMA busy_timeout=10000")
+                con.execute("BEGIN IMMEDIATE")
+                if self._seal_path.exists():
+                    _fail("APPROVAL_SEAL_APPEARED_DURING_QUARANTINE")
+                head,_=self._audit(con)
+                parents=_replay_parent_publications(con,head)
+                tables={table:[list(row) for row in
+                    con.execute("SELECT * FROM "+table+" ORDER BY 1").fetchall()]
+                    for table in ("knowledge","events","parent_publications")}
+                if (json_digest(tables)!=expected_unsealed_rows_sha256 or
+                    head!=original["knowledge_head_sha256"] or
+                    len(parents)!=1):
+                    _fail("ACTIVE_DATABASE_CHANGED_AFTER_FORENSIC_COPY")
+                for table in ("parent_publications","events","knowledge"):
+                    con.execute("DELETE FROM "+table)
+                clean_head,_=self._audit(con)
+                _replay_parent_publications(con,clean_head)
+                if clean_head!="0"*64:
+                    _fail("ACTIVE_EMPTY_HEAD_NOT_RESTORED")
+                con.commit()
+            if (self._logical_fingerprint()["parent_count"]!=0 or
+                self._logical_fingerprint()["knowledge_count"]!=0 or
+                self._seal_path.exists()):
+                _fail("ACTIVE_UNSEALED_ROWS_NOT_CLEARED")
+            return {
+                "schema":"IRE_V166_E4_UNSEALED_FULL_PARENT_QUARANTINE_V1",
+                "status":"UNSEALED_FULL_PARENT_PRIVATELY_PRESERVED_ACTIVE_EMPTY",
+                "original_orphan_rows_sha256":expected_unsealed_rows_sha256,
+                "forensic_private_database_path":str(forensic),
+                "forensic_database_byte_sha256":sha256(forensic.read_bytes()),
+                "forensic_rows_sha256":original["canonical_sqlite_rows_sha256"],
+                "quarantine_parent_count":1,
+                "quarantine_knowledge_rows":original["knowledge_count"],
+                "active_parent_count":0,"active_knowledge_rows":0,
+                "e4_research_approved":False,"e5_knowledge_published":False,
+                "financial_fact_certified":False,"personal_advice_approved":False,
+            }
+        except BaseException:
+            # A partially made forensic copy is not a trusted recovery.
+            # If the transaction never committed the active DB is unchanged.
+            if forensic.exists():
+                forensic.unlink()
+            raise
+
     def evidence_for_question(self, *args, **kwargs):
         _fail("RAW_V126_EVIDENCE_REQUIRES_E4_OWNER_PIN_AND_E2_CONTEXT")
 

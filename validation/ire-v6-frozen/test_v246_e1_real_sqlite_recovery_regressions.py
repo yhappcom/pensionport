@@ -202,6 +202,70 @@ class EndToEndPrivateSQLiteRecovery(unittest.TestCase):
             self.run_route(expected_knowledge_head=ZERO_SHA)
         self.assertEqual(self.table_counts()["parent_publications"],1)
 
+    def test_16_orphan_crash_private_forensic_quarantine_enables_clean_owner_retry(self):
+        import tempfile
+        with patch("v166_e4_sealed_knowledge.os.replace",
+                   side_effect=OSError("SYNTHETIC_AFTER_ALL_PARENT_ROWS")):
+            with self.assertRaisesRegex(OSError,"SYNTHETIC_AFTER_ALL_PARENT_ROWS"):
+                self.run_route()
+        state=self.fx.knowledge._logical_fingerprint()
+        self.assertEqual(state["parent_count"],1)
+        self.assertFalse(self.seal.exists())
+        with tempfile.TemporaryDirectory(prefix="p104_private_",
+                                         dir=str(self.db.parent)) as private:
+            receipt=self.fx.knowledge.quarantine_unsealed_parent(
+                expected_unsealed_rows_sha256=state["canonical_sqlite_rows_sha256"],
+                private_quarantine_dir=private)
+            self.assertEqual(receipt["quarantine_parent_count"],1)
+            forensic=Path(receipt["forensic_private_database_path"])
+            self.assertTrue(forensic.is_file())
+            archived=E4SealedKnowledgeStore(
+                forensic,external_signing_key=KEY)
+            self.assertEqual(archived._logical_fingerprint(),state)
+            self.assert_empty()
+            # The two child source-first verdicts were durably checkpointed
+            # before the seal crash. Only their freshly pinned checkpoint
+            # may be reused, and ALL children are replayed before E4 seals.
+            self.refresh_owner_checkpoint_head()
+            recovered=self.run_route()
+            self.assertTrue(recovered["e5_new_parent_committed"])
+            self.assertEqual(self.table_counts(),
+                             {"events":3,"knowledge":3,"parent_publications":1})
+            self.assertTrue(self.seal.exists())
+
+    def test_17_orphan_quarantine_wrong_rows_pin_refuses_destructive_reset(self):
+        import tempfile
+        with patch("v166_e4_sealed_knowledge.os.replace",
+                   side_effect=OSError("SYNTHETIC_BEFORE_EXTERNAL_SEAL")):
+            with self.assertRaises(OSError):
+                self.run_route()
+        before=self.table_counts()
+        with tempfile.TemporaryDirectory(prefix="p104_private_",
+                                         dir=str(self.db.parent)) as private:
+            with self.assertRaisesRegex(QualityNotProven,
+                                        "FULL_UNSEALED_PARENT_OR_SOURCE"):
+                self.fx.knowledge.quarantine_unsealed_parent(
+                    expected_unsealed_rows_sha256="0"*64,
+                    private_quarantine_dir=private)
+        self.assertEqual(self.table_counts(),before)
+        self.assertFalse(self.seal.exists())
+
+    def test_18_already_sealed_parent_cannot_be_quarantined_or_deleted(self):
+        import tempfile
+        result=self.run_route()
+        state=self.fx.knowledge._logical_fingerprint()
+        with tempfile.TemporaryDirectory(prefix="p104_private_",
+                                         dir=str(self.db.parent)) as private:
+            with self.assertRaisesRegex(QualityNotProven,
+                                        "SEALED_DATABASE_MUST_NOT_ENTER"):
+                self.fx.knowledge.quarantine_unsealed_parent(
+                    expected_unsealed_rows_sha256=state["canonical_sqlite_rows_sha256"],
+                    private_quarantine_dir=private)
+        self.assertEqual(self.table_counts()["parent_publications"],1)
+        self.fx.knowledge.verify_e4_certificate(
+            externally_pinned_seal_sha256=result[
+                "e4_external_pin_returned_not_yet_owner_custodied"])
+
     def test_13_legacy_raw_sqlite_mutation_breaks_certified_readback(self):
         result=self.run_route()
         pin=result["e4_external_pin_returned_not_yet_owner_custodied"]
