@@ -1,9 +1,11 @@
 """V243 official E1→ChatGPT V123/E3→V166 E4→V128 E5 route.
 
 No LLM API. The ChatGPT HOST must supply source-first callbacks and attest that
-TWO distinct actual USER turns occurred. Caller-controlled manual turn refs
-are NOT an attestation. With the existing V193 checker the only real outcome is
-HOLD; do not bypass this by asking a model to certify itself.
+TWO separate user-command stages for the source-first review and final
+semantic review. V193 checks their recorded distinctness but cannot authenticate
+ChatGPT host message IDs. This procedural check must not be mistaken for E3
+semantic approval: the frozen V123/E4 source and official law gates still
+decide whether any candidate can proceed to atomic V128/E5 publication.
 
 The sole documented external research-publication interface is
 run_canonical_research_route(). Legacy modules remain internal/history; no
@@ -26,13 +28,14 @@ __all__ = ("run_canonical_research_route",)
 def _hold(checkpoint, *, reason, manual):
     return {
         "schema": SCHEMA,
-        "status": "HOLD_E3_HOST_TURN_PROVENANCE_NOT_VERIFIED",
+        "status": "HOLD_AWAIT_SEPARATE_USER_VERIFICATION_COMMAND",
         "reason_code": reason,
         "source_sha256": checkpoint.parent.source_sha256,
         "original_source_bytes_rechecked": True,
         "checkpoint_head_sha256": checkpoint.progress()["checkpoint_head_sha256"],
         "claimed_distinct_user_commands": manual["recorded_distinct_user_commands"],
         "trusted_host_two_user_turns_verified": False,
+        "manual_two_user_commands_recorded_not_platform_authenticated": False,
         "e4_invoked": False,
         "e5_invoked": False,
         "all_video_knowledge_published": False,
@@ -53,14 +56,17 @@ def run_canonical_research_route(
 ) -> dict:
     """One *supported* executable API; fail closed before all E4/E5 writes.
 
-    The only transport binding that could allow the approved E4 runner to
-    execute is a trusted host-verified two-turn contract. Current V193 manual
-    receipts explicitly do NOT prove host provenance, even when references
-    are distinct. This function deliberately refuses publication until a
-    real ChatGPT host attestation service replaces that verification boundary.
+    V193 verifies the *recorded workflow* for distinct user commands; its
+    untrusted references do not authenticate the platform or approve a single
+    source assertion. The actual veto authority is frozen V123 source-first
+    ChatGPT review plus V166 E4 official-primary-source checks, followed by
+    V128/E5 atomic SQLite publication and external owner-seal validation.
 
-    A synthetic unit test can replace the verifier to exercise the wired
-    V123→E4→V128 path. It is NEVER a live owner-approval certification.
+    Production operations must invoke phase 1 and phase 2 in distinct actual
+    chat turns and preserve their private source+checkpoint receipts.
+    Programmatic unit tests can prove this wiring using synthetic original
+    subtitle and patched official HTTP; they cannot prove any real ETF E3
+    verdict, host message identity, financial truth or user endorsement.
     """
     if not isinstance(knowledge_store, E4SealedKnowledgeStore):
         raise InvalidInput("V243_E4_SEALED_KNOWLEDGE_STORE_REQUIRED")
@@ -90,14 +96,21 @@ def run_canonical_research_route(
         batch_count=len(checkpoint.child_ids),
         independent_gold_certified=False,
         e3_approved=False,v123_e4_approved=False,e5_published=False)
-    if (manual.get("host_separate_turns_verified") is not True or
-        manual.get("two_user_turns_proven") is not True):
-        return _hold(checkpoint,
-            reason="CALLER_MANUAL_REFS_ARE_NOT_TRUSTED_CHAT_HOST_EVENTS",
-            manual=manual)
-    # This branch MUST NOT become reachable via untrusted user/CLI flags.
-    # Host attestation and actual separate user turns are an unresolved P101
-    # release prerequisite. In CI only, the verifier is mock-replaced.
+    # The V193 manual receipt only establishes caller-reported command
+    # distinctness, not platform provenance or ChatGPT semantic correctness.
+    # This procedural stage must never be promoted to "E3 PASS"; it permits
+    # a source-pinned candidate to *reach* the real V123/E4 approval gates.
+    if (second_user_turn is None or
+        manual.get("phase") != "TWO_DISTINCT_USER_COMMANDS_CLAIMED_UNVERIFIED" or
+        manual.get("recorded_distinct_user_commands") != 2 or
+        manual.get("host_separate_turns_verified") is not False or
+        manual.get("two_user_turns_proven") is not False or
+        manual.get("e3_semantic_accuracy_certified") is not False or
+        manual.get("v123_e4_approved") is not False or
+        manual.get("e5_published") is not False):
+        return _hold(checkpoint,reason="SEPARATE_USER_REVIEW_COMMAND_NOT_RECORDED",manual=manual)
+    # Approval authority remains inside the unmodified V123→E4→V128
+    # chain. No locally-authored user ref or CI parameter can self-approve.
     # Capture the trustworthy logical row fingerprint BEFORE touching the E4
     # store. A failed or HELD E4 must never leave a publishable knowledge row.
     before_knowledge=knowledge_store._logical_fingerprint()
@@ -154,7 +167,9 @@ def run_canonical_research_route(
         "original_source_bytes_rechecked": True,
         "checkpoint_head_sha256": checkpoint.progress()["checkpoint_head_sha256"],
         "claimed_distinct_user_commands":manual["recorded_distinct_user_commands"],
-        "trusted_host_two_user_turns_verified": True,
+        "trusted_host_two_user_turns_verified": False,
+        "manual_two_user_commands_recorded_not_platform_authenticated": True,
+        "v193_process_claim_is_not_e3_semantic_certification": True,
         "e4_invoked": True,
         "e4_receipt": outcome,
         "e5_invoked": approved,

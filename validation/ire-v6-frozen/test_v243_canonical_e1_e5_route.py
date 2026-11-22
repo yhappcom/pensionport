@@ -43,18 +43,25 @@ class CanonicalRouteContractTests(unittest.TestCase):
                   now_as_of="2026-11-17")
         opts.update(updates)
         return run_canonical_research_route(**opts)
-    def test_01_distinct_manual_turns_do_not_invent_host_attestation(self):
-        r=self.run_route()
+    def test_01_manual_turns_reach_actual_v123_e4_e5_without_forged_host_success(self):
+        # No patch of the V193 verdict or approval gate. Only official-network
+        # transport is synthetic in this software test.
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=BODY):
+            r=self.run_route()
         self.assertEqual(r["schema"],SCHEMA)
-        self.assertEqual(r["status"],"HOLD_E3_HOST_TURN_PROVENANCE_NOT_VERIFIED")
         self.assertEqual(r["claimed_distinct_user_commands"],2)
         self.assertFalse(r["trusted_host_two_user_turns_verified"])
-        self.assertFalse(r["e4_invoked"])
-        self.assertFalse(r["e5_invoked"])
-        self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
+        self.assertTrue(r["manual_two_user_commands_recorded_not_platform_authenticated"])
+        self.assertTrue(r["e4_invoked"])
+        self.assertTrue(r["e5_invoked"])
+        self.assertTrue(r["all_video_knowledge_published"])
+        self.assertEqual(self.f.fx._counts()["knowledge"],3)
     def test_02_missing_turn2_must_not_write_or_approve(self):
         r=self.run_route(second_user_turn=None)
         self.assertEqual(r["claimed_distinct_user_commands"],1)
+        self.assertFalse(r["e4_invoked"])
+        self.assertFalse(r["e5_invoked"])
         self.assertFalse(r["all_video_knowledge_published"])
         self.assertEqual(self.f.fx._counts().get("events",0),0)
     def test_03_self_identical_user_message_is_not_two_turns(self):
@@ -75,13 +82,10 @@ class CanonicalRouteContractTests(unittest.TestCase):
         with self.assertRaisesRegex(InvalidInput,"MANDATORY_HOST"):
             self.run_route(typed_inventory_for_child=None)
     def test_07_synthetic_mock_can_exercise_real_e4_and_atomic_e5(self):
-        # This is a **CI fake trusted-host verifier**, NOT proof of a real
-        # ChatGPT two-turn event. It exercises the frozen production functions.
-        claimed={"host_separate_turns_verified":True,
-                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
-        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
-                   return_value=claimed), patch(
-                   "v166_e4_primary_approval_gate._fetch_approved_primary_https",
+        # V193 returns "CLAIMED_UNVERIFIED" without any patched process
+        # attestation. Genuine frozen E4 + V128 SQLite execute under synthetic
+        # offline official-HTTPS transport only.
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
                    return_value=BODY):
             r=self.run_route()
         self.assertEqual(r["status"],"RESEARCH_CANDIDATE_PARENT_COMMITTED_AWAIT_OWNER_PIN_CUSTODY")
@@ -95,11 +99,7 @@ class CanonicalRouteContractTests(unittest.TestCase):
     def test_08_synthetic_e4_missing_primary_blocks_e5_write(self):
         sid=self.f.fx.checkpoint.child_ids[1]
         del self.f.manifests[sid]
-        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
-                   return_value={"host_separate_turns_verified":True,
-                                 "two_user_turns_proven":True,
-                                 "recorded_distinct_user_commands":2}), patch(
-                   "v166_e4_primary_approval_gate._fetch_approved_primary_https",
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
                    return_value=BODY):
             out=self.run_route()
         self.assertEqual(out["status"],"HOLD_E4_PRIMARY_EVIDENCE")
@@ -107,7 +107,7 @@ class CanonicalRouteContractTests(unittest.TestCase):
         self.assertFalse(out["e5_invoked"])
         self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
     def test_09_untrusted_turn_refs_not_exported_as_e5_release(self):
-        report=self.run_route()
+        report=self.run_route(second_user_turn=None)
         self.assertNotIn("e4_receipt",report)
         self.assertNotIn("publication_receipt",report)
         self.assertFalse(report["p0_go"])
@@ -115,11 +115,7 @@ class CanonicalRouteContractTests(unittest.TestCase):
         import sqlite3
         from ire.v6.errors import QualityNotProven
         from v126_chat_approved_knowledge_store import PrivateKnowledgeStore
-        trusted={"host_separate_turns_verified":True,
-                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
-        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
-                   return_value=trusted),patch(
-                   "v166_e4_primary_approval_gate._fetch_approved_primary_https",
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
                    return_value=BODY):
             r=self.run_route()
         pin=r["e4_external_pin_returned_not_yet_owner_custodied"]
@@ -136,8 +132,6 @@ class CanonicalRouteContractTests(unittest.TestCase):
                 externally_pinned_seal_sha256=pin)
 
     def test_12_forged_e4_success_dict_without_sqlite_or_seal_rejected(self):
-        trusted={"host_separate_turns_verified":True,
-                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
         evil={"schema":"IRE_V166_E4_PARENT_APPROVAL_V1",
               "status":"E4_PARENT_RESEARCH_CANDIDATES_PUBLISHED",
               "all_video_knowledge_published":True,
@@ -146,9 +140,7 @@ class CanonicalRouteContractTests(unittest.TestCase):
               "child_preflights":[],"e3_parent_status":"PUBLISHED_RESEARCH_CANDIDATES_ONLY",
               "formal_financial_fact_approved":False,
               "personal_advice_approved":False,"p0_go":False}
-        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
-                   return_value=trusted),patch(
-                   "v243_canonical_e1_e5_route.run_e4_guarded_parent",
+        with patch("v243_canonical_e1_e5_route.run_e4_guarded_parent",
                    return_value=evil):
             with self.assertRaises(QualityNotProven):
                 self.run_route()
@@ -156,8 +148,6 @@ class CanonicalRouteContractTests(unittest.TestCase):
 
     def test_13_e4_hold_with_legacy_direct_write_cannot_masquerade_as_clean_hold(self):
         import sqlite3
-        trusted={"host_separate_turns_verified":True,
-                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
         def unauthorized(*args,**kwargs):
             with sqlite3.connect(self.f.fx.knowledge.path) as con:
                 con.execute("INSERT INTO knowledge VALUES(?,?,?)",
@@ -167,9 +157,7 @@ class CanonicalRouteContractTests(unittest.TestCase):
                     "all_video_knowledge_published":False,
                     "formal_financial_fact_approved":False,
                     "personal_advice_approved":False,"p0_go":False}
-        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
-                   return_value=trusted),patch(
-                   "v243_canonical_e1_e5_route.run_e4_guarded_parent",
+        with patch("v243_canonical_e1_e5_route.run_e4_guarded_parent",
                    side_effect=unauthorized):
             with self.assertRaises(QualityNotProven):
                 self.run_route()
@@ -178,11 +166,7 @@ class CanonicalRouteContractTests(unittest.TestCase):
     def test_14_crash_after_e5_sqlite_commit_before_e4_seal_cannot_be_read_as_approved(self):
         from pathlib import Path
         from ire.v6.errors import QualityNotProven
-        trusted={"host_separate_turns_verified":True,
-                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
-        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
-                   return_value=trusted),patch(
-                   "v166_e4_primary_approval_gate._fetch_approved_primary_https",
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
                    return_value=BODY),patch(
                    "v166_e4_sealed_knowledge.os.replace",
                    side_effect=OSError("SYNTHETIC_BEFORE_SEAL_REPLACE")):
@@ -205,16 +189,29 @@ class CanonicalRouteContractTests(unittest.TestCase):
         self.assertEqual(self.f.fx._counts().get("events",0),0)
 
     def test_15_success_e4_pin_is_not_a_user_custody_attestation(self):
-        trusted={"host_separate_turns_verified":True,
-                 "two_user_turns_proven":True,"recorded_distinct_user_commands":2}
-        with patch("v243_canonical_e1_e5_route.validate_manual_turn_receipt",
-                   return_value=trusted),patch(
-                   "v166_e4_primary_approval_gate._fetch_approved_primary_https",
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
                    return_value=BODY):
             r=self.run_route()
         self.assertTrue(r["all_video_knowledge_published"])
         self.assertFalse(r["externally_independent_owner_pin_reverified"])
         self.assertFalse(r["p0_go"])
+
+    def test_18_same_user_text_hash_in_distinct_user_turns_is_not_duplicate_identity(self):
+        turn2=copy.deepcopy(self.b)
+        turn2["user_message_sha256"]=self.a["user_message_sha256"]
+        with patch("v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=BODY):
+            result=self.run_route(second_user_turn=turn2)
+        self.assertTrue(result["e4_invoked"])
+        self.assertFalse(result["trusted_host_two_user_turns_verified"])
+        self.assertEqual(self.f.fx._counts()["parent_publications"],1)
+
+    def test_19_bad_manual_turn_review_head_cannot_publish(self):
+        turn2=copy.deepcopy(self.b)
+        turn2["review_head_sha256"]="NOT_A_SHA"
+        with self.assertRaisesRegex(InvalidInput,"SECOND_USER_OR_REVIEW_EVIDENCE_MISSING"):
+            self.run_route(second_user_turn=turn2)
+        self.assertEqual(self.f.fx._counts().get("events",0),0)
 
     def test_10_public_interface_has_no_cli(self):
         import v243_canonical_e1_e5_route as api
