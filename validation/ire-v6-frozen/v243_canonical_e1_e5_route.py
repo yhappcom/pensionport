@@ -160,11 +160,18 @@ def run_canonical_research_route(
         if segment_id not in checkpoint.child_ids:
             raise InvalidInput("V243_TYPED_CHILD_UNKNOWN_SEGMENT")
         inp=overlay_inputs[checkpoint.child_ids.index(segment_id)]
-        packet=review_or_load_child(
+        response=review_or_load_child(
             segment_id,manifest,stage,original_raw,deepcopy(inp))
-        if (type(packet) is not dict or
-            packet.get("parent_typed_review_input_sha256")!=inp["review_input_sha256"] or
-            packet.get("parent_typed_overlay_sha256")!=
+        # The frozen V128 packet has an EXACT four-key schema. Transport
+        # context acknowledgement out of band, never smuggle extra keys into
+        # the native V128 review packet or change its sealed implementation.
+        if type(response) is not tuple or len(response)!=2:
+            raise InvalidInput("V243_CHILD_CHAT_INPUT_NOT_ACKNOWLEDGED_AS_FULL_PARENT")
+        packet, acknowledgement=response
+        if (type(packet) is not dict or type(acknowledgement) is not dict or
+            acknowledgement.get("parent_typed_review_input_sha256")!=
+                inp["review_input_sha256"] or
+            acknowledgement.get("parent_typed_overlay_sha256")!=
                 parent_typed_review_overlay["typed_overlay_sha256"]):
             raise InvalidInput("V243_CHILD_CHAT_INPUT_NOT_ACKNOWLEDGED_AS_FULL_PARENT")
         return packet

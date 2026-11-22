@@ -287,13 +287,27 @@ class CanonicalRouteContractTests(unittest.TestCase):
                 self.run_route(review_or_load_child=bad_callback,**kwargs)
         self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
 
+    def test_25_typed_ack_wrong_digest_refuses_native_e4_before_write(self):
+        overlay,kwargs=self._synthetic_typed_parent_stub(cross_atoms=0)
+        def callback(segment_id,manifest,stage,raw,review_input):
+            packet=self.f.fx.child(segment_id,manifest,stage,raw)
+            return packet,{
+                "parent_typed_review_input_sha256":"0"*64,
+                "parent_typed_overlay_sha256":overlay["typed_overlay_sha256"]}
+        with patch("v243_canonical_e1_e5_route.verify_typed_parent_review_overlay",
+                   return_value={"status":"PARENT_TYPED_CHILD_INPUTS_SOURCE_VERIFIED_NOT_APPROVED"}):
+            with self.assertRaisesRegex(InvalidInput,
+                                        "CHILD_CHAT_INPUT_NOT_ACKNOWLEDGED"):
+                self.run_route(review_or_load_child=callback,**kwargs)
+        self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
+
     def test_24_zero_cross_typed_parent_ack_proceeds_to_real_e4_sqlite(self):
         overlay,kwargs=self._synthetic_typed_parent_stub(cross_atoms=0)
         def checked_callback(segment_id,manifest,stage,raw,review_input):
             packet=self.f.fx.child(segment_id,manifest,stage,raw)
-            return {**packet,
+            return (packet,{
                     "parent_typed_review_input_sha256":review_input["review_input_sha256"],
-                    "parent_typed_overlay_sha256":overlay["typed_overlay_sha256"]}
+                    "parent_typed_overlay_sha256":overlay["typed_overlay_sha256"]})
         with patch("v243_canonical_e1_e5_route.verify_typed_parent_review_overlay",
                    return_value={"status":"PARENT_TYPED_CHILD_INPUTS_SOURCE_VERIFIED_NOT_APPROVED"}),patch(
                    "v166_e4_primary_approval_gate._fetch_approved_primary_https",
