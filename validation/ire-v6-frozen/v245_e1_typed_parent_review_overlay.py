@@ -209,6 +209,12 @@ def build_typed_parent_review_overlay(source_raw,native_raw,cue_raw,
             **packet,"review_input_sha256":json_digest(packet)
         })
     foreign=_extract_foreign_edges(child_inputs)
+    # Child review packets are grouped by source segment, while the original
+    # V244 graph preserves source-native atom sequence. Neither must lose or
+    # invent a reference simply because the flat ordering differs.
+    native_position={a["claim_id"]:i for i,a in enumerate(native["atoms"])}
+    foreign.sort(key=lambda e:(native_position[e["claim_id"]],
+                               e["referenced_cue_index"]))
     _need(foreign==graph["cross_child_source_links"],
           "FOREIGN_SOURCE_EDGE_OR_ROLE_LOSS")
     _need(len(foreign)==expected_cross_edge_count,
