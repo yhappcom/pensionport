@@ -86,8 +86,8 @@ def foreign_context_links(source,atoms:list[dict])->list[dict]:
                 foreign.setdefault(i,set()).add("source_refs")
         for i in sorted(foreign):
             target=source.owner(i)
-            links.append({"claim_id":cid,"owner_child_id":"B"+owner[1:],
-                          "referenced_child_id":"B"+target[1:],
+            links.append({"claim_id":cid,"owner_child_id":f"B{int(owner[1:]):04d}",
+                          "referenced_child_id":f"B{int(target[1:]):04d}",
                           "referenced_cue_index":i,
                           "foreign_reference_roles":sorted(foreign[i]),
                           "original_cue_quote_sha256":
@@ -127,7 +127,7 @@ def audit_parent_child_lineage(source_raw:bytes,native_raw:bytes,
           "THIRTEEN_CHILD_PLAN_CENSUS_DRIFT")
     _need(source.manifest_sha256==native["manifest_sha256"],
           "PARENT_NATIVE_MANIFEST_DRIFT")
-    bywindow={w[0]:w for w in plan["children"]}
+    bywindow={w["owner_window_id"]:w for w in plan["children"]}
     atom_rows=[]
     for atom in native["atoms"]:
         wid=atom["owner_window_id"]

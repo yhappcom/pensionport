@@ -51,8 +51,8 @@ class V244SourceGraphTests(unittest.TestCase):
             minute=i//60;second=i%60
             time=f"00:{minute:02d}:{second:02d},000"
             end=f"00:{minute:02d}:{second:02d},900"
-            rows.append(f"{i}\\n{time} --> {end}\\n가상으로 제공한 자막 문장입니다.")
-        raw="\\n\\n".join(rows).encode("utf8")
+            rows.append(f"{i}\n{time} --> {end}\n가상으로 제공한 자막 문장입니다.")
+        raw="\n\n".join(rows).encode("utf8")
         plan=source_child_plan(raw,"SYNTHET0001",
                                expected_source_sha256=h(raw),window_size=20)
         self.assertEqual(len(plan["cue_rows"]),250)
@@ -64,10 +64,10 @@ class V244SourceGraphTests(unittest.TestCase):
     def test_07_foreign_context_and_condition_preserved_with_roles(self):
         raw=[]
         for i in range(1,251):
-            raw.append(f"{i}\\n00:{i//60:02d}:{i%60:02d},000 --> "
-                       f"00:{i//60:02d}:{i%60:02d},900\\n가상 문장입니다.")
-        source=source_child_plan("\\n\\n".join(raw).encode(),"SYNTHET0001",
-                                 expected_source_sha256=h("\\n\\n".join(raw).encode()))["source"]
+            raw.append(f"{i}\n00:{i//60:02d}:{i%60:02d},000 --> "
+                       f"00:{i//60:02d}:{i%60:02d},900\n가상 문장입니다.")
+        source=source_child_plan("\n\n".join(raw).encode(),"SYNTHET0001",
+                                 expected_source_sha256=h("\n\n".join(raw).encode()))["source"]
         atom={"claim_id":"C00001","owner_window_id":"W00013",
               "source_refs":[{"cue_index":246,"quote":"가상 문장입니다."}],
               "context_cue_indices":[45,246],
