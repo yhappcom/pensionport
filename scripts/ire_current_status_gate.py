@@ -152,7 +152,7 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             for expected in ("전체 고유 Video ID: **791**", "롱폼: **703**", "Shorts: **88**", "게시일 메타데이터 미확인: **155**"):
                 require(expected in roster_content, "ROSTER_MARKDOWN_MISMATCH_" + expected)
             etf_doc = (root / ETFSOURCE).read_text(encoding="utf-8")
-            require("13/13" in etf_doc and "78 events" in etf_doc and "0/13" in etf_doc, "ETF_STRUCTURAL_VS_RELEASE_EVIDENCE_MISSING")
+            require("13/13" in etf_doc and ("78 events" in etf_doc or "78 이벤트" in etf_doc) and "0/13" in etf_doc, "ETF_STRUCTURAL_VS_RELEASE_EVIDENCE_MISSING")
             old_accuracy = load(root / ACCURACY)
             require(old_accuracy["original_cues"] == other["source_cue_count"] == 1481, "INTERNAL_OTHER_ORIGINAL_SCOPE_MISMATCH")
             require(old_accuracy["b0013_internal_atomic_score"]["precision"] == other["internal_precision"], "INTERNAL_PRECISION_SCOPE_MISMATCH")
