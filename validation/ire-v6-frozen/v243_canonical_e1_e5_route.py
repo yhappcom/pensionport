@@ -188,6 +188,30 @@ def run_canonical_research_route(
         manual.get("v123_e4_approved") is not False or
         manual.get("e5_published") is not False):
         return _hold(checkpoint,reason="SEPARATE_USER_REVIEW_COMMAND_NOT_RECORDED",manual=manual)
+    # Full external source meaning cannot be approved simply because a
+    # child packet acknowledged receiving the entire parent. V123/V6 child
+    # grammar is local-scope; any still-UNRESOLVED cross-child parent atom
+    # must remain in a private SOURCE-FIRST formal review input envelope.
+    # E4 and E5 never execute while that owner semantic decision is pending.
+    if overlay_inputs is not None and parent_typed_review_overlay["cross_atom_count"]>0:
+        return {
+            "schema": SCHEMA,
+            "status":"HOLD_PARENT_CROSS_CHILD_SEMANTIC_REVIEW_REQUIRED",
+            "source_sha256":source_sha256,
+            "checkpoint_head_sha256":owner_freeze_sha256,
+            "typed_parent_overlay_sha256":parent_typed_review_overlay["typed_overlay_sha256"],
+            "parent_source_graph_sha256":expected_parent_source_graph_sha256,
+            "unapproved_cross_child_parent_atoms":parent_typed_review_overlay["cross_atom_count"],
+            "exact_external_typed_source_edges":parent_typed_review_overlay["cross_typed_edge_count"],
+            "formal_child_review_inputs_private":deepcopy(overlay_inputs),
+            "private_source_text_do_not_export_to_github":True,
+            "manual_two_user_commands_recorded_not_platform_authenticated":True,
+            "trusted_host_two_user_turns_verified":False,
+            "e4_invoked":False,"e5_invoked":False,
+            "all_video_knowledge_published":False,
+            "formal_financial_fact_approved":False,
+            "personal_advice_approved":False,"p0_go":False,
+        }
     # Approval authority remains inside the unmodified V123→E4→V128
     # chain. No locally-authored user ref or CI parameter can self-approve.
     # Capture the trustworthy logical row fingerprint BEFORE touching the E4

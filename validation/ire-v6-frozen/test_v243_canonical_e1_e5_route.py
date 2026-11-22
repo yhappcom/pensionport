@@ -233,6 +233,76 @@ class CanonicalRouteContractTests(unittest.TestCase):
             self.run_route(parent_typed_review_overlay={"untrusted":True})
         self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
 
+    def _synthetic_typed_parent_stub(self, *, cross_atoms):
+        from v244_e1_private_parent_child_source_graph import source_child_plan
+        from ire.v6.codec import json_digest
+        cp=self.f.fx.checkpoint
+        plan=source_child_plan(cp.raw,cp.parent.video_id,
+            expected_source_sha256=self.source,window_size=cp.max_cues)
+        self.assertEqual(len(plan["children"]),len(cp.child_ids))
+        overlay={"source_sha256":self.source,
+            "typed_overlay_sha256":"d"*64,
+            "cross_atom_count":cross_atoms,
+            "cross_typed_edge_count":3 if cross_atoms else 0,
+            "atom_count":3,
+            "child_count":len(cp.child_ids),
+            "child_review_inputs":[{
+                "child_id":p["child_id"],
+                "child_plan_sha256":json_digest(p),
+                "review_input_sha256":"e"*64
+            } for p in plan["children"]]}
+        args={
+            "parent_typed_review_overlay":overlay,
+            "expected_parent_typed_overlay_sha256":"d"*64,
+            "parent_native_raw":b"synthetic-native-pinned",
+            "parent_cue_raw":b"synthetic-cue-pinned",
+            "parent_e3_raw":b"synthetic-e3-pinned",
+            "parent_pairs_raw":b"synthetic-pairs-pinned",
+            "expected_parent_native_sha256":"a"*64,
+            "expected_parent_source_graph_sha256":"b"*64}
+        return overlay,args
+
+    def test_22_pending_external_full_parent_context_exposes_review_input_no_e4(self):
+        overlay,kwargs=self._synthetic_typed_parent_stub(cross_atoms=1)
+        with patch("v243_canonical_e1_e5_route.verify_typed_parent_review_overlay",
+                   return_value={"status":"PARENT_TYPED_CHILD_INPUTS_SOURCE_VERIFIED_NOT_APPROVED"}):
+            result=self.run_route(**kwargs)
+        self.assertEqual(result["status"],
+                         "HOLD_PARENT_CROSS_CHILD_SEMANTIC_REVIEW_REQUIRED")
+        self.assertEqual(result["typed_parent_overlay_sha256"],"d"*64)
+        self.assertEqual(len(result["formal_child_review_inputs_private"]),2)
+        self.assertEqual(result["unapproved_cross_child_parent_atoms"],1)
+        self.assertFalse(result["e4_invoked"])
+        self.assertFalse(result["e5_invoked"])
+        self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
+
+    def test_23_typed_callback_must_ack_exact_parent_input_before_e4(self):
+        overlay,kwargs=self._synthetic_typed_parent_stub(cross_atoms=0)
+        def bad_callback(segment_id,manifest,stage,raw,review_input):
+            return self.f.fx.child(segment_id,manifest,stage,raw)
+        with patch("v243_canonical_e1_e5_route.verify_typed_parent_review_overlay",
+                   return_value={"status":"PARENT_TYPED_CHILD_INPUTS_SOURCE_VERIFIED_NOT_APPROVED"}):
+            with self.assertRaisesRegex(InvalidInput,
+                                        "CHILD_CHAT_INPUT_NOT_ACKNOWLEDGED"):
+                self.run_route(review_or_load_child=bad_callback,**kwargs)
+        self.assertEqual(self.f.fx._counts().get("knowledge",0),0)
+
+    def test_24_zero_cross_typed_parent_ack_proceeds_to_real_e4_sqlite(self):
+        overlay,kwargs=self._synthetic_typed_parent_stub(cross_atoms=0)
+        def checked_callback(segment_id,manifest,stage,raw,review_input):
+            packet=self.f.fx.child(segment_id,manifest,stage,raw)
+            return {**packet,
+                    "parent_typed_review_input_sha256":review_input["review_input_sha256"],
+                    "parent_typed_overlay_sha256":overlay["typed_overlay_sha256"]}
+        with patch("v243_canonical_e1_e5_route.verify_typed_parent_review_overlay",
+                   return_value={"status":"PARENT_TYPED_CHILD_INPUTS_SOURCE_VERIFIED_NOT_APPROVED"}),patch(
+                   "v166_e4_primary_approval_gate._fetch_approved_primary_https",
+                   return_value=BODY):
+            result=self.run_route(review_or_load_child=checked_callback,**kwargs)
+        self.assertTrue(result["typed_parent_full_context_delivered_to_each_child"])
+        self.assertTrue(result["all_video_knowledge_published"])
+        self.assertEqual(self.f.fx._counts()["parent_publications"],1)
+
     def test_10_public_interface_has_no_cli(self):
         import v243_canonical_e1_e5_route as api
         self.assertEqual(api.__all__,("run_canonical_research_route",))
