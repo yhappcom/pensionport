@@ -177,12 +177,37 @@
     },
     {
       "id": "P0-0-06",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
-      "failure_reason": null,
-      "remediation": null
+      "status": "HOLD",
+      "evidence": [
+        {
+          "kind": "security",
+          "ref": "https://github.com/yhappcom/pensionport/actions/runs/44990140818",
+          "sha": "62ff0a761e75846660d80d2e2196c26213b466fa",
+          "scope": "42 tracked files verified by Git blob/hash, 6 public reversible JSON totaling 457160 decoded bytes and 36 encrypted archives not owner-key decrypted; 27 current security tests, no exposed source text; not a confidentiality release.",
+          "verified_by": "GitHub Actions branch governance 44990140818 and scripts/ire_security_archive_gate.py + 42-file docket; actual owner private originals and keys unavailable",
+          "verdict": "HOLD"
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-0-06",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "START",
+        "baseline_sha": "0cd5f8d69ab41772bd9eab4dd006e7fcdd1e7ce5",
+        "user_visible_text": "[P0-0-06 시작] 선행 5개 PASS와 통합 CI를 확인하고 공개 B64 6개/암호화 36개를 실물 해시·공개 적합성·복구 증빙으로 전수 검사. 비공개 키·원문 재공개 금지, 미확정이면 HOLD, main 불변."
+      },
+      "end_report": {
+        "task_id": "P0-0-06",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-22",
+        "verdict": "HOLD",
+        "baseline_sha": "62ff0a761e75846660d80d2e2196c26213b466fa",
+        "user_visible_text": "[P0-0-06 종료·HOLD] 공개 Git 42/42 해시·형식검사 PASS, B64+zlib 6개 JSON 457,160바이트 가역 파싱, 36개 암호화 파일 실제 복구 검증 불가. 27개 보안 음성·양성 시험 PASS, 보안 합격 증거 미확보. 5/60 PASS, P0-0-06 HOLD, 후속 54개 BLOCKED, main 불변, 실제 E1~E5 승인 HOLD."
+      },
+      "failure_reason": "공개 Git의 6개 Base64+zlib 연구 파생 JSON이 복원 가능하여 공개 적합성·기밀 정보 무노출을 증명할 수 없음. V3/V4 PPC1 25개와 V5 암호화 보관 11개는 SHA/형식만 검증됐으며 개인 복구 키·복호화·원문 SHA256 재생 미입증.",
+      "remediation": "소유자 인가 비공개 환경에서 공개 JSON 6개를 기밀 원본과 대조·분류하고 안전한 암호화 사본과 실제 복구를 검증한 후 공개 HEAD 및 역사적 이력 접근 위험을 조치. 복구 키/계약으로 V3/V4 25개+V5 11개 실제 복호화와 원본 SHA 검증(불가 시 대체 원본 보존 및 HOLD). 0건 민감정보 노출을 증명할 검증·보안 통제 확보 후 이 항목만 다시 PASS 판정; 그 전 후속 단계 금지."
     },
     {
       "id": "P0-0-07",

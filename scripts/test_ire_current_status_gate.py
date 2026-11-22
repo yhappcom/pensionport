@@ -131,6 +131,30 @@ class CanonicalStatusGateTests(unittest.TestCase):
         self.ledger["development_gate"]["legacy_transfer"]["path_decisions"]["ADOPT"] = 1
         self.bad("P005_FALSE_CODE_ADOPTION_OR_GOLD")
 
+    def test_public_b64_cannot_be_laundered_as_encrypted(self):
+        self.ledger["development_gate"]["security_archive_audit"]["public_b64_confidentiality_certified"] = True
+        self.bad("P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
+
+    def test_owner_key_recovery_cannot_be_invented(self):
+        self.ledger["development_gate"]["security_archive_audit"]["actual_36_archive_key_recovery_verified"] = True
+        self.bad("P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
+
+    def test_private_exposure_zero_unmeasured_must_remain_false(self):
+        self.ledger["development_gate"]["security_archive_audit"]["private_content_nonexposure_certified"] = True
+        self.bad("P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
+
+    def test_archive_count_cannot_be_silently_reduced(self):
+        self.ledger["development_gate"]["security_archive_audit"]["public_reversible_b64"] = 0
+        self.bad("P006_SECURITY_CENSUS_OR_HOLD_INVALID")
+
+    def test_unresolved_public_security_issue_cannot_disappear(self):
+        self.ledger["open_blockers"] = [x for x in self.ledger["open_blockers"] if x["id"] != "P006-R01"]
+        self.bad("P006_SECURITY_HOLD_BLOCKERS_OMITTED")
+
+    def test_security_release_cannot_unblock_next_item(self):
+        self.ledger["development_gate"]["security_archive_audit"]["successor_P0_0_07_blocked"] = False
+        self.bad("P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
+
     def test_open_blockers_cannot_be_silenced(self):
         self.ledger["open_blockers"] = []
         self.bad("OPEN_BLOCKERS_DROPPED")

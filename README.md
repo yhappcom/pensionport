@@ -1,3 +1,5 @@
+> **P0-0-06 보안 점검 HOLD:** [공개 가역 연구 JSON 6개·암호화 보관 36개 실물 검사](docs/IRE_P0_0_06_ARCHIVE_SECURITY_AUDIT_20261122.md)와 [42개 파일별·6개 공통 위험 영수증](docs/IRE_P0_0_06_SECURITY_HOLD_DOCKET_20261122.json). 파일 42/42 해시검사는 성공했지만 6개 파일의 공개 적합성과 36개 파일의 실제 원본 복구가 미입증. 순차 체크리스트 **5/60 PASS, P0-0-06 HOLD, P0-0-07 BLOCKED**.
+
 > **P0-0-05 역사 자료 전수 이관 PASS:** [11개 독립 분기·1,103 후보 경로·42개 closed/unmerged PR·Issue #48/#50 OPEN 판정 보고서](docs/IRE_P0_0_05_CLOSEOUT_REPORT_20261122.md), [정식 영수증](docs/IRE_P0_0_05_CLOSEOUT_RECEIPT_20261122.json). 현재 5/60 PASS, P0-0-06 READY. 과거 코드 ADOPT 0건이며 비공개 원본 및 실물 E1~E5 승인/개인 자문은 HOLD입니다.
 
 > **P0-0-04 통합 소프트웨어 CI PASS:** [동일 커밋에서 Python 3.11.18 6개 GitHub Actions 작업 완료](docs/IRE_P0_0_04_INTEGRATED_CI_RUNBOOK_20261122.md), [증빙](docs/IRE_P0_0_04_INTEGRATED_CI_CLOSEOUT_20261122.json). 현재 순차 체크리스트 4/60 PASS, P0-0-05 READY. E3 실제 0/13, E5 발행 0, 자문 HOLD이며 V5 시험 2개 SKIPPED를 별도로 기록합니다.

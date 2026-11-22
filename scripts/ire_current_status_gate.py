@@ -131,7 +131,7 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
     require(all(x.get("status") == "HOLD" and x.get("reason") for x in pending), "OPEN_BLOCKERS_LAUNDERED")
     require(len(set(x.get("id") for x in pending)) == len(pending), "OPEN_BLOCKER_IDS_DUPLICATE")
     dev = ledger.get("development_gate", {})
-    require(dev.get("this_item") == "P0-0-05", "WRONG_CHECKLIST_ITEM")
+    require(dev.get("this_item") == "P0-0-06", "WRONG_CHECKLIST_ITEM")
     require(dev.get("not_a_checklist_pass_receipt") is True, "STATUS_DOCUMENT_AS_CI_PASS")
     require(dev.get("implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run") is True, "P0_0_04_CI_NOT_RECORDED")
     ci = dev.get("implementation_ci", {})
@@ -163,6 +163,30 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             handoff.get("next_allowed_after_checklist_pass") == "P0-0-06",
             "P005_HANDOFF_RECEIPT_OR_NEXT_DRIFT")
 
+    security = dev.get("security_archive_audit", {})
+    require(security.get("status") == "HOLD_PUBLIC_REVERSIBLE_DATA_AND_OWNER_KEY_RECOVERY_UNVERIFIED" and
+            (security.get("files_total"), security.get("v3_v4_ppc1"),
+             security.get("v5_legacy"), security.get("public_reversible_b64")) == (42,25,11,6) and
+            security.get("security_blocker_count") == 6,
+            "P006_SECURITY_CENSUS_OR_HOLD_INVALID")
+    require(security.get("validation_ci_run_id") == 44990140818 and
+            security.get("validation_ci_governance_pass") is True and
+            security.get("source_snapshot_sha") == "0cd5f8d69ab41772bd9eab4dd006e7fcdd1e7ce5" and
+            security.get("b64_decoded_json_bytes_sum") == 457160 and
+            security.get("b64_source_semantic_text_fields_count") == 492,
+            "P006_AUDIT_PROVENANCE_INVALID")
+    require(security.get("actual_36_archive_key_recovery_verified") is False and
+            security.get("private_content_nonexposure_certified") is False and
+            security.get("public_b64_confidentiality_certified") is False and
+            security.get("entire_security_release_approved") is False and
+            security.get("successor_P0_0_07_blocked") is True and
+            dev.get("pending_next_item") == "P0-0-06",
+            "P006_FALSE_SECURITY_RECOVERY_OR_PUBLICATION_GO")
+    require({x.get("id") for x in ledger.get("open_blockers", [])
+             if str(x.get("id", "")).startswith("P006-R")} ==
+            {"P006-R01","P006-R02","P006-R03","P006-R04","P006-R05","P006-R06"},
+            "P006_SECURITY_HOLD_BLOCKERS_OMITTED")
+
     if root is not None:
         for path, source in ledger.get("evidence_sources", {}).items():
             p = (root / path).resolve()
@@ -186,7 +210,16 @@ def validate(ledger: dict, root: Path | None = ROOT) -> list[str]:
             require(old_accuracy["b0013_internal_atomic_score"]["precision"] == other["internal_precision"], "INTERNAL_PRECISION_SCOPE_MISMATCH")
             checklist = load(root / CHECKLIST_STATE)
             require(checklist["items"][0]["status"] == "PASS", "PRECEDING_CHECKLIST_NOT_PASS")
-            require(checklist["items"][1]["status"] == "PASS" and checklist["items"][3]["id"] == "P0-0-04" and checklist["items"][3]["status"] == "PASS" and checklist["items"][4]["id"] == "P0-0-05" and checklist["items"][4]["status"] == "PASS" and checklist["items"][5]["id"] == "P0-0-06" and checklist["items"][5]["status"] == "READY", "CHECKLIST_P0_0_05_NOT_PASS")
+            require(checklist["items"][1]["status"] == "PASS" and checklist["items"][3]["id"] == "P0-0-04" and checklist["items"][3]["status"] == "PASS" and checklist["items"][4]["id"] == "P0-0-05" and checklist["items"][4]["status"] == "PASS" and checklist["items"][5]["id"] == "P0-0-06" and checklist["items"][5]["status"] == "HOLD" and checklist["items"][6]["status"] == "BLOCKED", "CHECKLIST_P0_0_05_NOT_PASS")
+            p006 = load(root / security["hold_register_path"])
+            require(p006.get("overall_verdict") == "HOLD_SECURITY_RELEASE_UNPROVEN" and
+                    p006.get("file_count") == 42 and
+                    len(p006.get("security_blockers", [])) == 6 and
+                    all(x.get("status") == "HOLD" and x.get("resolved") is False
+                        for x in p006.get("security_blockers", [])) and
+                    p006.get("decoded_b64_aggregate_metadata_only", {}).get("json_uncompressed_bytes_sum") == 457160 and
+                    p006.get("recovered_private_source_confidentiality_certified") is False,
+                    "P006_SECURITY_RECEIPT_FALSE_GO")
             p005 = load(root / handoff["handoff_receipt_path"])
             require(p005.get("item_id") == "P0-0-05" and
                     p005.get("disposition") == "PASS_INVENTORY_HANDOFF_ONLY_RESEARCH_NOT_APPROVED" and
