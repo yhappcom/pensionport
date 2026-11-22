@@ -1,0 +1,438 @@
+{
+  "schema": "IRE_P0_0_03_ALL_27_GITHUB_ACTIONS_WORKFLOW_AUDIT_V1",
+  "as_of": "2026-11-22",
+  "repo": "yhappcom/pensionport",
+  "classification_commit": "812b66358a7e9d646ee49d1a1a2e480dfc6ce52b",
+  "branch": "audit/full-repository-snapshot-20261122",
+  "preserved_main": "d613fd201f4bb077f1ccc74d28dee937b11bfcb2",
+  "branch_names": [
+    "main",
+    "audit/full-repository-snapshot-20261122"
+  ],
+  "counts": {
+    "total": 27,
+    "active_push": 1,
+    "manual_only": 1,
+    "legacy_retired": 25,
+    "write_content_permission": 0,
+    "unfiltered_pull_request": 0,
+    "legacy_active_integration_push": 0,
+    "full_v3_v5_v6_e1_e5_integration_ci": 0
+  },
+  "changes_made_in_p0_0_03": [
+    {
+      "path": ".github/workflows/ire-cleanroom-gate.yml",
+      "effect": "Scope legacy PR to two retired bases rather than all PRs; legacy push targets retired"
+    },
+    {
+      "path": ".github/workflows/ire-v5-p3-p4-one-turn.yml",
+      "effect": "Scope legacy PR to retired V5 branch rather than all PRs"
+    },
+    {
+      "path": ".github/workflows/ire-v5-app-control.yml",
+      "effect": "Drop historical GitHub Actions token contents write to read; legacy writeback would now fail closed"
+    }
+  ],
+  "policy": [
+    "ACTIVE_PUSH is exactly one workflow targeting audit/full-repository-snapshot-20261122.",
+    "Historical workflow must not trigger push to main or integration, and any pull_request trigger must have an explicit retired branch target.",
+    "No workflow is granted contents:write at top or job level; legacy V5 writeback is deliberately dormant and cannot perform a bot push.",
+    "All 25 historical workflows remain in Git history for traceability, but do not constitute required current CI.",
+    "The read-only full-repository snapshot workflow has workflow_dispatch but cannot be presumed callable when not present on the default branch.",
+    "P0-0-04 must create ONE pinned Python 3.11.18 full integration CI and run V3/V5/V6/E1-E5 in actual common head; this audit does not certify that full suite.",
+    "Do not add experiment/video/version branches; main SHA remains protected by the read-only history guard.",
+    "At start and end of subsequent work, run workload policy and report exact checklist ID, CI/OPEN, main/ref status to user."
+  ],
+  "items": [
+    {
+      "path": ".github/workflows/full-all-branch-history-audit-20261122.yml",
+      "source_git_blob_sha": "cd89a3d220a8a648cc90293810fa99728f9df59e",
+      "classification": "ACTIVE_PUSH",
+      "expected_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "integration branch push only",
+      "migration_decision": "RETAIN",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/full-repository-snapshot-audit-20261122.yml",
+      "source_git_blob_sha": "871f790513242dc58669242c75de2c366c0923d0",
+      "classification": "MANUAL_ONLY",
+      "expected_events": [
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "workflow_dispatch defined on nondefault branch; not assumed runnable",
+      "migration_decision": "ARCHIVE_READ_ONLY_MANUAL_TEMPLATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-cleanroom-gate.yml",
+      "source_git_blob_sha": "beb6034da7375992e7c3031f39d2b7d3521f4df1",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v166-e4-live-official-origin.yml",
+      "source_git_blob_sha": "513922f530b10343c0211e4685f04135d93f4e57",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v166-ordered-engine-proof.yml",
+      "source_git_blob_sha": "d2477f2ef24d93b4a44454d0ad6898a4818bcb29",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v167-chat-research-loop.yml",
+      "source_git_blob_sha": "45016725f8070f659e949a90fc68f9449270bd26",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v168-native-replay.yml",
+      "source_git_blob_sha": "ad3db20d9e71dbce670e245a1a82bfb1760af4f8",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v169-chat-resume.yml",
+      "source_git_blob_sha": "24e788fa12d407e56df64e9549db698b425981f8",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v170-chat-boundary.yml",
+      "source_git_blob_sha": "b796e4b741f819ee85a2664be4a98f41bbd6f07d",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v171-semantic-source-repair.yml",
+      "source_git_blob_sha": "f233c5092b0c03572b2ffa0135047fba47e6fb08",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v172-exhaustive-video-engine.yml",
+      "source_git_blob_sha": "24c1bde8665db24118fe40fb52e88f5ef6068533",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v173-e4-only.yml",
+      "source_git_blob_sha": "e772897038fcc5609cb2159c45983bea06d0c2ad",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v174-real-source-v6-bridge.yml",
+      "source_git_blob_sha": "ceb0c6c4bb4b81a4f04fa95d6e413d4db147246a",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v176-engine-chat-e4.yml",
+      "source_git_blob_sha": "106c1eb8dbe263a45d33f8493f9382d6ef065110",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v177-two-turn-checkpoint.yml",
+      "source_git_blob_sha": "7bd3773b129f4202353f7edef8d05f6e7980e3f7",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v178-coldstart-chat-packet.yml",
+      "source_git_blob_sha": "ca11030aa3e263e1df94fdeb9dd46eb788a6a363",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v179-native-regression.yml",
+      "source_git_blob_sha": "7b3b459097cea3fe0f4192d52489c5c02f030469",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v181-krx-origin-byte-provenance.yml",
+      "source_git_blob_sha": "c6d04190613bcd6c4f472acebcfa7fc72df33b82",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v181-public-native-code-export.yml",
+      "source_git_blob_sha": "977c32928b781cf1c7866e6688bad9d18580b982",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v200-e1-e5-live-readiness.yml",
+      "source_git_blob_sha": "3722b2887add50a8f851c44373bd5a0aaa8d41da",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v201-e1-native-source-bridge.yml",
+      "source_git_blob_sha": "4b82a2a65059bc552be7009a843ff5d05c6a8357",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v206-e2-source-census.yml",
+      "source_git_blob_sha": "8516696c89fb34397d57f5111d4b0d38d9bcc8e0",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v230-e1-source-native-handoff.yml",
+      "source_git_blob_sha": "6fbbebff39d34222fb93addd5f256108c6c3e4b0",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v5-app-control.yml",
+      "source_git_blob_sha": "d4f9b5a53d6b95877b0c8499070eed60abc904d4",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v5-p3-p4-one-turn.yml",
+      "source_git_blob_sha": "355d3bbb63c4ca392c4d5619050def9ae0c399b4",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "pull_request",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v5-transaction-core.yml",
+      "source_git_blob_sha": "b5a9d1873ee5bbc3162573a32c66b6a84b777f81",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    },
+    {
+      "path": ".github/workflows/ire-v6-frozen-ci.yml",
+      "source_git_blob_sha": "81e4d9742e0dbf47be4f7b0b17c909af73b9f763",
+      "classification": "LEGACY_RETIRED",
+      "expected_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reviewed_permissions": "contents: read (workflow or job scope)",
+      "read_only_required": true,
+      "execution_target": "historic deleted branch push/PR or dispatch; not current production CI",
+      "migration_decision": "ARCHIVE_HISTORICAL_DO_NOT_REACTIVATE",
+      "archived_execution_behavior": "Never assume workflow_dispatch executes from a workflow absent on default branch; only the canonical P0-0-04 workflow can count for fresh engine CI."
+    }
+  ]
+}
