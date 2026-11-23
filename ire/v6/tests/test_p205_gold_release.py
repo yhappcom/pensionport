@@ -384,4 +384,29 @@ class P205GoldReleaseTests(unittest.TestCase):
         with self._pinned():r=self._eval()
         self.assertEqual(r['status'],'HOLD_DRAFT_SOURCE_ONLY_GOLD_SCHEMA_INVALID')
 
+
+    def test_39_invalid_list_kind_in_review_draft_holds_without_crash(self):
+        draft=copy.deepcopy(self.reviews[0]['body']['draft_gold'])
+        draft['atomic_gold_claims'][0]['kind']=['FACT']
+        self.reviews[0]=self._signed_review({**self.reviews[0]['body'],'draft_gold':draft})
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_DRAFT_SOURCE_ONLY_GOLD_SCHEMA_INVALID')
+
+    def test_40_prior_claim_injected_into_gold_atom_holds(self):
+        draft=copy.deepcopy(self.reviews[0]['body']['draft_gold'])
+        draft['atomic_gold_claims'][0]['previous_native_claim']={'claim_id':'SYNTHETIC_C00001'}
+        self.reviews[0]=self._signed_review({**self.reviews[0]['body'],'draft_gold':draft})
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_DRAFT_SOURCE_ONLY_GOLD_SCHEMA_INVALID')
+
+    def test_41_prior_model_marker_injected_into_cue_disposition_holds(self):
+        draft=copy.deepcopy(self.reviews[0]['body']['draft_gold'])
+        draft['reviewed_cues'][0]['frozen_native_claim_id']='SYNTHETIC_C00001'
+        self.reviews[0]=self._signed_review({**self.reviews[0]['body'],'draft_gold':draft})
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_DRAFT_SOURCE_ONLY_GOLD_SCHEMA_INVALID')
+
 if __name__=='__main__':unittest.main()
