@@ -44,7 +44,15 @@ class P205GoldReleaseTests(unittest.TestCase):
           'reviewer_submission_sha256':{r['body']['role']:json_digest(r['body']) for r in self.reviews},
           'gold_sha256':json_digest(self.gold),
           'disagreements_count':0,'resolved_disagreements_count':0,
-          'gold_frozen_at':'2026-11-22T06:00:00+00:00'}
+          'gold_frozen_at':'2026-11-22T06:00:00+00:00',
+          'disagreement_resolutions':[],
+          'final_gold_provenance':[
+            {'gold_id':gid,'reviewer_one_gold_ids':[gid],
+             'reviewer_two_gold_ids':[gid],
+             'disposition':'BOTH_SUPPORTED',
+             'reason':'Both reviewers documented the same source-only claim'}
+            for gid in ('G00001','G00002')],
+          'excluded_draft_claims':[]}
         self.consensus={'body':body,'signatures':{r:self._sign(r,body) for r in release.ROLES}}
         body={'schema':'IRE_P205_POST_GOLD_ALIGNMENT_LOCK_V1',
               'gold_sha256':json_digest(self.gold),
@@ -254,6 +262,96 @@ class P205GoldReleaseTests(unittest.TestCase):
         self.reviews[1]=self._signed_review({**self.reviews[1]['body'],'draft_gold':draft})
         self.consensus['body']['disagreements_count']=1
         self.consensus['body']['resolved_disagreements_count']=1
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
+
+    def _dispute_with_explanation(self):
+        draft=copy.deepcopy(self.reviews[1]['body']['draft_gold'])
+        draft['atomic_gold_claims'][0]['proposition']='contradictory source-only second reviewer claim'
+        self.reviews[1]=self._signed_review({**self.reviews[1]['body'],'draft_gold':draft})
+        self.consensus['body']['disagreements_count']=1
+        self.consensus['body']['resolved_disagreements_count']=1
+        self.consensus['body']['disagreement_resolutions']=[{
+          'cue_index':1,'reviewer_one_gold_ids':['G00001'],
+          'reviewer_two_gold_ids':['G00001'],'final_gold_ids':['G00001'],
+          'reason':'Reviewer wordings differ for original source cue one',
+          'resolution':'Reviewers chose initial wording after checking the original source'}]
+        self.consensus['body']['final_gold_provenance'][0]['disposition']='RECONCILED_VARIANT'
+        self.consensus['body']['final_gold_provenance'][0]['reason']='Contradictory claims were reconciled against cue 1'
+        self._re_sign_consensus()
+
+    def _add_reviewer_two_extra_draft_claim(self):
+        draft=copy.deepcopy(self.reviews[1]['body']['draft_gold'])
+        extra=copy.deepcopy(draft['atomic_gold_claims'][0])
+        extra['gold_id']='G00003'
+        extra['source_refs']=[{'cue_index':3,'quote':'This example is not a confirmed ETF offer.'}]
+        draft['atomic_gold_claims'].append(extra)
+        draft['reviewed_cues'][2]['status']='REVIEWED_ATOM'
+        draft['reviewed_cues'][2]['gold_atom_ids']=['G00003']
+        self.reviews[1]=self._signed_review({**self.reviews[1]['body'],'draft_gold':draft})
+        self.consensus['body']['disagreements_count']=1
+        self.consensus['body']['resolved_disagreements_count']=1
+        self.consensus['body']['disagreement_resolutions']=[{
+          'cue_index':3,'reviewer_one_gold_ids':[],
+          'reviewer_two_gold_ids':['G00003'],'final_gold_ids':[],
+          'reason':'Only second reviewer found an extra synthetic claim at cue three',
+          'resolution':'Evidence was reviewed and extra claim was excluded as non-atomic'}]
+        self._re_sign_consensus()
+
+    def test_28_signed_cue_by_cue_reconciliation_can_pass_synthetic_only(self):
+        self._dispute_with_explanation()
+        with self._pinned():r=self._eval()
+        self.assertTrue(r['ready_for_p0_2_06'])
+        self.assertEqual(r['cue_disagreements_individually_resolved'],1)
+        self.assertEqual(r['final_gold_atoms_with_reviewer_lineage'],2)
+
+    def test_29_disagreement_cue_index_falsification_holds(self):
+        self._dispute_with_explanation()
+        self.consensus['body']['disagreement_resolutions'][0]['cue_index']=2
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
+    def test_30_signed_count_without_actual_cue_reconciliation_holds(self):
+        self._dispute_with_explanation()
+        self.consensus['body']['disagreement_resolutions']=[]
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
+    def test_31_false_two_reviewer_unanimity_holds(self):
+        self._dispute_with_explanation()
+        self.consensus['body']['final_gold_provenance'][0]['disposition']='BOTH_SUPPORTED'
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
+    def test_32_missing_final_gold_claim_lineage_holds(self):
+        self.consensus['body']['final_gold_provenance'].pop()
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
+    def test_33_unmentioned_reviewer_only_atom_silently_dropped_holds(self):
+        self._add_reviewer_two_extra_draft_claim()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
+    def test_34_documented_reviewer_only_exclusion_can_pass_synthetic_only(self):
+        self._add_reviewer_two_extra_draft_claim()
+        self.consensus['body']['excluded_draft_claims']=[{
+          'role':'reviewer_two','gold_id':'G00003',
+          'reason':'Original source quote was not a separate atomic claim'}]
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertTrue(r['ready_for_p0_2_06'])
+        self.assertEqual(r['cue_disagreements_individually_resolved'],1)
+
+    def test_35_launder_disagreement_reason_as_empty_holds(self):
+        self._dispute_with_explanation()
+        self.consensus['body']['disagreement_resolutions'][0]['reason']=''
         self._re_sign_consensus()
         with self._pinned():r=self._eval()
         self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')

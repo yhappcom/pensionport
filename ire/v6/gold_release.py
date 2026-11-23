@@ -21,6 +21,7 @@ from .errors import InvalidInput
 from .gold_eval import evaluate_atomic_gold, _original_quote_valid
 from .gold_traceability import verify_gold_cue_trace
 from .source import parse_srt
+from .review_consensus import verify_two_review_consensus_lineage
 
 # This is deliberately *not* enrolled. A future approved preregistration
 # commit may pin the independently verified public-key registry SHA here.
@@ -106,6 +107,7 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
         return _hold('HOLD_TWO_INDEPENDENT_SOURCE_ONLY_SUBMISSIONS_ABSENT',basic)
     cues=parse_srt(original_srt)
     reviews_by_role={}
+    reviewer_drafts={}
     sessions=set();review_end=[];review_gold_digests=[]
     for review in reviewer_submissions:
         if type(review) is not dict or set(review)!={'body','reviewer_signature','neutral_host_signature'}:
@@ -146,6 +148,7 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
            not _verify('neutral_host',body,review['neutral_host_signature'],keys):
             return _hold('HOLD_NOT_AUTHENTICATED_REVIEWER_AND_HOST_SESSION',basic)
         sessions.add(sess);reviews_by_role[role]=json_digest(body)
+        reviewer_drafts[role]=draft
         review_gold_digests.append(json_digest(draft));review_end.append(finish)
     if set(reviews_by_role)!=set(ROLES[:2]):
         return _hold('HOLD_TWO_DISTINCT_REVIEWERS_REQUIRED',basic)
@@ -156,7 +159,8 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
     body=consensus['body'];signatures=consensus['signatures']
     if type(body) is not dict or set(body)!={'schema','reviewer_submission_sha256',
                   'gold_sha256','disagreements_count','resolved_disagreements_count',
-                  'gold_frozen_at'} or \
+                  'gold_frozen_at','disagreement_resolutions','final_gold_provenance',
+                  'excluded_draft_claims'} or \
        body.get('schema')!='IRE_P205_TWO_REVIEWER_ATOMIC_CONSENSUS_V1' or \
        body.get('reviewer_submission_sha256')!=reviews_by_role or \
        body.get('gold_sha256')!=json_digest(gold) or \
@@ -169,6 +173,13 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
         return _hold('HOLD_DISAGREEMENTS_OR_CONSENSUS_SIGNING_NOT_COMPLETE',basic)
     if len(set(review_gold_digests))>1 and body['disagreements_count']==0:
         return _hold('HOLD_DIVERGENT_DRAFTS_WITH_ZERO_RECONCILIATION',basic)
+    # A signed numeric "resolved" count alone can silently hide missing atoms.
+    # Every differing source cue and every accepted/rejected draft atom must
+    # be accounted for in the signed, immutable post-review consensus body.
+    try:
+        lineage=verify_two_review_consensus_lineage(reviewer_drafts,gold,body)
+    except (InvalidInput,KeyError,TypeError,ValueError):
+        return _hold('HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE',basic)
     try:
         freeze=_date(body['gold_frozen_at'])
     except ValueError:
@@ -207,6 +218,9 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
      'production_trust_registry_verified':True,
      'two_blind_reviews_host_attested':True,
      'gold_consensus_locked_before_alignment':True,
+     'cue_disagreements_individually_resolved':lineage['disputed_cue_count'],
+     'final_gold_atoms_with_reviewer_lineage':lineage['final_gold_claims_traced'],
+     'reviewer_claims_fully_accounted':lineage['reviewer_claims_fully_accounted'],
      'independent_gold_verified':True,
      'independent_precision':precision,
      'independent_recall':recall,
