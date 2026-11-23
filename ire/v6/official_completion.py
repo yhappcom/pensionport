@@ -8,6 +8,7 @@ All other FACT propositions remain blocked, not waved through by keyword search.
 from __future__ import annotations
 
 import json
+import re
 from datetime import date
 from html import unescape
 from html.parser import HTMLParser
@@ -51,6 +52,46 @@ class _Text(HTMLParser):
 
 def _compact(value):
     return "".join(value.split())
+
+
+# Risk indicators are deliberately not a semantic classifier. The registered
+# law sentence may be textually present, while the lecturer negates, quotes or
+# qualifies it in an adjacent cue (possibly in the NEXT planned window).
+# The only safe action without a source-first human/model meaning adjudication
+# is to refuse even narrow speaker-claim provenance; the already pinned
+# official statutory bytes remain independently checkable.
+_DISCOURSE_REFERENCE = re.compile(
+    r"(?:앞의|앞서|앞에|앞 문장|방금|위 문장|이 문장|"
+    r"그 주장|이 주장|앞의 주장|앞의 설명|그 설명|이 설명|"
+    r"그 말|이 말|그것은|이것은|이는|해당 설명|해당 주장)"
+)
+_DISCOURSE_DISPUTE = re.compile(
+    r"(?:틀리|잘못|거짓|반박|인용|부정|사실이\\s*아니|"
+    r"견해가\\s*아니|적용할\\s*수\\s*없|아닙|아니라|"
+    r"단지|가정|예시|예외|조건|확인되지\\s*않)"
+)
+
+
+def _reject_unresolved_cross_cue_rebuttal(source, atom):
+    """Fail closed on a source-local quotation, rebuttal, or exception.
+
+    This audit does NOT certify narrator stance or full semantic coverage:
+    it merely prevents a known explicit cross-cue laundering attack.
+    No transcript text is written to the event log or returned by the gate.
+    """
+    for ref in atom["source_refs"]:
+        idx = ref["cue_index"]
+        if _compact(source.cues[idx - 1].text) != _compact(CANONICAL_PROPOSITION):
+            continue
+        first = max(source.scope_first_cue, idx - 3)
+        last = min(source.scope_last_cue, idx + 3)
+        for other_idx in range(first, last + 1):
+            if other_idx == idx:
+                continue
+            text = source.cues[other_idx - 1].text
+            if (_DISCOURSE_REFERENCE.search(text)
+                    and _DISCOURSE_DISPUTE.search(text)):
+                raise QualityNotProven("OFFICIAL_CROSS_CUE_REBUTTAL_UNRESOLVED")
 
 
 def verify_pinned_law(raw, *, as_of):
@@ -185,6 +226,7 @@ def audit_official_completion(con, scope_id, state, *,
                        _compact(src.cues[r["cue_index"]-1].text)
                        for r in atom["source_refs"]):
                 raise QualityNotProven("OFFICIAL_ORIGINAL_SOURCE_DOES_NOT_ASSERT_RULE")
+            _reject_unresolved_cross_cue_rebuttal(src, atom)
             current = state["finance_candidate_reviews"].get(key)
             if not current or current["model_revision_event_sha256"] != model["revision_event_sha256"]:
                 raise QualityNotProven("OFFICIAL_CURRENT_FINANCE_CANDIDATE_REQUIRED")
