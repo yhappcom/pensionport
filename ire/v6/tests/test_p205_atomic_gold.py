@@ -69,8 +69,8 @@ class P205AtomicGoldTests(unittest.TestCase):
            "source":{"cue_count":4,"original_srt_sha256":sha256(self.source)},
            "predictions":{"frozen_v228_native_sha256":sha256(self.pred_raw),
                           "original_unapproved_atom_count":2},
-           "assessment":{"thresholds":{"atomic_precision_min":0.95,
-                       "atomic_recall_min":0.98,"high_risk_false_negative_max":0}},
+           "assessment":{"thresholds":{"atomic_precision_min_bp":9500,
+                       "atomic_recall_min_bp":9800,"high_risk_false_negative_max":0}},
         }
 
     def run_eval(self, **overrides):
