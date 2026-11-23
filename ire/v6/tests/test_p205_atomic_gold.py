@@ -31,6 +31,7 @@ class P205AtomicGoldTests(unittest.TestCase):
         self.cue_rows=[
             {"cue_index":i,"source_quote_sha256":sha256(text.encode("utf8")),
              "status":"REVIEWED_ATOM" if i<=2 else "NO_ATOM",
+             "gold_atom_ids":[f"G{i:05d}"] if i<=2 else [],
              "reason":"Adjudicated actual proposition" if i<=2 else "No separate atomic finance proposition"}
             for i,text in enumerate(texts,1)
         ]
@@ -264,5 +265,49 @@ class P205AtomicGoldTests(unittest.TestCase):
         r=self.run_eval()
         self.assertIsNone(r["independent_high_risk_false_negative_count"])
 
+
+
+    def test_29_missing_cue_to_gold_atom_relation_is_rejected(self):
+        self.cue_rows[0]['gold_atom_ids']=[]
+        with self.assertRaisesRegex(InvalidInput,'P205_GOLD_TRACE_CUE_CLAIM_GRAPH_MISMATCH'):
+            self.run_eval()
+
+    def test_30_no_atom_status_cannot_hide_known_gold_claim(self):
+        self.cue_rows[0]['status']='NO_ATOM'
+        with self.assertRaisesRegex(InvalidInput,'P205_GOLD_TRACE_HIDDEN_CLAIM_IN_NO_ATOM_CUE'):
+            self.run_eval()
+
+    def test_31_duplicate_gold_atom_cue_references_rejected(self):
+        self.gold['atomic_gold_claims'][0]['source_refs'].append(copy.deepcopy(self.refs[0]))
+        with self.assertRaisesRegex(InvalidInput,'P205_GOLD_TRACE_REF_DUPLICATE_OR_OUT_OF_RANGE'):
+            self.run_eval()
+
+    def test_32_forged_cue_to_gold_atom_relation_rejected(self):
+        self.cue_rows[2]['gold_atom_ids']=['G00001']
+        with self.assertRaisesRegex(InvalidInput,'P205_GOLD_TRACE_CUE_CLAIM_GRAPH_MISMATCH'):
+            self.run_eval()
+
+    def test_33_duplicate_cue_link_to_gold_atom_rejected(self):
+        self.cue_rows[0]['gold_atom_ids']=['G00001','G00001']
+        with self.assertRaisesRegex(InvalidInput,'P205_GOLD_TRACE_CUE_GOLD_ID_LIST_INVALID'):
+            self.run_eval()
+
+    def test_34_source_cue_claim_id_mapping_is_full_and_bidirectional(self):
+        report=self.run_eval()
+        self.assertEqual(report['gold_traceability']['cue_count'],4)
+        self.assertEqual(report['gold_traceability']['source_ref_edges'],2)
+        self.assertTrue(report['gold_traceability']['traceability_valid'])
+        self.assertFalse(report['gold_traceability']['independent_semantic_truth_certified'])
+
+    def test_35_cue_link_list_missing_is_rejected(self):
+        del self.cue_rows[0]['gold_atom_ids']
+        with self.assertRaisesRegex(InvalidInput,'P205_GOLD_TRACE_CUE_GOLD_ID_LIST_INVALID'):
+            self.run_eval()
+
+    def test_36_gold_trace_does_not_create_independence(self):
+        report=self.run_eval()
+        self.assertFalse(report['independent_gold_verified'])
+        self.assertIsNone(report['independent_precision'])
+        self.assertFalse(report['ready_for_p0_2_06'])
 
 if __name__=="__main__":unittest.main()
