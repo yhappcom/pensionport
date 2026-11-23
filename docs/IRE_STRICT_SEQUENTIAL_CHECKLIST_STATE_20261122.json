@@ -569,16 +569,41 @@
     },
     {
       "id": "P0-2-04",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "test",
+          "verdict": "PASS",
+          "ref": "docs/IRE_P0_2_04_ISSUES_48_50_RED_GREEN_SHA_ONLY_20261123.json",
+          "sha": "6c75a9f5a9e23ce3c5422defd310d9971ec247da",
+          "scope": "Issue 48/50 adversarial synthetic V6 RED 3 demonstrated versus GREEN 5 cross-cue + 5 historical V2 read-only; public 25 anti-false research/advisory GO tests; V6 691 and six integrated jobs success required at exact closeout HEAD. Existing real private ETF250/P203 SHA carried without new source replay. E2 independent gold & E3-E5 remain HOLD.",
+          "verified_by": "GitHub Actions RED 45118510783 exact SHA a3abecb failed 3 new cross-cue negation tests; GREEN 45118804379 exact SHA d08dd330 passed 691 V6 adversarial tests, V5/V3 and all 6 GitHub jobs. Current integrated public test 25/25 on c3d6df8 and latest closeout SHA CI 6/6 success must separately be verified."
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-2-04",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "bd85fec39f0ff25ea3d2a7944a1d983f72b9d25e",
+        "verdict": "START",
+        "user_visible_text": "[P0-2-04 시작] 선행 15/60 PASS, P0-2-04 READY, 44 후속 BLOCKED, main 변경 없이 기존 audit 브랜치. Issue #48/#50 실제 원문과 최신 V6 code/reducer/progress/store/legacy-DB를 읽고 NONFACT 자기라벨, 빠진 세금 주장, 반박 인용, 중간 review A->B duplicate, 진행 상태와 구형 V2 읽기를 RED-GREEN 테스트. 모두 성공한 경우에만 P204 PASS; independent gold 금융 지식 승인 별개."
+      },
+      "end_report": {
+        "task_id": "P0-2-04",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "bd85fec39f0ff25ea3d2a7944a1d983f72b9d25e",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-2-04 종료 — Issue #48/#50 적대적 소프트웨어 검증 PASS] cross-cue exact law sentence followed by rebuttal/quotation/cross-window counterexamples: prior RED 3 confirmed, repaired localized ±3 cue fail closed; 5 GREEN cases. Legacy v4 SQLite V2 official-scope old research-true event validated via read-only historical reducer/state digest, 5 synthetic tests, historic GO never current GO; actual old user DB migration not performed. Prior Issue 48 hidden second tax FACT/false QUESTION still research_complete=false; 25 public false completion/approval spoof tests pass, strict V6 691 and 6-job same-head CI success required. Original ETF250/68 reused source SHA only; independent E2 gold, E3 0/13 E4 0 E5 0 remain HOLD. 16/60 PASS, P0-2-05 READY, 43 blocked. Main unchanged; two branches."
+      },
       "failure_reason": null,
-      "remediation": null
+      "remediation": "Added source-local ±3 cue quoted/rebutting adjacent-window speaker provenance fail-closed guard, reproduced 3 failures at GitHub RED SHA and passed source-backed synthetic 5 cross cue tests; added historical V2 legacy SQLite read-only reducer event-chain and state-digest replay with zero current GO and five synthetic positive/negative tests (no actual owner DB migration); preserved Issue 48 source-first nonfact residual/hidden tax rule non-closure, review interleaving idempotency and live revision-based progress. Repaired old stage test future cursors, checked same-head six job CI before final PASS."
     },
     {
       "id": "P0-2-05",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,

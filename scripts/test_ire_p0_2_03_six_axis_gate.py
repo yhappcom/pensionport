@@ -51,9 +51,9 @@ class P203CuesAtomsSemanticTests(unittest.TestCase):
  def test_20_fake_e3_release(self):
   self.r["e3_v123_approved_children"]=13;self.bad("FALSE_FINANCE")
  def test_21_wrong_step_order(self):
-  self.s["items"][16]["status"]="READY";self.bad("CHECKLIST_INVALID")
+  self.s["items"][17]["status"]="READY";self.bad("CHECKLIST_INVALID")
  def test_22_wrong_current_development_cursor(self):
-  self.l["development_gate"]["this_item"]="P0-2-05";self.bad("LEDGER_LIVE_CURSOR")
+  self.l["development_gate"]["this_item"]="P0-2-06";self.bad("LEDGER_LIVE_CURSOR")
  def test_23_source_quote_exposed_claim(self):
   self.r["public_original_source_text_included"]=True;self.bad("PUBLIC_EXPOSURE")
  def test_24_68_status_count_drift(self):

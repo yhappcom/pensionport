@@ -45,10 +45,10 @@ class P202SourceCrossAdjudicationTests(unittest.TestCase):
         self.r["real_video_frame_verified"]=True
         self.expect("FALSE_GOLD_AUDIO_OR_APPROVAL")
     def test_12_wrong_next_cursor(self):
-        self.l["development_gate"]["pending_next_item"]="P0-2-05"
+        self.l["development_gate"]["pending_next_item"]="P0-2-06"
         self.expect("LIVE_CURSOR_MISMATCH")
     def test_13_two_next_items_not_allowed(self):
-        self.s["items"][16]["status"]="READY"
+        self.s["items"][17]["status"]="READY"
         self.expect("CHECKLIST_INVALID")
     def test_14_forget_original_exception_lineage(self):
         self.r["zero_conditions_exceptions_numeric_dropped"]=False
