@@ -1,0 +1,120 @@
+{
+  "schema": "IRE_P0_2_05_ETF250_PREREGISTERED_BLIND_ATOMIC_GOLD_PLAN_V1",
+  "item_id": "P0-2-05",
+  "as_of": "2026-11-23",
+  "status": "FROZEN_RUBRIC_NOT_INDEPENDENT_GOLD",
+  "baseline_commit_sha": "646e7eeed42dbf8a1ee79c8002b8cc24d4ec247e",
+  "baseline_integrated_ci_run_id": 45119391962,
+  "video_id": "LVE7XN_esTc",
+  "source": {
+    "scope": "CUES_001_TO_250_ALL",
+    "original_srt_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "original_zip_sha256": "9f5a281191502bb30cb78ff17d2b08f6887f55b836cee67e00d7309770efa397",
+    "cue_count": 250,
+    "audio_verified": false,
+    "actual_screen_verified": false
+  },
+  "predictions": {
+    "frozen_v228_native_sha256": "c8bec3354702cad0e85d4b111d2627ae2978806f3a4111c94a689d3b9e25baeb",
+    "original_unapproved_atom_count": 68,
+    "assumed_correct": false,
+    "preexisting_model_candidates_must_not_be_shown_to_gold_reviewers": true
+  },
+  "prior_source_triage": {
+    "p201_review_zip_sha256": "df54f80d153c4f07a80a261344282681c6fb8ddb7bb9bd6fbc9aa6b99ddce8c8",
+    "p202_zip_sha256": "58106bff2c5fe91c36a676cba2325b09ebf9710058dec1f52824358e1991a040",
+    "p203_zip_sha256": "a5176f0978f646eb061daa4ecd7645190eec7c56dcded4fc0d01f42097ca3bd7",
+    "p201_primary_labels": {
+      "FACT": 92,
+      "OPINION": 61,
+      "QUESTION": 3,
+      "NO_ATOM": 27,
+      "OPEN": 67
+    },
+    "these_are_not_atomic_independent_gold": true
+  },
+  "assessment": {
+    "task": "Full video source-first blind atom gold vs frozen V228 prediction with complete 250-cue coverage",
+    "sampling": "NO_SAMPLING_FULL_250_CUES",
+    "gold_unit": "ATOMIC_SEMANTIC_CLAIM_NOT_CAPTION",
+    "prediction_unit": "LEGACY_V228_CLAIM_CANDIDATE",
+    "reportable_kinds": [
+      "FACT",
+      "OPINION",
+      "QUESTION",
+      "HYPOTHETICAL",
+      "RECOMMENDATION",
+      "CALCULATION"
+    ],
+    "high_risk_priority": [
+      "OFFICIAL_FINANCE_OR_TAX_FACT",
+      "NAV_AND_PRICE_UNITS",
+      "TRACKING_ERROR_VS_DIFFERENCE",
+      "FEE_RATE_AND_UNIT",
+      "INDEX_ETF_ONLY_CONDITION",
+      "EXPLICIT_NEGATION_REBUTTAL",
+      "FICTITIOUS_PRODUCT_SCREEN",
+      "TEMPORAL_AS_OF",
+      "INVESTOR_SUITABILITY",
+      "MULTI_CUE_CONDITION_EXCEPTION"
+    ],
+    "report_metrics": [
+      "atomic_precision",
+      "atomic_recall",
+      "high_risk_false_negative_count"
+    ],
+    "precision_definition": "TP_ATOMIC_MATCH/(TP_ATOMIC_MATCH+FP_FROZEN_PREDICTION)",
+    "recall_definition": "TP_ATOMIC_MATCH/(TP_ATOMIC_MATCH+FN_GOLD_ATOMIC)",
+    "high_risk_false_negative_definition": "COUNT_HIGH_RISK_GOLD_ATOMS_WITHOUT_A_FULL_TP_MATCH",
+    "thresholds": {
+      "atomic_precision_min": 0.95,
+      "atomic_recall_min": 0.98,
+      "high_risk_false_negative_max": 0
+    },
+    "matching": "ONE_TO_ONE_MATCH_WITH_ALL_SEMANTIC_FIELDS_EXACTLY_PRESERVED",
+    "match_requires": [
+      "SOURCE_CUE_QUOTE_AND_HASH",
+      "FACT_VS_OPINION_QUESTION",
+      "SPEAKER_AND_STANCE",
+      "NEGATION_AND_REBUTTAL",
+      "CONDITIONS_AND_EXCEPTIONS",
+      "NUMERIC_UNIT_VALUE",
+      "TEMPORAL_SCOPE",
+      "HYPOTHETICAL_VS_ACTUAL",
+      "CONTEXT_AND_SOURCE_CROSS_WINDOW"
+    ],
+    "partial_match": "COUNT_AS_FP_AND_FN_NOT_TP",
+    "ambiguous_gold": "RECONCILIATION_REQUIRED_NO_PASS",
+    "no_gold_atoms": "NO_ATOM_CUE_REASONS_REQUIRED_NOT_ATOMIC_RECALL_DENOMINATOR",
+    "nonmatch": "UNMATCHED_PREDICTION_IS_FP_AND_UNMATCHED_GOLD_IS_FN",
+    "duplicate_alignment": "REJECT_NOT_DOUBLE_COUNT",
+    "null_when_gold_absent": true
+  },
+  "independence_contract": {
+    "gold_source_only_without_prediction_visibility": true,
+    "two_separate_blind_adjudications_and_consensus_required": true,
+    "reviewer_1_and_reviewer_2_distinct_attested_sessions_or_distinct_reviewers_required": true,
+    "actual_reviewer_identity_and_blinding_attested_by_host_or_auditable_process": true,
+    "candidate_answers_never_supplied_to_blind_reviewers": true,
+    "gold_cue_and_claim_rows_frozen_digest_before_scoring": true,
+    "candidate_prediction_digest_pinned_before_gold_scoring": true,
+    "report_disagreements_resolved_before_gold_finalization": true,
+    "chatgpt_same_conversation_reviewer_without_proven_blinding_is_independent": false,
+    "internally_reconstructed_source_first_gold_is_not_independent": true,
+    "all_original_CUE_250_SOURCE_PRESENT": true,
+    "zero_external_human_reviewer_is_not_automatically_independent": true
+  },
+  "source_custody": {
+    "gold_private_owner_library_only": true,
+    "public_repo": "ONLY_SHA_PREREGISTRATION_AND_AGGREGATES",
+    "no_new_v123_e3_e4_e5_releases": true
+  },
+  "current_eligible_independent_gold_file_count": 0,
+  "current_gold_rows_independently_certified": 0,
+  "precision": null,
+  "recall": null,
+  "high_risk_false_negative_count": null,
+  "precondition_for_pass": "COMPLETED_ATOMIC_GOLD_WITH_VERIFIED_BLIND_REVIEWER_PROVENANCE_AND_TWO_BLIND_PASSES_AND_RESOLVED_DISAGREEMENTS_AND_TARGET_THRESHOLDS_AND_SAME_SHA_CI",
+  "stage_when_precondition_unmet": "HOLD",
+  "next_stage": "P0-2-06_MUST_REMAIN_BLOCKED"
+}
