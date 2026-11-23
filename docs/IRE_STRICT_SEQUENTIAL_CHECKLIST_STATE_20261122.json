@@ -610,6 +610,20 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_SOURCE_ONLY_BLIND_GOLD_READINESS_HOLD_SHA_20261123.json",
           "scope": "Original source250 and frozen native68 re-accessed; source-only blank 250-cue private intake frozen; preregistered independent atomic gold 0, absent two distinct blind authenticated reviewers and gold-to-prediction alignment; metrics NULL; 28 synthetic matcher tests are not real accuracy."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_ETF250_SOURCE_FIRST_PROVISIONAL_71_PRE_CROSSWALK_SHA_ONLY_20261123.json",
+          "sha": "bbb9ce9ee3fabf5c49bdf9c3154a68955e360db4000cfb354070c307e215abfe",
+          "scope": "Private source-only 250 cue from original source, 71 provisional same-chat first-pass atomic candidate readings and 36 high-risk, frozen SHA before opening native68 in this iteration; independently gold eligible 0."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_ETF250_SOURCE71_NATIVE68_CROSSWALK_SHA_ONLY_HOLD_20261123.json",
+          "sha": "9e67f6b3630821557f70351900e3dc9a4e80f55b3afc2e70a515d5d59aa12c2b",
+          "scope": "Private 71 versus 68 topic-only crosswalk: 2 source-only standalone candidates, 8 source-to-multiple-native, 10 native-to-multiple-source, 11 kind disagreement related pairs, 10 high-risk topics. Zero certified TP/FP/FN, precision, recall; no actual gold."
         }
       ],
       "start_report": {
@@ -630,8 +644,15 @@
         "verdict": "HOLD",
         "user_visible_text": "[P0-2-05 종료 — 공식 독립 골드 및 금융정확도 HOLD] 원본 ETF source 250/250, 동결 모델 예측 68/68, 250 cue source-only blank independent review packet SHA 및 비공개 Library 저장, 정밀도95 재현율98 고위험FN0 원자 9축 1:1 사전 등록. 28 합성 맞춤/거짓 독립성 거부 테스트와 30 public HOLD gate 테스트는 소프트웨어 검증일 뿐 금융 정확도 미인증. 독립 원자 골드 0개, 서로 분리된 이중 블라인드 검토 및 정답 봉인/대응 없음, 정밀도·재현율·고위험FN 실측 NULL. 기존 16/60 PASS 유지, P205 HOLD, P206 및 43개 BLOCKED. E3 0/13 E4 0 E5 0, main 불변/2 branches. 동일 SHA 종단 6/6 CI 완료 후 최종 확인."
       },
-      "failure_reason": "Independent source-first atomic gold has zero fully adjudicated atoms; 250 original cue dispositions in P201/P203 are not an independently blinded atomic gold denominator. No verifiable distinct blind reviewer identities/sessions, consensus or signed pre-scoring gold SHA, so TP/FP/FN and high-risk FN cannot be measured and 95%/98%/0 thresholds cannot be certified. Same-chat exposure to legacy native predictions disqualifies independent blindness.",
-      "remediation": "Frozen before scoring: preregistration version V2 with exact integer thresholds 9500/9800 and high-risk FN0, source-only original SRT250 packet stripped of 68 native predictions and P201-P203 labels uploaded to private owner Library. Implemented source SHA/numeric/condition/exception/stance 9-axis one-to-one atomic evaluator, 28 synthetic adversarial tests, 30 public false-gold/false-GO guard tests. Resume this same P205 only after two separately isolated and attestable source-first blind reviews cover all 250 cue slots and all atomic facts including high-risk cases, resolve disagreement, freeze private atomic gold and independent provenance, align to original 68 frozen predictions, establish real TP FP FN and thresholds, and verify exact-head six-job CI. No next stage until PASS."
+      "failure_reason": "Independent source-first atomic gold has zero fully adjudicated atoms; 250 original cue dispositions in P201/P203 are not an independently blinded atomic gold denominator. No verifiable distinct blind reviewer identities/sessions, consensus or signed pre-scoring gold SHA, so TP/FP/FN and high-risk FN cannot be measured and 95%/98%/0 thresholds cannot be certified. Same-chat exposure to legacy native predictions disqualifies independent blindness. A second same-chat source-first 71-candidate pass and 71-to-68 topic-only crosswalk were created with direct source hashes, but cannot establish reviewer independence or a closed atomic gold denominator; 11 role disagreements are only review candidates, not confirmed model errors.",
+      "remediation": "Frozen before scoring: preregistration version V2 with exact integer thresholds 9500/9800 and high-risk FN0, source-only original SRT250 packet stripped of 68 native predictions and P201-P203 labels uploaded to private owner Library. Implemented source SHA/numeric/condition/exception/stance 9-axis one-to-one atomic evaluator, 28 synthetic adversarial tests, 30 public false-gold/false-GO guard tests. Resume this same P205 only after two separately isolated and attestable source-first blind reviews cover all 250 cue slots and all atomic facts including high-risk cases, resolve disagreement, freeze private atomic gold and independent provenance, align to original 68 frozen predictions, establish real TP FP FN and thresholds, and verify exact-head six-job CI. No next stage until PASS. Continuation 2026-11-23: independently verified source250 and all 71 provisional quotes/contexts with 0 hash mismatches, froze source draft SHA before directly opening native68, stored source-only and private comparison ZIPs in Library, implemented reusable V6 source_first_review.py integrity gate, 38 synthetic adversarial engine tests and 32 public SHA-only no-gold tests. Resume same P205 after attestable reviewer-isolated atomic gold and resolution of 10 high-risk queues.",
+      "continuation_report": {
+        "task_id": "P0-2-05",
+        "reported_at": "2026-11-23",
+        "verdict": "HOLD",
+        "start_report_user_visible": "[P0-2-05 재개] 원본 250 cue와 기존 CHECKLIST/CI를 재검증하고, 원본만으로 원자 후보를 먼저 고정한 뒤 V228 68 예측과 대조하겠습니다. 독립성 미확보 시 HOLD 유지.",
+        "end_report_user_visible": "[P0-2-05 이어서 종료 · HOLD] 같은 채팅에서 원본 자막 250/250을 직접 읽어 새 71 잠정 주장 후보(고위험 36)를 구성하고 기존 68 원자 열기 전 SHA 고정/비공개 보관. 동결 후 비교에서 별도 원자 없는 소스 후보 2, 1->N 관계 8, N->1 관계 10, 사실/의견/권유 종별 관련 쌍 11. 기계적 원문·인용·블록 해시 일치, 원자 완전성·독립 진위 승인 아님. 신규 source-first V6 적대적38개 및 SHA-only32개 도입, 최종 동일 HEAD 6/6 CI 확인 필수. 16/60 PASS, P205 HOLD, P206 및 후속43 BLOCKED; E2 골드0 E3/E4/E5 0. Main 불변·2 branch."
+      }
     },
     {
       "id": "P0-2-06",
