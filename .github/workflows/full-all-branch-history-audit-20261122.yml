@@ -133,6 +133,11 @@ jobs:
           python -m unittest -v scripts.test_ire_p0_2_02_adjudication_gate
           python -m scripts.ire_p0_2_02_adjudication_gate
 
+      - name: P0-2-03 ETF 250 cue six-axis semantics and 68 unapproved atom guarded triage
+        run: |
+          python -m unittest -v scripts.test_ire_p0_2_03_six_axis_gate
+          python -m scripts.ire_p0_2_03_six_axis_gate
+
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA
     needs: branch_governance
