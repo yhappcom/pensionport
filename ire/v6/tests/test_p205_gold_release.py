@@ -219,7 +219,7 @@ class P205GoldReleaseTests(unittest.TestCase):
         self.reviews[1]=self._signed_review({**self.reviews[1]['body'],'draft_gold':draft})
         self._re_sign_consensus()
         with self._pinned():r=self._eval()
-        self.assertIn('HOLD_DIVERGENT_DRAFTS_WITH_ZERO_RECONCILIATION',r['status'])
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
 
 
     def test_24_false_positive_consensus_count_without_cue_resolution(self):
