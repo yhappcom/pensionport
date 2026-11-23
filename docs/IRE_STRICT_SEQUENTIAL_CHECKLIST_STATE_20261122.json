@@ -535,16 +535,41 @@
     },
     {
       "id": "P0-2-03",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "docs/IRE_P0_2_03_ETF250_SIX_AXIS_SHA_ONLY_20261123.json",
+          "sha": "59e855b0c754e6e8b4048ab800046c04e0d80594",
+          "verdict": "PASS",
+          "scope": "ETF250 original cue 250/250 and legacy atom 68/68 six-axis meaning, 114 non-primary FACT/OPINION cues individually triaged, 23 high-risk pairwise reviews and 6 rebuttal relations, 10 non-release corrective dispositions; financial meaning accuracy/gold/E3-E5 unapproved.",
+          "verified_by": "Personally re-opened original private SRT and frozen V228/P201/P202 ZIPs and verified exact 250 quote/timestamps and 73 source anchor texts and SHA; 20 owner-private original-byte tests and 25 public adversarial CI tests; final same SHA integrated six-job Actions must be checked. Audio/visual/independent gold not certified."
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-2-03",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "39ce71d629642222fb36afd41e92020e66a14699",
+        "verdict": "START",
+        "user_visible_text": "[P0-2-03 시작] 선행 14/60 PASS. P0-2-03 READY, 45 items blocked, current main unchanged and audit branch 39ce71d6. Inspect real SRT250 and frozen 68 original atoms for speaker, negation, quote, rebuttal, time, omissions, duplicate, preserving typed index ETF only conditions and nonrelease. Pass only after source audit, private negative tests and same SHA integrated GitHub Actions."
+      },
+      "end_report": {
+        "task_id": "P0-2-03",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "39ce71d629642222fb36afd41e92020e66a14699",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-2-03 종료·원문 기반 6축 의미 위험 검증 PASS] SRT 250 cue, original atom 68, 73 original source references verified; 114 unanchored FACT/OPINION cues reviewed = 107 context + 7 didactic; 6 rebuttal relations, 23 semantic pair distinctions, 10 risk nonrelease corrections. Source speaker/audio and visual unknown, 36 nonKEEP atoms not promoted; E2 independent gold/accuracy HOLD, E3 0/13, E4 0, E5 0. Private 20 and CI 25 adversarial regressions passed; same-head integrated CI success prerequisite. Checklist 15/60 PASS, P0-2-04 READY, 44 blocked, main unchanged 2 branches."
+      },
       "failure_reason": null,
-      "remediation": null
+      "remediation": "Re-read 250 exact source SRT cues, preserved original 68 atom payloads and 73 quotes. Corrected text-only speaker attribution, negation at 64/65, LP exception 94/95, temporal uncertainties, hypothetical premium in KRW vs percent, tracking difference vs tracking error, and 23 distinct/related candidate pairs. 114 FACT/OPINION non-primary source cues triaged; 36 nonKEEP original atoms kept nonreleasable, no spurious E2-gold or E3 E4 E5 grants. Repaired historical stage regression negative cursors to P205 so P204 is legitimately READY."
     },
     {
       "id": "P0-2-04",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,
