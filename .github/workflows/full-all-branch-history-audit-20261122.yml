@@ -153,6 +153,11 @@ jobs:
           python -m unittest -v scripts.test_ire_p0_2_05_source71_compare_gate
           python -m scripts.ire_p0_2_05_source71_compare_gate
 
+      - name: P0-2-05 reconcile 11 source-native raw kind disagreements without laundering semantic gold
+        run: |
+          python -m unittest -v scripts.test_ire_p0_2_05_kind_triage_gate
+          python -m scripts.ire_p0_2_05_kind_triage_gate
+
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA
     needs: branch_governance
