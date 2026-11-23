@@ -1,0 +1,82 @@
+{
+  "schema": "IRE_P205_SOURCE_ONLY_REVIEW_DRAFT_STRICT_SCHEMA_AND_FALSE_HOLD_RED_GREEN_V1",
+  "item_id": "P0-2-05",
+  "as_of": "2026-11-24",
+  "video_id": "LVE7XN_esTc",
+  "frozen_source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "frozen_native_prediction_sha256": "c8bec3354702cad0e85d4b111d2627ae2978806f3a4111c94a689d3b9e25baeb",
+  "actual_original_cues": 250,
+  "actual_unapproved_predictions": 68,
+  "owner_source_or_prediction_modified": false,
+  "prior_semantically_verified_blind_review_submissions": 0,
+  "source_only_reviewer_one_actual_completed_cues": 0,
+  "source_only_reviewer_two_actual_completed_cues": 0,
+  "independent_gold_claims": 0,
+  "host_trust_registry_enrolled": false,
+  "source_only_blind_intake_library_file_id": "libfile_c07ffd4302e88191a38157c96292b34a",
+  "red_commit": "f4958fed57c17c68038d5648285c267dd767a0a7",
+  "red_ci_run_id": 45264785694,
+  "red_v6_test_total": 891,
+  "red_v6_failing_cases": 3,
+  "red_cases": [
+    {
+      "test": "test_36_identical_atom_meanings_different_reviewer_notes_are_not_disagreements",
+      "bug": "Whole review JSON digest mismatch falsely treated as semantic disagreement",
+      "expected_fix": "Do not require reconciliation of prose-only differences"
+    },
+    {
+      "test": "test_37_both_reviewer_drafts_missing_gold_schema_must_hold",
+      "bug": "Signed but schema-less reviewer drafts accepted",
+      "expected_fix": "Reject missing source-only gold schema"
+    },
+    {
+      "test": "test_38_reviewer_drafts_sneak_in_prior_predictions_must_hold",
+      "bug": "Signed reviewer drafts accepted forbidden preexisting native predictions",
+      "expected_fix": "Reject additional prediction-bearing fields"
+    }
+  ],
+  "extra_adversarial_cases": [
+    "test_39_invalid_list_kind_in_review_draft_holds_without_crash",
+    "test_40_prior_claim_injected_into_gold_atom_holds",
+    "test_41_prior_model_marker_injected_into_cue_disposition_holds"
+  ],
+  "green_code_commit": "05a6800a03a7b1c88b26677c2b7daf5832dc29df",
+  "green_ci_run_id": 45265335478,
+  "green_full_software_ci_jobs_success": 6,
+  "green_full_software_ci_jobs_total": 6,
+  "green_v6_test_count": 894,
+  "comparison_rule": "CUE_LEVEL_MEANING_DIFFS_ONLY_NOT_REVIEWER_EXPLANATION_STRING_HASH",
+  "draft_schema_strict_root_keys": [
+    "schema",
+    "source_srt_sha256",
+    "reviewed_cues",
+    "atomic_gold_claims"
+  ],
+  "draft_schema_strict_per_cue_and_per_gold_atom_keys": true,
+  "draft_schema_forbids_hidden_previous_predictions": true,
+  "draft_schema_forbids_malformed_unhashable_types_without_runtime_crash": true,
+  "correct_positive_blind_review_semantics_preserved": true,
+  "comparison_is_not_semantic_truth_certificate": true,
+  "host_signature_is_not_proof_of_real_model_context_isolation": true,
+  "public_repo_contains_no_original_private_SRT_or_atomic_gold": true,
+  "study_report": "docs/IRE_P0_2_05_SOURCE_ONLY_DRAFT_SCHEMA_AND_FALSE_HOLD_RED_GREEN_20261124.md",
+  "verified_separately_isolated_chatgpt_sessions": 0,
+  "verified_neutral_host_attestations": 0,
+  "independent_precision": null,
+  "independent_recall": null,
+  "independent_high_risk_false_negative_count": null,
+  "financial_research_accuracy_certified": false,
+  "actual_high_risk_topic_queues_open": 10,
+  "e3_v123_approved_children": 0,
+  "e4_owner_approvals": 0,
+  "e5_knowledge_publications": 0,
+  "checklist_prior_passed": 16,
+  "current_item": "P0-2-05",
+  "current_item_state": "HOLD",
+  "following_item": "P0-2-06",
+  "following_item_state": "BLOCKED",
+  "successor_items_blocked": 43,
+  "main_branch_unchanged": true,
+  "branch_count": 2,
+  "next_required": "Obtain actual provenance-isolated ChatGPT source-only reviews of all 250 original cues, adjudicate all atomic disagreements and ten high-risk queues, freeze signed gold before scoring baseline 68 predictions; measure 95% precision, 98% recall, high-risk FN 0. No unsupported independent metric."
+}
