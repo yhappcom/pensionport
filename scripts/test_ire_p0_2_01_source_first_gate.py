@@ -67,7 +67,7 @@ class P201Cue250EvidenceTests(unittest.TestCase):
         self.r["public_artifact_contains_original_caption_text"]=True
         self.bad("PUBLIC_PRIVACY")
     def test_18_next_item_wrong_cursor(self):
-        self.l["development_gate"]["this_item"]="P0-2-03"
+        self.l["development_gate"]["this_item"]="P0-2-04"
         self.bad("LEDGER_NEXT")
     def test_19_no_skip_to_next_p203(self):
         # First blocked successor beyond the live active cursor, not the
