@@ -52,7 +52,7 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None):
     for k in EXPECTED_COUNTS:
         ids=d.get(k,{}).get("ids",[])
         need(type(ids) is list and len(ids)==EXPECTED_COUNTS[k]
-             and all(re.fullmatch(r"C\\d{5}",i or "") for i in ids),"DISPOSITION_IDS_"+k)
+             and all(isinstance(i,str) and len(i)==6 and i[0]=="C" and i[1:].isdigit() for i in ids),"DISPOSITION_IDS_"+k)
         all_ids.extend(ids)
     need(len(all_ids)==len(set(all_ids))==68,
          "DISPOSITION_DUPLICATE")
