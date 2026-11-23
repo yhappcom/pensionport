@@ -70,7 +70,10 @@ class P201Cue250EvidenceTests(unittest.TestCase):
         self.l["development_gate"]["this_item"]="P0-2-03"
         self.bad("LEDGER_NEXT")
     def test_19_no_skip_to_next_p203(self):
-        self.s["items"][14]["status"]="READY"
+        # First blocked successor beyond the live active cursor, not the
+        # historical P201 successor: P203 can legitimately be READY later.
+        pos=next(i for i,x in enumerate(self.s["items"]) if x["status"]!="PASS")
+        self.s["items"][pos+1]["status"]="READY"
         self.bad("ONLY_P202_NEXT")
     def test_21_open_cue_without_risk_docket_rejected(self):
         group=next(x for x in self.r["unresolved_issue_groups"]
