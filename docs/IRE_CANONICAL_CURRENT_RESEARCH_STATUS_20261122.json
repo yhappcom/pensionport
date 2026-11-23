@@ -292,10 +292,10 @@
   "development_gate": {
     "catalog_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json",
     "checklist_state_path": "docs/IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json",
-    "this_item": "P0-2-02",
+    "this_item": "P0-2-03",
     "not_a_checklist_pass_receipt": true,
     "implementation_ci_has_full_pinned_python311_v3_v5_v6_e1e5_run": true,
-    "pending_next_item": "P0-2-02",
+    "pending_next_item": "P0-2-03",
     "next_item_allowed_only_after_P0_0_02_PASS": true,
     "next_item_allowed_only_after_P0_0_04_PASS": true,
     "implementation_ci": {
@@ -535,6 +535,35 @@
       "source_media_audio_video_verified": false,
       "next_allowed_item": "P0-2-02",
       "blocked_following": 46
+    },
+    "p0_2_02_source_first_atom_cross_decisions": {
+      "item_id": "P0-2-02",
+      "status": "PASS_SOURCE_CLAIM_RECLASSIFICATION_ONLY_E2_ACCURACY_HOLD",
+      "receipt_path": "docs/IRE_P0_2_02_ETF250_ATOM_CROSS_ADJUDICATION_SHA_ONLY_20261123.json",
+      "report_path": "docs/IRE_P0_2_02_SOURCE_FIRST_ADJUDICATION_AND_OPEN_20261123.md",
+      "private_library_path": "/투자연구_비공개/ETF250/P202_PRIVATE_ETF250_ATOM_CROSS_ADJUDICATION_20261123.zip",
+      "private_library_file_id": "libfile_87f51a386bb88191861d49f428d3e69f",
+      "source_srt_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+      "private_report_sha256": "b70c7ea8365ec6eed98575a23a550fb819dd2ac3a3ce27eabf323f65b099a55f",
+      "original_atoms_reviewed": 68,
+      "keep": 32,
+      "reatomize": 17,
+      "quarantine": 4,
+      "open": 15,
+      "source_cues_verified": 250,
+      "primary_refs_verified": 73,
+      "cross_child_atoms": 21,
+      "cross_child_source_edges": 49,
+      "cross_condition_roles": 29,
+      "cross_numeric_roles": 3,
+      "cross_source_lineage_preserved": true,
+      "original_unapproved_atoms_mutated": false,
+      "independent_accuracy_gold": false,
+      "real_etf_e3_approved_children": 0,
+      "real_etf_e4_approved": 0,
+      "real_etf_e5_published": 0,
+      "next_allowed_item": "P0-2-03",
+      "following_blocked": 45
     }
   },
   "open_blockers": [
