@@ -409,4 +409,19 @@ class P205GoldReleaseTests(unittest.TestCase):
         with self._pinned():r=self._eval()
         self.assertEqual(r['status'],'HOLD_DRAFT_SOURCE_ONLY_GOLD_SCHEMA_INVALID')
 
+
+    def test_42_signed_synthetic_gold_below_numeric_boundary_integrity_cannot_GO(self):
+        basic=release.evaluate_atomic_gold(
+            self.plan,self.source,self.native,gold=self.gold,alignment=self.alignment)
+        basic['prediction_numeric_source_boundary_warnings']=2
+        basic['prediction_numeric_source_boundary_affected_atoms']=1
+        basic['prediction_numeric_source_provenance_complete']=False
+        with self._pinned(),patch.object(release,'evaluate_atomic_gold',return_value=basic):
+            r=self._eval()
+        self.assertEqual(r['status'],'HOLD_FROZEN_PREDICTION_NUMERIC_SOURCE_BOUNDARY')
+        self.assertEqual(r['numeric_source_boundary_warning_count'],2)
+        self.assertFalse(r['ready_for_p0_2_06'])
+        self.assertTrue(r['independent_gold_verified'])
+        self.assertEqual(r['independent_precision'],1)
+
 if __name__=='__main__':unittest.main()
