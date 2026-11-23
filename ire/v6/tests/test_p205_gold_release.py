@@ -8,10 +8,10 @@ from ire.v6.codec import canonical,json_digest,sha256
 from ire.v6.gold_eval import MATCH_FIELDS
 from ire.v6.gold_release import evaluate_production_gold
 import ire.v6.gold_release as release
-from ire.v6.tests.test_p205_atomic_gold import P205AtomicGoldTests
 
 class P205GoldReleaseTests(unittest.TestCase):
     def setUp(self):
+        from ire.v6.tests.test_p205_atomic_gold import P205AtomicGoldTests
         fixture=P205AtomicGoldTests();fixture.setUp()
         self.plan=fixture.plan;self.source=fixture.source;self.native=fixture.pred_raw
         self.gold=fixture.gold;self.alignment=fixture.alignment
