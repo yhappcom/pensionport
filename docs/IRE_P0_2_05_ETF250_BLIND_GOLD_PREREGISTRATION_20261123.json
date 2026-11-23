@@ -67,8 +67,8 @@
     "recall_definition": "TP_ATOMIC_MATCH/(TP_ATOMIC_MATCH+FN_GOLD_ATOMIC)",
     "high_risk_false_negative_definition": "COUNT_HIGH_RISK_GOLD_ATOMS_WITHOUT_A_FULL_TP_MATCH",
     "thresholds": {
-      "atomic_precision_min": 0.95,
-      "atomic_recall_min": 0.98,
+      "atomic_precision_min_bp": 9500,
+      "atomic_recall_min_bp": 9800,
       "high_risk_false_negative_max": 0
     },
     "matching": "ONE_TO_ONE_MATCH_WITH_ALL_SEMANTIC_FIELDS_EXACTLY_PRESERVED",
@@ -88,7 +88,8 @@
     "no_gold_atoms": "NO_ATOM_CUE_REASONS_REQUIRED_NOT_ATOMIC_RECALL_DENOMINATOR",
     "nonmatch": "UNMATCHED_PREDICTION_IS_FP_AND_UNMATCHED_GOLD_IS_FN",
     "duplicate_alignment": "REJECT_NOT_DOUBLE_COUNT",
-    "null_when_gold_absent": true
+    "null_when_gold_absent": true,
+    "threshold_evaluation": "Compare integer TP*10000 against basis-point minimum * exact atom denominators; no floating-point thresholds or cue denominators"
   },
   "independence_contract": {
     "gold_source_only_without_prediction_visibility": true,
@@ -116,5 +117,8 @@
   "high_risk_false_negative_count": null,
   "precondition_for_pass": "COMPLETED_ATOMIC_GOLD_WITH_VERIFIED_BLIND_REVIEWER_PROVENANCE_AND_TWO_BLIND_PASSES_AND_RESOLVED_DISAGREEMENTS_AND_TARGET_THRESHOLDS_AND_SAME_SHA_CI",
   "stage_when_precondition_unmet": "HOLD",
-  "next_stage": "P0-2-06_MUST_REMAIN_BLOCKED"
+  "next_stage": "P0-2-06_MUST_REMAIN_BLOCKED",
+  "preregistration_revision": "V2_PRE_GOLD_LOCK_INTEGER_BASIS_POINTS_FIX",
+  "prior_unscored_plan_git_blob_sha": "be5985b5c58a766ee27f56a2f4bb0259fa2fceb1",
+  "gold_locked_or_metrics_scored_before_revision": false
 }
