@@ -18,6 +18,7 @@ from cryptography.exceptions import InvalidSignature
 from .codec import canonical, json_digest, sha256
 from .errors import InvalidInput
 from .source import parse_srt
+from .gold_traceability import verify_gold_cue_trace
 
 MATCH_FIELDS = (
     "source_quote_and_entailment",
@@ -214,6 +215,8 @@ def evaluate_atomic_gold(plan, original_srt: bytes, frozen_native: bytes,
             _invalid("GOLD_CUE_ORDER_OR_HASH_CHANGED")
         if row.get("status") not in CUE_REVIEW_STATUSES or not isinstance(row.get("reason"),str) or not row["reason"].strip():
             _invalid("GOLD_CUE_DISPOSITION_WITHOUT_REASON")
+    trace = verify_gold_cue_trace(cue_rows, gold)
+    report["gold_traceability"] = trace
     if any(x["status"]=="OPEN_UNCERTAIN" for x in goldcue):
         return {**report,"status":"HOLD_UNRESOLVED_BLIND_GOLD_CUES",
                 "gold_atom_count":len(goldids)}
