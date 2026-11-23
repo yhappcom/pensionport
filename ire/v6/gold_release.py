@@ -134,6 +134,35 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
         draft=body['draft_gold']
         if type(draft) is not dict or draft.get('source_srt_sha256')!=sha256(original_srt):
             return _hold('HOLD_DRAFT_NOT_SOURCE_PINNED',basic)
+        # Reviewer source-only output must not carry hidden prior predictions,
+        # unregistered metadata, or a malformed atomic gold contract.
+        if (set(draft)!={'schema','source_srt_sha256','reviewed_cues','atomic_gold_claims'}
+                or draft.get('schema')!='IRE_P205_PRIVATE_GOLD_ATOMIC_REVIEW_V1'
+                or type(draft.get('reviewed_cues')) is not list
+                or type(draft.get('atomic_gold_claims')) is not list):
+            return _hold('HOLD_DRAFT_SOURCE_ONLY_GOLD_SCHEMA_INVALID',basic)
+        cue_keys={'cue_index','source_quote_sha256','status','reason','gold_atom_ids'}
+        atom_keys={'gold_id','kind','risk','proposition','speaker_stance','as_of',
+                   'high_risk_reason','source_refs','conditions','exceptions',
+                   'numeric_evidence'}
+        if (any(type(cue) is not dict or set(cue)!=cue_keys
+                for cue in draft['reviewed_cues'])
+                or any(type(atom) is not dict or set(atom)!=atom_keys
+                       or atom.get('kind') not in {'FACT','OPINION','QUESTION',
+                           'HYPOTHETICAL','RECOMMENDATION','CALCULATION'}
+                       or atom.get('risk') not in {'HIGH','NORMAL'}
+                       or any(type(atom.get(k)) is not str or not atom[k].strip()
+                              for k in ('proposition','speaker_stance','as_of',
+                                        'high_risk_reason'))
+                       or any(type(atom.get(k)) is not list
+                              for k in ('source_refs','conditions','exceptions',
+                                        'numeric_evidence'))
+                       or type(atom.get('source_refs')) is not list
+                       or any(type(ref) is not dict
+                              or set(ref)!={'cue_index','quote'}
+                              for ref in atom['source_refs'])
+                       for atom in draft['atomic_gold_claims'])):
+            return _hold('HOLD_DRAFT_SOURCE_ONLY_GOLD_SCHEMA_INVALID',basic)
         try:
             trace=verify_gold_cue_trace(cues,draft)
             if trace['cue_open_uncertain'] or not trace['gold_atom_count']:
@@ -171,8 +200,9 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
        type(signatures) is not dict or set(signatures)!=set(ROLES) or \
        any(not _verify(role,body,signatures[role],keys) for role in ROLES):
         return _hold('HOLD_DISAGREEMENTS_OR_CONSENSUS_SIGNING_NOT_COMPLETE',basic)
-    if len(set(review_gold_digests))>1 and body['disagreements_count']==0:
-        return _hold('HOLD_DIVERGENT_DRAFTS_WITH_ZERO_RECONCILIATION',basic)
+    # Reviewer prose, cue reasons, and formatting may legitimately differ.
+    # Genuine semantic disagreements are counted from source-cue propositions
+    # by verify_two_review_consensus_lineage, not whole-document digests.
     # A signed numeric "resolved" count alone can silently hide missing atoms.
     # Every differing source cue and every accepted/rejected draft atom must
     # be accounted for in the signed, immutable post-review consensus body.
