@@ -158,6 +158,11 @@ jobs:
           python -m unittest -v scripts.test_ire_p0_2_05_kind_triage_gate
           python -m scripts.ire_p0_2_05_kind_triage_gate
 
+      - name: P0-2-05 root-cause independent gold fail closed and 24 production fake-proof mutations
+        run: |
+          python -m unittest -v scripts.test_ire_p0_2_05_root_cause_gate
+          python -m scripts.ire_p0_2_05_root_cause_gate
+
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA
     needs: branch_governance
