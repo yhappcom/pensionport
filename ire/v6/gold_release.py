@@ -241,15 +241,24 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
            'atomic_precision_min_bp','atomic_recall_min_bp',
            'high_risk_false_negative_max')):
         return _hold('HOLD_NOT_AN_INTEGER_PREREGISTERED_THRESHOLD',basic)
+    numeric_source_provenance_ready=(
+        basic.get('prediction_numeric_source_provenance_complete') is True
+        and basic.get('prediction_numeric_source_boundary_warnings')==0)
     meets=(tp*10000>=pred*thresholds['atomic_precision_min_bp'] and
            tp*10000>=gcount*thresholds['atomic_recall_min_bp'] and
-           fn<=thresholds['high_risk_false_negative_max'])
-    out=_hold('VERIFIED_SOURCE_FIRST_INDEPENDENT_GOLD_THRESHOLDS_PASS' if meets
-              else 'HOLD_MEASURED_INDEPENDENT_GOLD_BELOW_THRESHOLDS',basic)
+           fn<=thresholds['high_risk_false_negative_max']
+           and numeric_source_provenance_ready)
+    outcome=('HOLD_FROZEN_PREDICTION_NUMERIC_SOURCE_BOUNDARY'
+             if not numeric_source_provenance_ready
+             else ('VERIFIED_SOURCE_FIRST_INDEPENDENT_GOLD_THRESHOLDS_PASS'
+                   if meets else 'HOLD_MEASURED_INDEPENDENT_GOLD_BELOW_THRESHOLDS'))
+    out=_hold(outcome,basic)
     out.update({
      'production_trust_registry_verified':True,
      'two_blind_reviews_host_attested':True,
      'gold_consensus_locked_before_alignment':True,
+     'numeric_source_provenance_complete':numeric_source_provenance_ready,
+     'numeric_source_boundary_warning_count':basic['prediction_numeric_source_boundary_warnings'],
      'cue_disagreements_individually_resolved':lineage['disputed_cue_count'],
      'final_gold_atoms_with_reviewer_lineage':lineage['final_gold_claims_traced'],
      'reviewer_claims_fully_accounted':lineage['reviewer_claims_fully_accounted'],
