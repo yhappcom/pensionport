@@ -173,8 +173,11 @@ def main():
         return 1
     for code in failures:print("P201_SOURCE_FIRST_ERROR",code,file=sys.stderr)
     if failures:return 1
+    state=load(ROOT,STATE)
+    current=next((x["id"] for x in state["items"] if x["status"]!="PASS"),"ALL_COMPLETE")
     print("P201_SOURCE_FIRST_GATE_PASS 250/250 FACT=92 OPINION=61 QUESTION=3 "
-          "NO_ATOM=27 OPEN=67 E3=0/13 E4=0 E5=0 NEXT=P0-2-02")
+          "NO_ATOM=27 OPEN=67 E3=0/13 E4=0 E5=0 "
+          f"HISTORICAL_NEXT_AT_P201_CLOSE=P0-2-02 CURRENT_NEXT={current}")
     return 0
 
 if __name__=="__main__":
