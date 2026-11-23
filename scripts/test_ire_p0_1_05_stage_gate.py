@@ -34,9 +34,9 @@ class P105StageTests(unittest.TestCase):
         self.assertEqual([],self.check())
 
     def test_02_e2_must_be_only_new_ready(self):
-        # The first E2 item P201 is legitimately PASS now, with P202 READY;
-        # trying to open P203 simultaneously is still forbidden.
-        self.s["items"][14]["status"]="READY"
+        # P201 and P202 are now legitimate PASS entries, P203 READY;
+        # P204 cannot also become READY before P203 passes.
+        self.s["items"][15]["status"]="READY"
         self.bad("E1_FIVE_PASS_E2_ONLY_NEXT")
 
     def test_03_not_all_five_e1_items_can_be_passed_by_fiat(self):
