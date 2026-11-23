@@ -356,4 +356,32 @@ class P205GoldReleaseTests(unittest.TestCase):
         with self._pinned():r=self._eval()
         self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
 
+
+    def test_36_identical_atom_meanings_different_reviewer_notes_are_not_disagreements(self):
+        draft=copy.deepcopy(self.reviews[1]['body']['draft_gold'])
+        draft['reviewed_cues'][0]['reason']='Independent reviewer explained the same proposition with different words'
+        self.reviews[1]=self._signed_review({**self.reviews[1]['body'],'draft_gold':draft})
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertTrue(r['ready_for_p0_2_06'],r['status'])
+        self.assertEqual(r['cue_disagreements_individually_resolved'],0)
+
+    def test_37_both_reviewer_drafts_missing_gold_schema_must_hold(self):
+        for i in range(2):
+            draft=copy.deepcopy(self.reviews[i]['body']['draft_gold'])
+            del draft['schema']
+            self.reviews[i]=self._signed_review({**self.reviews[i]['body'],'draft_gold':draft})
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_DRAFT_SOURCE_ONLY_GOLD_SCHEMA_INVALID')
+
+    def test_38_reviewer_drafts_sneak_in_prior_predictions_must_hold(self):
+        for i in range(2):
+            draft=copy.deepcopy(self.reviews[i]['body']['draft_gold'])
+            draft['frozen_native_predictions']=[{'claim_id':'SYNTHETIC_PREDICTION_LEAK'}]
+            self.reviews[i]=self._signed_review({**self.reviews[i]['body'],'draft_gold':draft})
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_DRAFT_SOURCE_ONLY_GOLD_SCHEMA_INVALID')
+
 if __name__=='__main__':unittest.main()
