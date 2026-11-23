@@ -3,7 +3,6 @@ from __future__ import annotations
 import copy,unittest
 from unittest.mock import patch
 from scripts.ire_p0_2_05_root_cause_gate import ROOT,RECEIPT,STATE,LEDGER,load,verify
-import ire.v6.gold_release as release
 
 class P205RootCausePublicGateTests(unittest.TestCase):
     @classmethod
@@ -27,7 +26,7 @@ class P205RootCausePublicGateTests(unittest.TestCase):
     def test_13_inflate_redgreen_baseline(self):self.r['red_proof_v6_failures']=6;self.bad('EVIDENCE')
     def test_14_hide_real_root_cause(self):self.r['original_gold_eval_defects'].pop();self.bad('BLOCKERS')
     def test_15_auto_production_pin_self_signed(self):
-        with patch.object(release,'PINNED_P205_HOST_REVIEW_REGISTRY_SHA256','e'*64):self.bad('TRUST_ROOT_MUST_REMAIN')
+        with patch('scripts.ire_p0_2_05_root_cause_gate._production_pin',return_value='e'*64):self.bad('TRUST_ROOT_MUST_REMAIN')
     def test_16_synthetic_test_laundered_as_financial_gold(self):
         self.r['all_synthetic_tests_are_real_financial_accuracy_measurements']=True;self.bad('PRODUCTION_RELEASE')
     def test_17_preregistered_threshold_weakened(self):self.r['required_atomic_precision_basis_points']=9000;self.bad('THRESHOLDS')
