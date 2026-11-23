@@ -501,16 +501,41 @@
     },
     {
       "id": "P0-2-02",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
+      "status": "PASS",
+      "evidence": [
+        {
+          "kind": "source",
+          "ref": "docs/IRE_P0_2_02_ETF250_ATOM_CROSS_ADJUDICATION_SHA_ONLY_20261123.json",
+          "sha": "7b37ba492b66a57d7e64446b669327485f17175e",
+          "verdict": "PASS",
+          "scope": "P0-2-02 only: 68 original unapproved ETF atom candidate source-first dispositions KEEP32 REATOMIZE17 QUARANTINE4 OPEN15; 250 private original cues and 73 original primary source quote anchors source bytes verified; 21 cross-child atoms/49 foreign refs with context49 condition29 numeric3 preserved; all 68 original atom fields and lineage retained, financial truth and independent gold not approved",
+          "verified_by": "Reopened private Library V228 original ZIP and P201 250-cue decisions, verified original source SHA and frozen member byte/hash manifests, audited 73 original primary quotes/250 rows and rebuilt 21 cross-child/49 foreign edges in private P202 source-verification script; public SHA-only receipt, 15 adversarial regression tests required; cannot replay private original in public CI."
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-2-02",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "380eb604902dd81753510196c2d45dc0371f5aa8",
+        "verdict": "START",
+        "user_visible_text": "[P0-2-02 시작] 선행 13/60 PASS, P0-2-02 READY, 이후 46 BLOCKED, audit 통합 브랜치 HEAD 380eb604, main d613fd20, 2 branches. 비공개 원본 SRT 250 cue·기존 미승인 68 원자·21 교차원자·49 외부 cue 참조의 실제 바이트/인용을 우선 대조하여 KEEP/REATOMIZE/QUARANTINE/OPEN으로 수작업 재판정. 숫자·조건·예외·화자 계보 보존과 고위험 미확정 격리·음성시험·공개 SHA-only·동일 HEAD CI가 완료되지 않으면 단계 PASS 아님."
+      },
+      "end_report": {
+        "task_id": "P0-2-02",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "380eb604902dd81753510196c2d45dc0371f5aa8",
+        "verdict": "PASS",
+        "user_visible_text": "[P0-2-02 종료·원문 기준 재판정 범위 PASS] 실제 SRT 250/250, 미승인 원자 68/68, 대표 원문 인용 73건, 21개 교차 원자와 49개 외부 소스 edge/조건29·숫자3 전체 보존. KEEP32 REATOMIZE17 QUARANTINE4 OPEN15. 원본 및 이전 주장 삭제 0, 원음·영상·독립 골드·외부 공식 금융근거 미확정. 비공개 Library P202 상세 원장 보존, GitHub 공개 SHA-only/회귀 시험 및 통합 CI 검증. E3 0/13 E4 0 E5 0. 14/60 PASS, P0-2-03 READY, 이후 45 BLOCKED, main 불변·2 branches."
+      },
       "failure_reason": null,
-      "remediation": null
+      "remediation": "Reexamined all 68 original frozen atoms against 250 source-first cue dispositions; segregated 17 requiring separate atomic decomposition, 4 source-unverifiable quarantines and 15 OPEN, preserved all original condition/exception/numeric/context and 49 foreign edges; repaired P201 gate hard-coded P202 READY cursor to permit future valid contiguous PASS states without relaxing fail-closed downstream checks; additional adversarial public SHA-only test suite prevents count/edge/finance-approval laundering."
     },
     {
       "id": "P0-2-03",
-      "status": "BLOCKED",
+      "status": "READY",
       "evidence": [],
       "start_report": null,
       "end_report": null,
