@@ -45,15 +45,21 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None,p102=None,p103=None):
     need(not status_validate(ledger,root=root),
          "CANONICAL_FINANCE_HOLD_MISMATCH")
     items=state.get("items",[])
+    # Historical P201 closeout required P202 to be the *next* item then.
+    # After P202 is done, do not regress to its former READY cursor.
+    # The global checklist validates every later item as a contiguous
+    # PASS prefix and exactly one active item; preserve that invariant.
+    current=next((t["id"] for t in items if t.get("status")!="PASS"),"ALL_COMPLETE")
     need(len(items)==60 and all(t.get("status")=="PASS" for t in items[:13])
          and items[12].get("id")=="P0-2-01"
          and items[13].get("id")=="P0-2-02"
-         and items[13].get("status")=="READY"
-         and all(t.get("status")=="BLOCKED" for t in items[14:]),
+         and items[13].get("status") in {"READY","IN_PROGRESS","FAIL","HOLD","PASS"}
+         and (items[13].get("status")=="PASS" or
+              all(t.get("status")=="BLOCKED" for t in items[14:])),
          "ONLY_P202_NEXT_AND_PREVIOUS_PASS")
     dev=ledger.get("development_gate",{})
-    need(dev.get("this_item")=="P0-2-02" and
-         dev.get("pending_next_item")=="P0-2-02",
+    need(dev.get("this_item")==current and
+         dev.get("pending_next_item")==current,
          "LEDGER_NEXT_P202_ONLY")
     need(state.get("protected_main_sha")==MAIN and
          receipt.get("schema")=="IRE_P201_PUBLIC_SHA_ONLY_SOURCE_FIRST_CUE_DISPOSITIONS_V1"
