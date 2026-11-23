@@ -274,8 +274,15 @@ def evaluate_atomic_gold(plan, original_srt: bytes, frozen_native: bytes,
     report["independent_recall"] = None
     report["independent_high_risk_false_negative_count"] = None
     thresholds=plan["assessment"]["thresholds"]
-    met=(precision>=thresholds["atomic_precision_min"]
-         and recall>=thresholds["atomic_recall_min"]
+    # Exact rational threshold arithmetic avoids floats in canonical signed JSON.
+    if (type(thresholds.get("atomic_precision_min_bp")) is not int
+            or type(thresholds.get("atomic_recall_min_bp")) is not int
+            or type(thresholds.get("high_risk_false_negative_max")) is not int
+            or not 0 <= thresholds["atomic_precision_min_bp"] <= 10000
+            or not 0 <= thresholds["atomic_recall_min_bp"] <= 10000):
+        _invalid("PREREGISTERED_INTEGER_THRESHOLD_CONTRACT_INVALID")
+    met=(tp*10000 >= thresholds["atomic_precision_min_bp"]*len(pred)
+         and tp*10000 >= thresholds["atomic_recall_min_bp"]*len(goldids)
          and highrisk_fn<=thresholds["high_risk_false_negative_max"])
     report["status"]=("HOLD_ATTESTED_DIAGNOSTIC_THRESHOLDS_MET_PRODUCTION_GOLD_UNVERIFIED"
                        if met else "HOLD_ATTESTED_DIAGNOSTIC_THRESHOLDS_MISSED")
