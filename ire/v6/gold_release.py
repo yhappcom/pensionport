@@ -148,9 +148,11 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
         if (any(type(cue) is not dict or set(cue)!=cue_keys
                 for cue in draft['reviewed_cues'])
                 or any(type(atom) is not dict or set(atom)!=atom_keys
-                       or atom.get('kind') not in {'FACT','OPINION','QUESTION',
+                       or type(atom.get('kind')) is not str
+                       or atom['kind'] not in {'FACT','OPINION','QUESTION',
                            'HYPOTHETICAL','RECOMMENDATION','CALCULATION'}
-                       or atom.get('risk') not in {'HIGH','NORMAL'}
+                       or type(atom.get('risk')) is not str
+                       or atom['risk'] not in {'HIGH','NORMAL'}
                        or any(type(atom.get(k)) is not str or not atom[k].strip()
                               for k in ('proposition','speaker_stance','as_of',
                                         'high_risk_reason'))
