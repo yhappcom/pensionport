@@ -143,6 +143,11 @@ jobs:
           python -m unittest -v scripts.test_ire_p0_2_04_adversarial_gate
           python -m scripts.ire_p0_2_04_adversarial_gate
 
+      - name: P0-2-05 keep independent gold UNMEASURABLE while source-only blind intake is not reviewed
+        run: |
+          python -m unittest -v scripts.test_ire_p0_2_05_gold_readiness_gate
+          python -m scripts.ire_p0_2_05_gold_readiness_gate
+
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA
     needs: branch_governance
