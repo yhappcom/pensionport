@@ -26,7 +26,8 @@ class P007CloseoutTests(unittest.TestCase):
         self.assertEqual(self.s["items"][10]["status"], "PASS")
         self.assertEqual(self.s["items"][11]["status"], "PASS")
         self.assertEqual(self.s["items"][12]["status"], "PASS")
-        self.assertEqual(self.s["items"][13]["status"], "READY")
+        self.assertEqual(self.s["items"][13]["status"], "PASS")
+        self.assertEqual(self.s["items"][14]["status"], "READY")
         self.assertEqual([], verify(ROOT))
 
     def test_bad_ci_sha_cannot_pass(self):
@@ -39,7 +40,7 @@ class P007CloseoutTests(unittest.TestCase):
         self.s["items"][6]["status"]="HOLD"
         self.bad("P007_CHECKLIST_SEQUENCE_FALSE_GO")
     def test_unapproved_next_stage_cannot_be_opened(self):
-        self.s["items"][14]["status"]="READY"
+        self.s["items"][15]["status"]="READY"
         self.bad("P007_CHECKLIST_SEQUENCE_FALSE_GO")
     def test_legacy_archives_not_treated_as_restored(self):
         self.r["evidence_digests"]["unrestored_historical_encrypted_archives"]=0
@@ -54,7 +55,7 @@ class P007CloseoutTests(unittest.TestCase):
         self.r["unchanged_main_sha"]="0"*40
         self.bad("P007_BRANCH_MAIN_UNCHANGED_REQUIRED")
     def test_canonical_next_task_cursor_cannot_be_changed(self):
-        self.l["development_gate"]["this_item"]="P0-2-03"
+        self.l["development_gate"]["this_item"]="P0-2-04"
         self.bad("P007_CANONICAL_LEDGER_INVALID")
     def test_duplicate_canonical_approval_is_forbidden(self):
         self.l["reference_cohort"]["actual_e5_publications"]=1
