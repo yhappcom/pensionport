@@ -29,7 +29,7 @@ class P007CloseoutTests(unittest.TestCase):
         self.assertEqual(self.s["items"][13]["status"], "PASS")
         self.assertEqual(self.s["items"][14]["status"], "PASS")
         self.assertEqual(self.s["items"][15]["status"], "PASS")
-        self.assertEqual(self.s["items"][16]["status"], "READY")
+        self.assertEqual(self.s["items"][16]["status"], "HOLD")
         self.assertEqual([], verify(ROOT))
 
     def test_bad_ci_sha_cannot_pass(self):

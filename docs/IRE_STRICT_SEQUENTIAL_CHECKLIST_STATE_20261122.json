@@ -603,12 +603,35 @@
     },
     {
       "id": "P0-2-05",
-      "status": "READY",
-      "evidence": [],
-      "start_report": null,
-      "end_report": null,
-      "failure_reason": null,
-      "remediation": null
+      "status": "HOLD",
+      "evidence": [
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_SOURCE_ONLY_BLIND_GOLD_READINESS_HOLD_SHA_20261123.json",
+          "scope": "Original source250 and frozen native68 re-accessed; source-only blank 250-cue private intake frozen; preregistered independent atomic gold 0, absent two distinct blind authenticated reviewers and gold-to-prediction alignment; metrics NULL; 28 synthetic matcher tests are not real accuracy."
+        }
+      ],
+      "start_report": {
+        "task_id": "P0-2-05",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "646e7eeed42dbf8a1ee79c8002b8cc24d4ec247e",
+        "verdict": "START",
+        "user_visible_text": "[P0-2-05 시작] 선행 16/60 PASS 및 6/6 같은 SHA 통합 CI 확인. 원본 ETF250 source-only 별도 원자 독립 골드 사전 등록, 소스 250 cue와 68 frozen native 원자 원문·해시 확인, precision>=95 recall>=98 high-risk FN=0 판정 규칙 및 블라인드 재심사 절차 구축. 독립성 없는 자기라벨·ChatGPT 같은 대화 검토는 골드로 인정하지 않고 미달 시 P205 HOLD, P206 BLOCKED."
+      },
+      "end_report": {
+        "task_id": "P0-2-05",
+        "channel": "USER_CHAT",
+        "declared_sent_to_user": true,
+        "reported_at": "2026-11-23",
+        "baseline_sha": "646e7eeed42dbf8a1ee79c8002b8cc24d4ec247e",
+        "verdict": "HOLD",
+        "user_visible_text": "[P0-2-05 종료 — 공식 독립 골드 및 금융정확도 HOLD] 원본 ETF source 250/250, 동결 모델 예측 68/68, 250 cue source-only blank independent review packet SHA 및 비공개 Library 저장, 정밀도95 재현율98 고위험FN0 원자 9축 1:1 사전 등록. 28 합성 맞춤/거짓 독립성 거부 테스트와 30 public HOLD gate 테스트는 소프트웨어 검증일 뿐 금융 정확도 미인증. 독립 원자 골드 0개, 서로 분리된 이중 블라인드 검토 및 정답 봉인/대응 없음, 정밀도·재현율·고위험FN 실측 NULL. 기존 16/60 PASS 유지, P205 HOLD, P206 및 43개 BLOCKED. E3 0/13 E4 0 E5 0, main 불변/2 branches. 동일 SHA 종단 6/6 CI 완료 후 최종 확인."
+      },
+      "failure_reason": "Independent source-first atomic gold has zero fully adjudicated atoms; 250 original cue dispositions in P201/P203 are not an independently blinded atomic gold denominator. No verifiable distinct blind reviewer identities/sessions, consensus or signed pre-scoring gold SHA, so TP/FP/FN and high-risk FN cannot be measured and 95%/98%/0 thresholds cannot be certified. Same-chat exposure to legacy native predictions disqualifies independent blindness.",
+      "remediation": "Frozen before scoring: preregistration version V2 with exact integer thresholds 9500/9800 and high-risk FN0, source-only original SRT250 packet stripped of 68 native predictions and P201-P203 labels uploaded to private owner Library. Implemented source SHA/numeric/condition/exception/stance 9-axis one-to-one atomic evaluator, 28 synthetic adversarial tests, 30 public false-gold/false-GO guard tests. Resume this same P205 only after two separately isolated and attestable source-first blind reviews cover all 250 cue slots and all atomic facts including high-risk cases, resolve disagreement, freeze private atomic gold and independent provenance, align to original 68 frozen predictions, establish real TP FP FN and thresholds, and verify exact-head six-job CI. No next stage until PASS."
     },
     {
       "id": "P0-2-06",
