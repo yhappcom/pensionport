@@ -18,6 +18,7 @@ from cryptography.exceptions import InvalidSignature
 from .codec import canonical, json_digest, sha256
 from .errors import InvalidInput
 from .source import parse_srt
+from .numeric_provenance import audit_numeric_reference_boundaries
 from .gold_traceability import verify_gold_cue_trace
 
 MATCH_FIELDS = (
@@ -180,6 +181,13 @@ def evaluate_atomic_gold(plan, original_srt: bytes, frozen_native: bytes,
                 _invalid("NATIVE_PREDICTION_QUOTE_NOT_FROM_SOURCE")
     report=_base_report(plan,source_sha,native_sha,len(cue_rows),len(pred),
                         problem="HOLD_NO_INDEPENDENT_ATOMIC_GOLD")
+    numeric_flags=audit_numeric_reference_boundaries(cue_rows,candidates)
+    report["prediction_numeric_source_boundary_warnings"]=len(numeric_flags)
+    report["prediction_numeric_source_boundary_affected_atoms"]=len(
+        {flag["claim_id"] for flag in numeric_flags})
+    report["prediction_numeric_source_provenance_complete"]=(len(numeric_flags)==0)
+    # These are structural provenance warnings, not independent semantic gold.
+    # Never convert an audit warning into an FP/FN count automatically.
     if gold is None or alignment is None:
         return report
     if type(gold) is not dict or gold.get("schema") != "IRE_P205_PRIVATE_GOLD_ATOMIC_REVIEW_V1":
