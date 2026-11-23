@@ -128,6 +128,11 @@ jobs:
           python -m unittest -v scripts.test_ire_p0_2_01_source_first_gate
           python -m scripts.ire_p0_2_01_source_first_gate verify
 
+      - name: P0-2-02 68 atom source-first cross-child 21 and 49 foreign-edge SHA-only decisions
+        run: |
+          python -m unittest -v scripts.test_ire_p0_2_02_adjudication_gate
+          python -m scripts.ire_p0_2_02_adjudication_gate
+
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA
     needs: branch_governance
