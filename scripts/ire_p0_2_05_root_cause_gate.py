@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """P205 current owner ETF250 evidence readiness: deny fabricated GO, preserve RED-GREEN proof."""
 from __future__ import annotations
-import json,sys
+import ast,json,sys
 from pathlib import Path
-import ire.v6.gold_release as production
+
 from scripts.ire_p0_2_05_gold_readiness_gate import verify as old_hold_verify
 from scripts.ire_checklist_gate import STATE
 from scripts.ire_current_status_gate import LEDGER
@@ -14,6 +14,18 @@ NATIVE_SHA='c8bec3354702cad0e85d4b111d2627ae2978806f3a4111c94a689d3b9e25baeb'
 PACKET_SHA='e9b8966995c0b91b05516458d95d4df1fc5bd27bd44fd7ead7298b80c9c1d8cb'
 
 def load(root,p):return json.loads((Path(root)/p).read_text(encoding='utf8'))
+
+def _production_pin(root):
+    """Read the committed trust-root literal without importing crypto in governance CI."""
+    path=Path(root)/'ire/v6/gold_release.py'
+    tree=ast.parse(path.read_text(encoding='utf8'),filename=str(path))
+    pins=[node.value for node in tree.body if isinstance(node,(ast.Assign,ast.AnnAssign))
+          and any(isinstance(t,ast.Name) and t.id=='PINNED_P205_HOST_REVIEW_REGISTRY_SHA256'
+                  for t in (node.targets if isinstance(node,ast.Assign) else [node.target]))]
+    if len(pins)!=1 or not isinstance(pins[0],ast.Constant):
+        return 'MISSING_OR_DYNAMIC_PIN'
+    return pins[0].value
+
 
 def verify(root=ROOT,*,receipt=None,state=None,ledger=None):
     root=Path(root)
@@ -65,7 +77,7 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None):
          and r.get('production_root_hash_from_caller_accepted') is False
          and r.get('all_synthetic_tests_are_real_financial_accuracy_measurements') is False,
          'EXPLICIT_NO_SELF_SIGNED_PRODUCTION_RELEASE')
-    need(production.PINNED_P205_HOST_REVIEW_REGISTRY_SHA256 is None,
+    need(_production_pin(root) is None,
          'PRODUCTION_HOST_TRUST_ROOT_MUST_REMAIN_UNENROLLED')
     need(all((root/p).is_file() for p in (
          'ire/v6/gold_traceability.py','ire/v6/gold_release.py',
