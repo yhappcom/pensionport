@@ -213,4 +213,49 @@ class P205GoldReleaseTests(unittest.TestCase):
         with self._pinned():r=self._eval()
         self.assertIn('HOLD_DIVERGENT_DRAFTS_WITH_ZERO_RECONCILIATION',r['status'])
 
+
+    def test_24_false_positive_consensus_count_without_cue_resolution(self):
+        draft=copy.deepcopy(self.reviews[1]['body']['draft_gold'])
+        draft['atomic_gold_claims'][0]['proposition']='deliberately changed reviewer assertion'
+        self.reviews[1]=self._signed_review({**self.reviews[1]['body'],'draft_gold':draft})
+        self.consensus['body']['disagreements_count']=1
+        self.consensus['body']['resolved_disagreements_count']=1
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
+    def test_25_changed_final_gold_without_any_reviewer_support(self):
+        self.gold['atomic_gold_claims'][0]['proposition']='unsourced consensus reinterpretation'
+        self.consensus['body']['gold_sha256']=json_digest(self.gold)
+        self._re_sign_consensus()
+        self.alignment_receipt['body']['gold_sha256']=json_digest(self.gold)
+        self.alignment_receipt['host_signature']=self._sign('neutral_host',self.alignment_receipt['body'])
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
+    def test_26_empty_blind_reviewer_reason_not_a_completed_review(self):
+        draft=copy.deepcopy(self.reviews[0]['body']['draft_gold'])
+        draft['reviewed_cues'][0]['reason']=''
+        self.reviews[0]=self._signed_review({**self.reviews[0]['body'],'draft_gold':draft})
+        self.consensus['body']['disagreements_count']=1
+        self.consensus['body']['resolved_disagreements_count']=1
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
+    def test_27_reviewer_atom_silently_dropped_at_consensus(self):
+        draft=copy.deepcopy(self.reviews[1]['body']['draft_gold'])
+        extra=copy.deepcopy(draft['atomic_gold_claims'][0])
+        extra['gold_id']='G00003'
+        extra['source_refs']=[{'cue_index':3,'quote':'This example is not a confirmed ETF offer.'}]
+        draft['atomic_gold_claims'].append(extra)
+        draft['reviewed_cues'][2]['status']='REVIEWED_ATOM'
+        draft['reviewed_cues'][2]['gold_atom_ids']=['G00003']
+        self.reviews[1]=self._signed_review({**self.reviews[1]['body'],'draft_gold':draft})
+        self.consensus['body']['disagreements_count']=1
+        self.consensus['body']['resolved_disagreements_count']=1
+        self._re_sign_consensus()
+        with self._pinned():r=self._eval()
+        self.assertEqual(r['status'],'HOLD_UNVERIFIED_GOLD_RESOLUTION_LINEAGE')
+
 if __name__=='__main__':unittest.main()
