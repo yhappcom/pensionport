@@ -310,4 +310,34 @@ class P205AtomicGoldTests(unittest.TestCase):
         self.assertIsNone(report['independent_precision'])
         self.assertFalse(report['ready_for_p0_2_06'])
 
+
+    def test_37_numeric_source_unit_warnings_are_diagnostic_not_independent_gold(self):
+        self.native['atoms'][0]['numeric_references']=[
+            {'cue_index':1,'token':'999'},
+        ]
+        self.pred_raw=canonical(self.native)
+        self.plan['predictions']['frozen_v228_native_sha256']=sha256(self.pred_raw)
+        r=self.run_eval(gold=None,alignment=None)
+        self.assertEqual(r['prediction_numeric_source_boundary_warnings'],1)
+        self.assertEqual(r['prediction_numeric_source_boundary_affected_atoms'],1)
+        self.assertFalse(r['prediction_numeric_source_provenance_complete'])
+        self.assertIsNone(r['independent_precision'])
+
+    def test_38_clean_synthetic_numeric_refs_do_not_pretend_independent_truth(self):
+        r=self.run_eval(gold=None,alignment=None)
+        self.assertEqual(r['prediction_numeric_source_boundary_warnings'],0)
+        self.assertTrue(r['prediction_numeric_source_provenance_complete'])
+        self.assertFalse(r['independent_gold_verified'])
+
+    def test_39_non_string_numeric_reference_is_reported_not_crash(self):
+        self.native['atoms'][0]['numeric_references']=[
+            {'cue_index':1,'token':['999']},
+        ]
+        self.pred_raw=canonical(self.native)
+        self.plan['predictions']['frozen_v228_native_sha256']=sha256(self.pred_raw)
+        r=self.run_eval(gold=None,alignment=None)
+        self.assertEqual(r['prediction_numeric_source_boundary_warnings'],1)
+        self.assertIsNone(r['independent_high_risk_false_negative_count'])
+
+
 if __name__=="__main__":unittest.main()
