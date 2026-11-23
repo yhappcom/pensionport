@@ -49,13 +49,15 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None,p102=None,p103=None):
     # After P202 is done, do not regress to its former READY cursor.
     # The global checklist validates every later item as a contiguous
     # PASS prefix and exactly one active item; preserve that invariant.
-    current=next((t["id"] for t in items if t.get("status")!="PASS"),"ALL_COMPLETE")
+    active_index=next((i for i,t in enumerate(items) if t.get("status")!="PASS"),len(items))
+    current=items[active_index]["id"] if active_index<len(items) else "ALL_COMPLETE"
     need(len(items)==60 and all(t.get("status")=="PASS" for t in items[:13])
          and items[12].get("id")=="P0-2-01"
          and items[13].get("id")=="P0-2-02"
          and items[13].get("status") in {"READY","IN_PROGRESS","FAIL","HOLD","PASS"}
-         and (items[13].get("status")=="PASS" or
-              all(t.get("status")=="BLOCKED" for t in items[14:])),
+         and (active_index==len(items) or (
+              items[active_index].get("status") in {"READY","IN_PROGRESS","FAIL","HOLD"}
+              and all(t.get("status")=="BLOCKED" for t in items[active_index+1:]))),
          "ONLY_P202_NEXT_AND_PREVIOUS_PASS")
     dev=ledger.get("development_gate",{})
     need(dev.get("this_item")==current and
