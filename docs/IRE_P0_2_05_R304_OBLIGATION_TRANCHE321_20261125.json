@@ -1,0 +1,72 @@
+{
+  "schema": "IRE_P205_R304_OBLIGATION_TRANCHE_APPEND_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "parent_commit": "ac3d48136c63e8be75f853909d873e9e1fc81124",
+  "parent_ci_run_id": 45362682393,
+  "parent_ci_conclusion": "success",
+  "parent_archive_sha256": "bb1e8431976ca020e02a0593548ecbbf0ff327c30ff8eef9df448933de785752",
+  "module_git_blob_expected": "7aa953b866ef9c8d40d2630e7b9671a3af5fb7bc",
+  "module_sha256": "b6df68d1f89b1186d320da92f919cea44160cee3a0acc375163b0045b7bf0a98",
+  "total_obligations": 1163,
+  "prior_reviewed": 147,
+  "new_reviewed": 174,
+  "cumulative_reviewed": 321,
+  "remaining_unreviewed": 842,
+  "new_decisions": {
+    "CARRY_SOURCE_EDGE": 81,
+    "REBIND_SOURCE_FRAGMENT": 1,
+    "CONTEXT_ONLY": 6,
+    "OPEN": 86
+  },
+  "cumulative_decisions": {
+    "CARRY_SOURCE_EDGE": 146,
+    "REBIND_SOURCE_FRAGMENT": 11,
+    "CONTEXT_ONLY": 22,
+    "REVIEWER_NOTE": 24,
+    "OPEN": 118
+  },
+  "videos": [
+    {
+      "video": 270,
+      "new_reviewed": 134,
+      "cumulative_reviewed": 194,
+      "remaining_unreviewed": 266,
+      "cumulative_rows_sha256": "5e6a6b26b4a9cd4136b3877f57d9b5c2ade230766cda08a34626af94419d6a41",
+      "cumulative_output_sha256": "23e5d8834f5f104c69aea2ff981c46ea0054132cfe94c0d0b6c0afce5d004026"
+    },
+    {
+      "video": 271,
+      "new_reviewed": 40,
+      "cumulative_reviewed": 127,
+      "remaining_unreviewed": 576,
+      "cumulative_rows_sha256": "f76048559ab99c7ddcf98685dba0f4531a853bfec26f01c9477aeee862a58509",
+      "cumulative_output_sha256": "5cf06b2e0e1447d12740421f2a9c2b88a360b80832bc3a894cca10e0be7b6518"
+    }
+  ],
+  "prior_receipts_replayed_exact": true,
+  "combined_replay_equal": true,
+  "negative_tests_blocked": 8,
+  "negative_test_types": [
+    "duplicate_prior",
+    "missing_prior",
+    "wrong_receipt_pin",
+    "changed_prior"
+  ],
+  "private_archive_sha256": "7ef3bb8db23944c9517aa2245dc30c51db0ef4689c9e1aee718449ab686a6144",
+  "private_archive_bytes": 1397292,
+  "private_library_file_id": "libfile_dd0c7dae1c2881918c547132d4610087",
+  "decision_tsv_sha256": "73a65bd8babaf50215cfe725e39471e068770d8095433b59334914bc8b56a15e",
+  "result_sha256": "dc98675f44461c542d61ffc0fe566cd0767c24424c06d4c2e07120554461a275",
+  "append_result_sha256": "465ad3b3d57940ef05441e94fd221cb2cf9a0e231413d9badc084f7ff43da4be",
+  "limitations": [
+    "Explicit human-model judgments at source edge level, not whole-atom semantic equivalence or current financial law validation.",
+    "Original single-edge validator cannot represent a condition governing multiple successors simultaneously; affected obligation remains OPEN. Graph numeric function fields still provisional and require final reconciliation.",
+    "Cumulative append checks prior externally pinned receipt and duplicate rows, but not yet persisted in the native final journal. Existing 908 open source characters, 3 unbound numeric spans and speaker uncertainty remain unchanged."
+  ],
+  "claim_semantic_equivalence_certified": false,
+  "full_semantic_conservation_verified": false,
+  "publication_authorized": false,
+  "financial_approval": false,
+  "new_operational_score": null,
+  "status": "HOLD"
+}

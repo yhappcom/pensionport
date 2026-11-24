@@ -184,7 +184,7 @@
         "r304_journal_receipt": "docs/IRE_P0_2_05_R304_GRAPH_JOURNAL_REAL_REGRESSION_SHA_ONLY_20261124.json",
         "r304_all112_review_receipt": "docs/IRE_P0_2_05_R304_ALL112_DISPUTE_REVIEW_SHA_ONLY_20261124.json",
         "r304_provisional_successor_receipt": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json",
-        "r304_obligation_review_receipt": "docs/IRE_P0_2_05_R304_SEMANTIC_OBLIGATION_TRANCHE147_20261124.json"
+        "r304_obligation_review_receipt": "docs/IRE_P0_2_05_R304_OBLIGATION_TRANCHE321_20261125.json"
       }
     },
     "E3": {
@@ -990,7 +990,7 @@
       "id": "S02",
       "scope": "E2",
       "status": "HOLD",
-      "reason": "R3-04 147/1163 explicit obligation review decisions: 75 source edge/rebinding, 40 contextual or reviewer notes, 32 OPEN; 1016 unreviewed. Sidecar validates source and parent pins but whole-predicate equivalence and final graph/journal integration remain unverified. Prior failures preserved."
+      "reason": "R3-04 cumulative 321/1163 obligation decisions, 157 edge/rebinding, 46 context/reviewer notes, 118 OPEN and 842 not reviewed. Cumulative append verified against prior receipt but one-to-many qualifier carrying and final graph/journal integration remain unverified. Prior failed scores unchanged."
     },
     {
       "id": "S03",

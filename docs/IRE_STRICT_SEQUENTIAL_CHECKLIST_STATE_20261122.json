@@ -796,6 +796,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_R304_SEMANTIC_OBLIGATION_TRANCHE147_20261124.json",
           "scope": "147 actual old obligation decisions: 65 direct edge, 10 cross-cue rebind, 16 context-only, 24 reviewer notes, 32 OPEN, 1016 not reviewed. New validator actual repeat and 9 negative executions. No claim equivalence or release."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_R304_OBLIGATION_TRANCHE321_20261125.json",
+          "scope": "174 new explicit source-edge decisions, cumulative 321/1163. Prior 147 exact replay, append duplicate/receipt/changed prior/missing prior 8 blocks. 118 cumulative OPEN, 842 not reviewed. No release."
         }
       ],
       "start_report": {
@@ -1051,11 +1057,11 @@
       },
       "r304_obligation_review": {
         "status": "HOLD",
-        "receipt": "docs/IRE_P0_2_05_R304_SEMANTIC_OBLIGATION_TRANCHE147_20261124.json",
-        "reviewed": 147,
-        "remaining_unreviewed": 1016,
-        "start_report_user_visible": "R3-04 원래 의무의 의미 귀속 및 검토 주석 분리 검증 착수.",
-        "end_report_user_visible": "147개 개별 의미 귀속 판정, 75개 source edge, 40개 문맥/검토 주석, 32개 OPEN, 1016개 미검토. 9개 부적합 입력 차단. 최종 graph 승계 및 전체 의미 검증 미완료."
+        "receipt": "docs/IRE_P0_2_05_R304_OBLIGATION_TRANCHE321_20261125.json",
+        "reviewed": 321,
+        "remaining_unreviewed": 842,
+        "start_report_user_visible": "R3-04 선행 CI 및 147개 원장 검증, 추가 의미 귀속 검토.",
+        "end_report_user_visible": "174개 신규, 누적321개; 이전 원장 재실행 일치, 8개 부적합 차단, 118 OPEN/842 미검토, 실제 journal 통합 미완료."
       }
     },
     {

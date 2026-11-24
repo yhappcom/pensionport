@@ -21,3 +21,7 @@ R3-02/03 predecessor code and regression records passed all six integrated jobs 
 ## 원래 의무 147개 개별 의미 귀속 검토
 
 두 동결 원본의 실제 정정 후보 및 원래 의무/후보 원장 해시를 대조했다. #270 60건, #271 87건. 원문 edge 귀속 65, 실제 분절 수치 연결 10, 설명 순서/계좌 예시 번호 문맥 16, 검토자 주석 분리 24, 의미·단위 미확정 OPEN 32. 1016개 미검토. 새 semantic_obligation_review 모듈은 명시적 판단/후속 edge/원문 SHA/부모 원장 pin을 검문한다. 좌표 일치를 의미 정답으로 자동 인정하지 않는다. 실제 9개 부적합 실행 차단, 재실행 동일. 75개 edge 귀속은 전체 원자의 의미 등가, 금융 승인 또는 실제 운영 점수가 아니다. 24개 검토자 주석은 후속 검토 sidecar에만 보존, source qualifier로 변환 금지. 기존 graph와 점수 불변; 최종 graph/journal 통합 및 나머지 의무 검토 필요. P205 HOLD. 증빙 docs/IRE_P0_2_05_R304_SEMANTIC_OBLIGATION_TRANCHE147_20261124.json.
+
+## 2026-11-25 추가 174개 의무 검토 및 누적 원장
+
+선행 CI 45362682393 성공. 147개 이전 판단을 원래 receipt와 동일하게 재실행, 신규 174개 판단(원문 edge 81/분절 수치1/문맥6/OPEN86), 누적321개(원문 edge146/분절11/문맥22/검토주석24/OPEN118). 842개 미검토. 원문 분기배당 월 숫자 및 축약된 세액공제 한도, 이월의 '2월' 전사, 6900을 실제 금융 규정으로 확정하지 않는다. 64번 원래 조건이 이자·공제 불가 두 원자에 적용되어 단일 edge 검문으로는 부족함을 확인, OPEN 유지. 누적 append 검문에서 이전 receipt 외부 pin 및 이전 행 재실행, 중복 검증, 8회 부적합 입력 차단. 최종 V3 graph/journal 영속화 및 다중 승계 검문 미완료. 기존 점수와 그래프 변경 없음. 증빙 docs/IRE_P0_2_05_R304_OBLIGATION_TRANCHE321_20261125.json.
