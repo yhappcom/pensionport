@@ -1,0 +1,158 @@
+{
+  "schema": "IRE_P205_R304_ALL112_LEGACY_DISPUTE_REVIEW_SHA_ONLY_V1",
+  "date": "2026-11-24",
+  "engine_commit_sha": "a651e89a16ad31ad6b111998907f04a8fe8ecdd7",
+  "engine_ci_run_id": 45357353634,
+  "engine_ci_conclusion": "success",
+  "predecessor_corrected_ci_run_id": 45357131839,
+  "predecessor_ci_jobs_success": 6,
+  "code_artifact_id": 14902522687,
+  "code_artifact_sha256": "d0f5706c45ebc9a07e8a41879a37b91f384e95b21255b7f4ffae1193dfd91749",
+  "code_manifest_verified_files": 72,
+  "source_records": [
+    {
+      "video": 270,
+      "source_sha256": "e67be6da14dc6eae2fe8172add56f2c98efb1e6e232587aaa591d8752b043792",
+      "frozen_prediction_sha256": "a9ef191da0f1b989f2e15e8efeb2d141105da75befa00d8370a774fb2be58089",
+      "reference_sha256": "ff8cc6917a12d3fe384297bbaad7bc5189028039a61a13e0e57a8f11ce62c5be",
+      "frozen_archive_sha256": "8462e3c492d8bb1b5e72bd3c8d5cd8d72a1990a3c8338eb9d7056f7b7ddb134e",
+      "source_cues": 618,
+      "direct_cues_union": 567,
+      "residual_cues": 51,
+      "prediction_atoms": 133,
+      "reference_atoms": 146,
+      "groups": 67,
+      "group_review": {
+        "ALIGNED_TEXT": 25,
+        "REPARTITION": 28,
+        "REVISE_BOTH": 11,
+        "SOURCE_OPEN": 3
+      },
+      "obligation_counts": {
+        "NUMBER": 325,
+        "CONDITION": 135,
+        "EXCEPTION": 0
+      },
+      "obligation_positions": {
+        "EXACT_UNIQUE": 403,
+        "CUE_ONLY": 43,
+        "AMBIGUOUS": 14,
+        "SEMANTIC_ONLY_NO_EXPLICIT_COORDINATE": 0
+      },
+      "residual_dispositions": {
+        "CONTEXT": 13,
+        "NONCLAIM": 34,
+        "OPEN": 4
+      }
+    },
+    {
+      "video": 271,
+      "source_sha256": "a2c3017542b2670a39d7fcd796f706e583006a4d0a043d26854f27fc6a1f50e1",
+      "frozen_prediction_sha256": "543891507e505501f1d01f39210acdfafccc1ca4df5039729165a86618c0aaf0",
+      "reference_sha256": "b7f11ace994c563fb8167d8727be71af9356058231188ca06578265904f43593",
+      "frozen_archive_sha256": "c7699d0d4cc1825be81c5f7ff6dcb24fdfb06fae8eddba960d83aad2909f42d3",
+      "source_cues": 706,
+      "direct_cues_union": 650,
+      "residual_cues": 56,
+      "prediction_atoms": 93,
+      "reference_atoms": 94,
+      "groups": 45,
+      "group_review": {
+        "ALIGNED_TEXT": 16,
+        "REPARTITION": 20,
+        "REVISE_BOTH": 8,
+        "SOURCE_OPEN": 1
+      },
+      "obligation_counts": {
+        "NUMBER": 325,
+        "CONDITION": 370,
+        "EXCEPTION": 8
+      },
+      "obligation_positions": {
+        "EXACT_UNIQUE": 301,
+        "CUE_ONLY": 301,
+        "AMBIGUOUS": 24,
+        "SEMANTIC_ONLY_NO_EXPLICIT_COORDINATE": 77
+      },
+      "residual_dispositions": {
+        "CONTEXT": 10,
+        "NONCLAIM": 46,
+        "OPEN": 0
+      }
+    }
+  ],
+  "total_groups": 112,
+  "total_old_atoms": 466,
+  "total_source_cues": 1324,
+  "group_verdicts": {
+    "ALIGNED_TEXT": 41,
+    "REPARTITION": 48,
+    "REVISE_BOTH": 19,
+    "SOURCE_OPEN": 4
+  },
+  "group_verdicts_scope": "Manual review of existing frozen source overlap groups and proposition texts, source cue evidence references. ALIGNED_TEXT is not nine-axis semantic equivalence or TP. REPARTITION means preserve distinct predicates or re-anchor boundaries, not every split/merge is proven.",
+  "total_obligations": 1163,
+  "obligation_counts": {
+    "NUMBER": 650,
+    "CONDITION": 505,
+    "EXCEPTION": 8
+  },
+  "obligation_positions": {
+    "EXACT_UNIQUE": 704,
+    "CUE_ONLY": 344,
+    "AMBIGUOUS": 38,
+    "SEMANTIC_ONLY_NO_EXPLICIT_COORDINATE": 77
+  },
+  "coordinate_match_candidates": 674,
+  "all_obligations_escrowed_pending_explicit_v3_successor": true,
+  "residual_cues": 107,
+  "residual_dispositions": {
+    "CONTEXT": 23,
+    "NONCLAIM": 80,
+    "OPEN": 4
+  },
+  "source_evidence_and_span_checks": 1881,
+  "qualifier_separation": {
+    "reviewed": 77,
+    "SOURCE_SCOPE": 35,
+    "REVIEW_NOTE": 24,
+    "MIXED": 15,
+    "UNRESOLVED": 3,
+    "source_anchor_candidate_cues": 337,
+    "exact_qualifier_edge_certified": false,
+    "sha256": "d9f640e293441cfd6f8b56379cacb9374a26af88184cee2a78c2eca7a0ab02c6"
+  },
+  "groups_sha256": "38fa983640ee3edd83e3b520c64e11430d3270399ce49d12d5e5f59f9dfbb015",
+  "obligations_sha256": "2ec0226f6ea336032c28f5b22b2271d3a1c5e0416df25b3dafd860efc439d826",
+  "residual_sha256": "040fce677a51634995cfcc315f6babb0a2c7745054d3add3191b404c6fe93674",
+  "decisions_tsv_sha256": "fedccae12074b3d6f8dcdb8163dbb95553f22c1b9ffecc26890c97e87420f276",
+  "private_receipt_sha256": "7b6fcd696170d31cc202f6e8c2064fa359b396ebbd91e083cbbfe5665ff4bdc6",
+  "private_archive_sha256": "1012bf85ec8dbbc4e8e55e0c197b4e085e5ee83cdcbbd81e12dc387766a44840",
+  "private_archive_bytes": 1034997,
+  "private_library_file_id": "libfile_1cf193c4a4708191b6bd4ccc0ac0c4a4",
+  "repeat_replay_equal": true,
+  "old_failure_scores_preserved": true,
+  "new_operational_score": null,
+  "full_v3_successor_graph_created": false,
+  "full_semantic_conservation_verified": false,
+  "actual_distinct_user_turn_v3_freeze_verified": false,
+  "independent_gold_verified": false,
+  "publication_authorized": false,
+  "stage_results": {
+    "R3_01": "RECORDED",
+    "R3_02": "CI_PASS",
+    "R3_03": "EXPOSED_REGRESSION_PASS",
+    "R3_04": "ALL112_LEGACY_GROUP_REVIEW_DONE_SUCCESSOR_CONSERVATION_HOLD",
+    "R3_05": "BLOCKED",
+    "R3_06": "BLOCKED"
+  },
+  "remaining": [
+    "Create actual full-source successor V3 graphs, with predicate-level lineage and explicit source versus reviewer-note separation. Do not use legacy raw conditions as direct quotes.",
+    "Map each of 1163 original obligations to explicit preserved edge, correction or reasoned escrow; resolve 344 cue-only, 38 ambiguous positions and 3 unresolved qualifier meanings, residual 4 open cues and source-open groups without inventing ASR.",
+    "Use full V3 compiler and journal; verify source coverage, role/attribution, every lineage obligation, exact frozen old scores unchanged. Legacy V1/V2 packets cannot be pretended to be native V3 first/second turn packets.",
+    "Actual distinct user-turn V3 freeze/retrieve verification before native bridge."
+  ],
+  "status": "HOLD",
+  "checklist_passed": 16,
+  "blocked_successors": 43
+}

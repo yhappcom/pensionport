@@ -778,6 +778,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_R304_GRAPH_JOURNAL_REAL_REGRESSION_SHA_ONLY_20261124.json",
           "scope": "R3-04 private graph journal actual exposed-source partial regression 5→6 nodes; six immutable-stage events, split and reverse merge, nine negative tests, reopen/retry equal. Four open disputes and 11180 open characters. Corrected CI pending; no new actual turn or score."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_R304_ALL112_DISPUTE_REVIEW_SHA_ONLY_20261124.json",
+          "scope": "Manual source-linked review of all 112 legacy groups/466 old atoms; all 1163 numeric/condition/exception obligations escrowed, 77 semantic-only conditions distinguished into 35 source scope/24 review note/15 mixed/3 unresolved. Actual full successor graph not yet compiled; prior scores unchanged."
         }
       ],
       "start_report": {
@@ -1010,6 +1016,20 @@
         },
         "start_report_user_visible": "선행 V3 CI 6/6 확인 후 R3-04 의미 충돌 및 정정 계보 개발.",
         "end_report_user_visible": "실제 노출 원문 부분 회귀, 저널 6단계/분할·역방향 결합/9건 차단/재개 일치. 신규 테스트 문법 수정 후 CI 미완료, 완전 의미검증 미완료. P205 HOLD."
+      },
+      "r304_all112": {
+        "status": "HOLD",
+        "receipt": "docs/IRE_P0_2_05_R304_ALL112_DISPUTE_REVIEW_SHA_ONLY_20261124.json",
+        "stage_results": {
+          "R3_01": "RECORDED",
+          "R3_02": "CI_PASS",
+          "R3_03": "EXPOSED_REGRESSION_PASS",
+          "R3_04": "ALL112_LEGACY_GROUP_REVIEW_DONE_SUCCESSOR_CONSERVATION_HOLD",
+          "R3_05": "BLOCKED",
+          "R3_06": "BLOCKED"
+        },
+        "start_report_user_visible": "R3-04 전체 의미 충돌 그룹 검증, 선행 CI 확인.",
+        "end_report_user_visible": "112/112 그룹 원문 대조·판정, 1163 의무 전수 원장, 77 위치 없는 조건 출처/검토자 주석 분리. 재실행 일치. 실제 V3 정정 원자 승계·계보 미완료. P205 HOLD."
       }
     },
     {
