@@ -43,11 +43,7 @@ class P205LiveTransitionTests(unittest.TestCase):
         self.assertTrue(live.validate_closeout(self.r,self.pins))
 
     def test_actual_current_hold(self):
-        state=live._load(live.ROOT,live.STATE)
-        if state["items"][16]["status"]=="PASS":
-            self.assertEqual([],live.verify_legacy_independent_transition())
-        else:
-            self.assertEqual([],live.verify_legacy_independent_transition())
+        self.assertEqual([],live.verify_current())
 
     def test_unpinned_perfect_receipt_cannot_advance(self):
         s={"items":[{} for _ in range(60)]}

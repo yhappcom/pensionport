@@ -10,7 +10,6 @@ from .atomic_exchange import audit_host_atomic_exchange
 from .codec import json_digest,sha256,require_hash
 from .errors import InvalidInput
 from .gold_eval import evaluate_atomic_gold
-from .source import verify_source
 from .trust import verify_owner_inventory
 
 POLICY_ID="IRE_P205_OPERATIONAL_V1_20261124"
@@ -101,9 +100,7 @@ def evaluate_operational_trial(plan, original, prediction, *, manifest, inventor
     # An exact pair is a ChatGPT judgment, not mechanically proven equivalence.
     # Numeric/condition/exception mismatches are critical even if low risk.
     critical=sum(not all(p["match_dimensions"][k] for k in
-                      p["match_dimensions"] if k in ("numbers_units","conditions","exceptions",
-                      "numeric_evidence","numeric_scope","numeric_unit","numeric_values",
-                      "condition_scope","exception_scope")) for p in pairs)
+                      ("numeric_value_and_unit","conditions","exceptions")) for p in pairs)
     # All non-exact pairs still count as FP and FN in the common evaluator.
     met=bool(tp+fp and tp+fn and tp*10000>=9500*(tp+fp) and
              tp*10000>=9800*(tp+fn) and high==0 and numeric==0 and critical==0)
@@ -112,6 +109,8 @@ def evaluate_operational_trial(plan, original, prediction, *, manifest, inventor
             "domain":review["domain"],"cohort_sha256":review["cohort_sha256"],
             "selection_sha256":review["selection_sha256"],"plan_sha256":json_digest(plan),
             "source_sha256":source.source_sha256,"video_id":source.video_id,
+            "manifest_sha256":source.manifest_sha256,"inventory_sha256":expected_inventory_sha256,
+            "prediction_frozen_at":review["prediction_frozen_at"],
             "prediction_sha256":sha256(prediction),"reference_sha256":json_digest(reference),
             "alignment_sha256":json_digest(alignment),"review_sha256":json_digest(review),
             "source_cues":len(source.cues),"reviewed_cues":diagnostic["source_cue_rows_reviewed_count"],

@@ -5,6 +5,7 @@ after actual private replay respectively; neither may be supplied by a caller.
 """
 from __future__ import annotations
 import hashlib,json,re
+from datetime import datetime
 from pathlib import Path
 from scripts.ire_checklist_gate import CATALOG,STATE,validate as validate_checklist
 from scripts.ire_current_status_gate import LEDGER,validate as validate_status
@@ -22,12 +23,17 @@ def _sha(b):return hashlib.sha256(b).hexdigest()
 def _blob(b):return hashlib.sha1(b"blob "+str(len(b)).encode()+bytes([0])+b).hexdigest()
 def _hex(x,n=64):return type(x) is str and bool(re.fullmatch("[0-9a-f]{"+str(n)+"}",x))
 def _load(root,path):return json.loads((root/path).read_text(encoding="utf8"))
+def _time(x):
+    try:
+        t=datetime.fromisoformat(x.replace("Z","+00:00"))
+        return t if t.tzinfo is not None else None
+    except (AttributeError,ValueError,TypeError):return None
 
 def validate_closeout(receipt,cohort,cohort_sha):
     errors=[]
     def need(flag,name):
         if not flag:errors.append("P205_OPERATIONAL_"+name)
-    if type(cohort) is not dict or set(cohort)!={"schema","policy_id","engine_commit_sha","sources"}:
+    if type(cohort) is not dict or set(cohort)!={"schema","policy_id","engine_commit_sha","registered_at","sources"}:
         return ["P205_OPERATIONAL_COHORT_SCHEMA"]
     if (type(receipt) is not dict or set(receipt)!={"schema","policy_id","cohort_sha256","trials","ci"}):
         return ["P205_OPERATIONAL_CLOSEOUT_SCHEMA"]
@@ -39,6 +45,8 @@ def validate_closeout(receipt,cohort,cohort_sha):
     sources=cohort["sources"];trials=receipt["trials"]
     if type(sources) is not list or len(sources)!=3 or type(trials) is not list or len(trials)!=3:
         return errors+["P205_OPERATIONAL_THREE_DOMAIN_TRIALS_REQUIRED"]
+    registered=_time(cohort["registered_at"])
+    if registered is None:return errors+["P205_OPERATIONAL_COHORT_REGISTRATION_TIME"]
     seen=set();vids=set();shas=set();campaigns=set();by_domain={}
     for row in sources:
         if type(row) is not dict or set(row)!={"domain","video_id","source_sha256","selection_sha256","exposure_screen_sha256"}:
@@ -67,7 +75,9 @@ def validate_closeout(receipt,cohort,cohort_sha):
              all(r.get(k)==src[k] for k in ("video_id","source_sha256","selection_sha256")),
              "TRIAL_SOURCE_ENGINE_BINDING")
         need(all(_hex(r.get(k)) for k in ("plan_sha256","prediction_sha256","reference_sha256",
-                                         "alignment_sha256","review_sha256")),"TRIAL_DIGESTS")
+                                         "alignment_sha256","review_sha256","manifest_sha256","inventory_sha256")),"TRIAL_DIGESTS")
+        frozen=_time(r.get("prediction_frozen_at"))
+        need(frozen is not None and registered<frozen,"COHORT_BEFORE_PREDICTION")
         need(r.get("evidence_level")=="L2" and r.get("independent_gold_verified") is False and
              r.get("host_turn_authentication_verified") is False and
              all(k in r and r[k] is None for k in ("independent_precision","independent_recall","independent_high_risk_fn"))
@@ -103,8 +113,16 @@ def verify_current(root=ROOT,*,state=None,ledger=None):
             p.get("thresholds")!={"precision_min_bp":9500,"recall_min_bp":9800,"high_risk_fn_max":0} or
             set(p.get("domains",[]))!=DOMAINS):
             return ["P205_OPERATIONAL_POLICY_DRIFT"]
+        assessment=l.get("stages",{}).get("E2",{}).get("operational_assessment",{})
+        if (assessment.get("policy_id")!=POLICY_ID or
+            assessment.get("independent_certification_required") is not False or
+            set(assessment.get("required_domains",[]))!=DOMAINS):
+            return ["P205_OPERATIONAL_LEDGER_POLICY_DRIFT"]
         if rows[16].get("status")!="PASS":
-            # No certificate required merely to keep a genuine HOLD.
+            # Per-trial diagnostics are separate; no release result on HOLD.
+            if (assessment.get("status") not in ("HOLD_NOT_MEASURED","HOLD_PARTIAL_OR_FAILED") or
+                any(assessment.get(k) is not None for k in ("precision","recall","high_risk_fn"))):
+                return ["P205_OPERATIONAL_LEDGER_FALSE_PASS"]
             return validate_checklist(_load(root,CATALOG),s,root=root)+validate_status(l,root=root)
         if not _hex(PREREGISTERED_COHORT_SHA256) or not _hex(REVIEWED_OPERATIONAL_CLOSEOUT_SHA256):
             return ["P205_OPERATIONAL_REAL_CLOSEOUT_NOT_ENROLLED"]
@@ -113,6 +131,9 @@ def verify_current(root=ROOT,*,state=None,ledger=None):
             return ["P205_OPERATIONAL_PIN_DRIFT"]
         errors=validate_closeout(json.loads(raw),json.loads(cohort_raw),PREREGISTERED_COHORT_SHA256)
         if errors:return errors
+        if (assessment.get("status")!="PASS_INTERNAL_ONLY" or
+            assessment.get("closeout_sha256")!=REVIEWED_OPERATIONAL_CLOSEOUT_SHA256):
+            return ["P205_OPERATIONAL_LEDGER_CLOSEOUT_NOT_BOUND"]
         if not any(type(e) is dict and e.get("kind")=="assessment" and e.get("verdict")=="PASS"
                    and e.get("ref")==CLOSEOUT_PATH and e.get("sha")==_blob(raw)
                    for e in rows[16].get("evidence",[])):

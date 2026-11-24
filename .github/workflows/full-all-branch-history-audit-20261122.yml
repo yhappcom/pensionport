@@ -160,7 +160,7 @@ jobs:
 
       - name: P0-2-05 root-cause independent gold fail closed and 24 production fake-proof mutations
         run: |
-          python -m unittest -v scripts.test_ire_p205_live_release
+          python -m unittest -v scripts.test_ire_p205_live_release scripts.test_ire_p205_operational_release
           python -m unittest -v scripts.test_ire_p0_2_05_root_cause_gate
           python -m scripts.ire_p0_2_05_root_cause_gate
 
