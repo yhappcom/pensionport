@@ -730,6 +730,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_OPERATIONAL_COHORT_ACTUAL_SOURCE_PREREGISTRATION_20261124.json",
           "scope": "All three actual owner archive members structurally verified (2476 cues/63 windows), prospective cohort pinned before semantic review. No prediction or score; independent status separate."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_OPERATIONAL_271_TURN1_FROZEN_SHA_ONLY_20261124.json",
+          "scope": "Actual #271 full 706-cue Turn1 native93 frozen on preregistered cohort, structural audit PASS; 17 unresolved cues, 1 suspicious NO_ATOM, 3 numeric warnings, 8 financial risk topics, 93 pending relation candidates. No reference or score until actual distinct user turn."
         }
       ],
       "start_report": {
@@ -880,6 +886,16 @@
         ],
         "engine_commit": "7ced7d7da680a7f09ed490814555563e45fad683",
         "status": "HOLD_PREREGISTERED_AWAIT_ACTUAL_TURN1"
+      },
+      "operational_trial_271": {
+        "status": "AWAIT_DISTINCT_ACTUAL_USER_TURN2",
+        "cohort_sha256": "1792e30d8cae7e8a9455fe8fe2fa918b2d7c559de2c976906aa7ea156a6b534e",
+        "source_cues": 706,
+        "prediction_atoms": 93,
+        "prediction_sha256": "543891507e505501f1d01f39210acdfafccc1ca4df5039729165a86618c0aaf0",
+        "private_archive_sha256": "94ff84e0483559b880f49d99b963f04b9294bcc4f9390829f34f2c1c7f22fba9",
+        "receipt": "docs/IRE_P0_2_05_OPERATIONAL_271_TURN1_FROZEN_SHA_ONLY_20261124.json",
+        "turn1_end_report": "#271 최초 93개 후보 동결, 실제 원문 706개 전수 읽기/구조 검사, 17 미확정, 3 숫자 경계 경고. 다음 실제 사용자 턴에서 참조셋을 별도 작성해 평가."
       }
     },
     {
