@@ -784,6 +784,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_R304_ALL112_DISPUTE_REVIEW_SHA_ONLY_20261124.json",
           "scope": "Manual source-linked review of all 112 legacy groups/466 old atoms; all 1163 numeric/condition/exception obligations escrowed, 77 semantic-only conditions distinguished into 35 source scope/24 review note/15 mixed/3 unresolved. Actual full successor graph not yet compiled; prior scores unchanged."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json",
+          "scope": "Actual full-source provisional V3 graph compilation, 264 candidate nodes, 466 old lineage rows, 1163 obligations inventoried, 613 candidate source edge links, 550 escrow. 0 semantic carry verified. Six negative checks. 908 OPEN characters and all speakers unresolved. No new accuracy or release."
         }
       ],
       "start_report": {
@@ -1030,6 +1036,12 @@
         },
         "start_report_user_visible": "R3-04 전체 의미 충돌 그룹 검증, 선행 CI 확인.",
         "end_report_user_visible": "112/112 그룹 원문 대조·판정, 1163 의무 전수 원장, 77 위치 없는 조건 출처/검토자 주석 분리. 재실행 일치. 실제 V3 정정 원자 승계·계보 미완료. P205 HOLD."
+      },
+      "r304_provisional_successor": {
+        "status": "HOLD",
+        "receipt": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json",
+        "start_report_user_visible": "R3-04 112개 그룹 판정과 1163 의무 복구, 원문·검토 주석 분리 정정 후보 생성.",
+        "end_report_user_visible": "264개 임시 V3 노드 실제 컴파일, 466개 후보 계보 및 1163 의무 전수 검사, 613 후보 링크/550 격리, 6개 변조 차단. 의미 승계 0 확정, R3-04 HOLD."
       }
     },
     {

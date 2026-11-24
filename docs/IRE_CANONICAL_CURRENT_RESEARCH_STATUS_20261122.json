@@ -182,7 +182,8 @@
         "latest_trial_receipt": "docs/IRE_P0_2_05_COMMON_RUBRIC_V2_270_TURN2_INTERNAL_SCORE_HOLD_20261124.json",
         "v3_redesign_receipt": "docs/IRE_P0_2_05_V3_SOURCE_COORDINATE_REAL_REGRESSION_SHA_ONLY_20261124.json",
         "r304_journal_receipt": "docs/IRE_P0_2_05_R304_GRAPH_JOURNAL_REAL_REGRESSION_SHA_ONLY_20261124.json",
-        "r304_all112_review_receipt": "docs/IRE_P0_2_05_R304_ALL112_DISPUTE_REVIEW_SHA_ONLY_20261124.json"
+        "r304_all112_review_receipt": "docs/IRE_P0_2_05_R304_ALL112_DISPUTE_REVIEW_SHA_ONLY_20261124.json",
+        "r304_provisional_successor_receipt": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json"
       }
     },
     "E3": {
@@ -988,7 +989,7 @@
       "id": "S02",
       "scope": "E2",
       "status": "HOLD",
-      "reason": "R3-04 all 112 legacy overlap groups manually reviewed and 1163 old obligations inventoried. Legacy qualifier field conflates source scope with reviewer cautions (77 semantic-only rows: 35 source,24 review,15 mixed,3 unresolved). Actual full V3 successor graph and every carry/loss provenance, real distinct-turn freeze and native E3-E5 bridge remain unverified. Original failures preserved; no new score."
+      "reason": "R3-04 actual full-source provisional V3 graph compiled (264 nodes, 466 group-level lineage rows, all 1163 obligation records); 613 source-coordinate candidate links and 550 escrow, no semantic carries certified, all speaker hypotheses unresolved, 908 OPEN characters. Predicate-level ownership/conservation, distinct actual-turn V3 journal and native bridge remain incomplete. Prior failed scores unchanged."
     },
     {
       "id": "S03",
