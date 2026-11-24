@@ -742,6 +742,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_OPERATIONAL_271_TURN2_INTERNAL_SCORE_HOLD_20261124.json",
           "scope": "Actual #271 two-turn L2 internal evaluation against frozen native93, reference94, TP53 FP40 FN41, high-risk FN35, numeric warnings3, critical mismatches20. Actual evaluator repeated; no independence or release. Failed trial preserved."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_COMMON_ATOMIC_RUBRIC_REAL_REGRESSION_SHA_ONLY_20261124.json",
+          "scope": "Common rubric V2 and Korean numeric boundary improvement; actual old source 170 numeric refs 3→0 warnings, 7-atom structural regression repeat and 5 negative tests. Original failed score preserved; fresh cohort and scores pending."
         }
       ],
       "start_report": {
@@ -911,6 +917,16 @@
         "high_risk_fn": 35,
         "start_report_user_visible": "[P0-2-05 / #271 TURN 2 착수] 동결된 최초 93개 원자는 변경하지 않고 원본 706개 자막 기준 내부 참조셋 작성.",
         "end_report_user_visible": "706/706 재검토, 참조 94개, TP53 FP40 FN41, 고위험 FN35, 숫자 경계 3, 중대 불일치 20. 실제 운영 평가 미달. 최초 점수 보존, P205 HOLD."
+      },
+      "common_rubric_v2_report": {
+        "status": "HOLD",
+        "receipt": "docs/IRE_P0_2_05_COMMON_ATOMIC_RUBRIC_REAL_REGRESSION_SHA_ONLY_20261124.json",
+        "engine_sha": "c52cbc64d0c7ae542e471fde3fbd4488762cc827",
+        "old_score_preserved": true,
+        "regression_numeric_warnings": 0,
+        "regression_negative_tests_blocked": 5,
+        "start_report_user_visible": "P0-2-05 개선 착수, 실패 자료 및 엔진 코드 대조.",
+        "end_report_user_visible": "공통 원자 프레임 V2 구현, 실제 숫자 참조170건 오탐3→0, 7개 원자 회귀 및 변형5건 차단. 신규 운영 평가 미측정, P205 HOLD."
       }
     },
     {
