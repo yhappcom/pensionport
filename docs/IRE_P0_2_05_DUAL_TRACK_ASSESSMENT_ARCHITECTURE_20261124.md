@@ -9,7 +9,7 @@ Decision: preserve the two-user-turn research process and the frozen 95%/98%/0 i
 - L1 = structural diagnostic; L2 = complete internal reference and alignment; L3 = recorded two manually reported source-only review exports with transcript hashes and consensus lineage, NOT proof of context isolation; L4 = trusted host/reviewer production verification via existing signature gate and independently pre-enrolled campaign plan/registry pins.
 - No caller-controlled enrolment. PINNED_CAMPAIGNS is empty. A local hash, user claim, synthetic test or L3 result does not establish L4. The public CI cannot certify private source review. Same-model common errors remain even in distinct sessions.
 - Generic assessment returns exact counts and separate diagnostic/independent flags. L4 holdout meeting thresholds yields assessment readiness only, not a checklist PASS, E3/E4/E5 release or personal advice.
-- Historical readiness gates continue to reject false advancement; their live cursor checks still need a positive evidence transition migration after real L4 evidence is available. This change does not pretend they are migrated. Old receipt and old trust pin remain unchanged.
+- Historical receipt checks now have a separate historical-only mode, and the original six receipt/plan blobs are pinned. Their validation does not require the live cursor to remain HOLD. CI also runs the existing live guard independently, which continues to reject false advancement. The positive public checklist transition remains unenrolled until genuine L4 evidence can be reviewed; historical checks cannot authorize it.
 
 ## Track B: ordinary research
 
@@ -17,4 +17,4 @@ TURN1 user command: whole source, semantic interpretation, candidate atomization
 
 ## Current status
 
-R01 design split, R03 generic schema/registration and production pin routing, R04 graded evaluator implemented; synthetic coverage added. R02 historical/live positive transition remains partially implemented (new results do not modify historical record; existing live guards unchanged). R05 real SQLite replay, R06 new unseen source registration, R07 actual metrics, R08 cross-domain generalization, R09 final pass not completed by this change. No real independently authenticated reviewer exists. Keep P0-2-05 HOLD, 16 PASS / 43 BLOCKED, and all historical receipts.
+R01 design split, R03 generic schema/registration and production pin routing, R04 graded evaluator implemented; synthetic coverage added. R02 historical receipt validation separated and pinned; current public gate still fail-closed pending genuine positive evidence transition. The historical-only mode is never used as release authority. R05 real SQLite replay, R06 new unseen source registration, R07 actual metrics, R08 cross-domain generalization, R09 final pass not completed by this change. No real independently authenticated reviewer exists. Keep P0-2-05 HOLD, 16 PASS / 43 BLOCKED, and all historical receipts.

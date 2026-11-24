@@ -23,7 +23,7 @@ POST_ZIP='e36f5e7e3098255394f97d4b001b4717f47874a3e0bc345bac76f03562d07fd0'
 
 def load(root,path):return json.loads((Path(root)/path).read_text(encoding='utf8'))
 
-def verify(root=ROOT, *,first=None,compare=None,ledger=None,state=None,gold=None):
+def verify(root=ROOT, *,first=None,compare=None,ledger=None,state=None,gold=None,historical_only=False):
     root=Path(root)
     f=first if first is not None else load(root,FIRST)
     c=compare if compare is not None else load(root,COMPARE)
@@ -33,16 +33,17 @@ def verify(root=ROOT, *,first=None,compare=None,ledger=None,state=None,gold=None
     errors=[]
     def need(ok,why):
         if not ok: errors.append('P205_SOURCE71_NATIVE68_'+why)
-    need(not checklist_validate(load(root,CATALOG),s,root=root), 'CHECKLIST_OR_HUMAN_MD_INVALID')
-    need(not status_validate(l,root=root),'CANONICAL_E2_E3_E4_E5_HOLD_STATUS_INVALID')
-    items=s.get('items',[])
-    need(len(items)==60 and all(x.get('status')=='PASS' for x in items[:16])
-         and items[16].get('id')=='P0-2-05' and items[16].get('status')=='HOLD'
-         and all(x.get('status')=='BLOCKED' for x in items[17:]),
-         'P205_HOLD_AND_43_FOLLOWING_BLOCKED')
-    d=l.get('development_gate',{})
-    need(d.get('this_item')=='P0-2-05' and d.get('pending_next_item')=='P0-2-05',
-         'UNAUTHORIZED_P206_CURSOR')
+    if not historical_only:
+        need(not checklist_validate(load(root,CATALOG),s,root=root), 'CHECKLIST_OR_HUMAN_MD_INVALID')
+        need(not status_validate(l,root=root),'CANONICAL_E2_E3_E4_E5_HOLD_STATUS_INVALID')
+        items=s.get('items',[])
+        need(len(items)==60 and all(x.get('status')=='PASS' for x in items[:16])
+             and items[16].get('id')=='P0-2-05' and items[16].get('status')=='HOLD'
+             and all(x.get('status')=='BLOCKED' for x in items[17:]),
+             'P205_HOLD_AND_43_FOLLOWING_BLOCKED')
+        d=l.get('development_gate',{})
+        need(d.get('this_item')=='P0-2-05' and d.get('pending_next_item')=='P0-2-05',
+             'UNAUTHORIZED_P206_CURSOR')
     need(f.get('schema')=='IRE_P205_SOURCE_FIRST_PROVISIONAL_71_PRE_CROSSWALK_SHA_ONLY_V1'
          and f.get('item_id')=='P0-2-05' and f.get('video_id')=='LVE7XN_esTc'
          and f.get('date')=='2026-11-23','FROZEN_SOURCE_REVIEW_SCOPE')

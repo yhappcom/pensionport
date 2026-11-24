@@ -25,7 +25,7 @@ def load(root,p):
     return json.loads((Path(root)/p).read_text(encoding='utf8'))
 
 
-def verify(root=ROOT, *, receipt=None, state=None, ledger=None, plan=None):
+def verify(root=ROOT, *, receipt=None, state=None, ledger=None, plan=None, historical_only=False):
     root=Path(root)
     r=receipt if receipt is not None else load(root,P205)
     s=state if state is not None else load(root,STATE)
@@ -34,19 +34,20 @@ def verify(root=ROOT, *, receipt=None, state=None, ledger=None, plan=None):
     errors=[]
     def need(cond, name):
         if not cond:errors.append('P205_'+name)
-    need(not checklist_validate(load(root,CATALOG),s,root=root),'CHECKLIST_60_ITEM_POLICY_INVALID')
-    need(not status_validate(l,root=root),'OFFICIAL_E1_E5_HOLD_STATUS_INVALID')
-    rows=s.get('items',[])
-    position=next((i for i,v in enumerate(rows) if v.get('status')!='PASS'),len(rows))
-    live=rows[position]['id'] if position<len(rows) else 'ALL_COMPLETE'
-    need(len(rows)==60 and position==16 and all(v.get('status')=='PASS' for v in rows[:16])
-         and rows[16].get('id')=='P0-2-05' and rows[16].get('status') in
-         {'READY','IN_PROGRESS','HOLD','FAIL'} and rows[17].get('id')=='P0-2-06'
-         and all(v.get('status')=='BLOCKED' for v in rows[17:]),
-         'PREVIOUS_16_PASS_AND_P205_ACTIVE_P206_BLOCKED')
-    gate=l.get('development_gate',{})
-    need(gate.get('this_item')==live and gate.get('pending_next_item')==live,
-         'LEDGER_CANNOT_ADVANCE_TO_P206_WITHOUT_INDEPENDENT_GOLD')
+    if not historical_only:
+        need(not checklist_validate(load(root,CATALOG),s,root=root),'CHECKLIST_60_ITEM_POLICY_INVALID')
+        need(not status_validate(l,root=root),'OFFICIAL_E1_E5_HOLD_STATUS_INVALID')
+        rows=s.get('items',[])
+        position=next((i for i,v in enumerate(rows) if v.get('status')!='PASS'),len(rows))
+        live=rows[position]['id'] if position<len(rows) else 'ALL_COMPLETE'
+        need(len(rows)==60 and position==16 and all(v.get('status')=='PASS' for v in rows[:16])
+             and rows[16].get('id')=='P0-2-05' and rows[16].get('status') in
+             {'READY','IN_PROGRESS','HOLD','FAIL'} and rows[17].get('id')=='P0-2-06'
+             and all(v.get('status')=='BLOCKED' for v in rows[17:]),
+             'PREVIOUS_16_PASS_AND_P205_ACTIVE_P206_BLOCKED')
+        gate=l.get('development_gate',{})
+        need(gate.get('this_item')==live and gate.get('pending_next_item')==live,
+             'LEDGER_CANNOT_ADVANCE_TO_P206_WITHOUT_INDEPENDENT_GOLD')
     need(r.get('schema')=='IRE_P0_2_05_SOURCE_ONLY_BLIND_GOLD_READINESS_HOLD_SHA_V1'
          and r.get('item_id')=='P0-2-05' and r.get('as_of')=='2026-11-23'
          and r.get('status')=='HOLD_INDEPENDENT_BLIND_ATOMIC_GOLD_NOT_AVAILABLE',

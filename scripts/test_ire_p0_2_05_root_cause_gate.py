@@ -36,6 +36,22 @@ class P205RootCausePublicGateTests(unittest.TestCase):
     def test_21_attempt_unlock_p206(self):self.s['items'][17]['status']='READY';self.bad('LIVE_CHECKLIST_CURSOR')
     def test_22_attempt_advance_canonical_cursor(self):self.l['development_gate']['this_item']='P0-2-06';self.bad('CHECKLIST_CURSOR')
     def test_23_fake_24_actual_reviewers(self):self.r['eligible_independently_adjudicated_gold_atoms']=24;self.bad('ABSENT')
+    def test_history_receipt_validation_is_independent_of_live_cursor(self):
+        self.s['items'][16]['status']='PASS'
+        self.l['development_gate']['this_item']='P0-2-06'
+        with patch('scripts.ire_p0_2_05_root_cause_gate._production_pin',return_value='e'*64):
+            self.assertEqual([],verify(ROOT,receipt=self.r,state=self.s,ledger=self.l,historical_only=True))
+            self.bad('LIVE_CHECKLIST_CURSOR')
+
+    def test_historical_false_metrics_still_rejected(self):
+        self.r['current_atomic_precision']=1
+        self.assertTrue(any('MEASUREMENTS' in e for e in verify(
+            ROOT,receipt=self.r,state=self.s,ledger=self.l,historical_only=True)))
+
+    def test_pinned_historical_receipts(self):
+        from scripts.ire_p205_history import verify_history
+        self.assertEqual([],verify_history(ROOT))
+
     def test_24_forge_four_test_cases(self):self.r['positive_production_review_contract_synthetic_tests']=3;self.bad('PRODUCTION_RELEASE')
 
 if __name__=='__main__':unittest.main()

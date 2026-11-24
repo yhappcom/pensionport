@@ -32,7 +32,7 @@ GROUPS={
 def load(root,path):return json.loads((Path(root)/path).read_text(encoding='utf8'))
 
 
-def verify(root=ROOT,*,receipt=None,state=None,ledger=None):
+def verify(root=ROOT,*,receipt=None,state=None,ledger=None,historical_only=False):
     root=Path(root)
     r=load(root,RECEIPT) if receipt is None else receipt
     s=load(root,STATE) if state is None else state
@@ -40,20 +40,21 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None):
     errors=[]
     def check(ok,code):
         if not ok:errors.append('P205_11_PAIR_'+code)
-    check(not checklist_validate(load(root,CATALOG),s,root=root),'CHECKLIST_POLICY')
-    check(not current_status_validate(l,root=root),'E2_E3_E4_E5_CANONICAL_STATUS')
-    check(not p205_baseline_verify(root, state=s, ledger=l),'EXISTING_P205_GOLD_HOLD')
-    check(not crosswalk_verify(root,state=s,ledger=l),'PREVIOUS_SOURCE71_NATIVE68_CROSSWALK_HOLD')
-    rows=s.get('items',[])
-    check(len(rows)==60 and all(x.get('status')=='PASS' for x in rows[:16])
-          and rows[16].get('id')=='P0-2-05' and rows[16].get('status')=='HOLD'
-          and all(x.get('status')=='BLOCKED' for x in rows[17:]),
-          'PREVIOUS_16_PASS_NEXT_43_BLOCKED')
-    dev=l.get('development_gate',{})
-    details=dev.get('p0_2_05_independent_gold_readiness',{})
-    check(dev.get('this_item')=='P0-2-05' and dev.get('pending_next_item')=='P0-2-05'
-          and details.get('status')=='HOLD_NO_CERTIFIABLE_INDEPENDENT_ATOMIC_GOLD',
-          'CURRENT_CURSOR_UNCHANGED')
+    if not historical_only:
+        check(not checklist_validate(load(root,CATALOG),s,root=root),'CHECKLIST_POLICY')
+        check(not current_status_validate(l,root=root),'E2_E3_E4_E5_CANONICAL_STATUS')
+        check(not p205_baseline_verify(root, state=s, ledger=l),'EXISTING_P205_GOLD_HOLD')
+        check(not crosswalk_verify(root,state=s,ledger=l),'PREVIOUS_SOURCE71_NATIVE68_CROSSWALK_HOLD')
+        rows=s.get('items',[])
+        check(len(rows)==60 and all(x.get('status')=='PASS' for x in rows[:16])
+              and rows[16].get('id')=='P0-2-05' and rows[16].get('status')=='HOLD'
+              and all(x.get('status')=='BLOCKED' for x in rows[17:]),
+              'PREVIOUS_16_PASS_NEXT_43_BLOCKED')
+        dev=l.get('development_gate',{})
+        details=dev.get('p0_2_05_independent_gold_readiness',{})
+        check(dev.get('this_item')=='P0-2-05' and dev.get('pending_next_item')=='P0-2-05'
+              and details.get('status')=='HOLD_NO_CERTIFIABLE_INDEPENDENT_ATOMIC_GOLD',
+              'CURRENT_CURSOR_UNCHANGED')
     check(r.get('schema')=='IRE_P205_KIND_TRIAGE_11_PAIRS_PROVISIONAL_SHA_ONLY_V1'
           and r.get('item_id')=='P0-2-05' and r.get('as_of')=='2026-11-23',
           'SCHEMA_ID_DATE')

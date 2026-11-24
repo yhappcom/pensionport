@@ -27,7 +27,7 @@ def _production_pin(root):
     return pins[0].value
 
 
-def verify(root=ROOT,*,receipt=None,state=None,ledger=None):
+def verify(root=ROOT,*,receipt=None,state=None,ledger=None,historical_only=False):
     root=Path(root)
     r=load(root,RECEIPT) if receipt is None else receipt
     s=load(root,STATE) if state is None else state
@@ -35,7 +35,7 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None):
     errors=[]
     def need(flag,label):
         if not flag:errors.append('P205_ROOT_CAUSE_'+label)
-    need(not old_hold_verify(root,state=s,ledger=l), 'PRIOR_FROZEN_NO_GOLD_GATE_MUST_PASS')
+    need(not old_hold_verify(root,state=s,ledger=l,historical_only=historical_only), 'PRIOR_FROZEN_NO_GOLD_GATE_MUST_PASS')
     need(r.get('schema')=='IRE_P205_REDIAGNOSED_GOLD_EVALUATION_BLOCKERS_AND_REMEDIATION_SHA_ONLY_V1'
          and r.get('item_id')=='P0-2-05' and r.get('date')=='2026-11-23', 'RECEIPT_SCHEMA')
     need(r.get('protected_original_source_srt_sha256')==SRT_SHA
@@ -77,8 +77,9 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None):
          and r.get('production_root_hash_from_caller_accepted') is False
          and r.get('all_synthetic_tests_are_real_financial_accuracy_measurements') is False,
          'EXPLICIT_NO_SELF_SIGNED_PRODUCTION_RELEASE')
-    need(_production_pin(root) is None,
-         'PRODUCTION_HOST_TRUST_ROOT_MUST_REMAIN_UNENROLLED')
+    if not historical_only:
+        need(_production_pin(root) is None,
+             'PRODUCTION_HOST_TRUST_ROOT_MUST_REMAIN_UNENROLLED')
     need(all((root/p).is_file() for p in (
          'ire/v6/gold_traceability.py','ire/v6/gold_release.py',
          'ire/v6/tests/test_p205_gold_release.py','ire/v6/tests/test_p205_atomic_gold.py')),
@@ -94,14 +95,16 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None):
     need(r.get('protected_main_unchanged') is True and
          r.get('existing_two_branch_policy_preserved') is True,
          'BRANCH_POLICY')
-    need(l.get('development_gate',{}).get('this_item')=='P0-2-05'
-         and s['items'][16].get('status')=='HOLD'
-         and all(it.get('status')=='BLOCKED' for it in s['items'][17:]),
-         'LIVE_CHECKLIST_CURSOR')
+    if not historical_only:
+        need(l.get('development_gate',{}).get('this_item')=='P0-2-05'
+             and s['items'][16].get('status')=='HOLD'
+             and all(it.get('status')=='BLOCKED' for it in s['items'][17:]),
+             'LIVE_CHECKLIST_CURSOR')
     return errors
 
 def main():
-    errs=verify()
+    from scripts.ire_p205_history import verify_history
+    errs=verify_history(ROOT)+verify()
     for err in errs:print('P205_ROOT_CAUSE_GATE_BLOCK',err,file=sys.stderr)
     if errs:return 1
     print('P205_ROOT_CAUSE_HOLD_GATE_PASS source=250 native=68 independent_gold=0 '
