@@ -124,3 +124,35 @@ def evaluate_operational_trial(plan, original, prediction, *, manifest, inventor
             "host_turn_authentication_verified":False,"research_publication_authorized":False,
             "personalized_advice_authorized":False,
             "status":"INTERNAL_TRIAL_THRESHOLDS_MET" if met else "HOLD"}
+
+
+def evaluate_common_operational_trial(plan,original,prediction,*,manifest,inventory_bytes,
+                                     expected_inventory_sha256,first_packet,second_packet,
+                                     alignment,review,rubric_lock):
+    """Prospective V2 path: recompile both frozen packets via the same rubric.
+    The legacy V1 result is not recalculated or replaced by this path.
+    """
+    from .common_atomic_review import (RUBRIC_SHA256,source_packet,compile_review,
+                                       check_exact_typed_axes)
+    from .codec import canonical
+    pinned=verify_owner_inventory(original,manifest,inventory_bytes,
+                    expected_inventory_sha256=expected_inventory_sha256)
+    src=pinned.source
+    _need(plan["source_only_packet_sha256"]==json_digest(source_packet(src)),"COMMON_RUBRIC_SOURCE_PACKET")
+    _need(type(rubric_lock) is dict and set(rubric_lock)=={
+          "rubric_sha256","first_packet_sha256","second_packet_sha256"} and
+          rubric_lock["rubric_sha256"]==RUBRIC_SHA256 and
+          rubric_lock["first_packet_sha256"]==json_digest(first_packet) and
+          rubric_lock["second_packet_sha256"]==json_digest(second_packet),"COMMON_PACKET_LOCK")
+    first=compile_review(src,first_packet);second=compile_review(src,second_packet)
+    _need(canonical(first["exchange"])==prediction,"COMMON_FROZEN_NATIVE_DRIFT")
+    _need(first["packet_sha256"]!=second["packet_sha256"],"COMMON_COPIED_PACKET")
+    check_exact_typed_axes(first,second,alignment)
+    r=evaluate_operational_trial(plan,original,prediction,manifest=manifest,
+          inventory_bytes=inventory_bytes,expected_inventory_sha256=expected_inventory_sha256,
+          reference=second["reference"],alignment=alignment,review=review)
+    return {**r,"schema":"IRE_P205_INTERNAL_OPERATIONAL_TRIAL_V2",
+            "rubric_sha256":RUBRIC_SHA256,"first_packet_sha256":first["packet_sha256"],
+            "second_packet_sha256":second["packet_sha256"],
+            "rubric_lock_sha256":json_digest(rubric_lock),
+            "common_typed_review_replayed":True}

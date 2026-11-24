@@ -58,6 +58,19 @@ class NumericUnitProvenanceTests(unittest.TestCase):
     def test_26_reference_partial_decimal_rejected(self):self.reject('0.001% 와','0.001','NUMERIC_TOKEN_MISSING_ATTACHED_UNIT')
     def test_27_raw_claim_does_not_auto_generate_numeric_truth(self):
         self.assertEqual([],audit_numeric_reference_boundaries([Cue('ETF는 유익하다')],[{'claim_id':'C','numeric_references':[]}]))
+    def test_full_unit_followed_by_particle(self):
+        for text,token in [('300만 원만 납입','300만 원'),('45만원만 출금','45만원'),
+                           ('수익률 8%만 적용','8%'),('2년만 유지','2년'),
+                           ('20주만 매수','20주'),('5억 원만 사용','5억 원')]:
+            with self.subTest(text=text):
+                self.assertEqual([],self.audit(text,token))
+
+    def test_spaced_or_extended_unit_is_not_optional(self):
+        for text,token in [('300만 원만 납입','300만'),('45만 원만 출금','45'),
+                           ('8 퍼센트포인트만 변경','8'),('12 개월만 유지','12')]:
+            with self.subTest(text=text):
+                self.reject(text,token,'NUMERIC_TOKEN_MISSING_ATTACHED_UNIT')
+
     def test_28_no_original_srt_leakage_in_module(self):
         import inspect,ire.v6.numeric_provenance as m
         src=inspect.getsource(m)

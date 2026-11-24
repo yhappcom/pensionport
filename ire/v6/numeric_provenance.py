@@ -8,6 +8,8 @@ from __future__ import annotations
 
 from typing import Sequence
 
+from .atomic_exchange import COMPLETE_NUMBER
+
 _NUMERIC_UNIT_STARTS = ("억", "만", "천", "백", "십", "원", "주", "개", "년", "%", "kg", "km", "달러", "엔", "위안", "유로", "좌", "배", "억", "억원")
 _PREFIX_CONTINUATION = set("0123456789.,천백십만억")
 
@@ -36,8 +38,23 @@ def audit_numeric_reference_boundaries(cues: Sequence, atoms: Sequence[dict]) ->
             starts=[j for j in range(len(text)) if text.startswith(token,j)]
             if not starts:
                 flags.append({'claim_id':cid,'cue_index':i,'token':token,'reason':'NOT_VERBATIM_IN_ORIGINAL'});continue
+            # A complete lexer match already includes the unit. A following
+            # Korean particle (e.g. only/만) must not be mistaken for a
+            # further magnitude. Conversely a partial span inside a complete
+            # match is still rejected, including spaced units and decimals.
+            spans=[m.span() for m in COMPLETE_NUMBER.finditer(text)]
             reasons=set()
             for j in starts:
+                end=j+len(token)
+                covering=[(a,b) for a,b in spans if a<=j and end<=b]
+                if (j,end) in covering:
+                    reasons.clear()
+                    break
+                if covering:
+                    for a,b in covering:
+                        if a<j:reasons.add('NUMERIC_TOKEN_MISSING_PREFIX')
+                        if end<b:reasons.add('NUMERIC_TOKEN_MISSING_ATTACHED_UNIT')
+                    continue
                 prev=text[j-1] if j else ''
                 suffix=text[j+len(token):]
                 if prev in _PREFIX_CONTINUATION:
