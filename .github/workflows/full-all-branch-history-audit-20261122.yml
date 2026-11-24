@@ -177,7 +177,7 @@ jobs:
           with zipfile.ZipFile('ire-v6-offline-code-only.zip','w',zipfile.ZIP_DEFLATED) as z:
               for p in sorted(paths):
                   data=subprocess.check_output(['git','show','HEAD:'+p])
-                  rows[p]={'sha256':hashlib.sha256(data).hexdigest(),'git_blob_sha1':hashlib.sha1(b'blob '+str(len(data)).encode()+b'\\0'+data).hexdigest()}
+                  rows[p]={'sha256':hashlib.sha256(data).hexdigest(),'git_blob_sha1':hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()}
                   z.writestr(p,data)
               z.writestr('code_manifest.json',json.dumps({'schema':'IRE_V6_CODE_ONLY_BUNDLE_V1','commit_sha':"${{ github.sha }}",'files':rows},sort_keys=True))
           print('CODE_ONLY_BUNDLE_FILES',len(rows))
@@ -187,6 +187,30 @@ jobs:
         with:
           name: ire-v6-offline-code-only-${{ github.sha }}
           path: ire-v6-offline-code-only.zip
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Export only three existing public read-only knowledge inputs for offline replay
+        run: |
+          python - <<'PY'
+          import hashlib,subprocess,zipfile
+          pins={
+            'data/claims.jsonl':'ab5af7eea02e65d5e36174546a2a94f4cc642d92',
+            'ire/v5/advisory_knowledge/p4_integrated_scoped_education22_20261106.json':'bfb446ffb1dd40caa1ed03088d088c9a1ba7490f',
+            'ire/v5/advisory_knowledge/p4_p3_incremental_education29_20261106.json':'b92573dbefb0f22d3a3a266685415c538b4f7a72',
+          }
+          with zipfile.ZipFile('ire-offline-protected-public-prior.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for p,expected in pins.items():
+                  data=subprocess.check_output(['git','show','HEAD:'+p])
+                  assert hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()==expected
+                  z.writestr(p,data)
+          print('EXACT_PUBLIC_PRIOR_BLOBS',len(pins))
+          PY
+      - name: Upload explicitly allowlisted public prior input bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: ire-offline-protected-public-prior-${{ github.sha }}
+          path: ire-offline-protected-public-prior.zip
           if-no-files-found: error
           retention-days: 7
 

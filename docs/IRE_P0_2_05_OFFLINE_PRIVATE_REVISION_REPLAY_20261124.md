@@ -7,3 +7,9 @@ The new offline_revision_replay.replay_private_revision function takes an indepe
 Actual replay still requires private source artifacts and actual prior 116 + 22 + 7 read-only bytes at fixed Git blobs (data/claims.jsonl, ire/v5/advisory_knowledge/p4_integrated_scoped_education22_20261106.json, ire/v5/advisory_knowledge/p4_p3_incremental_education29_20261106.json), and source-bound reviewed prequarantine for every residual cue. No real replay or independent accuracy is asserted by synthetic tests.
 
 P205 remains HOLD. 16 PASS, 43 BLOCKED, no E3/E4/E5 publication. The source-only code artifact is a transport improvement, not evidence of financial accuracy or a real completed ETF transaction.
+
+## Actual exact-code transport and compiler replay
+
+Artifact 14891212114, run 45329532349, was downloaded into the local runtime. Archive SHA256 95b11c073401a9416151ee4110c9bf240c6153b37bcc38cbcf25aae94bd86a6c matched GitHub. All 68 actual Python blobs independently matched the GitHub tree after rehashing with a true NUL separator. The export manifest had used a literal backslash-zero separator; fix it to bytes([0]) and retain the first export's defect as evidence. On these verified exact code bytes, re-created 13-window manifest matched frozen parent SHA aa9c8a371cea271e2e15acb0248501e5875ccaf6e022e996cb4e0563adbb3fb7. Actual source 250 and frozen native68 compiled twice using previously frozen reviewed inputs, exact equality to each other and prior saved 70-atom compiler output; 171 unresolved, 1 suspicious NO_ATOM, 58 unknown speakers, 61 unresolved stances. This is a real compiler replay, not yet SQLite proof or independent gold.
+
+A separate export contains ONLY the three pre-existing public prior-knowledge blobs listed above with fixed Git SHA-1 verified before writing. No other data, SRT, private review, portfolio, SQLite, or archive is eligible. No new branch or workflow.
