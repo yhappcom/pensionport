@@ -18,12 +18,13 @@ from .semantic_source_graph import (compile_graph,source_grid,RUBRIC_SHA256,
 from .source import verify_source
 
 GENESIS="0"*64
-KINDS=("REGISTER","FIRST","SECOND","SCORE","DISPUTES","REVISION","RECONCILIATION")
+KINDS=("REGISTER","FIRST","SECOND","SCORE","DISPUTES","REVISION","RECONCILIATION","SUCCESSOR")
 LEGACY_KIND="LEGACY_RECONCILIATION"
 
 def _allowed(previous_kind,kind):
     if previous_kind is None:return kind=="REGISTER"
     if previous_kind=="REGISTER" and kind==LEGACY_KIND:return True
+    if previous_kind==LEGACY_KIND and kind=="SUCCESSOR":return True
     return previous_kind in KINDS[:-1] and kind==KINDS[KINDS.index(previous_kind)+1]
 EXPOSED_IDS={"LVE7XN_esTc","BXjda2v6e-Q","Yd5qnDtW2TM"}
 EXPOSED_SHAS={"e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
@@ -204,6 +205,51 @@ def revision(source,first,second,packet,first_lineage,second_lineage):
        "original_score_changed":False,"requires_e3_review":True,
        "publication_authorized":False}
 
+def successor_revision(source,parent,plan,packet,lineage,new_edges):
+    """General successor with explicit old/new edge custody; never approval.
+
+    Parent and plan must already have been replayed from reconciliation.
+    Prior obligations remain pinned to the historical graph. Candidate
+    projections are review tasks, not newly approved ownership mappings.
+    """
+    from .semantic_source_graph import BOUNDARY_PACKET
+    need(plan["source_sha256"]==source.source_sha256 and
+         plan["draft_packet_sha256"]==parent["packet_sha256"],"SUCCESSOR_PARENT")
+    need(packet["schema"]==BOUNDARY_PACKET,"SUCCESSOR_V2_REQUIRED")
+    final=compile_graph(source,packet)
+    need(final["packet_sha256"]!=parent["packet_sha256"],"SUCCESSOR_UNCHANGED")
+    audit=_lineage(source,parent,final,lineage)
+    carried={(x["new_id"],x["edge_sha256"]) for row in lineage for x in row["carries"]}
+    expected={(n,h) for n,node in final["nodes"].items() for h in _edges(node)}-carried
+    need(type(new_edges) is list,"SUCCESSOR_NEW_EDGE_LIST")
+    seen=set()
+    for row in new_edges:
+        need(type(row) is dict and set(row)=={"node_id","edge_sha256","reason"} and _note(row["reason"]),"SUCCESSOR_NEW_EDGE_ROW")
+        key=(row["node_id"],row["edge_sha256"])
+        need(key in expected and key not in seen,"SUCCESSOR_NEW_EDGE_SCOPE");seen.add(key)
+    need(seen==expected,"SUCCESSOR_NEW_EDGE_CENSUS")
+    forward={n:row["new_ids"] for row in lineage for n in row["old_ids"]}
+    def project(ids):
+        need(all(n in forward for n in ids),"SUCCESSOR_HISTORICAL_OWNER")
+        return sorted({x for n in ids for x in forward[n]})
+    tasks=[]
+    for x in plan["open_items"]:
+        tasks.append({"old_sha256":x["old_sha256"],"historical_nodes":x["candidate_nodes"],
+            "candidate_successors":project(x["candidate_nodes"]),"status":"OPEN"})
+    for x in plan["scope_items"]:
+        for k in x["obligation_ids"]:
+            tasks.append({"old_sha256":k,"historical_nodes":[x["node_id"]],
+                "candidate_successors":project([x["node_id"]]),"status":"SCOPE_DRAFT"})
+    need(len({x["old_sha256"] for x in tasks})==len(tasks),"SUCCESSOR_DUPLICATE_OBLIGATION")
+    return {"schema":"IRE_V3_GENERAL_SUCCESSOR_V1","parent_packet_sha256":parent["packet_sha256"],
+        "parent_plan_sha256":json_digest(plan),"successor_packet_sha256":final["packet_sha256"],
+        "obligation_count":plan["obligation_count"],"lineage":audit,"new_edge_count":len(new_edges),
+        "new_edges_sha256":_rows_digest(new_edges),"pending_projection_sha256":_rows_digest(tasks),
+        "open_obligations":len(plan["open_items"]),"scope_drafts":sum(len(x["obligation_ids"]) for x in plan["scope_items"]),
+        "before_character_dispositions":parent["character_dispositions"],"after_character_dispositions":final["character_dispositions"],
+        "unbound_numeric_spans":len(final["unbound_numeric_spans"]),"boundary_warnings":len(final["numeric_boundary_warnings"]),
+        "original_score_changed":False,"semantic_conservation_verified":False,"ready_for_e3":False,"publication_authorized":False}
+
 class GraphJournal:
     """Private SQLite journal, bounded records, transactionally appended.
 
@@ -279,12 +325,20 @@ class GraphJournal:
             h=verify_reconciliation_plan(v["plan"],source,v["packet"],v["old"],v["candidates"],
                 v["events"],v["rows"],v["scopes"],expected_plan_sha256=v["plan_sha256"],**v["pins"])
             q=v["plan"]
+            from .qualifier_gap_review import draft_qualifier_gaps
+            draft,_=draft_qualifier_gaps(source,v["packet"],v["old"],v["candidates"],v["events"],v["rows"],v["scopes"],
+                **{k:x for k,x in v["pins"].items() if k!="expected_gap_receipt_sha256"})
+            p["reconciliation_parent"]=compile_graph(source,draft);p["reconciliation_plan"]=q
             p["reconciliation"]={"plan_sha256":h,"obligations":q["obligation_count"],
                 "open_obligations":len(q["open_items"]),"scope_drafts":sum(len(x["obligation_ids"]) for x in q["scope_items"]),
                 "scope_bundles":len(q["scope_items"]),"evidence_tasks":len(q["evidence_tasks"]),
                 "open_characters":sum(x["span"][2]-x["span"][1] for x in q["residual_open"]),
                 "unbound_numeric_spans":len(q["unbound_numeric"]),"legacy_development":kind==LEGACY_KIND,
                 "semantic_conservation_verified":False,"ready_for_e3":False,"publication_authorized":False}
+        elif kind=="SUCCESSOR":
+            need(type(v) is dict and set(v)=={"packet","lineage","new_edges","receipt"},"SUCCESSOR_SHAPE")
+            r=successor_revision(source,p["reconciliation_parent"],p["reconciliation_plan"],v["packet"],v["lineage"],v["new_edges"])
+            need(r==v["receipt"],"SUCCESSOR_DRIFT");p["successor"]=r
     def append(self,kind,value):
         raw=_payload(value)
         with closing(sqlite3.connect(self.path,timeout=10,isolation_level=None)) as db:
@@ -316,6 +370,6 @@ class GraphJournal:
         return {"head_sha256":head,"event_count":count,"phase":last[0] if last else "EMPTY",
             "first_packet_sha256":p.get("first",{}).get("packet_sha256"),
             "second_packet_sha256":p.get("second",{}).get("packet_sha256"),
-            "score":p.get("score"),"disputes":p.get("disputes"),"revision":p.get("revision"),"reconciliation":p.get("reconciliation"),
+            "score":p.get("score"),"disputes":p.get("disputes"),"revision":p.get("revision"),"reconciliation":p.get("reconciliation"),"successor":p.get("successor"),
             "host_turn_authentication_verified":False,"independent_gold_verified":False,
             "operational_release_authorized":False,"publication_authorized":False}
