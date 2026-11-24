@@ -114,7 +114,8 @@ def _lineage(source,old,new,rows):
     need(type(rows) is list and bool(rows),"LINEAGE_ROWS")
     before=old["nodes"];after=new["nodes"];seen_old=set();seen_new=set();escrow=[];counts={}
     for row in rows:
-        need(type(row) is dict and set(row)=={"old_ids","new_ids","operation","reason","losses","carries"},"LINEAGE_ROW")
+        need(type(row) is dict and set(row) in ({"old_ids","new_ids","operation","reason","losses","carries"},
+             {"old_ids","new_ids","operation","reason","losses","carries","shared_qualifier_exclusions"}),"LINEAGE_ROW")
         a=row["old_ids"];b=row["new_ids"]
         need(type(a) is list and type(b) is list and all(type(x) is str for x in a+b) and
              (a or b) and len(set(a))==len(a) and len(set(b))==len(b) and
@@ -139,14 +140,31 @@ def _lineage(source,old,new,rows):
         # For split/merge the reviewer must specify which successor owns each
         # carried binding. Matching coordinates elsewhere cannot cover it.
         need(type(row["carries"]) is list,"CARRY_LIST")
-        carried=set()
+        carried=set();carried_targets=set()
         for carry in row["carries"]:
             need(type(carry) is dict and set(carry)=={"old_id","edge_sha256","new_id","reason"}
                  and _note(carry["reason"]),"CARRY_ROW")
             k=(carry["old_id"],carry["edge_sha256"]);target=carry["new_id"]
-            need(k in obligations and k not in carried and target in destinations and
+            triple=(*k,target)
+            need(k in obligations and triple not in carried_targets and target in destinations and
                  k[1] in destinations[target],"FALSE_CARRY")
-            carried.add(k)
+            need(k not in carried or obligations[k]["type"] in ("CONDITION","EXCEPTION"),"MULTI_NUMBER_CARRY_REQUIRES_REVIEW")
+            carried.add(k);carried_targets.add(triple)
+        # Every exact qualifier candidate in a split/repartition must be
+        # explicitly carried or excluded. An exclusion is not approval.
+        required={(*k,target) for k in carried if obligations[k]["type"] in ("CONDITION","EXCEPTION")
+                  for target,edges in destinations.items() if k[1] in edges} - carried_targets
+        exclusions=row.get("shared_qualifier_exclusions",[])
+        need(type(exclusions) is list,"SHARED_EXCLUSIONS_LIST")
+        excluded=set()
+        for e in exclusions:
+            need(type(e) is dict and set(e)=={"old_id","edge_sha256","new_id","reason"} and _note(e["reason"]),"SHARED_EXCLUSION")
+            triple=(e["old_id"],e["edge_sha256"],e["new_id"])
+            need(triple in required and triple not in excluded,"SHARED_EXCLUSION_SCOPE")
+            excluded.add(triple)
+            escrow.append({"old_id":triple[0],"edge_sha256":triple[1],"new_id":triple[2],
+                           "disposition":"SHARED_QUALIFIER_EXCLUSION_REQUIRES_E3"})
+        need(excluded==required,"SHARED_QUALIFIER_TARGET_UNREVIEWED")
         missing={k:v for k,v in obligations.items() if k not in carried}
         need(type(row["losses"]) is list,"LOSS_LIST")
         seen=set()

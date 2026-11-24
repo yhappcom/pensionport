@@ -1,0 +1,97 @@
+{
+  "schema": "IRE_P205_R304_SHARED_QUALIFIER_TRANCHE_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "parent_commit": "54267a79485c5f9c677697078329b9af66d3dab5",
+  "parent_ci_run_id": 45491233405,
+  "parent_ci_conclusion": "success",
+  "parent_archive_sha256": "7ef3bb8db23944c9517aa2245dc30c51db0ef4689c9e1aee718449ab686a6144",
+  "module_blobs": {
+    "shared_qualifier_review": "f29f6dfe72a70b6433346ed96617f95aee7a0b12",
+    "semantic_graph_journal": "13000ba1bbbb38de8ed769a2ce9cd65e39b570e7",
+    "test_shared_qualifier_review": "aa2299f98ae0efe979991e663ae97b0d83b6ede6"
+  },
+  "module_sha256": {
+    "shared_qualifier_review": "6f9dc15be5f5b06a45cc54b31cd7ef5c361471a2f20f78ac6b86276c2c5fb708",
+    "semantic_graph_journal": "30939fcbea254bd75f5429dda1f017d2b2075c3900d7b9677f5f5d2c3941409f",
+    "test_shared_qualifier_review": "69d27c41a9a38709e0aed6ef9de4ffadf55734b0a8497c551ad61e9bb8e89b54"
+  },
+  "total_obligations": 1163,
+  "prior_reviewed": 321,
+  "new_reviewed": 50,
+  "new_single_edge_reviewed": 44,
+  "new_shared_obligations": 6,
+  "prior_shared_amendments": 3,
+  "cumulative_unique_reviewed": 371,
+  "remaining_unreviewed": 792,
+  "shared_candidate_obligations": 9,
+  "shared_target_decisions": 18,
+  "shared_target_apply": 16,
+  "shared_target_exclude": 2,
+  "shared_open_resolved": 1,
+  "effective_status_counts": {
+    "single_source_carry": 165,
+    "fragment_rebind": 11,
+    "context_only": 22,
+    "reviewer_note": 24,
+    "open": 142,
+    "multi_target_scope_reviewed": 7
+  },
+  "videos": [
+    {
+      "video": 270,
+      "new_reviewed": 44,
+      "cumulative_unique_reviewed": 238,
+      "remaining_unreviewed": 222,
+      "shared_reviewed": 3,
+      "shared_targets_apply": 4,
+      "shared_targets_exclude": 2,
+      "shared_rows_sha256": "12e3b66dee247a9f0b34342f3dc5b6ab9c97eddd203dfb93e04cf75d9a9ea55b",
+      "shared_results_sha256": "49c69ddfcea95e9106ac844ae63ef5c5ca39ecaf5db4597f6193dff193d7025c",
+      "single_cumulative_rows_sha256": "d245d1545ca906dbe1977dc3436e5fc507ebe2fd70174dede94304ee62d55b97",
+      "single_cumulative_output_sha256": "54d4d15c26bfc8911b5430444e279001ed29d6de546d93ab7ac2a86c4aa2f67c"
+    },
+    {
+      "video": 271,
+      "new_reviewed": 6,
+      "cumulative_unique_reviewed": 133,
+      "remaining_unreviewed": 570,
+      "shared_reviewed": 6,
+      "shared_targets_apply": 12,
+      "shared_targets_exclude": 0,
+      "shared_rows_sha256": "c153db7d4cfa7855c4c8034a86fda15205de4c15f9614ad5255cbae377782ee1",
+      "shared_results_sha256": "81be2885724c762e9c072077f042137b042a402479dc3162e3f9d5e241ef8915"
+    }
+  ],
+  "native_partial_split_source_cues": [
+    151,
+    152,
+    153
+  ],
+  "native_partial_split_pass": true,
+  "native_missing_shared_target_rejected": true,
+  "native_explicit_exclusion_escrow": true,
+  "negative_tests_blocked": 18,
+  "shared_negative_tests_blocked": 15,
+  "native_negative_tests_blocked": 3,
+  "synthetic_unit_tests_passed": 5,
+  "repeat_equal": true,
+  "private_archive_sha256": "2546cb4f4b8d794f249207171a7ef6053db1c37966d3b75c9f6c10799d040c9e",
+  "private_archive_bytes": 1470409,
+  "private_library_file_id": "libfile_ca49bf3e5a08819180145f0bebe7e909",
+  "private_receipt_sha256": "01f3a3a0e8b44e33626e81f89787b66af0d81ea618f35dcc1a57f0f49740b548",
+  "shared_result_sha256": "8038daa1573f8bd4011a350f0a30449468c5e88da9522f20721a8192301f0300",
+  "native_split_result_sha256": "deceb5a2e182249764e70b33e14f9b1346a76eec553b702c1cb3c95d14851980",
+  "single_result_sha256": "8e7aee2c733dd4f09add4807cdde934e5a5825c9064c750c77e858680823a125",
+  "original_graph_unchanged": true,
+  "original_failed_scores_unchanged": true,
+  "full_semantic_conservation_verified": false,
+  "semantic_equivalence_certified": false,
+  "publication_authorized": false,
+  "financial_approval": false,
+  "status": "HOLD",
+  "limitations": [
+    "All nine existing multi-target qualifier candidates adjudicated; candidate coverage does not prove discovery of every applicable qualifier in the video.",
+    "Shared qualifier amendment sidecar and single-edge review tranches are still separate. Unique census verified on the frozen parent, not yet a unified final research journal. Numeric multi-target scope still blocked.",
+    "Native partial split uses exposed source, not a real new two-turn trial. All speaker uncertainty and existing open characters remain. Current commit CI not yet verified. No financial truth, operational score or release."
+  ]
+}
