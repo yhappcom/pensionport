@@ -11,6 +11,24 @@ from .semantic_obligation_review import review_batch, need
 from .shared_qualifier_review import review_shared_qualifiers
 
 
+def _resolve_numeric_open(old, single, effective, shared, rows):
+    """Replace only effective numeric OPEN rows in the replay projection.
+
+    Original events and receipts stay immutable. A later reviewed event
+    supplies source-bound evidence; no finance or equivalence approval.
+    """
+    old_types = {json_digest(x): x['obligation']['type'] for x in old}
+    prior = {r['old_sha256']: r for r in single}
+    replacements = {r['old_sha256']: r for r in rows}
+    need(len(replacements) == len(rows), 'LEDGER_DUPLICATE')
+    for k, row in replacements.items():
+        need(old_types.get(k) == 'NUMBER' and k in prior and k not in shared
+             and effective.get(k) == prior[k]['decision'] == 'OPEN', 'LEDGER_RESOLVE_NOT_NUMERIC_OPEN')
+        need(row['decision'] in ('CARRY_SOURCE_EDGE', 'REBIND_SOURCE_FRAGMENT', 'CONTEXT_ONLY'),
+             'LEDGER_RESOLVE_DECISION')
+    return [replacements.get(r['old_sha256'], r) for r in single]
+
+
 def _run(source, packet, old, candidates, events, pins):
     g = compile_graph(source, packet)
     single = []
@@ -28,6 +46,12 @@ def _run(source, packet, old, candidates, events, pins):
         if event['kind'] == 'SINGLE':
             need(not set(keys) & set(effective), 'LEDGER_ALREADY_REVIEWED')
             single += rows
+            receipt = review_batch(source, g, old, candidates, single, **pins)
+            result = receipt
+            for row in rows:
+                effective[row['old_sha256']] = row['decision']
+        elif event['kind'] == 'RESOLVE_NUMERIC_OPEN':
+            single = _resolve_numeric_open(old, single, effective, shared, rows)
             receipt = review_batch(source, g, old, candidates, single, **pins)
             result = receipt
             for row in rows:
@@ -77,6 +101,9 @@ def append(source, packet, old, candidates, events, kind, rows, *, expected_head
     if kind == 'SINGLE':
         need(not set(keys) & set(effective), 'LEDGER_ALREADY_REVIEWED')
         result = review_batch(source, g, old, candidates, single + rows, **pins)
+    elif kind == 'RESOLVE_NUMERIC_OPEN':
+        revised = _resolve_numeric_open(old, single, effective, shared, rows)
+        result = review_batch(source, g, old, candidates, revised, **pins)
     elif kind == 'SHARED':
         need(not set(keys) & set(shared), 'LEDGER_SHARED_ALREADY_REVIEWED')
         result = review_shared_qualifiers(source, packet, old, candidates, single, receipt, rows,
