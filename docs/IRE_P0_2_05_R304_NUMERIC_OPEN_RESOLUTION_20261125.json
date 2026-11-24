@@ -1,0 +1,69 @@
+{
+  "schema": "IRE_P205_R304_NUMERIC_OPEN_RESOLUTION_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "parent_commit": "2c0b24d69a902e1a493f23f3df4a517f78a6756b",
+  "parent_ci_run_id": 45499069440,
+  "parent_ci_conclusion": "success",
+  "ledger_blob": "79b7c5bffef91470007d87ea4e439903e8e82b9b",
+  "test_blob": "961c84aacb72ae06ef7af189e34c8315e30513fd",
+  "ledger_sha256": "167479a9e007381b5371ee0299265c484046e6d04753730609fdae57e0258227",
+  "test_sha256": "5e0da3683f689943d9460ec44b4a0a72cd3b8d23052770e5dc682017553c4f01",
+  "total_obligations": 1163,
+  "reviewed": 1163,
+  "new_semantic_review_obligations": 148,
+  "evidence_groups_reviewed": 74,
+  "proposals": {
+    "ROLE_SUPPORTED": 37,
+    "CONTEXT_PROPOSAL": 50,
+    "GRAPH_REBIND_REQUIRED": 16,
+    "OPEN_UNIT_OR_ASR": 42,
+    "INVALID_TOKEN_BOUNDARY": 3
+  },
+  "applied": {
+    "CARRY_SOURCE_EDGE": 37,
+    "CONTEXT_ONLY": 31
+  },
+  "prior_open": 455,
+  "current_open": 387,
+  "video270": {
+    "prior_open": 184,
+    "current_open": 116,
+    "not_revisited": 36,
+    "reviewed_but_open": 80,
+    "prior_head": "a4bb3ef441b88545414f646aa3a173fb2c56b0d427738d69df286b7cac9c458a",
+    "head": "3726cee7768e8639c4687ddac1ac1626e67918b87db734f55b6ba9604c658131"
+  },
+  "video271": {
+    "open": 271,
+    "changed": false
+  },
+  "scope_drafts": 183,
+  "open_characters": 908,
+  "original_unbound_numeric_spans": 3,
+  "previous_separate_successor_draft_unbound_numeric_spans": 2,
+  "prior_events_unchanged": true,
+  "graph_packet_unchanged": true,
+  "real_negative_tests_blocked": 8,
+  "local_test_invocations_passed": 25,
+  "new_named_unit_tests": 4,
+  "isolated_replay_pass": true,
+  "private_archive_sha256": "377f7b6c75a1a63c2df4e67bfd3fec5984163ee5600db61e67299f8fcae0c99a",
+  "private_archive_bytes": 3143277,
+  "manifest_sha256": "e9dde2d4fcd1396e89670ad4dd87dfcdbbcb4863f2afe57e776c8f7ad29b0152",
+  "review_proposals_sha256": "99c19ae9a0fa51977fef508296b0cfc4ff34040cf716e0ed2fd7edcbc11e9e90",
+  "applied_result_sha256": "6aae23fa19ae0648aa95cd37ca3e97fa037a025f24ffc527f8b30c1cb323e8ad",
+  "successor_ledger_sha256": "2ceb8cb3304de34de7d84425bb85c2ffd156a5ce70ec6deb865ad23432cdf2ca",
+  "successor_reconciliation_sha256": "4a455d188a97aa0ea46530ca0481530e687d7c98078c85546e3319b30f613cf7",
+  "original_scores_unchanged": true,
+  "actual_two_turn_verified": false,
+  "semantic_conservation_verified": false,
+  "financial_approval": false,
+  "ready_for_e3": false,
+  "publication_authorized": false,
+  "status": "HOLD",
+  "limitations": [
+    "The 68 resolutions are explicit ChatGPT-reviewed legacy numerical obligation dispositions, validated for source coordinates and candidate edges. They are not distinct approved claims, financial facts, or independent semantic certification.",
+    "The new append-only event resolves only existing unshared numerical OPEN obligations; it does not repair lexical tokenization, reconnect graph nodes outside the pinned candidate set, or supersede qualifier drafts. 3 legacy obligations share one identified lexical error. Frozen graph, original scores, and original events unchanged.",
+    "The successor reconciliation plan was regenerated but not appended to the prior terminal GraphJournal. Native fresh two-turn execution, financial approval, and E3-E5 remain incomplete. New integrated CI not yet confirmed."
+  ]
+}
