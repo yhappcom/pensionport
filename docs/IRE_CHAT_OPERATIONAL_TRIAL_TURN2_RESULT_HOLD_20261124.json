@@ -1,0 +1,69 @@
+{
+  "schema": "IRE_CHAT_OPERATIONAL_TRIAL_TURN2_PUBLIC_RECEIPT_V1",
+  "date": "2026-11-24",
+  "item_id": "P0-2-05",
+  "baseline_commit": "0e6671cae7894deed199d70c6bc3121b1f1aa34b",
+  "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "turn1_zip_sha256": "41cf6757c8cd2bb02f13e6d60e712a05cf8c7de1a1b2525159d0a895a397c02a",
+  "frozen_protocol_sha256": "48e00e5dbf852bd5019277f1c5fa5b9445fe9a984deb2b027ab8ad3aaebf5756",
+  "reference_sha256": "8f083d7d5bdce37e024382437451677ee64819be5d5639d4e5acc682eb20c626",
+  "comparison_sha256": "c1e0d6be5cbb73a4e826d0583ab1c730cf0509a7a3fa2c7b966f41a93f564e95",
+  "result_zip_sha256": "cd2592d513eff1703c2b6f2fcd5b8a48e82871b7e9c0f69450d1ceb1e273d68c",
+  "library_file_id": "libfile_6d7990842b6081919b084a28517bf649",
+  "actual_user_second_message": true,
+  "host_two_turns_verified": false,
+  "prior_candidate_exposure": true,
+  "independent": false,
+  "all_turn1_member_hashes_verified": true,
+  "cues": {
+    "total": 250,
+    "claim_or_context": 207,
+    "nonclaim_transition": 17,
+    "open": 26
+  },
+  "internal_reference": {
+    "provisional_count": 79,
+    "complete": false,
+    "frozen_before_detailed_comparison": true
+  },
+  "original68": {
+    "revise": 50,
+    "hold": 13,
+    "quarantine": 5,
+    "reference_without_direct_candidate": 7,
+    "many_or_partial_reference_relations": 20
+  },
+  "shadow70": {
+    "revise": 52,
+    "hold": 13,
+    "quarantine": 5,
+    "reference_without_direct_candidate": 6,
+    "many_or_partial_reference_relations": 19
+  },
+  "reference_without_direct_candidate_is_not_certified_fn": true,
+  "internal_precision": null,
+  "internal_recall": null,
+  "internal_high_risk_FN": null,
+  "independent_gold_count": 0,
+  "independent_precision": null,
+  "independent_recall": null,
+  "independent_high_risk_FN": null,
+  "risk_topics_reviewed": 10,
+  "risk_topics_independent_open": 10,
+  "new_official_body_validation_performed": false,
+  "exact_alignment_complete": false,
+  "formal_approved_count": 0,
+  "result": "HOLD_INCOMPLETE_REFERENCE_AND_EXACT_ALIGNMENT",
+  "formal_checklist": {
+    "pass": 16,
+    "hold": "P0-2-05",
+    "blocked": 43
+  },
+  "prior_design_ci": {
+    "run_id": 45308688518,
+    "conclusion": "failure",
+    "cause": "historical pinned master plan blob changed; restore original historical documents, preserve separate redesign and new trial receipt"
+  },
+  "no_threshold_change": true,
+  "no_new_security_or_status_test": true
+}

@@ -897,7 +897,7 @@
     "chat_native_operational_trial": {
       "policy_path": "docs/IRE_CHAT_NATIVE_EXECUTION_REDESIGN_20261124.md",
       "receipt_path": "docs/IRE_CHAT_OPERATIONAL_TRIAL_TURN1_FREEZE_SHA_ONLY_20261124.json",
-      "phase": "TURN1_FROZEN_AWAIT_ACTUAL_NEXT_USER_MESSAGE",
+      "phase": "TURN2_EXECUTED_HOLD_INCOMPLETE_REFERENCE_AND_EXACT_ALIGNMENT",
       "private_library_file_id": "libfile_6612fa0c6a8c81919192d5ca16c4d0c5",
       "trial_zip_sha256": "41cf6757c8cd2bb02f13e6d60e712a05cf8c7de1a1b2525159d0a895a397c02a",
       "source_cue_count": 250,
@@ -912,7 +912,29 @@
       "formal_acceptance_unchanged": true,
       "formal_current_item": "P0-2-05",
       "formal_status": "HOLD",
-      "next_actual_action": "Perform the next actual user's TURN2 source-first complete internal reference and candidate dispositions on this frozen trial, without fabricating isolated reviewer sessions or altering the fixed rubric."
+      "next_actual_action": "Preserve failed trial and investigate generic source-to-atom role/stance and compound proposition handling; do not retune evaluation or certify independent accuracy; fixed checklist remains HOLD.",
+      "turn2_receipt_path": "docs/IRE_CHAT_OPERATIONAL_TRIAL_TURN2_RESULT_HOLD_20261124.json",
+      "turn2_report_path": "docs/IRE_CHAT_OPERATIONAL_TRIAL_TURN2_CLOSEOUT_20261124.md",
+      "turn2_result_zip_sha256": "cd2592d513eff1703c2b6f2fcd5b8a48e82871b7e9c0f69450d1ceb1e273d68c",
+      "turn2_private_library_file_id": "libfile_6d7990842b6081919b084a28517bf649",
+      "reference_count": 79,
+      "open_cue_count": 26,
+      "original68_dispositions": {
+        "revise": 50,
+        "hold": 13,
+        "quarantine": 5,
+        "reference_without_direct_candidate": 7,
+        "many_or_partial_reference_relations": 20
+      },
+      "shadow70_dispositions": {
+        "revise": 52,
+        "hold": 13,
+        "quarantine": 5,
+        "reference_without_direct_candidate": 6,
+        "many_or_partial_reference_relations": 19
+      },
+      "actual_user_second_message_received": true,
+      "host_two_turns_verified": false
     }
   },
   "open_blockers": [

@@ -688,6 +688,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_CHAT_OPERATIONAL_TRIAL_TURN1_FREEZE_SHA_ONLY_20261124.json",
           "scope": "Actual source250 and native68/shadow70/source71 byte/quote verification, 15 substantive source reading groups, 175 unresolved cues and 70 unresolved speakers/stances in shadow70. Chat-only operational trial first turn frozen; independent benchmark remains null; no stage advancement."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_CHAT_OPERATIONAL_TRIAL_TURN2_RESULT_HOLD_20261124.json",
+          "scope": "Actual user TURN2: 250 cue dispositions, 79 provisional same-chat reference atoms, 68 and 70 candidates exhaustively dispositioned; 26 OPEN cues, exact semantic alignment incomplete, metrics null, approvals zero. Prior design CI failure restored pinned historical docs without weakening checks."
         }
       ],
       "start_report": {
@@ -765,6 +771,12 @@
         "verdict": "HOLD",
         "start_report_user_visible": "[P0-2-05] Review design feasibility and separate operational trial from independent certification.",
         "end_report_user_visible": "[P0-2-05] Reused real ETF250 source; froze current operational trial, 15 source reading groups, fixed original68/shadow70/prior71, 0 quote/hash mismatches, 175 unresolved cues and 70 unresolved speaker/stance records remain. Actual next user TURN2 required. Independent benchmark not certified; official checklist unchanged."
+      },
+      "operational_trial_turn2_report": {
+        "task_id": "P0-2-05",
+        "verdict": "HOLD",
+        "start_report_user_visible": "[TURN2] Restore frozen source/protocol and reread 250 cues first.",
+        "end_report_user_visible": "[TURN2] 250 dispositions, 79 provisional refs, 26 OPEN; 68/70 candidate dispositions complete, exact alignment incomplete. No independent metrics or publication. Prior historical evidence hash drift identified and restored. Current item HOLD."
       }
     },
     {
