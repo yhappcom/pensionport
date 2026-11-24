@@ -14,7 +14,7 @@ class GraphJournalTests(unittest.TestCase):
         self.path=Path(self.tmp.name)/"private.db"
         self.args={"source_sha":sha256(self.f.raw),"manifest_sha":json_digest(self.f.m)}
         self.j=GraphJournal(self.path,self.f.raw,self.f.m,create=True,**self.args)
-        self.plan=plan_for(self.f.s,campaign_id="synthetic_graph",engine_commit="a"*40",
+        self.plan=plan_for(self.f.s,campaign_id="synthetic_graph",engine_commit="a"*40,
              registered_at="2026-01-01T00:00:00+00:00",purpose="DEVELOPMENT")
         self.first={"user_ref":"actual-label-first","observed_at":"2026-01-01T00:01:00+00:00","packet":self.f.first}
         self.second={"user_ref":"actual-label-second","observed_at":"2026-01-01T00:02:00+00:00","packet":self.f.second}
