@@ -754,6 +754,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_COMMON_RUBRIC_V2_COHORT_PREREGISTRATION_20261124.json",
           "scope": "V2 actual source cohort preregistered, 2388 cues/61 windows, common rubric hash pinned; failed 271 preserved. No semantic evaluation yet."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_COMMON_RUBRIC_V2_270_TURN1_FROZEN_SHA_ONLY_20261124.json",
+          "scope": "V2 #270 real full source 618 cues and 133 common-frame candidates frozen, repeat structural PASS, numeric boundary warnings0, residual6, 30 projection notes. No score until actual distinct user turn."
         }
       ],
       "start_report": {
@@ -938,6 +944,16 @@
         "status": "HOLD_PREREGISTERED",
         "cohort_sha256": "1fd3a5737427e460ed973329566b3baec0d44fa679f09f080abf2ff7099e43b4",
         "receipt": "docs/IRE_P0_2_05_COMMON_RUBRIC_V2_COHORT_PREREGISTRATION_20261124.json"
+      },
+      "common_rubric_v2_270_turn1": {
+        "status": "AWAIT_ACTUAL_USER_TURN2",
+        "receipt": "docs/IRE_P0_2_05_COMMON_RUBRIC_V2_270_TURN1_FROZEN_SHA_ONLY_20261124.json",
+        "source_cues": 618,
+        "prediction_atoms": 133,
+        "first_packet_sha256": "e1e1602ce1aec3721eda07578d9c50eb96182a1eabc4304fbc578d00e3dfbd40",
+        "frozen_prediction_sha256": "a9ef191da0f1b989f2e15e8efeb2d141105da75befa00d8370a774fb2be58089",
+        "start_report_user_visible": "P205 수정 엔진 CI 확인 및 신규 cohort 사전등록, #270 1턴 수행.",
+        "end_report_user_visible": "수정 엔진 CI 6/6, 새 cohort 2388 cues, #270 618 cues·133개 최초 후보 동결, 수치경계 0, 위험 및 잔여 문맥 보존, 실제 TURN2 전 HOLD."
       }
     },
     {
