@@ -1,0 +1,76 @@
+{
+  "schema": "IRE_P205_R304_INTEGRATED_LEGACY_LEDGER_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "parent_commit": "e4aaf3003a8abfb6dec45b0f0b344dd10285d74a",
+  "parent_ci_run_id": 45492735561,
+  "parent_ci_conclusion": "success",
+  "base_artifact_sha256": "ccfeed023617025c529240e00206c9e8e68b092d98fff477d48de52f12d3b7c9",
+  "base_verified_files": 75,
+  "prior_archive_sha256": "2546cb4f4b8d794f249207171a7ef6053db1c37966d3b75c9f6c10799d040c9e",
+  "module_blob": "3c94a2cdb97ac4f5dd822e01b817a324fb4f8634",
+  "test_blob": "b14dcf84c3edec8b3999e3482b866888e99fecea",
+  "module_sha256": "fb6d9d2aa15337c9272f4aedbde90ac9b50bc91a90ba653c4ee30da39042692a",
+  "test_sha256": "27eb8734aef38a7bd66c51cd9cd885b3a0b1d1238cc32fd1e7cc377232530e2f",
+  "total_obligations": 1163,
+  "prior_reviewed": 371,
+  "new_reviewed": 100,
+  "new_decisions": {
+    "CARRY_SOURCE_EDGE": 37,
+    "OPEN": 61,
+    "CONTEXT_ONLY": 2
+  },
+  "cumulative_unique_reviewed": 471,
+  "remaining_unreviewed": 692,
+  "effective_counts": {
+    "CARRY_SOURCE_EDGE": 202,
+    "REBIND_SOURCE_FRAGMENT": 11,
+    "CONTEXT_ONLY": 24,
+    "REVIEWER_NOTE": 24,
+    "MULTI_TARGET": 7,
+    "OPEN": 203
+  },
+  "videos": [
+    {
+      "video": 270,
+      "events": 5,
+      "reviewed": 338,
+      "remaining": 122,
+      "remaining_numeric_unreviewed": 0,
+      "head": "a4bb3ef441b88545414f646aa3a173fb2c56b0d427738d69df286b7cac9c458a",
+      "ledger_sha256": "8d38b2e4ade7e8a29900d7c321ad932ca1cfc9f47fb5f0e2da2ed52e712f6de6",
+      "open_characters": 484,
+      "unbound_numeric_spans": 0
+    },
+    {
+      "video": 271,
+      "events": 3,
+      "reviewed": 133,
+      "remaining": 570,
+      "head": "247589a311cfc005e1af5114c8f3c43e01c7c1f423fec06338a004cf83ac26f2",
+      "ledger_sha256": "ab8ea7a85d1a00056f61db9fe5fe29480614960b93c72e2b50b6ffdadb31a602",
+      "open_characters": 424,
+      "unbound_numeric_spans": 3
+    }
+  ],
+  "prior_receipt_replay": "exact",
+  "repeat_equal": true,
+  "negative_tests_blocked": 10,
+  "synthetic_unit_tests_passed": 6,
+  "private_archive_sha256": "5e89875745c3e41fdb334271ab4dbb2c05aba0971062837fcd8809e9a523b0ce",
+  "private_archive_bytes": 1573214,
+  "private_library_file_id": "libfile_c2a9fe2f069881919baa4aaf10a2054f",
+  "result_sha256": "eb0ec4eafb42306fd762520aa00d7b5f957f4961904f9a548f6cb7cb619d5f42",
+  "decisions_tsv_sha256": "f8e3c04c88400a6ef97284269f2a50cece673e204e7ec45b1f5688603545e6be",
+  "run_sha256": "22e1257ba931499e4815f6f7ac60d8563a3b40166acfd7ac21f42d42cfa18a1e",
+  "actual_two_turn_verified": false,
+  "semantic_conservation_verified": false,
+  "publication_authorized": false,
+  "ready_for_e3": false,
+  "financial_approval": false,
+  "status": "HOLD",
+  "limitations": [
+    "Unified append/replay chain for exposed legacy migration decisions, not native actual-user two-turn journal; no automatic release, no semantic equivalence certification.",
+    "100 additional old numeric obligations manually reviewed; all remaining #270 numeric obligations have a recorded disposition but many remain OPEN. Counts are not accuracy or completed research. Multi-target number ownership and source/reviewer qualifier scope remain unresolved.",
+    "692 not reviewed; 203 OPEN; 908 source characters OPEN, 3 unbound numeric spans, unresolved speaker hypotheses, full predicate-level conservation and actual two-turn verification incomplete. R3-05 and R3-06 remain blocked. Current commit CI not yet verified."
+  ]
+}

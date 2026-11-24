@@ -808,6 +808,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_R304_SHARED_QUALIFIER_TRANCHE371_20261125.json",
           "scope": "Actual 9 multi-target qualifier obligations/18 targets adjudicated, 16 apply/2 exclude, 3 prior amendments/6 new. Native split carry fix verified on source 151–153; 18 negative executions and 5 synthetic tests. 44 extra single-edge rows, 371 unique reviewed/792 remaining, no release."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_R304_INTEGRATED_LEDGER471_20261125.json",
+          "scope": "Replay 371 legacy single/shared judgments with exact old receipts and add 100 actual #270 numeric obligations. Unified external-head hash chain 8 events, 471 unique reviewed, 203 OPEN, 692 unreviewed. 10 negative executions and 6 unit tests. Not native V3 research journal or release."
         }
       ],
       "start_report": {
@@ -1063,11 +1069,11 @@
       },
       "r304_obligation_review": {
         "status": "HOLD",
-        "receipt": "docs/IRE_P0_2_05_R304_SHARED_QUALIFIER_TRANCHE371_20261125.json",
-        "reviewed": 371,
-        "remaining_unreviewed": 792,
-        "start_report_user_visible": "R3-04 일대다 조건 귀속 결함 우선 수정, 기존 원장 복구.",
-        "end_report_user_visible": "9개 다중 조건/18 연결 판정, 핵심 분할 함수 실제 재실행 및 18개 부적합 차단. 50개 신규·3개 보완, 누적371/1163, 792 미검토, 원점수 보존. 최종 저널 통합 미완료."
+        "receipt": "docs/IRE_P0_2_05_R304_INTEGRATED_LEDGER471_20261125.json",
+        "reviewed": 471,
+        "remaining_unreviewed": 692,
+        "start_report_user_visible": "R3-04 통합 원장 및 잔여 검토 착수. 후속 단계 순차 차단 유지.",
+        "end_report_user_visible": "기존 371개 판정 통합 재생, 신규100개, 누적471/1163. 부적합10회 차단, 단위6개 통과. 203 OPEN, 692 미검토, 실제 2턴 및 의미 보존 미완료. R3-05/06 BLOCKED."
       }
     },
     {
