@@ -1,0 +1,72 @@
+{
+  "schema": "IRE_P205_R304_RECONCILIATION_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "parent_commit": "ed939801c610848353722cdf811fce45df38afc8",
+  "parent_ci_run_id": 45497289889,
+  "parent_ci_conclusion": "success",
+  "module_blob": "d05a74ee0b39c86bc4d46c8e6fa35b08a5736291",
+  "test_blob": "6900c91950a9b26cbb63aaf2e5242b6b1f24e296",
+  "module_sha256": "9a3072b3ed7f2b86317d61a40f36ff2a2d2bc672d0f7b2b30d866bf15f344696",
+  "test_sha256": "a694e3206c341c4c6204ca23e5051a3aab91464a18e808bddfc518c916184205",
+  "total_obligations": 1163,
+  "reviewed": 1163,
+  "open": 455,
+  "evidence_tasks": 289,
+  "scope_obligations": 183,
+  "scope_bundles": 69,
+  "scope_roles": {
+    "SOURCE_CONDITION": 49,
+    "HYPOTHETICAL_PREMISE": 17,
+    "QUESTION_PREMISE": 3
+  },
+  "overlapping_scope_bundles": 1,
+  "routes": {
+    "NUMERIC_ROLE_UNIT_SCOPE": 314,
+    "NUMERIC_COORDINATE_AMBIGUOUS": 38,
+    "LOCATED_QUALIFIER_SCOPE": 50,
+    "SOURCE_SCOPE_UNLOCATED": 35,
+    "SOURCE_REVIEWER_SPLIT": 15,
+    "QUALIFIER_UNLOCATED": 3
+  },
+  "video270": {
+    "open": 184,
+    "evidence_tasks": 110,
+    "scope_bundles": 25,
+    "open_characters": 484,
+    "plan_sha256": "a5441fde2de446cc663fa93cae1f6fa6487f175b0801dc73a765d1d04c0f416e"
+  },
+  "video271": {
+    "open": 271,
+    "evidence_tasks": 179,
+    "scope_bundles": 44,
+    "open_characters": 424,
+    "plan_sha256": "8fc0ccad011fd413c4f331731df98e8ce600e7fff0fc60144ab75dc384d09430"
+  },
+  "open_source_characters": 908,
+  "residual_spans": 50,
+  "original_unbound_numeric": 3,
+  "successor_draft_unbound_numeric": 2,
+  "one_cross_cue_amount_bound_in_successor_draft": true,
+  "negative_real_replay_tests_blocked": 10,
+  "additional_truncated_unit_test_blocked": true,
+  "new_unit_tests_passed": 4,
+  "prior_unit_tests_replayed": 5,
+  "isolated_replay_pass": true,
+  "private_archive_sha256": "cbc51b0dd0ca998607c70c4e980157730408bef9685f8b6a10453b2bffe4742b",
+  "private_archive_bytes": 2979416,
+  "manifest_sha256": "2b36dc48b423185f9c16d65586b23ac23eca513157fb40cd67bf79641cf69d4d",
+  "reconciliation_result_sha256": "dbd96aa4e54263b077e54c82a367a4c357e15c6dd533d242d172fb1d3769f857",
+  "numeric_followup_result_sha256": "865ebaa3212d9b262c4e22db87142cfd0648755c083142832e757bcb6c1a9f64",
+  "original_scores_unchanged": true,
+  "actual_two_turn_verified": false,
+  "semantic_conservation_verified": false,
+  "financial_approval": false,
+  "ready_for_e3": false,
+  "publication_authorized": false,
+  "status": "HOLD",
+  "limitations": [
+    "Reconciliation module is a separately replayable typed planning sidecar, not yet integrated with the final semantic graph/journal or production research workflow.",
+    "Grouping reduces evidence retrieval tasks only, not 455 open obligations; no time saving or accuracy improvement measured. 183 scope drafts remain; 908 residual characters remain. Existing numeric packet still has three unbound spans; separate successor draft resolves one, leaving two ASR ambiguities. No semantic certification or score revision.",
+    "New integrated CI pending verification."
+  ]
+}
