@@ -73,7 +73,32 @@ def _contained(span,others):
 def _intersection(a,b):
     return a[0]==b[0] and max(a[1],b[1])<min(a[2],b[2])
 
-def numeric_binding(source,parts):
+LEGACY_PACKET="IRE_V3_SEMANTIC_GRAPH_PACKET_V1"
+BOUNDARY_PACKET="IRE_V3_SEMANTIC_GRAPH_PACKET_V2"
+
+
+def numeric_token_ranges(text, *, boundary_policy=False):
+    """Return literal spans and explicit unresolved lexical-boundary warnings.
+
+    V1 retains historical behavior. V2 separates a known Korean lexical
+    continuation (만들..., 만큼...) from a magnitude suffix. It never
+    supplies a missing unit. Other morphological/ASR ambiguity remains a
+    semantic review problem, not a claim of complete Korean tokenization.
+    """
+    ranges=[];warnings=[]
+    for match in COMPLETE_NUMBER.finditer(text):
+        start,end=match.span()
+        if boundary_policy and match.group().endswith("만") and text[end:].startswith(("들","큼")):
+            end2=end-1
+            while end2>start and text[end2-1].isspace():end2-=1
+            if end2>start and COMPLETE_NUMBER.fullmatch(text[start:end2]):
+                warnings.append((start,end2,end))
+                end=end2
+        ranges.append((start,end))
+    return ranges,warnings
+
+
+def numeric_binding(source,parts,*,boundary_policy=False):
     """Reconstruct only actual source literal, never corrected ASR/derived value."""
     p=_spans(source,parts,nonempty=True)
     _need(len(p)<=8,"NUMBER_TOO_MANY_PARTS")
@@ -95,7 +120,7 @@ def numeric_binding(source,parts):
     combined=" ".join(texts)
     start=sum(len(t)+1 for t in texts[:first[0]-left])+first[1]
     end=sum(len(t)+1 for t in texts[:last[0]-left])+last[2]
-    _need(any(m.start()==start and m.end()==end for m in COMPLETE_NUMBER.finditer(combined)),
+    _need((start,end) in numeric_token_ranges(combined,boundary_policy=boundary_policy)[0],
           "NUMBER_BOUNDARY")
     return {"parts":[list(x) for x in p],"literal":literal,
             "literal_sha256":sha256(literal.encode("utf8")),"cross_cue":len(p)>1}
@@ -120,8 +145,9 @@ def compile_graph(source,packet):
     """
     grid=source_grid(source)
     _need(type(packet) is dict and set(packet)=={"schema","grid_sha256","nodes","residual"} and
-          packet["schema"]=="IRE_V3_SEMANTIC_GRAPH_PACKET_V1" and
+          packet["schema"] in (LEGACY_PACKET,BOUNDARY_PACKET) and
           packet["grid_sha256"]==json_digest(grid),"PACKET")
+    boundary_policy=packet["schema"]==BOUNDARY_PACKET
     rows=packet["nodes"];residual=packet["residual"]
     _need(type(rows) is list and 0<len(rows)<=10000 and type(residual) is list,"ROWS")
     events=defaultdict(list);nodes={};duplicate=set();unbound=[]
@@ -160,7 +186,7 @@ def compile_graph(source,packet):
             _need(type(b) is dict and set(b)=={"parts","function","reason"} and
                   b["function"] in ("AMOUNT","RATE","DURATION","COUNT","DATE","RATIO","OTHER") and
                   _note(b["reason"]),"NUMBER_BINDING")
-            value=numeric_binding(source,b["parts"])
+            value=numeric_binding(source,b["parts"],boundary_policy=boundary_policy)
             pp=[tuple(x) for x in value["parts"]]
             _need(all(_contained(x,direct+qs) for x in pp),"NUMBER_OUTSIDE_PREDICATE")
             key=tuple(pp);_need(key not in nseen,"DUPLICATE_NUMBER");nseen.add(key);parts+=pp
@@ -169,8 +195,14 @@ def compile_graph(source,packet):
         # be explicitly bound, otherwise remain a diagnostic blocker.
         for sp in sorted(set(direct+qs)):
             i,a,b=sp
-            for m in COMPLETE_NUMBER.finditer(_text(source,sp)):
-                z=(i,a+m.start(),a+m.end())
+            if boundary_policy:
+                # Scan original cue, not clipped evidence. A clipped token
+                # stays open even if only part intersects a governing span.
+                ranges,_=numeric_token_ranges(source.cues[i-1].text,boundary_policy=True)
+                candidates=[(i,x,y) for x,y in ranges if max(a,x)<min(b,y)]
+            else:
+                candidates=[(i,a+m.start(),a+m.end()) for m in COMPLETE_NUMBER.finditer(_text(source,sp))]
+            for z in candidates:
                 if not _contained(z,parts):
                     unbound.append({"atom_id":cid,"span":list(z)})
         for kind,spans in (("DIRECT",direct),("SUPPORT",context+qs)):
@@ -198,7 +230,16 @@ def compile_graph(source,packet):
             counts[status]+=b-a
             census.append({"span":[i,a,b],"status":status,"direct_ids":primary,"support_ids":supporting,
                            "text_sha256":sha256(text[a:b].encode("utf8"))})
+    boundary_warnings=[]
+    if boundary_policy:
+        for i,c in enumerate(source.cues,1):
+            _,warnings=numeric_token_ranges(c.text,boundary_policy=True)
+            for a,b,end in warnings:
+                boundary_warnings.append({"span":[i,a,b],"legacy_span":[i,a,end],
+                    "text_sha256":sha256(c.text[a:end].encode("utf8")),"status":"UNIT_REVIEW_REQUIRED"})
+        unbound=[dict(atom_id=k,span=list(sp)) for k,sp in sorted({(x["atom_id"],tuple(x["span"])) for x in unbound})]
     return {"schema":"IRE_V3_COMPILED_SOURCE_GRAPH_V1","grid":grid,
+            **({"numeric_boundary_warnings":boundary_warnings} if boundary_policy else {}),
             "grid_sha256":json_digest(grid),"packet_sha256":_rows_digest([{"schema":packet["schema"],
               "grid_sha256":packet["grid_sha256"]}]+rows+residual),
             "nodes":nodes,"census":census,"census_sha256":_rows_digest(census),
@@ -263,6 +304,7 @@ def score_graphs(source,first_packet,second_packet,alignment):
     alias mapping is explicit reviewer evidence, not an authenticated identity.
     A separate preregistration/freeze/CI gate and E3-E5 bridge are still needed.
     """
+    _need(first_packet["schema"]==second_packet["schema"],"NUMERIC_POLICY_MISMATCH")
     a=compile_graph(source,first_packet);b=compile_graph(source,second_packet)
     _need(a["packet_sha256"]!=b["packet_sha256"],"COPIED_PACKET")
     _need(type(alignment) is dict and set(alignment)=={"first_packet_sha256","second_packet_sha256",
@@ -316,7 +358,7 @@ def score_graphs(source,first_packet,second_packet,alignment):
     critical_unmatched=sum(bool(z["numbers"] or z["qualifiers"]) for k,z in l.items() if k not in seenl)+sum(
                            bool(z["numbers"] or z["qualifiers"]) for k,z in r.items() if k not in seenr)
     opened=a["character_dispositions"].get("OPEN",0)+b["character_dispositions"].get("OPEN",0)
-    numeric_open=len(a["unbound_numeric_spans"])+len(b["unbound_numeric_spans"])
+    numeric_open=sum(len(g["unbound_numeric_spans"])+len(g.get("numeric_boundary_warnings",[])) for g in (a,b))
     met=bool(high and tp*10000>=9500*len(l) and tp*10000>=9800*len(r) and not(high-hit) and
              critical==critical_unmatched==opened==numeric_open==0)
     return {"schema":"IRE_V3_INTERNAL_GRAPH_SCORE_DIAGNOSTIC_V1","first_packet_sha256":a["packet_sha256"],
