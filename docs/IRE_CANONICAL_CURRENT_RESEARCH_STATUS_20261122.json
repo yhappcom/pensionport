@@ -180,7 +180,8 @@
         ],
         "independent_certification_required": false,
         "latest_trial_receipt": "docs/IRE_P0_2_05_COMMON_RUBRIC_V2_270_TURN2_INTERNAL_SCORE_HOLD_20261124.json",
-        "v3_redesign_receipt": "docs/IRE_P0_2_05_V3_SOURCE_COORDINATE_REAL_REGRESSION_SHA_ONLY_20261124.json"
+        "v3_redesign_receipt": "docs/IRE_P0_2_05_V3_SOURCE_COORDINATE_REAL_REGRESSION_SHA_ONLY_20261124.json",
+        "r304_journal_receipt": "docs/IRE_P0_2_05_R304_GRAPH_JOURNAL_REAL_REGRESSION_SHA_ONLY_20261124.json"
       }
     },
     "E3": {
@@ -986,7 +987,7 @@
       "id": "S02",
       "scope": "E2",
       "status": "HOLD",
-      "reason": "V1 and V2 actual internal trials failed. V3 source-coordinate graph and exposed partial regression implemented; remaining graph dispute/revision lineage, actual two-turn freeze, lossless E3-E5 bridge and V3 enrollment/release not complete. No fresh holdout or operational score yet. Prior thresholds unchanged."
+      "reason": "R3-04 graph journal and partial exposed-source regression implemented, full-source semantic dispute reconciliation and actual distinct-turn V3 path, corrected CI and E3-E5 bridge not complete. Prior V1/V2 failed scores preserved. No new operational score or release."
     },
     {
       "id": "S03",
