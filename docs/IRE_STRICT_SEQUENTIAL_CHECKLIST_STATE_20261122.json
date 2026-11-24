@@ -724,6 +724,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_OPERATIONAL_COHORT_CANDIDATE_SCREEN_20261124.json",
           "scope": "Policy CI 6/6; three candidate metadata screened, actual pension source 706 cues SHA verified, two original SRT missing. No cohort preregistration or semantic trial; exposure not fully certified."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_OPERATIONAL_COHORT_ACTUAL_SOURCE_PREREGISTRATION_20261124.json",
+          "scope": "All three actual owner archive members structurally verified (2476 cues/63 windows), prospective cohort pinned before semantic review. No prediction or score; independent status separate."
         }
       ],
       "start_report": {
@@ -861,6 +867,19 @@
         ],
         "start_report_user_visible": "신규 정책의 CI와 3개 원본 확보·중복 확인.",
         "end_report_user_visible": "정책 CI 6/6, #271 실제 원본 확보, #336·#366 원본 미확보, 예비 노출 검사만 완료. P205 HOLD 유지."
+      },
+      "operational_preregistration": {
+        "cohort_path": "docs/IRE_P0_2_05_OPERATIONAL_PREREGISTERED_COHORT.json",
+        "cohort_sha256": "1792e30d8cae7e8a9455fe8fe2fa918b2d7c559de2c976906aa7ea156a6b534e",
+        "source_cues": 2476,
+        "source_windows": 63,
+        "video_ids": [
+          "w8nnPJe8lmo",
+          "BXjda2v6e-Q",
+          "-lX8iJd-xDM"
+        ],
+        "engine_commit": "7ced7d7da680a7f09ed490814555563e45fad683",
+        "status": "HOLD_PREREGISTERED_AWAIT_ACTUAL_TURN1"
       }
     },
     {
