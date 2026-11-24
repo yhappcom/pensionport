@@ -171,7 +171,14 @@
       "stage_title": "E2 원자 주장 의미 품질",
       "title": "사전 고정 독립 골드·정량 지표 측정",
       "acceptance": "precision≥95%, recall≥98%, 고위험 FN=0; 독립 평가 부재면 HOLD",
-      "required_evidence_kind": "assessment"
+      "required_evidence_kind": "assessment",
+      "operational_trial": {
+        "policy_path": "docs/IRE_CHAT_NATIVE_EXECUTION_REDESIGN_20261124.md",
+        "receipt_path": "docs/IRE_CHAT_OPERATIONAL_TRIAL_TURN1_FREEZE_SHA_ONLY_20261124.json",
+        "scope": "Within the current HOLD item only, no stage advancement",
+        "phase": "TURN1_FROZEN_AWAIT_ACTUAL_NEXT_USER_MESSAGE",
+        "independent_acceptance_unchanged": true
+      }
     },
     {
       "id": "P0-2-06",

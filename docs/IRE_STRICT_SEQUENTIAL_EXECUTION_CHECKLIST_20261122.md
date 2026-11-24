@@ -1,3 +1,5 @@
+> **2026-11-24 운영 재설계:** [ChatGPT 실행 중심 재설계](IRE_CHAT_NATIVE_EXECUTION_REDESIGN_20261124.md)에 따라 현재 P0-2-05 내부의 실제 두 턴 운영 시험을 독립 정확도 인증과 구분한다. 독립 골드가 없어도 미승인 운영 실증을 수행할 수 있으며, 기존 독립 합격 기준/현재 HOLD/후속 BLOCKED는 그대로다. [첫 턴 동결 영수증](IRE_CHAT_OPERATIONAL_TRIAL_TURN1_FREEZE_SHA_ONLY_20261124.json)의 실제 다음 사용자 TURN2를 수행하고 동일 사례 과적합을 피한다. 새로운 서명·합성 상태 시험을 추가하는 것을 현 단계의 우선순위로 삼지 않는다.
+
 # IRE 순차 실행·실패 차단 체크리스트 (2026-11-22)
 
 > **현행 운영 규칙 / 마스터 계획과 함께 필수 적용.** [전수 분석 마스터 계획](IRE_CANONICAL_FULL_DEVELOPMENT_MASTER_PLAN_20261122.md) · [기계 판독 카탈로그](IRE_STRICT_SEQUENTIAL_CHECKLIST_CATALOG_20261122.json) · [실행 상태 원장](IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json) · [브랜치 수명주기 정책](BRANCH_LIFECYCLE_AND_RESEARCH_CLOSEOUT_POLICY_20261122.md).

@@ -893,6 +893,26 @@
       "actual_independent_precision": null,
       "actual_independent_recall": null,
       "actual_independent_highrisk_FN": null
+    },
+    "chat_native_operational_trial": {
+      "policy_path": "docs/IRE_CHAT_NATIVE_EXECUTION_REDESIGN_20261124.md",
+      "receipt_path": "docs/IRE_CHAT_OPERATIONAL_TRIAL_TURN1_FREEZE_SHA_ONLY_20261124.json",
+      "phase": "TURN1_FROZEN_AWAIT_ACTUAL_NEXT_USER_MESSAGE",
+      "private_library_file_id": "libfile_6612fa0c6a8c81919192d5ca16c4d0c5",
+      "trial_zip_sha256": "41cf6757c8cd2bb02f13e6d60e712a05cf8c7de1a1b2525159d0a895a397c02a",
+      "source_cue_count": 250,
+      "development_candidate_count": 70,
+      "development_unresolved_cue_count": 175,
+      "development_unresolved_speaker_count": 70,
+      "development_unresolved_stance_count": 70,
+      "source_ref_mismatches": 0,
+      "independent_certification_status": "HOLD_NO_INDEPENDENT_GOLD",
+      "independent_metrics": null,
+      "internal_metrics": null,
+      "formal_acceptance_unchanged": true,
+      "formal_current_item": "P0-2-05",
+      "formal_status": "HOLD",
+      "next_actual_action": "Perform the next actual user's TURN2 source-first complete internal reference and candidate dispositions on this frozen trial, without fabricating isolated reviewer sessions or altering the fixed rubric."
     }
   },
   "open_blockers": [

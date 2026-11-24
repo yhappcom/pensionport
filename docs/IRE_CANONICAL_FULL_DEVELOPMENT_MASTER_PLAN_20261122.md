@@ -1,3 +1,5 @@
+> **2026-11-24 운영 재설계:** [ChatGPT 실행 중심 재설계](IRE_CHAT_NATIVE_EXECUTION_REDESIGN_20261124.md)에 따라 현재 P0-2-05 내부의 실제 두 턴 운영 시험을 독립 정확도 인증과 구분한다. 독립 골드가 없어도 미승인 운영 실증을 수행할 수 있으며, 기존 독립 합격 기준/현재 HOLD/후속 BLOCKED는 그대로다. [첫 턴 동결 영수증](IRE_CHAT_OPERATIONAL_TRIAL_TURN1_FREEZE_SHA_ONLY_20261124.json)의 실제 다음 사용자 TURN2를 수행하고 동일 사례 과적합을 피한다. 새로운 서명·합성 상태 시험을 추가하는 것을 현 단계의 우선순위로 삼지 않는다.
+
 > **P0-0-02 현재 단일 상태 기준:** [현재 연구·엔진 상태 JSON](IRE_CANONICAL_CURRENT_RESEARCH_STATUS_20261122.json) 및 [판정/분모 규칙](IRE_CURRENT_STATUS_DECISION_RULES_20261122.md)을 실제 신규 개발의 E1~E5·자문·791편 상태 출처로 사용합니다. 본 마스터 계획의 C 및 기존 V166/V202 등 버전별 값은 역사적 스냅샷이며 상태 원장의 범위별 최신 판단을 대체하지 않습니다. 실물 원본 재검증/실제 2턴/금융 원전/owner 봉인/출판 승인 전 상태 승격 금지. **선행 순차 체크리스트 통과와 사용자 시작·종료 보고는 계속 필수입니다.**
 
 > **2026-11-22 필수 실행·순서 통제:** 본 계획의 P0-0→P0-6→P1→P2→P3는 [60개 항목의 FAIL/HOLD 차단 체크리스트](IRE_STRICT_SEQUENTIAL_EXECUTION_CHECKLIST_20261122.md)와 [단계별 기계 판독 상태 원장](IRE_STRICT_SEQUENTIAL_CHECKLIST_STATE_20261122.json)으로 실행합니다. **현재 유일한 READY 항목부터 시작하고, 어떤 FAIL/HOLD라도 같은 항목을 PASS로 마감하기 전 후속 항목 착수 금지.** 새 사용자 요청마다 실행 전 시작 보고, 실행 후 종료 보고를 채팅에 직접 전달해야 합니다. CI/기존 PASS는 실제 의미·2턴·금융근거·E5 승인으로 자동 승격하지 않습니다.
