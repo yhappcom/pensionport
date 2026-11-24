@@ -22,6 +22,7 @@ from .gold_eval import evaluate_atomic_gold, _original_quote_valid
 from .gold_traceability import verify_gold_cue_trace
 from .source import parse_srt
 from .review_consensus import verify_two_review_consensus_lineage
+from .assessment_plan import CAMPAIGN_SCHEMA, production_registry_pin, timestamp
 
 # This is deliberately *not* enrolled. A future approved preregistration
 # commit may pin the independently verified public-key registry SHA here.
@@ -82,7 +83,8 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
         return _hold('HOLD_OPEN_CUES_CANNOT_PASS',basic)
     if basic.get('tp') is None or basic.get('gold_traceability',{}).get('traceability_valid') is not True:
         return _hold('HOLD_GOLD_TRACEABILITY_NOT_READY',basic)
-    pin=PINNED_P205_HOST_REVIEW_REGISTRY_SHA256
+    generic=plan.get("schema")==CAMPAIGN_SCHEMA
+    pin=production_registry_pin(plan) if generic else PINNED_P205_HOST_REVIEW_REGISTRY_SHA256
     if type(pin) is not str or len(pin)!=64:
         return _hold('HOLD_NO_PRE_REVIEW_PRODUCTION_HOST_REGISTRY_PIN',basic)
     if type(registry) is not dict or json_digest(registry)!=pin:
@@ -94,6 +96,8 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
        registry['source_srt_sha256']!=sha256(original_srt) or \
        registry['native_prediction_sha256']!=sha256(frozen_native):
         return _hold('HOLD_WRONG_PINNED_SOURCE_OR_PREREGISTRATION',basic)
+    if generic and registry["source_only_packet_sha256"]!=plan["source_only_packet_sha256"]:
+        return _hold("HOLD_CAMPAIGN_REGISTRY_NOT_BOUND_TO_PREREGISTRATION",basic)
     keys=registry['public_keys']
     if (type(keys) is not dict or set(keys)!=set(ROLES) or
         any(type(v) is not str for v in keys.values()) or
@@ -103,6 +107,8 @@ def evaluate_production_gold(plan,original_srt:bytes,frozen_native:bytes,
         enrolled=_date(registry['enrolled_at'])
     except ValueError:
         return _hold('HOLD_REGISTRY_ENROLLMENT_TIME_INVALID',basic)
+    if generic and enrolled < timestamp(plan["registered_at"]):
+        return _hold("HOLD_CAMPAIGN_REGISTRY_NOT_BOUND_TO_PREREGISTRATION",basic)
     if type(reviewer_submissions) is not list or len(reviewer_submissions)!=2:
         return _hold('HOLD_TWO_INDEPENDENT_SOURCE_ONLY_SUBMISSIONS_ABSENT',basic)
     cues=parse_srt(original_srt)

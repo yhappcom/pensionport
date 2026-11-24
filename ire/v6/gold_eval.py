@@ -20,6 +20,7 @@ from .errors import InvalidInput
 from .source import parse_srt
 from .numeric_provenance import audit_numeric_reference_boundaries
 from .gold_traceability import verify_gold_cue_trace
+from .assessment_plan import source_prediction_fields
 
 MATCH_FIELDS = (
     "source_quote_and_entailment",
@@ -122,7 +123,7 @@ def _validate_provenance(plan, *, gold_sha, alignment_sha, provenance):
         return False, "HOLD_PREREGISTRATION_PLAN_CHANGED"
     if provenance.get("source_sha256") != plan["source"]["original_srt_sha256"]:
         return False, "HOLD_REVIEW_SOURCE_CHANGED"
-    if provenance.get("prediction_sha256") != plan["predictions"]["frozen_v228_native_sha256"]:
+    if provenance.get("prediction_sha256") != source_prediction_fields(plan)[2]:
         return False, "HOLD_PREDICTION_CHANGED"
     if type(provenance.get("signatures")) is not dict or set(provenance["signatures"]) != set(trusted):
         return False, "HOLD_INDEPENDENT_SIGNED_PROVENANCE_MISSING"
@@ -149,18 +150,17 @@ def evaluate_atomic_gold(plan, original_srt: bytes, frozen_native: bytes,
     Any missing gold, ambiguous cue or unsigned reviewer makes the certified
     metrics **None** even when provisional diagnostic arithmetic is available.
     """
-    if type(plan) is not dict or plan.get("schema") != "IRE_P0_2_05_ETF250_PREREGISTERED_BLIND_ATOMIC_GOLD_PLAN_V1":
-        _invalid("PREREGISTRATION_PLAN_SCHEMA_INVALID")
+    expected_source,expected_cues,expected_prediction,expected_atoms=source_prediction_fields(plan)
     if type(original_srt) is not bytes or type(frozen_native) is not bytes:
         _invalid("SOURCE_AND_NATIVE_ORIGINAL_BYTES_REQUIRED")
     source_sha=sha256(original_srt)
     native_sha=sha256(frozen_native)
-    if source_sha != plan["source"]["original_srt_sha256"]:
+    if source_sha != expected_source:
         _invalid("SOURCE_SHA_DRIFT")
-    if native_sha != plan["predictions"]["frozen_v228_native_sha256"]:
+    if native_sha != expected_prediction:
         _invalid("PREDICTION_SHA_DRIFT")
     cue_rows=parse_srt(original_srt)
-    if len(cue_rows) != plan["source"]["cue_count"]:
+    if len(cue_rows) != expected_cues:
         _invalid("CUE_250_SOURCE_CENSUS_DRIFT")
     try:
         native=json.loads(frozen_native)
@@ -169,7 +169,7 @@ def evaluate_atomic_gold(plan, original_srt: bytes, frozen_native: bytes,
     if type(native) is not dict or type(native.get("atoms")) is not list:
         _invalid("ORIGINAL_NATIVE_ATOMS_ABSENT")
     candidates=native["atoms"]
-    if len(candidates) != plan["predictions"]["original_unapproved_atom_count"]:
+    if len(candidates) != expected_atoms:
         _invalid("PREDICTION_ATOM_CENSUS_DRIFT")
     pred={}
     for claim in candidates:
