@@ -1,0 +1,76 @@
+{
+  "schema": "IRE_P205_R304_NUMERIC_CALCULATION_LINEAGE_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "parent_commit": "8615473a37c17abf3153d3ec579973517dac4e4d",
+  "parent_ci_run_id": 45495345307,
+  "parent_ci_conclusion": "success",
+  "parent_archive_sha256": "e651943b8fed6c78f98b756ba8c9749cf07e7eb9913f7b6572ef53ab34f33d71",
+  "module_blob": "3a35b396684a1d866a7ec4a8128faa834915351d",
+  "test_blob": "cdc0571a189baad0159b44a2b6a138e3f26d613a",
+  "module_sha256": "159ee1555602135af636edebf3c0d304319af2cadab52c86ba538aa1f66cf6b1",
+  "test_sha256": "8952829176913ae0ecd6d505255ef5e8dffd699a84391c3049396bd7948cf2dd",
+  "total_obligations": 1163,
+  "previous_reviewed_across_artifacts": 593,
+  "new_reviewed": 237,
+  "cumulative_reviewed_across_artifacts": 830,
+  "unreviewed": 333,
+  "remaining_types": {
+    "CONDITION": 325,
+    "EXCEPTION": 8
+  },
+  "new_decisions": {
+    "CARRY_SOURCE_EDGE": 81,
+    "REBIND_SOURCE_FRAGMENT": 2,
+    "CONTEXT_ONLY": 5,
+    "OPEN": 149
+  },
+  "cumulative_counts": {
+    "CARRY_SOURCE_EDGE": 283,
+    "REBIND_SOURCE_FRAGMENT": 13,
+    "CONTEXT_ONLY": 59,
+    "REVIEWER_NOTE": 24,
+    "MULTI_TARGET": 7,
+    "SCOPE_DRAFT": 70,
+    "OPEN": 374
+  },
+  "video_270": {
+    "reviewed_across_artifacts": 460,
+    "unreviewed": 0
+  },
+  "video_271": {
+    "reviewed": 370,
+    "unreviewed": 333,
+    "ledger_head": "e44936a01ac5aaa96dcb333f5c3aea4219b55dc6608de3994942adfcc3752bd9",
+    "prior_head": "247589a311cfc005e1af5114c8f3c43e01c7c1f423fec06338a004cf83ac26f2",
+    "ledger_events": 4,
+    "ledger_sha256": "1d7619c15d3b788a8b4712bb8d23ee3b677bb094532c8541057d5f78432e398b"
+  },
+  "prior_replay_equal": true,
+  "portable_replay_pass": true,
+  "calculation_tests": {
+    "actual_cases": 4,
+    "arithmetic_match": 3,
+    "reported_unit_unresolved": 1,
+    "wrong_result_detected": true,
+    "negative_inputs_blocked": 6,
+    "synthetic_unit_tests_passed": 5
+  },
+  "numeric_result_sha256": "d5cb2899fce51efbbf500122252235dc0b79feaaa0c9367a4b49f558dcd896f2",
+  "calc_result_sha256": "db6a8d7e24b99f27f1f8b5878d5f71a095c92d3c714c6b774f646d0a27405f09",
+  "calc_rows_sha256": "234cc1d3ca3e0e8d78b5f6f0ed647219e64f00185f59c7929e636fd79e031a0a",
+  "decision_tsv_sha256": "8642fe330ac7dc6240b7fb7326557dca71b8056af1a734817e9a0c732903a50a",
+  "private_archive_sha256": "861e0ee23c188c3766d52e9495f44e51ead685c5b08c173cc931f0005bf7306b",
+  "private_archive_bytes": 2665891,
+  "original_scores_unchanged": true,
+  "actual_two_turn_verified": false,
+  "semantic_conservation_verified": false,
+  "financial_approval": false,
+  "ready_for_e3": false,
+  "publication_authorized": false,
+  "status": "HOLD",
+  "limitations": [
+    "237 individual legacy numeric obligations reviewed, not distinct financial claims or accuracy evidence. 149 remain OPEN; no source numeric obligations unreviewed, but numeric truth is not established.",
+    "Calculation sidecar supports explicit unit-bearing KRW and rate literals, add/subtract/multiply/annual conversion. It validates supplied arithmetic, not automatic formula extraction, actual financial law or every calculation. 4 exposed examples only; missing result unit retained as OPEN. Speaker and scope remain unresolved.",
+    "122 #270 gap reviews remain separate draft, 333 #271 conditions/exceptions unreviewed, 374 OPEN, 70 scope drafts, 908 open source characters, 3 unbound numeric spans. Final semantic graph/journal, actual two-turn and E3-E5 not complete. Current CI pending."
+  ]
+}

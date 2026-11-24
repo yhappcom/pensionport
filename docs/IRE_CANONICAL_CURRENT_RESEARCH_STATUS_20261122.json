@@ -185,7 +185,8 @@
         "r304_all112_review_receipt": "docs/IRE_P0_2_05_R304_ALL112_DISPUTE_REVIEW_SHA_ONLY_20261124.json",
         "r304_provisional_successor_receipt": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json",
         "r304_obligation_review_receipt": "docs/IRE_P0_2_05_R304_INTEGRATED_LEDGER471_20261125.json",
-        "r304_qualifier_gap_receipt": "docs/IRE_P0_2_05_R304_QUALIFIER_GAP593_20261125.json"
+        "r304_qualifier_gap_receipt": "docs/IRE_P0_2_05_R304_QUALIFIER_GAP593_20261125.json",
+        "r304_numeric_calc_receipt": "docs/IRE_P0_2_05_R304_NUMERIC_CALC830_20261125.json"
       }
     },
     "E3": {
@@ -991,7 +992,7 @@
       "id": "S02",
       "scope": "E2",
       "status": "HOLD",
-      "reason": "R3-04 471 integrated legacy reviews plus 122 #270 qualifier-gap provisional reviews; 593 unique reviewed across separate artifacts, 570 unreviewed (#271), 225 explicit OPEN, 70 provisional scope assignments. 45 new qualifier edges compiled in separate draft, no semantic conservation or native journal completion. Missing-coordinate qualifiers and calculation input lineage require further work; original failures unchanged."
+      "reason": "R3-04 830/1163 reviewed across legacy ledger and separate #270 draft; 333 unreviewed qualifiers, 374 OPEN, 70 scope drafts. All legacy numeric obligations have recorded decisions, 4 arithmetic examples tested but no financial truth or full semantic conservation. Native actual-turn journal and E3-E5 bridge incomplete."
     },
     {
       "id": "S03",

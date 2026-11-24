@@ -820,6 +820,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_R304_QUALIFIER_GAP593_20261125.json",
           "scope": "All 122 remaining #270 condition obligations manually reviewed and provisional graph compiled with 25 scope bundles/45 new qualifier edges; 70 scope draft,30 context,22 OPEN. 593 unique reviews across separate ledger and draft; 570 unreviewed. 10 actual negative tests and 5 synthetic tests. No integration or release."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_R304_NUMERIC_CALC830_20261125.json",
+          "scope": "237 remaining #271 numeric obligations reviewed, 830/1163 across artifacts, 333 unreviewed conditions/exceptions, 374 OPEN. Four actual source calculation examples (3 matches/1 unit unresolved), 6 negative inputs blocked, 5 unit tests; portable replay pass. No release."
         }
       ],
       "start_report": {
@@ -1089,6 +1095,14 @@
         "prior_integrated_ledger_reviewed": 471,
         "start_report_user_visible": "R3-04 최신 CI 및 471개 원장 검증, #270 잔여 조건의 원문 귀속 검토.",
         "end_report_user_visible": "#270 122개 잔여 의무 판정, 25 조건 묶음/45 edge 실제 초안 컴파일, 10 부적합/5 단위 통과. 전체593 검토(별도 초안 포함), 570 미검토, 225 OPEN, 70 초안. P205 HOLD."
+      },
+      "r304_numeric_calculation": {
+        "status": "HOLD",
+        "receipt": "docs/IRE_P0_2_05_R304_NUMERIC_CALC830_20261125.json",
+        "reviewed_across_artifacts": 830,
+        "remaining_unreviewed": 333,
+        "start_report_user_visible": "R3-04 잔여 #271 숫자 및 계산 계보 검증.",
+        "end_report_user_visible": "237개 수치 의무 개별 검토, 830 누적, 333 미검토. 산술 계보 실물 4개, 3 일치/1 단위 미확정. 6 부적합 차단, 5 단위시험, portable replay. 전체 의미 검증 미완료."
       }
     },
     {
