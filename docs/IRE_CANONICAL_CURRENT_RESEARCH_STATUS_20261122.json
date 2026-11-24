@@ -166,7 +166,20 @@
         "validation/ire-v6-frozen/V242_E1_REAL_ETF250_B0013_CONDITION_LINKED_NATIVE_HOST_PASS_E3_E5_HOLD_20261122.md",
         "validation/ire-v6-frozen/V228_V193_TWO_REAL_CHAT_TURN_ENFORCEMENT_ETF250_TURN1_FROZEN_20261121.md",
         "validation/ire-v6-frozen/V225_E2_ACTUAL_ETF_32_REL_22_ENDPOINT_RESTORATION_OFFICIAL21_GOLD_HOLD_20261121.md"
-      ]
+      ],
+      "operational_assessment": {
+        "policy_id": "IRE_P205_OPERATIONAL_V1_20261124",
+        "status": "HOLD_NOT_MEASURED",
+        "precision": null,
+        "recall": null,
+        "high_risk_fn": null,
+        "required_domains": [
+          "ETF",
+          "PENSION",
+          "ASSET_ALLOCATION"
+        ],
+        "independent_certification_required": false
+      }
     },
     "E3": {
       "purpose": "Distinct actual user-turn ChatGPT semantic final decisions transmitted as formal V123 per atom/child/seam/parent",
@@ -957,7 +970,8 @@
       "current_item": "P0-2-05",
       "current_status": "HOLD",
       "next_status": "BLOCKED"
-    }
+    },
+    "operational_evaluation_policy_path": "docs/IRE_P0_2_05_OPERATIONAL_EVALUATION_POLICY_20261124.json"
   },
   "open_blockers": [
     {
@@ -970,7 +984,7 @@
       "id": "S02",
       "scope": "E2",
       "status": "HOLD",
-      "reason": "Full 250-cue/68-atom independent source-first semantic adjudication and gold not completed"
+      "reason": "Internal operational evaluation pending: three new source trials, full references and frozen prediction alignment. Historical independent certification remains separately UNMEASURABLE."
     },
     {
       "id": "S03",

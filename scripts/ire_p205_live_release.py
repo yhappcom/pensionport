@@ -87,7 +87,7 @@ def validate_closeout(receipt,pins):
     return errors
 
 
-def verify_current(root=ROOT,*,state=None,ledger=None):
+def verify_legacy_independent_transition(root=ROOT,*,state=None,ledger=None):
     """CI checks live status; old historical validators never grant release."""
     root=Path(root)
     s=_load(root,STATE) if state is None else state
@@ -117,3 +117,8 @@ def verify_current(root=ROOT,*,state=None,ledger=None):
                 +validate_status(l,root=root))
     except (OSError,ValueError,KeyError,TypeError,SyntaxError):
         return ["P205_LIVE_CLOSEOUT_INVALID_OR_MISSING"]
+
+
+def verify_current(root=ROOT,*,state=None,ledger=None):
+    from scripts.ire_p205_operational_release import verify_current as operational
+    return operational(root,state=state,ledger=ledger)

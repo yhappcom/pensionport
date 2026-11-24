@@ -45,16 +45,16 @@ class P205LiveTransitionTests(unittest.TestCase):
     def test_actual_current_hold(self):
         state=live._load(live.ROOT,live.STATE)
         if state["items"][16]["status"]=="PASS":
-            self.assertEqual([],live.verify_current())
+            self.assertEqual([],live.verify_legacy_independent_transition())
         else:
-            self.assertEqual([],live.verify_current())
+            self.assertEqual([],live.verify_legacy_independent_transition())
 
     def test_unpinned_perfect_receipt_cannot_advance(self):
         s={"items":[{} for _ in range(60)]}
         s["items"][16]={"id":"P0-2-05","status":"PASS"}
         with patch.object(live,"APPROVED_CLOSEOUT_SHA256",None):
             self.assertIn("P205_LIVE_NO_REVIEWED_CLOSEOUT_ENROLLMENT",
-                          live.verify_current(state=s,ledger={}))
+                          live.verify_legacy_independent_transition(state=s,ledger={}))
 
     def test_pinned_receipt_must_bind_checklist_and_current_guards(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -66,15 +66,15 @@ class P205LiveTransitionTests(unittest.TestCase):
             with patch.object(live,"APPROVED_CLOSEOUT_SHA256",live._sha(raw)), \
                  patch.object(live,"_campaign_pins",return_value=self.pins):
                 self.assertIn("P205_LIVE_CHECKLIST_EVIDENCE_NOT_BOUND",
-                              live.verify_current(root,state=s,ledger={}))
+                              live.verify_legacy_independent_transition(root,state=s,ledger={}))
                 s["items"][16]["evidence"]=[{"kind":"assessment","verdict":"PASS",
                     "ref":live.CLOSEOUT_PATH,"sha":live._git_blob(raw)}]
                 with patch.object(live,"_load",return_value={}), \
                      patch.object(live,"validate_checklist",return_value=["SEQUENCE_BAD"]), \
                      patch.object(live,"validate_status",return_value=[]):
-                    self.assertEqual(["SEQUENCE_BAD"],live.verify_current(root,state=s,ledger={}))
+                    self.assertEqual(["SEQUENCE_BAD"],live.verify_legacy_independent_transition(root,state=s,ledger={}))
                     with patch.object(live,"validate_checklist",return_value=[]):
-                        self.assertEqual([],live.verify_current(root,state=s,ledger={}))
+                        self.assertEqual([],live.verify_legacy_independent_transition(root,state=s,ledger={}))
                 path.write_bytes(raw+b" ")
                 self.assertIn("P205_LIVE_CLOSEOUT_DIGEST_DRIFT",
-                              live.verify_current(root,state=s,ledger={}))
+                              live.verify_legacy_independent_transition(root,state=s,ledger={}))

@@ -169,8 +169,8 @@
       "sequence": 17,
       "stage_id": "P0-2",
       "stage_title": "E2 원자 주장 의미 품질",
-      "title": "사전 고정 독립 골드·정량 지표 측정",
-      "acceptance": "precision≥95%, recall≥98%, 고위험 FN=0; 독립 평가 부재면 HOLD",
+      "title": "사전 등록 신규 3편 ChatGPT 내부 운영 정확도 측정",
+      "acceptance": "ETF·연금·자산배분 신규 원본 각 1편 2턴 내부 참조 기준 각각 precision≥95%, recall≥98%, 고위험 FN=0·숫자/조건/예외 중대 오류 0; 운영 실측 부재 HOLD. L4 독립 인증 별도",
       "required_evidence_kind": "assessment"
     },
     {
@@ -358,7 +358,7 @@
       "sequence": 38,
       "stage_id": "P0-6",
       "stage_title": "ETF 실물 한 편 E1~E5 완결 증명",
-      "title": "전체 P0 독립 재감사·실패 0·연구 종료 영수증",
+      "title": "전체 P0 별도 재감사·실패 0·연구 종료 영수증",
       "acceptance": "E1~E5 실물별 PASS/OPEN 0 확인, 미충족이면 HOLD 유지",
       "required_evidence_kind": "assessment"
     },
@@ -367,8 +367,8 @@
       "sequence": 39,
       "stage_id": "P1-1",
       "stage_title": "새 미노출 영상 5편 교차검증",
-      "title": "ETF와 독립된 새로운 원본 5편 사전 등록",
-      "acceptance": "중복 제외·영상 ID·SRT SHA·범위·독립 표본 확보",
+      "title": "ETF 개발 자료와 분리된 새로운 원본 5편 사전 등록",
+      "acceptance": "중복 및 개발·운영 평가 노출 제외·영상 ID·SRT SHA·범위·별도 표본 확보",
       "required_evidence_kind": "source"
     },
     {
@@ -467,7 +467,7 @@
       "stage_id": "P1-3",
       "stage_title": "검증 지식 기반 투자자문",
       "title": "지식 기반 자문 GO/HOLD 판정",
-      "acceptance": "재현 가능한 독립 평가와 위험통제 후에만 승인",
+      "acceptance": "사전 고정 신규 질문 기반 재현 가능한 ChatGPT 내부 운영 평가와 위험통제 후에만 승인; 독립 인증 별도",
       "required_evidence_kind": "assessment"
     },
     {
@@ -560,5 +560,6 @@
       "acceptance": "안전/개인화/보안·변조·재현성 PASS, 자동매매 별도 금지",
       "required_evidence_kind": "assessment"
     }
-  ]
+  ],
+  "operational_evaluation_policy": "docs/IRE_P0_2_05_OPERATIONAL_EVALUATION_POLICY_20261124.json"
 }

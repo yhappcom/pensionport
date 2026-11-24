@@ -1,0 +1,38 @@
+{
+  "schema": "IRE_P205_OPERATIONAL_EVALUATION_POLICY_V1",
+  "policy_id": "IRE_P205_OPERATIONAL_V1_20261124",
+  "effective_date": "2026-11-24",
+  "user_approval": {
+    "channel": "USER_CHAT",
+    "quote": "말씀하신대로 정책을 변경하겠습니다.",
+    "host_cryptographically_authenticated": false
+  },
+  "thresholds": {
+    "precision_min_bp": 9500,
+    "recall_min_bp": 9800,
+    "high_risk_fn_max": 0
+  },
+  "domains": [
+    "ETF",
+    "PENSION",
+    "ASSET_ALLOCATION"
+  ],
+  "minimum_trials": 3,
+  "each_video_thresholds_required": true,
+  "full_original_cue_review_required": true,
+  "score_scope": "FROZEN_TURN1_VS_TURN2_INTERNAL_REFERENCE_NOT_INDEPENDENT",
+  "first_prediction_must_not_be_rescored_after_repair": true,
+  "internal_reference_frozen_before_alignment": true,
+  "independent_certification_required_for_operational_pass": false,
+  "independent_certification": {
+    "status": "UNMEASURABLE",
+    "original_thresholds_preserved": true,
+    "precision": null,
+    "recall": null,
+    "high_risk_fn": null
+  },
+  "current_operational_status": "HOLD_NOT_MEASURED",
+  "e3_e4_e5_unchanged": true,
+  "personal_portfolio_linkage_after_engine_completion": true,
+  "previous_policy_commit": "50f7ee481d35f267c7b2a9cc7adea1d876b4763d"
+}
