@@ -694,6 +694,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_CHAT_OPERATIONAL_TRIAL_TURN2_RESULT_HOLD_20261124.json",
           "scope": "Actual user TURN2: 250 cue dispositions, 79 provisional same-chat reference atoms, 68 and 70 candidates exhaustively dispositioned; 26 OPEN cues, exact semantic alignment incomplete, metrics null, approvals zero. Prior design CI failure restored pinned historical docs without weakening checks."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_GENERIC_CHAT_REVISION_REAL_DEVELOPMENT_REPLAY_SHA_ONLY_20261124.json",
+          "scope": "Generic source-grounded revision compiler and complete source numeric compatibility; original 68 audit unchanged, old shadow70 incompatible, 10 revised/12 new typed atoms in separate development70 passes native structural audit, 171 unresolved cues; independent accuracy and full real approval unmeasured."
         }
       ],
       "start_report": {
@@ -777,6 +783,12 @@
         "verdict": "HOLD",
         "start_report_user_visible": "[TURN2] Restore frozen source/protocol and reread 250 cues first.",
         "end_report_user_visible": "[TURN2] 250 dispositions, 79 provisional refs, 26 OPEN; 68/70 candidate dispositions complete, exact alignment incomplete. No independent metrics or publication. Prior historical evidence hash drift identified and restored. Current item HOLD."
+      },
+      "generic_chat_revision_report": {
+        "task_id": "P0-2-05",
+        "verdict": "HOLD",
+        "start_report_user_visible": "[P0-2-05] Diagnose generic role/stance and atom revision failure, preserve failed trial.",
+        "end_report_user_visible": "[P0-2-05] Generic revision compiler ADD/REVISE/SPLIT/MERGE plus strict unit compatibility; actual frozen ETF development replay 68→70 native audit passes, old shadow70 stays rejected; local 12 tests pass, repository CI pending at commit. Independent accuracy unmeasured, no stage advancement."
       }
     },
     {

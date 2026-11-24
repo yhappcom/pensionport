@@ -30,6 +30,44 @@ NUMBER = re.compile(
     rf"(?<![0-9])(?:{_KOREAN_WON}|"
     rf"{_NUMBER_BASE}(?:\s*(?:%|퍼센트|달러|배|년|개월|월|일))?)"
 )
+# The original V1 cue census remains frozen.  New references can carry an
+# entire verbatim unit span without changing historic cue-census hashes.
+# A complete reference switches the atom to exact-unit proposition matching.
+# This scanner preserves spelling/units, not the truth of an ASR transcription.
+_COMPLETE_GROUP = rf"{_NUMBER_BASE}(?:\s*{_KOREAN_MAGNITUDE}\s*{_NUMBER_BASE})*"
+_COMPLETE_VALUE = rf"{_COMPLETE_GROUP}(?:\s*{_KOREAN_MAGNITUDE})?"
+COMPLETE_NUMBER = re.compile(
+    rf"(?<![0-9.,])(?:[+\-−])?(?:{_KOREAN_WON}|"
+    rf"{_COMPLETE_VALUE}\s*(?:퍼센트포인트|%포인트|%p|퍼센트|%|달러|유로|위안|엔|개월|kg|km|원|개|주|좌|배|년|월|일)|"
+    rf"{_COMPLETE_GROUP}\s*{_KOREAN_MAGNITUDE}|{_NUMBER_BASE})"
+)
+
+
+def audit_complete_numeric_references(source, atom):
+    """Exact original numeric spans and same-unit proposition spelling.
+
+    Legacy cue census is retained for old recordings; new semantic revisions
+    use this stricter check even if their numeric spelling fits the old lexer.
+    Never normalize ASR errors, change units, or supply derived numbers here.
+    """
+    numbers = atom['numeric_references']
+    if type(numbers) is not list:
+        raise InvalidInput('HOST_ATOM_NUMERIC_REFERENCES_INVALID')
+    tokens = set()
+    for item in numbers:
+        if (type(item) is not dict or set(item) != {'cue_index','token'} or
+                type(item['cue_index']) is not int or
+                item['cue_index'] not in atom['context_cue_indices'] or
+                not 1 <= item['cue_index'] <= len(source.cues) or
+                type(item['token']) is not str or item['token'] not in
+                COMPLETE_NUMBER.findall(source.cues[item['cue_index']-1].text)):
+            raise InvalidInput('HOST_ATOM_COMPLETE_NUMERIC_REF_NOT_IN_SOURCE')
+        tokens.add(re.sub(r"\s+", "", item['token']))
+    if any(re.sub(r"\s+", "", token) not in tokens
+           for token in COMPLETE_NUMBER.findall(atom['proposition'])):
+        raise InvalidInput('HOST_ATOM_COMPLETE_PROPOSITION_NUMBER_UNGROUNDED')
+
+
 KINDS = {"FACT", "HYPOTHETICAL", "QUESTION", "OPINION", "RECOMMENDATION", "MATH"}
 STANCES = {"AFFIRMED", "NEGATED", "CORRECTED", "CONDITIONAL", "QUOTED", "UNRESOLVED"}
 SPEAKERS = {"NARRATOR", "GUEST", "QUESTIONER", "QUOTED_SOURCE", "UNKNOWN"}
@@ -173,16 +211,22 @@ def audit_host_atomic_exchange(source, exchange: dict) -> dict:
         if type(numbers) is not list or len(numbers) > 80:
             raise InvalidInput("HOST_ATOM_NUMERIC_REFERENCES_INVALID")
         seen_numbers = []
+        complete_reference_used = False
         for item in numbers:
             if type(item) is not dict or set(item) != {"cue_index","token"}:
                 raise InvalidInput("HOST_ATOM_NUMERIC_REF_SCHEMA_INVALID")
             idx, token = item["cue_index"], item["token"]
-            if (type(idx) is not int or idx not in context or
-                type(token) is not str or token not in rowmap[idx]["numeric_tokens"]):
+            if type(idx) is not int or idx not in context or type(token) is not str:
                 raise InvalidInput("HOST_ATOM_NUMERIC_REF_NOT_IN_SOURCE")
+            if token not in rowmap[idx]["numeric_tokens"]:
+                if token not in COMPLETE_NUMBER.findall(source.cues[idx-1].text):
+                    raise InvalidInput("HOST_ATOM_NUMERIC_REF_NOT_IN_SOURCE")
+                complete_reference_used = True
             seen_numbers.append(token)
-        if any(re.sub(r"\s+", "", n) not in {re.sub(r"\s+", "", x) for x in seen_numbers}
-               for n in NUMBER.findall(atom["proposition"])):
+        if complete_reference_used:
+            audit_complete_numeric_references(source, atom)
+        elif any(re.sub(r"\s+", "", n) not in {re.sub(r"\s+", "", x) for x in seen_numbers}
+                 for n in NUMBER.findall(atom["proposition"])):
             raise InvalidInput("HOST_ATOM_PROPOSITION_NUMBER_UNGROUNDED")
     for idx, row in rowmap.items():
         expected = {a["claim_id"] for a in atoms if idx in [
