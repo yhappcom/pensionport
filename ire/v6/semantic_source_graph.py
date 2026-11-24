@@ -86,9 +86,15 @@ def numeric_binding(source,parts):
     _need(bool(COMPLETE_NUMBER.fullmatch(literal)),"NUMBER_NOT_COMPLETE_LITERAL")
     # Reject truncation of a recognized complete token in the joined context.
     first,last=p[0],p[-1]
-    texts=[source.cues[i-1].text for i in range(first[0],last[0]+1)]
+    # A standalone magnitude at the end of one cue may be truncated by
+    # the currency/unit at the start of the next. Include adjacent cues
+    # when checking lexical boundaries, never silently accept a fragment.
+    # This is a conservative source warning, not automatic numerical truth.
+    left=max(1,first[0]-1);right=min(len(source.cues),last[0]+1)
+    texts=[source.cues[i-1].text for i in range(left,right+1)]
     combined=" ".join(texts)
-    start=first[1];end=sum(len(t)+1 for t in texts[:-1])+last[2]
+    start=sum(len(t)+1 for t in texts[:first[0]-left])+first[1]
+    end=sum(len(t)+1 for t in texts[:last[0]-left])+last[2]
     _need(any(m.start()==start and m.end()==end for m in COMPLETE_NUMBER.finditer(combined)),
           "NUMBER_BOUNDARY")
     return {"parts":[list(x) for x in p],"literal":literal,

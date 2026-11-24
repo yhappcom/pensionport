@@ -55,6 +55,11 @@ class SourceGraphTests(unittest.TestCase):
         with self.assertRaisesRegex(InvalidInput,"NUMBER_NONCONTIGUOUS"):
             numeric_binding(self.s,[self.num[0],self.full(3)])
 
+    def test_truncated_cross_cue_number_blocked(self):
+        for part in self.num:
+            with self.assertRaisesRegex(InvalidInput,"NUMBER_BOUNDARY"):
+                numeric_binding(self.s,[part])
+
     def test_missing_numeric_binding_visible(self):
         self.first["nodes"][0]["numbers"]=[]
         self.assertTrue(compile_graph(self.s,self.first)["unbound_numeric_spans"])
