@@ -111,3 +111,20 @@ class AssessmentCampaignTests(unittest.TestCase):
         with self.assertRaises(InvalidInput):self.run_eval(manual_evidence=e,transcripts=t)
         e,t=self.manual()
         with self.assertRaises(InvalidInput):self.run_eval(manual_evidence=e,transcripts=[t[0],b"tampered"])
+
+    def test_closeout_replays_l4_instead_of_accepting_a_grade(self):
+        from ire.v6.assessment_closeout import propose_closeout
+        fx=self.fx;fx.registry["plan_sha256"]=json_digest(self.plan)
+        evidence={k:getattr(fx,k) for k in ("registry","consensus","alignment_receipt")}
+        evidence["reviewer_submissions"]=fx.reviews
+        def run():
+            return propose_closeout(self.plan,fx.source,fx.native,gold=fx.gold,
+                      alignment=fx.alignment,production_evidence=evidence)
+        with self.assertRaises(InvalidInput):run()
+        pin={self.plan["campaign_id"]:{"plan_sha256":json_digest(self.plan),
+                                       "registry_sha256":json_digest(fx.registry)}}
+        with patch("ire.v6.assessment_plan.PINNED_CAMPAIGNS",pin):
+            result=run()
+            self.assertEqual((result["tp"],result["fp"],result["fn"]),(2,0,0))
+            self.assertFalse(result["research_publication_authorized"])
+            self.assertEqual(result["gold_sha256"],json_digest(fx.gold))

@@ -104,12 +104,11 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None,historical_only=False
 
 def main():
     from scripts.ire_p205_history import verify_history
-    errs=verify_history(ROOT)+verify()
+    from scripts.ire_p205_live_release import verify_current
+    errs=verify_history(ROOT)+verify_current(ROOT)
     for err in errs:print('P205_ROOT_CAUSE_GATE_BLOCK',err,file=sys.stderr)
     if errs:return 1
-    print('P205_ROOT_CAUSE_HOLD_GATE_PASS source=250 native=68 independent_gold=0 '
-          'original_gold_trace_RED7_to_GREEN0 positive_contract=TESTED '
-          'external_host_trust_root=NOT_ENROLLED independent_metrics=NULL P206=BLOCKED')
+    print('P205_HISTORICAL_AND_LIVE_GATE_PASS')
     return 0
 
 if __name__=='__main__':raise SystemExit(main())

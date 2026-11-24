@@ -11,7 +11,7 @@ class P205RootCausePublicGateTests(unittest.TestCase):
     def err(self):return verify(ROOT,receipt=self.r,state=self.s,ledger=self.l)
     def bad(self,label):
         e=self.err();self.assertTrue(any(label in x for x in e),e)
-    def test_01_full_current_hold_gate_is_valid(self):self.assertEqual([],self.err())
+    def test_01_full_current_hold_gate_is_valid(self):self.assertEqual([],verify(ROOT,receipt=self.r,state=self.s,ledger=self.l,historical_only=True))
     def test_02_wrong_srt_bytes_hash(self):self.r['protected_original_source_srt_sha256']='0'*64;self.bad('HASHES')
     def test_03_wrong_native_prediction_hash(self):self.r['protected_original_frozen_native_sha256']='0'*64;self.bad('HASHES')
     def test_04_wrong_source_only_packet_hash(self):self.r['protected_source_only_intake_zip_sha256']='0'*64;self.bad('HASHES')

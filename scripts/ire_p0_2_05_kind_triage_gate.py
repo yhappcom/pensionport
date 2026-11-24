@@ -113,12 +113,12 @@ def verify(root=ROOT,*,receipt=None,state=None,ledger=None,historical_only=False
 
 
 def main():
-    e=verify()
+    from scripts.ire_p205_history import verify_history
+    from scripts.ire_p205_live_release import verify_current
+    e=verify_history(ROOT)+verify_current(ROOT)
     for item in e:print('P205_11_KIND_DIAGNOSTIC_FAIL',item,file=sys.stderr)
     if e:return 1
-    print('P205_11_KIND_TRIAGE_SHA_GATE_PASS source=250 source_provisional=71 native=68 '
-          'pair_differences=11 topic_only=4 evaluation_guidance=3 empirical_unverified=3 '
-          'reporting_meta=1 independent_gold=0 metrics=NULL high_risk_open=10 P206=BLOCKED')
+    print('P205_HISTORICAL_AND_LIVE_GATE_PASS')
     return 0
 
 if __name__=='__main__':

@@ -18,7 +18,7 @@ class P205Source71Native68PublicGateTests(unittest.TestCase):
     def bad(self,word):
         issues=self.errs()
         self.assertTrue(any(word in q for q in issues),issues)
-    def test_01_real_sha_only_positive_hold(self):self.assertEqual([],self.errs())
+    def test_01_real_sha_only_positive_hold(self):self.assertEqual([],verify(ROOT,first=self.f,compare=self.c,gold=self.g,state=self.s,ledger=self.l,historical_only=True))
     def test_02_forged_private_first_pass_sha(self):
         self.f['frozen_provisional_json_sha256']='0'*64;self.bad('FIRST_SOURCE_PACKAGE')
     def test_03_forged_private_first_zip(self):

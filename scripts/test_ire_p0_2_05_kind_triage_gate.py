@@ -15,7 +15,7 @@ class P205KindTriagePublicGateTests(unittest.TestCase):
     def bad(self,expected):
         failures=self.err()
         self.assertTrue(any(expected in x for x in failures),failures)
-    def test_01_healthy_sha_and_explicit_gold_hold(self):self.assertEqual([],self.err())
+    def test_01_healthy_sha_and_explicit_gold_hold(self):self.assertEqual([],verify(ROOT,receipt=self.r,state=self.s,ledger=self.l,historical_only=True))
     def test_02_wrong_original_source_hash(self):
         self.r['source_sha256']='0'*64;self.bad('FROZEN_HASH')
     def test_03_wrong_original_native_hash(self):

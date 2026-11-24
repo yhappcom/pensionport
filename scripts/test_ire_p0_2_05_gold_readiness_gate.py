@@ -17,7 +17,7 @@ class P205GoldReadinessNegativeTests(unittest.TestCase):
         errors=self.errors()
         self.assertTrue(any(label in x for x in errors),errors)
     def test_01_actual_gold_hold_with_deterministic_source_custody(self):
-        self.assertEqual([],self.errors())
+        self.assertEqual([],verify(ROOT,receipt=self.r,state=self.s,ledger=self.l,plan=self.p,historical_only=True))
     def test_02_cannot_mark_p205_pass_without_independent_gold(self):
         self.s['items'][16]['status']='PASS'
         self.invalid('CHECKLIST')

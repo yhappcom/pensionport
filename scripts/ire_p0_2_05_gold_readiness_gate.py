@@ -145,14 +145,14 @@ def verify(root=ROOT, *, receipt=None, state=None, ledger=None, plan=None, histo
 
 
 def main():
-    failures=verify()
+    from scripts.ire_p205_history import verify_history
+    from scripts.ire_p205_live_release import verify_current
+    failures=verify_history(ROOT)+verify_current(ROOT)
     for f in failures:
         print('P205_GOLD_READINESS_BLOCK',f,file=sys.stderr)
     if failures:
         return 1
-    print('P205_BLIND_GOLD_READINESS_HOLD_GATE_PASS source=250 native_atoms=68 '
-          'gold_independent=0 reviewer_attestation=0 independent_precision=NULL '
-          'independent_recall=NULL high_risk_FN=UNMEASURABLE P206=BLOCKED')
+    print('P205_HISTORICAL_AND_LIVE_GATE_PASS')
     return 0
 
 if __name__=='__main__':

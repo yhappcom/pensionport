@@ -121,9 +121,9 @@ def verify(root=ROOT, *,first=None,compare=None,ledger=None,state=None,gold=None
     return errors
 
 if __name__=='__main__':
-    problems=verify()
+    from scripts.ire_p205_history import verify_history
+    from scripts.ire_p205_live_release import verify_current
+    problems=verify_history(ROOT)+verify_current(ROOT)
     for x in problems:print('P205_SOURCE71_NATIVE68_BLOCK',x)
     if problems:raise SystemExit(1)
-    print('P205_SOURCE71_NATIVE68_SHA_HOLD_GATE_PASS original_cues=250 provisional=71 '
-          'native=68 kind_disagreement_pairs=11 high_risk_provisional=36 '
-          'independent_gold=0 precision=NULL recall=NULL P206=BLOCKED')
+    print('P205_SOURCE71_NATIVE68_HISTORICAL_AND_LIVE_GATE_PASS')
