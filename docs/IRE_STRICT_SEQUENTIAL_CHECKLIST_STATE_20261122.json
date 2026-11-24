@@ -736,6 +736,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_OPERATIONAL_271_TURN1_FROZEN_SHA_ONLY_20261124.json",
           "scope": "Actual #271 full 706-cue Turn1 native93 frozen on preregistered cohort, structural audit PASS; 17 unresolved cues, 1 suspicious NO_ATOM, 3 numeric warnings, 8 financial risk topics, 93 pending relation candidates. No reference or score until actual distinct user turn."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_OPERATIONAL_271_TURN2_INTERNAL_SCORE_HOLD_20261124.json",
+          "scope": "Actual #271 two-turn L2 internal evaluation against frozen native93, reference94, TP53 FP40 FN41, high-risk FN35, numeric warnings3, critical mismatches20. Actual evaluator repeated; no independence or release. Failed trial preserved."
         }
       ],
       "start_report": {
@@ -896,6 +902,15 @@
         "private_archive_sha256": "94ff84e0483559b880f49d99b963f04b9294bcc4f9390829f34f2c1c7f22fba9",
         "receipt": "docs/IRE_P0_2_05_OPERATIONAL_271_TURN1_FROZEN_SHA_ONLY_20261124.json",
         "turn1_end_report": "#271 최초 93개 후보 동결, 실제 원문 706개 전수 읽기/구조 검사, 17 미확정, 3 숫자 경계 경고. 다음 실제 사용자 턴에서 참조셋을 별도 작성해 평가."
+      },
+      "operational_trial_271_turn2": {
+        "status": "HOLD",
+        "receipt": "docs/IRE_P0_2_05_OPERATIONAL_271_TURN2_INTERNAL_SCORE_HOLD_20261124.json",
+        "precision_fraction": "53/93",
+        "recall_fraction": "53/94",
+        "high_risk_fn": 35,
+        "start_report_user_visible": "[P0-2-05 / #271 TURN 2 착수] 동결된 최초 93개 원자는 변경하지 않고 원본 706개 자막 기준 내부 참조셋 작성.",
+        "end_report_user_visible": "706/706 재검토, 참조 94개, TP53 FP40 FN41, 고위험 FN35, 숫자 경계 3, 중대 불일치 20. 실제 운영 평가 미달. 최초 점수 보존, P205 HOLD."
       }
     },
     {

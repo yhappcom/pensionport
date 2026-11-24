@@ -169,7 +169,7 @@
       ],
       "operational_assessment": {
         "policy_id": "IRE_P205_OPERATIONAL_V1_20261124",
-        "status": "HOLD_NOT_MEASURED",
+        "status": "HOLD_PARTIAL_OR_FAILED",
         "precision": null,
         "recall": null,
         "high_risk_fn": null,
@@ -178,7 +178,8 @@
           "PENSION",
           "ASSET_ALLOCATION"
         ],
-        "independent_certification_required": false
+        "independent_certification_required": false,
+        "latest_trial_receipt": "docs/IRE_P0_2_05_OPERATIONAL_271_TURN2_INTERNAL_SCORE_HOLD_20261124.json"
       }
     },
     "E3": {
@@ -984,7 +985,7 @@
       "id": "S02",
       "scope": "E2",
       "status": "HOLD",
-      "reason": "Internal operational evaluation pending: three new source trials, full references and frozen prediction alignment. Historical independent certification remains separately UNMEASURABLE."
+      "reason": "First preregistered #271 internal operational trial failed: TP53 FP40 FN41; high-risk FN35. Investigate atomic boundary/role/numeric defects before next stage. No cohort-level operating certification; strict independent status separately UNMEASURABLE."
     },
     {
       "id": "S03",
