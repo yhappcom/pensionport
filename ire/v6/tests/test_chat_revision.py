@@ -180,10 +180,12 @@ class ChatRevisionTests(unittest.TestCase):
         owner,pin=fx.attest()
         base=fx.store.snapshot("host_scope")
         old=fx.exchange["atoms"][0]
-        result=compile_chat_atom_revision(
-            fx.source,fx.exchange,edits=[edit([old["claim_id"]],frame(
+        revision={"before":fx.exchange,"edits":[edit([old["claim_id"]],frame(
                 old,kind="HYPOTHETICAL",modality="HYPOTHETICAL",
-                meaning_reason="Expected rather than guaranteed return; source-only review."))])
+                meaning_reason="Expected rather than guaranteed return; source-only review."))],
+                "cue_reviews":[]}
+        result=compile_chat_atom_revision(
+            fx.source,revision["before"],edits=revision["edits"])
         revised_id=result["edit_lineage"][0]["new_claim_ids"][0]
         knowledge=copy.deepcopy(fixture_case.inputs)
         for row in knowledge["relations"]:
@@ -195,7 +197,13 @@ class ChatRevisionTests(unittest.TestCase):
                   expected_head=base["ledger_head_sha256"],raw=fx.raw,manifest=fx.manifest,
                   inventory_bytes=owner,expected_inventory_sha256=pin,
                   exchange=result["exchange"],knowledge=knowledge,
-                  window_models=result["window_models"],window_reviews=result["window_reviews"])
+                  window_models=result["window_models"],window_reviews=result["window_reviews"],
+                  chat_revision=revision)
+        bad=copy.deepcopy(args)
+        bad["chat_revision"]["edits"][0]["replacements"][0]["proposition"]+=" extra meaning."
+        with self.assertRaises(InvalidInput):
+            fx.store.submit_host_atomic_batch(**bad)
+        self.assertEqual(base["ledger_head_sha256"],fx.store.snapshot("host_scope")["ledger_head_sha256"])
         first=fx.store.submit_host_atomic_batch(**args)
         self.assertTrue(first["atomic_batch_committed"])
         self.assertFalse(first["research_complete"])
@@ -206,6 +214,23 @@ class ChatRevisionTests(unittest.TestCase):
         self.assertTrue(second["idempotent_replay"])
         self.assertEqual(first["event_sha256"],second["event_sha256"])
         self.assertEqual(snap["ledger_head_sha256"],fx.store.snapshot("host_scope")["ledger_head_sha256"])
+        read_args={k:args[k] for k in ("scope_id","run_id","raw","manifest",
+                                     "inventory_bytes","expected_inventory_sha256")}
+        # Reopen the actual SQLite store; no in-memory compiler result is reused.
+        from ire.v6.store import TransactionStore
+        reopened=TransactionStore(fx.store.path)
+        read=reopened.read_host_chat_revision(**read_args)
+        self.assertEqual(read["record"]["result"],result)
+        self.assertEqual(read["record"]["inputs"],revision)
+        self.assertEqual(first["private_chat_revision_sha256"],read["private_chat_revision_sha256"])
+        self.assertTrue(read["is_current"])
+        self.assertFalse(read["research_complete"])
+        from ire.v6.errors import IdempotencyConflict
+        changed=copy.deepcopy(args)
+        changed["chat_revision"]["edits"][0]["reason"]="Different reviewer rationale with same native atom."
+        with self.assertRaises(IdempotencyConflict):
+            reopened.submit_host_atomic_batch(**changed)
+        self.assertEqual(snap["ledger_head_sha256"],reopened.snapshot("host_scope")["ledger_head_sha256"])
 
 
     def test_prior_direct_quote_cannot_silently_become_context(self):

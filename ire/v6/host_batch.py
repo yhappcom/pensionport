@@ -8,6 +8,9 @@ idempotent by run identifier and exact evidence digests.
 from __future__ import annotations
 
 import json
+from copy import deepcopy
+
+from .chat_revision import compile_chat_atom_revision
 
 from .atomic_exchange import _digest_rows, audit_host_atomic_exchange
 from .codec import WINDOW, IDENT, json_digest, require_hash, require_identifier
@@ -24,13 +27,100 @@ from .trust import verify_owner_inventory
 MARKER_SCHEMA = "IRE_V6_HOST_BATCH_COMMIT_MARKER_V3"
 
 
+def _compile_revision_record(source, inputs):
+    """Rebuild the exact unapproved proposal from reviewer inputs."""
+    if type(inputs) is not dict or set(inputs) != {"before", "edits", "cue_reviews"}:
+        raise InvalidInput("HOST_CHAT_REVISION_INPUT_SCHEMA")
+    if type(inputs["cue_reviews"]) is not list:
+        raise InvalidInput("HOST_CHAT_REVISION_CUE_REVIEWS_REQUIRED")
+    result = compile_chat_atom_revision(
+        source, inputs["before"], edits=inputs["edits"],
+        cue_reviews=inputs["cue_reviews"])
+    record = {"schema":"IRE_V6_PRIVATE_CHAT_REVISION_RECORD_V1",
+              "inputs":deepcopy(inputs),
+              "result":deepcopy(result)}
+    # Existing canonical event limits still apply. No truncation or silent
+    # dropping of reasons/quotes when a large batch exceeds the limit.
+    json_digest(record)
+    return record
+
+
+def read_host_chat_revision(store, *, scope_id, run_id, raw, manifest,
+                            inventory_bytes, expected_inventory_sha256):
+    """Private read of a committed unapproved revision, with source replay.
+
+    This is not evidence of an independent reviewer or financial truth.
+    The read never writes a new model or advances a research gate.
+    """
+    scope_id = require_identifier(scope_id, name="SCOPE_ID")
+    run_id = require_identifier(run_id, IDENT, "HOST_RUN_ID")
+    if len(run_id)>48:
+        raise InvalidInput("HOST_RUN_ID_TOO_LONG")
+    con = store._connection()
+    try:
+        con.execute("BEGIN")
+        state, _, head = store._replay(con, scope_id)
+        owner, att = state["owner_pin"], state["source_attestation"]
+        if owner is None or att is None:
+            raise DomainConflict("HOST_BATCH_PINNED_SOURCE_REQUIRED")
+        pinned = verify_owner_inventory(
+            raw, manifest, inventory_bytes,
+            expected_inventory_sha256=expected_inventory_sha256)
+        source = pinned.source
+        if (pinned.attestation()!={k:v for k,v in owner.items() if k!="event_sha256"}
+            or source.attestation()!={k:v for k,v in att.items() if k!="event_sha256"}):
+            raise DomainConflict("HOST_BATCH_SOURCE_PIN_LEDGER_DRIFT")
+        row = con.execute("SELECT * FROM events WHERE scope_id=? AND command_id=?",
+                          (scope_id,run_id+"_seal")).fetchone()
+        if row is None:
+            raise InvalidInput("HOST_CHAT_REVISION_NOT_FOUND")
+        event = json.loads(row["event_json"])
+        marker = event.get("payload",{}).get("review",{})
+        if (event.get("type")!="REVIEW_PROPOSED" or marker.get("schema")!=MARKER_SCHEMA
+            or marker.get("source_sha256")!=source.source_sha256
+            or "private_chat_revision" not in marker):
+            raise InvalidInput("HOST_CHAT_REVISION_NOT_FOUND")
+        record = marker["private_chat_revision"]
+        if (type(record) is not dict or
+            marker.get("private_chat_revision_sha256")!=json_digest(record)):
+            raise LedgerCorrupted("HOST_CHAT_REVISION_RECORD_DIGEST_DRIFT")
+        rebuilt = _compile_revision_record(source,record.get("inputs"))
+        if rebuilt != record:
+            raise LedgerCorrupted("HOST_CHAT_REVISION_REPLAY_DRIFT")
+        result = rebuilt["result"]
+        windows = [wid for wid,_,_ in source.primary_windows]
+        sequence = row["sequence"]-2*len(windows)
+        for wid in windows:
+            for suffix,kind,field,expected in (
+                ("model","MODEL_RECORDED","model",result["window_models"][wid]),
+                ("proof","STRUCTURAL_PROOF_RECORDED","review",result["window_reviews"][wid])):
+                entry = con.execute(
+                    "SELECT * FROM events WHERE scope_id=? AND sequence=?",
+                    (scope_id,sequence)).fetchone()
+                if entry is None or entry["command_id"]!=run_id+"_"+suffix+"_"+wid:
+                    raise LedgerCorrupted("HOST_CHAT_REVISION_MODEL_CHAIN_MISSING")
+                body = json.loads(entry["event_json"])
+                if (body["type"]!=kind or body["payload"].get("window_id")!=wid
+                    or body["payload"].get(field)!=expected):
+                    raise LedgerCorrupted("HOST_CHAT_REVISION_MODEL_CHAIN_DRIFT")
+                sequence += 1
+        con.execute("COMMIT")
+        return {"schema":"IRE_V6_PRIVATE_CHAT_REVISION_READ_V1",
+                "event_sha256":row["event_sha256"],"is_current":head==row["event_sha256"],
+                "private_chat_revision_sha256":json_digest(record),
+                "record":record,"research_complete":False,"p0_go":False}
+    finally:
+        con.close()
+
+
 def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                              expected_head: str, raw: bytes, manifest: dict,
                              inventory_bytes: bytes,
                              expected_inventory_sha256: str,
                              exchange: dict, knowledge: dict,
                              window_models: dict, window_reviews: dict,
-                             quarantine_preflight: dict | None = None) -> dict:
+                             quarantine_preflight: dict | None = None,
+                             chat_revision: dict | None = None) -> dict:
     """Commit a complete, source-bound host batch or no events at all.
 
     Requires current operator-pinned source and complete non-empty models
@@ -60,6 +150,16 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 source.attestation()!={k:v for k,v in att.items()
                                           if k!="event_sha256"}):
                 raise DomainConflict("HOST_BATCH_SOURCE_PIN_LEDGER_DRIFT")
+            revision_record = None
+            revision_pin = None
+            if chat_revision is not None:
+                revision_record = _compile_revision_record(source,chat_revision)
+                compiled = revision_record["result"]
+                if (compiled["exchange"]!=exchange or
+                    compiled["window_models"]!=window_models or
+                    compiled["window_reviews"]!=window_reviews):
+                    raise InvalidInput("HOST_CHAT_REVISION_COMPILED_INPUT_MISMATCH")
+                revision_pin = json_digest(revision_record)
             atom_audit=audit_host_atomic_exchange(source,exchange)
             prior_audit=audit_prior_candidates(source,exchange,knowledge)
             # The review frontier runs on this exact owner-pinned original
@@ -173,6 +273,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
             }
             if prequarantine_pin is not None:
                 commitment_fields["host_source_prequarantine_pin"]=prequarantine_pin
+            if revision_pin is not None:
+                commitment_fields["private_chat_revision_sha256"]=revision_pin
             commitment=json_digest(commitment_fields)
             seal_id=run_id+"_seal"
             prior=con.execute(
@@ -188,6 +290,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     review.get("source_first_semantic_frontier_pin")!=frontier_pin or
                     review.get("source_semantic_risk_pin")!=risk_pin or
                     review.get("host_source_prequarantine_pin")!=prequarantine_pin or
+                    review.get("private_chat_revision_sha256")!=revision_pin or
+                    review.get("private_chat_revision")!=revision_record or
                     review.get("semantic_truth_certified") is not False or
                     review.get("engine_quality_certified") is not False):
                     raise IdempotencyConflict("HOST_BATCH_RETRY_INPUT_CHANGED")
@@ -205,6 +309,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                         "research_complete":False,"p0_go":False}
                 if prequarantine_pin is not None:
                     receipt_fields["host_source_prequarantine_pin"]=prequarantine_pin
+                if revision_pin is not None:
+                    receipt_fields["private_chat_revision_sha256"]=revision_pin
                 return receipt_fields
             for wid in windows:
                 for suffix in ("model","proof"):
@@ -252,6 +358,9 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     "engine_quality_certified":False}
             if prequarantine_pin is not None:
                 marker["host_source_prequarantine_pin"]=prequarantine_pin
+            if revision_pin is not None:
+                marker["private_chat_revision_sha256"]=revision_pin
+                marker["private_chat_revision"]=revision_record
             payload={"window_id":last,
                      "model_revision_event_sha256":state["models"][last]["revision_event_sha256"],
                      "review":marker}
@@ -276,6 +385,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     "research_complete":False,"p0_go":False}
             if prequarantine_pin is not None:
                 receipt_fields["host_source_prequarantine_pin"]=prequarantine_pin
+            if revision_pin is not None:
+                receipt_fields["private_chat_revision_sha256"]=revision_pin
             return receipt_fields
         return store._commit(con,work)
     finally:
