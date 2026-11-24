@@ -65,7 +65,8 @@ def compile_review(source, packet):
         f=row["frame"];u=row["unit"];q=row["qualifiers"]
         _need(type(f) is dict and set(f)==_FRAME_KEYS,"FRAME")
         _need(type(u) is dict and set(u)=={"subject","predicate","object","atomicity_reason"} and
-              all(_reason(x) for x in u.values()),"ATOMIC_UNIT")
+              all(type(u[k]) is str and 1<=len(u[k].strip())<=1000
+                  for k in ("subject","predicate","object")) and _reason(u["atomicity_reason"]),"ATOMIC_UNIT")
         _need(row["risk"] in ("HIGH","NORMAL") and _reason(row["risk_reason"]),"RISK")
         atom,overlay=_project(source,f,cid)
         # Explicit quoted qualifier edges. A cue cannot silently be a
@@ -143,8 +144,12 @@ def check_exact_typed_axes(first,second,alignment):
     Other semantic comparisons (e.g. equivalent differently worded
     conditions) remain explicit human/model adjudication, not automatic TP.
     """
+    _need(type(alignment) is dict and type(alignment.get("pairs")) is list,"ALIGNMENT")
     by_gold={row["gold_id"]:row for row in second["typed"].values()}
     for pair in alignment["pairs"]:
+        _need(type(pair) is dict and type(pair.get("match_dimensions")) is dict and
+              type(pair["match_dimensions"].get("speaker_and_stance")) is bool and
+              type(pair.get("claim_id")) is str and type(pair.get("gold_id")) is str,"ALIGNMENT_PAIR")
         a=first["typed"].get(pair["claim_id"]);b=by_gold.get(pair["gold_id"])
         _need(a is not None and b is not None,"FOREIGN_ALIGNMENT")
         dims=pair["match_dimensions"]

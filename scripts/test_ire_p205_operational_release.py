@@ -71,3 +71,23 @@ class OperationalReleaseTests(unittest.TestCase):
         from scripts import ire_p205_live_release as old
         with patch.object(old,"verify_legacy_independent_transition",side_effect=AssertionError("L4 invoked")):
             self.assertEqual([],old.verify_current())
+
+
+class CommonRubricReleaseTests(unittest.TestCase):
+    def test_old_cohort_cannot_be_released_even_with_perfect_metrics(self):
+        r,c=fixture()
+        self.assertIn("P205_OPERATIONAL_FAILED_COHORT_CANNOT_RELEASE",
+                      op.validate_common_closeout(r,c,op.FAILED_COHORT_SHA256))
+
+    def test_common_contract_and_failed_source(self):
+        from ire.v6.common_atomic_review import RUBRIC_SHA256
+        r,c=fixture();c["rubric_sha256"]=RUBRIC_SHA256
+        self.assertIn("P205_OPERATIONAL_COMMON_REPLAY_REQUIRED",op.validate_common_closeout(r,c,"0"*64))
+        for t in r["trials"]:
+            t.update(schema="IRE_P205_INTERNAL_OPERATIONAL_TRIAL_V2",
+                     common_typed_review_replayed=True,rubric_sha256=RUBRIC_SHA256,
+                     first_packet_sha256="1"*64,second_packet_sha256="2"*64,
+                     rubric_lock_sha256="3"*64,critical_unmatched_atoms=0)
+        self.assertEqual([],op.validate_common_closeout(r,c,"0"*64))
+        c["sources"][0]["video_id"]=op.FAILED_VIDEO_ID
+        self.assertIn("P205_OPERATIONAL_FAILED_SOURCE_REUSE",op.validate_common_closeout(r,c,"0"*64))

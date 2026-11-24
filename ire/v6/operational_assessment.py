@@ -151,7 +151,19 @@ def evaluate_common_operational_trial(plan,original,prediction,*,manifest,invent
     r=evaluate_operational_trial(plan,original,prediction,manifest=manifest,
           inventory_bytes=inventory_bytes,expected_inventory_sha256=expected_inventory_sha256,
           reference=second["reference"],alignment=alignment,review=review)
+    # An unmatched atom containing numeric/condition/exception evidence must
+    # not disappear into the ordinary 5% / 2% tolerance.
+    pp={a["claim_id"]:a for a in first["exchange"]["atoms"]}
+    gg={a["gold_id"]:a for a in second["reference"]["atomic_gold_claims"]}
+    unmatched_critical=sum(bool(pp[c]["numeric_references"] or pp[c]["condition_cue_indices"] or
+                                pp[c]["exception_cue_indices"])
+                            for c in alignment["unmatched_prediction_ids"])+sum(
+                            bool(gg[g]["numeric_evidence"] or gg[g]["conditions"] or gg[g]["exceptions"])
+                            for g in alignment["unmatched_gold_ids"])
+    met=r["internal_thresholds_met"] and unmatched_critical==0
     return {**r,"schema":"IRE_P205_INTERNAL_OPERATIONAL_TRIAL_V2",
+            "critical_unmatched_atoms":unmatched_critical,"internal_thresholds_met":met,
+            "status":"INTERNAL_TRIAL_THRESHOLDS_MET" if met else "HOLD",
             "rubric_sha256":RUBRIC_SHA256,"first_packet_sha256":first["packet_sha256"],
             "second_packet_sha256":second["packet_sha256"],
             "rubric_lock_sha256":json_digest(rubric_lock),

@@ -121,6 +121,7 @@ def validate_common_closeout(receipt,cohort,cohort_sha):
     if type(trials) is not list or not all(type(r) is dict and
            r.get("schema")=="IRE_P205_INTERNAL_OPERATIONAL_TRIAL_V2" and
            r.get("common_typed_review_replayed") is True and r.get("rubric_sha256")==RUBRIC_SHA256 and
+           type(r.get("critical_unmatched_atoms")) is int and r["critical_unmatched_atoms"]==0 and
            all(_hex(r.get(k)) for k in ("first_packet_sha256","second_packet_sha256","rubric_lock_sha256")) and
            r["first_packet_sha256"]!=r["second_packet_sha256"] for r in trials):
         return ["P205_OPERATIONAL_COMMON_REPLAY_REQUIRED"]
