@@ -4,7 +4,7 @@ from pathlib import Path
 from ire.v6.codec import sha256,json_digest
 from ire.v6.errors import InvalidInput
 from ire.v6.semantic_source_graph import compile_graph,compare_graphs,score_graphs
-from ire.v6.semantic_graph_journal import GraphJournal,plan_for,revision,adjudicate_disputes
+from ire.v6.semantic_graph_journal import GraphJournal,plan_for,revision,adjudicate_disputes,_edges,_payload
 from ire.v6.tests.test_semantic_source_graph import SourceGraphTests
 
 class GraphJournalTests(unittest.TestCase):
@@ -28,7 +28,9 @@ class GraphJournalTests(unittest.TestCase):
         comps=compare_graphs(a,b)["components"]
         self.j.append("DISPUTES",[{"component_sha256":json_digest(c),"verdict":"EQUIVALENT",
             "reason":"Explicit synthetic reviewer decision.","evidence":[self.f.full(1)]} for c in comps])
-        l=[{"old_ids":["A00001"],"new_ids":["A00001"],"operation":"KEEP","reason":"Same frozen first claim.","losses":[]}]
+        l=[{"old_ids":["A00001"],"new_ids":["A00001"],"operation":"KEEP","reason":"Same frozen first claim.","losses":[],
+            "carries":[{"old_id":"A00001","edge_sha256":d,"new_id":"A00001","reason":"Same source binding."}
+                       for d in _edges(a["nodes"]["A00001"])]}]
         m=[{**l[0],"operation":"REVISE","reason":"Reconciled textual speaker hypothesis."}]
         rev=revision(self.f.s,a,b,self.f.first,l,m)
         val={"packet":self.f.first,"first_lineage":l,"second_lineage":m,"receipt":rev}
@@ -61,10 +63,23 @@ class GraphJournalTests(unittest.TestCase):
     def test_missing_numeric_disposition_and_false_keep(self):
         a=compile_graph(self.f.s,self.f.first);b=compile_graph(self.f.s,self.f.second)
         p=copy.deepcopy(self.f.first);p["nodes"][0]["numbers"]=[]
-        l=[{"old_ids":["A00001"],"new_ids":["A00001"],"operation":"REVISE","reason":"Number removed without grounds.","losses":[]}]
+        l=[{"old_ids":["A00001"],"new_ids":["A00001"],"operation":"REVISE","reason":"Number removed without grounds.","losses":[],"carries":[]}]
         with self.assertRaisesRegex(InvalidInput,"UNACCOUNTED_NUMERIC_OR_QUALIFIER_LOSS"):revision(self.f.s,a,b,p,l,l)
         l[0]["operation"]="KEEP"
         with self.assertRaisesRegex(InvalidInput,"LINEAGE_KEEP_FALSE"):revision(self.f.s,a,b,p,l,l)
     def test_missing_lineage(self):
         a=compile_graph(self.f.s,self.f.first);b=compile_graph(self.f.s,self.f.second)
         with self.assertRaisesRegex(InvalidInput,"LINEAGE_ROWS"):revision(self.f.s,a,b,self.f.first,[],[])
+
+    def test_large_nested_packet_payload(self):
+        v={"packet":{"rows":[{"text":"x"*600000},{"text":"y"*600000}]}}
+        self.assertGreater(len(_payload(v)),1048576)
+
+    def test_false_carry_rejected(self):
+        a=compile_graph(self.f.s,self.f.first);b=compile_graph(self.f.s,self.f.second)
+        l=[{"old_ids":["A00001"],"new_ids":["A00001"],"operation":"KEEP",
+            "reason":"False carried edge test.","losses":[],
+            "carries":[{"old_id":"A00001","edge_sha256":"f"*64,"new_id":"A00001",
+                        "reason":"Invalid source obligation."}]}]
+        with self.assertRaisesRegex(InvalidInput,"FALSE_CARRY"):
+            revision(self.f.s,a,b,self.f.first,l,l)

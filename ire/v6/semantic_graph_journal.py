@@ -8,6 +8,7 @@ No E3/E4/E5 approval or operational release is produced.
 """
 from __future__ import annotations
 import json, os, re, sqlite3
+from contextlib import closing
 from pathlib import Path
 from .codec import canonical,sha256,json_digest,require_hash
 from .errors import InvalidInput
@@ -29,12 +30,15 @@ def need(ok,why):
 def _payload(value):
     # Large private packets must not be forced into the 1 MiB event codec.
     # Every top-level list row is independently canonicalized/size checked.
-    if type(value) is dict:
-        for k,v in value.items():
-            if type(v) is list:
-                for row in v:canonical(row)
-            else:canonical(v)
-    else:canonical(value)
+    def check(v,depth=0):
+        need(depth<=32,"PAYLOAD_DEPTH")
+        if type(v) is dict:
+            for k,item in v.items():
+                need(type(k) is str,"PAYLOAD_KEY");canonical(k);check(item,depth+1)
+        elif type(v) is list:
+            for item in v:check(item,depth+1)
+        else:canonical(v)
+    check(value)
     raw=json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(",",":"),
                    allow_nan=False).encode("utf8")
     need(len(raw)<=64*1024*1024,"PAYLOAD_LIMIT")
@@ -110,13 +114,13 @@ def _lineage(source,old,new,rows):
     need(type(rows) is list and bool(rows),"LINEAGE_ROWS")
     before=old["nodes"];after=new["nodes"];seen_old=set();seen_new=set();escrow=[];counts={}
     for row in rows:
-        need(type(row) is dict and set(row)=={"old_ids","new_ids","operation","reason","losses"},"LINEAGE_ROW")
+        need(type(row) is dict and set(row)=={"old_ids","new_ids","operation","reason","losses","carries"},"LINEAGE_ROW")
         a=row["old_ids"];b=row["new_ids"]
         need(type(a) is list and type(b) is list and all(type(x) is str for x in a+b) and
              (a or b) and len(set(a))==len(a) and len(set(b))==len(b) and
              set(a)<=set(before)-seen_old and set(b)<=set(after)-seen_new,"LINEAGE_PARTITION")
         seen_old.update(a);seen_new.update(b)
-        op=row["operation"];counts[op]=counts.get(op,0)+1
+        op=row["operation"];need(type(op) is str,"OPERATION_TYPE");counts[op]=counts.get(op,0)+1
         need(_note(row["reason"]),"LINEAGE_REASON")
         if not a:need(op=="ADD","LINEAGE_SHAPE")
         elif not b:need(op=="RETIRE","LINEAGE_SHAPE")
@@ -131,8 +135,19 @@ def _lineage(source,old,new,rows):
         # Every old obligation must be preserved or explicitly disposed.
         # Distinct owners are retained even when their literal spans coincide.
         obligations={(x,d):v for x in a for d,v in _edges(before[x]).items()}
-        retained={d for x in b for d in _edges(after[x])}
-        missing={k:v for k,v in obligations.items() if k[1] not in retained}
+        destinations={x:_edges(after[x]) for x in b}
+        # For split/merge the reviewer must specify which successor owns each
+        # carried binding. Matching coordinates elsewhere cannot cover it.
+        need(type(row["carries"]) is list,"CARRY_LIST")
+        carried=set()
+        for carry in row["carries"]:
+            need(type(carry) is dict and set(carry)=={"old_id","edge_sha256","new_id","reason"}
+                 and _note(carry["reason"]),"CARRY_ROW")
+            k=(carry["old_id"],carry["edge_sha256"]);target=carry["new_id"]
+            need(k in obligations and k not in carried and target in destinations and
+                 k[1] in destinations[target],"FALSE_CARRY")
+            carried.add(k)
+        missing={k:v for k,v in obligations.items() if k not in carried}
         need(type(row["losses"]) is list,"LOSS_LIST")
         seen=set()
         for loss in row["losses"]:
@@ -148,10 +163,11 @@ def _lineage(source,old,new,rows):
                 need(any(i==j and max(l,x)<min(r,y) for j,x,y in anchors),"LOSS_UNRELATED_EVIDENCE")
             escrow.append({"old_id":k[0],"edge_sha256":k[1],"disposition":loss["disposition"]})
         need(seen==set(missing),"UNACCOUNTED_NUMERIC_OR_QUALIFIER_LOSS")
-        if not b:
+        # Changed or retired high-risk meaning is never implicitly approved.
+        if op!="KEEP":
             for x in a:
                 if before[x]["risk"]=="HIGH":
-                    escrow.append({"old_id":x,"disposition":"HIGH_RISK_RETIREMENT_REQUIRES_E3"})
+                    escrow.append({"old_id":x,"disposition":"HIGH_RISK_CHANGE_REQUIRES_E3"})
     need(seen_old==set(before) and seen_new==set(after),"LINEAGE_INCOMPLETE")
     return {"operations":counts,"escrow":escrow,"lineage_sha256":_rows_digest(rows)}
 
@@ -178,7 +194,7 @@ class GraphJournal:
         if create:
             need(expected_head is None,"CREATE_PIN")
             fd=os.open(self.path,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600);os.close(fd)
-            with sqlite3.connect(self.path) as db:
+            with closing(sqlite3.connect(self.path)) as db, db:
                 db.executescript("""CREATE TABLE events(seq INTEGER PRIMARY KEY,kind TEXT NOT NULL,
                     previous TEXT NOT NULL,payload BLOB NOT NULL,payload_sha TEXT NOT NULL,head TEXT NOT NULL UNIQUE);
                     CREATE TRIGGER immutable_update BEFORE UPDATE ON events BEGIN SELECT RAISE(ABORT,'immutable'); END;
@@ -227,7 +243,7 @@ class GraphJournal:
             need(r==v["receipt"],"REVISION_DRIFT");p["revision"]=r
     def append(self,kind,value):
         raw=_payload(value)
-        with sqlite3.connect(self.path,timeout=10,isolation_level=None) as db:
+        with closing(sqlite3.connect(self.path,timeout=10,isolation_level=None)) as db:
             db.execute("BEGIN IMMEDIATE")
             try:
                 p,head=self._replay(db);need(head==self.head,"EXTERNAL_HEAD_DRIFT")
@@ -245,7 +261,8 @@ class GraphJournal:
             except BaseException:
                 db.rollback();raise
     def snapshot(self):
-        with sqlite3.connect(self.path) as db:
+        with closing(sqlite3.connect(self.path)) as db, db:
+            db.execute('BEGIN')
             p,head=self._replay(db)
             need(head==self.head,"EXTERNAL_HEAD_DRIFT")
             count=db.execute("SELECT count(*) FROM events").fetchone()[0]
