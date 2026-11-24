@@ -814,6 +814,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_R304_INTEGRATED_LEDGER471_20261125.json",
           "scope": "Replay 371 legacy single/shared judgments with exact old receipts and add 100 actual #270 numeric obligations. Unified external-head hash chain 8 events, 471 unique reviewed, 203 OPEN, 692 unreviewed. 10 negative executions and 6 unit tests. Not native V3 research journal or release."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_R304_QUALIFIER_GAP593_20261125.json",
+          "scope": "All 122 remaining #270 condition obligations manually reviewed and provisional graph compiled with 25 scope bundles/45 new qualifier edges; 70 scope draft,30 context,22 OPEN. 593 unique reviews across separate ledger and draft; 570 unreviewed. 10 actual negative tests and 5 synthetic tests. No integration or release."
         }
       ],
       "start_report": {
@@ -1074,6 +1080,15 @@
         "remaining_unreviewed": 692,
         "start_report_user_visible": "R3-04 통합 원장 및 잔여 검토 착수. 후속 단계 순차 차단 유지.",
         "end_report_user_visible": "기존 371개 판정 통합 재생, 신규100개, 누적471/1163. 부적합10회 차단, 단위6개 통과. 203 OPEN, 692 미검토, 실제 2턴 및 의미 보존 미완료. R3-05/06 BLOCKED."
+      },
+      "r304_qualifier_gap": {
+        "status": "HOLD",
+        "receipt": "docs/IRE_P0_2_05_R304_QUALIFIER_GAP593_20261125.json",
+        "reviewed_across_artifacts": 593,
+        "remaining_unreviewed": 570,
+        "prior_integrated_ledger_reviewed": 471,
+        "start_report_user_visible": "R3-04 최신 CI 및 471개 원장 검증, #270 잔여 조건의 원문 귀속 검토.",
+        "end_report_user_visible": "#270 122개 잔여 의무 판정, 25 조건 묶음/45 edge 실제 초안 컴파일, 10 부적합/5 단위 통과. 전체593 검토(별도 초안 포함), 570 미검토, 225 OPEN, 70 초안. P205 HOLD."
       }
     },
     {

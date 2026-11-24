@@ -184,7 +184,8 @@
         "r304_journal_receipt": "docs/IRE_P0_2_05_R304_GRAPH_JOURNAL_REAL_REGRESSION_SHA_ONLY_20261124.json",
         "r304_all112_review_receipt": "docs/IRE_P0_2_05_R304_ALL112_DISPUTE_REVIEW_SHA_ONLY_20261124.json",
         "r304_provisional_successor_receipt": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json",
-        "r304_obligation_review_receipt": "docs/IRE_P0_2_05_R304_INTEGRATED_LEDGER471_20261125.json"
+        "r304_obligation_review_receipt": "docs/IRE_P0_2_05_R304_INTEGRATED_LEDGER471_20261125.json",
+        "r304_qualifier_gap_receipt": "docs/IRE_P0_2_05_R304_QUALIFIER_GAP593_20261125.json"
       }
     },
     "E3": {
@@ -990,7 +991,7 @@
       "id": "S02",
       "scope": "E2",
       "status": "HOLD",
-      "reason": "R3-04 integrated legacy review replay verified 471/1163 (203 OPEN, 692 unreviewed), including all #270 numeric obligations dispositioned. Native actual-user two-turn journal, full predicate-level semantic conservation, shared numeric/qualifier ownership and E3-E5 bridge remain incomplete. R3-05/06 blocked; old failed scores preserved."
+      "reason": "R3-04 471 integrated legacy reviews plus 122 #270 qualifier-gap provisional reviews; 593 unique reviewed across separate artifacts, 570 unreviewed (#271), 225 explicit OPEN, 70 provisional scope assignments. 45 new qualifier edges compiled in separate draft, no semantic conservation or native journal completion. Missing-coordinate qualifiers and calculation input lineage require further work; original failures unchanged."
     },
     {
       "id": "S03",
