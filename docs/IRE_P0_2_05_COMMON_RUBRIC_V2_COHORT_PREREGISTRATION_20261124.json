@@ -1,0 +1,42 @@
+{
+  "schema": "IRE_P205_COMMON_RUBRIC_V2_SOURCE_CUSTODY_V1",
+  "policy_id": "IRE_P205_OPERATIONAL_V1_20261124",
+  "cohort_sha256": "1fd3a5737427e460ed973329566b3baec0d44fa679f09f080abf2ff7099e43b4",
+  "cohort_path": "docs/IRE_P0_2_05_OPERATIONAL_COMMON_RUBRIC_COHORT.json",
+  "registered_at": "2026-11-24T16:26:50+09:00",
+  "engine_commit_sha": "c52cbc64d0c7ae542e471fde3fbd4488762cc827",
+  "engine_ci_run_id": 45345941697,
+  "engine_ci_jobs_passed": 6,
+  "rubric_sha256": "9be05448252b29af6f0b29b9aa10c49a328bb492c0f832a095f67b57c1c98a2b",
+  "inventory_sha256": "e60b65fa119a9a77c32de06d3d38d417e824990305cbc08cbc5eaa571a1f2ca3",
+  "archive_sha256": "a04d046373e91a9b2e4f012b439075e1b8685cbf55a3f0082ef6ef42f50ac45d",
+  "private_library_file_id": "libfile_0f046e6cd5a08191bc7b957451a2fd1e",
+  "source_counts": [
+    {
+      "no": 277,
+      "cues": 999,
+      "windows": 25
+    },
+    {
+      "no": 270,
+      "cues": 618,
+      "windows": 16
+    },
+    {
+      "no": 288,
+      "cues": 771,
+      "windows": 20
+    }
+  ],
+  "prior_failed_cohort_preserved": true,
+  "prior_271_source_excluded": true,
+  "unreviewed_277_288_retained": true,
+  "source_exposure_scope": "Bounded current paths/indexes, default branch/commit and library title checks; no proof of hidden private chat or model training absence. Metadata-only selection before semantic review.",
+  "actual_source_bytes_and_owner_inventory_verified": true,
+  "owner_identity_authenticated": false,
+  "semantic_analysis_before_registration": false,
+  "first_prediction_frozen": false,
+  "operational_metrics": null,
+  "independent_certification": "UNMEASURABLE",
+  "status": "HOLD_PREREGISTERED"
+}

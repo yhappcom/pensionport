@@ -748,6 +748,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_COMMON_ATOMIC_RUBRIC_REAL_REGRESSION_SHA_ONLY_20261124.json",
           "scope": "Common rubric V2 and Korean numeric boundary improvement; actual old source 170 numeric refs 3→0 warnings, 7-atom structural regression repeat and 5 negative tests. Original failed score preserved; fresh cohort and scores pending."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_COMMON_RUBRIC_V2_COHORT_PREREGISTRATION_20261124.json",
+          "scope": "V2 actual source cohort preregistered, 2388 cues/61 windows, common rubric hash pinned; failed 271 preserved. No semantic evaluation yet."
         }
       ],
       "start_report": {
@@ -927,6 +933,11 @@
         "regression_negative_tests_blocked": 5,
         "start_report_user_visible": "P0-2-05 개선 착수, 실패 자료 및 엔진 코드 대조.",
         "end_report_user_visible": "공통 원자 프레임 V2 구현, 실제 숫자 참조170건 오탐3→0, 7개 원자 회귀 및 변형5건 차단. 신규 운영 평가 미측정, P205 HOLD."
+      },
+      "common_rubric_v2_cohort": {
+        "status": "HOLD_PREREGISTERED",
+        "cohort_sha256": "1fd3a5737427e460ed973329566b3baec0d44fa679f09f080abf2ff7099e43b4",
+        "receipt": "docs/IRE_P0_2_05_COMMON_RUBRIC_V2_COHORT_PREREGISTRATION_20261124.json"
       }
     },
     {
