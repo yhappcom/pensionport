@@ -1,0 +1,111 @@
+{
+  "schema": "IRE_P205_OPERATIONAL_COHORT_CANDIDATE_SCREEN_V1",
+  "policy_id": "IRE_P205_OPERATIONAL_V1_20261124",
+  "date": "2026-11-24",
+  "baseline_engine_commit_sha": "7ced7d7da680a7f09ed490814555563e45fad683",
+  "baseline_ci_run_id": 45340219483,
+  "baseline_ci_jobs_success": 6,
+  "stage": "CANDIDATE_SCREEN_ONLY_NOT_PREREGISTRATION",
+  "selection_rule": "Long-form roster entries with explicitly matching category and subject; avoid first 260 development coverage, exact ID paths and historical branch catalog matches. Choose ETF bond product #336, pension tax/account #271, explicit asset allocation #366 based on title and metadata, not scores. Do not substitute already exposed samples. All three source bytes and exposure-screen evidence must be frozen before TURN1.",
+  "exposure_screen": {
+    "current_tree_paths_checked": 2587,
+    "current_tree_truncated": false,
+    "records_checked": [
+      {
+        "path": "data/videos.jsonl",
+        "git_blob_sha": "c0e703cc20f4bc264ff1fa086f9ba4558d4f6d21"
+      },
+      {
+        "path": "data/learning_queue.jsonl",
+        "git_blob_sha": "8153ee3d841f1ab2fcb1aac4faa54028fe41fc74"
+      },
+      {
+        "path": "data/claims.jsonl",
+        "git_blob_sha": "ab5af7eea02e65d5e36174546a2a94f4cc642d92"
+      },
+      {
+        "path": "docs/BRANCH_DIVERGENT_BLOB_CATALOG_20261122.tsv",
+        "git_blob_sha": "8b8f1fdd215264d32c3ce6e61322a1e782e7df08"
+      }
+    ],
+    "exact_id_matches_for_three_candidates": 0,
+    "known_reviewed_first_260_excluded": true,
+    "known_already_exposed_examples": [
+      {
+        "roster_no": 295,
+        "video_id": "T0S4kPUtuZE",
+        "evidence": "data/analysis_events/T0S4kPUtuZE.json"
+      },
+      {
+        "roster_no": 298,
+        "video_id": "Mbc1TbQqvgc",
+        "evidence": "data/canonical_events/106_Mbc1TbQqvgc.json"
+      },
+      {
+        "roster_no": 299,
+        "video_id": "LoRySWrV0Us",
+        "evidence": "data/canonical_events/153_LoRySWrV0Us.json"
+      }
+    ],
+    "scope_limit": "Exact ID search of enumerated current paths and selected tracked indexes, not a complete historical content or private chat exposure audit. Absence of match is not proof of no exposure. Further source hash and archived/owner history checks required before final preregistration.",
+    "all_candidates_certified_unexposed": false
+  },
+  "roster_git_blob_sha": "7fd1fb7e4c84f517ea68a14d80ed8018e5f122f1",
+  "source_archive": {
+    "name": "201-300.zip",
+    "sha256": "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10",
+    "srt_members_excluding_macosx": 99,
+    "archive_read_success": true,
+    "source_semantics_read": false
+  },
+  "sources": [
+    {
+      "domain": "ETF",
+      "roster_no": 336,
+      "video_id": "EIcc5PQrBQE",
+      "title": "채권 고르기 어렵다면 종합채권 ETF로 한방에 해결!",
+      "duration": "9:07",
+      "source_status": "MISSING_ORIGINAL_SRT",
+      "source_sha256": null,
+      "cue_count": null,
+      "download_page": "https://yoututranscript.com/transcript/EIcc5PQrBQE",
+      "download_attempt": "PAGE_NOT_ACCESSIBLE"
+    },
+    {
+      "domain": "PENSION",
+      "roster_no": 271,
+      "video_id": "BXjda2v6e-Q",
+      "title": "세공/안세공, 연금저축 계좌 어떻게 구분하나요?",
+      "duration": "24:13",
+      "source_status": "ORIGINAL_ARCHIVE_MEMBER_BYTES_HASHED",
+      "source_sha256": "a2c3017542b2670a39d7fcd796f706e583006a4d0a043d26854f27fc6a1f50e1",
+      "source_bytes": 55848,
+      "cue_count": 706,
+      "last_subtitle_end": "00:24:07,039",
+      "cue_count_method": "timestamp line census, not semantic analysis",
+      "download_page": "https://yoututranscript.com/transcript/BXjda2v6e-Q"
+    },
+    {
+      "domain": "ASSET_ALLOCATION",
+      "roster_no": 366,
+      "video_id": "OwieLHYZ7Is",
+      "title": "100년 넘게 수익을 내고 있는 노벨상의 자산배분",
+      "duration": "51:22",
+      "source_status": "MISSING_ORIGINAL_SRT",
+      "source_sha256": null,
+      "cue_count": null,
+      "download_page": "https://yoututranscript.com/transcript/OwieLHYZ7Is",
+      "download_attempt": "PAGE_NOT_ACCESSIBLE"
+    }
+  ],
+  "source_acquisition_scope": "Two owner archive folders direct-read: 1-100, 101-200, 201-300 only. Drive 301-400 search no results; exact two IDs located only in spreadsheet/link metadata. Previous Library title search did not find later archives. External subtitle download pages inaccessible.",
+  "actual_source_files_acquired": 1,
+  "cohort_preregistered": false,
+  "first_turn_started": false,
+  "internal_metrics": null,
+  "independent_certification": "UNMEASURABLE",
+  "status": "HOLD_AWAITING_TWO_ORIGINAL_SRT_AND_EXPOSURE_SCREEN",
+  "checklist_passed": 16,
+  "blocked_successors": 43,
+  "e3_e4_e5_release": false
+}

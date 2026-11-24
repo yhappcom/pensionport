@@ -718,6 +718,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_OPERATIONAL_EVALUATION_POLICY_20261124.json",
           "scope": "User-approved prospective separation of internal operating assessment and strict independent certification; no actual metric or PASS."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_OPERATIONAL_COHORT_CANDIDATE_SCREEN_20261124.json",
+          "scope": "Policy CI 6/6; three candidate metadata screened, actual pension source 706 cues SHA verified, two original SRT missing. No cohort preregistration or semantic trial; exposure not fully certified."
         }
       ],
       "start_report": {
@@ -842,6 +848,19 @@
         "independent_status": "UNMEASURABLE",
         "start_report_user_visible": "정책 변경 승인을 반영, 운영 합격 기준 별도 신설.",
         "end_report_user_visible": "운영 및 독립 인증 분리 정책과 운영 실측 관문 반영. 실제 시험 미수행, P205 HOLD."
+      },
+      "operational_candidate_screen": {
+        "policy_id": "IRE_P205_OPERATIONAL_V1_20261124",
+        "status": "HOLD_AWAITING_TWO_ORIGINAL_SRT_AND_EXPOSURE_SCREEN",
+        "actual_sources_acquired": 1,
+        "required_sources": 3,
+        "candidate_video_ids": [
+          "EIcc5PQrBQE",
+          "BXjda2v6e-Q",
+          "OwieLHYZ7Is"
+        ],
+        "start_report_user_visible": "신규 정책의 CI와 3개 원본 확보·중복 확인.",
+        "end_report_user_visible": "정책 CI 6/6, #271 실제 원본 확보, #336·#366 원본 미확보, 예비 노출 검사만 완료. P205 HOLD 유지."
       }
     },
     {

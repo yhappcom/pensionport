@@ -20,3 +20,7 @@ B. L4: 기존 독립 검토·중립 호스트 신뢰 등록 및 95%/98%/0 기준
 운영 전용 함수 operational_assessment.evaluate_operational_trial은 실제 원문/owner inventory/전체 범위 및 native 구조를 재실행, 기존 9축 정량 계산기와 근거 원장을 결합한다. 입력자 자체 평점을 받지 않는다. scripts/ire_p205_operational_release.py는 공개 SHA-only 사전 등록 및 운영 종료 영수증을 별도로 고정하여 체크리스트와 연결한다. 현재 두 pin 모두 미등록이며 L4 pin도 그대로 비어 있다. 공개 CI는 비공개 연구 진실을 인증하지 않는다. 모든 신규 시험은 합성 회귀에 불과하다.
 
 P205 운영 HOLD(미측정); 독립 UNMEASURABLE; 16/60 PASS, 43 BLOCKED. E3/E4/E5 미승인. 기존 ETF73은 노출된 개발 자료로만 사용. main 및 두 브랜치 유지.
+
+## 2026-11-24 후보 원본 확보 및 사전 등록 대기
+
+정책 구현 SHA 7ced7d7da680a7f09ed490814555563e45fad683, 통합 CI 45340219483 6/6 PASS. 신규 후보 ETF #336 EIcc5PQrBQE, 연금 #271 BXjda2v6e-Q, 자산배분 #366 OwieLHYZ7Is. 201-300.zip 실제 확보(99 SRT), #271 706 cue·원본 SHA 확인, 나머지 두 편 SRT 미확보. #295/#298/#299는 기존 연구 기록이 있어 제외. 현재 파일 경로/기존 지식 및 분석 목록/과거 분기 파일 카탈로그의 후보 ID 일치 0은 예비 검사일 뿐 완전 미노출 인증 아님. 3편 원본 SHA와 추가 노출 확인 전 정식 cohort pin이나 TURN1을 생성하지 않는다. 기존 기준·HOLD 유지. 증빙: docs/IRE_P0_2_05_OPERATIONAL_COHORT_CANDIDATE_SCREEN_20261124.json.
