@@ -790,6 +790,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json",
           "scope": "Actual full-source provisional V3 graph compilation, 264 candidate nodes, 466 old lineage rows, 1163 obligations inventoried, 613 candidate source edge links, 550 escrow. 0 semantic carry verified. Six negative checks. 908 OPEN characters and all speakers unresolved. No new accuracy or release."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_R304_SEMANTIC_OBLIGATION_TRANCHE147_20261124.json",
+          "scope": "147 actual old obligation decisions: 65 direct edge, 10 cross-cue rebind, 16 context-only, 24 reviewer notes, 32 OPEN, 1016 not reviewed. New validator actual repeat and 9 negative executions. No claim equivalence or release."
         }
       ],
       "start_report": {
@@ -1042,6 +1048,14 @@
         "receipt": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json",
         "start_report_user_visible": "R3-04 112개 그룹 판정과 1163 의무 복구, 원문·검토 주석 분리 정정 후보 생성.",
         "end_report_user_visible": "264개 임시 V3 노드 실제 컴파일, 466개 후보 계보 및 1163 의무 전수 검사, 613 후보 링크/550 격리, 6개 변조 차단. 의미 승계 0 확정, R3-04 HOLD."
+      },
+      "r304_obligation_review": {
+        "status": "HOLD",
+        "receipt": "docs/IRE_P0_2_05_R304_SEMANTIC_OBLIGATION_TRANCHE147_20261124.json",
+        "reviewed": 147,
+        "remaining_unreviewed": 1016,
+        "start_report_user_visible": "R3-04 원래 의무의 의미 귀속 및 검토 주석 분리 검증 착수.",
+        "end_report_user_visible": "147개 개별 의미 귀속 판정, 75개 source edge, 40개 문맥/검토 주석, 32개 OPEN, 1016개 미검토. 9개 부적합 입력 차단. 최종 graph 승계 및 전체 의미 검증 미완료."
       }
     },
     {

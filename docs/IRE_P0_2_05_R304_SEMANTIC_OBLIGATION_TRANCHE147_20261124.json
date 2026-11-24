@@ -1,0 +1,72 @@
+{
+  "schema": "IRE_P205_R304_EXPOSED_OBLIGATION_REVIEW_TRANCHE_SHA_ONLY_V1",
+  "date": "2026-11-24",
+  "parent_commit": "4f7b0455d92d6aa733bba4cfefd406e4600d997d",
+  "parent_ci_run_id": 45361326666,
+  "parent_ci_conclusion": "success",
+  "parent_archive_sha256": "9e10edfe4dcfd10e6d89bf91e900597b0bbcd8b724a6eaab8722341783c15cf8",
+  "module_git_blob_expected": "ba3deefa97c5673e3cf5cfb3a2d8dc928e84f67b",
+  "module_sha256": "fa782e519753da332d506dcbb0da6874443bb484e3897d7ef6ae8e19651e3f8d",
+  "total_obligations": 1163,
+  "reviewed": 147,
+  "unreviewed": 1016,
+  "decisions": {
+    "CARRY_SOURCE_EDGE": 65,
+    "REBIND_SOURCE_FRAGMENT": 10,
+    "CONTEXT_ONLY": 16,
+    "REVIEWER_NOTE": 24,
+    "OPEN": 32
+  },
+  "videos": [
+    {
+      "video": 270,
+      "reviewed": 60,
+      "remaining_unreviewed": 400,
+      "decisions": {
+        "CARRY_SOURCE_EDGE": 36,
+        "REBIND_SOURCE_FRAGMENT": 8,
+        "OPEN": 16
+      },
+      "rows_sha256": "83caefee555e260f19308505f8a8ebd1be7559887d39286f69c1ff8412f16460",
+      "output_sha256": "a01aa0a97035869eeee606c3a4b156921b80338f8e0f4e99f78d3ba12671bebc",
+      "packet_sha256": "f727daebc3e4a8f411793547da930f8510c27d2683df7e63953154ce405de184"
+    },
+    {
+      "video": 271,
+      "reviewed": 87,
+      "remaining_unreviewed": 616,
+      "decisions": {
+        "CARRY_SOURCE_EDGE": 29,
+        "REBIND_SOURCE_FRAGMENT": 2,
+        "CONTEXT_ONLY": 16,
+        "REVIEWER_NOTE": 24,
+        "OPEN": 16
+      },
+      "rows_sha256": "12239dabfcc8e8c5bbc1587770f6aecf677087c15ae0d5aa29fd6c740a05154a",
+      "output_sha256": "7c861721e74cf583e79475f40fa257d707e88beafeed2beabe9fe1c35599c1ca",
+      "packet_sha256": "4df163bdd97fabfc0f0f687a536cddd66b0ac9a766603dbf6e2b8b23a4818dd9"
+    }
+  ],
+  "negative_test_executions_blocked": 9,
+  "negative_test_types": [
+    "duplicate",
+    "fake_source_quote",
+    "foreign_edge",
+    "wrong_parent_pin",
+    "note_as_condition"
+  ],
+  "repeat_equal": true,
+  "private_archive_sha256": "bb1e8431976ca020e02a0593548ecbbf0ff327c30ff8eef9df448933de785752",
+  "private_library_file_id": "libfile_bcf02445ebb88191922bbaf9d39f86f5",
+  "private_archive_bytes": 1314271,
+  "private_result_sha256": "5e61f256a6989c71c21adb7edcacf468d829c256e5b486927df71e6a14d6a41d",
+  "manual_decisions_sha256": "ff4f9651385f41282b33232194d34acb6b1ad90beeae88a35327ce98f999ffdd",
+  "original_graphs_unchanged": true,
+  "claim_semantic_equivalence_certified": false,
+  "full_semantic_conservation_verified": false,
+  "publication_authorized": false,
+  "financial_approval": false,
+  "new_operational_score": null,
+  "status": "HOLD",
+  "limitations": "147 individual old-obligation decisions; 75 positive source-edge link judgments, not whole-atom semantic equivalence or actual financial truth. 40 nonfinancial/context/verification-note dispositions, 32 explicitly open and 1016 unreviewed. Sidecar not yet integrated into the final graph or distinct-turn journal. Original 908 OPEN chars, 3 unbound numeric spans, all speaker status unresolved remain unchanged. No release."
+}

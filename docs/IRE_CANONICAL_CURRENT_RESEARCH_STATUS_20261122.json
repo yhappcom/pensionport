@@ -183,7 +183,8 @@
         "v3_redesign_receipt": "docs/IRE_P0_2_05_V3_SOURCE_COORDINATE_REAL_REGRESSION_SHA_ONLY_20261124.json",
         "r304_journal_receipt": "docs/IRE_P0_2_05_R304_GRAPH_JOURNAL_REAL_REGRESSION_SHA_ONLY_20261124.json",
         "r304_all112_review_receipt": "docs/IRE_P0_2_05_R304_ALL112_DISPUTE_REVIEW_SHA_ONLY_20261124.json",
-        "r304_provisional_successor_receipt": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json"
+        "r304_provisional_successor_receipt": "docs/IRE_P0_2_05_R304_PROVISIONAL_V3_SUCCESSOR_SHA_ONLY_20261124.json",
+        "r304_obligation_review_receipt": "docs/IRE_P0_2_05_R304_SEMANTIC_OBLIGATION_TRANCHE147_20261124.json"
       }
     },
     "E3": {
@@ -989,7 +990,7 @@
       "id": "S02",
       "scope": "E2",
       "status": "HOLD",
-      "reason": "R3-04 actual full-source provisional V3 graph compiled (264 nodes, 466 group-level lineage rows, all 1163 obligation records); 613 source-coordinate candidate links and 550 escrow, no semantic carries certified, all speaker hypotheses unresolved, 908 OPEN characters. Predicate-level ownership/conservation, distinct actual-turn V3 journal and native bridge remain incomplete. Prior failed scores unchanged."
+      "reason": "R3-04 147/1163 explicit obligation review decisions: 75 source edge/rebinding, 40 contextual or reviewer notes, 32 OPEN; 1016 unreviewed. Sidecar validates source and parent pins but whole-predicate equivalence and final graph/journal integration remain unverified. Prior failures preserved."
     },
     {
       "id": "S03",
