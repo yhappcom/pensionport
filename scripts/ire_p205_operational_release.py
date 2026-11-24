@@ -21,6 +21,9 @@ REVIEWED_OPERATIONAL_CLOSEOUT_SHA256=None
 FAILED_COHORT_SHA256="1792e30d8cae7e8a9455fe8fe2fa918b2d7c559de2c976906aa7ea156a6b534e"
 FAILED_SOURCE_SHA256="a2c3017542b2670a39d7fcd796f706e583006a4d0a043d26854f27fc6a1f50e1"
 FAILED_VIDEO_ID="BXjda2v6e-Q"
+FAILED_V2_COHORT_SHA256="1fd3a5737427e460ed973329566b3baec0d44fa679f09f080abf2ff7099e43b4"
+FAILED_V2_VIDEO_ID="Yd5qnDtW2TM"
+FAILED_V2_SOURCE_SHA256="e67be6da14dc6eae2fe8172add56f2c98efb1e6e232587aaa591d8752b043792"
 COMMON_COHORT_PATH="docs/IRE_P0_2_05_OPERATIONAL_COMMON_RUBRIC_COHORT.json"
 COMMON_COHORT_SHA256="1fd3a5737427e460ed973329566b3baec0d44fa679f09f080abf2ff7099e43b4"
 DOMAINS={"ETF","PENSION","ASSET_ALLOCATION"}
@@ -107,15 +110,15 @@ def validate_closeout(receipt,cohort,cohort_sha):
     return errors
 
 def validate_common_closeout(receipt,cohort,cohort_sha):
-    if cohort_sha==FAILED_COHORT_SHA256:
+    if cohort_sha in (FAILED_COHORT_SHA256,FAILED_V2_COHORT_SHA256):
         return ["P205_OPERATIONAL_FAILED_COHORT_CANNOT_RELEASE"]
     if type(receipt) is not dict or type(cohort) is not dict:
         return ["P205_OPERATIONAL_COMMON_CLOSEOUT_SCHEMA"]
     from ire.v6.common_atomic_review import RUBRIC_SHA256
     if cohort.get("rubric_sha256")!=RUBRIC_SHA256:
         return ["P205_OPERATIONAL_COMMON_RUBRIC_NOT_PREREGISTERED"]
-    if any(type(row) is not dict or row.get("video_id")==FAILED_VIDEO_ID or
-           row.get("source_sha256")==FAILED_SOURCE_SHA256 for row in cohort.get("sources",[])):
+    if any(type(row) is not dict or row.get("video_id") in (FAILED_VIDEO_ID,FAILED_V2_VIDEO_ID) or
+           row.get("source_sha256") in (FAILED_SOURCE_SHA256,FAILED_V2_SOURCE_SHA256) for row in cohort.get("sources",[])):
         return ["P205_OPERATIONAL_FAILED_SOURCE_REUSE"]
     trials=receipt.get("trials")
     if type(trials) is not list or not all(type(r) is dict and
@@ -156,18 +159,8 @@ def verify_current(root=ROOT,*,state=None,ledger=None):
             return validate_checklist(_load(root,CATALOG),s,root=root)+validate_status(l,root=root)
         if not _hex(COMMON_COHORT_SHA256) or not _hex(REVIEWED_OPERATIONAL_CLOSEOUT_SHA256):
             return ["P205_OPERATIONAL_REAL_CLOSEOUT_NOT_ENROLLED"]
-        cohort_raw=(root/COMMON_COHORT_PATH).read_bytes();raw=(root/CLOSEOUT_PATH).read_bytes()
-        if _sha(cohort_raw)!=COMMON_COHORT_SHA256 or _sha(raw)!=REVIEWED_OPERATIONAL_CLOSEOUT_SHA256:
-            return ["P205_OPERATIONAL_PIN_DRIFT"]
-        errors=validate_common_closeout(json.loads(raw),json.loads(cohort_raw),COMMON_COHORT_SHA256)
-        if errors:return errors
-        if (assessment.get("status")!="PASS_INTERNAL_ONLY" or
-            assessment.get("closeout_sha256")!=REVIEWED_OPERATIONAL_CLOSEOUT_SHA256):
-            return ["P205_OPERATIONAL_LEDGER_CLOSEOUT_NOT_BOUND"]
-        if not any(type(e) is dict and e.get("kind")=="assessment" and e.get("verdict")=="PASS"
-                   and e.get("ref")==CLOSEOUT_PATH and e.get("sha")==_blob(raw)
-                   for e in rows[16].get("evidence",[])):
-            return ["P205_OPERATIONAL_CHECKLIST_EVIDENCE_NOT_BOUND"]
-        return validate_checklist(_load(root,CATALOG),s,root=root)+validate_status(l,root=root)
+        # V1/V2 historical validators remain diagnostic only after the failed V2 trial.
+        # V3 release is not enrolled until an actual new trial/bridge is implemented.
+        return ["P205_OPERATIONAL_V3_RELEASE_NOT_IMPLEMENTED"]
     except (OSError,ValueError,KeyError,TypeError):
         return ["P205_OPERATIONAL_INVALID_OR_MISSING"]

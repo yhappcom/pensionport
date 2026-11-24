@@ -91,3 +91,20 @@ class CommonRubricReleaseTests(unittest.TestCase):
         self.assertEqual([],op.validate_common_closeout(r,c,"0"*64))
         c["sources"][0]["video_id"]=op.FAILED_VIDEO_ID
         self.assertIn("P205_OPERATIONAL_FAILED_SOURCE_REUSE",op.validate_common_closeout(r,c,"0"*64))
+
+
+    def test_failed_v2_cohort_and_source_rejected(self):
+        r,c=fixture()
+        self.assertIn("P205_OPERATIONAL_FAILED_COHORT_CANNOT_RELEASE",
+                      op.validate_common_closeout(r,c,op.FAILED_V2_COHORT_SHA256))
+        from ire.v6.common_atomic_review import RUBRIC_SHA256
+        c["rubric_sha256"]=RUBRIC_SHA256
+        c["sources"][0]["video_id"]=op.FAILED_V2_VIDEO_ID
+        self.assertIn("P205_OPERATIONAL_FAILED_SOURCE_REUSE",
+                      op.validate_common_closeout(r,c,"0"*64))
+
+    def test_even_pinned_v2_cannot_close_after_redesign(self):
+        state=op._load(op.ROOT,op.STATE);state["items"][16]["status"]="PASS"
+        with patch.object(op,"REVIEWED_OPERATIONAL_CLOSEOUT_SHA256","1"*64):
+            self.assertIn("P205_OPERATIONAL_V3_RELEASE_NOT_IMPLEMENTED",
+                          op.verify_current(state=state))
