@@ -1,0 +1,77 @@
+{
+  "schema": "IRE_P205_R304_ALL_QUALIFIER_REVIEW_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "parent_commit": "9c87c99a614314703c638b88a3e1c4bec45b1049",
+  "parent_ci_run_id": 45496416320,
+  "parent_ci_conclusion": "success",
+  "total_obligations": 1163,
+  "previous_reviewed": 830,
+  "new_reviewed": 333,
+  "cumulative_reviewed": 1163,
+  "unreviewed": 0,
+  "new_decisions": {
+    "CARRY_SOURCE_EDGE": 1,
+    "SCOPE_DRAFT": 113,
+    "CONTEXT_ONLY": 138,
+    "OPEN": 81
+  },
+  "new_scope_bundles": 44,
+  "new_qualifier_edges": 109,
+  "cumulative_counts": {
+    "CARRY_SOURCE_EDGE": 284,
+    "CONTEXT_ONLY": 197,
+    "MULTI_TARGET": 7,
+    "OPEN": 455,
+    "REBIND_SOURCE_FRAGMENT": 13,
+    "REVIEWER_NOTE": 24,
+    "SCOPE_DRAFT": 183
+  },
+  "videos": {
+    "270": {
+      "obligations": 460,
+      "ledger_reviewed": 338,
+      "gap_reviewed": 122,
+      "open": 184,
+      "scope_draft": 70,
+      "open_characters": 484,
+      "unbound_numeric_spans": 0
+    },
+    "271": {
+      "obligations": 703,
+      "ledger_reviewed": 426,
+      "gap_reviewed": 277,
+      "open": 271,
+      "scope_draft": 113,
+      "open_characters": 424,
+      "unbound_numeric_spans": 3,
+      "ledger_head": "ccff7b094c0ad5cf796be0fa54bb1715b4091d39fd426e83c4400aaeb0821749",
+      "prior_head": "e44936a01ac5aaa96dcb333f5c3aea4219b55dc6608de3994942adfcc3752bd9",
+      "draft_packet_sha256": "ccb4f02fe219b4c420c5e078a914ce3d4b9f5c05ccc79e9959cb8d680baf4a37"
+    }
+  },
+  "semantic_only_no_explicit_coordinate": 53,
+  "semantic_only_disposition": "OPEN with original contextual evidence, not an exact source scope",
+  "id_set_union_verified": true,
+  "prior_events_preserved": true,
+  "portable_replay_pass": true,
+  "real_negative_tests_blocked": 9,
+  "private_archive_sha256": "d35655572d48e0d1e49f4f132712cdca4c7e554b3d852da89fddb42e2d0fc87b",
+  "private_archive_bytes": 2840945,
+  "private_archive_filename": "P205_PRIVATE_R304_QUALIFIER_ALL1163_20261125.zip",
+  "audit_sha256": "0f41d425bf1038425816f724dbdcb0f35e005bda22fe9f90b0fe58a934ca53eb",
+  "gap_receipt_sha256": "cdc17ee095fdaa858d7edbe42f714c45ffc12350130f22253c1077fe5445e4a6",
+  "ledger_sha256": "1ddd29899d9473b7b0d5a424f127840e4243f875d8bf36464ab9e438ba04041d",
+  "manifest_sha256": "ac3175f4aa3ea7c36ce421dd42b4409db5a8da4c898729dafafd17ab19f2e8e7",
+  "original_scores_unchanged": true,
+  "actual_two_turn_verified": false,
+  "semantic_conservation_verified": false,
+  "financial_approval": false,
+  "ready_for_e3": false,
+  "publication_authorized": false,
+  "status": "HOLD",
+  "limitations": [
+    "All 1163 legacy obligations have a review record across original ledgers and separate draft sidecars; not 1163 approved claims. 455 OPEN and 183 SCOPE_DRAFT remain; 908 OPEN source characters and 3 unbound numeric spans remain.",
+    "Review is manually authored ChatGPT semantic triage, not automatic extraction or independent certification. Context-only and scope-draft classifications still require semantic reconciliation. Source conditions and reviewer limitations must not be merged into one fact.",
+    "No production code modification in this tranche; existing validator was replayed. Final graph/journal, actual two-turn validation, and E3-E5 not complete. New CI not yet verified."
+  ]
+}
