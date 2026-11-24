@@ -1,0 +1,100 @@
+{
+  "schema": "IRE_P205_V3_SOURCE_GRAPH_EXPOSED_REGRESSION_SHA_ONLY_V1",
+  "date": "2026-11-24",
+  "engine_commit_sha": "d399fa1e77d17a0aaaa95c33b235453cd37e2cde",
+  "source_graph_blob_sha1": "3f6b0fa07876774e29d59f1894f570989ff116c9",
+  "source_graph_sha256": "354f91567882f752509c2b1db6e331757abfbb910bac20c7b931e42505c9cb23",
+  "rubric_sha256": "0abe30d1053bdf3d9890c531f8d6cc95f19d950cf9ec2ddc887756ee7702a5e2",
+  "base_code_artifact_id": 14901741338,
+  "base_code_artifact_sha256": "f4994274e8446a813a48c745482796ce95c88bca264cf849170db0daf648e5b6",
+  "base_manifest_verified_files": 71,
+  "modified_module_git_blob_matched": true,
+  "engine_ci_run_id": 45354629985,
+  "engine_ci_status_at_receipt": "IN_PROGRESS",
+  "prior_ci_failure": {
+    "run_id": 45349799786,
+    "job_id": 138293268207,
+    "cause": "NTS and MOLEG live HTTPS timeout; 2692 tests, one failed; other five jobs passed.",
+    "not_overridden": true
+  },
+  "videos": [
+    {
+      "no": 270,
+      "source_sha256": "e67be6da14dc6eae2fe8172add56f2c98efb1e6e232587aaa591d8752b043792",
+      "prediction_sha256": "a9ef191da0f1b989f2e15e8efeb2d141105da75befa00d8370a774fb2be58089",
+      "source_cues": 618,
+      "prediction_atoms": 133,
+      "reference_atoms": 146,
+      "ambiguous_offsets": 0,
+      "groups": {
+        "ONE_TO_ONE": 35,
+        "SPLIT_CANDIDATE": 6,
+        "MERGE_CANDIDATE": 1,
+        "MANY_TO_MANY": 25
+      },
+      "prediction_atoms_in_multi_components": 98,
+      "reference_atoms_in_multi_components": 111,
+      "largest_component": 20,
+      "detail_sha256": "7a677b064282323e91605dd704629323f7d7f7c01c815fd98f64cf60ca2545fe"
+    },
+    {
+      "no": 271,
+      "source_sha256": "a2c3017542b2670a39d7fcd796f706e583006a4d0a043d26854f27fc6a1f50e1",
+      "prediction_sha256": "543891507e505501f1d01f39210acdfafccc1ca4df5039729165a86618c0aaf0",
+      "source_cues": 706,
+      "prediction_atoms": 93,
+      "reference_atoms": 94,
+      "ambiguous_offsets": 0,
+      "groups": {
+        "ONE_TO_ONE": 24,
+        "SPLIT_CANDIDATE": 5,
+        "MERGE_CANDIDATE": 5,
+        "MANY_TO_MANY": 11
+      },
+      "prediction_atoms_in_multi_components": 69,
+      "reference_atoms_in_multi_components": 70,
+      "largest_component": 18,
+      "detail_sha256": "3125e8b6d706550d2a5908888d7d685be5aa0976c19d5f396f5352bdcd21d170"
+    }
+  ],
+  "total_old_atoms": 466,
+  "source_cues": 1324,
+  "partial_graph": {
+    "nodes": 6,
+    "source_cues": 618,
+    "direct_characters": 128,
+    "open_characters": 11180,
+    "numeric_bindings": 5,
+    "cross_cue_numeric_bindings": 4,
+    "unbound_numeric_spans": 0,
+    "removed_binding_detected": true,
+    "negative_tests_blocked": 7,
+    "truncated_cross_cue_fragments_blocked": 4,
+    "repeat_equal": true,
+    "diagnostic_no_score": true,
+    "private_packet_sha256": "fe57ed86c011677560ecb7f43bee33710837bf1aaabfc7bae6d5ae7b02d4c08b",
+    "compiled_graph_sha256": "fb0fe0f824179974a98a1ab5ad7b4bfc9c23c3eee3a0bedd9b2b910fbd830390",
+    "numeric_bindings_sha256": "dcd2adc67763c03d7bb543871c0f9acfea59d72bcd2958ff99b61c7696fa7517"
+  },
+  "private_receipt_sha256": "8c164a97e3b02934dc0df12ffe6e467d5dfdf95bc636ab40815a8f40178a3f8f",
+  "private_archive_sha256": "9e22adaba85e0829831099e7e459a72a598d563a9cadbc44d05d73f54bdafcb2",
+  "private_library_file_id": "libfile_56ca2b6443788191b1a87b8f0eb0e15f",
+  "prior_failures_preserved": true,
+  "semantic_equivalence_certified": false,
+  "new_accuracy_measured": false,
+  "full_v3_source_review": false,
+  "independent_certification": "UNMEASURABLE",
+  "publication_authorized": false,
+  "personalized_advice_authorized": false,
+  "stage_results": {
+    "R3_01": "EVIDENCE_RECORDED_ONLINE_ORIGIN_FAILURE_REMAINS_SEPARATE",
+    "R3_02": "IMPLEMENTED_LOCAL_REGRESSION_PASS_CI_PENDING",
+    "R3_03": "ACTUAL_EXPOSED_OVERLAP_AND_PARTIAL_GRAPH_REPLAY_PASS",
+    "R3_04": "HOLD_NOT_IMPLEMENTED",
+    "R3_05": "BLOCKED",
+    "R3_06": "BLOCKED"
+  },
+  "status": "HOLD",
+  "checklist_passed": 16,
+  "blocked_successors": 43
+}

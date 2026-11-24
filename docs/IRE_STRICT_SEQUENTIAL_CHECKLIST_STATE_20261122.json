@@ -766,6 +766,12 @@
           "verdict": "HOLD",
           "ref": "docs/IRE_P0_2_05_COMMON_RUBRIC_V2_270_TURN2_INTERNAL_SCORE_HOLD_20261124.json",
           "scope": "Actual V2 #270 two-turn replay on unchanged frozen 133 atoms vs separately authored 146 internal reference. TP60 FP73 FN86 high-risk FN77; zero numeric boundary warnings; 21 critical pair mismatches, 12 critical unmatched atoms. No independence or release."
+        },
+        {
+          "kind": "assessment",
+          "verdict": "HOLD",
+          "ref": "docs/IRE_P0_2_05_V3_SOURCE_COORDINATE_REAL_REGRESSION_SHA_ONLY_20261124.json",
+          "scope": "V3 source-coordinate graph implementation; 466 frozen old atoms exact-source offset mapping, 6 actual selected nodes, four cross-cue numeric joins and four fragment rejections, seven negative tests. No new accuracy or release; 11180 characters remain OPEN in partial regression."
         }
       ],
       "start_report": {
@@ -969,6 +975,21 @@
         "high_risk_fn": 77,
         "start_report_user_visible": "실제 #270 2턴 원문 재독 및 동결 예측 비교.",
         "end_report_user_visible": "618 cue, 참조146, TP60 FP73 FN86 고위험 FN77. 실제 반복 평가 일치, 기준 미달. P205 HOLD."
+      },
+      "v3_redesign": {
+        "status": "HOLD",
+        "receipt": "docs/IRE_P0_2_05_V3_SOURCE_COORDINATE_REAL_REGRESSION_SHA_ONLY_20261124.json",
+        "engine_sha": "d399fa1e77d17a0aaaa95c33b235453cd37e2cde",
+        "stages": {
+          "R3_01": "EVIDENCE_RECORDED_ONLINE_ORIGIN_FAILURE_REMAINS_SEPARATE",
+          "R3_02": "IMPLEMENTED_LOCAL_REGRESSION_PASS_CI_PENDING",
+          "R3_03": "ACTUAL_EXPOSED_OVERLAP_AND_PARTIAL_GRAPH_REPLAY_PASS",
+          "R3_04": "HOLD_NOT_IMPLEMENTED",
+          "R3_05": "BLOCKED",
+          "R3_06": "BLOCKED"
+        },
+        "start_report_user_visible": "P205 근본 재설계: 두 실패 자료와 CI 로그, 좌표 기반 의미 그래프 구현.",
+        "end_report_user_visible": "V3 구조 구현, 실제 466 원자 overlap 진단과 6 원자 부분 회귀, 4 자막 경계 숫자 연결 및 잘린 입력 차단. 실제 정확도 미측정. R3-04~06 미완료, P205 HOLD."
       }
     },
     {

@@ -22,3 +22,7 @@ ire/v6/semantic_source_graph.py: S0-S4의 좌표 그리드, private graph compil
 ## 순차 작업
 
 R3-01 기존 두 실패 보존·CI 원인 기록; R3-02 고정 좌표와 source graph compiler; R3-03 실제 두 실패 전체의 source overlap 진단 및 실제 cross-cue 수치/분할 회귀; R3-04 명시 semantic dispute/분할·결합 계보와 양방향 원문 검증, two-turn freeze; R3-05 native E3-E5 무손실 연계 및 승인 차단; R3-06 미노출 새 cohort 사전 등록 및 실제 두 턴 운영 평가. 각 단계의 실제 증명 없으면 다음 단계 진입 금지. P205 HOLD, 16/60 PASS, 43 BLOCKED. 기준 완화·독립 인증·금융 승인 없음.
+
+## 실제 원본 회귀와 경계 보완
+
+두 실패 영상 1,324 cue/466 원자 원문 좌표 변환, 모호한 인용 위치 0. #270 overlap 1:1 35/1:N 6/N:1 1/N:M 25, 133 예측 중98 다중 중첩; #271 1:1 24/1:N 5/N:1 5/N:M 11, 93 예측 중69 다중 중첩. 중첩은 의미 일치가 아니다. #270 실제 6개 원자·5개 수치 연결, 자막 경계 금액4건 연결 성공, 인접 자막 검사 보완으로 잘린 금액4건 차단, 변형7건 차단. 나머지 11,180 문자는 OPEN. 부분 개발 검증만 수행, 새 점수 없음. 최신 module blob Git tree 대조 완료, 전체 CI 진행 중. R3-04~06 잔여. 증빙 docs/IRE_P0_2_05_V3_SOURCE_COORDINATE_REAL_REGRESSION_SHA_ONLY_20261124.json.
