@@ -1,0 +1,7 @@
+# R3-04 V3 dispute and two-turn journal — implementation
+
+R3-02/03 predecessor code and regression records passed all six integrated jobs (45354262540, 45354629985, 45354823471). Historical online official origin failure remains recorded. No threshold relaxation.
+
+- Private graph journal registers actual source/grid/engine/rubric, freezes first/second graph packets in distinct ordered operator-labeled turns, replays strict original nine-axis score, then records all overlap component dispute verdicts, then a separate revision graph. Each revision has a disjoint total partition from BOTH original graphs to revised nodes (KEEP/REVISE/SPLIT/MERGE/REPARTITION/RETIRE/ADD). Exact prior number and qualifier bindings must be retained or explicitly escrowed with source-linked reasons; high-risk retirement stays pending E3. No conversion of split/merge to TP.
+- SQLite transactional hash chain, external head on reopen, exact retry idempotent, changed retry rejected; ordinary SQL update/delete denied. Private source bytes verified on each opening. Operator timestamp/message reference is not host authentication. External pins must be retained separately; privileged replacement plus pin forgery not prevented. Neither structural validation nor same-chat decisions certify semantic truth. Source overlap remains candidate diagnostic; no financial approval or publication.
+- R3-04 implementation and tests pending CI, real exposed-source regression required. R3-05 native bridge and production V3 release not implemented. P205 HOLD.
