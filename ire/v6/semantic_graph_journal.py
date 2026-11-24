@@ -18,7 +18,13 @@ from .semantic_source_graph import (compile_graph,source_grid,RUBRIC_SHA256,
 from .source import verify_source
 
 GENESIS="0"*64
-KINDS=("REGISTER","FIRST","SECOND","SCORE","DISPUTES","REVISION")
+KINDS=("REGISTER","FIRST","SECOND","SCORE","DISPUTES","REVISION","RECONCILIATION")
+LEGACY_KIND="LEGACY_RECONCILIATION"
+
+def _allowed(previous_kind,kind):
+    if previous_kind is None:return kind=="REGISTER"
+    if previous_kind=="REGISTER" and kind==LEGACY_KIND:return True
+    return previous_kind in KINDS[:-1] and kind==KINDS[KINDS.index(previous_kind)+1]
 EXPOSED_IDS={"LVE7XN_esTc","BXjda2v6e-Q","Yd5qnDtW2TM"}
 EXPOSED_SHAS={"e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
  "a2c3017542b2670a39d7fcd796f706e583006a4d0a043d26854f27fc6a1f50e1",
@@ -224,14 +230,14 @@ class GraphJournal:
             self.head=expected_head
             self.snapshot()
     def _replay(self,db):
-        p={};previous=GENESIS
+        p={};previous=GENESIS;previous_kind=None
         rows=db.execute("SELECT seq,kind,previous,payload,payload_sha,head FROM events ORDER BY seq").fetchall()
         for i,(seq,kind,prev,raw,ph,head) in enumerate(rows,1):
-            need(i<=len(KINDS) and seq==i and kind==KINDS[i-1] and prev==previous and sha256(raw)==ph,"CHAIN")
+            need(seq==i and _allowed(previous_kind,kind) and prev==previous and sha256(raw)==ph,"CHAIN")
             need(head==json_digest({"seq":i,"kind":kind,"previous":prev,"payload_sha256":ph}),"HEAD")
             value=json.loads(raw)
             need(_payload(value)==raw,"CANONICAL")
-            self._apply(p,kind,value);previous=head
+            self._apply(p,kind,value);previous=head;previous_kind=kind
         return p,previous
     def _apply(self,p,kind,v):
         source=self.source
@@ -259,6 +265,26 @@ class GraphJournal:
             need(type(v) is dict and set(v)=={"packet","first_lineage","second_lineage","receipt"},"REVISION_SHAPE")
             r=revision(source,p["first"],p["second"],v["packet"],v["first_lineage"],v["second_lineage"])
             need(r==v["receipt"],"REVISION_DRIFT");p["revision"]=r
+        elif kind in ("RECONCILIATION",LEGACY_KIND):
+            from .semantic_reconciliation import verify_reconciliation_plan
+            fields={"packet","old","candidates","events","rows","scopes","pins","plan","plan_sha256"}
+            need(type(v) is dict and set(v)==fields,"RECONCILIATION_SHAPE")
+            need(type(v["pins"]) is dict and set(v["pins"])=={
+                "expected_head","expected_gap_receipt_sha256","expected_old_digest",
+                "expected_candidate_digest","expected_packet_sha"},"RECONCILIATION_PINS")
+            if kind==LEGACY_KIND:
+                need(p["plan"]["purpose"]=="DEVELOPMENT","LEGACY_DEVELOPMENT_ONLY")
+            else:
+                need(v["pins"]["expected_packet_sha"]==p["revision"]["final_packet_sha256"],"RECONCILIATION_REVISION_DRIFT")
+            h=verify_reconciliation_plan(v["plan"],source,v["packet"],v["old"],v["candidates"],
+                v["events"],v["rows"],v["scopes"],expected_plan_sha256=v["plan_sha256"],**v["pins"])
+            q=v["plan"]
+            p["reconciliation"]={"plan_sha256":h,"obligations":q["obligation_count"],
+                "open_obligations":len(q["open_items"]),"scope_drafts":sum(len(x["obligation_ids"]) for x in q["scope_items"]),
+                "scope_bundles":len(q["scope_items"]),"evidence_tasks":len(q["evidence_tasks"]),
+                "open_characters":sum(x["span"][2]-x["span"][1] for x in q["residual_open"]),
+                "unbound_numeric_spans":len(q["unbound_numeric"]),"legacy_development":kind==LEGACY_KIND,
+                "semantic_conservation_verified":False,"ready_for_e3":False,"publication_authorized":False}
     def append(self,kind,value):
         raw=_payload(value)
         with closing(sqlite3.connect(self.path,timeout=10,isolation_level=None)) as db:
@@ -267,11 +293,13 @@ class GraphJournal:
                 p,head=self._replay(db);need(head==self.head,"EXTERNAL_HEAD_DRIFT")
                 n=db.execute("SELECT count(*) FROM events").fetchone()[0]
                 # Retry exact most recent event is idempotent; altered retry fails.
-                if n and kind==KINDS[n-1]:
+                last=db.execute("SELECT kind FROM events ORDER BY seq DESC LIMIT 1").fetchone()
+                previous_kind=last[0] if last else None
+                if n and kind==previous_kind:
                     prev=db.execute("SELECT payload FROM events WHERE seq=?",(n,)).fetchone()[0]
                     need(prev==raw,"NONIDENTICAL_RETRY")
                     db.commit();return self.head
-                need(n<len(KINDS) and KINDS[n]==kind,"EVENT_ORDER")
+                need(_allowed(previous_kind,kind),"EVENT_ORDER")
                 self._apply(p,kind,value)
                 ph=sha256(raw);new=json_digest({"seq":n+1,"kind":kind,"previous":head,"payload_sha256":ph})
                 db.execute("INSERT INTO events VALUES (?,?,?,?,?,?)",(n+1,kind,head,raw,ph,new))
@@ -284,9 +312,10 @@ class GraphJournal:
             p,head=self._replay(db)
             need(head==self.head,"EXTERNAL_HEAD_DRIFT")
             count=db.execute("SELECT count(*) FROM events").fetchone()[0]
-        return {"head_sha256":head,"event_count":count,"phase":KINDS[count-1] if count else "EMPTY",
+            last=db.execute("SELECT kind FROM events ORDER BY seq DESC LIMIT 1").fetchone()
+        return {"head_sha256":head,"event_count":count,"phase":last[0] if last else "EMPTY",
             "first_packet_sha256":p.get("first",{}).get("packet_sha256"),
             "second_packet_sha256":p.get("second",{}).get("packet_sha256"),
-            "score":p.get("score"),"disputes":p.get("disputes"),"revision":p.get("revision"),
+            "score":p.get("score"),"disputes":p.get("disputes"),"revision":p.get("revision"),"reconciliation":p.get("reconciliation"),
             "host_turn_authentication_verified":False,"independent_gold_verified":False,
             "operational_release_authorized":False,"publication_authorized":False}
