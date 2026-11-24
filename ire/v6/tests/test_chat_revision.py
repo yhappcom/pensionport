@@ -208,4 +208,61 @@ class ChatRevisionTests(unittest.TestCase):
         self.assertEqual(snap["ledger_head_sha256"],fx.store.snapshot("host_scope")["ledger_head_sha256"])
 
 
+    def test_prior_direct_quote_cannot_silently_become_context(self):
+        src=fixture(['The fund holds bonds.','It also holds cash.'])
+        a=old_atom(src,'C00001',[1,2],'The fund holds bonds and cash.')
+        before=exchange(src,[a])
+        revised=frame(old_atom(src,'C00002',[1],'The fund holds bonds.',context=[1,2]))
+        with self.assertRaisesRegex(InvalidInput,'PRIOR_DIRECT_REF_UNREVIEWED'):
+            compile_chat_atom_revision(src,before,edits=[edit(['C00001'],revised)])
+        decision={'prior_claim_id':'C00001','cue_index':2,
+                  'quote':src.cues[1].text,'reason':'Cash clause requires a separate future source review.'}
+        result=compile_chat_atom_revision(src,before,edits=[edit(
+            ['C00001'],revised,prior_ref_exclusions=[decision])])
+        self.assertEqual(result['edit_lineage'][0]['prior_ref_exclusions'],[decision])
+        self.assertEqual(result['exchange']['cue_dispositions'][1]['disposition'],'UNRESOLVED')
+        self.assertFalse(result['receipt']['research_complete'])
+
+    def test_shortened_quote_requires_scoped_reason_and_rejects_stale_reason(self):
+        src=fixture(['The fund holds bonds and cash.'])
+        a=old_atom(src,'C00001',[1],'The fund holds bonds and cash.')
+        before=exchange(src,[a])
+        revised=frame(a,proposition='The fund holds bonds.',
+                      source_refs=[{'cue_index':1,'quote':'The fund holds bonds'}])
+        with self.assertRaisesRegex(InvalidInput,'PRIOR_DIRECT_REF_UNREVIEWED'):
+            compile_chat_atom_revision(src,before,edits=[edit(['C00001'],revised)])
+        decision={'prior_claim_id':'C00001','cue_index':1,'quote':src.cues[0].text,
+                  'reason':'Narrowing to a single clause for explicit source review.'}
+        result=compile_chat_atom_revision(src,before,edits=[edit(
+            ['C00001'],revised,prior_ref_exclusions=[decision])])
+        self.assertEqual(result['edit_lineage'][0]['prior_ref_exclusions'],[decision])
+        with self.assertRaisesRegex(InvalidInput,'PRIOR_REF_EXCLUSION_NOT_NEEDED'):
+            compile_chat_atom_revision(src,before,edits=[edit(
+                ['C00001'],frame(a),prior_ref_exclusions=[decision])])
+
+    def test_exact_duplicate_across_edits_is_rejected(self):
+        src=fixture(['The fund holds bonds.'])
+        a=old_atom(src,'C00001',[1],'The fund holds bonds.')
+        before=exchange(src,[a])
+        with self.assertRaisesRegex(InvalidInput,'DUPLICATE_NATIVE_ATOM'):
+            compile_chat_atom_revision(src,before,edits=[
+                edit(['C00001'],frame(a)),edit([],frame(a))])
+
+    def test_exact_duplicate_of_survivor_is_rejected(self):
+        src=fixture(['The fund holds bonds.'])
+        a=old_atom(src,'C00001',[1],'The fund holds bonds.')
+        a.update(speaker='NARRATOR',stance='AFFIRMED')
+        before=exchange(src,[a])
+        with self.assertRaisesRegex(InvalidInput,'DUPLICATE_NATIVE_ATOM'):
+            compile_chat_atom_revision(src,before,edits=[edit([],frame(a))])
+
+    def test_same_proposition_with_different_source_is_not_exact_duplicate(self):
+        src=fixture(['The fund holds bonds.','The fund holds bonds.'])
+        a=old_atom(src,'C00001',[1],'The fund holds bonds.')
+        a.update(speaker='NARRATOR',stance='AFFIRMED')
+        b=old_atom(src,'C00002',[2],'The fund holds bonds.')
+        result=compile_chat_atom_revision(src,exchange(src,[a]),edits=[edit([],frame(b))])
+        self.assertEqual(result['receipt']['after_atoms'],2)
+
+
 if __name__=='__main__':unittest.main()

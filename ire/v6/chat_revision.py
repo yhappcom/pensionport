@@ -113,6 +113,13 @@ def _project(source, frame, cid):
     return atom, typed
 
 
+def _native_duplicate_key(atom):
+    """Exact native-content identity, not semantic equivalence."""
+    content = {k: deepcopy(v) for k, v in atom.items() if k != 'claim_id'}
+    content['proposition'] = ' '.join(content['proposition'].split())
+    return json_digest(content)
+
+
 def compile_chat_atom_revision(source, before, *, edits, cue_reviews=()):
     """Compile reviewer-authored ADD/REVISE/SPLIT/MERGE edits, without changing before.
 
@@ -122,7 +129,10 @@ def compile_chat_atom_revision(source, before, *, edits, cue_reviews=()):
     stay in the draft until a later authorized final decision. Old evidence
     and qualifier links must survive collectively in the replacements; any
     qualifier not inherited by a particular split child needs an explicit
-    scoped exclusion reason. No
+    scoped exclusion reason. Any old direct quote not covered by a new direct
+    quote at the same cue requires an explicit prior_ref_exclusions row.
+    Newly introduced exact native duplicates are rejected across all edits
+    and surviving atoms; historical duplicates are not rewritten. No
     automatic semantic inference or automatic NO_ATOM conversion occurs.
 
     cue_reviews explicitly covers non-primary cues as CONTEXT_ONLY, NO_ATOM
@@ -138,7 +148,7 @@ def compile_chat_atom_revision(source, before, *, edits, cue_reviews=()):
     next_id = max((int(cid[1:]) for cid in old), default=0) + 1
     for edit in edits:
         _need(type(edit) is dict and {'prior_claim_ids','replacements','reason'} <= set(edit)
-              and set(edit) <= {'prior_claim_ids','replacements','reason','qualifier_exclusions'}
+              and set(edit) <= {'prior_claim_ids','replacements','reason','qualifier_exclusions','prior_ref_exclusions'}
               and _reason(edit['reason']), 'EDIT_SCHEMA')
         ids, frames = edit['prior_claim_ids'], edit['replacements']
         _need(type(ids) is list and all(type(x) is str and x in old and x not in retired for x in ids)
@@ -156,6 +166,26 @@ def compile_chat_atom_revision(source, before, *, edits, cue_reviews=()):
         old_context = {i for cid in ids for i in old[cid]['context_cue_indices']}
         new_context = {i for a in group for i in a['context_cue_indices']}
         _need(old_context <= new_context, 'PRIOR_CONTEXT_LOST')
+        new_refs = [r for a in group for r in a['source_refs']]
+        missing_refs = {
+            (cid, r['cue_index'], r['quote'])
+            for cid in ids for r in old[cid]['source_refs']
+            if not any(n['cue_index'] == r['cue_index'] and r['quote'] in n['quote']
+                       for n in new_refs)
+        }
+        ref_exclusions = edit.get('prior_ref_exclusions', [])
+        _need(type(ref_exclusions) is list, 'PRIOR_REF_EXCLUSIONS')
+        declared_refs = set()
+        for row in ref_exclusions:
+            _need(type(row) is dict and
+                  set(row) == {'prior_claim_id','cue_index','quote','reason'} and
+                  type(row['prior_claim_id']) is str and type(row['cue_index']) is int and
+                  type(row['quote']) is str and _reason(row['reason']), 'PRIOR_REF_EXCLUSION_SCHEMA')
+            key = (row['prior_claim_id'], row['cue_index'], row['quote'])
+            _need(key in missing_refs and key not in declared_refs,
+                  'PRIOR_REF_EXCLUSION_NOT_NEEDED')
+            declared_refs.add(key)
+        _need(declared_refs == missing_refs, 'PRIOR_DIRECT_REF_UNREVIEWED')
         missing_qualifiers = set()
         for field in ('condition_cue_indices','exception_cue_indices'):
             prior_qualifiers = {i for cid in ids for i in old[cid][field]}
@@ -180,7 +210,15 @@ def compile_chat_atom_revision(source, before, *, edits, cue_reviews=()):
                         'prior_atom_sha256': [json_digest(old[c]) for c in ids],
                         'new_claim_ids': [a['claim_id'] for a in group],
                         'qualifier_exclusions': deepcopy(exclusions), 'reason': edit['reason']})
-    atoms = [deepcopy(a) for a in before['atoms'] if a['claim_id'] not in retired] + replacements
+        if ref_exclusions:
+            lineage[-1]['prior_ref_exclusions'] = deepcopy(ref_exclusions)
+    survivors = [deepcopy(a) for a in before['atoms'] if a['claim_id'] not in retired]
+    seen = {_native_duplicate_key(a) for a in survivors}
+    for atom in replacements:
+        key = _native_duplicate_key(atom)
+        _need(key not in seen, 'DUPLICATE_NATIVE_ATOM')
+        seen.add(key)
+    atoms = survivors + replacements
     anchors, contexts = defaultdict(list), defaultdict(list)
     for a in atoms:
         for r in a['source_refs']:
