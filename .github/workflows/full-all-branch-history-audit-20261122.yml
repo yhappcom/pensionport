@@ -164,6 +164,32 @@ jobs:
           python -m unittest -v scripts.test_ire_p0_2_05_root_cause_gate
           python -m scripts.ire_p0_2_05_root_cause_gate
 
+      - name: Package exact public V6 Python code for private offline replay
+        run: |
+          python - <<'PY'
+          import hashlib,json,subprocess,zipfile
+          from pathlib import Path
+          paths=subprocess.check_output(['git','ls-tree','-r','--name-only','HEAD','ire/v6','ire/__init__.py'],text=True).splitlines()
+          paths=[p for p in paths if p.endswith('.py') and '/tests/' not in p]
+          assert 'ire/v6/offline_revision_replay.py' in paths
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()=="${{ github.sha }}"
+          rows={}
+          with zipfile.ZipFile('ire-v6-offline-code-only.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for p in sorted(paths):
+                  data=subprocess.check_output(['git','show','HEAD:'+p])
+                  rows[p]={'sha256':hashlib.sha256(data).hexdigest(),'git_blob_sha1':hashlib.sha1(b'blob '+str(len(data)).encode()+b'\\0'+data).hexdigest()}
+                  z.writestr(p,data)
+              z.writestr('code_manifest.json',json.dumps({'schema':'IRE_V6_CODE_ONLY_BUNDLE_V1','commit_sha':"${{ github.sha }}",'files':rows},sort_keys=True))
+          print('CODE_ONLY_BUNDLE_FILES',len(rows))
+          PY
+      - name: Upload code-only offline replay bundle (no private source, research or database)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ire-v6-offline-code-only-${{ github.sha }}
+          path: ire-v6-offline-code-only.zip
+          if-no-files-found: error
+          retention-days: 7
+
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA
     needs: branch_governance
