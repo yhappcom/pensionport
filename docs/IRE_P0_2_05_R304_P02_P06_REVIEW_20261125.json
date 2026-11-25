@@ -1,0 +1,96 @@
+{
+  "schema": "IRE_P205_R304_P02_P06_SOURCE_LINK_REVIEW_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "parent_commit": "0bac955adad72f8c0e4471d125cf2a7a78381638",
+  "parent_ci_run_id": 45535041830,
+  "parent_ci_conclusion": "success",
+  "code_commit": "f5abbaeafaf609be0b71322aa908895517398ebc",
+  "code_ci_run_id": 45536827198,
+  "code_ci_conclusion": "PENDING",
+  "blobs": {
+    "pending_semantic_review": "0c41a85496615556bc4fb8739e64fc2ba0c36167",
+    "semantic_graph_journal": "5104fe767d8524274e464e73de5184742bd485c6",
+    "test_pending_semantic_review": "2e72a3eb0c6d7abbc229975586765c12a06f2445"
+  },
+  "total_historical_obligations": 1163,
+  "historical_open": 387,
+  "historical_scope_drafts": 183,
+  "number_obligations_reviewed": 284,
+  "open_qualifiers_reviewed": 103,
+  "number_source_links_reviewed": 17,
+  "scope_groups_reviewed": 69,
+  "scope_groups_source_reviewed": 39,
+  "scope_obligations_source_reviewed": 106,
+  "remaining_source_link_review_open": 370,
+  "remaining_scope_drafts": 77,
+  "open_characters": 855,
+  "unbound_numeric": 2,
+  "videos": {
+    "270": {
+      "historical_open": 116,
+      "number_links_reviewed": 8,
+      "remaining_open": 108,
+      "historical_scope_drafts": 70,
+      "scope_obligations_source_reviewed": 43,
+      "remaining_scope_drafts": 27,
+      "head": "77e7626328910a7a2c935b8f5a34856da4d232fca1ddc1cc2de9863547644afd",
+      "events": 6,
+      "open_characters": 431,
+      "unbound_numeric": 0,
+      "cold_reopen_equal": true,
+      "historical_evaluation": {
+        "tp": 60,
+        "fp": 73,
+        "fn": 86,
+        "high_risk_fn": 77,
+        "status": "HOLD"
+      }
+    },
+    "271": {
+      "historical_open": 271,
+      "number_links_reviewed": 9,
+      "remaining_open": 262,
+      "historical_scope_drafts": 113,
+      "scope_obligations_source_reviewed": 63,
+      "remaining_scope_drafts": 50,
+      "head": "11a66c49c307e5e8ba7aee72297adca5b6281362fefc9e323fffd7dd9624756a",
+      "events": 4,
+      "open_characters": 424,
+      "unbound_numeric": 2,
+      "cold_reopen_equal": true,
+      "historical_evaluation": {
+        "tp": 53,
+        "fp": 40,
+        "fn": 41,
+        "high_risk_fn": 35,
+        "status": "HOLD"
+      }
+    }
+  },
+  "historical_frozen_results_equal": true,
+  "historical_271_scanner_blob": "9dd74fdbb84ef2dd61387908928f73d45bed9bc7",
+  "latest_271_numeric_boundary_warnings_comparison": [
+    3,
+    0
+  ],
+  "negative_tests_blocked": 10,
+  "new_named_tests": 4,
+  "local_suite_passed": 61,
+  "clean_package_replay_pass": true,
+  "archive_sha256": "8d4680f24a8e364540ab2a779b6acd47b163b34e912d2b6d464b080e4c4af824",
+  "archive_bytes": 4020052,
+  "manifest_sha256": "54fc5947369abd4f1941a40b9a9101c8ce190e70d190e3f40902e5690e3399d3",
+  "actual_native_two_turn_verified": false,
+  "independent_gold_verified": false,
+  "host_turn_authentication_verified": false,
+  "semantic_conservation_verified": false,
+  "financial_approval": false,
+  "ready_for_e3": false,
+  "publication_authorized": false,
+  "status": "HOLD",
+  "limitations": [
+    "Source-link review is not semantic equivalence or financial approval; historical OPEN and SCOPE_DRAFT records are not overwritten. 123 source-linked obligations recorded, 447 still lack source-link confirmation. #270 reuses and revalidates earlier HOLD reviews as appropriate. Candidate expansion is an explicit review judgment, not certified equivalence.",
+    "Historical scores reproduced with exact old #271 numeric scanner in private regression harness, not a claim that every historical engine module was reconstructed. Latest evaluator gives only warning drift 3 to 0; original record unchanged.",
+    "No fresh two-turn holdout or host turn authentication. Existing exposed videos are development cases only. Current turn cannot establish two distinct user turns. Integrated CI pending."
+  ]
+}
