@@ -1,0 +1,42 @@
+{
+  "schema": "IRE_R304_FROZEN_PROSPECTIVE_SECOND_SHA_ONLY_V1",
+  "status": "SECOND_FROZEN_BEFORE_FIRST_PACKET_COMPARISON",
+  "date": "2026-11-25",
+  "preregistration_commit": "4054447a1f178c6bb7fb872d4b00a1aa48ce11ef",
+  "first_frozen_commit": "32d1f5f38dcbab03d1960abd5d530c8dfdf27559",
+  "engine_commit": "8ff3a522bf1b17f212bb4d02fdb2495344311911",
+  "source_sha256": "059484995ba7a84dd5ec21ed682a526b95832f65b56cea1cf48745548c2d8335",
+  "source_cues": 771,
+  "second_observed_at": "2026-11-25T13:03:48+09:00",
+  "second_packet_sha256": "01857228e8a5bed5b2349283961297113ed65af593f16ef1cdd2eda7a3d73299",
+  "second_packet_file_sha256": "48848a840c87349017be6a1bdbca7572aacae2a8ce0515bb6701d241432173d8",
+  "second_census_sha256": "ec55f25e06197ce66b45b6b8df676c3eeec4e4592235d450e48afb818086a810",
+  "nodes": 156,
+  "kinds": {
+    "FACT": 50,
+    "OPINION": 56,
+    "QUESTION": 10,
+    "HYPOTHETICAL": 17,
+    "RECOMMENDATION": 23
+  },
+  "high_risk": 131,
+  "number_bindings": 174,
+  "qualifiers": 52,
+  "character_dispositions": {
+    "OPEN": 109,
+    "NONCLAIM": 599,
+    "DIRECT": 13394
+  },
+  "unbound_numeric_spans": 7,
+  "numeric_boundary_warnings": 1,
+  "first_packet_content_accessed_before_second_freeze": false,
+  "first_summary_accessed": true,
+  "host_turn_authentication_verified": false,
+  "independent_gold_verified": false,
+  "score": null,
+  "financial_approval": false,
+  "publication_authorized": false,
+  "limitations": [
+    "Second source-only authoring in later user turn; previous first-turn aggregate metadata known, no claim of model-state independence. SRT-only, broad cue ranges and manually authored role mapping are provisional. Introductory DB/DC claims remain OPEN in second packet. No code or threshold changes."
+  ]
+}
