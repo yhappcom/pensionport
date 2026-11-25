@@ -57,11 +57,30 @@ def _payload(value):
     need(len(raw)<=64*1024*1024,"PAYLOAD_LIMIT")
     return raw
 
-def plan_for(source,*,campaign_id,engine_commit,registered_at,purpose,protocol_sha256=None,audit_sha256=None):
+# Prospective diagnostic only, never a legacy HOLDOUT or release.
+PROSPECTIVE_PURPOSE="PROSPECTIVE_AUDIT_DIAGNOSTIC"
+PROSPECTIVE_SPEC={"id":"IRE_PROSPECTIVE_AUDIT_DIAGNOSTIC_V1",
+    "initial_metrics":"elementary source obligations and first propositions, separate from historical scores",
+    "thresholds":{"precision_bp":9500,"recall_bp":9800,"high_risk_unresolved_max":0},
+    "repeat_review_required":True,"high_risk_source_obligation_required":True,
+    "screening_receipt_required":True,"release_authorized":False}
+PROSPECTIVE_SHA256=json_digest(PROSPECTIVE_SPEC)
+PROSPECTIVE_EXPOSED_IDS=EXPOSED_IDS|{"-lX8iJd-xDM","w8nnPJe8lmo"}
+PROSPECTIVE_EXPOSED_SHAS=EXPOSED_SHAS|{
+    "059484995ba7a84dd5ec21ed682a526b95832f65b56cea1cf48745548c2d8335",
+    "08da1e9cd5f2ebba39e03844dd4b93e30185124feb4ffa9ef13ea5a283eb2924"}
+
+def plan_for(source,*,campaign_id,engine_commit,registered_at,purpose,protocol_sha256=None,audit_sha256=None,screening_sha256=None):
     need(type(campaign_id) is str and bool(re.fullmatch(r"[A-Za-z0-9_-]{3,80}",campaign_id)),"CAMPAIGN")
     need(type(engine_commit) is str and bool(re.fullmatch(r"[0-9a-f]{40}",engine_commit)),"ENGINE")
     timestamp(registered_at)
-    need(purpose in ("DEVELOPMENT","HOLDOUT"),"PURPOSE")
+    need(purpose in ("DEVELOPMENT","HOLDOUT",PROSPECTIVE_PURPOSE),"PURPOSE")
+    prospective=purpose==PROSPECTIVE_PURPOSE
+    if prospective:
+        need(protocol_sha256 is not None and audit_sha256 is not None,"PROSPECTIVE_AUDIT_REQUIRED")
+        need(source.video_id not in PROSPECTIVE_EXPOSED_IDS and source.source_sha256 not in PROSPECTIVE_EXPOSED_SHAS,"PROSPECTIVE_EXPOSED_SOURCE")
+        need(type(screening_sha256) is str and bool(re.fullmatch(r"[0-9a-f]{64}",screening_sha256)) and screening_sha256!="0"*64,"PROSPECTIVE_SCREENING_PIN")
+    else:need(screening_sha256 is None,"UNEXPECTED_SCREENING_PIN")
     need(purpose!="HOLDOUT" or (source.video_id not in EXPOSED_IDS and
         source.source_sha256 not in EXPOSED_SHAS),"EXPOSED_SOURCE")
     if protocol_sha256 is not None:
@@ -71,14 +90,29 @@ def plan_for(source,*,campaign_id,engine_commit,registered_at,purpose,protocol_s
     if audit_sha256 is not None:
         from .source_first_audit import AUDIT_SHA256
         need(protocol_sha256 is not None and audit_sha256==AUDIT_SHA256,"SOURCE_AUDIT_PLAN")
-        need(purpose=="DEVELOPMENT","SOURCE_AUDIT_PROSPECTIVE_NOT_AUTHORIZED")
+        need(purpose=="DEVELOPMENT" or prospective,"SOURCE_AUDIT_PROSPECTIVE_NOT_AUTHORIZED")
     return {"schema":"IRE_V3_GRAPH_RESEARCH_PLAN_V1"
+      ,**({"prospective_policy_sha256":PROSPECTIVE_SHA256,"screening_sha256":screening_sha256} if prospective else {})
       ,**({"audit_sha256":audit_sha256} if audit_sha256 is not None else {}),"campaign_id":campaign_id,
       **({"protocol_sha256":protocol_sha256} if protocol_sha256 is not None else {}),
       "engine_commit_sha":engine_commit,"registered_at":registered_at,"purpose":purpose,
       "source_sha256":source.source_sha256,"video_id":source.video_id,
       "manifest_sha256":source.manifest_sha256,"grid_sha256":json_digest(source_grid(source)),
       "rubric_sha256":RUBRIC_SHA256,"thresholds":dict(THRESHOLDS)}
+
+def prospective_diagnostic(source,plan,ledger,score,repeat_reviews):
+    """Internal first-packet diagnostic; no promotion from corrected candidates."""
+    from .source_audit_completion import review_repeats
+    need(plan.get("purpose")==PROSPECTIVE_PURPOSE and plan.get("prospective_policy_sha256")==PROSPECTIVE_SHA256,"PROSPECTIVE_POLICY")
+    repeat=review_repeats(source,ledger,repeat_reviews)
+    need(repeat["ledger_sha256"]==score["ledger_sha256"],"PROSPECTIVE_LEDGER_DRIFT")
+    high=sum(o["risk"]=="HIGH" for o in ledger["obligations"])
+    met=bool(score["internal_thresholds_met"] and high and not repeat["open_segments"] and not repeat["open_numeric_occurrences"])
+    return {"schema":"IRE_PROSPECTIVE_AUDIT_DIAGNOSTIC_RESULT_V1",
+      "policy_sha256":PROSPECTIVE_SHA256,"plan_sha256":json_digest(plan),
+      "initial_score_sha256":json_digest(score),"high_risk_source_obligations":high,
+      "repeat_review":repeat,"diagnostic_thresholds_met":met,
+      "independent_gold_verified":False,"operational_release_authorized":False,"publication_authorized":False}
 
 def _atom_map(g):
     return g["nodes"]
@@ -343,7 +377,7 @@ class GraphJournal:
             need(False,"SOURCE_AUDIT_PLAN_REQUIRED")
         if kind=="REGISTER":
             need(type(v) is dict and v==plan_for(source,campaign_id=v["campaign_id"],
-                engine_commit=v["engine_commit_sha"],registered_at=v["registered_at"],purpose=v["purpose"],protocol_sha256=v.get("protocol_sha256"),audit_sha256=v.get("audit_sha256")),"PLAN")
+                engine_commit=v["engine_commit_sha"],registered_at=v["registered_at"],purpose=v["purpose"],protocol_sha256=v.get("protocol_sha256"),audit_sha256=v.get("audit_sha256"),screening_sha256=v.get("screening_sha256")),"PLAN")
             p["plan"]=v
         elif kind in ("FIRST","SECOND"):
             protocol="protocol_sha256" in p["plan"]
@@ -374,10 +408,17 @@ class GraphJournal:
             p["source_audit_meta"]={x:v[x] for x in ("user_ref","observed_at")}
         elif kind=="SOURCE_AUDIT_SCORE":
             from .source_first_audit import audit_bidirectional
-            need(type(v) is dict and set(v)=={"user_ref","observed_at","assessment","result"},"SOURCE_AUDIT_SCORE_SHAPE")
+            prospective=p["plan"]["purpose"]==PROSPECTIVE_PURPOSE
+            fields={"user_ref","observed_at","assessment","result"}
+            if prospective:fields|={"repeat_reviews","diagnostic"}
+            need(type(v) is dict and set(v)==fields,"SOURCE_AUDIT_SCORE_SHAPE")
             need(v["user_ref"]==p["source_audit_meta"]["user_ref"] and timestamp(v["observed_at"])>=timestamp(p["source_audit_meta"]["observed_at"]),"SOURCE_AUDIT_SAME_SECOND_TURN")
             r=audit_bidirectional(source,p["first"],p["first_authoring"],p["first_authoring_receipt"],p["source_audit_ledger"],p["source_audit_ledger_receipt"],v["assessment"])
             need(r==v["result"],"SOURCE_AUDIT_SCORE_DRIFT");p["source_audit_score"]=r
+            if prospective:
+                d=prospective_diagnostic(source,p["plan"],p["source_audit_ledger"],r,v["repeat_reviews"])
+                need(d==v["diagnostic"],"PROSPECTIVE_DIAGNOSTIC_DRIFT")
+                p["prospective_diagnostic"]=d
             p["source_audit_score_meta"]={x:v[x] for x in ("user_ref","observed_at")}
         elif kind=="SOURCE_AUDIT_CANDIDATE":
             from .source_audit_completion import correction_candidate
@@ -524,5 +565,6 @@ class GraphJournal:
             **({"invalidated_reviews":p["invalidated_reviews"]} if "invalidated_reviews" in p else {}),
             **({"source_audit_ledger":p["source_audit_ledger_receipt"],"source_audit_score":p.get("source_audit_score")} if "source_audit_ledger_receipt" in p else {}),
             **({"source_audit_candidate":p["source_audit_candidate"]} if "source_audit_candidate" in p else {}),
+            **({"prospective_diagnostic":p["prospective_diagnostic"]} if "prospective_diagnostic" in p else {}),
             "host_turn_authentication_verified":False,"independent_gold_verified":False,
             "operational_release_authorized":False,"publication_authorized":False}
