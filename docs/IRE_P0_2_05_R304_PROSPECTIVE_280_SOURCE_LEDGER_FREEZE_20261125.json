@@ -1,0 +1,20 @@
+{
+  "schema": "IRE_R304_PROSPECTIVE_280_SECOND_SOURCE_LEDGER_FREEZE_V1",
+  "date": "2026-11-25",
+  "status": "SOURCE_LEDGER_FROZEN_BEFORE_FIRST_BODY_ACCESS",
+  "first_commit": "0829cb0d021a3427026d449b7d86e5e9df651562",
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "plan_sha256": "c29f1372b29a6dc963e73b60b824efcd0ac55b46e67d205b1d5ab4067f109bbb",
+  "source_sha256": "8c52a00bef9ccdeae782ba31de91eea5bd556987233f80865f5245f52abf3643",
+  "ledger_sha256": "69785bd734505ac60bb2e7a63bde17f01ad8c91c0a4f6268a51ec9c38bbc91d8",
+  "ledger_file_sha256": "eb45368f0cb01b1bfe5c8c9e5c3456849860a3bc6dc232cbe25401d7cf57edf9",
+  "receipt_file_sha256": "a1f222de7500d8e090d010cb89007837d001e8e601a4b41807a073cbfc4a3623",
+  "obligations": 101,
+  "numeric_occurrences": 36,
+  "open_numeric": 13,
+  "open_source_nonspace": 15,
+  "uncertain_obligations": 13,
+  "first_body_access_before_freeze": false,
+  "first_aggregate_metadata_known": true,
+  "limitations": "Manual source-only judgments. Several bundled propositions may still need finer separation. Source-wide bookkeeping does not establish semantic completeness. Prior aggregate information known; no independent gold, no model-state isolation, no financial verification or publication."
+}
