@@ -1,0 +1,82 @@
+{
+  "schema": "IRE_R304_SHARED_277_FIRST_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "status": "FIRST_FROZEN_HOLD_PENDING_DISTINCT_SECOND_TURN",
+  "engine_commit": "36e52502e21f9388d51ebbb4ee82da6cefd205de",
+  "engine_ci_run_id": 45546417001,
+  "engine_ci_conclusion": "success",
+  "preregistration_commit": "6380d52210173bc9d8b7a24c38f182345779da63",
+  "protocol_sha256": "2caf6924ed30083be8e579385dbf3d214faaa4b862e9346597340e53e78d24d3",
+  "plan_sha256": "431733f53a7941d71fd81cf3f41147453dbf17b13d82ef0f4649ffe6fe02c601",
+  "source_sha256": "08da1e9cd5f2ebba39e03844dd4b93e30185124feb4ffa9ef13ea5a283eb2924",
+  "manifest_sha256": "a6bc9b6f7e0098dd07210178e8ef2b313078a1231982a51e820c76f3b2c67752",
+  "grid_sha256": "695e01d8d1ecdaa7979c765fb3f8e3b9da31d84dfb4efe7df0215a78caa882b6",
+  "source_cues": 999,
+  "windows": 25,
+  "first_nodes": 133,
+  "kinds": {
+    "QUESTION": 8,
+    "OPINION": 30,
+    "FACT": 64,
+    "HYPOTHETICAL": 10,
+    "RECOMMENDATION": 20,
+    "MATH": 1
+  },
+  "risk": {
+    "HIGH": 123,
+    "NORMAL": 10
+  },
+  "numeric_occurrences": 267,
+  "occurrence_dispositions": {
+    "QUANTITY": 147,
+    "OPEN": 94,
+    "NONCLAIM": 26
+  },
+  "number_bindings": 147,
+  "condition_relations": 10,
+  "temporal_bindings": 3,
+  "speaker_counts": {
+    "UNRESOLVED": 6,
+    "TEXT_INFERRED": 127
+  },
+  "uncertain_atoms": 9,
+  "character_dispositions": {
+    "DIRECT": 13763,
+    "OPEN": 574,
+    "NONCLAIM": 3390,
+    "SUPPORT": 436
+  },
+  "unbound_numeric_spans": 97,
+  "boundary_warnings": 0,
+  "first_graph_sha256": "fcd7a0a5e6793052af688375e46d5e0cbd0a83475f08202aad0b853f9e8a8ea4",
+  "authored_file_sha256": "17b7e19e1bb67d92d642db1da3c15679a9941c1a441a6165b6016c096f15c908",
+  "packet_file_sha256": "3476b410c40ddbc1b8daa8287ce03bf2163b92ba6e67c5f38d1f880bf0ab0e53",
+  "receipt_sha256": "f622ec88f54e79687aeec97416eae01533dcae0057db6b4f4fd5bd6f2bbaf93d",
+  "registered_at": "2026-11-25T13:26:59+09:00",
+  "first_observed_at": "2026-11-25T13:29:21+09:00",
+  "observed_registration_to_first_seconds": 142,
+  "journal_register_head": "9dc7faf21e74287fe8d681f5a67e0fb8dcadb47963b00f54e9678b0a67205efa",
+  "journal_first_head": "d2ba8be13fd5ca0566b4f1ed942ec5232f228e286577a62f24f8fbd1db3bfcc4",
+  "journal_events": 2,
+  "cold_reopen_equal": true,
+  "isolated_first_replay": true,
+  "three_changed_module_git_blobs_equal": true,
+  "archive_sha256": "5919bd6270aed6e33d6e2191ea0810cdc130d118374a189430b7b47ba7e54fc1",
+  "archive_bytes": 436493,
+  "archive_manifest_sha256": "348375acba9e9c5c2d569f7122af5fb89e94e1d68493fb995f9c3ce402233e88",
+  "library_readback_byte_equal": true,
+  "second_packet_sha256": null,
+  "score": null,
+  "engine_code_changed": false,
+  "host_turn_authentication_verified": false,
+  "source_exposure_certified": false,
+  "independent_gold_verified": false,
+  "semantic_truth_certified": false,
+  "financial_approval": false,
+  "publication_authorized": false,
+  "limitations": [
+    "Manual source-based first candidate packet; entire SRT read and source census accounted for, but broad direct ranges and mixed propositions may hide omissions. Explicit OPEN 574 characters, 94 numeric occurrences, 97 graph atom-span warnings, 9 uncertain atoms. No semantic completeness or improved accuracy certified. Nonclaim includes non-investment leisure asides; full original video and onscreen charts not verified. Financial facts are speaker claims only; official financial/law validation is not performed in E2 diagnostic.",
+    "Shared protocol requires explicit judgments but does not independently authenticate authoring order or correctness. The 142 seconds is observed registration-to-freeze wall-clock interval, not a measured end-to-end research throughput or model-only timing. Prior scores and 447 source-link tasks unchanged.",
+    "Second distinct user turn must author original-source-only packet with same fixed protocol before first body access, then compare under frozen rubric. No score or second event yet. R3-04 HOLD, R3-05/06 BLOCKED; prospective diagnostic not formal qualification."
+  ]
+}
