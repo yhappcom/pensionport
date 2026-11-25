@@ -1,0 +1,101 @@
+{
+  "schema": "IRE_R304_SOURCE_AUDIT_COMPLETION_DEVELOPMENT_V1",
+  "date": "2026-11-25",
+  "status": "HOLD",
+  "engine_commit": "00ea78f8520d9bb15c38af14e6a43f3b15c3211b",
+  "engine_ci": [
+    {
+      "id": 45565647814,
+      "status": "in_progress",
+      "conclusion": null
+    }
+  ],
+  "parent_ci": [
+    {
+      "id": 45553804039,
+      "conclusion": "success"
+    },
+    {
+      "id": 45553861089,
+      "conclusion": "success"
+    }
+  ],
+  "completion_sha256": "068192422f8101e541b85533197911b74bc0248afbaf59401a0f94e4bf5d37cc",
+  "code_blobs": {
+    "source_audit_completion": "4f9d0147dd8a89b052320815d092dd818e7011a4",
+    "semantic_graph_journal": "09b643be3990eeac37d9f5436a030ff40ed037cc",
+    "test_source_audit_completion": "fa5464cd1470bc653a356d6cdb3381a30df315d4"
+  },
+  "masked_challenge": {
+    "preregistration_commit": "ce64f225e460b1e0f5de2404e53f32c3b0be7a19",
+    "review_freeze_commit": "bbf1402d12e368159fc332606f2894384cced04a",
+    "defect_count": 10,
+    "detected_defects": 10,
+    "missed": 0,
+    "clean_controls": 10,
+    "correct_clean": 9,
+    "false_alarms_vs_key": 1,
+    "total_agreement": 19,
+    "total": 20,
+    "acceptance_met": false,
+    "context_disagreement": "C04: context needed to resolve demonstrative; earlier actual cues 9–10 support review-plan subject. Excerpt 11–14 omitted it. Frozen key and reviewer decision preserved; no rescoring.",
+    "result_sha256": "adf02cf34465c2cdbf5c3a3f688a32b7d2963742e126ac62c7931952248c53ef",
+    "context_diagnostic_sha256": "fb95670ad5fd9ccf25c8efc6a450d4b7c4e1b793f25e02093acd43f502228aac",
+    "independent_blinding": false
+  },
+  "actual_288_correction": {
+    "condition_relation_restored": true,
+    "old_typed_edges": 2,
+    "new_typed_edges": 3,
+    "open_typed_edges": 0,
+    "first_score_immutable": true,
+    "cold_reopen_equal": true,
+    "initial_score_sha256": "a3f64b3a0b17817b9e8145e842e8e6ecec348168cb0848245cc5d2f834ea8808",
+    "candidate_graph_sha256": "3ceb56adce10250b5f60d1f4cd48da1b8931628c795dd83f30495b501e7bbb8f",
+    "journal_head": "f7bcdd8f41dbd910e1899655721334eaa0e612da7618fc3b74eadd28160d3c72",
+    "candidate_thresholds_met": false,
+    "repeat_segments": 2,
+    "open_repeat_segments": 2,
+    "repeat_numeric_occurrences": 2,
+    "open_repeat_numeric_occurrences": 2,
+    "repeat_false_equivalence_blocked": true,
+    "result_sha256": "d7a9e7c1217af5d9ee5930bffb0c6dad53728033718eda16728c3a3f1362925a"
+  },
+  "test": {
+    "new_test_methods": 7,
+    "local_retained_invocations": 86,
+    "clean_package_replay": true,
+    "old_four_scores_replayed": true,
+    "old_288_277_heads_preserved": true
+  },
+  "policy": {
+    "development_metric": "elementary first-proposition precision and frozen source-obligation recall",
+    "precision_bp_min": 9500,
+    "recall_bp_min": 9800,
+    "high_risk_unmatched_or_conflict_max": 0,
+    "all_open_source_numeric_uncertain_and_repeat_blockers_zero": true,
+    "typed_lineage_census_required": true,
+    "original_and_corrected_scores_separate": true,
+    "financial_truth_e3_e5_gates_separate": true,
+    "prospective_metric_release_authorized": false
+  },
+  "archive": {
+    "sha256": "2e40e6fb17d22ae8cd5c0db4235de97b2f52c5e1173a185e920f97ba7d363dbd",
+    "bytes": 1922110,
+    "manifest_sha256": "36bd3a4959d7d759037e9aa1c29f1ecf834652618d448e3710484254fcba07da",
+    "library_readback_byte_equal": true
+  },
+  "gates": {
+    "A0": "PASS",
+    "A1": "DEVELOPMENT_CONTRACT_PINNED",
+    "A2": "CANDIDATE_LINEAGE_AND_REPEAT_GATES_LOCAL_PASS",
+    "A3": "HOLD_MASKED_CHALLENGE_19_OF_20",
+    "A4": "FROZEN_REPLAY_PASS_NEW_CI_PENDING_OR_OBSERVED",
+    "A5": "BLOCKED"
+  },
+  "limitations": [
+    "The 20-case challenge is a same-turn masked development exercise on known sources; authored variant templates were known in the model context, and random assignment and key-read order do not establish independent blindness. No new full-video accuracy measurement. No missed seeded defects in this sample is not a population guarantee. C04 is an inadequate-context test fixture, not silently removed from denominator.",
+    "Correction is an append-only candidate against the same frozen source ledger; source-ledger amendments require a separate future reviewed event, not silent replacement. Real #288 excerpt condition restored but source and first speaker uncertainty and unreviewed full-source portions remain, so candidate stays HOLD. Synthetic role correction passes internal checks but never authorizes release. Repeat judgment remains human/model semantic work, exact numeric checks conservative and Korean word numerals incomplete. Code cannot detect every false equivalence or source omission.",
+    "R3-04 HOLD, R3-05/06 BLOCKED, 447 historical source-link tasks and four failed scores retained. Formal prospective qualification, official finance evidence, E3/E4/E5 publication and independent certification not performed. No new source read."
+  ]
+}
