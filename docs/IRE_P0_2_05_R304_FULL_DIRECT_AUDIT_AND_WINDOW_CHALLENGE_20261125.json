@@ -1,0 +1,140 @@
+{
+  "schema": "IRE_R304_FULL_DIRECT_AUDIT_AND_WINDOW_CHALLENGE_PREREGISTRATION_V1",
+  "date": "2026-11-25",
+  "status": "EXPOSED_FULL_DIRECT_AUDIT_COMPLETE_NEW_CHALLENGE_REGISTERED_AWAIT_LATER_TURN",
+  "parent_commit": "4a01ff54edadacaf2b8fb9dac73fc4abbb2dfa6e",
+  "parent_ci": [
+    {
+      "id": 45576136268,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "source": {
+    "roster": 280,
+    "video_id": "w1G34vigXbI",
+    "sha256": "8c52a00bef9ccdeae782ba31de91eea5bd556987233f80865f5245f52abf3643",
+    "cues": 373
+  },
+  "frozen_trial": {
+    "archive_sha256": "57820b8c1cbc671b027a2ea19754521654e30ed28695098b4f6d8bf7680f80c6",
+    "score_file_sha256": "15d8238153fa1489e2dda444bc2ac0efd2a1a5b5b777be5bd5645336194f13d0",
+    "journal_head": "253f6ad09ca64c73002ae53a59b9dc9a63071d9165ae7a4713b3be097e6ba0bd",
+    "tp": 38,
+    "fp": 76,
+    "fn": 63,
+    "score_changed": false
+  },
+  "direct_audit": {
+    "previous_cues": 121,
+    "additional_cues": 252,
+    "total_cues": 373,
+    "previous_atoms": 36,
+    "additional_atoms": 74,
+    "total_atoms": 110,
+    "atom_dispositions": {
+      "SUPPORTED": 74,
+      "TYPED_REVIEW": 18,
+      "OPEN": 16,
+      "MATERIAL_DEFECT": 2
+    },
+    "source_ranges": 50,
+    "range_dispositions": {
+      "NONCLAIM": 2,
+      "PRESERVED": 16,
+      "MATERIAL_DEFECT": 4,
+      "TYPED_REVIEW": 10,
+      "OPEN": 12,
+      "PRESERVED_WITH_REVIEW": 6
+    },
+    "material_findings": [
+      {
+        "cues": [
+          17,
+          20
+        ],
+        "type": "SCOPE_LOSS",
+        "atom": 4
+      },
+      {
+        "cues": [
+          159,
+          162
+        ],
+        "type": "SCOPE_LOSS",
+        "atom": 42
+      },
+      {
+        "cues": [
+          185,
+          186
+        ],
+        "type": "OMISSION"
+      },
+      {
+        "cues": [
+          307,
+          309
+        ],
+        "type": "OMISSION"
+      }
+    ],
+    "scanner_occurrences": 36,
+    "numeric_review": {
+      "BOUND": 18,
+      "BOUND_UNCERTAIN": 4,
+      "SOURCE_OPEN": 9,
+      "REPRESENTATION_OPEN": 4,
+      "REPEAT_REVIEW": 1
+    },
+    "word_number_examples": 6,
+    "prior_121_preserved": true,
+    "source_grid_and_compiler_reexecuted": true,
+    "clean_replay_equal": true,
+    "result_sha256": "7dd97c477c5bc21661e040b0d99f7aed00aacc26d355a37568b78bf4211cb163",
+    "archive_sha256": "cf2f306537b9edb225dddc151af73c788f347b1d533b51cdf03acb23b6e7977a",
+    "archive_bytes": 1064131,
+    "manifest_sha256": "941614b4a8cf776df1b41912815c691f20431e99a627f1697765933680daf380",
+    "library_readback_byte_equal": true
+  },
+  "challenge": {
+    "purpose": "EXPOSED_DEVELOPMENT_ONLY_DISTINCT_LATER_USER_TURN",
+    "case_count": 10,
+    "target_cues": 114,
+    "candidate_claims": 32,
+    "seeded_omissions": 5,
+    "normal_controls": 5,
+    "challenge_json_sha256": "906a9f0c18e4c44ac76848074558a99f5660d0d5142ba9572890bbdd3a2e4481",
+    "challenge_archive_sha256": "cf9f23a2fd479ef4067a9b43ecdfd01fe62400476d7ea7656040d64311ad2f01",
+    "key_sha256": "6ec5c21a7c52aa13a5a77e7c88c0ad45bcb689d4b598c9298493f29d4456b8f6",
+    "separate_key": true,
+    "library_readback_byte_equal": true,
+    "acceptance": {
+      "missed_seeded_omissions_max": 0,
+      "false_alarms_vs_key_max": 0,
+      "required_exact_evidence_and_missing_meaning_for_seed_credit": true
+    },
+    "protocol": [
+      "Next actual user turn load only challenge archive and source; do not access key or generation script. Record start/end observed timestamps, actual source cues and candidate claims reviewed, additional context. For each complete source window inspect candidate set against original, identify any material omissions, distortions or unsupported claims. ALLOW only if adequate for scope, FLAG with precise source evidence and reason. Adjacent source context allowed; outside target scope, greetings and nonmaterial speech need not be represented. Preserve uncertainty. Financial truth separate.",
+      "Freeze review JSON and SHA-only Git record before opening key. Score against pre-registered key, count seeded omission recovered only when FLAG reason identifies actual removed meaning, not arbitrary flag; preserve all initial scores and diagnose any key/baseline defect separately. Same model context and exposed source cannot establish blindness or independent gold.",
+      "No new source, no qualification, no automatic PASS; assess feasibility/workload and limitations after actual test. Do not extrapolate to 791 videos."
+    ],
+    "score": null
+  },
+  "limitations": [
+    "Fourth-turn exposed development audit, not a new two-turn success. Counts reflect manual assessments including possibly mistaken judgments, not precision/recall or exhaustive meaning completeness. Some SUPPORTED nodes retain linked source-level or typed issues. Previous 121-cue results not modified.",
+    "Four material findings are identified cases, not proof only four exist; residual context and ambiguities include Pepsi rank/strategy background. 36 numeric positions from original scanner, six word-numeral examples not exhaustive. Nine source-open and four representation-open judgments do not close prior OPEN or alter frozen score.",
+    "No new code, no financial verification, no independent gold, no E3-E5 release or revised research candidate. Challenge authored here with randomly masked omissions; clean baselines could contain inadvertent defects, and same-model memory possible. Workload units recorded; no reliable isolated semantic processing time measured for full audit."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "legacy_pending_source_links": 447
+  },
+  "decision": "Do not consume new source or add modules. Complete omission challenge on exposed source in next turn and assess whether direct audit can be justified as an operational alternative. If still cannot demonstrate meaningful two-turn feasibility, report limits; do not silently replace old rubric or lower thresholds."
+}
