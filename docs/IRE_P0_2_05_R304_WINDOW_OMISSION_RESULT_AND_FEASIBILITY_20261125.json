@@ -1,0 +1,76 @@
+{
+  "schema": "IRE_R304_WINDOW_OMISSION_RESULT_AND_FEASIBILITY_DECISION_V1",
+  "date": "2026-11-25",
+  "status": "MASKED_DEVELOPMENT_CHALLENGE_PASS_FULL_TWO_TURN_FEASIBILITY_UNPROVEN",
+  "preregistration_commit": "87f915d234b1be5687df3ed185705b06a0ee8de8",
+  "preregistration_ci": [
+    {
+      "id": 45578304357,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "review_freeze_commit": "a65a1afabae1b6b66c2c25d8fbb8e79100187fc3",
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "source_sha256": "8c52a00bef9ccdeae782ba31de91eea5bd556987233f80865f5245f52abf3643",
+  "challenge_sha256": "906a9f0c18e4c44ac76848074558a99f5660d0d5142ba9572890bbdd3a2e4481",
+  "review_sha256": "29731e9ec4eeb56834f6e448ce5d87adbfcc95ef93a4d25a1ab06793e1bf0d91",
+  "key_sha256": "6ec5c21a7c52aa13a5a77e7c88c0ad45bcb689d4b598c9298493f29d4456b8f6",
+  "result_sha256": "8c50b2e39069fc554aa7d4486d260425682c9f5856369f158b26926eab799765",
+  "score": {
+    "total": 10,
+    "agreement": 10,
+    "seeded_omissions": 5,
+    "detected_with_correct_meaning_and_cue_evidence": 5,
+    "missed": 0,
+    "clean_controls": 5,
+    "correct_clean": 5,
+    "false_alarms": 0,
+    "acceptance_met": true
+  },
+  "workload": {
+    "target_cues": 114,
+    "candidate_claims": 32,
+    "expanded_context_cue_reads": 80,
+    "expanded_context_unique_cues": 72,
+    "observed_interval_seconds": 36,
+    "start_after_initial_preview": true,
+    "not_full_or_isolated_processing_time": true,
+    "throughput_extrapolation_authorized": false
+  },
+  "archive": {
+    "sha256": "15660dca6b5d9aaf671ee715816dd3f28c6237103539f393da5b90c224e4f7ad",
+    "bytes": 24542,
+    "manifest_sha256": "699711406129209da9b8ed77c18962a5629fd14b81dd833f379e4260ea1c1b29",
+    "library_readback_byte_equal": true,
+    "isolated_replay_equal": true
+  },
+  "actual_distinct_user_turn": true,
+  "key_access_before_freeze": false,
+  "independent_gold_verified": false,
+  "financial_approval": false,
+  "publication_authorized": false,
+  "previous_results_preserved": true,
+  "engine_changed": false,
+  "feasibility": {
+    "direct_audit_detects_seeded_missing_meanings": "SUPPORTED_ON_EXPOSED_SAMPLE_ONLY",
+    "full_source_direct_audit": "PREVIOUS_373_CUES_110_ATOMS_REVIEWED_OVER_TWO_ADDITIONAL_DEVELOPMENT_TURNS",
+    "two_turn_complete_research": "NOT_DEMONSTRATED",
+    "95_98_0_operational_qualification": "NOT_DEMONSTRATED",
+    "independent_accuracy": "UNMEASURABLE",
+    "791_video_scalability": "NOT_DEMONSTRATED",
+    "decision": "Direct fixed-window audit is a viable development candidate, not a validated replacement for the formal scoring protocol. End small excerpt challenge loop. Next perform one bounded workload pilot using an already exposed complete short source (prefer baseline ETF250 if accessible). Start a NEW research candidate and clock in a distinct user turn; freeze first result, use one subsequent actual user turn for complete direct audit, explicit omissions and typed findings, correction disposition and unresolved source ledger. Reuse source grid and existing authoring, not a new graph or another full independent reference list. Preserve separate diagnostic report; no retrospective scores or formal qualification. If not completable in two actual turns or substantive unresolved issues remain, report failure, isolate what can be supported, and reassess whether the original constraints are achievable. Do not consume new source before this decision. Do not use E3-E5 to bypass E2."
+  },
+  "limitations": [
+    "Known #280 source, same ChatGPT system designed the challenge previously; separated key and actual later turn do not establish independence. Manual semantic match judgment after reveal, with frozen specific evidence; replay checks records and counts, not fresh semantic review. Five seeded omissions cannot establish population recall, source-wide exhaustiveness or financial fact accuracy.",
+    "No full-video two-turn workload measured in this challenge; 36 seconds measured after initial preview, cannot be used as throughput estimate. Previous five failed diagnostic scores, 447 pending source-link tasks, formal 95/98/0 criteria and three-domain requirement unchanged. Direct audit does not supply a complete independent recall denominator. Prospective formal metric/policy alignment remains necessary; no automatic P205 release."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}
