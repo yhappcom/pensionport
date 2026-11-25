@@ -54,14 +54,19 @@ def _payload(value):
     need(len(raw)<=64*1024*1024,"PAYLOAD_LIMIT")
     return raw
 
-def plan_for(source,*,campaign_id,engine_commit,registered_at,purpose):
+def plan_for(source,*,campaign_id,engine_commit,registered_at,purpose,protocol_sha256=None):
     need(type(campaign_id) is str and bool(re.fullmatch(r"[A-Za-z0-9_-]{3,80}",campaign_id)),"CAMPAIGN")
     need(type(engine_commit) is str and bool(re.fullmatch(r"[0-9a-f]{40}",engine_commit)),"ENGINE")
     timestamp(registered_at)
     need(purpose in ("DEVELOPMENT","HOLDOUT"),"PURPOSE")
     need(purpose!="HOLDOUT" or (source.video_id not in EXPOSED_IDS and
         source.source_sha256 not in EXPOSED_SHAS),"EXPOSED_SOURCE")
+    if protocol_sha256 is not None:
+        from .semantic_authoring_protocol import PROTOCOL_SHA256
+        need(protocol_sha256==PROTOCOL_SHA256,"AUTHORING_PROTOCOL")
+        need(purpose!="HOLDOUT" or (source.video_id!="-lX8iJd-xDM" and source.source_sha256!="059484995ba7a84dd5ec21ed682a526b95832f65b56cea1cf48745548c2d8335"),"AUTHORING_EXPOSED_288")
     return {"schema":"IRE_V3_GRAPH_RESEARCH_PLAN_V1","campaign_id":campaign_id,
+      **({"protocol_sha256":protocol_sha256} if protocol_sha256 is not None else {}),
       "engine_commit_sha":engine_commit,"registered_at":registered_at,"purpose":purpose,
       "source_sha256":source.source_sha256,"video_id":source.video_id,
       "manifest_sha256":source.manifest_sha256,"grid_sha256":json_digest(source_grid(source)),
@@ -322,24 +327,40 @@ class GraphJournal:
         return p,previous
     def _apply(self,p,kind,v):
         source=self.source
+        if "protocol_sha256" in p.get("plan",{}):
+            need(kind in ("FIRST","SECOND","SCORE"),"AUTHORING_DIAGNOSTIC_ONLY")
         if kind=="REGISTER":
             need(type(v) is dict and v==plan_for(source,campaign_id=v["campaign_id"],
-                engine_commit=v["engine_commit_sha"],registered_at=v["registered_at"],purpose=v["purpose"]),"PLAN")
+                engine_commit=v["engine_commit_sha"],registered_at=v["registered_at"],purpose=v["purpose"],protocol_sha256=v.get("protocol_sha256")),"PLAN")
             p["plan"]=v
         elif kind in ("FIRST","SECOND"):
-            need(type(v) is dict and set(v)=={"user_ref","observed_at","packet"} and _note(v["user_ref"]),"TURN")
+            protocol="protocol_sha256" in p["plan"]
+            fields={"user_ref","observed_at","authored","receipt"} if protocol else {"user_ref","observed_at","packet"}
+            need(type(v) is dict and set(v)==fields and _note(v["user_ref"]),"TURN")
             prior=p["plan"]["registered_at"] if kind=="FIRST" else p["first_meta"]["observed_at"]
             need(timestamp(v["observed_at"])>timestamp(prior),"TURN_ORDER")
-            g=compile_graph(source,v["packet"])
+            if protocol:
+                from .semantic_authoring_protocol import compile_authoring
+                packet,receipt=compile_authoring(source,v["authored"])
+                need(receipt==v["receipt"],"AUTHORING_RECEIPT_DRIFT")
+                p[kind.lower()+"_authoring"]=v["authored"]
+                p[kind.lower()+"_authoring_receipt"]=receipt
+            else:packet=v["packet"]
+            g=compile_graph(source,packet)
             if kind=="SECOND":
                 need(v["user_ref"]!=p["first_meta"]["user_ref"],"SAME_USER_REF")
                 need(g["packet_sha256"]!=p["first"]["packet_sha256"],"COPIED_PACKET")
-            k=kind.lower();p[k]=g;p[k+"_packet"]=v["packet"]
+            k=kind.lower();p[k]=g;p[k+"_packet"]=packet
             p[k+"_meta"]={x:v[x] for x in ("user_ref","observed_at")}
         elif kind=="SCORE":
             need(type(v) is dict and set(v)=={"alignment","result"},"SCORE_SHAPE")
             r=score_graphs(source,p["first_packet"],p["second_packet"],v["alignment"])
             need(r==v["result"],"SCORE_DRIFT");p["score"]=r
+            if "protocol_sha256" in p["plan"]:
+                from .semantic_authoring_protocol import comparison_diagnostic
+                d=comparison_diagnostic(source,p["first_authoring"],p["second_authoring"],v["alignment"],p["first_authoring_receipt"],p["second_authoring_receipt"])
+                d["protocol_thresholds_met"]=bool(r["thresholds_met_on_supplied_internal_graphs"] and not d["open_numeric_occurrences"] and not d["uncertain_atoms"])
+                p["authoring_comparison"]=d
         elif kind=="DISPUTES":
             p["disputes"]=adjudicate_disputes(source,p["first"],p["second"],v)
         elif kind=="REVISION":
@@ -454,6 +475,7 @@ class GraphJournal:
             "first_packet_sha256":p.get("first",{}).get("packet_sha256"),
             "second_packet_sha256":p.get("second",{}).get("packet_sha256"),
             "score":p.get("score"),"disputes":p.get("disputes"),"revision":p.get("revision"),"reconciliation":p.get("reconciliation"),"successor":p.get("successor"),
+            **({"authoring":{k:p[k] for k in ("first_authoring_receipt","second_authoring_receipt","authoring_comparison") if k in p}} if "first_authoring_receipt" in p else {}),
             **({"pending_review":p["pending_review"]} if "pending_review" in p else {}),
             **({"invalidated_reviews":p["invalidated_reviews"]} if "invalidated_reviews" in p else {}),
             "host_turn_authentication_verified":False,"independent_gold_verified":False,
