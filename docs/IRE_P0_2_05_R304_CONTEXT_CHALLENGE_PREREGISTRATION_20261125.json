@@ -1,0 +1,31 @@
+{
+  "schema": "IRE_R304_CONTEXT_AWARE_CHALLENGE_PREREGISTRATION_V1",
+  "date": "2026-11-25",
+  "engine_commit": "00ea78f8520d9bb15c38af14e6a43f3b15c3211b",
+  "previous_masked_result_commit": "40fa3258589e8a5a530ec6f11ddea05341f8e6ee",
+  "purpose": "EXPOSED_DEVELOPMENT_ONLY_DISTINCT_LATER_USER_TURN",
+  "case_count": 12,
+  "challenge_sha256": "2c6e51491a86cb7c7c71f157dc376cd1de12d499222c4ac7cf9b592b0ad32ce1",
+  "key_sha256": "c9ce950e0de570cb3eabfb288e0fadbf407528f05fef839c577f2df177728956",
+  "challenge_filename": "P205_R304_CONTEXT_CHALLENGE_20261125.json",
+  "key_filename": "P205_R304_CONTEXT_KEY_20261125.json",
+  "source_videos": [
+    270,
+    271,
+    288,
+    277
+  ],
+  "protocol": [
+    "Later actual distinct user turn reads only challenge and original sources, not builder or key; source context expansion is allowed and must be recorded with exact cue IDs and reason.",
+    "Decide ALLOW or FLAG for each case before accessing key, freeze decisions and evidence in GitHub hash-only record. Missing context after review stays FLAG. No score changes after reveal.",
+    "Compare frozen verdicts to pre-registered key. Zero missed seeded defects and zero clean-control flags required. Preserve prior 19/20 result regardless. Do not claim model-state independence or independent gold. No new video or formal qualification unless A3/A4 gate reviewed."
+  ],
+  "acceptance": {
+    "missed_seeded_defects_max": 0,
+    "false_alarms_max": 0
+  },
+  "status": "REGISTERED_AWAITING_DISTINCT_USER_TURN",
+  "score": null,
+  "independent_blinding": false,
+  "publication_authorized": false
+}
