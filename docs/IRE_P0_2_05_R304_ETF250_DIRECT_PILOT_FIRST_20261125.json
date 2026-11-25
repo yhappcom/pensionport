@@ -1,0 +1,103 @@
+{
+  "schema": "IRE_R304_ETF250_DIRECT_PILOT_FIRST_V1",
+  "date": "2026-11-25",
+  "status": "FIRST_FROZEN_AWAIT_ACTUAL_SECOND_TURN",
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "engine_ci": {
+    "id": 45571951090,
+    "conclusion": "success"
+  },
+  "previous_result_ci": [
+    {
+      "id": 45578958348,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "preregistration_commit": "234958c23e3f3116749819587561038e588c6f57",
+  "source": {
+    "video_id": "LVE7XN_esTc",
+    "sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "manifest_sha256": "8418d66e10d32283f77cfc28952b5cdf0107c8d31e036eea1da8f85fcd7bb984",
+    "cue_census_sha256": "a54325c020015dd68201adc69be8e89f6ad0ee4615cf18105811e79f4fe17ae0",
+    "cues": 250,
+    "windows": 7,
+    "source_exposed": true
+  },
+  "plan_sha256": "2cc19a874cc7948d8318ebeae003d7c1abe4d81d89fe7d862fa36c2acb7af7e9",
+  "journal": {
+    "register_head": "a817afcf8972d2cb3a2b8389c888e0faa06d43632a2b83710b44a0c6b71cf727",
+    "first_head": "9f7c0ec392b412668cf1abcfda39746492c1a7768db76537f9661a6ce97885c1",
+    "events": 2,
+    "cold_reopen_equal": true,
+    "isolated_replay_equal": true
+  },
+  "first": {
+    "registered_at": "2026-11-25T17:46:54+09:00",
+    "observed_at": "2026-11-25T17:49:44+09:00",
+    "elapsed_seconds": 170,
+    "measurement_scope": "Registration clock after initial file setup to pre-append freeze timestamp; excludes prior retrieval and subsequent archival/readback; not isolated model time.",
+    "atoms": 85,
+    "kinds": {
+      "FACT": 40,
+      "OPINION": 9,
+      "HYPOTHETICAL": 18,
+      "RECOMMENDATION": 18
+    },
+    "risk": {
+      "HIGH": 69,
+      "NORMAL": 16
+    },
+    "numeric_occurrences": 17,
+    "quantity_bindings": 9,
+    "open_numeric": 8,
+    "uncertain_atoms": 8,
+    "conditions": 6,
+    "temporal": 5,
+    "unbound_numeric": 8,
+    "boundary_warnings": 0,
+    "character_dispositions": {
+      "DIRECT": 4170,
+      "SUPPORT": 192,
+      "NONCLAIM": 37
+    },
+    "graph_sha256": "f6b1f2aafee665499ef2eedf44e0a6fcdedcf17da48b5255b4d998f5f42de759",
+    "authored_file_sha256": "abd28129c42249fba62bf3195ff9dbbc3301da187d738f3c06021d41eb3e3c0e",
+    "packet_file_sha256": "e0d2ed20096c209efc7b324538d458c869c6f33f6a4b236cdb0af393ae0ace8e",
+    "receipt_canonical_sha256": "db9b4975ce6129efb847230612af21240c68e89df66ace6392eb142f3c329efd"
+  },
+  "finance": {
+    "official_public_pages_reviewed": 5,
+    "preliminary_grouped_findings": 5,
+    "finance_review_file_sha256": "1668b0775e0f0dba97721725d5046e2e4a84989a2571141f4b1de7b6ff138852",
+    "sources": [
+      "https://open.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp",
+      "https://kind.krx.co.kr/external/2026/01/28/000028/20260128000050/68648.htm",
+      "https://open.krx.co.kr/contents/OPN/01/01030203/OPN01030203T2.jsp",
+      "https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lspttninfSeq=62164",
+      "https://regulation.krx.co.kr/contents/RGL/03/03060103/RGL03060103.jsp"
+    ],
+    "full_financial_approval": false,
+    "official_raw_bytes_certified": false
+  },
+  "archive": {
+    "sha256": "3d5d803ef96127fe431be2c831936623ee41152dc1679b56571c0f53f3c059dc",
+    "bytes": 427196,
+    "manifest_sha256": "4b3204a4c64a3819af596262ddff7b3a525c42a43333d3df658bc1e9ecf1886d",
+    "members": 124,
+    "library_readback_byte_equal": true
+  },
+  "limitations": [
+    "First candidate manually authored using existing common compiler and coordinate adapter. No prior ETF candidate body opened in current turn, but source historically exposed; not blinded or independent. Character coverage is bookkeeping not semantic completeness; repeated summaries and broad spans may require audit.",
+    "Eight numeric occurrences OPEN and eight uncertain atoms remain. Word-numeral examples not exhaustive. No visual/audio validation. Financial review limited to five public pages and grouped findings; current financial rule calculation detail and full per-atom truth/validity not approved.",
+    "No engine changes, no official score, no formal qualification, no E3-E5 release. All five prior failure scores and 447 historical tasks unchanged. Second actual user turn required, use direct window/first-atom review and separate audit/correction record; do not fabricate SECOND/SCORE."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}
