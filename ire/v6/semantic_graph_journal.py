@@ -8,6 +8,7 @@ No E3/E4/E5 approval or operational release is produced.
 """
 from __future__ import annotations
 import json, os, re, sqlite3
+from copy import deepcopy
 from contextlib import closing
 from pathlib import Path
 from .codec import canonical,sha256,json_digest,require_hash
@@ -25,6 +26,7 @@ def _allowed(previous_kind,kind):
     if previous_kind is None:return kind=="REGISTER"
     if previous_kind=="REGISTER" and kind==LEGACY_KIND:return True
     if previous_kind==LEGACY_KIND and kind=="SUCCESSOR":return True
+    if previous_kind in ("SUCCESSOR","SUCCESSOR_AMENDMENT") and kind=="SUCCESSOR_AMENDMENT":return True
     return previous_kind in KINDS[:-1] and kind==KINDS[KINDS.index(previous_kind)+1]
 EXPOSED_IDS={"LVE7XN_esTc","BXjda2v6e-Q","Yd5qnDtW2TM"}
 EXPOSED_SHAS={"e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
@@ -238,8 +240,8 @@ def successor_revision(source,parent,plan,packet,lineage,new_edges):
             "candidate_successors":project(x["candidate_nodes"]),"status":"OPEN"})
     for x in plan["scope_items"]:
         for k in x["obligation_ids"]:
-            tasks.append({"old_sha256":k,"historical_nodes":[x["node_id"]],
-                "candidate_successors":project([x["node_id"]]),"status":"SCOPE_DRAFT"})
+            tasks.append({"old_sha256":k,"historical_nodes":x.get("candidate_nodes",[x["node_id"]]),
+                "candidate_successors":project(x.get("candidate_nodes",[x["node_id"]])),"status":"SCOPE_DRAFT"})
     need(len({x["old_sha256"] for x in tasks})==len(tasks),"SUCCESSOR_DUPLICATE_OBLIGATION")
     return {"schema":"IRE_V3_GENERAL_SUCCESSOR_V1","parent_packet_sha256":parent["packet_sha256"],
         "parent_plan_sha256":json_digest(plan),"successor_packet_sha256":final["packet_sha256"],
@@ -249,6 +251,28 @@ def successor_revision(source,parent,plan,packet,lineage,new_edges):
         "before_character_dispositions":parent["character_dispositions"],"after_character_dispositions":final["character_dispositions"],
         "unbound_numeric_spans":len(final["unbound_numeric_spans"]),"boundary_warnings":len(final["numeric_boundary_warnings"]),
         "original_score_changed":False,"semantic_conservation_verified":False,"ready_for_e3":False,"publication_authorized":False}
+
+def _project_plan(plan, lineage, packet_sha):
+    """Internal projection only; preserve every historical pending obligation."""
+    forward={n:row["new_ids"] for row in lineage for n in row["old_ids"]}
+    def project(ids):
+        need(all(n in forward for n in ids),"SUCCESSOR_HISTORICAL_OWNER")
+        return sorted({x for n in ids for x in forward[n]})
+    # Scope drafts may acquire several candidate owners. Preserve their status
+    # and membership as groups instead of asserting one successor owns them.
+    q=deepcopy(plan);q["draft_packet_sha256"]=packet_sha
+    for x in q["open_items"]:x["candidate_nodes"]=project(x["candidate_nodes"])
+    for x in q["scope_items"]:
+        x["candidate_nodes"]=project(x.get("candidate_nodes",[x["node_id"]]))
+    return q
+
+
+def successor_amendment(source,parent,projected_plan,prior_receipt,packet,lineage,new_edges):
+    need(prior_receipt["successor_packet_sha256"]==parent["packet_sha256"],"AMENDMENT_PARENT")
+    result=successor_revision(source,parent,projected_plan,packet,lineage,new_edges)
+    return {**result,"schema":"IRE_V3_GENERAL_SUCCESSOR_AMENDMENT_V1",
+            "prior_receipt_sha256":json_digest(prior_receipt)}
+
 
 class GraphJournal:
     """Private SQLite journal, bounded records, transactionally appended.
@@ -261,6 +285,7 @@ class GraphJournal:
         self.source=verify_source(raw,manifest,expected_source_sha256=source_sha,
                                   expected_manifest_sha256=manifest_sha)
         self.path=Path(path)
+        self._verified=None
         if create:
             need(expected_head is None,"CREATE_PIN")
             fd=os.open(self.path,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600);os.close(fd)
@@ -278,12 +303,19 @@ class GraphJournal:
     def _replay(self,db):
         p={};previous=GENESIS;previous_kind=None
         rows=db.execute("SELECT seq,kind,previous,payload,payload_sha,head FROM events ORDER BY seq").fetchall()
+        cached=self._verified
+        use_cache=cached is not None and cached[0]<=len(rows)
         for i,(seq,kind,prev,raw,ph,head) in enumerate(rows,1):
             need(seq==i and _allowed(previous_kind,kind) and prev==previous and sha256(raw)==ph,"CHAIN")
             need(head==json_digest({"seq":i,"kind":kind,"previous":prev,"payload_sha256":ph}),"HEAD")
+            if use_cache and i==cached[0]:need(head==cached[1],"VERIFIED_PREFIX_DRIFT")
+            previous=head;previous_kind=kind
+        start=cached[0] if use_cache else 0
+        if use_cache:p=deepcopy(cached[2])
+        for seq,kind,prev,raw,ph,head in rows[start:]:
             value=json.loads(raw)
             need(_payload(value)==raw,"CANONICAL")
-            self._apply(p,kind,value);previous=head;previous_kind=kind
+            self._apply(p,kind,value)
         return p,previous
     def _apply(self,p,kind,v):
         source=self.source
@@ -339,6 +371,14 @@ class GraphJournal:
             need(type(v) is dict and set(v)=={"packet","lineage","new_edges","receipt"},"SUCCESSOR_SHAPE")
             r=successor_revision(source,p["reconciliation_parent"],p["reconciliation_plan"],v["packet"],v["lineage"],v["new_edges"])
             need(r==v["receipt"],"SUCCESSOR_DRIFT");p["successor"]=r
+            p["successor_parent"]=compile_graph(source,v["packet"])
+            p["successor_plan"]=_project_plan(p["reconciliation_plan"],v["lineage"],r["successor_packet_sha256"])
+        elif kind=="SUCCESSOR_AMENDMENT":
+            need(type(v) is dict and set(v)=={"packet","lineage","new_edges","receipt"},"AMENDMENT_SHAPE")
+            r=successor_amendment(source,p["successor_parent"],p["successor_plan"],p["successor"],v["packet"],v["lineage"],v["new_edges"])
+            need(r==v["receipt"],"AMENDMENT_DRIFT");p["successor"]=r
+            p["successor_parent"]=compile_graph(source,v["packet"])
+            p["successor_plan"]=_project_plan(p["successor_plan"],v["lineage"],r["successor_packet_sha256"])
     def append(self,kind,value):
         raw=_payload(value)
         with closing(sqlite3.connect(self.path,timeout=10,isolation_level=None)) as db:
@@ -351,13 +391,14 @@ class GraphJournal:
                 previous_kind=last[0] if last else None
                 if n and kind==previous_kind:
                     prev=db.execute("SELECT payload FROM events WHERE seq=?",(n,)).fetchone()[0]
-                    need(prev==raw,"NONIDENTICAL_RETRY")
-                    db.commit();return self.head
+                    if prev==raw:
+                        db.commit();self._verified=(n,head,p);return self.head
+                    need(kind=="SUCCESSOR_AMENDMENT","NONIDENTICAL_RETRY")
                 need(_allowed(previous_kind,kind),"EVENT_ORDER")
-                self._apply(p,kind,value)
+                self._apply(p,kind,json.loads(raw))
                 ph=sha256(raw);new=json_digest({"seq":n+1,"kind":kind,"previous":head,"payload_sha256":ph})
                 db.execute("INSERT INTO events VALUES (?,?,?,?,?,?)",(n+1,kind,head,raw,ph,new))
-                db.commit();self.head=new;return new
+                db.commit();self.head=new;self._verified=(n+1,new,p);return new
             except BaseException:
                 db.rollback();raise
     def snapshot(self):
@@ -367,6 +408,9 @@ class GraphJournal:
             need(head==self.head,"EXTERNAL_HEAD_DRIFT")
             count=db.execute("SELECT count(*) FROM events").fetchone()[0]
             last=db.execute("SELECT kind FROM events ORDER BY seq DESC LIMIT 1").fetchone()
+        self._verified=(count,head,p) if count else None
+        # Do not expose the mutable cached projection to a caller.
+        p=deepcopy(p)
         return {"head_sha256":head,"event_count":count,"phase":last[0] if last else "EMPTY",
             "first_packet_sha256":p.get("first",{}).get("packet_sha256"),
             "second_packet_sha256":p.get("second",{}).get("packet_sha256"),
