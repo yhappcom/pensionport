@@ -1,0 +1,108 @@
+{
+  "schema": "IRE_R304_SOURCE_FIRST_AUDIT_DEVELOPMENT_V1",
+  "date": "2026-11-25",
+  "parent_commit": "9b05ec9865e4db23de091479a821aed537131f73",
+  "parent_ci": {
+    "id": 45551252496,
+    "conclusion": "success"
+  },
+  "engine_commit": "954225b8afde64f4ebf27ce2a871b87d453df89f",
+  "engine_ci": [
+    {
+      "id": 45553804039,
+      "status": "in_progress",
+      "conclusion": null
+    }
+  ],
+  "protocol_sha256": "545c5cd944eb64110e27202cc118d31e6b8e7f4d1c0c9c224a178704b81a8c18",
+  "code_blobs": {
+    "source_first_audit": "c5ea196542db80f446fb100ca054ae22708f4712",
+    "semantic_graph_journal": "328727f7ef04388bb7ca7bbae7bcae1a6a7b23c1",
+    "test_source_first_audit": "19f5c7312466cd033c2d937932bd16a82a860e48"
+  },
+  "gates": {
+    "A0": "PASS",
+    "A1": "DEVELOPMENT_CONTRACT_IMPLEMENTED_PROSPECTIVE_METRIC_NOT_AUTHORIZED",
+    "A2": "DEVELOPMENT_JOURNAL_STRUCTURAL_PASS",
+    "A3": "PARTIAL_REAL_EXCERPTS_AND_SEEDED_VERDICT_REGRESSION",
+    "A4": "FOUR_HISTORICAL_SCORES_REPLAYED_CI_PENDING",
+    "A5": "BLOCKED"
+  },
+  "actual_277_fixture": {
+    "cues": 999,
+    "reviewed_source_obligations": 6,
+    "first_elements": 5,
+    "tp": 3,
+    "fp": 2,
+    "fn": 3,
+    "source_missing": 2,
+    "first_unsupported_seed": 1,
+    "paired_conflict": 1,
+    "three_elemental_matches_from_one_first_parent": true,
+    "source_open_chars_nonspace": 13981,
+    "source_open_numeric": 262,
+    "source_uncertain": 2,
+    "negative_inputs_blocked": 5,
+    "cold_reopen_equal": true,
+    "head": "bdd4afc87b002d64f66d5e3ae3c57082ef60cdfbabfe3d442d12feb470eea3bf",
+    "result_sha256": "645d6feb074486ee193e039510e39e441278dc96547c866180aefa7f5fff2ff6"
+  },
+  "actual_288_condition_loss_seed": {
+    "cues": 771,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "high_risk_source_conflict": 1,
+    "high_risk_first_conflict": 1,
+    "contradictory_condition_match_blocked": true,
+    "result_sha256": "1b30e5045c544b601ba08e59d0d831ec99d5f86dee2ba0bf963e23fb796364c1"
+  },
+  "new_unit_test_methods": 11,
+  "retained_local_test_invocations": 79,
+  "actual_negative_cases_blocked": 6,
+  "clean_package_replay": true,
+  "historical_frozen_scores": {
+    "270": {
+      "tp": 60,
+      "fp": 73,
+      "fn": 86,
+      "high_risk_fn": 77
+    },
+    "271": {
+      "tp": 53,
+      "fp": 40,
+      "fn": 41,
+      "high_risk_fn": 35
+    },
+    "277": {
+      "tp": 55,
+      "fp": 78,
+      "fn": 110,
+      "high_risk_fn": 104
+    },
+    "288": {
+      "tp": 59,
+      "fp": 90,
+      "fn": 97,
+      "high_risk_fn": 79
+    }
+  },
+  "historical_288_277_journal_heads_equal": true,
+  "archive": {
+    "sha256": "6f6f71082af178713d09fd15e679bd5cc09fd7249187830aaf9a7d76a2425e87",
+    "bytes": 1868423,
+    "manifest_sha256": "032bd84c3fe6a8671dc4e1d9e040f1121278eed7ee8e0d6df15afd7b6ed941ac",
+    "library_readback_byte_equal": true
+  },
+  "new_source_read": false,
+  "prospective_metric_authorized": false,
+  "actual_new_audit_two_user_turns_verified": false,
+  "semantic_accuracy_improved": null,
+  "independent_gold_verified": false,
+  "publication_authorized": false,
+  "limitations": [
+    "Development-only plan: HOLDOUT explicitly rejected. Source ledger and first propositions use reviewer-supplied elementary meanings, evidence and attributes. The journal checks event order and provides a controlled context method, not host authentication or a security boundary against direct file access. The actual fixtures use known labels and expected results frozen before scoring, not a blind seeded-defect detection study.",
+    "The actual #277 six-obligation and #288 one-obligation tests are exposed excerpts. Rest of original text is OPEN. The code enforces custody and explicit relationship mappings but cannot certify semantic exhaustiveness, entailment or accuracy of repeat links, unknown classifications, or first-proposition decomposition. Source numeral scanner is not a full Korean numeral inventory. Additional actual cases, blind seed challenge, source-ledger amendments, post-audit correction/release integration remain unimplemented or unverified. No new-video or independent precision/recall score. ResourceWarning observed in retained test run; tests completed, no claim of full repo test suite.",
+    "Historical four failure scores and prior 447 pending source-link tasks retained. New audit precision/recall units are proposed internal metrics not interchangeable with old scores. Official finance validation not performed; R3-04 HOLD, R3-05/06 BLOCKED."
+  ]
+}
