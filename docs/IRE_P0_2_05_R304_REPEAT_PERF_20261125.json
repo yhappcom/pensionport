@@ -1,0 +1,76 @@
+{
+  "schema": "IRE_P205_R304_REPEAT_PERF_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "parent_commit": "803f474a0dd63f0541f492da31964f37f9bd13f1",
+  "parent_ci_run_id": 45511511250,
+  "parent_ci_conclusion": "success",
+  "code_commit": "9b942595ef1c0a93b88c9499cb6a80eca9a474f9",
+  "code_ci_run_id": 45534941157,
+  "code_ci_conclusion": "PENDING",
+  "journal_blob": "76ca8e4bef0e3a7d613fbc16fd895155ce750b1d",
+  "test_blob": "be027e53791fc49259ff06d457f29d8d79c22789",
+  "journal_sha256": "52d67f9b65a9db6b46e75a7f7024fbc8260c027a48b865897e7e744843c1d754",
+  "test_sha256": "34d047785e49cd4303a85da71e0fae9ced638c7068384c6a9e5094aa9fff261c",
+  "total_obligations": 1163,
+  "open_obligations": 387,
+  "scope_drafts": 183,
+  "video270": {
+    "open_obligations": 116,
+    "scope_drafts": 70,
+    "source_reviewed_cues": [
+      75,
+      376
+    ],
+    "successor_open_characters": 431,
+    "prior_successor_open_characters": 465,
+    "events": 5,
+    "head": "ef45eaac8919716a5d3d8cc1c458fc5fde5c1b500f2a97c05261cd2d657d8078"
+  },
+  "video271": {
+    "open_obligations": 271,
+    "scope_drafts": 113,
+    "open_characters": 424,
+    "changed": false
+  },
+  "combined_successor_draft_open_characters": 855,
+  "prior_combined_successor_draft_open_characters": 889,
+  "actual_repeat_amendments": 2,
+  "actual_negative_tests_blocked": 7,
+  "new_named_unit_tests": 4,
+  "local_suite_invocations_passed": 57,
+  "clean_reconstruction_replay_pass": true,
+  "stored_parent_snapshot_equal": true,
+  "cold_reopen_equal": true,
+  "performance_seconds_single_run": {
+    "baseline": {
+      "reconciliation": 1.128237,
+      "successor": 1.136293,
+      "snapshot": 1.145878,
+      "retry": 1.230472,
+      "reopen": 1.329091
+    },
+    "final": {
+      "reconciliation": 1.176268,
+      "successor": 0.099886,
+      "snapshot": 0.032675,
+      "retry": 0.036406,
+      "reopen": 1.218627
+    }
+  },
+  "archive_sha256": "c6604b3294e97a3c55933992d30e4bfd433287a4867615196cc147dc8caf9124",
+  "archive_bytes": 3331624,
+  "manifest_sha256": "9629918dd36f11371984b2e9a45fbb0eaa28733d59a37c13cf825424d5a8f69c",
+  "result_sha256": "6ca73eb6130209def40472a8b5765e4f276474be830bd6dba4d0b12fdb7f445c",
+  "original_scores_unchanged": true,
+  "actual_two_turn_verified": false,
+  "semantic_conservation_verified": false,
+  "financial_approval": false,
+  "ready_for_e3": false,
+  "publication_authorized": false,
+  "status": "HOLD",
+  "limitations": [
+    "Cache is instance-local; every operation verifies the full byte/hash chain, cold reopen fully replays semantics. No persisted cache trust, and no overall research throughput extrapolation from single-run timings.",
+    "Two actual amendments reclassify 34 nonspace source characters as provisional NONCLAIM; all 387 OPEN legacy obligations and 183 scope drafts remain. No semantic acceptance or new financial truth.",
+    "Clean reconstruction replays pinned parent inputs and journal snapshot plus new amendments, not every historical development script. No fresh native two-turn test, no general OPEN/condition disposition approval, no default V2 activation. New integrated CI pending."
+  ]
+}
