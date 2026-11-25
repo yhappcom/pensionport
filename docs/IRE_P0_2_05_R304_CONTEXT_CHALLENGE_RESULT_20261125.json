@@ -1,0 +1,70 @@
+{
+  "schema": "IRE_R304_CONTEXT_AWARE_CHALLENGE_RESULT_V1",
+  "date": "2026-11-25",
+  "status": "DEVELOPMENT_CHALLENGE_PASS_PROSPECTIVE_GATE_HOLD",
+  "engine_commit": "00ea78f8520d9bb15c38af14e6a43f3b15c3211b",
+  "engine_ci": {
+    "id": 45565647814,
+    "conclusion": "success"
+  },
+  "preregistration_ci": {
+    "id": 45565852898,
+    "conclusion": "success"
+  },
+  "preregistration_commit": "99a5d9808742778238f8cd4fc870e1ec7f5ab8db",
+  "review_freeze_commit": "beef7eeed64af851350d06f21b62bfe3b79fc5ae",
+  "challenge_sha256": "2c6e51491a86cb7c7c71f157dc376cd1de12d499222c4ac7cf9b592b0ad32ce1",
+  "review_sha256": "3c4d0843a5a3d56f7339fd5f8612e9f31664fb483d01f9e5d1b81cc11fdbfb8a",
+  "key_sha256": "c9ce950e0de570cb3eabfb288e0fadbf407528f05fef839c577f2df177728956",
+  "result_sha256": "63fddd09d0d2f785eaec0d2de21208be0ff9257bbae19b9c1618433275b47c14",
+  "source_cue_excerpt_count": 200,
+  "expanded_context_cases": 5,
+  "expanded_context_cue_count": 58,
+  "source_hashes_verified": 4,
+  "score": {
+    "total": 12,
+    "agreement": 12,
+    "defects": 6,
+    "detected": 6,
+    "missed": 0,
+    "clean": 6,
+    "correct_clean": 6,
+    "false_alarms": 0,
+    "acceptance_met": true
+  },
+  "previous_masked_score_preserved": {
+    "agreement": 19,
+    "total": 20,
+    "missed": 0,
+    "false_alarms": 1
+  },
+  "archive": {
+    "sha256": "54a2de2280fc5bf196f9fd25ba21471513232ec397e378826b6e78a80a3d1982",
+    "bytes": 97681,
+    "manifest_sha256": "69ccdc751664fb9bef902a4f20e31477274005f5fdb60add88b23d0386597b5a",
+    "library_readback_byte_equal": true,
+    "isolated_score_replay": true
+  },
+  "gates": {
+    "A0": "PASS",
+    "A1": "DEVELOPMENT_CONTRACT_PINNED",
+    "A2": "DEVELOPMENT_STRUCTURAL_PASS",
+    "A3": "CONTEXT_CHALLENGE_PASS_ONLY",
+    "A4": "PRIOR_FROZEN_REPLAY_PASS_AND_ENGINE_CI_SUCCESS",
+    "A5": "BLOCKED_PROSPECTIVE_PLAN_POLICY_AND_FRESH_SOURCE_REQUIRED"
+  },
+  "blockers": [
+    "plan_for explicitly rejects source_audit HOLDOUT with SOURCE_AUDIT_PROSPECTIVE_NOT_AUTHORIZED. A prospective operating diagnostic policy must be separately pinned and implemented with exposure exclusions; new audit metrics must not be substituted for historical strict scores. No new source identified or read in this turn.",
+    "Context challenge is a limited exposed-source candidate-verification study. Six defects are explicit contrast variants and not a source-wide omission-discovery test. The same ChatGPT system authored the challenge in the prior turn; independence and gold validity are not guaranteed. In D07 the source's age cohort context was inspected and recorded; ALLOW is only for the spoken explanation, not universal legal applicability. No source-wide semantic accuracy or final research candidate release proved.",
+    "Source-ledger amendments and lossless E3/E4/E5 integration remain incomplete. No code change in this turn, no official finance verification, no formal holdout or publication approval."
+  ],
+  "engine_code_changed": false,
+  "prior_four_scores_changed": false,
+  "prior_447_tasks_changed": false,
+  "actual_distinct_user_turn_observed": true,
+  "answer_key_access_before_review_freeze": false,
+  "host_turn_authentication_verified": false,
+  "independent_certification": false,
+  "financial_approval": false,
+  "publication_authorized": false
+}
