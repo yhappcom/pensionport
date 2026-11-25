@@ -1,0 +1,110 @@
+{
+  "schema": "IRE_R304_SHARED_277_TWO_TURN_SCORE_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "status": "HOLD_FAILED_THRESHOLDS",
+  "engine_commit": "36e52502e21f9388d51ebbb4ee82da6cefd205de",
+  "engine_ci_run_id": 45546417001,
+  "engine_ci_conclusion": "success",
+  "first_record_ci_run_id": 45547227278,
+  "first_record_ci_conclusion": "success",
+  "preregistration_commit": "6380d52210173bc9d8b7a24c38f182345779da63",
+  "first_frozen_commit": "feca547424f2416cae52ed17223025e0793dda23",
+  "second_frozen_commit": "813d54ab71f99de20aecea326680b831da8e5388",
+  "protocol_sha256": "2caf6924ed30083be8e579385dbf3d214faaa4b862e9346597340e53e78d24d3",
+  "source_sha256": "08da1e9cd5f2ebba39e03844dd4b93e30185124feb4ffa9ef13ea5a283eb2924",
+  "source_cues": 999,
+  "first_nodes": 133,
+  "second_nodes": 165,
+  "first_graph_sha256": "fcd7a0a5e6793052af688375e46d5e0cbd0a83475f08202aad0b853f9e8a8ea4",
+  "second_graph_sha256": "7159a695e518081b44803d51bed499114b2ad43b6377d4ec1f8e80fce99b7aec",
+  "second_receipt_sha256": "d37fe7fa015aa1a52b1aa18a89cbee751717007fabdda733dbcd8fbffb41317b",
+  "journal": {
+    "first_head": "d2ba8be13fd5ca0566b4f1ed942ec5232f228e286577a62f24f8fbd1db3bfcc4",
+    "second_head": "0204c9e03c28572711701cab49e150f3dcb0c75ba834bc1292c34425d06efa96",
+    "score_head": "36237d8235be0ef2509ca0efe8c0918591933d3a5d3455a78799976f6279c48b",
+    "events": 4,
+    "cold_reopen_equal": true,
+    "isolated_replay_equal": true
+  },
+  "score": {
+    "tp": 55,
+    "fp": 78,
+    "fn": 110,
+    "precision_bp": 4135,
+    "recall_bp": 3333,
+    "high_risk_fn": 104,
+    "critical_pair_mismatches": 36,
+    "critical_unmatched_atoms": 20,
+    "open_source_characters": 737,
+    "unbound_numeric_spans": 180,
+    "axis_mismatches": {
+      "claim_kind": 22,
+      "conditions": 11,
+      "exceptions": 0,
+      "hypothetical_or_actual_scope": 22,
+      "negation_and_rebuttal": 0,
+      "numeric_value_and_unit": 26,
+      "source_quote_and_entailment": 38,
+      "speaker_and_stance": 46,
+      "temporal_scope": 3
+    },
+    "thresholds_met": false
+  },
+  "alignment": {
+    "pairs": 130,
+    "core_matches": 92,
+    "core_matches_other_axis_fail": 37,
+    "unmatched_first": 3,
+    "unmatched_second": 35,
+    "components": {
+      "ONE_TO_ONE": 77,
+      "SPLIT_CANDIDATE": 19,
+      "MERGE_CANDIDATE": 1,
+      "MANY_TO_MANY": 16,
+      "REFERENCE_ONLY": 5
+    },
+    "speaker_axis_detail": {
+      "participant_difference": 12,
+      "act_difference": 15,
+      "certainty_difference": 21,
+      "scenario_difference": 11,
+      "attribution_difference": 2,
+      "unknown_either": 8
+    }
+  },
+  "typed": {
+    "numeric_occurrences_each": 267,
+    "first_open": 94,
+    "second_open": 86,
+    "first_quantities": 147,
+    "second_quantities": 148,
+    "first_uncertain_atoms": 9,
+    "second_uncertain_atoms": 3,
+    "first_relation_count": 10,
+    "second_relation_count": 13,
+    "comparison_thresholds_met": false
+  },
+  "archive": {
+    "sha256": "c1467eb9a45ee86846e990ca242e9a6ca10c92f3a500fa58df4096c1909e33e9",
+    "bytes": 605711,
+    "manifest_sha256": "1ea6f546334055aacf5e83c371253f34c60eb6a7b688caeadc66e50e496550f4",
+    "score_file_sha256": "85eef3cd7af1355a3e4f3d0ed8e58cfc8f53e0cc2c1edb4a98a3b3f8ba233d33",
+    "summary_sha256": "2f9c9160a29a3a0b198150b001c9760bbac4e2caf958b53fb7ab0c935fd557a1",
+    "library_readback_byte_equal": true
+  },
+  "engine_code_changed": false,
+  "three_changed_code_blob_matches": true,
+  "first_body_accessed_before_second_freeze": false,
+  "first_aggregate_metadata_known": true,
+  "actual_distinct_user_turns_observed": true,
+  "host_turn_authentication_verified": false,
+  "independent_gold_verified": false,
+  "source_exposure_certified": false,
+  "financial_approval": false,
+  "publication_authorized": false,
+  "limitations": [
+    "The second packet is a manually authored source-only candidate, with per-cue numeric role choices and an independently written builder using the same common compiler. The procedural authoring consistency objective is not met merely by structural validation. Coarse source ranges and unresolved source/audio/chart information remain. No financial verification.",
+    "130 pairs and core-entailment judgments were manually selected; other axes use conservative exact typed signatures and qualifier premise-coordinate groups, not independently adjudicated semantic equivalence. Some apparent matches or mismatches may be wrong. FP/FN/high-risk FN are internal-reference diagnostics. Both packets are incomplete and model-state independence cannot be established. No comparison of improvement across different videos/versions is valid.",
+    "Actual repeated split/merge, speaker/act/certainty disagreements and unresolved numeric occurrence census demonstrate common schema alone insufficient. Do not repair #277 per item, alter thresholds or recycle as holdout. Stop further cohort consumption until research strategy reviewed. Historical 447 tasks and prior scores preserved; R3-04 HOLD, R3-05/06 BLOCKED."
+  ]
+}
