@@ -277,8 +277,10 @@ def successor_amendment(source,parent,projected_plan,prior_receipt,packet,lineag
 class GraphJournal:
     """Private SQLite journal, bounded records, transactionally appended.
 
-    Every append validates all previous events by replay on original bytes.
-    Reopen requires the externally retained head. SQLite triggers prevent
+    Every operation checks the complete byte/hash chain. Semantic replay of
+    an already verified prefix may be reused within this instance only.
+    Reopen always performs full semantic replay with the externally retained
+    head. SQLite triggers prevent
     ordinary row updates/deletes, not privileged filesystem replacement.
     """
     def __init__(self,path,raw,manifest,*,source_sha,manifest_sha,create=False,expected_head=None):
@@ -304,7 +306,7 @@ class GraphJournal:
         p={};previous=GENESIS;previous_kind=None
         rows=db.execute("SELECT seq,kind,previous,payload,payload_sha,head FROM events ORDER BY seq").fetchall()
         cached=self._verified
-        use_cache=cached is not None and cached[0]<=len(rows)
+        use_cache=cached is not None and cached[0]<=len(rows) and self.source is cached[3]
         for i,(seq,kind,prev,raw,ph,head) in enumerate(rows,1):
             need(seq==i and _allowed(previous_kind,kind) and prev==previous and sha256(raw)==ph,"CHAIN")
             need(head==json_digest({"seq":i,"kind":kind,"previous":prev,"payload_sha256":ph}),"HEAD")
@@ -392,15 +394,24 @@ class GraphJournal:
                 if n and kind==previous_kind:
                     prev=db.execute("SELECT payload FROM events WHERE seq=?",(n,)).fetchone()[0]
                     if prev==raw:
-                        db.commit();self._verified=(n,head,p);return self.head
+                        db.commit();self._verified=(n,head,p,self.source);return self.head
                     need(kind=="SUCCESSOR_AMENDMENT","NONIDENTICAL_RETRY")
                 need(_allowed(previous_kind,kind),"EVENT_ORDER")
                 self._apply(p,kind,json.loads(raw))
                 ph=sha256(raw);new=json_digest({"seq":n+1,"kind":kind,"previous":head,"payload_sha256":ph})
                 db.execute("INSERT INTO events VALUES (?,?,?,?,?,?)",(n+1,kind,head,raw,ph,new))
-                db.commit();self.head=new;self._verified=(n+1,new,p);return new
+                db.commit();self.head=new;self._verified=(n+1,new,p,self.source);return new
             except BaseException:
                 db.rollback();raise
+    def amendment_context(self):
+        """Return detached, currently verified inputs for the next amendment."""
+        with closing(sqlite3.connect(self.path)) as db, db:
+            db.execute('BEGIN')
+            p,head=self._replay(db)
+            need(head==self.head,"EXTERNAL_HEAD_DRIFT")
+            need("successor" in p,"AMENDMENT_BEFORE_SUCCESSOR")
+        return deepcopy({"head_sha256":head,"parent":p["successor_parent"],
+            "projected_plan":p["successor_plan"],"prior_receipt":p["successor"]})
     def snapshot(self):
         with closing(sqlite3.connect(self.path)) as db, db:
             db.execute('BEGIN')
@@ -408,7 +419,7 @@ class GraphJournal:
             need(head==self.head,"EXTERNAL_HEAD_DRIFT")
             count=db.execute("SELECT count(*) FROM events").fetchone()[0]
             last=db.execute("SELECT kind FROM events ORDER BY seq DESC LIMIT 1").fetchone()
-        self._verified=(count,head,p) if count else None
+        self._verified=(count,head,p,self.source) if count else None
         # Do not expose the mutable cached projection to a caller.
         p=deepcopy(p)
         return {"head_sha256":head,"event_count":count,"phase":last[0] if last else "EMPTY",
