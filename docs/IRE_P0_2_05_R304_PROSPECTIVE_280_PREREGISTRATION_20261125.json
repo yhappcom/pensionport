@@ -1,0 +1,76 @@
+{
+  "schema": "IRE_R304_PROSPECTIVE_280_PREREGISTRATION_V1",
+  "date": "2026-11-25",
+  "status": "REGISTERED_BEFORE_MEANING_REVIEW",
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "engine_ci": {
+    "id": 45571951090,
+    "conclusion": "success"
+  },
+  "policy_record_commit": "593d72a76f550b4f2239930df9b68ce5a459c243",
+  "policy_record_ci": {
+    "id": 45571993323,
+    "conclusion": "success"
+  },
+  "source": {
+    "roster_no": 280,
+    "video_id": "w1G34vigXbI",
+    "title": "41강 - 주식투자 성공한 사례들",
+    "duration": "11:26",
+    "domain": "STOCK",
+    "cue_count": 373,
+    "window_count": 10,
+    "bytes": 29793,
+    "source_sha256": "8c52a00bef9ccdeae782ba31de91eea5bd556987233f80865f5245f52abf3643",
+    "archive_name": "201-300.zip",
+    "archive_sha256": "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10",
+    "archive_members": 99
+  },
+  "screen": {
+    "sha256": "ab462c4b59624690d854f7dd0d12f762d5ca39ff975488e113434d4acc740220",
+    "head": "593d72a76f550b4f2239930df9b68ce5a459c243",
+    "tree_paths": 2673,
+    "tree_truncated": false,
+    "exact_id_path_hits": 0,
+    "exact_id_index_hits": 0,
+    "blobs": {
+      "videos": "c0e703cc20f4bc264ff1fa086f9ba4558d4f6d21",
+      "claims": "ab5af7eea02e65d5e36174546a2a94f4cc642d92",
+      "learning_queue": "8153ee3d841f1ab2fcb1aac4faa54028fe41fc74",
+      "branch_catalog": "8b8f1fdd215264d32c3ce6e61322a1e782e7df08",
+      "roster": "7fd1fb7e4c84f517ea68a14d80ed8018e5f122f1"
+    },
+    "source_exposure_certified": false,
+    "selection": "Shortest eligible investment long-form among 11 metadata-screened #261-300 candidates. No semantic review or performance-based selection. Diagnostic only, not three-domain formal qualification."
+  },
+  "plan": {
+    "schema": "IRE_V3_GRAPH_RESEARCH_PLAN_V1",
+    "prospective_policy_sha256": "492b69fe9c177d0601d37e27c55fb9b0e70533d74e9d1200f38508ad4cd8ad2f",
+    "screening_sha256": "ab462c4b59624690d854f7dd0d12f762d5ca39ff975488e113434d4acc740220",
+    "audit_sha256": "545c5cd944eb64110e27202cc118d31e6b8e7f4d1c0c9c224a178704b81a8c18",
+    "campaign_id": "R304-PROSPECTIVE-280-20261125",
+    "protocol_sha256": "2caf6924ed30083be8e579385dbf3d214faaa4b862e9346597340e53e78d24d3",
+    "engine_commit_sha": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+    "registered_at": "2026-11-25T17:01:36+09:00",
+    "purpose": "PROSPECTIVE_AUDIT_DIAGNOSTIC",
+    "source_sha256": "8c52a00bef9ccdeae782ba31de91eea5bd556987233f80865f5245f52abf3643",
+    "video_id": "w1G34vigXbI",
+    "manifest_sha256": "82c581b59cbadc16d40ccd40ddae6b6bccd4f0b25ec3a67628cbcb4095b40921",
+    "grid_sha256": "751dabd3b956306fe6907452c37eb62b5478ec076e739d7f20aa1278eef75e4f",
+    "rubric_sha256": "0abe30d1053bdf3d9890c531f8d6cc95f19d950cf9ec2ddc887756ee7702a5e2",
+    "thresholds": {
+      "atomic_precision_min_bp": 9500,
+      "atomic_recall_min_bp": 9800,
+      "high_risk_false_negative_max": 0
+    }
+  },
+  "plan_sha256": "c29f1372b29a6dc963e73b60b824efcd0ac55b46e67d205b1d5ab4067f109bbb",
+  "register_head": "a6e8a352397b359a93020240cb7b8250a1ec1cfaf2b6d77d986b212742bf39aa",
+  "source_census_sha256": "b2c574ff65191a7ebea2b5e0c09d1e8f8ad583434010a469fc247643ea0910d0",
+  "rules": "First full source candidate freeze; later distinct user turn freeze source obligation ledger before first packet access, then bidirectional first-proposition audit with repeat review. Separate correction candidate, no score rewriting; no OPEN or high-risk error tolerated for PASS. No engine or rubric changes in trial.",
+  "formal_qualification": false,
+  "independent_gold_verified": false,
+  "financial_approval": false,
+  "publication_authorized": false,
+  "limitations": "Current paths and four indexes only, not exhaustive historic content or private chat exposure verification. No video visual/audio verification or external certification. Existing four failures preserved; R3-04 HOLD and P205 HOLD."
+}
