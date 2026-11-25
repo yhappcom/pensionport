@@ -1,0 +1,48 @@
+{
+  "schema": "IRE_R304_SHARED_277_PREREGISTRATION_V1",
+  "status": "REGISTERED_BEFORE_SEMANTIC_REVIEW",
+  "date": "2026-11-25",
+  "engine_commit": "36e52502e21f9388d51ebbb4ee82da6cefd205de",
+  "engine_ci_run_id": 45546417001,
+  "engine_ci_conclusion": "success",
+  "engine_ci_jobs_success": 6,
+  "plan": {
+    "schema": "IRE_V3_GRAPH_RESEARCH_PLAN_V1",
+    "campaign_id": "R304-SHARED-277-20261125",
+    "protocol_sha256": "2caf6924ed30083be8e579385dbf3d214faaa4b862e9346597340e53e78d24d3",
+    "engine_commit_sha": "36e52502e21f9388d51ebbb4ee82da6cefd205de",
+    "registered_at": "2026-11-25T13:26:59+09:00",
+    "purpose": "HOLDOUT",
+    "source_sha256": "08da1e9cd5f2ebba39e03844dd4b93e30185124feb4ffa9ef13ea5a283eb2924",
+    "video_id": "w8nnPJe8lmo",
+    "manifest_sha256": "a6bc9b6f7e0098dd07210178e8ef2b313078a1231982a51e820c76f3b2c67752",
+    "grid_sha256": "695e01d8d1ecdaa7979c765fb3f8e3b9da31d84dfb4efe7df0215a78caa882b6",
+    "rubric_sha256": "0abe30d1053bdf3d9890c531f8d6cc95f19d950cf9ec2ddc887756ee7702a5e2",
+    "thresholds": {
+      "atomic_precision_min_bp": 9500,
+      "atomic_recall_min_bp": 9800,
+      "high_risk_false_negative_max": 0
+    }
+  },
+  "plan_sha256": "431733f53a7941d71fd81cf3f41147453dbf17b13d82ef0f4649ffe6fe02c601",
+  "selection": {
+    "roster_no": 277,
+    "title": "월배당 포트폴리오 점검",
+    "domain": "ETF",
+    "cue_count": 999,
+    "windows": 25,
+    "prior_reserved_source": true,
+    "archive_sha256": "a04d046373e91a9b2e4f012b439075e1b8685cbf55a3f0082ef6ef42f50ac45d",
+    "bounded_id_path_matches": 0,
+    "source_exposure_certified": false
+  },
+  "gates": {
+    "G1": "IMPLEMENTED_STRUCTURAL",
+    "G2": "LOCAL_REGRESSION_PASS",
+    "G3": "EXPOSED_EXCERPT_STRUCTURAL_PASS",
+    "G4": "FROZEN_REPLAY_AND_INTEGRATED_CI_PASS",
+    "G5": "REGISTERED",
+    "G6": "PENDING"
+  },
+  "policy": "Prospective diagnostic only. Both distinct user turns use identical shared typed protocol. No repair within trial; incomplete research retained as HOLD. Prior #270/271/288 scores and 447 pending source-link tasks retained. R3-04 HOLD, R3-05/06 BLOCKED. No independent certification, financial approval or publication."
+}
