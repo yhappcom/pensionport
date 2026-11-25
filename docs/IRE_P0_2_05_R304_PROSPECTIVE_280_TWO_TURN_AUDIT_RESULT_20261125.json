@@ -1,0 +1,116 @@
+{
+  "schema": "IRE_R304_PROSPECTIVE_280_TWO_TURN_AUDIT_RESULT_V1",
+  "date": "2026-11-25",
+  "status": "HOLD_FAILED_PROSPECTIVE_AUDIT_DIAGNOSTIC",
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "engine_ci": {
+    "id": 45571951090,
+    "conclusion": "success"
+  },
+  "first_ci": {
+    "id": 45573668518,
+    "conclusion": "success"
+  },
+  "preregistration_commit": "da81f4e8615969cd32fe230ad8fdcbace92feec2",
+  "first_commit": "0829cb0d021a3427026d449b7d86e5e9df651562",
+  "source_ledger_freeze_commit": "86648e67f3c6e5c6911f64691d79817b5eacd739",
+  "plan_sha256": "c29f1372b29a6dc963e73b60b824efcd0ac55b46e67d205b1d5ab4067f109bbb",
+  "source_sha256": "8c52a00bef9ccdeae782ba31de91eea5bd556987233f80865f5245f52abf3643",
+  "source_cues": 373,
+  "ledger_sha256": "69785bd734505ac60bb2e7a63bde17f01ad8c91c0a4f6268a51ec9c38bbc91d8",
+  "first_graph_sha256": "23d9d93e10ddf640c48636231e1ee3ed80523598a6ad643770f6b66074abdf0f",
+  "assessment_sha256": "725ead6b5d3e0df76baf6f3bbab74e282b13b91c2df5fa1702f47a8b9f966bc9",
+  "journal": {
+    "first_head": "2de7422567493145d79bfb036e1d6520f6885f787b32a003e31060941e5f4000",
+    "ledger_head": "6c82b0c5a077be70d619e15a7aa50c67d2cb41ba88cdc6b18152eca3c7d881f6",
+    "score_head": "253f6ad09ca64c73002ae53a59b9dc9a63071d9165ae7a4713b3be097e6ba0bd",
+    "events": 4,
+    "cold_reopen_equal": true,
+    "isolated_replay_equal": true
+  },
+  "score": {
+    "first_atoms": 110,
+    "first_propositions": 114,
+    "source_obligations": 101,
+    "pairs": 98,
+    "tp": 38,
+    "fp": 76,
+    "fn": 63,
+    "precision_bp": 3333,
+    "recall_bp": 3762,
+    "high_risk_source_unmatched_or_conflict": 43,
+    "high_risk_first_unmatched_or_conflict": 50,
+    "source_unmatched": 3,
+    "first_unmatched": 16,
+    "high_risk_source_obligations": 68,
+    "core_axis_false": 35,
+    "other_axis_only_fail": 25,
+    "axis_mismatches": {
+      "source_quote_and_entailment": 35,
+      "speaker_and_stance": 30,
+      "claim_kind": 15,
+      "numeric_value_and_unit": 10,
+      "hypothetical_or_actual_scope": 8,
+      "negation_and_rebuttal": 3,
+      "temporal_scope": 2,
+      "conditions": 1,
+      "exceptions": 0
+    },
+    "blockers": {
+      "source_open_chars": 15,
+      "source_open_numeric": 13,
+      "source_uncertain": 13,
+      "first_open_chars": 23,
+      "first_open_numeric": 13,
+      "first_uncertain": 17,
+      "first_unbound_numeric": 6,
+      "first_boundary_warnings": 0,
+      "repeat_segments": 2,
+      "repeat_open_segments": 2,
+      "repeat_numeric_occurrences": 1,
+      "repeat_open_numeric_occurrences": 0
+    },
+    "diagnostic_thresholds_met": false
+  },
+  "findings": {
+    "source_only_missing_diagnostics": 3,
+    "first_only_open": 16,
+    "source_ledger_known_separate_obligation_omissions": 3,
+    "examples": [
+      "First packet lacks an explicit post-crash attention/assessment of Coupang (307–309), taste report of local product (91), noodle comparison (67–68); latter two may be non-material context.",
+      "Source ledger grouped the rise over five months with apology; first packet separates them, causing incomplete pair and preventing repeat equivalence of the rise alone. 1st-only customer counterargument (198–199), success likelihood assessment (170), flagship brand claim (256–257) are missing as separate source obligations. First-only is not automatically unsupported.",
+      "Source ledger and first candidate use differently defined act/epistemic/scenario/attribution and negation conventions; some failures are representation disagreement, not established distortions. No retrospective credit granted."
+    ]
+  },
+  "archive": {
+    "sha256": "57820b8c1cbc671b027a2ea19754521654e30ed28695098b4f6d8bf7680f80c6",
+    "bytes": 1012877,
+    "manifest_sha256": "dc7860aa4ec6b180a9f1a058ef3de4fb2480f97b127fa797c7b0748b86b6c06f",
+    "summary_sha256": "20b1ab349ed85c5c7f3f39e1a85df7035f667c5e2aafa7a0e2b9ecb4a2e9f4cd",
+    "score_file_sha256": "15d8238153fa1489e2dda444bc2ac0efd2a1a5b5b777be5bd5645336194f13d0",
+    "diagnostic_file_sha256": "5e97295473837c43e4f9d1882f5d210c7e940419b2ec3a56242cac0de0a4acf8",
+    "library_readback_byte_equal": true
+  },
+  "timing": {
+    "ledger_observed": "2026-11-25T17:14:36+09:00",
+    "score_observed": "2026-11-25T17:17:12+09:00",
+    "first_observed": "2026-11-25T17:06:38+09:00",
+    "ledger_to_score_seconds": 156
+  },
+  "actual_distinct_user_turns_observed": true,
+  "first_body_access_before_ledger_freeze": false,
+  "first_aggregate_metadata_known": true,
+  "host_turn_authentication_verified": false,
+  "source_exposure_certified": false,
+  "engine_changed": false,
+  "corrected_candidate_created": false,
+  "independent_gold_verified": false,
+  "formal_qualification": false,
+  "financial_approval": false,
+  "publication_authorized": false,
+  "decision": "Stop consuming unseen videos. Do not alter frozen ledgers, score, or engine to make this trial pass. Structural success does not establish source-wide audit reliability. Before any further development evaluate whether one frozen source-coordinate review worklist and an explicit adversarial source-to-first audit (rather than independently creating another elemental census) can control representation drift; distinguish unknown ASR, financial truth and substantive preservation errors. Require prospective policy alignment and validate exposed case evidence without rescoring the five failures. If this cannot be achieved with two actual user turns, report feasibility limitation rather than repeated module growth.",
+  "limitations": [
+    "101 obligations manually authored; several are compound and source ledger missed separate meanings. 114 first propositions include four explicit first-parent decompositions; no independent gold. 98 pair decisions and axis reasons were manually authored with conservative exact numeric/time signatures and explicit condition matching; some judgments and decomposition may themselves be incorrect. Counts are internal diagnostic, not real-world accuracy or financial truth.",
+    "No source visual/audio validation, official finance verification, post-audit correction or E3–E5 approval. Existing four frozen old-metric scores and 447 tasks unchanged. New metric not directly comparable. Entire video read, character census does not guarantee semantic completeness. R3-04/P205 HOLD; R3-05/06 BLOCKED; 16/60 unchanged."
+  ]
+}
