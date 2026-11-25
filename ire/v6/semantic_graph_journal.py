@@ -26,6 +26,7 @@ def _allowed(previous_kind,kind):
     if previous_kind is None:return kind=="REGISTER"
     if previous_kind=="FIRST" and kind=="SOURCE_AUDIT_LEDGER":return True
     if previous_kind=="SOURCE_AUDIT_LEDGER" and kind=="SOURCE_AUDIT_SCORE":return True
+    if previous_kind=="SOURCE_AUDIT_SCORE" and kind=="SOURCE_AUDIT_CANDIDATE":return True
     if previous_kind=="REGISTER" and kind==LEGACY_KIND:return True
     if previous_kind==LEGACY_KIND and kind=="SUCCESSOR":return True
     if previous_kind in ("SUCCESSOR","SUCCESSOR_AMENDMENT","PENDING_REVIEW") and kind=="SUCCESSOR_AMENDMENT":return True
@@ -335,10 +336,10 @@ class GraphJournal:
     def _apply(self,p,kind,v):
         source=self.source
         if "audit_sha256" in p.get("plan",{}):
-            need(kind in ("FIRST","SOURCE_AUDIT_LEDGER","SOURCE_AUDIT_SCORE"),"SOURCE_AUDIT_DIAGNOSTIC_ONLY")
+            need(kind in ("FIRST","SOURCE_AUDIT_LEDGER","SOURCE_AUDIT_SCORE","SOURCE_AUDIT_CANDIDATE"),"SOURCE_AUDIT_DIAGNOSTIC_ONLY")
         elif "protocol_sha256" in p.get("plan",{}):
             need(kind in ("FIRST","SECOND","SCORE"),"AUTHORING_DIAGNOSTIC_ONLY")
-        elif kind in ("SOURCE_AUDIT_LEDGER","SOURCE_AUDIT_SCORE"):
+        elif kind in ("SOURCE_AUDIT_LEDGER","SOURCE_AUDIT_SCORE","SOURCE_AUDIT_CANDIDATE"):
             need(False,"SOURCE_AUDIT_PLAN_REQUIRED")
         if kind=="REGISTER":
             need(type(v) is dict and v==plan_for(source,campaign_id=v["campaign_id"],
@@ -377,6 +378,14 @@ class GraphJournal:
             need(v["user_ref"]==p["source_audit_meta"]["user_ref"] and timestamp(v["observed_at"])>=timestamp(p["source_audit_meta"]["observed_at"]),"SOURCE_AUDIT_SAME_SECOND_TURN")
             r=audit_bidirectional(source,p["first"],p["first_authoring"],p["first_authoring_receipt"],p["source_audit_ledger"],p["source_audit_ledger_receipt"],v["assessment"])
             need(r==v["result"],"SOURCE_AUDIT_SCORE_DRIFT");p["source_audit_score"]=r
+            p["source_audit_score_meta"]={x:v[x] for x in ("user_ref","observed_at")}
+        elif kind=="SOURCE_AUDIT_CANDIDATE":
+            from .source_audit_completion import correction_candidate
+            need(type(v) is dict and set(v)=={"user_ref","observed_at","candidate","result"},"SOURCE_AUDIT_CANDIDATE_SHAPE")
+            m=p["source_audit_score_meta"]
+            need(v["user_ref"]==m["user_ref"] and timestamp(v["observed_at"])>=timestamp(m["observed_at"]),"SOURCE_AUDIT_CANDIDATE_SAME_SECOND_TURN")
+            r=correction_candidate(source,p["first"],p["first_authoring"],p["first_authoring_receipt"],p["source_audit_ledger"],p["source_audit_ledger_receipt"],p["source_audit_score"],v["candidate"])
+            need(r==v["result"],"SOURCE_AUDIT_CANDIDATE_DRIFT");p["source_audit_candidate"]=r
         elif kind=="SCORE":
             need(type(v) is dict and set(v)=={"alignment","result"},"SCORE_SHAPE")
             r=score_graphs(source,p["first_packet"],p["second_packet"],v["alignment"])
@@ -514,5 +523,6 @@ class GraphJournal:
             **({"pending_review":p["pending_review"]} if "pending_review" in p else {}),
             **({"invalidated_reviews":p["invalidated_reviews"]} if "invalidated_reviews" in p else {}),
             **({"source_audit_ledger":p["source_audit_ledger_receipt"],"source_audit_score":p.get("source_audit_score")} if "source_audit_ledger_receipt" in p else {}),
+            **({"source_audit_candidate":p["source_audit_candidate"]} if "source_audit_candidate" in p else {}),
             "host_turn_authentication_verified":False,"independent_gold_verified":False,
             "operational_release_authorized":False,"publication_authorized":False}
