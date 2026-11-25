@@ -1,0 +1,24 @@
+{
+  "schema": "IRE_R304_MASKED_CHALLENGE_PREREGISTRATION_V1",
+  "date": "2026-11-25",
+  "purpose": "EXPOSED_DEVELOPMENT_CHALLENGE_ONLY",
+  "case_count": 20,
+  "challenge_sha256": "09169323318293f83f88cc6d7b71bf112969c8900c262bc22e6c54feee7a0ae7",
+  "answer_key_sha256": "153a8e4ca9c76a1b79a904488cdb80f3ccde87d71f362f0d15e311938a7f5017",
+  "source_videos": [
+    270,
+    271,
+    288,
+    277
+  ],
+  "judgment": "ALLOW or FLAG with source coordinates and reasoning; freeze every judgment before key read; no rescoring after reveal",
+  "acceptance": {
+    "seeded_defects_missed_max": 0,
+    "clean_control_false_alarms_max": 0
+  },
+  "limitations": [
+    "Known development source excerpts, variants drafted within same ChatGPT context, randomly selected and shuffled; answer labels are separated, not an independent or model-state-blind test. Same-turn review can only establish a masked development exercise. No actual whole-video accuracy score or financial approval."
+  ],
+  "prospective_qualification_authorized": false,
+  "status": "REGISTERED_BEFORE_REVIEW"
+}
