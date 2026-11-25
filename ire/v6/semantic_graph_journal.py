@@ -24,6 +24,8 @@ LEGACY_KIND="LEGACY_RECONCILIATION"
 
 def _allowed(previous_kind,kind):
     if previous_kind is None:return kind=="REGISTER"
+    if previous_kind=="FIRST" and kind=="SOURCE_AUDIT_LEDGER":return True
+    if previous_kind=="SOURCE_AUDIT_LEDGER" and kind=="SOURCE_AUDIT_SCORE":return True
     if previous_kind=="REGISTER" and kind==LEGACY_KIND:return True
     if previous_kind==LEGACY_KIND and kind=="SUCCESSOR":return True
     if previous_kind in ("SUCCESSOR","SUCCESSOR_AMENDMENT","PENDING_REVIEW") and kind=="SUCCESSOR_AMENDMENT":return True
@@ -54,7 +56,7 @@ def _payload(value):
     need(len(raw)<=64*1024*1024,"PAYLOAD_LIMIT")
     return raw
 
-def plan_for(source,*,campaign_id,engine_commit,registered_at,purpose,protocol_sha256=None):
+def plan_for(source,*,campaign_id,engine_commit,registered_at,purpose,protocol_sha256=None,audit_sha256=None):
     need(type(campaign_id) is str and bool(re.fullmatch(r"[A-Za-z0-9_-]{3,80}",campaign_id)),"CAMPAIGN")
     need(type(engine_commit) is str and bool(re.fullmatch(r"[0-9a-f]{40}",engine_commit)),"ENGINE")
     timestamp(registered_at)
@@ -65,7 +67,12 @@ def plan_for(source,*,campaign_id,engine_commit,registered_at,purpose,protocol_s
         from .semantic_authoring_protocol import PROTOCOL_SHA256
         need(protocol_sha256==PROTOCOL_SHA256,"AUTHORING_PROTOCOL")
         need(purpose!="HOLDOUT" or (source.video_id!="-lX8iJd-xDM" and source.source_sha256!="059484995ba7a84dd5ec21ed682a526b95832f65b56cea1cf48745548c2d8335"),"AUTHORING_EXPOSED_288")
-    return {"schema":"IRE_V3_GRAPH_RESEARCH_PLAN_V1","campaign_id":campaign_id,
+    if audit_sha256 is not None:
+        from .source_first_audit import AUDIT_SHA256
+        need(protocol_sha256 is not None and audit_sha256==AUDIT_SHA256,"SOURCE_AUDIT_PLAN")
+        need(purpose=="DEVELOPMENT","SOURCE_AUDIT_PROSPECTIVE_NOT_AUTHORIZED")
+    return {"schema":"IRE_V3_GRAPH_RESEARCH_PLAN_V1"
+      ,**({"audit_sha256":audit_sha256} if audit_sha256 is not None else {}),"campaign_id":campaign_id,
       **({"protocol_sha256":protocol_sha256} if protocol_sha256 is not None else {}),
       "engine_commit_sha":engine_commit,"registered_at":registered_at,"purpose":purpose,
       "source_sha256":source.source_sha256,"video_id":source.video_id,
@@ -327,11 +334,15 @@ class GraphJournal:
         return p,previous
     def _apply(self,p,kind,v):
         source=self.source
-        if "protocol_sha256" in p.get("plan",{}):
+        if "audit_sha256" in p.get("plan",{}):
+            need(kind in ("FIRST","SOURCE_AUDIT_LEDGER","SOURCE_AUDIT_SCORE"),"SOURCE_AUDIT_DIAGNOSTIC_ONLY")
+        elif "protocol_sha256" in p.get("plan",{}):
             need(kind in ("FIRST","SECOND","SCORE"),"AUTHORING_DIAGNOSTIC_ONLY")
+        elif kind in ("SOURCE_AUDIT_LEDGER","SOURCE_AUDIT_SCORE"):
+            need(False,"SOURCE_AUDIT_PLAN_REQUIRED")
         if kind=="REGISTER":
             need(type(v) is dict and v==plan_for(source,campaign_id=v["campaign_id"],
-                engine_commit=v["engine_commit_sha"],registered_at=v["registered_at"],purpose=v["purpose"],protocol_sha256=v.get("protocol_sha256")),"PLAN")
+                engine_commit=v["engine_commit_sha"],registered_at=v["registered_at"],purpose=v["purpose"],protocol_sha256=v.get("protocol_sha256"),audit_sha256=v.get("audit_sha256")),"PLAN")
             p["plan"]=v
         elif kind in ("FIRST","SECOND"):
             protocol="protocol_sha256" in p["plan"]
@@ -352,6 +363,20 @@ class GraphJournal:
                 need(g["packet_sha256"]!=p["first"]["packet_sha256"],"COPIED_PACKET")
             k=kind.lower();p[k]=g;p[k+"_packet"]=packet
             p[k+"_meta"]={x:v[x] for x in ("user_ref","observed_at")}
+        elif kind=="SOURCE_AUDIT_LEDGER":
+            from .source_first_audit import freeze_source_ledger
+            need(type(v) is dict and set(v)=={"user_ref","observed_at","ledger","receipt"} and _note(v["user_ref"]),"SOURCE_AUDIT_LEDGER_SHAPE")
+            need(v["user_ref"]!=p["first_meta"]["user_ref"] and timestamp(v["observed_at"])>timestamp(p["first_meta"]["observed_at"]),"SOURCE_AUDIT_TURN_ORDER")
+            r=freeze_source_ledger(source,v["ledger"])
+            need(r==v["receipt"],"SOURCE_AUDIT_LEDGER_DRIFT")
+            p["source_audit_ledger"]=v["ledger"];p["source_audit_ledger_receipt"]=r
+            p["source_audit_meta"]={x:v[x] for x in ("user_ref","observed_at")}
+        elif kind=="SOURCE_AUDIT_SCORE":
+            from .source_first_audit import audit_bidirectional
+            need(type(v) is dict and set(v)=={"user_ref","observed_at","assessment","result"},"SOURCE_AUDIT_SCORE_SHAPE")
+            need(v["user_ref"]==p["source_audit_meta"]["user_ref"] and timestamp(v["observed_at"])>=timestamp(p["source_audit_meta"]["observed_at"]),"SOURCE_AUDIT_SAME_SECOND_TURN")
+            r=audit_bidirectional(source,p["first"],p["first_authoring"],p["first_authoring_receipt"],p["source_audit_ledger"],p["source_audit_ledger_receipt"],v["assessment"])
+            need(r==v["result"],"SOURCE_AUDIT_SCORE_DRIFT");p["source_audit_score"]=r
         elif kind=="SCORE":
             need(type(v) is dict and set(v)=={"alignment","result"},"SCORE_SHAPE")
             r=score_graphs(source,p["first_packet"],p["second_packet"],v["alignment"])
@@ -461,6 +486,16 @@ class GraphJournal:
         return deepcopy({"head_sha256":head,"graph":p.get("successor_parent",p["reconciliation_parent"]),
             "plan":p.get("successor_plan",p["reconciliation_plan"]),"old":p["historical_obligations"],
             "prior_rows":p.get("pending_review_rows",[])})
+    def source_audit_context(self):
+        """Controlled first-body access after the source-ledger event only.
+
+        Not a security boundary against direct file access or operator memory.
+        """
+        with closing(sqlite3.connect(self.path)) as db, db:
+            db.execute('BEGIN');p,head=self._replay(db)
+            need(head==self.head,"EXTERNAL_HEAD_DRIFT")
+            need("source_audit_ledger_receipt" in p,"SOURCE_AUDIT_LEDGER_REQUIRED")
+        return deepcopy({"head_sha256":head,"first":p["first"],"authored":p["first_authoring"],"first_receipt":p["first_authoring_receipt"],"ledger":p["source_audit_ledger"],"ledger_receipt":p["source_audit_ledger_receipt"]})
     def snapshot(self):
         with closing(sqlite3.connect(self.path)) as db, db:
             db.execute('BEGIN')
@@ -478,5 +513,6 @@ class GraphJournal:
             **({"authoring":{k:p[k] for k in ("first_authoring_receipt","second_authoring_receipt","authoring_comparison") if k in p}} if "first_authoring_receipt" in p else {}),
             **({"pending_review":p["pending_review"]} if "pending_review" in p else {}),
             **({"invalidated_reviews":p["invalidated_reviews"]} if "invalidated_reviews" in p else {}),
+            **({"source_audit_ledger":p["source_audit_ledger_receipt"],"source_audit_score":p.get("source_audit_score")} if "source_audit_ledger_receipt" in p else {}),
             "host_turn_authentication_verified":False,"independent_gold_verified":False,
             "operational_release_authorized":False,"publication_authorized":False}
