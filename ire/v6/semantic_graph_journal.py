@@ -26,7 +26,8 @@ def _allowed(previous_kind,kind):
     if previous_kind is None:return kind=="REGISTER"
     if previous_kind=="REGISTER" and kind==LEGACY_KIND:return True
     if previous_kind==LEGACY_KIND and kind=="SUCCESSOR":return True
-    if previous_kind in ("SUCCESSOR","SUCCESSOR_AMENDMENT") and kind=="SUCCESSOR_AMENDMENT":return True
+    if previous_kind in ("SUCCESSOR","SUCCESSOR_AMENDMENT","PENDING_REVIEW") and kind=="SUCCESSOR_AMENDMENT":return True
+    if previous_kind in ("SUCCESSOR","SUCCESSOR_AMENDMENT","PENDING_REVIEW") and kind=="PENDING_REVIEW":return True
     return previous_kind in KINDS[:-1] and kind==KINDS[KINDS.index(previous_kind)+1]
 EXPOSED_IDS={"LVE7XN_esTc","BXjda2v6e-Q","Yd5qnDtW2TM"}
 EXPOSED_SHAS={"e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
@@ -363,6 +364,7 @@ class GraphJournal:
             draft,_=draft_qualifier_gaps(source,v["packet"],v["old"],v["candidates"],v["events"],v["rows"],v["scopes"],
                 **{k:x for k,x in v["pins"].items() if k!="expected_gap_receipt_sha256"})
             p["reconciliation_parent"]=compile_graph(source,draft);p["reconciliation_plan"]=q
+            p["historical_obligations"]=v["old"]
             p["reconciliation"]={"plan_sha256":h,"obligations":q["obligation_count"],
                 "open_obligations":len(q["open_items"]),"scope_drafts":sum(len(x["obligation_ids"]) for x in q["scope_items"]),
                 "scope_bundles":len(q["scope_items"]),"evidence_tasks":len(q["evidence_tasks"]),
@@ -376,11 +378,27 @@ class GraphJournal:
             p["successor_parent"]=compile_graph(source,v["packet"])
             p["successor_plan"]=_project_plan(p["reconciliation_plan"],v["lineage"],r["successor_packet_sha256"])
         elif kind=="SUCCESSOR_AMENDMENT":
-            need(type(v) is dict and set(v)=={"packet","lineage","new_edges","receipt"},"AMENDMENT_SHAPE")
+            fields={"packet","lineage","new_edges","receipt"}
+            need("successor" in p,"AMENDMENT_BEFORE_SUCCESSOR")
+            if "pending_review" in p:
+                fields.add("invalidated_review_sha256")
+                need(v.get("invalidated_review_sha256")==json_digest(p["pending_review"]),"AMENDMENT_REVIEW_INVALIDATION")
+                p.setdefault("invalidated_reviews",[]).append(v["invalidated_review_sha256"])
+                del p["pending_review"];del p["pending_review_rows"]
+            need(type(v) is dict and set(v)==fields,"AMENDMENT_SHAPE")
             r=successor_amendment(source,p["successor_parent"],p["successor_plan"],p["successor"],v["packet"],v["lineage"],v["new_edges"])
             need(r==v["receipt"],"AMENDMENT_DRIFT");p["successor"]=r
             p["successor_parent"]=compile_graph(source,v["packet"])
             p["successor_plan"]=_project_plan(p["successor_plan"],v["lineage"],r["successor_packet_sha256"])
+        elif kind=="PENDING_REVIEW":
+            from .pending_semantic_review import pending_review
+            need("successor" in p and type(v) is dict and set(v)=={"rows","receipt"},"PENDING_REVIEW_SHAPE")
+            graph=p.get("successor_parent",p["reconciliation_parent"])
+            plan=p.get("successor_plan",p["reconciliation_plan"])
+            prior=p.get("pending_review_rows",[])
+            r=pending_review(source,graph,plan,p["historical_obligations"],v["rows"],prior)
+            need(r==v["receipt"],"PENDING_REVIEW_DRIFT")
+            p["pending_review"]=r;p["pending_review_rows"]=prior+v["rows"]
     def append(self,kind,value):
         raw=_payload(value)
         with closing(sqlite3.connect(self.path,timeout=10,isolation_level=None)) as db:
@@ -395,7 +413,7 @@ class GraphJournal:
                     prev=db.execute("SELECT payload FROM events WHERE seq=?",(n,)).fetchone()[0]
                     if prev==raw:
                         db.commit();self._verified=(n,head,p,self.source);return self.head
-                    need(kind=="SUCCESSOR_AMENDMENT","NONIDENTICAL_RETRY")
+                    need(kind in ("SUCCESSOR_AMENDMENT","PENDING_REVIEW"),"NONIDENTICAL_RETRY")
                 need(_allowed(previous_kind,kind),"EVENT_ORDER")
                 self._apply(p,kind,json.loads(raw))
                 ph=sha256(raw);new=json_digest({"seq":n+1,"kind":kind,"previous":head,"payload_sha256":ph})
@@ -411,7 +429,17 @@ class GraphJournal:
             need(head==self.head,"EXTERNAL_HEAD_DRIFT")
             need("successor" in p,"AMENDMENT_BEFORE_SUCCESSOR")
         return deepcopy({"head_sha256":head,"parent":p["successor_parent"],
-            "projected_plan":p["successor_plan"],"prior_receipt":p["successor"]})
+            "projected_plan":p["successor_plan"],"prior_receipt":p["successor"],
+            **({"pending_review_sha256":json_digest(p["pending_review"])} if "pending_review" in p else {})})
+    def pending_review_context(self):
+        with closing(sqlite3.connect(self.path)) as db, db:
+            db.execute('BEGIN')
+            p,head=self._replay(db)
+            need(head==self.head,"EXTERNAL_HEAD_DRIFT")
+            need("reconciliation" in p,"PENDING_BEFORE_RECONCILIATION")
+        return deepcopy({"head_sha256":head,"graph":p.get("successor_parent",p["reconciliation_parent"]),
+            "plan":p.get("successor_plan",p["reconciliation_plan"]),"old":p["historical_obligations"],
+            "prior_rows":p.get("pending_review_rows",[])})
     def snapshot(self):
         with closing(sqlite3.connect(self.path)) as db, db:
             db.execute('BEGIN')
@@ -426,5 +454,7 @@ class GraphJournal:
             "first_packet_sha256":p.get("first",{}).get("packet_sha256"),
             "second_packet_sha256":p.get("second",{}).get("packet_sha256"),
             "score":p.get("score"),"disputes":p.get("disputes"),"revision":p.get("revision"),"reconciliation":p.get("reconciliation"),"successor":p.get("successor"),
+            **({"pending_review":p["pending_review"]} if "pending_review" in p else {}),
+            **({"invalidated_reviews":p["invalidated_reviews"]} if "invalidated_reviews" in p else {}),
             "host_turn_authentication_verified":False,"independent_gold_verified":False,
             "operational_release_authorized":False,"publication_authorized":False}
