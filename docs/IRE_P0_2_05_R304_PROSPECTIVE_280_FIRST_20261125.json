@@ -1,0 +1,99 @@
+{
+  "schema": "IRE_R304_PROSPECTIVE_280_FIRST_SHA_ONLY_V1",
+  "date": "2026-11-25",
+  "status": "FIRST_FROZEN_AWAIT_DISTINCT_SECOND_TURN",
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "engine_ci": {
+    "id": 45571951090,
+    "conclusion": "success"
+  },
+  "preregistration_commit": "da81f4e8615969cd32fe230ad8fdcbace92feec2",
+  "plan_sha256": "c29f1372b29a6dc963e73b60b824efcd0ac55b46e67d205b1d5ab4067f109bbb",
+  "screening_sha256": "ab462c4b59624690d854f7dd0d12f762d5ca39ff975488e113434d4acc740220",
+  "source": {
+    "roster_no": 280,
+    "video_id": "w1G34vigXbI",
+    "source_sha256": "8c52a00bef9ccdeae782ba31de91eea5bd556987233f80865f5245f52abf3643",
+    "manifest_sha256": "82c581b59cbadc16d40ccd40ddae6b6bccd4f0b25ec3a67628cbcb4095b40921",
+    "grid_sha256": "751dabd3b956306fe6907452c37eb62b5478ec076e739d7f20aa1278eef75e4f",
+    "cue_census_sha256": "b2c574ff65191a7ebea2b5e0c09d1e8f8ad583434010a469fc247643ea0910d0",
+    "cues": 373,
+    "windows": 10
+  },
+  "first": {
+    "observed_at": "2026-11-25T17:06:38+09:00",
+    "registered_at": "2026-11-25T17:01:36+09:00",
+    "observed_registration_to_freeze_seconds": 302,
+    "graph_sha256": "23d9d93e10ddf640c48636231e1ee3ed80523598a6ad643770f6b66074abdf0f",
+    "authored_file_sha256": "289f2517243946a24a89e845c6fb585ca893b2630933c2ffbbfe5a2516ac909a",
+    "packet_file_sha256": "ee4ea1849e75e6b9d46081bf469237add95b4961070569bbed8fc713a07f8f2a",
+    "receipt_sha256": "90846eb471d344dca3e2e0dfac5cd5057cf14fb07f74d8e357538909db22d839",
+    "atoms": 110,
+    "kinds": {
+      "FACT": 61,
+      "OPINION": 30,
+      "HYPOTHETICAL": 10,
+      "RECOMMENDATION": 6,
+      "QUESTION": 3
+    },
+    "risk": {
+      "HIGH": 69,
+      "NORMAL": 41
+    },
+    "numeric_occurrences": 36,
+    "numeric_dispositions": {
+      "QUANTITY": 22,
+      "OPEN": 13,
+      "SUPPORT": 1
+    },
+    "typed_quantity_edges": 28,
+    "condition_relations": 9,
+    "temporal_edges": 8,
+    "uncertain_atoms": 17,
+    "unbound_numeric_spans": 6,
+    "boundary_warnings": 0,
+    "character_dispositions": {
+      "DIRECT": 6019,
+      "SUPPORT": 503,
+      "NONCLAIM": 95,
+      "OPEN": 23
+    }
+  },
+  "journal": {
+    "register_head": "a6e8a352397b359a93020240cb7b8250a1ec1cfaf2b6d77d986b212742bf39aa",
+    "first_head": "2de7422567493145d79bfb036e1d6520f6885f787b32a003e31060941e5f4000",
+    "events": 2,
+    "cold_reopen_equal": true,
+    "isolated_replay_equal": true,
+    "decision_adapter_recompile_byte_equal": true
+  },
+  "archives": {
+    "source_only": {
+      "sha256": "3bc9be815c3dede1a4a3c2c4c51766c5cf36d71079b32cf59fe3f25f1a4e5a1a",
+      "bytes": 347184,
+      "manifest_sha256": "e52268b568c745beb01ba0d553345ac10dd89bc671a5e3d0dee8b1c918c35090",
+      "first_body_excluded": true,
+      "library_readback_byte_equal": true
+    },
+    "first_frozen": {
+      "sha256": "4613d5fee98a379a58330d1c2d77be4f1dfb1db12573c3238c0387ad801b8a38",
+      "bytes": 469726,
+      "manifest_sha256": "b87b4c008830e2cdde900e707e328cc7838455b068a833d0b2c1b4bfb920dc3f",
+      "library_readback_byte_equal": true
+    }
+  },
+  "second_ledger_sha256": null,
+  "score": null,
+  "engine_changed_after_registration": false,
+  "formal_qualification": false,
+  "source_exposure_certified": false,
+  "host_turn_authentication_verified": false,
+  "independent_gold_verified": false,
+  "financial_approval": false,
+  "publication_authorized": false,
+  "limitations": [
+    "Manual source-only first candidate, not exhaustive meaning certification. Data-driven adapter resolves explicit reviewer coordinates and attribute decisions; no automatic semantics. Korean numeral words not fully inventoried. Spaced index identifiers, incomplete or missing units and ASR ambiguities remain OPEN. Main speaker is text-inferred, not audio-authenticated. No current official finance or visual evidence verification.",
+    "Observed 302 seconds is elapsed registration-to-freeze interval, not isolated model time or validated throughput. First candidate not a full-video accuracy result. Preserve prior four failures and 447 tasks. R3-04 HOLD, R3-05/06 BLOCKED, P205 HOLD, 16/60 unchanged.",
+    "Next distinct user turn must load only source-only archive before source ledger and its explicit judgments are frozen; then load first frozen packet, use pinned audit and repeat gate, retain initial score, optional corrected candidate separately. No score until actual second turn; no release."
+  ]
+}
