@@ -1,0 +1,105 @@
+{
+  "schema": "IRE_P205_R304_SHARED_AUTHORING_STRUCTURAL_REGRESSION_V1",
+  "date": "2026-11-25",
+  "parent_commit": "6fa31dec301e0bd8f5b4c2d54e3d49a882221634",
+  "parent_ci_run_id": 45545090592,
+  "parent_ci_conclusion": "success",
+  "engine_commit": "36e52502e21f9388d51ebbb4ee82da6cefd205de",
+  "protocol_sha256": "2caf6924ed30083be8e579385dbf3d214faaa4b862e9346597340e53e78d24d3",
+  "engine_ci_run_id": 45546417001,
+  "engine_ci_observed_status": "in_progress",
+  "engine_ci_conclusion": null,
+  "code_blobs": {
+    "semantic_authoring_protocol": "fb74d4348b22c57ed9db4e6334b775c177d009fc",
+    "semantic_graph_journal": "dd1c295c30cda59b983d991ab3c474485109958e",
+    "test_semantic_authoring_protocol": "6dd18511caa5c86dfd5ea0e1fffea87cde7f861f"
+  },
+  "gates": {
+    "G1": "IMPLEMENTED_STRUCTURAL_SHARED_PROTOCOL",
+    "G2": "IMPLEMENTED_AND_LOCAL_REGRESSION_PASS",
+    "G3": "EXPOSED_SOURCE_EXCERPT_REGRESSION_PASS_ONLY",
+    "G4": "FROZEN_SCORE_REPLAY_PASS_CI_PENDING",
+    "G5": "BLOCKED_PENDING_GATE_REVIEW_AND_CI",
+    "G6": "BLOCKED"
+  },
+  "actual_development_cases": {
+    "270": {
+      "source_cues": 618,
+      "atoms": 2,
+      "inventory": 135,
+      "open_occurrences": 133,
+      "negative_cases_blocked": 4,
+      "cold_reopen_equal": true
+    },
+    "271": {
+      "source_cues": 706,
+      "atoms": 1,
+      "inventory": 145,
+      "open_occurrences": 144,
+      "negative_cases_blocked": 4,
+      "cold_reopen_equal": true
+    },
+    "288": {
+      "source_cues": 771,
+      "atoms": 6,
+      "inventory": 168,
+      "open_occurrences": 162,
+      "negative_cases_blocked": 8,
+      "cold_reopen_equal": true
+    }
+  },
+  "source_cue_inventory": 2095,
+  "excerpt_atoms": 9,
+  "source_numeric_occurrence_inventory": 448,
+  "bound_excerpt_numeric_occurrences": 9,
+  "open_numeric_occurrences": 439,
+  "negative_input_cases_blocked": 16,
+  "new_unit_test_methods": 7,
+  "local_test_invocations_passed": 68,
+  "clean_package_replay_pass": true,
+  "historical_frozen_scores": {
+    "270": {
+      "tp": 60,
+      "fp": 73,
+      "fn": 86,
+      "high_risk_fn": 77
+    },
+    "271": {
+      "tp": 53,
+      "fp": 40,
+      "fn": 41,
+      "high_risk_fn": 35
+    },
+    "288": {
+      "tp": 59,
+      "fp": 90,
+      "fn": 97,
+      "high_risk_fn": 79
+    }
+  },
+  "historical_271_warning_drift": {
+    "original": 3,
+    "current_scanner": 0,
+    "exact_old_scanner_blob": "9dd74fdbb84ef2dd61387908928f73d45bed9bc7"
+  },
+  "historical_288_score_head": "03b87f05de814c91f15ff63fdacac23a05810e1048c0d1b4b9d5e33bf64547e0",
+  "archive_sha256": "9d7b0814a5d2044aad66330eb094c9cf307354af6b8c70ffee03c181c2b60c28",
+  "archive_bytes": 1197662,
+  "package_manifest_sha256": "75ad6f19cc9cca98ed3d23fd3c130bfe5c44e30be4d257433f5b95c0b242fa92",
+  "actual_result_sha256": "6cc61f57ddf23b52560773ff286bb86a0d4d426a3de4b229bb4be9d03581ffee",
+  "frozen_replay_result_sha256": "d5b577fee0692e91618a64e4545dff7dcd5d8e983896d59df6ead54dd0c2828c",
+  "local_test_log_sha256": "851e17d63d630055e71475cb8ba1d487b2b7989b1108dc57ecf073a1096eacf0",
+  "reserved_277_source_read": false,
+  "actual_new_protocol_two_turn_verified": false,
+  "new_semantic_accuracy_measured": false,
+  "semantic_truth_certified": false,
+  "independent_certification": false,
+  "financial_approval": false,
+  "publication_authorized": false,
+  "status": "HOLD",
+  "limitations": [
+    "New protocol is explicit authoring and structural validation, not automatic natural-language semantic inference. Both distinct user turns with full unseen source are still untested. The actual source regressions are manually authored 9 excerpt atoms with the remainder intentionally OPEN; source-wide inventory is not full semantic coverage. Segment/atom writing order is a procedural rule, not independently authenticated host behavior.",
+    "The common typed sidecar retains richer roles and grouped relations; legacy graph projection is not a standalone lossless semantic representation. The native journal requires authored input and receipt for both turns under a pinned protocol plan and blocks later legacy approval/revision. It does not infer truth from role labels or coordinates; evaluation has no new score credit and remains internal. G5 must not start before gate review and integrated CI success.",
+    "Local tests are a retained 68-invocation suite with fixture repetitions, not a complete repository test suite. #271 frozen warning count reproduced with exact historical scanner in replay harness. Existing 447 source-link tasks and failed scores unchanged. No #277 content read. No financial or E3-E5 approval."
+  ]
+}
