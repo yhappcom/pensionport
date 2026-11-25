@@ -1,0 +1,102 @@
+{
+  "schema": "IRE_R304_ETF250_DIRECT_PILOT_TWO_TURN_RESULT_V1",
+  "date": "2026-11-25",
+  "status": "TWO_TURN_WORKFLOW_EXECUTED_RESEARCH_HOLD",
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "first_commit": "cb737721cb438e8c84dd7227cdcb3c274e413645",
+  "first_ci": [
+    {
+      "id": 45579954298,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "first_archive_sha256": "3d5d803ef96127fe431be2c831936623ee41152dc1679b56571c0f53f3c059dc",
+  "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "first_head": "9f7c0ec392b412668cf1abcfda39746492c1a7768db76537f9661a6ce97885c1",
+  "first_graph_sha256": "f6b1f2aafee665499ef2eedf44e0a6fcdedcf17da48b5255b4d998f5f42de759",
+  "direct_review": {
+    "cues": 250,
+    "windows": 7,
+    "atoms": 85,
+    "dispositions": {
+      "SUPPORTED": 66,
+      "TYPED_REVIEW": 9,
+      "OPEN": 8,
+      "MATERIAL_DEFECT": 2
+    },
+    "numeric_occurrences": 17,
+    "open_numeric": 8,
+    "review_sha256": "329e4ed2914f84b8b2d5395a212e29fe31e11e92c308de453ec27f1c30a1d2c4",
+    "windows_sha256": "99361b35c143da5012111a072927e1972d03b9f0eacf6be788160d61aac50779",
+    "numbers_sha256": "aa16ab28d0517fc32e59745f6a5e2a0e0bbac303ca3bec5dafabf88736ff144e"
+  },
+  "candidate": {
+    "atoms": 87,
+    "modified_original_ids": [
+      56,
+      57,
+      59,
+      84
+    ],
+    "added": [
+      86,
+      87
+    ],
+    "uncertain_atoms": 11,
+    "open_numeric": 8,
+    "unbound_numeric": 8,
+    "retained_typed_review": [
+      14,
+      19,
+      20,
+      52,
+      66
+    ],
+    "graph_sha256": "0643d77ee688c805da24c764ff71618c62382537adcfdbe69ade77c0ce11a791",
+    "authored_sha256": "9c8836a4e14667ea598b499b4818066033a7a90a1e75b65e2058bc496414566c",
+    "receipt_sha256": "449a90038a6e667c685157bb14663e404d26cf2fd384bf90be473b1d3f833fb1",
+    "initial_edges_preserved": true,
+    "original_packet_unchanged": true,
+    "compiled": true,
+    "correction_candidate_approved": false
+  },
+  "finance": {
+    "public_followup_sha256": "fb2fc1bdf0165c9779eba4ed1e584bdb79d49261a2037c7f20ccebcec9a7f575",
+    "prior_five_source_review_preserved": true,
+    "krx_nav_tracking_lp_pages_rechecked": true,
+    "financial_investment_regulation_exact_tracking_formula_fetch_failed": true,
+    "all_atoms_financially_verified": false,
+    "official_raw_bytes_authenticated": false
+  },
+  "archive": {
+    "sha256": "c6e71d6aee80ecfbc90542de6c32c42d05fc6069f1343c56445fabcad59f39b1",
+    "bytes": 520013,
+    "manifest_sha256": "31441aea1a5719147f98b970eb570392f1e1b0b10380f3fb7e548428470c6a57",
+    "members": 147,
+    "result_sha256": "836adf855fe650d3bee13108f076034013941f23883402d2002b8e23f05f05db",
+    "isolated_replay_byte_equal": true,
+    "library_readback_byte_equal": true
+  },
+  "actual_distinct_user_turns": true,
+  "second_elapsed_seconds": null,
+  "timing_limit": "Exact second-turn start clock was not captured before source reading; no comparable total workload time or throughput estimate.",
+  "formal_accuracy_score": null,
+  "independent_gold_verified": false,
+  "financial_approval": false,
+  "publication_authorized": false,
+  "engine_changed": false,
+  "prior_five_failure_scores_preserved": true,
+  "decision": "Bounded pilot shows 250 cue review and compiled correction draft within two actual user turns, not complete verified investment research. Do not repeat small masked tests or consume new source. Separate irreducible source uncertainty from actual semantic omissions, representation defects and external financial truth. Next develop a claim-level evidence/quarantine policy proposal and evaluate whether verified subset can be integrated without treating whole-video qualification as PASS. Formal P205 three-domain and 95/98/0 standards remain; no operational metric substitution or E3-E5 bypass. If user chooses to maintain absolute zero unresolved at source level, imperfect SRT can make universal two-turn acceptance impossible; disclose this limitation. No actual permission change implied by this proposal.",
+  "limitations": [
+    "Already exposed source and nonblind direct audit, manual judgments may be wrong or incomplete. A39/A45 contain related evidence; separate assertions missing rather than proven complete meaning loss. Corrections are compiled research draft with explicit lineage and no destructive changes, not independently revalidated. 5 representation issues and 11 uncertain atoms remain; 8 numeric occurrences OPEN. No complete financial evidence, screen/audio confirmation, legal rule formula or independent accuracy certification. No formal research PASS, E3-E5 release, or new engine code. 447 older tasks preserved."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}
