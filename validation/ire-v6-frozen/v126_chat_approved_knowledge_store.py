@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 import re
 import sqlite3
-from contextlib import contextmanager
+from contextlib import contextmanager, closing, ExitStack
 from pathlib import Path
 
 from ire.v6.codec import canonical, json_digest, sha256, ZERO_SHA
@@ -152,13 +152,22 @@ class PrivateKnowledgeStore:
                              host_receipt, chat_review, source_store,
                              official_evidence_bodies, relation_decisions,
                              expected_knowledge_head,
-                             original_host_batch_replay_args):
+                             original_host_batch_replay_args, source_revision_extension=False):
         """All-or-nothing exact ChatGPT-vetted candidate accumulation.
 
         Every claim must have one source-bound, explicit ChatGPT relationship
         decision in addition to V6's pending prior relation. Existing private
         knowledge can be referenced only by its exact immutable ID.
+        An explicit full-source native successor may add newly approved candidates
+        while retaining every older active row byte-for-byte; never replace a row.
         """
+        if type(source_revision_extension) is not bool:
+            raise InvalidInput("V126_EXTENSION_FLAG_INVALID")
+        if source_revision_extension and (self._parent_staging_only or
+                source.scope_first_cue != 1 or source.scope_last_cue != len(source.cues) or
+                type(host_receipt) is not dict or
+                host_receipt.get("formal_typed_transition_pin") is not None):
+            _stop("EXTENSION_ONLY_LEGACY_FULL_SOURCE_NATIVE")
         # The older per-child API may never publish a partial long-video
         # source scope directly. Only V128's disposable, private parent
         # staging clone may accept partial children pending whole-parent COMMIT.
@@ -230,11 +239,45 @@ class PrivateKnowledgeStore:
         excluded_ids = set(gate.get("quarantined_claim_ids", []))
         if accepted_ids != set(atoms) - excluded_ids:
             _stop("APPROVED_SUBSET_NOT_BOUND_TO_FINAL_CHAT_QUARANTINE")
-        with self._session() as con:
+        with self._session() as con, ExitStack() as locks:
             con.execute("BEGIN IMMEDIATE")
             head, statuses = self._audit(con)
             current = {x[0]:json.loads(x[1]) for x in con.execute(
                 "SELECT knowledge_id,entry_json FROM knowledge")}
+            if source_revision_extension:
+                # The original full-source candidate store only. Parent releases
+                # have a separate atomic publication contract, never this path.
+                if con.execute("SELECT 1 FROM sqlite_master WHERE type='table' "
+                               "AND name='parent_publications'").fetchone():
+                    _stop("EXTENSION_PARENT_PUBLICATION_STORE_FORBIDDEN")
+                from ire.v6.store import TransactionStore
+                from ire.v6.host_batch import MARKER_SCHEMA
+                if not isinstance(source_store, TransactionStore):
+                    _stop("EXTENSION_NATIVE_STORE_REQUIRED")
+                # Hold source writer reservation across the knowledge commit;
+                # avoid a concurrent source revision changing the approved head.
+                native = locks.enter_context(closing(source_store._connection()))
+                native.execute("BEGIN IMMEDIATE")
+                _, _, source_head = source_store._replay(native, replay["scope_id"])
+                if source_head != host_receipt["event_sha256"]:
+                    _stop("EXTENSION_SOURCE_HEAD_CHANGED")
+                seals = {}
+                for row in native.execute("SELECT event_sha256,event_json,sequence FROM events "
+                                          "WHERE scope_id=? ORDER BY sequence", (replay["scope_id"],)):
+                    event = json.loads(row["event_json"])
+                    marker = event.get("payload", {}).get("review", {})
+                    if event.get("type") == "REVIEW_PROPOSED" and marker.get("schema") == MARKER_SCHEMA:
+                        if (marker.get("source_sha256") != source.source_sha256 or
+                                "private_typed_staging_record" in marker or
+                                "formal_typed_transition_pin" in marker):
+                            _stop("EXTENSION_UNSUPPORTED_SOURCE_HISTORY")
+                        seals[row["event_sha256"]] = (row["sequence"], marker)
+                predecessor = replay["expected_head"]
+                if (predecessor not in seals or source_head not in seals or
+                        seals[predecessor][0] >= seals[source_head][0] or
+                        seals[source_head][1].get("original_expected_head") != predecessor or
+                        seals[source_head][1].get("bundle_sha256") != host_receipt["bundle_sha256"]):
+                    _stop("EXTENSION_PREDECESSOR_NOT_NATIVE_SEAL")
             entries = []
             for cid in sorted(accepted_ids):
                 atom, decision = atoms[cid], decisions[cid]
@@ -286,6 +329,60 @@ class PrivateKnowledgeStore:
                          "research_candidate_only":True,
                          "personal_advice_approved":False}
                 entries.append(entry)
+            if source_revision_extension:
+                # A whole-source successor cannot drop, revise, re-activate or
+                # change the relationship of an earlier accepted candidate.
+                # A source-scoped revocation/replacement is a different operation.
+                relevant = {kid: row for kid, row in current.items()
+                            if row["video_id"] == source.video_id and
+                            row["source_sha256"] == source.source_sha256}
+                if not relevant or any(row["manifest_sha256"] != source.manifest_sha256
+                                       for row in relevant.values()):
+                    _stop("EXTENSION_PRIOR_SCOPE_MISSING_OR_CHANGED")
+                proposed = {row["knowledge_id"]: row for row in entries}
+                active_prior = {kid for kid in relevant if statuses[kid] == "ACTIVE"}
+                if not active_prior or not active_prior <= proposed.keys():
+                    _stop("EXTENSION_PRIOR_APPROVAL_DROPPED_OR_CHANGED")
+                retained = []
+                new_entries = []
+                current_seal_matches = 0
+                for entry in entries:
+                    kid = entry["knowledge_id"]
+                    if kid not in current:
+                        if any(old["claim_id"] == entry["claim_id"] for old in relevant.values()):
+                            _stop("EXTENSION_EXISTING_CLAIM_REPLACEMENT")
+                        new_entries.append(entry)
+                        continue
+                    old = current[kid]
+                    if kid not in relevant or statuses[kid] != "ACTIVE":
+                        _stop("EXTENSION_PRIOR_ROW_INACTIVE_OR_FOREIGN")
+                    prior_seal = old["host_event_sha256"]
+                    if prior_seal == source_head:
+                        if old != entry:
+                            _stop("EXTENSION_CURRENT_ROW_DRIFT")
+                        current_seal_matches += 1
+                    else:
+                        if (prior_seal not in seals or
+                                seals[prior_seal][0] > seals[predecessor][0] or
+                                {k:v for k,v in old.items() if k not in {"host_event_sha256", "chat_review_sha256"}} !=
+                                {k:v for k,v in entry.items() if k not in {"host_event_sha256", "chat_review_sha256"}}):
+                            _stop("EXTENSION_PRIOR_ROW_OR_LINEAGE_DRIFT")
+                        retained.append(kid)
+                if not retained:
+                    _stop("EXTENSION_PRIOR_APPROVAL_REQUIRED")
+                if not new_entries:
+                    if not current_seal_matches:
+                        _stop("EXTENSION_NO_NEW_CANDIDATES")
+                    return {"status":"IDEMPOTENT_V126_PRIVATE_RESEARCH_BATCH",
+                            "knowledge_head_sha256":head,"entries":current_seal_matches,
+                            "retained_entries":len(retained),"idempotent_replay":True,"p0_go":False}
+                if current_seal_matches:
+                    _stop("EXTENSION_PARTIAL_CURRENT_BATCH")
+                if head != expected_knowledge_head:
+                    _stop("KNOWLEDGE_EXPECTED_HEAD_CHANGED")
+                entries = new_entries
+            else:
+                retained = []
             if not entries:
                 if head != expected_knowledge_head:
                     _stop("NO_APPROVED_CHILD_HEAD_CHANGED")
@@ -315,6 +412,8 @@ class PrivateKnowledgeStore:
                     "status":"RESEARCH_CANDIDATES_STORED_NOT_FORMAL_FINANCIAL_FACTS",
                     "knowledge_head_sha256":head,"entries":len(entries),
                     "chat_final_gate_passed":True,"idempotent_replay":False,
+                    **({"source_revision_extension":True,"retained_entries":len(retained)}
+                       if source_revision_extension else {}),
                     "master116_p4_untouched":True,"financial_fact_formal_approval":0,
                     "personal_advice_approved":False,"p0_go":False}
 

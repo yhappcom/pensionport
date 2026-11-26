@@ -1,0 +1,194 @@
+{
+  "schema": "IRE_DIRECT_NATIVE_SOURCE_EXTENSION_REAL_REPLAY_V1",
+  "date": "2026-11-26",
+  "baseline_commit": "687b959f9f558b932ed5a6106e6c798e644a33d0",
+  "baseline_ci": {
+    "run_id": 45772503830,
+    "conclusion": "success"
+  },
+  "decision": "Retain checker freeze; a demonstrated in-place V126 batch expansion failure warrants a narrow optional existing-method repair, not a new approval gate.",
+  "source_review": {
+    "video_count": 2,
+    "cues": 395,
+    "candidate_groups": 87,
+    "previous_accepted": 2,
+    "current_accepted": 4,
+    "still_excluded": 83,
+    "excluded_categories": {
+      "finance_applicability_unproven": 71,
+      "non_research_content": 8,
+      "context_insufficient": 1,
+      "ambiguous_meaning": 3
+    },
+    "context_only_new_review_rows": 18,
+    "new_context_only_public_sources": 7,
+    "new_direct_origin_capture_count": 0,
+    "direct_original_evidence_used": [
+      "LAW234",
+      "FSC"
+    ],
+    "additional_accepted_claims": 2,
+    "additional_evidence_source": "FSC official body archived from 45763887556, published 2026-01-30, not enactment of proposed rules. Candidate-only: source-attributed product exposure and covered-call mechanics.",
+    "context_only_sources_not_used_as_v123_body": true
+  },
+  "isolated_expanded_snapshot": {
+    "accepted": 4,
+    "candidate_groups": 87,
+    "complete_video_research": false,
+    "cues": 395,
+    "excluded": 83,
+    "formal_financial_fact_approval": 0,
+    "independent_accuracy_measured": false,
+    "knowledge_events": 4,
+    "knowledge_head_sha256": "030b30c9ac7720487f2b383f83f70b5c1beb7d6177e34a784e2c5077b6978c3a",
+    "lookup_sha256": "0e9d8b5b0a6c112dcd447478704ad0a40f9cd5854e8c83955063fe529f7aec83",
+    "p0_go": false,
+    "p205_qualified": false,
+    "retrieved": 4,
+    "schema": "IRE_DIRECT_SOURCE_CANDIDATE_REHEARSAL_V1",
+    "source_events": 12,
+    "videos": [
+      {
+        "accepted": 1,
+        "audio_visual_cues": 4,
+        "candidate_groups": 36,
+        "cues": 173,
+        "excluded": 35,
+        "excluded_cues": 164,
+        "host_bundle_sha256": "b8716661a93839e6aa156355507b23d3be4edbf0b075542b8f21d8ffc6ada5e4",
+        "host_event_sha256": "5537ad601f12d814c6939caaa5780e34ff46ab2c67362a6e4042c6d5f8846507",
+        "idempotent": true,
+        "knowledge_head_sha256": "dca7e53bbfc647cc0ac4c28e0151b26a0375c1860c18a044f0c4a668d3a3250f",
+        "knowledge_ids": [
+          "a7da050bf81c2c0c8a0a5e83bb271cea2daab7a1b0d157f7de4a2e5f518b31c4"
+        ],
+        "negative_missing_body": true,
+        "negative_missing_review": true,
+        "preflight_cues": 2,
+        "review_sha256": "5fd98d88c2597baf5049d6c1538b5cd7d3830361b96d759052dc25314b11ef3d",
+        "source_scope": "FULL_VIDEO",
+        "source_sha256": "19ce2a37a37079dc0a6ea4dde3d031bdc2b7bb990f0506fd1e0610442dbf0145",
+        "v123": "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY",
+        "v126": "RESEARCH_CANDIDATES_STORED_NOT_FORMAL_FINANCIAL_FACTS",
+        "video_id": "Yb_5prWaqhk"
+      },
+      {
+        "accepted": 3,
+        "audio_visual_cues": 10,
+        "candidate_groups": 51,
+        "cues": 222,
+        "excluded": 48,
+        "excluded_cues": 201,
+        "host_bundle_sha256": "dd49a6a4f8fe082d49790cca664ad49fea5ecaa9850e131b161d0827d46371c6",
+        "host_event_sha256": "306ba8b7b8bb4315bd5b9c4346c8364c21ae72c30f58ed1f09fea4bf6a3457fb",
+        "idempotent": true,
+        "knowledge_head_sha256": "030b30c9ac7720487f2b383f83f70b5c1beb7d6177e34a784e2c5077b6978c3a",
+        "knowledge_ids": [
+          "1ecbfe35bf8a6297660fb47ecb54235a07b913f092e8465c1e0d37486c121e48",
+          "a4e8ee8e569a3829a6becdb10cb920b90980b4a36768cacb0cf6c2f9605e6c66",
+          "91281e2177ed4daa20552dfbcc17cacd356c7b17089140cbd16e2ecb7ca3c879"
+        ],
+        "negative_missing_body": true,
+        "negative_missing_review": true,
+        "preflight_cues": 1,
+        "review_sha256": "ac85507dade995c6448953be8c6a05bec3ab7bdc1aac093791280952bd8c085f",
+        "source_scope": "FULL_VIDEO",
+        "source_sha256": "2ce05daa4dd005b512ff99442de7cb2a172a62bc1a2f3daebb8def8003f623fc",
+        "v123": "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY",
+        "v126": "RESEARCH_CANDIDATES_STORED_NOT_FORMAL_FINANCIAL_FACTS",
+        "video_id": "k9O79HeMOp0"
+      }
+    ]
+  },
+  "original_unmodified_v126_defect": {
+    "actual_publication": false,
+    "attempted_in_place_additive_update_error": "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_PARTIAL_OR_CHANGED_BATCH_NOT_ALLOWED",
+    "changed_entry_metadata": {
+      "1ecbfe35bf8a6297660fb47ecb54235a07b913f092e8465c1e0d37486c121e48": [
+        "chat_review_sha256",
+        "host_event_sha256"
+      ],
+      "a7da050bf81c2c0c8a0a5e83bb271cea2daab7a1b0d157f7de4a2e5f518b31c4": []
+    },
+    "expanded_entries": 4,
+    "expanded_knowledge_head": "030b30c9ac7720487f2b383f83f70b5c1beb7d6177e34a784e2c5077b6978c3a",
+    "failed_update_preserved_old_entries": true,
+    "formal_financial_fact_approval": 0,
+    "new_candidate_ids": [
+      "91281e2177ed4daa20552dfbcc17cacd356c7b17089140cbd16e2ecb7ca3c879",
+      "a4e8ee8e569a3829a6becdb10cb920b90980b4a36768cacb0cf6c2f9605e6c66"
+    ],
+    "old_candidate_atom_content_unchanged": true,
+    "old_candidate_ids_retained": 2,
+    "p0_go": false,
+    "previous_db_unchanged": true,
+    "prior_db_sha256": "c7176612d4ac8951e47c5cf6ffdd5f39b24d579211106af3886fef17710f19bf",
+    "prior_entries": 2,
+    "schema": "IRE_DIRECT_EXPANSION_STORAGE_COMPARISON_V1"
+  },
+  "native_extension_actual_replay": {
+    "formal_financial_fact_approval": 0,
+    "knowledge_events_after": 4,
+    "knowledge_events_before": 2,
+    "knowledge_events_preserved": 2,
+    "knowledge_head": "61dd6d4e9c94cf9ec3f018bfa343192a4fcd1c525c70f0f68c2ea6ed9785a95d",
+    "negative_tests": [
+      "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_PARTIAL_OR_CHANGED_BATCH_NOT_ALLOWED",
+      "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_KNOWLEDGE_EXPECTED_HEAD_CHANGED",
+      "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_EXTENSION_PREDECESSOR_NOT_NATIVE_SEAL",
+      "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_EXTENSION_PRIOR_ROW_OR_LINEAGE_DRIFT",
+      "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_EXTENSION_PRIOR_APPROVAL_DROPPED_OR_CHANGED"
+    ],
+    "new_rows": 2,
+    "old_rows_byte_identical": true,
+    "p0_go": false,
+    "prior_files_sha256": [
+      "d11addf1ae2ae43aeccb6450dba7971a0e734469642d76703ded15a47738b87e",
+      "c7176612d4ac8951e47c5cf6ffdd5f39b24d579211106af3886fef17710f19bf"
+    ],
+    "prior_knowledge_head": "2e7de7e323755b59cab70a459c4ecef778f5ddea11545c8347cb75b77fbf79f8",
+    "prior_source_head": "ee39f64f61fd091558baa38d55d99afe6790583a5e479bc85efd9a4854a76e98",
+    "production_store_changed": false,
+    "retrieved": 4,
+    "retry_idempotent": true,
+    "schema": "IRE_DIRECT_EXISTING_NATIVE_SOURCE_EXTENSION_V1",
+    "source_events_after": 15,
+    "source_events_before": 12,
+    "source_events_preserved": 12,
+    "source_head": "1d7be25f70231cdcad596ab603de70d23233dddad8d0eefe5fe1b3d01c997f26"
+  },
+  "tests": {
+    "local_v6": 138,
+    "focused_v123_v126": 29,
+    "new_synthetic": 7,
+    "total_local": 167,
+    "actual_negative": 5,
+    "clean_replay_exact_result": true,
+    "previous_sqlite_resourcewarning_remains": true
+  },
+  "private_archive": {
+    "name": "IRE_PRIVATE_DIRECT_NATIVE_EXTENSION_20261126.zip",
+    "size": 764657,
+    "sha256": "61dad9ce8bb396effcf450082d357d239cfefe9a561d86a49660a84ce13651cd"
+  },
+  "scope_limits": [
+    "No production publication, Master/P4 modification, or formal financial fact approval. Two previously exposed SRT originals, not independent or new performance evaluation.",
+    "Optional source_revision_extension permits only full-source native non-typed successor of exact verified host seal, V123 approval for whole proposed subset, every previous active row retained byte-for-byte, no old relationship changes or reactivation, expected knowledge head and source writer reservation, and all new writes in one knowledge transaction. Existing default rejects partial/changed batch. V128 parent staging/store excluded.",
+    "The source successor and knowledge commit are separate durable transactions; source can remain reviewed but unpublished if knowledge write fails. Writer reservation tested locally, no independent multi-process or crash recovery certification.",
+    "Actual tests run on copies of prior source/knowledge databases, not live stores. Source events 12→15 and prior knowledge events 2→4. Exact prior 2 records and events preserved. No original source/audio/screen completeness guarantee.",
+    "FSC historical publication date recorded in legacy date field for candidate scope only; not regulatory effective date. New web/connector captures did not provide direct original HTTP response bytes in local runtime.",
+    "83 excluded claim groups remain (71 finance applicability, 8 non-research, 4 ambiguous/context). Original 87 group census is not a gold atom count. ETF250 and prior failed trials untouched.",
+    "Full latest GitHub CI not yet run at record creation; local tests do not certify quality."
+  ],
+  "gates": {
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "P205": "HOLD",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "formal_financial_fact_approval": 0,
+    "production_publication": 0,
+    "p0_go": false
+  }
+}
