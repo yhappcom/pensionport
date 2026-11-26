@@ -59,7 +59,7 @@ def _is_finance(atom, source):
     return bool(FINANCIAL.search(text))
 
 
-def _stage_receipt(source, atom_audit, host, store):
+def _stage_receipt(source, atom_audit, host, store, exchange=None):
     if host is None:
         return False
     _check(type(host) is dict and host.get("schema") == "IRE_V6_HOST_BATCH_RECEIPT_V1", "HOST_RECEIPT_SCHEMA")
@@ -81,6 +81,9 @@ def _stage_receipt(source, atom_audit, host, store):
     _check(type(host.get("scope_id")) is str and bool(host["scope_id"]), "HOST_SCOPE")
     if store is None:
         return False
+    if host.get("formal_typed_transition_pin") is not None:
+        from ire.v6.store import TransactionStore
+        _check(isinstance(store, TransactionStore), "FORMAL_TRANSITION_NATIVE_STORE_REQUIRED")
     _check(callable(getattr(store, "snapshot", None)), "HOST_STORE_SNAPSHOT_REQUIRED")
     snap = store.snapshot(host["scope_id"])
     _check(type(snap) is dict and
@@ -99,6 +102,7 @@ def _stage_receipt(source, atom_audit, host, store):
     # pinned source-first preflight. Neither source pin nor host receipt
     # approves their semantic content; V123 must explicitly quarantine them.
     pre = host.get("host_source_prequarantine_pin")
+    transition = None
     # Typed staging preserves the full source/projection/OPEN ledger but is
     # explicitly not a formal V123 exchange. Check the current stored marker
     # even if the caller strips the new receipt field or substitutes an exchange.
@@ -120,7 +124,50 @@ def _stage_receipt(source, atom_audit, host, store):
         _check("private_typed_staging_record" not in marker and
                not (type(stored_pre) is dict and stored_pre.get("schema") == TYPED_STAGING_RECEIPT),
                "TYPED_STAGING_NOT_FORMAL_INPUT")
-    if atom_audit["unresolved_cues"] or atom_audit["suspicious_no_atom_cues"]:
+        # A later generic proposal cannot erase typed custody. Formal input
+        # is available only through the actual native clean-transition batch.
+        from ire.v6.store import TransactionStore
+        if isinstance(store, TransactionStore):
+            from ire.v6.host_batch import _previous_typed_stage, MARKER_SCHEMA
+            from ire.v6.host_quarantine_preflight import audit_clean_typed_transition
+            con = store._connection()
+            try:
+                con.execute("BEGIN")
+                _, seq, current_head = store._replay(con, host["scope_id"])
+                _check(current_head == host["event_sha256"], "HOST_STORE_STALE_OR_PROOF_NOT_COMMITTED")
+                previous = _previous_typed_stage(con, host["scope_id"], seq)
+                transition = marker.get("formal_typed_transition_pin")
+                if previous is not None:
+                    _check(type(transition) is dict and transition == host.get("formal_typed_transition_pin")
+                           and marker.get("schema") == MARKER_SCHEMA
+                           and marker.get("bundle_sha256") == host.get("bundle_sha256")
+                           and marker.get("original_expected_head") == previous[0]
+                           and marker.get("source_first_semantic_frontier_pin") == frontier
+                           and marker.get("source_semantic_risk_pin") == risk,
+                           "TYPED_HISTORY_REQUIRES_FORMAL_TRANSITION")
+                    prior_row = con.execute("SELECT event_json FROM events WHERE scope_id=? AND event_sha256=?",
+                                            (host["scope_id"], previous[0])).fetchone()
+                    prior_marker = json.loads(prior_row["event_json"])["payload"]["review"]
+                    _check(exchange is not None and audit_clean_typed_transition(source, previous[1],
+                           exchange, previous[0], prior_marker, transition["prior_relation_digest"]) == transition,
+                           "FORMAL_TRANSITION_REPLAY_DRIFT")
+                    _check(transition["atom_candidate_digest"] == atom_audit["atom_candidate_digest"] and
+                           transition["cue_disposition_digest"] == atom_audit["cue_disposition_digest"],
+                           "FORMAL_TRANSITION_EXCHANGE_DRIFT")
+                else:
+                    _check(transition is None and host.get("formal_typed_transition_pin") is None,
+                           "FORMAL_TRANSITION_PREDECESSOR_MISSING")
+                con.execute("COMMIT")
+            finally:
+                con.close()
+        else:
+            _check("formal_typed_transition_pin" not in marker and
+                   "formal_typed_transition_pin" not in host, "FORMAL_TRANSITION_NATIVE_STORE_REQUIRED")
+    if transition is not None:
+        _check(pre is None and not atom_audit["unresolved_cues"] and
+               atom_audit["suspicious_no_atom_cues"] == len(transition["reviewed_support_cue_indices"]),
+               "FORMAL_TRANSITION_SUPPORT_CENSUS_DRIFT")
+    elif atom_audit["unresolved_cues"] or atom_audit["suspicious_no_atom_cues"]:
         _check(type(pre) is dict and
                pre.get("schema") == "IRE_V6_HOST_SOURCE_PREQUARANTINE_RECEIPT_V145" and
                pre.get("source_sha256") == source.source_sha256 and
@@ -162,17 +209,23 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
     _check(isinstance(source, VerifiedSource), "OWNER_VERIFIED_SOURCE_REQUIRED")
     atomic = audit_host_atomic_exchange(source, exchange)
     _check(atomic["every_cue_has_explicit_disposition"] is True, "ATOMIC_CUE_GAP")
-    if not _stage_receipt(source, atomic, host_receipt, store):
+    if not _stage_receipt(source, atomic, host_receipt, store, exchange):
         return _result(source, atomic, status="HOLD_MISSING_V6_HOST_BATCH_OR_STORE", reviewed=0,
                        accepted=0, rejected=0, opened=len(exchange["atoms"]),
                        missing_cues=source.scope_last_cue-source.scope_first_cue+1,
                        finance_open=0, risk_open=0, digest=None)
-    return _assess_chat_review(source, exchange, atomic, host_receipt,
-                               chat_review, official_evidence_bodies)
+    formal = host_receipt.get("formal_typed_transition_pin")
+    result = _assess_chat_review(source, exchange, atomic, host_receipt,
+                               chat_review, official_evidence_bodies,
+                               formal_support_indices=formal["reviewed_support_cue_indices"] if formal else None)
+    if host_receipt.get("formal_typed_transition_pin") is not None:
+        _check(store.snapshot(host_receipt["scope_id"])["ledger_head_sha256"] == host_receipt["event_sha256"],
+               "FORMAL_TRANSITION_HEAD_DRIFT")
+    return result
 
 
 def _assess_chat_review(source, exchange, atomic, host_receipt, chat_review,
-                        official_evidence_bodies, *, typed_pin=None):
+                        official_evidence_bodies, *, typed_pin=None, formal_support_indices=None):
     """Common V123 verdict validator. Typed mode is a non-release assessment."""
     if chat_review is None:
         return _result(source, atomic, status="HOLD_MISSING_CHAT_FINAL_REVIEW", reviewed=0,
@@ -325,6 +378,9 @@ def _assess_chat_review(source, exchange, atomic, host_receipt, chat_review,
                set(pre["unresolved_original_cue_indices"]).issubset(
                    {r["cue_index"] for r in chat_review["quarantine"]["cue_rows"]}),
                "HOST_PENDING_SOURCE_NOT_EXPLICITLY_QUARANTINED_BY_CHAT")
+    support_resolved = formal_support_indices is not None and not atomic["unresolved_cues"] and (
+        atomic["suspicious_no_atom_cues"] == len(formal_support_indices)) and all(
+        cues[i-source.scope_first_cue]["status"] == "REVIEWED" for i in formal_support_indices)
     all_pass = (accepted + (quarantine["atoms"] if quarantine else 0) == len(atoms) and not rejected and not opened and
                 not missing_cues and not finance_open and not risk_open and
                 not hrf and (not av or (quarantine is not None and
@@ -333,7 +389,9 @@ def _assess_chat_review(source, exchange, atomic, host_receipt, chat_review,
                 chat_review["counterexample_pass_completed"] and
                 chat_review["disagreements_adjudicated"] and
                 ((not atomic["unresolved_cues"] and
-                  not atomic["suspicious_no_atom_cues"]) or quarantine is not None))
+                  not atomic["suspicious_no_atom_cues"]) or
+                 (support_resolved if formal_support_indices is not None else quarantine is not None)) and
+                (formal_support_indices is None or support_resolved))
     final_status = ("CHAT_FINAL_HOLD_TYPED_TRANSITION" if typed_pin is not None else
                     "CHAT_FINAL_REJECTED" if rejected else
                     "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY" if all_pass else

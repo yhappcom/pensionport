@@ -21,7 +21,7 @@ from .prior_knowledge import audit_prior_candidates
 from .proof import audit_model_anchors
 from .semantic_frontier import source_first_semantic_frontier
 from .semantic_risk import audit_semantic_risks
-from .host_quarantine_preflight import audit_host_quarantine_preflight, TYPED_STAGING_RECEIPT, audit_typed_staging_successor
+from .host_quarantine_preflight import audit_host_quarantine_preflight, TYPED_STAGING_RECEIPT, audit_typed_staging_successor, audit_clean_typed_transition
 from .state_machine import reduce_event
 from .trust import verify_owner_inventory
 
@@ -134,7 +134,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                              quarantine_preflight: dict | None = None,
                              chat_revision: dict | None = None,
                              typed_predecessor: str | None = None,
-                             knowledge_change_plan: dict | None = None) -> dict:
+                             knowledge_change_plan: dict | None = None,
+                             formal_typed_transition: bool = False) -> dict:
     """Commit a complete, source-bound host batch or no events at all.
 
     Requires current operator-pinned source and complete non-empty models
@@ -146,6 +147,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
     if len(run_id)>48:
         raise InvalidInput("HOST_RUN_ID_TOO_LONG")
     expected_head = require_hash(expected_head,"EXPECTED_HEAD")
+    if type(formal_typed_transition) is not bool:
+        raise InvalidInput("HOST_FORMAL_FLAG_INVALID")
     if type(window_models) is not dict or type(window_reviews) is not dict:
         raise InvalidInput("HOST_BATCH_MODEL_MAPS_REQUIRED")
     con = store._connection()
@@ -223,8 +226,15 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 "financial_law_as_of_verified":False,
                 "semantic_entailment_independently_verified":False,
             }
-            prequarantine_pin=audit_host_quarantine_preflight(
-                source,exchange,quarantine_preflight)
+            if formal_typed_transition:
+                if quarantine_preflight is not None:
+                    raise InvalidInput("HOST_FORMAL_TRANSITION_INPUT_INVALID")
+                # A formal successor replays the predecessor's exact typed
+                # support census below, inside the same transaction.
+                prequarantine_pin = None
+            else:
+                prequarantine_pin=audit_host_quarantine_preflight(
+                    source,exchange,quarantine_preflight)
             typed_staging_record = None
             if prequarantine_pin and prequarantine_pin["schema"] == TYPED_STAGING_RECEIPT:
                 typed_staging_record = {"exchange": deepcopy(exchange),
@@ -304,7 +314,33 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
             limit = prior["sequence"] if prior is not None else seq + 1
             predecessor = _previous_typed_stage(con, scope_id, limit)
             successor_pin = None
-            if predecessor is not None:
+            formal_pin = None
+            if formal_typed_transition:
+                if (predecessor is None or typed_staging_record is not None or
+                    prequarantine_pin is not None or revision_pin is not None or
+                    knowledge_change_plan is not None):
+                    raise InvalidInput("HOST_FORMAL_TRANSITION_INPUT_INVALID")
+                previous_sha, previous_record = predecessor
+                if typed_predecessor != previous_sha or expected_head != previous_sha:
+                    raise InvalidInput("HOST_FORMAL_PREDECESSOR_REQUIRED")
+                previous_marker = json.loads(con.execute(
+                    "SELECT event_json FROM events WHERE scope_id=? AND event_sha256=?",
+                    (scope_id,previous_sha)).fetchone()["event_json"])["payload"]["review"]
+                formal_pin = audit_clean_typed_transition(source, previous_record, exchange,
+                    previous_sha, previous_marker, commitment_fields["prior_relation_digest"])
+                if any(r["relationship"] == "OPEN" for r in knowledge["relations"]):
+                    raise QualityNotProven("HOST_FORMAL_PRIOR_RELATIONS_OPEN")
+                # Verify that exact source, prior baseline/relations and model/proof
+                # bytes are the ones bound by the earlier typed seal.
+                prior_fields = deepcopy(commitment_fields)
+                prior_fields["base_head_sha256"] = previous_marker["original_expected_head"]
+                prior_fields["host_source_prequarantine_pin"] = previous_marker["host_source_prequarantine_pin"]
+                if "typed_successor_pin" in previous_marker:
+                    prior_fields["typed_successor_pin"] = previous_marker["typed_successor_pin"]
+                if json_digest(prior_fields) != previous_marker["bundle_sha256"]:
+                    raise InvalidInput("HOST_FORMAL_PRIOR_BUNDLE_DRIFT")
+                commitment_fields["formal_typed_transition_pin"] = formal_pin
+            elif predecessor is not None:
                 previous_sha, previous_record = predecessor
                 if (typed_staging_record is None or typed_predecessor != previous_sha
                         or expected_head != previous_sha):
@@ -352,6 +388,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     review.get("host_source_prequarantine_pin")!=prequarantine_pin or
                     review.get("private_typed_staging_record")!=typed_staging_record or
                     review.get("typed_successor_pin")!=successor_pin or
+                    review.get("formal_typed_transition_pin")!=formal_pin or
                     review.get("knowledge_change_pin")!=change_pin or
                     review.get("private_knowledge_change_plan")!=knowledge_change_plan or
                     review.get("private_chat_revision_sha256")!=revision_pin or
@@ -377,6 +414,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     receipt_fields["private_chat_revision_sha256"]=revision_pin
                 if successor_pin is not None:
                     receipt_fields["typed_successor_pin"]=successor_pin
+                if formal_pin is not None:
+                    receipt_fields["formal_typed_transition_pin"] = formal_pin
                 if change_pin is not None:
                     receipt_fields["knowledge_change_pin"] = change_pin
                 return receipt_fields
@@ -430,6 +469,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 marker["private_typed_staging_record"]=typed_staging_record
             if successor_pin is not None:
                 marker["typed_successor_pin"]=successor_pin
+            if formal_pin is not None:
+                marker["formal_typed_transition_pin"] = formal_pin
             if change_pin is not None:
                 marker["knowledge_change_pin"] = change_pin
                 marker["private_knowledge_change_plan"] = deepcopy(knowledge_change_plan)
@@ -465,6 +506,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 receipt_fields["private_chat_revision_sha256"]=revision_pin
             if successor_pin is not None:
                 receipt_fields["typed_successor_pin"]=successor_pin
+            if formal_pin is not None:
+                receipt_fields["formal_typed_transition_pin"] = formal_pin
             if change_pin is not None:
                 receipt_fields["knowledge_change_pin"] = change_pin
             return receipt_fields

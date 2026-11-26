@@ -1,0 +1,77 @@
+{
+  "schema": "IRE_R304_FORMAL_TYPED_TRANSITION_V1",
+  "date": "2026-11-26",
+  "baseline_commit": "8a7ea060f149efa6686a2ad8bd2008f0850c70f9",
+  "baseline_ci": {
+    "run_id": 45767698962,
+    "conclusion": "success"
+  },
+  "implementation": "Source-identical clean typed to formal host batch, native replay in V123 and V126 exact replay storage. Reject unresolved typed sources and pending change plan; no transition of revised complex source claims. No V128 parent publication change.",
+  "synthetic_only": {
+    "native_formal_transition": true,
+    "conditional_support_cue_preserved": true,
+    "v123_research_candidate_pass": true,
+    "v126_private_candidate_saved": 1,
+    "reopen_and_pinned_audit": true,
+    "idempotent_replay": true,
+    "real_financial_facts_approved": 0,
+    "master_p4_untouched": true
+  },
+  "actual": {
+    "active_knowledge_changes": 0,
+    "approved_atoms": 0,
+    "atoms": 87,
+    "errors": {
+      "actual_formal_transition": "V6_REQUIRED_PROOFS_NOT_VERIFIED: HOST_FORMAL_UNRESOLVED_TYPED_SOURCE",
+      "caller_adds_prequarantine": "V6_INPUT_INVALID: HOST_FORMAL_TRANSITION_INPUT_INVALID",
+      "rewritten_native_claim": "V6_INPUT_INVALID: HOST_FORMAL_EXCHANGE_CHANGED",
+      "wrong_predecessor": "V6_INPUT_INVALID: HOST_FORMAL_PREDECESSOR_REQUIRED"
+    },
+    "host_event_sha256": "51a43d8c2c0c687639b2f16826a61877507c2e1281100b9d45540ca2b3792bb8",
+    "native_events_before_after": [
+      48,
+      48
+    ],
+    "open_numeric": 8,
+    "p0_go": false,
+    "pending_change_plan_sha256": "30bfad64ba53be41f8de486bc9f54832ed4960ea2e92bc340a7e6c71a9f6aff1",
+    "pending_native_relations": 42,
+    "quarantined_atoms": 21,
+    "quarantined_cues": 21,
+    "reviewed_support_cues": [
+      114,
+      115,
+      188,
+      209
+    ],
+    "schema": "IRE_R304_FORMAL_TRANSITION_ACTUAL_HOLD_V1",
+    "source_cues": 250,
+    "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "v123_status": "CHAT_FINAL_HOLD_TYPED_TRANSITION"
+  },
+  "local_regression": {
+    "native": 138,
+    "v123_v126_focused": 22,
+    "total": 160,
+    "new": 19,
+    "clean_archive_reproduction": true,
+    "existing_sqlite_resource_warning": true
+  },
+  "private_archive": {
+    "sha256": "938fa4c6b73e510b859ada0f8ef1aa4b463de1aff01f395c473ed1213225fe6c",
+    "bytes": 867956
+  },
+  "limitations": [
+    "Only exact unchanged clean typed source may transition. Pending change plan, revisions, quarantine or unsupported numerical/source meaning cannot transition. Actual ETF87 remains HOLD.",
+    "No cross-database concurrency proof or V128 parent publication test. No new operational qualification or independent certification."
+  ],
+  "gates": {
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "approved_atoms": 0,
+    "publication_count": 0
+  }
+}

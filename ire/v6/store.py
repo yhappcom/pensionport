@@ -296,6 +296,11 @@ class TransactionStore:
             raise DomainConflict("COMMAND_KIND_NOT_ENABLED")
         if type(payload) is not dict:
             raise InvalidInput("COMMAND_PAYLOAD_INVALID")
+        if kind == "REVIEW_PROPOSED" and type(payload.get("review")) is dict:
+            from .host_batch import MARKER_SCHEMA
+            if (payload["review"].get("schema") == MARKER_SCHEMA or
+                    "formal_typed_transition_pin" in payload["review"]):
+                raise InvalidInput("HOST_BATCH_RESERVED_MARKER")
         fingerprint = json_digest({"kind": kind, "payload": payload,
                                    "expected_head": expected_head})
         con = self._connection()

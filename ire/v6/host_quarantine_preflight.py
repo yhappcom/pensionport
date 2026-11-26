@@ -287,3 +287,60 @@ def audit_typed_staging_successor(source, previous, current, predecessor_sha256)
             'successor_record_sha256':json_digest(current),
             'retained_typed_relations':retained,
             'formal_v123_input_authorized':False, 'p0_go':False}
+
+
+def audit_clean_typed_transition(source, previous, exchange, predecessor_sha256,
+                                 prior_marker, prior_relation_digest):
+    """Authorize formal input only for an unchanged, fully representable typed stage.
+
+    This is deliberately NOT an OPEN/quarantine resolution or change approval.
+    The predecessor remains immutable; V123 must still adjudicate
+    every original cue and claim. Fully replayed support-only premises carry
+    an explicit pin, not a rewritten cue disposition or a quarantine.
+    """
+    require_hash(predecessor_sha256, 'HOST_FORMAL_PREDECESSOR')
+    require_hash(prior_relation_digest, 'HOST_FORMAL_RELATION_DIGEST')
+    if type(previous) is not dict or set(previous) != {'exchange', 'ledger'}:
+        raise InvalidInput('HOST_FORMAL_TYPED_RECORD_REQUIRED')
+    pin = audit_typed_premise_staging(source, previous['exchange'], previous['ledger'])
+    if pin != prior_marker.get('host_source_prequarantine_pin'):
+        raise InvalidInput('HOST_FORMAL_PREDECESSOR_PIN_DRIFT')
+    if previous['exchange'] != exchange:
+        raise InvalidInput('HOST_FORMAL_EXCHANGE_CHANGED')
+    if pin['quarantined_claim_ids'] or pin['quarantined_cue_indices'] or pin['open_numeric_occurrences']:
+        raise QualityNotProven('HOST_FORMAL_UNRESOLVED_TYPED_SOURCE')
+    if 'knowledge_change_pin' in prior_marker:
+        raise QualityNotProven('HOST_FORMAL_PENDING_KNOWLEDGE_CHANGE')
+    if 'private_chat_revision_sha256' in prior_marker:
+        raise QualityNotProven('HOST_FORMAL_REVISION_REPLAY_REQUIRED')
+    # The legacy native exchange has no separate fields for attribution or
+    # estimated/speculative certainty. Do not silently erase those types.
+    from .semantic_authoring_protocol import compile_authoring
+    graph, _ = compile_authoring(source, previous['ledger']['authored'])
+    native = {a['claim_id']:a for a in exchange['atoms']}
+    for row in previous['ledger']['projection_rows']:
+        i = int(row['typed_id'][1:])-1
+        authored = previous['ledger']['authored']['atoms'][i]
+        node, n = graph['nodes'][i], native[row['claim_id']]
+        stance = 'CONDITIONAL' if node['modality']=='CONDITIONAL' else node['polarity']
+        if (node['predicate'] != n['proposition'] or node['kind'] != n['kind'] or
+            node['attribution'] != 'DIRECT' or node['correction'] or
+            authored['certainty'] != 'ASSERTED' or authored['scenario'] != 'ACTUAL' or
+            node['modality'] not in {'ASSERTED','CONDITIONAL'} or
+            stance not in {'AFFIRMED','NEGATED','CONDITIONAL'} or n['stance'] != stance):
+            raise QualityNotProven('HOST_FORMAL_TYPED_SEMANTIC_REPRESENTATION_REQUIRED')
+    from .atomic_exchange import audit_host_atomic_exchange
+    a = audit_host_atomic_exchange(source, exchange)
+    if a['unresolved_cues'] or a['suspicious_no_atom_cues'] != len(pin['reviewed_support_cue_indices']):
+        raise QualityNotProven('HOST_FORMAL_UNRESOLVED_NATIVE_RESIDUAL')
+    return {'schema':'IRE_V6_CLEAN_TYPED_FORMAL_INPUT_V1',
+            'predecessor_event_sha256':predecessor_sha256,
+            'predecessor_bundle_sha256':require_hash(prior_marker['bundle_sha256']),
+            'predecessor_record_sha256':json_digest(previous),
+            'exchange_sha256':json_digest(exchange),
+            'atom_candidate_digest':a['atom_candidate_digest'],
+            'cue_disposition_digest':a['cue_disposition_digest'],
+            'prior_relation_digest':prior_relation_digest,
+            'reviewed_support_cue_indices':pin['reviewed_support_cue_indices'],
+            'formal_input_only':True,'financial_facts_approved':False,
+            'research_export_authorized':False,'p0_go':False}
