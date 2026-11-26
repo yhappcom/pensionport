@@ -1,0 +1,92 @@
+{
+  "schema": "IRE_DIRECT_DELIST_FULL_GROUP_AUDIT_V1",
+  "date": "2026-11-26",
+  "baseline": {
+    "commit": "25a849c80bc3f93200edc3c1aa986c5ef86967ce",
+    "ci_run": 45782230977,
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "source": {
+    "video_id": "Yb_5prWaqhk",
+    "sha256": "19ce2a37a37079dc0a6ea4dde3d031bdc2b7bb990f0506fd1e0610442dbf0145",
+    "cues": 173,
+    "existing_groups": 36,
+    "cues_in_existing_group_context": 167,
+    "reviewed_nonatom_cues": 6,
+    "independent_recall_measured": false,
+    "screen_audio_unverified_cues": 4
+  },
+  "manual_adjudication": {
+    "sha256": "dc0c0a152c97ef4fb9f84421f4131b480b8b800342792d7a0899df979169cf34",
+    "retain_narrow": 9,
+    "correction_required": 10,
+    "hold_historical_scope": 1,
+    "hold_policy_purpose": 1,
+    "hold_out_of_scope": 2,
+    "hold_screen_missing": 1,
+    "hold_statistics": 2,
+    "hold_tax_application": 1,
+    "opinion_not_rule": 2,
+    "illustration_only": 3,
+    "redundant_narrow": 2,
+    "hypothetical_only": 2,
+    "native_status_changed": false,
+    "correction_applied": false,
+    "notes_separate_from_native_seal": true
+  },
+  "replay": {
+    "source_head": "56c9a1cd4fa23085ace50f85e5e784c553d017a68c8d177c3a9d96397720e1e3",
+    "knowledge_head": "d3a11f77f11978135062107c5f779e8dc0383f018c2d2a0ef5801de48558d763",
+    "exact_native_batch_idempotent": true,
+    "prior_v123_receipt_exact": true,
+    "accepted": 9,
+    "excluded": 27,
+    "fresh_v126_parent_staging_entries": 9,
+    "fresh_staging_idempotent_retry": true,
+    "existing_candidate_store_staging_block": "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_PARTIAL_OR_CHANGED_BATCH_NOT_ALLOWED",
+    "prior_knowledge_unchanged": true,
+    "source_unchanged": true,
+    "lookup_video": 9,
+    "lookup_all": 18,
+    "clean_result_exact": true,
+    "clean_manual_records_exact": true,
+    "private_archive_sha256": "5d1bd9c1f0f4823fe9ca48699521294ebee02fdab727d03bb8fad8298a833f30",
+    "private_archive_bytes": 977314,
+    "private_archive_files": 131
+  },
+  "formal_route_assessment": {
+    "v128_source_blob": "ca8a9cec826f0a864ef2b333235e47d5112f5fdd",
+    "e4_gate_source_blob": "8f078aa138de38f6fba20db282021d4e952eb046",
+    "v128_assembly_executed": false,
+    "full_v128_publish_executed": false,
+    "e4_gate_executed": false,
+    "formal_financial_fact_approval": 0,
+    "production_publications": 0,
+    "observed_barrier": "V128 calls V126 without source_revision_extension; existing incremental candidate rows have prior seals/review digests. Tested its actual V126 staging substep on disposable copies, not full parent release.",
+    "decision": "Keep the incremental candidate DB distinct from official publication staging. Do not delete or republish old candidates to manufacture PASS. Resolve authoritative source-type routing and substantive corrections before assembling a real parent release. Source-type V166 classifier currently lacks RECOMMENDATION among allowed kinds; retained C00015 requires explicit compatible routing, not relabeling just for PASS.",
+    "next": "Resolve remaining ten correction items without conflating source and current law. Obtain the unavailable on-screen material and dated primary tax basis, or explicitly document exclusions and their scope for formal parent review. No fresh scope to bypass predecessor. Evaluate actual formal release only after those prerequisites."
+  },
+  "tax_research": {
+    "claim": "C00026",
+    "public_source_urls": [
+      "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1033293557",
+      "https://law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=007507&lsJoLnkSeq=1000316689&print=print"
+    ],
+    "disposition": "Official web text supports distinguishing sale/redemption and termination/distribution income calculations; no direct new HTTP archive or account/product/tax timing determination; hold."
+  },
+  "limitations": [
+    "Re-read existing SRT and all 36 grouped propositions; not a newly complete atomization, independent recall, or audiovisual verification. 9 retained candidates are limited source-attributed propositions; not all subclauses of their context are approved.",
+    "Manual adjudication notes are newly authored and separately archived; not new V123 decisions or source ledger events. No new candidate approval, correction publication or production store changes.",
+    "V126 staging substep was executed, full V128/E4 not executed. Existing candidate rows cannot simply be moved into a new official parent publication; no bypass.",
+    "No new production engine, workflow, branch or current operational trial. Prior failures preserved."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}
