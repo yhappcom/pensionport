@@ -31,6 +31,13 @@ URLS = {
     'DELIST_SIZE':'https://kind.krx.co.kr/external/2026/08/31/000008/20260825000007/68616.htm',
     'DELIST_CORR':'https://kind.krx.co.kr/external/2026/05/07/000207/20260507000378/68615.htm',
     'FSC_LEVERAGE':'https://www.fsc.go.kr/po010106/86910?curPage=&srchBeginDt=&srchCtgry=6&srchEndDt=&srchKey=&srchText=',
+    'SECTOR_INDEX':'https://kind.krx.co.kr/external/2025/01/31/000357/20250131001093/68629.htm',
+    'THEME_INDEX':'https://kind.krx.co.kr/external/2022/06/16/000022/20220616000028/68629.htm',
+    'DIV_INDEX':'https://kind.krx.co.kr/external/2025/08/28/000018/20250828000039/68630.htm',
+    'SP500':'https://kind.krx.co.kr/external/2026/04/09/000051/20260409000066/68648.htm',
+    'OIL_FUTURES':'https://kind.krx.co.kr/external/2025/10/13/000001/20251013000001/68648.htm',
+    'FSC_APRIL':'https://www.fsc.go.kr/no010101/86751?curPage=1&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=&srchText=',
+    'FSC_JULY':'https://www.fsc.go.kr/no010101/87353?curPage=&srchBeginDt=2026-05-25&srchCtgry=&srchEndDt=2026-08-21&srchKey=sj&srchText=%EB%8B%A8%EC%9D%BC%EC%A2%85%EB%AA%A9+%EB%A0%88%EB%B2%84%EB%A6%AC%EC%A7%80+%EC%83%81%ED%92%88',
 }
 HOSTS = {'www.law.go.kr','law.go.kr','www.fsc.go.kr','fsc.go.kr',
          'kind.krx.co.kr','pdf.krx.co.kr','www.krx.co.kr','krx.co.kr'}
