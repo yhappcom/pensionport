@@ -11,6 +11,7 @@ import json
 from copy import deepcopy
 
 from .chat_revision import compile_chat_atom_revision
+from .knowledge_change import audit_knowledge_change
 
 from .atomic_exchange import _digest_rows, audit_host_atomic_exchange
 from .codec import WINDOW, IDENT, json_digest, require_hash, require_identifier
@@ -132,7 +133,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                              window_models: dict, window_reviews: dict,
                              quarantine_preflight: dict | None = None,
                              chat_revision: dict | None = None,
-                             typed_predecessor: str | None = None) -> dict:
+                             typed_predecessor: str | None = None,
+                             knowledge_change_plan: dict | None = None) -> dict:
     """Commit a complete, source-bound host batch or no events at all.
 
     Requires current operator-pinned source and complete non-empty models
@@ -312,6 +314,31 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 commitment_fields["typed_successor_pin"] = successor_pin
             elif typed_predecessor is not None:
                 raise InvalidInput("HOST_TYPED_SUCCESSOR_PREDECESSOR_NOT_FOUND")
+            change_pin = None
+            if knowledge_change_plan is not None:
+                if predecessor is None:
+                    raise InvalidInput("HOST_KNOWLEDGE_CHANGE_PREDECESSOR_REQUIRED")
+                previous_marker = json.loads(con.execute(
+                    "SELECT event_json FROM events WHERE scope_id=? AND event_sha256=?",
+                    (scope_id,previous_sha)).fetchone()["event_json"])["payload"]["review"]
+                prior_fields = deepcopy(commitment_fields)
+                prior_fields["base_head_sha256"] = previous_marker["original_expected_head"]
+                if "typed_successor_pin" in previous_marker:
+                    prior_fields["typed_successor_pin"] = previous_marker["typed_successor_pin"]
+                else:
+                    prior_fields.pop("typed_successor_pin", None)
+                if json_digest(prior_fields) != previous_marker["bundle_sha256"]:
+                    raise InvalidInput("HOST_KNOWLEDGE_CHANGE_PRIOR_BUNDLE_DRIFT")
+                change_pin = audit_knowledge_change(previous_record, typed_staging_record,
+                    previous_sha, commitment_fields["prior_relation_digest"],
+                    knowledge["relations"], knowledge_change_plan)
+                commitment_fields["knowledge_change_pin"] = change_pin
+            if predecessor is not None:
+                previous_marker = json.loads(con.execute(
+                    "SELECT event_json FROM events WHERE scope_id=? AND event_sha256=?",
+                    (scope_id,previous_sha)).fetchone()["event_json"])["payload"]["review"]
+                if "knowledge_change_pin" in previous_marker:
+                    raise InvalidInput("HOST_KNOWLEDGE_CHANGE_PENDING_REQUIRES_REVIEWED_TRANSITION")
             commitment=json_digest(commitment_fields)
             if prior is not None:
                 event=json.loads(prior["event_json"])
@@ -325,6 +352,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     review.get("host_source_prequarantine_pin")!=prequarantine_pin or
                     review.get("private_typed_staging_record")!=typed_staging_record or
                     review.get("typed_successor_pin")!=successor_pin or
+                    review.get("knowledge_change_pin")!=change_pin or
+                    review.get("private_knowledge_change_plan")!=knowledge_change_plan or
                     review.get("private_chat_revision_sha256")!=revision_pin or
                     review.get("private_chat_revision")!=revision_record or
                     review.get("semantic_truth_certified") is not False or
@@ -348,6 +377,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     receipt_fields["private_chat_revision_sha256"]=revision_pin
                 if successor_pin is not None:
                     receipt_fields["typed_successor_pin"]=successor_pin
+                if change_pin is not None:
+                    receipt_fields["knowledge_change_pin"] = change_pin
                 return receipt_fields
             for wid in windows:
                 for suffix in ("model","proof"):
@@ -399,6 +430,10 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 marker["private_typed_staging_record"]=typed_staging_record
             if successor_pin is not None:
                 marker["typed_successor_pin"]=successor_pin
+            if change_pin is not None:
+                marker["knowledge_change_pin"] = change_pin
+                marker["private_knowledge_change_plan"] = deepcopy(knowledge_change_plan)
+                marker["private_knowledge_change_rows"] = deepcopy(knowledge["relations"])
             if revision_pin is not None:
                 marker["private_chat_revision_sha256"]=revision_pin
                 marker["private_chat_revision"]=revision_record
@@ -430,6 +465,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 receipt_fields["private_chat_revision_sha256"]=revision_pin
             if successor_pin is not None:
                 receipt_fields["typed_successor_pin"]=successor_pin
+            if change_pin is not None:
+                receipt_fields["knowledge_change_pin"] = change_pin
             return receipt_fields
         return store._commit(con,work)
     finally:
@@ -477,6 +514,15 @@ def read_host_typed_staging(store, *, scope_id, run_id, raw, manifest,
                 raise LedgerCorrupted("HOST_TYPED_SUCCESSOR_PIN_DRIFT")
         elif "typed_successor_pin" in marker:
             raise LedgerCorrupted("HOST_TYPED_SUCCESSOR_PIN_WITHOUT_PREDECESSOR")
+        change_pin = marker.get("knowledge_change_pin")
+        if change_pin is not None:
+            if predecessor is None or audit_knowledge_change(predecessor[1], record,
+                predecessor[0], change_pin["prior_relation_digest"],
+                marker.get("private_knowledge_change_rows"),
+                marker.get("private_knowledge_change_plan")) != change_pin:
+                raise LedgerCorrupted("HOST_KNOWLEDGE_CHANGE_PIN_DRIFT")
+        elif any(k in marker for k in ("private_knowledge_change_rows", "private_knowledge_change_plan")):
+            raise LedgerCorrupted("HOST_KNOWLEDGE_CHANGE_PIN_MISSING")
         # Bind the native projection to all current committed model revisions.
         indexed = {a["claim_id"]: a for a in record["exchange"]["atoms"]}
         seen = set()
@@ -503,6 +549,7 @@ def read_host_typed_staging(store, *, scope_id, run_id, raw, manifest,
         con.execute("COMMIT")
         return {"schema":"IRE_V6_PRIVATE_TYPED_STAGING_READ_V1", "event_sha256":head,
                 "sequence":seq, "receipt":receipt, "record":record,
+                **({"knowledge_change_pin":change_pin, "knowledge_change_plan":marker["private_knowledge_change_plan"]} if change_pin else {}),
                 "research_complete":False, "p0_go":False}
     finally:
         con.close()

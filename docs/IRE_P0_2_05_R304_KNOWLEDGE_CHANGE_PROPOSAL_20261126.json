@@ -1,0 +1,70 @@
+{
+  "schema": "IRE_R304_KNOWLEDGE_CHANGE_PROPOSAL_TEST_V1",
+  "date": "2026-11-26",
+  "parent": "fe55c4e4fef937e33a92e8d203350c89b785c24f",
+  "previous_ci": {
+    "run_id": 45761181262,
+    "conclusion": "success"
+  },
+  "status": "NATIVE_UNAPPROVED_PROPOSAL_CUSTODY_PASS_R304_HOLD",
+  "code_blobs": {
+    "ire/v6/host_batch.py": "119bd6dcd8ec29a0b8be4a86eec6fd9c79d0f82e",
+    "ire/v6/knowledge_change.py": "2eee3c640bbb13e6e41d38e1f3c82a297f8fb139",
+    "ire/v6/tests/test_knowledge_change.py": "2048d08e67f3b640625064a85fee80cfc14438cc"
+  },
+  "actual_etf250": {
+    "receipt": {
+      "schema": "IRE_V6_KNOWLEDGE_CHANGE_RECEIPT_V1",
+      "predecessor_event_sha256": "3e3f9617181c9b0a189aedc5206039ba333f31090031f73702de78b22efb1519",
+      "prior_relation_digest": "cf6f3a63b402d48ee688b613b8a265fb23e8b572ee53ccacdbb9950b6e90294e",
+      "plan_sha256": "30bfad64ba53be41f8de486bc9f54832ed4960ea2e92bc340a7e6c71a9f6aff1",
+      "counts": {
+        "EXTEND": 10,
+        "CORRECT_SOURCE_CANDIDATE": 7,
+        "RETAIN_OPEN": 25
+      },
+      "finance_evidence_authenticated": false,
+      "active_knowledge_changed": false,
+      "formal_v123_input_authorized": false,
+      "p0_go": false
+    },
+    "events": 48,
+    "previous_events_preserved": 33,
+    "negative": {
+      "missing_open": "V6_INPUT_INVALID: HOST_KNOWLEDGE_CHANGE_OPEN_CENSUS_LOSS",
+      "duplicate": "V6_INPUT_INVALID: HOST_KNOWLEDGE_CHANGE_ROW_IDENTITY",
+      "bad_atom": "V6_INPUT_INVALID: HOST_KNOWLEDGE_CHANGE_ATOM_DRIFT",
+      "quarantine_release": "V6_INPUT_INVALID: HOST_KNOWLEDGE_CHANGE_QUARANTINE_OR_EVIDENCE",
+      "bad_head": "V6_INPUT_INVALID: HOST_KNOWLEDGE_CHANGE_PLAN_SCHEMA_OR_HEAD",
+      "self_approval": "V6_INPUT_INVALID: HOST_KNOWLEDGE_CHANGE_ROW_SCHEMA",
+      "evidence_absent": "V6_INPUT_INVALID: HOST_KNOWLEDGE_CHANGE_QUARANTINE_OR_EVIDENCE",
+      "rewrite_prior_rows": "V6_INPUT_INVALID: HOST_KNOWLEDGE_CHANGE_PRIOR_BUNDLE_DRIFT",
+      "silent_drop_pending": "V6_INPUT_INVALID: HOST_KNOWLEDGE_CHANGE_PENDING_REQUIRES_REVIEWED_TRANSITION"
+    },
+    "idempotent": true,
+    "readback": true,
+    "approved": 0,
+    "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b"
+  },
+  "local_regression": {
+    "passed": 106,
+    "new_tests": 7,
+    "scope": "Recovered local subset, not whole CI"
+  },
+  "limitations": [
+    "Only extension and source-candidate correction proposals; no approved retirement, split/merge, active knowledge change or quarantine release.",
+    "External evidence URLs are reference only; no authenticated finance bytes or V123 authorization.",
+    "All native OPEN relations and protected knowledge unchanged. Pending plan blocks later typed stage in this scope until a reviewed transition is implemented. Same-scope only; not proof all host or fresh database bypasses impossible.",
+    "Readback and retries tested on actual 48-event DB; not independent certification. No new qualification trial."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "approved_atoms": 0,
+    "publication_count": 0
+  }
+}
