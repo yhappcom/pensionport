@@ -167,6 +167,13 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                        accepted=0, rejected=0, opened=len(exchange["atoms"]),
                        missing_cues=source.scope_last_cue-source.scope_first_cue+1,
                        finance_open=0, risk_open=0, digest=None)
+    return _assess_chat_review(source, exchange, atomic, host_receipt,
+                               chat_review, official_evidence_bodies)
+
+
+def _assess_chat_review(source, exchange, atomic, host_receipt, chat_review,
+                        official_evidence_bodies, *, typed_pin=None):
+    """Common V123 verdict validator. Typed mode is a non-release assessment."""
     if chat_review is None:
         return _result(source, atomic, status="HOLD_MISSING_CHAT_FINAL_REVIEW", reviewed=0,
                        accepted=0, rejected=0, opened=len(exchange["atoms"]),
@@ -297,10 +304,23 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                                          "numeric_period_checked", "counterexample_checked")),
                    "UNVERIFIED_SEMANTIC_ACCEPTANCE")
     _check(seen == set(atoms), "CHAT_ATOM_MISSING")
+    if typed_pin is not None:
+        _check(not accepted and not any(r["status"] == "EXCLUDE_FROM_RESEARCH" for r in rows)
+               and not any(r["status"] == "EXCLUDED_FROM_RESEARCH" for r in cues)
+               and chat_review.get("quarantine") is None,
+               "TYPED_REVIEW_NOT_RELEASE_OR_EXCLUSION")
+        _check(all(r["status"] == "OPEN" for r in rows
+                   if r["claim_id"] in typed_pin["quarantined_claim_ids"]) and
+               all(r["status"] == "OPEN" for r in cues
+                   if r["cue_index"] in typed_pin["quarantined_cue_indices"]),
+               "TYPED_REVIEW_QUARANTINE_CANNOT_RESOLVE")
+        _check(not official_evidence_bodies and all(
+            r["finance_evidence_status"] != "PRIMARY_BODY_AND_DATE_CHAT_CHECKED" for r in rows),
+            "TYPED_REVIEW_FINANCE_CANNOT_SELF_PROMOTE")
     quarantine = audit_explicit_quarantine(source, exchange, chat_review, atoms)
     semantic_provenance = audit_source_meaning_provenance(source, exchange, chat_review)
     pre = host_receipt.get("host_source_prequarantine_pin")
-    if pre is not None:
+    if pre is not None and typed_pin is None:
         _check(quarantine is not None and
                set(pre["unresolved_original_cue_indices"]).issubset(
                    {r["cue_index"] for r in chat_review["quarantine"]["cue_rows"]}),
@@ -314,7 +334,8 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                 chat_review["disagreements_adjudicated"] and
                 ((not atomic["unresolved_cues"] and
                   not atomic["suspicious_no_atom_cues"]) or quarantine is not None))
-    final_status = ("CHAT_FINAL_REJECTED" if rejected else
+    final_status = ("CHAT_FINAL_HOLD_TYPED_TRANSITION" if typed_pin is not None else
+                    "CHAT_FINAL_REJECTED" if rejected else
                     "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY" if all_pass else
                     "CHAT_FINAL_HOLD_OPEN")
     result = _result(source, atomic,
@@ -334,6 +355,116 @@ def assess_chat_final_gate(source: VerifiedSource, exchange: dict, *,
                       quarantine_digest_sha256=quarantine["quarantine_digest_sha256"],
                       audio_authenticity_verified=False)
     return result
+
+
+
+def _audit_typed_review_notes(review, notes):
+    """Replay the actual private note body instead of accepting bare SHA labels."""
+    _check(type(review) is dict and type(notes) is dict and set(notes) == {
+        "source_cues", "atom_verdicts", "scope_note"} and
+        type(notes["scope_note"]) is str and bool(notes["scope_note"].strip()) and
+        json_digest(notes) == review.get("review_private_evidence_sha256"),
+        "TYPED_REVIEW_PRIVATE_NOTES_DRIFT")
+    for group, key, digest, anchor in (("source_cues", "cue_index", "review_note_sha256", "cue_text_sha256"),
+                               ("atom_verdicts", "claim_id", "private_review_note_sha256", "atom_sha256")):
+        rows, bodies = review.get(group), notes[group]
+        _check(type(rows) is list and type(bodies) is list and len(rows) == len(bodies),
+               "TYPED_REVIEW_NOTE_CENSUS")
+        _check(all(type(r) is dict and type(n) is dict and key in r and key in n and
+                   r[key] == n[key] and r.get(anchor) == n.get(anchor) and
+                   r.get("status") == n.get("status") and r.get(digest) == json_digest(n)
+                   for r, n in zip(rows, bodies)), "TYPED_REVIEW_NOTE_ROW_DRIFT")
+
+
+def assess_typed_chat_final_gate(store, *, scope_id, run_id, expected_head,
+                                 raw, manifest, inventory_bytes,
+                                 expected_inventory_sha256, chat_review, review_notes,
+                                 change_review=None, evidence_inputs=None,
+                                 origin_archive=None):
+    """Run the same V123 census/verdict checks on the actual native typed seal.
+
+    This is a read-only HOLD assessment, not the formal release entrypoint.
+    Pending typed clauses, quantities, prior relations and correction drafts
+    must survive until a reviewed successor is committed. Never construct a
+    legacy V145 receipt, remove a typed marker, or reinterpret a draft as a
+    verified original financial assertion. The old export gate is unchanged.
+    """
+    import json
+    from ire.v6.store import TransactionStore
+    from ire.v6.host_batch import read_host_typed_staging
+    from ire.v6.trust import verify_owner_inventory
+    from ire.v6.knowledge_change import prepare_host_knowledge_change_review
+    from ire.v6.host_quarantine_preflight import TYPED_STAGING_RECEIPT
+
+    _check(isinstance(store, TransactionStore), "TYPED_REVIEW_NATIVE_STORE_REQUIRED")
+    _pin(expected_head, "TYPED_REVIEW_EXPECTED_HEAD")
+    kw = dict(scope_id=scope_id, run_id=run_id, raw=raw, manifest=manifest,
+              inventory_bytes=inventory_bytes, expected_inventory_sha256=expected_inventory_sha256)
+    staged = read_host_typed_staging(store, **kw)
+    _check(staged["event_sha256"] == expected_head, "TYPED_REVIEW_HEAD_DRIFT")
+    pin = staged["receipt"]
+    _check(pin["schema"] == TYPED_STAGING_RECEIPT and
+           pin["formal_v123_input_authorized"] is False and pin["p0_go"] is False,
+           "TYPED_REVIEW_RECEIPT")
+    source = verify_owner_inventory(raw, manifest, inventory_bytes,
+                     expected_inventory_sha256=expected_inventory_sha256).source
+    exchange = staged["record"]["exchange"]
+    atomic = audit_host_atomic_exchange(source, exchange)
+    _check(atomic["every_cue_has_explicit_disposition"] is True, "ATOMIC_CUE_GAP")
+    con = store._connection()
+    try:
+        con.execute("BEGIN")
+        state, seq, head = store._replay(con, scope_id)
+        _check(head == expected_head and seq == staged["sequence"], "TYPED_REVIEW_HEAD_DRIFT")
+        row = con.execute("SELECT event_json FROM events WHERE scope_id=? AND event_sha256=?",
+                          (scope_id, head)).fetchone()
+        _check(row is not None, "TYPED_REVIEW_SEAL_MISSING")
+        marker = json.loads(row["event_json"])["payload"]["review"]
+        _check(marker["private_typed_staging_record"] == staged["record"] and
+               marker["host_source_prequarantine_pin"] == pin and
+               marker.get("knowledge_change_pin") == staged.get("knowledge_change_pin"),
+               "TYPED_REVIEW_SEAL_DRIFT")
+        host = {"event_sha256": head, "bundle_sha256": _pin(marker["bundle_sha256"], "HOST_BUNDLE"),
+                "host_source_prequarantine_pin": pin}
+        con.execute("COMMIT")
+    finally:
+        con.close()
+    _check(type(chat_review) is dict, "TYPED_REVIEW_REQUIRED")
+    change = None
+    if staged.get("knowledge_change_pin") is not None:
+        _check(type(change_review) is dict and type(evidence_inputs) is dict and
+               change_review.get("as_of") == chat_review.get("as_of"),
+               "TYPED_REVIEW_PENDING_CHANGE_REPLAY_REQUIRED")
+        change = prepare_host_knowledge_change_review(store, **kw, review=change_review,
+                     evidence_inputs=evidence_inputs, origin_archive=origin_archive)
+        _check(change["host_event_sha256"] == expected_head and
+               change["plan_sha256"] == staged["knowledge_change_pin"]["plan_sha256"] and
+               change["formal_v123_input_authorized"] is False and
+               change["active_knowledge_changed"] is False,
+               "TYPED_REVIEW_CHANGE_DRIFT")
+    else:
+        _check(change_review is None and evidence_inputs is None and origin_archive is None,
+               "TYPED_REVIEW_UNEXPECTED_CHANGE")
+    result = _assess_chat_review(source, exchange, atomic, host, chat_review, {}, typed_pin=pin)
+    _audit_typed_review_notes(chat_review, review_notes)
+    _check(result["status"] == "CHAT_FINAL_HOLD_TYPED_TRANSITION" and
+           result["research_candidate_export_allowed"] is False and result["atoms_accepted"] == 0,
+           "TYPED_REVIEW_RELEASE_FORBIDDEN")
+    _check(store.snapshot(scope_id)["ledger_head_sha256"] == expected_head, "TYPED_REVIEW_HEAD_DRIFT")
+    return {**result, "typed_host_event_sha256": expected_head,
+            "typed_exchange_sha256": pin["exchange_sha256"],
+            "typed_preflight_ledger_sha256": pin["preflight_ledger_sha256"],
+            "typed_quarantined_claim_ids": pin["quarantined_claim_ids"],
+            "typed_quarantined_cue_indices": pin["quarantined_cue_indices"],
+            "typed_support_cue_indices": pin["reviewed_support_cue_indices"],
+            "typed_open_numeric_occurrences": pin["open_numeric_occurrences"],
+            "typed_private_review_notes_sha256": json_digest(review_notes),
+            "pending_knowledge_change_plan_sha256": change["plan_sha256"] if change else None,
+            "pending_knowledge_change_review_sha256": change["review_sha256"] if change else None,
+            "pending_knowledge_change_receipt_sha256": json_digest(change) if change else None,
+            "pending_native_open_rows": change["native_open_rows"] if change else None,
+            "pending_origin_capture_links_replayed": change.get("origin_capture_links_replayed", 0) if change else 0,
+            "formal_v123_input_authorized": False, "active_knowledge_changed": False}
 
 
 def _result(source, atomic, *, status, reviewed, accepted, rejected, opened,
