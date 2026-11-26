@@ -1,0 +1,1212 @@
+{
+  "schema": "IRE_DIRECT_REDESIGN_EXPOSED_REPLAY_V1",
+  "baseline_commit": "95feba652b25df15caa46d700593e0e23a310960",
+  "baseline_ci_run": 45769883158,
+  "baseline_ci_status": "success",
+  "repository_inventory": {
+    "tracked_blobs": 2636,
+    "ire_files": 726,
+    "validation_files": 1016,
+    "workflows": 27,
+    "full_text_audit": false
+  },
+  "execution_inventory": {
+    "local_v6_modules": 86,
+    "static_relative_import_closure": 27,
+    "classifications": {
+      "DEPENDENCY_OR_CONDITIONAL": 15,
+      "NOT_USED_IN_THIS_ROUTE": 58,
+      "EXECUTED": 13
+    },
+    "modules": [
+      {
+        "path": "ire/v6/__init__.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "errors",
+          "evaluation",
+          "store"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/advisory_decision_utility.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "current_advisory_bridge",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/assessment_campaign.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "assessment_plan",
+          "codec",
+          "errors",
+          "gold_eval",
+          "gold_release",
+          "gold_traceability",
+          "review_consensus",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/assessment_closeout.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "assessment_campaign",
+          "assessment_plan",
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/assessment_plan.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/atomic_exchange.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "claim_census",
+          "codec",
+          "errors"
+        ],
+        "called_functions": [
+          "<genexpr>",
+          "_digest_rows",
+          "_indices",
+          "audit_host_atomic_exchange"
+        ]
+      },
+      {
+        "path": "ire/v6/blind_custody.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "evaluation",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/calculation_lineage.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "semantic_obligation_review",
+          "semantic_source_graph"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/chat_general_answer_v32.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "advisory_decision_utility",
+          "atomic_exchange",
+          "chat_led_evidence_v31",
+          "codec",
+          "errors",
+          "semantic_finance_decision_v25",
+          "source_census_tax_guard_v26"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/chat_led_evidence_v31.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "advisory_decision_utility",
+          "atomic_exchange",
+          "codec",
+          "current_law_reassessment",
+          "errors",
+          "private_replay_receipt_v29",
+          "semantic_risk",
+          "source_census_tax_guard_v26",
+          "source_facet_audit_v27",
+          "source_quality_audit_v30",
+          "temporal_finance_gate"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/chat_review_custody_v33.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/chat_revision.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "claim_census",
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/chat_risk_reassessment_v34.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "chat_review_custody_v33",
+          "codec",
+          "errors",
+          "semantic_risk"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/chat_risk_resolution_v35.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "chat_risk_reassessment_v34",
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/chat_scope_disposition_v36.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/claim_census.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/codec.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "errors"
+        ],
+        "called_functions": [
+          "_check_json",
+          "canonical",
+          "json_digest",
+          "require_hash",
+          "require_identifier",
+          "sha256"
+        ]
+      },
+      {
+        "path": "ire/v6/common_atomic_review.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "chat_revision",
+          "codec",
+          "errors",
+          "numeric_provenance"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/cumulative_review.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "semantic_obligation_review"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/current_advisory_bridge.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "current_law_reassessment",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/current_law_reassessment.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "temporal_finance_gate"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/errors.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [],
+        "called_functions": [
+          "ConcurrentHeadChanged",
+          "DomainConflict",
+          "IdempotencyConflict",
+          "InvalidInput",
+          "LedgerCorrupted",
+          "QualityNotProven",
+          "UnsupportedSchema",
+          "V6Error"
+        ]
+      },
+      {
+        "path": "ire/v6/evaluation.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/finance.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/full_original_risk_intake_v42.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "host_semantic_custody_v39",
+          "source",
+          "source_window_host_screen_v37"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/full_video_segments.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "source",
+          "trust"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/gold_eval.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "assessment_plan",
+          "codec",
+          "errors",
+          "gold_traceability",
+          "numeric_provenance",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/gold_release.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "assessment_plan",
+          "codec",
+          "errors",
+          "gold_eval",
+          "gold_traceability",
+          "review_consensus",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/gold_traceability.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/guarded_question_advisory_v148.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/host_batch.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "chat_revision",
+          "codec",
+          "errors",
+          "host_quarantine_preflight",
+          "knowledge_change",
+          "prior_knowledge",
+          "proof",
+          "semantic_frontier",
+          "semantic_risk",
+          "state_machine",
+          "trust"
+        ],
+        "called_functions": [
+          "<genexpr>",
+          "_previous_typed_stage",
+          "submit_host_atomic_batch",
+          "work"
+        ]
+      },
+      {
+        "path": "ire/v6/host_quarantine_preflight.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "claim_census",
+          "codec",
+          "errors",
+          "semantic_authoring_protocol"
+        ],
+        "called_functions": [
+          "audit_host_quarantine_preflight"
+        ]
+      },
+      {
+        "path": "ire/v6/host_semantic_custody_v39.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "provisional_full_source_v33",
+          "source",
+          "source_window_host_screen_v37"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/internal_reference.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "evaluation"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/kind_triage.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "source_first_review"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/knowledge_change.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "finance",
+          "host_batch",
+          "public_origin"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/legacy_v2_archive.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "legacy_v2_state_machine"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/legacy_v2_readonly.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "official_completion",
+          "state_machine",
+          "store"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/legacy_v2_state_machine.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "official_completion"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/numeric_provenance.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "atomic_exchange"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/obligation_ledger.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "semantic_obligation_review",
+          "semantic_source_graph",
+          "shared_qualifier_review"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/official_completion.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "claim_census",
+          "codec",
+          "errors",
+          "finance",
+          "proof",
+          "receipt",
+          "trust"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/offline_revision_replay.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "chat_revision",
+          "codec",
+          "errors",
+          "host_quarantine_preflight",
+          "prior_knowledge",
+          "store",
+          "trust"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/one_turn_host.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "trust"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/operational_assessment.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "assessment_plan",
+          "atomic_exchange",
+          "codec",
+          "common_atomic_review",
+          "errors",
+          "gold_eval",
+          "trust"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/pending_semantic_review.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "semantic_obligation_review",
+          "semantic_source_graph"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/prepush.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/prior_knowledge.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors"
+        ],
+        "called_functions": [
+          "_blob",
+          "_index_prior",
+          "audit_prior_candidates"
+        ]
+      },
+      {
+        "path": "ire/v6/private_original_pin_v28.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "source",
+          "source_facet_audit_v27"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/private_replay_receipt_v29.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "private_original_pin_v28",
+          "semantic_finance_decision_v25",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/proof.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "source"
+        ],
+        "called_functions": [
+          "_norm",
+          "audit_model_anchors"
+        ]
+      },
+      {
+        "path": "ire/v6/provisional_full_source_v33.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "semantic_risk",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/public_origin.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/qualifier_gap_review.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "obligation_ledger",
+          "semantic_obligation_review",
+          "semantic_source_graph"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/receipt.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "evaluation",
+          "finance",
+          "proof",
+          "trust"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/research_pipeline_v114.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/review_consensus.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/reviewed_lineage.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "host_batch",
+          "knowledge_change",
+          "store"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/scope_link_audit.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/semantic_atom_handoff_v41.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "host_semantic_custody_v39",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/semantic_authoring_protocol.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "semantic_source_graph"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/semantic_checkpoint_v40.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "host_semantic_custody_v39"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/semantic_finance_decision_v25.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "advisory_decision_utility",
+          "atomic_exchange",
+          "codec",
+          "current_law_reassessment",
+          "errors",
+          "temporal_finance_gate"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/semantic_frontier.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "claim_census",
+          "codec",
+          "errors"
+        ],
+        "called_functions": [
+          "<genexpr>",
+          "<lambda>",
+          "_digest",
+          "add",
+          "source_first_semantic_frontier"
+        ]
+      },
+      {
+        "path": "ire/v6/semantic_graph_journal.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "assessment_plan",
+          "codec",
+          "errors",
+          "pending_semantic_review",
+          "qualifier_gap_review",
+          "semantic_authoring_protocol",
+          "semantic_reconciliation",
+          "semantic_source_graph",
+          "source",
+          "source_audit_completion",
+          "source_first_audit"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/semantic_obligation_review.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "semantic_source_graph"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/semantic_reconciliation.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "obligation_ledger",
+          "qualifier_gap_review",
+          "semantic_obligation_review",
+          "semantic_source_graph"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/semantic_risk.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors"
+        ],
+        "called_functions": [
+          "<lambda>",
+          "_digest_rows",
+          "add",
+          "audit_semantic_risks",
+          "cue"
+        ]
+      },
+      {
+        "path": "ire/v6/semantic_source_graph.py",
+        "classification": "DEPENDENCY_OR_CONDITIONAL",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "gold_eval"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/shared_qualifier_review.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "semantic_obligation_review",
+          "semantic_source_graph"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/source.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "codec",
+          "errors"
+        ],
+        "called_functions": [
+          "<genexpr>",
+          "Cue",
+          "VerifiedSource",
+          "_clock",
+          "attestation",
+          "cue_census_digest",
+          "owner",
+          "parse_srt",
+          "verify_source"
+        ]
+      },
+      {
+        "path": "ire/v6/source_audit_completion.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "gold_eval",
+          "semantic_authoring_protocol",
+          "semantic_graph_journal",
+          "semantic_source_graph",
+          "source_first_audit"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/source_census_queue_v32.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "private_original_pin_v28",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/source_census_tax_guard_v26.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "advisory_decision_utility",
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "semantic_finance_decision_v25"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/source_clause_review.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "semantic_risk"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/source_facet_audit_v27.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "semantic_finance_decision_v25",
+          "source_census_tax_guard_v26"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/source_first_audit.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "gold_eval",
+          "semantic_authoring_protocol",
+          "semantic_source_graph"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/source_first_review.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/source_quality_audit_v30.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "private_original_pin_v28",
+          "private_replay_receipt_v29",
+          "semantic_risk",
+          "source",
+          "stage_repair"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/source_window_host_screen_v37.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "source"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/stage_repair.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "semantic_risk"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/state_machine.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "official_completion"
+        ],
+        "called_functions": [
+          "<genexpr>",
+          "empty_state",
+          "progress",
+          "reduce_event"
+        ]
+      },
+      {
+        "path": "ire/v6/store.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "atomic_exchange",
+          "codec",
+          "errors",
+          "evaluation",
+          "finance",
+          "host_batch",
+          "official_completion",
+          "prior_knowledge",
+          "proof",
+          "receipt",
+          "source",
+          "state_machine",
+          "trust"
+        ],
+        "called_functions": [
+          "TransactionStore",
+          "__init__",
+          "_before_commit",
+          "_commit",
+          "_connection",
+          "_init_db",
+          "_receipt",
+          "_replay",
+          "_write_event",
+          "attest_owner_inventory",
+          "attest_source",
+          "create_scope",
+          "snapshot",
+          "submit_host_atomic_batch",
+          "work"
+        ]
+      },
+      {
+        "path": "ire/v6/successor_numeric_lineage.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "obligation_ledger",
+          "qualifier_gap_review",
+          "semantic_obligation_review",
+          "semantic_reconciliation",
+          "semantic_source_graph"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/temporal_finance_gate.py",
+        "classification": "NOT_USED_IN_THIS_ROUTE",
+        "static_relative_imports": [
+          "codec",
+          "errors"
+        ],
+        "called_functions": []
+      },
+      {
+        "path": "ire/v6/trust.py",
+        "classification": "EXECUTED",
+        "static_relative_imports": [
+          "codec",
+          "errors",
+          "source"
+        ],
+        "called_functions": [
+          "AnchoredSource",
+          "attestation",
+          "verify_owner_inventory"
+        ]
+      }
+    ],
+    "frozen_calls": {
+      "v123_chat_final_gate.py": [
+        "<genexpr>",
+        "<module>",
+        "_assess_chat_review",
+        "_check",
+        "_date",
+        "_is_finance",
+        "_pin",
+        "_result",
+        "_stage_receipt",
+        "assess_chat_final_gate",
+        "require_chat_final_release"
+      ],
+      "v126_chat_approved_knowledge_store.py": [
+        "<genexpr>",
+        "<module>",
+        "PrivateKnowledgeStore",
+        "__init__",
+        "_audit",
+        "_connect",
+        "_digest",
+        "_event",
+        "_session",
+        "add_chat_final_batch",
+        "evidence_for_question"
+      ],
+      "v127_cumulative_knowledge_graph.py": [
+        "<genexpr>",
+        "<module>",
+        "inspect_cumulative_knowledge_graph"
+      ],
+      "v143_source_pinned_quarantine.py": [
+        "<genexpr>",
+        "<module>",
+        "_check",
+        "audit_explicit_quarantine"
+      ],
+      "v146_source_meaning_provenance.py": [
+        "<module>",
+        "_check",
+        "audit_source_meaning_provenance"
+      ]
+    }
+  },
+  "actual_source_replay": {
+    "accepted": 2,
+    "candidate_groups": 87,
+    "complete_video_research": false,
+    "cues": 395,
+    "excluded": 85,
+    "formal_financial_fact_approval": 0,
+    "independent_accuracy_measured": false,
+    "knowledge_events": 2,
+    "knowledge_head_sha256": "2e7de7e323755b59cab70a459c4ecef778f5ddea11545c8347cb75b77fbf79f8",
+    "local_replay_ms": 12510,
+    "lookup_sha256": "661763dbf3286f4316e082ef797e1dee6292b50dad4e96824253aac39bcbf3e2",
+    "p0_go": false,
+    "p205_qualified": false,
+    "retrieved": 2,
+    "schema": "IRE_DIRECT_SOURCE_CANDIDATE_REHEARSAL_V1",
+    "source_events": 12,
+    "videos": [
+      {
+        "accepted": 1,
+        "audio_visual_cues": 4,
+        "candidate_groups": 36,
+        "cues": 173,
+        "excluded": 35,
+        "excluded_cues": 164,
+        "host_bundle_sha256": "b8716661a93839e6aa156355507b23d3be4edbf0b075542b8f21d8ffc6ada5e4",
+        "host_event_sha256": "5537ad601f12d814c6939caaa5780e34ff46ab2c67362a6e4042c6d5f8846507",
+        "idempotent": true,
+        "knowledge_head_sha256": "dca7e53bbfc647cc0ac4c28e0151b26a0375c1860c18a044f0c4a668d3a3250f",
+        "knowledge_id": "a7da050bf81c2c0c8a0a5e83bb271cea2daab7a1b0d157f7de4a2e5f518b31c4",
+        "local_ms": 5186,
+        "negative_missing_body": true,
+        "negative_missing_review": true,
+        "preflight_cues": 2,
+        "review_sha256": "5fd98d88c2597baf5049d6c1538b5cd7d3830361b96d759052dc25314b11ef3d",
+        "source_scope": "FULL_VIDEO",
+        "source_sha256": "19ce2a37a37079dc0a6ea4dde3d031bdc2b7bb990f0506fd1e0610442dbf0145",
+        "v123": "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY",
+        "v126": "RESEARCH_CANDIDATES_STORED_NOT_FORMAL_FINANCIAL_FACTS",
+        "video_id": "Yb_5prWaqhk"
+      },
+      {
+        "accepted": 1,
+        "audio_visual_cues": 10,
+        "candidate_groups": 51,
+        "cues": 222,
+        "excluded": 50,
+        "excluded_cues": 213,
+        "host_bundle_sha256": "07c2648d467f4eecb6e5898218b5d1f9ade279b7e079070679411da06e27d720",
+        "host_event_sha256": "ee39f64f61fd091558baa38d55d99afe6790583a5e479bc85efd9a4854a76e98",
+        "idempotent": true,
+        "knowledge_head_sha256": "2e7de7e323755b59cab70a459c4ecef778f5ddea11545c8347cb75b77fbf79f8",
+        "knowledge_id": "1ecbfe35bf8a6297660fb47ecb54235a07b913f092e8465c1e0d37486c121e48",
+        "local_ms": 7119,
+        "negative_missing_body": true,
+        "negative_missing_review": true,
+        "preflight_cues": 1,
+        "review_sha256": "f73dccd96c6a0ecbbbb52c9a555ca232a0d2068898114c227e9e5c1e9ea01713",
+        "source_scope": "FULL_VIDEO",
+        "source_sha256": "2ce05daa4dd005b512ff99442de7cb2a172a62bc1a2f3daebb8def8003f623fc",
+        "v123": "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY",
+        "v126": "RESEARCH_CANDIDATES_STORED_NOT_FORMAL_FINANCIAL_FACTS",
+        "video_id": "k9O79HeMOp0"
+      }
+    ]
+  },
+  "private_package": {
+    "name": "IRE_PRIVATE_DIRECT_TWO_VIDEO_REDESIGN_20261126.zip",
+    "bytes": 611095,
+    "sha256": "3bbec4a51887736c372a7b73c499ec5b406ebfe7eaaeab8a912f8d30fd3df6b6"
+  },
+  "prior_data_unchanged": true,
+  "previous_etf250_events": 48,
+  "previous_etf250_db_sha256": "824da4c82363be1438778e5f88d462deb9d16bba6b0c0f3160f62f4f5380cc6a",
+  "graph_audit": {
+    "active_retrievable_rows": 2,
+    "cumulative_relationship_edges": 0,
+    "external_checkpoint_compared": true
+  },
+  "official_capture": {
+    "sha256": "9db33d7c650d51478af8017ba790b91c15686b182f03926ad68861eb75c31f72",
+    "law234_body_sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+    "law_effective_date": "2026-11-13"
+  },
+  "operational_evaluation": "NOT_EXECUTED; BOTH EXPOSED; NOT TWO-TURN QUALIFICATION",
+  "formal_release": "HOLD; NO E4 SEALED/PARENT PUBLISH; NO PRODUCTION WRITE",
+  "gate_status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist": "16/60"
+  },
+  "limitations": [
+    "Only two selected narrow source-attributed claims accepted; 85 other candidate groups excluded; 377 cues excluded. Exclusion is not financial validation or research completeness.",
+    "No independent recall/precision measurement. The full source cue census is structural only. No original audio or video screen read. All semantic decisions in one chat turn; not independent or two-turn evaluation.",
+    "Candidate store isolated, not production Master/P4 or user portfolio. Two distinct candidates refer to separate immutable Master concepts; no cross-video equivalence edge established.",
+    "Initial trial stopped on source qualifier, then missing local V127 module, then noncanonical float in local summary; attributed quotation and exact original V127 restoration and integer timing corrected. Existing gate thresholds unchanged.",
+    "Direct candidate rehearsal uses existing native V6/V123/V126/V127 only; existing formal V166/V243/V128 release remains mandatory where applicable. No legacy staging history overwritten.",
+    "All 86 V6 modules statically parsed; no claim of all 2636 files read. Unused on this branch is not redundancy or safe deletion."
+  ]
+}
