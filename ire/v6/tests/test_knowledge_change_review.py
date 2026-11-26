@@ -91,3 +91,7 @@ class KnowledgeReviewTests(unittest.TestCase):
     def test_stale_head(self):
         stale=Store(); stale.snapshot=lambda scope_id:{'ledger_head_sha256':'0'*64}
         with self.assertRaisesRegex(InvalidInput,'STALE_HEAD'): self.run_review(stale)
+
+    def test_declared_origin_requires_pinned_archive(self):
+        self.evidence['r1']['capture_kind']='DECLARED_ORIGIN_HTTP_BYTES'
+        with self.assertRaisesRegex(InvalidInput,'ORIGIN_ARCHIVE_REQUIRED'):self.run_review()

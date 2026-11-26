@@ -1,0 +1,360 @@
+{
+  "schema": "IRE_R304_ETF250_ORIGIN_LINK_REPLAY_V1",
+  "date": "2026-11-26",
+  "parent_commit": "dac7f383cdb9de4ec2c0bed2911f4847b104849d",
+  "workflow_repair_ci": {
+    "run_id": 45764626386,
+    "governance": "success",
+    "whole_ci": "in_progress_at_record"
+  },
+  "source_capture": {
+    "run_id": 45763887556,
+    "artifact_id": 15091390918,
+    "archive_sha256": "9db33d7c650d51478af8017ba790b91c15686b182f03926ad68861eb75c31f72",
+    "original_http_bodies_retrieved": 8
+  },
+  "code_blobs": {
+    "ire/v6/public_origin.py": "af665181b39daa55fb86d1011e6105dceae982b8",
+    "ire/v6/knowledge_change.py": "4657f19f0acdce49dd465e85a48230002bf78a2b",
+    "ire/v6/tests/test_public_origin.py": "46b47249100fa69003dd3b2e6061b73e21f1b60c",
+    "ire/v6/tests/test_knowledge_change_review.py": "885c7092368d279c6323097e6876b8931d12becc"
+  },
+  "actual_review": {
+    "schema": "IRE_V6_KNOWLEDGE_CHANGE_REVIEW_DRAFT_RECEIPT_V1",
+    "host_event_sha256": "51a43d8c2c0c687639b2f16826a61877507c2e1281100b9d45540ca2b3792bb8",
+    "plan_sha256": "30bfad64ba53be41f8de486bc9f54832ed4960ea2e92bc340a7e6c71a9f6aff1",
+    "review_sha256": "36b6245627f48aea643343d3a6892b40ecd6a254b638c887ade0f0138cb7e93c",
+    "draft_rows_sha256": "736609fe7365197542ebe9a8bc55f46f582a09ef2e43022490db33604f367395",
+    "counts": {
+      "CORRECT_SOURCE_CANDIDATE": 7,
+      "EXTEND": 10,
+      "RETAIN_OPEN": 25
+    },
+    "captured_evidence_audits": 22,
+    "change_rows_without_capture": 2,
+    "unreplayed_planned_url_links": 8,
+    "native_open_rows": 42,
+    "quarantined_atoms": 21,
+    "quarantined_cues": 21,
+    "open_numeric_occurrences": 8,
+    "reviewed_support_cues": [
+      114,
+      115,
+      188,
+      209
+    ],
+    "finance_evidence_authenticated": false,
+    "formal_v123_input_authorized": false,
+    "active_knowledge_changed": false,
+    "p0_go": false,
+    "origin_archive_sha256": "9db33d7c650d51478af8017ba790b91c15686b182f03926ad68861eb75c31f72",
+    "origin_capture_links_replayed": 22,
+    "origin_capture_unique_bodies": 8,
+    "links": [
+      {
+        "claim_id": "C00007",
+        "key": "LAW234",
+        "document_sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+        "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SCOPE_LIMIT"
+      },
+      {
+        "claim_id": "C00007",
+        "key": "FSC",
+        "document_sha256": "2ba3c218625fb981d4645d02c7d2a4811de7502adbb3e1c23c35e64c66a7b0af",
+        "url": "https://www.fsc.go.kr/no010101/86178?srchKey=sj&srchText=ETF",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00009",
+        "key": "LAW234",
+        "document_sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+        "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00009",
+        "key": "FSC",
+        "document_sha256": "2ba3c218625fb981d4645d02c7d2a4811de7502adbb3e1c23c35e64c66a7b0af",
+        "url": "https://www.fsc.go.kr/no010101/86178?srchKey=sj&srchText=ETF",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00009",
+        "key": "KIND_PRODUCT",
+        "document_sha256": "dec740190924e5d931f58e6c886ec86b16ddd7ab831e4ef919ead6fdf8d700ca",
+        "url": "https://kind.krx.co.kr/disclosure/etfisudetail.do?isuCd=KR7133690008&menuIndex=0&method=searchEftIsuDetail",
+        "semantic_approval": false,
+        "status": "CAPTURE_RETAINED_NOT_FORMAL_CANDIDATE",
+        "reason": "실제 본문은 확인했으나 개별 상품의 적용 기준일 또는 교육자료 발행일/현행 규정이 미확인."
+      },
+      {
+        "claim_id": "C00013",
+        "key": "FSC",
+        "document_sha256": "2ba3c218625fb981d4645d02c7d2a4811de7502adbb3e1c23c35e64c66a7b0af",
+        "url": "https://www.fsc.go.kr/no010101/86178?srchKey=sj&srchText=ETF",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SCOPE_LIMIT"
+      },
+      {
+        "claim_id": "C00014",
+        "key": "FSC",
+        "document_sha256": "2ba3c218625fb981d4645d02c7d2a4811de7502adbb3e1c23c35e64c66a7b0af",
+        "url": "https://www.fsc.go.kr/no010101/86178?srchKey=sj&srchText=ETF",
+        "semantic_approval": false,
+        "status": "CAPTURE_RETAINED_NOT_FORMAL_CANDIDATE",
+        "reason": "해당 제도 설명은 자산별 비중 조정의 실제 운용 방식·상품 규약을 직접 입증하지 못함."
+      },
+      {
+        "claim_id": "C00015",
+        "key": "LAW234",
+        "document_sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+        "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00015",
+        "key": "FSC",
+        "document_sha256": "2ba3c218625fb981d4645d02c7d2a4811de7502adbb3e1c23c35e64c66a7b0af",
+        "url": "https://www.fsc.go.kr/no010101/86178?srchKey=sj&srchText=ETF",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SCOPE_LIMIT"
+      },
+      {
+        "claim_id": "C00022",
+        "key": "DEC262",
+        "document_sha256": "c15395566026f0accb1fcac0fbc21d9dd1511f5449ccda58c43c933503be709d",
+        "url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lspttninfSeq=62257",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00029",
+        "key": "LAW234",
+        "document_sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+        "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SCOPE_LIMIT"
+      },
+      {
+        "claim_id": "C00029",
+        "key": "KIND_PRODUCT",
+        "document_sha256": "dec740190924e5d931f58e6c886ec86b16ddd7ab831e4ef919ead6fdf8d700ca",
+        "url": "https://kind.krx.co.kr/disclosure/etfisudetail.do?isuCd=KR7133690008&menuIndex=0&method=searchEftIsuDetail",
+        "semantic_approval": false,
+        "status": "CAPTURE_RETAINED_NOT_FORMAL_CANDIDATE",
+        "reason": "실제 본문은 확인했으나 개별 상품의 적용 기준일 또는 교육자료 발행일/현행 규정이 미확인."
+      },
+      {
+        "claim_id": "C00035",
+        "key": "KIND_LP",
+        "document_sha256": "2901d4a1679958633a46c1b94b3c6d60b7c7d416f934b53deb0395c6f7404b0b",
+        "url": "https://kind.krx.co.kr/external/2025/07/11/000008/20250711000003/68648.htm",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00035",
+        "key": "KIND_FX",
+        "document_sha256": "ff6f1d040f8f67cb93e566b91893d10afab94e87c9065bd5aa9b800c31a8110c",
+        "url": "https://kind.krx.co.kr/external/2026/04/02/000081/20260402000099/68648.htm",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00044",
+        "key": "KIND_ETN",
+        "document_sha256": "203c2a2f171213fa3c37666a37e651a810909ef7f0493f32c89022a6f961c964",
+        "url": "https://kind.krx.co.kr/external/2026/06/02/000078/20260601002266/68319.htm",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "COUNTEREXAMPLE"
+      },
+      {
+        "claim_id": "C00045",
+        "key": "LAW234",
+        "document_sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+        "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+        "semantic_approval": false,
+        "status": "CAPTURE_RETAINED_NOT_FORMAL_CANDIDATE",
+        "reason": "제234조의 상장·연동 요건은 순자산 계산 정의의 직접 근거가 아님."
+      },
+      {
+        "claim_id": "C00045",
+        "key": "DEC262",
+        "document_sha256": "c15395566026f0accb1fcac0fbc21d9dd1511f5449ccda58c43c933503be709d",
+        "url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lspttninfSeq=62257",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00046",
+        "key": "DEC262",
+        "document_sha256": "c15395566026f0accb1fcac0fbc21d9dd1511f5449ccda58c43c933503be709d",
+        "url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lspttninfSeq=62257",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00048",
+        "key": "LAW234",
+        "document_sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+        "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SCOPE_LIMIT"
+      },
+      {
+        "claim_id": "C00048",
+        "key": "KIND_PRODUCT",
+        "document_sha256": "dec740190924e5d931f58e6c886ec86b16ddd7ab831e4ef919ead6fdf8d700ca",
+        "url": "https://kind.krx.co.kr/disclosure/etfisudetail.do?isuCd=KR7133690008&menuIndex=0&method=searchEftIsuDetail",
+        "semantic_approval": false,
+        "status": "CAPTURE_RETAINED_NOT_FORMAL_CANDIDATE",
+        "reason": "실제 본문은 확인했으나 개별 상품의 적용 기준일 또는 교육자료 발행일/현행 규정이 미확인."
+      },
+      {
+        "claim_id": "C00049",
+        "key": "KIND_LP",
+        "document_sha256": "2901d4a1679958633a46c1b94b3c6d60b7c7d416f934b53deb0395c6f7404b0b",
+        "url": "https://kind.krx.co.kr/external/2025/07/11/000008/20250711000003/68648.htm",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00049",
+        "key": "KIND_FX",
+        "document_sha256": "ff6f1d040f8f67cb93e566b91893d10afab94e87c9065bd5aa9b800c31a8110c",
+        "url": "https://kind.krx.co.kr/external/2026/04/02/000081/20260402000099/68648.htm",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00054",
+        "key": "KRX_TE",
+        "document_sha256": "c874c773fddd780b4f05833f39805f8e06a3c427dfb347c443d8abb046e33244",
+        "url": "https://pdf.krx.co.kr/ebook_new/access/ecatalogt.jsp?Dir=23&callmode=normal&catimage=&eclang=ko&start=37&um=s",
+        "semantic_approval": false,
+        "status": "CAPTURE_RETAINED_NOT_FORMAL_CANDIDATE",
+        "reason": "실제 본문은 확인했으나 개별 상품의 적용 기준일 또는 교육자료 발행일/현행 규정이 미확인."
+      },
+      {
+        "claim_id": "C00059",
+        "key": "KIND_PRODUCT",
+        "document_sha256": "dec740190924e5d931f58e6c886ec86b16ddd7ab831e4ef919ead6fdf8d700ca",
+        "url": "https://kind.krx.co.kr/disclosure/etfisudetail.do?isuCd=KR7133690008&menuIndex=0&method=searchEftIsuDetail",
+        "semantic_approval": false,
+        "status": "CAPTURE_RETAINED_NOT_FORMAL_CANDIDATE",
+        "reason": "실제 본문은 확인했으나 개별 상품의 적용 기준일 또는 교육자료 발행일/현행 규정이 미확인."
+      },
+      {
+        "claim_id": "C00059",
+        "key": "KIND_FX",
+        "document_sha256": "ff6f1d040f8f67cb93e566b91893d10afab94e87c9065bd5aa9b800c31a8110c",
+        "url": "https://kind.krx.co.kr/external/2026/04/02/000081/20260402000099/68648.htm",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SCOPE_LIMIT"
+      },
+      {
+        "claim_id": "C00059",
+        "key": "KRX_TE",
+        "document_sha256": "c874c773fddd780b4f05833f39805f8e06a3c427dfb347c443d8abb046e33244",
+        "url": "https://pdf.krx.co.kr/ebook_new/access/ecatalogt.jsp?Dir=23&callmode=normal&catimage=&eclang=ko&start=37&um=s",
+        "semantic_approval": false,
+        "status": "CAPTURE_RETAINED_NOT_FORMAL_CANDIDATE",
+        "reason": "실제 본문은 확인했으나 개별 상품의 적용 기준일 또는 교육자료 발행일/현행 규정이 미확인."
+      },
+      {
+        "claim_id": "C00086",
+        "key": "LAW234",
+        "document_sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+        "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SUPPORT"
+      },
+      {
+        "claim_id": "C00086",
+        "key": "FSC",
+        "document_sha256": "2ba3c218625fb981d4645d02c7d2a4811de7502adbb3e1c23c35e64c66a7b0af",
+        "url": "https://www.fsc.go.kr/no010101/86178?srchKey=sj&srchText=ETF",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SCOPE_LIMIT"
+      },
+      {
+        "claim_id": "C00087",
+        "key": "LAW234",
+        "document_sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+        "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SCOPE_LIMIT"
+      },
+      {
+        "claim_id": "C00087",
+        "key": "FSC",
+        "document_sha256": "2ba3c218625fb981d4645d02c7d2a4811de7502adbb3e1c23c35e64c66a7b0af",
+        "url": "https://www.fsc.go.kr/no010101/86178?srchKey=sj&srchText=ETF",
+        "semantic_approval": false,
+        "status": "DATED_CANDIDATE_REPLAY",
+        "role": "SCOPE_LIMIT"
+      }
+    ],
+    "negative": {
+      "missing_archive": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_ORIGIN_ARCHIVE_REQUIRED",
+      "zip_changed": "V6_INPUT_INVALID: PUBLIC_ORIGIN_ARCHIVE_BYTES",
+      "wrong_commit": "V6_INPUT_INVALID: PUBLIC_ORIGIN_RECEIPT",
+      "joint_body_and_sha_change": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_ORIGIN_BODY_OR_DATE_DRIFT",
+      "capture_date_changed": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_ORIGIN_BODY_OR_DATE_DRIFT"
+    },
+    "ledger_unchanged": true,
+    "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+    "artifact_receipt_sha256": "aee45f170a66c2070f9ee3c00a52c52de11bcd2608c2705a4bb48b646cbfa7ff"
+  },
+  "private_archive": {
+    "bytes": 638317,
+    "sha256": "90ce9608688e6cc65488b13cea116484e884f5d533a8d7dec3a0c9e056c9a817"
+  },
+  "local_regression": {
+    "tests": 124,
+    "clean_replay_same_receipt": true,
+    "initial_clean_replay": "PRIVATE_DATABASE_DIRECTORY_REQUIRED; corrected directory mode to 0700, no gate weakened"
+  },
+  "limitations": [
+    "Artifact hash supplied from observed Actions artifact metadata, not independently certified issuer authenticity; claims require semantic/date applicability review.",
+    "22 dated candidate links structurally replayed; 8 captured links not bound as formal candidates; 2 change rows have no dated candidate evidence. Date of historical announcement or occurrence is not law effective date.",
+    "No formal V123 transition or approval; actual ETF native typed staging remains blocked. 42 OPEN rows, 21 quarantined atoms and 8 numeric occurrences retained. No new qualification trial.",
+    "No workflow addition; 27-workflow policy and failed CI history preserved. Formal P205 three-domain threshold unchanged."
+  ],
+  "gates": {
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "approved": 0,
+    "publications": 0
+  }
+}

@@ -47,7 +47,7 @@ def audit_knowledge_change(previous, current, predecessor_sha, prior_digest, row
 def prepare_host_knowledge_change_review(store, *, scope_id, run_id, raw,
                                          manifest, inventory_bytes,
                                          expected_inventory_sha256,
-                                         review, evidence_inputs):
+                                         review, evidence_inputs, origin_archive=None):
     """Materialize a review-only change draft from the current *native* seal.
 
     A source interpretation correction is not authority to edit its routed
@@ -89,6 +89,13 @@ def prepare_host_knowledge_change_review(store, *, scope_id, run_id, raw,
     typed_atoms = {f'A{i:05d}':a for i,a in enumerate(record['ledger']['authored']['atoms'],1)}
     seen, output, used = set(), [], set()
     captures, missing, missing_urls = 0, 0, 0
+    origin = None
+    origin_links = 0
+    if origin_archive is not None:
+        from .public_origin import replay_public_origin_archive
+        need(type(origin_archive) is dict and set(origin_archive)=={
+             'raw','expected_archive_sha256','expected_commit'}, 'ORIGIN_ARCHIVE_INPUT')
+        origin = replay_public_origin_archive(**origin_archive)
     for row in review['rows']:
         need(type(row) is dict and set(row) == {'prior_row_sha256','operation',
              'proposed_proposition','scope_note','evidence_refs'}, 'ROW_SCHEMA')
@@ -125,11 +132,23 @@ def prepare_host_knowledge_change_review(store, *, scope_id, run_id, raw,
                  prop.get('url') in pending['evidence_urls'], 'EVIDENCE_WRONG_CLAIM_OR_URL')
             need(op!='EXTEND' or item['evidence_role']!='COUNTEREXAMPLE',
                  'EVIDENCE_ROLE_MISMATCH')
+            origin_pin = None
+            if item['capture_kind']=='DECLARED_ORIGIN_HTTP_BYTES':
+                need(origin is not None, 'ORIGIN_ARCHIVE_REQUIRED')
+                entry = origin['bodies'].get(prop['url'])
+                need(entry is not None and entry['body']==item['document_raw'] and
+                     entry['row']['sha256']==item['document_sha256'] and
+                     origin['capture_date']==prop.get('retrieved_on'), 'ORIGIN_BODY_OR_DATE_DRIFT')
+                origin_pin = {'archive_sha256':origin['archive_sha256'],
+                    'capture_receipt_sha256':origin['capture_receipt_sha256'],
+                    'code_commit':origin['code_commit'],'final_url':entry['row']['final_url']}
+                origin_links += 1
             result = audit_official_candidate(item['document_raw'],prop,
                         expected_document_sha256=item['document_sha256'],as_of=review['as_of'])
             need(result['effective_at_as_of'], 'EVIDENCE_DATE_NOT_APPLICABLE')
             receipts.append({'capture_kind':item['capture_kind'],
-                'role':item['evidence_role'],'candidate_audit':result})
+                'role':item['evidence_role'],'candidate_audit':result,
+                **({'origin_archive_pin':origin_pin} if origin_pin else {})})
             bound_urls.add(prop['url']); used.add(ref); captures+=1
         if op != 'RETAIN_OPEN':
             missing+=int(not receipts)
@@ -149,6 +168,7 @@ def prepare_host_knowledge_change_review(store, *, scope_id, run_id, raw,
             'capture_audits':receipts,'prior_target_mutation_authorized':False,
             'approved':False})
     need(seen==set(plans) and used==set(evidence_inputs), 'CENSUS_OR_UNUSED_EVIDENCE')
+    need(origin is None or origin_links>0, 'UNUSED_ORIGIN_ARCHIVE')
     output.sort(key=lambda x:x['prior_row_sha256'])
     # A read-only draft is tied to a particular native seal. No fresh approval
     # may rely on it without a new replay of that seal and the final gate.
@@ -165,4 +185,7 @@ def prepare_host_knowledge_change_review(store, *, scope_id, run_id, raw,
             'open_numeric_occurrences':receipt['open_numeric_occurrences'],
             'reviewed_support_cues':receipt['reviewed_support_cue_indices'],
             'finance_evidence_authenticated':False,'formal_v123_input_authorized':False,
-            'active_knowledge_changed':False,'p0_go':False}
+            'active_knowledge_changed':False,'p0_go':False,
+            **({'origin_archive_sha256':origin['archive_sha256'],
+                'origin_capture_links_replayed':origin_links,
+                'origin_capture_unique_bodies':len(origin['bodies'])} if origin else {})}
