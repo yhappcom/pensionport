@@ -139,4 +139,63 @@ class NativeSourceExtensionTests(unittest.TestCase):
             self.add(original_host_batch_replay_args=args)
         self.assertEqual(self.rows(),self.oldrows)
 
+    def second_revision_case(self):
+        from ire.v6.chat_revision import compile_chat_atom_revision
+        first_revision=self.revision_case()
+        parent=self.args['original_host_batch_replay_args']
+        prior=copy.deepcopy(self.e)
+        frame={k:copy.deepcopy(prior['atoms'][1][k]) for k in (
+            'proposition','kind','source_refs','context_cue_indices',
+            'condition_cue_indices','exception_cue_indices','numeric_references','as_of')}
+        frame.update(proposition='화자는 기록 보관을 설명한다.',role='NARRATOR',
+            attribution='DIRECT',polarity='AFFIRMED',modality='ASSERTED',
+            correction=False,meaning_reason='Synthetic second explicit source attribution.')
+        change=dict(before=prior,edits=[dict(prior_claim_ids=['C00003'],
+            replacements=[frame],reason='Synthetic second source revision.')],cue_reviews=[])
+        revised=compile_chat_atom_revision(self.s,prior,edits=change['edits'],cue_reviews=[])
+        self.e=revised['exchange'];self.audit=audit_host_atomic_exchange(self.s,self.e)
+        self.k=copy.deepcopy(self.k);self.k['relations'][1]['claim_id']='C00004'
+        self.relations=copy.deepcopy(self.relations);self.relations[1].update(
+            claim_id='C00004',atom_sha256=json_digest(self.e['atoms'][1]))
+        replay={**self.second_args,'run_id':'revision2','expected_head':first_revision['event_sha256'],
+            'exchange':self.e,'knowledge':self.k,'window_models':revised['window_models'],
+            'window_reviews':revised['window_reviews'],'chat_revision':change}
+        host=self.store.submit_host_atomic_batch(**replay)
+        self.args.update(host_receipt=host,chat_review=self.review(host,{1,2}),
+            relation_decisions=self.relations,original_host_batch_replay_args={**replay,
+                'revision_predecessor_replay_args':parent})
+        return host
+    def test_revision_of_revision_allows_additive_store_and_exact_retry(self):
+        self.second_revision_case();got=self.add();self.assertEqual(got['entries'],1)
+        self.assertEqual(got['retained_entries'],1);self.assertTrue(self.add()['idempotent_replay'])
+        rows,events=self.rows();self.assertIn(self.oldrows[0][0],rows)
+        self.assertEqual(events[:1],self.oldrows[1]);self.assertEqual(len(events),2)
+    def test_revision_of_revision_allows_fresh_staging(self):
+        self.second_revision_case();d=self.d/'v128_staging_synthetic_chain';d.mkdir()
+        staging=PrivateKnowledgeStore(d/'staging.db',parent_staging_only=True)
+        args={**self.args,'expected_knowledge_head':ZERO_SHA}
+        self.assertEqual(staging.add_chat_final_batch(self.s,self.e,self.k,**args)['entries'],2)
+        self.assertTrue(staging.add_chat_final_batch(self.s,self.e,self.k,**args)['idempotent_replay'])
+    def test_revision_chain_rejects_missing_root_and_never_writes_source(self):
+        self.second_revision_case();args=copy.deepcopy(self.args['original_host_batch_replay_args'])
+        root=args['revision_predecessor_replay_args']['revision_predecessor_replay_args']
+        root['run_id']='uncommitted'
+        before=self.store.snapshot(self.base['scope_id'])
+        with self.assertRaisesRegex(QualityNotProven,'SOURCE_HOST_REVISION_PREDECESSOR_NOT_EXACT_REPLAY'):
+            self.add(original_host_batch_replay_args=args)
+        self.assertEqual(self.store.snapshot(self.base['scope_id']),before)
+        self.assertEqual(self.rows(),self.oldrows)
+    def test_revision_chain_rejects_tampered_historical_revision(self):
+        self.second_revision_case();args=copy.deepcopy(self.args['original_host_batch_replay_args'])
+        args['revision_predecessor_replay_args']['chat_revision']['edits'][0]['reason']+=' 변조'
+        with self.assertRaisesRegex(QualityNotProven,'SOURCE_HOST_REVISION_NOT_EXACT_REPLAY'):
+            self.add(original_host_batch_replay_args=args)
+        self.assertEqual(self.rows(),self.oldrows)
+    def test_revision_chain_rejects_truncated_history(self):
+        self.second_revision_case();args=copy.deepcopy(self.args['original_host_batch_replay_args'])
+        del args['revision_predecessor_replay_args']['revision_predecessor_replay_args']
+        with self.assertRaisesRegex(QualityNotProven,'SOURCE_HOST_REVISION_PREDECESSOR_INPUT_DRIFT'):
+            self.add(original_host_batch_replay_args=args)
+        self.assertEqual(self.rows(),self.oldrows)
+
 if __name__=='__main__':unittest.main()

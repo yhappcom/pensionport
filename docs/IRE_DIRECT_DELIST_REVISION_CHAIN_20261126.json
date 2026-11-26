@@ -1,0 +1,89 @@
+{
+  "schema": "IRE_DIRECT_DELIST_REVISION_CHAIN_V1",
+  "date": "2026-11-26",
+  "baseline_commit": "593547e322af02d4c5b83ebd2413b273a51096df",
+  "baseline_ci_run": 45793164048,
+  "baseline_ci_conclusion": "success",
+  "defect": "Actual second revision fails prior V126 with SOURCE_HOST_REVISION_PREDECESSOR_INPUT_DRIFT because predecessor was itself a revision.",
+  "fix": "Reuse existing V126 replay path. Walk exact committed predecessor chain to native legacy root, validate each source identity, before exchange, seal, revision digest, current/historical state and exact idempotent replay. Check committed seal existence before calling replay; reject missing ancestors, cycles, truncation, typed transitions and drift. Existing final source reservation and approval requirements unchanged.",
+  "actual_replay": {
+    "accepted": 9,
+    "artifact_sha256": "86faae4ccd3e8106859097675a48dd4b3d35426e0efacab72fdfb2a3fabea15e",
+    "cues": 173,
+    "events_after": 39,
+    "events_before": 36,
+    "excluded": 35,
+    "formal_financial_fact_approved": 0,
+    "fresh_staging_rows": 9,
+    "idempotent": true,
+    "knowledge_count": 18,
+    "knowledge_head": "d3a11f77f11978135062107c5f779e8dc0383f018c2d2a0ef5801de48558d763",
+    "knowledge_unchanged": true,
+    "negative_rejections": [
+      [
+        "missing_grandparent",
+        "QualityNotProven",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_SOURCE_HOST_REVISION_PREDECESSOR_INPUT_DRIFT"
+      ],
+      [
+        "wrong_grandparent",
+        "IdempotencyConflict",
+        "V6_IDEMPOTENCY_KEY_REUSED_DIFFERENT_CONTENT: HOST_BATCH_RETRY_INPUT_CHANGED"
+      ],
+      [
+        "uncommitted_ancestor",
+        "QualityNotProven",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_SOURCE_HOST_REVISION_PREDECESSOR_NOT_EXACT_REPLAY"
+      ],
+      [
+        "tampered_ancestor",
+        "QualityNotProven",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_SOURCE_HOST_REVISION_NOT_EXACT_REPLAY"
+      ],
+      [
+        "tampered_current",
+        "QualityNotProven",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_SOURCE_HOST_REVISION_NOT_EXACT_REPLAY"
+      ]
+    ],
+    "old_events_preserved": 36,
+    "operational_qualification": false,
+    "previous_atoms": 43,
+    "replacements": [
+      "C00054",
+      "C00055"
+    ],
+    "source_head": "c2e8c77d30bba0c3ee47debf4e34dd9c39b60aecc3b58f81e0520f03de650029",
+    "source_sha256": "19ce2a37a37079dc0a6ea4dde3d031bdc2b7bb990f0506fd1e0610442dbf0145",
+    "split_parent": "C00042",
+    "successor_atoms": 44,
+    "v123_status": "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY",
+    "v128_executed": false
+  },
+  "local_regression": {
+    "v6": 138,
+    "frozen_v123_v126": 40,
+    "new_synthetic_tests": 5,
+    "baseline_actual_second_revision_failed": true,
+    "fixed_actual_second_revision_passed": true,
+    "prior_first_revision_replayed": true
+  },
+  "private_archive": {
+    "sha256": "5d54b0ae388cd3c0a2d7abe03e4d20201c81459c716a66c06a4d2985029c1d12",
+    "bytes": 1178863,
+    "files": 147
+  },
+  "limits": [
+    "Two replacements of one previously excluded source claim remain excluded; no financial truth or new candidate approval. Existing 18 private research candidates unchanged. Prior official captures reused; no new current law, audio or visual verification.",
+    "Only fresh V126 parent staging substep on disposable copy executed; V128/E4 formal publication not executed. No independent or operational qualification.",
+    "Reused existing branch, functions and tests; no new module or workflow. SQLite ResourceWarning remains."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}

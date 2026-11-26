@@ -198,38 +198,82 @@ class PrivateKnowledgeStore:
                     replay["expected_head"] != formal["predecessor_event_sha256"]):
                 _stop("SOURCE_HOST_BATCH_REPLAY_INPUT_DRIFT")
         elif revision is not None:
-            # The native revision has its own exact readback. Additionally
-            # replay the immediately preceding legacy batch, so an invented
-            # 'before' exchange cannot be used as valid revision lineage.
+            # Follow the exact committed predecessor chain to its legacy root.
+            # A later revision must not lose or invent an earlier "before".
+            # Check every seal exists before calling the write-capable replay API.
             from ire.v6.store import TransactionStore
             from ire.v6.host_batch import read_host_chat_revision
             extras = {"chat_revision", "revision_predecessor_replay_args"}
+            revision_keys = tuple(keys | extras for keys in legacy_keys)
             if (not isinstance(source_store, TransactionStore) or
                     type(revision) is not str or not SHA.fullmatch(revision) or
-                    set(replay) not in tuple(keys | extras for keys in legacy_keys)):
+                    set(replay) not in revision_keys):
                 _stop("SOURCE_HOST_REVISION_REPLAY_INPUT_DRIFT")
-            replay = dict(replay)
-            predecessor = replay.pop("revision_predecessor_replay_args")
-            change = replay["chat_revision"]
-            if (type(predecessor) is not dict or set(predecessor) not in legacy_keys or
-                    type(change) is not dict or change.get("before") != predecessor["exchange"] or
-                    any(predecessor[k] != replay[k] for k in ("scope_id", "raw", "manifest",
-                        "inventory_bytes", "expected_inventory_sha256"))):
-                _stop("SOURCE_HOST_REVISION_PREDECESSOR_INPUT_DRIFT")
-            old = source_store.submit_host_atomic_batch(**predecessor)
-            if (old.get("idempotent_replay") is not True or old.get("is_current") is not False or
-                    old.get("event_sha256") != replay["expected_head"]):
-                _stop("SOURCE_HOST_REVISION_PREDECESSOR_NOT_EXACT_REPLAY")
-            native_revision = read_host_chat_revision(source_store,
-                scope_id=replay["scope_id"], run_id=replay["run_id"], raw=replay["raw"],
-                manifest=replay["manifest"], inventory_bytes=replay["inventory_bytes"],
-                expected_inventory_sha256=replay["expected_inventory_sha256"])
-            if (native_revision.get("is_current") is not True or
-                    native_revision.get("event_sha256") != host_receipt["event_sha256"] or
-                    native_revision.get("private_chat_revision_sha256") != revision or
-                    native_revision["record"]["inputs"] != change or
-                    native_revision["record"]["result"]["exchange"] != exchange):
-                _stop("SOURCE_HOST_REVISION_NOT_EXACT_REPLAY")
+            chain = []
+            node = replay
+            event_sha = host_receipt["event_sha256"]
+            seen = set()
+            with closing(source_store._connection()) as native:
+                native.execute("BEGIN")
+                source_store._replay(native, replay["scope_id"])
+                while True:
+                    if (type(node) is not dict or type(node.get("run_id")) is not str or
+                            node["run_id"] in seen):
+                        _stop("SOURCE_HOST_REVISION_PREDECESSOR_INPUT_DRIFT")
+                    seen.add(node["run_id"])
+                    row = native.execute("SELECT event_sha256,event_json FROM events "
+                        "WHERE scope_id=? AND command_id=?",
+                        (replay["scope_id"], node["run_id"]+"_seal")).fetchone()
+                    if row is None or row["event_sha256"] != event_sha:
+                        _stop("SOURCE_HOST_REVISION_PREDECESSOR_NOT_EXACT_REPLAY")
+                    marker = json.loads(row["event_json"]).get("payload", {}).get("review", {})
+                    if ("formal_typed_transition_pin" in marker or
+                            "private_typed_staging_record" in marker):
+                        _stop("SOURCE_HOST_REVISION_PREDECESSOR_INPUT_DRIFT")
+                    pin = marker.get("private_chat_revision_sha256")
+                    if not chain and pin != revision:
+                        _stop("SOURCE_HOST_REVISION_NOT_EXACT_REPLAY")
+                    if pin is None:
+                        if set(node) not in legacy_keys:
+                            _stop("SOURCE_HOST_REVISION_PREDECESSOR_INPUT_DRIFT")
+                        chain.append((node, event_sha, None))
+                        break
+                    if set(node) not in revision_keys:
+                        _stop("SOURCE_HOST_REVISION_PREDECESSOR_INPUT_DRIFT")
+                    change = node["chat_revision"]
+                    predecessor = node["revision_predecessor_replay_args"]
+                    if (type(predecessor) is not dict or
+                            set(predecessor) not in (*legacy_keys, *revision_keys) or
+                            type(change) is not dict or change.get("before") != predecessor["exchange"] or
+                            any(predecessor[k] != node[k] for k in ("scope_id", "raw", "manifest",
+                                "inventory_bytes", "expected_inventory_sha256"))):
+                        _stop("SOURCE_HOST_REVISION_PREDECESSOR_INPUT_DRIFT")
+                    chain.append(({k:v for k,v in node.items()
+                        if k != "revision_predecessor_replay_args"}, event_sha, pin))
+                    event_sha = node["expected_head"]
+                    node = predecessor
+            # All run IDs refer to immutable committed seals. No missing run
+            # can create an event during these idempotent replay calls.
+            for i, (args, event_sha, pin) in enumerate(chain):
+                current = i == 0
+                if pin is not None:
+                    native_revision = read_host_chat_revision(source_store,
+                        scope_id=args["scope_id"], run_id=args["run_id"], raw=args["raw"],
+                        manifest=args["manifest"], inventory_bytes=args["inventory_bytes"],
+                        expected_inventory_sha256=args["expected_inventory_sha256"])
+                    if (native_revision.get("is_current") is not current or
+                            native_revision.get("event_sha256") != event_sha or
+                            native_revision.get("private_chat_revision_sha256") != pin or
+                            native_revision["record"]["inputs"] != args["chat_revision"] or
+                            native_revision["record"]["result"]["exchange"] != args["exchange"]):
+                        _stop("SOURCE_HOST_REVISION_NOT_EXACT_REPLAY")
+                if not current:
+                    old = source_store.submit_host_atomic_batch(**args)
+                    if (old.get("idempotent_replay") is not True or old.get("is_current") is not False or
+                            old.get("event_sha256") != event_sha or
+                            old.get("private_chat_revision_sha256") != pin):
+                        _stop("SOURCE_HOST_REVISION_PREDECESSOR_NOT_EXACT_REPLAY")
+            replay = chain[0][0]
         elif set(replay) not in legacy_keys:
             _stop("SOURCE_HOST_BATCH_REPLAY_INPUT_DRIFT")
         if (replay["knowledge"] != prior_knowledge or replay["exchange"] != exchange or
