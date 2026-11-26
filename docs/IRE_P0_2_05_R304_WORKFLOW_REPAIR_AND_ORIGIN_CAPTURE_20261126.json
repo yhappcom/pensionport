@@ -1,0 +1,159 @@
+{
+  "schema": "IRE_R304_WORKFLOW_REGRESSION_REPAIR_V1",
+  "date": "2026-11-26",
+  "parent_commit": "8827f007202dd2fef266c22af309c6878f75688d",
+  "failed_ci": {
+    "run_id": 45763887357,
+    "job_id": 139720038584,
+    "error": "ACTUAL_WORKFLOW_FILE_SET_CHANGED",
+    "downstream_jobs_skipped": true
+  },
+  "repair": {
+    "remove_only_new_workflow": ".github/workflows/ire-r304-public-origin-capture.yml",
+    "retain_capture_script": "scripts/ire_r304_public_origin_capture.py",
+    "inventory_and_audit_policy_unchanged": true,
+    "reason": "Restore exact existing 27-workflow inventory, single integration push; no additional automatic workflow."
+  },
+  "capture": {
+    "run_id": 45763887556,
+    "artifact_id": 15091390918,
+    "artifact_sha256": "9db33d7c650d51478af8017ba790b91c15686b182f03926ad68861eb75c31f72",
+    "artifact_bytes": 41459,
+    "downloaded_and_rehashed": true,
+    "body_hashes_verified": 8,
+    "library_preserved": true,
+    "receipt": {
+      "schema": "IRE_R304_PUBLIC_ORIGIN_CAPTURE_V1",
+      "code_commit": "8827f007202dd2fef266c22af309c6878f75688d",
+      "captured_utc": "2026-11-26T05:47:47.358686+00:00",
+      "results": [
+        {
+          "key": "LAW234",
+          "requested_url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+          "final_url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000932974",
+          "http_status": 200,
+          "content_type": "text/html;charset=UTF-8",
+          "date_header": "Thu, 26 Nov 2026 05:47:46 GMT",
+          "sha256": "8fdbe0b1349ac93989aacf90aa287237dfa0a4b9bc9ed3681bfa9e90e3f56b40",
+          "bytes": 5300,
+          "transport": "HTTPS_STDLIB_DEFAULT_TLS",
+          "semantic_document_content_verified": false,
+          "effective_date_verified": false,
+          "v123_approved": false
+        },
+        {
+          "key": "DEC262",
+          "requested_url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lspttninfSeq=62257",
+          "final_url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lspttninfSeq=62257",
+          "http_status": 200,
+          "content_type": "text/html;charset=UTF-8",
+          "date_header": "Thu, 26 Nov 2026 05:47:42 GMT",
+          "sha256": "c15395566026f0accb1fcac0fbc21d9dd1511f5449ccda58c43c933503be709d",
+          "bytes": 21639,
+          "transport": "HTTPS_STDLIB_DEFAULT_TLS",
+          "semantic_document_content_verified": false,
+          "effective_date_verified": false,
+          "v123_approved": false
+        },
+        {
+          "key": "FSC",
+          "requested_url": "https://www.fsc.go.kr/no010101/86178?srchKey=sj&srchText=ETF",
+          "final_url": "https://www.fsc.go.kr/no010101/86178?srchKey=sj&srchText=ETF",
+          "http_status": 200,
+          "content_type": "text/html;charset=UTF-8",
+          "date_header": "Thu, 26 Nov 2026 05:47:42 GMT",
+          "sha256": "2ba3c218625fb981d4645d02c7d2a4811de7502adbb3e1c23c35e64c66a7b0af",
+          "bytes": 115947,
+          "transport": "HTTPS_STDLIB_DEFAULT_TLS",
+          "semantic_document_content_verified": false,
+          "effective_date_verified": false,
+          "v123_approved": false
+        },
+        {
+          "key": "KIND_LP",
+          "requested_url": "https://kind.krx.co.kr/external/2025/07/11/000008/20250711000003/68648.htm",
+          "final_url": "https://kind.krx.co.kr/external/2025/07/11/000008/20250711000003/68648.htm",
+          "http_status": 200,
+          "content_type": "text/html",
+          "date_header": "Thu, 26 Nov 2026 05:47:41 GMT",
+          "sha256": "2901d4a1679958633a46c1b94b3c6d60b7c7d416f934b53deb0395c6f7404b0b",
+          "bytes": 6313,
+          "transport": "HTTPS_STDLIB_DEFAULT_TLS",
+          "semantic_document_content_verified": false,
+          "effective_date_verified": false,
+          "v123_approved": false
+        },
+        {
+          "key": "KIND_FX",
+          "requested_url": "https://kind.krx.co.kr/external/2026/04/02/000081/20260402000099/68648.htm",
+          "final_url": "https://kind.krx.co.kr/external/2026/04/02/000081/20260402000099/68648.htm",
+          "http_status": 200,
+          "content_type": "text/html",
+          "date_header": "Thu, 26 Nov 2026 05:47:42 GMT",
+          "sha256": "ff6f1d040f8f67cb93e566b91893d10afab94e87c9065bd5aa9b800c31a8110c",
+          "bytes": 6708,
+          "transport": "HTTPS_STDLIB_DEFAULT_TLS",
+          "semantic_document_content_verified": false,
+          "effective_date_verified": false,
+          "v123_approved": false
+        },
+        {
+          "key": "KIND_PRODUCT",
+          "requested_url": "https://kind.krx.co.kr/disclosure/etfisudetail.do?isuCd=KR7133690008&menuIndex=0&method=searchEftIsuDetail",
+          "final_url": "https://kind.krx.co.kr/disclosure/etfisudetail.do?isuCd=KR7133690008&menuIndex=0&method=searchEftIsuDetail",
+          "http_status": 200,
+          "content_type": "text/html; charset=UTF-8",
+          "date_header": "Thu, 26 Nov 2026 05:47:42 GMT",
+          "sha256": "dec740190924e5d931f58e6c886ec86b16ddd7ab831e4ef919ead6fdf8d700ca",
+          "bytes": 5965,
+          "transport": "HTTPS_STDLIB_DEFAULT_TLS",
+          "semantic_document_content_verified": false,
+          "effective_date_verified": false,
+          "v123_approved": false
+        },
+        {
+          "key": "KRX_TE",
+          "requested_url": "https://pdf.krx.co.kr/ebook_new/access/ecatalogt.jsp?Dir=23&callmode=normal&catimage=&eclang=ko&start=37&um=s",
+          "final_url": "https://pdf.krx.co.kr/ebook_new/access/ecatalogt.jsp?Dir=23&callmode=normal&catimage=&eclang=ko&start=37&um=s",
+          "http_status": 200,
+          "content_type": "text/html;charset=utf-8",
+          "date_header": "Thu, 26 Nov 2026 05:47:43 GMT",
+          "sha256": "c874c773fddd780b4f05833f39805f8e06a3c427dfb347c443d8abb046e33244",
+          "bytes": 10415,
+          "transport": "HTTPS_STDLIB_DEFAULT_TLS",
+          "semantic_document_content_verified": false,
+          "effective_date_verified": false,
+          "v123_approved": false
+        },
+        {
+          "key": "KIND_ETN",
+          "requested_url": "https://kind.krx.co.kr/external/2026/06/02/000078/20260601002266/68319.htm",
+          "final_url": "https://kind.krx.co.kr/external/2026/06/02/000078/20260601002266/68319.htm",
+          "http_status": 200,
+          "content_type": "text/html",
+          "date_header": "Thu, 26 Nov 2026 05:47:43 GMT",
+          "sha256": "203c2a2f171213fa3c37666a37e651a810909ef7f0493f32c89022a6f961c964",
+          "bytes": 7695,
+          "transport": "HTTPS_STDLIB_DEFAULT_TLS",
+          "semantic_document_content_verified": false,
+          "effective_date_verified": false,
+          "v123_approved": false
+        }
+      ],
+      "private_source_uploaded": false,
+      "finance_fact_approved": false,
+      "p0_go": false
+    }
+  },
+  "limitations": [
+    "HTTP body capture and local rehash do not certify semantic support or current regulatory applicability.",
+    "No changes to native V123 release policy or approval state. Exact new integration CI pending."
+  ],
+  "gates": {
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "approved": 0,
+    "publications": 0
+  }
+}
