@@ -1,0 +1,103 @@
+{
+  "schema": "IRE_DIRECT_ACTUAL_SCOPE_REVIEW_V1",
+  "date": "2026-11-26",
+  "baseline": {
+    "commit": "2507de8e1924bf66cdb392f51d4e1a9ae0b209fd",
+    "ci_run": 45776351562,
+    "conclusion": "success",
+    "knowledge_head": "6624ba1f485e0966280da34d8438e40752307682b05a1eee3fbe4994aabaf2f3"
+  },
+  "capture": {
+    "commit": "414323022b20d4c4dfc1b3fb6f25147bde4f7cee",
+    "ci_run": 45779289945,
+    "status_at_record": "completed",
+    "conclusion_at_record": "success",
+    "artifact_id": 15097417826,
+    "archive_sha256": "fb1b9ed1cba3283ab4c2a0d47ce23d403e74d1ab28c12c797c55db5482ac5f92",
+    "receipt_sha256": "869b537d83a14bf75d3c69611f95864611da50278f4fa5ba746c6d42ddfeceb2",
+    "urls": 22,
+    "success": 21,
+    "failed": 1,
+    "new_urls_success": 7,
+    "failed_key": "FSC_LEVERAGE",
+    "failure": "TimeoutError",
+    "previous_pinned_body_preserved": true
+  },
+  "replay": {
+    "private_archive_sha256": "071c857869cf6b54adbd2d304598ae51ac970727c24f71f0aa7c09bcddef527a",
+    "private_archive_bytes": 1052088,
+    "private_archive_files": 116,
+    "clean_result_exact": true,
+    "source_events_before": 21,
+    "source_events_after": 27,
+    "source_events_preserved": 21,
+    "knowledge_events_before": 10,
+    "knowledge_events_after": 15,
+    "knowledge_events_preserved": 10,
+    "prior_entries_byte_identical": true,
+    "retrieved": 15,
+    "missing_new_body_negative": 2,
+    "idempotent_retry": 2,
+    "knowledge_head": "8ea8ffa78f2a809d08a40a701ea0c5e110f852c10d7fec2e6aa6dd307cb3faba",
+    "videos": [
+      {
+        "video_id": "Yb_5prWaqhk",
+        "cues": 173,
+        "groups": 36,
+        "before": 5,
+        "added": 2,
+        "after": 7,
+        "excluded": 29,
+        "accepted_context_cues": 30,
+        "review_sha256": "ddd7408be528685e00c81e8feabc2ffce3965bf21fea6139498e0f3a22dc6936",
+        "topics": [
+          "conditional cash redemption on liquidation",
+          "hypothetical realization of loss"
+        ]
+      },
+      {
+        "video_id": "k9O79HeMOp0",
+        "cues": 222,
+        "groups": 51,
+        "before": 5,
+        "added": 3,
+        "after": 8,
+        "excluded": 43,
+        "accepted_context_cues": 43,
+        "review_sha256": "eb9e8358f2076b40b1ba925038b03f40dc1164fb6e81c71db5ce0f511e13f6bf",
+        "topics": [
+          "sector ETF example",
+          "source-attributed arithmetic illustration of leverage",
+          "covered-call risk-learning recommendation"
+        ]
+      }
+    ]
+  },
+  "deferred": {
+    "new_notes": 19,
+    "correction_required": 6,
+    "reject_generalization_draft": 2,
+    "other": 11,
+    "native_approval_changed": false,
+    "correction_applied": false,
+    "remaining_finance": 60,
+    "remaining_nonresearch": 8,
+    "remaining_ambiguity_or_context": 4
+  },
+  "limitations": [
+    "Candidate-only same native source and private knowledge copies; no production or E4/E5 release. Retained entries and prior source history unchanged. No new engine module or workflow; only seven public URLs added to existing capture script.",
+    "New candidate propositions are source-attributed narrow research items; original broad assertions and unaudited subclauses do not become approved. No proof of complete atomization or semantic recall; 73 accepted context cues not a coverage score. 19 deferred notes are additional manual reviews, not native corrections or independent gold.",
+    "50억원 threshold concerns trust principal amount, not NAV; exact legal criteria and exchange delisting separate. Case disclosure describes planned redemption, not verified completed settlement. The arithmetic example has no original explicit duration; daily target and compounding are external application limitations, no guaranteed realized return. July 16 policy announcement is not proof all changes implemented; current applicability still unresolved. Prior May body retained by exact hash only, not a refreshed response.",
+    "Remaining 60 financial applicability groups are not resolved; eight nonresearch and four ambiguous/context groups retained. No audio verification, no new preregistered operational trial, no independent certification."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "formal_financial_fact_approval": 0,
+    "production_publications": 0
+  }
+}
