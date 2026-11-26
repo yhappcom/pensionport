@@ -214,6 +214,20 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      - name: Explicit public issuer refresh (optional, no source or approval)
+        if: ${{ contains(github.event.head_commit.message, '[public-origin-refresh]') }}
+        continue-on-error: true
+        run: python scripts/ire_r304_public_origin_capture.py ire-public-origin-refresh
+
+      - name: Preserve public response bodies and receipt only
+        if: ${{ !cancelled() && contains(github.event.head_commit.message, '[public-origin-refresh]') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ire-public-origin-refresh-${{ github.sha }}
+          path: ire-public-origin-refresh/
+          if-no-files-found: error
+          retention-days: 7
+
   engine_strict_v3_v5_v6:
     name: P0-0-04 strict V3 V5 V6 entire code tree / same SHA
     needs: branch_governance

@@ -24,6 +24,13 @@ URLS = {
     'KIND_PRODUCT':'https://kind.krx.co.kr/disclosure/etfisudetail.do?isuCd=KR7133690008&menuIndex=0&method=searchEftIsuDetail',
     'KRX_TE':'https://pdf.krx.co.kr/ebook_new/access/ecatalogt.jsp?Dir=23&callmode=normal&catimage=&eclang=ko&start=37&um=s',
     'KIND_ETN':'https://kind.krx.co.kr/external/2026/06/02/000078/20260601002266/68319.htm',
+    'LAW192':'https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1034140157',
+    'LAW246':'https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032567691',
+    'DEC223':'https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1033323789',
+    'DELIST_EXPIRY':'https://kind.krx.co.kr/external/2026/08/31/000098/20260831000181/68616.htm',
+    'DELIST_SIZE':'https://kind.krx.co.kr/external/2026/08/31/000008/20260825000007/68616.htm',
+    'DELIST_CORR':'https://kind.krx.co.kr/external/2026/05/07/000207/20260507000378/68615.htm',
+    'FSC_LEVERAGE':'https://www.fsc.go.kr/po010106/86910?curPage=&srchBeginDt=&srchCtgry=6&srchEndDt=&srchKey=&srchText=',
 }
 HOSTS = {'www.law.go.kr','law.go.kr','www.fsc.go.kr','fsc.go.kr',
          'kind.krx.co.kr','pdf.krx.co.kr','www.krx.co.kr','krx.co.kr'}
