@@ -1,0 +1,146 @@
+{
+  "schema": "IRE_DIRECT_EXTERNAL_CORRECTION_CONTEXT_REPLAY_V1",
+  "date": "2026-11-26",
+  "baseline_commit": "6704d4c223ea2e74e86231be5f1f802b6915a452",
+  "baseline_ci": {
+    "run": 45799063588,
+    "conclusion": "success",
+    "jobs_passed": 6
+  },
+  "origin_capture": {
+    "artifact_id": 15105853321,
+    "urls": 34,
+    "http_success": 31,
+    "http_failed": 3,
+    "new_urls": 9,
+    "new_http_success": 8,
+    "new_semantically_usable_body": 7,
+    "failed_keys": [
+      "LAW246",
+      "DEC223",
+      "LAW_SHARE_DIVIDEND"
+    ],
+    "header_only_not_evidence": "TAX_RULE13",
+    "archive_sha256": "b9963736a0207b487ceb6fb51a8a1b7f75a4d8c3cfffd328aecd69979d8ce498",
+    "capture_receipt_sha256": "48156281d44f30ca298ba51d222b97d6ed91a3930550977c1769bf639f0fe32a"
+  },
+  "implementation": {
+    "existing_module_only": true,
+    "new_engine_modules": 0,
+    "new_workflows": 0,
+    "new_branches": 0,
+    "existing_method": "PrivateKnowledgeStore.evidence_for_question",
+    "new_research_storage_method": "PrivateKnowledgeStore.save_external_correction_context",
+    "approved_knowledge_table_unchanged": true,
+    "separate_research_context_table": "external_correction_context",
+    "explicit_pinned_context_selection": true,
+    "no_parent_staging_or_guarded_store_inclusion": true,
+    "original_v123_exclusions_preserved": true,
+    "code_blobs": {
+      "validation/ire-v6-frozen/v126_chat_approved_knowledge_store.py": "433a066b2ff1dcec23d26d330f20f49802fdc025",
+      "validation/ire-v6-frozen/test_v126_native_source_revision_extension.py": "7375209ae8f465d05e70fe8acdece2aec113816d"
+    }
+  },
+  "actual_replay": {
+    "approved_candidate_rows_after": 20,
+    "approved_candidate_rows_before": 20,
+    "approved_candidate_rows_preserved": 20,
+    "artifact_sha256": "36fd9e60d9eb4ddc84d4e565852c1f4fe90d44fc95ede873cbd01a502bf98480",
+    "batch_sha256": "1547e437e111b14a1e293054eda429228cb699131ef5f418ed9453c48de8e772",
+    "correction_context_evidence_links": 20,
+    "correction_context_rows": 9,
+    "default_retrieval_unchanged": true,
+    "explicit_selection": true,
+    "formal_financial_fact_approved": 0,
+    "idempotent_replay": true,
+    "knowledge_head": "5e3a0d2b2e663e7dc7202cb97fd6a97d5520acfdc65c69ff6d803dfd4339a447",
+    "master_p4_changed": false,
+    "negative_rejections": [
+      [
+        "wrong_original_atom",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_EXCLUDED_ATOM_IDENTITY_OR_AUDIO"
+      ],
+      [
+        "fabricated_quote",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_ORIGIN_QUOTE_OR_BODY_DRIFT"
+      ],
+      [
+        "accepted_atom_as_correction",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_EXCLUDED_ATOM_IDENTITY_OR_AUDIO"
+      ],
+      [
+        "bad_knowledge_head",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_SOURCE_OR_KNOWLEDGE_HEAD_DRIFT"
+      ],
+      [
+        "bad_archive_digest",
+        "V6_INPUT_INVALID: PUBLIC_ORIGIN_ARCHIVE_BYTES"
+      ],
+      [
+        "unknown_correction_selection",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_CONTEXT_CLAIM_NOT_FOUND"
+      ],
+      [
+        "wrong_batch_pin",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_CONTEXT_NOT_FOUND"
+      ],
+      [
+        "stored_record_tampering",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_STORED_CONTEXT_DRIFT"
+      ],
+      [
+        "stored_archive_tampering",
+        "V6_INPUT_INVALID: PUBLIC_ORIGIN_ARCHIVE_BYTES"
+      ],
+      [
+        "stale_native_source_head",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_SOURCE_OR_KNOWLEDGE_HEAD_DRIFT"
+      ]
+    ],
+    "operational_qualification": false,
+    "origin_archive_sha256": "b9963736a0207b487ceb6fb51a8a1b7f75a4d8c3cfffd328aecd69979d8ce498",
+    "origin_capture_receipt_sha256": "48156281d44f30ca298ba51d222b97d6ed91a3930550977c1769bf639f0fe32a",
+    "origin_failed": 3,
+    "origin_success": 31,
+    "original_atoms": 44,
+    "original_cues": 173,
+    "original_v123_accepted": 11,
+    "original_v123_excluded": 33,
+    "retrieval_packets": 4,
+    "source_events_preserved": 42,
+    "source_head": "9da9a1cfa2158630a19aac6ebcd9a23f76cfbad740e34ee6fda1eca8f262643a",
+    "source_sha256": "19ce2a37a37079dc0a6ea4dde3d031bdc2b7bb990f0506fd1e0610442dbf0145",
+    "v128_executed": false
+  },
+  "private_archive": {
+    "sha256": "7802bfc50b7a473fd5e96d1944e6e1370a6598506bf70893c912ee5e23c1e406",
+    "bytes": 2063653,
+    "files": 158,
+    "manifest_sha256": "b8e2f64748b28de7d72e4b4e82e23ee948211252085697015b2c8a8b8e9f277b",
+    "clean_replay_exact": true
+  },
+  "regression": {
+    "local_v6": 139,
+    "local_frozen_v123_v126": 44,
+    "new_synthetic_tests": 4,
+    "clean_replay_byte_identical": true,
+    "clean_tests_same_counts": true,
+    "existing_sqlite_resource_warning": true,
+    "extraction_requires_private_database_mode_0600": true
+  },
+  "decisions_and_limits": [
+    "Persist reviewer-authored official-source corrections in a separate private research-context table, not as a spoken atom, approved knowledge ADD, Master/P4 relation mutation, formal E4 seal or V128 publication. Exact original excluded atom and pinned current source head, V123 review, archived original source body and quote are required. Explicit external batch digest must be supplied by caller. The source and knowledge DBs are separate; lookup rechecks current source head; no cross-database atomic publication claimed.",
+    "Correction statements and scope notes are ChatGPT adjudications. The code checks provenance, exact raw quotes, body digests and excluded-atom binding, not independent semantic truth or effective date. Undated KRX guidance remains undated; dated case disclosures and policy announcements are not general law. Actual source and knowledge replay on disposable private copies, all original candidate and source events unchanged.",
+    "Four actual question evidence packets assembled with manually selected IDs; no autonomous retrieval accuracy, final investment answer accuracy, individual advice or qualification tested. New correction context is not counted as approved candidate or an official financial fact. No formal E4/V128 or Master/P4 integration.",
+    "Original audio/screen unavailable; tax response contains only title and effective date, three captures failed, no source-date or general ETF correlation threshold certified. 33 original atom exclusions remain. The new feature is a narrow research convenience, not checklist advancement.",
+    "First clean extraction rejected database mode; corrected private filesystem permissions to 0600 and replayed exactly. One initial real quote shorter than the allowed eight-character floor was replaced with a longer actual excerpt. No gate relaxation."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}

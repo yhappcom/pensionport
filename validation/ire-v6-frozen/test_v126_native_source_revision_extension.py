@@ -48,6 +48,46 @@ class NativeSourceExtensionTests(unittest.TestCase):
         r=dict(schema=SCHEMA,review_executor='CHATGPT_IN_CHAT',as_of='2026-11-26',source_sha256=s.source_sha256,manifest_sha256=s.manifest_sha256,host_event_sha256=h['event_sha256'],host_bundle_sha256=h['bundle_sha256'],atom_candidate_digest=self.audit['atom_candidate_digest'],cue_disposition_digest=self.audit['cue_disposition_digest'],blindness='PRIOR_EXPOSED',source_first_pass_completed=True,counterexample_pass_completed=True,disagreements_adjudicated=True,source_cues=c,atom_verdicts=a,unresolved_high_risk_omissions=0,unresolved_audio_visual=0,external_independent_certified=False,personalized_advice_approved=False,p0_go=False,review_private_evidence_sha256=note)
         if q:r['quarantine']=dict(schema='IRE_V123_SOURCE_PINNED_QUARANTINE_V1',source_sha256=s.source_sha256,manifest_sha256=s.manifest_sha256,review_executor='CHATGPT_IN_CHAT',cue_rows=[x[0] for x in q],atom_rows=[x[1] for x in q],audio_unverified_cue_indices=[],private_chat_quarantine_review_sha256=note)
         return r
+    def correction_fixture(self):
+        from io import BytesIO
+        from zipfile import ZipFile
+        body=b'<html>Illustrative external statement only</html>'
+        url='https://listing.krx.co.kr/example.html';commit='a'*40
+        receipt=dict(schema='IRE_R304_PUBLIC_ORIGIN_CAPTURE_V1',code_commit=commit,
+            captured_utc='2026-11-26T05:47:47+00:00',private_source_uploaded=False,
+            finance_fact_approved=False,p0_go=False,results=[dict(key='FIXTURE',
+            requested_url=url,final_url=url,http_status=200,content_type='text/html',
+            date_header=None,sha256=sha256(body),bytes=len(body),transport='HTTPS_STDLIB_DEFAULT_TLS',
+            semantic_document_content_verified=False,effective_date_verified=False,v123_approved=False)])
+        fp=BytesIO()
+        with ZipFile(fp,'w') as z:
+            z.writestr('receipt.json',json.dumps(receipt));z.writestr('FIXTURE.html',body)
+        raw=fp.getvalue();a=self.e['atoms'][1]
+        rows=[dict(claim_id=a['claim_id'],atom_sha256=json_digest(a),external_statement='Synthetic correction context only.',scope_note='Not a current-law or source-meaning approval.',evidence=[dict(url=url,body_sha256=sha256(body),quote='Illustrative external statement only',date_kind='UNDATED_GUIDANCE_CAPTURE')])]
+        return dict(host_receipt=self.second,chat_review=self.review(self.second,{1}),
+            source_store=self.store,official_evidence_bodies={},origin_archive=dict(raw=raw,
+            expected_archive_sha256=sha256(raw),expected_commit=commit),corrections=rows,
+            expected_knowledge_head=self.initial['knowledge_head_sha256'])
+    def test_external_corrections_persist_without_approval(self):
+        args=self.correction_fixture();old=self.rows();saved=self.ks.save_external_correction_context(self.s,self.e,**args)
+        self.assertEqual(saved['approved_knowledge_added'],0);self.assertTrue(self.ks.save_external_correction_context(self.s,self.e,**args)['idempotent_replay'])
+        reloaded=PrivateKnowledgeStore(self.ks.path);ctx=dict(batch_sha256=saved['batch_sha256'],source_store=self.store,claim_ids=['C00002'])
+        pkt=reloaded.evidence_for_question('기록 보관',correction_context=ctx)
+        self.assertEqual(pkt['external_correction_context']['rows'][0]['original_atom'],self.e['atoms'][1]);self.assertFalse(pkt['external_correction_context']['formal_financial_fact_approved'])
+        self.assertNotIn('external_correction_context',reloaded.evidence_for_question('기록 보관'));self.assertEqual(self.rows(),old)
+    def test_external_correction_wrong_original_or_quote_rejected(self):
+        args=self.correction_fixture();old=self.rows();bad=copy.deepcopy(args['corrections']);bad[0].update(claim_id='C00001',atom_sha256=json_digest(self.e['atoms'][0]))
+        with self.assertRaisesRegex(QualityNotProven,'CORRECTION_EXCLUDED_ATOM'):self.ks.save_external_correction_context(self.s,self.e,**{**args,'corrections':bad})
+        bad=copy.deepcopy(args['corrections']);bad[0]['evidence'][0]['quote']='fabricated evidence text'
+        with self.assertRaisesRegex(QualityNotProven,'CORRECTION_ORIGIN_QUOTE'):self.ks.save_external_correction_context(self.s,self.e,**{**args,'corrections':bad})
+        self.assertEqual(self.rows(),old)
+    def test_external_correction_tampering_rejected(self):
+        args=self.correction_fixture();saved=self.ks.save_external_correction_context(self.s,self.e,**args);ctx=dict(batch_sha256=saved['batch_sha256'],source_store=self.store,claim_ids=['C00002'])
+        with sqlite3.connect(self.ks.path) as con:con.execute('UPDATE external_correction_context SET record_json=?',('{}',))
+        with self.assertRaisesRegex(QualityNotProven,'CORRECTION_STORED_CONTEXT_DRIFT'):self.ks.evidence_for_question('기록 보관',correction_context=ctx)
+    def test_external_correction_rejects_parent_staging(self):
+        args=self.correction_fixture();d=self.d/'v128_staging_corrections';d.mkdir();staging=PrivateKnowledgeStore(d/'staging.db',parent_staging_only=True)
+        with self.assertRaisesRegex(QualityNotProven,'CORRECTION_CONTEXT_RESEARCH_STORE_ONLY'):staging.save_external_correction_context(self.s,self.e,**args)
     def rows(self):
         with closing(sqlite3.connect(self.ks.path)) as con:return (con.execute('select * from knowledge order by knowledge_id').fetchall(),con.execute('select * from events order by seq').fetchall())
     def add(self,**overrides):return self.ks.add_chat_final_batch(self.s,self.e,self.k,**{**self.args,'source_revision_extension':True,**overrides})

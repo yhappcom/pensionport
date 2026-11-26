@@ -521,7 +521,125 @@ class PrivateKnowledgeStore:
         return {"status":"PRIVATE_KNOWLEDGE_TOMBSTONED","head_sha256":head,
                 "p0_go":False}
 
-    def evidence_for_question(self, question, *, selected_knowledge_ids=None, max_items=12):
+    @staticmethod
+    def _correction_origin_rows(rows, origin):
+        """Exact issuer-body linkage, not semantic or effective-date certification."""
+        for row in rows:
+            if not row["evidence"]:
+                _stop("CORRECTION_EVIDENCE_REQUIRED")
+            for link in row["evidence"]:
+                entry = origin["bodies"].get(link["url"])
+                if (entry is None or sha256(entry["body"]) != link["body_sha256"]
+                        or link["quote"].encode("utf-8") not in entry["body"]):
+                    _stop("CORRECTION_ORIGIN_QUOTE_OR_BODY_DRIFT")
+
+    def save_external_correction_context(self, source, exchange, *, host_receipt,
+            chat_review, source_store, official_evidence_bodies, origin_archive,
+            corrections, expected_knowledge_head):
+        """Persist explicitly attributed corrections as research context only.
+
+        An excluded spoken claim remains excluded. An external-source correction
+        is not a V123 atom, approved knowledge ADD, or E4/V128 publication.
+        No implicit inclusion in ordinary retrieval or protected store subclasses.
+        """
+        if type(self) is not PrivateKnowledgeStore or self._parent_staging_only:
+            _stop("CORRECTION_CONTEXT_RESEARCH_STORE_ONLY")
+        from ire.v6.public_origin import replay_public_origin_archive
+        gate = require_chat_final_release(source, exchange, host_receipt=host_receipt,
+                    chat_review=chat_review, store=source_store,
+                    official_evidence_bodies=official_evidence_bodies)
+        origin = replay_public_origin_archive(**origin_archive)
+        if origin["capture_date"] > chat_review["as_of"]:
+            _stop("CORRECTION_CAPTURE_AFTER_REVIEW")
+        atoms = {x["claim_id"]:x for x in exchange["atoms"]}
+        excluded = set(gate["quarantined_claim_ids"]) & {v["claim_id"] for v in chat_review["atom_verdicts"] if v["status"] == "EXCLUDE_FROM_RESEARCH"}
+        audio = set(chat_review.get("quarantine", {}).get("audio_unverified_cue_indices", []))
+        if type(corrections) is not list or not 1 <= len(corrections) <= len(excluded):
+            _stop("CORRECTION_CENSUS")
+        rows, seen = [], set()
+        for row in corrections:
+            if (type(row) is not dict or set(row) != {"claim_id","atom_sha256",
+                    "external_statement","scope_note","evidence"}):
+                _stop("CORRECTION_ROW_SCHEMA")
+            cid = row["claim_id"]
+            if (cid not in excluded or cid in seen or row["atom_sha256"] != _digest(atoms[cid])
+                    or audio.intersection(atoms[cid]["context_cue_indices"])):
+                _stop("CORRECTION_EXCLUDED_ATOM_IDENTITY_OR_AUDIO")
+            if any(type(row[k]) is not str or not 8 <= len(row[k].strip()) <= 3000
+                   for k in ("external_statement","scope_note")):
+                _stop("CORRECTION_STATEMENT_OR_SCOPE_REQUIRED")
+            if type(row["evidence"]) is not list or not 1 <= len(row["evidence"]) <= 10:
+                _stop("CORRECTION_EVIDENCE_REQUIRED")
+            for link in row["evidence"]:
+                if (type(link) is not dict or set(link) != {"url","body_sha256","quote","date_kind"}
+                        or link["date_kind"] not in {"UNDATED_GUIDANCE_CAPTURE","DATED_CASE_DISCLOSURE","DATED_POLICY_ANNOUNCEMENT","DATED_LEGAL_TEXT"}
+                        or type(link["quote"]) is not str or not 8 <= len(link["quote"].strip()) <= 500
+                        or not isinstance(link["body_sha256"], str) or not SHA.fullmatch(link["body_sha256"])):
+                    _stop("CORRECTION_EVIDENCE_SCHEMA")
+            rows.append({**row,"original_atom":atoms[cid],"original_v123_status":"EXCLUDE_FROM_RESEARCH",
+                         "external_not_speaker_quote":True,"formal_financial_fact_approved":False})
+            seen.add(cid)
+        rows.sort(key=lambda x:x["claim_id"])
+        self._correction_origin_rows(rows,origin)
+        record = {"schema":"IRE_V126_EXTERNAL_CORRECTION_CONTEXT_V1",
+                  "source_sha256":source.source_sha256,"scope_id":host_receipt["scope_id"],
+                  "source_head_sha256":host_receipt["event_sha256"],
+                  "chat_review_sha256":gate["chat_final_review_digest_sha256"],
+                  "as_of":chat_review["as_of"],"origin_archive_sha256":origin["archive_sha256"],
+                  "origin_commit":origin["code_commit"],"origin_capture_date":origin["capture_date"],
+                  "rows":rows,"research_context_only":True,"formal_financial_fact_approved":False}
+        pin = _digest(record)
+        with self._session() as con:
+            con.execute("BEGIN IMMEDIATE")
+            head,_ = self._audit(con)
+            if head != expected_knowledge_head or not source_store.is_current(
+                    scope_id=record["scope_id"],ledger_head_sha256=record["source_head_sha256"]):
+                _stop("CORRECTION_SOURCE_OR_KNOWLEDGE_HEAD_DRIFT")
+            con.execute("CREATE TABLE IF NOT EXISTS external_correction_context(batch_sha256 TEXT PRIMARY KEY, record_json TEXT NOT NULL, origin_archive BLOB NOT NULL)")
+            prior = con.execute("SELECT record_json,origin_archive FROM external_correction_context WHERE batch_sha256=?",(pin,)).fetchone()
+            payload = (canonical(record).decode("utf-8"),origin_archive["raw"])
+            if prior is not None and prior != payload:
+                _stop("CORRECTION_STORED_CONTEXT_DRIFT")
+            if prior is None:
+                con.execute("INSERT INTO external_correction_context VALUES(?,?,?)",(pin,*payload))
+        return {"batch_sha256":pin,"research_corrections":len(rows),"idempotent_replay":prior is not None,
+                "knowledge_head_sha256":head,"approved_knowledge_added":0,"formal_financial_fact_approved":False}
+
+    def _external_correction_context(self, con, context):
+        if (type(self) is not PrivateKnowledgeStore or self._parent_staging_only
+                or type(context) is not dict or set(context) != {"batch_sha256","source_store","claim_ids"}):
+            _stop("CORRECTION_CONTEXT_EXPLICIT_RESEARCH_ONLY")
+        pin, ids = context["batch_sha256"], context["claim_ids"]
+        if (type(pin) is not str or not SHA.fullmatch(pin) or type(ids) is not list
+                or not ids or len(ids)>30 or any(type(x) is not str for x in ids)
+                or ids != sorted(set(ids))):
+            _stop("CORRECTION_CONTEXT_PIN_OR_SELECTION")
+        if not con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='external_correction_context'").fetchone():
+            _stop("CORRECTION_CONTEXT_NOT_FOUND")
+        row = con.execute("SELECT record_json,origin_archive FROM external_correction_context WHERE batch_sha256=?",(pin,)).fetchone()
+        if row is None:
+            _stop("CORRECTION_CONTEXT_NOT_FOUND")
+        try:
+            record = json.loads(row[0])
+        except (TypeError,ValueError):
+            _stop("CORRECTION_STORED_CONTEXT_DRIFT")
+        if _digest(record) != pin:
+            _stop("CORRECTION_STORED_CONTEXT_DRIFT")
+        if not context["source_store"].is_current(scope_id=record["scope_id"],ledger_head_sha256=record["source_head_sha256"]):
+            _stop("CORRECTION_SOURCE_OR_KNOWLEDGE_HEAD_DRIFT")
+        from ire.v6.public_origin import replay_public_origin_archive
+        origin = replay_public_origin_archive(row[1], expected_archive_sha256=record["origin_archive_sha256"],
+                                              expected_commit=record["origin_commit"])
+        self._correction_origin_rows(record["rows"],origin)
+        selected = {x["claim_id"]:x for x in record["rows"]}
+        if not set(ids) <= selected.keys():
+            _stop("CORRECTION_CONTEXT_CLAIM_NOT_FOUND")
+        return {"batch_sha256":pin,"source_sha256":record["source_sha256"],"source_head_sha256":record["source_head_sha256"],
+                "as_of":record["as_of"],"origin_archive_sha256":record["origin_archive_sha256"],
+                "origin_capture_date":record["origin_capture_date"],"rows":[selected[cid] for cid in ids],
+                "research_context_only":True,"requires_live_primary_recheck":True,"formal_financial_fact_approved":False}
+
+    def evidence_for_question(self, question, *, selected_knowledge_ids=None, max_items=12, correction_context=None):
         """Private context for ChatGPT, NOT a generated financial recommendation.
 
         Lexical scores support discovery only. ChatGPT must independently
@@ -558,6 +676,7 @@ class PrivateKnowledgeStore:
             # active target too. Review-only status never becomes auto approval.
             from v127_cumulative_knowledge_graph import inspect_cumulative_knowledge_graph
             graph = inspect_cumulative_knowledge_graph(entries, statuses)
+            external = self._external_correction_context(con,correction_context) if correction_context is not None else None
         approved_for_lookup = set(graph["active_knowledge_ids"])
         active = {x["knowledge_id"]:x for x in entries
                   if x["knowledge_id"] in approved_for_lookup}
@@ -575,6 +694,7 @@ class PrivateKnowledgeStore:
                 "question_sha256":sha256(question.encode("utf-8")),
                 "knowledge_head_sha256":head,
                 "claims":found,"count":len(found),
+                **({"external_correction_context":external} if external is not None else {}),
                 "financial_claims_requiring_current_primary_source":sum(
                     x["finance_current_law_review_required"] for x in found),
                 "chat_question_relevance_not_independently_verified":True,
