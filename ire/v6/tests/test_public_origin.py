@@ -39,6 +39,14 @@ class PublicOriginTests(unittest.TestCase):
         r=self.replay();self.assertEqual(r['bodies'][self.url]['body'],self.body)
         self.assertFalse(r['issuer_authenticity_independently_verified']);self.assertFalse(r['finance_fact_approved'])
 
+    def test_official_listing_site_without_approval(self):
+        self.url='https://listing.krx.co.kr/contents/LST/06/06010600/LST06010600.jsp'
+        self.row.update(requested_url=self.url,final_url=self.url)
+        r=self.replay();self.assertEqual(r['bodies'][self.url]['body'],self.body)
+        self.assertFalse(r['finance_fact_approved'])
+        self.row['final_url']='https://listing.krx.co.kr.example.org/fake'
+        with self.assertRaisesRegex(InvalidInput,'PUBLIC_ORIGIN_URL'):self.replay()
+
     def test_pin_drift(self):
         with self.assertRaisesRegex(InvalidInput,'ARCHIVE_BYTES'):self.replay(expected='0'*64)
 

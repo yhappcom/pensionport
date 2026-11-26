@@ -1,0 +1,342 @@
+{
+  "schema": "IRE_DIRECT_DELIST_SUBSTANTIVE_EVIDENCE_REVIEW_V1",
+  "date": "2026-11-26",
+  "baseline_commit": "83b91246ebf8c2851f8adae195b3de978a1f3f40",
+  "baseline_archive_sha256": "71680489a32a56e5219043a44537b82fab8d4326b329a3352ebd10a5e2d6d894",
+  "baseline_dossier_sha256": "b38b0b3d05751dc984b41bd8928f04f734da4ed80dfdae3804aaec12c0d80174",
+  "replay": {
+    "cues": 173,
+    "atoms": 44,
+    "candidates": 11,
+    "knowledge_rows": 20,
+    "source_events": 42,
+    "knowledge_head": "5e3a0d2b2e663e7dc7202cb97fd6a97d5520acfdc65c69ff6d803dfd4339a447",
+    "source_head": "9da9a1cfa2158630a19aac6ebcd9a23f76cfbad740e34ee6fda1eca8f262643a",
+    "prior_replay_exact": true,
+    "additional_native_candidates": 0
+  },
+  "review": {
+    "deferred_reexamined": 12,
+    "corrections_reexamined": 11,
+    "source_native_exclusions_unchanged": 33,
+    "rows": [
+      {
+        "claim_id": "C00003",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "CORRECTION_DRAFT_WEB_SUPPORTED",
+        "reason": "2025년 ATS 본인가 및 개장 이후 주식 거래시장은 단일 거래장소가 아니다. ETF에 대한 거래 확대 계획은 실제 개장과 구분한다. 2026-10-29 보도는 신청 지연을 보도했지만 현재 ETF 거래대상 공식 목록을 확보하지 못했다. 원영상 날짜 미상.",
+        "source_keys": [
+          "FSC_ATS",
+          "NXT",
+          "NXT_DELAY_SECONDARY"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00006",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "ATTRIBUTED_PURPOSE_NOT_UNIVERSAL",
+        "reason": "투자자 보호는 상장폐지 제도의 한 목적이지만 만기 종료 및 임의해지 등 별도 사유도 있다. 부실 예방의 실증적 효과나 전 사유의 성격을 일괄 승인하지 않는다.",
+        "source_keys": [
+          "KRX_ETF_DELIST",
+          "DELIST_EXPIRY"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00008",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "CORRECTION_DRAFT_WEB_SUPPORTED",
+        "reason": "주식 취득은 주주 지위와 권리 취득이다. 상법상 의결권 및 배당은 법적 조건과 예외를 가지므로 기업의 개별 자산을 직접 소유한다는 뜻으로 해석하지 않는다. ETF 투자신탁과 별도.",
+        "source_keys": [
+          "LAW_SHARE_VOTE",
+          "LAW_SHARE_DIVIDEND"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00009",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "CORRECTION_DRAFT_WEB_SUPPORTED",
+        "reason": "거래소 시장별 상장폐지 기준은 재무·공시·감사·회생 등 개별 사유와 시점, 실질심사를 구분한다. 단순 적자·부채 존재만으로 자동 폐지되는 것은 아니다. 2026년 개정의 시행 및 경과조항 원문 추가 확인 필요.",
+        "source_keys": [
+          "KRX_KOSPI_DELIST",
+          "KRX_KOSDAQ_DELIST",
+          "FSC_STOCK_DELIST"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00010",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "SOURCE_SCREEN_MISSING",
+        "reason": "별도 ETF 상장유지 기준의 존재는 거래소 안내로 확인. 영상 화면 목록의 내용과 발화 당시 적용 규정은 확인 불가. 외부 현재 안내를 화면 내용으로 대체하지 않는다.",
+        "source_keys": [
+          "KRX_ETF_DELIST",
+          "KRX_ETF_MANAGEMENT"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00013",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "DATED_STATISTIC_DRAFT",
+        "reason": "2025 신규 173 폐지 50; 2026년 1~8월 신규 127 폐지 22. 자본시장연구원의 2026년 조사 집계로서 원영상 시점이나 모든 연도에 일반화하지 않는다. KDI 요약은 같은 연구의 재전달이며 독립 확인이 아니다.",
+        "source_keys": [
+          "KCMI_STAT",
+          "KDI_STAT"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00016",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "CORRECTION_DRAFT_WEB_SUPPORTED",
+        "reason": "주권 상장폐지에는 부실 외에도 여러 형식 요건 및 구조적 사유가 있다. 상장폐지 자체를 폭락·법인 소멸과 동치로 놓지 않는다. 원문의 빈도 및 손실 규모는 미검증.",
+        "source_keys": [
+          "KRX_KOSPI_DELIST",
+          "KRX_KOSDAQ_DELIST"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00026",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "CORRECTION_DRAFT_WEB_SUPPORTED",
+        "reason": "소득세법 시행규칙 제13조 2026-05-22 시행본은 환매·매도·해지·해산 및 분배를 구분하고 과세표준기준가격과 실제 가격의 적용을 규정한다. 과세 ETF라는 조건을 유지. 제4항 산식이 이미지이며 상품·계좌·수입시기·원천징수 및 최신 시행령 결합 검증은 미완료.",
+        "source_keys": [
+          "TAX_RULE13"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00039",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "CONDITIONAL_RULE_DRAFT",
+        "reason": "공익과 투자자 보호를 위해 필요하다고 거래소가 판단하는 경우라는 요건을 명시. 단순 위험 발견이 자동 폐지를 뜻하지 않는다. 날짜 없는 KRX 안내이므로 시행일 확정 전 정식 승인 보류.",
+        "source_keys": [
+          "KRX_ETF_DELIST"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00040",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "DATED_STATISTIC_DRAFT",
+        "reason": "2018-01-01~2026-09-28 연구 집계 217개 중 소규모 임의해지 178, 만기 34, 상관계수 5. 2026년 해당 기간 24개 중 각각 14,5,5. 규모가 최대 사유였다는 한정 근거이며 소규모 임의해지와 거래소 규모 유지요건 폐지는 구분한다. 원영상 시점은 미확정.",
+        "source_keys": [
+          "KCMI_STAT",
+          "KDI_STAT"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00047",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "REJECT_UNSUPPORTED_UNIVERSAL_DRAFT",
+        "reason": "법 제246조의 법적 주체는 신탁업자. 모든 ETF 수탁기관이 은행이라는 일반화를 뒷받침하지 않는다. 개별 비은행 ETF 신탁업자 사례는 미확보.",
+        "source_keys": [
+          "LAW246"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00049",
+        "prior_disposition": "DEFER_REQUIRED",
+        "review_only_disposition": "REJECT_UNSUPPORTED_INFERENCE_DRAFT",
+        "reason": "고객 집합투자재산의 분리 보관 의무와 운용회사의 자체 현금잔액은 다른 명제이다. 특정 회사 재무제표 없이 자체 현금 부재를 사실로 승인할 수 없다.",
+        "source_keys": [
+          "LAW246"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00037",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "시장가격과 NAV 차이, 지수 일변동률 상관계수를 분리한다. KRX 일반 안내의 0.9 표기는 2026년 KCMI 연구의 패시브 0.9/액티브 0.7 구분과 불충분하게 일치하므로 현행 규정 원문 확인 전 보편 기준으로 승인하지 않는다.",
+        "source_keys": [
+          "KRX_ETF_DELIST",
+          "KCMI_STAT",
+          "KIND_LP"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00038",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "소규모 임의해지의 원본액·기간 요건과 거래소 관리종목·다음 반기 말 지속 요건은 서로 다르다.",
+        "source_keys": [
+          "KRX_ETF_MANAGEMENT",
+          "DELIST_SIZE",
+          "KCMI_STAT"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00041",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "순자산총액은 자산총액 차감 부채총액이다. 신탁원본액과 구별한다.",
+        "source_keys": [
+          "KRX_ETF_MANAGEMENT",
+          "MANAGEMENT_BOTH"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00043",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "채권·원유선물 및 2026년 단일종목 ETF 허용 근거는 다수 주식만 들어 있다는 일반화의 반례. 상품 출시와 정책 발표를 구분한다.",
+        "source_keys": [
+          "DELIST_EXPIRY",
+          "OIL_FUTURES",
+          "FSC_APRIL"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00044",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "기초자산 처분·상환의 상품별 구조와 기초주권 거래정지/상폐에 따른 단일종목 ETF의 연계 위험을 구별한다.",
+        "source_keys": [
+          "DELIST_SIZE",
+          "FSC_APRIL",
+          "LAW192"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00045",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "장내 매도 체결가격/결제일과 해지상환 기준가격/지급일은 다를 수 있다. 현재 iNAV나 매입가가 최종 상환액으로 보장되지 않는다.",
+        "source_keys": [
+          "DELIST_SIZE",
+          "KCMI_STAT"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00046",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "재산 분리 보관과 원금·회수액 보장은 다른 법적 경제적 문제.",
+        "source_keys": [
+          "LAW246",
+          "DELIST_SIZE"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00051",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "가정한 몇 개의 운용사 승계/해지 시나리오로 투자위험이 없다는 결론은 도출 불가.",
+        "source_keys": [
+          "LAW246",
+          "DELIST_SIZE"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00053",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "비파생 ETF에도 가격, 유동성, 거래정지와 폐지 위험이 남는다. 음성 미확인 문구는 복원하지 않는다.",
+        "source_keys": [
+          "KRX_ETF_DELIST",
+          "DELIST_SIZE"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00054",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "상장 1년 경과, 반기 말 신탁원본액과 순자산총액 모두 50억원 미만이라는 복합 요건. 단순 NAV 미달 즉시 지정이라는 설명 수정.",
+        "source_keys": [
+          "KRX_ETF_MANAGEMENT",
+          "MANAGEMENT_BOTH"
+        ],
+        "native_approval_changed": false
+      },
+      {
+        "claim_id": "C00055",
+        "prior_disposition": "REJECT_BROAD_WITH_CORRECTION",
+        "review_only_disposition": "CORRECTION_REFINED",
+        "reason": "관리종목 지정 후 다음 반기 말에도 해당 사유가 지속되는 경우와 해지 사유를 구분. 현행 규정 시행일·예외 확인 전 정식 승인하지 않는다.",
+        "source_keys": [
+          "KRX_ETF_MANAGEMENT",
+          "KRX_ETF_DELIST",
+          "DELIST_SIZE"
+        ],
+        "native_approval_changed": false
+      }
+    ]
+  },
+  "sources": {
+    "KRX_ETF_DELIST": "https://listing.krx.co.kr/contents/LST/06/06010600/LST06010600.jsp",
+    "KRX_ETF_MANAGEMENT": "https://listing.krx.co.kr/contents/LST/06/06010500/LST06010500.jsp",
+    "KRX_KOSPI_DELIST": "https://listing.krx.co.kr/contents/LST/04/04010500/LST04010500.jsp",
+    "KRX_KOSDAQ_DELIST": "https://listing.krx.co.kr/contents/LST/04/04020500/LST04020500.jsp",
+    "TAX_RULE13": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=007507&lsJoLnkSeq=1000316689&print=print",
+    "FSC_ATS": "https://www.fsc.go.kr/no010101/83953",
+    "FSC_STOCK_DELIST": "https://www.fsc.go.kr/no010101/86875?curPage=&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=&srchText=",
+    "LAW_SHARE_VOTE": "https://law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001154456",
+    "LAW_SHARE_DIVIDEND": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1022059955",
+    "KCMI_STAT": "https://www.kcmi.re.kr/publications/pub_detail_view?cno=6860&syear=2026&zcd=002001016&zno=1939",
+    "KDI_STAT": "https://eiec.kdi.re.kr/policy/domesticView.do?ac=0000207691&depth1=&issus=&pg=&pp=&search_txt=&type=",
+    "NXT": "https://nextrade.co.kr/main.do",
+    "NXT_DELAY_SECONDARY": "https://www.hankyung.com/article/2026102931006",
+    "LAW246": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032567691",
+    "FSC_APRIL": "https://www.fsc.go.kr/po010106/86751?curPage=31&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=&srchText=",
+    "DELIST_SIZE": "https://kind.krx.co.kr/external/2026/08/31/000008/20260825000007/68616.htm",
+    "DELIST_EXPIRY": "https://kind.krx.co.kr/external/2026/08/31/000098/20260831000181/68616.htm",
+    "MANAGEMENT_BOTH": "https://kind.krx.co.kr/external/2026/06/01/001939/20260601002468/68615.htm",
+    "LAW192": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1034140157",
+    "OIL_FUTURES": "https://kind.krx.co.kr/external/2025/10/13/000001/20251013000001/68648.htm",
+    "KIND_LP": "https://kind.krx.co.kr/external/2025/07/11/000008/20250711000003/68648.htm"
+  },
+  "source_quality": "New web-text findings are research evidence, not newly captured origin bodies or effective-date certification. KCMI report is an author-published statistical study; KDI republishes the same study, not an independent gold. KRX guide is undated and not full regulation. Keep public capture separate from any approval. Do not inject new statistics as original speech.",
+  "capture": {
+    "new_urls": [
+      "KRX_ETF_DELIST",
+      "KRX_ETF_MANAGEMENT",
+      "KRX_KOSPI_DELIST",
+      "KRX_KOSDAQ_DELIST",
+      "TAX_RULE13",
+      "FSC_ATS",
+      "FSC_STOCK_DELIST",
+      "LAW_SHARE_VOTE",
+      "LAW_SHARE_DIVIDEND"
+    ],
+    "reuse_existing_workflow": true,
+    "new_workflows": 0,
+    "exact_host_added": "listing.krx.co.kr",
+    "local_https_failure": "DNS temporary failure",
+    "local_v6_tests": 139,
+    "existing_origin_tests_including_new_case": 10,
+    "regression_blob_pins": {
+      "replay": "475ddc40116773fe8489f0d10f0796f7bf382b6e",
+      "test": "704f271392d046934047e5c6fe3e2097f9951c4f"
+    },
+    "status_at_record": "CAPTURE_REQUEST_NOT_RESULT"
+  },
+  "limitations": [
+    "No fresh origin-body authentication or current legal approval at commit; original audiovisual and historical video date unavailable. No new knowledge write. All previous native verdicts unchanged.",
+    "No formal E4/V128, independent recall, unseen P205 qualification or personal advice. Source corrections are not source-attributed claims.",
+    "Existing KRX general correlation guide must not be applied to active ETFs without dated official rule. 2026 rule and source-date applicability remain unresolved."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}

@@ -41,9 +41,18 @@ URLS = {
     'MANAGEMENT_BOTH':'https://kind.krx.co.kr/external/2026/06/01/001939/20260601002468/68615.htm',
     'MANAGEMENT_BOTH2':'https://kind.krx.co.kr/external/2026/06/01/001942/20260601002176/68615.htm',
     'FSC_AUGUST':'https://www.fsc.go.kr/po010106/87512?curPage=3&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=&srchText=',
+    'KRX_ETF_DELIST':'https://listing.krx.co.kr/contents/LST/06/06010600/LST06010600.jsp',
+    'KRX_ETF_MANAGEMENT':'https://listing.krx.co.kr/contents/LST/06/06010500/LST06010500.jsp',
+    'KRX_KOSPI_DELIST':'https://listing.krx.co.kr/contents/LST/04/04010500/LST04010500.jsp',
+    'KRX_KOSDAQ_DELIST':'https://listing.krx.co.kr/contents/LST/04/04020500/LST04020500.jsp',
+    'TAX_RULE13':'https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=007507&lsJoLnkSeq=1000316689&print=print',
+    'FSC_ATS':'https://www.fsc.go.kr/no010101/83953',
+    'FSC_STOCK_DELIST':'https://www.fsc.go.kr/no010101/86875?curPage=&srchBeginDt=&srchCtgry=&srchEndDt=&srchKey=&srchText=',
+    'LAW_SHARE_VOTE':'https://law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001154456',
+    'LAW_SHARE_DIVIDEND':'https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1022059955',
 }
 HOSTS = {'www.law.go.kr','law.go.kr','www.fsc.go.kr','fsc.go.kr',
-         'kind.krx.co.kr','pdf.krx.co.kr','www.krx.co.kr','krx.co.kr'}
+         'kind.krx.co.kr','pdf.krx.co.kr','www.krx.co.kr','krx.co.kr','listing.krx.co.kr'}
 LIMIT = 2_500_000
 
 

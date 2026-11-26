@@ -15,7 +15,7 @@ from .codec import json_digest, require_hash, sha256
 from .errors import InvalidInput
 
 _HOSTS = frozenset({'www.law.go.kr','law.go.kr','www.fsc.go.kr','fsc.go.kr',
-                    'kind.krx.co.kr','pdf.krx.co.kr','www.krx.co.kr','krx.co.kr'})
+                    'kind.krx.co.kr','pdf.krx.co.kr','www.krx.co.kr','krx.co.kr','listing.krx.co.kr'})
 _MAX_BODY = 2_500_000
 _MAX_ZIP = 25_000_000
 
