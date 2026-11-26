@@ -1,0 +1,113 @@
+{
+  "schema": "IRE_R304_ETF250_RECOVERABILITY_V143_PROJECTION_V1",
+  "date": "2026-11-26",
+  "status": "RECOVERABILITY_DOCKET_AND_EXISTING_COMPONENT_PROJECTION_TEST_COMPLETE_HOLD",
+  "parent_commit": "df3ad1fb98b45a479bffd68ffb4ae8e7b39ae605",
+  "parent_ci": {
+    "id": 45740309222,
+    "conclusion": "success"
+  },
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "candidate_graph_sha256": "0643d77ee688c805da24c764ff71618c62382537adcfdbe69ade77c0ce11a791",
+  "recovery": {
+    "reviewed": 21,
+    "disjoint_subclause": 3,
+    "context_readable": 8,
+    "partial": 5,
+    "media_or_exact_source_required": 5,
+    "original_quarantine_unchanged": 21,
+    "disjoint_examples": [
+      {
+        "id": "A00050",
+        "cue": 149,
+        "uncertain_span": [
+          149,
+          6,
+          18
+        ]
+      },
+      {
+        "id": "A00053",
+        "cue": 153,
+        "uncertain_span": [
+          153,
+          0,
+          6
+        ]
+      },
+      {
+        "id": "A00079",
+        "cue": 227,
+        "uncertain_span": [
+          227,
+          0,
+          14
+        ]
+      }
+    ],
+    "scope": "No edits to typed graph, original audio/visual or missing unit recovery. Exact disjointness across original direct, context, speaker, quantity, relation and temporal anchors only. Not semantic independence or approval."
+  },
+  "v143": {
+    "git_blob": "02009c56c966781740068a4c1178b3911c84141f",
+    "source_file_bytes": 5456,
+    "exact_blob_verified": true,
+    "projected_atoms": 87,
+    "projected_cues": 250,
+    "excluded_atoms": 21,
+    "excluded_cues": 21,
+    "audio_visual_unverified_projection": 17,
+    "receipt_sha256": "4123e88fc076d7d22167ad3238dfb993c05c2810b8527d08a87f40c2b551b9db",
+    "input_projection_sha256": "aa306ed031185fb16958b01f14be7151e60cfff9df05dee6aa0710fa9e2acf5d",
+    "negative_tests": 6,
+    "negative_tests_rejected": 6,
+    "component_only": true,
+    "native_host_exchange": false,
+    "full_v123_gate_executed": false,
+    "accepted_atoms": 0,
+    "limitation": "Component checks cue context, not separately represented semantic dependency edges. Keep prior manual dependency closure and native exchange requirements. OPEN/ATOM diagnostic projection statuses not asserted valid full V123 input."
+  },
+  "finance": {
+    "route_count": 52,
+    "groups": {
+      "source_scope": 2,
+      "fund_type": 12,
+      "historical_market": 1,
+      "size": 5,
+      "liquidity": 10,
+      "return_comparison": 5,
+      "nav_premium": 8,
+      "tracking": 3,
+      "fees": 5,
+      "relative_comparison": 1
+    },
+    "hypothetical_calculations": {
+      "A00055": "ETF-index cumulative return difference -2 percentage points; not legal tracking error",
+      "A00076": "market price 17645 - NAV 17728 = -83 KRW; signed premium/discount -0.4682% derived, not a new source statement"
+    },
+    "clause_locator": "Financial Investment Business Regulations Art. 7-31-2: secondary republication indicates recent one-year daily NAV return versus specified multiple of index daily return difference standard deviation; official index version identified, exact clause official fetch cache miss, official body bytes unverified. No financial approval.",
+    "evidence_note_sha256": "f3d0bd5b9e98396fcb565c16f4bbf28796afae9d2269e1e313755e63d1592c66"
+  },
+  "archive": {
+    "sha256": "513c8124b3de681c1d76f85040437840d096a27a4165db793514547586225e34",
+    "bytes": 550959,
+    "manifest_sha256": "c1448269d4f0470938ece5e86b2e3110ae637bbc645e2e1933fa926ec2af9e95",
+    "result_sha256": "2eb58661d49d343da4da5df52cf07c6f8596336a37339e36bb32cf11e4b2d70f",
+    "clean_replay_byte_equal": true,
+    "library_readback_byte_equal": true
+  },
+  "decision": "Do not build another publisher or alter V143 to release a development subset. Existing cue gate demonstrably blocks same-cue independent candidates. Continue by studying actual native V6 host/V123 contract and assessing a loss-accounted research disposition policy under existing E2 constraints; a policy change permitting irrecoverable exclusions at E2 requires explicit user agreement and prospective formal evaluation design. Address actual evidence source acquisition and complete current official finance verification in development scope; no advancement to E3-E5 until formal prerequisite. Do not repeat more isolated same-source component tests or pretend this is a new two-turn success.",
+  "limitations": [
+    "21 manual recoverability judgments not independent certification, 8 context-readable and 3 coordinate-separated remain quarantined; no candidate modified. Some potential partial meanings need explicit lineage rather than replacement; do not erase original numeric OPEN.",
+    "V143 actual unchanged component called on a conservative projection only; not native host integration or V123/E4/E5 approval. 52 routes not 52 verified financial claims; source official fulltext unavailable. No new engine code, policy, independent gold, publication, or advice. All previous failed scores and 447 old tasks preserved."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "approved_atoms": 0
+  }
+}
