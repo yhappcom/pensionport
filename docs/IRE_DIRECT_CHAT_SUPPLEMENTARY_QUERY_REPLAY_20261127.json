@@ -1,0 +1,72 @@
+{
+  "schema": "IRE_DIRECT_CHAT_SUPPLEMENTARY_QUERY_REPLAY_V1",
+  "date": "2026-11-27",
+  "baseline": {
+    "commit": "4ddcf21341ec968cf2b8176c40312b738d623b0f",
+    "ci_run": 45801283201,
+    "conclusion": "success",
+    "private_archive_sha256": "150d9fb46d980cb1ef1d1719aaefefd65cde7f9b0ea4859c5634c3356251557d"
+  },
+  "architecture": "No engine changes. Existing V126 automatic retrieval followed by actual ChatGPT relevance review, bounded manually authored supplementary question strings, selective evidence use, and scoped answer drafts. No selected IDs supplied to automatic search. Explicit source and batch pins still required.",
+  "result": {
+    "baseline_questions": 12,
+    "new_composite_questions": 5,
+    "baseline_required": 21,
+    "baseline_required_first_pass": 19,
+    "baseline_required_after_supplement": 21,
+    "baseline_required_used": 21,
+    "baseline_related_used": 30,
+    "baseline_used": 30,
+    "supplementary_queries": 3,
+    "prior_questions_with_supplement": [
+      "Q04",
+      "Q06"
+    ],
+    "new_questions_with_supplement": [
+      "N02"
+    ],
+    "scoped_educational_drafts": 13,
+    "partial_current_or_personal_scope": 2,
+    "no_corpus_evidence_hold": 2,
+    "knowledge_rows": 20,
+    "external_correction_rows": 9,
+    "knowledge_logical_sha256": "ab6ccff06a9333651c49212ae0f9ccc2e2b9c2a93085ea0b019e90c706748f5c",
+    "source_logical_sha256": "479e68d3c6d5be8ba7fed5cdbd8b3b7c5e7d3725302fd6136fb4f46c23e0b7f9",
+    "artifact_sha256": "1e2b7db5f4cd7e64904324e9b18ddacd67e1ad6c12b63116debe4d34eed99348",
+    "review_sha256": "338674f51ec394a3d17dc37d0298f2b52016a7ef457d08263ac31a8e2a17cab7",
+    "new_questions_sha256": "151716415a5ddd38dc80b0e27f7adda55b2dfca03df31c7551807fdb4d47e8c8",
+    "clean_replay_result_and_packets_byte_identical": true,
+    "formal_publication": false,
+    "independent_evaluation": false,
+    "operational_qualification": false,
+    "new_knowledge_rows": 0,
+    "new_engine_modules": 0,
+    "new_engine_code_files": 0
+  },
+  "additional_web_text_sources": [
+    "https://www.fsc.go.kr/no010101/85231?curPage=9&srchBeginDt=&srchCtgry=&srchEndDt=.&srchKey=&srchText=",
+    "https://kind.krx.co.kr/external/2026/09/04/000026/20260904000059/68616.htm",
+    "https://www.fsc.go.kr/edu/news/87044",
+    "https://kind.krx.co.kr/disclosure/etfisudetail.do?method=searchEtfIsuSummary&strIsurCd=49840"
+  ],
+  "private_delta_archive": {
+    "sha256": "7e1e285798324e658f640b22af855b60287d857d2158b4c52235dfe1e7a4f5f6",
+    "bytes": 33414,
+    "requires_baseline_archive": true,
+    "clean_replay": true
+  },
+  "limits": [
+    "Same ChatGPT reviewed exposed corpus and previous question labels; 21/21 is an exposed development required-link result after deliberate query reformulation and selection, not independent accuracy. Five composite questions frozen locally before initial retrieval, not unseen source qualification. No new precision benchmark or performance certification.",
+    "Web text was reviewed in chat; no new original HTTP body custody or current-law applicability certificate. ATS actual ETF trading list and pension account tax remain unresolved. No new evidence stored as approved fact. Responses are educational drafts, not user portfolio advice.",
+    "Mechanical replay checks exact prior packets, used IDs subset of retrieved packets, prior logical SQLite rows and head, exact result reproducibility. It does not independently verify semantic correctness of answer text. No automatic ChatGPT invocation or integrated V23 final answer path tested. Source and batch pins are still manually configured.",
+    "R304 source completeness and E4/V128 publication remain blocked; no further search tuning on these exposed questions is warranted as a substitute for whole-video research. Do not start unseen qualification until preconditions met."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}
