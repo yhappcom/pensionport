@@ -1,0 +1,75 @@
+{
+  "schema": "IRE_R304_ETF250_QUARANTINE_SCREEN_AND_POLICY_DECISION_V1",
+  "date": "2026-11-26",
+  "status": "EXPOSED_CANDIDATE_QUARANTINE_SCREEN_COMPLETE_NO_RELEASE",
+  "parent_commit": "076c7ab32464fa18ab52f87943d0c81387b4176b",
+  "parent_ci": {
+    "id": 45595764713,
+    "conclusion": "success"
+  },
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "candidate_graph_sha256": "0643d77ee688c805da24c764ff71618c62382537adcfdbe69ade77c0ce11a791",
+  "policy_findings": {
+    "existing_v143": "validation/ire-v6-frozen/v143_source_pinned_quarantine.py",
+    "existing_v123": "validation/ire-v6-frozen/V123_CHATGPT_FINAL_REVIEW_POLICY.json",
+    "existing_v128": "validation/ire-v6-frozen/V6_V128_CONTINUOUS_CHAT_PARENT_ATOMIC_KNOWLEDGE_REPORT.md",
+    "existing_v166": "validation/ire-v6-frozen/V166_E4_SIXTH_REPAIR_TYPED_AUTHORITY_MANDATORY_PARENT_MIXED_NATIVE_OWNER_REPLAY_20261118.md",
+    "strict_p205": "docs/IRE_P0_2_05_OPERATIONAL_EVALUATION_POLICY_20261124.md",
+    "decision": "Existing V143 already allows explicit source/atom exclusion only with exact context dependency closure and formal V123 review; V128 requires all children and parent disposition in one atomic transaction; V166 requires typed evidence for all accepted claims. Reuse existing mechanisms, not alternate publisher. P205 separately requires all OPEN_UNCERTAIN resolved and three-domain 95/98/0. No change to either policy and no bypass. Research staging or a closed-with-hold diagnostic is not knowledge publication."
+  },
+  "screen": {
+    "atoms": 87,
+    "source_cues": 250,
+    "proposed_excluded_cues": 21,
+    "compiler_uncertain_atoms": 11,
+    "original_typed_review": 5,
+    "cue_overlap_atoms": 17,
+    "union_quarantine_atoms": 18,
+    "dependency_links_manually_identified": 25,
+    "additional_link_blocked": 3,
+    "quarantine_review": 21,
+    "high_risk_quarantine": 20,
+    "structure_review": 3,
+    "finance_or_applicability_review": 52,
+    "source_only_review": 11,
+    "unblocked_for_further_review": 66,
+    "prior_finance_grouped_review": 27,
+    "prior_finance_review_unblocked": 17,
+    "approved_atoms": 0,
+    "examples": [
+      "A79: known 123477-share hypothetical quantity shares cue 227 with missing currency for net assets; cue-level exclusion blocks the whole cue, even though exact numeric spans differ.",
+      "A53 shares cue 153 with ambiguous tracking-error ASR, A50 shares cue 149 with incomplete comparison price, A85 has cue 242 in context. Review the actual subclause dependency, do not remove context just to release.",
+      "A20, A61, A70 blocked by manually listed semantic links; not necessarily the only dependencies. A08 metaphor retains uncertainty without source cue deletion."
+    ]
+  },
+  "source_recovery": {
+    "search_scope": "Library title search and connected Drive search for exact video ID",
+    "raw_media_found": false,
+    "limitation": "No original video/audio found in these searches; not proof no media exists. Existing SRT available; missing audio, visuals, and missing units cannot be solved by confident inference."
+  },
+  "archive": {
+    "sha256": "f1be44fbf11b2e16cea72c89cf7d839ff70c6b9342142d4db4f30e8b6ffaf25f",
+    "bytes": 524516,
+    "manifest_sha256": "a7e9a1e8a8213641ba136ab805d6641f81de6a3e3dbdbfeee3b77a6c81528b1f",
+    "result_sha256": "6963c60559502f22816459a8aa958cd27a1c1d2c9b43a769686919c2fdcd28cc",
+    "script_sha256": "c7e32f983e5278a578773aacc960fbbb93dd8bde20c32211b06a4f49f68f4579",
+    "clean_replay_byte_equal": true,
+    "library_readback_byte_equal": true,
+    "invalid_input_checks": 5,
+    "known_dependency_checks": 3
+  },
+  "next": "Prioritize source recovery or explicit recoverability disposition for the 21 cue groups and 21 affected atoms; for clear independent subclauses, consider coordinate-level reauthoring with genuine evidence and new receipt, not editing away context. Assess mapping of existing typed candidate to actual native host/V143 (7 pilot windows not legacy 13-child approval), only as development until P205 policy requirements met. Explicitly separate source-local attribution, hypothetical examples, objective finance and conditional recommendation. If user wants formal source qualification to permit irrecoverable exclusions, present a precise policy amendment for separate consent: full census, loss accounting, no hidden denominator changes, no high-risk unresolved accepted claim, explicit withheld coverage, separate original strict scores; never authorize E3/E4/E5 or personal advice by exclusion alone. Do not consume fresh source or repeat excerpt tests before addressing this gate.",
+  "limitations": [
+    "Manual conservative dependency list is not exhaustive or independent; 21 proposed quarantine candidates are not final V143 exclusions. Some cue-level exclusions overblock valid subclauses. Source-only category includes a lecture agenda/nonresearch candidate, not 11 approved knowledge atoms.",
+    "Standalone diagnostic uses normal Python assertions and frozen compiler; not a production security boundary or native V123 ledger. No engine code changes, new official finance verification, independent accuracy, formal E2 pass or E3/E4/E5 publication. Existing five failed scores and 447 source tasks unchanged."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}
