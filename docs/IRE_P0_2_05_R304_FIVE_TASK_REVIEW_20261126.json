@@ -1,0 +1,99 @@
+{
+  "schema": "IRE_R304_FIVE_TASK_REVIEW_V1",
+  "date": "2026-11-26",
+  "parent_commit": "683de23d1206b276470a1a7cc9b44a68069985bc",
+  "parent_ci": {
+    "run_id": 45766170276,
+    "conclusion": "success"
+  },
+  "actual_review": {
+    "review_counts": {
+      "CORRECT": 7,
+      "FINANCE_PENDING": 19,
+      "MERGE": 4,
+      "NON_KNOWLEDGE": 2,
+      "QUARANTINE": 21,
+      "SOURCE_ONLY": 33,
+      "SPLIT": 1
+    },
+    "operations": {
+      "RETIRE": 2,
+      "CORRECT": 7,
+      "SPLIT": 1,
+      "MERGE": 2
+    },
+    "input_lineage_atoms": 14,
+    "output_candidates": 12,
+    "original_atoms_retained": 87,
+    "open_numeric_retained": 8,
+    "quarantine_retained": 21,
+    "v123_status": "CHAT_FINAL_HOLD_TYPED_TRANSITION",
+    "v123_approved": 0,
+    "native_events_before_after": [
+      48,
+      48
+    ],
+    "negative": {
+      "missing_review": "V6_INPUT_INVALID: REVIEWED_LINEAGE_REVIEW_CENSUS",
+      "quarantine_release": "V6_INPUT_INVALID: REVIEWED_LINEAGE_QUARANTINE_DRIFT",
+      "atom_drift": "V6_INPUT_INVALID: REVIEWED_LINEAGE_REVIEW_ATOM_OR_STATUS",
+      "missing_operation": "V6_INPUT_INVALID: REVIEWED_LINEAGE_OP_CENSUS",
+      "duplicate_parent": "V6_INPUT_INVALID: REVIEWED_LINEAGE_OP_PARENTS",
+      "correction_rewrite": "V6_INPUT_INVALID: REVIEWED_LINEAGE_CORRECTION_DRAFT_DRIFT",
+      "merge_one": "V6_INPUT_INVALID: REVIEWED_LINEAGE_OP_CARDINALITY",
+      "formal_v123_release": "V6_INPUT_INVALID: V123_TYPED_STAGING_NOT_FORMAL_INPUT"
+    },
+    "review_sha256": "a330642b18f616b09e2afef7a738ab82ade4f4781a00a1569c27101d447f9782",
+    "lineage_sha256": "021dc15c12f5cc2ed8fc56b97376de6e89c181ed55c19680847e14216ef1d928",
+    "hold_sha256": "51ad9b68b17decb32d78f1b590f5508272b6156f45757477b51a70c51165b7c2",
+    "new_trial_started": false,
+    "p0_go": false
+  },
+  "numeric_derived_count": 3,
+  "explicit_quantity_rechecked_count": 1,
+  "local_regression": {
+    "passed": 141,
+    "new_tests": 8,
+    "scope": "132 local V6 subset and 9 existing typed V123 tests",
+    "warning": "existing unclosed SQLite connection ResourceWarning; tests pass"
+  },
+  "archive": {
+    "bytes": 754670,
+    "sha256": "ca31b6e34fda676aad7c02b9ea54dbb334baf4236135c3b76da48ca1a1b5eabe",
+    "clean_replay_exact": true
+  },
+  "code_blobs": {
+    "ire/v6/reviewed_lineage.py": "0dca846c836847916b9a02be9c32ac5411c1f7f5",
+    "ire/v6/tests/test_reviewed_lineage.py": "ce81725868aa128ec6dd47133b1001a7a00a47e7"
+  },
+  "p0_5": {
+    "old_candidate_271": "EXPOSED_PRIOR_FAILED_TRIAL",
+    "old_candidate_336": "NO_ORIGINAL_SRT_IN_SEARCH",
+    "old_candidate_366": "NO_ORIGINAL_SRT_IN_SEARCH",
+    "library_exact_title_results": 0,
+    "drive_301_400_zip_results": 0,
+    "drive_id_search": "only roster and link spreadsheet records",
+    "preregistered": false,
+    "started": false,
+    "operational_precision": null,
+    "operational_recall": null,
+    "independent_certification": "UNMEASURABLE"
+  },
+  "limitations": [
+    "Source-only verdicts are source interpretation, not financial fact or native V123 acceptance. 19 finance-pending rows and 7 correction rows still need final financial and semantic applicability.",
+    "Four operations compile a loss-accounted candidate projection; no active/native write or formal V123 transition. Retire means omit nonknowledge from candidate projection, not delete historical record. Prior target files not changed.",
+    "Original 21 quarantine atoms/cues and 8 numeric occurrences unchanged. Derived calculations only from explicit unquarantined example inputs; explicit 123477 share count remains quarantined due to shared context.",
+    "Formal V123 release rejected on actual native seal; no integration transaction attempted. No fresh qualification trial; five previous failures and policy unchanged.",
+    "Manual source re-review is prior exposed and cannot certify precision, recall or zero high-risk omissions."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "approved": 0,
+    "publications": 0
+  }
+}
