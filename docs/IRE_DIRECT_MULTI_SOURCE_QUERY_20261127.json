@@ -1,0 +1,148 @@
+{
+  "schema": "IRE_MULTI_SOURCE_QUERY_ACTUAL_REPLAY_V1",
+  "date": "2026-11-27",
+  "baseline_commit": "66e8988c4d280161118f00468d6bbecff0956a96",
+  "baseline_ci_run": 45880154761,
+  "baseline_ci_status_at_start": "queued",
+  "implementation": {
+    "existing_module": "PrivateKnowledgeStore.evidence_for_question",
+    "opt_in": "correction_contexts=[{batch_sha256,source_store},...]",
+    "max_explicit_batches": 30,
+    "one_batch_per_source_sha256": true,
+    "global_max_per_category": 5,
+    "code_blobs": {
+      "validation/ire-v6-frozen/v126_chat_approved_knowledge_store.py": "363c9a13554eaeca811b548432abaccd4a11bb42",
+      "validation/ire-v6-frozen/test_v126_native_source_revision_extension.py": "6eb1024142aab3d34958c71b0417a8f1fdc9defe"
+    },
+    "legacy_single_batch_packet_exact": true,
+    "new_modules": 0,
+    "new_branches": 0,
+    "new_workflows": 0
+  },
+  "actual_replay": {
+    "artifact_sha256": "3a5bf4eec5fef44d16f47e177ee8e671049292054326115fe86ea46a3678bdd4",
+    "colliding_claim_ids": [
+      "C00039"
+    ],
+    "exact_reversed_pin_retry": true,
+    "external_batches": 2,
+    "external_rows": 14,
+    "formal_financial_fact_approved": false,
+    "formal_publication": false,
+    "global_limit_per_category": 5,
+    "knowledge_logical_sha256": "0a1d4f69468768b4c04f38d01af87a008d36ca53ac876b931d23b7ac5e93c339",
+    "negative": [
+      [
+        "duplicate_batch",
+        "V6_INPUT_INVALID: V126_MULTI_CONTEXT_DUPLICATE_BATCH"
+      ],
+      [
+        "one_unknown_batch",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_CONTEXT_NOT_FOUND"
+      ],
+      [
+        "manual_ids",
+        "V6_INPUT_INVALID: V126_MULTI_CONTEXT_EXPLICIT_PINS_ONLY"
+      ],
+      [
+        "single_and_multi",
+        "V6_INPUT_INVALID: V126_MULTI_CONTEXT_EXPLICIT_PINS_ONLY"
+      ],
+      [
+        "empty_scope",
+        "V6_INPUT_INVALID: V126_MULTI_CONTEXT_EXPLICIT_PINS_ONLY"
+      ],
+      [
+        "one_batch_record_tampered",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_STORED_CONTEXT_DRIFT"
+      ],
+      [
+        "one_batch_archive_tampered",
+        "V6_INPUT_INVALID: PUBLIC_ORIGIN_ARCHIVE_BYTES"
+      ],
+      [
+        "one_source_stale",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_SOURCE_OR_KNOWLEDGE_HEAD_DRIFT"
+      ]
+    ],
+    "operational_qualification": false,
+    "prior_four_links_retrieved": 14,
+    "prior_four_selected_links": 14,
+    "question_count": 6,
+    "source_knowledge_unchanged": true,
+    "source_logical_sha256": "479e68d3c6d5be8ba7fed5cdbd8b3b7c5e7d3725302fd6136fb4f46c23e0b7f9",
+    "source_rows": 20,
+    "unrelated_question_no_hits": true
+  },
+  "question_results": [
+    {
+      "id": "Q01",
+      "prior_selected_links": 4,
+      "retrieved": 10,
+      "batches_with_matches": 2,
+      "prior_selected_links_retrieved": 4
+    },
+    {
+      "id": "Q02",
+      "prior_selected_links": 4,
+      "retrieved": 4,
+      "batches_with_matches": 1,
+      "prior_selected_links_retrieved": 4
+    },
+    {
+      "id": "Q03",
+      "prior_selected_links": 2,
+      "retrieved": 4,
+      "batches_with_matches": 2,
+      "prior_selected_links_retrieved": 2
+    },
+    {
+      "id": "Q04",
+      "prior_selected_links": 4,
+      "retrieved": 7,
+      "batches_with_matches": 2,
+      "prior_selected_links_retrieved": 4
+    },
+    {
+      "id": "Q05",
+      "prior_selected_links": null,
+      "retrieved": 10,
+      "batches_with_matches": 2
+    },
+    {
+      "id": "Q06",
+      "prior_selected_links": null,
+      "retrieved": 0,
+      "batches_with_matches": 0
+    }
+  ],
+  "actual_collision_both_retrieved_in_question_5": true,
+  "regression": {
+    "v6": 139,
+    "frozen_v123_v126": 52,
+    "new_synthetic_tests": 4,
+    "clean_replay_exact": true,
+    "prior_artifact_exact": true,
+    "existing_sqlite_resource_warning": true
+  },
+  "private_delta_archive": {
+    "sha256": "5c7e54df368dc2bd93a77b1d9cd745ee64ef170efb209564b275f9bd3e522ae1",
+    "bytes": 45086,
+    "manifest_sha256": "b4f016b8768a57a0c04d999d7a2c6830260fe42cce802078f364febc060a2849",
+    "requires_two_prior_archives": true
+  },
+  "decisions_and_limits": [
+    "Opt-in query only: caller explicitly pins up to 30 correction batches and source stores. A single knowledge SQLite read transaction covers all candidate rows and archive validation. No cross-database atomic snapshot is asserted. Each specified source is checked current at read time; no automatic discovery of all stored batches, no corpus-wide completeness, no claim of 791-video scale. Same-source alternative batches rejected rather than arbitrarily choosing one.",
+    "One corpus-weighted lexical ranking with globally capped results, full batch and claim identity. Four exposed question prior-used links 14/14, not independent recall or precision. Two additional diagnostic queries, one no-hit; previously selected evidence is not exhaustive ground truth. Irrelevant hits still require ChatGPT review. No live primary refresh or new financial claims.",
+    "Actual source and knowledge logical SQL digests unchanged. External context remains separate from accepted research and E4/V128 publication. No cross-video semantic relationship was committed, no Master/P4 mutation or formal approval. Explicit source and batch configuration remains necessary.",
+    "Initial test harness used tuples in JSON report and failed canonical serialization; converted report identities to JSON arrays and reran. No gate relaxation. No new unseen operational trial."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}

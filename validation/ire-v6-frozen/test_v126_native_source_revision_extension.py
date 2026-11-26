@@ -105,6 +105,44 @@ class NativeSourceExtensionTests(unittest.TestCase):
         self.assertEqual([r['knowledge_id'] for r in self.ks.evidence_for_question('계획을 세운다',correction_context=ctx)['claims']],[kid])
         self.ks.revoke(kid,chat_review_sha256='2'*64,expected_knowledge_head=self.ks.audit()['head_sha256'])
         self.assertEqual(self.ks.evidence_for_question('계획을 세운다',correction_context=ctx)['claims'],[])
+    def test_multi_context_single_batch_and_legacy_unchanged(self):
+        saved=self.ks.save_external_correction_context(self.s,self.e,**self.correction_fixture())
+        ctx=dict(batch_sha256=saved['batch_sha256'],source_store=self.store)
+        old=self.ks.evidence_for_question('기록 보관',correction_context=ctx)
+        new=self.ks.evidence_for_question('기록 보관',correction_contexts=[ctx])
+        self.assertEqual(new['claims'],old['claims'])
+        self.assertEqual(new['external_correction_contexts'],[old['external_correction_context']])
+        self.assertEqual(new['automatic_retrieval_diagnostics']['external_batches_scanned'],1)
+        self.assertEqual(self.ks.evidence_for_question('기록 보관',correction_context=ctx),old)
+    def test_multi_context_refuses_mixed_duplicate_and_missing_pins(self):
+        from ire.v6.errors import InvalidInput
+        saved=self.ks.save_external_correction_context(self.s,self.e,**self.correction_fixture())
+        ctx=dict(batch_sha256=saved['batch_sha256'],source_store=self.store)
+        for kw in (dict(correction_contexts=[]),dict(correction_contexts=[ctx],correction_context=ctx),
+                   dict(correction_contexts=[ctx],selected_knowledge_ids=[]),
+                   dict(correction_contexts=[dict(ctx,claim_ids=['C00002'])])):
+            with self.assertRaisesRegex(InvalidInput,'MULTI_CONTEXT_EXPLICIT_PINS_ONLY'):
+                self.ks.evidence_for_question('기록',**kw)
+        with self.assertRaisesRegex(InvalidInput,'MULTI_CONTEXT_DUPLICATE_BATCH'):
+            self.ks.evidence_for_question('기록',correction_contexts=[ctx,ctx])
+        with self.assertRaisesRegex(QualityNotProven,'CORRECTION_CONTEXT_NOT_FOUND'):
+            self.ks.evidence_for_question('기록',correction_contexts=[ctx,dict(ctx,batch_sha256='0'*64)])
+    def test_multi_context_rejects_alternative_batch_same_source(self):
+        args=self.correction_fixture();a=self.ks.save_external_correction_context(self.s,self.e,**args)
+        new=copy.deepcopy(args['corrections']);new[0]['scope_note']+=' Further scoped detail.'
+        b=self.ks.save_external_correction_context(self.s,self.e,**dict(args,corrections=new))
+        with self.assertRaisesRegex(QualityNotProven,'MULTI_CONTEXT_MULTIPLE_BATCHES_PER_SOURCE'):
+            self.ks.evidence_for_question('기록',correction_contexts=[dict(batch_sha256=x['batch_sha256'],source_store=self.store) for x in (a,b)])
+    def test_multi_context_rank_keeps_colliding_claim_ids_distinct(self):
+        from v126_chat_approved_knowledge_store import _rank_research_context
+        rows=[dict(batch_sha256=k*64,claim_id='C00002',external_statement='기록 보관',original_atom=dict(proposition='기록 보관')) for k in ('a','b')]
+        _,found,d=_rank_research_context('기록 보관',{},rows,2)
+        # Add independent unrelated corpus documents so common-term suppression
+        # does not hide both matching records in this tiny fixture.
+        rows += [dict(batch_sha256='c'*64,claim_id=f'C{i:05}',external_statement='우주 여행',original_atom=dict(proposition='우주 여행')) for i in range(3,6)]
+        _,found,d=_rank_research_context('기록 보관',{},rows,2)
+        self.assertEqual({r['batch_sha256'] for r in found},{'a'*64,'b'*64})
+        self.assertEqual(len({r['id'] for r in d['ranked']['EXTERNAL']}),2)
     def test_external_correction_wrong_original_or_quote_rejected(self):
         args=self.correction_fixture();old=self.rows();bad=copy.deepcopy(args['corrections']);bad[0].update(claim_id='C00001',atom_sha256=json_digest(self.e['atoms'][0]))
         with self.assertRaisesRegex(QualityNotProven,'CORRECTION_EXCLUDED_ATOM'):self.ks.save_external_correction_context(self.s,self.e,**{**args,'corrections':bad})

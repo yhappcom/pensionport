@@ -65,7 +65,7 @@ def _rank_research_context(question, active, corrections, max_items):
     docs = [("SOURCE", row["knowledge_id"], row,
              row["atom"]["proposition"]+" "+" ".join(ref["quote"] for ref in row["atom"]["source_refs"]))
             for row in active.values()]
-    docs += [("EXTERNAL", row["claim_id"], row,
+    docs += [("EXTERNAL", (row["batch_sha256"]+":" if "batch_sha256" in row else "")+row["claim_id"], row,
               row["external_statement"]+" "+row["original_atom"]["proposition"])
              for row in corrections]
     corpus = [(kind, key, row, _discovery_features(text)) for kind,key,row,text in docs]
@@ -717,7 +717,7 @@ class PrivateKnowledgeStore:
                 "origin_capture_date":record["origin_capture_date"],"rows":[selected[cid] for cid in ids],
                 "research_context_only":True,"requires_live_primary_recheck":True,"formal_financial_fact_approved":False}
 
-    def evidence_for_question(self, question, *, selected_knowledge_ids=None, max_items=12, correction_context=None):
+    def evidence_for_question(self, question, *, selected_knowledge_ids=None, max_items=12, correction_context=None, correction_contexts=None):
         """Private context for ChatGPT, NOT a generated financial recommendation.
 
         Lexical scores support discovery only. ChatGPT must independently
@@ -735,10 +735,28 @@ class PrivateKnowledgeStore:
             any(type(x) is not str or not SHA.fullmatch(x) for x in selected_knowledge_ids) or
             selected_knowledge_ids!=sorted(set(selected_knowledge_ids))):
             raise InvalidInput("V126_SELECTED_KNOWLEDGE_IDS_INVALID")
+        # Explicit owner-pinned multi-source discovery, not automatic trust of
+        # all stored batches. One current batch per original source, no silent
+        # omission or selection of a superseded alternative.
+        multi = correction_contexts is not None
+        if multi:
+            if (correction_context is not None or selected_knowledge_ids is not None
+                    or type(correction_contexts) is not list
+                    or not 1 <= len(correction_contexts) <= 30
+                    or any(type(c) is not dict or set(c) != {"batch_sha256","source_store"}
+                           or type(c["batch_sha256"]) is not str
+                           or not SHA.fullmatch(c["batch_sha256"])
+                           for c in correction_contexts)):
+                raise InvalidInput("V126_MULTI_CONTEXT_EXPLICIT_PINS_ONLY")
+            pins = [c["batch_sha256"] for c in correction_contexts]
+            if len(set(pins)) != len(pins):
+                raise InvalidInput("V126_MULTI_CONTEXT_DUPLICATE_BATCH")
         automatic_context = type(correction_context) is dict and "claim_ids" not in correction_context
         if automatic_context and selected_knowledge_ids is not None:
             raise InvalidInput("V126_AUTOMATIC_CONTEXT_CANNOT_MIX_MANUAL_IDS")
         with self._session() as con:
+            if multi:
+                con.execute("BEGIN")
             head, statuses = self._audit(con)
             # Protect the advice-retrieval path from using rows whose parent
             # all-segment release receipt has been modified or detached from
@@ -758,11 +776,28 @@ class PrivateKnowledgeStore:
             from v127_cumulative_knowledge_graph import inspect_cumulative_knowledge_graph
             graph = inspect_cumulative_knowledge_graph(entries, statuses)
             external = self._external_correction_context(con,correction_context) if correction_context is not None else None
+            batches = []
+            if multi:
+                for ctx in sorted(correction_contexts, key=lambda c:c["batch_sha256"]):
+                    batches.append(self._external_correction_context(con,ctx))
+                if len({b["source_sha256"] for b in batches}) != len(batches):
+                    _stop("MULTI_CONTEXT_MULTIPLE_BATCHES_PER_SOURCE")
         approved_for_lookup = set(graph["active_knowledge_ids"])
         active = {x["knowledge_id"]:x for x in entries
                   if x["knowledge_id"] in approved_for_lookup}
         diagnostics = None
-        if automatic_context:
+        if multi:
+            # Claim IDs are local to each source. Rank one combined corpus,
+            # with qualified identities, and apply one global category cap.
+            all_corrections = [{**r,"batch_sha256":b["batch_sha256"]}
+                               for b in batches for r in b["rows"]]
+            found, matched, diagnostics = _rank_research_context(question,active,all_corrections,max_items)
+            matched_keys = {(r["batch_sha256"],r["claim_id"]) for r in matched}
+            for b in batches:
+                b["rows"] = [r for r in b["rows"] if (b["batch_sha256"],r["claim_id"]) in matched_keys]
+            diagnostics.update(external_batches_scanned=len(batches),
+                               external_identity="BATCH_SHA256_AND_CLAIM_ID")
+        elif automatic_context:
             found, matched, diagnostics = _rank_research_context(question, active, external["rows"], max_items)
             external = {**external, "rows":matched}
         elif selected_knowledge_ids is not None:
@@ -780,6 +815,7 @@ class PrivateKnowledgeStore:
                 "knowledge_head_sha256":head,
                 "claims":found,"count":len(found),
                 **({"external_correction_context":external} if external is not None else {}),
+                **({"external_correction_contexts":batches} if multi else {}),
                 **({"automatic_retrieval_diagnostics":diagnostics} if diagnostics is not None else {}),
                 "financial_claims_requiring_current_primary_source":sum(
                     x["finance_current_law_review_required"] for x in found),
