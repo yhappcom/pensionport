@@ -236,3 +236,54 @@ def audit_typed_premise_staging(source, exchange, ledger):
             "host_structural_staging_only": True, "original_audio_authenticated": False,
             "all_claim_semantics_approved": False, "formal_v123_input_authorized": False,
             "p0_go": False}
+
+
+def audit_typed_staging_successor(source, previous, current, predecessor_sha256):
+    """Conservative additive successor; never a semantic approval or retirement.
+
+    Both records are replayed. The caller must obtain the predecessor from the
+    current native event chain, not from a caller-supplied replacement graph.
+    Retraction, split/merge and resolution of OPEN require a different reviewed
+    transition; this path intentionally refuses them.
+    """
+    require_hash(predecessor_sha256, 'HOST_TYPED_PREDECESSOR')
+    def need(ok, code):
+        if not ok:
+            raise InvalidInput('HOST_TYPED_SUCCESSOR_' + code)
+    def cells(spans):
+        return {(c, i) for c, lo, hi in spans for i in range(lo, hi)}
+    for r in (previous, current):
+        need(type(r) is dict and set(r) == {'exchange', 'ledger'}, 'RECORD')
+        pin = audit_host_quarantine_preflight(source, r['exchange'], r['ledger'])
+        need(type(pin) is dict and pin.get('schema') == TYPED_STAGING_RECEIPT, 'NOT_TYPED')
+    old, new = previous['ledger'], current['ledger']
+    a, b = old['authored'], new['authored']
+    need(a['segments'] == b['segments'] and a['occurrences'] == b['occurrences'], 'SOURCE_CENSUS_CHANGED')
+    need([(x['typed_id'], x['claim_id']) for x in old['projection_rows']] ==
+         [(x['typed_id'], x['claim_id']) for x in new['projection_rows']], 'ATOM_LINEAGE_CHANGED')
+    need(len(a['atoms']) == len(b['atoms']), 'ATOM_COUNT_CHANGED')
+    retained = 0
+    for x, y in zip(a['atoms'], b['atoms']):
+        n, m = x['node'], y['node']
+        need(all(n[k] == m[k] for k in n if k not in {'context', 'predicate', 'atomicity_reason'}), 'NODE_ROLE_OR_DIRECT_CHANGED')
+        need(cells(n['context']) <= cells(m['context']), 'CONTEXT_LOSS')
+        need(all(x[k] == y[k] for k in x if k not in {'node', 'relations'}), 'QUANTITY_TEMPORAL_OR_TYPE_CHANGED')
+        # Every prior edge must be preserved as its own exact edge. A change
+        # to its coordinates/reason requires an explicit non-additive review.
+        old_edges = [json_digest(r) for r in x['relations']]
+        new_edges = [json_digest(r) for r in y['relations']]
+        from collections import Counter
+        need(not (Counter(old_edges) - Counter(new_edges)), 'CONDITION_OR_EXCEPTION_LOSS')
+        retained += len(old_edges)
+    for x, y in zip(previous['exchange']['atoms'], current['exchange']['atoms']):
+        need(all(x[k] == y[k] for k in x if k not in {'proposition','context_cue_indices','condition_cue_indices','exception_cue_indices'}), 'NATIVE_ROLE_OR_EVIDENCE_CHANGED')
+        need(all(set(x[k]) <= set(y[k]) for k in ('context_cue_indices','condition_cue_indices','exception_cue_indices')), 'NATIVE_CONTEXT_LOSS')
+    need(previous['exchange']['cue_dispositions'] == current['exchange']['cue_dispositions'], 'NATIVE_CUE_CENSUS_CHANGED')
+    for field, key in (('quarantine_cues','cue_index'), ('quarantine_atoms','claim_id')):
+        need({r[key] for r in old[field]} <= {r[key] for r in new[field]}, 'QUARANTINE_LOSS')
+    return {'schema':'IRE_V6_TYPED_STAGING_SUCCESSOR_RECEIPT_V1',
+            'predecessor_event_sha256':predecessor_sha256,
+            'predecessor_record_sha256':json_digest(previous),
+            'successor_record_sha256':json_digest(current),
+            'retained_typed_relations':retained,
+            'formal_v123_input_authorized':False, 'p0_go':False}

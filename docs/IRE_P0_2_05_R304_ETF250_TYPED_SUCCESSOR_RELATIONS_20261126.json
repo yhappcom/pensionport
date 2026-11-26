@@ -1,0 +1,94 @@
+{
+  "schema": "IRE_R304_ETF250_TYPED_SUCCESSOR_RELATIONS_V1",
+  "date": "2026-11-26",
+  "status": "ACTUAL_ADDITIVE_SUCCESSOR_CUSTODY_AND_ROUTED_PAIR_REVIEW_PASS_QUALIFICATION_HOLD",
+  "parent_commit": "6f8e5136bab9083f93cdcf9ab89f23af365d2ebf",
+  "parent_ci": {
+    "id": 45758768199,
+    "conclusion": "success"
+  },
+  "base_engine_commit": "97e4d42c17f1c2b4105f1699d27af24109f76aea",
+  "code_blobs": {
+    "ire/v6/host_batch.py": "ba27d866be1fc41dae8ecadd5116097bd658c389",
+    "ire/v6/host_quarantine_preflight.py": "f564acc883f8f017d0bfe54b2c1543deb0a33b2e",
+    "ire/v6/tests/test_host_typed_successor.py": "bd6a8d9a5e0a7e2c26f2ed9cf20b336c599a4e19"
+  },
+  "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "candidate_graph_sha256": "28b79cf0720a21ce622f1ee0ced10072cbc90d5ac5c6fa8a0775a14992ec7437",
+  "candidate_exchange_sha256": "377569eb1dab4915229df7b1c79d1aed2af4a9d9e2e461dc073bf828a1dc47a7",
+  "successor_contract": {
+    "implementation": "Existing native host path; mandatory current predecessor for subsequent typed stage within same scope; no new release path.",
+    "mode": "Conservative additive only. Exact existing typed relation edges, roles, direct spans, numbers, temporal, source dispositions and quarantine retained. Prior context coverage cannot shrink. Predicate text and certain notes may change; semantics still require review. Retraction, split/merge, OPEN resolution not supported by this path.",
+    "predecessor_event_sha256": "e69cb0cb062fc5266048b76983514e5b38fdcc185d58f4314dcbd8113033cb2c",
+    "successor_event_sha256": "3e3f9617181c9b0a189aedc5206039ba333f31090031f73702de78b22efb1519",
+    "bundle_sha256": "64a4294739b2de64b5d83d48638a41def092774a4746e2a81a80aa37490b91ce",
+    "previous_record_sha256": "00e222ab5ce8dc9dde0376371bcd10fad68f39bec95b4127b24509a9b7e3de47",
+    "successor_record_sha256": "00e222ab5ce8dc9dde0376371bcd10fad68f39bec95b4127b24509a9b7e3de47",
+    "retained_typed_relations": 28,
+    "atoms": 87,
+    "quarantine_atoms": 21,
+    "quarantine_cues": 21,
+    "open_numeric_occurrences": 8,
+    "original_event_prefix_preserved": 18,
+    "new_events": 15,
+    "total_events": 33,
+    "idempotent_retry": true,
+    "readback_replays_predecessor_pin": true,
+    "sqlite_integrity": true,
+    "actual_negative_tests": {
+      "missing_predecessor": "HOST_TYPED_SUCCESSOR_PREDECESSOR_REQUIRED",
+      "wrong_predecessor": "HOST_TYPED_SUCCESSOR_PREDECESSOR_REQUIRED",
+      "joint_rollback": "HOST_TYPED_SUCCESSOR_CONDITION_OR_EXCEPTION_LOSS",
+      "joint_edge_delete": "HOST_TYPED_SUCCESSOR_CONDITION_OR_EXCEPTION_LOSS",
+      "legacy_downgrade": "HOST_BATCH_UNRESOLVED_SOURCE_RESIDUALS"
+    },
+    "legacy_downgrade_test_scope": "Existing residual guard rejects this specific ETF without typed ledger. Not proof all bypass paths are impossible."
+  },
+  "prior_relationships": {
+    "protected_master116": 116,
+    "protected_p4": 29,
+    "reviewed_existing_routes": 87,
+    "extends_pending": 31,
+    "distinct_pending": 14,
+    "open": 42,
+    "same_pending": 0,
+    "conflict_pending": 0,
+    "novel_pending": 0,
+    "superseded_pending": 0,
+    "quarantine_atoms_open": 21,
+    "rows_sha256": "cf6f3a63b402d48ee688b613b8a265fb23e8b572ee53ccacdbb9950b6e90294e",
+    "docket_canonical_sha256": "caaecae67e303a6764f83f3f11eb5a2dca1434115ffd7503d6af4bc67ad29914",
+    "review_scope": "Existing routed pair per atom; actual target content pinned and read. Not exhaustive all-pair semantic search. Pending labels are manual relationship proposals, not verified financial truth or merge authority. Original 87 OPEN rows remain in parent archive; new rows supplied to native prior candidate audit, digest bound via host bundle, full rows in private archive, not standalone rows persisted in DB."
+  },
+  "tests": {
+    "local_recovered_test_methods": 99,
+    "new_synthetic_methods": 5,
+    "actual_negative_tests": 5,
+    "clean_replay_exact_json_and_33_events": true,
+    "prior_blob_integrity": true
+  },
+  "archive": {
+    "sha256": "bf50fdc8e4548c88ff5d0cec9fcb299dc6ba96a038eeecee5685d2a8f6e4bc73",
+    "bytes": 1435405,
+    "manifest_sha256": "122981ee0828e9724d84e12ddfce0d4cba4b0c63cd75b932a2bae5c510be1665",
+    "result_sha256": "ad213735bc9a74bedc18f8a823f1fa6acb46ffb6a97cc4f4332105f3a4c985da",
+    "sqlite_sha256": "a6af20d35218f35dd73590871b60f28656c6bedc3be4d3cc8828766ad49ddbba",
+    "library_readback_byte_equal": true
+  },
+  "limitations": [
+    "Same-scope native host transition only; cannot prevent creating a fresh DB or bypassing the host API; no claim of semantic entailment from unchanged coordinates. Original standalone scope successor remains an earlier independent development root, not retroactively repaired history.",
+    "Actual V123 full source gate not run this turn, financial primary evidence and original audio/visual not recovered; independent certification UNMEASURABLE. 99 local tests are a subset, exact full CI still required. No new qualification trial, prior five failed scores and 447 outstanding tasks preserved.",
+    "42 unresolved routed pairs include all 21 quarantined atoms. 45 pending decisions are not formal knowledge integration; other relevant corpus pairs may remain undiscovered."
+  ],
+  "next": "Verify exact commit CI. Address 42 OPEN routed pairs by source recovery and official finance verification, without repeating whole-video test or erasing OPEN. Assess a reviewed non-additive retirement/resolution transition only where actual evidence supports it, and reconcile P205 strict whole-video source uncertainty policy separately from V143 quarantine capability. No advancement to R305 or R306 until prerequisite.",
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "approved_atoms": 0,
+    "publication_count": 0
+  }
+}

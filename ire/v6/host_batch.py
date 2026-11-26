@@ -20,7 +20,7 @@ from .prior_knowledge import audit_prior_candidates
 from .proof import audit_model_anchors
 from .semantic_frontier import source_first_semantic_frontier
 from .semantic_risk import audit_semantic_risks
-from .host_quarantine_preflight import audit_host_quarantine_preflight, TYPED_STAGING_RECEIPT
+from .host_quarantine_preflight import audit_host_quarantine_preflight, TYPED_STAGING_RECEIPT, audit_typed_staging_successor
 from .state_machine import reduce_event
 from .trust import verify_owner_inventory
 
@@ -113,6 +113,17 @@ def read_host_chat_revision(store, *, scope_id, run_id, raw, manifest,
         con.close()
 
 
+def _previous_typed_stage(con, scope_id, before_sequence):
+    for row in con.execute("SELECT event_sha256,event_json FROM events WHERE scope_id=? AND sequence<? ORDER BY sequence DESC", (scope_id,before_sequence)):
+        event=json.loads(row["event_json"])
+        if event.get("type") != "REVIEW_PROPOSED":
+            continue
+        marker=event.get("payload",{}).get("review",{})
+        if marker.get("schema") == MARKER_SCHEMA and "private_typed_staging_record" in marker:
+            return row["event_sha256"], marker["private_typed_staging_record"]
+    return None
+
+
 def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                              expected_head: str, raw: bytes, manifest: dict,
                              inventory_bytes: bytes,
@@ -120,7 +131,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                              exchange: dict, knowledge: dict,
                              window_models: dict, window_reviews: dict,
                              quarantine_preflight: dict | None = None,
-                             chat_revision: dict | None = None) -> dict:
+                             chat_revision: dict | None = None,
+                             typed_predecessor: str | None = None) -> dict:
     """Commit a complete, source-bound host batch or no events at all.
 
     Requires current operator-pinned source and complete non-empty models
@@ -280,11 +292,27 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 commitment_fields["host_source_prequarantine_pin"]=prequarantine_pin
             if revision_pin is not None:
                 commitment_fields["private_chat_revision_sha256"]=revision_pin
-            commitment=json_digest(commitment_fields)
             seal_id=run_id+"_seal"
             prior=con.execute(
                 "SELECT * FROM events WHERE scope_id=? AND command_id=?",
                 (scope_id,seal_id)).fetchone()
+            # Use the actual earlier event in this same verified scope. For a
+            # historical idempotent retry, inspect only the earlier prefix.
+            # No new root or legacy host batch may overwrite a typed stage.
+            limit = prior["sequence"] if prior is not None else seq + 1
+            predecessor = _previous_typed_stage(con, scope_id, limit)
+            successor_pin = None
+            if predecessor is not None:
+                previous_sha, previous_record = predecessor
+                if (typed_staging_record is None or typed_predecessor != previous_sha
+                        or expected_head != previous_sha):
+                    raise InvalidInput("HOST_TYPED_SUCCESSOR_PREDECESSOR_REQUIRED")
+                successor_pin = audit_typed_staging_successor(
+                    source, previous_record, typed_staging_record, previous_sha)
+                commitment_fields["typed_successor_pin"] = successor_pin
+            elif typed_predecessor is not None:
+                raise InvalidInput("HOST_TYPED_SUCCESSOR_PREDECESSOR_NOT_FOUND")
+            commitment=json_digest(commitment_fields)
             if prior is not None:
                 event=json.loads(prior["event_json"])
                 review=event.get("payload",{}).get("review",{})
@@ -296,6 +324,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     review.get("source_semantic_risk_pin")!=risk_pin or
                     review.get("host_source_prequarantine_pin")!=prequarantine_pin or
                     review.get("private_typed_staging_record")!=typed_staging_record or
+                    review.get("typed_successor_pin")!=successor_pin or
                     review.get("private_chat_revision_sha256")!=revision_pin or
                     review.get("private_chat_revision")!=revision_record or
                     review.get("semantic_truth_certified") is not False or
@@ -317,6 +346,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     receipt_fields["host_source_prequarantine_pin"]=prequarantine_pin
                 if revision_pin is not None:
                     receipt_fields["private_chat_revision_sha256"]=revision_pin
+                if successor_pin is not None:
+                    receipt_fields["typed_successor_pin"]=successor_pin
                 return receipt_fields
             for wid in windows:
                 for suffix in ("model","proof"):
@@ -366,6 +397,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 marker["host_source_prequarantine_pin"]=prequarantine_pin
             if typed_staging_record is not None:
                 marker["private_typed_staging_record"]=typed_staging_record
+            if successor_pin is not None:
+                marker["typed_successor_pin"]=successor_pin
             if revision_pin is not None:
                 marker["private_chat_revision_sha256"]=revision_pin
                 marker["private_chat_revision"]=revision_record
@@ -395,6 +428,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 receipt_fields["host_source_prequarantine_pin"]=prequarantine_pin
             if revision_pin is not None:
                 receipt_fields["private_chat_revision_sha256"]=revision_pin
+            if successor_pin is not None:
+                receipt_fields["typed_successor_pin"]=successor_pin
             return receipt_fields
         return store._commit(con,work)
     finally:
@@ -435,6 +470,13 @@ def read_host_typed_staging(store, *, scope_id, run_id, raw, manifest,
         if (not receipt or receipt["schema"] != TYPED_STAGING_RECEIPT or
             receipt != marker.get("host_source_prequarantine_pin")):
             raise LedgerCorrupted("HOST_TYPED_STAGING_RECEIPT_DRIFT")
+        predecessor = _previous_typed_stage(con, scope_id, row["sequence"])
+        if predecessor is not None:
+            if audit_typed_staging_successor(source, predecessor[1], record,
+                    predecessor[0]) != marker.get("typed_successor_pin"):
+                raise LedgerCorrupted("HOST_TYPED_SUCCESSOR_PIN_DRIFT")
+        elif "typed_successor_pin" in marker:
+            raise LedgerCorrupted("HOST_TYPED_SUCCESSOR_PIN_WITHOUT_PREDECESSOR")
         # Bind the native projection to all current committed model revisions.
         indexed = {a["claim_id"]: a for a in record["exchange"]["atoms"]}
         seen = set()
