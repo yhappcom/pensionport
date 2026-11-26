@@ -1,0 +1,102 @@
+{
+  "schema": "IRE_DIRECT_CORRECTION_ACTUAL_REPLAY_V1",
+  "date": "2026-11-26",
+  "baseline": {
+    "commit": "06eb4220d96bd44150555ca031a68446b12c047b",
+    "ci_run": 45779827225,
+    "conclusion": "success",
+    "knowledge_head": "8ea8ffa78f2a809d08a40a701ea0c5e110f852c10d7fec2e6aa6dd307cb3faba"
+  },
+  "capture": {
+    "commit": "1e192b7b2fd5f5c1729356735371912d13ac1ca5",
+    "ci_run": 45781770031,
+    "status_at_record": "in_progress",
+    "conclusion_at_record": null,
+    "artifact_id": 15097993603,
+    "archive_sha256": "f1bcd8b07a3fbdd546a9561acd980e1713996173831a05eb77b08360b1f351f2",
+    "receipt_sha256": "897c7b07503e8bbf8de0992a85c3be1c35ce512c6f2feebe69e20fd5156d536a",
+    "urls": 25,
+    "success": 21,
+    "failed": 4,
+    "new_urls_success": 3,
+    "failed_keys": [
+      "LAW234",
+      "LAW192",
+      "LAW246",
+      "DEC223"
+    ],
+    "previous_pinned_bodies_preserved": true
+  },
+  "replay": {
+    "private_archive_sha256": "90eaf9bf7c334c590159432ae8c4b9e651b896c7de76bcc4f8a4115b51f0e22e",
+    "private_archive_bytes": 1273178,
+    "private_archive_files": 138,
+    "clean_result_exact": true,
+    "clean_correction_records_exact": true,
+    "clean_lookup_exact": true,
+    "local_v6_tests_passed": 138,
+    "source_events_before": 27,
+    "source_events_after": 33,
+    "source_events_preserved": 27,
+    "knowledge_events_before": 15,
+    "knowledge_events_after": 18,
+    "knowledge_events_preserved": 15,
+    "prior_entries_byte_identical": true,
+    "retrieved": 18,
+    "missing_new_body_negative": 2,
+    "idempotent_retry": 2,
+    "knowledge_head": "d3a11f77f11978135062107c5f779e8dc0383f018c2d2a0ef5801de48558d763",
+    "videos": [
+      {
+        "video_id": "Yb_5prWaqhk",
+        "cues": 173,
+        "groups": 36,
+        "before": 7,
+        "added": 2,
+        "after": 9,
+        "excluded": 27,
+        "review_sha256": "e489be05eeb82e4aad4e14e80165423cae79fb073b0d68398ab132a09f555184"
+      },
+      {
+        "video_id": "k9O79HeMOp0",
+        "cues": 222,
+        "groups": 51,
+        "before": 8,
+        "added": 1,
+        "after": 9,
+        "excluded": 42,
+        "review_sha256": "45c16c613213543982569a70444ef7c83c0e2970fdb8bad72ebac4a640fcc3b3"
+      }
+    ]
+  },
+  "corrections": {
+    "source_exclusions_readjudicated": 8,
+    "additional_policy_note": 1,
+    "original_atoms_preserved": 9,
+    "records_sha256": "c8ebf682c521fb45aaec6f8f607899c6595ac0777b67f188805f1ce749ae2d77",
+    "evidence_links": 21,
+    "distinct_evidence_keys": 11,
+    "notes_bound_to_native_prior_relation_rationale": true,
+    "formal_corrected_knowledge_approved": 0,
+    "remaining_excluded_groups": 69
+  },
+  "findings": [
+    "Distinguish statutory discretionary termination exemption under Decree 223, based on principal plus statutory conditions and FSC criteria, from exchange management designation (principal AND NAV thresholds per June 2026 issuer notices). Prior shorthand suggesting NAV never matters is incomplete. KRX rules web view dated 2022 is not a verified current consolidated text; don't use it as current exact legal basis.",
+    "Distinguish correlation maintenance, price/NAV divergence and delisting/termination; historical issuer notices do not certify subsequent events.",
+    "FSC August 12 follow-up announcement gives scoped August 19 changes for new retail single-stock leverage/inverse investors; implementation of all relevant association rules and applicability to specific persons not verified.",
+    "Commodity physical-purchase statement is a premise for later ETF alternative, not necessarily standalone absolute assertion. Audio gap remains. Preserve source and exclude rather than fabricate corrected speaker statement."
+  ],
+  "limitations": [
+    "New candidates only source-attributed narrow portions, not complete validation of original claim groups. Two source-native review bundles and three candidate rows added on private copies, not production. Corrected external statements explicitly not V123-approved source statements; no corrected knowledge publication. No live Master/P4 change or independent certification. No new engine or workflow; only three URLs added to existing capture script. Existing SQLite ResourceWarning remains. No new P205 trial."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "formal_financial_fact_approval": 0,
+    "production_publications": 0
+  }
+}
