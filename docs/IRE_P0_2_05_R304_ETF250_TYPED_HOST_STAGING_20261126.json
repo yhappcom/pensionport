@@ -1,0 +1,99 @@
+{
+  "schema": "IRE_R304_ETF250_TYPED_PREMISE_HOST_STAGING_V1",
+  "date": "2026-11-26",
+  "status": "ACTUAL_TYPED_HOST_STAGING_REPLAY_PASS_FORMAL_APPROVAL_HOLD",
+  "parent_commit": "97e4d42c17f1c2b4105f1699d27af24109f76aea",
+  "previous_record": "64c31268a6287a2afdd291d0da9f82b65c580182",
+  "previous_ci": {
+    "id": 45755424914,
+    "conclusion": "success"
+  },
+  "engine_ci": {
+    "id": 45757072341,
+    "status": "in_progress_at_recording"
+  },
+  "engine_files": {
+    "ire/v6/host_quarantine_preflight.py": "c7829fa029f6149ea46c853d4439f3c971784b96",
+    "ire/v6/host_batch.py": "2e0ad41bc0b35e5fac9fa81a5c63c6948d70f9b7",
+    "ire/v6/tests/test_host_typed_premise_staging.py": "c0c50f07919d03f8b7be816fd254a7ac2e660036",
+    "validation/ire-v6-frozen/v123_chat_final_gate.py": "4a7198d593f8706a314a205ef7758676384d21e9",
+    "validation/ire-v6-frozen/test_v123_chat_final_gate.py": "0a62ebc06c47297db96f9cd522b158f714c30bb5"
+  },
+  "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "manifest_sha256": "8418d66e10d32283f77cfc28952b5cdf0107c8d31e036eea1da8f85fcd7bb984",
+  "inventory_sha256": "8757a3555bcdc3e50338d393d2c4fe2d05af4cbc4fb6c4c9114c0d6c14787297",
+  "inventory_scope": "Operator-derived one-source inventory; not authenticated owner identity",
+  "original_graph_sha256": "0643d77ee688c805da24c764ff71618c62382537adcfdbe69ade77c0ce11a791",
+  "native_exchange_sha256": "a91d87e18e8184b2131cb066695bfc45774cc3a2350f8063f2014ceea504e677",
+  "typed_staging_ledger_sha256": "e39bc3ec73d91e8ec3b4d1941919e84ed2bc8bc32341653728612caa4f8e8724",
+  "actual": {
+    "source_cues": 250,
+    "typed_atoms": 87,
+    "native_atoms": 87,
+    "reviewed_premise_cues": [
+      114,
+      115,
+      188,
+      209
+    ],
+    "quarantine_cues": 21,
+    "quarantine_atoms": 21,
+    "open_numeric_occurrences": 8,
+    "typed_original_unchanged": true,
+    "context_and_premise_census_verified": true,
+    "typed_quantity_edges": 9,
+    "temporal_escrows": 5,
+    "windows": 7,
+    "models": 7,
+    "proofs": 7,
+    "events_before": 3,
+    "events_after": 18,
+    "host_event_sha256": "c296979f9fd110e677f1d78547345dbeaf80dafa2e8a0b94af132bad4ec2c7b8",
+    "bundle_sha256": "2245df0f7340e9d1b6be9fad3da39c572d54f830bf091b93d66e7dd6c1876d95",
+    "private_staging_read_sha256": "3594f12249654343983e9bf02dcd8bf1e3219282fa150c6db07d78f5e21da049",
+    "actual_store_reopened": true,
+    "idempotent_retry": true,
+    "partial_write_rollback": true,
+    "canonical_tampered_event_rejected": true,
+    "prior_master_replayed": 116,
+    "prior_p4_replayed": 29,
+    "prior_relations_open": 87,
+    "frontier_review_cases": 95,
+    "semantic_risk_cases": 23,
+    "counts_not_unique_or_independently_adjudicated": true
+  },
+  "tests": {
+    "actual_preflight_negative_checks": 8,
+    "actual_host_negative_checks": 5,
+    "local_test_methods": 94,
+    "new_local_synthetic_test_methods": 5,
+    "new_v123_ci_test_methods": 1,
+    "actual_full_v123_not_executed": true,
+    "formal_v123_input_authorized": false
+  },
+  "archive": {
+    "sha256": "d1d5d2fdf337835b68faae167c99618e3d6cf6dce376b89ce8cd611b61f200f3",
+    "bytes": 774505,
+    "manifest_sha256": "9ee6bfd04922197ec55ab4e169c0b50dfeb9feb8840206b40ae552cf3672c803",
+    "host_result_sha256": "88843b15230b137a2972a78d7d9d4aa90358213ea951f2f18a71dc988f85ed8e",
+    "sqlite_sha256": "06fa64af295d6ba4b65606c22a098c4dea972a4ce1de6bd1e2d554ccefbbbdc1",
+    "clean_replay_identical_receipts": true,
+    "library_readback_byte_equal": true
+  },
+  "decision": "Extend existing host only for explicitly non-release-compatible typed staging. Distinguish full source-anchored premises from unresolved cues; do not force exclusion or independent claim. Existing V145 unchanged. V123 rejects typed-staging receipts and current stored markers even if receipt fields stripped. Prior graph, native draft, quarantine and OPEN are retained in private seal; no alternative publisher. P205 policy, five historic failed scores, 447 outstanding tasks and independent UNMEASURABLE unchanged. Next inspect existing risk queues, resolve genuine semantic errors and recover original evidence; actual V123 negative full replay after exact integration CI, then formal operational policy evaluation. Do not confuse native staging with E2 qualification.",
+  "limitations": [
+    "Typed-to-native mapping is explicitly manually adapted for this exposed ETF; the new generic custody validator checks exact coordinates and source inventory but does not prove semantic entailment or exhaustive dependencies outside the typed graph. Multi-cue typed numeric projection remains conservatively blocked; large event size limit remains fail-closed.",
+    "Actual store stage includes the full typed record and native exchange in private event; source and prior corpus exact bytes checked, but no official finance truth, original media, or independent accuracy certified. Local tests from recovered package are 94, not entire CI. New V123 guard/test committed, CI not finished and actual full V123 not invoked.",
+    "87 existing-knowledge relations are provisional OPEN topic routes, not integration or financial approval. 95 frontier and 23 semantic risk warnings may overlap. No new prospective whole-video pass."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "approved_atoms": 0,
+    "publication_count": 0
+  }
+}
