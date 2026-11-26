@@ -1,0 +1,115 @@
+{
+  "schema": "IRE_R304_ETF250_NATIVE_CONTRACT_LOSS_AUDIT_V1",
+  "date": "2026-11-26",
+  "status": "ACTUAL_FULL_NATIVE_EXCHANGE_AND_SEVEN_WINDOW_ANCHOR_AUDITS_PASS_HOST_PREFLIGHT_HOLD",
+  "parent_commit": "e915f3f59346999dccccff198c59e60957bb2ad9",
+  "parent_ci": {
+    "id": 45742527927,
+    "conclusion": "success"
+  },
+  "engine_commit": "2551e2355d62fd1039fc082f3be2b46eb24e5a4c",
+  "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "original_candidate_graph_sha256": "0643d77ee688c805da24c764ff71618c62382537adcfdbe69ade77c0ce11a791",
+  "native_code_blobs": {
+    "ire/v6/chat_revision.py": "d5f0ae6dc8e4e0abf6f5084921e2a251cbd24e88",
+    "ire/v6/atomic_exchange.py": "905b5a459c7d0d4c6509c534135ced59af18e3fa",
+    "ire/v6/proof.py": "08e33479485562ae3da46faa208f1a06d6d90706",
+    "ire/v6/host_batch.py": "a36f932eec04b04d679e65121518a7c4ed451dba",
+    "ire/v6/host_quarantine_preflight.py": "e45e51aa4a165010e837456b8a1553aaa3e30237"
+  },
+  "baseline": {
+    "projected": 73,
+    "blocked": 14,
+    "number_ungrounded": 12,
+    "modality_kind_conflict": 2,
+    "source_cues": 250,
+    "atoms": 87
+  },
+  "draft": {
+    "projected": 87,
+    "blocked": 0,
+    "first_full_exchange_rejected": "HOST_ATOM_FRAME_INVALID",
+    "relative_temporal_labels_in_date_field": 5,
+    "final_full_exchange_structural_pass": true,
+    "source_cues": 250,
+    "cues_with_direct_candidates": 235,
+    "other_cues": 15,
+    "native_unresolved_cues": 0,
+    "native_unresolved_zero_not_semantic_clearance": true,
+    "window_anchor_proofs": 7,
+    "window_claim_counts": [
+      16,
+      14,
+      14,
+      13,
+      13,
+      15,
+      2
+    ],
+    "draft_exchange_sha256": "a91d87e18e8184b2131cb066695bfc45774cc3a2350f8063f2014ceea504e677",
+    "atom_candidate_digest": "c8706259b63a9cd12f846ca49be3d8f2dc9499820cd2b97a913238de95844226",
+    "cue_disposition_digest": "083c5093f043af4fd74498633892630988ca6a48f9a061230df740f4aa2b5686",
+    "source_open_numeric_occurrences_preserved": 8,
+    "raw_lexical_links_not_numeric_truth": 8,
+    "typed_quantities": 9,
+    "typed_relations": 6,
+    "typed_temporal": 5,
+    "relative_temporal_values_preserved_in_private_sidecar_native_as_of_null": 5,
+    "unresolved_native_stance": 36,
+    "original_graph_unchanged": true,
+    "source_span_expansion_atoms": 0,
+    "cross_window_direct": 4,
+    "cross_window_context": 13,
+    "typed_sidecar_bound_to_production_host": false,
+    "host_committed": false
+  },
+  "native_blocker": {
+    "actual_preflight_without_ledger_rejected": "HOST_BATCH_UNRESOLVED_SOURCE_RESIDUALS",
+    "new_mandatory_cues": [
+      114,
+      115,
+      188,
+      209
+    ],
+    "all_are_condition_premises": true,
+    "additional_direct_dependency_atoms": [
+      "A00042",
+      "A00065",
+      "A00071"
+    ],
+    "old_quarantine_cues": 21,
+    "old_quarantine_atoms": 21,
+    "conservative_combined_cues": 25,
+    "conservative_combined_atoms_lower_bound": 24,
+    "all_old_quarantine_cues_have_direct_candidate_refs": true,
+    "old_direct_overlap_atoms": 15,
+    "semantic_dependency_closure_complete": false,
+    "explanation": "Native cue dispositions cannot simultaneously mark a source cue CANDIDATES and UNRESOLVED. The 21 original quarantined source cues have candidate references and so do not appear in the native preflight mandatory list. Explicit V143 exclusions and typed OPEN inventory still required. Four other premise-only cues have no direct candidate and trigger lexical risk preflight. V143 would require excluding their dependent atoms; inventing a separate claim, deleting the premise or pretending they are ambiguous is not a remedy."
+  },
+  "reproduction": {
+    "archive_sha256": "a44c6a530bb09e149d60a6765baef151367a1ece79eecabf47d871e90eef0cb8",
+    "bytes": 636384,
+    "manifest_sha256": "d4a5c979e2de5edd64ca7639101b7e32e47909c973d3561c1f70e115160ed6c2",
+    "baseline_sha256": "8747cca626a4ce72d3072235422cec719c6b013d2432b02d09223593cc03922b",
+    "intermediate_rejection_sha256": "d5a653b1117891f8055debe871cd025e32e440e08dd93f386fbb1ff4912b8231",
+    "final_result_sha256": "fd676893d4f57aa282f6477c91cd04ea15d2b0cc9eb88d9679077d3c467b499b",
+    "dependency_result_sha256": "c62c506d9205991d209cf10b138089395347031a6f036c630fd643d1d9dd995c",
+    "clean_replay_byte_equal": true,
+    "library_readback_byte_equal": true
+  },
+  "decision": "No new publisher, no production code changes, no forced exclusion to gain release. Next structural correction should extend the existing native contract with source-anchored reviewed support/premise disposition, not a new approval path, and bind the complete typed original, projection lineage, OPEN and quarantine ledger to the actual current native store receipt; require exact dependency census and fail-closed regression of dropped or misclassified conditions. Reuse existing V123/V143 and V128 gates. Existing strict P205 three-domain thresholds and all OPEN rule unchanged; loss-accounted operational qualification with irrecoverable exclusions is a separate proposed policy requiring user authorization, never retroactive rescore. Preserve five failed scores and 447 old source tasks. No new unseen trial, financial fact approval or publication.",
+  "limitations": [
+    "The draft is an explicitly manually adapted projection, not an automated generic compiler or an immutable native host event. 14 projection adjustments and 5 temporal escrows are distinct issue classes, overlapping on one atom. Native category and lexical token PASS do not establish semantic meaning, completeness or finance truth.",
+    "Existing V6 exchange and model audit functions ran on all actual source cues and candidate atoms. Host preflight rejected without ledger; no SQLite write attempted and no full V123 invocation. 87 projected claims are not 87 approved claims. 24 dependent quarantine candidates is a conservative lower bound, not final exclusion count.",
+    "No original audio/visual recovery or current official body verification this turn. Independent certification remains unmeasurable. Same exposed source is development only."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "approved_atoms": 0
+  }
+}
