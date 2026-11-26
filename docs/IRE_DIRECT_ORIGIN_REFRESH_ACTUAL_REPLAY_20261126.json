@@ -1,0 +1,94 @@
+{
+  "schema": "IRE_DIRECT_ORIGIN_REFRESH_ACTUAL_REPLAY_V1",
+  "date": "2026-11-26",
+  "baseline": {
+    "commit": "0dcdd3ed758c2485ca8991ebcb2abf062af975eb",
+    "ci_run": 45775429429,
+    "conclusion": "success"
+  },
+  "capture": {
+    "commit": "4c700f336361b14b3b5a86ba8adc4df259048961",
+    "ci_run": 45775995147,
+    "ci_status_at_record": "in_progress",
+    "ci_conclusion_at_record": null,
+    "artifact_id": 15095753686,
+    "zip_sha256": "f3f625af24e178514216a3d8b57b65c4b8124799d548c93e1d70a757ea147ead",
+    "receipt_sha256": "c1f51f1b768abb37c572a1b4cb0ca8e76ee753bdbe81dd01a88a3b6ba094f2a0",
+    "bodies": 15,
+    "failed": 0,
+    "new_urls": 7,
+    "trigger": "explicit commit message marker only; existing audited branch governance job, no new workflow/job; optional capture result never gates or certifies facts",
+    "public_sources_only": true,
+    "independent_issuer_authentication": false
+  },
+  "replay": {
+    "archive_sha256": "c1fcb7fd547610475ca15af7f96c8f3d0eda33c4061c39146285e3923cb0a32a",
+    "archive_bytes": 939831,
+    "clean_replay_exact": true,
+    "source_events_before": 15,
+    "source_events_after": 21,
+    "source_events_preserved": 15,
+    "knowledge_events_before": 4,
+    "knowledge_events_after": 10,
+    "knowledge_events_preserved": 4,
+    "prior_rows_byte_identical": true,
+    "knowledge_head": "6624ba1f485e0966280da34d8438e40752307682b05a1eee3fbe4994aabaf2f3",
+    "retrieved": 10,
+    "negative_missing_new_body": 2,
+    "idempotent_retry": 2,
+    "videos": [
+      {
+        "video_id": "Yb_5prWaqhk",
+        "cues": 173,
+        "groups": 36,
+        "before": 1,
+        "added": 4,
+        "after": 5,
+        "excluded": 31,
+        "review_sha256": "6f782db91d98d5fe97204ba637c4fefb357bcbc877c4490831735f3b6ad0a9a6",
+        "topics": [
+          "delisting possibility",
+          "conditional continuing listing criteria",
+          "redemption not principal guarantee",
+          "separate custody"
+        ]
+      },
+      {
+        "video_id": "k9O79HeMOp0",
+        "cues": 222,
+        "groups": 51,
+        "before": 3,
+        "added": 2,
+        "after": 5,
+        "excluded": 46,
+        "review_sha256": "d43dc3e055203b68e6fd0f107e7368c3905bc4453853f9533690b2f6004e1ba2",
+        "topics": [
+          "corporate bond ETF example",
+          "conditional derivative loss warning"
+        ]
+      }
+    ],
+    "remaining": {
+      "finance_applicability_unproven": 65,
+      "non_research_content": 8,
+      "context_or_ambiguity": 4
+    }
+  },
+  "limitations": [
+    "Private replay on copies of existing native source and candidate knowledge databases, not production release or Master/P4 mutation.",
+    "6 new source-attributed research candidates supported by exact archived issuer response bytes; no E4 formal financial fact or E5 publication. Historical notices show stated schedules and possibility, not verified subsequent completion or universal current rules.",
+    "Article 192 and decree 223 clarify principal amount threshold and conditional termination, not automatic NAV-based delisting; do not approve imprecise original thresholds. Daily leverage target, compounding and training scope still require source-specific correction; no silent substitution of source text.",
+    "Effective dates apply to law; case/publication dates used for non-law evidence in the legacy V123 date field, not effective dates of regulations. Previous retained entries preserve prior evidence and lineage.",
+    "No new production engine module, no branch, no new workflow. Changed existing public-capture script and audited integration workflow opt-in steps. Full 6-job CI may still be pending. New operational evaluation not performed; previous failures retained."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "formal_financial_fact_approval": 0,
+    "production_publications": 0
+  }
+}
