@@ -1,0 +1,96 @@
+{
+  "schema": "IRE_DIRECT_DELIST_NATIVE_REVISION_V1",
+  "date": "2026-11-26",
+  "baseline_commit": "661d2724fa5b62db9f1ea0e5de03512246da3976",
+  "baseline_ci_run": 45783045943,
+  "baseline_ci_status": "success",
+  "source_cues": 173,
+  "actual_replay": {
+    "accepted": 9,
+    "artifact_sha256": "948956c65f5e24f88427e6146fc8cd6ea5b8324da661317a0429598caa31489c",
+    "audio_unverified_quarantined": 4,
+    "events_after": 36,
+    "excluded": 34,
+    "external_correction_evidence_links": 18,
+    "external_correction_records_replayed": 7,
+    "formal_financial_fact_approved": 0,
+    "fresh_v126_staging_rows": 9,
+    "idempotent": true,
+    "knowledge_count": 18,
+    "knowledge_head": "d3a11f77f11978135062107c5f779e8dc0383f018c2d2a0ef5801de48558d763",
+    "knowledge_unchanged": true,
+    "native_replay_exact": true,
+    "negative_rejections": [
+      [
+        "missing_predecessor",
+        "QualityNotProven",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_SOURCE_HOST_REVISION_REPLAY_INPUT_DRIFT"
+      ],
+      [
+        "wrong_before",
+        "InvalidInput",
+        "V6_INPUT_INVALID: HOST_BATCH_ATOM_MODEL_INCONSISTENT"
+      ],
+      [
+        "wrong_predecessor",
+        "IdempotencyConflict",
+        "V6_IDEMPOTENCY_KEY_REUSED_DIFFERENT_CONTENT: HOST_BATCH_RETRY_INPUT_CHANGED"
+      ],
+      [
+        "changed_revision",
+        "QualityNotProven",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_SOURCE_HOST_REVISION_NOT_EXACT_REPLAY"
+      ]
+    ],
+    "no_new_candidate_write": "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_EXTENSION_NO_NEW_CANDIDATES",
+    "old_events_preserved": 33,
+    "operational_qualification": false,
+    "ops": {
+      "REVISE": 4,
+      "SPLIT": 6
+    },
+    "original_atoms": 36,
+    "previous_events": 33,
+    "replacement_atoms": 17,
+    "retired_source_atoms": 10,
+    "revision_sha256": "3ceef310651313bd31f4f0911e9982902d78351d907d65738604c0ee1fc0d83c",
+    "source_head_after": "726390fbf904baf43aabd5f2ac20e984fbdb7ecc1ed8145dbc9e4c3e1a365215",
+    "source_head_before": "56c9a1cd4fa23085ace50f85e5e784c553d017a68c8d177c3a9d96397720e1e3",
+    "source_sha256": "19ce2a37a37079dc0a6ea4dde3d031bdc2b7bb990f0506fd1e0610442dbf0145",
+    "stale_review_block": "V6_INPUT_INVALID: V123_HOST_STORE_STALE_OR_PROOF_NOT_COMMITTED",
+    "successor_atoms": 43,
+    "v123_status": "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY",
+    "v128_executed": false
+  },
+  "local_regression": {
+    "v6": 138,
+    "frozen_v123_v126": 35,
+    "new_synthetic_tests": 6,
+    "clean_replay_exact": true,
+    "clean_regression_exact_counts": true
+  },
+  "private_archive": {
+    "sha256": "723f82cb9c5085f24f9c0572396b1c765140dcca5151f692ce682ca5989930a9",
+    "bytes": 1083757,
+    "files": 140
+  },
+  "defect_and_repair": {
+    "before": "V126_SOURCE_HOST_BATCH_REPLAY_INPUT_DRIFT on actual native revision",
+    "fix": "Permit explicit native revision only with immediate historical legacy predecessor exact replay, before exchange equality, revision readback and current source reservation; both hashes checked. Retain fail-closed typed transition and prior default checks. Existing extension still requires new candidates, existing rows not rewritten. Revision-to-revision predecessor chain not implemented by this narrow path.",
+    "v128": "Only existing V126 staging substep on a fresh disposable copy exercised; full E4/V128 parent assembly/publication not executed."
+  },
+  "limits": [
+    "Ten original excluded groups retired from current source projection by four REVISE and six SPLIT operations; all previous events retained. All 17 replacements remain excluded. This is actual source meaning revision, not corrected external financial truth or retirement of approved knowledge. No merge or active knowledge revocation tested. No new source research candidate approved.",
+    "Existing prior seven correction records with 18 evidence links rehashed from frozen official origin archives. Not a new current-law or independent applicability assessment. Additional historical, tax, screen/audio and other pending material unresolved.",
+    "Actual source and knowledge databases are disposable copies of the existing private baseline. Original 18 research candidate rows unchanged; fresh staging contains only the existing nine selected candidates. No formal financial fact approval, Master/P4 update, portfolio access or production publication.",
+    "Existing local SQLite ResourceWarning remains. No unseen source performance test. New code restricted to proven V126 replay defect and its existing regression test file; no branch/workflow additions."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  }
+}
