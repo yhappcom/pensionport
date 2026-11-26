@@ -549,7 +549,8 @@ def read_host_typed_staging(store, *, scope_id, run_id, raw, manifest,
         con.execute("COMMIT")
         return {"schema":"IRE_V6_PRIVATE_TYPED_STAGING_READ_V1", "event_sha256":head,
                 "sequence":seq, "receipt":receipt, "record":record,
-                **({"knowledge_change_pin":change_pin, "knowledge_change_plan":marker["private_knowledge_change_plan"]} if change_pin else {}),
+                **({"knowledge_change_pin":change_pin, "knowledge_change_plan":marker["private_knowledge_change_plan"],
+                    "knowledge_change_rows":marker["private_knowledge_change_rows"]} if change_pin else {}),
                 "research_complete":False, "p0_go":False}
     finally:
         con.close()

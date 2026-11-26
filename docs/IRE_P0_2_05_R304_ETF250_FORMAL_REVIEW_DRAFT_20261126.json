@@ -1,0 +1,119 @@
+{
+  "schema": "IRE_R304_ETF250_FORMAL_REVIEW_DRAFT_V1",
+  "date": "2026-11-26",
+  "parent_commit": "2ddf9896fe07c2047b112c64633b390ce4e930e5",
+  "parent_ci": {
+    "run_id": 45761930875,
+    "conclusion": "success"
+  },
+  "code_blobs": {
+    "ire/v6/knowledge_change.py": "bef477d411ebba1f357d00ae9147b4ee2ba6cbc8",
+    "ire/v6/host_batch.py": "b2631f5dd5c49f1042a5b20784f37b6898da37d2",
+    "ire/v6/tests/test_knowledge_change_review.py": "2a4fc7b7602062a7aa8871ee66489c73d402a48d",
+    "scripts/ire_r304_public_origin_capture.py": "d5e0cc24824fd8bfc646ef43804b56d621078dc8",
+    ".github/workflows/ire-r304-public-origin-capture.yml": "481073ba700d774fe0b50e987ab924a1490329e5"
+  },
+  "review": {
+    "schema": "IRE_V6_KNOWLEDGE_CHANGE_REVIEW_DRAFT_RECEIPT_V1",
+    "host_event_sha256": "51a43d8c2c0c687639b2f16826a61877507c2e1281100b9d45540ca2b3792bb8",
+    "plan_sha256": "30bfad64ba53be41f8de486bc9f54832ed4960ea2e92bc340a7e6c71a9f6aff1",
+    "review_sha256": "de3205ac97e67968bfe90959a04f42ba31f92d3cfa96508c74ddc2d7eb9b62f3",
+    "draft_rows_sha256": "942845ee82e879898b64a40af885f8aa3ba08ec29ac66b5b37d0aa1a34a72e8d",
+    "counts": {
+      "CORRECT_SOURCE_CANDIDATE": 7,
+      "EXTEND": 10,
+      "RETAIN_OPEN": 25
+    },
+    "captured_evidence_audits": 1,
+    "change_rows_without_capture": 16,
+    "unreplayed_planned_url_links": 29,
+    "native_open_rows": 42,
+    "quarantined_atoms": 21,
+    "quarantined_cues": 21,
+    "open_numeric_occurrences": 8,
+    "reviewed_support_cues": [
+      114,
+      115,
+      188,
+      209
+    ],
+    "finance_evidence_authenticated": false,
+    "formal_v123_input_authorized": false,
+    "active_knowledge_changed": false,
+    "p0_go": false,
+    "negative": {
+      "missing_row": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_CENSUS_OR_UNUSED_EVIDENCE",
+      "bad_head": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_PLAN_OR_CURRENT_HEAD",
+      "wrong_operation": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_OPERATION_DRIFT",
+      "quarantine_proposition": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_OPEN_CANNOT_EMIT_KNOWLEDGE",
+      "self_approval": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_ROW_SCHEMA",
+      "duplicate": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_ROW_IDENTITY",
+      "body_changed": "V6_INPUT_INVALID: OFFICIAL_DOCUMENT_BYTES_MISMATCH",
+      "wrong_url": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_EVIDENCE_WRONG_CLAIM_OR_URL",
+      "wrong_claim": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_EVIDENCE_WRONG_CLAIM_OR_URL",
+      "wrong_quote": "V6_INPUT_INVALID: OFFICIAL_QUOTE_NOT_IN_CAPTURED_DOCUMENT",
+      "expired": "V6_INPUT_INVALID: HOST_KNOWLEDGE_REVIEW_EVIDENCE_DATE_NOT_APPLICABLE"
+    },
+    "ledger_unchanged": true,
+    "readback_replayed": true,
+    "original_http_bytes_authenticated": false
+  },
+  "actual_v123": {
+    "native_current_read": true,
+    "events": 48,
+    "source_cues": 250,
+    "atoms": 87,
+    "plan": {
+      "CORRECT_SOURCE_CANDIDATE": 7,
+      "EXTEND": 10,
+      "RETAIN_OPEN": 25
+    },
+    "quarantine_atoms": 21,
+    "open_numeric": 8,
+    "support_cues": [
+      114,
+      115,
+      188,
+      209
+    ],
+    "host_event": "51a43d8c2c0c687639b2f16826a61877507c2e1281100b9d45540ca2b3792bb8",
+    "v123_tests": {
+      "actual_gate": "V6_INPUT_INVALID: V123_TYPED_STAGING_NOT_FORMAL_INPUT",
+      "receipt_field_removed": "V6_INPUT_INVALID: V123_TYPED_STAGING_NOT_FORMAL_INPUT",
+      "release": "V6_INPUT_INVALID: V123_TYPED_STAGING_NOT_FORMAL_INPUT"
+    },
+    "approved": 0,
+    "original_ledger_unchanged": true
+  },
+  "public_capture": {
+    "capture_kind": "DECODED_HTML_CAPTURE",
+    "source_url": "https://kind.krx.co.kr/external/2026/06/02/000078/20260601002266/68319.htm",
+    "http_status_reported_by_capture_provider": 200,
+    "capture_id": "01a2165d-5f13-7462-9ae2-7a19f7b0df1a",
+    "utf8_capture_bytes": 7759,
+    "sha256": "f8238e69553de630cb6e03c28e9d5dcf0b3080db54e6386fc52add69a0fff195",
+    "original_http_response_bytes_authenticated": false
+  },
+  "private_archive": {
+    "bytes": 589503,
+    "sha256": "bb0982d5122f3d7be1406eacec1a0f9f127da22109906a6132f23fad7bff6432",
+    "manifest_sha256": "8753eb9966b8f755439f61be9655a13bbb8c926f35e88f2a098b05c1d6e73c61"
+  },
+  "local_regression": 114,
+  "clean_archive_replay": "PASS",
+  "public_origin_capture": "new workflow; no result claimed at authoring",
+  "limitations": [
+    "Formal typed-to-V123 transition remains prohibited; no guard bypass.",
+    "Decoded public HTML is not authenticated original HTTP bytes.",
+    "21 quarantine atoms/cues and 8 numeric occurrences remain unresolved; original media not recovered.",
+    "17 review drafts are not approved changes; retire/split/merge and active knowledge publication not performed.",
+    "P205 frozen criteria unchanged; no new qualification trial."
+  ],
+  "gates": {
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "approved": 0,
+    "publications": 0
+  }
+}
