@@ -8,6 +8,8 @@ without a separately held owner checkpoint. Advisory access is evidence-only.
 from __future__ import annotations
 
 import json
+import math
+from collections import Counter
 import re
 import sqlite3
 from contextlib import contextmanager, closing, ExitStack
@@ -24,6 +26,78 @@ PENDING = {"NEW": {"NOVEL_PENDING", "DISTINCT_PENDING"},
            "CONFLICT": {"CONFLICT_PENDING"}}
 SHA = re.compile(r"[a-f0-9]{64}\Z")
 TOPIC = re.compile(r"[0-9A-Za-z가-힣]{2,}")
+
+
+
+# Lexical discovery only: Korean particles and character n-grams recover
+# inflected and compound terms without a model, per-question ID list or API.
+# Common corpus terms carry no discriminative weight. No synonym/semantic
+# equivalence is asserted; the returned packet still needs ChatGPT review.
+_QUERY_STOP = frozenset("화자는 화자 설명한다 설명하고 설명 소개한다 소개 권고한다 경고한다 무엇인가요 어떻게 무엇 어떤 되나요 있나요 같나요 하나요 인가요 나요 가요 되는 경우 있다고 있다 수 것 같은 대한 관련 그리고 따라 하는 한다 이다 되는지 있습니까 입니까 문의 알려주세요".split())
+_QUERY_SUFFIX = ("으로부터", "에게서", "에서는", "으로는", "이라면", "한다면", "이면", "이라고", "으로", "에서", "에게", "까지", "부터", "보다", "처럼", "하고", "이며", "이나", "과", "와", "의", "이", "가", "은", "는", "을", "를", "도", "만", "에")
+_QUERY_WORD = re.compile(r"[가-힣]+|[a-z]+|[0-9]+(?:\.[0-9]+)?%?")
+
+
+def _discovery_features(text):
+    features = {}
+    for word in _QUERY_WORD.findall(text.casefold()):
+        if word in _QUERY_STOP or len(word) < 2:
+            continue
+        if re.fullmatch(r"[가-힣]+", word):
+            for suffix in _QUERY_SUFFIX:
+                if word.endswith(suffix) and len(word)-len(suffix) >= 2:
+                    word = word[:-len(suffix)]
+                    break
+            if word in _QUERY_STOP:
+                continue
+            features["w:"+word] = 20
+            for n, weight in ((2, 10), (3, 13)):
+                for i in range(len(word)-n+1):
+                    features[str(n)+":"+word[i:i+n]] = weight
+        else:
+            features["w:"+word] = 20
+    return features
+
+
+def _rank_research_context(question, active, corrections, max_items):
+    # Source quotes and rejected proposition are discovery text, not an
+    # endorsement. Returned correction rows preserve their separate attribution.
+    docs = [("SOURCE", row["knowledge_id"], row,
+             row["atom"]["proposition"]+" "+" ".join(ref["quote"] for ref in row["atom"]["source_refs"]))
+            for row in active.values()]
+    docs += [("EXTERNAL", row["claim_id"], row,
+              row["external_statement"]+" "+row["original_atom"]["proposition"])
+             for row in corrections]
+    corpus = [(kind, key, row, _discovery_features(text)) for kind,key,row,text in docs]
+    df = Counter(term for _,_,_,features in corpus for term in features)
+    n = len(corpus)
+    weights = {term: int(weight*1000*math.log1p((n+0.5)/(df[term]+0.5)))
+               for term,weight in _discovery_features(question).items()
+               if n and df[term]*100 < n*65}
+    denominator = sum(weights.values())
+    ranked = {"SOURCE": [], "EXTERNAL": []}
+    if denominator:
+        for kind,key,row,features in corpus:
+            score = sum(weights[t] for t in features.keys() & weights.keys())*10000//denominator
+            if score:
+                ranked[kind].append((score,key,row))
+    selected = {}
+    diagnostics = {}
+    for kind, rows in ranked.items():
+        rows.sort(key=lambda item: (-item[0],item[1]))
+        # A conservative absolute coverage floor and relative-to-category
+        # cutoff; neither is a probability of correctness or semantic score.
+        floor = max(800, rows[0][0]//4) if rows else 800
+        hits = [x for x in rows if x[0]>=floor][:max_items]
+        selected[kind] = [row for _,_,row in hits]
+        diagnostics[kind] = [{"id":key,"lexical_score_basis_points":score} for score,key,_ in hits]
+    return selected["SOURCE"], selected["EXTERNAL"], {
+        "method":"CORPUS_WEIGHTED_KOREAN_LEXICAL_DISCOVERY_V1",
+        "active_source_candidates_scanned":len(active),
+        "external_correction_candidates_scanned":len(corrections),
+        "max_items_per_category":max_items,"ranked":diagnostics,
+        "automatic_id_selection":True,"semantic_relevance_certified":False,
+        "requires_chat_relevance_review":True}
 
 
 def _stop(code):
@@ -607,12 +681,14 @@ class PrivateKnowledgeStore:
 
     def _external_correction_context(self, con, context):
         if (type(self) is not PrivateKnowledgeStore or self._parent_staging_only
-                or type(context) is not dict or set(context) != {"batch_sha256","source_store","claim_ids"}):
+                or type(context) is not dict or set(context) not in (
+                    {"batch_sha256","source_store","claim_ids"}, {"batch_sha256","source_store"})):
             _stop("CORRECTION_CONTEXT_EXPLICIT_RESEARCH_ONLY")
-        pin, ids = context["batch_sha256"], context["claim_ids"]
-        if (type(pin) is not str or not SHA.fullmatch(pin) or type(ids) is not list
-                or not ids or len(ids)>30 or any(type(x) is not str for x in ids)
-                or ids != sorted(set(ids))):
+        pin, ids = context["batch_sha256"], context.get("claim_ids")
+        automatic = "claim_ids" not in context
+        if (type(pin) is not str or not SHA.fullmatch(pin) or (not automatic and (
+                type(ids) is not list or not ids or len(ids)>30
+                or any(type(x) is not str for x in ids) or ids != sorted(set(ids))))):
             _stop("CORRECTION_CONTEXT_PIN_OR_SELECTION")
         if not con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='external_correction_context'").fetchone():
             _stop("CORRECTION_CONTEXT_NOT_FOUND")
@@ -632,6 +708,8 @@ class PrivateKnowledgeStore:
                                               expected_commit=record["origin_commit"])
         self._correction_origin_rows(record["rows"],origin)
         selected = {x["claim_id"]:x for x in record["rows"]}
+        if automatic:
+            ids = sorted(selected)
         if not set(ids) <= selected.keys():
             _stop("CORRECTION_CONTEXT_CLAIM_NOT_FOUND")
         return {"batch_sha256":pin,"source_sha256":record["source_sha256"],"source_head_sha256":record["source_head_sha256"],
@@ -657,6 +735,9 @@ class PrivateKnowledgeStore:
             any(type(x) is not str or not SHA.fullmatch(x) for x in selected_knowledge_ids) or
             selected_knowledge_ids!=sorted(set(selected_knowledge_ids))):
             raise InvalidInput("V126_SELECTED_KNOWLEDGE_IDS_INVALID")
+        automatic_context = type(correction_context) is dict and "claim_ids" not in correction_context
+        if automatic_context and selected_knowledge_ids is not None:
+            raise InvalidInput("V126_AUTOMATIC_CONTEXT_CANNOT_MIX_MANUAL_IDS")
         with self._session() as con:
             head, statuses = self._audit(con)
             # Protect the advice-retrieval path from using rows whose parent
@@ -680,7 +761,11 @@ class PrivateKnowledgeStore:
         approved_for_lookup = set(graph["active_knowledge_ids"])
         active = {x["knowledge_id"]:x for x in entries
                   if x["knowledge_id"] in approved_for_lookup}
-        if selected_knowledge_ids is not None:
+        diagnostics = None
+        if automatic_context:
+            found, matched, diagnostics = _rank_research_context(question, active, external["rows"], max_items)
+            external = {**external, "rows":matched}
+        elif selected_knowledge_ids is not None:
             if not set(selected_knowledge_ids) <= active.keys():
                 _stop("QUESTION_REFERENCES_UNVERIFIED_OR_QUARANTINED_KNOWLEDGE")
             found = [active[k] for k in selected_knowledge_ids]
@@ -695,6 +780,7 @@ class PrivateKnowledgeStore:
                 "knowledge_head_sha256":head,
                 "claims":found,"count":len(found),
                 **({"external_correction_context":external} if external is not None else {}),
+                **({"automatic_retrieval_diagnostics":diagnostics} if diagnostics is not None else {}),
                 "financial_claims_requiring_current_primary_source":sum(
                     x["finance_current_law_review_required"] for x in found),
                 "chat_question_relevance_not_independently_verified":True,

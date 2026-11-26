@@ -1,0 +1,225 @@
+{
+  "schema": "IRE_DIRECT_AUTO_QUERY_DEVELOPMENT_REPLAY_V1",
+  "date": "2026-11-26",
+  "baseline_commit": "cd791eb8579de811e41bf4e631d6ba41eba30b65",
+  "baseline_ci": {
+    "run": 45800344053,
+    "conclusion": "success"
+  },
+  "architecture": {
+    "existing_method": "PrivateKnowledgeStore.evidence_for_question",
+    "automatic_context_opt_in": "correction_context={batch_sha256,source_store}; no claim IDs or knowledge IDs",
+    "same_scoped_batch_pin_required": true,
+    "legacy_retrieval_unchanged": true,
+    "method": "corpus-weighted Korean lexical token, character n-gram and exact source quote discovery; no per-question IDs or external model API",
+    "new_engine_modules": 0,
+    "new_workflows": 0,
+    "new_branches": 0,
+    "source_candidate_graph_quarantine_preserved": true,
+    "external_correction_attribution_separate": true,
+    "max_items_per_category": 5,
+    "code_blobs": {
+      "validation/ire-v6-frozen/v126_chat_approved_knowledge_store.py": "91c22eb313609770dde785391cf7851ebc1e903c",
+      "validation/ire-v6-frozen/test_v126_native_source_revision_extension.py": "bb640723218b1a32d96bb4d479826a7ded4b4907"
+    }
+  },
+  "actual_replay": {
+    "artifact_sha256": "adb73ea8db5131a2c5150a532eb1d3759ce3ec17e26e71abc9112dc8b65220eb",
+    "auto": {
+      "complete_including_no_answer": 10,
+      "question_count": 12,
+      "related_precision_basis_points": 5263,
+      "related_returned": 30,
+      "required": 21,
+      "required_hit": 19,
+      "required_recall_basis_points": 9047,
+      "returned": 57
+    },
+    "benchmark_sha256": "00c1bd04289396ab668aede24503419be0086d06c276cd2ec841d7d1123aec41",
+    "correction_batch_sha256": "1547e437e111b14a1e293054eda429228cb699131ef5f418ed9453c48de8e772",
+    "exact_retry": true,
+    "existing_approved_candidates": 20,
+    "external_corrections": 9,
+    "formal_financial_fact_approved": 0,
+    "formal_publication": false,
+    "knowledge_head": "5e3a0d2b2e663e7dc7202cb97fd6a97d5520acfdc65c69ff6d803dfd4339a447",
+    "knowledge_logical_rows_unchanged": true,
+    "knowledge_logical_sha256": "ab6ccff06a9333651c49212ae0f9ccc2e2b9c2a93085ea0b019e90c706748f5c",
+    "legacy_default_unchanged": true,
+    "legacy_max10": {
+      "complete_including_no_answer": 6,
+      "question_count": 12,
+      "related_precision_basis_points": 3191,
+      "related_returned": 15,
+      "required": 21,
+      "required_hit": 10,
+      "required_recall_basis_points": 4761,
+      "returned": 47
+    },
+    "legacy_max5": {
+      "complete_including_no_answer": 5,
+      "question_count": 12,
+      "related_precision_basis_points": 3529,
+      "related_returned": 12,
+      "required": 21,
+      "required_hit": 8,
+      "required_recall_basis_points": 3809,
+      "returned": 34
+    },
+    "negative_rejections": [
+      [
+        "manual_ids_in_automatic_mode",
+        "V6_INPUT_INVALID: V126_AUTOMATIC_CONTEXT_CANNOT_MIX_MANUAL_IDS"
+      ],
+      [
+        "wrong_batch_pin",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_CONTEXT_NOT_FOUND"
+      ],
+      [
+        "explicit_null_claim_ids",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_CONTEXT_PIN_OR_SELECTION"
+      ],
+      [
+        "stale_source_store",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_SOURCE_OR_KNOWLEDGE_HEAD_DRIFT"
+      ],
+      [
+        "stored_correction_tampered",
+        "V6_REQUIRED_PROOFS_NOT_VERIFIED: V126_CORRECTION_STORED_CONTEXT_DRIFT"
+      ],
+      [
+        "stored_official_archive_tampered",
+        "V6_INPUT_INVALID: PUBLIC_ORIGIN_ARCHIVE_BYTES"
+      ]
+    ],
+    "operational_qualification": false,
+    "source_head": "9da9a1cfa2158630a19aac6ebcd9a23f76cfbad740e34ee6fda1eca8f262643a",
+    "source_logical_rows_unchanged": true,
+    "source_logical_sha256": "479e68d3c6d5be8ba7fed5cdbd8b3b7c5e7d3725302fd6136fb4f46c23e0b7f9",
+    "unrelated_question_no_hits": true
+  },
+  "question_results": [
+    {
+      "id": "Q01",
+      "retrieved": 10,
+      "required_missing": 0,
+      "nonrelevant": 4
+    },
+    {
+      "id": "Q02",
+      "retrieved": 10,
+      "required_missing": 0,
+      "nonrelevant": 6
+    },
+    {
+      "id": "Q03",
+      "retrieved": 9,
+      "required_missing": 0,
+      "nonrelevant": 5
+    },
+    {
+      "id": "Q04",
+      "retrieved": 10,
+      "required_missing": 1,
+      "nonrelevant": 6
+    },
+    {
+      "id": "Q05",
+      "retrieved": 4,
+      "required_missing": 0,
+      "nonrelevant": 2
+    },
+    {
+      "id": "Q06",
+      "retrieved": 1,
+      "required_missing": 1,
+      "nonrelevant": 0
+    },
+    {
+      "id": "Q07",
+      "retrieved": 3,
+      "required_missing": 0,
+      "nonrelevant": 1
+    },
+    {
+      "id": "Q08",
+      "retrieved": 4,
+      "required_missing": 0,
+      "nonrelevant": 1
+    },
+    {
+      "id": "Q09",
+      "retrieved": 2,
+      "required_missing": 0,
+      "nonrelevant": 1
+    },
+    {
+      "id": "Q10",
+      "retrieved": 3,
+      "required_missing": 0,
+      "nonrelevant": 1
+    },
+    {
+      "id": "Q11",
+      "retrieved": 1,
+      "required_missing": 0,
+      "nonrelevant": 0
+    },
+    {
+      "id": "Q12",
+      "retrieved": 0,
+      "required_missing": 0,
+      "nonrelevant": 0
+    }
+  ],
+  "benchmark": {
+    "questions": 12,
+    "prior_exposed_question_variants": 4,
+    "new_question_wordings_on_exposed_corpus": 8,
+    "required_labels": 21,
+    "reviewer": "same ChatGPT; frozen development question/label file before implementation, not independently blinded or unseen qualification",
+    "equal_max_total_comparison": "legacy max10 source only vs new max5 each source and external correction; corpus expansion and ranking both contribute; not an isolated ranking A/B",
+    "complete_required_positive_questions": 9,
+    "positive_questions": 11,
+    "zero_match_unrelated": 1,
+    "precision_denominator": "all returned records, related labels include required plus additional",
+    "required_recall_denominator": "21 required question-to-claim links",
+    "thresholds_not_certified": true
+  },
+  "chat_review": {
+    "educational_answer_drafts": 6,
+    "missing_required_context_abstentions_or_partial": 2,
+    "no_evidence_abstention": 1,
+    "automatic_answer_generation_or_live_primary_refresh": false,
+    "review_sha256": "5e269a473ce0bbbd7d1cd4faee56fd56e31a3601b33d6a50d67e1d9273c26dd2",
+    "used_records_subset_of_retrieved": true
+  },
+  "regression": {
+    "local_v6": 139,
+    "local_frozen_v123_v126": 48,
+    "new_synthetic_tests": 4,
+    "actual_negative_cases": 6,
+    "clean_replay_artifact_and_result_byte_identical": true,
+    "clean_regression_same_counts": true
+  },
+  "private_archive": {
+    "sha256": "150d9fb46d980cb1ef1d1719aaefefd65cde7f9b0ea4859c5634c3356251557d",
+    "bytes": 2100050,
+    "files": 166,
+    "manifest_sha256": "a270d30fa715943203e04107b3928da2f852dca8f09bb37c65c664058d40a243"
+  },
+  "limitations": [
+    "52.6% related precision (30/57) and 90.5% required-link recall (19/21) are inadequate for unsupervised advice. 27 irrelevant hits, missing ATS and loss/principal qualification links; no independent accuracy or final answer quality score. Current corpus is two exposed ETF videos, one pinned correction batch; no large-corpus scaling or multi-batch discovery. No claim that question-only entry point automatically discovers trusted source-store/batch pins. Explicit config still required.",
+    "Same logical SQL rows and ledger heads preserved; source SQLite physical file hash can change on WAL initialization, so replay harness compares read-only logical SQL dump digest rather than file bytes. One stale store check initially failed file-directory permissions; actual private copy subsequently rejected on source head mismatch. No gate relaxation.",
+    "Research candidate count 20 and correction count 9 unchanged, no new financial fact approvals, E4/V128/Master/P4 publication, portfolio or operational qualification. Answer drafts are authored from retrieved evidence, not live verified current-law advice. Existing resource warning remains."
+  ],
+  "status": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60
+  },
+  "next": "Stop tuning these 12 exposed queries as qualification. Use ChatGPT semantic relevance review and bounded supplementary search, then separate unseen query tests and actual end-to-end formal research evaluation; no new checker layer solely to pass."
+}

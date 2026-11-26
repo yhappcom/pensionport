@@ -75,6 +75,36 @@ class NativeSourceExtensionTests(unittest.TestCase):
         pkt=reloaded.evidence_for_question('기록 보관',correction_context=ctx)
         self.assertEqual(pkt['external_correction_context']['rows'][0]['original_atom'],self.e['atoms'][1]);self.assertFalse(pkt['external_correction_context']['formal_financial_fact_approved'])
         self.assertNotIn('external_correction_context',reloaded.evidence_for_question('기록 보관'));self.assertEqual(self.rows(),old)
+    def test_automatic_correction_discovery_and_no_match(self):
+        args=self.correction_fixture();saved=self.ks.save_external_correction_context(self.s,self.e,**args);ctx=dict(batch_sha256=saved['batch_sha256'],source_store=self.store)
+        old=self.rows();packet=self.ks.evidence_for_question('기록 보관',correction_context=ctx,max_items=1)
+        self.assertEqual([r['claim_id'] for r in packet['external_correction_context']['rows']],['C00002'])
+        self.assertTrue(packet['automatic_retrieval_diagnostics']['automatic_id_selection'])
+        self.assertFalse(packet['automatic_retrieval_diagnostics']['semantic_relevance_certified'])
+        self.assertTrue(packet['requires_live_official_source_recheck'])
+        empty=self.ks.evidence_for_question('완전히 무관한 우주여행',correction_context=ctx)
+        self.assertEqual(empty['claims'],[]);self.assertEqual(empty['external_correction_context']['rows'],[])
+        self.assertEqual(self.rows(),old)
+    def test_automatic_correction_mixed_manual_ids_rejected(self):
+        from ire.v6.errors import InvalidInput
+        saved=self.ks.save_external_correction_context(self.s,self.e,**self.correction_fixture());ctx=dict(batch_sha256=saved['batch_sha256'],source_store=self.store)
+        with self.assertRaisesRegex(InvalidInput,'AUTOMATIC_CONTEXT_CANNOT_MIX_MANUAL_IDS'):
+            self.ks.evidence_for_question('기록',selected_knowledge_ids=[],correction_context=ctx)
+        with self.assertRaisesRegex(QualityNotProven,'CORRECTION_CONTEXT_PIN_OR_SELECTION'):
+            self.ks.evidence_for_question('기록',correction_context={**ctx,'claim_ids':None})
+    def test_automatic_correction_does_not_bypass_tamper_or_stale_pin(self):
+        saved=self.ks.save_external_correction_context(self.s,self.e,**self.correction_fixture());ctx=dict(batch_sha256=saved['batch_sha256'],source_store=self.store)
+        with self.assertRaisesRegex(QualityNotProven,'CORRECTION_CONTEXT_NOT_FOUND'):
+            self.ks.evidence_for_question('기록',correction_context={**ctx,'batch_sha256':'0'*64})
+        with sqlite3.connect(self.ks.path) as con:con.execute('UPDATE external_correction_context SET record_json=?',('{}',))
+        with self.assertRaisesRegex(QualityNotProven,'CORRECTION_STORED_CONTEXT_DRIFT'):
+            self.ks.evidence_for_question('기록',correction_context=ctx)
+    def test_automatic_context_excludes_revoked_source_rows(self):
+        saved=self.ks.save_external_correction_context(self.s,self.e,**self.correction_fixture());ctx=dict(batch_sha256=saved['batch_sha256'],source_store=self.store)
+        kid=self.oldrows[0][0][0]
+        self.assertEqual([r['knowledge_id'] for r in self.ks.evidence_for_question('계획을 세운다',correction_context=ctx)['claims']],[kid])
+        self.ks.revoke(kid,chat_review_sha256='2'*64,expected_knowledge_head=self.ks.audit()['head_sha256'])
+        self.assertEqual(self.ks.evidence_for_question('계획을 세운다',correction_context=ctx)['claims'],[])
     def test_external_correction_wrong_original_or_quote_rejected(self):
         args=self.correction_fixture();old=self.rows();bad=copy.deepcopy(args['corrections']);bad[0].update(claim_id='C00001',atom_sha256=json_digest(self.e['atoms'][0]))
         with self.assertRaisesRegex(QualityNotProven,'CORRECTION_EXCLUDED_ATOM'):self.ks.save_external_correction_context(self.s,self.e,**{**args,'corrections':bad})
