@@ -99,6 +99,27 @@ def _stage_receipt(source, atom_audit, host, store):
     # pinned source-first preflight. Neither source pin nor host receipt
     # approves their semantic content; V123 must explicitly quarantine them.
     pre = host.get("host_source_prequarantine_pin")
+    # Typed staging preserves the full source/projection/OPEN ledger but is
+    # explicitly not a formal V123 exchange. Check the current stored marker
+    # even if the caller strips the new receipt field or substitutes an exchange.
+    from ire.v6.host_quarantine_preflight import TYPED_STAGING_RECEIPT
+    _check(not (type(pre) is dict and pre.get("schema") == TYPED_STAGING_RECEIPT),
+           "TYPED_STAGING_NOT_FORMAL_INPUT")
+    if callable(getattr(store, "_connection", None)):
+        import json
+        con = store._connection()
+        try:
+            stored = con.execute(
+                "SELECT event_json FROM events WHERE scope_id=? AND event_sha256=?",
+                (host["scope_id"], host["event_sha256"])).fetchone()
+        finally:
+            con.close()
+        _check(stored is not None, "HOST_CURRENT_EVENT_MISSING")
+        marker = json.loads(stored["event_json"]).get("payload", {}).get("review", {})
+        stored_pre = marker.get("host_source_prequarantine_pin")
+        _check("private_typed_staging_record" not in marker and
+               not (type(stored_pre) is dict and stored_pre.get("schema") == TYPED_STAGING_RECEIPT),
+               "TYPED_STAGING_NOT_FORMAL_INPUT")
     if atom_audit["unresolved_cues"] or atom_audit["suspicious_no_atom_cues"]:
         _check(type(pre) is dict and
                pre.get("schema") == "IRE_V6_HOST_SOURCE_PREQUARANTINE_RECEIPT_V145" and

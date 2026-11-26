@@ -20,7 +20,7 @@ from .prior_knowledge import audit_prior_candidates
 from .proof import audit_model_anchors
 from .semantic_frontier import source_first_semantic_frontier
 from .semantic_risk import audit_semantic_risks
-from .host_quarantine_preflight import audit_host_quarantine_preflight
+from .host_quarantine_preflight import audit_host_quarantine_preflight, TYPED_STAGING_RECEIPT
 from .state_machine import reduce_event
 from .trust import verify_owner_inventory
 
@@ -211,6 +211,11 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
             }
             prequarantine_pin=audit_host_quarantine_preflight(
                 source,exchange,quarantine_preflight)
+            typed_staging_record = None
+            if prequarantine_pin and prequarantine_pin["schema"] == TYPED_STAGING_RECEIPT:
+                typed_staging_record = {"exchange": deepcopy(exchange),
+                                        "ledger": deepcopy(quarantine_preflight)}
+                json_digest(typed_staging_record)  # fail before writes if oversized
             # Receipt remains structural-only. Actual V123 must explicitly
             # quarantine every unresolved cue before any knowledge export.
             windows=[wid for wid,_,_ in source.primary_windows]
@@ -290,6 +295,7 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     review.get("source_first_semantic_frontier_pin")!=frontier_pin or
                     review.get("source_semantic_risk_pin")!=risk_pin or
                     review.get("host_source_prequarantine_pin")!=prequarantine_pin or
+                    review.get("private_typed_staging_record")!=typed_staging_record or
                     review.get("private_chat_revision_sha256")!=revision_pin or
                     review.get("private_chat_revision")!=revision_record or
                     review.get("semantic_truth_certified") is not False or
@@ -358,6 +364,8 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                     "engine_quality_certified":False}
             if prequarantine_pin is not None:
                 marker["host_source_prequarantine_pin"]=prequarantine_pin
+            if typed_staging_record is not None:
+                marker["private_typed_staging_record"]=typed_staging_record
             if revision_pin is not None:
                 marker["private_chat_revision_sha256"]=revision_pin
                 marker["private_chat_revision"]=revision_record
@@ -389,5 +397,70 @@ def submit_host_atomic_batch(store, *, scope_id: str, run_id: str,
                 receipt_fields["private_chat_revision_sha256"]=revision_pin
             return receipt_fields
         return store._commit(con,work)
+    finally:
+        con.close()
+
+
+def read_host_typed_staging(store, *, scope_id, run_id, raw, manifest,
+                            inventory_bytes, expected_inventory_sha256):
+    """Read a current private staging seal and replay typed/source custody.
+
+    No approval transition is permitted. A stale seal is not a current input.
+    """
+    scope_id = require_identifier(scope_id, name="SCOPE_ID")
+    run_id = require_identifier(run_id, IDENT, "HOST_RUN_ID")
+    con = store._connection()
+    try:
+        con.execute("BEGIN")
+        state, seq, head = store._replay(con, scope_id)
+        pinned = verify_owner_inventory(raw, manifest, inventory_bytes,
+                    expected_inventory_sha256=expected_inventory_sha256)
+        source = pinned.source
+        owner, att = state["owner_pin"], state["source_attestation"]
+        if (owner is None or att is None or
+            pinned.attestation() != {k:v for k,v in owner.items() if k!="event_sha256"} or
+            source.attestation() != {k:v for k,v in att.items() if k!="event_sha256"}):
+            raise DomainConflict("HOST_TYPED_STAGING_SOURCE_PIN_DRIFT")
+        row = con.execute("SELECT * FROM events WHERE scope_id=? AND command_id=?",
+                          (scope_id, run_id+"_seal")).fetchone()
+        if row is None or row["event_sha256"] != head:
+            raise DomainConflict("HOST_TYPED_STAGING_MISSING_OR_STALE")
+        event = json.loads(row["event_json"])
+        marker = event.get("payload", {}).get("review", {})
+        record = marker.get("private_typed_staging_record")
+        if (event.get("type") != "REVIEW_PROPOSED" or marker.get("schema") != MARKER_SCHEMA or
+            type(record) is not dict or set(record) != {"exchange", "ledger"}):
+            raise InvalidInput("HOST_TYPED_STAGING_RECORD_MISSING")
+        receipt = audit_host_quarantine_preflight(source, record["exchange"], record["ledger"])
+        if (not receipt or receipt["schema"] != TYPED_STAGING_RECEIPT or
+            receipt != marker.get("host_source_prequarantine_pin")):
+            raise LedgerCorrupted("HOST_TYPED_STAGING_RECEIPT_DRIFT")
+        # Bind the native projection to all current committed model revisions.
+        indexed = {a["claim_id"]: a for a in record["exchange"]["atoms"]}
+        seen = set()
+        for wid, _, _ in source.primary_windows:
+            entry = con.execute("SELECT event_json FROM events WHERE scope_id=? AND command_id=?",
+                                (scope_id, run_id+"_model_"+wid)).fetchone()
+            if entry is None:
+                raise LedgerCorrupted("HOST_TYPED_STAGING_MODEL_MISSING")
+            model_event = json.loads(entry["event_json"])
+            model = model_event["payload"]["model"]
+            if (model_event["type"] != "MODEL_RECORDED" or
+                model_event["payload"]["window_id"] != wid or
+                json_digest(model) != state["models"][wid]["model_sha256"]):
+                raise LedgerCorrupted("HOST_TYPED_STAGING_MODEL_DRIFT")
+            for claim in model["claims"]:
+                cid = claim["claim_id"]
+                atom = indexed.get(cid)
+                if (cid in seen or atom is None or any(claim[k] != atom[k] for k in
+                    ("claim_id", "owner_window_id", "proposition", "kind", "source_refs"))):
+                    raise LedgerCorrupted("HOST_TYPED_STAGING_CLAIM_DRIFT")
+                seen.add(cid)
+        if seen != set(indexed):
+            raise LedgerCorrupted("HOST_TYPED_STAGING_CLAIM_CENSUS")
+        con.execute("COMMIT")
+        return {"schema":"IRE_V6_PRIVATE_TYPED_STAGING_READ_V1", "event_sha256":head,
+                "sequence":seq, "receipt":receipt, "record":record,
+                "research_complete":False, "p0_go":False}
     finally:
         con.close()

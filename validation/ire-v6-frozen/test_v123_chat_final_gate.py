@@ -85,6 +85,27 @@ class ChatFinalGateTests(unittest.TestCase):
                    store=self.parent.fx.store,
                    official_evidence_bodies=self.evidence_bodies)
 
+    def test_typed_staging_cannot_enter_v123_even_with_stripped_receipt(self):
+        import json
+        from unittest.mock import Mock
+        from ire.v6.host_quarantine_preflight import TYPED_STAGING_RECEIPT
+        typed = copy.deepcopy(self.host)
+        typed["host_source_prequarantine_pin"] = {"schema": TYPED_STAGING_RECEIPT}
+        with self.assertRaisesRegex(InvalidInput, "TYPED_STAGING_NOT_FORMAL_INPUT"):
+            self.assess(host=typed)
+        # Explicit synthetic stored-marker simulation. Use the existing real
+        # host snapshot but model a typed seal and a caller-stripped receipt.
+        store = Mock()
+        store.snapshot.return_value = self.parent.fx.store.snapshot(self.host["scope_id"])
+        marker = {"private_typed_staging_record": {"synthetic": True},
+                  "host_source_prequarantine_pin": {"schema": TYPED_STAGING_RECEIPT}}
+        store._connection.return_value.execute.return_value.fetchone.return_value = {
+            "event_json": json.dumps({"payload": {"review": marker}})}
+        with self.assertRaisesRegex(InvalidInput, "TYPED_STAGING_NOT_FORMAL_INPUT"):
+            assess_chat_final_gate(self.source, self.exchange,
+                host_receipt=self.host, chat_review=self.review, store=store,
+                official_evidence_bodies=self.evidence_bodies)
+
     def test_01_real_native_v6_batch_then_synthetic_chat_final_pass(self):
         result = self.assess()
         self.assertEqual(result["status"], "CHAT_FINAL_PASS_RESEARCH_CANDIDATES_ONLY")
