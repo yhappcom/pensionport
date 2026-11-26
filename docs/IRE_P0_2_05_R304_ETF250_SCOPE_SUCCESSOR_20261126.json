@@ -1,0 +1,162 @@
+{
+  "schema": "IRE_R304_ETF250_SCOPE_SUCCESSOR_DEVELOPMENT_V1",
+  "date": "2026-11-26",
+  "status": "ACTUAL_RISK_DOCKET_AND_SCOPE_SUCCESSOR_HOST_REPLAY_PASS_QUALIFICATION_HOLD",
+  "parent_commit": "fe9b39ba8b9663b74a105dda5c9f05bc9891bc65",
+  "parent_ci": {
+    "id": 45757237097,
+    "conclusion": "success"
+  },
+  "engine_commit": "97e4d42c17f1c2b4105f1699d27af24109f76aea",
+  "engine_ci": {
+    "id": 45757072341,
+    "conclusion": "success"
+  },
+  "exact_ci_runtime_files_matched": 84,
+  "source_sha256": "e4aef32c007bc5e9f1ac6c3e18764ddc1b766e430893127cf98abe632c70301b",
+  "original_event_sha256": "c296979f9fd110e677f1d78547345dbeaf80dafa2e8a0b94af132bad4ec2c7b8",
+  "old_graph_sha256": "0643d77ee688c805da24c764ff71618c62382537adcfdbe69ade77c0ce11a791",
+  "old_exchange_sha256": "a91d87e18e8184b2131cb066695bfc45774cc3a2350f8063f2014ceea504e677",
+  "original_docket": {
+    "risk_count": 23,
+    "frontier_count": 95,
+    "risk_census_sha256": "bc15e78bbb342c534de4f4a772d4b142463efe02269c0768e15e7e0e4abded59",
+    "frontier_census_sha256": "f690ea9ac7cec72bcb2fa1a9c5b34818c6833b4640d9ae41d15fe72221166676",
+    "review_digest": "9ee7c53aa0685a4892e6f97f2498d6fb0bd4127d4b3d4d1bc65df647aff86481",
+    "risk_classification": {
+      "LEXICAL_CONTEXT": 6,
+      "DISCOURSE_CONTRAST": 7,
+      "DISTINCT_SUBCLAUSES": 2,
+      "ANCHOR_REPAIR": 1,
+      "CONTEXT_REPAIR": 1,
+      "RELATED_DISTINCT_CLAIM": 2,
+      "SOURCE_FINANCE_OPEN": 3,
+      "SOURCE_MEDIA_OPEN": 1
+    },
+    "frontier_classification": {
+      "FINANCE_DATE_OR_SOURCE_OPEN": 32,
+      "QUARANTINE_RETAINED": 14,
+      "SOURCE_LOCAL_ONLY": 2,
+      "DISCOURSE_REVIEW": 15,
+      "TEXT_STANCE_ONLY": 22,
+      "CONTEXT_REPAIR": 2,
+      "EXISTING_TYPED_PREMISE": 3,
+      "SOURCE_OR_FINANCE_OPEN": 5
+    },
+    "formal_resolutions": 0,
+    "counts_overlap": true
+  },
+  "successor": {
+    "source_cues": 250,
+    "atoms": 87,
+    "changed_atoms": 22,
+    "unchanged_atoms": 65,
+    "global_index_etf_scope_cues": [
+      45,
+      46,
+      47
+    ],
+    "global_scope_atoms": 20,
+    "scope_ids": [
+      "A00019",
+      "A00020",
+      "A00021",
+      "A00023",
+      "A00026",
+      "A00028",
+      "A00037",
+      "A00038",
+      "A00042",
+      "A00043",
+      "A00050",
+      "A00052",
+      "A00058",
+      "A00061",
+      "A00062",
+      "A00064",
+      "A00071",
+      "A00083",
+      "A00084",
+      "A00085"
+    ],
+    "extra_local_comparison_scope_atoms": [
+      "A00038",
+      "A00062"
+    ],
+    "context_additions": [
+      "A00023",
+      "A00026",
+      "A00028",
+      "A00035"
+    ],
+    "condition_start_anchor": "A00034 cue 87",
+    "typed_relations_before": 6,
+    "typed_relations_after": 28,
+    "nonspace_segments_unchanged": true,
+    "character_disposition_counter_note": "DIRECT 4170 to 4169 because new edge boundaries isolate a whitespace-only span; source bytes, nonspace segment coverage and numeric occurrence list unchanged.",
+    "quantity_temporal_direct_evidence_unchanged": true,
+    "old_unresolved_stance_retained": true,
+    "quarantine_cues": 21,
+    "quarantine_atoms": 21,
+    "open_numeric_occurrences": 8,
+    "new_graph_sha256": "28b79cf0720a21ce622f1ee0ced10072cbc90d5ac5c6fa8a0775a14992ec7437",
+    "new_exchange_sha256": "377569eb1dab4915229df7b1c79d1aed2af4a9d9e2e461dc073bf828a1dc47a7",
+    "lineage_sha256": "20cb477705d26c39ce6a9f00d3dddb068517dc664e9dde67431b751fe22fbbd4",
+    "new_risk_count": 24,
+    "new_frontier_count": 94,
+    "new_risk_census_sha256": "507ac17e66ceb48bb0366bdbb9e96f8767bf42d043445ee8c885c02ff8de380b",
+    "new_frontier_census_sha256": "cfeb2bb1b4307a302c72622904b35d2176bd5641a02923ebaf6668b5c61c90cc",
+    "added_risk_cases_manually_reviewed": 3,
+    "removed_risk_cases_retained_in_original": 2,
+    "removed_frontier_cases_retained_in_original": 1,
+    "score_credit": false,
+    "host_event_sha256": "e69cb0cb062fc5266048b76983514e5b38fdcc185d58f4314dcbd8113033cb2c",
+    "bundle_sha256": "3fbb868ad1fe1e76334b8825ffcbfac675328ef66a1e2bc9cc2c8b516707ad8a",
+    "preflight_ledger_sha256": "45a2527a3293240945c9d88d2d5bcb063bdb155746dcdfb7f7f94a7f8d0ca683",
+    "private_readback_digest": "00e222ab5ce8dc9dde0376371bcd10fad68f39bec95b4127b24509a9b7e3de47",
+    "windows": 7,
+    "events": 18,
+    "original_events_unchanged": 18,
+    "idempotent_replay": true,
+    "protected_prior_master": 116,
+    "protected_prior_p4": 29,
+    "prior_relations_open": 87
+  },
+  "negative_tests": {
+    "native_only_scope_drop_rehash": "HOST_TYPED_STAGING_PREMISE_DRIFT",
+    "native_context_drop_rehash": "HOST_ATOM_CONDITION_OR_CONTEXT_INCOMPLETE",
+    "joint_reauthoring_scope_loss": {
+      "structural_preflight_accepted": true,
+      "formal_v123_input_authorized": false,
+      "p0_go": false,
+      "meaning": "Deleting the reviewed source scope from both typed and native representations and recomputing the receipt remains structurally possible. Internal consistency cannot prove semantic completeness. The successor's lineage is separately preserved in the private reproducible archive, not yet a mandatory native predecessor-transition contract."
+    }
+  },
+  "archive": {
+    "sha256": "c7c0b4f5e406c46bc5c8cceb44aca899fa38e56dd1b62bb121b5c164e9ca4dac",
+    "bytes": 1270007,
+    "manifest_sha256": "259e273f6d049660f44380aeb57baff27f55dbc4c61207367e5c3252930521aa",
+    "result_sha256": "e46010ab19867dd8dac3569117bd3fe1812fac835d5af473012e6f194fc9918b",
+    "manual_review_sha256": "22dec4d3c46fdf8052060a9663fe334707e1184409ac78717f36879aa68edeb6",
+    "delta_sha256": "717d61d1ca8da7ade9ac606f411a869d2762e42582771c0b6c91e4e83af6e1de",
+    "sqlite_sha256": "b03c3ff755657e9f58672c26d072c111b40f89f72d6046537cda64ebf83cbd02",
+    "clean_replay_byte_equal_json_and_exact_event_sequences": true,
+    "library_readback_byte_equal": true
+  },
+  "decision": "The source-specific scope repair is a manually judged development successor using unchanged engine code. Do not suppress lexical warnings or add a false semantic approval to reach a score. The same-video diagnostics, including new warnings and accepted joint rewrite, remain evidence of limits. Next: review original evidence gaps, carry the explicit source-first scope decisions across any successor review using the existing custody/journal/lineage contract (not another generic verifier), then address 87 existing-knowledge relationship routes and official finance evidence before prospective qualification. Keep strict E2 three-domain criteria and prior five failed scores/447 outstanding tasks. Any loss-accounted E2 exclusion policy requires explicit user approval. No advancement to E3/E4/E5 or new unseen trial until the qualification block addressed.",
+  "limitations": [
+    "Same exposed source and same ChatGPT, manual triage and authoring not independent gold. 118 historical plus three new warning judgments are not 121 distinct defects. No formal case resolution, no verified official finance body or audio/visual recovery, no approved knowledge.",
+    "Prior archive is byte-identical. SQLite reopening of local copies can alter file-header counters; preserved original and successor immutable event sequences independently verified in clean replay. No original event overwritten.",
+    "Exact runtime matched 84 CI artifact files; new full V123 actual-source invocation not performed because frozen validation wrapper bytes could not be transferred through the raw URL; existing synthetic integration CI succeeded. Native typed staging explicitly non-release. No production code change this turn."
+  ],
+  "gates": {
+    "P205": "HOLD",
+    "R304": "HOLD",
+    "R305": "BLOCKED",
+    "R306": "BLOCKED",
+    "checklist_pass": 16,
+    "checklist_total": 60,
+    "approved_atoms": 0,
+    "publication_count": 0
+  }
+}
