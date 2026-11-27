@@ -1,0 +1,120 @@
+{
+  "stage": "D4_OBLIGATION_P0_3",
+  "status": "CONTROLLED_FIXTURE_DIAGNOSTIC_PASS_OPERATION_HOLD",
+  "source": 291,
+  "video_id": "EUnEyu15JfM",
+  "window": [
+    96,
+    158
+  ],
+  "cues": 63,
+  "obligations": 22,
+  "high_risk": 13,
+  "source_sha": "96cc9fdf018ee738295faf510b0989c38f63e999b2ab763930ed06fc692b0476",
+  "freeze_sha": "7f5cca42f3cdd7eeea83e77058c26aabb02455fa62b61cf5acd6b2f47c87e9ae",
+  "plan_sha": "5e92b47832dc45eec1fa5d12ca60a76da6c1fa14ae3a461a4185496c447362fe",
+  "cases": {
+    "A": {
+      "rows": 22,
+      "obligation_status": {
+        "FULL": 22
+      },
+      "output_meanings": 22,
+      "output_status": {
+        "SUPPORTED": 22
+      },
+      "local_fulfillment": 1,
+      "local_support": 1,
+      "high_risk_unfulfilled": []
+    },
+    "B": {
+      "rows": 10,
+      "obligation_status": {
+        "FULL": 22
+      },
+      "output_meanings": 22,
+      "output_status": {
+        "SUPPORTED": 22
+      },
+      "local_fulfillment": 1,
+      "local_support": 1,
+      "high_risk_unfulfilled": []
+    },
+    "C": {
+      "rows": 23,
+      "obligation_status": {
+        "FULL": 12,
+        "CONTRADICT": 2,
+        "PARTIAL": 6,
+        "UNRESOLVED": 1,
+        "MISSING": 1
+      },
+      "output_meanings": 23,
+      "output_status": {
+        "SUPPORTED": 12,
+        "PARTIAL": 7,
+        "UNRESOLVED": 1,
+        "UNSUPPORTED": 2,
+        "DUPLICATE": 1
+      },
+      "local_fulfillment": 0.5454545454545454,
+      "local_support": 0.5217391304347826,
+      "high_risk_unfulfilled": [
+        "O02",
+        "O03",
+        "O08",
+        "O11",
+        "O12",
+        "O14",
+        "O18",
+        "O20",
+        "O22"
+      ]
+    }
+  },
+  "injected_defects_detected": 12,
+  "injected_defects_total": 12,
+  "cross_row_cases": [
+    {
+      "case": "L1",
+      "ref": "O08",
+      "rows": [
+        "L1a",
+        "L1b"
+      ],
+      "status": "FULL",
+      "reason": "명시 연결된 권고 대상과 조건이 합쳐져 원문 의미 보존. 두 행이 하나의 출력 의미이며 별도 가점 없음."
+    },
+    {
+      "case": "L2",
+      "ref": "O08",
+      "rows": [
+        "L2a",
+        "L2b"
+      ],
+      "status": "PARTIAL",
+      "reason": "누구나라는 명시 확대를 다른 행의 공부 언급이 제한하지 않는다. 근접/키워드만으로 복구 불가."
+    }
+  ],
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "finance": "NOT_RUN",
+  "engine_changes": 0,
+  "operational_db_opened": false,
+  "operational_promoted": false,
+  "independent": false,
+  "limitations": [
+    "A constructed with known reference; B mechanically repackages A; C intentional alterations; evaluator knows changes",
+    "O03, O05, O20, O22 group multiple connected meanings; denominator not atomic truth",
+    "Same ChatGPT and same turn; no spontaneous authoring or independent test",
+    "No actual financial verification, DB approval, full-video integration, or elapsed semantic time measurement",
+    "Script validates hashes, mappings and aggregation only; all semantic judgments manual"
+  ],
+  "archive_sha": "e4748007058a648e5358a4908ca7045b1d59a0f1296947d6a910fcd0ac5e29fa",
+  "archive_bytes": 54644,
+  "manifest_entries": 16,
+  "archive_library": "/IRE_D4_20261127/D4_OBLIGATION_P03_291_20261128.zip",
+  "reference_frozen_library": "/IRE_D4_20261127/D4_P03_291_FROZEN_OBLIGATIONS.tsv",
+  "elapsed": "UNMEASURED"
+}

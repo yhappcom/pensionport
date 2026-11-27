@@ -56,3 +56,6 @@ D4 [원자 경계 v2 진단](D4_ATOM_BOUNDARY_V2_RESULT.json): 다른 원문 표
 
 
 D4 [원문 검증 의무 비교 방법](D4_OBLIGATION_PROTOCOL.md) 및 [결과](D4_OBLIGATION_RESULT.json). 기존 D3 정책 다대다 허용과 D4 일대일 구현 차이 확인. 국소 진단 HOLD, 운영 변경 없음.
+
+
+D4 [P0-3 신규 표본 통제 진단](D4_OBLIGATION_P03_RESULT.json): #291 63자막, 동일 의미 재포장 및 기지 오류 수동 식별. 실제 연구 정확도 미검증, 운영 HOLD 유지.
