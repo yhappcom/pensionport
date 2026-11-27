@@ -71,3 +71,6 @@ D4 [#291 신규 구간 2턴 결과](D4_P03_291_WINDOW3_TURN2_RESULT.json): 27/31
 
 
 D4 [최종 실증 주기 F1~F6](D4_FINAL_CYCLE_PROTOCOL.md), [F1~F2 기술 결과](D4_FINAL_CYCLE_RESULT.json). 기존 V1 코드/운영원장 유지, 별도 D4_GATE_2 후보, F3 실제 신규 원본 검증 전 운영 HOLD.
+
+
+F3 [첫 신규 영상 1턴](F3_TRIAL1_TURN1_RESULT.json): 272자막/71후보, V2 실제 초안 저장. 정식 2턴 평가 대기.
