@@ -1,0 +1,239 @@
+{
+  "status": "CANDIDATE_TECHNICAL_REPLAY_PASS",
+  "original_sha": "7ad9091c27b6b909cbec451e7241b7824e4e47aa25b1f1068c85cd67e7ca7a34",
+  "original_sha_after": "7ad9091c27b6b909cbec451e7241b7824e4e47aa25b1f1068c85cd67e7ca7a34",
+  "v2_sha": [
+    "2a3b0ffba3b6f458d599ec9db3face0e1c8eff1c665a40d44dcb5dfd2a0fadfd",
+    "2a3b0ffba3b6f458d599ec9db3face0e1c8eff1c665a40d44dcb5dfd2a0fadfd"
+  ],
+  "prior_rows_preserved": {
+    "videos": 4,
+    "items": 61,
+    "gate_freeze": 0,
+    "gate_audit": 0
+  },
+  "head_preserved": true,
+  "registry_preserved": true,
+  "integrity": "ok",
+  "foreign_key_violations": 0,
+  "old_entrypoints_blocked": 2,
+  "query_pass": 13,
+  "query_replay_equal": 13,
+  "queries": [
+    {
+      "id": "Q01",
+      "terms": [
+        "50억원"
+      ],
+      "direct": [
+        "C10"
+      ],
+      "context": [
+        "C13"
+      ],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004957823000040662
+    },
+    {
+      "id": "Q02",
+      "terms": [
+        "해지상환"
+      ],
+      "direct": [
+        "C17",
+        "C19",
+        "C20",
+        "C21"
+      ],
+      "context": [],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004631914999663422
+    },
+    {
+      "id": "Q03",
+      "terms": [
+        "상관계수"
+      ],
+      "direct": [
+        "C09",
+        "C29"
+      ],
+      "context": [
+        "C24"
+      ],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.0045299209996301215
+    },
+    {
+      "id": "Q04",
+      "terms": [
+        "분리 보관"
+      ],
+      "direct": [
+        "C24"
+      ],
+      "context": [],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004615890999957628
+    },
+    {
+      "id": "Q05",
+      "terms": [
+        "퇴직금 지급요건"
+      ],
+      "direct": [
+        "P01"
+      ],
+      "context": [],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004561388999718474
+    },
+    {
+      "id": "Q06",
+      "terms": [
+        "도산"
+      ],
+      "direct": [
+        "P03",
+        "P07"
+      ],
+      "context": [
+        "P01",
+        "P06"
+      ],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004558865000035439
+    },
+    {
+      "id": "Q07",
+      "terms": [
+        "281만원"
+      ],
+      "direct": [
+        "G04"
+      ],
+      "context": [
+        "G02",
+        "G03"
+      ],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004630442000234325
+    },
+    {
+      "id": "Q08",
+      "terms": [
+        "목표수익률"
+      ],
+      "direct": [
+        "G08"
+      ],
+      "context": [
+        "G07"
+      ],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004474417999972502
+    },
+    {
+      "id": "Q09",
+      "terms": [
+        "담보유지율"
+      ],
+      "direct": [
+        "L05",
+        "L06"
+      ],
+      "context": [
+        "L02",
+        "L07",
+        "L09"
+      ],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004554398999971454
+    },
+    {
+      "id": "Q10",
+      "terms": [
+        "환매상환"
+      ],
+      "direct": [
+        "L09"
+      ],
+      "context": [
+        "L02"
+      ],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004610312999830057
+    },
+    {
+      "id": "Q11",
+      "terms": [
+        "중도상환수수료"
+      ],
+      "direct": [
+        "L10"
+      ],
+      "context": [
+        "L02",
+        "L09"
+      ],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004550442999970983
+    },
+    {
+      "id": "Q12",
+      "terms": [
+        "마이너스통장"
+      ],
+      "direct": [
+        "L11"
+      ],
+      "context": [
+        "L02",
+        "L05",
+        "L06",
+        "L07",
+        "L09"
+      ],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004629130000012083
+    },
+    {
+      "id": "Q13",
+      "terms": [
+        "__baseline_no_hit_7d__"
+      ],
+      "direct": [],
+      "context": [],
+      "equal": true,
+      "passed": true,
+      "seconds": 0.004574307999973826
+    }
+  ],
+  "status_db": {
+    "mode": "research",
+    "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+    "sources": 4,
+    "drafts": 4,
+    "finalized": 4,
+    "decisions": 61,
+    "active": 37
+  },
+  "operational_promoted": false,
+  "limits": [
+    "known manual keyword tests on existing 37 active items",
+    "no new source semantic or finance evaluation",
+    "candidate only"
+  ]
+}

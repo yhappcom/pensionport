@@ -45,3 +45,7 @@
 
 ## 원문 의무 중심 평가 비교 (2026-11-28)
 [D4_OBLIGATION_PROTOCOL.md](D4_OBLIGATION_PROTOCOL.md) 진단은 D3 정책의 다대다 의미 대응 허용과 현 GateEngine 일대일 구현의 차이를 다룬다. 진단 수치로 기존 원자 정확도·재현율을 대체하거나 현 승인 경로를 우회하지 않는다. 신규 방식은 별도 검증 및 사용자 운영 승인 전 적용 금지. 기존 코드·기준 유지.
+
+
+## 최종 실증 신규 후보 경로
+[D4_FINAL_CYCLE_PROTOCOL.md](D4_FINAL_CYCLE_PROTOCOL.md)의 `ObligationGate`는 D4_GATE_2 후보 경로이다. 기존 GateEngine V1/운영 DB/이전 HOLD는 보존. 실제 저장행과 평가 의미 단위 분리, 비발행 행 다대다, 발행 완결 의미 단위 제한, 금융·조회·원자적 저장 유지. F1/F2 기술 검증 완료. F3 신규 원본 2턴 품질 평가 전 운영 승격 금지.

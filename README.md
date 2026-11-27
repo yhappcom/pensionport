@@ -68,3 +68,6 @@ D4 [#291 신규 219~279 구간 1턴 결과](D4_P03_291_WINDOW3_TURN1_RESULT.json
 
 
 D4 [#291 신규 구간 2턴 결과](D4_P03_291_WINDOW3_TURN2_RESULT.json): 27/31 의미 충족 및 지지, 고위험 미충족2. 국소 품질 HOLD, 기존 운영 유지.
+
+
+D4 [최종 실증 주기 F1~F6](D4_FINAL_CYCLE_PROTOCOL.md), [F1~F2 기술 결과](D4_FINAL_CYCLE_RESULT.json). 기존 V1 코드/운영원장 유지, 별도 D4_GATE_2 후보, F3 실제 신규 원본 검증 전 운영 HOLD.

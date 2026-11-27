@@ -1,0 +1,87 @@
+{
+  "stage": "D4_FINAL_CYCLE_F1_F2",
+  "status": "TECHNICAL_CANDIDATE_PASS_OPERATION_HOLD",
+  "f1": "CANDIDATE_IMPLEMENTED",
+  "f2": "TECHNICAL_PASS",
+  "f3": "NOT_STARTED",
+  "f4": "NOT_STARTED",
+  "f5": "NOT_STARTED",
+  "f6": "NOT_STARTED",
+  "tests": {
+    "existing": 29,
+    "new": 29,
+    "passed": 58,
+    "total": 58
+  },
+  "replay": {
+    "status": "CANDIDATE_TECHNICAL_REPLAY_PASS",
+    "original_sha": "7ad9091c27b6b909cbec451e7241b7824e4e47aa25b1f1068c85cd67e7ca7a34",
+    "original_sha_after": "7ad9091c27b6b909cbec451e7241b7824e4e47aa25b1f1068c85cd67e7ca7a34",
+    "v2_sha": [
+      "2a3b0ffba3b6f458d599ec9db3face0e1c8eff1c665a40d44dcb5dfd2a0fadfd",
+      "2a3b0ffba3b6f458d599ec9db3face0e1c8eff1c665a40d44dcb5dfd2a0fadfd"
+    ],
+    "prior_rows_preserved": {
+      "videos": 4,
+      "items": 61,
+      "gate_freeze": 0,
+      "gate_audit": 0
+    },
+    "head_preserved": true,
+    "registry_preserved": true,
+    "integrity": "ok",
+    "foreign_key_violations": 0,
+    "old_entrypoints_blocked": 2,
+    "query_pass": 13,
+    "query_replay_equal": 13,
+    "status_db": {
+      "mode": "research",
+      "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+      "sources": 4,
+      "drafts": 4,
+      "finalized": 4,
+      "decisions": 61,
+      "active": 37
+    },
+    "operational_promoted": false,
+    "limits": [
+      "known manual keyword tests on existing 37 active items",
+      "no new source semantic or finance evaluation",
+      "candidate only"
+    ]
+  },
+  "code_sha256": {
+    "engine.py": "b88dde13ad023b582f4ee081de1881ac8bc1130c765321c693800b000f8eb320",
+    "d4_quality.py": "33d5c069b2a5256ccb4bad85a828bfa5e07ccece025e7600edad4577fdfb9984",
+    "d4_gate.py": "3aab33a293d90842cc66b9d99487cf496d2045b9507987306c519541f0f2acbc",
+    "d4_gate_v2.py": "e60ae16a7e10c5a1a4d94613ebdc1984a1bc94e7bbde2c5d523bc036888f1e57",
+    "test_d4_gate_v2.py": "0c501515ef8b734f9500cda040c9040d2c4c3de88b3c37d28a5513cbc2c2da06",
+    "replay_final_cycle.py": "5a7203dea2d898abf503c64fcce11b74af0730a9ae30dca2fc0d2e09ea7f83d8"
+  },
+  "existing_engine_changes": 0,
+  "new_module": "d4_gate_v2.py",
+  "new_mode": "D4_GATE_2",
+  "candidate_library": "/IRE_D4_20261127/D4_GATE_V2_CANDIDATE_BASELINE_20261128.db",
+  "operational_promoted": false,
+  "operational_db_opened": false,
+  "operational_last_verified": {
+    "videos": 4,
+    "active": 37,
+    "decisions": 61
+  },
+  "d4_pass": 2,
+  "checklist_pass": 17,
+  "checklist_total": 32,
+  "formal_precision": "UNMEASURED",
+  "formal_recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "finance": "NOT_RUN_NEW_SOURCE",
+  "limits": [
+    "Manual semantic judgments; structure checks only, no automatic semantic inference",
+    "Active/DUPLICATE rows must be independently publishable complete single units; cross-row/multi-unit allowed for nonpublishable rows",
+    "New test input synthetic; known baseline keyword queries only",
+    "No new full-video trial or financial review; 2-turn throughput and independent certification unmeasured",
+    "Original operational DB not opened; only V1 candidate DB replicated",
+    "No change to earlier HOLD or operational promotion"
+  ]
+}
