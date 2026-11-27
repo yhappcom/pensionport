@@ -1,0 +1,84 @@
+{
+  "stage": "F3_TRIAL2_TURN1",
+  "status": "DRAFT_SAVED_PENDING_TURN2",
+  "source_id": "6f5ec204d9c07ecaa1a83f3fc64f921c55a4ba9df85c21957e8f6e2eea960722",
+  "video_id": "PUWsNu9b3cc",
+  "cues": 270,
+  "duration_ms": 572680,
+  "draft_rows": 66,
+  "risk": {
+    "L": 11,
+    "M": 17,
+    "H": 38
+  },
+  "verdicts": {
+    "CONTEXT": 26,
+    "HOLD": 28,
+    "CORRECT": 12
+  },
+  "covered": 258,
+  "nonclaim": 12,
+  "evidence_count": 6,
+  "body_sources": 4,
+  "links": 27,
+  "relations": 2,
+  "direct": 15,
+  "context": 6,
+  "prepare_ms": 17.997938999542384,
+  "save_ms": 6.680022999717039,
+  "blocked": [
+    "freeze reference before opening draft",
+    "use source_only then freeze then resume"
+  ],
+  "prior_rows_preserved": {
+    "videos": 4,
+    "items": 61
+  },
+  "baseline_sha": "2a3b0ffba3b6f458d599ec9db3face0e1c8eff1c665a40d44dcb5dfd2a0fadfd",
+  "research_db_sha": "800fd44f3a0a8dcd89245e95bd14713d9e7a7c84a644437691a0ba2eabcfdf88",
+  "draft_receipt": "0c96a2dffcc4d9b3e9e776b929a3f90ea46decdc80952216044f9eecbd0ca204",
+  "draft_file_sha": "b58875ede151741bbe2f873d47dc662c20b7b2c04aaf30be025f42915a42108a",
+  "structural_units_only": 66,
+  "meaning_reviewed": false,
+  "reference": "NOT_STARTED",
+  "formal_precision": "UNMEASURED",
+  "formal_recall": "UNMEASURED",
+  "formal_high_risk_omission": "UNMEASURED",
+  "independent": false,
+  "operational_promoted": false,
+  "operational_db_opened": false,
+  "code_changes": 0,
+  "elapsed": "UNMEASURED_FULL",
+  "status_db": {
+    "mode": "research",
+    "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+    "sources": 5,
+    "drafts": 5,
+    "finalized": 4,
+    "decisions": 61,
+    "active": 37
+  },
+  "limits": [
+    "Historical explicitly advertising video; original event terms and year unavailable; no current promo approval.",
+    "Some source rows group independent propositions, topic labels as subject, ASR and timing unresolved; no final atomicity review.",
+    "Evidence 2 search excerpts; local surtax, exact 60-day conversion deadline not yet fully sourced.",
+    "Original video metadata and strict prior nonexposure unverified; archived tree ID match0.",
+    "Actual full-video first-turn draft only; no formal semantic/financial approval, finalization, new query or replay."
+  ],
+  "regression": "58/58",
+  "code_sha256": {
+    "engine.py": "b88dde13ad023b582f4ee081de1881ac8bc1130c765321c693800b000f8eb320",
+    "d4_quality.py": "33d5c069b2a5256ccb4bad85a828bfa5e07ccece025e7600edad4577fdfb9984",
+    "d4_gate.py": "3aab33a293d90842cc66b9d99487cf496d2045b9507987306c519541f0f2acbc",
+    "d4_gate_v2.py": "e60ae16a7e10c5a1a4d94613ebdc1984a1bc94e7bbde2c5d523bc036888f1e57",
+    "test_d4_gate_v2.py": "0c501515ef8b734f9500cda040c9040d2c4c3de88b3c37d28a5513cbc2c2da06",
+    "replay_final_cycle.py": "5a7203dea2d898abf503c64fcce11b74af0730a9ae30dca2fc0d2e09ea7f83d8"
+  },
+  "archive_sha": "5dfd236f68986336eebfc22f06024d6b067150bf2d8f7e5510f1508be49b6ee6",
+  "archive_bytes": 288476,
+  "manifest_entries": 19,
+  "archive_library": "/IRE_D4_20261127/F3_TRIAL2_TURN1_20261128.zip",
+  "source_library": "/IRE_D4_20261127/F3_TRIAL2_SOURCE_ONLY_20261128.srt",
+  "plan_library": "/IRE_D4_20261127/F3_TRIAL2_TURN2_PLAN.json",
+  "db_library": "/IRE_D4_20261127/F3_TRIAL2_TURN1_20261128.db"
+}
