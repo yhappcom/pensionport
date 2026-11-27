@@ -29,3 +29,7 @@
 
 ## Baseline 이관 결과 (2026-11-27)
 활성37개 수동 문맥 전수 검토 및 39개 관계 등록 완료. D4_GATE_BASELINE_RESULT.json 및 Library 보존본 참조. 두 후보 DB 해시 및 기존 rows/head 일치. 신규 후보 DB SHA 7ad9091c27b6b909cbec451e7241b7824e4e47aa25b1f1068c85cd67e7ca7a34. 기존 원장은 그대로 유지. 신규 P0-6 연구는 후보 DB 복제본에서만 진행. 원본을 처음부터 연구하고 2턴 freeze/원자 평가/금융 리뷰/registry/질의/감사 기록을 GateEngine으로 완결한다. 기존 HOLD 소급 합격 금지. 후보 baseline PASS는 신규 원본 운영 합격이 아니다.
+
+
+## #270 실패 후 작성 절차 변경
+[D4_AUTHORING_PROTOCOL.md](D4_AUTHORING_PROTOCOL.md)를 신규 원본 1턴 연구에 적용한다. 이 변경은 ChatGPT 작성 절차이며 GateEngine 코드/승인 관문은 변경하지 않는다. #270 사후 진단을 운영 합격으로 사용하지 않는다. 신규 #292 준비 완료, 연구 미착수.
