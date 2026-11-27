@@ -1,0 +1,49 @@
+{
+  "stage": "D4_SECOND_TURN2",
+  "source": 261,
+  "status": "HOLD_PRE_REGISTRATION_FAILED",
+  "reason": "Reference obligations not fixed before draft opened; post-exposure diagnostic only.",
+  "operational_promoted": false,
+  "cues": 29,
+  "diagnostic_obligations": 11,
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "verdicts": {
+    "CORRECT": 2,
+    "CONTEXT": 4,
+    "HOLD": 4
+  },
+  "evidence_urls": 5,
+  "evidence_links": 16,
+  "relations": 3,
+  "previous_decisions_unchanged": 48,
+  "query_tests": "9/9 manual keyword retrieval",
+  "replay_tables": "3/3",
+  "replay_queries": "9/9",
+  "engine_changes": 0,
+  "trial": {
+    "videos": 4,
+    "active": 30,
+    "decisions": 58,
+    "head": "16f19005f7b48088c92dc034101fe916dfc8c77ae2892a74f8f27e5b0aaa8603",
+    "sha256": "1f821f0cb79413c2867dd4693f1075ceb1fea2deff4c417e9b04fa9e2897f6f6",
+    "receipt": "308acffb2a07e1449cde9c7192a2c429af26eac4ff3e3671c999d8894ba9168c"
+  },
+  "operational": {
+    "videos": 3,
+    "active": 28,
+    "decisions": 48,
+    "head": "5f0da2629e5c397b60adc20ecfb535fde2b1afa3c8bd89ca9adb7c00579f110d",
+    "sha256": "45e66c26b7c292b9eece63dae14f6372944b83396a828ca3d09b1d1765a4e789"
+  },
+  "archive_sha256": "4a485a1b3a82794b3a5f7f064cb361f640acc76f05cda68dd4b4b0d4a4928054",
+  "archive_size": 307437,
+  "first_finalize_seconds": 1.041103,
+  "query_seconds_range": [
+    0.878862,
+    1.190863
+  ],
+  "semantic_total_time": "UNMEASURED",
+  "independent": "UNVERIFIED_UNMEASURED"
+}
