@@ -1,0 +1,70 @@
+{
+  "stage": "D4_292_TURN2",
+  "status": "HOLD_REFERENCE_AND_AUTHORING_INCOMPLETE",
+  "source": 292,
+  "cues": 522,
+  "reference_candidates": 138,
+  "high_risk_candidates": 45,
+  "reference_sha": "f5d1724697eb22f70b5bcdcb94ba48d9c5d370003b8ede8b0cf497280d21a07e",
+  "reference_file_sha": "349ccf9a826e4e9b70edc598bd158473311669572bbd5413c5b2a250b3fa8aec",
+  "queries_sha": "7cdec8e10193046544cd85a593898dc50cb71a961cb20684e47248ec9f8c3d5d",
+  "freeze_receipt": "1ad45716eb6dfb3683e7f5f3d0e8bbbc73c04c4433f2f2d1ade110789e922b28",
+  "freeze_before_draft": true,
+  "query_registered": 7,
+  "query_executed": 0,
+  "draft_count": 139,
+  "diagnostic_counts": {
+    "CANDIDATE": 86,
+    "PARTIAL": 26,
+    "REFERENCE_SPLIT_DIFFERENCE": 19,
+    "COMPOUND": 4,
+    "NO_SEPARATE_REFERENCE": 4
+  },
+  "unlinked_refs": [
+    "R011",
+    "R046",
+    "R054",
+    "R103"
+  ],
+  "unlinked_high": [],
+  "nonclaim_disagreements": [
+    55,
+    56,
+    74,
+    88,
+    139,
+    214,
+    324
+  ],
+  "repair_examples": 10,
+  "evidence_recheck": 3,
+  "finance_full": "NOT_COMPLETED",
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "high_risk_final": "UNMEASURED",
+  "gate_rejected": "manual atomicity review required",
+  "gate_trial_sha": "c67b52d008c4ae14dc5ec2cc24d9ac371f7f6faa665ecf5b68ddc6bee5917d18",
+  "gate_trial_unchanged": true,
+  "original_draft_sha": "e944a144305fb39c979c343d84d1423030ca521e0766398111e98c6f6f481bf0",
+  "regression": "29/29",
+  "engine_changes": 0,
+  "operational_sha": "f289801aebde88908355f269bc5d5903046cd8f420db26ade3ccd421bc60b1ef",
+  "baseline_sha": "7ad9091c27b6b909cbec451e7241b7824e4e47aa25b1f1068c85cd67e7ca7a34",
+  "operational_promoted": false,
+  "operational": {
+    "videos": 4,
+    "active": 37,
+    "decisions": 61
+  },
+  "archive_sha": "26ad7aa95e8f53faaa52ddf79a2927f6b655d4537aaa8a84c38c69a40c817745",
+  "archive_bytes": 294161,
+  "archive_library": "/IRE_D4_20261127/D4_GATE_292_TURN2_HOLD_20261127.zip",
+  "limitations": [
+    "참조 자체 복합 명제 및 일부 문자열 규칙 기반 속성 채움",
+    "진단용 freeze의 atomization_reviewed=True는 실제 의미 인증 아님",
+    "분류 대응표는 정확도 지표 아님",
+    "기존 초안 원문 45% 숫자 속성 보존, 진술 표현과 불일치",
+    "전체 금융근거·최종 저장·질의 미완료",
+    "독립 인증 미측정"
+  ]
+}
