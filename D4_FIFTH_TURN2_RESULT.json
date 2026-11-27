@@ -1,0 +1,73 @@
+{
+  "stage": "D4_263_TURN2",
+  "source": 263,
+  "status": "HOLD_SEMANTIC_METRICS_AND_QUERY",
+  "operational_promoted": false,
+  "turns": 2,
+  "cues": 1004,
+  "reference_count": 49,
+  "high_risk_reference": 35,
+  "reference_sha256": "131ac0631f14913b75b23aa7328839e5b16c01a02cc68b854a06ef418acc4a4e",
+  "reference_registered_before_draft_open": true,
+  "manual_group_links": 49,
+  "atomic_precision": "UNMEASURED",
+  "atomic_recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "verdicts": {
+    "CONTEXT": 15,
+    "CORRECT": 25,
+    "HOLD": 3,
+    "APPROVE": 1
+  },
+  "previous_decisions_unchanged": 61,
+  "previous_videos_unchanged": 4,
+  "query_pass": 11,
+  "query_total": 12,
+  "query_replay_identical": 12,
+  "query_failure": {
+    "terms": [
+      "실물보유"
+    ],
+    "expected": [
+      "I20",
+      "I21"
+    ],
+    "observed": [
+      "I21",
+      "I27"
+    ],
+    "missing": [
+      "I20"
+    ]
+  },
+  "direct_finalize_seconds": [
+    0.024723243,
+    0.02190951
+  ],
+  "direct_retry_seconds": [
+    0.007501789,
+    0.007445645
+  ],
+  "engine_changes": 0,
+  "engine_sha256": "b88dde13ad023b582f4ee081de1881ac8bc1130c765321c693800b000f8eb320",
+  "trial": {
+    "videos": 5,
+    "active": 63,
+    "decisions": 105,
+    "head": "70b872a6c6b943d30f01756f644ad6373713544f73950800631b3dcb2078b642",
+    "sha256": "2856648a415aceedc6befd565f08f9e81c9cde28d80372d4c7746484ce551d40",
+    "receipt": "718e351dce00afcbbaa7c8ea84522a309601dcc83ecbc6268fa5a8adbdb0fa1e"
+  },
+  "operational": {
+    "videos": 4,
+    "active": 37,
+    "decisions": 61,
+    "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+    "sha256": "f289801aebde88908355f269bc5d5903046cd8f420db26ade3ccd421bc60b1ef"
+  },
+  "archive_sha256": "9da73776024569fd9ba191b3243b49ae861bb4a7375df04860e22272c9b156a8",
+  "archive_bytes": 602466,
+  "archive_library": "/IRE_D4_20261127/D4_FIFTH_TURN2_HOLD_20261127.zip",
+  "semantic_total_time": "UNMEASURED",
+  "independent": "UNVERIFIED_UNMEASURED"
+}
