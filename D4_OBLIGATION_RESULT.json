@@ -1,0 +1,104 @@
+{
+  "stage": "D4_OBLIGATION_DIAGNOSTIC",
+  "date": "2026-11-28",
+  "status": "METHOD_COMPARISON_ONLY_HOLD",
+  "source": 295,
+  "window": [
+    61,
+    120
+  ],
+  "boundary_context": [
+    57,
+    124
+  ],
+  "source_sha": "1905d79d7d164c1eebe22ee9734eb0f4484c2c4aabba25182e6f237029bbe205",
+  "prior_archive_sha": "79f7099c5b3087b1617d80b395d39213e0821ddf2d2f3edbbc0bbb2a6321a2fd",
+  "protocol_sha": "205cde43e355f3812abc7776ce67bd767360a13321c8e60fbc332b72661d8439",
+  "obligations_sha": "b587fe716707c1ec942345639e2352bab3a7d6bde1cf33900594f88764dd419e",
+  "obligations_count": 32,
+  "high_risk": 16,
+  "freeze": "local file SHA recorded before A/B file extraction; same chat exposed to prior summaries; not independent",
+  "diagnostic": {
+    "A": {
+      "original_rows": 26,
+      "obligations": {
+        "FULL": 25,
+        "MISSING": 3,
+        "PARTIAL": 3,
+        "UNRESOLVED": 1
+      },
+      "obligation_fulfillment": 0.78125,
+      "output_meanings": 29,
+      "output_status": {
+        "SUPPORTED": 26,
+        "PARTIAL": 2,
+        "UNRESOLVED": 1
+      },
+      "output_support": 0.896551724137931,
+      "high_risk_unfulfilled": [
+        "O03",
+        "O04",
+        "O15",
+        "O24",
+        "O26"
+      ]
+    },
+    "B": {
+      "original_rows": 29,
+      "obligations": {
+        "FULL": 24,
+        "MISSING": 2,
+        "PARTIAL": 5,
+        "UNRESOLVED": 1
+      },
+      "obligation_fulfillment": 0.75,
+      "output_meanings": 30,
+      "output_status": {
+        "SUPPORTED": 25,
+        "PARTIAL": 4,
+        "UNRESOLVED": 1
+      },
+      "output_support": 0.8333333333333334,
+      "high_risk_unfulfilled": [
+        "O03",
+        "O04",
+        "O15",
+        "O24"
+      ]
+    }
+  },
+  "prior_pairwise_eight_field_agreement": 21,
+  "prior_A_count": 26,
+  "prior_B_count": 29,
+  "prior_strict_anchor_agreement": 17,
+  "counterexamples_manual": 7,
+  "obligation_elapsed_seconds": 27.46537160873413,
+  "review_elapsed_seconds": 32.75203585624695,
+  "common_unfulfilled": [
+    "O03",
+    "O04",
+    "O15",
+    "O22",
+    "O23",
+    "O24"
+  ],
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "financial_review": "NOT_RUN",
+  "engine_changes": 0,
+  "operational_db_opened": false,
+  "promotion": false,
+  "limits": [
+    "O01 combines two independent statements; O23 stance not explicit; O22/O28 and O14/O26 granularity still needs calibration",
+    "Output decomposition is manual, compound row metadata conflicts can remain (A05 polarity); no operational approval",
+    "Counterexamples manually judged, not executable automated semantic tests",
+    "Same known sample and same chat; not independent; no comparison of entire cost with v2",
+    "No financial current-law validation, no finalization or new video",
+    "D3 policy permits many-to-many meaning mapping; current D4 gate one-to-one actual claim implementation remains unchanged"
+  ],
+  "archive_sha": "a128eee1dfa30d8f36bf8cebed1f9976e7b0b2888db0d226f1d6215632995744",
+  "archive_bytes": 25580,
+  "manifest_entries": 14,
+  "archive_library": "/IRE_D4_20261127/D4_OBLIGATION_DIAGNOSTIC_20261128.zip"
+}

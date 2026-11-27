@@ -53,3 +53,6 @@ D4 [공통 원자 경계 기준](D4_ATOM_BOUNDARY_PROTOCOL.md) 국소 진단: �
 
 
 D4 [원자 경계 v2 진단](D4_ATOM_BOUNDARY_V2_RESULT.json): 다른 원문 표본 21쌍 의미 일치, A26/B29. HOLD 유지, 정책 변경 없는 상태에서 작업 방식 전환 검토.
+
+
+D4 [원문 검증 의무 비교 방법](D4_OBLIGATION_PROTOCOL.md) 및 [결과](D4_OBLIGATION_RESULT.json). 기존 D3 정책 다대다 허용과 D4 일대일 구현 차이 확인. 국소 진단 HOLD, 운영 변경 없음.
