@@ -37,3 +37,7 @@
 
 ## 참조 작성의 실제 완료 조건
 [D4_ATOM_BOUNDARY_PROTOCOL.md](D4_ATOM_BOUNDARY_PROTOCOL.md) 참조. 국소 반복 일치32/41(기지 표본, 동일 채팅). 참조 atomization_reviewed=True는 실제 원자성·8속성 전수 점검 완료시에만 허용. 기준 미확립 또는 참조 미완료면 freeze하지 않고 HOLD. 기존 합격 기준 유지.
+
+
+## 원자 경계 v2 검증 후 보류
+[D4_ATOM_BOUNDARY_V2_RESULT.json](D4_ATOM_BOUNDARY_V2_RESULT.json) 국소 반복 일관성 미달. 원자 참조 사전 고정 및 승인 기준을 변경하지 않고 신규 장편 재실증 보류. 검토 구조 전환은 사용자 정책 승인 전 운영 적용 금지.

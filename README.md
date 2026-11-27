@@ -50,3 +50,6 @@ D4 #292 2턴 HOLD: [진단 결과](D4_GATE_292_TURN2_RESULT.json). 원자 작성
 
 
 D4 [공통 원자 경계 기준](D4_ATOM_BOUNDARY_PROTOCOL.md) 국소 진단: 엄격 작성 일치32/41, [결과](D4_ATOM_BOUNDARY_RESULT.json). 정확도 미측정, 추가 연구 및 운영 승격 보류.
+
+
+D4 [원자 경계 v2 진단](D4_ATOM_BOUNDARY_V2_RESULT.json): 다른 원문 표본 21쌍 의미 일치, A26/B29. HOLD 유지, 정책 변경 없는 상태에서 작업 방식 전환 검토.

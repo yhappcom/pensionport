@@ -1,0 +1,78 @@
+{
+  "stage": "D4_ATOM_BOUNDARY_V2",
+  "status": "HOLD_LOCAL_REPEATABILITY_INSUFFICIENT",
+  "source": 295,
+  "video_id": "T0S4kPUtuZE",
+  "source_sha": "1905d79d7d164c1eebe22ee9734eb0f4484c2c4aabba25182e6f237029bbe205",
+  "window": [
+    61,
+    120
+  ],
+  "boundary_context": [
+    57,
+    60,
+    121,
+    124
+  ],
+  "cues": 60,
+  "a_count": 26,
+  "b_count": 29,
+  "high_risk_a": 15,
+  "high_risk_b": 17,
+  "pairs": 24,
+  "unmatched_a": [
+    "A05",
+    "A24"
+  ],
+  "unmatched_b": [
+    "B05",
+    "B06",
+    "B24",
+    "B26",
+    "B27"
+  ],
+  "eight_field_agreement": 21,
+  "anchor_sufficient_agreement": 21,
+  "strict_anchor_agreement": 17,
+  "a_semantic_agreement": 0.8076923076923077,
+  "b_semantic_agreement": 0.7241379310344828,
+  "high_risk_not_exact_a": [
+    "A05",
+    "A19",
+    "A22",
+    "A24"
+  ],
+  "high_risk_not_exact_b": [
+    "B05",
+    "B06",
+    "B20",
+    "B23",
+    "B24",
+    "B26"
+  ],
+  "a_elapsed_seconds": 24.691142797470093,
+  "b_elapsed_seconds": 21.840190172195435,
+  "review_elapsed_seconds": 40.16020441055298,
+  "protocol_sha": "a324cc20c717ae2ee20fb8ce09388cba5297b2b0e246f64cc3380fb2f078e11f",
+  "a_sha": "878887a61b940eaf113972599da6a77ca4f8340e6ab41f97a4be174aefb8bc3a",
+  "b_sha": "76e4698978f11c992f39e6f2bb99dc89ce3ce543011dc18f25bcd3741fcc7916",
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "financial_review": "NOT_RUN",
+  "independent": false,
+  "operational_db_opened": false,
+  "engine_changes": 0,
+  "promotion": false,
+  "archive_sha": "79f7099c5b3087b1617d80b395d39213e0821ddf2d2f3edbbc0bbb2a6321a2fd",
+  "archive_bytes": 20360,
+  "archive_library": "/IRE_D4_20261127/D4_ATOM_BOUNDARY_V2_DIAGNOSTIC_20261127.zip",
+  "manifest_entries": 12,
+  "limits": [
+    "같은 채팅의 반복 작성, 독립 아님",
+    "기존 #295 연구 이력 있으나 SRT 외 기존 연구 결과 미사용",
+    "24쌍 수동 대응, 21쌍 8속성 및 충분 출처 일치, 공통 누락 존재",
+    "기존 정밀도/재현율 및 고위험 누락 미측정",
+    "금융근거/최종 통합/장편 실증 미실행"
+  ]
+}
