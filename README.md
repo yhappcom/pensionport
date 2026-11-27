@@ -29,3 +29,6 @@ D4 구조 개선 후보: [원자 평가 및 필수 문맥 조회](D4_REPAIR_PROT
 
 
 D4 P0-3~5 후보 기술 검증 완료: [GateEngine 통합 경로](D4_GATE_PROTOCOL.md). 기존 운영 DB 유지, 37개 활성 지식 baseline 관계 검토 및 새 원본 운영 실증 대기. 기존 동결 engine.py 변경 없음. 신규 DB에는 GateEngine 사용.
+
+
+D4 GateEngine baseline 후보 검증 완료(37개 지식/39개 관계, 13/13 질의). [결과](D4_GATE_BASELINE_RESULT.json). 운영 원장 미승격; 다음 P0-6 신규 장편 2턴 실증.
