@@ -80,3 +80,6 @@ F3 [첫 신규 영상 2턴 결과](F3_TRIAL1_TURN2_RESULT.json): 참조 분모 �
 
 
 F3 [마지막 신규 영상 1턴](F3_TRIAL2_TURN1_RESULT.json): 270자막/66후보, V2 초안 동결. 2턴 최종 실증 대기.
+
+
+F3 [두 번째 실증 결과](F3_TRIAL2_TURN2_RESULT.json) 및 [중단 보고](F3_STOP_REPORT.md): 2회 실패 조건 도달. 현 2턴 연구 구조 STOP, F4~F6 차단. 기존 코드·원장 보존, 새로운 정책 결정 전 자동 추가 시험 금지.

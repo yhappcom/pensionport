@@ -1,0 +1,106 @@
+{
+  "stage": "F3_TRIAL2_TURN2",
+  "status": "HOLD_STOP_F3_SECOND_FAILURE",
+  "source_id": "6f5ec204d9c07ecaa1a83f3fc64f921c55a4ba9df85c21957e8f6e2eea960722",
+  "video_id": "PUWsNu9b3cc",
+  "cues": 270,
+  "reference_count": 74,
+  "high_risk_reference": 36,
+  "reference_sha": "864c25042d936e30a1267c7ddc129eeeb935aa084b4a8af640117843afed78d8",
+  "reference_file_sha": "039833189d2f2ddcde6cb966fc1852be1dc0941f9535b96e7eaae6797c614215",
+  "queries_sha": "89842accc1f692680284816d6f917c5029b6dc0f61625f9e97b2fd7ea5842fcf",
+  "gate_freeze_receipt": "41e73ab98373ae622eefbcb1be2b3ba919b4ece73ff659e502e37c20a80eceb2",
+  "reference_before_draft_open": true,
+  "reference_review_invalidated_after_mapping": true,
+  "draft_count": 66,
+  "draft_sha": "0c96a2dffcc4d9b3e9e776b929a3f90ea46decdc80952216044f9eecbd0ca204",
+  "diagnostic_status": {
+    "PARTIAL": 17,
+    "UNRESOLVED": 6,
+    "FULL": 51
+  },
+  "diagnostic_high_risk_unfulfilled": [
+    "R007",
+    "R008",
+    "R009",
+    "R011",
+    "R016",
+    "R032",
+    "R047",
+    "R053"
+  ],
+  "diagnostic_unmatched_output": [
+    "C001",
+    "C058"
+  ],
+  "diagnostic_only": true,
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "finance": "PARTIAL_REOPEN_ONLY",
+  "registered_queries": 8,
+  "executed_queries": 0,
+  "finalize_rejected": "manual meaning inventory required",
+  "trial_unchanged_on_rejection": true,
+  "trial_sha": "40960cd750ef36cd0a1d7d4dcd53fcab9ca916ce20182b796e6fc1c3a01de7c8",
+  "turn1_db_sha": "800fd44f3a0a8dcd89245e95bd14713d9e7a7c84a644437691a0ba2eabcfdf88",
+  "baseline_sha": "2a3b0ffba3b6f458d599ec9db3face0e1c8eff1c665a40d44dcb5dfd2a0fadfd",
+  "prior_rows_preserved": {
+    "videos": 4,
+    "items": 61
+  },
+  "integrity": "ok",
+  "foreign_key_violations": 0,
+  "operational_status": {
+    "mode": "research",
+    "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+    "sources": 5,
+    "drafts": 5,
+    "finalized": 4,
+    "decisions": 61,
+    "active": 37
+  },
+  "reference_review_wall_seconds": 74.98488807678223,
+  "total_turn_time": "UNMEASURED",
+  "failures": 2,
+  "allowed_failures": 2,
+  "stop_same_structure": true,
+  "operational_promoted": false,
+  "engine_changes": 0,
+  "independent": false,
+  "limits": [
+    "Reference R007-R009 combines factual multiplier and assumption examples; R003/R016/R073 framing, field attribution or stance uncertain. Freeze declaration was premature; preserve frozen reference, no retroactive correction.",
+    "Mapping is manual source-support diagnostic across rows, not final output meaning denominator or formal precision/recall. Unmatched C001/C058 are source-supported excluded framing/reactions.",
+    "Actual draft not manually completed; rejected finalize on unchanged false meaning_reviewed flag. No new approval, no new query or replay.",
+    "Same chat, no independence. Historical event year/terms and screen not verified. Official sources partially reopened; no full finance review."
+  ],
+  "regression": {
+    "passed": 58,
+    "total": 58,
+    "seconds": 0.605
+  },
+  "finance_recheck": {
+    "body_confirmed": 3,
+    "old_law_links_failed": 2,
+    "alternative_law_search_excerpt": true,
+    "full_financial_review": false
+  },
+  "code_sha256": {
+    "engine.py": "b88dde13ad023b582f4ee081de1881ac8bc1130c765321c693800b000f8eb320",
+    "d4_quality.py": "33d5c069b2a5256ccb4bad85a828bfa5e07ccece025e7600edad4577fdfb9984",
+    "d4_gate.py": "3aab33a293d90842cc66b9d99487cf496d2045b9507987306c519541f0f2acbc",
+    "d4_gate_v2.py": "e60ae16a7e10c5a1a4d94613ebdc1984a1bc94e7bbde2c5d523bc036888f1e57"
+  },
+  "operational_db_opened": false,
+  "f4_f6": "BLOCKED_STOP",
+  "d4_pass": 2,
+  "checklist_pass": 17,
+  "checklist_total": 32,
+  "archive_sha": "0ce5f6505bcdce228d9a86586b5da5f4a08de6db2a02e010ef746bdfa00f53b8",
+  "archive_bytes": 179856,
+  "manifest_entries": 27,
+  "archive_library": "/IRE_D4_20261127/F3_TRIAL2_TURN2_STOP_20261128.zip",
+  "reference_library": "/IRE_D4_20261127/F3_TRIAL2_TURN2_REFERENCE.json",
+  "query_library": "/IRE_D4_20261127/F3_TRIAL2_TURN2_QUERIES.json",
+  "freeze_library": "/IRE_D4_20261127/F3_TRIAL2_TURN2_FREEZE.json"
+}
