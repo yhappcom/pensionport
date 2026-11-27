@@ -33,3 +33,7 @@
 
 ## #270 실패 후 작성 절차 변경
 [D4_AUTHORING_PROTOCOL.md](D4_AUTHORING_PROTOCOL.md)를 신규 원본 1턴 연구에 적용한다. 이 변경은 ChatGPT 작성 절차이며 GateEngine 코드/승인 관문은 변경하지 않는다. #270 사후 진단을 운영 합격으로 사용하지 않는다. 신규 #292 준비 완료, 연구 미착수.
+
+
+## 참조 작성의 실제 완료 조건
+[D4_ATOM_BOUNDARY_PROTOCOL.md](D4_ATOM_BOUNDARY_PROTOCOL.md) 참조. 국소 반복 일치32/41(기지 표본, 동일 채팅). 참조 atomization_reviewed=True는 실제 원자성·8속성 전수 점검 완료시에만 허용. 기준 미확립 또는 참조 미완료면 freeze하지 않고 HOLD. 기존 합격 기준 유지.

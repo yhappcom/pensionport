@@ -1,0 +1,59 @@
+{
+  "stage": "D4_ATOM_BOUNDARY_DIAGNOSTIC",
+  "status": "HOLD_LOCAL_REPEATABILITY_INSUFFICIENT",
+  "source": 292,
+  "windows": [
+    [
+      12,
+      56
+    ],
+    [
+      267,
+      305
+    ]
+  ],
+  "cues": 84,
+  "a_count": 41,
+  "b_count": 41,
+  "high_risk_each": 17,
+  "pairs": 39,
+  "unmatched_each": 2,
+  "eight_field_agreement": 36,
+  "strict_anchor_and_fields": 32,
+  "strict_repeatability": 0.7804878048780488,
+  "field_disagreement_pairs": [
+    "A31/B33",
+    "A37/B37",
+    "A38/B38"
+  ],
+  "anchor_overinclusive_pairs": [
+    "A09/B08",
+    "A15/B14",
+    "A23/B26",
+    "A24/B23"
+  ],
+  "a_elapsed_seconds": 39.961934328079224,
+  "b_elapsed_seconds": "UNMEASURED",
+  "post_b_diagnostic_wall_seconds": 46.86786460876465,
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "source_sha": "371a9a1b05efb7f84b439f4c9d134e7ab8c8226130a28b8b322c00709af13557",
+  "protocol_sha": "cbdaecec8bb283c1ad44dceb40dd6da61ecc996477d8742e61ef18707cee5a88",
+  "archive_sha": "89e1313758e57ea39d80fcca9d1a5871344c050c2b9d37d3c5e7500b56b5f419",
+  "archive_bytes": 11768,
+  "archive_library": "/IRE_D4_20261127/D4_ATOM_BOUNDARY_DIAGNOSTIC_20261127.zip",
+  "engine_changes": 0,
+  "operational_db_opened": false,
+  "promotion": false,
+  "independent": false,
+  "financial_review": "NOT_RUN",
+  "new_video": "NOT_RUN",
+  "limitations": [
+    "known source and same chat; no independent annotation",
+    "A/B shared wording and possible shared omissions",
+    "manual adjudication not truth or finance verification",
+    "second authoring time not captured",
+    "no full-video or GateEngine finalization test"
+  ]
+}
