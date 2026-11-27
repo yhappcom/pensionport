@@ -1,0 +1,47 @@
+{
+  "stage": "D4_FIRST_TURN2",
+  "source": 266,
+  "status": "PASS_INTERNAL_SHORT_SOURCE",
+  "turns": 2,
+  "cues": 30,
+  "reference_count": 12,
+  "output_count": 12,
+  "matched": 12,
+  "internal_precision": 1,
+  "internal_recall": 1,
+  "high_risk_reference": 7,
+  "high_risk_omission": 0,
+  "verdicts": {
+    "CORRECT": 5,
+    "APPROVE": 1,
+    "CONTEXT": 3,
+    "HOLD": 1
+  },
+  "evidence_urls": 7,
+  "evidence_links": 21,
+  "relations": 3,
+  "previous_decisions_unchanged": 38,
+  "query_tests": "8/8",
+  "replay_tables": "3/3",
+  "replay_queries": "8/8",
+  "engine_changes": 0,
+  "operational": {
+    "videos": 3,
+    "active": 28,
+    "decisions": 48,
+    "head": "5f0da2629e5c397b60adc20ecfb535fde2b1afa3c8bd89ca9adb7c00579f110d",
+    "sha256": "45e66c26b7c292b9eece63dae14f6372944b83396a828ca3d09b1d1765a4e789"
+  },
+  "receipt": "44e64dce54ae4b1c6e490612b37b9169d8bde23ff410e347f1f8e8aa03078f63",
+  "archive_sha256": "6a5bf0b15fc430238054ceb6a89017367bea5b34e17e1e4e474f9bf31f9ff3f6",
+  "first_finalize_seconds": 0.853655,
+  "semantic_total_time": "UNMEASURED",
+  "independent": "UNVERIFIED_UNMEASURED",
+  "limits": [
+    "Same ChatGPT manual assessment, short source",
+    "Full subsidy regulation/legal text not obtained",
+    "No audio or evidence bytes",
+    "Manual keywords and candidate membership",
+    "Long-source validation pending"
+  ]
+}
