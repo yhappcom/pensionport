@@ -1,0 +1,74 @@
+{
+  "stage": "D4_P03_291_WINDOW3_TURN2",
+  "status": "HOLD_LOCAL_MEANING_REVIEW",
+  "source": 291,
+  "scope": [
+    219,
+    279
+  ],
+  "cues": 61,
+  "source_sha": "96cc9fdf018ee738295faf510b0989c38f63e999b2ab763930ed06fc692b0476",
+  "reference_sha": "576bedcac18654ae6e3ca7024422ccad07ac8f145153c7b8c557273695bd88b3",
+  "draft_sha": "a9aed9cc53b673663369c2e9e0a051cfa5359628f41ceb3b19d7ec482392dce0",
+  "reference_before_draft_reopened": true,
+  "reference_obligations": 31,
+  "reference_high_risk": 13,
+  "draft_rows": 29,
+  "output_meanings": 31,
+  "reference_status": {
+    "PARTIAL": 3,
+    "FULL": 27,
+    "UNRESOLVED": 1
+  },
+  "output_status": {
+    "PARTIAL": 3,
+    "SUPPORTED": 27,
+    "UNRESOLVED": 1
+  },
+  "diagnostic_fulfillment": 0.8709677419354839,
+  "diagnostic_support": 0.8709677419354839,
+  "high_risk_unfulfilled": [
+    "R16",
+    "R26"
+  ],
+  "nonclaim_disagreement": [
+    222
+  ],
+  "unmatched_output_supported": [
+    "S28"
+  ],
+  "formal_precision": "UNMEASURED",
+  "formal_recall": "UNMEASURED",
+  "formal_high_risk_omission": "UNMEASURED",
+  "finance": "11 correction rows rechecked, general vs conditional, no approval",
+  "engine_changes": 0,
+  "operational_db_opened": false,
+  "operational_promoted": false,
+  "two_turn_local": true,
+  "independent": false,
+  "turn2_elapsed": "UNMEASURED_FULL",
+  "limits": [
+    "Same chat, memory of prior draft summary; not blind or independent",
+    "Manual local diagnostic; reference granularity/stance ambiguity and S28 unregistered summary; strict denominator not certified",
+    "R23 framing may duplicate other obligations; S11 examples counted separately; output support is source support, not exact matching precision",
+    "222 nonclaim discrepancy and risk grade differences",
+    "PDF image cache failure, recording date/audio/screen not obtained, tax/product applicability not fully verified",
+    "No whole-video trial, no GateEngine approval, no operating DB access"
+  ],
+  "turn1_manifest_verified": 8,
+  "finance_sources_reopened": 10,
+  "observed_read_to_audit_seconds": 121,
+  "timing_limit": "첫 원문 출력 시각 이후 집계 종료까지 관측 시각 차이; 전체 턴 및 순수 모델 처리시간 미측정",
+  "operational": {
+    "videos": 4,
+    "active": 37,
+    "decisions": 61,
+    "basis": "last verified record; DB not reopened this turn"
+  },
+  "archive_sha": "f7b73cece1a5630406d2d516860a2e36e17ea260c3c5a0e397602d166d41b52f",
+  "archive_bytes": 52325,
+  "manifest_entries": 12,
+  "archive_library": "/IRE_D4_20261127/D4_P03_291_WINDOW3_TURN2_HOLD_20261128.zip",
+  "reference_library": "/IRE_D4_20261127/D4_P03_291_WINDOW3_TURN2_REFERENCE.json",
+  "freeze_library": "/IRE_D4_20261127/D4_P03_291_WINDOW3_TURN2_FREEZE.json"
+}
