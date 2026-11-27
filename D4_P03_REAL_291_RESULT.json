@@ -1,0 +1,71 @@
+{
+  "stage": "D4_P03_REAL_291_LOCAL_DIAGNOSTIC",
+  "status": "HOLD_ACTUAL_DRAFT_INCOMPLETE",
+  "source_no": 291,
+  "video_id": "EUnEyu15JfM",
+  "window": [
+    159,
+    218
+  ],
+  "cues": 60,
+  "source_sha": "96cc9fdf018ee738295faf510b0989c38f63e999b2ab763930ed06fc692b0476",
+  "draft_sha": "9b4ef7d9e61556293ca67d4ff77c6f281a7050a53b0bff7122d9c8514c889fd5",
+  "reference_sha": "f2d0137525ce4133ee08eb89c16498a3e3ff4b0f8b95438ae27d7705a30d4987",
+  "draft_rows": 15,
+  "draft_verdicts": {
+    "HOLD": 6,
+    "CORRECT": 4,
+    "CONTEXT": 5
+  },
+  "evidence_count": 9,
+  "body_sources": 7,
+  "excerpt_sources": 2,
+  "evidence_links": 15,
+  "nonclaim": 3,
+  "reference_obligations": 25,
+  "high_risk_obligations": 16,
+  "reference_status": {
+    "FULL": 21,
+    "MISSING": 2,
+    "PARTIAL": 2
+  },
+  "output_meanings": 23,
+  "output_status": {
+    "SUPPORTED": 21,
+    "PARTIAL": 2
+  },
+  "diagnostic_fulfillment": 0.84,
+  "diagnostic_support": 0.9130434782608695,
+  "high_risk_unfulfilled": [
+    "O14",
+    "O22"
+  ],
+  "missing": [
+    "O05",
+    "O07"
+  ],
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "final_high_risk_omission": "UNMEASURED",
+  "finance": "PARTIAL_DRAFT_ONLY",
+  "independent": false,
+  "two_turn_trial": false,
+  "operational_db_opened": false,
+  "operational_promoted": false,
+  "engine_changes": 0,
+  "elapsed": "UNMEASURED",
+  "limits": [
+    "Actual draft authored before reference; both authored and reviewed in same turn by same ChatGPT; no blinding.",
+    "Reference frozen before draft file reopened but conversation exposure remains.",
+    "O02 taxonomy framing and O07 sourcing explanation may overlap other obligations; O05 type and O22 scope uncertain. Reference not certified atomic or exhaustive.",
+    "Manual output decomposition and adjudication; aggregation checks do not verify semantics.",
+    "Two evidence items search excerpts; current fees and industry trends not certified.",
+    "No full-video or GateEngine trial; no independent precision/recall."
+  ],
+  "archive_sha": "08004fa6f4dadb164b6efa74c64934f0d63f0de6c13b52cf39b30aa0ac31a3ae",
+  "archive_bytes": 55012,
+  "manifest_entries": 11,
+  "archive_library": "/IRE_D4_20261127/D4_P03_REAL_291_DIAGNOSTIC_20261128.zip",
+  "draft_library": "/IRE_D4_20261127/D4_P03_REAL_291_DRAFT_FROZEN_20261128.json",
+  "reference_library": "/IRE_D4_20261127/D4_P03_REAL_291_REFERENCE_FROZEN_20261128.json"
+}
