@@ -1,0 +1,50 @@
+{
+  "stage": "D4_FIFTH_TURN1",
+  "source": 263,
+  "source_sha256": "26949eecc22a2b6ad1130b7f628919caebd006b371f29424e2bef6a009e5ebf2",
+  "cues": 1004,
+  "end_ms": 2002440,
+  "claim_cues": 982,
+  "nonclaim_cues": 22,
+  "claims": 44,
+  "verdicts": {
+    "CORRECT": 26,
+    "CONTEXT": 14,
+    "HOLD": 3,
+    "APPROVE": 1
+  },
+  "evidence_urls": 10,
+  "evidence_links": 65,
+  "relations": 3,
+  "retrieved_candidates": 30,
+  "engine_changes": 0,
+  "timings_seconds": {
+    "prepare": 0.023972439,
+    "draft": 0.01280248,
+    "resume": 0.011612828,
+    "status": 0.003294799
+  },
+  "execution": "direct Engine methods; stage checkpoint after each call",
+  "operational": {
+    "finalized": 4,
+    "active": 37,
+    "decisions": 61,
+    "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+    "sha256": "f289801aebde88908355f269bc5d5903046cd8f420db26ade3ccd421bc60b1ef"
+  },
+  "previous_decisions_unchanged": 61,
+  "receipt": "3ae2960b1b38869845ee9af49c604f32ecdc060f7c7c7d0456e070933a438105",
+  "research_db_sha256": "a4a9e09fa5da9480d60f016dbc42206fcdbba23cfb3371c5a0792a10cdcded37",
+  "assessment": "PENDING_TURN2",
+  "semantic_total_time": "UNMEASURED",
+  "archive_sha256": "dc92e89913484c1cdb7ed13d90a7d21df05b481e3c17ad2657b79e9c12d00bc6",
+  "archive_bytes": 244721,
+  "archive_library": "/IRE_D4_20261127/D4_FIFTH_TURN1_20261127.zip",
+  "source_only_library": "/IRE_D4_20261127/D4_263_SOURCE_ONLY_20261127.srt",
+  "limits": [
+    "복합 발화의 원자 분할·누락 여부 2턴 평가 대기",
+    "영상 당시 약관, 화면, 음성, 실제 거래 미확보",
+    "법령·공식 웹 본문 근거; 원본 바이트 미인증",
+    "전체 의미 연구시간 미계측"
+  ]
+}
