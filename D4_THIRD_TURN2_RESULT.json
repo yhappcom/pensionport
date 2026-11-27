@@ -1,0 +1,52 @@
+{
+  "stage": "D4_THIRD_TURN2",
+  "source": 282,
+  "status": "PASS_INTERNAL_SHORT_SOURCE",
+  "turns": 2,
+  "cues": 28,
+  "reference_count": 13,
+  "output_count": 13,
+  "matched": 13,
+  "internal_precision": 1,
+  "internal_recall": 1,
+  "high_risk_count": 9,
+  "high_risk_omission": 0,
+  "reference_sha256": "72bebbd44deaf562d8b24382e06f2f6ac92189b44512f2b597071e8e8450974e",
+  "reference_registered_before_draft_open": true,
+  "verdicts": {
+    "APPROVE": 1,
+    "CORRECT": 8,
+    "CONTEXT": 4
+  },
+  "evidence_urls": 5,
+  "evidence_links": 32,
+  "relations": 3,
+  "previous_decisions_unchanged": 48,
+  "query_tests": "10/10 manual keywords",
+  "replay_tables": "3/3",
+  "replay_queries": "10/10",
+  "engine_changes": 0,
+  "operational": {
+    "videos": 4,
+    "active": 37,
+    "decisions": 61,
+    "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+    "sha256": "f289801aebde88908355f269bc5d5903046cd8f420db26ade3ccd421bc60b1ef"
+  },
+  "receipt": "f288f2e2b05f13178f2bf1e42897ffb657327edaa288b94fca3a808cc3a82e8e",
+  "archive_sha256": "e47de1a3914121c1417bc37c42d8fa45f2fc5441f86ff6ecf64e05f6dbd8fb50",
+  "archive_bytes": 303886,
+  "first_finalize_seconds": 1.454196746,
+  "query_seconds_range": [
+    0.796962944,
+    1.073102104
+  ],
+  "semantic_total_time": "UNMEASURED",
+  "independent": "UNVERIFIED_UNMEASURED",
+  "limits": [
+    "Same-chat manual assessment; previous turn summary visible",
+    "2025 terms, audio, personal transactions, evidence raw bytes not obtained",
+    "Manual keyword queries; natural-language retrieval not validated",
+    "Long source validation pending"
+  ]
+}
