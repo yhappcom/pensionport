@@ -1,0 +1,52 @@
+{
+  "stage": "D4_P03_291_WINDOW3_TURN1",
+  "status": "PENDING_TURN2_LOCAL_DIAGNOSTIC",
+  "source_no": 291,
+  "source_sha": "96cc9fdf018ee738295faf510b0989c38f63e999b2ab763930ed06fc692b0476",
+  "window": [
+    219,
+    279
+  ],
+  "cues": 61,
+  "meaning_candidates": 29,
+  "high_risk_candidates": 12,
+  "verdicts": {
+    "CONTEXT": 13,
+    "HOLD": 5,
+    "CORRECT": 11
+  },
+  "covered_cues": 60,
+  "nonclaim_cues": 1,
+  "evidence_sources": 11,
+  "html_body_sources": 10,
+  "pdf_text_only": 1,
+  "evidence_links": 16,
+  "draft_sha": "a9aed9cc53b673663369c2e9e0a051cfa5359628f41ceb3b19d7ec482392dce0",
+  "inventory_sha": "dc9ff68bbb46de3833b2554d5a71711e96cbb46056d2e5cb302c7a68700d9496",
+  "plan_sha": "d5e1e806b04fb512f50ea73d4404f83725a4ce89a1bcddf781d75b3aa59aa328",
+  "reverse_review_sha": "2f4c63055db66f709c04fce393221bb82103dc8f9fb68adf58583954a69272a8",
+  "elapsed_from_source_preparation_seconds": 99.491,
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "operational_db_opened": false,
+  "operational_promoted": false,
+  "engine_changes": 0,
+  "limits": [
+    "동일 ChatGPT 대화; 완전 블라인드 아님",
+    "동일 #291의 이전 표본 연구 경험 존재; 해당 구간은 이전 담당 범위 밖",
+    "현재 턴은 금융 근거 포함 초안, 2턴 검증 미실행",
+    "운영 DB 미개방; 신규 승인 경로 미적용",
+    "PDF screenshot retrieval failed; text only evidence",
+    "상품 화면·음성 미확보 및 ASR 모호",
+    "원자 경계 일부 미확정; 원문 완전성 및 근거 최종 심사 미실행",
+    "발언 당시 법령·보수 순위·글로벌 규모 미검증; wall time includes web and authoring, not full research or pure semantic time"
+  ],
+  "archive_sha": "d3b71f08109d6ab472ac717bb8b9456f792adc4a73875f7529aafc7750b6c977",
+  "archive_bytes": 56155,
+  "manifest_entries": 8,
+  "archive_library": "/IRE_D4_20261127/D4_P03_291_WINDOW3_TURN1_20261128.zip",
+  "source_library": "/IRE_D4_20261127/D4_P03_291_WINDOW3_SOURCE_ONLY_20261128.srt",
+  "plan_library": "/IRE_D4_20261127/D4_P03_291_WINDOW3_PLAN.json",
+  "draft_library": "/IRE_D4_20261127/D4_P03_291_WINDOW3_DRAFT_FROZEN.json"
+}
