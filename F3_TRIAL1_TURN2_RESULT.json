@@ -1,0 +1,99 @@
+{
+  "stage": "F3_TRIAL1_TURN2",
+  "status": "HOLD_REFERENCE_INCOMPLETE_FIRST_FAILURE",
+  "video_id": "qpnZn62UM4U",
+  "source_sha": "b9c4dbcbf573526cb176b12c80a3a29f6deccd0d7563da1a65eccee4dcba1f7e",
+  "cues": 272,
+  "duration_seconds": 519.419,
+  "reference_candidates": 95,
+  "reference_high_risk_candidates": 40,
+  "reference_claim_covered_cues": 266,
+  "reference_nonclaim_cues": [
+    1,
+    32,
+    53,
+    54,
+    178,
+    272
+  ],
+  "reference_sha": "84468c81400891e403b14849aeb6355242efb3bc0e1c5eb55340a0a4432ac757",
+  "reference_file_sha": "4a8c16189106378dd195d85ff49c64212667b2b9f12d7bf660bcfa4f3223e045",
+  "reference_review_completed": false,
+  "reference_gate_frozen": false,
+  "queries_registered": 0,
+  "draft_payload_reopened": false,
+  "draft_comparison": "NOT_RUN",
+  "precision": "UNMEASURED",
+  "recall": "UNMEASURED",
+  "high_risk_omission": "UNMEASURED",
+  "finance": "NOT_RUN_TURN2",
+  "finalization": "NOT_RUN",
+  "query_validation": "NOT_RUN",
+  "db_check": {
+    "status": {
+      "mode": "research",
+      "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+      "sources": 5,
+      "drafts": 5,
+      "finalized": 4,
+      "decisions": 61,
+      "active": 37
+    },
+    "draft_db_sha": "5dafeb4045d45611143f365b38e5eddcaf92da5d1ffa12e4124b428667bb7c78",
+    "candidate_db_sha": "2a3b0ffba3b6f458d599ec9db3face0e1c8eff1c665a40d44dcb5dfd2a0fadfd",
+    "original_db_unchanged": true,
+    "baseline_unchanged": true,
+    "trial_byte_identical": true,
+    "old_video_rows_preserved": 4,
+    "old_item_rows_preserved": 61,
+    "registry_preserved": true,
+    "freeze_count": 0,
+    "audit_count": 0,
+    "new_final": false,
+    "integrity": "ok",
+    "foreign_key_violations": 0,
+    "prefreeze_blocks": [
+      {
+        "api": "resume",
+        "error": "freeze reference before opening draft"
+      },
+      {
+        "api": "prepare",
+        "error": "use source_only then freeze then resume"
+      }
+    ],
+    "code_sha256": {
+      "engine.py": "b88dde13ad023b582f4ee081de1881ac8bc1130c765321c693800b000f8eb320",
+      "d4_quality.py": "33d5c069b2a5256ccb4bad85a828bfa5e07ccece025e7600edad4577fdfb9984",
+      "d4_gate.py": "3aab33a293d90842cc66b9d99487cf496d2045b9507987306c519541f0f2acbc",
+      "d4_gate_v2.py": "e60ae16a7e10c5a1a4d94613ebdc1984a1bc94e7bbde2c5d523bc036888f1e57"
+    },
+    "regression": "58/58"
+  },
+  "operational_promoted": false,
+  "operational_db_opened": false,
+  "engine_changes": 0,
+  "f3_failed_trials": 1,
+  "f3_max_trials": 2,
+  "d4_pass": 2,
+  "checklist_pass": 17,
+  "checklist_total": 32,
+  "independent": "UNVERIFIED",
+  "elapsed": "UNMEASURED",
+  "limitations": [
+    "R013/R016 화자와 답변 범위 자체 불확실",
+    "R031 자산별 숫자 및 예시 PBR 의미 불확실, R030과 경계 미인증",
+    "R034 PBR 밸류, R064 가격, R070 화면 지시 대상의 불확실성",
+    "R075 고점 징후와 매수대안 부재 해석, R043 유보 효용과 소비 행동의 독립 분모 검토 미완료",
+    "동일 대화, 독립 평가 아님",
+    "No finalized reference, draft comparison, financial recheck or new query/finalization/replay. A prefreeze rejection check is not an approval test.",
+    "Provisional inventory is not a gold set; counts not recall or accuracy.",
+    "Same source cannot retroactively pass; one different F3 trial allowed, then stop if failed."
+  ],
+  "archive_sha": "50d2c1f1260de51f8ab5ebadbd64ac998dde514dd892a7dcb1e146923b030f67",
+  "archive_bytes": 41161,
+  "manifest_entries": 12,
+  "archive_library": "/IRE_D4_20261127/F3_TRIAL1_TURN2_HOLD_20261128.zip",
+  "reference_library": "/IRE_D4_20261127/F3_TRIAL1_TURN2_PROVISIONAL_REFERENCE.json",
+  "review_library": "/IRE_D4_20261127/F3_TRIAL1_TURN2_PROVISIONAL_REVIEW.json"
+}

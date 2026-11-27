@@ -74,3 +74,6 @@ D4 [최종 실증 주기 F1~F6](D4_FINAL_CYCLE_PROTOCOL.md), [F1~F2 기술 결�
 
 
 F3 [첫 신규 영상 1턴](F3_TRIAL1_TURN1_RESULT.json): 272자막/71후보, V2 실제 초안 저장. 정식 2턴 평가 대기.
+
+
+F3 [첫 신규 영상 2턴 결과](F3_TRIAL1_TURN2_RESULT.json): 참조 분모 미완결 HOLD, 실패1/2. 다음은 다른 신규 영상 1회만 허용.
