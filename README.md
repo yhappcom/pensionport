@@ -1,25 +1,19 @@
-# pensionport
+# Pensionport — ChatGPT 중심 투자 연구 엔진 (Clean Start)
 
-An evidence-based investment research project that builds a knowledge base from educational video content and authoritative primary sources.
+2026-11-27, 사용자 결정으로 기존 IRE 개발을 종료하고 SRT 원본에서 시작하는 신규 경량 엔진 개발로 전환한다. 이 저장소의 main은 신규 개발의 유일한 기준이다. 이전 엔진과 연구 결과는 별도 보존 브랜치에 동결되어 있으며 신규 연구에는 사용하지 않는다.
 
-## Core Resources
+**목표:** ChatGPT가 791편 투자 영상의 원본을 연구하고, 최신 공식 금융 근거와 대조하여 최종 검증하며, 새로 얻은 지식을 누적해 투자 질문에 활용할 수 있는 시스템. 외부 LLM API 없이 현재 채팅과 연결된 도구만 사용한다. 포트폴리오 연결은 연구 엔진 완성 후 실시한다.
 
-- [Verified Video Inventory](VIDEO_INVENTORY_2026-10-07.md): 791 videos in the roster, including 703 long-form videos in the primary research scope.
-- [V3 Single-Record Research Workflow](WORKFLOW.md): prioritize source-based analysis and write one final analysis record per newly reviewed video.
-- [Research Completion and Investment Decision-Use Standard](docs/RESEARCH_DECISION_USE_STANDARD_20261029.md): one canonical rule set for study closure, reusing existing knowledge, and evaluating decision readiness.
-- `data/videos.jsonl` and `data/canonical_events/`: preserved legacy registry records (read-only during routine research).
-- `data/analysis_events/<video_id>.json`: the final V3 research record for each newly reviewed video, including sources, claims, risks, and independent verification.
-- `knowledge/` and `synthesis/`: consolidated investment knowledge organized by topic.
+현재 단계 D0 (저장소 전환). 신규 엔진 구현, 신규 투자 지식 및 신규 연구 완료 영상은 모두 0이다. 과거 진행률은 계승하지 않는다.
 
-## Operations
+## 문서
+- [개발 계획](DEVELOPMENT_PLAN.md) — 단계와 성과 기준
+- [개발 체크리스트](DEVELOPMENT_CHECKLIST.md) — 8단계 32개 과제, 단계별 순차 통과
+- [아키텍처](ARCHITECTURE.md) — 책임 분담, 최소 구현 범위
+- [연구 절차](RESEARCH_PROTOCOL.md) — 2턴 운영 및 검증
+- [지식 정책](KNOWLEDGE_POLICY.md) — 승인/교정/보류/제외, 통합 및 자문
+- [검증 계획](VALIDATION_PLAN.md) — 실증, 측정 및 중단 기준
+- [개발 일지](DEVELOPMENT_LOG.md) — 실행 결과와 차단 사유
+- [과거 연구 보존](LEGACY_ARCHIVE.md) — 참조 전용 이력 및 입력 경계
 
-Each research cycle follows **select an unfinished long-form video → obtain the correct source text → analyze and verify its content → save one JSON record → read it back and validate it**.
-
-- A new analysis is counted as complete only after its saved file passes validation. Do **not** create or require a separate new `data/canonical_events/` entry.
-- Completion counts use the union of unique video IDs in the legacy registry and valid new analysis records, intersected with the long-form roster. Count each video only once.
-- A `PARTIAL` record without sufficient source content does not count as a newly completed review. Distinguish transcript-based research from review of audiovisual material.
-- Never bypass GitHub safety checks. If a write is blocked, stop further writes for that run and report only verified saved results.
-- Do not repeatedly recollect the inventory, refresh writer locks, or rebuild aggregates on every run. `state/progress.json` is a historical reference snapshot.
-- For time-sensitive matters such as pensions, ISA accounts, and taxation, distinguish historical statements from current rules verified against official sources.
-
-Preserve historical canonical events. An earlier analysis-only record for `09R29vsv6to` may count as a V3 completion if it satisfies the V3 data requirements. Do not recreate the previously blocked canonical event #232.
+최우선 원칙: SRT 원본만 과거 자료에서 재사용한다. 기존 코드, 기존 연구 지식, 공식 금융근거, 연구 결과, 정답셋, 회귀시험은 사용하지 않는다. 신규 자료는 새 연구에서 확보한다. 
