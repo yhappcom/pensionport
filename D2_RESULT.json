@@ -1,0 +1,41 @@
+{
+  "stage": "D2",
+  "status": "PASS_INTERNAL_OPERATIONAL",
+  "research_turns": 2,
+  "cues": 173,
+  "claims": 30,
+  "verdicts": {
+    "APPROVE": 5,
+    "CORRECT": 12,
+    "CONTEXT": 10,
+    "HOLD": 3
+  },
+  "finalized": 1,
+  "active": 17,
+  "engine_changes": 0,
+  "engine_sha256": "b88dde13ad023b582f4ee081de1881ac8bc1130c765321c693800b000f8eb320",
+  "web_sources": 15,
+  "direct_web_text": 13,
+  "index_only": 2,
+  "evidence_links": 50,
+  "queries": {
+    "passed": 9,
+    "total": 9,
+    "relevant": 6,
+    "limited_or_no_match": 3
+  },
+  "replay_tables": 3,
+  "replay_queries": 9,
+  "integrity": "ok",
+  "receipt": "0cd941de58153c29c1fdcbcd529db59fdf7cf9952cb670776702deb5ec220229",
+  "knowledge_head": "e1506168b92d5b9bd4f852638aed2a08db3ccf56dafe2fc6cec8db5119564413",
+  "archive_sha256": "7eea88a754408ce9e740d16fb3cc3840e56152c2161442d32fd984d640a4e20e",
+  "limits": [
+    "No independent semantic precision/recall",
+    "Latest full statutes/rules and source bytes not all obtained",
+    "Unverified video date/number/audio",
+    "Tax specifics and frequency held",
+    "Cross-video actual integration not yet tested",
+    "Manual query keyword selection"
+  ]
+}
