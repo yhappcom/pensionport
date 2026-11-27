@@ -1,0 +1,34 @@
+{
+  "stage": "D4_P0_3_5_GATE",
+  "status": "TECHNICAL_PASS_PENDING_BASELINE_AND_NEW_SOURCE",
+  "unit_tests": {
+    "gate": 18,
+    "quality": 11,
+    "total": 29,
+    "passed": 29
+  },
+  "known_diagnostic_queries": {
+    "passed": 12,
+    "total": 12,
+    "replay_equal": 12
+  },
+  "legacy_engine_changes": 0,
+  "operational_promoted": false,
+  "operational": {
+    "videos": 4,
+    "active": 37,
+    "decisions": 61,
+    "sha256": "f289801aebde88908355f269bc5d5903046cd8f420db26ade3ccd421bc60b1ef"
+  },
+  "baseline_review": "PENDING",
+  "new_source_validation": "NOT_RUN",
+  "independent": "UNVERIFIED_UNMEASURED",
+  "files": {
+    "d4_gate.py": "3aab33a293d90842cc66b9d99487cf496d2045b9507987306c519541f0f2acbc",
+    "test_d4_gate.py": "0a72c7d4e42c397893dd19c804c9f60c76696f0807ddf45b02761e159217f676",
+    "replay_gate.py": "b673cb948a7e787c9413d14b35ae55977896de0c9fddf4185c8e4b93007d6106",
+    "gate_replay_result.json": "0a5683cae6c27ec7758f566154fa72b029f4aa7f981f68df50430c1acc47a748",
+    "gate_test_result.txt": "3d96d4c4ebc4e50da3f7b48e05192b31da2ab2742c8c1a0b0f21013d319e9a47",
+    "D4_GATE_PROTOCOL.md": "4c77075de601e07ffa2f9ff00b5e64ff89d4a24fee810ef46382755157360344"
+  }
+}

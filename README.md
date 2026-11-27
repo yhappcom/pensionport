@@ -26,3 +26,6 @@ D3 차기 실증부터 [운영 및 독립 인증 분리 정책](D3_OPERATIONAL_P
 
 
 D4 구조 개선 후보: [원자 평가 및 필수 문맥 조회](D4_REPAIR_PROTOCOL.md). 기존 동결 엔진 및 운영 원장 유지. 후보 기술 검증 완료, 신규 실증 및 통합 미완료.
+
+
+D4 P0-3~5 후보 기술 검증 완료: [GateEngine 통합 경로](D4_GATE_PROTOCOL.md). 기존 운영 DB 유지, 37개 활성 지식 baseline 관계 검토 및 새 원본 운영 실증 대기. 기존 동결 engine.py 변경 없음. 신규 DB에는 GateEngine 사용.

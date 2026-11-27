@@ -1,0 +1,224 @@
+{
+  "scope": "technical migration and known diagnostic queries only",
+  "operational_status": {
+    "mode": "research",
+    "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+    "sources": 4,
+    "drafts": 4,
+    "finalized": 4,
+    "decisions": 61,
+    "active": 37
+  },
+  "operational_copy_registry": "PENDING_BASELINE_REVIEW",
+  "legacy_rows_equal": true,
+  "legacy_entrypoint_blocked": true,
+  "bootstrap_incomplete_blocked": true,
+  "integrity": "ok",
+  "diagnostic_query_pass": 12,
+  "diagnostic_query_replay": 12,
+  "results": [
+    {
+      "terms": [
+        "ISA",
+        "만기"
+      ],
+      "required": [
+        "I20",
+        "I21",
+        "I23"
+      ],
+      "found": [
+        "I03",
+        "I06",
+        "I07",
+        "I08",
+        "I10",
+        "I11",
+        "I14",
+        "I15",
+        "I18",
+        "I20",
+        "I21",
+        "I23",
+        "I24",
+        "I27",
+        "I30",
+        "I32",
+        "I34",
+        "I35",
+        "I36",
+        "I38",
+        "I39",
+        "I40",
+        "I41"
+      ],
+      "seconds": 0.013246456000160833
+    },
+    {
+      "terms": [
+        "실물보유"
+      ],
+      "required": [
+        "I20",
+        "I21"
+      ],
+      "found": [
+        "I20",
+        "I21",
+        "I27"
+      ],
+      "seconds": 0.01088745899960486
+    },
+    {
+      "terms": [
+        "납입한도"
+      ],
+      "required": [
+        "I07",
+        "I11",
+        "I41"
+      ],
+      "found": [
+        "I07",
+        "I11",
+        "I41"
+      ],
+      "seconds": 0.007724736000454868
+    },
+    {
+      "terms": [
+        "소득요건",
+        "연장"
+      ],
+      "required": [
+        "I15",
+        "I24"
+      ],
+      "found": [
+        "I15",
+        "I16",
+        "I17",
+        "I23",
+        "I24",
+        "I27"
+      ],
+      "seconds": 0.009571626000251854
+    },
+    {
+      "terms": [
+        "분리과세"
+      ],
+      "required": [
+        "I08"
+      ],
+      "found": [
+        "I08",
+        "I17"
+      ],
+      "seconds": 0.008350332000190974
+    },
+    {
+      "terms": [
+        "대주주"
+      ],
+      "required": [
+        "I29",
+        "I30"
+      ],
+      "found": [
+        "I29",
+        "I30",
+        "I32"
+      ],
+      "seconds": 0.009391433000018878
+    },
+    {
+      "terms": [
+        "연금계좌",
+        "300만원"
+      ],
+      "required": [
+        "I35",
+        "I36"
+      ],
+      "found": [
+        "I11",
+        "I34",
+        "I35",
+        "I36",
+        "I38",
+        "I39"
+      ],
+      "seconds": 0.011175280999850656
+    },
+    {
+      "terms": [
+        "60일"
+      ],
+      "required": [
+        "I38",
+        "I39"
+      ],
+      "found": [
+        "I38",
+        "I39"
+      ],
+      "seconds": 0.009396186000230955
+    },
+    {
+      "terms": [
+        "재가입"
+      ],
+      "required": [
+        "I41"
+      ],
+      "found": [
+        "I24",
+        "I40",
+        "I41"
+      ],
+      "seconds": 0.008551365000130318
+    },
+    {
+      "terms": [
+        "손익통산",
+        "매매차손"
+      ],
+      "required": [
+        "I32"
+      ],
+      "found": [
+        "I08",
+        "I32"
+      ],
+      "seconds": 0.00745470300080342
+    },
+    {
+      "terms": [
+        "특별해지"
+      ],
+      "required": [
+        "I10"
+      ],
+      "found": [
+        "I10"
+      ],
+      "seconds": 0.007253550000314135
+    },
+    {
+      "terms": [
+        "영화감상전용테스트"
+      ],
+      "required": [],
+      "found": [],
+      "seconds": 0.01001623699994525
+    }
+  ],
+  "historical_final_without_gate_blocked": true,
+  "originals_unchanged": true,
+  "original_sha256": {
+    "/mnt/data/d4_repair/D4_OPERATIONAL_THIRD_20261127.db": "f289801aebde88908355f269bc5d5903046cd8f420db26ade3ccd421bc60b1ef",
+    "/mnt/data/d4_repair/original/trial1.db": "2856648a415aceedc6befd565f08f9e81c9cde28d80372d4c7746484ce551d40",
+    "/mnt/data/d4_repair/original/trial2.db": "2856648a415aceedc6befd565f08f9e81c9cde28d80372d4c7746484ce551d40"
+  }
+}

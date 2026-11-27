@@ -1,0 +1,34 @@
+test_audit_insert_failure_rolls_back (test_d4_gate.Tests.test_audit_insert_failure_rolls_back) ... ok
+test_deactivated_endpoint_requires_explicit_review (test_d4_gate.Tests.test_deactivated_endpoint_requires_explicit_review) ... ok
+test_external_registry_rejected (test_d4_gate.Tests.test_external_registry_rejected) ... ok
+test_financial_claim_hash (test_d4_gate.Tests.test_financial_claim_hash) ... ok
+test_invalid_context_edge_rollback (test_d4_gate.Tests.test_invalid_context_edge_rollback) ... ok
+test_legacy_entrypoint_blocked (test_d4_gate.Tests.test_legacy_entrypoint_blocked) ... ok
+test_migration_pending_and_legacy_preserved (test_d4_gate.Tests.test_migration_pending_and_legacy_preserved) ... ok
+test_missing_financial (test_d4_gate.Tests.test_missing_financial) ... ok
+test_output_bound_to_packet (test_d4_gate.Tests.test_output_bound_to_packet) ... ok
+test_quality_failure_rollback (test_d4_gate.Tests.test_quality_failure_rollback) ... ok
+test_quality_inputs_required (test_d4_gate.Tests.test_quality_inputs_required) ... ok
+test_query_failure_rolls_back_final_and_registry (test_d4_gate.Tests.test_query_failure_rolls_back_final_and_registry) ... ok
+test_reference_incomplete (test_d4_gate.Tests.test_reference_incomplete) ... ok
+test_registry_preserves_old_edges (test_d4_gate.Tests.test_registry_preserves_old_edges) ... ok
+test_registry_required_review_and_stale (test_d4_gate.Tests.test_registry_required_review_and_stale) ... ok
+test_resume_before_freeze_blocked (test_d4_gate.Tests.test_resume_before_freeze_blocked) ... ok
+test_review_bound_to_atom_content (test_d4_gate.Tests.test_review_bound_to_atom_content) ... ok
+test_success_reopen_retry (test_d4_gate.Tests.test_success_reopen_retry) ... ok
+test_added_claim (test_d4_quality.Tests.test_added_claim) ... ok
+test_changed_reference (test_d4_quality.Tests.test_changed_reference) ... ok
+test_context_graph (test_d4_quality.Tests.test_context_graph) ... ok
+test_duplicate (test_d4_quality.Tests.test_duplicate) ... ok
+test_duplicate_id (test_d4_quality.Tests.test_duplicate_id) ... ok
+test_exact (test_d4_quality.Tests.test_exact) ... ok
+test_group_rejected (test_d4_quality.Tests.test_group_rejected) ... ok
+test_invalid_anchor (test_d4_quality.Tests.test_invalid_anchor) ... ok
+test_missing_field (test_d4_quality.Tests.test_missing_field) ... ok
+test_partial_high_risk (test_d4_quality.Tests.test_partial_high_risk) ... ok
+test_unreviewed (test_d4_quality.Tests.test_unreviewed) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.298s
+
+OK

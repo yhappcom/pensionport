@@ -174,3 +174,9 @@
 ### D4 구조 개선 후보 — 원자 평가 및 관련 문맥 조회
 - #263 원본 시험 ZIP 14개 manifest 검증 및 I20/I21/I27 실제 DB 내용 확인. I20에는 실물보유 키워드 및 I21 의존관계 없음. 별도 d4_quality.py 구현(동결 engine.py 변경0), test_d4_quality.py 합성 단위시험11/11, replay_d4.py 기존 시험12개 재현. #263 진단용 I21→I20 수동 REQUIRED_CONTEXT 1개 등록, 기존 질의11/12→12/12, 복제12/12 동일. 시험 DB 두 개와 운영 DB SHA-256 불변. 알려진 사례 사후 보완이며 신규 영상·자연어 자동 검색 성능 아님.
 - 원자 평가 8속성, 불완전·중복·추가·미검토 출력 및 참조 변경 거부/감점. 수동 평가 계측기, 독립 인증 또는 원자성 자동검증 아님. 참조-최종 패킷 연결 및 registry 저장·갱신·승인 경로 통합 미완료. D4_REPAIR_PROTOCOL.md에 적용·제한·다음 과제 기록. 기존 HOLD 유지, 운영4편/37활성/61판정, 추가2/5 및 17/32 불변.
+
+
+### D4 P0-3~P0-5 GateEngine 후보 통합 — 2026-11-27
+- d4_gate.py 별도 버전 실행 경로 구현. 기존 engine.py 및 d4_quality.py 변경0. 사본 이관 시 모드 표식으로 기존 Engine 정상 진입 차단. 참조 사전 고정 및 전체 자막 분류, 실제 최종 claim에서 출력 원자 파생, 원자별 review digest 및 금융 review claim digest 연결. 정확도95/98%와 고위험 누락0, 모든 승인 원자 정확 대응 필수. 저장된 registry head 및 endpoint digest 검증, 기존 관계 보존/명시 제거, 변경 전후 registry 감사 기록. 하나의 트랜잭션 내 finalize→registry→사전 확정 긍정/부정 질의→audit, 실패 시 전체 롤백. 초안/참조 보존. 동일 요청 재실행 정상. 외부 파일 열람, 임의 SQL 및 신뢰 코드 수정은 차단 대상 아님.
+- 실제 합성 단위시험 신규18+기존11=29/29 통과. 기존 운영 DB 복제 이관: videos/items 행과 head 동일, 4편/37활성/61판정, baseline 미등록 조회 및 불완전 등록 차단, integrity_check ok. #263 두 시험 DB의 임시 진단 사본에서 수동 관계 I21→I20, 12/12 질의 및 복제12/12 일치. 이관 사본은 폐기. 원본 DB 3개 SHA 불변. 진단용 기지 사례 및 합성시험이며 신규 의미 품질, 관계 완전성, 자동 자연어 검색 입증 아님. 기존 HOLD 유지.
+- D4_GATE_PROTOCOL.md, D4_GATE_RESULT.json, gate_replay_result.json, test_d4_gate.py 및 replay_gate.py와 실행로그 기록. Library /IRE_D4_20261127/D4_GATE_P0_3_5_20261127.zip (23949 bytes, SHA c8a6e4fb8bc78547f848e1912ddb592c4195f5e5a35035934567fa2b3fb605f6). P0-3~5 기술 PASS, baseline 관계 검토 및 새 원본 P0-6 운영 실증 미완료. 운영4편/37활성/61판정, 추가 합격2/5, 17/32, D4-2~4 TODO 유지. 다음 운영 활성37개 필수 문맥 전수 검토, 후보 DB 이관 후 새 장편 2턴 실증.
