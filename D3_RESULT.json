@@ -1,0 +1,66 @@
+{
+  "stage": "D3",
+  "status": "CONDITIONAL_TRIAL_FINALIZED_NOT_OPERATIONAL_PASS",
+  "research_turns": 2,
+  "cues": 571,
+  "draft_groups": 59,
+  "final_groups": 61,
+  "verdicts": {
+    "APPROVE": 4,
+    "CORRECT": 17,
+    "CONTEXT": 12,
+    "HOLD": 28
+  },
+  "trial": {
+    "videos": 2,
+    "active": 38,
+    "increment": 21,
+    "relations": {
+      "DISTINCT": 2,
+      "EXTENDS": 3
+    },
+    "active_relations": 4,
+    "decisions": 91
+  },
+  "operational": {
+    "videos": 1,
+    "active": 17,
+    "unchanged": true
+  },
+  "engine_changes": 0,
+  "reference_groups": 57,
+  "group_diagnostic": {
+    "draft": {
+      "matched": 35,
+      "partial": 14,
+      "merge": 4,
+      "split": 4,
+      "outputs": 59
+    },
+    "final": {
+      "matched": 48,
+      "partial": 1,
+      "merge": 4,
+      "split": 4,
+      "outputs": 61
+    },
+    "atomic_precision_recall": "UNMEASURED",
+    "independent": false
+  },
+  "query_membership_tests": "10/10",
+  "replay_tables": "3/3",
+  "replay_queries": "10/10",
+  "evidence_urls": 14,
+  "evidence_links": 71,
+  "strict_nonexposure": "UNPROVEN",
+  "archive_sha256": "d63c295cd2da51e9705f9dab81b8a927e998bb4425dc8a32e1e0c7906630f4ff",
+  "trial_db_sha256": "653be8384082353639cf9c3304c804e114562acdbc4c3edad5259519594edeac",
+  "limits": [
+    "No independent atomic precision/recall",
+    "Historical nonexposure unproven",
+    "Issuer historical facts held",
+    "Manual keywords, broad retrieval, no automatic relation traversal",
+    "Tax details and legal latest full text not all verified",
+    "Conditional copy not operational"
+  ]
+}
