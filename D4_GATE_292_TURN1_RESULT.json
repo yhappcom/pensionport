@@ -1,0 +1,62 @@
+{
+  "stage": "D4_292_TURN1",
+  "status": "PENDING_TURN2",
+  "source_no": 292,
+  "video_id": "jgzqPUBFWY8",
+  "source_id": "371a9a1b05efb7f84b439f4c9d134e7ab8c8226130a28b8b322c00709af13557",
+  "cues": 522,
+  "windows": 9,
+  "first_pass": 128,
+  "claims": 139,
+  "covered_cues": 504,
+  "nonclaim_cues": 18,
+  "verdicts": {
+    "CONTEXT": 71,
+    "CORRECT": 18,
+    "HOLD": 50
+  },
+  "kind_counts": {
+    "QUESTION": 12,
+    "OTHER": 9,
+    "FACT": 68,
+    "OPINION": 46,
+    "ASSUMPTION": 4
+  },
+  "evidence_sources": 16,
+  "evidence_links": 28,
+  "relations": 5,
+  "direct": 31,
+  "context": 5,
+  "prepare_seconds": 0.024438737998934812,
+  "save_seconds": 0.011802573999375454,
+  "receipt": "f7805651cc87d6cee723389c97cc4686d48c0964359b30b31410495a0a5db229",
+  "db_sha": "e944a144305fb39c979c343d84d1423030ca521e0766398111e98c6f6f481bf0",
+  "baseline_sha": "7ad9091c27b6b909cbec451e7241b7824e4e47aa25b1f1068c85cd67e7ca7a34",
+  "status_db": {
+    "sources": 5,
+    "drafts": 5,
+    "finalized": 4,
+    "decisions": 61,
+    "active": 37,
+    "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834"
+  },
+  "pre_freeze_fences": "2/2",
+  "regression": "29/29",
+  "engine_changes": 0,
+  "semantic_time": "UNMEASURED",
+  "metrics": "UNMEASURED",
+  "archive_sha": "972fbc72692d2f33cb4f4dcc111db52088fafcd761517f292d14973fcd2f54b1",
+  "archive_bytes": 261814,
+  "manifest_entries": 26,
+  "archive_library": "/IRE_D4_20261127/D4_GATE_292_TURN1_20261127.zip",
+  "db_library": "/IRE_D4_20261127/D4_GATE_292_TURN1_20261127.db",
+  "source_library": "/IRE_D4_20261127/D4_292_SOURCE_ONLY_20261127.srt",
+  "limits": [
+    "구간 작성 후 일괄 파일화; 순차 체크포인트 중단복원 미검증",
+    "원자 후보 복합/누락/중복 가능, 2턴 평가 필요",
+    "검색 발췌 근거, 본문·시행일 확인 필요",
+    "녹화시점·음성·화면 미확보",
+    "엄격 미노출 미인증",
+    "prepare는 첫 원문 읽기 이후 실행, 전체 연구시간 미측정"
+  ]
+}

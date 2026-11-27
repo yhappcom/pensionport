@@ -41,3 +41,6 @@ P0-6 #270 2턴 HOLD: [진단 결과](D4_GATE_270_TURN2_RESULT.json). GateEngine 
 
 
 D4 원문 구간별 연구 작성 절차: [D4_AUTHORING_PROTOCOL.md](D4_AUTHORING_PROTOCOL.md). #270 알려진 실패 구간 진단, 다음 #292 신규 1턴 연구. 기존 합격 기준 및 원장 유지.
+
+
+D4 #292 개선 작성 절차 1턴 저장 완료(522자막/9구간/139개 후보), [실측 결과](D4_GATE_292_TURN1_RESULT.json). 원자 품질·금융 검토는 2턴 평가 대기. 운영 원장 유지.
