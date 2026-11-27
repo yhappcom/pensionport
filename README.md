@@ -32,3 +32,6 @@ D4 P0-3~5 후보 기술 검증 완료: [GateEngine 통합 경로](D4_GATE_PROTOC
 
 
 D4 GateEngine baseline 후보 검증 완료(37개 지식/39개 관계, 13/13 질의). [결과](D4_GATE_BASELINE_RESULT.json). 운영 원장 미승격; 다음 P0-6 신규 장편 2턴 실증.
+
+
+P0-6 신규 장편 #270 1턴 초안 저장 완료(618자막, 후보102), [결과](D4_GATE_270_TURN1_RESULT.json). 2턴 참조 원자 및 질의 사전 고정 후 최종 검증 대기.

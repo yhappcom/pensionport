@@ -1,0 +1,57 @@
+{
+  "stage": "D4_P0_6_270_TURN1",
+  "status": "PENDING_TURN2",
+  "source": {
+    "no": 270,
+    "id": "Yd5qnDtW2TM",
+    "cues": 618,
+    "duration_ms": 1220400,
+    "sha256": "e67be6da14dc6eae2fe8172add56f2c98efb1e6e232587aaa591d8752b043792",
+    "legacy_tree_path_matches": 0,
+    "strict_nonexposure": "UNVERIFIED"
+  },
+  "draft_claims": 102,
+  "verdicts": {
+    "CONTEXT": 63,
+    "CORRECT": 30,
+    "HOLD": 9
+  },
+  "covered_cues": 596,
+  "nonclaim_cues": 22,
+  "evidence_sources": 11,
+  "evidence_links": 48,
+  "relation_candidates": 13,
+  "direct": 24,
+  "context": 8,
+  "draft_sha": "674abaa5a3b0824625fa28c42a4f6c0a419a2e822ce8aab257dd948a981c1d9c",
+  "prepare_seconds": 0.03682283,
+  "save_seconds": 0.016288899,
+  "elapsed_prepare_to_saved_seconds": 221.381305,
+  "pre_freeze_fences": {
+    "resume": true,
+    "prepare": true
+  },
+  "semantic_metrics": "UNMEASURED",
+  "baseline_sha": "7ad9091c27b6b909cbec451e7241b7824e4e47aa25b1f1068c85cd67e7ca7a34",
+  "draft_db_sha": "8ead3c50050903f0331f00d41fe882182f38fd5d5f406431c0d46288134485ea",
+  "archive_sha": "e9ef79f46b3e590a953c5cc7583972ef72d98de3d3ff5a6821e16cb7d910c5cc",
+  "archive_bytes": 173019,
+  "operational": {
+    "finalized": 4,
+    "active": 37,
+    "decisions": 61,
+    "unchanged": true
+  },
+  "engine_changes": 0,
+  "library": [
+    "/IRE_D4_20261127/D4_270_SOURCE_ONLY_20261127.srt",
+    "/IRE_D4_20261127/D4_GATE_270_TURN1_20261127.db",
+    "/IRE_D4_20261127/D4_GATE_270_TURN1_20261127.zip"
+  ],
+  "limits": [
+    "수동 원자 후보, 복합/누락/중복 여부 미측정",
+    "공식 웹 11 URL 중 세액공제 법령은 검색 발췌 확인; 본문 재확인 필요",
+    "원문 전체 과거 미노출 미인증",
+    "시간은 prepare 시작~초안 저장 벽시계, 순수 의미 분석 시간 아님"
+  ]
+}

@@ -187,3 +187,10 @@
 - 실제 두 사본 GateEngine.migrate/bootstrap_registry, 원본 videos/items 전수 동일, head 동일, 4편/37활성/61판정, integrity/foreign_key_check 정상, legacy Engine 진입 거부. registry digest fa2b745b0fe6b50bcf3295142c3e1f9ab68f19fb927934a304dbe8b448065323. 후보 두 DB 바이트 SHA 동일 7ad9091c27b6b909cbec451e7241b7824e4e47aa25b1f1068c85cd67e7ca7a34. 기존 운영 DB 해시 불변.
 - registry 등록 전 수동 질의13개 기대 필수/제외 지정. 동일 질의 기존4/13→후보13/13, 후보 재현13/13, 직접 조회6.35~9.05ms, 합성 회귀29/29. 알려진 지식 기반 질의로 독립 검색 정확도/관계 재현율/신규 영상 성능 아님. 전체 근거 현행성 재검증 없음. 코드 변경0.
 - Library /IRE_D4_20261127/D4_GATE_BASELINE_20261127.zip (106217 bytes SHA 71692c8b0eb7c407342bd67a373964fa5f113f93b769b9b1299ad3940a3f574e), CRC 및 manifest10 일치. 후보 DB D4_GATE_CANDIDATE_BASELINE_20261127.db 별도 보존. P0-6 실제 신규 장편 2턴 미착수. 신규 원본부터 후보 DB와 GateEngine 사용, 기존 운영 승격은 실제 합격 후 판단. 추가 합격2/5, 17/32, D4-2~4 TODO, HOLD 유지.
+
+
+### D4 P0-6 신규 #270 1턴 — 2026-11-27
+- Drive 직접 폴더 목록으로 101-200.zip 및 별도 원본자막 폴더 201-300.zip 확보. 201-300 SHA 9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10. 영상목록 대조 #270 Yd5qnDtW2TM, 2025-05-23, 618자막/1220.4초, 보존 Git 트리 경로 ID 일치0, 엄격 미노출 미확인. SRT만 연구 입력. #261/#280/#263 HOLD 미사용.
+- 기존 GateEngine 후보 DB 복제본 prepare→원문 수동 검토→초안102개(CORRECT30/CONTEXT63/HOLD9) 저장, 596개 출처 연결 및 비주장22, URL11·근거 연결48·기존 관계 후보13. 직접 조회24/문맥8. 월130만원÷연5% 역산3.12억, 월50만원 30년 연 실효7% 월말 납입 약5.847억(명목7% 월복리6.100억), 가정과 수익 보장 구분. 국민연금 납부예외, 노란우산 납입·공제 차이, 연금계좌 한도, ISA 전환, 과세원천 구분. 원자성/금융근거는 2턴 재검토(세액공제 법령 검색 발췌 본문 확인 필요).
+- GateEngine prepare36.82ms/save16.29ms, prepare 시작~저장 벽시계221.38초(순수 의미시간 아님). 구조적 커버리지618/618, 저장 영수증 확인, 참조 고정 전 resume/prepare 차단2/2. 원본 운영 DB 및 후보 baseline SHA 불변, 기존4편/37활성/61판정 유지. 코드 변경0. 최종 승인 없음.
+- Library D4_GATE_270_TURN1_20261127.zip 173019 bytes SHA e9ef79f46b3e590a953c5cc7583972ef72d98de3d3ff5a6821e16cb7d910c5cc, manifest14/CRC 일치, 원본 전용 SRT와 초안 DB 별도 저장. 2턴은 원본 전용 파일→원자 참조·사전질의 해시 고정→freeze_reference→resume→실제 평가/금융 확인/registry/query/finalize/재현. 기존 합격2/5, 전체17/32, 운영승격 대기. 같은 채팅 요약 노출로 독립 인증 아님.
