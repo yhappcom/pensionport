@@ -1,0 +1,59 @@
+{
+  "stage": "D4_280_TURN3_EXECUTION_RECOVERY",
+  "status": "HOLD_TWO_TURN_TARGET_MISSED",
+  "operational_promoted": false,
+  "original_turn2_final_sha256": "5e0cb563eccf20c1fb8a56f17f182e1e9d66dbb703cf011ba9ce22bbe168f5c8",
+  "reference_sha256": "3be7c4e650572f4c208e223fdf72376d4f0ef2d857cbd4cbc738a18f248f09f1",
+  "engine_sha256": "b88dde13ad023b582f4ee081de1881ac8bc1130c765321c693800b000f8eb320",
+  "reference_groups": 46,
+  "high_risk_reference": 30,
+  "output_rows": 50,
+  "original_trial_dbs_identical": true,
+  "replay_db_sha256": "46ca2262ddb6fc478b3443d1f8a0d49a45f45a0dcf8e2ccfa43007af935e9de7",
+  "receipt": "afba2272e73c770994e2ccb2f45f5e4bfefd62a59883c7672c1f1e20140042e1",
+  "previous_decisions_unchanged": 61,
+  "previous_videos_unchanged": 4,
+  "replay_tables": 3,
+  "query_pass": 13,
+  "query_total": 13,
+  "query_replay": 13,
+  "trial": {
+    "videos": 5,
+    "active": 49,
+    "decisions": 111,
+    "head": "ee38cda090479abad540329866d4c12e3e33e73de03833a15ffb9127bcb830e4"
+  },
+  "operational": {
+    "videos": 4,
+    "active": 37,
+    "decisions": 61,
+    "head": "a7041eef1917eac71122e61fb3532e5d056c6c0835ebb0853cc2f696845bc834",
+    "sha256": "f289801aebde88908355f269bc5d5903046cd8f420db26ade3ccd421bc60b1ef"
+  },
+  "direct_finalize_seconds": [
+    0.021900444,
+    0.013088567
+  ],
+  "direct_retry_seconds": 0.0033856,
+  "direct_query_seconds_range": [
+    0.003505848,
+    0.008152976
+  ],
+  "cli_one_query_seconds": 1.21321895,
+  "verdicts": {
+    "CONTEXT": 25,
+    "CORRECT": 12,
+    "HOLD": 13
+  },
+  "engine_changes": 0,
+  "independent": "UNVERIFIED_UNMEASURED",
+  "archive_sha256": "60e419445d27275aae7bfd4ad792e99b9385931cb528ce7995548ea3c3889063",
+  "archive_bytes": 728798,
+  "archive_library": "/IRE_D4_20261127/D4_FOURTH_TURN3_HOLD_RECOVERY_20261127.zip",
+  "limits": [
+    "2턴 실행시간 초과, 3턴 복구로 소급 합격 불가",
+    "수동 검색어 시험, 관련성 낮은 추가 후보 포함; 자연어 의미검색 미검증",
+    "이전 시간 초과 정확한 원인 미확정",
+    "수동 의미 대응표는 독립 인증 아님"
+  ]
+}
