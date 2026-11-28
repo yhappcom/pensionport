@@ -1,0 +1,241 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "plan_commit": "825df5b8d7bc88eabea85ecdf1ab71d10aa77039",
+  "engine_blob": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+  "actual": {
+    "cards": 20,
+    "three_topic_lookup_30_trials_ms": [
+      5,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      3,
+      2,
+      2,
+      3,
+      2,
+      3,
+      2,
+      3,
+      2,
+      3,
+      3,
+      3,
+      2,
+      3,
+      2,
+      2,
+      3,
+      2,
+      3,
+      2,
+      3,
+      2,
+      2
+    ],
+    "median_ms": 3,
+    "total_ms": 81
+  },
+  "sparse": {
+    "cards": 20,
+    "all_pairs": 190,
+    "actual_complement_links": 62,
+    "dependency_pairs": 22,
+    "candidate_pairs": 133,
+    "excluded_pairs": 57,
+    "complements_retrieved": 59,
+    "missed_complements": [
+      "T003-01|T003-04",
+      "T003-03|T003-04",
+      "T002-05|T003-05"
+    ],
+    "recall": 0.9516129032258065,
+    "work_reduction": 0.3,
+    "verdict": "FAIL_CANDIDATE_RECALL"
+  },
+  "synthetic": [
+    {
+      "n": 20,
+      "pairs": 190,
+      "trials": [
+        {
+          "gen_ms": 0,
+          "publish_ms": 1,
+          "query_ms": 0,
+          "serialize_ms": 0,
+          "registry_ascii_bytes": 22988
+        },
+        {
+          "gen_ms": 0,
+          "publish_ms": 1,
+          "query_ms": 0,
+          "serialize_ms": 0,
+          "registry_ascii_bytes": 22988
+        },
+        {
+          "gen_ms": 0,
+          "publish_ms": 1,
+          "query_ms": 1,
+          "serialize_ms": 0,
+          "registry_ascii_bytes": 22988
+        }
+      ],
+      "error": null,
+      "median": {
+        "gen_ms": 0,
+        "publish_ms": 1,
+        "query_ms": 0,
+        "serialize_ms": 0,
+        "registry_ascii_bytes": 22988
+      }
+    },
+    {
+      "n": 50,
+      "pairs": 1225,
+      "trials": [
+        {
+          "gen_ms": 0,
+          "publish_ms": 4,
+          "query_ms": 3,
+          "serialize_ms": 0,
+          "registry_ascii_bytes": 122213
+        },
+        {
+          "gen_ms": 0,
+          "publish_ms": 3,
+          "query_ms": 3,
+          "serialize_ms": 0,
+          "registry_ascii_bytes": 122213
+        },
+        {
+          "gen_ms": 0,
+          "publish_ms": 3,
+          "query_ms": 3,
+          "serialize_ms": 0,
+          "registry_ascii_bytes": 122213
+        }
+      ],
+      "error": null,
+      "median": {
+        "gen_ms": 0,
+        "publish_ms": 3,
+        "query_ms": 3,
+        "serialize_ms": 0,
+        "registry_ascii_bytes": 122213
+      }
+    },
+    {
+      "n": 100,
+      "pairs": 4950,
+      "trials": [
+        {
+          "gen_ms": 1,
+          "publish_ms": 13,
+          "query_ms": 10,
+          "serialize_ms": 1,
+          "registry_ascii_bytes": 461588
+        },
+        {
+          "gen_ms": 1,
+          "publish_ms": 9,
+          "query_ms": 11,
+          "serialize_ms": 0,
+          "registry_ascii_bytes": 461588
+        },
+        {
+          "gen_ms": 1,
+          "publish_ms": 11,
+          "query_ms": 14,
+          "serialize_ms": 0,
+          "registry_ascii_bytes": 461588
+        }
+      ],
+      "error": null,
+      "median": {
+        "gen_ms": 1,
+        "publish_ms": 11,
+        "query_ms": 11,
+        "serialize_ms": 0,
+        "registry_ascii_bytes": 461588
+      }
+    },
+    {
+      "n": 200,
+      "pairs": 19900,
+      "trials": [
+        {
+          "gen_ms": 3,
+          "publish_ms": 52,
+          "query_ms": 46,
+          "serialize_ms": 4,
+          "registry_ascii_bytes": 1792938
+        },
+        {
+          "gen_ms": 2,
+          "publish_ms": 46,
+          "query_ms": 51,
+          "serialize_ms": 3,
+          "registry_ascii_bytes": 1792938
+        },
+        {
+          "gen_ms": 1,
+          "publish_ms": 51,
+          "query_ms": 43,
+          "serialize_ms": 4,
+          "registry_ascii_bytes": 1792938
+        }
+      ],
+      "error": null,
+      "median": {
+        "gen_ms": 2,
+        "publish_ms": 51,
+        "query_ms": 46,
+        "serialize_ms": 4,
+        "registry_ascii_bytes": 1792938
+      }
+    },
+    {
+      "n": 500,
+      "pairs": 124750,
+      "trials": [
+        {
+          "gen_ms": 14,
+          "publish_ms": 440,
+          "query_ms": 402,
+          "serialize_ms": 30,
+          "registry_ascii_bytes": 11006988
+        },
+        {
+          "gen_ms": 13,
+          "publish_ms": 424,
+          "query_ms": 436,
+          "serialize_ms": 26,
+          "registry_ascii_bytes": 11006988
+        },
+        {
+          "gen_ms": 17,
+          "publish_ms": 454,
+          "query_ms": 433,
+          "serialize_ms": 29,
+          "registry_ascii_bytes": 11006988
+        }
+      ],
+      "error": null,
+      "median": {
+        "gen_ms": 14,
+        "publish_ms": 440,
+        "query_ms": 433,
+        "serialize_ms": 29,
+        "registry_ascii_bytes": 11006988
+      }
+    }
+  ],
+  "limits": [
+    "synthetic structure and V8 wall time only; no semantic relation judgments, external model cost or network latency included",
+    "all-pair candidate filter evaluated in-sample against stored ChatGPT complement labels; not independent accuracy",
+    "no candidate filter applied to actual registry or engine"
+  ]
+}
