@@ -1,0 +1,38 @@
+{
+  "seed": "C1-fresh-budget-20261128-v2",
+  "selection": "one hash-ranked nonprior member per archive; hash-selected 50-cue span; before retrieval",
+  "picks": [
+    {
+      "archive": "1-100.zip",
+      "member": "1-100/youtube-transcript-8Zh1q4Ziv4c.srt",
+      "sha": "cbb57d372bc0fb5965052a776b5b945a5b82df3178d5c40dcd30cdcc8b0d8239",
+      "video": "8Zh1q4Ziv4c",
+      "start": 1,
+      "end": 34
+    },
+    {
+      "archive": "101-200.zip",
+      "member": "101-200/youtube-transcript-S9W_Qe9JrlI.srt",
+      "sha": "aa2af19a03c43d32f03950b1beafe7127caeff1b093be445cab09787cd152b85",
+      "video": "S9W_Qe9JrlI",
+      "start": 423,
+      "end": 472
+    },
+    {
+      "archive": "201-300.zip",
+      "member": "201-300/youtube-transcript-loKj0LccKTA.srt",
+      "sha": "3fd357c541f87546c83c6d3e0549c67f8a9f5a01b9fd2026835b4742da0767d4",
+      "video": "loKj0LccKTA",
+      "start": 326,
+      "end": 375
+    }
+  ],
+  "budget": {
+    "max_contexts_per_query": 12,
+    "padding": 8,
+    "width": 48,
+    "stride": 12
+  },
+  "target_recovery_min": 0.95,
+  "high_risk_misses_max": 0
+}

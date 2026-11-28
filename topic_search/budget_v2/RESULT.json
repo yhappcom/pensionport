@@ -1,0 +1,211 @@
+{
+  "status": "INTERNAL_SAMPLE_DIAGNOSTIC",
+  "db_sha": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+  "init_seconds": 0.4706622140001855,
+  "queries": [
+    {
+      "id": "N01",
+      "candidates": 155,
+      "sources": 20,
+      "selected": 12,
+      "review_cues": 708,
+      "elapsed_ms": 56.7,
+      "targets": [
+        {
+          "video": "8Zh1q4Ziv4c",
+          "start": 1,
+          "end": 14,
+          "risk": "H",
+          "meaning": "결정세액 거의 0인 사례 및 과세이연 권고, 일반계좌 세율 주장은 별도 검증",
+          "inventory_rank": 1,
+          "budget_rank": 1,
+          "plain_top12_rank": 1
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "candidates": 132,
+      "sources": 25,
+      "selected": 12,
+      "review_cues": 708,
+      "elapsed_ms": 58.4,
+      "targets": [
+        {
+          "video": "8Zh1q4Ziv4c",
+          "start": 15,
+          "end": 20,
+          "risk": "H",
+          "meaning": "55세·3.3~5.5% 주장 및 미공제 원금 과세 제외",
+          "inventory_rank": 2,
+          "budget_rank": 2,
+          "plain_top12_rank": 2
+        }
+      ]
+    },
+    {
+      "id": "N03",
+      "candidates": 517,
+      "sources": 67,
+      "selected": 12,
+      "review_cues": 738,
+      "elapsed_ms": 57.1,
+      "targets": [
+        {
+          "video": "8Zh1q4Ziv4c",
+          "start": 22,
+          "end": 30,
+          "risk": "H",
+          "meaning": "목돈 가능성·IRP 인출 불가 일반화 및 미공제 금액 인출 주장",
+          "inventory_rank": 12,
+          "budget_rank": 5,
+          "plain_top12_rank": 12
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "candidates": 14,
+      "sources": 4,
+      "selected": 4,
+      "review_cues": 256,
+      "elapsed_ms": 44.5,
+      "targets": [
+        {
+          "video": "S9W_Qe9JrlI",
+          "start": 424,
+          "end": 431,
+          "risk": "M",
+          "meaning": "잔고 수익과 입금 이벤트 구분, 성과급 사례",
+          "inventory_rank": 1,
+          "budget_rank": 1,
+          "plain_top12_rank": 1
+        },
+        {
+          "video": "S9W_Qe9JrlI",
+          "start": 462,
+          "end": 469,
+          "risk": "M",
+          "meaning": "입금에 따른 증가와 이후 손실 구분",
+          "inventory_rank": 1,
+          "budget_rank": 1,
+          "plain_top12_rank": 1
+        }
+      ]
+    },
+    {
+      "id": "N05",
+      "candidates": 33,
+      "sources": 9,
+      "selected": 12,
+      "review_cues": 768,
+      "elapsed_ms": 64.8,
+      "targets": [
+        {
+          "video": "loKj0LccKTA",
+          "start": 326,
+          "end": 341,
+          "risk": "H",
+          "meaning": "가정 사례 10억/10%, 의결권·지분 변화, 단순 기업가치",
+          "inventory_rank": 1,
+          "budget_rank": 1,
+          "plain_top12_rank": 1
+        },
+        {
+          "video": "loKj0LccKTA",
+          "start": 340,
+          "end": 351,
+          "risk": "H",
+          "meaning": "100억 가치 및 EPS/PR 표현 오류 가능성",
+          "inventory_rank": 1,
+          "budget_rank": 1,
+          "plain_top12_rank": 1
+        }
+      ]
+    },
+    {
+      "id": "N06",
+      "candidates": 15,
+      "sources": 3,
+      "selected": 5,
+      "review_cues": 320,
+      "elapsed_ms": 63.9,
+      "targets": [
+        {
+          "video": "loKj0LccKTA",
+          "start": 354,
+          "end": 362,
+          "risk": "M",
+          "meaning": "100억→150억과 1억→2억 성장률 비교, 초기 성장 속도 설명",
+          "inventory_rank": 1,
+          "budget_rank": 1,
+          "plain_top12_rank": 1
+        }
+      ]
+    }
+  ],
+  "targets": 8,
+  "high_risk": 5,
+  "inventory_recovered": 8,
+  "budget_recovered": 8,
+  "plain_top12_recovered": 8,
+  "high_risk_budget": 5,
+  "high_risk_inventory": 5,
+  "total_contexts": 57,
+  "total_cues": 3498,
+  "db_unchanged": true,
+  "c1": "LIMITED_INTERNAL_OPERATION_PASS",
+  "c2": "T001_HOLD_PENDING_OFFICIAL_REVIEW",
+  "tests": {
+    "existing": 19,
+    "new": 5,
+    "passed": 24
+  },
+  "new_sample_sources": 3,
+  "new_sample_cues": 134,
+  "t001": {
+    "scope": "manual relevance to individual subquery; raw unverified speaker content",
+    "counts": {
+      "CONTEXT": 5,
+      "DIRECT": 9,
+      "ADJACENT": 2
+    },
+    "selected_contexts": 16,
+    "unique_contexts": 15,
+    "unique_sources": 13,
+    "returned_cues": 958,
+    "distinct_cues": 854,
+    "candidate_windows": 1207,
+    "query_ms": {
+      "TQ1": 56.8,
+      "TQ2": 59.6,
+      "TQ3": 56.0,
+      "TQ4": 63.9,
+      "TQ5": 63.2,
+      "TQ6": 67.5,
+      "TQ7": 64.6,
+      "TQ8": 91.7
+    },
+    "limits": [
+      "not all candidate results reviewed",
+      "query-specific manual judgments by same ChatGPT",
+      "no new official evidence or financial approval",
+      "TQ1 and TQ6 initially indirect; expansion recovered relevant passages",
+      "repeated context and false positive remain"
+    ]
+  },
+  "formal_corpus_recall": "UNMEASURED",
+  "formal_precision": "UNMEASURED",
+  "independent": false,
+  "operational_db_changed": false,
+  "approved_count": 0,
+  "limits": [
+    "same ChatGPT, hash-selected 3-source sample; prior 6 excluded but strict historical nonexposure unverified",
+    "reference queries authored from source; fixed before actual search",
+    "57 returned contexts not semantically audited in full",
+    "T001 manual limited retrieval; not financial validation",
+    "new source-diversity not superior to plain top12 on this sample",
+    "context size, 12 budget, 95% sample threshold provisional design decisions",
+    "all query candidates not read; total research time unmeasured"
+  ]
+}
