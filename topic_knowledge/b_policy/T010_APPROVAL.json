@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "policy": "B_SCOPED_DIRECT_V1",
+  "topic": "T010",
+  "version": 1,
+  "status": "APPROVED_SCOPED",
+  "approved_on": "2026-11-28",
+  "review_by": "2026-12-31",
+  "review": {
+    "path": "topics/T010/v1_REVIEW.json",
+    "commit": "526d135e5df3b5e14b5f0e462e37e8556e3d4369",
+    "blob": "2fc76ff2a02b3413a42c9553723355e20d850f97"
+  },
+  "expected_ids": [
+    "T010-01",
+    "T010-02"
+  ],
+  "direct_relations": [
+    {
+      "a": "T006-01",
+      "b": "T010-01",
+      "kind": "COMPLEMENT",
+      "reason": "필수 적용조건 T006-01 → T010-01; 기존 총수익/유동성/은퇴계획과 구별하여 물가환산 및 구매력 조건 보완."
+    },
+    {
+      "a": "T010-01",
+      "b": "T010-02",
+      "kind": "COMPLEMENT",
+      "reason": "필수 적용조건 T010-01 → T010-02; 기존 총수익/유동성/은퇴계획과 구별하여 물가환산 및 구매력 조건 보완."
+    },
+    {
+      "a": "T004-05",
+      "b": "T010-02",
+      "kind": "COMPLEMENT",
+      "reason": "필수 적용조건 T004-05 → T010-02; 기존 총수익/유동성/은퇴계획과 구별하여 물가환산 및 구매력 조건 보완."
+    },
+    {
+      "a": "T007-03",
+      "b": "T010-02",
+      "kind": "COMPLEMENT",
+      "reason": "필수 적용조건 T007-03 → T010-02; 기존 총수익/유동성/은퇴계획과 구별하여 물가환산 및 구매력 조건 보완."
+    }
+  ],
+  "review_basis": {
+    "plan_commit": "a939b9a1e4a6326832856e72fa4a345cad01add7",
+    "plan_blob": "5178e17a7cb8547983dcba7b9b0aa51c40030b7e",
+    "method": "4편 192자막 직접 검토 및 공식 본문4, 기존 총수익·현금·은퇴 지식과 비교. 신규 명제2개; 개인 CPI·예금 빈곤 단정 교정.",
+    "calculations": {
+      "R1": 0.01941747572815533,
+      "example_30_year": 6292702.737245358,
+      "cash_30_year": 47674268.51809713
+    }
+  },
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "현재 물가·예금금리·향후 물가율·개별 은퇴금액·증여세·공적연금 규정; 개인 자산배분"
+    }
+  ],
+  "limits": [
+    "한국은행 명목/실질금리 개별 페이지 직접 조회 cache miss, 승인 근거 제외.",
+    "동일 ChatGPT 검토, 독립 의미 정확도·전수 검색 재현율 미측정.",
+    "기존 T004-05/T007-03 중복 등록 금지."
+  ],
+  "activation": "후보 manifest 검증 후"
+}
