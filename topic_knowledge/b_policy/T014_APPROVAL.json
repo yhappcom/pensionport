@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "policy": "B_SCOPED_DIRECT_V1",
+  "topic": "T014",
+  "version": 1,
+  "status": "APPROVED_SCOPED",
+  "approved_on": "2026-11-28",
+  "review_by": "2026-12-31",
+  "review": {
+    "path": "topics/T014/v1_REVIEW.json",
+    "commit": "8bb3a55e33ac4e70f31a7a025d604022e3ad2dcb",
+    "blob": "531970efff3525c6e1cf1ea950aa333ce1ccf622"
+  },
+  "expected_ids": [
+    "T014-01",
+    "T014-02",
+    "T014-03"
+  ],
+  "direct_relations": [
+    {
+      "a": "T001-04",
+      "b": "T014-01",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T001-04 → T014-01; 기존 세액공제·유동성·위험·비용 규칙과 소상공인 공제/퇴직연금의 차이 연결."
+    },
+    {
+      "a": "T014-01",
+      "b": "T014-02",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T014-01 → T014-02; 기존 세액공제·유동성·위험·비용 규칙과 소상공인 공제/퇴직연금의 차이 연결."
+    },
+    {
+      "a": "T004-05",
+      "b": "T014-02",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T004-05 → T014-02; 기존 세액공제·유동성·위험·비용 규칙과 소상공인 공제/퇴직연금의 차이 연결."
+    },
+    {
+      "a": "T004-01",
+      "b": "T014-03",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T004-01 → T014-03; 기존 세액공제·유동성·위험·비용 규칙과 소상공인 공제/퇴직연금의 차이 연결."
+    },
+    {
+      "a": "T013-01",
+      "b": "T014-03",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T013-01 → T014-03; 기존 세액공제·유동성·위험·비용 규칙과 소상공인 공제/퇴직연금의 차이 연결."
+    },
+    {
+      "a": "T014-01",
+      "b": "T014-03",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T014-01 → T014-03; 기존 세액공제·유동성·위험·비용 규칙과 소상공인 공제/퇴직연금의 차이 연결."
+    }
+  ],
+  "review_basis": {
+    "plan_commit": "7c9818ab5d20092d1b5caee76c7e8ecd6741a932",
+    "plan_blob": "39f8417cac67652853bd2bf5c061749dfef143fb",
+    "method": "원문2편360자막(신규324/재검토36), 공식 직접본문9/발췌2, 기존 세액공제·위험·유동성·수수료 규칙과 대조. 구법 및 2025 지원액 교정.",
+    "calculations": {
+      "non_rental_business_income": 35000000,
+      "contribution": 6000000,
+      "assumed_eligible_deduction": 6000000,
+      "actual_tax_saving": "not determined"
+    }
+  },
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "푸른씨앗 최신 지원금·수수료·개인 계정 실제 조건, 노란우산 가입시기별 세금·이율·납입한도·개별 자격·지역지원, 개인별 적정 납입 및 투자 판단"
+    }
+  ],
+  "limits": [
+    "공식 직접본문9 및 공식 검색 발췌2. 근로자퇴직급여 보장법 최신 직접 본문 및 지원고시 상세 본문, 10월 조특법 직접 재열람 실패; 7월 조문과 공식 2026 안내 교차검토. 지원금 상세 승인 제외.",
+    "동일 ChatGPT 내부 의미 검토; 전수 검색 재현율·독립 정확도 미측정."
+  ],
+  "activation": "후보 manifest 실제 조회 검증 후"
+}
