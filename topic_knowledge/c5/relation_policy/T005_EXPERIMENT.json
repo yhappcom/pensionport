@@ -1,0 +1,2107 @@
+{
+  "status": "EXPERIMENT_ONLY",
+  "review_pin": {
+    "commit": "07a607f0c0f898d4865c087eef4211a0199e9342",
+    "blob": "7a8f601b56466eed100be3ec2d52363e2c762768"
+  },
+  "base": "de40a53cdd7c17f15f28aae72efe1e58febe5273",
+  "base_pins": {
+    "engine": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+    "ledger": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+    "registry": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+    "plan": "95b280b38e76116558be789f25067a14e7275b76",
+    "review": "7a8f601b56466eed100be3ec2d52363e2c762768",
+    "admission": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+    "shadow": "d9438ab559831b6393cf99f10d77defd3963303a"
+  },
+  "legacy_cards": 25,
+  "legacy_relations": 300,
+  "event": {
+    "topic": "T005",
+    "version": 1,
+    "review_commit": "07a607f0c0f898d4865c087eef4211a0199e9342",
+    "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+    "ids": [
+      "T005-01",
+      "T005-02",
+      "T005-03",
+      "T005-04"
+    ],
+    "links": [
+      {
+        "a": "T005-01",
+        "b": "T005-02",
+        "kind": "COMPLEMENT",
+        "reason": "직접 의존 규칙: T005-01의 검증 조건을 T005-02에 계승"
+      },
+      {
+        "a": "T005-02",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "직접 의존 규칙: T005-02의 검증 조건을 T005-03에 계승"
+      },
+      {
+        "a": "T005-01",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "직접 의존 규칙: T005-01의 검증 조건을 T005-04에 계승"
+      },
+      {
+        "a": "T005-02",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "직접 의존 규칙: T005-02의 검증 조건을 T005-04에 계승"
+      },
+      {
+        "a": "T005-03",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "직접 의존 규칙: T005-03의 검증 조건을 T005-04에 계승"
+      },
+      {
+        "a": "T004-05",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "직접 의존 규칙: T004-05의 검증 조건을 T005-04에 계승"
+      },
+      {
+        "a": "T003-05",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "직접 의존 규칙: T003-05의 검증 조건을 T005-04에 계승"
+      },
+      {
+        "a": "T002-05",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "직접 의존 규칙: T002-05의 검증 조건을 T005-04에 계승"
+      }
+    ]
+  },
+  "experimental_cards": 29,
+  "stored_new_relations": 8,
+  "unreviewed_new_pairs": 98,
+  "admission_ms": 3,
+  "profiles": {
+    "BOND_HORIZON": {
+      "obligations": {
+        "RATE": [
+          "T005-01"
+        ],
+        "MATURITY": [
+          "T005-03"
+        ],
+        "CASH": [
+          "T005-04",
+          "T004-01",
+          "T004-05"
+        ],
+        "EXECUTION": [
+          "T003-05",
+          "T001-08",
+          "T002-05"
+        ]
+      },
+      "bridges": [
+        [
+          "T005-01",
+          "T004-01"
+        ],
+        [
+          "T005-03",
+          "T004-05"
+        ],
+        [
+          "T005-04",
+          "T003-05"
+        ]
+      ]
+    },
+    "BOND_CREDIT": {
+      "obligations": {
+        "CREDIT": [
+          "T005-02"
+        ],
+        "MATURITY": [
+          "T005-03"
+        ],
+        "CASH": [
+          "T005-04",
+          "T004-05"
+        ],
+        "ACCOUNT": [
+          "T002-05",
+          "T003-05"
+        ]
+      },
+      "bridges": [
+        [
+          "T005-02",
+          "T003-01"
+        ],
+        [
+          "T005-03",
+          "T004-05"
+        ],
+        [
+          "T005-04",
+          "T002-05"
+        ]
+      ]
+    }
+  },
+  "results": [
+    {
+      "id": "B01",
+      "request": {
+        "id": "B01",
+        "question": "듀레이션 7인 일반 채권 ETF에서 금리 1%p 상승 시 가격 변화와 1년 후 주택자금 사용 가능성?",
+        "profile": "BOND_HORIZON",
+        "day": "2026-11-28"
+      },
+      "prepared": {
+        "status": "REVIEW_REQUIRED",
+        "binding": {
+          "id": "B01",
+          "question": "듀레이션 7인 일반 채권 ETF에서 금리 1%p 상승 시 가격 변화와 1년 후 주택자금 사용 가능성?",
+          "day": "2026-11-28",
+          "profile": "BOND_HORIZON",
+          "pins": {
+            "engine": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+            "ledger": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+            "registry": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+            "plan": "95b280b38e76116558be789f25067a14e7275b76",
+            "review": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "admission": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+            "shadow": "d9438ab559831b6393cf99f10d77defd3963303a"
+          }
+        },
+        "obligations": {
+          "RATE": [
+            "T005-01"
+          ],
+          "MATURITY": [
+            "T005-03"
+          ],
+          "CASH": [
+            "T005-04",
+            "T004-01",
+            "T004-05"
+          ],
+          "EXECUTION": [
+            "T003-05",
+            "T001-08",
+            "T002-05"
+          ]
+        },
+        "selected": [
+          "T001-06",
+          "T001-08",
+          "T002-05",
+          "T003-04",
+          "T003-05",
+          "T004-01",
+          "T004-05",
+          "T005-01",
+          "T005-02",
+          "T005-03",
+          "T005-04"
+        ],
+        "bridges": [
+          {
+            "pair": "T004-01|T005-01",
+            "state": "UNREVIEWED"
+          },
+          {
+            "pair": "T004-05|T005-03",
+            "state": "UNREVIEWED"
+          },
+          {
+            "pair": "T003-05|T005-04",
+            "state": "COMPLEMENT"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "T001-06",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E07",
+                "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001061005"
+              },
+              {
+                "id": "E08",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "E09",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+              }
+            ]
+          },
+          {
+            "id": "T001-08",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=011802&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95+%EC%8B%9C%ED%96%89%EB%A0%B9&mode=11"
+              },
+              {
+                "id": "E10",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=16&direction=1&listType=1&searchEndDay=29&searchEndMonth=10&searchEndYear=2026&searchStartDay=29&searchStartMonth=10&searchStartYear=2025&searchType=2&startId=09omk~&startPage=11"
+              },
+              {
+                "id": "E11",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=8&direction=1&listType=1&searchEndDay=24&searchEndMonth=09&searchEndYear=2026&searchStartDay=24&searchStartMonth=09&searchStartYear=2025&searchType=2&startId=zzzzz~&startPage=1"
+              },
+              {
+                "id": "E12",
+                "url": "https://blog.kbsec.com/isa/%EB%A7%8C%EA%B8%B0%EC%9E%90%EA%B8%88-60%EC%9D%BC-%EC%97%B0%EA%B8%88%EC%A0%84%ED%99%98/"
+              },
+              {
+                "id": "E13",
+                "url": "https://www.kbsec.com/go.able?linkcd=s050801010000"
+              }
+            ]
+          },
+          {
+            "id": "T002-05",
+            "version": 2,
+            "review_blob": "e00007e351c5f133a03bb6e662231abc9a23c974",
+            "refs": [
+              {
+                "id": "A06",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "A07",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032589357"
+              },
+              {
+                "id": "A08",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032588753"
+              },
+              {
+                "id": "A09",
+                "url": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000564013"
+              },
+              {
+                "id": "A10",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032588757"
+              },
+              {
+                "id": "A11",
+                "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1032589351"
+              },
+              {
+                "id": "A12",
+                "url": "https://www.moel.go.kr/info/lawinfo/instruction/view.do?bbs_seq=20201201374"
+              },
+              {
+                "id": "A04",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605"
+              }
+            ]
+          },
+          {
+            "id": "T003-04",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E09",
+                "url": "https://m.samsungfund.com/etf/insight/guide/view03.do"
+              },
+              {
+                "id": "E03",
+                "url": "https://fsc.go.kr/no010101/86910?curPage=4&srchBeginDt=&srchEndDt=&srchKey=&srchText="
+              },
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              }
+            ]
+          },
+          {
+            "id": "T003-05",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              },
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E10",
+                "url": "https://www.samsungfund.com/etf/insight/guide/view04.do"
+              }
+            ]
+          },
+          {
+            "id": "T004-01",
+            "version": 1,
+            "review_blob": "1b7930b6d3774f79ad033945c34730eb7c76153c",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+              },
+              {
+                "id": "E03",
+                "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/diversifying-your-portfolio"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/additional-resources/retirement-toolkit/managing-lifetime-income"
+              }
+            ]
+          },
+          {
+            "id": "T004-05",
+            "version": 1,
+            "review_blob": "1b7930b6d3774f79ad033945c34730eb7c76153c",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+              },
+              {
+                "id": "E03",
+                "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/diversifying-your-portfolio"
+              },
+              {
+                "id": "E04",
+                "url": "https://investor.vanguard.com/investor-resources-education/article/a-framework-for-considering-cash-in-your-portfolio"
+              }
+            ]
+          },
+          {
+            "id": "T005-01",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-02",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-03",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              }
+            ]
+          },
+          {
+            "id": "T005-04",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              }
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "binding": {
+          "id": "B01",
+          "question": "듀레이션 7인 일반 채권 ETF에서 금리 1%p 상승 시 가격 변화와 1년 후 주택자금 사용 가능성?",
+          "day": "2026-11-28",
+          "profile": "BOND_HORIZON",
+          "pins": {
+            "engine": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+            "ledger": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+            "registry": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+            "plan": "95b280b38e76116558be789f25067a14e7275b76",
+            "review": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "admission": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+            "shadow": "d9438ab559831b6393cf99f10d77defd3963303a"
+          }
+        },
+        "disposition": "CONDITIONAL",
+        "personal_trade": false,
+        "evidence": [
+          {
+            "id": "T001-06",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E07",
+                "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001061005"
+              },
+              {
+                "id": "E08",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "E09",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+              }
+            ]
+          },
+          {
+            "id": "T001-08",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=011802&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95+%EC%8B%9C%ED%96%89%EB%A0%B9&mode=11"
+              },
+              {
+                "id": "E10",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=16&direction=1&listType=1&searchEndDay=29&searchEndMonth=10&searchEndYear=2026&searchStartDay=29&searchStartMonth=10&searchStartYear=2025&searchType=2&startId=09omk~&startPage=11"
+              },
+              {
+                "id": "E11",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=8&direction=1&listType=1&searchEndDay=24&searchEndMonth=09&searchEndYear=2026&searchStartDay=24&searchStartMonth=09&searchStartYear=2025&searchType=2&startId=zzzzz~&startPage=1"
+              },
+              {
+                "id": "E12",
+                "url": "https://blog.kbsec.com/isa/%EB%A7%8C%EA%B8%B0%EC%9E%90%EA%B8%88-60%EC%9D%BC-%EC%97%B0%EA%B8%88%EC%A0%84%ED%99%98/"
+              },
+              {
+                "id": "E13",
+                "url": "https://www.kbsec.com/go.able?linkcd=s050801010000"
+              }
+            ]
+          },
+          {
+            "id": "T002-05",
+            "version": 2,
+            "review_blob": "e00007e351c5f133a03bb6e662231abc9a23c974",
+            "refs": [
+              {
+                "id": "A06",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "A07",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032589357"
+              },
+              {
+                "id": "A08",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032588753"
+              },
+              {
+                "id": "A09",
+                "url": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000564013"
+              },
+              {
+                "id": "A10",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032588757"
+              },
+              {
+                "id": "A11",
+                "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1032589351"
+              },
+              {
+                "id": "A12",
+                "url": "https://www.moel.go.kr/info/lawinfo/instruction/view.do?bbs_seq=20201201374"
+              },
+              {
+                "id": "A04",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605"
+              }
+            ]
+          },
+          {
+            "id": "T003-04",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E09",
+                "url": "https://m.samsungfund.com/etf/insight/guide/view03.do"
+              },
+              {
+                "id": "E03",
+                "url": "https://fsc.go.kr/no010101/86910?curPage=4&srchBeginDt=&srchEndDt=&srchKey=&srchText="
+              },
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              }
+            ]
+          },
+          {
+            "id": "T003-05",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              },
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E10",
+                "url": "https://www.samsungfund.com/etf/insight/guide/view04.do"
+              }
+            ]
+          },
+          {
+            "id": "T004-01",
+            "version": 1,
+            "review_blob": "1b7930b6d3774f79ad033945c34730eb7c76153c",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+              },
+              {
+                "id": "E03",
+                "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/diversifying-your-portfolio"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/additional-resources/retirement-toolkit/managing-lifetime-income"
+              }
+            ]
+          },
+          {
+            "id": "T004-05",
+            "version": 1,
+            "review_blob": "1b7930b6d3774f79ad033945c34730eb7c76153c",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+              },
+              {
+                "id": "E03",
+                "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/diversifying-your-portfolio"
+              },
+              {
+                "id": "E04",
+                "url": "https://investor.vanguard.com/investor-resources-education/article/a-framework-for-considering-cash-in-your-portfolio"
+              }
+            ]
+          },
+          {
+            "id": "T005-01",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-02",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-03",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              }
+            ]
+          },
+          {
+            "id": "T005-04",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              }
+            ]
+          }
+        ],
+        "checks": {
+          "RATE": {
+            "status": "CONDITIONAL",
+            "cards": [
+              "T005-01"
+            ],
+            "note": "금리 민감도와 가정"
+          },
+          "MATURITY": {
+            "status": "CONDITIONAL",
+            "cards": [
+              "T005-03"
+            ],
+            "note": "일반 ETF 원금상환 만기 없음"
+          },
+          "CASH": {
+            "status": "CONDITIONAL",
+            "cards": [
+              "T005-04",
+              "T004-01",
+              "T004-05"
+            ],
+            "note": "단기 필수지출 별도"
+          },
+          "EXECUTION": {
+            "status": "CONDITIONAL",
+            "cards": [
+              "T003-05",
+              "T001-08",
+              "T002-05"
+            ],
+            "note": "시장 매도, 결제, 계좌 인출 분리"
+          }
+        },
+        "bridges": [
+          {
+            "pair": "T004-01|T005-01",
+            "state": "UNREVIEWED",
+            "review_scope": "QUESTION_ONLY",
+            "resolution": "COMPLEMENT",
+            "fresh_review": true,
+            "note": "목표 사용시점과 금리 민감도 비교"
+          },
+          {
+            "pair": "T004-05|T005-03",
+            "state": "UNREVIEWED",
+            "review_scope": "QUESTION_ONLY",
+            "resolution": "COMPLEMENT",
+            "fresh_review": true,
+            "note": "일반 ETF 만기 부재와 단기 필요자금 연결"
+          },
+          {
+            "pair": "T003-05|T005-04",
+            "state": "COMPLEMENT",
+            "review_scope": "QUESTION_ONLY",
+            "resolution": "COMPLEMENT",
+            "fresh_review": false,
+            "note": "매도 및 결제와 사용 가능성 구별"
+          }
+        ],
+        "semantic_review": "CHATGPT_SCOPED",
+        "high_risk_open": false,
+        "answer": "수정 또는 유효 듀레이션이 7이고 다른 조건이 같으며 관련 수익률이 평행하게 1%p 오른다는 가정에서 가격 변화는 약 −7%다. 이는 가격의 1차 근사이며 분배금·볼록성·신용스프레드·환율 등을 고려한 실제 총수익률이나 확정 손실은 아니다. 일반 채권 ETF에는 투자자별 원금상환 만기가 보통 없다. 1년 후 필수 주택자금은 장기 금리위험 자산에 의존하지 않고 별도 확보할 필요가 있다. 시장 매도 시 호가·결제 및 계좌 밖 인출 조건을 각각 확인한다."
+      },
+      "answer": "수정 또는 유효 듀레이션이 7이고 다른 조건이 같으며 관련 수익률이 평행하게 1%p 오른다는 가정에서 가격 변화는 약 −7%다. 이는 가격의 1차 근사이며 분배금·볼록성·신용스프레드·환율 등을 고려한 실제 총수익률이나 확정 손실은 아니다. 일반 채권 ETF에는 투자자별 원금상환 만기가 보통 없다. 1년 후 필수 주택자금은 장기 금리위험 자산에 의존하지 않고 별도 확보할 필요가 있다. 시장 매도 시 호가·결제 및 계좌 밖 인출 조건을 각각 확인한다.",
+      "gate": {
+        "status": "CONDITIONAL",
+        "answer": "수정 또는 유효 듀레이션이 7이고 다른 조건이 같으며 관련 수익률이 평행하게 1%p 오른다는 가정에서 가격 변화는 약 −7%다. 이는 가격의 1차 근사이며 분배금·볼록성·신용스프레드·환율 등을 고려한 실제 총수익률이나 확정 손실은 아니다. 일반 채권 ETF에는 투자자별 원금상환 만기가 보통 없다. 1년 후 필수 주택자금은 장기 금리위험 자산에 의존하지 않고 별도 확보할 필요가 있다. 시장 매도 시 호가·결제 및 계좌 밖 인출 조건을 각각 확인한다.",
+        "selected": [
+          "T001-06",
+          "T001-08",
+          "T002-05",
+          "T003-04",
+          "T003-05",
+          "T004-01",
+          "T004-05",
+          "T005-01",
+          "T005-02",
+          "T005-03",
+          "T005-04"
+        ],
+        "evidence": [
+          {
+            "id": "T001-06",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E07",
+                "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001061005"
+              },
+              {
+                "id": "E08",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "E09",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+              }
+            ]
+          },
+          {
+            "id": "T001-08",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=011802&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95+%EC%8B%9C%ED%96%89%EB%A0%B9&mode=11"
+              },
+              {
+                "id": "E10",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=16&direction=1&listType=1&searchEndDay=29&searchEndMonth=10&searchEndYear=2026&searchStartDay=29&searchStartMonth=10&searchStartYear=2025&searchType=2&startId=09omk~&startPage=11"
+              },
+              {
+                "id": "E11",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=8&direction=1&listType=1&searchEndDay=24&searchEndMonth=09&searchEndYear=2026&searchStartDay=24&searchStartMonth=09&searchStartYear=2025&searchType=2&startId=zzzzz~&startPage=1"
+              },
+              {
+                "id": "E12",
+                "url": "https://blog.kbsec.com/isa/%EB%A7%8C%EA%B8%B0%EC%9E%90%EA%B8%88-60%EC%9D%BC-%EC%97%B0%EA%B8%88%EC%A0%84%ED%99%98/"
+              },
+              {
+                "id": "E13",
+                "url": "https://www.kbsec.com/go.able?linkcd=s050801010000"
+              }
+            ]
+          },
+          {
+            "id": "T002-05",
+            "version": 2,
+            "review_blob": "e00007e351c5f133a03bb6e662231abc9a23c974",
+            "refs": [
+              {
+                "id": "A06",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "A07",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032589357"
+              },
+              {
+                "id": "A08",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032588753"
+              },
+              {
+                "id": "A09",
+                "url": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000564013"
+              },
+              {
+                "id": "A10",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032588757"
+              },
+              {
+                "id": "A11",
+                "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1032589351"
+              },
+              {
+                "id": "A12",
+                "url": "https://www.moel.go.kr/info/lawinfo/instruction/view.do?bbs_seq=20201201374"
+              },
+              {
+                "id": "A04",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605"
+              }
+            ]
+          },
+          {
+            "id": "T003-04",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E09",
+                "url": "https://m.samsungfund.com/etf/insight/guide/view03.do"
+              },
+              {
+                "id": "E03",
+                "url": "https://fsc.go.kr/no010101/86910?curPage=4&srchBeginDt=&srchEndDt=&srchKey=&srchText="
+              },
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              }
+            ]
+          },
+          {
+            "id": "T003-05",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              },
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E10",
+                "url": "https://www.samsungfund.com/etf/insight/guide/view04.do"
+              }
+            ]
+          },
+          {
+            "id": "T004-01",
+            "version": 1,
+            "review_blob": "1b7930b6d3774f79ad033945c34730eb7c76153c",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+              },
+              {
+                "id": "E03",
+                "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/diversifying-your-portfolio"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/additional-resources/retirement-toolkit/managing-lifetime-income"
+              }
+            ]
+          },
+          {
+            "id": "T004-05",
+            "version": 1,
+            "review_blob": "1b7930b6d3774f79ad033945c34730eb7c76153c",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+              },
+              {
+                "id": "E03",
+                "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/diversifying-your-portfolio"
+              },
+              {
+                "id": "E04",
+                "url": "https://investor.vanguard.com/investor-resources-education/article/a-framework-for-considering-cash-in-your-portfolio"
+              }
+            ]
+          },
+          {
+            "id": "T005-01",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-02",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-03",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              }
+            ]
+          },
+          {
+            "id": "T005-04",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              }
+            ]
+          }
+        ],
+        "binding": {
+          "id": "B01",
+          "question": "듀레이션 7인 일반 채권 ETF에서 금리 1%p 상승 시 가격 변화와 1년 후 주택자금 사용 가능성?",
+          "day": "2026-11-28",
+          "profile": "BOND_HORIZON",
+          "pins": {
+            "engine": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+            "ledger": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+            "registry": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+            "plan": "95b280b38e76116558be789f25067a14e7275b76",
+            "review": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "admission": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+            "shadow": "d9438ab559831b6393cf99f10d77defd3963303a"
+          }
+        }
+      }
+    },
+    {
+      "id": "B02",
+      "request": {
+        "id": "B02",
+        "question": "고수익 회사채 ETF는 예금처럼 원금 보장? 연금계좌에서 매도하면 즉시 인출?",
+        "profile": "BOND_CREDIT",
+        "day": "2026-11-28"
+      },
+      "prepared": {
+        "status": "REVIEW_REQUIRED",
+        "binding": {
+          "id": "B02",
+          "question": "고수익 회사채 ETF는 예금처럼 원금 보장? 연금계좌에서 매도하면 즉시 인출?",
+          "day": "2026-11-28",
+          "profile": "BOND_CREDIT",
+          "pins": {
+            "engine": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+            "ledger": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+            "registry": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+            "plan": "95b280b38e76116558be789f25067a14e7275b76",
+            "review": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "admission": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+            "shadow": "d9438ab559831b6393cf99f10d77defd3963303a"
+          }
+        },
+        "obligations": {
+          "CREDIT": [
+            "T005-02"
+          ],
+          "MATURITY": [
+            "T005-03"
+          ],
+          "CASH": [
+            "T005-04",
+            "T004-05"
+          ],
+          "ACCOUNT": [
+            "T002-05",
+            "T003-05"
+          ]
+        },
+        "selected": [
+          "T001-06",
+          "T001-08",
+          "T002-05",
+          "T003-01",
+          "T003-04",
+          "T003-05",
+          "T004-05",
+          "T005-01",
+          "T005-02",
+          "T005-03",
+          "T005-04"
+        ],
+        "bridges": [
+          {
+            "pair": "T003-01|T005-02",
+            "state": "UNREVIEWED"
+          },
+          {
+            "pair": "T004-05|T005-03",
+            "state": "UNREVIEWED"
+          },
+          {
+            "pair": "T002-05|T005-04",
+            "state": "COMPLEMENT"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "T001-06",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E07",
+                "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001061005"
+              },
+              {
+                "id": "E08",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "E09",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+              }
+            ]
+          },
+          {
+            "id": "T001-08",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=011802&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95+%EC%8B%9C%ED%96%89%EB%A0%B9&mode=11"
+              },
+              {
+                "id": "E10",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=16&direction=1&listType=1&searchEndDay=29&searchEndMonth=10&searchEndYear=2026&searchStartDay=29&searchStartMonth=10&searchStartYear=2025&searchType=2&startId=09omk~&startPage=11"
+              },
+              {
+                "id": "E11",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=8&direction=1&listType=1&searchEndDay=24&searchEndMonth=09&searchEndYear=2026&searchStartDay=24&searchStartMonth=09&searchStartYear=2025&searchType=2&startId=zzzzz~&startPage=1"
+              },
+              {
+                "id": "E12",
+                "url": "https://blog.kbsec.com/isa/%EB%A7%8C%EA%B8%B0%EC%9E%90%EA%B8%88-60%EC%9D%BC-%EC%97%B0%EA%B8%88%EC%A0%84%ED%99%98/"
+              },
+              {
+                "id": "E13",
+                "url": "https://www.kbsec.com/go.able?linkcd=s050801010000"
+              }
+            ]
+          },
+          {
+            "id": "T002-05",
+            "version": 2,
+            "review_blob": "e00007e351c5f133a03bb6e662231abc9a23c974",
+            "refs": [
+              {
+                "id": "A06",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "A07",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032589357"
+              },
+              {
+                "id": "A08",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032588753"
+              },
+              {
+                "id": "A09",
+                "url": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000564013"
+              },
+              {
+                "id": "A10",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032588757"
+              },
+              {
+                "id": "A11",
+                "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1032589351"
+              },
+              {
+                "id": "A12",
+                "url": "https://www.moel.go.kr/info/lawinfo/instruction/view.do?bbs_seq=20201201374"
+              },
+              {
+                "id": "A04",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605"
+              }
+            ]
+          },
+          {
+            "id": "T003-01",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.spglobal.com/spdji/en/research-insights/index-literacy/methodology-matters/"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.blackrock.com/sg/en/ishares/education/choosing-the-right-etf"
+              },
+              {
+                "id": "E03",
+                "url": "https://fsc.go.kr/no010101/86910?curPage=4&srchBeginDt=&srchEndDt=&srchKey=&srchText="
+              }
+            ]
+          },
+          {
+            "id": "T003-04",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E09",
+                "url": "https://m.samsungfund.com/etf/insight/guide/view03.do"
+              },
+              {
+                "id": "E03",
+                "url": "https://fsc.go.kr/no010101/86910?curPage=4&srchBeginDt=&srchEndDt=&srchKey=&srchText="
+              },
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              }
+            ]
+          },
+          {
+            "id": "T003-05",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              },
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E10",
+                "url": "https://www.samsungfund.com/etf/insight/guide/view04.do"
+              }
+            ]
+          },
+          {
+            "id": "T004-05",
+            "version": 1,
+            "review_blob": "1b7930b6d3774f79ad033945c34730eb7c76153c",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+              },
+              {
+                "id": "E03",
+                "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/diversifying-your-portfolio"
+              },
+              {
+                "id": "E04",
+                "url": "https://investor.vanguard.com/investor-resources-education/article/a-framework-for-considering-cash-in-your-portfolio"
+              }
+            ]
+          },
+          {
+            "id": "T005-01",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-02",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-03",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              }
+            ]
+          },
+          {
+            "id": "T005-04",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              }
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "binding": {
+          "id": "B02",
+          "question": "고수익 회사채 ETF는 예금처럼 원금 보장? 연금계좌에서 매도하면 즉시 인출?",
+          "day": "2026-11-28",
+          "profile": "BOND_CREDIT",
+          "pins": {
+            "engine": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+            "ledger": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+            "registry": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+            "plan": "95b280b38e76116558be789f25067a14e7275b76",
+            "review": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "admission": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+            "shadow": "d9438ab559831b6393cf99f10d77defd3963303a"
+          }
+        },
+        "disposition": "CONDITIONAL",
+        "personal_trade": false,
+        "evidence": [
+          {
+            "id": "T001-06",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E07",
+                "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001061005"
+              },
+              {
+                "id": "E08",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "E09",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+              }
+            ]
+          },
+          {
+            "id": "T001-08",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=011802&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95+%EC%8B%9C%ED%96%89%EB%A0%B9&mode=11"
+              },
+              {
+                "id": "E10",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=16&direction=1&listType=1&searchEndDay=29&searchEndMonth=10&searchEndYear=2026&searchStartDay=29&searchStartMonth=10&searchStartYear=2025&searchType=2&startId=09omk~&startPage=11"
+              },
+              {
+                "id": "E11",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=8&direction=1&listType=1&searchEndDay=24&searchEndMonth=09&searchEndYear=2026&searchStartDay=24&searchStartMonth=09&searchStartYear=2025&searchType=2&startId=zzzzz~&startPage=1"
+              },
+              {
+                "id": "E12",
+                "url": "https://blog.kbsec.com/isa/%EB%A7%8C%EA%B8%B0%EC%9E%90%EA%B8%88-60%EC%9D%BC-%EC%97%B0%EA%B8%88%EC%A0%84%ED%99%98/"
+              },
+              {
+                "id": "E13",
+                "url": "https://www.kbsec.com/go.able?linkcd=s050801010000"
+              }
+            ]
+          },
+          {
+            "id": "T002-05",
+            "version": 2,
+            "review_blob": "e00007e351c5f133a03bb6e662231abc9a23c974",
+            "refs": [
+              {
+                "id": "A06",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "A07",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032589357"
+              },
+              {
+                "id": "A08",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032588753"
+              },
+              {
+                "id": "A09",
+                "url": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000564013"
+              },
+              {
+                "id": "A10",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032588757"
+              },
+              {
+                "id": "A11",
+                "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1032589351"
+              },
+              {
+                "id": "A12",
+                "url": "https://www.moel.go.kr/info/lawinfo/instruction/view.do?bbs_seq=20201201374"
+              },
+              {
+                "id": "A04",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605"
+              }
+            ]
+          },
+          {
+            "id": "T003-01",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.spglobal.com/spdji/en/research-insights/index-literacy/methodology-matters/"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.blackrock.com/sg/en/ishares/education/choosing-the-right-etf"
+              },
+              {
+                "id": "E03",
+                "url": "https://fsc.go.kr/no010101/86910?curPage=4&srchBeginDt=&srchEndDt=&srchKey=&srchText="
+              }
+            ]
+          },
+          {
+            "id": "T003-04",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E09",
+                "url": "https://m.samsungfund.com/etf/insight/guide/view03.do"
+              },
+              {
+                "id": "E03",
+                "url": "https://fsc.go.kr/no010101/86910?curPage=4&srchBeginDt=&srchEndDt=&srchKey=&srchText="
+              },
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              }
+            ]
+          },
+          {
+            "id": "T003-05",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              },
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E10",
+                "url": "https://www.samsungfund.com/etf/insight/guide/view04.do"
+              }
+            ]
+          },
+          {
+            "id": "T004-05",
+            "version": 1,
+            "review_blob": "1b7930b6d3774f79ad033945c34730eb7c76153c",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+              },
+              {
+                "id": "E03",
+                "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/diversifying-your-portfolio"
+              },
+              {
+                "id": "E04",
+                "url": "https://investor.vanguard.com/investor-resources-education/article/a-framework-for-considering-cash-in-your-portfolio"
+              }
+            ]
+          },
+          {
+            "id": "T005-01",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-02",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-03",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              }
+            ]
+          },
+          {
+            "id": "T005-04",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              }
+            ]
+          }
+        ],
+        "checks": {
+          "CREDIT": {
+            "status": "CONDITIONAL",
+            "cards": [
+              "T005-02"
+            ],
+            "note": "신용/금리 위험 및 수익률 구분"
+          },
+          "MATURITY": {
+            "status": "CONDITIONAL",
+            "cards": [
+              "T005-03"
+            ],
+            "note": "만기형도 원금보장 없음"
+          },
+          "CASH": {
+            "status": "CONDITIONAL",
+            "cards": [
+              "T005-04",
+              "T004-05"
+            ],
+            "note": "현금 필요와 계좌 분리"
+          },
+          "ACCOUNT": {
+            "status": "CONDITIONAL",
+            "cards": [
+              "T002-05",
+              "T003-05"
+            ],
+            "note": "법정 인출 및 증빙 확인"
+          }
+        },
+        "bridges": [
+          {
+            "pair": "T003-01|T005-02",
+            "state": "UNREVIEWED",
+            "review_scope": "QUESTION_ONLY",
+            "resolution": "COMPLEMENT",
+            "fresh_review": true,
+            "note": "상품 기초자산 위험과 신용위험 연결"
+          },
+          {
+            "pair": "T004-05|T005-03",
+            "state": "UNREVIEWED",
+            "review_scope": "QUESTION_ONLY",
+            "resolution": "COMPLEMENT",
+            "fresh_review": true,
+            "note": "만기구조와 현금 사용 가능성 구별"
+          },
+          {
+            "pair": "T002-05|T005-04",
+            "state": "COMPLEMENT",
+            "review_scope": "QUESTION_ONLY",
+            "resolution": "COMPLEMENT",
+            "fresh_review": false,
+            "note": "계좌 외 인출 자격과 거래 구분"
+          }
+        ],
+        "semantic_review": "CHATGPT_SCOPED",
+        "high_risk_open": false,
+        "answer": "고수익 회사채 ETF는 예금과 같은 원금보장 상품으로 판단할 수 없다. 신용등급 하락·채무불이행과 금리위험이 있고 표면금리·현재 수익률·실제 총수익은 다르다. 일반 ETF는 원금상환 만기가 보통 없으며 만기매칭형도 청산금액이 원금과 일치한다는 보장은 없다. 연금계좌 안에서 매도하더라도 결제 및 계좌 외 인출은 별도이며 IRP라면 법정 일부 인출 사유와 증빙·과세를 확인해야 한다. 실제 계좌와 상품 조건 없이 지급이나 매수를 확정하지 않는다."
+      },
+      "answer": "고수익 회사채 ETF는 예금과 같은 원금보장 상품으로 판단할 수 없다. 신용등급 하락·채무불이행과 금리위험이 있고 표면금리·현재 수익률·실제 총수익은 다르다. 일반 ETF는 원금상환 만기가 보통 없으며 만기매칭형도 청산금액이 원금과 일치한다는 보장은 없다. 연금계좌 안에서 매도하더라도 결제 및 계좌 외 인출은 별도이며 IRP라면 법정 일부 인출 사유와 증빙·과세를 확인해야 한다. 실제 계좌와 상품 조건 없이 지급이나 매수를 확정하지 않는다.",
+      "gate": {
+        "status": "CONDITIONAL",
+        "answer": "고수익 회사채 ETF는 예금과 같은 원금보장 상품으로 판단할 수 없다. 신용등급 하락·채무불이행과 금리위험이 있고 표면금리·현재 수익률·실제 총수익은 다르다. 일반 ETF는 원금상환 만기가 보통 없으며 만기매칭형도 청산금액이 원금과 일치한다는 보장은 없다. 연금계좌 안에서 매도하더라도 결제 및 계좌 외 인출은 별도이며 IRP라면 법정 일부 인출 사유와 증빙·과세를 확인해야 한다. 실제 계좌와 상품 조건 없이 지급이나 매수를 확정하지 않는다.",
+        "selected": [
+          "T001-06",
+          "T001-08",
+          "T002-05",
+          "T003-01",
+          "T003-04",
+          "T003-05",
+          "T004-05",
+          "T005-01",
+          "T005-02",
+          "T005-03",
+          "T005-04"
+        ],
+        "evidence": [
+          {
+            "id": "T001-06",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E07",
+                "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001061005"
+              },
+              {
+                "id": "E08",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "E09",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312"
+              }
+            ]
+          },
+          {
+            "id": "T001-08",
+            "version": 4,
+            "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=011802&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95+%EC%8B%9C%ED%96%89%EB%A0%B9&mode=11"
+              },
+              {
+                "id": "E10",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=16&direction=1&listType=1&searchEndDay=29&searchEndMonth=10&searchEndYear=2026&searchStartDay=29&searchStartMonth=10&searchStartYear=2025&searchType=2&startId=09omk~&startPage=11"
+              },
+              {
+                "id": "E11",
+                "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=8&direction=1&listType=1&searchEndDay=24&searchEndMonth=09&searchEndYear=2026&searchStartDay=24&searchStartMonth=09&searchStartYear=2025&searchType=2&startId=zzzzz~&startPage=1"
+              },
+              {
+                "id": "E12",
+                "url": "https://blog.kbsec.com/isa/%EB%A7%8C%EA%B8%B0%EC%9E%90%EA%B8%88-60%EC%9D%BC-%EC%97%B0%EA%B8%88%EC%A0%84%ED%99%98/"
+              },
+              {
+                "id": "E13",
+                "url": "https://www.kbsec.com/go.able?linkcd=s050801010000"
+              }
+            ]
+          },
+          {
+            "id": "T002-05",
+            "version": 2,
+            "review_blob": "e00007e351c5f133a03bb6e662231abc9a23c974",
+            "refs": [
+              {
+                "id": "A06",
+                "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497"
+              },
+              {
+                "id": "A07",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032589357"
+              },
+              {
+                "id": "A08",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032588753"
+              },
+              {
+                "id": "A09",
+                "url": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1000564013"
+              },
+              {
+                "id": "A10",
+                "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032588757"
+              },
+              {
+                "id": "A11",
+                "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1032589351"
+              },
+              {
+                "id": "A12",
+                "url": "https://www.moel.go.kr/info/lawinfo/instruction/view.do?bbs_seq=20201201374"
+              },
+              {
+                "id": "A04",
+                "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7885&mi=6605"
+              }
+            ]
+          },
+          {
+            "id": "T003-01",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.spglobal.com/spdji/en/research-insights/index-literacy/methodology-matters/"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.blackrock.com/sg/en/ishares/education/choosing-the-right-etf"
+              },
+              {
+                "id": "E03",
+                "url": "https://fsc.go.kr/no010101/86910?curPage=4&srchBeginDt=&srchEndDt=&srchKey=&srchText="
+              }
+            ]
+          },
+          {
+            "id": "T003-04",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E09",
+                "url": "https://m.samsungfund.com/etf/insight/guide/view03.do"
+              },
+              {
+                "id": "E03",
+                "url": "https://fsc.go.kr/no010101/86910?curPage=4&srchBeginDt=&srchEndDt=&srchKey=&srchText="
+              },
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              }
+            ]
+          },
+          {
+            "id": "T003-05",
+            "version": 1,
+            "review_blob": "18bc6def1f140dbb6a0a2b8f136f8d447b6ae6ad",
+            "refs": [
+              {
+                "id": "E06",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+              },
+              {
+                "id": "E08",
+                "url": "https://www.krx.co.kr/contents/OPN/01/01030203/OPN01030203T1.jsp"
+              },
+              {
+                "id": "E10",
+                "url": "https://www.samsungfund.com/etf/insight/guide/view04.do"
+              }
+            ]
+          },
+          {
+            "id": "T004-05",
+            "version": 1,
+            "review_blob": "1b7930b6d3774f79ad033945c34730eb7c76153c",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset"
+              },
+              {
+                "id": "E03",
+                "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/diversifying-your-portfolio"
+              },
+              {
+                "id": "E04",
+                "url": "https://investor.vanguard.com/investor-resources-education/article/a-framework-for-considering-cash-in-your-portfolio"
+              }
+            ]
+          },
+          {
+            "id": "T005-01",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-02",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              },
+              {
+                "id": "E06",
+                "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en"
+              }
+            ]
+          },
+          {
+            "id": "T005-03",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E01",
+                "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              }
+            ]
+          },
+          {
+            "id": "T005-04",
+            "version": 1,
+            "review_blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "refs": [
+              {
+                "id": "E02",
+                "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds"
+              },
+              {
+                "id": "E03",
+                "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are"
+              },
+              {
+                "id": "E04",
+                "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs"
+              },
+              {
+                "id": "E05",
+                "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds"
+              }
+            ]
+          }
+        ],
+        "binding": {
+          "id": "B02",
+          "question": "고수익 회사채 ETF는 예금처럼 원금 보장? 연금계좌에서 매도하면 즉시 인출?",
+          "day": "2026-11-28",
+          "profile": "BOND_CREDIT",
+          "pins": {
+            "engine": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+            "ledger": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+            "registry": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+            "plan": "95b280b38e76116558be789f25067a14e7275b76",
+            "review": "7a8f601b56466eed100be3ec2d52363e2c762768",
+            "admission": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+            "shadow": "d9438ab559831b6393cf99f10d77defd3963303a"
+          }
+        }
+      }
+    }
+  ],
+  "limits": [
+    "실험 전용 Git 기록이며 기존 registry/ledger에 신규 이벤트 없음.",
+    "질문 프로필 및 검토 영수증은 신뢰된 ChatGPT 의미 검토에 의존."
+  ]
+}
