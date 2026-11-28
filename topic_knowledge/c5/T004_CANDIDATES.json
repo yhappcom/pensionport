@@ -1,0 +1,753 @@
+{
+  "plan_commit": "bfb5e327fce44daecbb69746e89782fe3947d8d0",
+  "topic": "T004",
+  "status": "FROZEN_BEFORE_REFERENCE_PAIR_REVIEW",
+  "candidates": [
+    {
+      "pair": "T001-06|T004-01",
+      "shared_domains": [
+        "RISK",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-08|T004-01",
+      "shared_domains": [
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-02|T004-01",
+      "shared_domains": [
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-03|T004-01",
+      "shared_domains": [
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-04|T004-01",
+      "shared_domains": [
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-05|T004-01",
+      "shared_domains": [
+        "RISK",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-06|T004-01",
+      "shared_domains": [
+        "GOAL",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-01|T004-01",
+      "shared_domains": [
+        "RISK",
+        "ALLOCATION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-03|T004-01",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-04|T004-01",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-05|T004-01",
+      "shared_domains": [
+        "RISK",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-06|T004-01",
+      "shared_domains": [
+        "RISK",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-06|T004-02",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-05|T004-02",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-01|T004-02",
+      "shared_domains": [
+        "RISK",
+        "ALLOCATION",
+        "PRODUCT"
+      ],
+      "direct_dependency": true
+    },
+    {
+      "pair": "T003-02|T004-02",
+      "shared_domains": [
+        "PERFORMANCE"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-03|T004-02",
+      "shared_domains": [
+        "RISK",
+        "PRODUCT",
+        "PERFORMANCE"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-04|T004-02",
+      "shared_domains": [
+        "RISK",
+        "PRODUCT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-05|T004-02",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-06|T004-02",
+      "shared_domains": [
+        "RISK",
+        "PRODUCT",
+        "PERFORMANCE"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T004-01|T004-02",
+      "same_topic": true
+    },
+    {
+      "pair": "T001-01|T004-03",
+      "shared_domains": [
+        "EXECUTION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-06|T004-03",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-08|T004-03",
+      "shared_domains": [
+        "EXECUTION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-05|T004-03",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-06|T004-03",
+      "shared_domains": [
+        "GOAL"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-01|T004-03",
+      "shared_domains": [
+        "RISK",
+        "ALLOCATION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-02|T004-03",
+      "shared_domains": [
+        "EXECUTION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-03|T004-03",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-04|T004-03",
+      "shared_domains": [
+        "RISK",
+        "EXECUTION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-05|T004-03",
+      "shared_domains": [
+        "RISK",
+        "EXECUTION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-06|T004-03",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T004-01|T004-03",
+      "same_topic": true
+    },
+    {
+      "pair": "T004-02|T004-03",
+      "same_topic": true
+    },
+    {
+      "pair": "T001-01|T004-04",
+      "shared_domains": [
+        "EXECUTION",
+        "TAX",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-02|T004-04",
+      "shared_domains": [
+        "TAX",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-03|T004-04",
+      "shared_domains": [
+        "TAX",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-04|T004-04",
+      "shared_domains": [
+        "TAX"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-05|T004-04",
+      "shared_domains": [
+        "TAX",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-06|T004-04",
+      "shared_domains": [
+        "TAX",
+        "ACCOUNT",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-07|T004-04",
+      "shared_domains": [
+        "TAX",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-08|T004-04",
+      "shared_domains": [
+        "EXECUTION",
+        "COST",
+        "ACCOUNT",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-01|T004-04",
+      "shared_domains": [
+        "TAX",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-02|T004-04",
+      "shared_domains": [
+        "TAX",
+        "ACCOUNT",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-03|T004-04",
+      "shared_domains": [
+        "TAX",
+        "ACCOUNT",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-04|T004-04",
+      "shared_domains": [
+        "TAX",
+        "ACCOUNT",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-05|T004-04",
+      "shared_domains": [
+        "ACCOUNT",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-06|T004-04",
+      "shared_domains": [
+        "COST",
+        "TAX",
+        "ACCOUNT",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-01|T004-04",
+      "shared_domains": [
+        "ALLOCATION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-02|T004-04",
+      "shared_domains": [
+        "EXECUTION",
+        "COST",
+        "TAX"
+      ],
+      "direct_dependency": true
+    },
+    {
+      "pair": "T003-04|T004-04",
+      "shared_domains": [
+        "EXECUTION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-05|T004-04",
+      "shared_domains": [
+        "EXECUTION",
+        "COST",
+        "CASH"
+      ],
+      "direct_dependency": true
+    },
+    {
+      "pair": "T003-06|T004-04",
+      "shared_domains": [
+        "COST",
+        "ACCOUNT",
+        "CASH"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T004-01|T004-04",
+      "same_topic": true
+    },
+    {
+      "pair": "T004-02|T004-04",
+      "same_topic": true
+    },
+    {
+      "pair": "T004-03|T004-04",
+      "same_topic": true
+    },
+    {
+      "pair": "T001-01|T004-05",
+      "shared_domains": [
+        "ACCOUNT",
+        "EXECUTION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-02|T004-05",
+      "shared_domains": [
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-03|T004-05",
+      "shared_domains": [
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-05|T004-05",
+      "shared_domains": [
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-06|T004-05",
+      "shared_domains": [
+        "RISK",
+        "CASH",
+        "ACCOUNT"
+      ],
+      "direct_dependency": true
+    },
+    {
+      "pair": "T001-07|T004-05",
+      "shared_domains": [
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-08|T004-05",
+      "shared_domains": [
+        "CASH",
+        "ACCOUNT",
+        "EXECUTION"
+      ],
+      "direct_dependency": true
+    },
+    {
+      "pair": "T002-01|T004-05",
+      "shared_domains": [
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-02|T004-05",
+      "shared_domains": [
+        "CASH",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-03|T004-05",
+      "shared_domains": [
+        "CASH",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-04|T004-05",
+      "shared_domains": [
+        "CASH",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-05|T004-05",
+      "shared_domains": [
+        "RISK",
+        "CASH",
+        "ACCOUNT"
+      ],
+      "direct_dependency": true
+    },
+    {
+      "pair": "T002-06|T004-05",
+      "shared_domains": [
+        "GOAL",
+        "CASH",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-01|T004-05",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-02|T004-05",
+      "shared_domains": [
+        "EXECUTION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-03|T004-05",
+      "shared_domains": [
+        "RISK"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-04|T004-05",
+      "shared_domains": [
+        "RISK",
+        "EXECUTION"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-05|T004-05",
+      "shared_domains": [
+        "RISK",
+        "CASH",
+        "EXECUTION"
+      ],
+      "direct_dependency": true
+    },
+    {
+      "pair": "T003-06|T004-05",
+      "shared_domains": [
+        "RISK",
+        "CASH",
+        "ACCOUNT"
+      ],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T004-01|T004-05",
+      "same_topic": true
+    },
+    {
+      "pair": "T004-02|T004-05",
+      "same_topic": true
+    },
+    {
+      "pair": "T004-03|T004-05",
+      "same_topic": true
+    },
+    {
+      "pair": "T004-04|T004-05",
+      "same_topic": true
+    }
+  ],
+  "excluded": [
+    {
+      "pair": "T001-01|T004-01",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-02|T004-01",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-03|T004-01",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-04|T004-01",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-05|T004-01",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-07|T004-01",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-01|T004-01",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-02|T004-01",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-01|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-02|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-03|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-04|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-05|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-07|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-08|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-01|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-02|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-03|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-04|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-06|T004-02",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-02|T004-03",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-03|T004-03",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-04|T004-03",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-05|T004-03",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-07|T004-03",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-01|T004-03",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-02|T004-03",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-03|T004-03",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T002-04|T004-03",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T003-03|T004-04",
+      "shared_domains": [],
+      "direct_dependency": false
+    },
+    {
+      "pair": "T001-04|T004-05",
+      "shared_domains": [],
+      "direct_dependency": false
+    }
+  ],
+  "counts": {
+    "all": 110,
+    "candidates": 79,
+    "excluded": 31
+  }
+}
