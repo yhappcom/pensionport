@@ -1,0 +1,281 @@
+{
+  "stage": "C1",
+  "status": "TECHNICAL_PASS_SEMANTIC_RETRIEVAL_HOLD",
+  "build": {
+    "stats": {
+      "version": "TOPIC_INDEX_1",
+      "archives": [
+        {
+          "name": "1-100.zip",
+          "sha": "088869c583b2d3ed93d68e4dd5348b1f506877ea2bdc1d66466c199ec80e7716",
+          "bytes": 2117284
+        },
+        {
+          "name": "101-200.zip",
+          "sha": "ea0dac242603af19678354f3dec0fa2d21ab68146a774ab0c50b9b0b5f10663e",
+          "bytes": 2273410
+        },
+        {
+          "name": "201-300.zip",
+          "sha": "9ccd094766fc0b896d1b237edcf7ea4ef7b7622007262275f0d9e4c0518fee10",
+          "bytes": 2913470
+        }
+      ],
+      "aliases": 300,
+      "sources": 299,
+      "cues": 269627,
+      "windows": 22314,
+      "duration_ms": 529669008,
+      "video_ids": 299,
+      "id_conflicts": []
+    },
+    "build_seconds": 6.367548737999641,
+    "verify": {
+      "verified_sources": 299,
+      "integrity": "ok",
+      "foreign_key_violations": 0
+    },
+    "verify_seconds": 2.597133139000107
+  },
+  "query": {
+    "plan_sha": "6910d658c54b85f99609fa8b62192d98ce791c1850f6b5b0bff17be5c742f3a4",
+    "db_sha": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+    "rows": [
+      {
+        "id": "Q1",
+        "question": "ISA 만기 연금전환",
+        "matched_sources": 62,
+        "matched_windows": 301,
+        "returned": 30,
+        "expected": [
+          {
+            "video": "xwkP_bpKE-M",
+            "first": 788,
+            "last": 796,
+            "top30": [
+              24
+            ],
+            "uncapped": [
+              25
+            ]
+          },
+          {
+            "video": "PUWsNu9b3cc",
+            "first": 139,
+            "last": 144,
+            "top30": [
+              9
+            ],
+            "uncapped": [
+              9
+            ]
+          }
+        ],
+        "pass_top30": true,
+        "elapsed_ms": 95.809,
+        "replay_equal": true
+      },
+      {
+        "id": "Q2",
+        "question": "연금전환 기한",
+        "matched_sources": 7,
+        "matched_windows": 19,
+        "returned": 9,
+        "expected": [
+          {
+            "video": "xwkP_bpKE-M",
+            "first": 873,
+            "last": 881,
+            "top30": [
+              8
+            ],
+            "uncapped": [
+              8
+            ]
+          }
+        ],
+        "pass_top30": true,
+        "elapsed_ms": 105.067,
+        "replay_equal": true
+      },
+      {
+        "id": "Q3",
+        "question": "채권 ETF 듀레이션",
+        "matched_sources": 5,
+        "matched_windows": 16,
+        "returned": 8,
+        "expected": [
+          {
+            "video": "EUnEyu15JfM",
+            "first": 252,
+            "last": 258,
+            "top30": [
+              1
+            ],
+            "uncapped": [
+              1
+            ]
+          }
+        ],
+        "pass_top30": true,
+        "elapsed_ms": 38.506,
+        "replay_equal": true
+      },
+      {
+        "id": "Q4",
+        "question": "주주배정 실권주",
+        "matched_sources": 1,
+        "matched_windows": 2,
+        "returned": 1,
+        "expected": [
+          {
+            "video": "qpnZn62UM4U",
+            "first": 12,
+            "last": 20,
+            "top30": [
+              1
+            ],
+            "uncapped": [
+              1
+            ]
+          }
+        ],
+        "pass_top30": true,
+        "elapsed_ms": 0.798,
+        "replay_equal": true
+      },
+      {
+        "id": "Q5",
+        "question": "우선주의 배당과 가격",
+        "matched_sources": 2,
+        "matched_windows": 8,
+        "returned": 4,
+        "expected": [
+          {
+            "video": "qpnZn62UM4U",
+            "first": 195,
+            "last": 205,
+            "top30": [
+              2
+            ],
+            "uncapped": [
+              2
+            ]
+          }
+        ],
+        "pass_top30": true,
+        "elapsed_ms": 58.663,
+        "replay_equal": true
+      },
+      {
+        "id": "Q6",
+        "question": "순입금 이벤트 타사이전 배수",
+        "matched_sources": 3,
+        "matched_windows": 18,
+        "returned": 7,
+        "expected": [
+          {
+            "video": "PUWsNu9b3cc",
+            "first": 115,
+            "last": 131,
+            "top30": [
+              1
+            ],
+            "uncapped": [
+              1
+            ]
+          }
+        ],
+        "pass_top30": true,
+        "elapsed_ms": 66.212,
+        "replay_equal": true
+      },
+      {
+        "id": "Q7",
+        "question": "3층 연금 구조",
+        "matched_sources": 31,
+        "matched_windows": 135,
+        "returned": 30,
+        "expected": [
+          {
+            "video": "Yd5qnDtW2TM",
+            "first": 14,
+            "last": 19,
+            "top30": [
+              4
+            ],
+            "uncapped": [
+              4
+            ]
+          }
+        ],
+        "pass_top30": true,
+        "elapsed_ms": 28.604,
+        "replay_equal": true
+      },
+      {
+        "id": "Q8",
+        "question": "무관 질의",
+        "matched_sources": 0,
+        "matched_windows": 0,
+        "returned": 0,
+        "expected": [],
+        "pass_top30": true,
+        "elapsed_ms": 0.472,
+        "replay_equal": true
+      }
+    ],
+    "top30_targets": 8,
+    "uncapped_targets": 8,
+    "target_count": 8,
+    "queries_pass": 8,
+    "query_count": 8,
+    "replay_equal": 8,
+    "db_unchanged": true,
+    "limits": [
+      "Known source anchors selected manually; not independent or exhaustive semantic retrieval recall",
+      "Full diagnostic removes per-source and total caps but still suppresses overlapping windows",
+      "No-match synthetic string is a technical check only"
+    ]
+  },
+  "rebuild": {
+    "original_sha": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+    "rebuild_sha": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+    "byte_equal": true,
+    "query_equal": 8,
+    "total_queries": 8,
+    "rebuild_seconds": 6.545579542999803
+  },
+  "tests": {
+    "passed": 12,
+    "total": 12
+  },
+  "t001_top30_counts": {
+    "DIRECT": 23,
+    "CONTEXT": 5,
+    "ADJACENT": 2
+  },
+  "t001_distinct_returned_videos": 24,
+  "t001_candidates": 62,
+  "t001_matched_windows": 301,
+  "source_manifest_sha": "0e2e861fb4d80e7d11e2aaa166831c33b6ead6038e71dc0ec1488e5c71765d7e",
+  "engine_sha": "b88dde13ad023b582f4ee081de1881ac8bc1130c765321c693800b000f8eb320",
+  "code_sha": "153cba03d77d82b6eff2a3d507f9a6b025385dcc750bddd155048b4debf7bedb",
+  "operational_db_opened": false,
+  "operational_promoted": false,
+  "approved_cards": 0,
+  "limits": [
+    "First build rejected unexpected _public_auto_timed_20261017 filename; added explicit accepted suffix; no source data altered",
+    "Known target windows and aliases selected before query; not independent semantic recall",
+    "Ranking uses literal normalized aliases and fixed windows, manual term generation, not automatic natural-language semantic retrieval",
+    "Query result cap and overlap suppression can hide relevant context; T001 returned 30 windows from 62 candidate sources",
+    "Exact-byte duplicates removed; near-duplicate cross-video transcripts may be present",
+    "Manual 30-window topical labels, no official financial verification in C1",
+    "No complete 791 mapping, video IDs filename-derived; archive ranges contain 101/100/99 original entries, not verified ordinal mapping",
+    "C2 official research/approval and C3–C7 not completed"
+  ],
+  "archive_library": "/IRE_D4_20261127/C1/C1_TOPIC_INDEX_20261128.zip",
+  "archive_sha": "abaa696f5192e3c78cb32145a39f349e8d414b5362f1a11824db4eb5cebf55c4",
+  "archive_bytes": 43075579,
+  "manifest_entries": 15
+}

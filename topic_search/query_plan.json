@@ -1,0 +1,10 @@
+{"scope":"Known-source literal retrieval sanity check; not independent semantic retrieval recall; expectations fixed before search", "limit":30,"per_source":3,"context":8,"queries":[
+{"id":"Q1","question":"ISA 만기 연금전환", "groups":[["ISA","IS","ISM"],["만기"],["연금"]],"expected":[["xwkP_bpKE-M",788,796],["PUWsNu9b3cc",139,144]]},
+{"id":"Q2","question":"연금전환 기한", "groups":[["연금"],["전환"],["두 달","60일"]],"expected":[["xwkP_bpKE-M",873,881]]},
+{"id":"Q3","question":"채권 ETF 듀레이션", "groups":[["채권","장기체"],["듀레이션"]],"expected":[["EUnEyu15JfM",252,258]]},
+{"id":"Q4","question":"주주배정 실권주", "groups":[["주주 배정"],["실권주"]],"expected":[["qpnZn62UM4U",12,20]]},
+{"id":"Q5","question":"우선주의 배당과 가격", "groups":[["우선주"],["배당"],["가격"]],"expected":[["qpnZn62UM4U",195,205]]},
+{"id":"Q6","question":"순입금 이벤트 타사이전 배수", "groups":[["순입금","상품권"],["타사 이전"],["배수","1.5배","두 배"]],"expected":[["PUWsNu9b3cc",115,131]]},
+{"id":"Q7","question":"3층 연금 구조", "groups":[["국민연금"],["퇴직"],["개인 연금"]],"expected":[["Yd5qnDtW2TM",14,19]]},
+{"id":"Q8","question":"무관 질의", "groups":[["가상검증문자열ZXQ781039"]],"expected":[],"no_match":true}
+]}
