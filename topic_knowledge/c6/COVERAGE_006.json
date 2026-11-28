@@ -1,0 +1,105 @@
+{
+  "status": "C6_IN_PROGRESS",
+  "prior": "COVERAGE_005.json",
+  "scope": {
+    "target": 791,
+    "available": 299,
+    "missing": 492,
+    "cues": 269627
+  },
+  "counts": {
+    "full": 13,
+    "partial": 58,
+    "index_only": 228,
+    "covered_cues_lower_bound": 4603,
+    "new_raw_checked": 394,
+    "net_new_cues": 394,
+    "full_new": 1,
+    "full_cues": 307,
+    "long_new_cues": 120
+  },
+  "library": {
+    "path": "/C6_COVERAGE_006.json",
+    "file_id": "file_0000000010a082099d99bfe8cea67561",
+    "sha256": "757ef779f9853c56bcbe83b470e0659ce1931057c485add4ba54aaae34c63a95"
+  },
+  "long": {
+    "video": "2bLy034D5LA",
+    "total": 615,
+    "reviewed": [
+      1,
+      480
+    ],
+    "next": 481,
+    "new_ranges": [
+      [
+        361,
+        371,
+        "HOLD",
+        "IRP 적격 상품 및 위험자산 70% 예외, 분류 별도 검증"
+      ],
+      [
+        372,
+        395,
+        "CORRECTED_CONTEXT",
+        "55세/5년 법정 예외와 최소10년 일률 주장 교정 T001-06/T002-03"
+      ],
+      [
+        396,
+        415,
+        "CORRECTED_CONTEXT",
+        "연금수령한도와 1500만원 과세 기준 구별 T002-03/04; 금융사 수령 방식 확인"
+      ],
+      [
+        416,
+        432,
+        "OPINION",
+        "수익만 인출하면 영구자금 유지 가능성, 실제 보장 없음 T007"
+      ],
+      [
+        433,
+        460,
+        "CORRECTED_CONTEXT",
+        "과세이연과 비과세 및 공제 원금·수익·퇴직소득·외국세액 구별 T001-06/T011"
+      ],
+      [
+        461,
+        480,
+        "CORRECTED_CONTEXT",
+        "16.5% 일반 과세대상 연금외수령, 미공제·퇴직소득 및 법정 예외 보존 T002; 다음 자막 이어짐"
+      ]
+    ]
+  },
+  "full_new": {
+    "video": "VKr060rIirM",
+    "total": 34,
+    "ranges": [
+      [
+        1,
+        8,
+        "OPINION",
+        "개인 일반계좌보다 무조건 유리 주장 배제"
+      ],
+      [
+        9,
+        25,
+        "CORRECTED_CONTEXT",
+        "외국세액 및 인출세 조건 T011/T001-06"
+      ],
+      [
+        26,
+        34,
+        "CORRECTED_CONTEXT",
+        "미공제원금 확인·IRP 인출 제한 T002-02/05"
+      ]
+    ]
+  },
+  "cost": {
+    "raw_audit_seconds": 0.3917719030000626
+  },
+  "limits": [
+    "보존 DB 원본 재파싱; Drive ZIP 새 조회 아님",
+    "전체 문맥 검토와 금융 사실 승인 구분",
+    "전체 의미시간 미측정"
+  ]
+}
