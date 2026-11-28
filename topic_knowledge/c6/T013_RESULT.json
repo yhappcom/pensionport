@@ -1,0 +1,108 @@
+{
+  "status": "PASS_B_SCOPED_T013",
+  "as_of": "2026-11-28",
+  "manifest": {
+    "commit": "70bf3e5f121a204547a482ad5204c7701fdffaf9",
+    "path": "topic_knowledge/b_policy/candidates/T013_MANIFEST.json",
+    "blob": "4519925a16f2d427f56bb99a850b6fe742142bc2"
+  },
+  "prior_manifest_blob": "edda614d1f948a64309f8a7a45777913fe253930",
+  "engine_blob": "fd2062a35976e5f9edafa668403201d7599aaeb6",
+  "counts": {
+    "active": 50,
+    "topics": 13,
+    "relations": 369,
+    "query_cards": 23,
+    "tests": 21,
+    "regression": 27
+  },
+  "tests": {
+    "active50": true,
+    "prior47": true,
+    "old_cards_preserved": true,
+    "old_relations_preserved": true,
+    "relation369": true,
+    "topics13": true,
+    "three_new": true,
+    "dependencies": true,
+    "nine_relations": true,
+    "unknown": true,
+    "old_excludes": true,
+    "expiry": true,
+    "before": true,
+    "unapproved": true,
+    "candidate_only": true,
+    "tampered_review": true,
+    "tampered_approval": true,
+    "missing": true,
+    "wrong_path": true,
+    "calculation": true,
+    "query_mutation": true
+  },
+  "advisory": {
+    "method": "사전 고정 2질문 8기준, 실제 V8 후보 조회 후 동일 ChatGPT 수동 의미 검토. 독립 인증 아님.",
+    "retrieved": [
+      "T001-02",
+      "T001-03",
+      "T001-04",
+      "T001-06",
+      "T001-07",
+      "T001-08",
+      "T002-01",
+      "T002-03",
+      "T002-05",
+      "T002-06",
+      "T003-01",
+      "T003-02",
+      "T003-06",
+      "T004-01",
+      "T004-03",
+      "T005-01",
+      "T005-02",
+      "T006-01",
+      "T012-01",
+      "T012-02",
+      "T013-01",
+      "T013-02",
+      "T013-03"
+    ],
+    "answers": [
+      {
+        "id": "Q1",
+        "used": [
+          "T013-01",
+          "T003-02",
+          "T006-01"
+        ],
+        "answer": "운용관리·자산관리 수수료가 면제되어도 상품 보수·거래비용 등은 별개다. 가입 채널, 계약일, 부담금 종류, 중도이전/해지 등 면제 예외를 실제 계약서 및 공시에서 확인하고 상품 설명서와 실제 계좌 비용을 함께 비교한다. 동일 1억원 잔액, 합산 관리비 0.2% 가정의 연 비용은 20만원(상품비 제외).",
+        "criteria": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "Q2",
+        "used": [
+          "T013-02",
+          "T013-03",
+          "T012-01",
+          "T012-02"
+        ],
+        "answer": "IRP→IRP 동일 제도에서 수취 사업자가 해당 ETF를 취급하고 계약·상품 조건을 충족하면 실물이전 가능. 디폴트옵션 자체 상품은 기존 제외 유형으로 현금화 가능 여부를 확인한다. 수취 금융사 계약이전 신청과 본인 일반계좌 인출은 다르며 상품 현금화 자체를 과세 인출로 단정하지 않는다. 적격 전액 이전과 예외 및 실제 계약 확인이 필요하다. 향후 제도 확대는 시행 전 적용하지 않는다.",
+        "criteria": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "10월 시행령 직접 열람 실패, 7월 본문과 10월 공식 검색 조문 대조. 11월 최신 KDI 발표 직접 페이지 실패, 검색 발췌만 확보, 미래 시행 미승인.",
+    "직전 턴 계획만 저장 후 중단. 이번 실행에서 Git 비교 응답의 추가 파일 10개를 복원 후 각각 고정 blob 해시 일치 검증, 나머지 파일 직접 읽고 기존 함수 실행. 비교 도구 인자 오류 1회 후 REST 비교 성공. Node CI 미실행.",
+    "전체 의미시간·독립 정확도 미측정. 실제 개별 거래·상품·외국세액공제 이전·수수료 HOLD."
+  ]
+}
