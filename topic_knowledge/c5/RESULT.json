@@ -1,0 +1,206 @@
+{
+  "status": "C5_IN_PROGRESS_T002_HOLD",
+  "as_of": "2026-11-28",
+  "base": "5a079d0188fa82e69a849334b85f739e866b981c",
+  "review_pin": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+  "counts": {
+    "t001_active": 8,
+    "t002_active": 0,
+    "revision_checks": 15,
+    "regression": 27,
+    "t002_candidates": 5,
+    "t002_hold": 1,
+    "reviewed_topics": 1,
+    "researched_topics": 2
+  },
+  "tests": {
+    "old_approval_preserved": true,
+    "old_event_preserved": true,
+    "new_event_count": true,
+    "eight_active": true,
+    "seven_rules_unchanged": true,
+    "all_rules_match_review": true,
+    "historical_text_removed": true,
+    "historical_evidence_excluded": true,
+    "historical_context_preserved": true,
+    "sources_preserved": true,
+    "no_new_t002_publication": true,
+    "expiry_preserved": true,
+    "idempotent": true,
+    "attribution_addendum": true,
+    "roundtrip": true
+  },
+  "regression": [
+    {
+      "name": "actual 8 cards",
+      "status": "PASS"
+    },
+    {
+      "name": "actual rule exact",
+      "status": "PASS"
+    },
+    {
+      "name": "actual source exact",
+      "status": "PASS"
+    },
+    {
+      "name": "idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "serialization restart",
+      "status": "PASS"
+    },
+    {
+      "name": "no historical evidence in active lookup",
+      "status": "PASS"
+    },
+    {
+      "name": "last day",
+      "status": "PASS"
+    },
+    {
+      "name": "expired",
+      "status": "PASS"
+    },
+    {
+      "name": "before review",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid date",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown topic",
+      "status": "PASS"
+    },
+    {
+      "name": "unpublished",
+      "status": "PASS"
+    },
+    {
+      "name": "hold rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "partial rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing evidence rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing pair rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "conflict rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "equivalent pending merge rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate text rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing dependency",
+      "status": "PASS"
+    },
+    {
+      "name": "cycle",
+      "status": "PASS"
+    },
+    {
+      "name": "dependent expiry",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback on invalid revision",
+      "status": "PASS"
+    },
+    {
+      "name": "bad event pin",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic revision",
+      "status": "PASS"
+    },
+    {
+      "name": "lookup mutation isolated",
+      "status": "PASS"
+    },
+    {
+      "name": "complement actual relation",
+      "status": "PASS"
+    }
+  ],
+  "relations": [
+    {
+      "id": "T002-01",
+      "related": [
+        "T001-02",
+        "T001-03",
+        "T001-04"
+      ],
+      "relation": "PARTIAL_EQUIVALENCE_AND_COMPLEMENT",
+      "status": "PROPOSED_NOT_PUBLISHED"
+    },
+    {
+      "id": "T002-02",
+      "related": [
+        "T001-06"
+      ],
+      "relation": "COMPLEMENT",
+      "status": "PROPOSED_NOT_PUBLISHED"
+    },
+    {
+      "id": "T002-03",
+      "related": [
+        "T001-06"
+      ],
+      "relation": "COMPLEMENT",
+      "status": "PROPOSED_NOT_PUBLISHED"
+    },
+    {
+      "id": "T002-04",
+      "related": [
+        "T001-06"
+      ],
+      "relation": "COMPLEMENT",
+      "status": "PROPOSED_NOT_PUBLISHED"
+    },
+    {
+      "id": "T002-05",
+      "related": [
+        "T001-06",
+        "T001-08"
+      ],
+      "relation": "COMPLEMENT_PENDING",
+      "status": "PROPOSED_NOT_PUBLISHED"
+    },
+    {
+      "id": "T002-06",
+      "related": [
+        "T001-03",
+        "T001-04",
+        "T001-06",
+        "T001-07"
+      ],
+      "relation": "COMPLEMENT",
+      "status": "PROPOSED_NOT_PUBLISHED"
+    }
+  ],
+  "limitations": [
+    "T002 제18조 준용 조문 전체와 최신 10월 시행령 직접 재확인 미완료. 신규 발행0. 신규 주제와 실제 승인 원장의 교차 통합 미실행.",
+    "C4 정정은 T001 v4 범위 승인 및 귀속 addendum으로 완료. 원래 평가 답변·승인 이벤트는 불변. 역사적 사례는 보존 문맥 및 제한 사항에서만 유지.",
+    "검색 6질의의 히트수는 중복 포함이며 558자막 직접 검토, 전체 코퍼스 의미 성능 미측정.",
+    "V8 실제 Git 함수 본문 실행, Node CI 미실행. 전체 연구비용 미측정."
+  ],
+  "next": "T002 남은 공식 근거 및 별도 검토를 완료하고 공통 규칙 동치 연결·새 상세 지식 관계 및 실제 교차 저장을 검증. 이후 T003 ETF 연구, 최소 3주제와 처리비용 실증 후 C5 판정."
+}

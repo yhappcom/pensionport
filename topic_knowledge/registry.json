@@ -585,5 +585,585 @@
         "item": "개인 포트폴리오 적용 및 독립 정확도 인증"
       }
     ]
+  },
+  "T001@4": {
+    "topic": "T001",
+    "version": 4,
+    "status": "APPROVED_SCOPED",
+    "reviewed_on": "2026-11-28",
+    "review_by": "2026-12-31",
+    "review_commit": "5a079d0188fa82e69a849334b85f739e866b981c",
+    "review_blob": "b33f8b30b927c9254bc2a2e47f3734763619f1fb",
+    "source_blob": "60358d5af6f9acfa7252f6e3cd00085180e06a66",
+    "expected_ids": [
+      "T001-01",
+      "T001-02",
+      "T001-03",
+      "T001-04",
+      "T001-05",
+      "T001-06",
+      "T001-07",
+      "T001-08"
+    ],
+    "cards": [
+      {
+        "id": "T001-01",
+        "status": "VERIFIED_SCOPED",
+        "rule": "적격 만기 기준일부터 60일 내 실제 전환납입. 최초 계약 3년 이후 적격 이전 만료간주. 약정 만기 경과 후 해지하면 기한 재시작으로 단정 금지.",
+        "sources": [
+          "xwkP_bpKE-M:870–909",
+          "7p3p7TKcdqY:695–739",
+          "ly25lXbU5oA:246–264"
+        ],
+        "evidence": [
+          {
+            "id": "E01",
+            "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103",
+            "date": "2026-10-01",
+            "scope": "제40조의2 제2항: 납입한도, 전환잔액, 과세기간, 연금개시",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E02",
+            "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=011802&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95+%EC%8B%9C%ED%96%89%EB%A0%B9&mode=11",
+            "date": "2026-10-01",
+            "scope": "제118조의2: 적격 60일 내 납입, 증빙",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E05",
+            "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021859593",
+            "date": "2026-09-18",
+            "scope": "제91조의18 ISA 과세특례, 3년 이후 만료간주, 3년 이전 초과인출",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E11",
+            "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=8&direction=1&listType=1&searchEndDay=24&searchEndMonth=09&searchEndYear=2026&searchStartDay=24&searchStartMonth=09&searchStartYear=2025&searchType=2&startId=zzzzz~&startPage=1",
+            "date": "게시일 미확인; 2026-11-28 조회",
+            "scope": "만기 기준일 구분·현금화 595~608",
+            "use": "CURRENT_WEB"
+          }
+        ],
+        "limits": [
+          "적격 만기일과 실제 납입 완료일 확인; 3년 이전 예외 및 만기 경과 후 기산일 구분",
+          "소득세법 7월 시행 제59조의3 제3~4항 일부 URL 직접 조회 실패; 1월 시행 전체 본문과 7월 공식 검색 및 10월 KB 본문 일치. 최신 판본 전체 바이트 인증 아님.",
+          "미래에셋 FAQ 게시일 미확인, 타사 전환 대신 사례는 종료된 6월 공지이며 현재 지원 확약 아님.",
+          "특정 금융사·복수 동종계좌·타사 조합·비용·실행 채널은 실제 거래 전 확인; 이벤트 현행 혜택 HOLD/CONTEXT.",
+          "전체 299편 및 791편 의미 재현율/정확도 독립 평가 미측정.",
+          "조건부 연구 지식; 개인 거래 승인 아님"
+        ],
+        "valid_through": "2026-12-31",
+        "dependencies": []
+      },
+      {
+        "id": "T001-02",
+        "status": "VERIFIED_SCOPED",
+        "rule": "일반 연 1800만원과 적격 전환금 별도. 동일 만기잔액에서 직전 과세기간 납입액 차감. 연금수령 개시 신청 이후 납입 제한 확인.",
+        "sources": [
+          "xwkP_bpKE-M:788–810",
+          "xwkP_bpKE-M:845–860",
+          "PUWsNu9b3cc:69–75",
+          "PUWsNu9b3cc:139–144"
+        ],
+        "evidence": [
+          {
+            "id": "E01",
+            "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103",
+            "date": "2026-10-01",
+            "scope": "제40조의2 제2항: 납입한도, 전환잔액, 과세기간, 연금개시",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E03",
+            "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=005903&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95&mode=11",
+            "date": "2026-01-01",
+            "scope": "제59조의3 제1~5항 직접 본문; 7월 시행 검색 제3~4항 및 10월 KB 안내 교차 확인",
+            "use": "CURRENT_WEB"
+          }
+        ],
+        "limits": [
+          "동일 만기잔액, 직전 연도 전환액, 연금 개시 여부 확인",
+          "소득세법 7월 시행 제59조의3 제3~4항 일부 URL 직접 조회 실패; 1월 시행 전체 본문과 7월 공식 검색 및 10월 KB 본문 일치. 최신 판본 전체 바이트 인증 아님.",
+          "미래에셋 FAQ 게시일 미확인, 타사 전환 대신 사례는 종료된 6월 공지이며 현재 지원 확약 아님.",
+          "특정 금융사·복수 동종계좌·타사 조합·비용·실행 채널은 실제 거래 전 확인; 이벤트 현행 혜택 HOLD/CONTEXT.",
+          "전체 299편 및 791편 의미 재현율/정확도 독립 평가 미측정.",
+          "조건부 연구 지식; 개인 거래 승인 아님"
+        ],
+        "valid_through": "2026-12-31",
+        "dependencies": []
+      },
+      {
+        "id": "T001-03",
+        "status": "VERIFIED_SCOPED",
+        "rule": "일반 연금저축 600만원/퇴직연금 합산 900만원; 전환금은 해당 과세기간 납입액에 포함. 추가한도 min(전환금×10%, 300만원-직전 과세기간 적용 추가한도). 실제 적격 납입액 초과 및 이중 계산 금지.",
+        "sources": [
+          "xwkP_bpKE-M:792–844",
+          "-71DQQIcTlc:291–315",
+          "inLlZgtS7qs:6–31"
+        ],
+        "evidence": [
+          {
+            "id": "E03",
+            "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=005903&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95&mode=11",
+            "date": "2026-01-01",
+            "scope": "제59조의3 제1~5항 직접 본문; 7월 시행 검색 제3~4항 및 10월 KB 안내 교차 확인",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E15",
+            "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1030454707",
+            "date": "2026-07-01",
+            "scope": "제59조의3 제1항 직접 본문",
+            "use": "CURRENT_WEB"
+          }
+        ],
+        "limits": [
+          "일반 한도 미소진 및 두 과세기간 중복 공제 금지; 실제 납입액 한도",
+          "소득세법 7월 시행 제59조의3 제3~4항 일부 URL 직접 조회 실패; 1월 시행 전체 본문과 7월 공식 검색 및 10월 KB 본문 일치. 최신 판본 전체 바이트 인증 아님.",
+          "미래에셋 FAQ 게시일 미확인, 타사 전환 대신 사례는 종료된 6월 공지이며 현재 지원 확약 아님.",
+          "특정 금융사·복수 동종계좌·타사 조합·비용·실행 채널은 실제 거래 전 확인; 이벤트 현행 혜택 HOLD/CONTEXT.",
+          "전체 299편 및 791편 의미 재현율/정확도 독립 평가 미측정.",
+          "조건부 연구 지식; 개인 거래 승인 아님"
+        ],
+        "valid_through": "2026-12-31",
+        "dependencies": []
+      },
+      {
+        "id": "T001-04",
+        "status": "VERIFIED_SCOPED",
+        "rule": "국세 12/15%: 종합소득금액 4500만원 이하 또는 근로소득만 있는 경우 총급여 5500만원 이하 15%. 2026년 지방 효과는 실제 국세공제의 10%, 지방세 공제 여력 전제. 환급 보장 금지; 2027년 재확인.",
+        "sources": [
+          "3jtBJc17ZHw:698–711",
+          "inLlZgtS7qs:20–31",
+          "WJYWW_XXbSM:582–607"
+        ],
+        "evidence": [
+          {
+            "id": "E03",
+            "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=005903&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95&mode=11",
+            "date": "2026-01-01",
+            "scope": "제59조의3 제1~5항 직접 본문; 7월 시행 검색 제3~4항 및 10월 KB 안내 교차 확인",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E04",
+            "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021964939",
+            "date": "2026-06-02",
+            "scope": "제167조의2 국세 공제액 10% 및 2026-12-31 적용기한",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E06",
+            "url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1033234355",
+            "date": "2026-07-01",
+            "scope": "제61조 공제기준산출세액 제한",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E15",
+            "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1030454707",
+            "date": "2026-07-01",
+            "scope": "제59조의3 제1항 직접 본문",
+            "use": "CURRENT_WEB"
+          }
+        ],
+        "limits": [
+          "공제 가능 국세·지방세 및 소득 유형 확인; 2027년 지방세 재검증",
+          "소득세법 7월 시행 제59조의3 제3~4항 일부 URL 직접 조회 실패; 1월 시행 전체 본문과 7월 공식 검색 및 10월 KB 본문 일치. 최신 판본 전체 바이트 인증 아님.",
+          "미래에셋 FAQ 게시일 미확인, 타사 전환 대신 사례는 종료된 6월 공지이며 현재 지원 확약 아님.",
+          "특정 금융사·복수 동종계좌·타사 조합·비용·실행 채널은 실제 거래 전 확인; 이벤트 현행 혜택 HOLD/CONTEXT.",
+          "전체 299편 및 791편 의미 재현율/정확도 독립 평가 미측정.",
+          "조건부 연구 지식; 개인 거래 승인 아님"
+        ],
+        "valid_through": "2026-12-31",
+        "dependencies": []
+      },
+      {
+        "id": "T001-05",
+        "status": "VERIFIED_SCOPED",
+        "rule": "ISA 자체 과세와 전환 공제 구분. 적격 비과세 200/400만원, 초과 국세 9%; 법정 손익통산 범위. 3년 이전 해지/원금초과 인출 추징 및 법정 예외 구분. 60일 초과만으로 기존 ISA 혜택 추징 단정 금지.",
+        "sources": [
+          "PUWsNu9b3cc:175–182",
+          "xwkP_bpKE-M:893–909"
+        ],
+        "evidence": [
+          {
+            "id": "E05",
+            "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021859593",
+            "date": "2026-09-18",
+            "scope": "제91조의18 ISA 과세특례, 3년 이후 만료간주, 3년 이전 초과인출",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E02",
+            "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=011802&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95+%EC%8B%9C%ED%96%89%EB%A0%B9&mode=11",
+            "date": "2026-10-01",
+            "scope": "제118조의2: 적격 60일 내 납입, 증빙",
+            "use": "CURRENT_WEB"
+          }
+        ],
+        "limits": [
+          "법정 손익통산 범위; 3년 이전 해지의 법정 예외",
+          "소득세법 7월 시행 제59조의3 제3~4항 일부 URL 직접 조회 실패; 1월 시행 전체 본문과 7월 공식 검색 및 10월 KB 본문 일치. 최신 판본 전체 바이트 인증 아님.",
+          "미래에셋 FAQ 게시일 미확인, 타사 전환 대신 사례는 종료된 6월 공지이며 현재 지원 확약 아님.",
+          "특정 금융사·복수 동종계좌·타사 조합·비용·실행 채널은 실제 거래 전 확인; 이벤트 현행 혜택 HOLD/CONTEXT.",
+          "전체 299편 및 791편 의미 재현율/정확도 독립 평가 미측정.",
+          "조건부 연구 지식; 개인 거래 승인 아님"
+        ],
+        "valid_through": "2026-12-31",
+        "dependencies": []
+      },
+      {
+        "id": "T001-06",
+        "status": "VERIFIED_SCOPED",
+        "rule": "과세제외금액과 세액공제 원금·운용수익·퇴직소득 구분. 미공제 확인 및 법정 순서·손실 고려. 55세/5년/연금수령한도 및 예외 확인; 국세 3~5%는 일반 사적연금 원천징수, 최종 세금 아님. 과세대상 연금외수령 통상 국세15%, 예외 있음. IRP 법정 중도인출 별도. 유동성 우선.",
+        "sources": [
+          "ly25lXbU5oA:224–229",
+          "ly25lXbU5oA:261–264",
+          "EYya0e4APBE:27–43",
+          "YsXYA7Hi7qk:869–892"
+        ],
+        "evidence": [
+          {
+            "id": "E01",
+            "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103",
+            "date": "2026-10-01",
+            "scope": "제40조의2 제2항: 납입한도, 전환잔액, 과세기간, 연금개시",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E07",
+            "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001061005",
+            "date": "2026-10-01",
+            "scope": "제40조의3 인출순서, 과세제외 확인, 손실",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E08",
+            "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497",
+            "date": "2026-03-24",
+            "scope": "퇴직급여법 시행령 제18조 IRP 중도인출",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E09",
+            "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312",
+            "date": "2026-11-28 조회",
+            "scope": "국세청 원천징수세율, 1500만원 기준과 예외",
+            "use": "CURRENT_WEB"
+          }
+        ],
+        "limits": [
+          "IRP 인출 사유, 계좌 비용, 미공제 원금 확인; 연금 원천징수와 최종 과세 구분",
+          "소득세법 7월 시행 제59조의3 제3~4항 일부 URL 직접 조회 실패; 1월 시행 전체 본문과 7월 공식 검색 및 10월 KB 본문 일치. 최신 판본 전체 바이트 인증 아님.",
+          "미래에셋 FAQ 게시일 미확인, 타사 전환 대신 사례는 종료된 6월 공지이며 현재 지원 확약 아님.",
+          "특정 금융사·복수 동종계좌·타사 조합·비용·실행 채널은 실제 거래 전 확인; 이벤트 현행 혜택 HOLD/CONTEXT.",
+          "전체 299편 및 791편 의미 재현율/정확도 독립 평가 미측정.",
+          "조건부 연구 지식; 개인 거래 승인 아님"
+        ],
+        "valid_through": "2026-12-31",
+        "dependencies": []
+      },
+      {
+        "id": "T001-07",
+        "status": "VERIFIED_SCOPED",
+        "rule": "일반 한도 소진, 단일 2026년, 충분한 국세·지방세 가정: 1000만원 전환 추가 대상100만원→13.2/16.5만원; 3000만원 이상 대상300만원→39.6/49.5만원. 공제여력 부족 시 제한; 총 환급액 아님.",
+        "sources": [
+          "inLlZgtS7qs:6–31",
+          "-71DQQIcTlc:291–315",
+          "xwkP_bpKE-M:924–930"
+        ],
+        "evidence": [
+          {
+            "id": "E03",
+            "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=005903&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95&mode=11",
+            "date": "2026-01-01",
+            "scope": "제59조의3 제1~5항 직접 본문; 7월 시행 검색 제3~4항 및 10월 KB 안내 교차 확인",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E04",
+            "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021964939",
+            "date": "2026-06-02",
+            "scope": "제167조의2 국세 공제액 10% 및 2026-12-31 적용기한",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E06",
+            "url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1033234355",
+            "date": "2026-07-01",
+            "scope": "제61조 공제기준산출세액 제한",
+            "use": "CURRENT_WEB"
+          }
+        ],
+        "limits": [
+          "일반 한도 소진, 단일 2026 과세기간, 충분한 세액 전제; 실제 신고 계산기 아님",
+          "소득세법 7월 시행 제59조의3 제3~4항 일부 URL 직접 조회 실패; 1월 시행 전체 본문과 7월 공식 검색 및 10월 KB 본문 일치. 최신 판본 전체 바이트 인증 아님.",
+          "미래에셋 FAQ 게시일 미확인, 타사 전환 대신 사례는 종료된 6월 공지이며 현재 지원 확약 아님.",
+          "특정 금융사·복수 동종계좌·타사 조합·비용·실행 채널은 실제 거래 전 확인; 이벤트 현행 혜택 HOLD/CONTEXT.",
+          "전체 299편 및 791편 의미 재현율/정확도 독립 평가 미측정.",
+          "조건부 연구 지식; 개인 거래 승인 아님"
+        ],
+        "valid_through": "2026-12-31",
+        "dependencies": [
+          "T001-03",
+          "T001-04"
+        ]
+      },
+      {
+        "id": "T001-08",
+        "status": "VERIFIED_SCOPED",
+        "rule": "보유상품 현금화 및 결제기간, 적격 만기일, 대상계좌의 납입 가능 여부, 전환 신청 및 실제 입금·전환분 등록 증빙 확인. 모든 회사/복수 동종계좌/타사 조합·수수료·이벤트 지원 일반화 금지. 유동성·세액·비용·인출제약 평가 후 선택.",
+        "sources": [
+          "7p3p7TKcdqY:604–615",
+          "7p3p7TKcdqY:695–739",
+          "ly25lXbU5oA:209–236",
+          "YsXYA7Hi7qk:869–892"
+        ],
+        "evidence": [
+          {
+            "id": "E01",
+            "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103",
+            "date": "2026-10-01",
+            "scope": "제40조의2 제2항: 납입한도, 전환잔액, 과세기간, 연금개시",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E02",
+            "url": "https://www.law.go.kr/LSW/lsLinkProc.do?joNo=011802&lsClsCd=L&lsNm=%EC%86%8C%EB%93%9D%EC%84%B8%EB%B2%95+%EC%8B%9C%ED%96%89%EB%A0%B9&mode=11",
+            "date": "2026-10-01",
+            "scope": "제118조의2: 적격 60일 내 납입, 증빙",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E10",
+            "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=16&direction=1&listType=1&searchEndDay=29&searchEndMonth=10&searchEndYear=2026&searchStartDay=29&searchStartMonth=10&searchStartYear=2025&searchType=2&startId=09omk~&startPage=11",
+            "date": "게시일 미확인; 2026-11-28 조회",
+            "scope": "분할전환 가능 공식 FAQ, 638~657",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E11",
+            "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=8&direction=1&listType=1&searchEndDay=24&searchEndMonth=09&searchEndYear=2026&searchStartDay=24&searchStartMonth=09&searchStartYear=2025&searchType=2&startId=zzzzz~&startPage=1",
+            "date": "게시일 미확인; 2026-11-28 조회",
+            "scope": "만기 기준일 구분·현금화 595~608",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E12",
+            "url": "https://blog.kbsec.com/isa/%EB%A7%8C%EA%B8%B0%EC%9E%90%EA%B8%88-60%EC%9D%BC-%EC%97%B0%EA%B8%88%EC%A0%84%ED%99%98/",
+            "date": "2026-10-15 작성; 심사 2026-10-13~2027-10-12",
+            "scope": "전환·입금 확인·세액 차이 98~106,159~165,203~214",
+            "use": "CURRENT_WEB"
+          },
+          {
+            "id": "E13",
+            "url": "https://www.kbsec.com/go.able?linkcd=s050801010000",
+            "date": "게시일 미확인; 2026-11-28 조회",
+            "scope": "연금계좌 금융사 사전 확인, 영업점 안내 57",
+            "use": "CURRENT_WEB"
+          }
+        ],
+        "limits": [
+          "개별 금융사 조합·비용·채널 확인 전 실행 금지; 과거 이벤트 혜택 제외",
+          "소득세법 7월 시행 제59조의3 제3~4항 일부 URL 직접 조회 실패; 1월 시행 전체 본문과 7월 공식 검색 및 10월 KB 본문 일치. 최신 판본 전체 바이트 인증 아님.",
+          "미래에셋 FAQ 게시일 미확인, 타사 전환 대신 사례는 종료된 6월 공지이며 현재 지원 확약 아님.",
+          "특정 금융사·복수 동종계좌·타사 조합·비용·실행 채널은 실제 거래 전 확인; 이벤트 현행 혜택 HOLD/CONTEXT.",
+          "전체 299편 및 791편 의미 재현율/정확도 독립 평가 미측정.",
+          "조건부 연구 지식; 개인 거래 승인 아님"
+        ],
+        "valid_through": "2026-12-31",
+        "dependencies": []
+      }
+    ],
+    "relations": [
+      {
+        "a": "T001-01",
+        "b": "T001-02",
+        "kind": "COMPLEMENT",
+        "reason": "기한과 금액"
+      },
+      {
+        "a": "T001-01",
+        "b": "T001-03",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-01",
+        "b": "T001-04",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-01",
+        "b": "T001-05",
+        "kind": "COMPLEMENT",
+        "reason": "만기와 ISA 추징 구분"
+      },
+      {
+        "a": "T001-01",
+        "b": "T001-06",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-01",
+        "b": "T001-07",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-01",
+        "b": "T001-08",
+        "kind": "COMPLEMENT",
+        "reason": "기한과 실행"
+      },
+      {
+        "a": "T001-02",
+        "b": "T001-03",
+        "kind": "COMPLEMENT",
+        "reason": "납입과 공제 한도 구분"
+      },
+      {
+        "a": "T001-02",
+        "b": "T001-04",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-02",
+        "b": "T001-05",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-02",
+        "b": "T001-06",
+        "kind": "COMPLEMENT",
+        "reason": "연금 개시 및 인출"
+      },
+      {
+        "a": "T001-02",
+        "b": "T001-07",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-02",
+        "b": "T001-08",
+        "kind": "COMPLEMENT",
+        "reason": "대상 계좌"
+      },
+      {
+        "a": "T001-03",
+        "b": "T001-04",
+        "kind": "COMPLEMENT",
+        "reason": "공제 대상과 세율"
+      },
+      {
+        "a": "T001-03",
+        "b": "T001-05",
+        "kind": "COMPLEMENT",
+        "reason": "ISA 과세와 추가 공제 구분"
+      },
+      {
+        "a": "T001-03",
+        "b": "T001-06",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-03",
+        "b": "T001-07",
+        "kind": "COMPLEMENT",
+        "reason": "계산 한도"
+      },
+      {
+        "a": "T001-03",
+        "b": "T001-08",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-04",
+        "b": "T001-05",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-04",
+        "b": "T001-06",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-04",
+        "b": "T001-07",
+        "kind": "COMPLEMENT",
+        "reason": "세율과 공제 여력"
+      },
+      {
+        "a": "T001-04",
+        "b": "T001-08",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-05",
+        "b": "T001-06",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-05",
+        "b": "T001-07",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-05",
+        "b": "T001-08",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-06",
+        "b": "T001-07",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      },
+      {
+        "a": "T001-06",
+        "b": "T001-08",
+        "kind": "COMPLEMENT",
+        "reason": "유동성과 실행"
+      },
+      {
+        "a": "T001-07",
+        "b": "T001-08",
+        "kind": "DISTINCT",
+        "reason": "서로 다른 사전 연구 질문과 판단 대상"
+      }
+    ],
+    "exclusions": [
+      {
+        "status": "HOLD",
+        "item": "금융사별 거래 지원 조합·비용·채널 및 개인 실제 실행"
+      },
+      {
+        "status": "CONTEXT",
+        "item": "종료된 금융사 이벤트·상품권 및 대신 타사 이전 역사 사례"
+      },
+      {
+        "status": "HOLD",
+        "item": "2027년 이후 지방세 효과 및 법령 재검증"
+      },
+      {
+        "status": "HOLD",
+        "item": "개인 포트폴리오 적용 및 독립 정확도 인증"
+      }
+    ]
   }
 }
