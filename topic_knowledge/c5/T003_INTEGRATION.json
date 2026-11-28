@@ -1,0 +1,183 @@
+{
+  "status": "C5_IN_PROGRESS_THREE_TOPICS_PUBLISHED",
+  "as_of": "2026-11-28",
+  "base": "8225b6fd1b9ff03255cff6f3c383e0180ce3a713",
+  "counts": {
+    "active_t001": 8,
+    "active_t002": 6,
+    "active_t003": 6,
+    "total_active": 20,
+    "new_relations": 99,
+    "cross": 84,
+    "within": 15,
+    "complement": 26,
+    "distinct": 73,
+    "all_pair_relations": 190,
+    "tests": 24,
+    "regression": 27
+  },
+  "tests": {
+    "old_events_preserved": true,
+    "old_registry_preserved": true,
+    "one_new_event": true,
+    "actual_20_active": true,
+    "old_rules_preserved": true,
+    "new_rules_exact": true,
+    "new_sources_exact": true,
+    "all_dependencies_available": true,
+    "relations_99": true,
+    "cross_related_both_directions": true,
+    "duplicate_event_idempotent": true,
+    "expired_all_topics": true,
+    "historical_excluded": true,
+    "roundtrip": true,
+    "conflict_rejected": true,
+    "equivalence_rejected": true,
+    "partial_topic_rejected": true,
+    "missing_relation_rejected": true,
+    "hold_rejected": true,
+    "dependency_missing_rejected": true,
+    "source_ref_pin": true,
+    "old_snapshot_unchanged": true,
+    "cross_dependency_expiry": true,
+    "numerical_examples": true
+  },
+  "regression": [
+    {
+      "name": "actual 8 cards",
+      "status": "PASS"
+    },
+    {
+      "name": "actual rule exact",
+      "status": "PASS"
+    },
+    {
+      "name": "actual source exact",
+      "status": "PASS"
+    },
+    {
+      "name": "idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "serialization restart",
+      "status": "PASS"
+    },
+    {
+      "name": "no historical evidence in active lookup",
+      "status": "PASS"
+    },
+    {
+      "name": "last day",
+      "status": "PASS"
+    },
+    {
+      "name": "expired",
+      "status": "PASS"
+    },
+    {
+      "name": "before review",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid date",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown topic",
+      "status": "PASS"
+    },
+    {
+      "name": "unpublished",
+      "status": "PASS"
+    },
+    {
+      "name": "hold rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "partial rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing evidence rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing pair rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "conflict rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "equivalent pending merge rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate text rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing dependency",
+      "status": "PASS"
+    },
+    {
+      "name": "cycle",
+      "status": "PASS"
+    },
+    {
+      "name": "dependent expiry",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback on invalid revision",
+      "status": "PASS"
+    },
+    {
+      "name": "bad event pin",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic revision",
+      "status": "PASS"
+    },
+    {
+      "name": "lookup mutation isolated",
+      "status": "PASS"
+    },
+    {
+      "name": "complement actual relation",
+      "status": "PASS"
+    }
+  ],
+  "computations": {
+    "tracking_difference_pp": -2,
+    "discount_percent": -2,
+    "premium_percent": 2,
+    "constant_difference_te": 0,
+    "leveraged_path_return": -10.000000000000009,
+    "unleveraged_path_return": 0
+  },
+  "source_pin_note": "원문 감사와 최종 의미 검토가 동일 JSON에 포함되므로 review_blob/source_blob 동일. raw SHA는 보존 DB 내 실제 대조. 코드가 독립 서명을 인증하는 것은 아님.",
+  "scope": "T003 6 general rules committed, old 14 preserved. Distinct relations are manual grouped classification, not automatic semantic detection.",
+  "cost": {
+    "search_and_db_hash_seconds": 0.621,
+    "raw_reparse_review_script_seconds": 0.79,
+    "semantic_review_time": "NOT_MEASURED",
+    "web_rounds": 4,
+    "source_records": 13,
+    "web_body": 10,
+    "search_excerpt": 3
+  },
+  "limitations": [
+    "일반 판단 규칙만 검토, 개별상품 거래 판단 미승인. 최신 공시의 일부 직접 URL 조회 실패; 해당 발췌는 보조 자료, 구체 수치 발행 제외.",
+    "9편은 독립 화자/독립 연구 증거 9개를 의미하지 않음; 05JCQ8-v6zc와 LVE7XN_esTc 설명 유사.",
+    "직접 실행 시간은 검색+DB 해시 및 원문 재파싱만 측정. 모델 의미 검토·검색 대기·전체 비용 미측정.",
+    "독립 정확도 인증 아님; 별도 교차 자문과 3주제 통합 검증 필요.",
+    "모든 카드 쌍 요구로 n(n-1)/2 관계가 증가함. 20개 190쌍은 검증 가능하지만 전체 791편 규모에 대한 확장성 미입증.",
+    "T003-06 계좌 상품 허용·위험자산 한도 상세는 미승인. 모델 의미 검토 및 전체 비용, 독립 정확도, 교차 자문 미실증. Node CLI/CI 미실행."
+  ],
+  "next": "사전 고정 복합 질문에 실제 3주제 조회 및 근거 귀속·HOLD 차단·비용/작업량 검증. 관계 전체쌍 구조 확장성 평가 후 C5 최종 판정."
+}
