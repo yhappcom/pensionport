@@ -86,3 +86,6 @@ F3 [마지막 신규 영상 1턴](F3_TRIAL2_TURN1_RESULT.json): 270자막/66후�
 
 
 F3 [두 번째 실증 결과](F3_TRIAL2_TURN2_RESULT.json) 및 [중단 보고](F3_STOP_REPORT.md): 2회 실패 조건 도달. 현 2턴 연구 구조 STOP, F4~F6 차단. 기존 코드·원장 보존, 새로운 정책 결정 전 자동 추가 시험 금지.
+
+
+C안 T001 [ISA 만기자금 연금전환 연구 후보](topics/T001_ISA_PENSION_TRANSFER.md) / [구조 기록](topics/T001_ISA_PENSION_TRANSFER.json): 사전 8항목, 두 SRT 246자막 수동 구간 연구, 공식 출처 7(본문6/공식 전문검색1 직접 재열람 실패), 후보4/HOLD4/승인0. C0 확정, C1 미완료, C2 진단 HOLD, C3~7 대기. 기존 코드/원장 변경0 및 F3 STOP 유지. 다음 C1 색인 및 검색 검증, T001 별도 근거·반례 검토.

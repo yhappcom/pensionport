@@ -191,3 +191,6 @@ F3 STOP — 실패2/2: PUWsNu9b3cc 270자막, 참조74(고위험36), 실제 66�
 
 
 2026-11-28 사용자 C안 승인: 기존 17/32 및 F3 STOP 보존, 신규 C0~C7 기준은 [TOPIC_RESEARCH_PROTOCOL.md](TOPIC_RESEARCH_PROTOCOL.md). C0 확정, C1~C7 미완료. 신규 주제 연구 T001 사전 계획 등록. 기존 코드/DB 변경0.
+
+
+C안 T001 [ISA 만기자금 연금전환 연구 후보](topics/T001_ISA_PENSION_TRANSFER.md) / [구조 기록](topics/T001_ISA_PENSION_TRANSFER.json): 사전 8항목, 두 SRT 246자막 수동 구간 연구, 공식 출처 7(본문6/공식 전문검색1 직접 재열람 실패), 후보4/HOLD4/승인0. C0 확정, C1 미완료, C2 진단 HOLD, C3~7 대기. 기존 코드/원장 변경0 및 F3 STOP 유지. 다음 C1 색인 및 검색 검증, T001 별도 근거·반례 검토.
