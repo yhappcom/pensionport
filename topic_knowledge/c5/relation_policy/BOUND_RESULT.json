@@ -1,0 +1,177 @@
+{
+  "status": "BOUND_FIXED_SCOPE_PASS_C6_HOLD",
+  "checks": {
+    "git_empty_blob_vector": true,
+    "git_hello_blob_vector": true,
+    "plan_and_seven_files_bytes_verified": true,
+    "host_runner_bytes_verified": true,
+    "mutated_review_same_pin_rejected": true,
+    "review_changed_with_recomputed_hash_rejected": true,
+    "wrong_commit_rejected": true,
+    "wrong_path_rejected": true,
+    "plan_tamper_rejected": true,
+    "registry_tamper_rejected": true,
+    "experiment_profiles_tamper_rejected": true,
+    "experiment_links_tamper_rejected": true,
+    "four_preparations_and_gates_replay": true,
+    "legacy_25_experiment_29_archive_308": true,
+    "missing_profile_blocks": true,
+    "wrong_profile_blocks_fixed_contract": true,
+    "duplicate_profile_blocks": true,
+    "changed_question_blocks": true,
+    "unregistered_case_blocks": true,
+    "missing_unknown_pair_blocks": true,
+    "unknown_pair_review_flag_blocks": true,
+    "missing_obligation_blocks": true,
+    "unresolved_unknown_pair_blocks": true,
+    "answer_change_blocks": true,
+    "source_change_blocks": true,
+    "all_selected_unknown_pairs_covered": true,
+    "unknown_pair_inventory_exact": true,
+    "known_conflict_blocks_even_outside_designated_bridge": true,
+    "legacy_regression_27": true
+  },
+  "replay": [
+    {
+      "id": "N01",
+      "prepared_equal": true,
+      "gate_equal": true,
+      "gate": "CONDITIONAL",
+      "ms": 188,
+      "legacy": 25,
+      "experiment": 29,
+      "archive": 308
+    },
+    {
+      "id": "N02",
+      "prepared_equal": true,
+      "gate_equal": true,
+      "gate": "CONDITIONAL",
+      "ms": 215,
+      "legacy": 25,
+      "experiment": 29,
+      "archive": 308
+    },
+    {
+      "id": "N03",
+      "prepared_equal": true,
+      "gate_equal": true,
+      "gate": "HOLD",
+      "ms": 187,
+      "legacy": 25,
+      "experiment": 29,
+      "archive": 308
+    },
+    {
+      "id": "N04",
+      "prepared_equal": true,
+      "gate_equal": true,
+      "gate": "HOLD",
+      "ms": 188,
+      "legacy": 25,
+      "experiment": 29,
+      "archive": 308
+    }
+  ],
+  "limitations": {
+    "forged_semantic_receipt_still_passes": true,
+    "new_unregistered_question_holds": true,
+    "automatic_scope_classification_not_implemented": true,
+    "trust_anchor_supplied_by_host": true
+  },
+  "pins": {
+    "plan": "44ca853a0a65177847a04f0781c8650a99048b01",
+    "host": "c343e85b54306e7bb0c5044f8c75b686304b1ed3",
+    "runner": "88e4166e22e2a35d63e71d7d14967e87dc77f6c2",
+    "prepared": "0e803e0e2e0b57ca1a78881f868cb9e96cd83292",
+    "answers": "eb5d3a818bcb68632b89fb9f2740af1f8f9e6ed7"
+  },
+  "verified_files": [
+    {
+      "name": "engine",
+      "path": "topic_knowledge/ledger.mjs",
+      "commit": "bcb718feefcecf7cc2edd4629a3011f293add79d",
+      "blob": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+      "utf8_bytes": null
+    },
+    {
+      "name": "ledger",
+      "path": "topic_knowledge/ledger.json",
+      "commit": "bcb718feefcecf7cc2edd4629a3011f293add79d",
+      "blob": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+      "utf8_bytes": null
+    },
+    {
+      "name": "registry",
+      "path": "topic_knowledge/registry.json",
+      "commit": "bcb718feefcecf7cc2edd4629a3011f293add79d",
+      "blob": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+      "utf8_bytes": null
+    },
+    {
+      "name": "admission",
+      "path": "topic_knowledge/c5/relation_policy/admission.mjs",
+      "commit": "bcb718feefcecf7cc2edd4629a3011f293add79d",
+      "blob": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+      "utf8_bytes": null
+    },
+    {
+      "name": "shadow",
+      "path": "topic_knowledge/c5/relation_policy/shadow.mjs",
+      "commit": "bcb718feefcecf7cc2edd4629a3011f293add79d",
+      "blob": "d9438ab559831b6393cf99f10d77defd3963303a",
+      "utf8_bytes": null
+    },
+    {
+      "name": "review",
+      "path": "topics/T005/v1_REVIEW.json",
+      "commit": "07a607f0c0f898d4865c087eef4211a0199e9342",
+      "blob": "7a8f601b56466eed100be3ec2d52363e2c762768",
+      "utf8_bytes": null
+    },
+    {
+      "name": "experiment",
+      "path": "topic_knowledge/c5/relation_policy/T005_EXPERIMENT.json",
+      "commit": "2f8b0405cb35a635fb1c4982c34a6baad781c62e",
+      "blob": "365f1d8f682ac717b4dde3f54b33c5740064491e",
+      "utf8_bytes": null
+    }
+  ],
+  "relation_counts": {
+    "per_question": 32,
+    "unknown_per_question": 30,
+    "total_review_entries": 64,
+    "unknown_review_entries": 60,
+    "unique_unknown_pairs": 30
+  },
+  "assessment": {
+    "cases": 4,
+    "criteria": 10,
+    "conditional": 2,
+    "hold": 2,
+    "calculation": {
+      "duration": 5,
+      "change": 0.005,
+      "approx_price_change": -0.025
+    },
+    "method": "same ChatGPT reviewed answers against pre-fixed criteria; prior reference reused; no independent certification"
+  },
+  "cost": {
+    "first_bind_ms": 178,
+    "replay_ms": [
+      188,
+      215,
+      187,
+      188
+    ],
+    "semantic_time": "NOT_MEASURED",
+    "note": "actual question gate adds 30 unknown-pair reviews per question; 60 review entries, cannot claim net savings over global 106 pairs"
+  },
+  "limitations_text": [
+    "원본 hash는 신뢰된 Git 승인 anchor의 일치 검증이며 독립 서명이나 금융 진위 인증 아님.",
+    "기존 저수준 admit API는 변경하지 않음; 새 검증 runner 경로에서만 변조 차단. 승인 anchor/runner 자체는 신뢰된 host가 고정해야 함.",
+    "고정 4문항 범위만 분류 누락 차단. 신규 자연어 분류 및 의미적 허위 검토 자동 판정은 미해결.",
+    "전체 선택된 신규 미검토 관계는 열거하나 선택 바깥 관련성·누락의 완전성은 미입증.",
+    "전체 의미 연구시간·금전비용·Node CI 미측정. 기존 운영 원장 및 엔진 불변."
+  ]
+}
