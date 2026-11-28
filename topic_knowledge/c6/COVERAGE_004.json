@@ -1,0 +1,78 @@
+{
+  "status": "C6_IN_PROGRESS",
+  "prior": "COVERAGE_003.json",
+  "scope": {
+    "target": 791,
+    "available": 299,
+    "missing": 492,
+    "cues": 269627
+  },
+  "counts": {
+    "full": 12,
+    "partial": 53,
+    "index_only": 234,
+    "covered_cues_lower_bound": 3897,
+    "new_raw_checked": 360,
+    "net_new_cues": 360,
+    "full_new": 0,
+    "full_cues": 273,
+    "long_new_cues": 120
+  },
+  "library": {
+    "path": "/C6_COVERAGE_004.json",
+    "file_id": "file_00000000e9108211bbd7ac0d7f0d4f35",
+    "sha256": "a44e241298fa5ca460f9afb9b56399a4965f9ff7f972413a096590c281f277c0"
+  },
+  "long": {
+    "video": "2bLy034D5LA",
+    "total": 615,
+    "reviewed": [
+      1,
+      240
+    ],
+    "next": 241,
+    "new_ranges": [
+      [
+        121,
+        135,
+        "OPINION",
+        "3층연금·개인저축 필요 주장; 국민연금 미래 축소 단정 불가"
+      ],
+      [
+        136,
+        158,
+        "CONTEXT_HOLD",
+        "퇴직급여 수령 및 자기부담 운용 개념; IRP 이전 예외·일시금 과세 개별 확인"
+      ],
+      [
+        159,
+        193,
+        "CONTEXT",
+        "자기부담 용도/연금저축 비교, 90% 동일 수치 근거 없음"
+      ],
+      [
+        194,
+        201,
+        "HOLD",
+        "가입 대상과 무소득 예외 법령 별도 확인"
+      ],
+      [
+        202,
+        229,
+        "CORRECTED_CONTEXT",
+        "1800 납입·900 일반 공제 및 합산, ISA 등 추가 납입 예외 T001-02/03·T002-06; 계좌 제약 유지"
+      ],
+      [
+        230,
+        240,
+        "CORRECTED_CONTEXT",
+        "실제 공제 가능 세액, 근로소득만 총급여5500 조건 T001-04; 다음 자막 세율 이어짐"
+      ]
+    ]
+  },
+  "limits": [
+    "전체 문맥 검토와 사실 승인 구분",
+    "원본 색인 보존 DB 사용, Drive ZIP 새 조회 아님",
+    "전체 의미시간 미측정"
+  ]
+}

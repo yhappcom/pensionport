@@ -1,0 +1,188 @@
+{
+  "topic": "T009",
+  "version": 1,
+  "status": "REVIEWED_SCOPED_CANDIDATE",
+  "as_of": "2026-11-28",
+  "plan_commit": "ce8fb518718fbed333df019768dc303203757761",
+  "plan_blob": "4eaead72a4fbb115723e328279e1b1c4ba87f5a2",
+  "source_audit": {
+    "rows": [
+      {
+        "item": "01",
+        "video": "CFZNyQ8pRUE",
+        "sha": "2bde99a09d8a3e7a94d6502502c334a76d63ad1f63ede525cba876c25f9f18f3",
+        "first": 3217,
+        "last": 3264,
+        "start_ms": 6063520,
+        "end_ms": 6163280,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-CFZNyQ8pRUE.srt"
+      },
+      {
+        "item": "02",
+        "video": "swuHTDAGgeE",
+        "sha": "6244537daac0dc2179211773f94de24e681f09afbd21e86ac7aa1fa946886711",
+        "first": 721,
+        "last": 768,
+        "start_ms": 1274200,
+        "end_ms": 1365440,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-swuHTDAGgeE.srt"
+      },
+      {
+        "item": "01",
+        "video": "EUnEyu15JfM",
+        "sha": "96cc9fdf018ee738295faf510b0989c38f63e999b2ab763930ed06fc692b0476",
+        "first": 997,
+        "last": 1044,
+        "start_ms": 1931480,
+        "end_ms": 2024720,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-EUnEyu15JfM.srt"
+      },
+      {
+        "item": "02",
+        "video": "GzazVJg1V1I",
+        "sha": "cef8db8d4220dfa87364ed8b2b5dcab4d5a44d4a10127d62f03df1efcec71c4d",
+        "first": 409,
+        "last": 456,
+        "start_ms": 768199,
+        "end_ms": 850120,
+        "count": 48,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-GzazVJg1V1I.srt"
+      },
+      {
+        "item": "03",
+        "video": "CToQ4bXaP54",
+        "sha": "11b65791af65f9463878aa60f9e85291c2e8de498e522617bfe3387566060874",
+        "first": 3193,
+        "last": 3240,
+        "start_ms": 6622560,
+        "end_ms": 6728760,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-CToQ4bXaP54.srt"
+      }
+    ],
+    "unique_sources": 5,
+    "unique_cues": 240,
+    "raw_sha_time_text_match": true,
+    "duplicate_context_note": "CFZNyQ8pRUE와 swuHTDAGgeE는 동일 계열 발언 포함 가능; 독립 근거 수로 해석 금지",
+    "query_hits": [
+      45,
+      10,
+      0,
+      0,
+      80,
+      13,
+      60
+    ]
+  },
+  "cards": [
+    {
+      "id": "T009-01",
+      "status": "VERIFIED_SCOPED",
+      "rule": "단일 외화 표시 자산을 보유하고 중간 현금흐름·비용·세금·헤지가 없으면 원화 수익률=(1+외화자산 수익률)×(1+원화/외화 환율 변화율)−1이다. 환율은 외화 1단위당 원화로 정의한다. 외화 강세는 원화 환산가치 상승 요인, 약세는 하락 요인이다. +10%와 −10%의 결합은 −1%이며 단순 합산이 아니다. 중간 배당·매매가 있으면 각 현금흐름의 환산시점 및 재투자 여부를 별도 처리한다.",
+      "limits": [
+        "원문 비교 수익률·환율·채권 금리는 과거 사례이며 수치 자체 미승인. 산식은 환산 항등식으로 별도 도출.",
+        "다통화 및 헤지형 상품, 이미 원화 환산한 수익률에 재적용 금지."
+      ],
+      "sources": [
+        "CFZNyQ8pRUE:3217–3264",
+        "EUnEyu15JfM:997–1044"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/international-investing",
+          "scope": "127–132행 해외투자 비용·환율에 따른 자국통화 수익 변화",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E02",
+          "url": "https://m.krx.co.kr/contents/02/0204/020401/JHPETP020401M01.jsp",
+          "scope": "137–152행 환노출형 ETF의 원화 NAV와 외화지수 차이, 비용",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T006-01",
+        "T003-01"
+      ],
+      "attribution": "CFZNyQ8pRUE 3233–3255, EUnEyu15JfM 1009–1025/1037–1043 환율 영향 논의; 영상의 기간수익률 차이로 비용을 역산하지 않음.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T009-02",
+      "status": "VERIFIED_SCOPED",
+      "rule": "환헤지는 지정된 통화쌍의 환율 위험을 줄이는 수단이며 환차익도 줄일 수 있다. 헤지 목표와 실제 비율·재설정 및 자산가격 변화로 잔여 환위험이 생기고 거래·갱신 비용 및 계약 가격 효과가 성과에 반영될 수 있다. 비용은 일률적인 연 1~3%로 고정되지 않는다. 원화 거래 또는 H 표기만으로 모든 경제적 통화 노출 제거를 단정하지 말고 투자설명서의 기초지수, 헤지 대상 통화·목표 비율·방법·비용을 확인한다. 기초자산 가격 위험은 남으며 투자기간·지출통화·위험 감내·비용으로 선택한다.",
+      "limits": [
+        "T003-01 원화 거래의 환위험 구별은 기존 지식을 참조하며 중복 등록하지 않음; 신규는 실제 헤지 범위/비율/비용의 조건.",
+        "영상의 장기 무헤지 일률 권고, 고정 헤지 비용, 선물환 신상품/한도, 개별 상품 실시간 헤지비율 미승인. 리츠 신고서의 일반 원리만 활용."
+      ],
+      "sources": [
+        "CFZNyQ8pRUE:3217–3264",
+        "swuHTDAGgeE:721–768",
+        "GzazVJg1V1I:409–456",
+        "CToQ4bXaP54:3193–3240"
+      ],
+      "evidence": [
+        {
+          "id": "E03",
+          "url": "https://pdf.krx.co.kr/ebook_new/access/ecatalogt.jsp?Dir=23&callmode=normal&catimage=&eclang=ko&start=67&um=s",
+          "scope": "67쪽 본문: 기초자산 손실, 헤지 비율 불완전성; 과거 상품 현황 미사용",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E04",
+          "url": "https://kind.krx.co.kr/external/2025/07/30/000050/20250730000102/10601.htm",
+          "scope": "2025-07-30 리츠 신고서 1114–1119행: 헤지의 일반 작동 원리와 갱신·거래비용, 해당 리츠의 현재 계약 상태 미사용",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E05",
+          "url": "https://pdf.krx.co.kr/ebook_new/access/ecatalogt.jsp?Dir=23&callmode=normal&catimage=&eclang=ko&start=111&um=s",
+          "scope": "112쪽 본문 거래통화와 기초자산 통화 구별; 과거 거래시간·상품정보 미사용",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T009-01",
+        "T003-01",
+        "T003-02",
+        "T004-01",
+        "T004-02"
+      ],
+      "attribution": "swuHTDAGgeE 721–751 기간·비용 의견, GzazVJg1V1I 418–452 헤지 수단 소개, CToQ4bXaP54 3210–3227 H와 자산 위험. 개별 제도·상품 내용은 HOLD.",
+      "valid_through": "2026-12-31"
+    }
+  ],
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "현재 환율 전망, 특정 ETF 비용·헤지비율·성과, 개인용 선물환 상품 시행·한도, 개별 거래 및 적합성"
+    }
+  ],
+  "limits": [
+    "동일 ChatGPT 검토. 공식 검색 결과만 반환되고 직접 본문 실패한 KRX 49915 및 iShares 페이지는 승인 근거에서 제외.",
+    "3개 질문은 신규2개와 기존 T003-01로 충족; 검색어 표기 오류 발견, 전수 재현율 미측정.",
+    "기존 승인 원장 반영 전 후보."
+  ],
+  "calculations": {
+    "FX1": -0.009999999999999898
+  }
+}
