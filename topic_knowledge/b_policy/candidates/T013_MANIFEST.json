@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "policy": "B_SCOPED_DIRECT_V1",
+  "status": "OPERATING_SCOPED",
+  "legacy": {
+    "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+    "engine": {
+      "path": "topic_knowledge/ledger.mjs",
+      "blob": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70"
+    },
+    "ledger": {
+      "path": "topic_knowledge/ledger.json",
+      "blob": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c"
+    },
+    "registry": {
+      "path": "topic_knowledge/registry.json",
+      "blob": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669"
+    }
+  },
+  "hash_helper": {
+    "path": "topic_knowledge/c5/relation_policy/bound_host.mjs",
+    "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+    "blob": "c343e85b54306e7bb0c5044f8c75b686304b1ed3"
+  },
+  "policy_doc": {
+    "path": "topic_knowledge/b_policy/POLICY.md",
+    "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+    "blob": "d0fd4347341481c824b7c7bed659680e799c8fb4"
+  },
+  "approvals": [
+    {
+      "topic": "T005",
+      "path": "topic_knowledge/b_policy/T005_APPROVAL.json",
+      "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+      "blob": "1dacc42fc62c9d5d12cd14f760a9ebc61b7b64bb",
+      "review": {
+        "path": "topics/T005/v1_REVIEW.json",
+        "commit": "07a607f0c0f898d4865c087eef4211a0199e9342",
+        "blob": "7a8f601b56466eed100be3ec2d52363e2c762768"
+      }
+    },
+    {
+      "topic": "T006",
+      "path": "topic_knowledge/b_policy/T006_APPROVAL.json",
+      "commit": "15f68d62376a00dc3ccfda81212865f93267ae34",
+      "blob": "6ffcf6d976d13f68dc9fd1ee1309b63ac185fa08",
+      "review": {
+        "path": "topics/T006/v1_REVIEW.json",
+        "commit": "de3eff79b744f2bbced4750d9d6bc8b0dc246c2c",
+        "blob": "7e19238090387df996cb32fe6b4d9e315a26b092"
+      }
+    },
+    {
+      "topic": "T007",
+      "path": "topic_knowledge/b_policy/T007_APPROVAL.json",
+      "commit": "0b9ce39a2f8540488aa9f3c404c73a2aa18f723c",
+      "blob": "f05f25a4f1e238bda4b71b292ac9dcba83dd42f0",
+      "review": {
+        "path": "topics/T007/v1_REVIEW.json",
+        "commit": "1edf8934c7ffe69c79d53410fc3e0323fac40f27",
+        "blob": "9c459719776c7f94d30e09cd2418a5129a42774b"
+      }
+    },
+    {
+      "topic": "T008",
+      "path": "topic_knowledge/b_policy/T008_APPROVAL.json",
+      "commit": "deefdd2d05da08544f2bf60a62157b75b6550a39",
+      "blob": "b7b922eeb6310f69fad651d1a02c78b3b609fbbb",
+      "review": {
+        "path": "topics/T008/v1_REVIEW.json",
+        "commit": "1f356650cd5df0b3fd41ef6a1226b872694e8b98",
+        "blob": "cfea81fe9a6f125d918d438d69ab42f82114e5a0"
+      }
+    },
+    {
+      "topic": "T009",
+      "path": "topic_knowledge/b_policy/T009_APPROVAL.json",
+      "commit": "bc9a2913e0424d0470b4ec0cc48f1280b0039a4a",
+      "blob": "2abe73e0ba3a928622617145fb5785fdcc776f10",
+      "review": {
+        "path": "topics/T009/v1_REVIEW.json",
+        "commit": "2abfbcf8e40329a291de278b3da0f58766807eec",
+        "blob": "776cf27d208326f8c1c97005eada2d0cea15dc2a"
+      }
+    },
+    {
+      "topic": "T010",
+      "path": "topic_knowledge/b_policy/T010_APPROVAL.json",
+      "commit": "ebca9b1c1992573e145695eb77efacb3dd4f24aa",
+      "blob": "0cb9cd72b62422d09ee0ea408fd9c0230e3300a7",
+      "review": {
+        "path": "topics/T010/v1_REVIEW.json",
+        "commit": "526d135e5df3b5e14b5f0e462e37e8556e3d4369",
+        "blob": "2fc76ff2a02b3413a42c9553723355e20d850f97"
+      }
+    },
+    {
+      "topic": "T011",
+      "path": "topic_knowledge/b_policy/T011_APPROVAL.json",
+      "commit": "d0c436f50a6c7fcbe9c8ebc23f46e0067c305aea",
+      "blob": "eab9fda642e34e298dd3495c16e3b4615cc7b32f",
+      "review": {
+        "path": "topics/T011/v1_REVIEW.json",
+        "commit": "144d60311704f9399ba7f458888edc4d783ec343",
+        "blob": "05b38b2093d27a895b11f7aaddbf6e1adf996455"
+      }
+    },
+    {
+      "topic": "T012",
+      "path": "topic_knowledge/b_policy/T012_APPROVAL.json",
+      "commit": "ea0e2e9cbd38b4c87f386f57c3e5e06b0227d44b",
+      "blob": "e0a74b8c16afc9986718ec4aa36ca6c92e76b6ac",
+      "review": {
+        "path": "topics/T012/v1_REVIEW.json",
+        "commit": "56d58d21f8a670b7d1ba1ee20b3c7ff05975971f",
+        "blob": "38eaa76478554b730a7bbf0ca790e02560d3810c"
+      }
+    },
+    {
+      "topic": "T013",
+      "path": "topic_knowledge/b_policy/T013_APPROVAL.json",
+      "commit": "0c0072d609cf5180e32c07ffdf73b62fd29ed581",
+      "blob": "9ad585aa3eada5b53aca33672faa926b5ede6bfb",
+      "review": {
+        "path": "topics/T013/v1_REVIEW.json",
+        "commit": "c79af6c505622ab5edf37a18388cf8204f8d022d",
+        "blob": "b7a683716d14355e2742b998f0c929ddcd282430"
+      }
+    }
+  ],
+  "note": "신뢰된 ChatGPT 호스트가 이 manifest의 실제 Git blob을 고정한 후 파일 직접 읽기. 기존 원장 변경 금지. 후보 조회만; 자문 의미승인 별도."
+}
