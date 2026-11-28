@@ -1,0 +1,137 @@
+{
+  "status": "B_LIMITED_OPERATING_PASS",
+  "as_of": "2026-11-28",
+  "manifest": {
+    "commit": "cd9c45f4468c89b0960c96150e8cfd873a665b54",
+    "blob": "2f8653ea27e97717d72de26380aea0932c8e1113"
+  },
+  "operating": {
+    "commit": "cd9c45f4468c89b0960c96150e8cfd873a665b54",
+    "blob": "fd2062a35976e5f9edafa668403201d7599aaeb6"
+  },
+  "counts": {
+    "legacy": 25,
+    "operating": 29,
+    "topics": 5,
+    "relations": 308,
+    "new_unknown": 98,
+    "bond_query_candidates": 10,
+    "tests": 25,
+    "regression": 27
+  },
+  "tests": {
+    "manifest_and_code_bytes": true,
+    "legacy_25_preserved": true,
+    "29_current_candidates": true,
+    "four_explicitly_approved_T005": true,
+    "all_dependencies_available": true,
+    "topic_lookup_dependency_closure": true,
+    "300_old_8_new_relations": true,
+    "98_new_pairs_unreviewed": true,
+    "old_relation_preserved": true,
+    "query_not_advice_approval": true,
+    "historical_evidence_filtered": true,
+    "2027_expiry": true,
+    "preapproval_date_blocks_T005": true,
+    "unknown_topic_hold": true,
+    "research_missing_blocks": true,
+    "same_pin_review_tamper_blocks": true,
+    "recomputed_hash_tamper_blocks": true,
+    "approval_tamper_blocks": true,
+    "wrong_commit_blocks": true,
+    "manifest_tamper_blocks": true,
+    "legacy_registry_tamper_blocks": true,
+    "expired_dependency_blocks": true,
+    "known_conflict_blocks": true,
+    "two_prior_mixed_question_required_cards": true,
+    "legacy_regression_27": true
+  },
+  "priorCases": [
+    {
+      "id": "N01",
+      "required": [
+        "T005-01",
+        "T005-02",
+        "T005-03",
+        "T005-04",
+        "T004-05",
+        "T003-05",
+        "T002-05"
+      ],
+      "required_available": true,
+      "previous_answer_gate": "CONDITIONAL",
+      "scope": "이전 실제 질문의 필수 카드 재조회; 새 의미 정확도 평가 아님"
+    },
+    {
+      "id": "N02",
+      "required": [
+        "T005-02",
+        "T005-03",
+        "T005-04",
+        "T002-05",
+        "T003-05"
+      ],
+      "required_available": true,
+      "previous_answer_gate": "CONDITIONAL",
+      "scope": "이전 실제 질문의 필수 카드 재조회; 새 의미 정확도 평가 아님"
+    }
+  ],
+  "verified_files": [
+    {
+      "path": "topic_knowledge/b_policy/manifest.json",
+      "commit": "cd9c45f4468c89b0960c96150e8cfd873a665b54",
+      "blob": "2f8653ea27e97717d72de26380aea0932c8e1113"
+    },
+    {
+      "path": "topic_knowledge/b_policy/operating.mjs",
+      "commit": "cd9c45f4468c89b0960c96150e8cfd873a665b54",
+      "blob": "fd2062a35976e5f9edafa668403201d7599aaeb6"
+    },
+    {
+      "path": "topic_knowledge/c5/relation_policy/bound_host.mjs",
+      "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+      "blob": "c343e85b54306e7bb0c5044f8c75b686304b1ed3"
+    },
+    {
+      "path": "topic_knowledge/ledger.mjs",
+      "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+      "blob": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70"
+    },
+    {
+      "path": "topic_knowledge/ledger.json",
+      "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+      "blob": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c"
+    },
+    {
+      "path": "topic_knowledge/registry.json",
+      "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+      "blob": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669"
+    },
+    {
+      "path": "topic_knowledge/b_policy/POLICY.md",
+      "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+      "blob": "d0fd4347341481c824b7c7bed659680e799c8fb4"
+    },
+    {
+      "path": "topic_knowledge/b_policy/T005_APPROVAL.json",
+      "commit": "16bb76c3022d6c858c7d0e7b304f4d60d994002e",
+      "blob": "1dacc42fc62c9d5d12cd14f760a9ebc61b7b64bb"
+    },
+    {
+      "path": "topics/T005/v1_REVIEW.json",
+      "commit": "07a607f0c0f898d4865c087eef4211a0199e9342",
+      "blob": "7a8f601b56466eed100be3ec2d52363e2c762768"
+    }
+  ],
+  "cost": {
+    "open_ms": 164,
+    "semantic_time": "NOT_MEASURED"
+  },
+  "limits": [
+    "신뢰된 manifest/code anchor와 Git fetch 호스트 전제; 코드 실행 자체의 독립 서명 검증 아님.",
+    "B 운영 조회는 후보 제공만 수행. ChatGPT 질문별 최신 근거·필수 적용조건·충돌 검토 필요.",
+    "일반 자동분류, 전체 관계 완전성, 허위 의미 기록 자동 식별, Node CI 및 전체 비용 미입증.",
+    "실제 T005 원문 감사 이전 기록 계승; 이번 턴 DB 재검사 없음. 현재 공식 일반 근거 5개 재열람.",
+    "기존 25카드와 A 원장 불변. T005 실험 원장은 역사로 유지; 별도 B manifest 조회에서만 운영 활성."
+  ]
+}
