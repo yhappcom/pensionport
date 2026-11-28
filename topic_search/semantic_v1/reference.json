@@ -1,0 +1,19 @@
+{
+ "scope":"source-first sampled known-relevant passage recovery; questions authored after reading sampled raw cues, before opening retrieval results; not corpus recall or independent gold",
+ "metric":"target fully contained in at least one returned context, top30 per_source3 context8; partial overlap not credited",
+ "provisional_gate":{"target_recovery_min":0.95,"high_risk_misses_max":0},
+ "queries":[
+ {"id":"S01","question":"외화 RP와 발행어음의 담보 및 신용 위험 차이는?","groups":[["달러 RP","외화 RP"],["발행어음","발행업","발행음"],["담보","부도","신용 위험"]],"targets":[{"video":"FPA12oQeQbc","start":281,"end":289,"risk":"H","meaning":"RP 채권담보와 발행어음 무담보·금융사 부도위험 및 금리 일반화"}]},
+ {"id":"S02","question":"달러 RP와 발행어음에 예금자보호가 되는가?","groups":[["달러 RP","외화 RP","발행어음"],["예금자 보호","예금 보호"]],"targets":[{"video":"FPA12oQeQbc","start":315,"end":324,"risk":"H","meaning":"예금자 보호 제외 주장과 신용 위험을 낮게 평가하는 화자 의견"}]},
+ {"id":"S03","question":"달러 RP를 ISA에서 매수할 수 있는가?","groups":[["달러 RP","외화 RP"],["ISA","개인종합자산관리계좌"],["매수","투자"]],"targets":[{"video":"FPA12oQeQbc","start":306,"end":313,"risk":"H","meaning":"ISA 매수 불가 주장 및 위탁계좌 환전 후 매수 절차"}]},
+ {"id":"S04","question":"달러 발행어음의 장기 투자시 재매수와 최소금액은?","groups":[["달러","외화"],["발행어음","발행업"],["재매수","최소 투자금","최소 금액"]],"targets":[{"video":"FPA12oQeQbc","start":296,"end":302,"risk":"H","meaning":"당시 장기 금리 비교, 1년마다 재매수 조건, 최소500달러 사례"}]},
+ {"id":"S05","question":"소액으로 미국 주식 ETF에 분산투자하는 방법은?","groups":[["미국","S&P"],["ETF"],["소수점","소액","만 원"]],"targets":[{"video":"CvM8Os4ltfE","start":14,"end":19,"risk":"M","meaning":"S&P500 ETF 소수점 매매 만원 예시"}]},
+ {"id":"S06","question":"만원으로 만기 매칭형 채권 ETF에 투자할 수 있는가?","groups":[["채권","재권"],["ETF"],["만기 매칭","만 원","소액"]],"targets":[{"video":"CvM8Os4ltfE","start":26,"end":32,"risk":"M","meaning":"개별채권 대비 ETF 소액 매수, 만기매칭형 예시"}]},
+ {"id":"S07","question":"배당 ETF가 매달 현금흐름을 주는가?","groups":[["배당"],["ETF"],["매달","월배당","현금 흐름"]],"targets":[{"video":"CvM8Os4ltfE","start":32,"end":37,"risk":"H","meaning":"배당 다우존스 예시와 매달 배당금 주장, 보장 여부 별도 검증"}]},
+ {"id":"S08","question":"저축과 소비 사이의 균형에 대한 투자 심리 의견은?","groups":[["돈","자산"],["소비","쓰는","안 쓰"]],"targets":[{"video":"Uyab8p3HaRE","start":905,"end":919,"risk":"L","meaning":"돈을 벌고 쓰지 않는 것에 대한 가치관 변화"},{"video":"Uyab8p3HaRE","start":921,"end":928,"risk":"L","meaning":"과시하지 않되 필요할 때 소비하는 삶의 지향"}]},
+ {"id":"S09","question":"매도 후 원금만 회수하거나 일부 남기는 심리적 효과와 한계는?","groups":[["원금","투자금"],["수익금","매도","팔고"],["심리","정신","미련"]],"targets":[{"video":"mZnhZM3Wc88","start":1586,"end":1595,"risk":"M","meaning":"매도 후 일부 보유의 후회 완화"},{"video":"mZnhZM3Wc88","start":1601,"end":1617,"risk":"H","meaning":"원금 회수 후 수익금만 투자하는 비이성적 판단 및 심리적 부담 감소"}]},
+ {"id":"S10","question":"국민연금의 물가연동과 실질 구매력은?","groups":[["국민연금"],["물가","인플레"],["구매력","지급액","연금액"]],"targets":[{"video":"-lX8iJd-xDM","start":418,"end":431,"risk":"H","meaning":"물가 반영 및 미래 명목 금액과 실질 구매력 구분"}]},
+ {"id":"S11","question":"국민연금만으로 부부 노후 생활비를 충족할 수 있는가?","groups":[["국민연금"],["부부","노후"],["생활비","300","한계"]],"targets":[{"video":"-lX8iJd-xDM","start":440,"end":447,"risk":"H","meaning":"부부 270~330만원 추정치와 국민연금 단독 한계"},{"video":"-lX8iJd-xDM","start":448,"end":463,"risk":"M","meaning":"제도 불확실성 대비 퇴직·개인연금과 운용 중요성"}]},
+ {"id":"S12","question":"정액 적립식 매수의 평균단가 효과와 수익 보장 주장은?","groups":[["적립식","정립식"],["평균단가","평단","코스트 에버리지"]],"targets":[{"video":"tDD5GzvDYq8","start":196,"end":219,"risk":"H","meaning":"가격 상승 하락에 따른 수량 및 평균단가 효과와 수익 일반화"},{"video":"tDD5GzvDYq8","start":220,"end":239,"risk":"H","meaning":"정액 적립식 조건에서 시장 타이밍보다 유리하다는 보편화 주장"}]}
+ ]
+}

@@ -1,0 +1,492 @@
+{
+  "status": "HOLD_SAMPLE",
+  "scope": "source-first sampled known-relevant passage recovery; questions authored after reading sampled raw cues, before opening retrieval results; not corpus recall or independent gold",
+  "metric": "target fully contained in at least one returned context, top30 per_source3 context8; partial overlap not credited",
+  "source_count": 6,
+  "sample_cues": 351,
+  "questions": 12,
+  "targets": 16,
+  "recovered": 10,
+  "high_risk_targets": 10,
+  "high_risk_recovered": 6,
+  "eligible_targets": 12,
+  "recovery": 0.625,
+  "reference_sha": "ba48ae3babd039c210a3002408913f495cf419e5de66f4827d0ec323d407ee7d",
+  "sample_plan_sha": "834f5f519cc57d1b591ef9b834953746aed06b00b8498d2f93cc6761a2458cea",
+  "code_sha": "153cba03d77d82b6eff2a3d507f9a6b025385dcc750bddd155048b4debf7bedb",
+  "db_sha_before": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+  "db_sha_after": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+  "queries": [
+    {
+      "id": "S01",
+      "question": "외화 RP와 발행어음의 담보 및 신용 위험 차이는?",
+      "matched_sources": 1,
+      "matched_windows": 2,
+      "returned": 1,
+      "error": null,
+      "elapsed_ms": 64.87,
+      "targets": [
+        {
+          "video": "FPA12oQeQbc",
+          "start": 281,
+          "end": 289,
+          "risk": "H",
+          "meaning": "RP 채권담보와 발행어음 무담보·금융사 부도위험 및 금리 일반화",
+          "full_context": true,
+          "ranks": [
+            1
+          ],
+          "same_source_ranks": [
+            1
+          ],
+          "eligible_windows": [
+            [
+              265,
+              288
+            ],
+            [
+              277,
+              300
+            ]
+          ],
+          "failure_class": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "question": "달러 RP와 발행어음에 예금자보호가 되는가?",
+      "matched_sources": 2,
+      "matched_windows": 3,
+      "returned": 2,
+      "error": null,
+      "elapsed_ms": 1.074,
+      "targets": [
+        {
+          "video": "FPA12oQeQbc",
+          "start": 315,
+          "end": 324,
+          "risk": "H",
+          "meaning": "예금자 보호 제외 주장과 신용 위험을 낮게 평가하는 화자 의견",
+          "full_context": true,
+          "ranks": [
+            1
+          ],
+          "same_source_ranks": [
+            1
+          ],
+          "eligible_windows": [
+            [
+              301,
+              324
+            ],
+            [
+              313,
+              336
+            ]
+          ],
+          "failure_class": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "question": "달러 RP를 ISA에서 매수할 수 있는가?",
+      "matched_sources": 0,
+      "matched_windows": 0,
+      "returned": 0,
+      "error": null,
+      "elapsed_ms": 54.781,
+      "targets": [
+        {
+          "video": "FPA12oQeQbc",
+          "start": 306,
+          "end": 313,
+          "risk": "H",
+          "meaning": "ISA 매수 불가 주장 및 위탁계좌 환전 후 매수 절차",
+          "full_context": false,
+          "ranks": [],
+          "same_source_ranks": [],
+          "eligible_windows": [],
+          "failure_class": "NO_ELIGIBLE_WINDOW_FOR_FULL_ANCHOR"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "question": "달러 발행어음의 장기 투자시 재매수와 최소금액은?",
+      "matched_sources": 4,
+      "matched_windows": 7,
+      "returned": 4,
+      "error": null,
+      "elapsed_ms": 66.709,
+      "targets": [
+        {
+          "video": "FPA12oQeQbc",
+          "start": 296,
+          "end": 302,
+          "risk": "H",
+          "meaning": "당시 장기 금리 비교, 1년마다 재매수 조건, 최소500달러 사례",
+          "full_context": true,
+          "ranks": [
+            1
+          ],
+          "same_source_ranks": [
+            1
+          ],
+          "eligible_windows": [
+            [
+              277,
+              300
+            ],
+            [
+              289,
+              312
+            ]
+          ],
+          "failure_class": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "question": "소액으로 미국 주식 ETF에 분산투자하는 방법은?",
+      "matched_sources": 35,
+      "matched_windows": 104,
+      "returned": 30,
+      "error": null,
+      "elapsed_ms": 101.873,
+      "targets": [
+        {
+          "video": "CvM8Os4ltfE",
+          "start": 14,
+          "end": 19,
+          "risk": "M",
+          "meaning": "S&P500 ETF 소수점 매매 만원 예시",
+          "full_context": true,
+          "ranks": [
+            1
+          ],
+          "same_source_ranks": [
+            1
+          ],
+          "eligible_windows": [
+            [
+              1,
+              24
+            ],
+            [
+              13,
+              36
+            ]
+          ],
+          "failure_class": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "question": "만원으로 만기 매칭형 채권 ETF에 투자할 수 있는가?",
+      "matched_sources": 33,
+      "matched_windows": 100,
+      "returned": 30,
+      "error": null,
+      "elapsed_ms": 139.137,
+      "targets": [
+        {
+          "video": "CvM8Os4ltfE",
+          "start": 26,
+          "end": 32,
+          "risk": "M",
+          "meaning": "개별채권 대비 ETF 소액 매수, 만기매칭형 예시",
+          "full_context": true,
+          "ranks": [
+            2
+          ],
+          "same_source_ranks": [
+            2
+          ],
+          "eligible_windows": [
+            [
+              13,
+              36
+            ],
+            [
+              25,
+              48
+            ]
+          ],
+          "failure_class": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "question": "배당 ETF가 매달 현금흐름을 주는가?",
+      "matched_sources": 47,
+      "matched_windows": 131,
+      "returned": 30,
+      "error": null,
+      "elapsed_ms": 68.398,
+      "targets": [
+        {
+          "video": "CvM8Os4ltfE",
+          "start": 32,
+          "end": 37,
+          "risk": "H",
+          "meaning": "배당 다우존스 예시와 매달 배당금 주장, 보장 여부 별도 검증",
+          "full_context": false,
+          "ranks": [],
+          "same_source_ranks": [],
+          "eligible_windows": [
+            [
+              13,
+              36
+            ],
+            [
+              25,
+              48
+            ]
+          ],
+          "failure_class": "RANK_OR_SUPPRESSION"
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "question": "저축과 소비 사이의 균형에 대한 투자 심리 의견은?",
+      "matched_sources": 0,
+      "matched_windows": 0,
+      "returned": 0,
+      "error": "nonempty groups, terms >=2 normalized characters required",
+      "elapsed_ms": 0.012,
+      "targets": [
+        {
+          "video": "Uyab8p3HaRE",
+          "start": 905,
+          "end": 919,
+          "risk": "L",
+          "meaning": "돈을 벌고 쓰지 않는 것에 대한 가치관 변화",
+          "full_context": false,
+          "ranks": [],
+          "same_source_ranks": [],
+          "eligible_windows": [],
+          "failure_class": "INVALID_QUERY"
+        },
+        {
+          "video": "Uyab8p3HaRE",
+          "start": 921,
+          "end": 928,
+          "risk": "L",
+          "meaning": "과시하지 않되 필요할 때 소비하는 삶의 지향",
+          "full_context": false,
+          "ranks": [],
+          "same_source_ranks": [],
+          "eligible_windows": [],
+          "failure_class": "INVALID_QUERY"
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "question": "매도 후 원금만 회수하거나 일부 남기는 심리적 효과와 한계는?",
+      "matched_sources": 2,
+      "matched_windows": 3,
+      "returned": 2,
+      "error": null,
+      "elapsed_ms": 191.758,
+      "targets": [
+        {
+          "video": "mZnhZM3Wc88",
+          "start": 1586,
+          "end": 1595,
+          "risk": "M",
+          "meaning": "매도 후 일부 보유의 후회 완화",
+          "full_context": true,
+          "ranks": [
+            1
+          ],
+          "same_source_ranks": [
+            1
+          ],
+          "eligible_windows": [
+            [
+              1573,
+              1596
+            ],
+            [
+              1585,
+              1608
+            ]
+          ],
+          "failure_class": "NONE"
+        },
+        {
+          "video": "mZnhZM3Wc88",
+          "start": 1601,
+          "end": 1617,
+          "risk": "H",
+          "meaning": "원금 회수 후 수익금만 투자하는 비이성적 판단 및 심리적 부담 감소",
+          "full_context": false,
+          "ranks": [],
+          "same_source_ranks": [
+            1
+          ],
+          "eligible_windows": [],
+          "failure_class": "NO_ELIGIBLE_WINDOW_FOR_FULL_ANCHOR"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "question": "국민연금의 물가연동과 실질 구매력은?",
+      "matched_sources": 4,
+      "matched_windows": 12,
+      "returned": 6,
+      "error": null,
+      "elapsed_ms": 34.764,
+      "targets": [
+        {
+          "video": "-lX8iJd-xDM",
+          "start": 418,
+          "end": 431,
+          "risk": "H",
+          "meaning": "물가 반영 및 미래 명목 금액과 실질 구매력 구분",
+          "full_context": true,
+          "ranks": [
+            1
+          ],
+          "same_source_ranks": [
+            1
+          ],
+          "eligible_windows": [
+            [
+              409,
+              432
+            ],
+            [
+              421,
+              444
+            ]
+          ],
+          "failure_class": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "question": "국민연금만으로 부부 노후 생활비를 충족할 수 있는가?",
+      "matched_sources": 14,
+      "matched_windows": 39,
+      "returned": 22,
+      "error": null,
+      "elapsed_ms": 100.127,
+      "targets": [
+        {
+          "video": "-lX8iJd-xDM",
+          "start": 440,
+          "end": 447,
+          "risk": "H",
+          "meaning": "부부 270~330만원 추정치와 국민연금 단독 한계",
+          "full_context": true,
+          "ranks": [
+            7
+          ],
+          "same_source_ranks": [
+            7
+          ],
+          "eligible_windows": [
+            [
+              421,
+              444
+            ],
+            [
+              433,
+              456
+            ]
+          ],
+          "failure_class": "NONE"
+        },
+        {
+          "video": "-lX8iJd-xDM",
+          "start": 448,
+          "end": 463,
+          "risk": "M",
+          "meaning": "제도 불확실성 대비 퇴직·개인연금과 운용 중요성",
+          "full_context": true,
+          "ranks": [
+            7
+          ],
+          "same_source_ranks": [
+            7
+          ],
+          "eligible_windows": [
+            [
+              433,
+              456
+            ]
+          ],
+          "failure_class": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "question": "정액 적립식 매수의 평균단가 효과와 수익 보장 주장은?",
+      "matched_sources": 12,
+      "matched_windows": 32,
+      "returned": 15,
+      "error": null,
+      "elapsed_ms": 24.269,
+      "targets": [
+        {
+          "video": "tDD5GzvDYq8",
+          "start": 196,
+          "end": 219,
+          "risk": "H",
+          "meaning": "가격 상승 하락에 따른 수량 및 평균단가 효과와 수익 일반화",
+          "full_context": false,
+          "ranks": [],
+          "same_source_ranks": [
+            2,
+            5,
+            8
+          ],
+          "eligible_windows": [
+            [
+              193,
+              216
+            ]
+          ],
+          "failure_class": "RANK_OR_SUPPRESSION"
+        },
+        {
+          "video": "tDD5GzvDYq8",
+          "start": 220,
+          "end": 239,
+          "risk": "H",
+          "meaning": "정액 적립식 조건에서 시장 타이밍보다 유리하다는 보편화 주장",
+          "full_context": true,
+          "ranks": [
+            2
+          ],
+          "same_source_ranks": [
+            2,
+            5,
+            8
+          ],
+          "eligible_windows": [
+            [
+              217,
+              240
+            ]
+          ],
+          "failure_class": "NONE"
+        }
+      ]
+    }
+  ],
+  "formal_corpus_recall": "UNMEASURED",
+  "independent_certification": "UNVERIFIED",
+  "financial_validation": "NOT_RUN"
+}

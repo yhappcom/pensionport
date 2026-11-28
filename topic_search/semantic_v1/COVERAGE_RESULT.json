@@ -1,0 +1,271 @@
+{
+  "status": "KNOWN_SAMPLE_DIAGNOSTIC_ONLY",
+  "scope": "same sample after observed failures; no new independent evaluation or promotion",
+  "window_count": 21782,
+  "build_seconds": 0.4286824870005148,
+  "targets": 16,
+  "inventory_recovered": 16,
+  "top30_recovered": 14,
+  "high_risk_inventory": 10,
+  "high_risk_top30": 9,
+  "total_candidates": 3320,
+  "db_sha": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+  "queries": [
+    {
+      "id": "S01",
+      "elapsed_ms": 56.676,
+      "matched_windows": 5,
+      "matched_sources": 1,
+      "targets": [
+        {
+          "video": "FPA12oQeQbc",
+          "start": 281,
+          "end": 289,
+          "risk": "H",
+          "meaning": "RP 채권담보와 발행어음 무담보·금융사 부도위험 및 금리 일반화",
+          "inventory_recovered": true,
+          "best_rank": 1,
+          "top30": true
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "elapsed_ms": 36.998,
+      "matched_windows": 11,
+      "matched_sources": 6,
+      "targets": [
+        {
+          "video": "FPA12oQeQbc",
+          "start": 315,
+          "end": 324,
+          "risk": "H",
+          "meaning": "예금자 보호 제외 주장과 신용 위험을 낮게 평가하는 화자 의견",
+          "inventory_recovered": true,
+          "best_rank": 3,
+          "top30": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "elapsed_ms": 49.639,
+      "matched_windows": 10,
+      "matched_sources": 4,
+      "targets": [
+        {
+          "video": "FPA12oQeQbc",
+          "start": 306,
+          "end": 313,
+          "risk": "H",
+          "meaning": "ISA 매수 불가 주장 및 위탁계좌 환전 후 매수 절차",
+          "inventory_recovered": true,
+          "best_rank": 5,
+          "top30": true
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "elapsed_ms": 50.737,
+      "matched_windows": 20,
+      "matched_sources": 4,
+      "targets": [
+        {
+          "video": "FPA12oQeQbc",
+          "start": 296,
+          "end": 302,
+          "risk": "H",
+          "meaning": "당시 장기 금리 비교, 1년마다 재매수 조건, 최소500달러 사례",
+          "inventory_recovered": true,
+          "best_rank": 1,
+          "top30": true
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "elapsed_ms": 43.152,
+      "matched_windows": 308,
+      "matched_sources": 56,
+      "targets": [
+        {
+          "video": "CvM8Os4ltfE",
+          "start": 14,
+          "end": 19,
+          "risk": "M",
+          "meaning": "S&P500 ETF 소수점 매매 만원 예시",
+          "inventory_recovered": true,
+          "best_rank": 1,
+          "top30": true
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "elapsed_ms": 45.15,
+      "matched_windows": 286,
+      "matched_sources": 49,
+      "targets": [
+        {
+          "video": "CvM8Os4ltfE",
+          "start": 26,
+          "end": 32,
+          "risk": "M",
+          "meaning": "개별채권 대비 ETF 소액 매수, 만기매칭형 예시",
+          "inventory_recovered": true,
+          "best_rank": 15,
+          "top30": true
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "elapsed_ms": 38.907,
+      "matched_windows": 292,
+      "matched_sources": 53,
+      "targets": [
+        {
+          "video": "CvM8Os4ltfE",
+          "start": 32,
+          "end": 37,
+          "risk": "H",
+          "meaning": "배당 다우존스 예시와 매달 배당금 주장, 보장 여부 별도 검증",
+          "inventory_recovered": true,
+          "best_rank": 258,
+          "top30": false
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "elapsed_ms": 54.032,
+      "matched_windows": 2163,
+      "matched_sources": 183,
+      "targets": [
+        {
+          "video": "Uyab8p3HaRE",
+          "start": 905,
+          "end": 919,
+          "risk": "L",
+          "meaning": "돈을 벌고 쓰지 않는 것에 대한 가치관 변화",
+          "inventory_recovered": true,
+          "best_rank": 2,
+          "top30": true
+        },
+        {
+          "video": "Uyab8p3HaRE",
+          "start": 921,
+          "end": 928,
+          "risk": "L",
+          "meaning": "과시하지 않되 필요할 때 소비하는 삶의 지향",
+          "inventory_recovered": true,
+          "best_rank": 708,
+          "top30": false
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "elapsed_ms": 60.642,
+      "matched_windows": 14,
+      "matched_sources": 4,
+      "targets": [
+        {
+          "video": "mZnhZM3Wc88",
+          "start": 1586,
+          "end": 1595,
+          "risk": "M",
+          "meaning": "매도 후 일부 보유의 후회 완화",
+          "inventory_recovered": true,
+          "best_rank": 1,
+          "top30": true
+        },
+        {
+          "video": "mZnhZM3Wc88",
+          "start": 1601,
+          "end": 1617,
+          "risk": "H",
+          "meaning": "원금 회수 후 수익금만 투자하는 비이성적 판단 및 심리적 부담 감소",
+          "inventory_recovered": true,
+          "best_rank": 1,
+          "top30": true
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "elapsed_ms": 43.914,
+      "matched_windows": 26,
+      "matched_sources": 4,
+      "targets": [
+        {
+          "video": "-lX8iJd-xDM",
+          "start": 418,
+          "end": 431,
+          "risk": "H",
+          "meaning": "물가 반영 및 미래 명목 금액과 실질 구매력 구분",
+          "inventory_recovered": true,
+          "best_rank": 1,
+          "top30": true
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "elapsed_ms": 46.546,
+      "matched_windows": 129,
+      "matched_sources": 25,
+      "targets": [
+        {
+          "video": "-lX8iJd-xDM",
+          "start": 440,
+          "end": 447,
+          "risk": "H",
+          "meaning": "부부 270~330만원 추정치와 국민연금 단독 한계",
+          "inventory_recovered": true,
+          "best_rank": 24,
+          "top30": true
+        },
+        {
+          "video": "-lX8iJd-xDM",
+          "start": 448,
+          "end": 463,
+          "risk": "M",
+          "meaning": "제도 불확실성 대비 퇴직·개인연금과 운용 중요성",
+          "inventory_recovered": true,
+          "best_rank": 24,
+          "top30": true
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "elapsed_ms": 30.801,
+      "matched_windows": 56,
+      "matched_sources": 13,
+      "targets": [
+        {
+          "video": "tDD5GzvDYq8",
+          "start": 196,
+          "end": 219,
+          "risk": "H",
+          "meaning": "가격 상승 하락에 따른 수량 및 평균단가 효과와 수익 일반화",
+          "inventory_recovered": true,
+          "best_rank": 1,
+          "top30": true
+        },
+        {
+          "video": "tDD5GzvDYq8",
+          "start": 220,
+          "end": 239,
+          "risk": "H",
+          "meaning": "정액 적립식 조건에서 시장 타이밍보다 유리하다는 보편화 주장",
+          "inventory_recovered": true,
+          "best_rank": 1,
+          "top30": true
+        }
+      ]
+    }
+  ]
+}
