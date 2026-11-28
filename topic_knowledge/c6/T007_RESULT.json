@@ -1,0 +1,87 @@
+{
+  "status": "PASS_B_SCOPED_T007",
+  "as_of": "2026-11-28",
+  "manifest": {
+    "commit": "4d4944b6caefe97fb5cbbc730fb7523b3f9a4784",
+    "path": "topic_knowledge/b_policy/candidates/T007_MANIFEST.json",
+    "blob": "a5719b7688972c7fa53d3d5b1edabfbe71d945c8"
+  },
+  "engine_blob": "fd2062a35976e5f9edafa668403201d7599aaeb6",
+  "prior_manifest_blob": "46deec4ac9014680c27bd169f2464976bd405b24",
+  "counts": {
+    "active": 35,
+    "topics": 7,
+    "relations": 328,
+    "query_cards": 25,
+    "tests": 21,
+    "regression": 27
+  },
+  "tests": {
+    "approved_35": true,
+    "prior_32_preserved": true,
+    "old_317_relations_preserved": true,
+    "eleven_new_direct_relations": true,
+    "T007_three_cards": true,
+    "dependency_closure": true,
+    "all_dependencies": true,
+    "unknown_not_distinct": true,
+    "old_manifest_excludes_T007": true,
+    "expiry": true,
+    "before_approval": true,
+    "unapproved_topic": true,
+    "candidate_not_advice": true,
+    "review_tamper": true,
+    "approval_tamper": true,
+    "missing_review": true,
+    "dependent_expiry": true,
+    "known_conflict": true,
+    "legacy_regression": true,
+    "advice_required_retrieval": true,
+    "calculation": true
+  },
+  "advisory": {
+    "method": "same ChatGPT reviewed prior fixed questions and actual retrieved card set; seven criteria manually checked, not independent certification; conditional educational answers only",
+    "answers": [
+      {
+        "id": "W01",
+        "used": [
+          "T007-01",
+          "T004-01",
+          "T004-05"
+        ],
+        "answer": "수익률이 분배금 포함이고 세금·비용 제외, 매년 말 500만원 인출이라는 가정에서 −20% 후 +25%는 첫해 7500만원, 둘째 해 8875만원입니다. 반대로 +25% 후 −20%는 첫해 1억2000만원, 둘째 해 9100만원입니다. 인출이 없으면 두 순서 모두 1억원입니다. 초기 하락과 인출이 겹치면 이후 회복에 쓸 자산이 줄어들 수 있습니다. 예시는 고갈 확률이나 미래 수익 예측이 아닙니다.",
+        "calculation": [
+          88750000,
+          91000000,
+          100000000
+        ]
+      },
+      {
+        "id": "W02",
+        "used": [
+          "T007-01",
+          "T007-02",
+          "T007-03",
+          "T003-02",
+          "T006-03",
+          "T002-03",
+          "T002-04",
+          "T002-05"
+        ],
+        "answer": "3억원의 4%는 첫해 1200만원, 월평균 100만원입니다. 이후 물가에 맞춰 조정하는 전통적 규칙은 30년 전후의 연구 가정에서 비롯된 경험적 기준으로 평생 지급이나 원금 유지를 보장하지 않습니다. 장수, 물가, 투자수익 순서, 자산배분, 비용·세금 및 필수 지출을 검토하고 하락기에 재량 지출을 줄이거나 물가 인상을 유예하는 대안을 검토합니다. 연금계좌의 법정 수령한도와 과세·중도인출 조건은 별도 최신 확인이 필요합니다. 개인별 지급액이나 실제 거래를 확정할 수 없습니다.",
+        "calculation": 12000000
+      }
+    ]
+  },
+  "cost": {
+    "both_snapshots_open_ms": 288,
+    "semantic_time": "NOT_ISOLATED"
+  },
+  "limitations": [
+    "최초 실행 LOCATION_MISMATCH, 파일 경로/커밋 직접 매핑으로 재실행; 엔진 및 자료 변경 없음. 첫 실패의 정확한 변수 원인은 미확정.",
+    "운영 코드 및 기존32 지식 불변",
+    "B 후보 조회 이후 ChatGPT 의미 검토 필수",
+    "독립 평가·Node CI·전체 연구비용 미입증",
+    "국내 세제와 실제 상품은 미검증 범위"
+  ]
+}
