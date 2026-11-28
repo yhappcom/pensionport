@@ -1,0 +1,99 @@
+{
+  "status": "C6_IN_PROGRESS",
+  "prior": "COVERAGE_007.json",
+  "scope": {
+    "target": 791,
+    "available": 299,
+    "missing": 492,
+    "cues": 269627
+  },
+  "counts": {
+    "full": 16,
+    "partial": 62,
+    "index_only": 221,
+    "covered_cues_lower_bound": 5304,
+    "new_raw_checked": 393,
+    "net_new_cues": 393,
+    "full_new": 1,
+    "full_cues": 984
+  },
+  "library": {
+    "path": "/C6_COVERAGE_008.json",
+    "file_id": "file_00000000f5c08209a6c32707efcb11b4",
+    "sha256": "e4148f8a04d878e0fd4e6e8d90fc561df352cc57b94a1ec87e1856fe33751c45"
+  },
+  "long": {
+    "video": "Yd5qnDtW2TM",
+    "sha": "e67be6da14dc6eae2fe8172add56f2c98efb1e6e232587aaa591d8752b043792",
+    "total": 618,
+    "reviewed": [
+      1,
+      120
+    ],
+    "next": 121,
+    "new_ranges": [
+      [
+        1,
+        24,
+        "OPINION_CONTEXT",
+        "월300만원 목표, 연금수단 소개, 평생 보장 단정 배제"
+      ],
+      [
+        25,
+        43,
+        "HOLD",
+        "국민연금 의무와 납부예외, 근로자/자영업 차이 별도 검증"
+      ],
+      [
+        44,
+        74,
+        "HOLD",
+        "노란우산·푸른씨앗 가입 대상과 사업주/근로자 구분"
+      ],
+      [
+        75,
+        104,
+        "HOLD",
+        "압류 금지 범위, 공제금 이율·지급요건 및 운영주체 공식 확인 필요"
+      ],
+      [
+        105,
+        120,
+        "OPINION_HOLD",
+        "월납입/퇴직급여 실제 조건 및 푸른씨앗 수익률 우위 불승인; 다음 문맥 이어짐"
+      ]
+    ]
+  },
+  "full_new": {
+    "video": "Xgjhy0HKqcQ",
+    "total": 33,
+    "ranges": [
+      [
+        1,
+        9,
+        "CORRECTED_CONTEXT",
+        "T013 관리비 면제 조건"
+      ],
+      [
+        10,
+        24,
+        "CORRECTED_CONTEXT",
+        "해지 시 퇴직소득 원천 및 연금 수령 연차별 세제 T002, 무페널티 일반화 금지"
+      ],
+      [
+        25,
+        33,
+        "CORRECTED_CONTEXT",
+        "상품 적격성 및 위험 T012"
+      ]
+    ]
+  },
+  "cost": {
+    "raw_audit_seconds": 0.16518097700009093
+  },
+  "limits": [
+    "보존 DB 원본 사용, Drive ZIP 신규 조회 아님",
+    "문맥 검토와 사실 승인 별개",
+    "전체 의미시간 미측정"
+  ]
+}

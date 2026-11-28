@@ -1,0 +1,232 @@
+{
+  "topic": "T013",
+  "version": 1,
+  "status": "REVIEWED_SCOPED_CANDIDATE",
+  "as_of": "2026-11-28",
+  "plan_commit": "1e385a391cb59141584fb1687f925ce20d0dc4b0",
+  "plan_blob": "061c36ad7223bea585383d8c24e522ea525187e6",
+  "source_audit": {
+    "rows": [
+      {
+        "item": "01/02/03",
+        "video": "CToQ4bXaP54",
+        "sha": "11b65791af65f9463878aa60f9e85291c2e8de498e522617bfe3387566060874",
+        "first": 1993,
+        "last": 2040,
+        "start_ms": 4161880,
+        "end_ms": 4270560,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-CToQ4bXaP54.srt"
+      },
+      {
+        "item": "01",
+        "video": "Q3OrWpOVS2E",
+        "sha": "66092d2d28be2e7f8ea4bc3313d0b7a04f5261a7432a68dbfa0b8e7a682be1c8",
+        "first": 625,
+        "last": 684,
+        "start_ms": 1232559,
+        "end_ms": 1353559,
+        "count": 60,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-Q3OrWpOVS2E.srt"
+      },
+      {
+        "item": "01",
+        "video": "GFTYwKkZgoQ",
+        "sha": "4e7da21b940bee5b5f21895232559cf6d31a6bde762b3c788bf39eb79b8bc39b",
+        "first": 337,
+        "last": 384,
+        "start_ms": 645959,
+        "end_ms": 739600,
+        "count": 48,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-GFTYwKkZgoQ.srt"
+      },
+      {
+        "item": "02/03",
+        "video": "7V0PEzRddxs",
+        "sha": "074302caccb14d8303174af813596c937192a5221c0a3c69ffcacab4f7fdd54f",
+        "first": 1033,
+        "last": 1116,
+        "start_ms": 2053320,
+        "end_ms": 2213800,
+        "count": 84,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-7V0PEzRddxs.srt"
+      },
+      {
+        "item": "01",
+        "video": "Xgjhy0HKqcQ",
+        "sha": "b9800cbbe0cb4a8350cde584ef7300fa6dab63e93125217d0e7b1903dc6aca10",
+        "first": 1,
+        "last": 33,
+        "start_ms": 240,
+        "end_ms": 75280,
+        "count": 33,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-Xgjhy0HKqcQ.srt"
+      }
+    ],
+    "unique_sources": 5,
+    "unique_cues": 273,
+    "raw_sha_time_text_match": true,
+    "query_hits": [
+      33,
+      7,
+      94,
+      9,
+      81
+    ]
+  },
+  "cards": [
+    {
+      "id": "T013-01",
+      "status": "VERIFIED_SCOPED",
+      "rule": "IRP의 계좌 운용관리수수료와 자산관리수수료는 상품 자체 보수·거래비용과 별개다. 관리수수료 면제라도 상품비용이 남을 수 있다. 금융사와 가입경로, 부담금 종류(퇴직급여/개인), 계약일, 적립금 규모, 연금수령 여부, 중도해지·이전 조건에 따라 실제 부담이 다르므로 적용 계약서와 공시를 함께 확인한다. 은행·증권사 일률 우위 또는 고정 수수료율은 단정하지 않는다. 일정한 1억원 잔액에 두 관리수수료 합계 연 0.2%라고 가정하면 연 20만원으로 상품비용 제외 단순 계산이다.",
+      "limits": [
+        "개별 금융사 현재 요율·면제 적용 여부는 실제 계약 확인 후 판단. 우리은행 공식 공시의 1년 이내 이전 예외는 해당 계약 사례이며 전 금융사 공통 조건이 아님.",
+        "상품 순수익률에 이미 반영된 비용 재차 차감 금지. 이벤트·수익률 우위 미승인."
+      ],
+      "sources": [
+        "CToQ4bXaP54:1993–2040",
+        "Q3OrWpOVS2E:625–684",
+        "GFTYwKkZgoQ:337–384",
+        "Xgjhy0HKqcQ:1–33"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://okbfex.kbstar.com/quics?page=C027737",
+          "scope": "306–320,348–359행: 관리수수료 및 상품별 수수료, 면제조건",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E02",
+          "url": "https://svc.wooribank.com/svc/Dream?withyou=RPRPS0323",
+          "scope": "218–280,367–378행: 비대면 면제·1년 이내 이전 예외, 부담금별 차이",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T003-02",
+        "T006-01"
+      ],
+      "attribution": "CTo 1993–2012, Q3 632–673, GFT 349–375, Xgj 4–9: 계좌 수수료 설명과 업권 일반화 교정.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T013-02",
+      "status": "VERIFIED_SCOPED",
+      "rule": "퇴직연금 실물이전은 적격 운용상품을 매도하지 않고 사업자를 변경하는 서비스다. 현행 확인 범위는 동일 제도(DB↔DB, DC↔DC, IRP↔IRP)이며 신탁형 예금·공모펀드·ETF 등도 수취 사업자가 동일 상품을 취급하고 계약·상품 조건을 만족해야 한다. 디폴트옵션 자체 상품, 보험형 자산관리계약, 언번들형 등은 기존 제외 유형이다. 매도가 가능한 제외·미취급 상품은 현금화 이전이 필요할 수 있으며 환매중단 등으로 현금화가 불가능하면 이전 자체가 제한될 수 있다. 수취 사업자에서 이전 신청 후 실물이전 목록, 현금화 대상, 중도해지 금리와 거래 공백, 최종 의사를 확인한다. 2026년 11월 발표의 환매중단펀드·국채·DC→타사IRP 확대 계획은 시행 전이므로 현행 가능 범위로 취급하지 않는다.",
+      "limits": [
+        "실제 개별 종목·이전 경로·일정·사업자 지원 여부 HOLD. 같은 사업자 내부 DC→IRP 처리와 타사 실물이전을 혼동하지 않음.",
+        "2026-11 최신 발표는 공식 검색 발췌만 확보, 직접 본문 실패. 미래 일정·시행 여부 재검증 전 승인 금지."
+      ],
+      "sources": [
+        "CToQ4bXaP54:1993–2040",
+        "7V0PEzRddxs:1033–1116"
+      ],
+      "evidence": [
+        {
+          "id": "E03",
+          "url": "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=17141",
+          "scope": "573–593행: 동일제도·수취 상품·매도 필요·신청과 최종 의사 확인",
+          "date": "2024-10-31 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E04",
+          "url": "https://biz.kebhana.com/cont/customer/customer07/1504283_135643.jsp",
+          "scope": "48–57,78–82행: 디폴트옵션·보험계약·언번들 제외 및 의사 확인",
+          "date": "2024-10-31",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E07",
+          "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=290122&pg=&pp=20&topic=P",
+          "scope": "11월26일 발표의 국채 2027년3월 예정 및 DC→타사IRP 추진, 직접 페이지 cache miss; 시행 확정 근거 아님",
+          "date": "2026-11-26",
+          "type": "OFFICIAL_SEARCH_EXCERPT",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T012-01",
+        "T012-02",
+        "T013-01"
+      ],
+      "attribution": "CTo 2013–2036 및 7V0 1045–1097, 후자의 DC→IRP 무매도 일반화 교정.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T013-03",
+      "status": "VERIFIED_SCOPED",
+      "rule": "소득세법 시행령 제40조의4 제1항에 따라 연금수령 개시 전 다른 연금계좌로 적격 이체되는 금액은 원칙적으로 인출로 보지 않는다. 연금저축↔퇴직연금 상호 이체, 2013-03-01 이후 가입 계좌에서 그 이전 가입 계좌로 이체, 퇴직연금계좌 일부 금액 이체는 원칙의 예외다. 제2항에 따른 연금수령 요건을 충족한 연금저축↔해당 IRP 전액 이체는 별도 예외로 인출로 보지 않을 수 있다. 연금계좌 안에서 상품을 매도해 적격 계약이전을 하는 것과 개인 일반계좌로 인출하는 행위를 구분한다. 실제 이전은 수취 금융사에 계약이전 신청하고 과세원천·이체명세·수령개시 상태를 확인한다.",
+      "limits": [
+        "7월 직접 조문 및 10월 공식 검색 조문 대조, 10월 직접 조회 cache miss. 연금수령 개시 후 동일 유형 이전 및 외국납부세액 잔액 이전 상세 HOLD.",
+        "부분 이전, 구계좌, 상호 전액 이체 및 퇴직소득세 실제 정산은 개인 조건 확인 전 확정 금지."
+      ],
+      "sources": [
+        "CToQ4bXaP54:1993–2040",
+        "7V0PEzRddxs:1033–1116",
+        "Xgjhy0HKqcQ:1–33"
+      ],
+      "evidence": [
+        {
+          "id": "E05",
+          "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1033237731",
+          "scope": "14–20행: 제40조의4 제1항 및 예외",
+          "date": "2026-07-01 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E06",
+          "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1033237723",
+          "scope": "14–18행: 제40조의4 제2항 적격 전액 상호이체 예외",
+          "date": "2026-07-01 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=17141",
+          "scope": "573–593행: 동일제도·수취 상품·매도 필요·신청과 최종 의사 확인",
+          "date": "2024-10-31 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T001-06",
+        "T002-03",
+        "T002-05",
+        "T013-02"
+      ],
+      "attribution": "CTo 2013–2024 계약이전 절차, 7V0 1077–1097 DC→IRP 및 Xgj 9–16 해지 설명; 해지와 이전 분리.",
+      "valid_through": "2026-12-31"
+    }
+  ],
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "개별 계약 수수료·이벤트·상품 적격성·실물이전 경로·환매중단/국채/DC→타사IRP 미래 시행·외국세액공제잔액 이전·개인별 세금"
+    }
+  ],
+  "limits": [
+    "공식 직접 본문6, 최신 KDI 공식 검색 발췌1. 10월 시행령 및 11월 KDI 발표 직접 조회 실패. 미래 변경은 연구 메모/HOLD로만 처리.",
+    "동일 ChatGPT 의미 검토, 독립 정확도 및 전수 검색 재현율 미측정."
+  ],
+  "calculations": {
+    "constant_balance": 100000000,
+    "assumed_annual_fee": 0.002,
+    "annual_fee": 200000
+  }
+}
