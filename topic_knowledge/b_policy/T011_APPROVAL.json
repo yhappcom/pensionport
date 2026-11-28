@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "policy": "B_SCOPED_DIRECT_V1",
+  "topic": "T011",
+  "version": 1,
+  "status": "APPROVED_SCOPED",
+  "approved_on": "2026-11-28",
+  "review_by": "2026-12-31",
+  "review": {
+    "path": "topics/T011/v1_REVIEW.json",
+    "commit": "144d60311704f9399ba7f458888edc4d783ec343",
+    "blob": "05b38b2093d27a895b11f7aaddbf6e1adf996455"
+  },
+  "expected_ids": [
+    "T011-01",
+    "T011-02"
+  ],
+  "direct_relations": [
+    {
+      "a": "T001-06",
+      "b": "T011-01",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T001-06 → T011-01; 기존 연금 인출 및 수익률 규칙 유지, 해외세와 국내 과세이연 및 인출 공제 범위 보완."
+    },
+    {
+      "a": "T002-02",
+      "b": "T011-01",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T002-02 → T011-01; 기존 연금 인출 및 수익률 규칙 유지, 해외세와 국내 과세이연 및 인출 공제 범위 보완."
+    },
+    {
+      "a": "T002-03",
+      "b": "T011-01",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T002-03 → T011-01; 기존 연금 인출 및 수익률 규칙 유지, 해외세와 국내 과세이연 및 인출 공제 범위 보완."
+    },
+    {
+      "a": "T002-04",
+      "b": "T011-01",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T002-04 → T011-01; 기존 연금 인출 및 수익률 규칙 유지, 해외세와 국내 과세이연 및 인출 공제 범위 보완."
+    },
+    {
+      "a": "T006-01",
+      "b": "T011-01",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T006-01 → T011-01; 기존 연금 인출 및 수익률 규칙 유지, 해외세와 국내 과세이연 및 인출 공제 범위 보완."
+    },
+    {
+      "a": "T011-01",
+      "b": "T011-02",
+      "kind": "COMPLEMENT",
+      "reason": "직접 적용조건 T011-01 → T011-02; 기존 연금 인출 및 수익률 규칙 유지, 해외세와 국내 과세이연 및 인출 공제 범위 보완."
+    }
+  ],
+  "review_basis": {
+    "plan_commit": "00df776a0c94f76234682d0bd19b77c8b7cecc12",
+    "plan_blob": "00e09e1d5dbd056f8839682ee784bb1f716b59d6",
+    "method": "실제 원문 4편274자막 및 공식 본문5; 기존 연금 원천별 인출 규칙과 수익률 정의 참조. 국세청·법령 최종 0.55와 시점·한도 확인.",
+    "calculations": {
+      "hypothetical_attributed_foreign_tax": 150000,
+      "credit": 82500,
+      "domestic_withholding_cap": 30000,
+      "deduction": 30000,
+      "remaining": 52500
+    }
+  },
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "ISA 및 일반계좌 상세 공제 계산, 실제 세액·계좌이전/해지·과도기 처리, 개인별 상품·세후수익 및 거래 지시"
+    }
+  ],
+  "limits": [
+    "국세청/법령/IRS 직접 본문5, 10월 시행령 공식 검색 전문과 7월 직접 본문 일치; 최신 10월 직접 재조회 불일치(7월 반환), 전체 바이트 미확보.",
+    "과도기 2026-06-30 이전 인출의 후속 적용례는 공식 검색 발췌 확인만; 단정 제외.",
+    "동일 ChatGPT 내부 의미 검토, 전수 검색 재현율/독립 인증 미측정."
+  ],
+  "activation": "후보 manifest 실제 조회 검증 후"
+}
