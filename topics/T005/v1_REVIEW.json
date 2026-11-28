@@ -1,0 +1,348 @@
+{
+  "topic": "T005",
+  "version": 1,
+  "status": "SCOPED_REVIEW_FOR_EXPERIMENT_ONLY",
+  "as_of": "2026-11-28",
+  "plan_commit": "ee6a98c34d0f2e730837082fbe77080bf3edcc68",
+  "plan_blob": "95b280b38e76116558be789f25067a14e7275b76",
+  "source_audit": {
+    "db_sha256": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+    "rows": [
+      {
+        "item": "01",
+        "video": "05JCQ8-v6zc",
+        "sha": "41021e2fe64bd3854821a3ed55d7f7ebeb6bf2a95e09511335d726a3be686372",
+        "first": 1261,
+        "last": 1308,
+        "start_ms": 2745280,
+        "end_ms": 2849599,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-05JCQ8-v6zc.srt",
+        "count": 48
+      },
+      {
+        "item": "01",
+        "video": "EUnEyu15JfM",
+        "sha": "96cc9fdf018ee738295faf510b0989c38f63e999b2ab763930ed06fc692b0476",
+        "first": 229,
+        "last": 276,
+        "start_ms": 448639,
+        "end_ms": 545600,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-EUnEyu15JfM.srt",
+        "count": 48
+      },
+      {
+        "item": "02",
+        "video": "05JCQ8-v6zc",
+        "sha": "41021e2fe64bd3854821a3ed55d7f7ebeb6bf2a95e09511335d726a3be686372",
+        "first": 1201,
+        "last": 1248,
+        "start_ms": 2617319,
+        "end_ms": 2722800,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-05JCQ8-v6zc.srt",
+        "count": 48
+      },
+      {
+        "item": "02",
+        "video": "UKDhdcn3AUk",
+        "sha": "4bfd0b8bf362a5e5a5be6d88b1136db57b0b2594bf3af3b6de9c702623a2ff11",
+        "first": 1273,
+        "last": 1320,
+        "start_ms": 2355200,
+        "end_ms": 2456640,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-UKDhdcn3AUk.srt",
+        "count": 48
+      },
+      {
+        "item": "03",
+        "video": "sUtOQJH-wgc",
+        "sha": "41be4c5e9fee517ce4f41e54dcbaeb04531d63cd1515b627a7b67c10c22fe63b",
+        "first": 445,
+        "last": 492,
+        "start_ms": 798160,
+        "end_ms": 895759,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-sUtOQJH-wgc.srt",
+        "count": 48
+      },
+      {
+        "item": "03",
+        "video": "LEczVIueQAA",
+        "sha": "1666825c2de0943c4d2ac96d3008b38ef0860bc019dda515d2eb4e12dfb3198a",
+        "first": 1,
+        "last": 25,
+        "start_ms": 199,
+        "end_ms": 62160,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-LEczVIueQAA.srt",
+        "count": 25
+      },
+      {
+        "item": "04",
+        "video": "CToQ4bXaP54",
+        "sha": "11b65791af65f9463878aa60f9e85291c2e8de498e522617bfe3387566060874",
+        "first": 2521,
+        "last": 2568,
+        "start_ms": 5240239,
+        "end_ms": 5343639,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-CToQ4bXaP54.srt",
+        "count": 48
+      },
+      {
+        "item": "04",
+        "video": "i32DeJPzsfE",
+        "sha": "5f9574fc4136c77436be7dbc2dfd90086154e3f24161770866bc9e39d5ba42b9",
+        "first": 445,
+        "last": 492,
+        "start_ms": 839480,
+        "end_ms": 921639,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-i32DeJPzsfE.srt",
+        "count": 48
+      }
+    ],
+    "unique_cues": 361,
+    "videos": 7,
+    "query_hits": [
+      15,
+      71,
+      88,
+      22
+    ],
+    "method": "read-only SQLite window substring AND, occurrence ranking, manual context; raw SHA equals source ID, separate parser all raw cues count and selected cue time/normalized text exact",
+    "cost": {
+      "extract_hash_seconds": 0.750838848,
+      "query_seconds": [
+        0.047516235,
+        0.045469369,
+        0.046065782,
+        0.045181397
+      ],
+      "raw_audit_seconds": 0.083567999,
+      "web_rounds": 2,
+      "official_body": 6,
+      "semantic_time": "NOT_MEASURED"
+    }
+  },
+  "cards": [
+    {
+      "id": "T005-01",
+      "status": "VERIFIED_SCOPED",
+      "rule": "고정금리 채권은 다른 조건이 같으면 시장수익률 상승 시 가격이 하락한다. 수정 또는 유효 듀레이션 D를 사용하는 작은 평행 금리 변화에서 가격변화율은 약 −D×수익률 변화(소수)이다. 만기나 단순 평균만기와 듀레이션은 구별하며 볼록성·비평행 변화·신용스프레드·환율 및 내재옵션에 따라 실제 성과는 달라진다.",
+      "limits": [
+        "듀레이션7, 수익률 +1%p의 −7%는 가격 근사치이고 분배금 포함 총수익률 또는 확정손실 아님. 영상 상품별 현재 수치·기간 분류 단정 제외.",
+        "해외 공식 교육자료의 일반 원칙만 사용, 한국 법령 및 개별 상품 인증 아님."
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio",
+          "scope": "FINRA 본문 7–25행: 금리 민감도, 듀레이션 유형 및 근사 한계",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+          "scope": "SEC 본문 123–148행: 가격/수익률, 액면상환 조건, 신용·유동성·인플레이션",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E06",
+          "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en",
+          "scope": "Vanguard 본문 116–151행: 표면금리, 수익률, 만기 및 듀레이션",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        }
+      ],
+      "sources": [
+        "05JCQ8-v6zc:1261–1308",
+        "EUnEyu15JfM:229–276"
+      ],
+      "dependencies": [],
+      "attribution": "05JCQ8-v6zc 1280–1295의 평균만기와 민감도를 분리; EUnEyu15JfM 253–256의 만기와 듀레이션 차이.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T005-02",
+      "status": "VERIFIED_SCOPED",
+      "rule": "신용등급은 상대적 상환위험 평가이며 변동 가능하다. 우량채권도 금리·신용·유동성·인플레이션 위험이 있고 높은 채권 수익률은 확정 실현수익이 아니다. 표면금리, 매입가격을 반영한 수익률, 실제 총수익을 구별한다. 부도율 과거 0이라는 사례로 미래 무손실을 단정하지 않는다.",
+      "limits": [
+        "과거 부도통계 원본 및 현재 등급/수익률 미검증. 예금 보호 여부, 국가별 신용 위험 수치, 개별 상품 판단 보류.",
+        "해외 공식 교육자료의 일반 원칙만 사용, 한국 법령 및 개별 상품 인증 아님."
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio",
+          "scope": "FINRA 본문 7–25행: 금리 민감도, 듀레이션 유형 및 근사 한계",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E02",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds",
+          "scope": "SEC 본문 159–169행: 신용·금리·조기상환 위험",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+          "scope": "SEC 본문 123–148행: 가격/수익률, 액면상환 조건, 신용·유동성·인플레이션",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E05",
+          "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds",
+          "scope": "SEC 본문 85–96행: 초단기 채권 펀드 손실 가능성",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E06",
+          "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/what-is-a-bond?lang=en",
+          "scope": "Vanguard 본문 116–151행: 표면금리, 수익률, 만기 및 듀레이션",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        }
+      ],
+      "sources": [
+        "05JCQ8-v6zc:1201–1248",
+        "UKDhdcn3AUk:1273–1320"
+      ],
+      "dependencies": [
+        "T005-01"
+      ],
+      "attribution": "05JCQ8-v6zc 1218–1244의 부도 및 안전성 일반화 교정; UKDhdcn3AUk 1285–1306의 단기채권 보유구성 차이.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T005-03",
+      "status": "VERIFIED_SCOPED",
+      "rule": "직접 채권은 발행조건과 상환이행에 따라 만기 액면금액을 받으며 매입가격과 액면금액은 다를 수 있다. 일반 채권 ETF는 지속적으로 채권을 교체하는 구조여서 투자자별 원금상환 만기가 보통 없다. 만기매칭형 ETF는 예정 종료일이 있어도 청산 분배금과 투자원금은 일치 보장되지 않는다.",
+      "limits": [
+        "조기상환·부도·운용비·거래 및 청산조건 확인. 특정 국내 만기형 상품의 종료일·원금·결제일은 미검증.",
+        "해외 공식 교육자료의 일반 원칙만 사용, 한국 법령 및 개별 상품 인증 아님."
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio",
+          "scope": "FINRA 본문 7–25행: 금리 민감도, 듀레이션 유형 및 근사 한계",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+          "scope": "SEC 본문 123–148행: 가격/수익률, 액면상환 조건, 신용·유동성·인플레이션",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E04",
+          "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs",
+          "scope": "iShares 본문 309–357,385–403행: 일반/만기형 ETF 차이 및 비보장",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        }
+      ],
+      "sources": [
+        "sUtOQJH-wgc:445–492",
+        "LEczVIueQAA:1–25"
+      ],
+      "dependencies": [
+        "T005-02"
+      ],
+      "attribution": "sUtOQJH-wgc 458–492의 만기매칭 구조와 무걱정 표현 및 LEczVIueQAA 1–25의 안전/자동 현금화 설명 교정.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T005-04",
+      "status": "VERIFIED_SCOPED",
+      "rule": "채권 배분은 지출 예정일·비상자금·금리 민감도·신용·환율·유동성 및 계좌 제약을 함께 고려한다. 초단기 채권 펀드도 손실 가능하며, 단기 필수지출을 위험자산 매도에 의존하지 않도록 검토한다. 시장 매도·결제·계좌 외 인출은 별개이며 채권 ETF의 현재 수익률과 예금의 확정 조건을 동일시하지 않는다.",
+      "limits": [
+        "개인 비중, 구체 상품/예금 보호 및 계좌 거래 적격·세제 미확정. 기존 지식의 적용 범위 별도 확인.",
+        "해외 공식 교육자료의 일반 원칙만 사용, 한국 법령 및 개별 상품 인증 아님."
+      ],
+      "evidence": [
+        {
+          "id": "E02",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds",
+          "scope": "SEC 본문 159–169행: 신용·금리·조기상환 위험",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+          "scope": "SEC 본문 123–148행: 가격/수익률, 액면상환 조건, 신용·유동성·인플레이션",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E04",
+          "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs",
+          "scope": "iShares 본문 309–357,385–403행: 일반/만기형 ETF 차이 및 비보장",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E05",
+          "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds",
+          "scope": "SEC 본문 85–96행: 초단기 채권 펀드 손실 가능성",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        }
+      ],
+      "sources": [
+        "CToQ4bXaP54:2521–2568",
+        "i32DeJPzsfE:445–492"
+      ],
+      "dependencies": [
+        "T005-01",
+        "T005-02",
+        "T005-03",
+        "T004-05",
+        "T003-05",
+        "T002-05"
+      ],
+      "attribution": "CToQ4bXaP54 2533–2565의 국채 위험 단정과 예금 유사성 및 i32DeJPzsfE 458–478의 현금 비중 의견을 조건부로 교정.",
+      "valid_through": "2026-12-31"
+    }
+  ],
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "개별 상품 가격/수익률/청산/보호·한국 계좌별 허용/세금 및 개인 배분"
+    }
+  ],
+  "limits": [
+    "동일 ChatGPT 내부 검토, 독립 인증 아님",
+    "원문 표본, 전수 분석 아님",
+    "신규 실험 원장 외 발행 금지"
+  ],
+  "admission": "EXPERIMENT_ONLY"
+}
