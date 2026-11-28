@@ -1,0 +1,152 @@
+{
+  "status": "C6_IN_PROGRESS",
+  "scope": {
+    "target": 791,
+    "available": 299,
+    "missing": 492,
+    "aliases": 300,
+    "cues": 269627
+  },
+  "coverage": {
+    "full": 4,
+    "partial": 42,
+    "index_only": 253,
+    "covered_cues_lower_bound": 2697,
+    "full_cues": 81,
+    "new_T006_cues": 288,
+    "library": {
+      "path": "/C6_COVERAGE_001.json",
+      "file_id": "file_0000000020148209ace3a397b77b12ea",
+      "sha256": "c7547b90e0df8c8436833ef0dae282116101532c60d7d2c7ed5b2703d303bda0"
+    },
+    "limit": "기존 T001 v4 active 인용과 T002~5 원본 감사 범위, 이번 10개 구간 합집합. 과거 모든 분석 범위 아님. FULL은 전체 자막 직접 읽고 구간별 처리, 사실 승인과 별개. 짧은 영상 우선 표본이므로 장편 처리량 추정 금지."
+  },
+  "first_full": [
+    {
+      "video": "9VLtWX1vJxg",
+      "sha": "56dc4d22116f76ca06c3ba1947bbf4159af468cc115b0b9afb17b100cc0a2fcd",
+      "total": 19,
+      "dispositions": [
+        {
+          "range": [
+            1,
+            7
+          ],
+          "kind": "NON_RESEARCH",
+          "reason": "수강 안내 및 모집 홍보"
+        },
+        {
+          "range": [
+            8,
+            15
+          ],
+          "kind": "CONTEXT",
+          "reason": "은퇴 현금흐름·절세계좌 강의 소개; 구체 법령·투자 판단 없음"
+        },
+        {
+          "range": [
+            16,
+            19
+          ],
+          "kind": "NON_RESEARCH",
+          "reason": "홈페이지 및 문의 안내"
+        }
+      ]
+    },
+    {
+      "video": "h1VSdD5XeO4",
+      "sha": "ba89b381afbd90b2ea52472b556a21cbb3f5828563307ea8882719e0d3a60d30",
+      "total": 20,
+      "dispositions": [
+        {
+          "range": [
+            1,
+            7
+          ],
+          "kind": "HOLD",
+          "reason": "서울 청년 자산 예측 서비스의 설명, 실제 미래 자산 확정 아님; 서비스 현행성 및 모델 정확도 미확인"
+        },
+        {
+          "range": [
+            8,
+            16
+          ],
+          "kind": "HOLD",
+          "reason": "금융사별 이용 경로·무료 여부 현재 미확인"
+        },
+        {
+          "range": [
+            17,
+            20
+          ],
+          "kind": "HOLD",
+          "reason": "재무 상담 지원 현행 운영 여부 미확인"
+        }
+      ]
+    },
+    {
+      "video": "g5PChibmY5A",
+      "sha": "c68bd2ae65d74ee4800154223a0d27151feeedb315a4a000aad845499f0965c0",
+      "total": 21,
+      "dispositions": [
+        {
+          "range": [
+            1,
+            13
+          ],
+          "kind": "OPINION",
+          "reason": "타인 추천만 따르는 투자와 변동장 심리에 대한 화자 경험·일반화; 모든 투자자가 실패한다는 사실 아님"
+        },
+        {
+          "range": [
+            14,
+            21
+          ],
+          "kind": "CONTEXT",
+          "reason": "투자 목적, 매수/매도 기준 설정 조언; T004 투자계획과 보완, 별도 행동금융 연구 전 신규 카드 미발행"
+        }
+      ]
+    },
+    {
+      "video": "uyzROR3cUl8",
+      "sha": "14dad3386d243c1bee8a59867933bfa02a3a60602d2da0c9695ad99f08996b33",
+      "total": 21,
+      "dispositions": [
+        {
+          "range": [
+            1,
+            9
+          ],
+          "kind": "CORRECTED_CONTEXT",
+          "reason": "패시브 지수 추종은 전체 복제만 있는 것이 아니며 표본 복제도 가능. 기존 T003-01."
+        },
+        {
+          "range": [
+            10,
+            17
+          ],
+          "kind": "CORRECTED_CONTEXT",
+          "reason": "운용 비용·목표 초과성과는 상품별 다름. 기존 T003-01/02/03."
+        },
+        {
+          "range": [
+            18,
+            21
+          ],
+          "kind": "OPINION",
+          "reason": "패시브 안정·액티브 높은 수익이라는 단정 배제, 양쪽 모두 가격위험. 끝 문장 잘림 명시."
+        }
+      ]
+    }
+  ],
+  "cost": {
+    "coverage_build_seconds": 0.338941566,
+    "query_seconds": [
+      0.049688816,
+      0.036625299,
+      0.033837004
+    ],
+    "semantic_time": "NOT_ISOLATED",
+    "wall_time": "NOT_MEASURED_YET"
+  }
+}

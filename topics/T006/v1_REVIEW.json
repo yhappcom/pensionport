@@ -1,0 +1,291 @@
+{
+  "topic": "T006",
+  "version": 1,
+  "status": "SCOPED_REVIEW_CANDIDATE",
+  "as_of": "2026-11-28",
+  "plan_commit": "143f3d1004b98fdac2828d37d834a03edec21082",
+  "source_audit": {
+    "db_sha256": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+    "rows": [
+      {
+        "video": "CToQ4bXaP54",
+        "sha": "11b65791af65f9463878aa60f9e85291c2e8de498e522617bfe3387566060874",
+        "first": 2905,
+        "last": 2952,
+        "start_ms": 6031199,
+        "end_ms": 6124360,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-CToQ4bXaP54.srt"
+      },
+      {
+        "video": "Q-zEc5IeQ50",
+        "sha": "14997b559c4403a551cf25503d3badd265caa6c1d8c307ff4cba096347bc039b",
+        "first": 469,
+        "last": 516,
+        "start_ms": 887120,
+        "end_ms": 980240,
+        "count": 48,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-Q-zEc5IeQ50.srt"
+      },
+      {
+        "video": "i9fXr3U-ReA",
+        "sha": "45579b8372e0292b85742bd71466a63ffa6a45cd1616446c245fb1270bab1c1c",
+        "first": 625,
+        "last": 672,
+        "start_ms": 1234200,
+        "end_ms": 1331600,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-i9fXr3U-ReA.srt"
+      },
+      {
+        "video": "qabOz6b9hlg",
+        "sha": "c9e03410ff2da2cadfca4ea57ced820b2e3b73428deb95742c42f6ebf5b8e61d",
+        "first": 2593,
+        "last": 2640,
+        "start_ms": 4801360,
+        "end_ms": 4886800,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-qabOz6b9hlg.srt"
+      },
+      {
+        "video": "rwhkajfIneo",
+        "sha": "3ee6b0f0a0e087237ef7b109f3298d9fc6a63363f54d356491237ba4188db29c",
+        "first": 265,
+        "last": 312,
+        "start_ms": 546880,
+        "end_ms": 650519,
+        "count": 48,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-rwhkajfIneo.srt"
+      },
+      {
+        "video": "w8nnPJe8lmo",
+        "sha": "08da1e9cd5f2ebba39e03844dd4b93e30185124feb4ffa9ef13ea5a283eb2924",
+        "first": 337,
+        "last": 384,
+        "start_ms": 728360,
+        "end_ms": 830880,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-w8nnPJe8lmo.srt"
+      }
+    ],
+    "videos": 6,
+    "unique_cues": 288,
+    "query_hits": [
+      644,
+      168,
+      27
+    ],
+    "query_video_counts": [
+      103,
+      39,
+      11
+    ],
+    "method": "실제 299편 읽기 전용 색인 AND 조회, 발생 빈도 후보 및 문맥 수동 선택, 독립 SRT 파싱·SHA·시간·정규화 텍스트 일치"
+  },
+  "cards": [
+    {
+      "id": "T006-01",
+      "status": "VERIFIED_SCOPED",
+      "rule": "과거 12개월 주당 현금배당금/현재 주가로 계산한 배당수익률과 동일 배당금/개인 매입단가의 원가 대비 배당수익률을 구분한다. 배당금이 일정해도 주가 하락으로 현재 배당수익률은 상승할 수 있다. 추가 납입·매매·재투자 없이 단일 기간 세전 단순 보유수익률은 (기말가격−기초가격+기간 현금분배금)/기초가격이다. 실제 총수익은 배당률·가격변동 및 재투자 여부, 비용과 세금에 따라 달라진다.",
+      "limits": [
+        "배당금 미래 확정 금지; 공시 지표의 기준일·연환산·분모를 확인한다. 원가 대비 배당률은 현재 투자 기회비용과 총수익을 대체하지 않는다. 펀드 공시 총수익과 개인 현금흐름 수익률은 구별."
+      ],
+      "sources": [
+        "w8nnPJe8lmo:337–384",
+        "i9fXr3U-ReA:625–672"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/stocks-and-bonds",
+          "scope": "137–142행 과거 연간 주당 배당금/현재 주가",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E02",
+          "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/performance-details",
+          "scope": "68–91,103–107행 현금소득·가격변동 및 투자자별 수익",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E05",
+          "url": "https://www.spglobal.com/spdji/en/research-insights/index-literacy/methodology-matters/",
+          "scope": "23–34,59–62,335–354행 지수 구성·재투자·백테스트",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        }
+      ],
+      "dependencies": [
+        "T003-06",
+        "T003-02"
+      ],
+      "attribution": "은행 ETF 배당률과 매입단가의 차이, 과거 배당 성장 사례를 조건부로 보존. 개별 은행이 매번 6% 발표한다는 주장 및 월지급 후 약점 소멸 단정 미승인.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T006-02",
+      "status": "VERIFIED_SCOPED",
+      "rule": "고배당 전략은 현재 배당수익률에, 배당성장 전략은 과거 배당 증가 지속성 또는 재무요인 등에 중점을 둘 수 있으며 실제 선별·가중 규칙은 지수마다 다르다. 두 전략은 상호 배타적이지 않다. 과거 배당 증가 이력은 미래 배당 증가나 삭감 방지, 장기 초과수익을 보장하지 않는다. 재무상태·현금흐름, 배당 지속 가능성 및 업종·종목 집중도와 총수익을 확인한다.",
+      "limits": [
+        "특정 국가·ETF의 상대적 안전성, 현재 상품 수익률·종목 수·최적 기간, 과거 성과 재현 미확정. 지수 예시는 방법론 차이 설명에만 사용."
+      ],
+      "sources": [
+        "CToQ4bXaP54:2905–2952",
+        "Q-zEc5IeQ50:469–516"
+      ],
+      "evidence": [
+        {
+          "id": "E03",
+          "url": "https://www.spglobal.com/spdji/en/indices/dividends-factors/sp-500-dividend-aristocrats/",
+          "scope": "12행 25년 과거 증가 기준의 지수 예시",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E04",
+          "url": "https://www.spglobal.com/spdji/en/indices/dividends-factors/sp-global-dividend-aristocrats/",
+          "scope": "12행 고배당 및 안정/증가 10년 기준의 지수 예시",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E05",
+          "url": "https://www.spglobal.com/spdji/en/research-insights/index-literacy/methodology-matters/",
+          "scope": "23–34,59–62,335–354행 지수 구성·재투자·백테스트",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E07",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+          "scope": "주식 투자 일반 위험과 배당 재투자",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        }
+      ],
+      "dependencies": [
+        "T003-01",
+        "T004-02",
+        "T006-01"
+      ],
+      "attribution": "미국 배당성장 장기투자 의견과 국내 고배당/배당성장 혼합 사례를 구분. 20년 뒤 성과 보장, 모든 국내 ETF 우량 단정 및 수익률 유사성으로 구성 동일 추정 배제.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T006-03",
+      "status": "VERIFIED_SCOPED",
+      "rule": "필수 지출을 분배금으로 충당하려면 실제 세후 현금흐름과 지출 시점, 분배 변동·가격 손실 위험 및 자금 부족 시 대안을 비교한다. 세금·비용 제외하고 일정한 연간 현금지급률 y를 가정하면 필요 원금은 연간 지출/y이나 지급률 및 원금의 지속은 보장되지 않는다. 재투자는 추가 주식 수를 증가시킬 수 있고 이후 실제 지급이 있을 경우 복리 효과가 가능하나 양의 수익을 보장하지 않는다. 현금수령/재투자는 지출·리밸런싱 필요와 계좌 인출 가능성을 함께 판단한다.",
+      "limits": [
+        "한국 세율, 원금환급성 분배 세부, 커버드콜 수익구조/실제 상품 분배정책 별도 HOLD. 해외 세법을 한국에 적용하지 않는다. 월 지급과 현금 사용 가능성은 다름."
+      ],
+      "sources": [
+        "qabOz6b9hlg:2593–2640",
+        "rwhkajfIneo:265–312"
+      ],
+      "evidence": [
+        {
+          "id": "E02",
+          "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/performance-details",
+          "scope": "68–91,103–107행 현금소득·가격변동 및 투자자별 수익",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E06",
+          "url": "https://investor.vanguard.com/investor-resources-education/online-trading/reinvest-dividends",
+          "scope": "79–88,108–118행 현금수령·재투자 및 미래 선언 조건",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        },
+        {
+          "id": "E07",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+          "scope": "주식 투자 일반 위험과 배당 재투자",
+          "date": "2026-11-28 조회",
+          "use": "CURRENT_WEB",
+          "type": "WEB_BODY"
+        }
+      ],
+      "dependencies": [
+        "T006-01",
+        "T004-04",
+        "T004-05",
+        "T002-05"
+      ],
+      "attribution": "월 현금지출 사례의 산술은 가정으로만 사용; 높은 표시 분배율에도 실제 투자 성과가 낮았던 사례를 익명화하여 교훈만 기록. 특정 세율 및 상품 수익률 미승인.",
+      "valid_through": "2026-12-31"
+    }
+  ],
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "국내 세금·커버드콜 상세·원금환급성 분배 분류·개별 ETF 지급률/정책 및 거래"
+    },
+    {
+      "status": "CONTEXT",
+      "item": "특정 국가/은행/상품의 과거 분배 실적 및 장기 우위 주장"
+    }
+  ],
+  "limits": [
+    "외국 공식 자료 일반 원리만 사용. SEC 2026년 펀드 분배금 검색 발췌는 직접 열람 실패로 활성 근거에서 제외.",
+    "동일 ChatGPT 내부 검토. T003-06의 PR/TR 정의·분배락은 재발행하지 않음."
+  ],
+  "calculations": [
+    {
+      "input": [
+        10000,
+        8000,
+        600
+      ],
+      "expected": {
+        "current_yield": 0.075,
+        "cost_yield": 0.06,
+        "simple_return": -0.14
+      }
+    },
+    {
+      "annual_spending": 240000,
+      "y": 0.06,
+      "principal": 4000000
+    }
+  ],
+  "advisory_cases": [
+    {
+      "id": "D01",
+      "question": "1만원 매수, 현재 8천원, 지난 1년 현금배당 600원. 현재 배당률·매입가 대비 배당률·총수익과 배당률 상승 해석은?",
+      "criteria": [
+        "7.5%",
+        "6%",
+        "-14%",
+        "미래 비보장"
+      ]
+    },
+    {
+      "id": "D02",
+      "question": "월 10만원 생활비를 분배율 연 6% 상품으로 확보하려면 2천만원이면 확정인가? 연금계좌에서 분배금 인출?",
+      "criteria": [
+        "세전 가정 2000만원",
+        "분배/원금 비보장",
+        "현금 및 인출 조건",
+        "세금 상품 확인"
+      ]
+    }
+  ]
+}
