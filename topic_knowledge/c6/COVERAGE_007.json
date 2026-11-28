@@ -1,0 +1,114 @@
+{
+  "status": "C6_IN_PROGRESS",
+  "prior": "COVERAGE_006.json",
+  "scope": {
+    "target": 791,
+    "available": 299,
+    "missing": 492,
+    "cues": 269627
+  },
+  "counts": {
+    "full": 15,
+    "partial": 58,
+    "index_only": 226,
+    "covered_cues_lower_bound": 4911,
+    "new_raw_checked": 308,
+    "net_new_cues": 308,
+    "full_new": 2,
+    "full_cues": 951,
+    "long_new_cues": 135
+  },
+  "library": {
+    "path": "/C6_COVERAGE_007.json",
+    "file_id": "file_00000000deb88209a99f8935523bda95",
+    "sha256": "efa9d4890f9d8b25495aed243c151c420bb4a6aac57df69c1695e1cb8e308a68"
+  },
+  "long": {
+    "video": "2bLy034D5LA",
+    "total": 615,
+    "reviewed": [
+      1,
+      615
+    ],
+    "next": null,
+    "new_ranges": [
+      [
+        481,
+        490,
+        "OPINION",
+        "노후연금 정석 운용 권고; 유동성 및 예외 유지"
+      ],
+      [
+        491,
+        512,
+        "HOLD",
+        "2023 통계, 가입자격 역사 및 확대 전망 미검증"
+      ],
+      [
+        513,
+        532,
+        "CORRECTED_CONTEXT",
+        "900 일반 세액공제 대상, 600 연금저축 및 IRP 원리금보장 운용 조건; 무손실 단정 금지"
+      ],
+      [
+        533,
+        553,
+        "HOLD",
+        "금융사별 수수료/무료 조건, 은행·증권 일률 권고 배제"
+      ],
+      [
+        554,
+        577,
+        "HOLD",
+        "계좌이전·실물이전 시행 및 유형, 실제 이전 상품·절차 별도 검증"
+      ],
+      [
+        578,
+        594,
+        "CORRECTED_CONTEXT",
+        "ISA 적격 만기 및 60일 납입, 10% 최대300만원 추가 공제대상 한도; 세액과 구별 T001"
+      ],
+      [
+        595,
+        615,
+        "OPINION_CONTEXT",
+        "2025판 마무리 및 30년 노후 기대, 성과 보장 아님; 음악/인사"
+      ]
+    ]
+  },
+  "full_new": [
+    {
+      "video": "2bLy034D5LA",
+      "total": 615
+    },
+    {
+      "video": "AX1AAZVOnJU",
+      "total": 29,
+      "ranges": [
+        [
+          1,
+          11,
+          "CONTEXT_HOLD",
+          "디폴트옵션 개념, 실제 작동 시점 별도"
+        ],
+        [
+          12,
+          24,
+          "CORRECTED_CONTEXT",
+          "TDF 목표·글라이드패스 및 개인 선택"
+        ],
+        [
+          25,
+          29,
+          "OPINION",
+          "자동운용 권고, 수익 보장 아님"
+        ]
+      ]
+    }
+  ],
+  "limits": [
+    "보존 DB 원본 재파싱; Drive ZIP 새 조회 아님",
+    "전체 문맥 검토와 금융 사실 승인 구분",
+    "전체 의미시간 미측정"
+  ]
+}

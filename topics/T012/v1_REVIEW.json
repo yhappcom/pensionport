@@ -1,0 +1,228 @@
+{
+  "topic": "T012",
+  "version": 1,
+  "status": "REVIEWED_SCOPED_CANDIDATE",
+  "as_of": "2026-11-28",
+  "plan_commit": "d618e41173b2f630387e2f0c3b23664a844afa3f",
+  "plan_blob": "d21b3ac54b0a07d1ab7f9bf65a55ad36f4119085",
+  "source_audit": {
+    "rows": [
+      {
+        "item": "01",
+        "video": "DVEdeOoCtXA",
+        "sha": "a33333cecc682fbdf7bed93209441963a387c782675de43a3eb0839c04eb6999",
+        "first": 337,
+        "last": 384,
+        "start_ms": 732040,
+        "end_ms": 838800,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-DVEdeOoCtXA.srt"
+      },
+      {
+        "item": "03",
+        "video": "4jwM9YUfq7Q",
+        "sha": "c36c66baed0e342fbc7bd67fd3ad10b3eeaa0d7876c4840ac5e596a490b10f92",
+        "first": 841,
+        "last": 888,
+        "start_ms": 1671919,
+        "end_ms": 1770559,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-4jwM9YUfq7Q.srt"
+      },
+      {
+        "item": "02",
+        "video": "YYZyCr7uapw",
+        "sha": "fb5f49ce98d75269db71b6fb2ae07b6ca89415e7a9c3efaf1f5044cb351db03c",
+        "first": 817,
+        "last": 864,
+        "start_ms": 1855639,
+        "end_ms": 1970480,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-YYZyCr7uapw.srt"
+      },
+      {
+        "item": "02",
+        "video": "AX1AAZVOnJU",
+        "sha": "06a8106a387eeb5125195e85cbb4983ac49d051966fdc1e4a2d5313461c532bd",
+        "first": 1,
+        "last": 29,
+        "start_ms": 280,
+        "end_ms": 70400,
+        "count": 29,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-AX1AAZVOnJU.srt"
+      }
+    ],
+    "unique_sources": 4,
+    "unique_cues": 173,
+    "raw_sha_time_text_match": true,
+    "query_hits": [
+      18,
+      43,
+      28,
+      24,
+      14
+    ]
+  },
+  "cards": [
+    {
+      "id": "T012-01",
+      "status": "VERIFIED_SCOPED",
+      "rule": "DC와 IRP에서 시행령 제26조제1항제2호가목의 총투자한도 적용 운용방법은 가입자별 전체 적립금의 70% 이내다. 원리금보장 및 감독규정 제11조제1항의 위험완화 운용방법은 그 총한도에서 제외된다. 단순 계좌 평가액 1억원, 한도 적용 자산 6500만원, 신규 납입·가격변화·비용 없이 다른 자산을 대체하는 가정이면 추가 한도 여유 500만원이다. 운용방법 선정 이후 시장가치 변동으로 초과한 경우 제13조제2항에 따라 위반으로 보지 않고 운용관리기관은 즉시 통보한다. 한도 위반 신규 운용지시는 제14조에 따라 거절된다. 개별 투자금지·집중한도 및 금융사 평가·주문 조건은 별도다.",
+      "limits": [
+        "시장가치 변동 외 초과는 제13조제3항의 별도 사유·시한이 적용될 수 있음. 모든 초과를 허용하거나 자동 강제매도라 단정 금지.",
+        "1억원 사례는 실제 금융사 주문가능액 아님. 개별 ETF·리츠·선물 구조의 투자금지 여부 및 계좌 합산 기준 확인."
+      ],
+      "sources": [
+        "DVEdeOoCtXA:337–384",
+        "4jwM9YUfq7Q:841–888"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1016100489",
+          "scope": "제26조 제1항 제2호 가/나, 14–19행; 원리금보장 및 고시된 위험완화 운용방법 제외, 지분증권 제한",
+          "date": "2026-03-24 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E02",
+          "url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lspttninfSeq=71069",
+          "scope": "제10조 14–21행, DC/IRP 가입자별 전체 적립금 70%",
+          "date": "2022-07-12 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do?admRulSeq=2100000231486",
+          "scope": "제11조158–199행, 제12조202–215행, 제13조221–238행, 제14조242–243행; 위험완화 분류, 별도 집중한도 및 공정가치 변동 특례",
+          "date": "2023-11-16 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T003-01",
+        "T004-03"
+      ],
+      "attribution": "DVE 337–378의 70%·30% 설명 및 4jw 857–872의 분류 사례 교정. 개별 SOFR 상품 및 모든 선물 ETF 금지 주장은 일반화하지 않음.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T012-02",
+      "status": "VERIFIED_SCOPED",
+      "rule": "감독규정 제11조제1항제5호의 한도 제외 증권형집합투자증권등은 약관 또는 정관상 주식 투자한도가 자산총액의 50% 미만이고 투자적격등급 이외 채무증권 투자한도가 30%를 초과하지 않는 등 해당 조문 요건을 충족해야 한다. 같은 항 제9호의 적격 TDF와 제10호의 승인된 사전지정운용방법도 DC/IRP 총한도 제외 대상이다. 현재 보유비중이나 상품명만으로 분류하지 않는다. 한도 제외는 원리금보장과 다르며 채권·주식·환율·비용 및 신용 위험이 남는다. 실제 상품 설명서·적격 분류·거래 조건 확인 후 개인 목적과 위험에 맞춰 선택한다.",
+      "limits": [
+        "모든 채권형·혼합형·TDF가 100% 가능하지 않음. 50% 정확히 해당하면 제5호의 '미만' 요건 미충족; 별도 예외 가능성은 개별 검토.",
+        "원리금보장 상품별 발행자 신용, 만기 전 해지, 예금자보호·수수료는 미확정. 디폴트옵션 작동시점·개별 승인 목록은 HOLD."
+      ],
+      "sources": [
+        "DVEdeOoCtXA:337–384",
+        "4jwM9YUfq7Q:841–888",
+        "YYZyCr7uapw:817–864",
+        "AX1AAZVOnJU:1–29"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1016100489",
+          "scope": "제26조 제1항 제2호 가/나, 14–19행; 원리금보장 및 고시된 위험완화 운용방법 제외, 지분증권 제한",
+          "date": "2026-03-24 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do?admRulSeq=2100000231486",
+          "scope": "제11조158–199행, 제12조202–215행, 제13조221–238행, 제14조242–243행; 위험완화 분류, 별도 집중한도 및 공정가치 변동 특례",
+          "date": "2023-11-16 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E05",
+          "url": "https://kiri.or.kr/PDF/weeklytrend/20260406/trend20260406_14.pdf",
+          "scope": "금융감독원 보도자료 원문, 보험연구원 호스팅; 4·5·6·7·8·9쪽, 70% 제외, 20/60, 각 자산군 80%, 운용전략·적격 표시. 본문 및 4/6쪽 시각 대조",
+          "date": "2026-04-01",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T012-01",
+        "T005-02",
+        "T004-01"
+      ],
+      "attribution": "DVE 360–378 안전자산 통칭 및 4jw 865–875 예금 유사 ETF 사례; YYZ 831–864, AX1 8–24 TDF/디폴트옵션 설명. 법적 분류는 공식 근거 보완.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T012-03",
+      "status": "VERIFIED_SCOPED",
+      "rule": "2026-04-01 시행 적격 TDF 변경은 목표시점 전 법정 현금성자산·채무증권 비중을 자산총액 20% 이상, 목표시점 이후 60% 이상으로 하는 기준과 해외 특정 국가 주식투자액/전체 주식투자액 및 해당 국가 채권투자액/전체 채권투자액 각각 80% 이내 기준을 포함한다. 목표시점 연동 자산배분 및 기타 인정 요건도 적용되므로 이 수치만으로 적격을 판정하지 않는다. 적격 표시와 투자설명서의 글라이드패스·국가별 구성·환헤지·총보수·위험을 확인한다. 목표연도는 개인 지출계획과 위험 감내에 맞춰 판단하며 생년+65를 일률 적용하지 않는다.",
+      "limits": [
+        "세칙 제5조의2 최신 직접 페이지는 본문 미표시, 공식 검색 발췌와 금감원 4월 보도자료 본문 5/8/9쪽으로 위 변경사항 교차확인. 전체 인정 요건 및 상품별 실제 적격성 HOLD.",
+        "80% 분모는 주식/채권 각각의 투자액이며 펀드 전체 자산총액으로 오해 금지. 수익 또는 원금 보장 없음."
+      ],
+      "sources": [
+        "YYZyCr7uapw:817–864",
+        "AX1AAZVOnJU:1–29"
+      ],
+      "evidence": [
+        {
+          "id": "E04",
+          "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=278764&topic=",
+          "scope": "금융감독원 2026-04-01 보도 요약, 364–368행; 적격 명칭 및 비교 기준",
+          "date": "2026-04-01",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E05",
+          "url": "https://kiri.or.kr/PDF/weeklytrend/20260406/trend20260406_14.pdf",
+          "scope": "금융감독원 보도자료 원문, 보험연구원 호스팅; 4·5·6·7·8·9쪽, 70% 제외, 20/60, 각 자산군 80%, 운용전략·적격 표시. 본문 및 4/6쪽 시각 대조",
+          "date": "2026-04-01",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E06",
+          "url": "https://www.law.go.kr/admRulLsInfoP.do?admRulSeq=2200000108661",
+          "scope": "제5조의2 공식 검색 본문 발췌; 현금성·채무증권 20/60, 해외 특정 국가 주식/채권 각각 80% 기준. 직접 페이지는 본문 미표시",
+          "date": "2026-04-01 시행",
+          "type": "OFFICIAL_SEARCH_EXCERPT",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T012-02",
+        "T009-02",
+        "T003-02"
+      ],
+      "attribution": "YYZ 831–864 같은 목표연도라도 다른 글라이드패스, AX1 13–24 목표연도 선택 의견. 최신 숫자는 영상 직접 주장 아님.",
+      "valid_through": "2026-12-31"
+    }
+  ],
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "개별 펀드 적격 및 주문 가능액, 제5조의2 전체 요건 및 예외, 직접 주식·파생상품/리츠 세부 분류, 실제 원리금보장·예금자보호·수수료, 실물이전 및 디폴트옵션 개별 절차"
+    }
+  ],
+  "limits": [
+    "법령 직접 본문3, 금융감독원 보도자료 본문 및 KDI 요약, 세칙 공식 검색 발췌1. 세칙 직접 페이지 본문 재조회 실패; 최신 변경사항만 공식 보도자료와 교차검증, 전체 요건 미승인.",
+    "동일 ChatGPT 내부 의미 검토. 전수 검색 재현율 및 독립 인증 미측정."
+  ],
+  "calculations": {
+    "total": 100000000,
+    "risky": 65000000,
+    "headroom": 5000000,
+    "requested": 10000000,
+    "post_weight": 0.75
+  }
+}
