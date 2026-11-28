@@ -1,0 +1,112 @@
+{
+  "status": "PASS_B_SCOPED_T010",
+  "as_of": "2026-11-28",
+  "manifest": {
+    "commit": "4ce5ee07d69cf01e9db5f5187e699fbccba36a5d",
+    "path": "topic_knowledge/b_policy/candidates/T010_MANIFEST.json",
+    "blob": "f4840b1568a741aded455273846991f473a778d2"
+  },
+  "prior_manifest_blob": "ade21e4efded228bfb5e631aba2ad916c3e834bf",
+  "engine_blob": "fd2062a35976e5f9edafa668403201d7599aaeb6",
+  "counts": {
+    "active": 42,
+    "topics": 10,
+    "relations": 346,
+    "query_cards": 27,
+    "tests": 21,
+    "regression": 27
+  },
+  "tests": {
+    "active42": true,
+    "prior40": true,
+    "old_cards_preserved": true,
+    "old_relations_preserved": true,
+    "relation346": true,
+    "topics10": true,
+    "two_new": true,
+    "dependencies": true,
+    "four_relations": true,
+    "unknown": true,
+    "old_excludes": true,
+    "expiry": true,
+    "before": true,
+    "unapproved": true,
+    "candidate_only": true,
+    "tampered_review": true,
+    "tampered_approval": true,
+    "missing": true,
+    "wrong_path": true,
+    "calculation": true,
+    "query_mutation": true
+  },
+  "advisory": {
+    "method": "사전 고정 두 질문 8기준, 실제 V8 조회 후 동일 ChatGPT 검토. 독립 인증 아님.",
+    "retrieved": [
+      "T001-02",
+      "T001-03",
+      "T001-04",
+      "T001-06",
+      "T001-07",
+      "T001-08",
+      "T002-01",
+      "T002-03",
+      "T002-04",
+      "T002-05",
+      "T002-06",
+      "T003-01",
+      "T003-02",
+      "T003-04",
+      "T003-05",
+      "T003-06",
+      "T004-01",
+      "T004-03",
+      "T004-04",
+      "T004-05",
+      "T006-01",
+      "T006-03",
+      "T007-01",
+      "T007-02",
+      "T007-03",
+      "T010-01",
+      "T010-02"
+    ],
+    "answers": [
+      {
+        "id": "R1",
+        "used": [
+          "T010-01",
+          "T006-01"
+        ],
+        "answer": "같은 기간의 명목 5%, 물가 3%라면 실질 (1.05/1.03)-1=약 1.94%. 5%-3%=2%는 근사. 명목률이 세전·비용 전이면 실질률도 그 기준이며 실제 순수익은 비용·세금 반영 후 계산.",
+        "criteria": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "R2",
+        "used": [
+          "T010-01",
+          "T010-02",
+          "T004-05",
+          "T004-01",
+          "T007-03"
+        ],
+        "answer": "물가가 현금성 자산의 순이자보다 높으면 구매력이 하락할 수 있지만 1년 후 필수지출 자금을 주식으로 전환하면 필요시 손실 매도 위험이 있다. 지출시점·유동성·상품별 원금과 만기조건을 우선 확인하고 공식 물가와 개인 소비구성 차이 및 미래 물가 불확실성도 반영한다. 개인 정보와 상품 조건 없이 전액 전환 또는 특정 비중 확정 불가.",
+        "criteria": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "첫 결합 실행 도구 호출 제한으로 중단, 후보 실제 21시험 및 별도 27회귀 재실행 성공.",
+    "전체 의미비용·독립 정확도 미측정, Node CI 미실행. 원본 Git 함수 V8 실행.",
+    "현재 물가·개별 금리·개인 은퇴자금과 IRP 해외 원천징수·상품 조건 HOLD."
+  ]
+}
