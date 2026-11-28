@@ -1,0 +1,85 @@
+{
+  "status": "PASS_B_SCOPED_T008",
+  "as_of": "2026-11-28",
+  "manifest": {
+    "commit": "f02e4a2dc2bd73c54a0edbde98b6c4912273e6b9",
+    "path": "topic_knowledge/b_policy/candidates/T008_MANIFEST.json",
+    "blob": "281e41516b8b5dec17c07da5d570922f04afe210"
+  },
+  "engine_blob": "fd2062a35976e5f9edafa668403201d7599aaeb6",
+  "prior_manifest_blob": "a5719b7688972c7fa53d3d5b1edabfbe71d945c8",
+  "counts": {
+    "active": 38,
+    "topics": 8,
+    "relations": 335,
+    "query_cards": 18,
+    "tests": 21,
+    "regression": 27
+  },
+  "tests": {
+    "approved_38": true,
+    "prior_35_preserved": true,
+    "old_328_relations_preserved": true,
+    "seven_new_direct_relations": true,
+    "T008_three_cards": true,
+    "dependency_closure": true,
+    "all_dependencies": true,
+    "unknown_not_distinct": true,
+    "old_manifest_excludes_T008": true,
+    "expiry": true,
+    "before_approval": true,
+    "unapproved_topic": true,
+    "candidate_not_advice": true,
+    "review_tamper": true,
+    "approval_tamper": true,
+    "missing_review": true,
+    "dependent_expiry": true,
+    "known_conflict": true,
+    "legacy_regression": true,
+    "advice_required_retrieval": true,
+    "calculation": true
+  },
+  "advisory": {
+    "method": "실제 조회 후 같은 ChatGPT가 사전 고정 두 질문의 8기준 검토. 독립 인증 아님.",
+    "answers": [
+      {
+        "id": "V01",
+        "used": [
+          "T008-01",
+          "T008-02"
+        ],
+        "answer": "주가 2만원, EPS 2천원, BPS 1만원이면 PER 10배, PBR 2배입니다. 기준일 및 실적/예상 이익, 회계기간과 기본·희석·조정 기준을 맞춰 비교해야 합니다. EPS가 0 또는 음수이면 일반적인 양의 PER 비교가 부적절하고, BPS가 0 또는 음수인 경우도 낮은 PBR로 싸다고 볼 수 없습니다. 동종업계·경기순환·부채·현금흐름·성장성과 위험을 검토해야 하며 배수만으로 저평가 또는 매수를 확정할 수 없습니다.",
+        "calculation": [
+          10,
+          2
+        ]
+      },
+      {
+        "id": "V02",
+        "used": [
+          "T008-01",
+          "T008-02",
+          "T008-03",
+          "T006-01",
+          "T004-01"
+        ],
+        "answer": "같은 양의 EPS 정의로 주가=EPS×PER를 적용하면 초기 2만원, 기말 1만6500원입니다. EPS는 10% 증가해도 PER가 20배에서 15배로 줄어 가격수익률은 −17.5%입니다. 배당 500원을 현금으로 받고 추가 매매·재투자·비용·세금이 없다면 단순 보유수익률은 −15%입니다. 이는 주어진 가정의 결과이며 미래 EPS·평가배수·배당·실현수익은 보장되지 않습니다. 실제 기업의 전망이나 매수 결론은 최신 공시 및 위험 검토가 필요합니다.",
+        "calculation": [
+          20000,
+          16500,
+          -0.175,
+          -0.15
+        ]
+      }
+    ]
+  },
+  "cost": {
+    "both_snapshots_open_ms": 365,
+    "semantic_time": "NOT_ISOLATED"
+  },
+  "limitations": [
+    "직전 V8 호출에서 21개 실제 시험 모두 true 및 회귀27 확인 후 저장 직전 도구 호출 한도 도달. 이 기록은 그 반환 결과를 별도 호출로 보존하며 시험 재실행 아님.",
+    "기존35 및 코드 불변; 의미 검증·독립 정확도·Node CI·전체 연구비용 미입증.",
+    "개별 종목 및 최신 시장 배수/수익률 미검증"
+  ]
+}
