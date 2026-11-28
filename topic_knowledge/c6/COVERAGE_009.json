@@ -1,0 +1,91 @@
+{
+  "status": "C6_IN_PROGRESS",
+  "prior": "COVERAGE_008.json",
+  "scope": {
+    "target": 791,
+    "available": 299,
+    "missing": 492,
+    "cues": 269627
+  },
+  "counts": {
+    "full": 16,
+    "partial": 63,
+    "index_only": 220,
+    "covered_cues_lower_bound": 5628,
+    "new_raw_checked": 360,
+    "net_new_cues": 324,
+    "rereview_cues": 36,
+    "full_cues": 984
+  },
+  "library": {
+    "path": "/C6_COVERAGE_009.json",
+    "file_id": "file_000000006eac82098ed5afe5c32dcdf6",
+    "sha256": "91bf0b2ea00f67a6f147e62c332a5ac374477ac638507b3f97b5b6bf6bc136ab"
+  },
+  "long": {
+    "video": "Yd5qnDtW2TM",
+    "total": 618,
+    "reviewed": [
+      1,
+      240
+    ],
+    "next": 241,
+    "new_ranges": [
+      [
+        121,
+        135,
+        "CORRECTED_CONTEXT",
+        "푸른씨앗 개인 가입 불가 구법 및 지원금 일반화 교정 T014-03"
+      ],
+      [
+        136,
+        162,
+        "CORRECTED_CONTEXT",
+        "소득공제/세액공제 및 납입·공제 한도 구분, 이율 보장 배제 T014-01/02"
+      ],
+      [
+        163,
+        205,
+        "OPINION_CONTEXT",
+        "연금세액공제 우선 및 자영업 소득 변동 의견; 소득·세율·유동성별 개별판단"
+      ],
+      [
+        206,
+        240,
+        "CONTEXT_HOLD",
+        "5% 인출·배당 수익과 총수익 구분 T006/T007, 월지급식 펀드 역사 및 다음 문맥 이어짐"
+      ]
+    ]
+  },
+  "other": {
+    "video": "T0S4kPUtuZE",
+    "ranges": [
+      [
+        97,
+        162,
+        "CORRECTED_CONTEXT",
+        "기금 도입·과거30인/1인 사업장 제외 교정; 역사 통계 제외"
+      ],
+      [
+        163,
+        252,
+        "HISTORICAL_HOLD",
+        "2025 지원 기준·금액·3년, 2026 실제 지원 상세 미승인"
+      ],
+      [
+        253,
+        300,
+        "OPINION_HOLD",
+        "과거 수수료·운용사·성과, 미래 확정수익 아님"
+      ]
+    ]
+  },
+  "cost": {
+    "raw_audit_seconds": 0.3075604400000884
+  },
+  "limits": [
+    "보존 DB raw 재파싱; 새 Drive ZIP 조회 아님",
+    "문맥 검토와 금융 사실 승인 구분",
+    "전체 의미시간 미측정"
+  ]
+}

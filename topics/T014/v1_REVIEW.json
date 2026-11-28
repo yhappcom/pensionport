@@ -1,0 +1,236 @@
+{
+  "topic": "T014",
+  "version": 1,
+  "status": "REVIEWED_SCOPED_CANDIDATE",
+  "as_of": "2026-11-28",
+  "plan_commit": "7c9818ab5d20092d1b5caee76c7e8ecd6741a932",
+  "plan_blob": "39f8417cac67652853bd2bf5c061749dfef143fb",
+  "source_audit": {
+    "rows": [
+      {
+        "item": "01/02/03",
+        "video": "Yd5qnDtW2TM",
+        "sha": "e67be6da14dc6eae2fe8172add56f2c98efb1e6e232587aaa591d8752b043792",
+        "first": 61,
+        "last": 96,
+        "start_ms": 127320,
+        "end_ms": 197680,
+        "count": 36,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-Yd5qnDtW2TM.srt"
+      },
+      {
+        "item": "01/03",
+        "video": "Yd5qnDtW2TM",
+        "sha": "e67be6da14dc6eae2fe8172add56f2c98efb1e6e232587aaa591d8752b043792",
+        "first": 121,
+        "last": 240,
+        "start_ms": 239760,
+        "end_ms": 469960,
+        "count": 120,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-Yd5qnDtW2TM.srt"
+      },
+      {
+        "item": "03",
+        "video": "T0S4kPUtuZE",
+        "sha": "1905d79d7d164c1eebe22ee9734eb0f4484c2c4aabba25182e6f237029bbe205",
+        "first": 97,
+        "last": 300,
+        "start_ms": 195440,
+        "end_ms": 620959,
+        "count": 204,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-T0S4kPUtuZE.srt"
+      }
+    ],
+    "unique_sources": 2,
+    "unique_cues": 360,
+    "new_cues": 324,
+    "rereview_cues": 36,
+    "raw_sha_time_text_match": true,
+    "query_hits": [
+      3,
+      2,
+      71
+    ]
+  },
+  "cards": [
+    {
+      "id": "T014-01",
+      "status": "VERIFIED_SCOPED",
+      "rule": "노란우산은 소기업·소상공인 대표자를 대상으로 중소기업중앙회가 운영하는 공제이며 비영리법인 대표 및 제한 업종은 제외된다. 2019년 이후 가입 일반 사례에서 조특법 제86조의3상 거주자의 해당연도 납입액과 대상 소득구간 한도 중 작은 금액에 부동산임대업 제외 사업소득 비율을 곱하고 해당 비임대 사업소득을 상한으로 소득공제한다. 구간은 4000만원 이하 600만원, 4000만원 초과~6000만원 이하 500만원, 6000만원 초과~1억원 이하 400만원, 1억원 초과 200만원. 법인대표는 총급여 8000만원 이하일 때 근로소득금액 기준으로 적용. 가입·납입 및 적격 소득 요건을 충족하고 비임대 사업소득 3500만원, 납부액 600만원이라 가정하면 소득공제 600만원이지 세액공제 600만원은 아니다. 실제 절세액은 다른 공제, 과세표준 및 세율에 의존한다.",
+      "limits": [
+        "법인의 대표자 총급여 요건은 가입자격 자체와 구분. 2015년 이전 및 2016~2018 가입자의 경과규정은 개별 확인.",
+        "부동산임대업과 다른 사업소득 혼합 시 전체 소득구간 및 법정 비율 확인; 단순 비임대 소득 기준으로 구간 재산정 금지. 실제 세액·지역 장려금·2026 납입한도 상세 미승인."
+      ],
+      "sources": [
+        "Yd5qnDtW2TM:61–96",
+        "Yd5qnDtW2TM:121–240"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1022565429",
+          "scope": "제86조의3 13–21행 소득구간, 총급여 및 부동산임대업 비율·한도",
+          "date": "2026-07-01 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E02",
+          "url": "https://www.8899.or.kr/cmnsCnts/view?menuId=C080301000",
+          "scope": "108–144행 소득공제 및 가입시기별 과세",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.8899.or.kr/cmnsCnts/view?menuId=C080202000",
+          "scope": "99–116,121–144,172–212행 가입 대상 및 제한",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T001-04"
+      ],
+      "attribution": "Yd 61–96 운영·보호, 136–205 소득공제와 세액공제 및 우선순위 의견. 최신 한도는 공식 자료 보완. 절세 유불리 일률 단정 제외.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T014-02",
+      "status": "VERIFIED_SCOPED",
+      "rule": "중소기업협동조합법 제119조상 공제금 수급권은 양도·압류·담보 제공 제한, 법정 공제대출 미상환 시 원리금 공제 가능. 제118조의3의 공제금수급계좌 예금채권은 압류 금지되며 일반계좌로 수령한 모든 돈까지 무조건 보호된다고 볼 수 없다. 공제금 지급은 폐업·사망, 법인대표 질병/부상 퇴임, 60세 이상 및 120회 이상 납부 등 노령, 법정 재난·질병·회생파산 사유별 요건을 확인한다. 일반·간주·강제해약은 정상 공제사유와 구별하고 가입시점과 납입회차에 따른 환급 및 과세 조건을 확인한다. 2026년 가입자의 일반해약 환급표는 1~3회 80%, 4~6회 90% 등 초기 원금 손실 가능성을 보여준다. 2016년 이후 일반적 적격 공제금은 실제 소득공제 부금과 이자에 퇴직소득 과세 적용, 중도해약 세제 및 경과규정은 별도 확인한다.",
+      "limits": [
+        "무등록 가입자 폐업증명 불가 등의 지급 제한, 지급사유 세부 증빙과 실제 세금·중간정산·이율·특별해지 미확정.",
+        "압류보호와 예금자보호·정부 지급보증은 서로 다른 개념. 전액 원금 보장 및 고정 수익 보장 단정 금지."
+      ],
+      "sources": [
+        "Yd5qnDtW2TM:61–96",
+        "Yd5qnDtW2TM:121–240"
+      ],
+      "evidence": [
+        {
+          "id": "E02",
+          "url": "https://www.8899.or.kr/cmnsCnts/view?menuId=C080301000",
+          "scope": "108–144행 소득공제 및 가입시기별 과세",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E04",
+          "url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=00&joNo=0119&lsiSeq=280149&urlMode=lsScJoRltInfoR",
+          "scope": "제119조17–19행 수급권·대출 상계·전용계좌",
+          "date": "2026-06-03 시행",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E05",
+          "url": "https://www.8899.or.kr/cmnsCnts/view?menuId=C080302000",
+          "scope": "105–113행 행복지킴이통장과 일반계좌 구별",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E06",
+          "url": "https://www.8899.or.kr/cmnsCnts/view?menuId=C080401010",
+          "scope": "110–120행 공제금 지급사유·납입조건",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E07",
+          "url": "https://www.8899.or.kr/cmnsCnts/view?menuId=C080403000",
+          "scope": "113–131,212–245행 해약 종류 및 가입시기별 환급",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T014-01",
+        "T004-05"
+      ],
+      "attribution": "Yd 75–88 무조건 보호 및 높은 이율 표현 교정, 147–162 납입 및 유동성 의견. 법정 지급·해약 및 계좌보호 조건 공식 근거 보완.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T014-03",
+      "status": "VERIFIED_SCOPED",
+      "rule": "푸른씨앗은 근로복지공단 운영의 공적 기금형 퇴직연금이다. 2026-07-01 개정 시행에 따라 사업장 도입 대상은 기존 상시근로자 30명 이하에서 50명 미만으로 확대됐으며 2027-01-01부터 100명 미만으로 확대 예정(해당 시점 재검증). 자영업자·노무제공자 등 일하는 사람을 위한 가입자부담금계정(푸른씨앗 IRP)도 도입됐으므로 자영업자 개인 가입 불가라는 과거 설명은 현행에 적용하지 않는다. 사업장의 사용자부담금 제도와 개인 가입 경로, 국가 지원 요건은 별개다. 지원금은 별도 고시·예산·신청 요건에 따르며 과거 영상 2025년 월보수 273만원 미만/10%/3년 등을 현재 모든 가입자에 적용하지 않는다. 공동 기금의 전문 운용과 원금·확정수익 보장은 별개이며 과거 수익률은 미래 수익 보장 아님.",
+      "limits": [
+        "최신 법 전체 직접 조회 실패; 개정 적용범위는 고용노동부 7월22/28일 시행 확인과 법령 공식 검색 발췌로 제한 승인. 실제 가입 절차·개인 납입자격·정부 지원금 액수/기간/대상 및 수수료 상세 HOLD.",
+        "50인 미만과 50인 이하 혼동 금지. 2027 시행 범위는 재확인 필요."
+      ],
+      "sources": [
+        "Yd5qnDtW2TM:61–96",
+        "Yd5qnDtW2TM:121–240",
+        "T0S4kPUtuZE:97–300"
+      ],
+      "evidence": [
+        {
+          "id": "E08",
+          "url": "https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19679",
+          "scope": "573–581행 7월1일 시행, 50인 미만, 2027년100인 미만, 자영업자 등의 개인형 도입 및 실제 신청",
+          "date": "2026-07-22",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E09",
+          "url": "https://www.moel.go.kr/news/achievements/view.do?bbs_seq=20260700962",
+          "scope": "599–602행 동일 개정 내용",
+          "date": "2026-07-28",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E10",
+          "url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000271224",
+          "scope": "제2조 검색 발췌, 지원 신청일 기준 30명 이하. 직접 페이지는 본문 미표시. 세부 지원 미승인",
+          "date": "2026-01-01 시행",
+          "type": "OFFICIAL_SEARCH_EXCERPT",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E11",
+          "url": "https://www.law.go.kr/lsInfoP.do?efYd=20260701&lsiSeq=284455",
+          "scope": "공식 검색 발췌 제23조의8 및 부칙 단계 특례; 직접 조회 실패",
+          "date": "2026-07-01 시행",
+          "type": "OFFICIAL_SEARCH_EXCERPT",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T004-01",
+        "T013-01",
+        "T014-01"
+      ],
+      "attribution": "Yd 61–68,121–135 및 T0S 115–132 가입대상 구법 교정. T0S 163–252의 2025 지원 수치는 역사 문맥으로 분리, 253–300 수수료·운용수익 일반화 배제.",
+      "valid_through": "2026-12-31"
+    }
+  ],
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "푸른씨앗 최신 지원금·수수료·개인 계정 실제 조건, 노란우산 가입시기별 세금·이율·납입한도·개별 자격·지역지원, 개인별 적정 납입 및 투자 판단"
+    }
+  ],
+  "limits": [
+    "공식 직접본문9 및 공식 검색 발췌2. 근로자퇴직급여 보장법 최신 직접 본문 및 지원고시 상세 본문, 10월 조특법 직접 재열람 실패; 7월 조문과 공식 2026 안내 교차검토. 지원금 상세 승인 제외.",
+    "동일 ChatGPT 내부 의미 검토; 전수 검색 재현율·독립 정확도 미측정."
+  ],
+  "calculations": {
+    "non_rental_business_income": 35000000,
+    "contribution": 6000000,
+    "assumed_eligible_deduction": 6000000,
+    "actual_tax_saving": "not determined"
+  }
+}
