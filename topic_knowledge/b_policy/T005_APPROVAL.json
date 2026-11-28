@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "policy": "B_SCOPED_DIRECT_V1",
+  "topic": "T005",
+  "version": 1,
+  "status": "APPROVED_SCOPED",
+  "approved_on": "2026-11-28",
+  "review_by": "2026-12-31",
+  "review": {
+    "path": "topics/T005/v1_REVIEW.json",
+    "commit": "07a607f0c0f898d4865c087eef4211a0199e9342",
+    "blob": "7a8f601b56466eed100be3ec2d52363e2c762768"
+  },
+  "expected_ids": [
+    "T005-01",
+    "T005-02",
+    "T005-03",
+    "T005-04"
+  ],
+  "direct_relations": [
+    {
+      "a": "T005-01",
+      "b": "T005-02",
+      "kind": "COMPLEMENT",
+      "reason": "직접 의존 규칙: T005-01의 검증 조건을 T005-02에 계승"
+    },
+    {
+      "a": "T005-02",
+      "b": "T005-03",
+      "kind": "COMPLEMENT",
+      "reason": "직접 의존 규칙: T005-02의 검증 조건을 T005-03에 계승"
+    },
+    {
+      "a": "T005-01",
+      "b": "T005-04",
+      "kind": "COMPLEMENT",
+      "reason": "직접 의존 규칙: T005-01의 검증 조건을 T005-04에 계승"
+    },
+    {
+      "a": "T005-02",
+      "b": "T005-04",
+      "kind": "COMPLEMENT",
+      "reason": "직접 의존 규칙: T005-02의 검증 조건을 T005-04에 계승"
+    },
+    {
+      "a": "T005-03",
+      "b": "T005-04",
+      "kind": "COMPLEMENT",
+      "reason": "직접 의존 규칙: T005-03의 검증 조건을 T005-04에 계승"
+    },
+    {
+      "a": "T004-05",
+      "b": "T005-04",
+      "kind": "COMPLEMENT",
+      "reason": "직접 의존 규칙: T004-05의 검증 조건을 T005-04에 계승"
+    },
+    {
+      "a": "T003-05",
+      "b": "T005-04",
+      "kind": "COMPLEMENT",
+      "reason": "직접 의존 규칙: T003-05의 검증 조건을 T005-04에 계승"
+    },
+    {
+      "a": "T002-05",
+      "b": "T005-04",
+      "kind": "COMPLEMENT",
+      "reason": "직접 의존 규칙: T002-05의 검증 조건을 T005-04에 계승"
+    }
+  ],
+  "review_basis": {
+    "prior_bound_result": {
+      "path": "topic_knowledge/c5/relation_policy/BOUND_RESULT.json",
+      "commit": "08140d352a063f0eeb1d2b8cf5ee93118876adc2",
+      "blob": "dff7b0638a6b89b72af6b1f8e6ab072eda428f64"
+    },
+    "source_audit": "기존 실물 7편/8구간/361자막 재검증 기록 계승; 이번 턴 원문 DB 재실행하지 않음.",
+    "official_recheck": [
+      {
+        "url": "https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio",
+        "scope": "금리 민감도와 가격 변화 근사"
+      },
+      {
+        "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds",
+        "scope": "채권펀드 금리·신용·조기상환 위험"
+      },
+      {
+        "url": "https://www.investor.gov/publications-research-studies/info-sheets/ultra-short-bond-funds",
+        "scope": "초단기 펀드 손실 가능성"
+      },
+      {
+        "url": "https://www.ishares.com/uk/individual/en/education/getting-started-with-etfs/investor-education/fixed-term-bond-etfs",
+        "scope": "만기형 ETF 종료일/원금 비보장; 운용사 설명"
+      },
+      {
+        "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds",
+        "scope": "채권 신용·금리·유동성·조기상환 위험 및 액면가"
+      }
+    ],
+    "date": "2026-11-28",
+    "method": "기존 검토 원문/조건/8 직접 의존 관계 재확인 및 공식 웹 본문 5개 재열람. 신규 한국 법령 검증 아님."
+  },
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "개별 상품 가격/수익률/청산/보호·한국 계좌별 허용/세금 및 개인 배분"
+    }
+  ],
+  "limits": [
+    "일반 판단 원칙에 한정; 특정 상품·예금보호·실제 세율·계좌 허용·거래는 HOLD.",
+    "기존 관계 전체 106쌍 검토 기록은 참고 보존, B 원장은 8개 직접 의존만 명시 저장하고 나머지 UNREVIEWED.",
+    "ChatGPT 내부 승인, 독립 인증 아님."
+  ],
+  "activation": "B 운영 조회 검증 이후"
+}
