@@ -1,0 +1,62 @@
+{
+  "topic": "T005",
+  "base": "edb0968f6233c3b954a41e28c7845b60ef60c3c4",
+  "scope": "일반 채권·일반 채권 ETF의 금리·신용·만기 위험. 개별 상품 추천, 한국 세제·계좌 허용 상세 제외.",
+  "items": [
+    [
+      "01",
+      "금리와 채권 가격, 듀레이션의 근사 및 한계"
+    ],
+    [
+      "02",
+      "신용위험·수익률·원금 보장 구별"
+    ],
+    [
+      "03",
+      "직접 채권 만기와 일반 채권 ETF의 차이"
+    ],
+    [
+      "04",
+      "목표기간·현금 필요와 채권 배분 및 ETF 거래 위험"
+    ]
+  ],
+  "search_budget": "각 2개 원본 32~48자막 우선; 원문 부족 시 HOLD",
+  "gate": "4항목 모두 원문 및 공식 근거 확인, 미확정 중요 항목 HOLD. 실험 저장만, 기존 원장 변경 금지. 독립 의미검증 및 실제 운영 전환 별도.",
+  "questions": [
+    {
+      "id": "B01",
+      "question": "듀레이션 7인 일반 채권 ETF에서 금리 1%p 상승 시 가격 변화와 1년 후 주택자금 사용 가능성?",
+      "required": [
+        "T005-01",
+        "T005-03",
+        "T005-04",
+        "T004-05",
+        "T003-05"
+      ],
+      "criteria": [
+        "약 -7% 근사, 보장 아님",
+        "ETF 만기 원금 보장 없음",
+        "단기자금 별도",
+        "거래/인출 제약"
+      ]
+    },
+    {
+      "id": "B02",
+      "question": "고수익 회사채 ETF는 예금처럼 원금 보장? 연금계좌에서 매도하면 즉시 인출?",
+      "required": [
+        "T005-02",
+        "T005-03",
+        "T005-04",
+        "T002-05",
+        "T003-05"
+      ],
+      "criteria": [
+        "신용 위험",
+        "수익률과 확정수익 구분",
+        "ETF 원금 보장 없음",
+        "법정 인출 및 거래 별개"
+      ]
+    }
+  ],
+  "experiment": "direct claim admission, explicit dependency and conflict, default UNREVIEWED; compare all 25×4 + 6 internal pairs separately. No auto inference of DISTINCT. Question receipts pinned to experimental snapshot. Known conflict blocked; wrong routing/false review remains trust limitation."
+}
