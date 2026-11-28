@@ -1,0 +1,108 @@
+{
+  "status": "PASS_B_SCOPED_T011",
+  "as_of": "2026-11-28",
+  "manifest": {
+    "commit": "5aac03bf76f053806d5b8a7458912c2ee762568e",
+    "path": "topic_knowledge/b_policy/candidates/T011_MANIFEST.json",
+    "blob": "ee9b802675ba5bedc6ef4b3db786be20d94231bb"
+  },
+  "prior_manifest_blob": "f4840b1568a741aded455273846991f473a778d2",
+  "engine_blob": "fd2062a35976e5f9edafa668403201d7599aaeb6",
+  "counts": {
+    "active": 44,
+    "topics": 11,
+    "relations": 352,
+    "query_cards": 18,
+    "tests": 21,
+    "regression": 27
+  },
+  "tests": {
+    "active44": true,
+    "prior42": true,
+    "old_cards_preserved": true,
+    "old_relations_preserved": true,
+    "relation352": true,
+    "topics11": true,
+    "two_new": true,
+    "dependencies": true,
+    "six_relations": true,
+    "unknown": true,
+    "old_excludes": true,
+    "expiry": true,
+    "before": true,
+    "unapproved": true,
+    "candidate_only": true,
+    "tampered_review": true,
+    "tampered_approval": true,
+    "missing": true,
+    "wrong_path": true,
+    "calculation": true,
+    "query_mutation": true
+  },
+  "advisory": {
+    "method": "사전 고정 2질문 8기준, V8 실제 후보 조회 후 동일 ChatGPT 검토. 독립 인증 아님.",
+    "retrieved": [
+      "T001-02",
+      "T001-03",
+      "T001-04",
+      "T001-06",
+      "T001-07",
+      "T001-08",
+      "T002-01",
+      "T002-02",
+      "T002-03",
+      "T002-04",
+      "T002-05",
+      "T002-06",
+      "T003-01",
+      "T003-02",
+      "T003-06",
+      "T006-01",
+      "T011-01",
+      "T011-02"
+    ],
+    "answers": [
+      {
+        "id": "Q1",
+        "used": [
+          "T011-01",
+          "T011-02",
+          "T001-06",
+          "T002-02",
+          "T002-03",
+          "T002-04"
+        ],
+        "answer": "아니다. 연금계좌에서 국내 투자자 단계의 과세가 이연되어도 펀드가 외국 원천지에 납부하는 세금은 별개다. 국가·소득 유형·수익자·펀드 구조 및 세법 확인이 필요하다. 국내 적격 간접투자 소득은 2025년 지급분부터 선환급 방식 폐지, 2026년 7월 1일 이후 인출부터 별도 외국납부세액 조정 제도 적용. 국내 인출과세는 소득 원천 및 법정 요건에 따른다.",
+        "criteria": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "Q2",
+        "used": [
+          "T011-01",
+          "T011-02",
+          "T006-01",
+          "T001-06",
+          "T002-02"
+        ],
+        "answer": "100만원 배당, 외국세 15만원만 차감되는 가정이면 세후 85만원이다. 15만원이 전부 법정 거주자별 간접투자외국법인세액에 해당하고 지급·인출 시점 요건을 만족하는 연금계좌라는 추가 가정이면 누적 공제 계산액은 82500원. 해당 인출의 국내 원천징수세액 한도 3만원 가정시 3만원 차감, 52500원 잔여. 전액·즉시 현금환급이 아니며 실제 귀속 외국세·상품·계좌·과세연도·공제잔액·국내세액 확인이 필요하다. 일반계좌·ISA에 같은 산식 적용 금지.",
+        "criteria": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "10월 시행령 공식 검색 전문과 7월 본문 0.55 일치; 10월 직접 열람은 7월 반환. 최신 전체 바이트 미확보.",
+    "과도기 인출, 실제 계좌이전/해지·지방세·종합과세 및 ISA 상세 계산 HOLD.",
+    "도구 호출 제한 회피를 위해 이전 정책·manifest의 정확한 바이트를 재구성 후 기존 Git blob과 일치 확인, 실제 후보 및 42카드 비교. 회귀 별도 실행. Node CI 미실행.",
+    "전체 의미시간·비용 및 독립 정확도 미측정."
+  ]
+}
