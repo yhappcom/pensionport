@@ -1,0 +1,93 @@
+{
+  "stage": "C5_BOUND_T005",
+  "base": "315c23b629c73bd21d1498d78cce9ef42fd67095",
+  "scope": "T005 실험 경로의 입력 결속 및 질문별 범위 점검; 기존 운영 변경 금지",
+  "trusted": {
+    "review": {
+      "path": "topics/T005/v1_REVIEW.json",
+      "commit": "07a607f0c0f898d4865c087eef4211a0199e9342",
+      "blob": "7a8f601b56466eed100be3ec2d52363e2c762768"
+    },
+    "experiment": {
+      "path": "topic_knowledge/c5/relation_policy/T005_EXPERIMENT.json",
+      "commit": "2f8b0405cb35a635fb1c4982c34a6baad781c62e",
+      "blob": "365f1d8f682ac717b4dde3f54b33c5740064491e"
+    },
+    "engine": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+    "ledger": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+    "registry": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+    "admission": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+    "shadow": "d9438ab559831b6393cf99f10d77defd3963303a"
+  },
+  "cases": [
+    {
+      "id": "N01",
+      "question": "듀레이션 5인 회사채 ETF의 금리가 0.5%p 상승하면 얼마 손실인가? 높은 신용등급이면 6개월 후 전세보증금으로 확실히 쓸 수 있나?",
+      "day": "2026-11-28",
+      "required_profiles": [
+        "BOND_HORIZON",
+        "BOND_CREDIT"
+      ],
+      "required": [
+        "T005-01",
+        "T005-02",
+        "T005-03",
+        "T005-04",
+        "T004-05",
+        "T003-05",
+        "T002-05"
+      ],
+      "criteria": [
+        "가격 약 -2.5%, 가정 및 총수익 구별",
+        "고신용 원금 비보장",
+        "단기 지출 별도",
+        "시장 매도·결제·인출 별개"
+      ]
+    },
+    {
+      "id": "N02",
+      "question": "일반 채권 ETF와 만기매칭형 ETF 중 만기 날짜에 원금이 반드시 지급되는 것을 IRP에서 사고 싶다. 어떤 상품인가?",
+      "day": "2026-11-28",
+      "required_profiles": [
+        "BOND_CREDIT",
+        "BOND_HORIZON"
+      ],
+      "required": [
+        "T005-02",
+        "T005-03",
+        "T005-04",
+        "T002-05",
+        "T003-05"
+      ],
+      "criteria": [
+        "두 구조 차이",
+        "청산금액 비보장",
+        "계좌 적격·인출 미확정",
+        "특정 상품 매수 확정 금지"
+      ]
+    },
+    {
+      "id": "N03",
+      "question": "2027년 1월 기준 채권 ETF를 IRP에서 확정 추천해 달라.",
+      "day": "2027-01-01",
+      "required_profiles": [
+        "BOND_HORIZON"
+      ],
+      "required": [],
+      "criteria": [
+        "만료 차단"
+      ]
+    },
+    {
+      "id": "N04",
+      "question": "해외 채권 ETF의 현재 한국 세법상 원천징수율과 특정 상품의 현재 수익률을 확정해 달라.",
+      "day": "2026-11-28",
+      "required_profiles": [],
+      "required": [],
+      "criteria": [
+        "범위 밖 HOLD"
+      ]
+    }
+  ],
+  "gate": "실제 승인 Git blob 바이트 해시 재계산 및 승인된 commit/path fetch 식별 대조. 객체 입력 대신 검증된 문자열 파싱. 질문 범위는 별도 고정 검토 계약(프로필 합집합)과 일치해야 함. 각 질문에 선택된 카드 중 신규 카드 포함 미검토 쌍을 전체 열거하고 명시 검토 또는 HOLD; 알려진 충돌 차단. 자동 의미 인증 주장 금지. 비용: 기술 시간과 관계 검토 수, 의미 전체시간 별도."
+}
