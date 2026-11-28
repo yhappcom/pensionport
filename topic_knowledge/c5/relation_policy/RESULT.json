@@ -1,0 +1,309 @@
+{
+  "status": "C5_SHADOW_STRUCTURAL_PASS_C6_HOLD",
+  "as_of": "2026-11-28",
+  "plan_commit": "a7959d146e6e951a6e74909ce83f28f489e1c389",
+  "answers_commit": "fd1a35273472d792d27f7ec97a1ace10e20f28ea",
+  "implementation_commit": "a6ed516113494c7e5f44441f55b56de442a55056",
+  "counts": {
+    "cards": 25,
+    "archive": 300,
+    "explicit": 120,
+    "criteria": 26,
+    "cases": 6,
+    "conditional": 4,
+    "hold": 2,
+    "structural_tests": 36,
+    "regression": 27,
+    "calculations": 4,
+    "prior_missed_links_preserved": 6
+  },
+  "integrity": {
+    "pins": true,
+    "all_checks": true,
+    "regression": true,
+    "numeric": true,
+    "criteria": true
+  },
+  "tests": {
+    "all_25_active": true,
+    "all_300_archived": true,
+    "120_explicit_preserved": true,
+    "all_six_prior_misses_preserved": true,
+    "all_case_preparations_reproduced": true,
+    "all_case_finalizations_reproduced": true,
+    "four_conditional_two_hold": true,
+    "all_mandatory_dependencies": true,
+    "missing_obligation": true,
+    "missing_required_card": true,
+    "unresolved_obligation": true,
+    "empty_obligation_rationale": true,
+    "missing_bridge": true,
+    "duplicate_bridge": true,
+    "wrong_bridge_state": true,
+    "wrong_snapshot": true,
+    "different_question": true,
+    "different_date": true,
+    "different_profile": true,
+    "missing_source": true,
+    "wrong_source_version": true,
+    "personal_trade_blocked": true,
+    "unconditional_blocked": true,
+    "high_risk_open_blocked": true,
+    "no_semantic_review_blocked": true,
+    "answer_modified_after_review": true,
+    "expired": true,
+    "unknown_profile": true,
+    "missing_dependency": true,
+    "unknown_not_distinct": true,
+    "unknown_without_fresh_review_blocked": true,
+    "unknown_with_scoped_review_allowed": true,
+    "question_review_does_not_publish_relation": true,
+    "explicit_conflict_blocks": true,
+    "known_conflict_outside_bridge_blocks": true,
+    "unresolved_equivalence_blocks": true
+  },
+  "trust_boundaries": {
+    "fabricated_semantic_receipt_can_pass": true,
+    "wrong_profile_not_automatically_detected": true,
+    "no_new_card_admission_implemented": true
+  },
+  "evaluation": [
+    {
+      "id": "R01",
+      "disposition": "CONDITIONAL",
+      "criteria": [
+        {
+          "criterion": "생활자금 3000만원 우선",
+          "basis": "3000만원 주거·비상금 우선",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "최대 1000만원 검토",
+          "basis": "최대1000만원",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "추가 공제 100만원·13.2만원 조건부",
+          "basis": "추가100만원·13.2만원",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "60일 실제 납입",
+          "basis": "실제 납입60일",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "IRP 인출 및 상품 적격 별도",
+          "basis": "IRP 및 상품 조건",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "수익·환급 보장 금지",
+          "basis": "보장 없음",
+          "status": "PASS_INTERNAL"
+        }
+      ]
+    },
+    {
+      "id": "R02",
+      "disposition": "CONDITIONAL",
+      "criteria": [
+        {
+          "criterion": "매도·매수 200만원 또는 기타자산 신규 납입 333.33만원 가정",
+          "basis": "200만원 또는333.33만원",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "납입한도 확인",
+          "basis": "납입·공제 확인",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "인출 가능성 별도",
+          "basis": "법정 인출 별도",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "호가·비용·세금 확인",
+          "basis": "호가·비용·세금",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "실제 주문·상품 허용 확정 금지",
+          "basis": "주문 지시 금지",
+          "status": "PASS_INTERNAL"
+        }
+      ]
+    },
+    {
+      "id": "R03",
+      "disposition": "CONDITIONAL",
+      "criteria": [
+        {
+          "criterion": "한도 1200만원",
+          "basis": "1200만원",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "초과 500만원 구분",
+          "basis": "500만원 초과",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "1500만원은 과세 기준",
+          "basis": "1500만원 과세 기준",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "원천·예외·계좌 확인",
+          "basis": "원천·예외·계좌",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "시장 매도와 외부 인출 구별",
+          "basis": "매도와 지급 구별",
+          "status": "PASS_INTERNAL"
+        }
+      ]
+    },
+    {
+      "id": "R04",
+      "disposition": "CONDITIONAL",
+      "criteria": [
+        {
+          "criterion": "TD -2/-1%p",
+          "basis": "-2/-1%p",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "TE 단일 관측 불가",
+          "basis": "단일 TE 불가",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "괴리율 +2%",
+          "basis": "+2%",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "비용 이중 차감 금지",
+          "basis": "이중차감 금지",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "기초자산 중복·위험 확인",
+          "basis": "중복·위험",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "개별 상품 적격·매수 보류",
+          "basis": "상품 적격 보류",
+          "status": "PASS_INTERNAL"
+        }
+      ]
+    },
+    {
+      "id": "R05",
+      "disposition": "HOLD",
+      "criteria": [
+        {
+          "criterion": "만료 조회 차단",
+          "basis": "만료",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "재검증",
+          "basis": "재검증",
+          "status": "PASS_INTERNAL"
+        }
+      ]
+    },
+    {
+      "id": "R06",
+      "disposition": "HOLD",
+      "criteria": [
+        {
+          "criterion": "미등록 범위",
+          "basis": "미등록",
+          "status": "PASS_INTERNAL"
+        },
+        {
+          "criterion": "확정 금지",
+          "basis": "확정 거부",
+          "status": "PASS_INTERNAL"
+        }
+      ]
+    }
+  ],
+  "calculations": [
+    {
+      "id": "R01",
+      "actual": 132000,
+      "expected": 132000
+    },
+    {
+      "id": "R02",
+      "actual": 3333333.333333336,
+      "expected": 3333333.333333333
+    },
+    {
+      "id": "R03",
+      "actual": 12000000,
+      "expected": 12000000
+    },
+    {
+      "id": "R04",
+      "actual": [
+        -2,
+        -1,
+        2
+      ],
+      "expected": [
+        -2,
+        -1,
+        2
+      ]
+    }
+  ],
+  "workload": [
+    {
+      "id": "R01",
+      "cards": 17,
+      "obligations": 4,
+      "bridges": 4,
+      "potential_selected_pairs": 136,
+      "elapsed_ms": 1
+    },
+    {
+      "id": "R02",
+      "cards": 19,
+      "obligations": 4,
+      "bridges": 3,
+      "potential_selected_pairs": 171,
+      "elapsed_ms": 1
+    },
+    {
+      "id": "R03",
+      "cards": 10,
+      "obligations": 4,
+      "bridges": 3,
+      "potential_selected_pairs": 45,
+      "elapsed_ms": 1
+    },
+    {
+      "id": "R04",
+      "cards": 18,
+      "obligations": 5,
+      "bridges": 4,
+      "potential_selected_pairs": 153,
+      "elapsed_ms": 0
+    }
+  ],
+  "limitations": [
+    "동일 ChatGPT 내부 의미평가; 신규 금융 사실 인증 아님.",
+    "허위 의미영수증은 구조 검사 통과 가능, 잘못된 유형 분류 자동 탐지 불가. 실제 반례 확인.",
+    "신규 직접 명제 승인 미구현; 기존 300관계 이력 보존, 실제 발행비용 감소 미측정. 14개 질문별 관계 검토는 전체 300쌍과 동일 범위 아님.",
+    "전체 의미 비용·독립 정확도·Node CI 미실측. 최초 평가 저장 호출 시간초과 후 실행/저장 분리."
+  ],
+  "next": "T005 신규 SRT 주제에 한해 별도 실험 원장 신규 직접명제 승인과 질문 적용 검증 실증. 전체쌍 기준 대조, 의무 누락·오분류·충돌 반례 및 실제 의미 비용 측정. 기존 운영 전환 및 C6는 보류."
+}
