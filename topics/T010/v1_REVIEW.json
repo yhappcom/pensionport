@@ -1,0 +1,178 @@
+{
+  "topic": "T010",
+  "version": 1,
+  "status": "REVIEWED_SCOPED_CANDIDATE",
+  "as_of": "2026-11-28",
+  "plan_commit": "a939b9a1e4a6326832856e72fa4a345cad01add7",
+  "plan_blob": "5178e17a7cb8547983dcba7b9b0aa51c40030b7e",
+  "source_audit": {
+    "rows": [
+      {
+        "item": "02",
+        "video": "jdg_4nQUCVU",
+        "sha": "27bfe3e93b1c4007da77d91aab367ace57f191a665ed2d4615e6293650ca5766",
+        "first": 133,
+        "last": 180,
+        "start_ms": 318440,
+        "end_ms": 426720,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-jdg_4nQUCVU.srt"
+      },
+      {
+        "item": "01",
+        "video": "3MyhYE2jmuE",
+        "sha": "493c52ea3e56cb9be756d70f4de90d3b069c40dff5743d69bd8a8770f32c1bcc",
+        "first": 661,
+        "last": 708,
+        "start_ms": 1303279,
+        "end_ms": 1397080,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-3MyhYE2jmuE.srt"
+      },
+      {
+        "item": "01",
+        "video": "V7H65oaoflo",
+        "sha": "828f839fddc92792459f7553eeb214bee0c070552f39643c1fde8c2e000283a6",
+        "first": 589,
+        "last": 636,
+        "start_ms": 1229880,
+        "end_ms": 1336200,
+        "count": 48,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-V7H65oaoflo.srt"
+      },
+      {
+        "item": "03",
+        "video": "kU2Cknb8T3I",
+        "sha": "27fd290c8e06b348ca5f7dfe1077fbea64a1f715206f3aa713cbd61f7cc1b2bb",
+        "first": 385,
+        "last": 432,
+        "start_ms": 744519,
+        "end_ms": 840680,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-kU2Cknb8T3I.srt"
+      }
+    ],
+    "unique_sources": 4,
+    "unique_cues": 192,
+    "raw_sha_time_text_match": true,
+    "query_hits": [
+      69,
+      5,
+      19
+    ]
+  },
+  "cards": [
+    {
+      "id": "T010-01",
+      "status": "VERIFIED_SCOPED",
+      "rule": "동일 통화·동일 기간의 명목 순수익률 r과 물가상승률 p(물가지수 양수)에 대해 실질수익률=(1+r)/(1+p)−1이다. 명목수익률−물가상승률은 근사치다. 명목 5%, 물가 3%이면 약 1.94%. 세금·비용 반영 전 명목률이면 세전·비용 전 실질률이며 실제 순수익은 해당 비용 반영 후 환산한다. 현금흐름이 여러 시점이면 각각의 물가지수로 환산한다.",
+      "limits": [
+        "영상의 연평균 수익률·물가 수치는 역사적 주장 또는 가정이며 승인하지 않음. 산식은 구매력 정의로 도출.",
+        "Investor.gov 정의는 세금 포함 개념으로 설명하므로 세전/세후를 명시; 물가가 음수이면 실질률이 명목률보다 높을 수 있음."
+      ],
+      "sources": [
+        "3MyhYE2jmuE:661–708",
+        "V7H65oaoflo:589–636",
+        "kU2Cknb8T3I:385–432"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/real-return",
+          "scope": "154행 세금·물가 고려 실질수익 개념; 정확 산식은 구매력 항등식 별도 도출, 디플레이션 가능",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E02",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/purchasing-power",
+          "scope": "154행 구매력 정의",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E04",
+          "url": "https://www.bok.or.kr/portal/bbs/B0000218/view.do?menuNo=200&nttId=10017572&pageIndex=12",
+          "scope": "2014-08-01, 829–845행 평균 물가지수와 가구별 소비구성 차이; 당시 품목수·물가수치 사용 안 함",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T006-01"
+      ],
+      "attribution": "3MyhYE2jmuE 671–687 미래 구매력 논의, V7H65oaoflo 610–618 및 kU2Cknb8T3I 408–423 인플레이션 가정. 산식은 원문 직접 인용 아님.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T010-02",
+      "status": "VERIFIED_SCOPED",
+      "rule": "현재 금액 A의 미래 명목 구매목표는 동일 소비 묶음의 물가비율을 곱해 환산하고, 미래 금액의 현재 구매력은 그 비율로 나눈다. 일정 연 물가 p를 가정하면 n년 배율은 (1+p)^n이다. 공식 CPI는 가구 평균 소비구성에 따른 지표로 개인 의료·주거 등 실제 소비와 다를 수 있다. 현금·예금 순이자가 물가보다 낮으면 실질 구매력이 감소하나 단기 필수지출을 위험자산으로 전환하면 매도 시 손실 위험이 생긴다. 지출시점과 유동성은 T004-05, 은퇴 계획은 T007-03을 참조한다.",
+      "limits": [
+        "고정 물가율은 예측 또는 보장 아님. 특정 예금금리·주식수익률·개인 적정 은퇴자금 미검증.",
+        "영상의 예금 보유시 빈곤 확정 및 현금 30년 후 절반 이하라는 무조건적 진술 배제. 공적연금·증여세 관련 언급은 별도 HOLD."
+      ],
+      "sources": [
+        "jdg_4nQUCVU:133–180",
+        "V7H65oaoflo:589–636",
+        "kU2Cknb8T3I:385–432"
+      ],
+      "evidence": [
+        {
+          "id": "E02",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/purchasing-power",
+          "scope": "154행 구매력 정의",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/save-and-invest/gauge-your-risk-tolerance",
+          "scope": "151–153행 장기 구매력 손실 위험과 단기 투자손실 위험의 구분",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E04",
+          "url": "https://www.bok.or.kr/portal/bbs/B0000218/view.do?menuNo=200&nttId=10017572&pageIndex=12",
+          "scope": "2014-08-01, 829–845행 평균 물가지수와 가구별 소비구성 차이; 당시 품목수·물가수치 사용 안 함",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T010-01",
+        "T004-05",
+        "T007-03"
+      ],
+      "attribution": "jdg_4nQUCVU 133–154 예금과 물가, V7H65oaoflo 610–636 구매력/품목 사례, kU2Cknb8T3I 385–423 물가 가정; 위험 단정 교정.",
+      "valid_through": "2026-12-31"
+    }
+  ],
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "현재 물가·예금금리·향후 물가율·개별 은퇴금액·증여세·공적연금 규정; 개인 자산배분"
+    }
+  ],
+  "limits": [
+    "한국은행 명목/실질금리 개별 페이지 직접 조회 cache miss, 승인 근거 제외.",
+    "동일 ChatGPT 검토, 독립 의미 정확도·전수 검색 재현율 미측정.",
+    "기존 T004-05/T007-03 중복 등록 금지."
+  ],
+  "calculations": {
+    "R1": 0.01941747572815533,
+    "example_30_year": 6292702.737245358,
+    "cash_30_year": 47674268.51809713
+  }
+}
