@@ -1,0 +1,110 @@
+{
+  "status": "PASS_B_SCOPED_T012",
+  "as_of": "2026-11-28",
+  "manifest": {
+    "commit": "2510b2a43d67e9980bdcea690d231131b132b1b3",
+    "path": "topic_knowledge/b_policy/candidates/T012_MANIFEST.json",
+    "blob": "edda614d1f948a64309f8a7a45777913fe253930"
+  },
+  "prior_manifest_blob": "ee9b802675ba5bedc6ef4b3db786be20d94231bb",
+  "engine_blob": "fd2062a35976e5f9edafa668403201d7599aaeb6",
+  "counts": {
+    "active": 47,
+    "topics": 12,
+    "relations": 360,
+    "query_cards": 23,
+    "tests": 21,
+    "regression": 27
+  },
+  "tests": {
+    "active47": true,
+    "prior44": true,
+    "old_cards_preserved": true,
+    "old_relations_preserved": true,
+    "relation360": true,
+    "topics12": true,
+    "three_new": true,
+    "dependencies": true,
+    "eight_relations": true,
+    "unknown": true,
+    "old_excludes": true,
+    "expiry": true,
+    "before": true,
+    "unapproved": true,
+    "candidate_only": true,
+    "tampered_review": true,
+    "tampered_approval": true,
+    "missing": true,
+    "wrong_path": true,
+    "calculation": true,
+    "query_mutation": true
+  },
+  "advisory": {
+    "method": "사전 고정 2질문 8기준, 실제 V8 후보 조회 후 동일 ChatGPT 수동 검토. 독립 인증 아님.",
+    "retrieved": [
+      "T001-02",
+      "T001-03",
+      "T001-04",
+      "T001-06",
+      "T001-07",
+      "T001-08",
+      "T002-01",
+      "T002-05",
+      "T002-06",
+      "T003-01",
+      "T003-02",
+      "T003-06",
+      "T004-01",
+      "T004-02",
+      "T004-03",
+      "T005-01",
+      "T005-02",
+      "T006-01",
+      "T009-01",
+      "T009-02",
+      "T012-01",
+      "T012-02",
+      "T012-03"
+    ],
+    "answers": [
+      {
+        "id": "Q1",
+        "used": [
+          "T012-01",
+          "T012-02",
+          "T004-03"
+        ],
+        "answer": "전체 평가액 1억원과 한도 적용자산 6500만원이 일정하고 다른 자산 1000만원을 대체한다면 70% 한도 여유는 500만원이며 1000만원 매수 후 비중은 75%다. 실제 금융사 평가액·대상 상품 분류·거래 가능액을 확인해야 한다. 이미 선정한 자산의 시장가치 변동에 따른 초과는 감독규정 제13조제2항 특례로 신규 한도 위반 운용지시와 다르다.",
+        "criteria": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "Q2",
+        "used": [
+          "T012-01",
+          "T012-02",
+          "T012-03",
+          "T005-02",
+          "T004-01",
+          "T009-02"
+        ],
+        "answer": "아니다. 적격 TDF 등 감독규정의 지정 요건을 충족한 상품은 70% 총한도에서 제외될 수 있다. 제11조제1항제5호 증권형집합투자증권등은 약관상 주식투자한도 50% 미만 및 투자적격등급 외 채무증권 한도 30% 이하 요건이 있다. 적격 TDF는 별도 기준이고 2026년 4월 개정사항 및 기타 인정요건과 실제 금융사 분류를 확인한다. 한도 제외와 원금보장은 별개이며 투자목표·기간·위험 감내에 따른 선택이 필요하다.",
+        "criteria": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "시행세칙 제5조의2 직접 페이지 본문 미표시, 공식 검색 발췌 및 금감원 보도자료 본문으로 변경사항만 제한 확인. 전체 적격성 판단 미승인.",
+    "후보/이전 manifest와 정책 및 legacy ledger 바이트 재구성 후 기존 Git blob과 일치 확인, 실제 승인 및 리뷰 파일 읽고 기존 함수 실행. 회귀 별도 실행. Node CI 미실행.",
+    "전체 의미시간/비용 및 독립 정확도 미측정. 개별 상품·주문·수수료·실물이전·디폴트옵션 실제 조건 HOLD."
+  ]
+}
