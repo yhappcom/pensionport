@@ -1,0 +1,132 @@
+{
+  "status": "PASS_SCOPED_C3_T001",
+  "base": "33ac13e9def393288874dfd4980a3be702eb4df2",
+  "as_of": "2026-11-28",
+  "counts": {
+    "tests": 27,
+    "passed": 27,
+    "failed": 0,
+    "active": 8,
+    "relations": 28,
+    "complements": 11
+  },
+  "tests": [
+    {
+      "name": "actual 8 cards",
+      "status": "PASS"
+    },
+    {
+      "name": "actual rule exact",
+      "status": "PASS"
+    },
+    {
+      "name": "actual source exact",
+      "status": "PASS"
+    },
+    {
+      "name": "idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "serialization restart",
+      "status": "PASS"
+    },
+    {
+      "name": "no historical evidence in active lookup",
+      "status": "PASS"
+    },
+    {
+      "name": "last day",
+      "status": "PASS"
+    },
+    {
+      "name": "expired",
+      "status": "PASS"
+    },
+    {
+      "name": "before review",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid date",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown topic",
+      "status": "PASS"
+    },
+    {
+      "name": "unpublished",
+      "status": "PASS"
+    },
+    {
+      "name": "hold rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "partial rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing evidence rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing pair rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "conflict rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "equivalent pending merge rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate text rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing dependency",
+      "status": "PASS"
+    },
+    {
+      "name": "cycle",
+      "status": "PASS"
+    },
+    {
+      "name": "dependent expiry",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback on invalid revision",
+      "status": "PASS"
+    },
+    {
+      "name": "bad event pin",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic revision",
+      "status": "PASS"
+    },
+    {
+      "name": "lookup mutation isolated",
+      "status": "PASS"
+    },
+    {
+      "name": "complement actual relation",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "승인 registry는 신뢰된 운영자 입력이다. Git 커밋·blob은 이번 읽기에서 확인했으나 코드 자체가 외부 원본 또는 승인자 서명을 인증하지 않는다.",
+    "동치 자동 병합 미구현: 동치·충돌 모두 승인 전 차단. 실제 두 번째 주제와 실제 법령 개정 갱신은 미검증.",
+    "모든 카드 2026-12-31까지 조회 허용은 보수적 운영 결정이며 모든 법령의 만료일이 아니다.",
+    "신규 버전은 합성 시험만 수행. 과거 버전 조회는 Git 이력 필요.",
+    "Git 원자적 커밋 및 ref lease 사용; 네트워크·서버 장애 주입 시험 미실행.",
+    "V8에서 동일 함수 몸체 실행; Node CLI 및 CI 미실행. 첫 실행 structuredClone 미지원으로 중단되어 JSON clone으로 변경 후 전체 재실행.",
+    "독립 금융 정확도·자문 성능 미측정. C2 근거 제한 유지."
+  ]
+}
