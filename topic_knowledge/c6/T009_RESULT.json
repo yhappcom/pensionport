@@ -1,0 +1,103 @@
+{
+  "status": "PASS_B_SCOPED_T009",
+  "as_of": "2026-11-28",
+  "manifest": {
+    "commit": "04e5863e0390e8ce3a9c2c35aeeb166602461e7d",
+    "path": "topic_knowledge/b_policy/candidates/T009_MANIFEST.json",
+    "blob": "ade21e4efded228bfb5e631aba2ad916c3e834bf"
+  },
+  "prior_manifest_blob": "281e41516b8b5dec17c07da5d570922f04afe210",
+  "engine_blob": "fd2062a35976e5f9edafa668403201d7599aaeb6",
+  "counts": {
+    "active": 40,
+    "topics": 9,
+    "relations": 342,
+    "query_cards": 17,
+    "tests": 21,
+    "regression": 27
+  },
+  "tests": {
+    "active40": true,
+    "prior38": true,
+    "old_cards_preserved": true,
+    "old_relations_preserved": true,
+    "relation342": true,
+    "topics9": true,
+    "two_new": true,
+    "dependencies": true,
+    "all_seven_relations": true,
+    "unknown": true,
+    "old_excludes": true,
+    "expiry": true,
+    "before": true,
+    "unapproved": true,
+    "candidate_only": true,
+    "tampered_review": true,
+    "tampered_approval": true,
+    "missing": true,
+    "wrong_path": true,
+    "calculation": true,
+    "query_mutation": true
+  },
+  "advisory": {
+    "method": "사전 고정 두 질문/8기준 동일 ChatGPT 검토. V8 실제 조회 17개 후보 카드, 독립 평가 아님.",
+    "retrieved": [
+      "T001-02",
+      "T001-03",
+      "T001-04",
+      "T001-06",
+      "T001-07",
+      "T001-08",
+      "T002-01",
+      "T002-05",
+      "T002-06",
+      "T003-01",
+      "T003-02",
+      "T003-06",
+      "T004-01",
+      "T004-02",
+      "T006-01",
+      "T009-01",
+      "T009-02"
+    ],
+    "answers": [
+      {
+        "id": "FX1",
+        "used": [
+          "T009-01",
+          "T006-01"
+        ],
+        "answer": "원/달러 환율이 10% 하락(달러 1단위당 원화 감소)하고 달러 자산이 10% 상승하면 1.1×0.9−1=−1%. 단일 보유기간, 중간 현금흐름·비용·세금·헤지 제외. 이미 원화로 환산된 수익률에는 재적용하지 않음.",
+        "criteria": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "FX2",
+        "used": [
+          "T009-01",
+          "T009-02",
+          "T003-01",
+          "T003-02",
+          "T004-01",
+          "T004-02"
+        ],
+        "answer": "원화로 거래하더라도 해외자산 통화 노출이 남을 수 있다. H는 실제 헤지 대상 통화와 비율·방법·비용을 투자설명서에서 확인해야 하며, 환차익도 축소되고 잔여 환위험 및 기초자산 가격 손실 위험은 남는다. 지출통화·투자기간·위험감내와 비용에 따라 선택하며 개인 정보와 상품 미확인 상태에서는 어느 쪽이 더 안전하거나 적합하다고 단정하지 않는다.",
+        "criteria": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "전체 의미시간·비용/독립 인증 미측정, Node CI 미실행. V8 실제 저장소 원문 함수 실행.",
+    "현행 환율 전망, 개별 상품·실행·세제 및 개인 적합성 HOLD.",
+    "원문 검색어 변형 및 중복 계열 자료 문제; 검색 재현율 미측정."
+  ]
+}
