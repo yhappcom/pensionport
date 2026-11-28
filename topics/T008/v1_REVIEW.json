@@ -1,0 +1,287 @@
+{
+  "topic": "T008",
+  "version": 1,
+  "status": "SCOPED_REVIEW_CANDIDATE",
+  "as_of": "2026-11-28",
+  "plan_commit": "167b7659c8473bf19f649b7f1905a84b3ba3341f",
+  "plan_blob": "ba060474ce9c8f9c83d53e8a84a6649f05914a24",
+  "source_audit": {
+    "db_sha256": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+    "rows": [
+      {
+        "item": "01",
+        "video": "BEUvOl-expQ",
+        "sha": "dd8480323d392b740a98d7e8ffa4c083b75a4901b2757ac6e9333d190b561bae",
+        "first": 253,
+        "last": 300,
+        "start_ms": 516320,
+        "end_ms": 612560,
+        "count": 48,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-BEUvOl-expQ.srt"
+      },
+      {
+        "item": "01",
+        "video": "Eb7kKf8wnTw",
+        "sha": "38d9f14119cc662e22bcb2635e0d54a26cae3395534f67d7ba162fbd70d2af23",
+        "first": 913,
+        "last": 960,
+        "start_ms": 1753600,
+        "end_ms": 1846679,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-Eb7kKf8wnTw.srt"
+      },
+      {
+        "item": "02",
+        "video": "IkL1X2VrPIc",
+        "sha": "d153f58cec002b9acfdc042cca15779ac076f8c76daf9f1ff9733f44cbf5a76b",
+        "first": 289,
+        "last": 336,
+        "start_ms": 588920,
+        "end_ms": 680839,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-IkL1X2VrPIc.srt"
+      },
+      {
+        "item": "02",
+        "video": "SSZaZvwAuy0",
+        "sha": "bc6db130fe9f8a79a1b96afdec9373825ec35a737dd255be66962e80bbb38ede",
+        "first": 1033,
+        "last": 1080,
+        "start_ms": 1915159,
+        "end_ms": 2012919,
+        "count": 48,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript-SSZaZvwAuy0.srt"
+      },
+      {
+        "item": "03",
+        "video": "uzZkVRGZw2k",
+        "sha": "a741e906572dcd1ae50a24400a36806348d22c0b856c428eedb89584a814c7f7",
+        "first": 145,
+        "last": 192,
+        "start_ms": 333319,
+        "end_ms": 443520,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-uzZkVRGZw2k.srt"
+      },
+      {
+        "item": "03",
+        "video": "w8nnPJe8lmo",
+        "sha": "08da1e9cd5f2ebba39e03844dd4b93e30185124feb4ffa9ef13ea5a283eb2924",
+        "first": 421,
+        "last": 468,
+        "start_ms": 911920,
+        "end_ms": 1017680,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-w8nnPJe8lmo.srt"
+      }
+    ],
+    "videos": 6,
+    "unique_cues": 288,
+    "query_hits": [
+      4,
+      0,
+      6,
+      2,
+      11
+    ],
+    "query_video_counts": [
+      2,
+      0,
+      4,
+      1,
+      6
+    ],
+    "method": "원문 AND 질의 3개 중 1개 무회수, 이익 및 주가/이익/성장 확장2개; 원문 문맥 수동 검토, 독립 파싱·SHA·시간·텍스트 대조"
+  },
+  "cards": [
+    {
+      "id": "T008-01",
+      "status": "VERIFIED_SCOPED",
+      "rule": "보통주의 주가수익비율(PER)은 주가/주당이익(EPS), 주가순자산비율(PBR)은 주가/주당장부가치(BPS)이다. 실적과 예상 이익, 기본·희석·조정 EPS, 회계기간과 주가 기준일을 일치시킨다. EPS가 0 또는 음수이면 통상 양의 PER 비교가 부적절하고 BPS가 0 또는 음수인 경우에도 낮은 PBR이라는 통상적 해석이 부적절하다. 업종·회계기준·자산구성 차이를 고려한다.",
+      "limits": [
+        "장부가치는 실제 청산 회수액 보장이 아니다. 개별 종목/지수의 현재 배수 및 제공사별 산식 미확정. 원문은 두 지표 해석의 차이를 언급하며 분모 정의와 음수 한계는 공식 근거 보완.",
+        "해외 공식 일반 교육 자료의 원리만 사용; 국내 개별 공시/세법 신규 인증 아님."
+      ],
+      "sources": [
+        "BEUvOl-expQ:253–300",
+        "Eb7kKf8wnTw:913–960"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://www.fidelity.com/learning-center/trading-investing/fundamental-analysis/company-valuation-ratios",
+          "scope": "254–267행 PER/PBR·매출·현금흐름·PEG, 적자 시 대안",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E02",
+          "url": "https://syndication.finra.org/content/defining-value-investment",
+          "scope": "13–43행 PBR·내재가치·동종 비교·가치함정",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.fidelity.com/webcontent/ap010098-etf-content/17.02/help/research/learn_er_glossary_3.shtml",
+          "scope": "657–743행 trailing/forward EPS, 적자 제외, 예상치 비보장",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E04",
+          "url": "https://www.fidelity.com/webcontent/ap010098-etf-content/18.09.0/help/research/learn_er_glossary_1.shtml",
+          "scope": "1182–1192행 음의 장부가 제외 예시 및 회계기준 차이",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T003-01"
+      ],
+      "attribution": "BEUvOl-expQ 273–282 및 Eb7kKf8wnTw 939–949의 저PER·고PBR/사이클 논의. 현재 시장 수치 미승인.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T008-02",
+      "status": "VERIFIED_SCOPED",
+      "rule": "낮은 PER/PBR은 저평가의 후보 지표일 뿐이다. 예상 이익 성장, 현금흐름, 부채, 자산의 질, 경기순환, 회계 및 위험·할인율을 함께 검토한다. 예상이익이 일시적으로 높을 때 낮은 PER가 나타날 수 있고, 과거 이익 증가에도 미래 전망이나 평가배수 변화로 가격은 하락할 수 있다. 동일 업종·기간·이익 정의와 자체 과거 수치를 비교하되 가치함정 가능성을 고려한다.",
+      "limits": [
+        "10배 이하 보편 저평가, 경제성장률 미달 시 반드시 폭락, 특정 종목 향후 평가배수 보장 금지. 실제 기업 가치/매수 결론 별도 공시 검증 필요.",
+        "해외 공식 일반 교육 자료의 원리만 사용; 국내 개별 공시/세법 신규 인증 아님."
+      ],
+      "sources": [
+        "IkL1X2VrPIc:289–336",
+        "SSZaZvwAuy0:1033–1080"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://www.fidelity.com/learning-center/trading-investing/fundamental-analysis/company-valuation-ratios",
+          "scope": "254–267행 PER/PBR·매출·현금흐름·PEG, 적자 시 대안",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E02",
+          "url": "https://syndication.finra.org/content/defining-value-investment",
+          "scope": "13–43행 PBR·내재가치·동종 비교·가치함정",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.fidelity.com/webcontent/ap010098-etf-content/17.02/help/research/learn_er_glossary_3.shtml",
+          "scope": "657–743행 trailing/forward EPS, 적자 제외, 예상치 비보장",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E06",
+          "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/stocks-and-bonds",
+          "scope": "118–142행 이익/배당수익률 및 업종별 평가",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T008-01",
+        "T004-02"
+      ],
+      "attribution": "IkL1X2VrPIc 313–336의 예상 PER·메모리 사이클과 SSZaZvwAuy0 1046–1060의 이익 증가에도 가격 하락 사례; 단일 원인 단정 교정.",
+      "valid_through": "2026-12-31"
+    },
+    {
+      "id": "T008-03",
+      "status": "VERIFIED_SCOPED",
+      "rule": "EPS와 PER가 양수이고 같은 기준이라면 P=EPS×PER이며, 기간 가격수익률은 (EPS1/EPS0)×(PER1/PER0)−1이다. 배당 미재투자, 추가 매매·세금·비용 제외 단순 보유수익률은 가격수익률에 기간 배당금/기초가격을 더한다. 성장률과 평가배수 변화는 시나리오 입력이며 실현수익이 아니다. 기대수익 추정은 가정과 범위를 밝히고 투자 전략별 목표수익률을 확정값으로 사용하지 않는다.",
+      "limits": [
+        "음수/0 EPS나 기준 변경 시 이 분해식 적용 제외. 분배율·목표수익·과거 성과와 미래 실현수익 구별, 10~30% 고정 기대치 및 개별 상품 전망 미승인.",
+        "해외 공식 일반 교육 자료의 원리만 사용; 국내 개별 공시/세법 신규 인증 아님."
+      ],
+      "sources": [
+        "uzZkVRGZw2k:145–192",
+        "w8nnPJe8lmo:421–468"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "url": "https://www.fidelity.com/learning-center/trading-investing/fundamental-analysis/company-valuation-ratios",
+          "scope": "254–267행 PER/PBR·매출·현금흐름·PEG, 적자 시 대안",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E02",
+          "url": "https://syndication.finra.org/content/defining-value-investment",
+          "scope": "13–43행 PBR·내재가치·동종 비교·가치함정",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E03",
+          "url": "https://www.fidelity.com/webcontent/ap010098-etf-content/17.02/help/research/learn_er_glossary_3.shtml",
+          "scope": "657–743행 trailing/forward EPS, 적자 제외, 예상치 비보장",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        },
+        {
+          "id": "E05",
+          "url": "https://investor.vanguard.com/investor-resources-education/portfolio-management/performance-details?msockid=3b48031c0333636e031515d1023f6241",
+          "scope": "75–91행 소득+가격변동, 단순 수익 산식",
+          "date": "2026-11-28 조회",
+          "type": "WEB_BODY",
+          "use": "CURRENT_WEB"
+        }
+      ],
+      "dependencies": [
+        "T008-01",
+        "T008-02",
+        "T006-01",
+        "T004-01"
+      ],
+      "attribution": "uzZkVRGZw2k 145–180의 전략별 목표 수익률 및 w8nnPJe8lmo 433–454의 분배율/기대수익 혼용을 교정. 가격 분해식은 공식 정의에서 도출한 별도 산술.",
+      "valid_through": "2026-12-31"
+    }
+  ],
+  "exclusions": [
+    {
+      "status": "HOLD",
+      "item": "개별 종목/지수 현재 PER/PBR·실적·성장률/미래가격, 전략별 목표수익률·TDF 구체 비용 및 한국 세제"
+    }
+  ],
+  "limits": [
+    "동일 ChatGPT 내부 검토; 전체 의미 검색 재현율 미측정.",
+    "Vanguard EPS/PER 설명 중 배당과 이익 혼동 가능 문구는 정의 근거로 사용하지 않음; FINRA/Fidelity 정의 우선.",
+    "기존 T006-01의 단순 보유수익률 정의 재발행 아님, 가격분해식에 의존."
+  ],
+  "calculations": {
+    "V01": [
+      10,
+      2
+    ],
+    "V02": [
+      20000,
+      16500,
+      -0.175,
+      -0.15
+    ]
+  }
+}
