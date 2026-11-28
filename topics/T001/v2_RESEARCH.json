@@ -1,0 +1,303 @@
+{
+  "id": "T001",
+  "version": 2,
+  "as_of": "2026-11-28",
+  "stage": "C2_RESEARCH_CANDIDATE_REVIEW_REQUIRED",
+  "status": "HOLD",
+  "previous": "topics/T001_ISA_PENSION_TRANSFER.json",
+  "source_audit": {
+    "unique_sources": 15,
+    "cumulative_unique_cues": 1108,
+    "verified_retrieved_contexts": 16,
+    "verified_retrieved_unique_cues": 854,
+    "source_only": true,
+    "prior_source_sha_recomputed": true,
+    "manual_focus_recheck": "9 selected spans printed and read; entire 1108 cues not reread this turn",
+    "source_audit_sha256": "7995909be8160a38ee57827ea9d15610111123a6ffebe83c28ad1ebf65f7b413"
+  },
+  "evidence": [
+    {
+      "id": "L01",
+      "title": "소득세법 제59조의3",
+      "url": "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=001565&lsJoLnkSeq=1000819707&print=print",
+      "version": "2026-01-01",
+      "access": "WEB_BODY",
+      "location": "45–55",
+      "meaning": "종합소득 4500/근로소득만 총급여5500 기준, 12/15%, 일반 600/900, 적격 전환의 납입액 포함, 10% 최대300, 과세기간 걸친 한도",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L02",
+      "title": "소득세법 시행령 제40조의2",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032955103",
+      "version": "2026-07-01",
+      "access": "WEB_BODY",
+      "location": "32–37,58–72",
+      "meaning": "일반 1800+전환, 만료잔액/직전 납입 차감, 수령 개시 이후 납입 제한, 55세/5년/수령 한도",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L03",
+      "title": "소득세법 시행령 제118조의2·3",
+      "url": "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=126655",
+      "version": "2026-07-01",
+      "access": "WEB_BODY",
+      "location": "15–25",
+      "meaning": "만료일부터 60일 내 실제 납입; 증빙; 이전 과세기간 미공제금의 별도 납입금 전환 신청",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L04",
+      "title": "소득세법 시행령 2026-10-01 제118조의2",
+      "url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0118&lsiSeq=290841&urlMode=lsScJoRltInfoR",
+      "version": "2026-10-01",
+      "access": "OFFICIAL_SEARCH_EXCERPT",
+      "location": "검색 결과 제3항",
+      "meaning": "60일 문구 일치, 직접 재조회 cache miss",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L05",
+      "title": "조세특례제한법 제91조의18",
+      "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021859593",
+      "version": "2026-06-02",
+      "access": "WEB_BODY",
+      "location": "18–34,60–74",
+      "meaning": "200/400 비과세, 9% 국세, 법정 손익통산 및 3년 전 추징 예외, 3년 이후 적격 이전 만료 간주",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L06",
+      "title": "소득세법 제61조",
+      "url": "https://law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1033234355",
+      "version": "2026-07-01",
+      "access": "WEB_BODY",
+      "location": "14–17",
+      "meaning": "산출세액 초과 공제 제한 및 미공제 처리",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L07",
+      "title": "지방세특례제한법 제167조의2",
+      "url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=02&joNo=0167&lsiSeq=286607&urlMode=lsScJoRltInfoR",
+      "version": "2026-06-02",
+      "access": "WEB_BODY",
+      "location": "19–25",
+      "meaning": "해당 국세 공제액의 10% 지방세 공제, 제1·2항 2026-12-31까지 적용",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L08",
+      "title": "소득세법 시행령 제40조의3",
+      "url": "https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001061005",
+      "version": "2026-07-01",
+      "access": "WEB_BODY",
+      "location": "9–11",
+      "meaning": "과세제외금액 우선, 이연퇴직소득, 그 외 과세 대상 순서; 미공제 확인과 손실 반영",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L09",
+      "title": "국세청 연금소득 원천징수세율",
+      "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7888&mi=2312",
+      "version": "본문 2026 적용 주석",
+      "access": "WEB_BODY",
+      "location": "1117–1171",
+      "meaning": "연령별 국세 3~5%, 연금외 일반15%, 의료 등 예외, 사적연금 과세 기준",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L10",
+      "title": "근로자퇴직급여 보장법 시행령 제18조",
+      "url": "https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021160497",
+      "version": "2026-03-24",
+      "access": "WEB_BODY",
+      "location": "14–34",
+      "meaning": "개인형퇴직연금 중도인출 법정 요건; 별도 법령 참조",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L11",
+      "title": "미래에셋증권 ISA 연금전환 안내",
+      "url": "https://securities.miraeasset.com/public/mw/blog/html/20210421111202.html?ver=20241121163719",
+      "version": "심사기간 2021-04-20~2022-04-19",
+      "access": "HISTORICAL_BODY",
+      "location": "68–107,110",
+      "meaning": "과거 신청/입금/확인 절차 사례, 현재 금융사 절차/수수료/예금보호로 사용 금지",
+      "checked_on": "2026-11-28"
+    },
+    {
+      "id": "L12",
+      "title": "미래에셋증권 FAQ 연금저축·IRP 분할전환",
+      "url": "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1296&curPage=16&direction=1&listType=1&searchEndDay=14&searchEndMonth=01&searchEndYear=2026&searchStartDay=14&searchStartMonth=01&searchStartYear=2025&searchType=2&startId=09omk~&startPage=11",
+      "version": "게시일 미확인",
+      "access": "PROVIDER_SEARCH_EXCERPT",
+      "location": "검색 결과",
+      "meaning": "분할 신청 지원 사례, 직접 본문 조회 실패",
+      "checked_on": "2026-11-28"
+    }
+  ],
+  "cards": [
+    {
+      "id": "T001-01",
+      "question": "대상·기한",
+      "status": "CANDIDATE",
+      "source": [
+        "xwkP_bpKE-M:870–909",
+        "7p3p7TKcdqY:695–739",
+        "ly25lXbU5oA:246–264"
+      ],
+      "evidence": [
+        "L01",
+        "L03",
+        "L04",
+        "L05"
+      ],
+      "statement": "적격 ISA 만료잔액 전부/일부를 계약 만료일부터 60일 이내 연금계좌에 납입한다. 가입 후 3년이 지난 적격 이전은 계약기간 만료로 간주되는 규정이 있다. 두 달 및 신청만으로 충분하다는 표현은 교정.",
+      "limits": "2026-07-01 시행령 직접 본문과 10월 시행령 공식 검색 결과 일치; 10월 본문 직접 조회 미완료. 실제 만료 기준일/납입 완료 확인."
+    },
+    {
+      "id": "T001-02",
+      "question": "금액·납입한도",
+      "status": "CANDIDATE",
+      "source": [
+        "xwkP_bpKE-M:788–810",
+        "xwkP_bpKE-M:845–860",
+        "PUWsNu9b3cc:69–75",
+        "PUWsNu9b3cc:139–144"
+      ],
+      "evidence": [
+        "L01",
+        "L02"
+      ],
+      "statement": "일반 연간 1800만원에 적격 전환금액을 더할 수 있다. 전환금액은 만료 기준 잔액 한도이며 두 과세기간에 나뉘면 직전 전환액을 차감한다. 3000만원은 전환액 상한이 아니다. 수령개시 신청 이후 납입 제한 및 다른 법정 추가 납입 예외는 구별한다.",
+      "limits": "7월 판본 직접 확인; 10월 제40조의2 직접 본문 재조회 미완료."
+    },
+    {
+      "id": "T001-03",
+      "question": "추가 공제 대상",
+      "status": "CANDIDATE",
+      "source": [
+        "xwkP_bpKE-M:792–844",
+        "-71DQQIcTlc:291–315",
+        "inLlZgtS7qs:6–31"
+      ],
+      "evidence": [
+        "L01"
+      ],
+      "statement": "연금저축 일반 공제 대상 600만원, 퇴직연금 합산 900만원. 전환액은 실제 납입한 과세기간의 연금 납입액에 포함하고 전환액 10%와 300만원 중 적은 금액만큼 한도를 확대한다. 두 과세기간에 걸치면 직전 과세기간에 적용된 추가 한도를 300만원에서 차감. 기존 연금계좌 계약이전금은 공제 대상에서 제외. 300만원은 실제 세금 환급액 아님.",
+      "limits": "일반 한도 미사용 시 전환액이 일반 한도에도 반영될 수 있어 추가한도 계산과 총공제 계산 구분."
+    },
+    {
+      "id": "T001-04",
+      "question": "공제율·세부담",
+      "status": "CANDIDATE",
+      "source": [
+        "3jtBJc17ZHw:698–711",
+        "inLlZgtS7qs:20–31",
+        "WJYWW_XXbSM:582–607"
+      ],
+      "evidence": [
+        "L01",
+        "L06",
+        "L07"
+      ],
+      "statement": "종합소득 있는 거주자의 공제율은 국세 12%, 종합소득금액 4500만원 이하(근로소득만 있으면 총급여 5500만원 이하) 15%. 2026년 적용 확인 범위에서 실제 국세 공제액의 10% 지방세 공제 효과를 포함하면 통상 13.2/16.5%. 공제기준산출세액 및 다른 공제·감면으로 실익 제한, 환급액과 별개.",
+      "limits": "지방세특례제한법 제167조의2 제1·2항 확인본 적용종료 2026-12-31; 2027 이후 강제 재검증. 근로소득만 여부 및 실제 세액 확인."
+    },
+    {
+      "id": "T001-05",
+      "question": "ISA 자체 세제",
+      "status": "CANDIDATE",
+      "source": [
+        "PUWsNu9b3cc:175–182",
+        "xwkP_bpKE-M:893–909"
+      ],
+      "evidence": [
+        "L05"
+      ],
+      "statement": "ISA 자체의 법정 손익통산 및 비과세(일반 200만원, 요건 충족 시 400만원), 초과분 국세 9% 분리과세는 연금전환 세액공제와 별도. 3년 이전 해지 시 법정 부득이한 사유 제외 추징; 납입원금 초과 인출의 중도해지 간주 규정 확인.",
+      "limits": "2026-06-02 시행 조문 본문 기준, 최신 법령 재조회. 손익통산은 법정 과세소득·손실 범위 내, 총수익 전체 아님."
+    },
+    {
+      "id": "T001-06",
+      "question": "연금과 유동성",
+      "status": "CANDIDATE",
+      "source": [
+        "ly25lXbU5oA:224–229",
+        "ly25lXbU5oA:261–264",
+        "EYya0e4APBE:27–43",
+        "YsXYA7Hi7qk:869–892"
+      ],
+      "evidence": [
+        "L02",
+        "L08",
+        "L09",
+        "L10"
+      ],
+      "statement": "연금저축에서 확인된 미공제 원금은 과세제외 가능하며 법정 인출순서를 적용한다. 미공제 확인/손실/해당 연도 인출에 따른 공제액 변화 고려. 공제받은 원금·운용수익의 정상 연금수령은 통상 국세 3~5%, 일반 연금외수령은 국세 15%, 의료 등 부득이한 사유 예외. 일반 연금수령은 55세 이후 신청 및 가입 5년, 수령한도 요건; 이연퇴직소득 등의 예외. IRP 일부 인출은 법정 사유 제한; 세금 면제와 인출 가능성은 다르다. 전액 이전 후 무조건 인출 가능 주장은 채택하지 않는다.",
+      "limits": "IRP 개별 법정 사유 전체·계약별 비용 및 현재 미공제 원금 확인 필요. 사적연금 1500만원 기준 및 예외는 후속 인출 주제로 상세 검증."
+    },
+    {
+      "id": "T001-07",
+      "question": "계산 사례",
+      "status": "CANDIDATE",
+      "source": [
+        "inLlZgtS7qs:6–31",
+        "-71DQQIcTlc:291–315",
+        "xwkP_bpKE-M:924–930"
+      ],
+      "evidence": [
+        "L01",
+        "L06",
+        "L07"
+      ],
+      "statement": "일반 한도 소진·적격 전환·단일 2026 과세기간·공제 가능한 국세와 지방세 충분 가정: 1천만원 이전 추가 대상100만원, 국세12/15만원 및 지방 포함13.2/16.5만원; 3천만원 이상 추가 대상300만원, 국세36/45만원 및 지방 포함39.6/49.5만원. 일반 한도 900만원 공제와 추가 한도 300만원 모두 충족 시 총 1200만원×16.5%=198만원 이론상 세부담 감소. 실제 환급액 보장 없음.",
+      "limits": "계산 30개 시나리오, 잔여 공제 가능 국세를 입력값으로 제한. 세액 공제 우선순위·개인 실제 신고 계산기 아님."
+    },
+    {
+      "id": "T001-08",
+      "question": "절차·개인 선택",
+      "status": "HOLD",
+      "source": [
+        "7p3p7TKcdqY:604–615",
+        "7p3p7TKcdqY:695–739",
+        "ly25lXbU5oA:209–236",
+        "YsXYA7Hi7qk:869–892"
+      ],
+      "evidence": [
+        "L01",
+        "L03",
+        "L10",
+        "L11",
+        "L12"
+      ],
+      "statement": "투자 판단: 비상자금·주거자금·은퇴 전 자금 수요를 우선 확보하고 실제 세부담, 상품/계좌 제약, 인출과세 및 비용 확인 후 전환액 결정. 금융사에 만료 기준일, 대상 계좌, 실제 납입 경로, 입금확정, 증빙을 확인. 타사·복수계좌 전환은 사업자별 지원 및 인정 절차 확인 전 일반화 금지. 행사 상품권은 별도 약관/기간/조건 확인 전 지식 발행 제외.",
+      "limits": "현행 금융사별 타사/복수계좌 처리 FAQ 직접 조회 실패; 2021 안내는 역사 사례. 실제 계좌 확인 전 거래 지시 금지."
+    }
+  ],
+  "counts": {
+    "covered_questions": 8,
+    "candidate": 7,
+    "hold": 1,
+    "approved": 0,
+    "calculation_cases": 30
+  },
+  "decisions": [
+    "전환금액 10%와 최대 300만원은 추가 공제대상 한도이며 실제 환급액 아님",
+    "두 달·신청만 충족 표현 교정",
+    "전액 이전 후 자유 인출 권고 일반화 금지",
+    "일반 한도 미사용 및 과세기간 분할 조건 명시",
+    "금융사 행사 승인 제외",
+    "2026-12-31 지방세 공제 적용기한 이후 재검증 강제 요구"
+  ],
+  "limits": [
+    "전체 코퍼스 의미 검색 품질 미측정",
+    "2026년 10월 시행령 일부 조문 및 최신 법령 판본 직접 조회 실패; 공식 검색 내용과 이전 시행본 비교",
+    "금융사별 현재 처리 및 복수 계좌 직접 확인 미완료",
+    "별도 검토·정식 승인·저장·조회 미실행; 모든 카드 후보/보류",
+    "전체 시간 미측정",
+    "기존 운영원장 및 기존 코드 변경0"
+  ],
+  "next": "C2 제한 근거 재확인 및 별도 검토. C3 정식 저장 및 발행 전 HOLD 해소; 새 엔진 구현은 보류."
+}
