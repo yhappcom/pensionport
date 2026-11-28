@@ -1,0 +1,263 @@
+{
+  "stage": "C5_RELATION_POLICY_SHADOW",
+  "base": "f8a6712daca7c2a4581213e0f8e5c055e33b6ca7",
+  "scope": "운영 변경 없음. 기존 25개 실제 카드 재사용, 새로운 금융 명제 승인 없음. 기존 전체쌍 이력 보존; 신규 미검토 관계를 DISTINCT로 간주 금지.",
+  "policy": {
+    "profiles": {
+      "TRANSFER": {
+        "obligations": {
+          "DEADLINE": [
+            "T001-01",
+            "T001-08"
+          ],
+          "TAX": [
+            "T001-02",
+            "T001-03",
+            "T001-04",
+            "T001-07",
+            "T002-01"
+          ],
+          "CASH": [
+            "T004-01",
+            "T004-05",
+            "T001-06",
+            "T002-05"
+          ],
+          "PRODUCT": [
+            "T003-01",
+            "T003-02",
+            "T003-06"
+          ]
+        },
+        "bridges": [
+          [
+            "T001-01",
+            "T004-01"
+          ],
+          [
+            "T001-07",
+            "T004-01"
+          ],
+          [
+            "T001-04",
+            "T004-05"
+          ],
+          [
+            "T002-05",
+            "T004-05"
+          ]
+        ]
+      },
+      "REBALANCE": {
+        "obligations": {
+          "GOAL": [
+            "T004-01",
+            "T004-02",
+            "T004-03"
+          ],
+          "EXECUTION": [
+            "T004-04",
+            "T003-02",
+            "T003-04",
+            "T003-05"
+          ],
+          "CASH": [
+            "T004-05",
+            "T001-08",
+            "T002-05"
+          ],
+          "ACCOUNT": [
+            "T001-02",
+            "T001-03",
+            "T002-01",
+            "T003-06"
+          ]
+        },
+        "bridges": [
+          [
+            "T004-03",
+            "T004-04"
+          ],
+          [
+            "T003-05",
+            "T002-05"
+          ],
+          [
+            "T004-04",
+            "T001-03"
+          ]
+        ]
+      },
+      "WITHDRAW": {
+        "obligations": {
+          "CASH": [
+            "T004-01",
+            "T004-05"
+          ],
+          "TAX": [
+            "T001-06",
+            "T002-02",
+            "T002-03",
+            "T002-04"
+          ],
+          "ACCOUNT": [
+            "T002-05",
+            "T001-08"
+          ],
+          "EXECUTION": [
+            "T003-04",
+            "T003-05"
+          ]
+        },
+        "bridges": [
+          [
+            "T002-03",
+            "T002-04"
+          ],
+          [
+            "T002-05",
+            "T003-05"
+          ],
+          [
+            "T001-06",
+            "T004-05"
+          ]
+        ]
+      },
+      "COMPARE": {
+        "obligations": {
+          "GOAL": [
+            "T004-01",
+            "T004-02",
+            "T003-01"
+          ],
+          "PERFORMANCE": [
+            "T003-03",
+            "T003-06"
+          ],
+          "COST": [
+            "T003-02"
+          ],
+          "EXECUTION": [
+            "T003-04",
+            "T003-05"
+          ],
+          "ACCOUNT": [
+            "T001-08",
+            "T002-06",
+            "T004-05"
+          ]
+        },
+        "bridges": [
+          [
+            "T003-01",
+            "T003-04"
+          ],
+          [
+            "T003-03",
+            "T003-04"
+          ],
+          [
+            "T003-02",
+            "T003-03"
+          ],
+          [
+            "T002-05",
+            "T003-05"
+          ]
+        ]
+      }
+    },
+    "missing": "HOLD",
+    "explicit_conflict": "HOLD",
+    "unknown_bridge": "requires separate scoped relation review bound to snapshot and question; no automatic pass",
+    "manual": "ChatGPT selects profile and judges meaning, no automatic natural language coverage certification",
+    "result_gate": "all mandatory profile obligations + dependency closure + material bridge checks + exact source/answer binding, conditional only, no personal trade approval"
+  },
+  "cases": [
+    {
+      "id": "R01",
+      "profile": "TRANSFER",
+      "day": "2026-11-28",
+      "question": "ISA 4000만원 만기, 18개월 후 보증금 2500만원 필요, 비상금 500만원 별도 확보 예정. 일반 공제한도 소진, 국세 12% 및 지방세 여력 충분. 전액 연금전환 후 주식 ETF 투자?",
+      "expected": [
+        "생활자금 3000만원 우선",
+        "최대 1000만원 검토",
+        "추가 공제 100만원·13.2만원 조건부",
+        "60일 실제 납입",
+        "IRP 인출 및 상품 적격 별도",
+        "수익·환급 보장 금지"
+      ],
+      "disposition": "CONDITIONAL"
+    },
+    {
+      "id": "R02",
+      "profile": "REBALANCE",
+      "day": "2026-11-28",
+      "question": "IRP 2000만원, 주식 70%·기타 30%, 목표 60/40. 신규 납입만으로 맞추고 6개월 후 500만원을 인출할 수 있나?",
+      "expected": [
+        "매도·매수 200만원 또는 기타자산 신규 납입 333.33만원 가정",
+        "납입한도 확인",
+        "인출 가능성 별도",
+        "호가·비용·세금 확인",
+        "실제 주문·상품 허용 확정 금지"
+      ],
+      "disposition": "CONDITIONAL"
+    },
+    {
+      "id": "R03",
+      "profile": "WITHDRAW",
+      "day": "2026-11-28",
+      "question": "일반 연금수령 2년차 기준 평가액 9000만원, 해당연도 앞선 인출 없음, 1700만원 필요. ETF 매도하면 1500만원 기준과 관계없이 인출 가능한가?",
+      "expected": [
+        "한도 1200만원",
+        "초과 500만원 구분",
+        "1500만원은 과세 기준",
+        "원천·예외·계좌 확인",
+        "시장 매도와 외부 인출 구별"
+      ],
+      "disposition": "CONDITIONAL"
+    },
+    {
+      "id": "R04",
+      "profile": "COMPARE",
+      "day": "2026-11-28",
+      "question": "같은 지수 ETF 두 개가 각각 17%와 18% NAV 총수익, 지수 19%, A의 가격 10200원·iNAV 10000원. A가 저보수라면 연금에서 무조건 선택?",
+      "expected": [
+        "TD -2/-1%p",
+        "TE 단일 관측 불가",
+        "괴리율 +2%",
+        "비용 이중 차감 금지",
+        "기초자산 중복·위험 확인",
+        "개별 상품 적격·매수 보류"
+      ],
+      "disposition": "CONDITIONAL"
+    },
+    {
+      "id": "R05",
+      "profile": "TRANSFER",
+      "day": "2027-01-01",
+      "question": "2027년 전환 혜택과 연금 매수 확정?",
+      "expected": [
+        "만료 조회 차단",
+        "재검증"
+      ],
+      "disposition": "HOLD"
+    },
+    {
+      "id": "R06",
+      "profile": "UNKNOWN",
+      "day": "2026-11-28",
+      "question": "가상자산 파생상품 레버리지 전략의 최신 규정과 최적 상품?",
+      "expected": [
+        "미등록 범위",
+        "확정 금지"
+      ],
+      "disposition": "HOLD"
+    }
+  ],
+  "gate": {
+    "mandatory": "6 cases, all expected criteria and fail-closed tests; all six prior missed links in legacy preserved; shadow candidate actual unknown vs explicit conflict distinction; no live switch without fresh topic validation",
+    "scale": "compare persistent all-pair requirement vs direct claims/explicit relations only; report question cost separately; no extrapolated semantic cost claim"
+  }
+}
