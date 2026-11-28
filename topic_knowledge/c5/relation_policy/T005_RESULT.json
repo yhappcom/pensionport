@@ -1,0 +1,718 @@
+{
+  "status": "EXPERIMENT_PASS_C6_HOLD",
+  "as_of": "2026-11-28",
+  "base": "2f8b0405cb35a635fb1c4982c34a6baad781c62e",
+  "pins": {
+    "engine": "0f9ff7164d56cddae1bd0b6c3952f7f34021ea70",
+    "ledger": "3ec08178075daf65b6f5608b2d2ee3aafa592e8c",
+    "registry": "56db74fa8e21f6795f98d44dc0f6f2aa6f853669",
+    "plan": "95b280b38e76116558be789f25067a14e7275b76",
+    "review": "7a8f601b56466eed100be3ec2d52363e2c762768",
+    "admission": "a7af39b440f5f685b15540766e8eb33f13de7a53",
+    "shadow": "d9438ab559831b6393cf99f10d77defd3963303a"
+  },
+  "tests": {
+    "legacy_25_experiment_29": true,
+    "legacy_all_300_preserved": true,
+    "eight_explicit_98_unreviewed": true,
+    "replay_event_exact": true,
+    "review_pin_actual": true,
+    "legacy_pins_unchanged": true,
+    "legacy_cards_unchanged": true,
+    "questions_replay": true,
+    "required_coverage": true,
+    "unknown_receipt_absent_blocks": true,
+    "fresh_relation_not_globally_published": true,
+    "missing_card_blocks": true,
+    "hold_card_blocks": true,
+    "missing_source_blocks": true,
+    "missing_evidence_blocks": true,
+    "dependency_link_missing_blocks": true,
+    "explicit_conflict_blocks": true,
+    "duplicate_rule_blocks": true,
+    "expired_question_blocks": true,
+    "wrong_answer_blocks": true,
+    "known_nonbridge_conflict_blocks": true
+  },
+  "trust": {
+    "mutated_review_same_pin_passes": true,
+    "unlisted_semantic_conflict_not_detected": true,
+    "wrong_profile_still_not_detected": true,
+    "note": "trusted review/pin verification outside prototype. No independent semantic conflict detector; arbitrary unreviewed pairs not certified."
+  },
+  "reference": {
+    "method": "동일 ChatGPT가 실험 저장 후 25×4 및 내부6 관계를 별도 의미 비교. 사전 고정 범위이나 블라인드 아님. DISTINCT는 직접 명제 구별이며 무관 단정 금지.",
+    "pairs": [
+      {
+        "a": "T001-01",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-02",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-03",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-04",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-05",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-06",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-07",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-08",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-01",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-02",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-03",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-04",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-05",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-06",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-01",
+        "b": "T005-01",
+        "kind": "COMPLEMENT",
+        "reason": "금리 노출과 상품 위험"
+      },
+      {
+        "a": "T003-02",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-03",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-04",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-05",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-06",
+        "b": "T005-01",
+        "kind": "COMPLEMENT",
+        "reason": "가격 민감도와 총수익 구분"
+      },
+      {
+        "a": "T004-01",
+        "b": "T005-01",
+        "kind": "COMPLEMENT",
+        "reason": "목표기간과 금리 민감도"
+      },
+      {
+        "a": "T004-02",
+        "b": "T005-01",
+        "kind": "COMPLEMENT",
+        "reason": "금리 민감도 및 분산 위험"
+      },
+      {
+        "a": "T004-03",
+        "b": "T005-01",
+        "kind": "COMPLEMENT",
+        "reason": "목표 위험과 채권 비중 조정"
+      },
+      {
+        "a": "T004-04",
+        "b": "T005-01",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T004-05",
+        "b": "T005-01",
+        "kind": "COMPLEMENT",
+        "reason": "필수지출과 가격 변동"
+      },
+      {
+        "a": "T001-01",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-02",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-03",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-04",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-05",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-06",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-07",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-08",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-01",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-02",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-03",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-04",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-05",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-06",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-01",
+        "b": "T005-02",
+        "kind": "COMPLEMENT",
+        "reason": "보유 채권 신용 노출과 상품 구조"
+      },
+      {
+        "a": "T003-02",
+        "b": "T005-02",
+        "kind": "COMPLEMENT",
+        "reason": "수익률과 비용 반영 실현성과"
+      },
+      {
+        "a": "T003-03",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-04",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-05",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-06",
+        "b": "T005-02",
+        "kind": "COMPLEMENT",
+        "reason": "표면 수익률과 총수익"
+      },
+      {
+        "a": "T004-01",
+        "b": "T005-02",
+        "kind": "COMPLEMENT",
+        "reason": "손실 감내와 신용위험"
+      },
+      {
+        "a": "T004-02",
+        "b": "T005-02",
+        "kind": "COMPLEMENT",
+        "reason": "신용 집중 및 분산"
+      },
+      {
+        "a": "T004-03",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T004-04",
+        "b": "T005-02",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T004-05",
+        "b": "T005-02",
+        "kind": "COMPLEMENT",
+        "reason": "안전자금과 신용 손실 구분"
+      },
+      {
+        "a": "T005-01",
+        "b": "T005-02",
+        "kind": "COMPLEMENT",
+        "reason": "금리와 신용 위험 구별"
+      },
+      {
+        "a": "T001-01",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "만기형 종료일과 ISA 적격 전환 시점"
+      },
+      {
+        "a": "T001-02",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-03",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-04",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-05",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-06",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-07",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T001-08",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "청산·현금화와 실제 전환 절차"
+      },
+      {
+        "a": "T002-01",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-02",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-03",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "계좌 수령시점과 자산 만기 구분"
+      },
+      {
+        "a": "T002-04",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-05",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "채권 상환과 계좌 외 인출 구분"
+      },
+      {
+        "a": "T002-06",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-01",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "일반 및 만기형 상품 구조"
+      },
+      {
+        "a": "T003-02",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "청산금과 비용"
+      },
+      {
+        "a": "T003-03",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-04",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-05",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "만기 전 매도 및 체결"
+      },
+      {
+        "a": "T003-06",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "분배금과 원금 회수/총수익"
+      },
+      {
+        "a": "T004-01",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "목표기간과 상품 만기"
+      },
+      {
+        "a": "T004-02",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T004-03",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T004-04",
+        "b": "T005-03",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T004-05",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "종료일과 현금 필요시점"
+      },
+      {
+        "a": "T005-01",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "만기와 듀레이션 구별"
+      },
+      {
+        "a": "T005-02",
+        "b": "T005-03",
+        "kind": "COMPLEMENT",
+        "reason": "상환 위험과 만기구조"
+      },
+      {
+        "a": "T001-01",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "전환시한과 현금 사용일"
+      },
+      {
+        "a": "T001-02",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "납입 제약과 현금 배분"
+      },
+      {
+        "a": "T001-03",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "공제액과 유동성 희생"
+      },
+      {
+        "a": "T001-04",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "실제 세액과 현금 필요 비교"
+      },
+      {
+        "a": "T001-05",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "ISA 인출·해지와 유동성"
+      },
+      {
+        "a": "T001-06",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "인출 원천별 과세 및 유동성"
+      },
+      {
+        "a": "T001-07",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "절세와 필수지출 우선"
+      },
+      {
+        "a": "T001-08",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "결제와 실제 전환"
+      },
+      {
+        "a": "T002-01",
+        "b": "T005-04",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T002-02",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "현금 인출 원천"
+      },
+      {
+        "a": "T002-03",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "인출 필요와 수령한도"
+      },
+      {
+        "a": "T002-04",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "인출과 사적연금 과세"
+      },
+      {
+        "a": "T002-05",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "IRP 외부 인출 제한"
+      },
+      {
+        "a": "T002-06",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "납입/비용과 현금 필요"
+      },
+      {
+        "a": "T003-01",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "채권 상품 위험과 환율"
+      },
+      {
+        "a": "T003-02",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "거래비용과 실질수익"
+      },
+      {
+        "a": "T003-03",
+        "b": "T005-04",
+        "kind": "DISTINCT",
+        "reason": "이 두 명제의 직접 금융 판단 단계가 다름; 필요시 질문 적용을 별도 검토(전역 무관 단정 아님)."
+      },
+      {
+        "a": "T003-04",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "현금화 시 시장가격과 NAV"
+      },
+      {
+        "a": "T003-05",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "시장 유동성과 실제 체결"
+      },
+      {
+        "a": "T003-06",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "상품 적격 및 총수익"
+      },
+      {
+        "a": "T004-01",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "투자목표·기간·위험"
+      },
+      {
+        "a": "T004-02",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "채권의 분산과 동반손실"
+      },
+      {
+        "a": "T004-03",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "목표 비중과 필요자금"
+      },
+      {
+        "a": "T004-04",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "리밸런싱 비용과 현금 사용"
+      },
+      {
+        "a": "T004-05",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "단기 필수지출과 인출 조건"
+      },
+      {
+        "a": "T005-01",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "금리 민감도 및 자금 필요"
+      },
+      {
+        "a": "T005-02",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "신용위험과 현금 배분"
+      },
+      {
+        "a": "T005-03",
+        "b": "T005-04",
+        "kind": "COMPLEMENT",
+        "reason": "만기구조와 예정 지출"
+      }
+    ],
+    "all_pairs": 106,
+    "complements": 51,
+    "explicit_complements": 8,
+    "unreviewed_complements": 43,
+    "fresh_question_reviews": 4,
+    "fresh_unique": [
+      "T004-01|T005-01",
+      "T004-05|T005-03",
+      "T003-01|T005-02"
+    ],
+    "unreviewed_remaining_global": 98
+  },
+  "calculations": {
+    "duration_7_up_1pp": -0.07,
+    "expected": -0.07
+  },
+  "cost": {
+    "extract_hash_seconds": 0.750838848,
+    "query_seconds": [
+      0.047516235,
+      0.045469369,
+      0.046065782,
+      0.045181397
+    ],
+    "raw_audit_seconds": 0.083567999,
+    "web_rounds": 2,
+    "official_body": 6,
+    "semantic_time": "NOT_MEASURED",
+    "admission_ms": 3,
+    "global_pair_records_saved": 8,
+    "all_pairs": 106,
+    "question_bridge_entries": 6,
+    "semantic_cost": "NOT_MEASURED",
+    "note": "8 vs 106 is stored pair count only; reference review actually performed all 106; not semantic cost saving."
+  }
+}
