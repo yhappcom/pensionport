@@ -1,0 +1,106 @@
+{
+  "status": "PASS_B_SCOPED_T014",
+  "as_of": "2026-11-28",
+  "manifest": {
+    "commit": "f91fc9b3a9224e4224146ca8df2fcd1a52988019",
+    "path": "topic_knowledge/b_policy/candidates/T014_MANIFEST.json",
+    "blob": "bb3173d314c98d46b470170b9af5de8a9e5534c0"
+  },
+  "prior_manifest_blob": "4519925a16f2d427f56bb99a850b6fe742142bc2",
+  "engine_blob": "fd2062a35976e5f9edafa668403201d7599aaeb6",
+  "counts": {
+    "active": 53,
+    "topics": 14,
+    "relations": 375,
+    "query_cards": 21,
+    "tests": 21,
+    "regression": 27
+  },
+  "tests": {
+    "active53": true,
+    "prior50": true,
+    "old_cards_preserved": true,
+    "old_relations_preserved": true,
+    "relation375": true,
+    "topics14": true,
+    "three_new": true,
+    "dependencies": true,
+    "six_relations": true,
+    "unknown": true,
+    "old_excludes": true,
+    "expiry": true,
+    "before": true,
+    "unapproved": true,
+    "candidate_only": true,
+    "tampered_review": true,
+    "tampered_approval": true,
+    "missing": true,
+    "wrong_path": true,
+    "calculation": true,
+    "query_mutation": true
+  },
+  "advisory": {
+    "method": "사전 고정 2질문 8기준, 실제 V8 후보 조회 후 동일 ChatGPT 수동 의미 검토. 독립 인증 아님.",
+    "retrieved": [
+      "T001-02",
+      "T001-03",
+      "T001-04",
+      "T001-06",
+      "T001-07",
+      "T001-08",
+      "T002-01",
+      "T002-05",
+      "T002-06",
+      "T003-01",
+      "T003-02",
+      "T003-04",
+      "T003-05",
+      "T003-06",
+      "T004-01",
+      "T004-05",
+      "T006-01",
+      "T013-01",
+      "T014-01",
+      "T014-02",
+      "T014-03"
+    ],
+    "answers": [
+      {
+        "id": "Q1",
+        "used": [
+          "T014-01",
+          "T014-02",
+          "T001-04"
+        ],
+        "answer": "2019년 이후 가입 일반 거주자, 비임대 사업소득 3500만원, 적격 납부 600만원 가정 시 소득공제 600만원이다. 세금에서 600만원을 직접 차감하지 않으며 실제 절세액은 과세표준·세율·다른 공제에 좌우된다. 가입·납입 자격과 정상 공제금 지급, 중도해약 환급 및 세제는 별도 확인.",
+        "criteria": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "Q2",
+        "used": [
+          "T014-03",
+          "T014-01",
+          "T004-01",
+          "T013-01"
+        ],
+        "answer": "2026년 7월1일부터 자영업자 등의 개인형 푸른씨앗 가입 경로가 도입됐다. 사업장 도입과 개인계정은 구분하고, 현행 사업장 규모는 50인 미만이다. 지원금은 별도 고시·예산·신청 요건으로 판단하며 과거 2025년 금액을 적용하지 않는다. 운용수익은 확정 보장되지 않고 노란우산의 소상공인 공제와 다른 제도다. 실제 계정 가입 및 지원조건 확인이 필요하다.",
+        "criteria": [
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "근로자퇴직급여 보장법 최신 직접 본문, 지원고시 상세 및 10월 조특법 직접 재열람 실패. 공식 직접 안내 및 검색 발췌 대조. 지원금·세금·계정 상세 HOLD.",
+    "단일 연구별 파일 호출 방식 한도 도달. T009~T014 두 주제씩 3개 비교 응답에서 승인/리뷰 원문 12개를 복원, 개별 Git blob 해시 일치 확인. 실제 V8 구조 21/21 및 별도 기존 회귀 27/27. Node CI 미실행.",
+    "전체 의미시간·독립 정확도 미측정. 2027년 시행 조건 재확인 필요."
+  ]
+}
