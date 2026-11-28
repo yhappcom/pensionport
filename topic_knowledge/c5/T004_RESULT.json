@@ -1,0 +1,335 @@
+{
+  "status": "C5_HOLD_SCALABILITY_T004_PUBLISHED",
+  "as_of": "2026-11-28",
+  "base": "b6791ecd73aa704748cb2f0d3f2df12eaf4f87c8",
+  "active": 25,
+  "topics": 4,
+  "relations_total": 300,
+  "tests": {
+    "old_events_preserved": true,
+    "old_registry_preserved": true,
+    "25_active": true,
+    "old_rules_preserved": true,
+    "new_rules_sources_exact": true,
+    "all_110_pairs": true,
+    "all_dependencies_available": true,
+    "complement_bidirectional": true,
+    "repeat_idempotent": true,
+    "roundtrip": true,
+    "expiry": true,
+    "candidate_only_cannot_publish": true,
+    "conflicting_claim_rejected": true,
+    "equivalence_rejected": true,
+    "hold_rejected": true,
+    "missing_dependency_rejected": true,
+    "cross_dependency_expiry": true,
+    "calculation": true
+  },
+  "regression": [
+    {
+      "name": "actual 8 cards",
+      "status": "PASS"
+    },
+    {
+      "name": "actual rule exact",
+      "status": "PASS"
+    },
+    {
+      "name": "actual source exact",
+      "status": "PASS"
+    },
+    {
+      "name": "idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "serialization restart",
+      "status": "PASS"
+    },
+    {
+      "name": "no historical evidence in active lookup",
+      "status": "PASS"
+    },
+    {
+      "name": "last day",
+      "status": "PASS"
+    },
+    {
+      "name": "expired",
+      "status": "PASS"
+    },
+    {
+      "name": "before review",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid date",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown topic",
+      "status": "PASS"
+    },
+    {
+      "name": "unpublished",
+      "status": "PASS"
+    },
+    {
+      "name": "hold rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "partial rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing evidence rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing pair rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "conflict rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "equivalent pending merge rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate text rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing dependency",
+      "status": "PASS"
+    },
+    {
+      "name": "cycle",
+      "status": "PASS"
+    },
+    {
+      "name": "dependent expiry",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback on invalid revision",
+      "status": "PASS"
+    },
+    {
+      "name": "bad event pin",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic revision",
+      "status": "PASS"
+    },
+    {
+      "name": "lookup mutation isolated",
+      "status": "PASS"
+    },
+    {
+      "name": "complement actual relation",
+      "status": "PASS"
+    }
+  ],
+  "diagnostic": {
+    "all_pairs": 110,
+    "candidate_pairs": 79,
+    "excluded_pairs": 31,
+    "reference_complements": 58,
+    "recovered": 55,
+    "missed": [
+      {
+        "a": "T001-01",
+        "b": "T004-01",
+        "kind": "COMPLEMENT",
+        "reason": "목표 사용일과 ISA 전환기한을 함께 검토"
+      },
+      {
+        "a": "T001-07",
+        "b": "T004-01",
+        "kind": "COMPLEMENT",
+        "reason": "장기목표와 단기 절세 편익 비교"
+      },
+      {
+        "a": "T001-04",
+        "b": "T004-05",
+        "kind": "COMPLEMENT",
+        "reason": "실제 절세액과 유동성 희생을 비교"
+      }
+    ],
+    "recall": 0.9482758620689655,
+    "work_reduction": 0.2818181818181818,
+    "status": "FAIL_CANDIDATE_RECALL",
+    "reference_method": "동일 ChatGPT가 고정된 카드 및 후보 기록 후 모든 110쌍을 비교. 후보 목록을 알고 있어 블라인드/독립 평가 아님. 보완은 함께 사용해야 할 판단 조건, DISTINCT는 직접 명제 비동치/비충돌로 주제별 공통 사유 사용. 자동 의미 탐지 아님."
+  },
+  "calculations": {
+    "rebalance": {
+      "total": 10000000,
+      "assetA": 7800000,
+      "targetA": 5000000,
+      "sellA": 2800000,
+      "buyB": 2800000
+    },
+    "new_cash_only": 5600000,
+    "correlation_example": [
+      0.2,
+      0.14142135623730953
+    ]
+  },
+  "source_audit": {
+    "zip_sha256": "abaa696f5192e3c78cb32145a39f349e8d414b5362f1a11824db4eb5cebf55c4",
+    "db_sha256": "4c266ed78c7d0e6aa8b1686092621cafa46db74d11c25f5f809c86e5f6124e1f",
+    "rows": [
+      {
+        "item": "01",
+        "video": "oxMpNgnbISw",
+        "sha": "2b4d97cb9f3de56ad1807aec695d271dff08f2ebd405e6a2f725a1cb55de2ac9",
+        "first": 301,
+        "last": 348,
+        "start_ms": 706760,
+        "end_ms": 824519,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-oxMpNgnbISw.srt"
+      },
+      {
+        "item": "01",
+        "video": "-71DQQIcTlc",
+        "sha": "808886ae6721f4085a14dd0ded770c1bdef1e773a6b99d4e3fed16ed69c4523e",
+        "first": 553,
+        "last": 600,
+        "start_ms": 1247880,
+        "end_ms": 1370760,
+        "count": 48,
+        "archive": "101-200.zip",
+        "member": "101-200/youtube-transcript--71DQQIcTlc.srt"
+      },
+      {
+        "item": "02",
+        "video": "YYZyCr7uapw",
+        "sha": "fb5f49ce98d75269db71b6fb2ae07b6ca89415e7a9c3efaf1f5044cb351db03c",
+        "first": 337,
+        "last": 384,
+        "start_ms": 740160,
+        "end_ms": 845120,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-YYZyCr7uapw.srt"
+      },
+      {
+        "item": "02",
+        "video": "jdg_4nQUCVU",
+        "sha": "27bfe3e93b1c4007da77d91aab367ace57f191a665ed2d4615e6293650ca5766",
+        "first": 577,
+        "last": 624,
+        "start_ms": 1318760,
+        "end_ms": 1430440,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-jdg_4nQUCVU.srt"
+      },
+      {
+        "item": "03",
+        "video": "oxMpNgnbISw",
+        "sha": "2b4d97cb9f3de56ad1807aec695d271dff08f2ebd405e6a2f725a1cb55de2ac9",
+        "first": 625,
+        "last": 672,
+        "start_ms": 1474399,
+        "end_ms": 1585080,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-oxMpNgnbISw.srt"
+      },
+      {
+        "item": "03",
+        "video": "CToQ4bXaP54",
+        "sha": "11b65791af65f9463878aa60f9e85291c2e8de498e522617bfe3387566060874",
+        "first": 2245,
+        "last": 2292,
+        "start_ms": 4685080,
+        "end_ms": 4782520,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript-CToQ4bXaP54.srt"
+      },
+      {
+        "item": "04",
+        "video": "1ZQihHS0hbI",
+        "sha": "264aac41f64ea965ef60521faffa18b27fdee7703351c4de6467440a31b406f6",
+        "first": 373,
+        "last": 420,
+        "start_ms": 823639,
+        "end_ms": 924600,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-1ZQihHS0hbI.srt"
+      },
+      {
+        "item": "04",
+        "video": "-ZPj8LqCts0",
+        "sha": "e6f9efe6dff8d9c01e9010f6c5f3c4e8334c9d5882738d54a7a62a3e00194246",
+        "first": 409,
+        "last": 456,
+        "start_ms": 782920,
+        "end_ms": 873279,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript--ZPj8LqCts0.srt"
+      },
+      {
+        "item": "05",
+        "video": "-46z6OCRsv4",
+        "sha": "a11249dacfd70d6ecb0ebe2c178f46304cc907cace008aad42f77d3a1716c536",
+        "first": 277,
+        "last": 324,
+        "start_ms": 537279,
+        "end_ms": 631839,
+        "count": 48,
+        "archive": "201-300.zip",
+        "member": "201-300/youtube-transcript--46z6OCRsv4.srt"
+      },
+      {
+        "item": "05",
+        "video": "oxMpNgnbISw",
+        "sha": "2b4d97cb9f3de56ad1807aec695d271dff08f2ebd405e6a2f725a1cb55de2ac9",
+        "first": 253,
+        "last": 300,
+        "start_ms": 596360,
+        "end_ms": 709000,
+        "count": 48,
+        "archive": "1-100.zip",
+        "member": "1-100/youtube-transcript-oxMpNgnbISw.srt"
+      }
+    ],
+    "unique_cues": 480,
+    "videos": 8,
+    "query_hits": [
+      28,
+      19,
+      288,
+      2,
+      56
+    ],
+    "method": "SQLite read-only window substring AND, occurrence rank, context manual selection; 04 query sparse so extended using 03 ranked source; separate raw SRT parse and normalized cue/time/text equality. All 10 ranges passed.",
+    "cost": {
+      "extract_hash_seconds": 0.611223543,
+      "search_seconds": 0.169773261,
+      "raw_check_and_print_seconds": 0.055567261,
+      "web_rounds": 2,
+      "web_body": 5,
+      "semantic_time": "NOT_ISOLATED",
+      "total_wall_time": "NOT_MEASURED"
+    }
+  },
+  "cost_limit": "기술 실행 구간은 측정했지만 전체 의미 연구시간과 금전비용 미측정. 사전 계획→후보→관계/저장 3개 체크포인트, 1개 사용자 턴. 후보 목록과 관계 검토의 실제 소요시간 분리는 불가.",
+  "limits": [
+    "전체쌍 방식으로만 T004 제한 승인. 의미 영역 선별은 누락 또는 미독립성 때문에 운영 적용 금지.",
+    "외부 투자교육 자료 일반 원칙, 개별 비중/실제 상품/거래는 HOLD. 기존 금융 법령 신규 인증 아님.",
+    "전체 299편 의미 분석/독립 정확도/Node CI 미실행. 기존 코드/원장 이력 보존."
+  ],
+  "next": "확장성 병목은 전수 관계 자체. 임의 선별 반복 튜닝 대신 카드의 공통 위험·세제·계좌 제약을 표준 적용조건으로 분리하고, 명시적 미검토 상태/질문별 교차 확인을 허용하는 별도 정책 설계 검토. 운영 게이트 변경 전 사전 평가 및 사용자 확인; 현재 C6 대량 확대 HOLD."
+}
