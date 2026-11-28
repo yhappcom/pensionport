@@ -1,0 +1,160 @@
+{
+  "topic": "T004",
+  "base": "54e90ffe8dd8dc86feb9a05fdb9db9c08f2a456d",
+  "date": "2026-11-28",
+  "scope": "일반 교육용 자산배분 및 리밸런싱, 개인 비중·상품·수익 보장 제외",
+  "items": [
+    [
+      "01",
+      "투자목표·기간·위험감내",
+      "자산배분",
+      "위험"
+    ],
+    [
+      "02",
+      "분산과 상관관계",
+      "분산",
+      "상관"
+    ],
+    [
+      "03",
+      "목표 비중·리밸런싱 목적",
+      "리밸런싱"
+    ],
+    [
+      "04",
+      "정기/허용범위·비용 및 신규 납입 활용",
+      "리밸런싱",
+      "비용"
+    ],
+    [
+      "05",
+      "현금 필요·계좌 제약",
+      "자산배분",
+      "현금"
+    ]
+  ],
+  "budget": "각 항목 최대 2구간, 약 24~48 cues; raw hash/time/text compare. 부족 시 명시 HOLD.",
+  "relation_test": {
+    "baseline": "all 20 prior cards x 5 new cards + 10 internal; separate reference review after candidate list frozen",
+    "domains": [
+      "GOAL",
+      "RISK",
+      "ALLOCATION",
+      "CASH",
+      "ACCOUNT",
+      "TAX",
+      "COST",
+      "EXECUTION",
+      "PRODUCT",
+      "PERFORMANCE"
+    ],
+    "candidate": "explicit semantic domain intersection OR direct dependency OR same new topic (all internal); old tags frozen before new raw review. new tags independently recorded before pair judgments. No arbitrary exclusions.",
+    "gate": "all reference complement/conflict pairs recovered and reduction >0; no independent certification; do not change live ledger based on pilot."
+  },
+  "cost": "measure current session stage timestamps, separate source searching and semantic review; no token-price estimate; report incomplete timing honestly",
+  "old_tags": {
+    "T001-01": [
+      "ACCOUNT",
+      "TAX",
+      "EXECUTION"
+    ],
+    "T001-02": [
+      "ACCOUNT",
+      "TAX"
+    ],
+    "T001-03": [
+      "TAX",
+      "ACCOUNT"
+    ],
+    "T001-04": [
+      "TAX"
+    ],
+    "T001-05": [
+      "TAX",
+      "ACCOUNT"
+    ],
+    "T001-06": [
+      "CASH",
+      "ACCOUNT",
+      "TAX",
+      "RISK"
+    ],
+    "T001-07": [
+      "TAX",
+      "ACCOUNT"
+    ],
+    "T001-08": [
+      "ACCOUNT",
+      "CASH",
+      "COST",
+      "EXECUTION"
+    ],
+    "T002-01": [
+      "ACCOUNT",
+      "TAX"
+    ],
+    "T002-02": [
+      "ACCOUNT",
+      "TAX",
+      "CASH"
+    ],
+    "T002-03": [
+      "ACCOUNT",
+      "CASH",
+      "TAX"
+    ],
+    "T002-04": [
+      "TAX",
+      "ACCOUNT",
+      "CASH"
+    ],
+    "T002-05": [
+      "ACCOUNT",
+      "CASH",
+      "RISK"
+    ],
+    "T002-06": [
+      "ACCOUNT",
+      "CASH",
+      "TAX",
+      "COST",
+      "GOAL"
+    ],
+    "T003-01": [
+      "PRODUCT",
+      "RISK",
+      "ALLOCATION"
+    ],
+    "T003-02": [
+      "COST",
+      "PERFORMANCE",
+      "EXECUTION",
+      "TAX"
+    ],
+    "T003-03": [
+      "PRODUCT",
+      "PERFORMANCE",
+      "RISK"
+    ],
+    "T003-04": [
+      "PRODUCT",
+      "EXECUTION",
+      "RISK"
+    ],
+    "T003-05": [
+      "EXECUTION",
+      "COST",
+      "CASH",
+      "RISK"
+    ],
+    "T003-06": [
+      "PRODUCT",
+      "PERFORMANCE",
+      "RISK",
+      "ACCOUNT",
+      "COST",
+      "CASH"
+    ]
+  }
+}
